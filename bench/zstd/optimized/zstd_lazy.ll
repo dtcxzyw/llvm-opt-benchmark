@@ -43801,123 +43801,120 @@ ZSTD_row_getSSEMask.exit7:                        ; preds = %351
   %360 = ptrtoint ptr %346 to i64
   %.neg.i.neg = sub i64 %359, %360
   %.neg279.i.neg103 = trunc i64 %.neg.i.neg to i32
-  %361 = and i8 %348, 63
-  %362 = zext nneg i8 %361 to i32
-  %363 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %364 = load i32, ptr %363, align 4, !tbaa !23
-  %365 = zext i32 %364 to i64
-  %366 = shl i64 %365, 48
-  %367 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %368 = load i32, ptr %367, align 8, !tbaa !23
-  %369 = sext i32 %368 to i64
-  %370 = shl nsw i64 %369, 32
-  %371 = or i64 %370, %366
-  %372 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %373 = load i32, ptr %372, align 4, !tbaa !23
-  %374 = sext i32 %373 to i64
-  %375 = shl nsw i64 %374, 16
-  %376 = or i64 %371, %375
-  %377 = load i32, ptr %5, align 16, !tbaa !23
-  %378 = sext i32 %377 to i64
-  %379 = or i64 %376, %378
-  %380 = zext nneg i8 %361 to i64
-  %381 = lshr i64 %379, %380
-  %382 = sub nsw i32 0, %362
-  %383 = and i32 %382, 63
-  %384 = zext nneg i32 %383 to i64
-  %385 = shl i64 %379, %384
-  %386 = or i64 %385, %381
+  %361 = zext i8 %348 to i32
+  %362 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %363 = load i32, ptr %362, align 4, !tbaa !23
+  %364 = zext i32 %363 to i64
+  %365 = shl i64 %364, 48
+  %366 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %367 = load i32, ptr %366, align 8, !tbaa !23
+  %368 = sext i32 %367 to i64
+  %369 = shl nsw i64 %368, 32
+  %370 = or i64 %369, %365
+  %371 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %372 = load i32, ptr %371, align 4, !tbaa !23
+  %373 = sext i32 %372 to i64
+  %374 = shl nsw i64 %373, 16
+  %375 = or i64 %370, %374
+  %376 = load i32, ptr %5, align 16, !tbaa !23
+  %377 = sext i32 %376 to i64
+  %378 = or i64 %375, %377
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  %387 = icmp ne i64 %386, 0
-  %388 = icmp ne i32 %.0.i.lcssa, 0
-  %389 = select i1 %387, i1 %388, i1 false
-  br i1 %389, label %.lr.ph90, label %ZSTD_RowFindBestMatch.exit
+  %379 = icmp ne i64 %378, 0
+  %380 = icmp ne i32 %.0.i.lcssa, 0
+  %381 = select i1 %379, i1 %380, i1 false
+  br i1 %381, label %.lr.ph90.preheader, label %ZSTD_RowFindBestMatch.exit
 
-.lr.ph90:                                         ; preds = %ZSTD_row_getSSEMask.exit7, %406
-  %.3.i89 = phi i32 [ %.4.i.ph, %406 ], [ %.0.i.lcssa, %ZSTD_row_getSSEMask.exit7 ]
-  %.0246.i88 = phi i64 [ %408, %406 ], [ %386, %ZSTD_row_getSSEMask.exit7 ]
-  %.0248.i87 = phi i64 [ %.2250.i.ph, %406 ], [ 0, %ZSTD_row_getSSEMask.exit7 ]
-  %390 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i88, i1 true)
-  %391 = trunc nuw nsw i64 %390 to i32
-  %392 = add nuw nsw i32 %391, %362
-  %393 = and i32 %392, 63
-  %394 = zext nneg i32 %393 to i64
-  %395 = getelementptr inbounds nuw i32, ptr %58, i64 %394
-  %396 = load i32, ptr %395, align 4, !tbaa !23
-  %397 = icmp eq i32 %393, 0
-  br i1 %397, label %406, label %398
+.lr.ph90.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit7
+  %382 = zext i8 %348 to i64
+  %383 = tail call i64 @llvm.fshr.i64(i64 %378, i64 %378, i64 %382)
+  br label %.lr.ph90
 
-398:                                              ; preds = %.lr.ph90
-  %399 = icmp ult i32 %396, %344
-  br i1 %399, label %._crit_edge91, label %400
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %400
+  %.3.i89 = phi i32 [ %.4.i.ph, %400 ], [ %.0.i.lcssa, %.lr.ph90.preheader ]
+  %.0246.i88 = phi i64 [ %402, %400 ], [ %383, %.lr.ph90.preheader ]
+  %.0248.i87 = phi i64 [ %.2250.i.ph, %400 ], [ 0, %.lr.ph90.preheader ]
+  %384 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i88, i1 true)
+  %385 = trunc nuw nsw i64 %384 to i32
+  %386 = add nuw nsw i32 %385, %361
+  %387 = and i32 %386, 63
+  %388 = zext nneg i32 %387 to i64
+  %389 = getelementptr inbounds nuw i32, ptr %58, i64 %388
+  %390 = load i32, ptr %389, align 4, !tbaa !23
+  %391 = icmp eq i32 %387, 0
+  br i1 %391, label %400, label %392
 
-400:                                              ; preds = %398
-  %401 = zext i32 %396 to i64
-  %402 = getelementptr inbounds nuw i8, ptr %346, i64 %401
-  tail call void @llvm.prefetch.p0(ptr %402, i32 0, i32 3, i32 1)
-  %403 = add i64 %.0248.i87, 1
-  %404 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0248.i87
-  store i32 %396, ptr %404, align 4, !tbaa !23
-  %405 = add i32 %.3.i89, -1
-  br label %406
+392:                                              ; preds = %.lr.ph90
+  %393 = icmp ult i32 %390, %344
+  br i1 %393, label %._crit_edge91, label %394
 
-406:                                              ; preds = %400, %.lr.ph90
-  %.2250.i.ph = phi i64 [ %.0248.i87, %.lr.ph90 ], [ %403, %400 ]
-  %.4.i.ph = phi i32 [ %.3.i89, %.lr.ph90 ], [ %405, %400 ]
-  %407 = add i64 %.0246.i88, -1
-  %408 = and i64 %407, %.0246.i88
-  %409 = icmp ne i64 %408, 0
-  %410 = icmp ne i32 %.4.i.ph, 0
-  %411 = select i1 %409, i1 %410, i1 false
-  br i1 %411, label %.lr.ph90, label %._crit_edge91, !llvm.loop !82
+394:                                              ; preds = %392
+  %395 = zext i32 %390 to i64
+  %396 = getelementptr inbounds nuw i8, ptr %346, i64 %395
+  tail call void @llvm.prefetch.p0(ptr %396, i32 0, i32 3, i32 1)
+  %397 = add i64 %.0248.i87, 1
+  %398 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0248.i87
+  store i32 %390, ptr %398, align 4, !tbaa !23
+  %399 = add i32 %.3.i89, -1
+  br label %400
 
-._crit_edge91:                                    ; preds = %406, %398
-  %.0248.i.lcssa = phi i64 [ %.2250.i.ph, %406 ], [ %.0248.i87, %398 ]
+400:                                              ; preds = %394, %.lr.ph90
+  %.2250.i.ph = phi i64 [ %.0248.i87, %.lr.ph90 ], [ %397, %394 ]
+  %.4.i.ph = phi i32 [ %.3.i89, %.lr.ph90 ], [ %399, %394 ]
+  %401 = add i64 %.0246.i88, -1
+  %402 = and i64 %401, %.0246.i88
+  %403 = icmp ne i64 %402, 0
+  %404 = icmp ne i32 %.4.i.ph, 0
+  %405 = select i1 %403, i1 %404, i1 false
+  br i1 %405, label %.lr.ph90, label %._crit_edge91, !llvm.loop !82
+
+._crit_edge91:                                    ; preds = %400, %392
+  %.0248.i.lcssa = phi i64 [ %.2250.i.ph, %400 ], [ %.0248.i87, %392 ]
   %.not104 = icmp eq i64 %.0248.i.lcssa, 0
   br i1 %.not104, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %._crit_edge91
   %invariant.op = add i32 %26, %.neg279.i.neg103
   %.val9 = load i32, ptr %1, align 1, !tbaa !23
-  %412 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %413 = add i32 %invariant.op, 3
-  br label %414
+  %406 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %407 = add i32 %invariant.op, 3
+  br label %408
 
-414:                                              ; preds = %.lr.ph98, %.thread45
+408:                                              ; preds = %.lr.ph98, %.thread45
   %.5.i96 = phi i64 [ %.1240.i, %.lr.ph98 ], [ %.8.i.ph, %.thread45 ]
-  %.0247.i95 = phi i64 [ 0, %.lr.ph98 ], [ %431, %.thread45 ]
-  %415 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0247.i95
-  %416 = load i32, ptr %415, align 4, !tbaa !23
-  %417 = zext i32 %416 to i64
-  %418 = getelementptr inbounds nuw i8, ptr %346, i64 %417
-  %.val10 = load i32, ptr %418, align 1, !tbaa !23
-  %419 = icmp eq i32 %.val10, %.val9
-  br i1 %419, label %420, label %.thread45
+  %.0247.i95 = phi i64 [ 0, %.lr.ph98 ], [ %425, %.thread45 ]
+  %409 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0247.i95
+  %410 = load i32, ptr %409, align 4, !tbaa !23
+  %411 = zext i32 %410 to i64
+  %412 = getelementptr inbounds nuw i8, ptr %346, i64 %411
+  %.val10 = load i32, ptr %412, align 1, !tbaa !23
+  %413 = icmp eq i32 %.val10, %.val9
+  br i1 %413, label %414, label %.thread45
 
-420:                                              ; preds = %414
-  %421 = getelementptr inbounds nuw i8, ptr %418, i64 4
-  %422 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %412, ptr noundef nonnull %421, ptr noundef %2, ptr noundef %347, ptr noundef %22)
-  %423 = add i64 %422, 4
-  %424 = icmp ugt i64 %423, %.5.i96
-  br i1 %424, label %425, label %.thread45
+414:                                              ; preds = %408
+  %415 = getelementptr inbounds nuw i8, ptr %412, i64 4
+  %416 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %406, ptr noundef nonnull %415, ptr noundef %2, ptr noundef %347, ptr noundef %22)
+  %417 = add i64 %416, 4
+  %418 = icmp ugt i64 %417, %.5.i96
+  br i1 %418, label %419, label %.thread45
 
-425:                                              ; preds = %420
-  %426 = add i32 %20, %416
-  %427 = sub i32 %413, %426
-  %428 = zext i32 %427 to i64
-  store i64 %428, ptr %3, align 8, !tbaa !24
-  %429 = getelementptr inbounds nuw i8, ptr %1, i64 %423
-  %430 = icmp eq ptr %429, %2
-  br i1 %430, label %ZSTD_RowFindBestMatch.exit, label %.thread45
+419:                                              ; preds = %414
+  %420 = add i32 %20, %410
+  %421 = sub i32 %407, %420
+  %422 = zext i32 %421 to i64
+  store i64 %422, ptr %3, align 8, !tbaa !24
+  %423 = getelementptr inbounds nuw i8, ptr %1, i64 %417
+  %424 = icmp eq ptr %423, %2
+  br i1 %424, label %ZSTD_RowFindBestMatch.exit, label %.thread45
 
-.thread45:                                        ; preds = %414, %420, %425
-  %.8.i.ph = phi i64 [ %423, %425 ], [ %.5.i96, %420 ], [ %.5.i96, %414 ]
-  %431 = add nuw i64 %.0247.i95, 1
-  %exitcond124.not = icmp eq i64 %431, %.0248.i.lcssa
-  br i1 %exitcond124.not, label %ZSTD_RowFindBestMatch.exit, label %414, !llvm.loop !83
+.thread45:                                        ; preds = %408, %414, %419
+  %.8.i.ph = phi i64 [ %417, %419 ], [ %.5.i96, %414 ], [ %.5.i96, %408 ]
+  %425 = add nuw i64 %.0247.i95, 1
+  %exitcond124.not = icmp eq i64 %425, %.0248.i.lcssa
+  br i1 %exitcond124.not, label %ZSTD_RowFindBestMatch.exit, label %408, !llvm.loop !83
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %.thread45, %425, %ZSTD_row_getSSEMask.exit7, %._crit_edge91
-  %.6.i = phi i64 [ %.1240.i, %._crit_edge91 ], [ %.1240.i, %ZSTD_row_getSSEMask.exit7 ], [ %423, %425 ], [ %.8.i.ph, %.thread45 ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %.thread45, %419, %ZSTD_row_getSSEMask.exit7, %._crit_edge91
+  %.6.i = phi i64 [ %.1240.i, %._crit_edge91 ], [ %.1240.i, %ZSTD_row_getSSEMask.exit7 ], [ %417, %419 ], [ %.8.i.ph, %.thread45 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #11
   ret i64 %.6.i
 }
@@ -45788,123 +45785,120 @@ ZSTD_row_getSSEMask.exit7:                        ; preds = %352
   %361 = ptrtoint ptr %347 to i64
   %.neg.i.neg = sub i64 %360, %361
   %.neg279.i.neg103 = trunc i64 %.neg.i.neg to i32
-  %362 = and i8 %349, 63
-  %363 = zext nneg i8 %362 to i32
-  %364 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %365 = load i32, ptr %364, align 4, !tbaa !23
-  %366 = zext i32 %365 to i64
-  %367 = shl i64 %366, 48
-  %368 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %369 = load i32, ptr %368, align 8, !tbaa !23
-  %370 = sext i32 %369 to i64
-  %371 = shl nsw i64 %370, 32
-  %372 = or i64 %371, %367
-  %373 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %374 = load i32, ptr %373, align 4, !tbaa !23
-  %375 = sext i32 %374 to i64
-  %376 = shl nsw i64 %375, 16
-  %377 = or i64 %372, %376
-  %378 = load i32, ptr %5, align 16, !tbaa !23
-  %379 = sext i32 %378 to i64
-  %380 = or i64 %377, %379
-  %381 = zext nneg i8 %362 to i64
-  %382 = lshr i64 %380, %381
-  %383 = sub nsw i32 0, %363
-  %384 = and i32 %383, 63
-  %385 = zext nneg i32 %384 to i64
-  %386 = shl i64 %380, %385
-  %387 = or i64 %386, %382
+  %362 = zext i8 %349 to i32
+  %363 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %364 = load i32, ptr %363, align 4, !tbaa !23
+  %365 = zext i32 %364 to i64
+  %366 = shl i64 %365, 48
+  %367 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %368 = load i32, ptr %367, align 8, !tbaa !23
+  %369 = sext i32 %368 to i64
+  %370 = shl nsw i64 %369, 32
+  %371 = or i64 %370, %366
+  %372 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %373 = load i32, ptr %372, align 4, !tbaa !23
+  %374 = sext i32 %373 to i64
+  %375 = shl nsw i64 %374, 16
+  %376 = or i64 %371, %375
+  %377 = load i32, ptr %5, align 16, !tbaa !23
+  %378 = sext i32 %377 to i64
+  %379 = or i64 %376, %378
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  %388 = icmp ne i64 %387, 0
-  %389 = icmp ne i32 %.0.i.lcssa, 0
-  %390 = select i1 %388, i1 %389, i1 false
-  br i1 %390, label %.lr.ph90, label %ZSTD_RowFindBestMatch.exit
+  %380 = icmp ne i64 %379, 0
+  %381 = icmp ne i32 %.0.i.lcssa, 0
+  %382 = select i1 %380, i1 %381, i1 false
+  br i1 %382, label %.lr.ph90.preheader, label %ZSTD_RowFindBestMatch.exit
 
-.lr.ph90:                                         ; preds = %ZSTD_row_getSSEMask.exit7, %407
-  %.3.i89 = phi i32 [ %.4.i.ph, %407 ], [ %.0.i.lcssa, %ZSTD_row_getSSEMask.exit7 ]
-  %.0246.i88 = phi i64 [ %409, %407 ], [ %387, %ZSTD_row_getSSEMask.exit7 ]
-  %.0248.i87 = phi i64 [ %.2250.i.ph, %407 ], [ 0, %ZSTD_row_getSSEMask.exit7 ]
-  %391 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i88, i1 true)
-  %392 = trunc nuw nsw i64 %391 to i32
-  %393 = add nuw nsw i32 %392, %363
-  %394 = and i32 %393, 63
-  %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr inbounds nuw i32, ptr %58, i64 %395
-  %397 = load i32, ptr %396, align 4, !tbaa !23
-  %398 = icmp eq i32 %394, 0
-  br i1 %398, label %407, label %399
+.lr.ph90.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit7
+  %383 = zext i8 %349 to i64
+  %384 = tail call i64 @llvm.fshr.i64(i64 %379, i64 %379, i64 %383)
+  br label %.lr.ph90
 
-399:                                              ; preds = %.lr.ph90
-  %400 = icmp ult i32 %397, %345
-  br i1 %400, label %._crit_edge91, label %401
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %401
+  %.3.i89 = phi i32 [ %.4.i.ph, %401 ], [ %.0.i.lcssa, %.lr.ph90.preheader ]
+  %.0246.i88 = phi i64 [ %403, %401 ], [ %384, %.lr.ph90.preheader ]
+  %.0248.i87 = phi i64 [ %.2250.i.ph, %401 ], [ 0, %.lr.ph90.preheader ]
+  %385 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i88, i1 true)
+  %386 = trunc nuw nsw i64 %385 to i32
+  %387 = add nuw nsw i32 %386, %362
+  %388 = and i32 %387, 63
+  %389 = zext nneg i32 %388 to i64
+  %390 = getelementptr inbounds nuw i32, ptr %58, i64 %389
+  %391 = load i32, ptr %390, align 4, !tbaa !23
+  %392 = icmp eq i32 %388, 0
+  br i1 %392, label %401, label %393
 
-401:                                              ; preds = %399
-  %402 = zext i32 %397 to i64
-  %403 = getelementptr inbounds nuw i8, ptr %347, i64 %402
-  tail call void @llvm.prefetch.p0(ptr %403, i32 0, i32 3, i32 1)
-  %404 = add i64 %.0248.i87, 1
-  %405 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0248.i87
-  store i32 %397, ptr %405, align 4, !tbaa !23
-  %406 = add i32 %.3.i89, -1
-  br label %407
+393:                                              ; preds = %.lr.ph90
+  %394 = icmp ult i32 %391, %345
+  br i1 %394, label %._crit_edge91, label %395
 
-407:                                              ; preds = %401, %.lr.ph90
-  %.2250.i.ph = phi i64 [ %.0248.i87, %.lr.ph90 ], [ %404, %401 ]
-  %.4.i.ph = phi i32 [ %.3.i89, %.lr.ph90 ], [ %406, %401 ]
-  %408 = add i64 %.0246.i88, -1
-  %409 = and i64 %408, %.0246.i88
-  %410 = icmp ne i64 %409, 0
-  %411 = icmp ne i32 %.4.i.ph, 0
-  %412 = select i1 %410, i1 %411, i1 false
-  br i1 %412, label %.lr.ph90, label %._crit_edge91, !llvm.loop !82
+395:                                              ; preds = %393
+  %396 = zext i32 %391 to i64
+  %397 = getelementptr inbounds nuw i8, ptr %347, i64 %396
+  tail call void @llvm.prefetch.p0(ptr %397, i32 0, i32 3, i32 1)
+  %398 = add i64 %.0248.i87, 1
+  %399 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0248.i87
+  store i32 %391, ptr %399, align 4, !tbaa !23
+  %400 = add i32 %.3.i89, -1
+  br label %401
 
-._crit_edge91:                                    ; preds = %407, %399
-  %.0248.i.lcssa = phi i64 [ %.2250.i.ph, %407 ], [ %.0248.i87, %399 ]
+401:                                              ; preds = %395, %.lr.ph90
+  %.2250.i.ph = phi i64 [ %.0248.i87, %.lr.ph90 ], [ %398, %395 ]
+  %.4.i.ph = phi i32 [ %.3.i89, %.lr.ph90 ], [ %400, %395 ]
+  %402 = add i64 %.0246.i88, -1
+  %403 = and i64 %402, %.0246.i88
+  %404 = icmp ne i64 %403, 0
+  %405 = icmp ne i32 %.4.i.ph, 0
+  %406 = select i1 %404, i1 %405, i1 false
+  br i1 %406, label %.lr.ph90, label %._crit_edge91, !llvm.loop !82
+
+._crit_edge91:                                    ; preds = %401, %393
+  %.0248.i.lcssa = phi i64 [ %.2250.i.ph, %401 ], [ %.0248.i87, %393 ]
   %.not104 = icmp eq i64 %.0248.i.lcssa, 0
   br i1 %.not104, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %._crit_edge91
   %invariant.op = add i32 %26, %.neg279.i.neg103
   %.val9 = load i32, ptr %1, align 1, !tbaa !23
-  %413 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %414 = add i32 %invariant.op, 3
-  br label %415
+  %407 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %408 = add i32 %invariant.op, 3
+  br label %409
 
-415:                                              ; preds = %.lr.ph98, %.thread45
+409:                                              ; preds = %.lr.ph98, %.thread45
   %.5.i96 = phi i64 [ %.1240.i, %.lr.ph98 ], [ %.8.i.ph, %.thread45 ]
-  %.0247.i95 = phi i64 [ 0, %.lr.ph98 ], [ %432, %.thread45 ]
-  %416 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0247.i95
-  %417 = load i32, ptr %416, align 4, !tbaa !23
-  %418 = zext i32 %417 to i64
-  %419 = getelementptr inbounds nuw i8, ptr %347, i64 %418
-  %.val10 = load i32, ptr %419, align 1, !tbaa !23
-  %420 = icmp eq i32 %.val10, %.val9
-  br i1 %420, label %421, label %.thread45
+  %.0247.i95 = phi i64 [ 0, %.lr.ph98 ], [ %426, %.thread45 ]
+  %410 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0247.i95
+  %411 = load i32, ptr %410, align 4, !tbaa !23
+  %412 = zext i32 %411 to i64
+  %413 = getelementptr inbounds nuw i8, ptr %347, i64 %412
+  %.val10 = load i32, ptr %413, align 1, !tbaa !23
+  %414 = icmp eq i32 %.val10, %.val9
+  br i1 %414, label %415, label %.thread45
 
-421:                                              ; preds = %415
-  %422 = getelementptr inbounds nuw i8, ptr %419, i64 4
-  %423 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %413, ptr noundef nonnull %422, ptr noundef %2, ptr noundef %348, ptr noundef %22)
-  %424 = add i64 %423, 4
-  %425 = icmp ugt i64 %424, %.5.i96
-  br i1 %425, label %426, label %.thread45
+415:                                              ; preds = %409
+  %416 = getelementptr inbounds nuw i8, ptr %413, i64 4
+  %417 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %407, ptr noundef nonnull %416, ptr noundef %2, ptr noundef %348, ptr noundef %22)
+  %418 = add i64 %417, 4
+  %419 = icmp ugt i64 %418, %.5.i96
+  br i1 %419, label %420, label %.thread45
 
-426:                                              ; preds = %421
-  %427 = add i32 %20, %417
-  %428 = sub i32 %414, %427
-  %429 = zext i32 %428 to i64
-  store i64 %429, ptr %3, align 8, !tbaa !24
-  %430 = getelementptr inbounds nuw i8, ptr %1, i64 %424
-  %431 = icmp eq ptr %430, %2
-  br i1 %431, label %ZSTD_RowFindBestMatch.exit, label %.thread45
+420:                                              ; preds = %415
+  %421 = add i32 %20, %411
+  %422 = sub i32 %408, %421
+  %423 = zext i32 %422 to i64
+  store i64 %423, ptr %3, align 8, !tbaa !24
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 %418
+  %425 = icmp eq ptr %424, %2
+  br i1 %425, label %ZSTD_RowFindBestMatch.exit, label %.thread45
 
-.thread45:                                        ; preds = %415, %421, %426
-  %.8.i.ph = phi i64 [ %424, %426 ], [ %.5.i96, %421 ], [ %.5.i96, %415 ]
-  %432 = add nuw i64 %.0247.i95, 1
-  %exitcond124.not = icmp eq i64 %432, %.0248.i.lcssa
-  br i1 %exitcond124.not, label %ZSTD_RowFindBestMatch.exit, label %415, !llvm.loop !83
+.thread45:                                        ; preds = %409, %415, %420
+  %.8.i.ph = phi i64 [ %418, %420 ], [ %.5.i96, %415 ], [ %.5.i96, %409 ]
+  %426 = add nuw i64 %.0247.i95, 1
+  %exitcond124.not = icmp eq i64 %426, %.0248.i.lcssa
+  br i1 %exitcond124.not, label %ZSTD_RowFindBestMatch.exit, label %409, !llvm.loop !83
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %.thread45, %426, %ZSTD_row_getSSEMask.exit7, %._crit_edge91
-  %.6.i = phi i64 [ %.1240.i, %._crit_edge91 ], [ %.1240.i, %ZSTD_row_getSSEMask.exit7 ], [ %424, %426 ], [ %.8.i.ph, %.thread45 ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %.thread45, %420, %ZSTD_row_getSSEMask.exit7, %._crit_edge91
+  %.6.i = phi i64 [ %.1240.i, %._crit_edge91 ], [ %.1240.i, %ZSTD_row_getSSEMask.exit7 ], [ %418, %420 ], [ %.8.i.ph, %.thread45 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #11
   ret i64 %.6.i
 }
@@ -47775,123 +47769,120 @@ ZSTD_row_getSSEMask.exit7:                        ; preds = %352
   %361 = ptrtoint ptr %347 to i64
   %.neg.i.neg = sub i64 %360, %361
   %.neg279.i.neg103 = trunc i64 %.neg.i.neg to i32
-  %362 = and i8 %349, 63
-  %363 = zext nneg i8 %362 to i32
-  %364 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %365 = load i32, ptr %364, align 4, !tbaa !23
-  %366 = zext i32 %365 to i64
-  %367 = shl i64 %366, 48
-  %368 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %369 = load i32, ptr %368, align 8, !tbaa !23
-  %370 = sext i32 %369 to i64
-  %371 = shl nsw i64 %370, 32
-  %372 = or i64 %371, %367
-  %373 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %374 = load i32, ptr %373, align 4, !tbaa !23
-  %375 = sext i32 %374 to i64
-  %376 = shl nsw i64 %375, 16
-  %377 = or i64 %372, %376
-  %378 = load i32, ptr %5, align 16, !tbaa !23
-  %379 = sext i32 %378 to i64
-  %380 = or i64 %377, %379
-  %381 = zext nneg i8 %362 to i64
-  %382 = lshr i64 %380, %381
-  %383 = sub nsw i32 0, %363
-  %384 = and i32 %383, 63
-  %385 = zext nneg i32 %384 to i64
-  %386 = shl i64 %380, %385
-  %387 = or i64 %386, %382
+  %362 = zext i8 %349 to i32
+  %363 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %364 = load i32, ptr %363, align 4, !tbaa !23
+  %365 = zext i32 %364 to i64
+  %366 = shl i64 %365, 48
+  %367 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %368 = load i32, ptr %367, align 8, !tbaa !23
+  %369 = sext i32 %368 to i64
+  %370 = shl nsw i64 %369, 32
+  %371 = or i64 %370, %366
+  %372 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %373 = load i32, ptr %372, align 4, !tbaa !23
+  %374 = sext i32 %373 to i64
+  %375 = shl nsw i64 %374, 16
+  %376 = or i64 %371, %375
+  %377 = load i32, ptr %5, align 16, !tbaa !23
+  %378 = sext i32 %377 to i64
+  %379 = or i64 %376, %378
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  %388 = icmp ne i64 %387, 0
-  %389 = icmp ne i32 %.0.i.lcssa, 0
-  %390 = select i1 %388, i1 %389, i1 false
-  br i1 %390, label %.lr.ph90, label %ZSTD_RowFindBestMatch.exit
+  %380 = icmp ne i64 %379, 0
+  %381 = icmp ne i32 %.0.i.lcssa, 0
+  %382 = select i1 %380, i1 %381, i1 false
+  br i1 %382, label %.lr.ph90.preheader, label %ZSTD_RowFindBestMatch.exit
 
-.lr.ph90:                                         ; preds = %ZSTD_row_getSSEMask.exit7, %407
-  %.3.i89 = phi i32 [ %.4.i.ph, %407 ], [ %.0.i.lcssa, %ZSTD_row_getSSEMask.exit7 ]
-  %.0246.i88 = phi i64 [ %409, %407 ], [ %387, %ZSTD_row_getSSEMask.exit7 ]
-  %.0248.i87 = phi i64 [ %.2250.i.ph, %407 ], [ 0, %ZSTD_row_getSSEMask.exit7 ]
-  %391 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i88, i1 true)
-  %392 = trunc nuw nsw i64 %391 to i32
-  %393 = add nuw nsw i32 %392, %363
-  %394 = and i32 %393, 63
-  %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr inbounds nuw i32, ptr %58, i64 %395
-  %397 = load i32, ptr %396, align 4, !tbaa !23
-  %398 = icmp eq i32 %394, 0
-  br i1 %398, label %407, label %399
+.lr.ph90.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit7
+  %383 = zext i8 %349 to i64
+  %384 = tail call i64 @llvm.fshr.i64(i64 %379, i64 %379, i64 %383)
+  br label %.lr.ph90
 
-399:                                              ; preds = %.lr.ph90
-  %400 = icmp ult i32 %397, %345
-  br i1 %400, label %._crit_edge91, label %401
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %401
+  %.3.i89 = phi i32 [ %.4.i.ph, %401 ], [ %.0.i.lcssa, %.lr.ph90.preheader ]
+  %.0246.i88 = phi i64 [ %403, %401 ], [ %384, %.lr.ph90.preheader ]
+  %.0248.i87 = phi i64 [ %.2250.i.ph, %401 ], [ 0, %.lr.ph90.preheader ]
+  %385 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i88, i1 true)
+  %386 = trunc nuw nsw i64 %385 to i32
+  %387 = add nuw nsw i32 %386, %362
+  %388 = and i32 %387, 63
+  %389 = zext nneg i32 %388 to i64
+  %390 = getelementptr inbounds nuw i32, ptr %58, i64 %389
+  %391 = load i32, ptr %390, align 4, !tbaa !23
+  %392 = icmp eq i32 %388, 0
+  br i1 %392, label %401, label %393
 
-401:                                              ; preds = %399
-  %402 = zext i32 %397 to i64
-  %403 = getelementptr inbounds nuw i8, ptr %347, i64 %402
-  tail call void @llvm.prefetch.p0(ptr %403, i32 0, i32 3, i32 1)
-  %404 = add i64 %.0248.i87, 1
-  %405 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0248.i87
-  store i32 %397, ptr %405, align 4, !tbaa !23
-  %406 = add i32 %.3.i89, -1
-  br label %407
+393:                                              ; preds = %.lr.ph90
+  %394 = icmp ult i32 %391, %345
+  br i1 %394, label %._crit_edge91, label %395
 
-407:                                              ; preds = %401, %.lr.ph90
-  %.2250.i.ph = phi i64 [ %.0248.i87, %.lr.ph90 ], [ %404, %401 ]
-  %.4.i.ph = phi i32 [ %.3.i89, %.lr.ph90 ], [ %406, %401 ]
-  %408 = add i64 %.0246.i88, -1
-  %409 = and i64 %408, %.0246.i88
-  %410 = icmp ne i64 %409, 0
-  %411 = icmp ne i32 %.4.i.ph, 0
-  %412 = select i1 %410, i1 %411, i1 false
-  br i1 %412, label %.lr.ph90, label %._crit_edge91, !llvm.loop !82
+395:                                              ; preds = %393
+  %396 = zext i32 %391 to i64
+  %397 = getelementptr inbounds nuw i8, ptr %347, i64 %396
+  tail call void @llvm.prefetch.p0(ptr %397, i32 0, i32 3, i32 1)
+  %398 = add i64 %.0248.i87, 1
+  %399 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0248.i87
+  store i32 %391, ptr %399, align 4, !tbaa !23
+  %400 = add i32 %.3.i89, -1
+  br label %401
 
-._crit_edge91:                                    ; preds = %407, %399
-  %.0248.i.lcssa = phi i64 [ %.2250.i.ph, %407 ], [ %.0248.i87, %399 ]
+401:                                              ; preds = %395, %.lr.ph90
+  %.2250.i.ph = phi i64 [ %.0248.i87, %.lr.ph90 ], [ %398, %395 ]
+  %.4.i.ph = phi i32 [ %.3.i89, %.lr.ph90 ], [ %400, %395 ]
+  %402 = add i64 %.0246.i88, -1
+  %403 = and i64 %402, %.0246.i88
+  %404 = icmp ne i64 %403, 0
+  %405 = icmp ne i32 %.4.i.ph, 0
+  %406 = select i1 %404, i1 %405, i1 false
+  br i1 %406, label %.lr.ph90, label %._crit_edge91, !llvm.loop !82
+
+._crit_edge91:                                    ; preds = %401, %393
+  %.0248.i.lcssa = phi i64 [ %.2250.i.ph, %401 ], [ %.0248.i87, %393 ]
   %.not104 = icmp eq i64 %.0248.i.lcssa, 0
   br i1 %.not104, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %._crit_edge91
   %invariant.op = add i32 %26, %.neg279.i.neg103
   %.val9 = load i32, ptr %1, align 1, !tbaa !23
-  %413 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %414 = add i32 %invariant.op, 3
-  br label %415
+  %407 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %408 = add i32 %invariant.op, 3
+  br label %409
 
-415:                                              ; preds = %.lr.ph98, %.thread45
+409:                                              ; preds = %.lr.ph98, %.thread45
   %.5.i96 = phi i64 [ %.1240.i, %.lr.ph98 ], [ %.8.i.ph, %.thread45 ]
-  %.0247.i95 = phi i64 [ 0, %.lr.ph98 ], [ %432, %.thread45 ]
-  %416 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0247.i95
-  %417 = load i32, ptr %416, align 4, !tbaa !23
-  %418 = zext i32 %417 to i64
-  %419 = getelementptr inbounds nuw i8, ptr %347, i64 %418
-  %.val10 = load i32, ptr %419, align 1, !tbaa !23
-  %420 = icmp eq i32 %.val10, %.val9
-  br i1 %420, label %421, label %.thread45
+  %.0247.i95 = phi i64 [ 0, %.lr.ph98 ], [ %426, %.thread45 ]
+  %410 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %.0247.i95
+  %411 = load i32, ptr %410, align 4, !tbaa !23
+  %412 = zext i32 %411 to i64
+  %413 = getelementptr inbounds nuw i8, ptr %347, i64 %412
+  %.val10 = load i32, ptr %413, align 1, !tbaa !23
+  %414 = icmp eq i32 %.val10, %.val9
+  br i1 %414, label %415, label %.thread45
 
-421:                                              ; preds = %415
-  %422 = getelementptr inbounds nuw i8, ptr %419, i64 4
-  %423 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %413, ptr noundef nonnull %422, ptr noundef %2, ptr noundef %348, ptr noundef %22)
-  %424 = add i64 %423, 4
-  %425 = icmp ugt i64 %424, %.5.i96
-  br i1 %425, label %426, label %.thread45
+415:                                              ; preds = %409
+  %416 = getelementptr inbounds nuw i8, ptr %413, i64 4
+  %417 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %407, ptr noundef nonnull %416, ptr noundef %2, ptr noundef %348, ptr noundef %22)
+  %418 = add i64 %417, 4
+  %419 = icmp ugt i64 %418, %.5.i96
+  br i1 %419, label %420, label %.thread45
 
-426:                                              ; preds = %421
-  %427 = add i32 %20, %417
-  %428 = sub i32 %414, %427
-  %429 = zext i32 %428 to i64
-  store i64 %429, ptr %3, align 8, !tbaa !24
-  %430 = getelementptr inbounds nuw i8, ptr %1, i64 %424
-  %431 = icmp eq ptr %430, %2
-  br i1 %431, label %ZSTD_RowFindBestMatch.exit, label %.thread45
+420:                                              ; preds = %415
+  %421 = add i32 %20, %411
+  %422 = sub i32 %408, %421
+  %423 = zext i32 %422 to i64
+  store i64 %423, ptr %3, align 8, !tbaa !24
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 %418
+  %425 = icmp eq ptr %424, %2
+  br i1 %425, label %ZSTD_RowFindBestMatch.exit, label %.thread45
 
-.thread45:                                        ; preds = %415, %421, %426
-  %.8.i.ph = phi i64 [ %424, %426 ], [ %.5.i96, %421 ], [ %.5.i96, %415 ]
-  %432 = add nuw i64 %.0247.i95, 1
-  %exitcond124.not = icmp eq i64 %432, %.0248.i.lcssa
-  br i1 %exitcond124.not, label %ZSTD_RowFindBestMatch.exit, label %415, !llvm.loop !83
+.thread45:                                        ; preds = %409, %415, %420
+  %.8.i.ph = phi i64 [ %418, %420 ], [ %.5.i96, %415 ], [ %.5.i96, %409 ]
+  %426 = add nuw i64 %.0247.i95, 1
+  %exitcond124.not = icmp eq i64 %426, %.0248.i.lcssa
+  br i1 %exitcond124.not, label %ZSTD_RowFindBestMatch.exit, label %409, !llvm.loop !83
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %.thread45, %426, %ZSTD_row_getSSEMask.exit7, %._crit_edge91
-  %.6.i = phi i64 [ %.1240.i, %._crit_edge91 ], [ %.1240.i, %ZSTD_row_getSSEMask.exit7 ], [ %424, %426 ], [ %.8.i.ph, %.thread45 ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %.thread45, %420, %ZSTD_row_getSSEMask.exit7, %._crit_edge91
+  %.6.i = phi i64 [ %.1240.i, %._crit_edge91 ], [ %.1240.i, %ZSTD_row_getSSEMask.exit7 ], [ %418, %420 ], [ %.8.i.ph, %.thread45 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #11
   ret i64 %.6.i
 }
