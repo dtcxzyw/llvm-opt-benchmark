@@ -25,10 +25,10 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   call void @_ZN3nix3sys4stat5fstat17hdfb1d0de2803e090E(ptr noalias noundef nonnull sret({ i32, [37 x i32] }) align 8 captures(none) dereferenceable(152) %11, i32 noundef 1)
   %12 = load i32, ptr %11, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i32 %12 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %14 = load i32, ptr %13, align 4, !range !6
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sroa.432.0.copyload = load i32, ptr %.sroa.432.0..sroa_idx, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4, !range !6
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11)
   br i1 %trunc, label %21, label %15
 
@@ -65,8 +65,8 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   %29 = icmp eq i64 %1, 0
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %29, label %.loopexit120.us, label %.lr.ph145
 
 .loopexit120.us:                                  ; preds = %.preheader, %.loopexit120.us
@@ -154,14 +154,14 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
 .noexc:                                           ; preds = %.lr.ph.i
   %53 = load i32, ptr %6, align 8, !range !4, !noalias !17, !noundef !5
   %trunc.i74 = trunc nuw i32 %53 to i1
-  %54 = load i32, ptr %32, align 4, !range !6, !noalias !17
-  %55 = load i64, ptr %33, align 8, !noalias !17
+  %54 = load i64, ptr %32, align 8, !noalias !17
+  %55 = load i32, ptr %33, align 4, !range !6, !noalias !17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !17
   br i1 %trunc.i74, label %63, label %56
 
 56:                                               ; preds = %.noexc
-  store i64 %55, ptr %7, align 8, !noalias !17
-  %57 = icmp eq i64 %55, 0
+  store i64 %54, ptr %7, align 8, !noalias !17
+  %57 = icmp eq i64 %54, 0
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %56
@@ -180,7 +180,7 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   unreachable
 
 59:                                               ; preds = %56
-  %60 = sub i64 %.013.i, %55
+  %60 = sub i64 %.013.i, %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !17
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %.loopexit119, label %.lr.ph.i
@@ -192,7 +192,7 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
 
 63:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !17
-  %trunc.i.i76 = trunc nuw i32 %54 to i8
+  %trunc.i.i76 = trunc nuw i32 %55 to i8
   switch i8 %trunc.i.i76, label %64 [
     i8 9, label %.thread
     i8 22, label %.thread
@@ -200,7 +200,7 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   ]
 
 64:                                               ; preds = %63
-  %65 = zext nneg i32 %54 to i64
+  %65 = zext nneg i32 %55 to i64
   %66 = shl nuw nsw i64 %65, 32
   %67 = or disjoint i64 %66, 2
   %68 = inttoptr i64 %67 to ptr
@@ -243,7 +243,7 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   br label %81
 
 81:                                               ; preds = %98, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit79", %34, %21
-  %.sroa.6.0 = phi ptr [ %25, %21 ], [ %37, %34 ], [ %.sroa.6.1, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit79" ], [ %.0.i.i.i86.ph, %98 ]
+  %.sroa.6.0 = phi ptr [ %37, %34 ], [ %.sroa.6.1, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit79" ], [ %.0.i.i.i86.ph, %98 ], [ %25, %21 ]
   %82 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.6.0, 1
   ret { i64, ptr } %82
 

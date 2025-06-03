@@ -944,8 +944,8 @@ define internal fastcc range(i32 0, 2) i32 @assert_validity(ptr noundef nonnull 
   br label %14
 
 14:                                               ; preds = %12, %10, %.lr.ph
-  %.120 = phi i32 [ %.01922, %.lr.ph ], [ %.01922, %12 ], [ %11, %10 ]
-  %.1 = phi i32 [ %.01724, %.lr.ph ], [ %13, %12 ], [ %.01724, %10 ]
+  %.120 = phi i32 [ %.01922, %.lr.ph ], [ %11, %10 ], [ %.01922, %12 ]
+  %.1 = phi i32 [ %.01724, %.lr.ph ], [ %.01724, %10 ], [ %13, %12 ]
   %15 = add nuw nsw i32 %.01823, 1
   %16 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #8
   %17 = icmp slt i32 %15, %16

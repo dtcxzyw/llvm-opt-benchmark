@@ -1790,7 +1790,7 @@ define noundef i32 @_ZN3net18CommonPrefixLengthERKNS_9IPAddressES2_(ptr noundef 
   br label %28
 
 28:                                               ; preds = %24, %._crit_edge
-  %.4 = phi i32 [ %26, %24 ], [ %27, %._crit_edge ]
+  %.4 = phi i32 [ %27, %._crit_edge ], [ %26, %24 ]
   ret i32 %.4
 }
 
@@ -1897,7 +1897,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %_ZN3net18CommonPrefixLengthERKNS_9IPAddressES2_.exit
 
 _ZN3net18CommonPrefixLengthERKNS_9IPAddressES2_.exit: ; preds = %._crit_edge.i, %39
-  %.4.i = phi i32 [ %41, %39 ], [ %42, %._crit_edge.i ]
+  %.4.i = phi i32 [ %42, %._crit_edge.i ], [ %41, %39 ]
   call void @_ZN3net9IPAddressD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
   %43 = load ptr, ptr %2, align 8, !tbaa !9

@@ -118,7 +118,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN57_$LT$wast..wast..QuoteWat$u20$as$u20$core..fmt..Debug$GT$3fmt17h5974bc7106dc1c89E.exit"
 
 "_ZN57_$LT$wast..wast..QuoteWat$u20$as$u20$core..fmt..Debug$GT$3fmt17h5974bc7106dc1c89E.exit": ; preds = %13, %15, %19
-  %.sroa.0.0.in.i = phi i1 [ %22, %19 ], [ %18, %15 ], [ %14, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %18, %15 ], [ %22, %19 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN62_$LT$wast..wast..WastDirective$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f76ad4d0c61d915E.exit"
 
 "_ZN62_$LT$wast..wast..WastDirective$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f76ad4d0c61d915E.exit": ; preds = %25, %28, %31, %36, %41, %46, %51, %54, %59, %63, %68, %73, %77, %82, %85
-  %.sroa.0.0.in.i = phi i1 [ %88, %85 ], [ %84, %82 ], [ %81, %77 ], [ %76, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %58, %54 ], [ %53, %51 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %28 ], [ %27, %25 ]
+  %.sroa.0.0.in.i = phi i1 [ %27, %25 ], [ %30, %28 ], [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %53, %51 ], [ %58, %54 ], [ %62, %59 ], [ %67, %63 ], [ %72, %68 ], [ %76, %73 ], [ %81, %77 ], [ %84, %82 ], [ %88, %85 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -425,7 +425,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN60_$LT$wast..wast..WastExecute$u20$as$u20$core..fmt..Debug$GT$3fmt17hd984ef502d12cb7eE.exit"
 
 "_ZN60_$LT$wast..wast..WastExecute$u20$as$u20$core..fmt..Debug$GT$3fmt17hd984ef502d12cb7eE.exit": ; preds = %13, %16, %18
-  %.sroa.0.0.in.i = phi i1 [ %22, %18 ], [ %17, %16 ], [ %15, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %15, %13 ], [ %17, %16 ], [ %22, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -744,7 +744,7 @@ define internal noundef zeroext i1 @"_ZN57_$LT$wast..wast..QuoteWat$u20$as$u20$c
   br label %22
 
 22:                                               ; preds = %18, %14, %12
-  %.sroa.0.0.in = phi i1 [ %21, %18 ], [ %17, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %17, %14 ], [ %21, %18 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -807,7 +807,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$wast..wast..WastExecute$u20$as$u2
   br label %22
 
 22:                                               ; preds = %17, %15, %12
-  %.sroa.0.0.in = phi i1 [ %21, %17 ], [ %16, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %16, %15 ], [ %21, %17 ]
   ret i1 %.sroa.0.0.in
 }
 

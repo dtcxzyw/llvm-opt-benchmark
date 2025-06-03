@@ -1451,12 +1451,12 @@ default.unreachable:                              ; preds = %._crit_edge673
   br label %489
 
 489:                                              ; preds = %._crit_edge474.i, %._crit_edge484.i, %._crit_edge494.i
-  %.14222.i = phi ptr [ %.17225.lcssa.i, %._crit_edge474.i ], [ %.15223.lcssa.i, %._crit_edge484.i ], [ %.12220.lcssa.i, %._crit_edge494.i ]
-  %.14.i = phi ptr [ %.17.lcssa.i, %._crit_edge474.i ], [ %.15.lcssa.i, %._crit_edge484.i ], [ %.12.lcssa.i, %._crit_edge494.i ]
-  %.8192.i = phi i32 [ %486, %._crit_edge474.i ], [ %453, %._crit_edge484.i ], [ %420, %._crit_edge494.i ]
-  %.8.i = phi i32 [ %487, %._crit_edge474.i ], [ %454, %._crit_edge484.i ], [ %421, %._crit_edge494.i ]
-  %.0176.i = phi i8 [ 0, %._crit_edge474.i ], [ 0, %._crit_edge484.i ], [ %.0174505.i, %._crit_edge494.i ]
-  %.0.i434 = phi i32 [ %488, %._crit_edge474.i ], [ %455, %._crit_edge484.i ], [ %422, %._crit_edge494.i ]
+  %.14222.i = phi ptr [ %.12220.lcssa.i, %._crit_edge494.i ], [ %.15223.lcssa.i, %._crit_edge484.i ], [ %.17225.lcssa.i, %._crit_edge474.i ]
+  %.14.i = phi ptr [ %.12.lcssa.i, %._crit_edge494.i ], [ %.15.lcssa.i, %._crit_edge484.i ], [ %.17.lcssa.i, %._crit_edge474.i ]
+  %.8192.i = phi i32 [ %420, %._crit_edge494.i ], [ %453, %._crit_edge484.i ], [ %486, %._crit_edge474.i ]
+  %.8.i = phi i32 [ %421, %._crit_edge494.i ], [ %454, %._crit_edge484.i ], [ %487, %._crit_edge474.i ]
+  %.0176.i = phi i8 [ %.0174505.i, %._crit_edge494.i ], [ 0, %._crit_edge484.i ], [ 0, %._crit_edge474.i ]
+  %.0.i434 = phi i32 [ %422, %._crit_edge494.i ], [ %455, %._crit_edge484.i ], [ %488, %._crit_edge474.i ]
   %490 = add i32 %.0.i434, %.2506.i
   %491 = icmp ugt i32 %490, %339
   br i1 %491, label %zip_read_lens.exit.thread, label %.preheader.i

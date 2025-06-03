@@ -3559,7 +3559,7 @@ _handle_flush_job.exit.i:                         ; preds = %52, %49, %44
   br label %126
 
 126:                                              ; preds = %124, %122, %110, %105
-  %.0.i.i = phi i32 [ -1, %124 ], [ %123, %122 ], [ %111, %110 ], [ %109, %105 ]
+  %.0.i.i = phi i32 [ -1, %124 ], [ %109, %105 ], [ %111, %110 ], [ %123, %122 ]
   %127 = load ptr, ptr %11, align 8
   %128 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %129 = load i32, ptr %128, align 4

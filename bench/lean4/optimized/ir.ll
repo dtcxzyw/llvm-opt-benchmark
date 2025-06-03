@@ -6062,10 +6062,10 @@ _ZN4lean6bufferINS_10object_refELm16EED2Ev.exit:  ; preds = %_ZN4lean6bufferINS_
   br label %366
 
 366:                                              ; preds = %39, %86, %132, %232, %.body
-  %.pn37.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body ], [ %.pn37.pn, %232 ], [ %.pn42, %132 ], [ %.pn45, %86 ], [ %40, %39 ]
+  %.pn48.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body ], [ %40, %39 ], [ %.pn45, %86 ], [ %.pn42, %132 ], [ %.pn37.pn, %232 ]
   call void @_ZN4lean6bufferINS_10object_refELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #22
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #22
-  resume { ptr, i32 } %.pn37.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn48.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

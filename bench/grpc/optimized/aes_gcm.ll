@@ -665,7 +665,7 @@ define noundef range(i32 0, 14) i32 @_Z32gsec_aes_gcm_aead_crypter_createSt10uni
   br label %69
 
 69:                                               ; preds = %67, %.thread.i
-  %.021.i = phi ptr [ %68, %67 ], [ %66, %.thread.i ]
+  %.021.i = phi ptr [ %66, %.thread.i ], [ %68, %67 ]
   %70 = load ptr, ptr %51, align 8, !tbaa !44
   %71 = load ptr, ptr %70, align 8, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24

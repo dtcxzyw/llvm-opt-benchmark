@@ -317,8 +317,8 @@ default.unreachable:                              ; preds = %28
 .cont:                                            ; preds = %.invoke
   unreachable
 
-69:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %37, %33, %31, %25
-  %.1 = phi ptr [ @anon.eab39818d4b18baaa8ef384a74ffd2e4.1, %25 ], [ %.val7, %31 ], [ %.val7, %33 ], [ %.val7, %37 ], [ %.val7, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
+69:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %31, %33, %37, %25
+  %.1 = phi ptr [ @anon.eab39818d4b18baaa8ef384a74ffd2e4.1, %25 ], [ %.val7, %37 ], [ %.val7, %33 ], [ %.val7, %31 ], [ %.val7, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %.loopexit
 
@@ -346,9 +346,9 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %28
   %74 = icmp eq i64 %.sroa.8.154, 0
   br i1 %74, label %.loopexit, label %23
 
-_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21.thread: ; preds = %31, %33, %37, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21
-  %.sroa.0.155 = phi ptr [ %48, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.0.040, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.0.040, %37 ], [ %.sroa.0.040, %33 ], [ %.sroa.0.040, %31 ]
-  %.sroa.8.153 = phi i64 [ %.sroa.8.1, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.8.039, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.8.039, %37 ], [ %.sroa.8.039, %33 ], [ %.sroa.8.039, %31 ]
+_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21.thread: ; preds = %37, %33, %31, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21
+  %.sroa.0.155 = phi ptr [ %48, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.0.040, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.0.040, %31 ], [ %.sroa.0.040, %33 ], [ %.sroa.0.040, %37 ]
+  %.sroa.8.153 = phi i64 [ %.sroa.8.1, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.8.039, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.8.039, %31 ], [ %.sroa.8.039, %33 ], [ %.sroa.8.039, %37 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -571,8 +571,8 @@ default.unreachable:                              ; preds = %28
 .cont:                                            ; preds = %.invoke
   unreachable
 
-69:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %37, %33, %31, %25
-  %.1 = phi ptr [ @anon.eab39818d4b18baaa8ef384a74ffd2e4.1, %25 ], [ %.val, %31 ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
+69:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %31, %33, %37, %25
+  %.1 = phi ptr [ @anon.eab39818d4b18baaa8ef384a74ffd2e4.1, %25 ], [ %.val, %37 ], [ %.val, %33 ], [ %.val, %31 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %.loopexit
 
@@ -600,9 +600,9 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %28
   %74 = icmp eq i64 %.sroa.8.154, 0
   br i1 %74, label %.loopexit, label %23
 
-_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21.thread: ; preds = %31, %33, %37, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21
-  %.sroa.0.155 = phi ptr [ %48, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.0.040, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.0.040, %37 ], [ %.sroa.0.040, %33 ], [ %.sroa.0.040, %31 ]
-  %.sroa.8.153 = phi i64 [ %.sroa.8.1, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.8.039, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.8.039, %37 ], [ %.sroa.8.039, %33 ], [ %.sroa.8.039, %31 ]
+_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21.thread: ; preds = %37, %33, %31, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21
+  %.sroa.0.155 = phi ptr [ %48, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.0.040, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.0.040, %31 ], [ %.sroa.0.040, %33 ], [ %.sroa.0.040, %37 ]
+  %.sroa.8.153 = phi i64 [ %.sroa.8.1, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit21 ], [ %.sroa.8.039, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.8.039, %31 ], [ %.sroa.8.039, %33 ], [ %.sroa.8.039, %37 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)

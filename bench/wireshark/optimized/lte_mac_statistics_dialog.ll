@@ -7190,7 +7190,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK19MacUETreeWidgetItemltERK15QTreeWid
   br label %31
 
 31:                                               ; preds = %11, %17, %23, %29, %5
-  %.0 = phi i1 [ %6, %5 ], [ %30, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0 = phi i1 [ %6, %5 ], [ %30, %29 ], [ %16, %11 ], [ %22, %17 ], [ %28, %23 ]
   ret i1 %.0
 }
 
@@ -7590,9 +7590,9 @@ _ZN7QStringD2Ev.exit70:                           ; preds = %129, %_ZN17QArrayDa
   ret void
 
 132:                                              ; preds = %_ZN7QStringD2Ev.exit70, %_ZN7QStringD2Ev.exit56, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit28
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit70 ], [ %.pn18, %_ZN7QStringD2Ev.exit56 ], [ %.pn20, %_ZN7QStringD2Ev.exit42 ], [ %.pn22, %_ZN7QStringD2Ev.exit28 ]
+  %.pn22.pn = phi { ptr, i32 } [ %.pn22, %_ZN7QStringD2Ev.exit28 ], [ %.pn20, %_ZN7QStringD2Ev.exit42 ], [ %.pn18, %_ZN7QStringD2Ev.exit56 ], [ %.pn, %_ZN7QStringD2Ev.exit70 ]
   call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef align 8 dereferenceable_or_null(92) %0) #26
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn22.pn
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -15297,12 +15297,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit369: ; preds = %_Z
   ret void
 
 719:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196, %_ZN7testing7MessageD2Ev.exit213, %332, %388, %446, %447, %457, %_ZN7testing7MessageD2Ev.exit285, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295, %_ZN7testing7MessageD2Ev.exit312, %611, %646, %683, %692, %_ZN7testing7MessageD2Ev.exit366, %211, %149
-  %.pn109.pn.pn.pn = phi { ptr, i32 } [ %.pn85.pn.pn, %211 ], [ %.pn80.pn.pn.pn, %149 ], [ %.pn109.pn, %_ZN7testing7MessageD2Ev.exit285 ], [ %.pn132.pn, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn130, %692 ], [ %448, %447 ], [ %.pn126.pn.pn, %683 ], [ %.pn122.pn.pn, %646 ], [ %.pn118.pn.pn, %611 ], [ %.pn114.pn.pn, %_ZN7testing7MessageD2Ev.exit312 ], [ %492, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295 ], [ %.pn107, %457 ], [ %.pn103.pn.pn, %446 ], [ %.pn99.pn.pn, %388 ], [ %.pn95.pn.pn, %332 ], [ %.pn91.pn.pn, %_ZN7testing7MessageD2Ev.exit213 ], [ %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196 ]
+  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %.pn85.pn.pn, %211 ], [ %.pn80.pn.pn.pn, %149 ], [ %.pn132.pn, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn130, %692 ], [ %448, %447 ], [ %.pn126.pn.pn, %683 ], [ %.pn122.pn.pn, %646 ], [ %.pn118.pn.pn, %611 ], [ %.pn114.pn.pn, %_ZN7testing7MessageD2Ev.exit312 ], [ %492, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295 ], [ %.pn109.pn, %_ZN7testing7MessageD2Ev.exit285 ], [ %.pn107, %457 ], [ %.pn103.pn.pn, %446 ], [ %.pn99.pn.pn, %388 ], [ %.pn95.pn.pn, %332 ], [ %.pn91.pn.pn, %_ZN7testing7MessageD2Ev.exit213 ], [ %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196 ]
   call void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(89) %4) #24
   br label %720
 
 720:                                              ; preds = %719, %81
-  %.pn109.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn109.pn.pn.pn, %719 ], [ %82, %81 ]
+  %.pn132.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn, %719 ], [ %82, %81 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #24
   %721 = load ptr, ptr %3, align 8, !tbaa !17
   %722 = icmp eq ptr %721, %61
@@ -15322,7 +15322,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i371, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
-  resume { ptr, i32 } %.pn109.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn132.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

@@ -1257,7 +1257,7 @@ define hidden noundef ptr @_ZN5ciEnv32get_box_klass_for_primitive_typeE9BasicTyp
   br label %19
 
 19:                                               ; preds = %2, %17, %15, %13, %11, %9, %7, %5, %3
-  %.0 = phi ptr [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ null, %2 ]
+  %.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1734,7 +1734,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %22
   unreachable
 
 common.ret91:                                     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %.loopexit, %37, %170, %_ZN5ciEnv9get_klassEP5Klass.exit, %_ZN16SymbolHandleBaseILb1EED2Ev.exit
-  %common.ret91.op = phi ptr [ %33, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ %122, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %169, %_ZN5ciEnv9get_klassEP5Klass.exit ], [ %172, %170 ], [ %., %37 ], [ null, %.loopexit ]
+  %common.ret91.op = phi ptr [ %33, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ %169, %_ZN5ciEnv9get_klassEP5Klass.exit ], [ %172, %170 ], [ %122, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %., %37 ], [ null, %.loopexit ]
   ret ptr %common.ret91.op
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %24, %28
@@ -2495,9 +2495,9 @@ define hidden { i8, i64 } @_ZN5ciEnv21unbox_primitive_valueEP8ciObject9BasicType
   br label %31
 
 31:                                               ; preds = %9, %3, %29, %27, %24, %22, %19, %16, %13, %10
-  %.sroa.11.sroa.11.0 = phi i32 [ %.sroa.11.sroa.11.0.extract.trunc, %29 ], [ undef, %27 ], [ %26, %24 ], [ undef, %22 ], [ undef, %19 ], [ undef, %16 ], [ undef, %13 ], [ undef, %10 ], [ -1, %3 ], [ -1, %9 ]
-  %.sroa.11.sroa.0.0 = phi i32 [ %.sroa.11.sroa.0.0.extract.trunc, %29 ], [ %28, %27 ], [ %25, %24 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ -1, %3 ], [ -1, %9 ]
-  %.sroa.0.0 = phi i8 [ 7, %29 ], [ 6, %27 ], [ 11, %24 ], [ 10, %22 ], [ 5, %19 ], [ 9, %16 ], [ 8, %13 ], [ 4, %10 ], [ 99, %3 ], [ 99, %9 ]
+  %.sroa.11.sroa.11.0 = phi i32 [ undef, %10 ], [ undef, %13 ], [ undef, %16 ], [ undef, %19 ], [ undef, %22 ], [ %26, %24 ], [ undef, %27 ], [ %.sroa.11.sroa.11.0.extract.trunc, %29 ], [ -1, %3 ], [ -1, %9 ]
+  %.sroa.11.sroa.0.0 = phi i32 [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ], [ %25, %24 ], [ %28, %27 ], [ %.sroa.11.sroa.0.0.extract.trunc, %29 ], [ -1, %3 ], [ -1, %9 ]
+  %.sroa.0.0 = phi i8 [ 4, %10 ], [ 8, %13 ], [ 9, %16 ], [ 5, %19 ], [ 10, %22 ], [ 11, %24 ], [ 6, %27 ], [ 7, %29 ], [ 99, %3 ], [ 99, %9 ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.0.0, 0
   %.sroa.11.sroa.11.0.insert.ext = zext i32 %.sroa.11.sroa.11.0 to i64
   %.sroa.11.sroa.11.0.insert.shift = shl nuw i64 %.sroa.11.sroa.11.0.insert.ext, 32
@@ -2623,9 +2623,9 @@ default.unreachable:                              ; preds = %40
   unreachable
 
 _ZN5ciEnv21unbox_primitive_valueEP8ciObject9BasicType.exit: ; preds = %37, %41, %44, %47, %50, %53, %55, %58, %60
-  %.sroa.11.sroa.11.0.i = phi i32 [ %.sroa.11.sroa.11.0.extract.trunc.i, %60 ], [ undef, %58 ], [ %57, %55 ], [ undef, %53 ], [ undef, %50 ], [ undef, %47 ], [ undef, %44 ], [ undef, %41 ], [ -1, %37 ]
-  %.sroa.11.sroa.0.0.i = phi i32 [ %.sroa.11.sroa.0.0.extract.trunc.i, %60 ], [ %59, %58 ], [ %56, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ -1, %37 ]
-  %.sroa.0.0.i = phi i8 [ 7, %60 ], [ 6, %58 ], [ 11, %55 ], [ 10, %53 ], [ 5, %50 ], [ 9, %47 ], [ 8, %44 ], [ 4, %41 ], [ 99, %37 ]
+  %.sroa.11.sroa.11.0.i = phi i32 [ undef, %41 ], [ undef, %44 ], [ undef, %47 ], [ undef, %50 ], [ undef, %53 ], [ %57, %55 ], [ undef, %58 ], [ %.sroa.11.sroa.11.0.extract.trunc.i, %60 ], [ -1, %37 ]
+  %.sroa.11.sroa.0.0.i = phi i32 [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %54, %53 ], [ %56, %55 ], [ %59, %58 ], [ %.sroa.11.sroa.0.0.extract.trunc.i, %60 ], [ -1, %37 ]
+  %.sroa.0.0.i = phi i8 [ 4, %41 ], [ 8, %44 ], [ 9, %47 ], [ 5, %50 ], [ 10, %53 ], [ 11, %55 ], [ 6, %58 ], [ 7, %60 ], [ 99, %37 ]
   %.sroa.11.sroa.11.0.insert.ext.i = zext i32 %.sroa.11.sroa.11.0.i to i64
   %.sroa.11.sroa.11.0.insert.shift.i = shl nuw i64 %.sroa.11.sroa.11.0.insert.ext.i, 32
   %.sroa.11.sroa.0.0.insert.ext.i = zext i32 %.sroa.11.sroa.0.0.i to i64
@@ -3354,7 +3354,7 @@ define hidden noundef ptr @_ZN5ciEnv13lookup_methodEP15ciInstanceKlassP7ciKlassP
   unreachable
 
 33:                                               ; preds = %26, %24, %22, %20
-  %.0 = phi ptr [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.0 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
   ret ptr %.0
 }

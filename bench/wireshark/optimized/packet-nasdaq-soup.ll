@@ -242,7 +242,7 @@ define internal i32 @dissect_nasdaq_soup(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread.i
 
 .thread.i:                                        ; preds = %83, %70, %55, %48, %43, %29, %29, %29
-  %.064.ph.i = phi i32 [ %47, %43 ], [ %54, %48 ], [ %58, %55 ], [ %82, %70 ], [ %42, %29 ], [ %42, %29 ], [ %42, %29 ], [ %87, %83 ]
+  %.064.ph.i = phi i32 [ %42, %29 ], [ %42, %29 ], [ %42, %29 ], [ %82, %70 ], [ %58, %55 ], [ %54, %48 ], [ %47, %43 ], [ %87, %83 ]
   %88 = load i32, ptr @hf_nasdaq_soup_packet_eol, align 4
   %89 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %88, ptr noundef %0, i32 noundef %.064.ph.i, i32 noundef 1, i32 noundef 0)
   br label %dissect_nasdaq_soup_packet.exit

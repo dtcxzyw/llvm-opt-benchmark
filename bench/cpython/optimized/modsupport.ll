@@ -447,8 +447,8 @@ define internal fastcc i64 @countformat(ptr noundef readonly captures(none) %0, 
   br label %14
 
 14:                                               ; preds = %11, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %9, %5
-  %.2 = phi i64 [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %9 ], [ %spec.select, %5 ], [ %spec.select16, %11 ]
-  %.1 = phi i32 [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %10, %9 ], [ %8, %5 ], [ %.026, %11 ]
+  %.2 = phi i64 [ %spec.select, %5 ], [ %.01225, %9 ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %spec.select16, %11 ]
+  %.1 = phi i32 [ %8, %5 ], [ %10, %9 ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %11 ]
   %15 = getelementptr i8, ptr %.01524, i64 1
   %16 = icmp slt i32 %.1, 1
   %.pr = load i8, ptr %15, align 1, !tbaa !29
@@ -1678,7 +1678,7 @@ Py_DECREF.exit51.i:                               ; preds = %89, %86, %Py_DECREF
   br label %do_mklist.exit
 
 do_mklist.exit:                                   ; preds = %28, %25, %21, %499, %496, %439, %432, %429, %389, %382, %379, %261, %258, %._crit_edge, %49, %44, %39, %59, %56, %52, %78, %75, %Py_DECREF.exit57.i, %98, %95, %93, %._crit_edge170, %18, %11, %38, %35, %33, %492, %503, %501, %.thread138, %.thread130, %267, %505, %471, %338, %320, %300, %283, %217, %200, %183, %166, %148, %130, %112, %8
-  %.0 = phi ptr [ null, %505 ], [ %477, %471 ], [ %341, %338 ], [ %324, %320 ], [ %306, %300 ], [ %286, %283 ], [ %220, %217 ], [ %203, %200 ], [ %186, %183 ], [ %169, %166 ], [ %152, %148 ], [ %134, %130 ], [ %116, %112 ], [ %10, %8 ], [ %268, %267 ], [ null, %389 ], [ %391, %.thread130 ], [ null, %439 ], [ %441, %.thread138 ], [ null, %501 ], [ null, %503 ], [ %491, %492 ], [ null, %18 ], [ null, %11 ], [ %15, %._crit_edge170 ], [ null, %38 ], [ null, %35 ], [ null, %33 ], [ null, %44 ], [ null, %49 ], [ null, %39 ], [ %47, %._crit_edge ], [ null, %59 ], [ null, %56 ], [ null, %52 ], [ null, %78 ], [ null, %75 ], [ null, %Py_DECREF.exit57.i ], [ null, %98 ], [ null, %95 ], [ null, %93 ], [ @_Py_NoneStruct, %258 ], [ @_Py_NoneStruct, %261 ], [ @_Py_NoneStruct, %379 ], [ @_Py_NoneStruct, %382 ], [ @_Py_NoneStruct, %429 ], [ @_Py_NoneStruct, %432 ], [ %491, %496 ], [ %491, %499 ], [ null, %21 ], [ null, %25 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %505 ], [ %10, %8 ], [ %116, %112 ], [ %134, %130 ], [ %152, %148 ], [ %169, %166 ], [ %186, %183 ], [ %203, %200 ], [ %220, %217 ], [ %286, %283 ], [ %306, %300 ], [ %324, %320 ], [ %341, %338 ], [ %477, %471 ], [ %268, %267 ], [ null, %389 ], [ %391, %.thread130 ], [ null, %439 ], [ %441, %.thread138 ], [ null, %501 ], [ null, %503 ], [ %491, %492 ], [ null, %18 ], [ null, %11 ], [ %15, %._crit_edge170 ], [ null, %38 ], [ null, %35 ], [ null, %33 ], [ null, %44 ], [ null, %49 ], [ null, %39 ], [ %47, %._crit_edge ], [ null, %59 ], [ null, %56 ], [ null, %52 ], [ null, %78 ], [ null, %75 ], [ null, %Py_DECREF.exit57.i ], [ null, %98 ], [ null, %95 ], [ null, %93 ], [ @_Py_NoneStruct, %258 ], [ @_Py_NoneStruct, %261 ], [ @_Py_NoneStruct, %379 ], [ @_Py_NoneStruct, %382 ], [ @_Py_NoneStruct, %429 ], [ @_Py_NoneStruct, %432 ], [ %491, %496 ], [ %491, %499 ], [ null, %21 ], [ null, %25 ], [ null, %28 ]
   ret ptr %.0
 }
 

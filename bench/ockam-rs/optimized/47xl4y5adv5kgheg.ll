@@ -5255,8 +5255,8 @@ common.ret:                                       ; preds = %195, %175, %167, %4
 32:                                               ; preds = %14
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %34 = load i8, ptr %33, align 4, !range !181, !noundef !4
-  %cond.i6.i.i = icmp eq i8 %34, 3
-  br i1 %cond.i6.i.i, label %35, label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf740378a8bcc2863E.exit.i"
+  %cond.i7.i.i = icmp eq i8 %34, 3
+  br i1 %cond.i7.i.i, label %35, label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf740378a8bcc2863E.exit.i"
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -5477,9 +5477,9 @@ common.ret:                                       ; preds = %195, %175, %167, %4
   %121 = icmp ult i64 %120, -9223372036854775807
   tail call void @llvm.assume(i1 %121)
   %122 = icmp eq i64 %118, 0
-  br i1 %122, label %"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h75e35abd4a019937E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i.i.i7.i.i"
+  br i1 %122, label %"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h75e35abd4a019937E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i.i.i8.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i.i.i7.i.i": ; preds = %116
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i.i.i8.i.i": ; preds = %116
   tail call void @__rust_dealloc(ptr noundef nonnull %110, i64 noundef %118, i64 noundef %120) #25, !noalias !2555
   br label %"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h75e35abd4a019937E.exit.i.i"
 
@@ -5496,7 +5496,7 @@ common.ret:                                       ; preds = %195, %175, %167, %4
   %127 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h88646246bef7413aE.llvm.9405825265181994393"(ptr noalias noundef nonnull align 8 dereferenceable(40) %125) #23
-          to label %.body11.i.i unwind label %128
+          to label %.body12.i.i unwind label %128
 
 "_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hcc1143fd16e67324E.llvm.9405825265181994393.exit.i.i.i": ; preds = %124
   invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h88646246bef7413aE.llvm.9405825265181994393"(ptr noalias noundef nonnull align 8 dereferenceable(40) %125)
@@ -5519,7 +5519,7 @@ common.ret:                                       ; preds = %195, %175, %167, %4
   invoke void @"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h22386d8e441327a9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %132) #23
           to label %138 unwind label %150
 
-"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h75e35abd4a019937E.exit.i.i": ; preds = %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i.i.i7.i.i", %116, %106, %105, %102
+"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h75e35abd4a019937E.exit.i.i": ; preds = %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i.i.i8.i.i", %116, %106, %105, %102
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2556)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2559)
@@ -5538,7 +5538,7 @@ common.ret:                                       ; preds = %195, %175, %167, %4
   %.pn.i.i = phi { ptr, i32 } [ %141, %140 ], [ %eh.lpad-body.i.i, %.body.i.i ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 152
   invoke void @"_ZN4core3ptr75drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$17h65449735650e1088E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %139) #23
-          to label %.body11.i.i unwind label %150
+          to label %.body12.i.i unwind label %150
 
 140:                                              ; preds = %137
   %141 = landingpad { ptr, i32 }
@@ -5563,7 +5563,7 @@ common.ret:                                       ; preds = %195, %175, %167, %4
 147:                                              ; preds = %146
   %148 = landingpad { ptr, i32 }
           cleanup
-  br label %.body11.i.i
+  br label %.body12.i.i
 
 "_ZN4core3ptr202drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5c88abe61ee836baE.exit.i.i": ; preds = %146, %"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h22386d8e441327a9E.exit.i.i", %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hcc1143fd16e67324E.llvm.9405825265181994393.exit.i.i.i"
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5576,8 +5576,8 @@ common.ret:                                       ; preds = %195, %175, %167, %4
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #24
   unreachable
 
-.body11.i.i:                                      ; preds = %153, %147, %138, %126
-  %.pn2.pn.i.i = phi { ptr, i32 } [ %148, %147 ], [ %.pn.i.i, %138 ], [ %154, %153 ], [ %127, %126 ]
+.body12.i.i:                                      ; preds = %153, %147, %138, %126
+  %.pn4.i.i = phi { ptr, i32 } [ %148, %147 ], [ %.pn.i.i, %138 ], [ %154, %153 ], [ %127, %126 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %152, align 8
   br label %.body.i
@@ -5585,7 +5585,7 @@ common.ret:                                       ; preds = %195, %175, %167, %4
 153:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17hcc1143fd16e67324E.llvm.9405825265181994393.exit.i.i.i"
   %154 = landingpad { ptr, i32 }
           cleanup
-  br label %.body11.i.i
+  br label %.body12.i.i
 
 155:                                              ; preds = %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17he57fa5c1ad6cb025E.llvm.9405825265181994393.exit.i.i"
   %156 = landingpad { ptr, i32 }
@@ -5600,8 +5600,8 @@ common.ret:                                       ; preds = %195, %175, %167, %4
   %160 = trunc nuw i8 %159 to i1
   br i1 %160, label %168, label %167
 
-.body.i:                                          ; preds = %165, %155, %.body11.i.i, %93, %22, %10
-  %.pn.i = phi { ptr, i32 } [ %156, %155 ], [ %11, %10 ], [ %166, %165 ], [ %.pn2.pn.i.i, %.body11.i.i ], [ %23, %22 ], [ %.pn2.i.i.i, %93 ]
+.body.i:                                          ; preds = %165, %155, %.body12.i.i, %93, %22, %10
+  %.pn.i = phi { ptr, i32 } [ %156, %155 ], [ %11, %10 ], [ %166, %165 ], [ %.pn4.i.i, %.body12.i.i ], [ %23, %22 ], [ %.pn2.i.i.i, %93 ]
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %161, align 1
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6543,7 +6543,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h2c41812b7bed9528E.exit.i.i"
 
 138:                                              ; preds = %.body12.i.i, %.body9.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %68, %.body9.i.i ], [ %eh.lpad-body13.i.i, %.body12.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body13.i.i, %.body12.i.i ], [ %68, %.body9.i.i ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #23
           to label %.body17.i.i unwind label %115
 
@@ -21499,7 +21499,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h7c1b2d28ee5f9b64E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -21559,7 +21559,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17hd106bf92f4b7cf3eE.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 

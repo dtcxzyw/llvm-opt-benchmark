@@ -279,8 +279,8 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
   br label %112
 
 112:                                              ; preds = %109, %106, %.thread.i, %102
-  %.384104.i = phi ptr [ %.384105.i, %.thread.i ], [ %.384105.i, %106 ], [ %.384105.i, %109 ], [ %.384.i, %102 ]
-  %.3.i = phi i32 [ %.0106.i, %.thread.i ], [ %108, %106 ], [ %111, %109 ], [ %.0.i, %102 ]
+  %.384104.i = phi ptr [ %.384105.i, %.thread.i ], [ %.384105.i, %109 ], [ %.384105.i, %106 ], [ %.384.i, %102 ]
+  %.3.i = phi i32 [ %.0106.i, %.thread.i ], [ %111, %109 ], [ %108, %106 ], [ %.0.i, %102 ]
   %113 = zext nneg i32 %48 to i64
   %114 = add nuw nsw i32 %.079.i, 1
   br label %115
@@ -2075,7 +2075,7 @@ define i32 @ucm_countChars(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.thread75
 
 .thread75:                                        ; preds = %15, %._crit_edge.thread71, %51, %56, %47, %33, %30, %27, %7
-  %.028 = phi i32 [ -1, %7 ], [ -1, %33 ], [ -1, %30 ], [ -1, %27 ], [ -1, %47 ], [ -1, %56 ], [ %.026.lcssa61, %51 ], [ %.026.lcssa61, %._crit_edge.thread71 ], [ 0, %15 ]
+  %.028 = phi i32 [ -1, %7 ], [ -1, %33 ], [ -1, %27 ], [ -1, %30 ], [ -1, %47 ], [ -1, %56 ], [ %.026.lcssa61, %51 ], [ %.026.lcssa61, %._crit_edge.thread71 ], [ 0, %15 ]
   ret i32 %.028
 }
 

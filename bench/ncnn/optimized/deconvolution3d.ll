@@ -2054,7 +2054,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %176, %172, %160, %153, %152, %147, %142, %140, %137, %166
-  %.1 = phi nsz float [ %139, %137 ], [ %139, %172 ], [ %179, %176 ], [ %165, %160 ], [ %159, %153 ], [ %149, %152 ], [ %.0173, %147 ], [ %146, %142 ], [ %141, %140 ], [ 0.000000e+00, %166 ]
+  %.1 = phi nsz float [ %139, %137 ], [ %141, %140 ], [ %146, %142 ], [ %149, %152 ], [ %.0173, %147 ], [ %159, %153 ], [ %165, %160 ], [ %139, %172 ], [ %179, %176 ], [ 0.000000e+00, %166 ]
   store float %.1, ptr %138, align 4, !tbaa !79
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241

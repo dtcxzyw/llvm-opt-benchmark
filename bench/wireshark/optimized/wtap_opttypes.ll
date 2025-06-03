@@ -2339,7 +2339,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
   br label %packet_verdict_dup.exit
 
 packet_verdict_dup.exit:                          ; preds = %.loopexit, %40, %53, %57
-  %.sroa.37.0.i = phi ptr [ null, %.loopexit ], [ %60, %57 ], [ %56, %53 ], [ %52, %40 ]
+  %.sroa.37.0.i = phi ptr [ null, %.loopexit ], [ %52, %40 ], [ %56, %53 ], [ %60, %57 ]
   store i32 %39, ptr %38, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %.sroa.37.0.i, ptr %.sroa.41.0..sroa_idx, align 8
@@ -5476,7 +5476,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   br label %packet_verdict_dup.exit
 
 packet_verdict_dup.exit:                          ; preds = %36, %39, %52, %56
-  %.sroa.37.0.i = phi ptr [ null, %36 ], [ %59, %56 ], [ %55, %52 ], [ %51, %39 ]
+  %.sroa.37.0.i = phi ptr [ null, %36 ], [ %51, %39 ], [ %55, %52 ], [ %59, %56 ]
   store i32 %38, ptr %37, align 8
   store ptr %.sroa.37.0.i, ptr %.sroa.48.0..sroa_idx, align 8
   %cond.i = icmp eq i32 %.sroa.0.0.copyload, 0

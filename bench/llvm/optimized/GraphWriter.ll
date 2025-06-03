@@ -220,7 +220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br label %48
 
 48:                                               ; preds = %.lr.ph, %26, %32, %45, %41, %44
-  %.1 = phi i32 [ %.033, %.lr.ph ], [ %47, %45 ], [ %.033, %44 ], [ %.033, %41 ], [ %35, %32 ], [ %29, %26 ]
+  %.1 = phi i32 [ %.033, %.lr.ph ], [ %29, %26 ], [ %35, %32 ], [ %47, %45 ], [ %.033, %41 ], [ %.033, %44 ]
   %49 = add i32 %.1, 1
   %50 = zext i32 %49 to i64
   %51 = load i64, ptr %17, align 8, !tbaa !12
@@ -1419,7 +1419,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit259: ; preds = %301, %
   br label %316
 
 316:                                              ; preds = %311, %307
-  %.018.shrunk = phi i1 [ %2, %311 ], [ false, %307 ]
+  %.018.shrunk = phi i1 [ false, %307 ], [ %2, %311 ]
   store i64 0, ptr %36, align 8, !tbaa !12
   %317 = load ptr, ptr %8, align 8, !tbaa !9
   store i8 0, ptr %317, align 1, !tbaa !14

@@ -262,7 +262,7 @@ copy_block.exit:                                  ; preds = %81
   br label %108
 
 108:                                              ; preds = %106, %bytestream2_get_byte.exit179
-  %.0153 = phi ptr [ %60, %bytestream2_get_byte.exit179 ], [ %107, %106 ]
+  %.0153 = phi ptr [ %107, %106 ], [ %60, %bytestream2_get_byte.exit179 ]
   %.0153.fr = freeze ptr %.0153
   %109 = icmp eq i32 %70, 7
   %.not.i194 = icmp eq ptr %.0153.fr, null

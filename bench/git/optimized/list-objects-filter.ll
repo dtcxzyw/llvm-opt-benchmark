@@ -559,7 +559,7 @@ filter_trees_update_omits.exit42:                 ; preds = %38, %40, %42
   br label %50
 
 50:                                               ; preds = %7, %7, %47, %filter_trees_update_omits.exit, %13
-  %.0 = phi i32 [ %.034, %47 ], [ %22, %filter_trees_update_omits.exit ], [ 0, %13 ], [ 3, %7 ], [ 3, %7 ]
+  %.0 = phi i32 [ 0, %13 ], [ %22, %filter_trees_update_omits.exit ], [ %.034, %47 ], [ 3, %7 ], [ 3, %7 ]
   ret i32 %.0
 }
 
@@ -786,7 +786,7 @@ st_mult.exit:                                     ; preds = %32
   br label %98
 
 98:                                               ; preds = %86, %87, %55, %42, %7, %7, %94, %53
-  %.053 = phi i32 [ 0, %94 ], [ 2, %53 ], [ 3, %7 ], [ 3, %7 ], [ 0, %42 ], [ %.64, %55 ], [ 3, %87 ], [ 3, %86 ]
+  %.053 = phi i32 [ 2, %53 ], [ 0, %94 ], [ 3, %7 ], [ 3, %7 ], [ 0, %42 ], [ %.64, %55 ], [ 3, %87 ], [ 3, %86 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   ret i32 %.053
 }

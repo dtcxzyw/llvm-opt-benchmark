@@ -212,13 +212,13 @@ define i32 @_ZN18ruff_python_trivia9tokenizer12lines_before17h5844d377e903a977E(
   %20 = call zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor13eat_char_back17h392f6c9b7c293e01E(ptr nonnull align 8 %4, i32 13)
   br label %.outer.backedge
 
-.outer:                                           ; preds = %.outer.backedge, %11
-  %.sroa.0.0.ph = phi i32 [ 0, %11 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
-  br label %14
-
 .outer.backedge:                                  ; preds = %14, %19
   %.sroa.0.0.ph.be = add i32 %.sroa.0.0.ph, 1
   br label %.outer
+
+.outer:                                           ; preds = %.outer.backedge, %11
+  %.sroa.0.0.ph = phi i32 [ 0, %11 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  br label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -256,6 +256,10 @@ define i32 @_ZN18ruff_python_trivia9tokenizer11lines_after17h13f6d7443a6cca01E(i
   %16 = call zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE(i32 %13)
   br i1 %16, label %12, label %14
 
+.outer.backedge:                                  ; preds = %12, %17
+  %.sroa.0.0.ph.be = add i32 %.sroa.0.0.ph, 1
+  br label %.outer
+
 .outer:                                           ; preds = %.outer.backedge, %9
   %.sroa.0.0.ph = phi i32 [ 0, %9 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   br label %12
@@ -263,10 +267,6 @@ define i32 @_ZN18ruff_python_trivia9tokenizer11lines_after17h13f6d7443a6cca01E(i
 17:                                               ; preds = %12
   %18 = call zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17he92948beb33b3e1dE(ptr nonnull align 8 %4, i32 10)
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %12, %17
-  %.sroa.0.0.ph.be = add i32 %.sroa.0.0.ph, 1
-  br label %.outer
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1014,7 +1014,7 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17he24267c493fa02e3E.exit.
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17h7051e1c2686e2c64E.exit.i
 
 _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17h7051e1c2686e2c64E.exit.i: ; preds = %168, %166, %108, %103, %90, %87, %86, %85, %84, %83, %82, %80, %78, %76, %74, %72, %71, %70, %69, %68, %67, %66, %63, %62, %55, %53, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %29, %28, %26, %25, %24, %18
-  %.sroa.02.0.i.i = phi i8 [ 87, %108 ], [ 88, %168 ], [ 87, %166 ], [ %105, %103 ], [ 88, %24 ], [ 8, %71 ], [ 7, %70 ], [ 10, %69 ], [ 9, %68 ], [ 6, %67 ], [ 5, %66 ], [ 49, %90 ], [ 11, %62 ], [ 13, %55 ], [ 27, %52 ], [ 88, %82 ], [ 3, %29 ], [ 0, %28 ], [ 4, %26 ], [ 1, %25 ], [ 4, %18 ], [ %..i.i, %30 ], [ %.12.i.i, %32 ], [ %.13.i.i, %38 ], [ %.14.i.i, %40 ], [ %.15.i.i, %42 ], [ %.16.i.i, %44 ], [ %.17.i.i, %48 ], [ %.18.i.i, %53 ], [ 38, %34 ], [ 15, %72 ], [ %.19.i.i, %74 ], [ 39, %36 ], [ 14, %76 ], [ %.20.i.i, %78 ], [ %.21.i.i, %80 ], [ 37, %46 ], [ 29, %50 ], [ %.22.i.i, %83 ], [ %.23.i.i, %84 ], [ %.24.i.i, %85 ], [ %.25.i.i, %86 ], [ 16, %87 ], [ 16, %63 ]
+  %.sroa.02.0.i.i = phi i8 [ 87, %108 ], [ 88, %168 ], [ 87, %166 ], [ %105, %103 ], [ 88, %24 ], [ 1, %25 ], [ 4, %26 ], [ 0, %28 ], [ 3, %29 ], [ 88, %82 ], [ 27, %52 ], [ 13, %55 ], [ 11, %62 ], [ 49, %90 ], [ 5, %66 ], [ 6, %67 ], [ 9, %68 ], [ 10, %69 ], [ 7, %70 ], [ 8, %71 ], [ 4, %18 ], [ %..i.i, %30 ], [ %.12.i.i, %32 ], [ %.13.i.i, %38 ], [ %.14.i.i, %40 ], [ %.15.i.i, %42 ], [ %.16.i.i, %44 ], [ %.17.i.i, %48 ], [ %.18.i.i, %53 ], [ 38, %34 ], [ 15, %72 ], [ %.19.i.i, %74 ], [ 39, %36 ], [ 14, %76 ], [ %.20.i.i, %78 ], [ %.21.i.i, %80 ], [ 37, %46 ], [ 29, %50 ], [ %.22.i.i, %83 ], [ %.23.i.i, %84 ], [ %.24.i.i, %85 ], [ %.25.i.i, %86 ], [ 16, %87 ], [ 16, %63 ]
   %169 = tail call i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h7a25922a84aa333bE(ptr nonnull align 8 %5), !noalias !3
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %171 = load i32, ptr %170, align 8, !noalias !3
@@ -1297,7 +1297,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
   br label %69
 
 69:                                               ; preds = %47, %67, %66, %64
-  %.sroa.05.0 = phi i8 [ %65, %64 ], [ 4, %67 ], [ 1, %66 ], [ 4, %47 ]
+  %.sroa.05.0 = phi i8 [ %65, %64 ], [ 1, %66 ], [ 4, %67 ], [ 4, %47 ]
   %70 = tail call i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h7a25922a84aa333bE(ptr nonnull align 8 %5)
   %71 = load i32, ptr %10, align 4
   %.not14 = icmp ugt i32 %70, %71
@@ -1469,7 +1469,7 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6be
   br i1 %.not, label %60, label %61
 
 .thread:                                          ; preds = %103, %97, %101, %select.unfold, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread43, %147, %137, %89, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %30
-  %.sroa.02.0 = phi i8 [ %149, %147 ], [ 88, %137 ], [ 88, %30 ], [ 88, %89 ], [ 18, %47 ], [ 17, %46 ], [ 24, %45 ], [ 23, %44 ], [ 8, %43 ], [ 7, %42 ], [ 10, %41 ], [ 9, %40 ], [ 6, %39 ], [ 5, %38 ], [ 13, %37 ], [ 11, %36 ], [ 25, %35 ], [ 22, %34 ], [ 27, %33 ], [ 12, %32 ], [ 3, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread43 ], [ %80, %select.unfold ], [ %80, %101 ], [ %80, %97 ], [ %80, %103 ]
+  %.sroa.02.0 = phi i8 [ %149, %147 ], [ 88, %137 ], [ 88, %30 ], [ 12, %32 ], [ 27, %33 ], [ 22, %34 ], [ 25, %35 ], [ 11, %36 ], [ 13, %37 ], [ 5, %38 ], [ 6, %39 ], [ 9, %40 ], [ 10, %41 ], [ 7, %42 ], [ 8, %43 ], [ 23, %44 ], [ 24, %45 ], [ 17, %46 ], [ 18, %47 ], [ 88, %89 ], [ 3, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread43 ], [ %80, %select.unfold ], [ %80, %101 ], [ %80, %97 ], [ %80, %103 ]
   ret i8 %.sroa.02.0
 
 60:                                               ; preds = %48

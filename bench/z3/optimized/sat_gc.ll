@@ -1601,7 +1601,7 @@ _ZN3sat6solver11assign_unitENS_7literalE.exit:    ; preds = %31, %38, %40, %41, 
   br label %.thread42
 
 .thread42:                                        ; preds = %12, %30, %_ZN3sat6solver11assign_unitENS_7literalE.exit, %53, %58
-  %.3 = phi i1 [ true, %58 ], [ false, %53 ], [ false, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ false, %30 ], [ false, %12 ]
+  %.3 = phi i1 [ true, %58 ], [ false, %30 ], [ false, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ false, %53 ], [ false, %12 ]
   ret i1 %.3
 }
 

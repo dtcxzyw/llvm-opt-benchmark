@@ -2740,7 +2740,7 @@ define internal i32 @accumulate_traverse(ptr noundef readonly captures(none) %0,
   br label %28
 
 28:                                               ; preds = %25, %20, %15, %10, %5, %27
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %27 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -3091,7 +3091,7 @@ define internal i32 @batched_traverse(ptr noundef readonly captures(none) %0, pt
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -3528,7 +3528,7 @@ define internal i32 @chain_traverse(ptr noundef readonly captures(none) %0, ptr 
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -3905,7 +3905,7 @@ define internal i32 @combinations_traverse(ptr noundef readonly captures(none) %
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -4418,7 +4418,7 @@ define internal i32 @compress_traverse(ptr noundef readonly captures(none) %0, p
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -4762,7 +4762,7 @@ define internal i32 @count_traverse(ptr noundef readonly captures(none) %0, ptr 
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -5183,7 +5183,7 @@ define internal i32 @cwr_traverse(ptr noundef readonly captures(none) %0, ptr no
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -5652,7 +5652,7 @@ define internal i32 @cycle_traverse(ptr noundef readonly captures(none) %0, ptr 
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -5985,7 +5985,7 @@ define internal i32 @dropwhile_traverse(ptr noundef readonly captures(none) %0, 
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -6283,7 +6283,7 @@ define internal i32 @filterfalse_traverse(ptr noundef readonly captures(none) %0
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -6674,7 +6674,7 @@ define internal i32 @groupby_traverse(ptr noundef readonly captures(none) %0, pt
   br label %33
 
 33:                                               ; preds = %30, %25, %20, %15, %10, %5, %32
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ %31, %30 ], [ 0, %32 ]
+  %.1 = phi i32 [ 0, %32 ], [ %31, %30 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -7090,7 +7090,7 @@ define internal i32 @_grouper_traverse(ptr noundef readonly captures(none) %0, p
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -7425,7 +7425,7 @@ define internal i32 @islice_traverse(ptr noundef readonly captures(none) %0, ptr
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -7890,7 +7890,7 @@ define internal i32 @pairwise_traverse(ptr noundef readonly captures(none) %0, p
   br label %23
 
 23:                                               ; preds = %20, %15, %10, %5, %22
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ 0, %22 ]
+  %.1 = phi i32 [ 0, %22 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -8432,7 +8432,7 @@ define internal i32 @permutations_traverse(ptr noundef readonly captures(none) %
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -9013,7 +9013,7 @@ define internal i32 @product_traverse(ptr noundef readonly captures(none) %0, pt
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -9577,7 +9577,7 @@ define internal i32 @repeat_traverse(ptr noundef readonly captures(none) %0, ptr
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -9809,7 +9809,7 @@ define internal i32 @starmap_traverse(ptr noundef readonly captures(none) %0, pt
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -10076,7 +10076,7 @@ define internal i32 @takewhile_traverse(ptr noundef readonly captures(none) %0, 
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -10346,7 +10346,7 @@ define internal i32 @tee_traverse(ptr noundef readonly captures(none) %0, ptr no
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -11122,7 +11122,7 @@ define internal i32 @zip_longest_traverse(ptr noundef readonly captures(none) %0
   br label %23
 
 23:                                               ; preds = %20, %15, %10, %5, %22
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ 0, %22 ]
+  %.1 = phi i32 [ 0, %22 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

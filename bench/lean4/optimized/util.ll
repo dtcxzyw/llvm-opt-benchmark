@@ -3360,7 +3360,7 @@ _ZNK4lean4name10get_prefixEv.exit:                ; preds = %83, %86
   unreachable
 
 common.resume:                                    ; preds = %62, %208, %260, %286, %105
-  %common.resume.op = phi { ptr, i32 } [ %106, %105 ], [ %261, %260 ], [ %287, %286 ], [ %.pn.pn.pn, %208 ], [ %63, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %106, %105 ], [ %63, %62 ], [ %.pn.pn.pn, %208 ], [ %261, %260 ], [ %287, %286 ]
   resume { ptr, i32 } %common.resume.op
 
 105:                                              ; preds = %_ZNK4lean4name10get_prefixEv.exit

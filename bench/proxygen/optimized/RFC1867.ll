@@ -1428,7 +1428,7 @@ cleanup:                                          ; preds = %_ZN5folly10IOBufQue
   ret void
 
 ehcleanup310:                                     ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit, %lpad.i, %lpad.i197, %lpad.i76, %cleanup.action302, %cleanup.action186, %lpad228, %lpad220, %lpad204, %lpad198, %lpad142, %lpad21
-  %.pn14 = phi { ptr, i32 } [ %.pn, %cleanup.action302 ], [ %155, %lpad228 ], [ %154, %lpad220 ], [ %153, %lpad204 ], [ %152, %lpad198 ], [ %.pn12, %cleanup.action186 ], [ %124, %lpad142 ], [ %25, %lpad21 ], [ %36, %lpad.i ], [ %77, %lpad.i76 ], [ %162, %lpad.i197 ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit433, %lpad4.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp434, %lpad4.loopexit.split-lp.loopexit.split-lp ]
+  %.pn14 = phi { ptr, i32 } [ %25, %lpad21 ], [ %.pn12, %cleanup.action186 ], [ %124, %lpad142 ], [ %.pn, %cleanup.action302 ], [ %155, %lpad228 ], [ %154, %lpad220 ], [ %153, %lpad204 ], [ %152, %lpad198 ], [ %36, %lpad.i ], [ %77, %lpad.i76 ], [ %162, %lpad.i197 ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit433, %lpad4.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp434, %lpad4.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %result) #20
   br label %eh.resume
 

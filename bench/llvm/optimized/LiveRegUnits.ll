@@ -600,7 +600,7 @@ define dso_local void @_ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFuncti
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %36, %35 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %38 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %.not30.i.i.i.i.i.i.i.i.i = icmp eq i64 %38, 0
   br i1 %.not30.i.i.i.i.i.i.i.i.i, label %39, label %_ZNK4llvm12LiveRegUnits5emptyEv.exit
@@ -610,7 +610,7 @@ define dso_local void @_ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFuncti
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %40, %39 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %39 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %42 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm12LiveRegUnits5emptyEv.exit.thread, label %_ZNK4llvm12LiveRegUnits5emptyEv.exit
@@ -889,7 +889,7 @@ define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_1
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i.i
-  %.sroa.050.1.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %38, %37 ]
+  %.sroa.050.1.i.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.01.0.copyload.i30.i.i.i.i = load i64, ptr %.sroa.050.1.i.i.i.i, align 4
   %.sroa.01.0.extract.trunc.i.i31.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i30.i.i.i.i to i32
   %40 = icmp eq i32 %19, %.sroa.01.0.extract.trunc.i.i31.i.i.i.i
@@ -900,7 +900,7 @@ define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_1
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i
-  %.sroa.050.2.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %42, %41 ]
+  %.sroa.050.2.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.01.0.copyload.i32.i.i.i.i = load i64, ptr %.sroa.050.2.i.i.i.i, align 4
   %.sroa.01.0.extract.trunc.i.i33.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i32.i.i.i.i to i32
   %44 = icmp eq i32 %19, %.sroa.01.0.extract.trunc.i.i33.i.i.i.i

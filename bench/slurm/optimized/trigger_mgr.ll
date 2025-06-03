@@ -2871,7 +2871,7 @@ _load_trigger_state.exit:                         ; preds = %.loopexit27, %155
   br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 160:                                              ; preds = %_load_trigger_state.exit, %23, %40, %29
-  %.013 = phi i32 [ 0, %23 ], [ 0, %40 ], [ %.144, %_load_trigger_state.exit ], [ 0, %29 ]
+  %.013 = phi i32 [ 0, %40 ], [ %.144, %_load_trigger_state.exit ], [ 0, %29 ], [ 0, %23 ]
   %161 = load i8, ptr @ignore_state_errors, align 1, !range !18, !noundef !19
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %164, label %163

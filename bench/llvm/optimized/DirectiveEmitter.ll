@@ -1008,7 +1008,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %87, %89
   br label %187
 
 187:                                              ; preds = %185, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %186, %185 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %186, %185 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %188 = load ptr, ptr %.sroa.025.1.i.i.i.i.i, align 8, !tbaa !15
   %189 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %188, ptr nonnull @.str.38, i64 9) #22
   br i1 %189, label %"_ZN4llvm7find_ifIRKSt6vectorIPKNS_6RecordESaIS4_EEZL24generateGetKindClauseValRKNS_17DirectiveLanguageERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit.i", label %190
@@ -1018,7 +1018,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %87, %89
   br label %192
 
 192:                                              ; preds = %190, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %191, %190 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %191, %190 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %193 = load ptr, ptr %.sroa.025.2.i.i.i.i.i, align 8, !tbaa !15
   %194 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %193, ptr nonnull @.str.38, i64 9) #22
   %spec.select.i.i.i.i.i = select i1 %194, ptr %.sroa.025.2.i.i.i.i.i, ptr %154
@@ -7475,7 +7475,7 @@ define internal fastcc void @_ZL15generateGetKindN4llvm8ArrayRefIPKNS_6RecordEEE
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !15
   %39 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.1.val.i.i.i.i, ptr nonnull @.str.38, i64 9) #22
   br i1 %39, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit", label %40
@@ -7485,7 +7485,7 @@ define internal fastcc void @_ZL15generateGetKindN4llvm8ArrayRefIPKNS_6RecordEEE
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.2.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !15
   %43 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.2.val.i.i.i.i, ptr nonnull @.str.38, i64 9) #22
   br i1 %43, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit", label %_ZN4llvmplERKNS_5TwineES2_.exit
@@ -14882,7 +14882,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit:   ; preds = %._crit_edge, %106
   br label %149
 
 149:                                              ; preds = %54, %148
-  %.1 = phi i32 [ %56, %54 ], [ %.2, %148 ]
+  %.1 = phi i32 [ %.2, %148 ], [ %56, %54 ]
   ret i32 %.1
 }
 

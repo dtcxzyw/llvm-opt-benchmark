@@ -842,7 +842,7 @@ _ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit: ; preds = %_ZNKSt7__cxx1112ba
           to label %116 unwind label %101
 
 116:                                              ; preds = %114, %_ZN5ceres8internal14DoglegStrategy15ComputeGradientEPNS0_12SparseMatrixEPKd.exit, %115, %100, %97
-  %.sroa.9.1 = phi i32 [ %86, %_ZN5ceres8internal14DoglegStrategy15ComputeGradientEPNS0_12SparseMatrixEPKd.exit ], [ %86, %97 ], [ %86, %115 ], [ %86, %100 ], [ 2, %114 ]
+  %.sroa.9.1 = phi i32 [ %86, %_ZN5ceres8internal14DoglegStrategy15ComputeGradientEPNS0_12SparseMatrixEPKd.exit ], [ %86, %97 ], [ %86, %100 ], [ %86, %115 ], [ 2, %114 ]
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !56
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -4224,7 +4224,7 @@ thread-pre-split.i.i.i.i.i.i.i52:                 ; preds = %196
   br label %273
 
 258:                                              ; preds = %228, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit, %94, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi35EEERS2_RAT__Kc.exit
-  %.021 = phi i1 [ false, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit ], [ true, %228 ], [ true, %94 ], [ false, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi35EEERS2_RAT__Kc.exit ]
+  %.021 = phi i1 [ false, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit ], [ false, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi35EEERS2_RAT__Kc.exit ], [ true, %94 ], [ true, %228 ]
   %259 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %260 = load ptr, ptr %259, align 8, !tbaa !176
   call void @free(ptr noundef %260) #30
@@ -4252,7 +4252,7 @@ thread-pre-split.i.i.i.i.i.i.i52:                 ; preds = %196
   ret i1 %.021
 
 273:                                              ; preds = %.body, %241, %240, %102, %93
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %102 ], [ %.pn28.pn.pn.pn, %.body ], [ %242, %241 ], [ %.pn, %240 ], [ %.pn33, %93 ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %102 ], [ %.pn33, %93 ], [ %.pn28.pn.pn.pn, %.body ], [ %242, %241 ], [ %.pn, %240 ]
   call void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %9) #30
   br label %274
 

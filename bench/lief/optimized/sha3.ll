@@ -790,7 +790,7 @@ default.unreachable31:                            ; preds = %17
   br label %30
 
 30:                                               ; preds = %27, %24, %21, %18
-  %.0 = phi i32 [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ]
+  %.0 = phi i32 [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ]
   %.not23 = icmp eq i32 %.0, 0
   %.not24 = icmp eq i32 %0, 0
   br i1 %.not23, label %34, label %31
@@ -895,7 +895,7 @@ default.unreachable34:                            ; preds = %20
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21
-  %.3 = phi i32 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ]
+  %.3 = phi i32 [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   %30 = icmp ne i32 %.3, 0
   %or.cond3 = and i1 %7, %30
   br i1 %or.cond3, label %.thread, label %31

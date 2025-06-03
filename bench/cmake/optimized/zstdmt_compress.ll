@@ -3404,7 +3404,7 @@ ZSTDMT_serialState_update.exit:                   ; preds = %202, %207
   br label %.thread177
 
 .thread177:                                       ; preds = %261, %134, %119, %126, %.thread195, %216, %110, %.thread190, %94, %86, %52
-  %.0 = phi i64 [ 0, %52 ], [ 0, %86 ], [ 0, %94 ], [ 0, %110 ], [ 0, %261 ], [ %.1194, %.thread190 ], [ 0, %216 ], [ 0, %.thread195 ], [ 0, %126 ], [ 0, %119 ], [ 0, %134 ]
+  %.0 = phi i64 [ 0, %52 ], [ 0, %86 ], [ 0, %94 ], [ %.1194, %.thread190 ], [ 0, %261 ], [ 0, %216 ], [ 0, %110 ], [ 0, %.thread195 ], [ 0, %126 ], [ 0, %119 ], [ 0, %134 ]
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %264 = load ptr, ptr %263, align 8, !tbaa !140
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 104

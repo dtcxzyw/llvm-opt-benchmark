@@ -1694,8 +1694,8 @@ object_format_from_os.exit.thread212:             ; preds = %409, %arch_big_endi
   store i32 %.0.i78.ph211, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   br label %415
 
-412:                                              ; preds = %arch_big_endian.exit, %410, %408, %405
-  %.0.i78.ph = phi i32 [ 5, %405 ], [ 3, %408 ], [ 5, %410 ], [ 1, %arch_big_endian.exit ]
+412:                                              ; preds = %arch_big_endian.exit, %408, %410, %405
+  %.0.i78.ph = phi i32 [ 5, %405 ], [ 5, %410 ], [ 3, %408 ], [ 1, %arch_big_endian.exit ]
   store i32 %.0.i78.ph, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   %413 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
   %414 = or i16 %413, 8192
@@ -1972,8 +1972,8 @@ os_target_alignment_of_int.exit.thread:           ; preds = %450, %452, %453, %.
   br label %458
 
 os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i, %445, %449, %os_is_apple.exit57.thread.i
-  %.sroa.0.0.i = phi i32 [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ %..i90, %os_is_apple.exit.i ], [ %439, %449 ]
-  %.sroa.11.0.i = phi i32 [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ %444, %os_is_apple.exit.i ], [ 32, %449 ]
+  %.sroa.0.0.i = phi i32 [ %446, %445 ], [ %439, %os_is_apple.exit57.thread.i ], [ %..i90, %os_is_apple.exit.i ], [ %439, %449 ]
+  %.sroa.11.0.i = phi i32 [ %446, %445 ], [ %439, %os_is_apple.exit57.thread.i ], [ %444, %os_is_apple.exit.i ], [ 32, %449 ]
   %.sroa.11.0.insert.ext.i = zext nneg i32 %.sroa.11.0.i to i64
   %.sroa.11.0.insert.shift.i = shl nuw nsw i64 %.sroa.11.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.0.i to i64
@@ -2658,7 +2658,7 @@ x64_cpu_default.exit.i:                           ; preds = %622, %616, %610, %6
   unreachable
 
 x86_cpu_from_set.exit.i:                          ; preds = %640, %639, %638, %637, %636, %636
-  %.0.i18.i = phi ptr [ %641, %640 ], [ @.str.324, %639 ], [ @.str.323, %638 ], [ @.str.322, %637 ], [ @.str.321, %636 ], [ @.str.321, %636 ]
+  %.0.i18.i = phi ptr [ @.str.322, %637 ], [ @.str.323, %638 ], [ @.str.324, %639 ], [ %641, %640 ], [ @.str.321, %636 ], [ @.str.321, %636 ]
   store ptr %.0.i18.i, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 16), align 8
   call fastcc void @x86features_from_cpu(ptr noundef %5, i32 noundef %.0.i108)
   %643 = load i16, ptr %599, align 8
@@ -3174,7 +3174,7 @@ default.unreachable245:                           ; preds = %arch_os_reloc_defau
   unreachable
 
 arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_default.exit.thread, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %756, %758
-  %.0.i119 = phi i1 [ %761, %758 ], [ %757, %756 ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit.thread ]
+  %.0.i119 = phi i1 [ %757, %756 ], [ %761, %758 ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit.thread ]
   %763 = zext i1 %.0.i119 to i16
   %764 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
   %765 = and i16 %764, -2
@@ -3388,7 +3388,7 @@ define internal fastcc range(i32 0, 65) i32 @arch_pointer_bit_width(i32 noundef 
   unreachable
 
 10:                                               ; preds = %7, %5, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %4, %3
-  %.0 = phi i32 [ 64, %4 ], [ 32, %3 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %., %5 ], [ %.4, %7 ]
+  %.0 = phi i32 [ 32, %3 ], [ 64, %4 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %., %5 ], [ %.4, %7 ]
   ret i32 %.0
 }
 
@@ -3477,7 +3477,7 @@ switch.lookup13:                                  ; preds = %3, %3, %3
   br label %15
 
 15:                                               ; preds = %switch.lookup13, %switch.lookup10, %switch.lookup, %7, %11, %9, %8
-  %.0 = phi i32 [ 64, %11 ], [ %10, %9 ], [ 32, %8 ], [ 16, %7 ], [ %switch.load, %switch.lookup ], [ %switch.load12, %switch.lookup10 ], [ %switch.load15, %switch.lookup13 ]
+  %.0 = phi i32 [ 32, %8 ], [ %10, %9 ], [ 64, %11 ], [ 16, %7 ], [ %switch.load, %switch.lookup ], [ %switch.load12, %switch.lookup10 ], [ %switch.load15, %switch.lookup13 ]
   ret i32 %.0
 }
 

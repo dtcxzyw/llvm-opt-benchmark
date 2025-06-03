@@ -1779,8 +1779,8 @@ default.unreachable:                              ; preds = %48
   unreachable
 
 _ZNK7LIR_Opr4typeEv.exit7:                        ; preds = %.thread, %48, %51, %52, %53, %54, %55, %56
-  %57 = phi ptr [ %43, %.thread ], [ %50, %56 ], [ %50, %55 ], [ %50, %54 ], [ %50, %53 ], [ %50, %52 ], [ %50, %51 ], [ %50, %48 ]
-  %.0.i6 = phi i8 [ %47, %.thread ], [ 17, %56 ], [ 15, %55 ], [ 12, %54 ], [ 7, %53 ], [ 6, %52 ], [ 11, %51 ], [ 10, %48 ]
+  %57 = phi ptr [ %43, %.thread ], [ %50, %51 ], [ %50, %52 ], [ %50, %53 ], [ %50, %54 ], [ %50, %55 ], [ %50, %56 ], [ %50, %48 ]
+  %.0.i6 = phi i8 [ %47, %.thread ], [ 11, %51 ], [ 6, %52 ], [ 7, %53 ], [ 12, %54 ], [ 15, %55 ], [ 17, %56 ], [ 10, %48 ]
   %58 = tail call i64 @_ZN12LIRGenerator14force_to_spillE7LIR_Opr9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %57, i64 %3, i8 noundef zeroext %.0.i6)
   br label %59
 
@@ -20729,9 +20729,9 @@ _ZNK7LIR_Opr4typeEv.exit.thread36:                ; preds = %45, %_ZNK7LIR_Opr4t
   %95 = add nsw i32 %.02842, 1
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZNK7LIR_Opr4typeEv.exit, %45, %52, %53, %54, %55, %56, %94
-  %.0.i3540 = phi i8 [ %.0.i35.ph, %94 ], [ 10, %45 ], [ 11, %52 ], [ 6, %53 ], [ 7, %54 ], [ 15, %55 ], [ 17, %56 ], [ %63, %_ZNK7LIR_Opr4typeEv.exit ]
-  %.1 = phi i32 [ %95, %94 ], [ %.02842, %45 ], [ %.02842, %52 ], [ %.02842, %53 ], [ %.02842, %54 ], [ %.02842, %55 ], [ %.02842, %56 ], [ %.02842, %_ZNK7LIR_Opr4typeEv.exit ]
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZNK7LIR_Opr4typeEv.exit, %45, %56, %55, %54, %53, %52, %94
+  %.0.i3540 = phi i8 [ %.0.i35.ph, %94 ], [ 10, %45 ], [ 17, %56 ], [ 15, %55 ], [ 7, %54 ], [ 6, %53 ], [ 11, %52 ], [ %63, %_ZNK7LIR_Opr4typeEv.exit ]
+  %.1 = phi i32 [ %95, %94 ], [ %.02842, %45 ], [ %.02842, %56 ], [ %.02842, %55 ], [ %.02842, %54 ], [ %.02842, %53 ], [ %.02842, %52 ], [ %.02842, %_ZNK7LIR_Opr4typeEv.exit ]
   %96 = zext i8 %.0.i3540 to i64
   %97 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
@@ -27088,56 +27088,56 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %66 = load i32, ptr %65, align 8
-  switch i32 %66, label %76 [
-    i32 0, label %78
-    i32 1, label %67
-    i32 2, label %68
-    i32 3, label %70
-    i32 4, label %71
-    i32 5, label %73
-    i32 6, label %74
-    i32 7, label %75
+  switch i32 %66, label %77 [
+    i32 0, label %67
+    i32 1, label %69
+    i32 2, label %70
+    i32 3, label %72
+    i32 4, label %73
+    i32 5, label %75
+    i32 6, label %76
+    i32 7, label %79
   ]
 
 67:                                               ; preds = %50
+  %68 = icmp eq i32 %57, %64
+  br i1 %68, label %80, label %196
+
+69:                                               ; preds = %50
   %.not91 = icmp eq i32 %57, %64
   br i1 %.not91, label %196, label %80
 
-68:                                               ; preds = %50
-  %69 = icmp slt i32 %57, %64
-  br i1 %69, label %80, label %196
-
 70:                                               ; preds = %50
+  %71 = icmp slt i32 %57, %64
+  br i1 %71, label %80, label %196
+
+72:                                               ; preds = %50
   %.not90 = icmp sgt i32 %57, %64
   br i1 %.not90, label %196, label %80
 
-71:                                               ; preds = %50
-  %72 = icmp sgt i32 %57, %64
-  br i1 %72, label %80, label %196
-
 73:                                               ; preds = %50
+  %74 = icmp sgt i32 %57, %64
+  br i1 %74, label %80, label %196
+
+75:                                               ; preds = %50
   %.not89 = icmp slt i32 %57, %64
   br i1 %.not89, label %196, label %80
 
-74:                                               ; preds = %50
+76:                                               ; preds = %50
   %.not88 = icmp ult i32 %57, %64
   br i1 %.not88, label %196, label %80
 
-75:                                               ; preds = %50
-  %.not87 = icmp ugt i32 %57, %64
-  br i1 %.not87, label %196, label %80
-
-76:                                               ; preds = %50
-  %77 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %77, align 1
+77:                                               ; preds = %50
+  %78 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %78, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 3404) #18
   unreachable
 
-78:                                               ; preds = %50
-  %79 = icmp eq i32 %57, %64
-  br i1 %79, label %80, label %196
+79:                                               ; preds = %50
+  %.not87 = icmp ugt i32 %57, %64
+  br i1 %.not87, label %196, label %80
 
-80:                                               ; preds = %67, %68, %70, %71, %73, %74, %75, %78
+80:                                               ; preds = %76, %75, %73, %72, %70, %69, %67, %79
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef ptr @_ZN12LIRGenerator9state_forEP11InstructionP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1, ptr noundef %82, i1 noundef zeroext false)
@@ -27352,7 +27352,7 @@ switch.lookup:                                    ; preds = %188
   call void @_ZN8LIR_List6branchE13LIR_ConditionP8CodeStub(ptr noundef nonnull align 8 dereferenceable(32) %195, i32 noundef %switch.load, ptr noundef %.0.i.i.i70)
   br label %196
 
-196:                                              ; preds = %67, %68, %70, %71, %73, %74, %75, %switch.lookup, %104, %78, %33
+196:                                              ; preds = %76, %75, %73, %72, %70, %69, %67, %switch.lookup, %104, %79, %33
   ret void
 }
 

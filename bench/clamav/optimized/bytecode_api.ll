@@ -314,7 +314,7 @@ define i32 @cli_bcapi_seek(ptr noundef captures(none) %0, i32 noundef %1, i32 no
   br label %35
 
 24:                                               ; preds = %12, %10
-  %.0 = phi i64 [ %16, %12 ], [ %11, %10 ]
+  %.0 = phi i64 [ %11, %10 ], [ %16, %12 ]
   %25 = icmp slt i64 %.0, 0
   %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre25 = load i32, ptr %.phi.trans.insert24, align 8, !tbaa !41
@@ -2432,7 +2432,7 @@ get_buffer.exit31:                                ; preds = %get_buffer.exit
   br label %32
 
 32:                                               ; preds = %21, %get_buffer.exit31, %31, %30, %29, %28, %get_buffer.exit.thread
-  %.0 = phi i32 [ -1, %31 ], [ -1, %30 ], [ -1, %29 ], [ -1, %28 ], [ -1, %get_buffer.exit.thread ], [ -1, %get_buffer.exit31 ], [ %6, %21 ]
+  %.0 = phi i32 [ -1, %31 ], [ -1, %28 ], [ -1, %29 ], [ -1, %30 ], [ -1, %get_buffer.exit.thread ], [ -1, %get_buffer.exit31 ], [ %6, %21 ]
   ret i32 %.0
 }
 
@@ -3724,7 +3724,7 @@ get_buffer.exit29:                                ; preds = %get_buffer.exit
   br label %30
 
 30:                                               ; preds = %20, %get_buffer.exit29, %29, %28, %27, %26, %get_buffer.exit.thread
-  %.0 = phi i32 [ -1, %29 ], [ -1, %28 ], [ -1, %27 ], [ -1, %26 ], [ -1, %get_buffer.exit.thread ], [ -1, %get_buffer.exit29 ], [ %5, %20 ]
+  %.0 = phi i32 [ -1, %29 ], [ -1, %26 ], [ -1, %27 ], [ -1, %28 ], [ -1, %get_buffer.exit.thread ], [ -1, %get_buffer.exit29 ], [ %5, %20 ]
   ret i32 %.0
 }
 

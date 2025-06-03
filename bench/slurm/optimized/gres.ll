@@ -8097,8 +8097,8 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %.prehead
   br label %_gres_scale_value.exit
 
 _gres_scale_value.exit:                           ; preds = %.loopexit, %._crit_edge.i, %41, %42, %43
-  %.064 = phi i64 [ %34, %43 ], [ %34, %41 ], [ %34, %._crit_edge.i ], [ %34, %42 ], [ %2, %.loopexit ]
-  %.str.218.sink.i = phi ptr [ @.str.221, %43 ], [ @.str.219, %41 ], [ @.str.218, %._crit_edge.i ], [ @.str.220, %42 ], [ @.str.5, %.loopexit ]
+  %.064 = phi i64 [ %34, %43 ], [ %34, %42 ], [ %34, %._crit_edge.i ], [ %34, %41 ], [ %2, %.loopexit ]
+  %.str.218.sink.i = phi ptr [ @.str.221, %43 ], [ @.str.220, %42 ], [ @.str.218, %._crit_edge.i ], [ @.str.219, %41 ], [ @.str.5, %.loopexit ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.60, ptr noundef %.048, ptr noundef nonnull %1, i64 noundef %.064, ptr noundef nonnull %.str.218.sink.i) #28
   call void @slurm_xfree(ptr noundef nonnull %3) #28
   %44 = load ptr, ptr %5, align 8
@@ -24518,9 +24518,9 @@ define internal range(i32 -1, 1) i32 @_foreach_get_step_info(ptr noundef readonl
   %41 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.351, ptr noundef nonnull @__func__._get_step_info, i32 noundef %13) #28
   br label %.sink.split
 
-.sink.split:                                      ; preds = %21, %29, %37, %39, %40, %17, %7
-  %.sink = phi i32 [ 22, %7 ], [ 2006, %17 ], [ 22, %40 ], [ 0, %39 ], [ 0, %37 ], [ 0, %29 ], [ 0, %21 ]
-  %.0.ph = phi i32 [ -1, %7 ], [ -1, %17 ], [ -1, %40 ], [ 0, %39 ], [ 0, %37 ], [ 0, %29 ], [ 0, %21 ]
+.sink.split:                                      ; preds = %29, %37, %39, %21, %40, %17, %7
+  %.sink = phi i32 [ 22, %7 ], [ 2006, %17 ], [ 22, %40 ], [ 0, %21 ], [ 0, %39 ], [ 0, %37 ], [ 0, %29 ]
+  %.0.ph = phi i32 [ -1, %7 ], [ -1, %17 ], [ -1, %40 ], [ 0, %21 ], [ 0, %39 ], [ 0, %37 ], [ 0, %29 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %.sink, ptr %42, align 4
   br label %43

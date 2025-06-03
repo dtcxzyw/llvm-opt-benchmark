@@ -1977,8 +1977,8 @@ _ZN4absl14flags_internal16GetFlagsHelpModeEv.exit97: ; preds = %_ZN4absl14flags_
   ret i32 %288
 
 292:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %_ZNSt14_Function_baseD2Ev.exit72, %_ZNSt14_Function_baseD2Ev.exit53, %_ZNSt14_Function_baseD2Ev.exit37
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %eh.lpad-body67, %_ZNSt14_Function_baseD2Ev.exit72 ], [ %eh.lpad-body48, %_ZNSt14_Function_baseD2Ev.exit53 ], [ %eh.lpad-body, %_ZNSt14_Function_baseD2Ev.exit37 ], [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %eh.lpad-body, %_ZNSt14_Function_baseD2Ev.exit37 ], [ %eh.lpad-body48, %_ZNSt14_Function_baseD2Ev.exit53 ], [ %eh.lpad-body67, %_ZNSt14_Function_baseD2Ev.exit72 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ]
+  resume { ptr, i32 } %.pn30.pn
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -307,7 +307,7 @@ define internal fastcc i32 @do_ssl3_write(ptr noundef %0, i32 noundef %1, ptr no
   br label %ssl3_write_pending.exit
 
 ssl3_write_pending.exit:                          ; preds = %28, %25, %24, %35, %52, %67, %45, %44
-  %.0 = phi i32 [ %40, %35 ], [ -1, %44 ], [ 0, %45 ], [ -1, %52 ], [ %.3, %67 ], [ -1, %24 ], [ %31, %28 ], [ %26, %25 ]
+  %.0 = phi i32 [ -1, %44 ], [ %40, %35 ], [ 0, %45 ], [ -1, %52 ], [ %.3, %67 ], [ -1, %24 ], [ %31, %28 ], [ %26, %25 ]
   ret i32 %.0
 }
 

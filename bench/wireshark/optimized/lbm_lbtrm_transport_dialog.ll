@@ -15856,8 +15856,8 @@ _ZN7QStringD2Ev.exit64:                           ; preds = %213, %_ZN17QArrayDa
   ret void
 
 219:                                              ; preds = %_ZN7QStringD2Ev.exit64, %_ZN7QStringD2Ev.exit44
-  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %_ZN7QStringD2Ev.exit64 ], [ %.pn30, %_ZN7QStringD2Ev.exit44 ]
-  resume { ptr, i32 } %.pn26.pn
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZN7QStringD2Ev.exit44 ], [ %.pn26, %_ZN7QStringD2Ev.exit64 ]
+  resume { ptr, i32 } %.pn30.pn
 }
 
 ; Function Attrs: null_pointer_is_valid

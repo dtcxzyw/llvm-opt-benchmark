@@ -6052,7 +6052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   br label %237
 
 237:                                              ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %236, %16
-  %.0 = phi ptr [ %.1, %_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ null, %236 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %236 ], [ %.1, %_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ null, %16 ]
   ret ptr %.0
 
 238:                                              ; preds = %229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, %215, %206
@@ -8162,7 +8162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
   br label %273
 
 273:                                              ; preds = %271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %148, %139, %131, %123, %115
-  %.pn37 = phi { ptr, i32 } [ %272, %271 ], [ %164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ], [ %149, %148 ], [ %140, %139 ], [ %132, %131 ], [ %124, %123 ], [ %116, %115 ]
+  %.pn37 = phi { ptr, i32 } [ %272, %271 ], [ %116, %115 ], [ %124, %123 ], [ %132, %131 ], [ %140, %139 ], [ %149, %148 ], [ %164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj6common16IdentifiedObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #35
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #35
@@ -9345,7 +9345,7 @@ define internal fastcc noundef ptr @_ZL17get_unit_categoryRKNSt7__cxx1112basic_s
   br label %20
 
 20:                                               ; preds = %11, %13, %17, %16, %8, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ %19, %17 ], [ @.str.99, %16 ], [ %10, %8 ], [ %7, %5 ], [ @.str.89, %4 ], [ @.str.88, %3 ], [ @.str.97, %11 ], [ %15, %13 ]
+  %.0 = phi ptr [ null, %2 ], [ @.str.88, %3 ], [ @.str.89, %4 ], [ %7, %5 ], [ %10, %8 ], [ @.str.99, %16 ], [ %19, %17 ], [ @.str.97, %11 ], [ %15, %13 ]
   ret ptr %.0
 }
 
@@ -10981,8 +10981,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
 126:                                              ; preds = %101
   br label %127
 
-127:                                              ; preds = %101, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107
-  %.0.i.ph = phi i32 [ 6, %101 ], [ %106, %107 ], [ 0, %108 ], [ 20, %109 ], [ 4, %110 ], [ 21, %111 ], [ 22, %112 ], [ 5, %113 ], [ 7, %114 ], [ 8, %115 ], [ 9, %116 ], [ 10, %117 ], [ 11, %118 ], [ 13, %119 ], [ 12, %120 ], [ 15, %121 ], [ 14, %122 ], [ 17, %123 ], [ 18, %124 ], [ 19, %125 ], [ 16, %126 ]
+127:                                              ; preds = %101, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126
+  %.0.i.ph = phi i32 [ 6, %101 ], [ 16, %126 ], [ 19, %125 ], [ 18, %124 ], [ 17, %123 ], [ 14, %122 ], [ 15, %121 ], [ 12, %120 ], [ 13, %119 ], [ 11, %118 ], [ 10, %117 ], [ 9, %116 ], [ 8, %115 ], [ 7, %114 ], [ 5, %113 ], [ 22, %112 ], [ 21, %111 ], [ 4, %110 ], [ 20, %109 ], [ 0, %108 ], [ %106, %107 ]
   %.not.i = icmp eq ptr %104, %103
   br i1 %.not.i, label %130, label %128
 
@@ -20742,8 +20742,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #35
   br label %134
 
-95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62
-  %.0.i.ph = phi i32 [ 6, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit ], [ %2, %62 ], [ 0, %63 ], [ 20, %64 ], [ 4, %65 ], [ 21, %66 ], [ 22, %67 ], [ 5, %68 ], [ 7, %69 ], [ 8, %70 ], [ 9, %71 ], [ 10, %72 ], [ 11, %73 ], [ 13, %74 ], [ 12, %75 ], [ 15, %76 ], [ 14, %77 ], [ 17, %78 ], [ 18, %79 ], [ 19, %80 ], [ 16, %81 ]
+95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81
+  %.0.i.ph = phi i32 [ 6, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit ], [ 16, %81 ], [ 19, %80 ], [ 18, %79 ], [ 17, %78 ], [ 14, %77 ], [ 15, %76 ], [ 12, %75 ], [ 13, %74 ], [ 11, %73 ], [ 10, %72 ], [ 9, %71 ], [ 8, %70 ], [ 7, %69 ], [ 5, %68 ], [ 22, %67 ], [ 21, %66 ], [ 4, %65 ], [ 20, %64 ], [ 0, %63 ], [ %2, %62 ]
   store i32 %.0.i.ph, ptr %9, align 4, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #35
   %96 = load ptr, ptr %6, align 8, !tbaa !178
@@ -38523,7 +38523,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   br label %.thread
 
 .thread:                                          ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit, %119, %120, %121
-  %.092165 = phi i32 [ 0, %121 ], [ 5, %119 ], [ 6, %120 ], [ 4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit ]
+  %.092165 = phi i32 [ 0, %121 ], [ 6, %120 ], [ 5, %119 ], [ 4, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #35
   %122 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %123 = load double, ptr %122, align 8, !tbaa !517
@@ -43479,14 +43479,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   br label %1164
 
 1164:                                             ; preds = %1163, %1087, %1011, %935, %811, %735, %603, %527, %397, %294, %164
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %1163 ], [ %.pn106.pn.pn, %1087 ], [ %.pn110.pn.pn, %1011 ], [ %.pn117.pn, %935 ], [ %.pn120.pn.pn, %811 ], [ %.pn124.pn.pn.pn.pn, %735 ], [ %.pn130.pn.pn, %603 ], [ %.pn140.pn.pn.pn, %397 ], [ %.pn134.pn.pn.pn.pn, %527 ], [ %.pn151.pn.pn.pn, %164 ], [ %.pn145.pn.pn.pn.pn, %294 ]
-  %.4 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
+  %.pn151.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn151.pn.pn.pn, %164 ], [ %.pn145.pn.pn.pn.pn, %294 ], [ %.pn140.pn.pn.pn, %397 ], [ %.pn134.pn.pn.pn.pn, %527 ], [ %.pn130.pn.pn, %603 ], [ %.pn124.pn.pn.pn.pn, %735 ], [ %.pn120.pn.pn, %811 ], [ %.pn117.pn, %935 ], [ %.pn110.pn.pn, %1011 ], [ %.pn106.pn.pn, %1087 ], [ %.pn.pn.pn, %1163 ]
+  %.4 = extractvalue { ptr, i32 } %.pn151.pn.pn.pn.pn, 1
   %1165 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %1166 = icmp eq i32 %.4, %1165
   br i1 %1166, label %1167, label %1178
 
 1167:                                             ; preds = %1164
-  %.459 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
+  %.459 = extractvalue { ptr, i32 } %.pn151.pn.pn.pn.pn, 0
   %1168 = call ptr @__cxa_begin_catch(ptr %.459) #35
   %1169 = load ptr, ptr %1168, align 8, !tbaa !27
   %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 16
@@ -43510,11 +43510,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   br label %1177
 
 1177:                                             ; preds = %61, %1176, %1173, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit318, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit307, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit296, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit272, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit261, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit238, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit227, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit204, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit188, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit165
-  %.0 = phi ptr [ null, %1176 ], [ %1106, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit318 ], [ null, %1173 ], [ %1030, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit307 ], [ %954, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit296 ], [ %869, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit ], [ %754, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit272 ], [ %626, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit261 ], [ %546, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit238 ], [ %314, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit204 ], [ %418, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit227 ], [ %81, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit165 ], [ %185, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit188 ], [ null, %61 ]
+  %.0 = phi ptr [ null, %1176 ], [ %81, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit165 ], [ null, %1173 ], [ %185, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit188 ], [ %314, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit204 ], [ %418, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit227 ], [ %546, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit238 ], [ %626, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit261 ], [ %754, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit272 ], [ %869, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit ], [ %954, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit296 ], [ %1030, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit307 ], [ %1106, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit318 ], [ null, %61 ]
   ret ptr %.0
 
 1178:                                             ; preds = %1174, %1164
-  %.merged = phi { ptr, i32 } [ %.pn.pn.pn.pn, %1164 ], [ %1175, %1174 ]
+  %.merged = phi { ptr, i32 } [ %.pn151.pn.pn.pn.pn, %1164 ], [ %1175, %1174 ]
   resume { ptr, i32 } %.merged
 
 1179:                                             ; preds = %1174
@@ -43662,7 +43662,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %.thread131
 
 .thread131:                                       ; preds = %42, %53, %54, %55
-  %.056133 = phi i32 [ 0, %55 ], [ 5, %53 ], [ 6, %54 ], [ 4, %42 ]
+  %.056133 = phi i32 [ 0, %55 ], [ 6, %54 ], [ 5, %53 ], [ 4, %42 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #35
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -45170,14 +45170,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit84:
   br label %259
 
 259:                                              ; preds = %258, %211, %164, %117, %70
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %258 ], [ %.pn40.pn, %211 ], [ %.pn43.pn, %164 ], [ %.pn46.pn, %117 ], [ %.pn49.pn, %70 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %70 ], [ %.pn46.pn, %117 ], [ %.pn43.pn, %164 ], [ %.pn40.pn, %211 ], [ %.pn.pn, %258 ]
+  %.2 = extractvalue { ptr, i32 } %.pn49.pn.pn, 1
   %260 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %261 = icmp eq i32 %.2, %260
   br i1 %261, label %262, label %272
 
 262:                                              ; preds = %259
-  %.226 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.226 = extractvalue { ptr, i32 } %.pn49.pn.pn, 0
   %263 = call ptr @__cxa_begin_catch(ptr %.226) #35
   %264 = load ptr, ptr %263, align 8, !tbaa !27
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
@@ -45197,11 +45197,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit84:
           to label %272 unwind label %273
 
 271:                                              ; preds = %268, %23, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit84, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit76, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit68, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit60, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit
-  %.0 = phi ptr [ %227, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit84 ], [ %180, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit76 ], [ %133, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit68 ], [ %86, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit60 ], [ %39, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit ], [ null, %23 ], [ null, %268 ]
+  %.0 = phi ptr [ %39, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit ], [ %86, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit60 ], [ %133, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit68 ], [ %180, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit76 ], [ %227, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit84 ], [ null, %23 ], [ null, %268 ]
   ret ptr %.0
 
 272:                                              ; preds = %269, %259
-  %.merged = phi { ptr, i32 } [ %.pn.pn.pn, %259 ], [ %270, %269 ]
+  %.merged = phi { ptr, i32 } [ %.pn49.pn.pn, %259 ], [ %270, %269 ]
   resume { ptr, i32 } %.merged
 
 273:                                              ; preds = %269
@@ -45503,14 +45503,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit3
   br label %109
 
 109:                                              ; preds = %108, %61
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %108 ], [ %.pn25.pn, %61 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %61 ], [ %.pn.pn, %108 ]
+  %.2 = extractvalue { ptr, i32 } %.pn25.pn.pn, 1
   %110 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %111 = icmp eq i32 %.2, %110
   br i1 %111, label %112, label %122
 
 112:                                              ; preds = %109
-  %.217 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.217 = extractvalue { ptr, i32 } %.pn25.pn.pn, 0
   %113 = call ptr @__cxa_begin_catch(ptr %.217) #35
   %114 = load ptr, ptr %113, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -45530,11 +45530,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit3
           to label %122 unwind label %123
 
 121:                                              ; preds = %118, %14, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit36, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit
-  %.0 = phi ptr [ %77, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit36 ], [ %30, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit ], [ null, %14 ], [ null, %118 ]
+  %.0 = phi ptr [ %30, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit ], [ %77, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit36 ], [ null, %14 ], [ null, %118 ]
   ret ptr %.0
 
 122:                                              ; preds = %119, %109
-  %.merged = phi { ptr, i32 } [ %.pn.pn.pn, %109 ], [ %120, %119 ]
+  %.merged = phi { ptr, i32 } [ %.pn25.pn.pn, %109 ], [ %120, %119 ]
   resume { ptr, i32 } %.merged
 
 123:                                              ; preds = %119
@@ -45872,14 +45872,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit4
   br label %121
 
 121:                                              ; preds = %120, %69
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %120 ], [ %.pn32.pn.pn, %69 ]
-  %.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %69 ], [ %.pn.pn.pn, %120 ]
+  %.3 = extractvalue { ptr, i32 } %.pn32.pn.pn.pn, 1
   %122 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %123 = icmp eq i32 %.3, %122
   br i1 %123, label %124, label %134
 
 124:                                              ; preds = %121
-  %.322 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
+  %.322 = extractvalue { ptr, i32 } %.pn32.pn.pn.pn, 0
   %125 = call ptr @__cxa_begin_catch(ptr %.322) #35
   %126 = load ptr, ptr %125, align 8, !tbaa !27
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
@@ -45899,11 +45899,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit4
           to label %134 unwind label %135
 
 133:                                              ; preds = %130, %18, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit44, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit
-  %.0 = phi ptr [ %86, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit44 ], [ %35, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit ], [ null, %18 ], [ null, %130 ]
+  %.0 = phi ptr [ %35, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit ], [ %86, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit44 ], [ null, %18 ], [ null, %130 ]
   ret ptr %.0
 
 134:                                              ; preds = %131, %121
-  %.merged = phi { ptr, i32 } [ %.pn.pn.pn.pn, %121 ], [ %132, %131 ]
+  %.merged = phi { ptr, i32 } [ %.pn32.pn.pn.pn, %121 ], [ %132, %131 ]
   resume { ptr, i32 } %.merged
 
 135:                                              ; preds = %131

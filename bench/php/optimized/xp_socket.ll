@@ -848,7 +848,7 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   br label %166
 
 166:                                              ; preds = %9, %78, %116, %131, %54, %4, %155, %136, %102, %88, %80, %67, %64, %61, %53
-  %.0 = phi i32 [ 0, %155 ], [ 0, %136 ], [ 0, %102 ], [ 0, %88 ], [ 0, %80 ], [ 0, %67 ], [ 0, %64 ], [ %62, %61 ], [ %.088, %53 ], [ -2, %4 ], [ -1, %54 ], [ 0, %131 ], [ 0, %116 ], [ -2, %78 ], [ -2, %9 ]
+  %.0 = phi i32 [ %.088, %53 ], [ %62, %61 ], [ 0, %64 ], [ 0, %67 ], [ 0, %80 ], [ 0, %88 ], [ 0, %102 ], [ 0, %136 ], [ 0, %155 ], [ -2, %4 ], [ -1, %54 ], [ 0, %131 ], [ 0, %116 ], [ -2, %78 ], [ -2, %9 ]
   ret i32 %.0
 }
 
@@ -1438,7 +1438,7 @@ php_tcp_sockop_accept.exit:                       ; preds = %.critedge._crit_edg
   br label %304
 
 304:                                              ; preds = %.split, %.split20, %php_tcp_sockop_accept.exit, %php_tcp_sockop_bind.exit, %php_tcp_sockop_connect.exit
-  %.0 = phi i32 [ 0, %php_tcp_sockop_accept.exit ], [ 0, %php_tcp_sockop_bind.exit ], [ 0, %php_tcp_sockop_connect.exit ], [ %14, %.split ], [ %17, %.split20 ]
+  %.0 = phi i32 [ 0, %php_tcp_sockop_connect.exit ], [ 0, %php_tcp_sockop_bind.exit ], [ 0, %php_tcp_sockop_accept.exit ], [ %14, %.split ], [ %17, %.split20 ]
   ret i32 %.0
 }
 

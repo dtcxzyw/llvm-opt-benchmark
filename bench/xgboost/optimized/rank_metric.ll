@@ -10090,7 +10090,7 @@ _ZN14__gnu_parallel15__merge_advanceIPSt4pairIfjES3_N9__gnu_cxx17__normal_iterat
   br label %95
 
 95:                                               ; preds = %16, %_ZSt4copyIPSt4pairIfjEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit, %_ZN14__gnu_parallel15__merge_advanceIPSt4pairIfjES3_N9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElZN7xgboost6metric7EvalAMS4EvalERKNSA_16HostDeviceVectorIfEERKNSA_8MetaInfoEEUlRKT_RKT0_E_EET1_RSK_SK_RSN_SN_SR_T2_T3_.exit, %89, %91, %93, %._crit_edge
-  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %.sroa.046.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPSt4pairIfjES3_N9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElZN7xgboost6metric7EvalAMS4EvalERKNSA_16HostDeviceVectorIfEERKNSA_8MetaInfoEEUlRKT_RKT0_E_EET1_RSK_SK_RSN_SN_SR_T2_T3_.exit ], [ %35, %_ZSt4copyIPSt4pairIfjEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %2, %16 ]
+  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %94, %93 ], [ %2, %16 ], [ %35, %_ZSt4copyIPSt4pairIfjEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %.sroa.046.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPSt4pairIfjES3_N9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElZN7xgboost6metric7EvalAMS4EvalERKNSA_16HostDeviceVectorIfEERKNSA_8MetaInfoEEUlRKT_RKT0_E_EET1_RSK_SK_RSN_SN_SR_T2_T3_.exit ], [ %90, %89 ], [ %92, %91 ]
   ret ptr %.sroa.018.0
 }
 
@@ -28395,7 +28395,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !892
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -36165,7 +36165,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !892
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -43998,7 +43998,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !892
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -49088,7 +49088,7 @@ _ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6v
   br label %72
 
 72:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES4_ISG_SaISG_EEPKNS8_7ContextET0_ST_T2_EUlRKmSW_E_EET1_RSG_SG_RST_ST_SY_SU_T3_.exit, %66, %68, %70, %._crit_edge
-  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES4_ISG_SaISG_EEPKNS8_7ContextET0_ST_T2_EUlRKmSW_E_EET1_RSG_SG_RST_ST_SY_SU_T3_.exit ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %71, %70 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES4_ISG_SaISG_EEPKNS8_7ContextET0_ST_T2_EUlRKmSW_E_EET1_RSG_SG_RST_ST_SY_SU_T3_.exit ], [ %67, %66 ], [ %69, %68 ]
   ret ptr %.sroa.018.0
 }
 

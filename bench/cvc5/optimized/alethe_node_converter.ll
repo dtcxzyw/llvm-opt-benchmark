@@ -4062,7 +4062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633: ; preds = %_Z
   ret void
 
 .critedge499:                                     ; preds = %.critedge497, %1169, %1146, %1070, %916, %383, %373, %363, %352, %188
-  %.pn457.pn = phi { ptr, i32 } [ %.pn457, %1169 ], [ %.pn322.pn.pn, %1146 ], [ %.pn339.pn.pn.pn.pn, %1070 ], [ %.pn345.ph, %.critedge497 ], [ %.pn406.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %916 ], [ %.pn420, %383 ], [ %.pn422, %373 ], [ %.pn424, %363 ], [ %.pn437.pn.pn.pn.pn, %352 ], [ %.pn452.pn.pn.pn, %188 ]
+  %.pn457.pn = phi { ptr, i32 } [ %.pn457, %1169 ], [ %.pn452.pn.pn.pn, %188 ], [ %.pn437.pn.pn.pn.pn, %352 ], [ %.pn424, %363 ], [ %.pn422, %373 ], [ %.pn420, %383 ], [ %.pn406.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %916 ], [ %.pn345.ph, %.critedge497 ], [ %.pn339.pn.pn.pn.pn, %1070 ], [ %.pn322.pn.pn, %1146 ]
   resume { ptr, i32 } %.pn457.pn
 }
 
@@ -9539,7 +9539,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclIN
   br label %168
 
 168:                                              ; preds = %166, %._crit_edge
-  %.sroa.051.1 = phi ptr [ %.sroa.051.0.lcssa, %._crit_edge ], [ %167, %166 ]
+  %.sroa.051.1 = phi ptr [ %167, %166 ], [ %.sroa.051.0.lcssa, %._crit_edge ]
   %169 = load ptr, ptr %.sroa.051.1, align 8, !tbaa !54, !noalias !175
   %170 = load i64, ptr %169, align 8, !noalias !175
   %171 = lshr i64 %170, 40
@@ -9603,7 +9603,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclIN
   br label %200
 
 200:                                              ; preds = %198, %._crit_edge
-  %.sroa.051.2 = phi ptr [ %.sroa.051.0.lcssa, %._crit_edge ], [ %199, %198 ]
+  %.sroa.051.2 = phi ptr [ %199, %198 ], [ %.sroa.051.0.lcssa, %._crit_edge ]
   %201 = load ptr, ptr %.sroa.051.2, align 8, !tbaa !54, !noalias !178
   %202 = load i64, ptr %201, align 8, !noalias !178
   %203 = lshr i64 %202, 40

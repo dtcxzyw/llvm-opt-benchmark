@@ -560,7 +560,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %"_ZN103_$LT$alloc..
   br label %18
 
 18:                                               ; preds = %17, %16, %15, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i"
-  %.0.i.i.i.i = phi i32 [ 0, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
+  %.0.i.i.i.i = phi i32 [ 2, %15 ], [ 3, %16 ], [ 0, %17 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
   %19 = shl i64 %12, 2
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.pre.i.i.i.i.i.i, i64 %19
   store i32 %.sroa.0.sroa.0.0.copyload.i, ptr %scevgep.i.i.i.i.i, align 4, !noalias !265
@@ -706,7 +706,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %"_ZN103_$LT$alloc..
   br label %18
 
 18:                                               ; preds = %17, %16, %15, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i"
-  %.0.i.i.i.i = phi i32 [ 0, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
+  %.0.i.i.i.i = phi i32 [ 2, %15 ], [ 3, %16 ], [ 0, %17 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
   %.sroa.01.4.vec.insert.i.i = insertelement <4 x i32> %.sroa.0.sroa.0.0.copyload.i, i32 %.0.i.i.i.i, i64 1
   %.sroa.01.12.vec.insert.i.i = shufflevector <4 x i32> %.sroa.01.4.vec.insert.i.i, <4 x i32> %.sroa.0.sroa.0.0.copyload.i, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %19 = shl i64 %12, 2
@@ -970,7 +970,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %"_ZN103_$LT$alloc..
   br label %15
 
 15:                                               ; preds = %14, %13, %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i"
-  %.0.i.i.i.i = phi i32 [ 0, %14 ], [ 3, %13 ], [ 2, %12 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
+  %.0.i.i.i.i = phi i32 [ 2, %12 ], [ 3, %13 ], [ 0, %14 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
   %.sroa.04.4.vec.insert.i.i = insertelement <4 x i32> %.sroa.08.sroa.0.0.copyload.i, i32 %.0.i.i.i.i, i64 1
   %.sroa.04.12.vec.insert.i.i = shufflevector <4 x i32> %.sroa.04.4.vec.insert.i.i, <4 x i32> %.sroa.08.sroa.0.0.copyload.i, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
@@ -1050,7 +1050,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %"_ZN103_$LT$alloc..
   br label %15
 
 15:                                               ; preds = %14, %13, %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i"
-  %.0.i.i.i.i = phi i32 [ 0, %14 ], [ 3, %13 ], [ 2, %12 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
+  %.0.i.i.i.i = phi i32 [ 2, %12 ], [ 3, %13 ], [ 0, %14 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !480)
   store i64 1, ptr %4, align 8, !alias.scope !483, !noalias !485
   store i64 5, ptr %.sroa.42.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i, align 8, !alias.scope !490, !noalias !491
@@ -1837,7 +1837,7 @@ define hidden void @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %36
 
 31:                                               ; preds = %26, %20, %17
-  %.0.i.ph.i = phi ptr [ %21, %20 ], [ %27, %26 ], [ %19, %17 ]
+  %.0.i.ph.i = phi ptr [ %27, %26 ], [ %21, %20 ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !630
   br label %36
 
@@ -2071,7 +2071,7 @@ define hidden void @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %36
 
 31:                                               ; preds = %26, %20, %17
-  %.0.i.ph.i = phi ptr [ %21, %20 ], [ %27, %26 ], [ %19, %17 ]
+  %.0.i.ph.i = phi ptr [ %27, %26 ], [ %21, %20 ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !711
   br label %36
 
@@ -2258,7 +2258,7 @@ define hidden void @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %36
 
 31:                                               ; preds = %26, %20, %17
-  %.0.i.ph.i = phi ptr [ %21, %20 ], [ %27, %26 ], [ %19, %17 ]
+  %.0.i.ph.i = phi ptr [ %27, %26 ], [ %21, %20 ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !764
   br label %36
 
@@ -3191,7 +3191,7 @@ default.unreachable1.i.i.i:                       ; preds = %"_ZN103_$LT$alloc..
   br label %17
 
 17:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit", %16, %15, %14
-  %.0.i.i.i = phi i32 [ 0, %16 ], [ 3, %15 ], [ 2, %14 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
+  %.0.i.i.i = phi i32 [ 2, %14 ], [ 3, %15 ], [ 0, %16 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
   %.sroa.01.4.vec.insert.i = insertelement <4 x i32> %.sroa.0.sroa.0.0.copyload, i32 %.0.i.i.i, i64 1
   %.sroa.01.12.vec.insert.i = shufflevector <4 x i32> %.sroa.01.4.vec.insert.i, <4 x i32> %.sroa.0.sroa.0.0.copyload, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %18 = shl i64 %11, 2
@@ -3346,7 +3346,7 @@ default.unreachable1.i.i.i:                       ; preds = %"_ZN103_$LT$alloc..
   br label %17
 
 17:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit", %16, %15, %14
-  %.0.i.i.i = phi i32 [ 0, %16 ], [ 3, %15 ], [ 2, %14 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
+  %.0.i.i.i = phi i32 [ 2, %14 ], [ 3, %15 ], [ 0, %16 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
   %18 = shl i64 %11, 2
   %scevgep.i.i.i.i = getelementptr i8, ptr %.pre.i.i.i.i.i, i64 %18
   store i32 %.sroa.0.sroa.0.0.copyload, ptr %scevgep.i.i.i.i, align 4, !noalias !1183
@@ -3640,7 +3640,7 @@ default.unreachable1.i.i.i:                       ; preds = %"_ZN103_$LT$alloc..
   br label %16
 
 16:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit", %13, %14, %15
-  %.0.i.i.i = phi i32 [ 0, %15 ], [ 3, %14 ], [ 2, %13 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
+  %.0.i.i.i = phi i32 [ 2, %13 ], [ 3, %14 ], [ 0, %15 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
   %.sroa.04.4.vec.insert.i = insertelement <4 x i32> %.sroa.08.sroa.0.0.copyload, i32 %.0.i.i.i, i64 1
   %.sroa.04.12.vec.insert.i = shufflevector <4 x i32> %.sroa.04.4.vec.insert.i, <4 x i32> %.sroa.08.sroa.0.0.copyload, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   tail call void @llvm.assume(i1 %10)
@@ -4563,7 +4563,7 @@ default.unreachable1.i.i.i:                       ; preds = %"_ZN103_$LT$alloc..
   br label %16
 
 16:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit", %13, %14, %15
-  %.0.i.i.i = phi i32 [ 0, %15 ], [ 3, %14 ], [ 2, %13 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
+  %.0.i.i.i = phi i32 [ 2, %13 ], [ 3, %14 ], [ 0, %15 ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4931a478c8e0c5dE.llvm.6093752533286553222.exit" ]
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1626)
   store i64 1, ptr %.val, align 8, !alias.scope !1629, !noalias !1631
@@ -5687,10 +5687,10 @@ define hidden void @"_ZN6object4read3any13File$LT$R$GT$5parse17h0224788cff851fbe
   br label %85
 
 85:                                               ; preds = %112, %108, %102, %98, %94, %90, %88, %83
-  %.sroa.12.sroa.13.0 = phi i64 [ %80, %112 ], [ %73, %108 ], [ %66, %102 ], [ %59, %98 ], [ %52, %94 ], [ %45, %90 ], [ %38, %88 ], [ %31, %83 ]
-  %.sroa.12.sroa.12.0 = phi ptr [ %78, %112 ], [ %71, %108 ], [ %64, %102 ], [ %57, %98 ], [ %50, %94 ], [ %43, %90 ], [ %36, %88 ], [ %29, %83 ]
-  %.sroa.12.sroa.0.0 = phi i64 [ %113, %112 ], [ %109, %108 ], [ %61, %102 ], [ %54, %98 ], [ %47, %94 ], [ %40, %90 ], [ %89, %88 ], [ %84, %83 ]
-  %.sroa.0.0 = phi i64 [ 7, %112 ], [ 6, %108 ], [ 5, %102 ], [ 4, %98 ], [ 3, %94 ], [ 2, %90 ], [ 1, %88 ], [ 0, %83 ]
+  %.sroa.12.sroa.13.0 = phi i64 [ %31, %83 ], [ %38, %88 ], [ %45, %90 ], [ %52, %94 ], [ %59, %98 ], [ %66, %102 ], [ %73, %108 ], [ %80, %112 ]
+  %.sroa.12.sroa.12.0 = phi ptr [ %29, %83 ], [ %36, %88 ], [ %43, %90 ], [ %50, %94 ], [ %57, %98 ], [ %64, %102 ], [ %71, %108 ], [ %78, %112 ]
+  %.sroa.12.sroa.0.0 = phi i64 [ %84, %83 ], [ %89, %88 ], [ %40, %90 ], [ %47, %94 ], [ %54, %98 ], [ %61, %102 ], [ %109, %108 ], [ %113, %112 ]
+  %.sroa.0.0 = phi i64 [ 0, %83 ], [ 1, %88 ], [ 2, %90 ], [ 3, %94 ], [ 4, %98 ], [ 5, %102 ], [ 6, %108 ], [ 7, %112 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.12.sroa.0.0, ptr %.sroa.12.0..sroa_idx, align 8
@@ -6430,10 +6430,10 @@ default.unreachable213:                           ; preds = %4
   br label %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hbe81749497971537E.exit.thread.thread192"
 
 "_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hbe81749497971537E.exit.thread": ; preds = %105, %103
-  %.sroa.20.sroa.0.1 = phi ptr [ %.sroa.20.sroa.0.6, %105 ], [ %.sroa.20.sroa.0.5, %103 ]
-  %.sroa.20.sroa.11.1 = phi ptr [ %.sroa.20.sroa.11.6, %105 ], [ %.sroa.20.sroa.11.5, %103 ]
-  %.sroa.20.sroa.12.1 = phi i64 [ %.sroa.20.sroa.12.6, %105 ], [ %.sroa.20.sroa.12.5, %103 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.6, %105 ], [ %.sroa.0.5, %103 ]
+  %.sroa.20.sroa.0.1 = phi ptr [ %.sroa.20.sroa.0.5, %103 ], [ %.sroa.20.sroa.0.6, %105 ]
+  %.sroa.20.sroa.11.1 = phi ptr [ %.sroa.20.sroa.11.5, %103 ], [ %.sroa.20.sroa.11.6, %105 ]
+  %.sroa.20.sroa.12.1 = phi i64 [ %.sroa.20.sroa.12.5, %103 ], [ %.sroa.20.sroa.12.6, %105 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.5, %103 ], [ %.sroa.0.6, %105 ]
   %92 = icmp eq i64 %.sroa.0.1, 8
   br i1 %92, label %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hbe81749497971537E.exit.thread.thread", label %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hbe81749497971537E.exit.thread.thread192"
 

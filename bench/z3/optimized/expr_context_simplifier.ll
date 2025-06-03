@@ -2048,7 +2048,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %414
 
 414:                                              ; preds = %413, %314, %198, %170, %131, %93
-  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %413 ], [ %.pn, %314 ], [ %.pn48, %198 ], [ %171, %170 ], [ %132, %131 ], [ %94, %93 ]
+  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %413 ], [ %94, %93 ], [ %132, %131 ], [ %171, %170 ], [ %.pn48, %198 ], [ %.pn, %314 ]
   resume { ptr, i32 } %.pn50.pn
 }
 
@@ -8206,11 +8206,11 @@ _ZN11ast_manager5mk_eqEP4exprS1_.exit:            ; preds = %1168
   invoke void @_ZN3smt6kernel11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %1169)
           to label %1193 unwind label %753, !llvm.loop !225
 
-_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit: ; preds = %797, %806, %823, %814, %756, %1160
-  %.sroa.7660.1 = phi ptr [ %.sroa.7660.3.lcssa, %1160 ], [ %.sroa.7660.0892, %756 ], [ %.sroa.7660.0892, %814 ], [ %.sroa.7660.0892, %823 ], [ %.sroa.7660.0892, %806 ], [ %.sroa.7660.0892, %797 ]
-  %.0723 = phi ptr [ %874, %1160 ], [ %678, %756 ], [ %815, %814 ], [ %824, %823 ], [ %807, %806 ], [ %798, %797 ]
-  %.1142 = phi i32 [ %.3144.lcssa, %1160 ], [ %.0141893, %756 ], [ %.0141893, %814 ], [ %.0141893, %823 ], [ %.0141893, %806 ], [ %.0141893, %797 ]
-  %.1138 = phi i32 [ %.3140966, %1160 ], [ %.0137894, %756 ], [ %.0137894, %814 ], [ %.0137894, %823 ], [ %.0137894, %806 ], [ %.0137894, %797 ]
+_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit: ; preds = %806, %797, %823, %814, %756, %1160
+  %.sroa.7660.1 = phi ptr [ %.sroa.7660.3.lcssa, %1160 ], [ %.sroa.7660.0892, %756 ], [ %.sroa.7660.0892, %814 ], [ %.sroa.7660.0892, %823 ], [ %.sroa.7660.0892, %797 ], [ %.sroa.7660.0892, %806 ]
+  %.0723 = phi ptr [ %874, %1160 ], [ %678, %756 ], [ %815, %814 ], [ %824, %823 ], [ %798, %797 ], [ %807, %806 ]
+  %.1142 = phi i32 [ %.3144.lcssa, %1160 ], [ %.0141893, %756 ], [ %.0141893, %814 ], [ %.0141893, %823 ], [ %.0141893, %797 ], [ %.0141893, %806 ]
+  %.1138 = phi i32 [ %.3140966, %1160 ], [ %.0137894, %756 ], [ %.0137894, %814 ], [ %.0137894, %823 ], [ %.0137894, %797 ], [ %.0137894, %806 ]
   %.not164 = icmp eq ptr %.0723, null
   br i1 %.not164, label %_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit.thread765, label %_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit.thread776
 

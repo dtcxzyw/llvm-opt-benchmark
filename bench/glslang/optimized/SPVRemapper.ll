@@ -282,8 +282,8 @@ define range(i64 0, 4611686018427387908) i64 @_ZNK3spv10spirvbin_t12literalRange
   br label %8
 
 8:                                                ; preds = %2, %2, %7, %6, %5, %4, %3
-  %.sroa.0.0 = phi i64 [ 0, %7 ], [ 3, %6 ], [ 3, %5 ], [ 3, %4 ], [ 2, %3 ], [ 2, %2 ], [ 2, %2 ]
-  %.sroa.7.0 = phi i64 [ 0, %7 ], [ 4611686018427387904, %6 ], [ 17179869184, %5 ], [ 34359738368, %4 ], [ 17179869184, %3 ], [ 12884901888, %2 ], [ 12884901888, %2 ]
+  %.sroa.0.0 = phi i64 [ 0, %7 ], [ 2, %3 ], [ 3, %4 ], [ 3, %5 ], [ 3, %6 ], [ 2, %2 ], [ 2, %2 ]
+  %.sroa.7.0 = phi i64 [ 0, %7 ], [ 17179869184, %3 ], [ 34359738368, %4 ], [ 17179869184, %5 ], [ 4611686018427387904, %6 ], [ 12884901888, %2 ], [ 12884901888, %2 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -2610,9 +2610,9 @@ _ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit: ; preds = %163
   br label %180
 
 180:                                              ; preds = %_ZNKSt8functionIFvRjEEclES0_.exit92, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit, %178, %106
-  %.180 = phi i32 [ %.079114, %106 ], [ %.079114, %178 ], [ %.079114, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit ], [ %123, %_ZNKSt8functionIFvRjEEclES0_.exit92 ]
-  %.476 = phi i32 [ %.375, %106 ], [ %.375, %178 ], [ %177, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit ], [ %.375, %_ZNKSt8functionIFvRjEEclES0_.exit92 ]
-  %.7 = phi i32 [ %.4, %106 ], [ %179, %178 ], [ %176, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit ], [ %121, %_ZNKSt8functionIFvRjEEclES0_.exit92 ]
+  %.180 = phi i32 [ %.079114, %106 ], [ %123, %_ZNKSt8functionIFvRjEEclES0_.exit92 ], [ %.079114, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit ], [ %.079114, %178 ]
+  %.476 = phi i32 [ %.375, %106 ], [ %.375, %_ZNKSt8functionIFvRjEEclES0_.exit92 ], [ %177, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit ], [ %.375, %178 ]
+  %.7 = phi i32 [ %.4, %106 ], [ %121, %_ZNKSt8functionIFvRjEEclES0_.exit92 ], [ %176, %_ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit ], [ %179, %178 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = add i32 %.476, -1
   %.not = icmp eq i32 %181, 0
@@ -5503,7 +5503,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %206, %179, %.lr.ph228, %.lr.ph232, %.lr.ph236, %tailrecurse, %.loopexit.loopexit603, %.loopexit.loopexit487, %.loopexit.loopexit375, %.loopexit.loopexit242, %195, %168, %148, %.preheader82, %.preheader, %.loopexit87, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %147, %146, %145, %144, %143, %142, %119, %14
-  %.066 = phi i32 [ 0, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 300008, %147 ], [ 300007, %146 ], [ 300004, %145 ], [ 300003, %144 ], [ 300002, %143 ], [ 300001, %142 ], [ %124, %119 ], [ %19, %14 ], [ 0, %.loopexit87 ], [ 10000, %.preheader ], [ 200000, %.preheader82 ], [ %155, %148 ], [ %175, %168 ], [ %202, %195 ], [ 1, %.loopexit.loopexit242 ], [ 5, %.loopexit.loopexit375 ], [ 500, %.loopexit.loopexit487 ], [ 502, %.loopexit.loopexit603 ], [ 300000, %tailrecurse ], [ %118, %.lr.ph236 ], [ %141, %.lr.ph232 ], [ %167, %.lr.ph228 ], [ %186, %179 ], [ %213, %206 ]
+  %.066 = phi i32 [ 0, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %19, %14 ], [ %124, %119 ], [ 300001, %142 ], [ 300002, %143 ], [ 300003, %144 ], [ 300004, %145 ], [ 300007, %146 ], [ 300008, %147 ], [ 0, %.loopexit87 ], [ 10000, %.preheader ], [ 200000, %.preheader82 ], [ %155, %148 ], [ %175, %168 ], [ %202, %195 ], [ 1, %.loopexit.loopexit242 ], [ 5, %.loopexit.loopexit375 ], [ 500, %.loopexit.loopexit487 ], [ 502, %.loopexit.loopexit603 ], [ 300000, %tailrecurse ], [ %118, %.lr.ph236 ], [ %141, %.lr.ph232 ], [ %167, %.lr.ph228 ], [ %186, %179 ], [ %213, %206 ]
   %accumulator.ret.tr81 = add i32 %.066, %accumulator.tr
   %accumulator.ret.tr817 = add i32 %accumulator.ret.tr81, %accumulator.tr816
   br label %common.ret823

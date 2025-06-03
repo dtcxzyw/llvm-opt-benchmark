@@ -786,7 +786,7 @@ _ZN3tbb6detail2d110spin_mutex4lockEv.exit.i:      ; preds = %_ZN3tbb6detail2d014
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i
-  %.sroa.047.1.i.i.i.i = phi ptr [ %.sroa.047.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %.sroa.047.1.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.047.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val2.i30.i.i.i.i = load i64, ptr %.sroa.047.1.i.i.i.i, align 8, !noalias !9
   %49 = icmp eq i64 %.val2.i30.i.i.i.i, %1
   br i1 %49, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i, label %50
@@ -796,7 +796,7 @@ _ZN3tbb6detail2d110spin_mutex4lockEv.exit.i:      ; preds = %_ZN3tbb6detail2d014
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i
-  %.sroa.047.2.i.i.i.i = phi ptr [ %.sroa.047.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %51, %50 ]
+  %.sroa.047.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.sroa.047.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val2.i31.i.i.i.i = load i64, ptr %.sroa.047.2.i.i.i.i, align 8, !noalias !9
   %53 = icmp eq i64 %.val2.i31.i.i.i.i, %1
   %spec.select.i.i.i.i = select i1 %53, ptr %.sroa.047.2.i.i.i.i, ptr %.val4.i
@@ -2189,7 +2189,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i
-  %.sroa.041.1.i.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %49, %48 ]
+  %.sroa.041.1.i.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.041.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %51 = getelementptr i8, ptr %.sroa.041.1.i.i.i.i, i64 40
   %.val2.i30.i.i.i.i = load ptr, ptr %51, align 8
   %52 = icmp eq ptr %.val2.i30.i.i.i.i, %0
@@ -2200,7 +2200,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i.i
-  %.sroa.041.2.i.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %53 ]
+  %.sroa.041.2.i.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.041.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %56 = getelementptr i8, ptr %.sroa.041.2.i.i.i.i, i64 40
   %.val2.i31.i.i.i.i = load ptr, ptr %56, align 8
   %57 = icmp eq ptr %.val2.i31.i.i.i.i, %0

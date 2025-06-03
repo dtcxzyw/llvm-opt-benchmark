@@ -147,7 +147,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions17isAvailableOptio
   br label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit
 
 _ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit: ; preds = %26, %31, %32, %33, %34
-  %.0.i.i.i = phi i32 [ 16, %34 ], [ 8, %33 ], [ 4, %32 ], [ 2, %31 ], [ 1, %26 ]
+  %.0.i.i.i = phi i32 [ 2, %31 ], [ 4, %32 ], [ 8, %33 ], [ 16, %34 ], [ 1, %26 ]
   %35 = and i32 %.0.i.i.i, %28
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit.thread, label %48
@@ -186,7 +186,7 @@ _ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit.th
   br label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptionsE.exit
 
 _ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptionsE.exit: ; preds = %38, %43, %44, %45, %46
-  %.0.i.i.i19 = phi i32 [ 16, %46 ], [ 8, %45 ], [ 4, %44 ], [ 2, %43 ], [ 1, %38 ]
+  %.0.i.i.i19 = phi i32 [ 2, %43 ], [ 4, %44 ], [ 8, %45 ], [ 16, %46 ], [ 1, %38 ]
   %47 = and i32 %.0.i.i.i19, %40
   %.not24 = icmp eq i32 %47, 0
   br i1 %.not24, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptionsE.exit.thread, label %48
@@ -394,7 +394,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions15isSupportedCoreE
   br label %_ZN5clang12_GLOBAL__N_130isOpenCLVersionContainedInMaskERKNS_11LangOptionsEj.exit.i
 
 _ZN5clang12_GLOBAL__N_130isOpenCLVersionContainedInMaskERKNS_11LangOptionsEj.exit.i: ; preds = %30, %29, %28, %27, %22
-  %.0.i.i.i = phi i32 [ 16, %30 ], [ 8, %29 ], [ 4, %28 ], [ 2, %27 ], [ 1, %22 ]
+  %.0.i.i.i = phi i32 [ 2, %27 ], [ 4, %28 ], [ 8, %29 ], [ 16, %30 ], [ 1, %22 ]
   %31 = and i32 %.0.i.i.i, %24
   %32 = icmp ne i32 %31, 0
   br label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit
@@ -461,7 +461,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions23isSupportedOptio
   br label %_ZN5clang12_GLOBAL__N_130isOpenCLVersionContainedInMaskERKNS_11LangOptionsEj.exit.i
 
 _ZN5clang12_GLOBAL__N_130isOpenCLVersionContainedInMaskERKNS_11LangOptionsEj.exit.i: ; preds = %30, %29, %28, %27, %22
-  %.0.i.i.i = phi i32 [ 16, %30 ], [ 8, %29 ], [ 4, %28 ], [ 2, %27 ], [ 1, %22 ]
+  %.0.i.i.i = phi i32 [ 2, %27 ], [ 4, %28 ], [ 8, %29 ], [ 16, %30 ], [ 1, %22 ]
   %31 = and i32 %.0.i.i.i, %24
   %32 = icmp ne i32 %31, 0
   br label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptionsE.exit

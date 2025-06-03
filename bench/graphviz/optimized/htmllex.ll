@@ -2311,7 +2311,7 @@ define internal noundef i32 @sidesfn(ptr noundef captures(none) %0, ptr noundef 
   br label %22
 
 22:                                               ; preds = %21, %19, %17, %15, %13
-  %.1 = phi i16 [ %.01015, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.1 = phi i16 [ %.01015, %21 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   %23 = load i8, ptr %5, align 1, !tbaa !70
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117

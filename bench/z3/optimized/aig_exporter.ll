@@ -5903,8 +5903,8 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_Z17is_uninterp_con
   %70 = icmp samesign ult i64 %indvars.iv.next, %69
   br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !461
 
-common.ret64:                                     ; preds = %_ZNK3app13get_decl_kindEv.exit, %._crit_edge, %77, %_ZNK3app13get_decl_kindEv.exit.thread, %78, %_Z17is_uninterp_constPK4expr.exit.thread25, %.loopexit30, %71
-  %common.ret64.op = phi i32 [ %76, %71 ], [ %33, %.loopexit30 ], [ %48, %_Z17is_uninterp_constPK4expr.exit.thread25 ], [ 0, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %79, %78 ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ %.022.lcssa, %._crit_edge ], [ 1, %77 ]
+common.ret64:                                     ; preds = %_ZNK3app13get_decl_kindEv.exit, %77, %._crit_edge, %_ZNK3app13get_decl_kindEv.exit.thread, %78, %_Z17is_uninterp_constPK4expr.exit.thread25, %.loopexit30, %71
+  %common.ret64.op = phi i32 [ %76, %71 ], [ %33, %.loopexit30 ], [ %48, %_Z17is_uninterp_constPK4expr.exit.thread25 ], [ 0, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %79, %78 ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 1, %77 ], [ %.022.lcssa, %._crit_edge ]
   ret i32 %common.ret64.op
 
 71:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit

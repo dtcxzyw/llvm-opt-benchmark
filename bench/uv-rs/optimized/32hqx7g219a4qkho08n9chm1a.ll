@@ -468,33 +468,33 @@ default.unreachable:                              ; preds = %.lr.ph.i, %.lr.ph45
 
 31:                                               ; preds = %27
   %32 = icmp eq i8 %.val13.i, 0
-  br i1 %32, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i", label %37
+  br i1 %32, label %39, label %37
 
 33:                                               ; preds = %27
   %34 = icmp eq i8 %.val13.i, 1
-  br i1 %34, label %39, label %37
+  br i1 %34, label %41, label %37
 
 35:                                               ; preds = %27
   %36 = icmp eq i8 %.val13.i, 2
-  br i1 %36, label %41, label %37
+  br i1 %36, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i", label %37
 
 37:                                               ; preds = %35, %33, %31, %27
   %38 = icmp samesign ult i8 %.val11.i, %.val13.i
   br i1 %38, label %.preheader.i, label %.preheader32.i
 
-39:                                               ; preds = %33
+39:                                               ; preds = %31
   %40 = icmp ult i8 %.val12.i, %.val14.i
   br i1 %40, label %.preheader.i, label %.preheader32.i
+
+41:                                               ; preds = %33
+  %42 = icmp ult i8 %.val12.i, %.val14.i
+  br i1 %42, label %.preheader.i, label %.preheader32.i
 
 .preheader.i:                                     ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i", %41, %39, %37
   %.not55.i = icmp eq i64 %22, 2
   br i1 %.not55.i, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i, label %.lr.ph45.i
 
-41:                                               ; preds = %35
-  %42 = icmp ult i8 %.val12.i, %.val14.i
-  br i1 %42, label %.preheader.i, label %.preheader32.i
-
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i": ; preds = %31
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i": ; preds = %35
   %43 = icmp ult i8 %.val12.i, %.val14.i
   br i1 %43, label %.preheader.i, label %.preheader32.i
 
@@ -522,29 +522,29 @@ default.unreachable:                              ; preds = %.lr.ph.i, %.lr.ph45
 
 48:                                               ; preds = %.lr.ph.i
   %49 = icmp eq i8 %.val9.i, 0
-  br i1 %49, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit17.i", label %54
+  br i1 %49, label %56, label %54
 
 50:                                               ; preds = %.lr.ph.i
   %51 = icmp eq i8 %.val9.i, 1
-  br i1 %51, label %56, label %54
+  br i1 %51, label %58, label %54
 
 52:                                               ; preds = %.lr.ph.i
   %53 = icmp eq i8 %.val9.i, 2
-  br i1 %53, label %58, label %54
+  br i1 %53, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit17.i", label %54
 
 54:                                               ; preds = %52, %50, %48, %.lr.ph.i
   %55 = icmp samesign ult i8 %.val7.i, %.val9.i
   br i1 %55, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i, label %61
 
-56:                                               ; preds = %50
+56:                                               ; preds = %48
   %57 = icmp ult i8 %.val8.i, %.val10.i
   br i1 %57, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i, label %61
 
-58:                                               ; preds = %52
+58:                                               ; preds = %50
   %59 = icmp ult i8 %.val8.i, %.val10.i
   br i1 %59, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i, label %61
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit17.i": ; preds = %48
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit17.i": ; preds = %52
   %60 = icmp ult i8 %.val8.i, %.val10.i
   br i1 %60, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i, label %61
 
@@ -573,29 +573,29 @@ default.unreachable:                              ; preds = %.lr.ph.i, %.lr.ph45
 
 67:                                               ; preds = %.lr.ph45.i
   %68 = icmp eq i8 %.val5.i, 0
-  br i1 %68, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit20.i", label %73
+  br i1 %68, label %75, label %73
 
 69:                                               ; preds = %.lr.ph45.i
   %70 = icmp eq i8 %.val5.i, 1
-  br i1 %70, label %75, label %73
+  br i1 %70, label %77, label %73
 
 71:                                               ; preds = %.lr.ph45.i
   %72 = icmp eq i8 %.val5.i, 2
-  br i1 %72, label %77, label %73
+  br i1 %72, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit20.i", label %73
 
 73:                                               ; preds = %71, %69, %67, %.lr.ph45.i
   %74 = icmp samesign ult i8 %.val.i, %.val5.i
   br i1 %74, label %80, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i
 
-75:                                               ; preds = %69
+75:                                               ; preds = %67
   %76 = icmp ult i8 %.val4.i, %.val6.i
   br i1 %76, label %80, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i
 
-77:                                               ; preds = %71
+77:                                               ; preds = %69
   %78 = icmp ult i8 %.val4.i, %.val6.i
   br i1 %78, label %80, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit20.i": ; preds = %67
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit20.i": ; preds = %71
   %79 = icmp ult i8 %.val4.i, %.val6.i
   br i1 %79, label %80, label %_ZN4core5slice4sort6shared17find_existing_run17he769e987afa49b30E.exit.i
 

@@ -1199,7 +1199,7 @@ socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %3
   br label %do_SOCKS5.exit.i
 
 466:                                              ; preds = %.thread552.i.i, %424, %423, %96
-  %.9350.i.i = phi i64 [ 0, %96 ], [ 3, %424 ], [ %.7348.i.i, %423 ], [ %.12.i.i, %.thread552.i.i ]
+  %.9350.i.i = phi i64 [ %.7348.i.i, %423 ], [ 3, %424 ], [ 0, %96 ], [ %.12.i.i, %.thread552.i.i ]
   %467 = getelementptr inbounds nuw i8, ptr %.0, i64 632
   %468 = load i32, ptr %467, align 8, !tbaa !53
   %469 = lshr i32 %468, 8
@@ -1492,7 +1492,7 @@ socksstate.exit478.thread.i.i:                    ; preds = %socksstate.exit478.
   br label %do_SOCKS5.exit.i
 
 do_SOCKS5.exit.i:                                 ; preds = %583, %579, %socksstate.exit478.thread.i.i, %socksstate.exit478.i.i, %568, %socks_state_recv.exit480.i.i, %538, %531, %527, %523, %519, %socks_state_recv.exit476.i.i, %497, %socks_state_send.exit473.i.i, %465, %.thread541.i.i, %352, %328, %325, %320, %311, %306, %socks_state_recv.exit467.i.i, %284, %socks_state_send.exit464.i.i, %255, %242, %227, %226, %225, %214, %210, %socks_state_recv.exit.i.i, %189, %socks_state_send.exit458.i.i, %166, %socks_state_send.exit.i.i, %124
-  %.3.i.i = phi i32 [ 2, %523 ], [ 1, %538 ], [ 1, %465 ], [ 33, %311 ], [ 2, %214 ], [ 12, %226 ], [ 32, %227 ], [ 5, %225 ], [ 9, %124 ], [ %.0.i.i.i, %socks_state_send.exit.i.i ], [ 0, %166 ], [ %.0.i457.i.i, %socks_state_send.exit458.i.i ], [ 0, %189 ], [ %.0.i459.i.i, %socks_state_recv.exit.i.i ], [ 0, %210 ], [ %.0.i463.i.i, %socks_state_send.exit464.i.i ], [ 0, %284 ], [ %.0.i466.i.i, %socks_state_recv.exit467.i.i ], [ 0, %306 ], [ %..i.i, %352 ], [ %.0.i472.i.i, %socks_state_send.exit473.i.i ], [ 0, %497 ], [ %.0.i475.i.i, %socks_state_recv.exit476.i.i ], [ 0, %519 ], [ %534, %531 ], [ 25, %527 ], [ %.0.i479.i.i, %socks_state_recv.exit480.i.i ], [ 0, %568 ], [ 0, %583 ], [ 0, %579 ], [ 0, %socksstate.exit478.thread.i.i ], [ 0, %socksstate.exit478.i.i ], [ 27, %.thread541.i.i ], [ 10, %255 ], [ 11, %242 ], [ 0, %328 ], [ 0, %325 ], [ 27, %320 ]
+  %.3.i.i = phi i32 [ 9, %124 ], [ 2, %214 ], [ 2, %523 ], [ 1, %538 ], [ 1, %465 ], [ 33, %311 ], [ 12, %226 ], [ 32, %227 ], [ 5, %225 ], [ %.0.i.i.i, %socks_state_send.exit.i.i ], [ 0, %166 ], [ %.0.i457.i.i, %socks_state_send.exit458.i.i ], [ 0, %189 ], [ %.0.i459.i.i, %socks_state_recv.exit.i.i ], [ 0, %210 ], [ %.0.i463.i.i, %socks_state_send.exit464.i.i ], [ 0, %284 ], [ %.0.i466.i.i, %socks_state_recv.exit467.i.i ], [ 0, %306 ], [ %..i.i, %352 ], [ %.0.i472.i.i, %socks_state_send.exit473.i.i ], [ 0, %497 ], [ %.0.i475.i.i, %socks_state_recv.exit476.i.i ], [ 0, %519 ], [ %534, %531 ], [ 25, %527 ], [ %.0.i479.i.i, %socks_state_recv.exit480.i.i ], [ 0, %568 ], [ 0, %583 ], [ 0, %579 ], [ 0, %socksstate.exit478.thread.i.i ], [ 0, %socksstate.exit478.i.i ], [ 27, %.thread541.i.i ], [ 10, %255 ], [ 11, %242 ], [ 0, %328 ], [ 0, %325 ], [ 27, %320 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #7
   br label %907
 
@@ -2151,7 +2151,7 @@ socksstate.exit250.i.i:                           ; preds = %802, %799, %584
   br label %do_SOCKS4.exit.i
 
 do_SOCKS4.exit.i:                                 ; preds = %885, %864, %843, %822, %820, %816, %809, %808, %804, %797, %socks_state_recv.exit.i13.i, %775, %socks_state_send.exit.i16.i, %socksstate.exit247.i.i, %734, %socksstate.exit244.thread253.i.i, %.critedge242.i.i, %690, %655, %651, %644, %socksstate.exit.i25.i, %636
-  %.1184.i.i = phi i32 [ 2, %804 ], [ 31, %885 ], [ 8, %864 ], [ 7, %843 ], [ 26, %822 ], [ 9, %socksstate.exit247.i.i ], [ 11, %734 ], [ %..i23.i, %690 ], [ %.0.i.i17.i, %socks_state_send.exit.i16.i ], [ 0, %775 ], [ %.0.i249.i.i, %socks_state_recv.exit.i13.i ], [ 0, %797 ], [ 0, %808 ], [ 0, %809 ], [ 0, %816 ], [ 0, %820 ], [ 0, %socksstate.exit.i25.i ], [ 0, %644 ], [ 0, %651 ], [ 0, %655 ], [ 27, %636 ], [ 27, %.critedge242.i.i ], [ 27, %socksstate.exit244.thread253.i.i ]
+  %.1184.i.i = phi i32 [ 2, %804 ], [ 31, %885 ], [ 26, %822 ], [ 7, %843 ], [ 8, %864 ], [ 9, %socksstate.exit247.i.i ], [ 11, %734 ], [ %..i23.i, %690 ], [ %.0.i.i17.i, %socks_state_send.exit.i16.i ], [ 0, %775 ], [ %.0.i249.i.i, %socks_state_recv.exit.i13.i ], [ 0, %797 ], [ 0, %808 ], [ 0, %809 ], [ 0, %816 ], [ 0, %820 ], [ 0, %socksstate.exit.i25.i ], [ 0, %644 ], [ 0, %651 ], [ 0, %655 ], [ 27, %636 ], [ 27, %.critedge242.i.i ], [ 27, %socksstate.exit244.thread253.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   br label %907
 
@@ -2160,7 +2160,7 @@ do_SOCKS4.exit.i:                                 ; preds = %885, %864, %843, %8
   br label %socks_proxy_cf_free.exit
 
 907:                                              ; preds = %do_SOCKS4.exit.i, %do_SOCKS5.exit.i
-  %.012.i = phi i32 [ %.1184.i.i, %do_SOCKS4.exit.i ], [ %.3.i.i, %do_SOCKS5.exit.i ]
+  %.012.i = phi i32 [ %.3.i.i, %do_SOCKS5.exit.i ], [ %.1184.i.i, %do_SOCKS4.exit.i ]
   %.not.i = icmp eq i32 %.012.i, 0
   br i1 %.not.i, label %connect_SOCKS.exit, label %908
 

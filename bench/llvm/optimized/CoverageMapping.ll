@@ -1932,7 +1932,7 @@ _ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6
   br label %45
 
 45:                                               ; preds = %_ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6_.exit.thread, %_ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6_.exit, %44
-  %.sroa.017.1 = phi i64 [ %.sroa.017.0.copyload, %_ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6_.exit ], [ %.sroa.022.0.insert.insert28, %44 ], [ %1, %_ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6_.exit.thread ]
+  %.sroa.017.1 = phi i64 [ %.sroa.022.0.insert.insert28, %44 ], [ %.sroa.017.0.copyload, %_ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6_.exit ], [ %1, %_ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6_.exit.thread ]
   ret i64 %.sroa.017.1
 }
 
@@ -2416,7 +2416,7 @@ _ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9S
   br label %112
 
 112:                                              ; preds = %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3topEv.exit, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit25, %93, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit30, %90
-  %.1 = phi i64 [ %.039, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3topEv.exit ], [ %103, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit30 ], [ %.039, %93 ], [ %.039, %90 ], [ %66, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit25 ], [ 0, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit ]
+  %.1 = phi i64 [ %.039, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3topEv.exit ], [ 0, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit ], [ %66, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit25 ], [ %103, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit30 ], [ %.039, %90 ], [ %.039, %93 ]
   %.val = load ptr, ptr %13, align 8, !tbaa !126
   %.val22 = load ptr, ptr %18, align 8, !tbaa !126
   %113 = icmp eq ptr %.val22, %.val
@@ -2431,7 +2431,7 @@ _ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9S
   store i64 %.0.lcssa, ptr %0, align 8, !tbaa !10
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit27, %_ZN4llvm5ErrorD2Ev.exit, %._crit_edge
+.critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit27, %._crit_edge
   %117 = load ptr, ptr %4, align 8, !tbaa !116
   %.not.i.i.i = icmp eq ptr %117, null
   br i1 %.not.i.i.i, label %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEED2Ev.exit, label %118
@@ -2863,7 +2863,7 @@ _ZN4llvm9BitVectorD2Ev.exit.i.i.i40.i.i.i:        ; preds = %85, %79
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %92, %91 ]
+  %.1.i.i.i = phi ptr [ %92, %91 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
   call void @_ZNSt4pairIN4llvm8coverage10MCDCRecord10TestVectorENS2_9CondStateEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(148) %3, ptr noundef nonnull align 8 dereferenceable(148) %.1.i.i.i)
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -2898,7 +2898,7 @@ _ZN4llvm9BitVectorD2Ev.exit.i.i.i43.i.i.i:        ; preds = %99, %93
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %106, %105 ]
+  %.2.i.i.i = phi ptr [ %106, %105 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
   call void @_ZNSt4pairIN4llvm8coverage10MCDCRecord10TestVectorENS2_9CondStateEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(148) %2, ptr noundef nonnull align 8 dereferenceable(148) %.2.i.i.i)
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -4930,7 +4930,7 @@ _ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7Cou
   br label %97
 
 97:                                               ; preds = %79, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit26, %82, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit23, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit20, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3topEv.exit
-  %.1 = phi i64 [ %.032, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3topEv.exit ], [ 0, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit23 ], [ %51, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit20 ], [ 0, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit ], [ %.032, %79 ], [ %.032, %82 ], [ %.sroa.speculated, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit26 ]
+  %.1 = phi i64 [ %.032, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3topEv.exit ], [ 0, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit ], [ %51, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit20 ], [ 0, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit23 ], [ %.032, %79 ], [ %.032, %82 ], [ %.sroa.speculated, %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEE3popEv.exit26 ]
   %.val = load ptr, ptr %10, align 8, !tbaa !275
   %.val17 = load ptr, ptr %15, align 8, !tbaa !275
   %98 = icmp eq ptr %.val17, %.val
@@ -6899,9 +6899,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %628
   br i1 %660, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %654, %646
-  %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %648, %646 ], [ %657, %654 ]
+  %.pn.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %648, %646 ], [ %657, %654 ]
   %661 = zext i32 %644 to i64
-  %.not.i.i.i.i.i.i.i.i.i.i164 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i.i, %661
+  %.not.i.i.i.i.i.i.i.i.i.i164 = icmp samesign eq i64 %.pn.i.i.i.i.i.i.i.i.i.i.i.i, %661
   br i1 %.not.i.i.i.i.i.i.i.i.i.i164, label %.loopexit173.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i.i.i.i.i.i.i.i, %636
@@ -6985,9 +6985,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i51.i.i.i.i.i.i.i: ; preds = %6
   br i1 %705, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i42.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i38.i.i.i.i.i.i.i, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i42.i.i.i.i.i.i.i: ; preds = %699, %691
-  %.lcssa.i.i.i.pn.i.i.i.i.i43.i.i.i.i.i.i.i = phi i64 [ %693, %691 ], [ %702, %699 ]
+  %.pn.i.i.i.i.i43.i.i.i.i.i.i.i = phi i64 [ %693, %691 ], [ %702, %699 ]
   %706 = zext i32 %689 to i64
-  %.not.i.i.i44.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i43.i.i.i.i.i.i.i, %706
+  %.not.i.i.i44.i.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i43.i.i.i.i.i.i.i, %706
   br i1 %.not.i.i.i44.i.i.i.i.i.i.i, label %.loopexit172.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i42.i.i.i.i.i.i.i, %681
@@ -7071,9 +7071,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i72.i.i.i.i.i.i.i: ; preds = %7
   br i1 %750, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i63.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i59.i.i.i.i.i.i.i, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i63.i.i.i.i.i.i.i: ; preds = %744, %736
-  %.lcssa.i.i.i.pn.i.i.i.i.i64.i.i.i.i.i.i.i = phi i64 [ %738, %736 ], [ %747, %744 ]
+  %.pn.i.i.i.i.i64.i.i.i.i.i.i.i = phi i64 [ %738, %736 ], [ %747, %744 ]
   %751 = zext i32 %734 to i64
-  %.not.i.i.i65.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i64.i.i.i.i.i.i.i, %751
+  %.not.i.i.i65.i.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i64.i.i.i.i.i.i.i, %751
   br i1 %.not.i.i.i65.i.i.i.i.i.i.i, label %.loopexit171.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i63.i.i.i.i.i.i.i, %726
@@ -7157,9 +7157,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i93.i.i.i.i.i.i.i: ; preds = %7
   br i1 %795, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i84.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i80.i.i.i.i.i.i.i, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i84.i.i.i.i.i.i.i: ; preds = %789, %781
-  %.lcssa.i.i.i.pn.i.i.i.i.i85.i.i.i.i.i.i.i = phi i64 [ %783, %781 ], [ %792, %789 ]
+  %.pn.i.i.i.i.i85.i.i.i.i.i.i.i = phi i64 [ %783, %781 ], [ %792, %789 ]
   %796 = zext i32 %779 to i64
-  %.not.i.i.i86.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i85.i.i.i.i.i.i.i, %796
+  %.not.i.i.i86.i.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i85.i.i.i.i.i.i.i, %796
   br i1 %.not.i.i.i86.i.i.i.i.i.i.i, label %.loopexit170.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i84.i.i.i.i.i.i.i, %771
@@ -7285,9 +7285,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i114.i.i.i.i.i.i.i: ; preds = %
   br i1 %851, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i105.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i101.i.i.i.i.i.i.i, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i105.i.i.i.i.i.i.i: ; preds = %845, %836
-  %.lcssa.i.i.i.pn.i.i.i.i.i106.i.i.i.i.i.i.i = phi i64 [ %839, %836 ], [ %848, %845 ]
+  %.pn.i.i.i.i.i106.i.i.i.i.i.i.i = phi i64 [ %839, %836 ], [ %848, %845 ]
   %852 = zext i32 %834 to i64
-  %.not.i.i.i107.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i106.i.i.i.i.i.i.i, %852
+  %.not.i.i.i107.i.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i106.i.i.i.i.i.i.i, %852
   br i1 %.not.i.i.i107.i.i.i.i.i.i.i, label %.loopexit169.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i105.i.i.i.i.i.i.i, %826
@@ -7305,8 +7305,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   br label %856
 
 856:                                              ; preds = %.loopexit169.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %857 = phi i32 [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %805, %.loopexit169.i.i.i.i.i.i.i ]
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %855, %.loopexit169.i.i.i.i.i.i.i ]
+  %857 = phi i32 [ %805, %.loopexit169.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %855, %.loopexit169.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
   %858 = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !385
   %859 = getelementptr inbounds nuw i8, ptr %858, i64 28
   %860 = load i32, ptr %859, align 4, !tbaa !439
@@ -7387,9 +7387,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i135.i.i.i.i.i.i.i: ; preds = %
   br i1 %903, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i126.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i122.i.i.i.i.i.i.i, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i126.i.i.i.i.i.i.i: ; preds = %897, %888
-  %.lcssa.i.i.i.pn.i.i.i.i.i127.i.i.i.i.i.i.i = phi i64 [ %891, %888 ], [ %900, %897 ]
+  %.pn.i.i.i.i.i127.i.i.i.i.i.i.i = phi i64 [ %891, %888 ], [ %900, %897 ]
   %904 = zext i32 %886 to i64
-  %.not.i.i.i128.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i127.i.i.i.i.i.i.i, %904
+  %.not.i.i.i128.i.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i127.i.i.i.i.i.i.i, %904
   br i1 %.not.i.i.i128.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i126.i.i.i.i.i.i.i, %878
@@ -7407,8 +7407,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   br label %908
 
 908:                                              ; preds = %.loopexit.i.i.i.i.i.i.i, %._crit_edge._crit_edge206.i.i.i.i.i.i.i
-  %909 = phi i32 [ %.pre208.i.i.i.i.i.i.i, %._crit_edge._crit_edge206.i.i.i.i.i.i.i ], [ %857, %.loopexit.i.i.i.i.i.i.i ]
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge206.i.i.i.i.i.i.i ], [ %907, %.loopexit.i.i.i.i.i.i.i ]
+  %909 = phi i32 [ %857, %.loopexit.i.i.i.i.i.i.i ], [ %.pre208.i.i.i.i.i.i.i, %._crit_edge._crit_edge206.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %907, %.loopexit.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge206.i.i.i.i.i.i.i ]
   %910 = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !385
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 28
   %912 = load i32, ptr %911, align 4, !tbaa !439
@@ -7489,9 +7489,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i156.i.i.i.i.i.i.i: ; preds = %
   br i1 %955, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i: ; preds = %949, %940
-  %.lcssa.i.i.i.pn.i.i.i.i.i148.i.i.i.i.i.i.i = phi i64 [ %943, %940 ], [ %952, %949 ]
+  %.pn.i.i.i.i.i148.i.i.i.i.i.i.i = phi i64 [ %943, %940 ], [ %952, %949 ]
   %956 = zext i32 %938 to i64
-  %.not.i.i.i149.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i148.i.i.i.i.i.i.i, %956
+  %.not.i.i.i149.i.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i148.i.i.i.i.i.i.i, %956
   br i1 %.not.i.i.i149.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i, %930
@@ -7572,9 +7572,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   br i1 %992, label %_ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !173, !llvm.loop !470
 
 _ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.i.i: ; preds = %986, %978
-  %.lcssa.i.i.i.pn.i.i.i = phi i64 [ %980, %978 ], [ %989, %986 ]
+  %.pn.i.i.i = phi i64 [ %980, %978 ], [ %989, %986 ]
   %993 = zext i32 %976 to i64
-  %.not9.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i, %993
+  %.not9.i.i = icmp samesign eq i64 %.pn.i.i.i, %993
   br i1 %.not9.i.i, label %_ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.thread.i.i, label %.loopexit.i
 
 _ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.thread.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.i.i, %972
@@ -7654,9 +7654,9 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i: ; preds = %1006
   br i1 %1038, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i168, !prof !173, !llvm.loop !442
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i: ; preds = %1032, %1024
-  %.lcssa.i.i.i.pn.i.i.i.i = phi i64 [ %1026, %1024 ], [ %1035, %1032 ]
+  %.pn.i.i.i.i = phi i64 [ %1026, %1024 ], [ %1035, %1032 ]
   %1039 = zext i32 %1022 to i64
-  %.not10.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i, %1039
+  %.not10.i.i = icmp samesign eq i64 %.pn.i.i.i.i, %1039
   br i1 %.not10.i.i, label %.loopexit.i, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i, %1014
@@ -14562,7 +14562,7 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   br label %94
 
 94:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !816
   %95 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 17
   %96 = load i8, ptr %95, align 1, !tbaa !820, !range !14, !noundef !15
@@ -14580,7 +14580,7 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   br label %102
 
 102:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %101, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %101, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !816
   %103 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 17
   %104 = load i8, ptr %103, align 1, !tbaa !820, !range !14, !noundef !15

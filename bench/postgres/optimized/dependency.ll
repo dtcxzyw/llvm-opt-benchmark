@@ -819,7 +819,7 @@ object_address_present_add_flags.exit201.thread:  ; preds = %223, %object_addres
   unreachable
 
 ReleaseDeletionLock.exit:                         ; preds = %.thread, %object_address_present.exit.thread, %157, %272, %277, %153, %153, %153, %156, %191, %stack_address_present_add_flags.exit173, %150
-  %.1 = phi i32 [ %.0242, %150 ], [ %278, %277 ], [ %273, %272 ], [ %.0242, %191 ], [ %.0242, %stack_address_present_add_flags.exit173 ], [ %.0242, %156 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %157 ], [ %.0242, %object_address_present.exit.thread ], [ %.0242, %.thread ]
+  %.1 = phi i32 [ %.0242, %150 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %156 ], [ %.0242, %191 ], [ %.0242, %stack_address_present_add_flags.exit173 ], [ %273, %272 ], [ %278, %277 ], [ %.0242, %157 ], [ %.0242, %object_address_present.exit.thread ], [ %.0242, %.thread ]
   %286 = call ptr @systable_getnext(ptr noundef %126) #9
   %.not132 = icmp eq ptr %286, null
   br i1 %.not132, label %._crit_edge, label %132
@@ -988,7 +988,7 @@ AcquireDeletionLock.exit202.thread:               ; preds = %334
   unreachable
 
 354:                                              ; preds = %340, %346, %345, %344, %343
-  %.0112 = phi i32 [ 32, %346 ], [ 16, %345 ], [ 8, %344 ], [ 4, %343 ], [ 2, %340 ]
+  %.0112 = phi i32 [ 4, %343 ], [ 8, %344 ], [ 16, %345 ], [ 32, %346 ], [ 2, %340 ]
   %.not138 = icmp slt i32 %.0120246, %.0117247
   br i1 %.not138, label %360, label %355
 

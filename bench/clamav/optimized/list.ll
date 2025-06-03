@@ -343,9 +343,9 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           to label %115 unwind label %.split277
 
 115:                                              ; preds = %112, %111, %87, %100, %104
-  %.4123 = phi i1 [ %.1120, %111 ], [ true, %112 ], [ true, %104 ], [ false, %100 ], [ %.1120, %87 ]
-  %.3118 = phi i64 [ %.0115, %111 ], [ %.0115, %112 ], [ %110, %104 ], [ %.0115, %100 ], [ %.0115, %87 ]
-  %.3113 = phi i64 [ %.0110, %111 ], [ %.0110, %112 ], [ %.4114, %104 ], [ %.0110, %100 ], [ %.0110, %87 ]
+  %.4123 = phi i1 [ true, %104 ], [ false, %100 ], [ %.1120, %111 ], [ true, %112 ], [ %.1120, %87 ]
+  %.3118 = phi i64 [ %110, %104 ], [ %.0115, %100 ], [ %.0115, %111 ], [ %.0115, %112 ], [ %.0115, %87 ]
+  %.3113 = phi i64 [ %.4114, %104 ], [ %.0110, %100 ], [ %.0110, %111 ], [ %.0110, %112 ], [ %.0110, %87 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
           to label %.split unwind label %.split277
 

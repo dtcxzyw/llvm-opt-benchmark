@@ -6182,7 +6182,7 @@ _ZN12MetaspaceObj9type_nameENS_4TypeE.exit:       ; preds = %_ZN14ArchiveBuilder
   br label %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit
 
 180:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit, %43, %44, %45, %46, %47, %48, %49, %50, %51
-  %.0.i.ph = phi ptr [ @.str.78, %43 ], [ @.str.79, %44 ], [ @.str.80, %45 ], [ @.str.81, %46 ], [ @.str.84, %47 ], [ @.str.87, %48 ], [ @.str.88, %49 ], [ @.str.89, %50 ], [ @.str.90, %51 ], [ @.str.77, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit ]
+  %.0.i.ph = phi ptr [ @.str.90, %51 ], [ @.str.89, %50 ], [ @.str.88, %49 ], [ @.str.87, %48 ], [ @.str.84, %47 ], [ @.str.81, %46 ], [ @.str.80, %45 ], [ @.str.79, %44 ], [ @.str.78, %43 ], [ @.str.77, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit ]
   %181 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not110 = icmp eq ptr %181, null
   br i1 %.not110, label %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit, label %182

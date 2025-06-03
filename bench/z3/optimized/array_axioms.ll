@@ -571,7 +571,7 @@ _ZNK5array6solver17is_map_combinatorEP4expr.exit.thread.i: ; preds = %_ZNK17arra
   br label %_ZN5array6solver14assert_defaultERNS0_12axiom_recordE.exit
 
 _ZN5array6solver14assert_defaultERNS0_12axiom_recordE.exit: ; preds = %_ZNK5array6solver17is_map_combinatorEP4expr.exit.thread.i, %_ZNK17array_recognizers6is_mapEP4expr.exit.i.i, %40, %36, %25, %15, %61, %53, %45, %13, %8
-  %.0 = phi i1 [ false, %61 ], [ %60, %53 ], [ %52, %45 ], [ %14, %13 ], [ %12, %8 ], [ %37, %36 ], [ %41, %40 ], [ %44, %_ZNK5array6solver17is_map_combinatorEP4expr.exit.thread.i ], [ false, %15 ], [ false, %_ZNK17array_recognizers6is_mapEP4expr.exit.i.i ], [ false, %25 ]
+  %.0 = phi i1 [ false, %61 ], [ %12, %8 ], [ %14, %13 ], [ %52, %45 ], [ %60, %53 ], [ %37, %36 ], [ %41, %40 ], [ %44, %_ZNK5array6solver17is_map_combinatorEP4expr.exit.thread.i ], [ false, %15 ], [ false, %_ZNK17array_recognizers6is_mapEP4expr.exit.i.i ], [ false, %25 ]
   ret i1 %.0
 }
 

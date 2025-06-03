@@ -943,9 +943,9 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
   unreachable
 
 301:                                              ; preds = %295, %287
-  %.037.in.i = phi ptr [ %296, %295 ], [ %290, %287 ]
-  %.036.i = phi i32 [ -1, %295 ], [ %292, %287 ]
-  %.0.i49 = phi i32 [ 0, %295 ], [ %294, %287 ]
+  %.037.in.i = phi ptr [ %290, %287 ], [ %296, %295 ]
+  %.036.i = phi i32 [ %292, %287 ], [ -1, %295 ]
+  %.0.i49 = phi i32 [ %294, %287 ], [ 0, %295 ]
   %.037.i = load i32, ptr %.037.in.i, align 8
   %302 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %303 = load ptr, ptr %302, align 8
@@ -1581,8 +1581,8 @@ plpgsql_build_datatype.exit349.i:                 ; preds = %plpgsql_build_datat
   unreachable
 
 592:                                              ; preds = %plpgsql_build_datatype.exit349.i, %plpgsql_build_datatype.exit343.i, %399
-  %.0286.i = phi ptr [ null, %plpgsql_build_datatype.exit349.i ], [ null, %plpgsql_build_datatype.exit343.i ], [ %198, %399 ]
-  %.2.i = phi i1 [ false, %plpgsql_build_datatype.exit349.i ], [ false, %plpgsql_build_datatype.exit343.i ], [ %400, %399 ]
+  %.0286.i = phi ptr [ %198, %399 ], [ null, %plpgsql_build_datatype.exit343.i ], [ null, %plpgsql_build_datatype.exit349.i ]
+  %.2.i = phi i1 [ %400, %399 ], [ false, %plpgsql_build_datatype.exit343.i ], [ false, %plpgsql_build_datatype.exit349.i ]
   %593 = getelementptr inbounds nuw i8, ptr %124, i64 101
   %594 = load i8, ptr %593, align 1
   %595 = icmp ne i8 %594, 118
@@ -1712,7 +1712,7 @@ plpgsql_build_datatype.exit352.i:                 ; preds = %592
   br label %656
 
 656:                                              ; preds = %654, %652, %.lr.ph.i.i
-  %.1.i.i = phi i64 [ %.01213.i.i, %.lr.ph.i.i ], [ %655, %654 ], [ %653, %652 ]
+  %.1.i.i = phi i64 [ %.01213.i.i, %.lr.ph.i.i ], [ %653, %652 ], [ %655, %654 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %plpgsql_finish_datums.exit.i, label %.lr.ph.i.i, !llvm.loop !9
@@ -1974,7 +1974,7 @@ plpgsql_build_datatype.exit:                      ; preds = %1
   br label %80
 
 80:                                               ; preds = %78, %76, %.lr.ph.i
-  %.1.i = phi i64 [ %.01213.i, %.lr.ph.i ], [ %79, %78 ], [ %77, %76 ]
+  %.1.i = phi i64 [ %.01213.i, %.lr.ph.i ], [ %77, %76 ], [ %79, %78 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %plpgsql_finish_datums.exit, label %.lr.ph.i, !llvm.loop !9
@@ -2571,7 +2571,7 @@ define hidden noundef zeroext i1 @plpgsql_parse_dblword(ptr noundef %0, ptr noun
   br label %41
 
 41:                                               ; preds = %40, %36, %15
-  %.0 = phi i1 [ false, %40 ], [ true, %36 ], [ true, %15 ]
+  %.0 = phi i1 [ false, %40 ], [ true, %15 ], [ true, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   ret i1 %.0
 }

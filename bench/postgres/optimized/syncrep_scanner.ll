@@ -1228,7 +1228,7 @@ syncrep_yyerror.exit.loopexit621:                 ; preds = %137
   br label %syncrep_yyerror.exit
 
 syncrep_yyerror.exit:                             ; preds = %137, %syncrep_yyerror.exit.loopexit621, %syncrep_yyerror.exit.loopexit524, %syncrep_yyerror.exit.loopexit443, %syncrep_yyerror.exit.loopexit334, %syncrep_yyerror.exit.loopexit, %159, %157, %152, %172, %169, %165, %161, %147
-  %.0 = phi i32 [ 0, %172 ], [ 258, %169 ], [ 259, %165 ], [ 258, %161 ], [ 258, %147 ], [ 260, %152 ], [ 260, %157 ], [ 260, %159 ], [ 261, %syncrep_yyerror.exit.loopexit ], [ 262, %syncrep_yyerror.exit.loopexit334 ], [ 44, %syncrep_yyerror.exit.loopexit443 ], [ 40, %syncrep_yyerror.exit.loopexit524 ], [ 41, %syncrep_yyerror.exit.loopexit621 ], [ 260, %137 ]
+  %.0 = phi i32 [ 258, %147 ], [ 258, %161 ], [ 259, %165 ], [ 258, %169 ], [ 0, %172 ], [ 260, %152 ], [ 260, %157 ], [ 260, %159 ], [ 261, %syncrep_yyerror.exit.loopexit ], [ 262, %syncrep_yyerror.exit.loopexit334 ], [ 44, %syncrep_yyerror.exit.loopexit443 ], [ 40, %syncrep_yyerror.exit.loopexit524 ], [ 41, %syncrep_yyerror.exit.loopexit621 ], [ 260, %137 ]
   ret i32 %.0
 }
 

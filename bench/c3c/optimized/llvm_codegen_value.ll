@@ -113,7 +113,7 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
   br label %.backedge148
 
 .backedge148:                                     ; preds = %40, %34
-  %.0.i.in.be = phi ptr [ %41, %40 ], [ %39, %34 ]
+  %.0.i.in.be = phi ptr [ %39, %34 ], [ %41, %40 ]
   br label %30
 
 42:                                               ; preds = %30
@@ -149,7 +149,7 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
   br label %.backedge145
 
 .backedge145:                                     ; preds = %55, %49
-  %.0.i88.in.be = phi ptr [ %56, %55 ], [ %54, %49 ]
+  %.0.i88.in.be = phi ptr [ %54, %49 ], [ %56, %55 ]
   br label %45
 
 57:                                               ; preds = %45
@@ -284,7 +284,7 @@ llvm_value_fold_optional.exit:                    ; preds = %79, %81
   unreachable
 
 133:                                              ; preds = %130, %124
-  %.1.in.i93 = phi ptr [ %131, %130 ], [ %129, %124 ]
+  %.1.in.i93 = phi ptr [ %129, %124 ], [ %131, %130 ]
   %.1.i94 = load ptr, ptr %.1.in.i93, align 8
   br label %.preheader
 
@@ -317,7 +317,7 @@ llvm_value_fold_optional.exit:                    ; preds = %79, %81
   br label %.backedge
 
 .backedge:                                        ; preds = %146, %140
-  %.0.i96.in.be = phi ptr [ %147, %146 ], [ %145, %140 ]
+  %.0.i96.in.be = phi ptr [ %145, %140 ], [ %147, %146 ]
   br label %136
 
 148:                                              ; preds = %136
@@ -396,7 +396,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   ]
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
-  %.026.be = phi ptr [ %36, %30 ], [ %23, %17 ], [ %16, %10 ], [ %9, %7 ], [ %2, %.backedge ]
+  %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
   br label %.backedge
 
 6:                                                ; preds = %.backedge
@@ -497,7 +497,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %62, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %51 ], [ %43, %42 ], [ %29, %26 ], [ %25, %24 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 

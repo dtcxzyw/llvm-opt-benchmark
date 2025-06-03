@@ -1212,8 +1212,8 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %118
 
 118:                                              ; preds = %113, %110
-  %119 = phi i64 [ 8, %110 ], [ 7, %113 ]
-  %.2 = phi i32 [ 0, %110 ], [ %117, %113 ]
+  %119 = phi i64 [ 7, %113 ], [ 8, %110 ]
+  %.2 = phi i32 [ %117, %113 ], [ 0, %110 ]
   %120 = getelementptr i8, ptr %111, i64 %119
   %121 = getelementptr inbounds i8, ptr %120, i64 -1
   %122 = load i8, ptr %121, align 1, !tbaa !10
@@ -1223,8 +1223,8 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %126
 
 126:                                              ; preds = %118, %110
-  %.3242 = phi ptr [ %112, %110 ], [ %121, %118 ]
-  %.3 = phi i32 [ 0, %110 ], [ %125, %118 ]
+  %.3242 = phi ptr [ %121, %118 ], [ %112, %110 ]
+  %.3 = phi i32 [ %125, %118 ], [ 0, %110 ]
   %127 = getelementptr inbounds i8, ptr %.3242, i64 -1
   %128 = load i8, ptr %127, align 1, !tbaa !10
   %129 = zext i8 %128 to i32
@@ -1233,17 +1233,17 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %132
 
 132:                                              ; preds = %126, %110
-  %.4243 = phi ptr [ %112, %110 ], [ %127, %126 ]
-  %.4 = phi i32 [ 0, %110 ], [ %131, %126 ]
+  %.4243 = phi ptr [ %127, %126 ], [ %112, %110 ]
+  %.4 = phi i32 [ %131, %126 ], [ 0, %110 ]
   %133 = getelementptr inbounds i8, ptr %.4243, i64 -1
   %134 = load i8, ptr %133, align 1, !tbaa !10
   %135 = zext i8 %134 to i32
   br label %136
 
 136:                                              ; preds = %132, %110
-  %.5244 = phi ptr [ %112, %110 ], [ %133, %132 ]
-  %.1236 = phi i32 [ 0, %110 ], [ %135, %132 ]
-  %.5 = phi i32 [ 0, %110 ], [ %.4, %132 ]
+  %.5244 = phi ptr [ %133, %132 ], [ %112, %110 ]
+  %.1236 = phi i32 [ %135, %132 ], [ 0, %110 ]
+  %.5 = phi i32 [ %.4, %132 ], [ 0, %110 ]
   %137 = getelementptr inbounds i8, ptr %.5244, i64 -1
   %138 = load i8, ptr %137, align 1, !tbaa !10
   %139 = zext i8 %138 to i32
@@ -1252,9 +1252,9 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %142
 
 142:                                              ; preds = %136, %110
-  %.6245 = phi ptr [ %112, %110 ], [ %137, %136 ]
-  %.2237 = phi i32 [ 0, %110 ], [ %141, %136 ]
-  %.6 = phi i32 [ 0, %110 ], [ %.5, %136 ]
+  %.6245 = phi ptr [ %137, %136 ], [ %112, %110 ]
+  %.2237 = phi i32 [ %141, %136 ], [ 0, %110 ]
+  %.6 = phi i32 [ %.5, %136 ], [ 0, %110 ]
   %143 = getelementptr inbounds i8, ptr %.6245, i64 -1
   %144 = load i8, ptr %143, align 1, !tbaa !10
   %145 = zext i8 %144 to i32
@@ -1263,9 +1263,9 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %148
 
 148:                                              ; preds = %110, %142
-  %.7246 = phi ptr [ %112, %110 ], [ %143, %142 ]
-  %.3238 = phi i32 [ 0, %110 ], [ %147, %142 ]
-  %.7 = phi i32 [ 0, %110 ], [ %.6, %142 ]
+  %.7246 = phi ptr [ %143, %142 ], [ %112, %110 ]
+  %.3238 = phi i32 [ %147, %142 ], [ 0, %110 ]
+  %.7 = phi i32 [ %.6, %142 ], [ 0, %110 ]
   %149 = getelementptr inbounds i8, ptr %.7246, i64 -1
   %150 = load i8, ptr %149, align 1, !tbaa !10
   %151 = zext i8 %150 to i32
@@ -1497,7 +1497,7 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %295
 
 295:                                              ; preds = %291, %248
-  %296 = phi i64 [ 8, %248 ], [ 7, %291 ]
+  %296 = phi i64 [ 7, %291 ], [ 8, %248 ]
   %297 = getelementptr i8, ptr %289, i64 %296
   %298 = lshr i32 %288, 16
   %299 = trunc i32 %298 to i8
@@ -1506,7 +1506,7 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %301
 
 301:                                              ; preds = %295, %248
-  %.4251 = phi ptr [ %290, %248 ], [ %300, %295 ]
+  %.4251 = phi ptr [ %300, %295 ], [ %290, %248 ]
   %302 = lshr i32 %288, 24
   %303 = trunc nuw i32 %302 to i8
   %304 = getelementptr inbounds i8, ptr %.4251, i64 -1
@@ -1514,14 +1514,14 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %305
 
 305:                                              ; preds = %301, %248
-  %.5252 = phi ptr [ %290, %248 ], [ %304, %301 ]
+  %.5252 = phi ptr [ %304, %301 ], [ %290, %248 ]
   %306 = trunc i32 %286 to i8
   %307 = getelementptr inbounds i8, ptr %.5252, i64 -1
   store i8 %306, ptr %307, align 1, !tbaa !10
   br label %308
 
 308:                                              ; preds = %305, %248
-  %.6253 = phi ptr [ %290, %248 ], [ %307, %305 ]
+  %.6253 = phi ptr [ %307, %305 ], [ %290, %248 ]
   %309 = lshr i32 %286, 8
   %310 = trunc i32 %309 to i8
   %311 = getelementptr inbounds i8, ptr %.6253, i64 -1
@@ -1529,7 +1529,7 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %312
 
 312:                                              ; preds = %308, %248
-  %.7254 = phi ptr [ %290, %248 ], [ %311, %308 ]
+  %.7254 = phi ptr [ %311, %308 ], [ %290, %248 ]
   %313 = lshr i32 %286, 16
   %314 = trunc i32 %313 to i8
   %315 = getelementptr inbounds i8, ptr %.7254, i64 -1
@@ -1537,7 +1537,7 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br label %316
 
 316:                                              ; preds = %248, %312
-  %.8255 = phi ptr [ %290, %248 ], [ %315, %312 ]
+  %.8255 = phi ptr [ %315, %312 ], [ %290, %248 ]
   %317 = lshr i32 %286, 24
   %318 = trunc nuw i32 %317 to i8
   %319 = getelementptr inbounds i8, ptr %.8255, i64 -1

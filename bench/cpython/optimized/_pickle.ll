@@ -2862,7 +2862,7 @@ _write_size64.exit.i:                             ; preds = %158, %164
   br label %_Pickler_CommitFrame.exit
 
 _Pickler_CommitFrame.exit:                        ; preds = %125, %123, %_write_size64.exit.i, %145, %.lr.ph.i67, %102, %103, %Py_XDECREF.exit, %3
-  %.038 = phi i32 [ -1, %3 ], [ -1, %Py_XDECREF.exit ], [ -1, %102 ], [ -1, %103 ], [ 0, %.lr.ph.i67 ], [ 0, %145 ], [ 0, %_write_size64.exit.i ], [ -1, %123 ], [ -1, %125 ]
+  %.038 = phi i32 [ -1, %3 ], [ -1, %Py_XDECREF.exit ], [ -1, %103 ], [ -1, %102 ], [ 0, %.lr.ph.i67 ], [ 0, %145 ], [ 0, %_write_size64.exit.i ], [ -1, %123 ], [ -1, %125 ]
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 0, ptr %168, align 8, !tbaa !45
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -23474,7 +23474,7 @@ define internal i32 @Pdata_traverse(ptr noundef readonly captures(none) %0, ptr 
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -23555,7 +23555,7 @@ define internal i32 @PicklerMemoProxy_traverse(ptr noundef readonly captures(non
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -23941,7 +23941,7 @@ define internal i32 @UnpicklerMemoProxy_traverse(ptr noundef readonly captures(n
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -24689,7 +24689,7 @@ define internal i32 @Pickler_traverse(ptr noundef readonly captures(none) %0, pt
   br i1 %56, label %.thread, label %.lr.ph, !llvm.loop !203
 
 .thread:                                          ; preds = %52, %54, %43, %37, %40, %35, %30, %25, %20, %15, %10, %5
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ %31, %30 ], [ %36, %35 ], [ 0, %40 ], [ 0, %37 ], [ 0, %43 ], [ %53, %52 ], [ 0, %54 ]
+  %.1 = phi i32 [ %36, %35 ], [ %31, %30 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ], [ 0, %40 ], [ 0, %37 ], [ 0, %43 ], [ %53, %52 ], [ 0, %54 ]
   ret i32 %.1
 }
 
@@ -25810,7 +25810,7 @@ define internal i32 @Unpickler_traverse(ptr noundef readonly captures(none) %0, 
   br i1 %57, label %.thread, label %.lr.ph, !llvm.loop !216
 
 .thread:                                          ; preds = %53, %55, %45, %42, %40, %35, %30, %25, %20, %15, %10, %5
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ %31, %30 ], [ %36, %35 ], [ %41, %40 ], [ 0, %42 ], [ 0, %45 ], [ %54, %53 ], [ 0, %55 ]
+  %.1 = phi i32 [ %41, %40 ], [ %36, %35 ], [ %31, %30 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ], [ 0, %42 ], [ 0, %45 ], [ %54, %53 ], [ 0, %55 ]
   ret i32 %.1
 }
 

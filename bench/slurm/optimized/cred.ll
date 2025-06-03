@@ -661,7 +661,7 @@ define dso_local ptr @slurm_cred_get(ptr noundef %0, i32 noundef %1) local_unnam
   br label %29
 
 29:                                               ; preds = %15, %18, %21, %24, %27
-  %.017 = phi ptr [ null, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ]
+  %.017 = phi ptr [ null, %27 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ]
   %30 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #11
   %.not24 = icmp eq i32 %30, 0
   br i1 %.not24, label %33, label %31

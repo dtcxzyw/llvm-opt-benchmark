@@ -1173,7 +1173,7 @@ read_all.exit:                                    ; preds = %238
   br label %258
 
 .thread:                                          ; preds = %read_number.exit, %233, %235, %read_all.exit, %30, %36
-  %.4 = phi i32 [ %35, %30 ], [ %42, %36 ], [ %.010.i, %read_number.exit ], [ %234, %233 ], [ %236, %235 ], [ 1, %read_all.exit ]
+  %.4 = phi i32 [ %35, %30 ], [ %42, %36 ], [ 1, %read_all.exit ], [ %236, %235 ], [ %234, %233 ], [ %.010.i, %read_number.exit ]
   %246 = add nuw nsw i32 %.15265, 1
   %247 = add nsw i32 %24, -1
   %248 = icmp ne i32 %24, 0

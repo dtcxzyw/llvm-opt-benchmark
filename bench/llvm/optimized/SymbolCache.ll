@@ -1377,7 +1377,7 @@ _ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15Modifi
   br label %68
 
 68:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit9, %64, %66, %53, %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit
-  %.1 = phi i32 [ %.0.i, %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit ], [ 0, %_ZN4llvm5ErrorD2Ev.exit9 ], [ %67, %66 ], [ %65, %64 ], [ 0, %53 ]
+  %.1 = phi i32 [ %.0.i, %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit ], [ 0, %_ZN4llvm5ErrorD2Ev.exit9 ], [ %65, %64 ], [ %67, %66 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
   ret i32 %.1
 }
@@ -1958,7 +1958,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread: ; preds = %
   br label %166
 
 166:                                              ; preds = %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread, %163, %161, %159, %157, %155, %153, %_ZNK4llvm3pdb11SymbolCache19createSymbolForTypeINS0_13NativeTypeUDTENS_8codeview11ClassRecordEJEEEjNS4_9TypeIndexENS4_8CVRecordINS4_12TypeLeafKindEEEDpOT1_.exit, %128, %126
-  %.042 = phi i32 [ %165, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %.1.i, %_ZNK4llvm3pdb11SymbolCache19createSymbolForTypeINS0_13NativeTypeUDTENS_8codeview11ClassRecordEJEEEjNS4_9TypeIndexENS4_8CVRecordINS4_12TypeLeafKindEEEDpOT1_.exit ], [ %129, %128 ], [ %127, %126 ]
+  %.042 = phi i32 [ %165, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread ], [ %127, %126 ], [ %129, %128 ], [ %.1.i, %_ZNK4llvm3pdb11SymbolCache19createSymbolForTypeINS0_13NativeTypeUDTENS_8codeview11ClassRecordEJEEEjNS4_9TypeIndexENS4_8CVRecordINS4_12TypeLeafKindEEEDpOT1_.exit ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ]
   %.not = icmp eq i32 %.042, 0
   br i1 %.not, label %169, label %167
 
@@ -3062,13 +3062,13 @@ define dso_local noundef i32 @_ZN4llvm3pdb11SymbolCache31getOrCreateGlobalSymbol
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !159, !llvm.loop !214
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %22, %13
-  %.lcssa.i.i.pn = phi i64 [ %16, %13 ], [ %25, %22 ]
+  %.pn = phi i64 [ %16, %13 ], [ %25, %22 ]
   %29 = zext i32 %11 to i64
-  %.not35 = icmp samesign eq i64 %.lcssa.i.i.pn, %29
+  %.not35 = icmp samesign eq i64 %.pn, %29
   br i1 %.not35, label %_ZN4llvm8ExpectedIRNS_3pdb12SymbolStreamEED2Ev.exit, label %30
 
 30:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %9, i64 %.lcssa.i.i.pn, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %9, i64 %.pn, i32 0, i32 1
   %32 = load i32, ptr %31, align 4, !tbaa !215
   br label %82
 
@@ -5998,8 +5998,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEjNS_12DenseMapInfoIS3_vEENS_6deta
   br label %52
 
 52:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPS8_RKT_.exit, %.loopexit
-  %.sroa.0.1 = phi ptr [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPS8_RKT_.exit ], [ %51, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %49, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPS8_RKT_.exit ], [ %51, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %51, %.loopexit ], [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPS8_RKT_.exit ]
+  %.sroa.3.1 = phi ptr [ %51, %.loopexit ], [ %49, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPS8_RKT_.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -10103,13 +10103,13 @@ define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache21getOrCreateSourceFileE
   br i1 %24, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !159, !llvm.loop !214
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %18, %8
-  %.lcssa.i.i.pn = phi i64 [ %12, %8 ], [ %21, %18 ]
+  %.pn = phi i64 [ %12, %8 ], [ %21, %18 ]
   %25 = zext i32 %6 to i64
-  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %25
+  %.not = icmp samesign eq i64 %.pn, %25
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %26
 
 26:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %4, i64 %.lcssa.i.i.pn, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %4, i64 %.pn, i32 0, i32 1
   %28 = load i32, ptr %27, align 4, !tbaa !215
   br label %69
 

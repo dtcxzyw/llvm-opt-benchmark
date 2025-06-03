@@ -1107,7 +1107,7 @@ dissect_ctrl_msc.exit:                            ; preds = %390, %437
   br label %444
 
 444:                                              ; preds = %dissect_ctrl_msc.exit, %371, %323
-  %.0276 = phi i8 [ %393, %dissect_ctrl_msc.exit ], [ %374, %371 ], [ %328, %323 ]
+  %.0276 = phi i8 [ %328, %323 ], [ %374, %371 ], [ %393, %dissect_ctrl_msc.exit ]
   %.not232 = icmp eq i8 %.0276, 0
   br i1 %.not232, label %.thread293, label %.thread289
 

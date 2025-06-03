@@ -3705,8 +3705,8 @@ define internal fastcc void @decode_main_voice_mode(ptr noundef %0, ptr noundef 
   br label %20
 
 20:                                               ; preds = %14, %10, %10, %10, %10
-  %.066 = phi i32 [ %13, %10 ], [ %13, %10 ], [ %13, %10 ], [ %13, %10 ], [ %19, %14 ]
-  %.0 = phi i32 [ 4, %10 ], [ 4, %10 ], [ 4, %10 ], [ 4, %10 ], [ 6, %14 ]
+  %.066 = phi i32 [ %19, %14 ], [ %13, %10 ], [ %13, %10 ], [ %13, %10 ], [ %13, %10 ]
+  %.0 = phi i32 [ 6, %14 ], [ 4, %10 ], [ 4, %10 ], [ 4, %10 ], [ 4, %10 ]
   %21 = load i32, ptr @hf_ua3g_main_voice_mode_speaker_volume, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %21, ptr noundef %1, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %.not68 = icmp eq i32 %.066, 1

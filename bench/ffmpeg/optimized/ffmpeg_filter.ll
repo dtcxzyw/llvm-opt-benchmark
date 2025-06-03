@@ -1754,7 +1754,7 @@ send_command.exit:                                ; preds = %99, %114, %121, %12
   br label %196
 
 196:                                              ; preds = %195, %190, %169, %165, %152
-  %.0116.i = phi i32 [ 0, %152 ], [ 1, %195 ], [ 0, %190 ], [ 2, %169 ], [ 0, %165 ]
+  %.0116.i = phi i32 [ 0, %152 ], [ 2, %169 ], [ 0, %165 ], [ 1, %195 ], [ 0, %190 ]
   %197 = call ptr @av_frame_get_side_data(ptr noundef nonnull %85, i32 noundef 6) #17
   %.not135.i = icmp eq ptr %197, null
   %198 = getelementptr inbounds nuw i8, ptr %136, i64 248
@@ -4193,7 +4193,7 @@ configure_input_audio_filter.exit.i:              ; preds = %350, %341, %331, %3
   unreachable
 
 configure_input_filter.exit:                      ; preds = %configure_input_video_filter.exit.i, %configure_input_audio_filter.exit.i
-  %.0.i = phi i32 [ %.0.i11.i, %configure_input_audio_filter.exit.i ], [ %.0.i.i, %configure_input_video_filter.exit.i ]
+  %.0.i = phi i32 [ %.0.i.i, %configure_input_video_filter.exit.i ], [ %.0.i11.i, %configure_input_audio_filter.exit.i ]
   %358 = icmp slt i32 %.0.i, 0
   br i1 %358, label %359, label %360
 
@@ -4892,7 +4892,7 @@ configure_output_audio_filter.exit.i:             ; preds = %661, %536
   unreachable
 
 configure_output_filter.exit:                     ; preds = %configure_output_video_filter.exit.i, %configure_output_audio_filter.exit.i
-  %.0.i211 = phi i32 [ %.034.i.i, %configure_output_audio_filter.exit.i ], [ %.043.i.i, %configure_output_video_filter.exit.i ]
+  %.0.i211 = phi i32 [ %.043.i.i, %configure_output_video_filter.exit.i ], [ %.034.i.i, %configure_output_audio_filter.exit.i ]
   %664 = icmp slt i32 %.0.i211, 0
   br i1 %664, label %665, label %666
 
@@ -5246,7 +5246,7 @@ switch.early.test:                                ; preds = %._crit_edge322.thre
   ]
 
 .thread240:                                       ; preds = %807, %.loopexit284, %95, %77, %62, %.thread259, %switch.early.test, %672, %.thread, %665, %359
-  %.4 = phi i32 [ %89, %95 ], [ %101, %.thread ], [ %.0.i, %359 ], [ %.0.i211, %665 ], [ %674, %672 ], [ %.7, %.loopexit284 ], [ %.fr, %switch.early.test ], [ %.14, %.thread259 ], [ %81, %77 ], [ %63, %62 ], [ %813, %807 ]
+  %.4 = phi i32 [ %101, %.thread ], [ %.0.i, %359 ], [ %.0.i211, %665 ], [ %674, %672 ], [ %.fr, %switch.early.test ], [ %.7, %.loopexit284 ], [ %89, %95 ], [ %.14, %.thread259 ], [ %81, %77 ], [ %63, %62 ], [ %813, %807 ]
   %822 = load i32, ptr %37, align 8, !tbaa !96
   %823 = icmp sgt i32 %822, 0
   br i1 %823, label %.lr.ph.i228, label %.preheader.i222
@@ -7233,8 +7233,8 @@ adjust_frame_pts_to_encoder_tb.exit:              ; preds = %79, %.thread.i, %av
   br label %124
 
 124:                                              ; preds = %114, %119, %111
-  %.0116 = phi nsz double [ %97, %111 ], [ %.0119, %119 ], [ %97, %114 ]
-  %.1 = phi nsz double [ %.0, %111 ], [ 0.000000e+00, %119 ], [ %.0, %114 ]
+  %.0116 = phi nsz double [ %.0119, %119 ], [ %97, %114 ], [ %97, %111 ]
+  %.1 = phi nsz double [ 0.000000e+00, %119 ], [ %.0, %114 ], [ %.0, %111 ]
   %125 = load float, ptr @frame_drop_threshold, align 4, !tbaa !435
   %126 = fcmp nsz une float %125, 0.000000e+00
   %127 = fpext nsz float %125 to double

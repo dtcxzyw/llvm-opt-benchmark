@@ -1389,7 +1389,7 @@ _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE.exit65: ; preds = %169, %155
   unreachable
 
 221:                                              ; preds = %2, %217, %214, %211, %208, %205, %204, %139, %58, %55, %52, %51, %27, %24
-  %.0 = phi i64 [ %219, %217 ], [ %216, %214 ], [ %213, %211 ], [ %210, %208 ], [ %207, %205 ], [ %.4, %204 ], [ %.3, %139 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %.1, %51 ], [ %29, %27 ], [ %26, %24 ], [ 4, %2 ]
+  %.0 = phi i64 [ %26, %24 ], [ %29, %27 ], [ %.1, %51 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %.3, %139 ], [ %.4, %204 ], [ %207, %205 ], [ %210, %208 ], [ %213, %211 ], [ %216, %214 ], [ %219, %217 ], [ 4, %2 ]
   ret i64 %.0
 }
 
@@ -3974,9 +3974,9 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit.thread:  ; preds = %_ZN4llvm11MCAssembl
   br label %136
 
 136:                                              ; preds = %133, %130, %127, %124, %121, %116, %111
-  %.sroa.12.3.in.in = phi ptr [ %135, %133 ], [ %132, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %118, %116 ], [ %113, %111 ]
-  %.sroa.0115.3.in = phi ptr [ %134, %133 ], [ %131, %130 ], [ %128, %127 ], [ %125, %124 ], [ %122, %121 ], [ %117, %116 ], [ %112, %111 ]
-  %.080 = phi ptr [ null, %133 ], [ null, %130 ], [ null, %127 ], [ null, %124 ], [ null, %121 ], [ %120, %116 ], [ %115, %111 ]
+  %.sroa.12.3.in.in = phi ptr [ %113, %111 ], [ %118, %116 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ %135, %133 ]
+  %.sroa.0115.3.in = phi ptr [ %112, %111 ], [ %117, %116 ], [ %122, %121 ], [ %125, %124 ], [ %128, %127 ], [ %131, %130 ], [ %134, %133 ]
+  %.080 = phi ptr [ %115, %111 ], [ %120, %116 ], [ null, %121 ], [ null, %124 ], [ null, %127 ], [ null, %130 ], [ null, %133 ]
   %.sroa.0115.3 = load ptr, ptr %.sroa.0115.3.in, align 8, !tbaa !50
   %.sroa.12.3.in = load i32, ptr %.sroa.12.3.in.in, align 8, !tbaa !51
   %.sroa.12.3 = zext i32 %.sroa.12.3.in to i64
@@ -5200,7 +5200,7 @@ _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit: ;
   br label %58
 
 58:                                               ; preds = %2, %56, %48, %40, %38, %36, %34, %_ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit, %7
-  %.0 = phi i1 [ %57, %56 ], [ %55, %48 ], [ %47, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %.0.i, %_ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit ], [ %8, %7 ], [ false, %2 ]
+  %.0 = phi i1 [ %8, %7 ], [ %.0.i, %_ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %47, %40 ], [ %55, %48 ], [ %57, %56 ], [ false, %2 ]
   ret i1 %.0
 }
 

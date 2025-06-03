@@ -124,7 +124,7 @@ define internal range(i32 -1, 57) i32 @prolog1(ptr noundef writeonly captures(no
   br label %20
 
 20:                                               ; preds = %5, %5, %19, %18, %17, %7, %6
-  %.0 = phi i32 [ -1, %19 ], [ 2, %18 ], [ 3, %17 ], [ 56, %7 ], [ 55, %6 ], [ 0, %5 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %19 ], [ 55, %6 ], [ 56, %7 ], [ 3, %17 ], [ 2, %18 ], [ 0, %5 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -282,7 +282,7 @@ define internal range(i32 -1, 58) i32 @internalSubset(ptr noundef writeonly capt
   br label %45
 
 45:                                               ; preds = %5, %5, %44, %43, %42, %41, %40, %39, %31, %23, %15
-  %.0 = phi i32 [ -1, %44 ], [ 3, %43 ], [ 57, %42 ], [ 56, %41 ], [ 55, %40 ], [ 11, %15 ], [ 33, %23 ], [ 39, %31 ], [ 17, %39 ], [ 0, %5 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %44 ], [ 11, %15 ], [ 33, %23 ], [ 39, %31 ], [ 17, %39 ], [ 55, %40 ], [ 56, %41 ], [ 57, %42 ], [ 3, %43 ], [ 0, %5 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -312,7 +312,7 @@ define internal range(i32 -1, 57) i32 @prolog2(ptr noundef writeonly captures(no
   br label %12
 
 12:                                               ; preds = %5, %11, %10, %9, %8
-  %.0 = phi i32 [ -1, %11 ], [ 2, %10 ], [ 56, %9 ], [ 55, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %11 ], [ 55, %8 ], [ 56, %9 ], [ 2, %10 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -530,7 +530,7 @@ define internal range(i32 -1, 13) i32 @entity2(ptr noundef writeonly captures(no
   br label %18
 
 18:                                               ; preds = %5, %17, %15, %14, %10
-  %.0 = phi i32 [ -1, %17 ], [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ 11, %5 ]
+  %.0 = phi i32 [ -1, %17 ], [ 11, %10 ], [ 11, %14 ], [ 12, %15 ], [ 11, %5 ]
   ret i32 %.0
 }
 
@@ -574,7 +574,7 @@ define internal range(i32 -1, 13) i32 @entity7(ptr noundef writeonly captures(no
   br label %18
 
 18:                                               ; preds = %5, %17, %15, %14, %10
-  %.0 = phi i32 [ -1, %17 ], [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ 11, %5 ]
+  %.0 = phi i32 [ -1, %17 ], [ 11, %10 ], [ 11, %14 ], [ 12, %15 ], [ 11, %5 ]
   ret i32 %.0
 }
 
@@ -643,7 +643,7 @@ define internal i32 @declClose(ptr noundef captures(none) %0, i32 noundef %1, pt
   br label %13
 
 13:                                               ; preds = %12, %9, %6
-  %.0 = phi i32 [ -1, %12 ], [ %11, %9 ], [ %8, %6 ]
+  %.0 = phi i32 [ -1, %12 ], [ %8, %6 ], [ %11, %9 ]
   ret i32 %.0
 }
 
@@ -838,7 +838,7 @@ define internal range(i32 -1, 34) i32 @attlist2(ptr noundef writeonly captures(n
   br label %22
 
 22:                                               ; preds = %13, %5, %21, %20, %19
-  %.020 = phi i32 [ -1, %21 ], [ 33, %20 ], [ %15, %13 ], [ 33, %19 ], [ 33, %5 ]
+  %.020 = phi i32 [ -1, %21 ], [ 33, %19 ], [ %15, %13 ], [ 33, %20 ], [ 33, %5 ]
   ret i32 %.020
 }
 
@@ -1073,7 +1073,7 @@ define internal range(i32 -1, 45) i32 @element1(ptr noundef writeonly captures(n
   br label %20
 
 20:                                               ; preds = %5, %19, %17, %15, %10
-  %.0 = phi i32 [ -1, %19 ], [ 44, %17 ], [ 42, %10 ], [ 41, %15 ], [ 39, %5 ]
+  %.0 = phi i32 [ -1, %19 ], [ 42, %10 ], [ 41, %15 ], [ 44, %17 ], [ 39, %5 ]
   ret i32 %.0
 }
 
@@ -1159,7 +1159,7 @@ define internal range(i32 -1, 47) i32 @element3(ptr noundef writeonly captures(n
   br label %12
 
 12:                                               ; preds = %5, %11, %10, %8, %6
-  %.0 = phi i32 [ -1, %11 ], [ 39, %10 ], [ 46, %8 ], [ 45, %6 ], [ 39, %5 ]
+  %.0 = phi i32 [ -1, %11 ], [ 45, %6 ], [ 46, %8 ], [ 39, %10 ], [ 39, %5 ]
   ret i32 %.0
 }
 
@@ -1203,7 +1203,7 @@ define internal range(i32 -1, 55) i32 @element6(ptr noundef captures(none) %0, i
   br label %15
 
 15:                                               ; preds = %5, %14, %13, %12, %11, %10, %6
-  %.0 = phi i32 [ -1, %14 ], [ 54, %13 ], [ 52, %12 ], [ 53, %11 ], [ 51, %10 ], [ 44, %6 ], [ 39, %5 ]
+  %.0 = phi i32 [ -1, %14 ], [ 44, %6 ], [ 51, %10 ], [ 53, %11 ], [ 52, %12 ], [ 54, %13 ], [ 39, %5 ]
   ret i32 %.0
 }
 
@@ -1288,7 +1288,7 @@ define internal range(i32 -1, 51) i32 @element7(ptr noundef captures(none) %0, i
   br label %37
 
 37:                                               ; preds = %27, %32, %20, %25, %13, %18, %6, %11, %5, %36, %35, %34
-  %.0 = phi i32 [ -1, %36 ], [ 49, %35 ], [ 50, %34 ], [ 39, %5 ], [ 45, %11 ], [ 45, %6 ], [ 46, %18 ], [ 46, %13 ], [ 47, %25 ], [ 47, %20 ], [ 48, %32 ], [ 48, %27 ]
+  %.0 = phi i32 [ -1, %36 ], [ 50, %34 ], [ 49, %35 ], [ 39, %5 ], [ 45, %11 ], [ 45, %6 ], [ 46, %18 ], [ 46, %13 ], [ 47, %25 ], [ 47, %20 ], [ 48, %32 ], [ 48, %27 ]
   ret i32 %.0
 }
 
@@ -1337,7 +1337,7 @@ define internal range(i32 -1, 47) i32 @element5(ptr noundef writeonly captures(n
   br label %10
 
 10:                                               ; preds = %5, %9, %8, %6
-  %.0 = phi i32 [ -1, %9 ], [ 39, %8 ], [ 46, %6 ], [ 39, %5 ]
+  %.0 = phi i32 [ -1, %9 ], [ 46, %6 ], [ 39, %8 ], [ 39, %5 ]
   ret i32 %.0
 }
 
@@ -1441,7 +1441,7 @@ define internal range(i32 -1, 21) i32 @notation4(ptr noundef writeonly captures(
   br label %10
 
 10:                                               ; preds = %5, %9, %8, %6
-  %.0 = phi i32 [ -1, %9 ], [ 20, %8 ], [ 19, %6 ], [ 17, %5 ]
+  %.0 = phi i32 [ -1, %9 ], [ 19, %6 ], [ 20, %8 ], [ 17, %5 ]
   ret i32 %.0
 }
 

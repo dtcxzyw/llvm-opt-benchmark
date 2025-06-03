@@ -968,7 +968,7 @@ define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr n
   br label %18
 
 18:                                               ; preds = %10, %16
-  %.0 = phi ptr [ %12, %10 ], [ %17, %16 ]
+  %.0 = phi ptr [ %17, %16 ], [ %12, %10 ]
   ret ptr %.0
 }
 

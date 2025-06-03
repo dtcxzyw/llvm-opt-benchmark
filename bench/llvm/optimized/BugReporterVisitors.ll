@@ -6888,7 +6888,7 @@ _ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit: ; preds = %21
   br label %53
 
 53:                                               ; preds = %51, %49, %43
-  %.0.in.i = phi ptr [ %52, %51 ], [ %50, %49 ], [ %48, %43 ]
+  %.0.in.i = phi ptr [ %48, %43 ], [ %50, %49 ], [ %52, %51 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !93, !noalias !1089
   %54 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i) #24, !noalias !1089
   %55 = load i16, ptr %54, align 8, !noalias !1089
@@ -6995,7 +6995,7 @@ define dso_local void @_ZN5clang4ento18ConditionBRVisitor15VisitTerminatorEPKNS_
   br label %22
 
 22:                                               ; preds = %20, %18, %12
-  %.0.in = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %12 ]
+  %.0.in = phi ptr [ %17, %12 ], [ %19, %18 ], [ %21, %20 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !93
   %23 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %.0) #24
   %24 = load i16, ptr %23, align 8
@@ -7784,8 +7784,8 @@ default.unreachable:                              ; preds = %153
   %159 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull @.str.28)
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-.thread:                                          ; preds = %153, %154, %155, %156, %157
-  %.1153 = phi i32 [ %.081, %157 ], [ 12, %154 ], [ 11, %155 ], [ 10, %156 ], [ 13, %153 ]
+.thread:                                          ; preds = %153, %156, %155, %154, %157
+  %.1153 = phi i32 [ %.081, %157 ], [ 10, %156 ], [ 11, %155 ], [ 12, %154 ], [ 13, %153 ]
   %160 = call { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef %.1153) #25
   %161 = extractvalue { ptr, i64 } %160, 0
   %162 = extractvalue { ptr, i64 } %160, 1
@@ -20744,7 +20744,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2ISt16reverse_iteratorIPNS2_13Adja
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %52, %51 ]
+  %.1.i.i.i.i.i = phi ptr [ %52, %51 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %54 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !762
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %56
@@ -20754,7 +20754,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2ISt16reverse_iteratorIPNS2_13Adja
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %57, %56 ]
+  %.2.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %59 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !762
   %60 = icmp eq ptr %59, null
   br i1 %60, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPN5clang8CFGBlockELj8EEEDnEEvRT_T0_.exit
@@ -21146,7 +21146,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2ISt16reverse_iteratorIPNS2_13Adja
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %51, %50 ]
+  %.1.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %53 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !762
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %55
@@ -21156,7 +21156,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2ISt16reverse_iteratorIPNS2_13Adja
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %56, %55 ]
+  %.2.i.i.i.i.i = phi ptr [ %56, %55 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %58 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !762
   %59 = icmp eq ptr %58, null
   br i1 %59, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPN5clang8CFGBlockELj8EEEDnEEvRT_T0_.exit
@@ -21507,7 +21507,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2IPKNS2_13AdjacentBlockEEERKNS_14i
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %51, %50 ]
+  %.1.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %53 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !762
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %55
@@ -21517,7 +21517,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2IPKNS2_13AdjacentBlockEEERKNS_14i
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %56, %55 ]
+  %.2.i.i.i.i.i = phi ptr [ %56, %55 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %58 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !762
   %59 = icmp eq ptr %58, null
   br i1 %59, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPN5clang8CFGBlockELj8EEEDnEEvRT_T0_.exit
@@ -21908,7 +21908,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2IPKNS2_13AdjacentBlockEEERKNS_14i
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %49 ]
+  %.1.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %52 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !762
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %54
@@ -21918,7 +21918,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2IPKNS2_13AdjacentBlockEEERKNS_14i
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %55, %54 ]
+  %.2.i.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %57 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !762
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPN5clang8CFGBlockELj8EEEDnEEvRT_T0_.exit
@@ -24995,7 +24995,7 @@ _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread: ;
   br label %50
 
 50:                                               ; preds = %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit, %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread
-  %.1 = phi ptr [ %43, %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit ], [ %49, %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread ]
+  %.1 = phi ptr [ %49, %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread ], [ %43, %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit ]
   ret ptr %.1
 }
 
@@ -26511,7 +26511,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2IPKNS2_13AdjacentBlockEvEET_S9_.e
   br label %265
 
 265:                                              ; preds = %263, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %264, %263 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %264, %263 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %266 = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !762
   %267 = icmp eq ptr %266, null
   br i1 %267, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i.i, label %268
@@ -26521,7 +26521,7 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EEC2IPKNS2_13AdjacentBlockEvEET_S9_.e
   br label %270
 
 270:                                              ; preds = %268, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %269, %268 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %269, %268 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %271 = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !762
   %272 = icmp eq ptr %271, null
   br i1 %272, label %_ZSt9__find_ifIPPN5clang8CFGBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i.i, label %_ZN4llvm19IDFCalculatorDetail16ChildrenGetterTyIN5clang8CFGBlockELb1EE3getERKPS3_.exit
@@ -31290,8 +31290,8 @@ define internal void @_ZN12_GLOBAL__N_119DefaultStoreHandler6handleEN5clang4ento
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %33, %31, %17
-  %36 = phi ptr [ @.str.83, %33 ], [ @.str.83, %31 ], [ @.str.84, %17 ]
   %.str.85..str.86.i = phi ptr [ @.str.85, %33 ], [ @.str.85, %31 ], [ @.str.86, %17 ]
+  %36 = phi ptr [ @.str.83, %33 ], [ @.str.83, %31 ], [ @.str.84, %17 ]
   %switch.i = icmp eq i32 %16, 0
   %.0.i = select i1 %switch.i, ptr %36, ptr %.str.85..str.86.i
   switch i8 %.sroa.633.0.copyload, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i [

@@ -132,8 +132,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.backedge
 
 .backedge:                                        ; preds = %18, %15
-  %.078.be = phi ptr [ %20, %18 ], [ %.078.fr, %15 ]
-  %.062.be = phi ptr [ %.062.fr, %18 ], [ %17, %15 ]
+  %.078.be = phi ptr [ %.078.fr, %15 ], [ %20, %18 ]
+  %.062.be = phi ptr [ %17, %15 ], [ %.062.fr, %18 ]
   br label %10, !llvm.loop !4
 
 21:                                               ; preds = %10

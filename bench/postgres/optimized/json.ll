@@ -734,7 +734,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %36, %59, %62, %65, %68, %74, %76, %89, %90
-  %.0.i = phi i64 [ %38, %36 ], [ 0, %89 ], [ %92, %90 ], [ %78, %76 ], [ %69, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %75, %74 ]
+  %.0.i = phi i64 [ %38, %36 ], [ 0, %89 ], [ %92, %90 ], [ %78, %76 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %75, %74 ]
   %93 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %95, label %96
@@ -2343,7 +2343,7 @@ escape_json_text.exit23:                          ; preds = %117, %113, %85
   br label %125
 
 125:                                              ; preds = %._crit_edge, %12
-  %.0.in = phi ptr [ %123, %._crit_edge ], [ %13, %12 ]
+  %.0.in = phi ptr [ %13, %12 ], [ %123, %._crit_edge ]
   %.0 = ptrtoint ptr %.0.in to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10

@@ -8497,7 +8497,7 @@ ehcleanup117:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 sw.epilog:                                        ; preds = %if.then74, %if.else79, %if.then57, %if.else, %sw.bb50, %sw.bb45, %sw.bb
-  %dPdy.2 = phi double [ %35, %if.then74 ], [ %sub86, %if.else79 ], [ %33, %if.then57 ], [ %sub68, %if.else ], [ %31, %sw.bb50 ], [ %sub, %sw.bb45 ], [ %29, %sw.bb ]
+  %dPdy.2 = phi double [ %29, %sw.bb ], [ %sub, %sw.bb45 ], [ %31, %sw.bb50 ], [ %33, %if.then57 ], [ %sub68, %if.else ], [ %35, %if.then74 ], [ %sub86, %if.else79 ]
   %58 = load ptr, ptr %__begin2.sroa.0.0120, align 8, !tbaa !59
   %cmp.not.i91 = icmp eq ptr %58, null
   br i1 %cmp.not.i91, label %cond.false.i92, label %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit94, !prof !53
@@ -9998,7 +9998,7 @@ ehcleanup55:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 return:                                           ; preds = %entry, %_ZN8QuantLib12_GLOBAL__N_116macaulayDurationERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_12InterestRateEbNS_4DateESD_.exit, %sw.bb18, %_ZN8QuantLib12_GLOBAL__N_114simpleDurationERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_12InterestRateEbNS_4DateESD_.exit
-  %retval.0 = phi double [ %mul.i26, %_ZN8QuantLib12_GLOBAL__N_116macaulayDurationERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_12InterestRateEbNS_4DateESD_.exit ], [ %call24, %sw.bb18 ], [ %retval.0.i, %_ZN8QuantLib12_GLOBAL__N_114simpleDurationERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_12InterestRateEbNS_4DateESD_.exit ], [ 0.000000e+00, %entry ]
+  %retval.0 = phi double [ %retval.0.i, %_ZN8QuantLib12_GLOBAL__N_114simpleDurationERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_12InterestRateEbNS_4DateESD_.exit ], [ %call24, %sw.bb18 ], [ %mul.i26, %_ZN8QuantLib12_GLOBAL__N_116macaulayDurationERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_12InterestRateEbNS_4DateESD_.exit ], [ 0.000000e+00, %entry ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont45
@@ -10549,7 +10549,7 @@ ehcleanup152:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 sw.epilog:                                        ; preds = %if.then98, %if.else105, %if.then70, %if.else, %sw.bb63, %sw.bb48, %sw.bb
-  %d2Pdy2.2 = phi double [ %33, %if.then98 ], [ %add121, %if.else105 ], [ %31, %if.then70 ], [ %add92, %if.else ], [ %30, %sw.bb63 ], [ %add62, %sw.bb48 ], [ %28, %sw.bb ]
+  %d2Pdy2.2 = phi double [ %28, %sw.bb ], [ %add62, %sw.bb48 ], [ %30, %sw.bb63 ], [ %31, %if.then70 ], [ %add92, %if.else ], [ %33, %if.then98 ], [ %add121, %if.else105 ]
   %57 = load ptr, ptr %__begin1.sroa.0.0142, align 8, !tbaa !59
   %cmp.not.i113 = icmp eq ptr %57, null
   br i1 %cmp.not.i113, label %cond.false.i114, label %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit116, !prof !53
@@ -14164,12 +14164,12 @@ call5.i273.i.noexc:                               ; preds = %_ZNK8QuantLib12_GLO
   br label %if.end141.i
 
 if.end141.i:                                      ; preds = %call5.i273.i.noexc, %call5.i235.i.noexc, %if.else111.i, %call5.i197.i.noexc, %call5.i159.i.noexc
-  %solver.sroa.31.6 = phi double [ %solver.sroa.31.1, %call5.i159.i.noexc ], [ %178, %call5.i197.i.noexc ], [ %solver.sroa.31.1, %if.else111.i ], [ %192, %call5.i273.i.noexc ], [ %solver.sroa.31.1, %call5.i235.i.noexc ]
-  %solver.sroa.14.5 = phi double [ %171, %call5.i159.i.noexc ], [ %solver.sroa.14.1, %call5.i197.i.noexc ], [ %solver.sroa.14.1, %if.else111.i ], [ %solver.sroa.14.1, %call5.i273.i.noexc ], [ %185, %call5.i235.i.noexc ]
-  %solver.sroa.78.2 = phi i64 [ %solver.sroa.78.0, %call5.i159.i.noexc ], [ %solver.sroa.78.0, %call5.i197.i.noexc ], [ %solver.sroa.78.0, %if.else111.i ], [ %solver.sroa.78.0, %call5.i273.i.noexc ], [ %inc.i, %call5.i235.i.noexc ]
-  %solver.sroa.59.6 = phi double [ %solver.sroa.59.1, %call5.i159.i.noexc ], [ %sub.i199.i, %call5.i197.i.noexc ], [ %solver.sroa.59.1, %if.else111.i ], [ %sub.i275.i, %call5.i273.i.noexc ], [ %solver.sroa.59.1, %call5.i235.i.noexc ]
-  %solver.sroa.47.5 = phi double [ %sub.i161.i, %call5.i159.i.noexc ], [ %solver.sroa.47.1, %call5.i197.i.noexc ], [ %solver.sroa.47.1, %if.else111.i ], [ %solver.sroa.47.1, %call5.i273.i.noexc ], [ %sub.i237.i, %call5.i235.i.noexc ]
-  %flipflop.1.i = phi i32 [ %flipflop.0406.i, %call5.i159.i.noexc ], [ %flipflop.0406.i, %call5.i197.i.noexc ], [ 0, %if.else111.i ], [ -1, %call5.i273.i.noexc ], [ 1, %call5.i235.i.noexc ]
+  %solver.sroa.31.6 = phi double [ %solver.sroa.31.1, %call5.i159.i.noexc ], [ %178, %call5.i197.i.noexc ], [ %solver.sroa.31.1, %if.else111.i ], [ %solver.sroa.31.1, %call5.i235.i.noexc ], [ %192, %call5.i273.i.noexc ]
+  %solver.sroa.14.5 = phi double [ %171, %call5.i159.i.noexc ], [ %solver.sroa.14.1, %call5.i197.i.noexc ], [ %solver.sroa.14.1, %if.else111.i ], [ %185, %call5.i235.i.noexc ], [ %solver.sroa.14.1, %call5.i273.i.noexc ]
+  %solver.sroa.78.2 = phi i64 [ %solver.sroa.78.0, %call5.i159.i.noexc ], [ %solver.sroa.78.0, %call5.i197.i.noexc ], [ %solver.sroa.78.0, %if.else111.i ], [ %inc.i, %call5.i235.i.noexc ], [ %solver.sroa.78.0, %call5.i273.i.noexc ]
+  %solver.sroa.59.6 = phi double [ %solver.sroa.59.1, %call5.i159.i.noexc ], [ %sub.i199.i, %call5.i197.i.noexc ], [ %solver.sroa.59.1, %if.else111.i ], [ %solver.sroa.59.1, %call5.i235.i.noexc ], [ %sub.i275.i, %call5.i273.i.noexc ]
+  %solver.sroa.47.5 = phi double [ %sub.i161.i, %call5.i159.i.noexc ], [ %solver.sroa.47.1, %call5.i197.i.noexc ], [ %solver.sroa.47.1, %if.else111.i ], [ %sub.i237.i, %call5.i235.i.noexc ], [ %solver.sroa.47.1, %call5.i273.i.noexc ]
+  %flipflop.1.i = phi i32 [ %flipflop.0406.i, %call5.i159.i.noexc ], [ %flipflop.0406.i, %call5.i197.i.noexc ], [ 0, %if.else111.i ], [ 1, %call5.i235.i.noexc ], [ -1, %call5.i273.i.noexc ]
   %inc143.i = add i64 %solver.sroa.78.2, 1
   %cmp60.not.i = icmp ugt i64 %inc143.i, %maxIterations
   br i1 %cmp60.not.i, label %do.body144.i, label %while.body.i, !llvm.loop !231

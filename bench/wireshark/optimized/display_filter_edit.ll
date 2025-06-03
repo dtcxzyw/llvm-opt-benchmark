@@ -1157,8 +1157,8 @@ _ZN7QStringD2Ev.exit114:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 230:                                              ; preds = %_ZN7QStringD2Ev.exit114, %_ZN7QStringD2Ev.exit93, %_ZN7QStringD2Ev.exit72, %_ZN7QStringD2Ev.exit51
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit114 ], [ %.pn10, %_ZN7QStringD2Ev.exit93 ], [ %.pn12, %_ZN7QStringD2Ev.exit72 ], [ %.pn14.pn.pn, %_ZN7QStringD2Ev.exit51 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn14.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn, %_ZN7QStringD2Ev.exit51 ], [ %.pn12, %_ZN7QStringD2Ev.exit72 ], [ %.pn10, %_ZN7QStringD2Ev.exit93 ], [ %.pn, %_ZN7QStringD2Ev.exit114 ]
+  resume { ptr, i32 } %.pn14.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -3560,7 +3560,7 @@ _ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit157.thread: ; preds = %263, %26
   ret void
 
 _ZN7QStringD2Ev.exit82:                           ; preds = %298, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i164, %294, %134, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i80, %130, %_ZN7QStringD2Ev.exit185, %_ZN7QStringD2Ev.exit156, %_ZN7QStringD2Ev.exit148, %_ZN7QStringD2Ev.exit106, %_ZN7QStringD2Ev.exit98, %_ZN7QStringD2Ev.exit72, %_ZN7QStringD2Ev.exit52
-  %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7QStringD2Ev.exit185 ], [ %258, %_ZN7QStringD2Ev.exit156 ], [ %.pn34.pn, %_ZN7QStringD2Ev.exit148 ], [ %171, %_ZN7QStringD2Ev.exit106 ], [ %155, %_ZN7QStringD2Ev.exit98 ], [ %.pn, %_ZN7QStringD2Ev.exit72 ], [ %44, %_ZN7QStringD2Ev.exit52 ], [ %131, %130 ], [ %131, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i80 ], [ %131, %134 ], [ %295, %294 ], [ %295, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i164 ], [ %295, %298 ]
+  %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZN7QStringD2Ev.exit185 ], [ %258, %_ZN7QStringD2Ev.exit156 ], [ %171, %_ZN7QStringD2Ev.exit106 ], [ %155, %_ZN7QStringD2Ev.exit98 ], [ %.pn34.pn, %_ZN7QStringD2Ev.exit148 ], [ %.pn, %_ZN7QStringD2Ev.exit72 ], [ %44, %_ZN7QStringD2Ev.exit52 ], [ %131, %130 ], [ %131, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i80 ], [ %131, %134 ], [ %295, %294 ], [ %295, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i164 ], [ %295, %298 ]
   resume { ptr, i32 } %.pn46.pn
 }
 

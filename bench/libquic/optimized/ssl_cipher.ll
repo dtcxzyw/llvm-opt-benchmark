@@ -398,7 +398,7 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   br label %82
 
 82:                                               ; preds = %5, %72, %61, %46, %33, %16, %81, %71, %59, %57, %56, %44, %43, %32, %25, %14, %12, %10, %8
-  %.0 = phi i32 [ 1, %81 ], [ 1, %71 ], [ 1, %59 ], [ 1, %57 ], [ 1, %56 ], [ 1, %44 ], [ 1, %43 ], [ 1, %32 ], [ 1, %25 ], [ 1, %14 ], [ 1, %12 ], [ 1, %10 ], [ 1, %8 ], [ 0, %16 ], [ 0, %33 ], [ 0, %46 ], [ 0, %61 ], [ 0, %72 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 1, %14 ], [ 1, %25 ], [ 1, %32 ], [ 1, %43 ], [ 1, %44 ], [ 1, %56 ], [ 1, %57 ], [ 1, %59 ], [ 1, %71 ], [ 1, %81 ], [ 0, %16 ], [ 0, %33 ], [ 0, %46 ], [ 0, %61 ], [ 0, %72 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -467,7 +467,7 @@ define hidden ptr @ssl_get_handshake_digest(i32 noundef %0) local_unnamed_addr #
   br label %8
 
 8:                                                ; preds = %1, %6, %4, %2
-  %.0 = phi ptr [ %7, %6 ], [ %5, %4 ], [ %3, %2 ], [ null, %1 ]
+  %.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -2810,7 +2810,7 @@ define internal fastcc void @ssl_cipher_apply_rule(i32 noundef range(i32 5038389
   br label %SSL_CIPHER_get_bits.exit.us.us
 
 SSL_CIPHER_get_bits.exit.us.us:                   ; preds = %37, %36, %35, %32, %32, %32, %.lr.ph.split.us.split.us
-  %.07.i.us.us = phi i32 [ 0, %.lr.ph.split.us.split.us ], [ 0, %37 ], [ 112, %35 ], [ 256, %36 ], [ 128, %32 ], [ 128, %32 ], [ 128, %32 ]
+  %.07.i.us.us = phi i32 [ 0, %.lr.ph.split.us.split.us ], [ 0, %37 ], [ 256, %36 ], [ 112, %35 ], [ 128, %32 ], [ 128, %32 ], [ 128, %32 ]
   %.not94.us.us = icmp eq i32 %7, %.07.i.us.us
   br i1 %.not94.us.us, label %.split.us, label %.backedge.us.us
 
@@ -3112,8 +3112,8 @@ ll_append_head.exit:                              ; preds = %119, %129
   br label %.outer
 
 .outer:                                           ; preds = %ll_append_tail.exit108, %99, %132, %146, %116, %ll_append_head.exit, %83, %ll_append_tail.exit
-  %.1133 = phi ptr [ %.0132.ph190, %116 ], [ %.7, %ll_append_head.exit ], [ %.2134, %146 ], [ %.0132.ph190, %132 ], [ %.0132.ph190, %99 ], [ %.6138, %ll_append_tail.exit108 ], [ %.4136, %ll_append_tail.exit ], [ %.0132.ph190, %83 ]
-  %.1131 = phi ptr [ %.0.ph193, %116 ], [ %.6, %ll_append_head.exit ], [ %.2, %146 ], [ %.0.ph193, %132 ], [ %.0.ph193, %99 ], [ %.4, %ll_append_tail.exit108 ], [ %.3, %ll_append_tail.exit ], [ %.0.ph193, %83 ]
+  %.1133 = phi ptr [ %.0132.ph190, %116 ], [ %.7, %ll_append_head.exit ], [ %.2134, %146 ], [ %.0132.ph190, %132 ], [ %.4136, %ll_append_tail.exit ], [ %.0132.ph190, %83 ], [ %.0132.ph190, %99 ], [ %.6138, %ll_append_tail.exit108 ]
+  %.1131 = phi ptr [ %.0.ph193, %116 ], [ %.6, %ll_append_head.exit ], [ %.2, %146 ], [ %.0.ph193, %132 ], [ %.3, %ll_append_tail.exit ], [ %.0.ph193, %83 ], [ %.0.ph193, %99 ], [ %.4, %ll_append_tail.exit108 ]
   %147 = icmp eq ptr %.us-phi152, %.079
   %148 = icmp eq ptr %.us-phi151, null
   %or.cond101145 = select i1 %147, i1 true, i1 %148
@@ -3553,7 +3553,7 @@ rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_e
   br label %SSL_CIPHER_get_bits.exit.i
 
 SSL_CIPHER_get_bits.exit.i:                       ; preds = %115, %114, %111, %111, %111
-  %.07.i.i = phi i32 [ 112, %115 ], [ 256, %114 ], [ 128, %111 ], [ 128, %111 ], [ 128, %111 ]
+  %.07.i.i = phi i32 [ 256, %114 ], [ 112, %115 ], [ 128, %111 ], [ 128, %111 ], [ 128, %111 ]
   %116 = icmp samesign ugt i32 %.07.i.i, %.02848.i
   br i1 %116, label %117, label %SSL_CIPHER_get_bits.exit38.i
 
@@ -3579,7 +3579,7 @@ SSL_CIPHER_get_bits.exit.i:                       ; preds = %115, %114, %111, %1
   br label %SSL_CIPHER_get_bits.exit38.i
 
 SSL_CIPHER_get_bits.exit38.i:                     ; preds = %120, %119, %118, %117, %117, %117, %SSL_CIPHER_get_bits.exit.i, %111, %108, %.lr.ph.i
-  %.129.i = phi i32 [ %.02848.i, %SSL_CIPHER_get_bits.exit.i ], [ %.02848.i, %.lr.ph.i ], [ 0, %120 ], [ 112, %119 ], [ 256, %118 ], [ 128, %117 ], [ 128, %117 ], [ 128, %117 ], [ %.02848.i, %111 ], [ %.02848.i, %108 ]
+  %.129.i = phi i32 [ %.02848.i, %SSL_CIPHER_get_bits.exit.i ], [ %.02848.i, %.lr.ph.i ], [ 0, %120 ], [ 256, %118 ], [ 112, %119 ], [ 128, %117 ], [ 128, %117 ], [ 128, %117 ], [ %.02848.i, %111 ], [ %.02848.i, %108 ]
   %121 = getelementptr inbounds nuw i8, ptr %.049.i, i64 16
   %.0.i = load ptr, ptr %121, align 8, !tbaa !31
   %.not.i = icmp eq ptr %.0.i, null
@@ -3641,7 +3641,7 @@ SSL_CIPHER_get_bits.exit38.i:                     ; preds = %120, %119, %118, %1
   br label %SSL_CIPHER_get_bits.exit42.i
 
 SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %132, %132, %132, %129
-  %.07.i41.i = phi i64 [ 0, %129 ], [ 0, %137 ], [ 112, %136 ], [ 256, %135 ], [ 128, %132 ], [ 128, %132 ], [ 128, %132 ]
+  %.07.i41.i = phi i64 [ 0, %129 ], [ 0, %137 ], [ 256, %135 ], [ 112, %136 ], [ 128, %132 ], [ 128, %132 ], [ 128, %132 ]
   %138 = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %.07.i41.i
   %139 = load i32, ptr %138, align 4, !tbaa !59
   %140 = add nsw i32 %139, 1
@@ -4080,7 +4080,7 @@ SSL_CIPHER_get_kx_name.exit:                      ; preds = %9, %switch.lookup, 
   br label %ssl_cipher_get_enc_name.exit
 
 ssl_cipher_get_enc_name.exit:                     ; preds = %SSL_CIPHER_get_kx_name.exit, %17, %18, %19, %20, %21, %22, %23
-  %.0.i40 = phi ptr [ @.str.7, %23 ], [ @.str.108, %22 ], [ @.str.107, %21 ], [ @.str.106, %20 ], [ @.str.105, %19 ], [ @.str.104, %18 ], [ @.str.89, %17 ], [ @.str.103, %SSL_CIPHER_get_kx_name.exit ]
+  %.0.i40 = phi ptr [ @.str.7, %23 ], [ @.str.89, %17 ], [ @.str.104, %18 ], [ @.str.105, %19 ], [ @.str.106, %20 ], [ @.str.107, %21 ], [ @.str.108, %22 ], [ @.str.103, %SSL_CIPHER_get_kx_name.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !45
   switch i32 %25, label %30 [
@@ -4188,8 +4188,8 @@ define hidden range(i32 0, 257) i32 @SSL_CIPHER_get_bits(ptr noundef readonly ca
   br label %10
 
 10:                                               ; preds = %4, %4, %4, %9, %8, %7
-  %.06 = phi i32 [ 0, %9 ], [ 168, %8 ], [ 256, %7 ], [ 128, %4 ], [ 128, %4 ], [ 128, %4 ]
-  %.0 = phi i32 [ 0, %9 ], [ 112, %8 ], [ 256, %7 ], [ 128, %4 ], [ 128, %4 ], [ 128, %4 ]
+  %.06 = phi i32 [ 0, %9 ], [ 256, %7 ], [ 168, %8 ], [ 128, %4 ], [ 128, %4 ], [ 128, %4 ]
+  %.0 = phi i32 [ 0, %9 ], [ 256, %7 ], [ 112, %8 ], [ 128, %4 ], [ 128, %4 ], [ 128, %4 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %11
 
@@ -4276,7 +4276,7 @@ switch.lookup29:                                  ; preds = %14
   br label %27
 
 27:                                               ; preds = %17, %26, %25, %24, %23, %22, %21, %20, %19, %18
-  %.024 = phi ptr [ @.str.17, %26 ], [ @.str.27, %25 ], [ @.str.26, %24 ], [ @.str.25, %23 ], [ @.str.24, %22 ], [ @.str.23, %21 ], [ @.str.22, %20 ], [ @.str.21, %19 ], [ @.str.20, %18 ], [ @.str.19, %17 ]
+  %.024 = phi ptr [ @.str.17, %26 ], [ @.str.20, %18 ], [ @.str.21, %19 ], [ @.str.22, %20 ], [ @.str.23, %21 ], [ @.str.24, %22 ], [ @.str.25, %23 ], [ @.str.26, %24 ], [ @.str.27, %25 ], [ @.str.19, %17 ]
   switch i32 %11, label %32 [
     i32 1, label %33
     i32 2, label %28
@@ -4301,7 +4301,7 @@ switch.lookup29:                                  ; preds = %14
   br label %33
 
 33:                                               ; preds = %27, %32, %31, %30, %29, %28
-  %.023 = phi ptr [ @.str.17, %32 ], [ @.str.32, %31 ], [ @.str.31, %30 ], [ @.str.30, %29 ], [ @.str.29, %28 ], [ @.str.28, %27 ]
+  %.023 = phi ptr [ @.str.17, %32 ], [ @.str.29, %28 ], [ @.str.30, %29 ], [ @.str.31, %30 ], [ @.str.32, %31 ], [ @.str.28, %27 ]
   %34 = icmp eq ptr %1, null
   br i1 %34, label %35, label %38
 

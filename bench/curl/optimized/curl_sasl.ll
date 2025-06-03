@@ -950,14 +950,14 @@ define hidden i32 @Curl_sasl_continue(ptr noundef captures(none) %0, ptr noundef
   call void @Curl_bufref_free(ptr noundef nonnull %9) #8
   br label %144
 
-.thread123:                                       ; preds = %114, %32, %48, %45, %42, %67
-  %.097.ph = phi i32 [ %spec.select117, %67 ], [ 3, %42 ], [ 17, %45 ], [ 17, %48 ], [ 17, %32 ], [ 17, %114 ]
+.thread123:                                       ; preds = %42, %45, %48, %32, %114, %67
+  %.097.ph = phi i32 [ %spec.select117, %67 ], [ 17, %114 ], [ 17, %32 ], [ 17, %48 ], [ 17, %45 ], [ 3, %42 ]
   call void @Curl_bufref_free(ptr noundef nonnull %9) #8
   br label %134
 
 .thread:                                          ; preds = %80, %59, %97, %102, %82, %85, %61, %51, %53, %72, %34
-  %.097 = phi i32 [ 14, %97 ], [ 17, %102 ], [ 17, %82 ], [ 17, %85 ], [ 9, %72 ], [ 17, %61 ], [ 17, %51 ], [ 17, %53 ], [ 17, %34 ], [ 17, %59 ], [ 17, %80 ]
-  %.1 = phi i32 [ %101, %97 ], [ %103, %102 ], [ %84, %82 ], [ %90, %85 ], [ %79, %72 ], [ %66, %61 ], [ %52, %51 ], [ %58, %53 ], [ %41, %34 ], [ %60, %59 ], [ %81, %80 ]
+  %.097 = phi i32 [ 17, %34 ], [ 17, %51 ], [ 17, %53 ], [ 17, %61 ], [ 9, %72 ], [ 17, %82 ], [ 17, %85 ], [ 14, %97 ], [ 17, %102 ], [ 17, %59 ], [ 17, %80 ]
+  %.1 = phi i32 [ %41, %34 ], [ %52, %51 ], [ %58, %53 ], [ %66, %61 ], [ %79, %72 ], [ %84, %82 ], [ %90, %85 ], [ %101, %97 ], [ %103, %102 ], [ %60, %59 ], [ %81, %80 ]
   call void @Curl_bufref_free(ptr noundef nonnull %9) #8
   switch i32 %.1, label %144 [
     i32 61, label %127
@@ -997,14 +997,14 @@ define hidden i32 @Curl_sasl_continue(ptr noundef captures(none) %0, ptr noundef
   br label %145
 
 145:                                              ; preds = %134, %137, %144, %127
-  %.198 = phi i32 [ 0, %144 ], [ %.097126, %134 ], [ %.097126, %137 ], [ 16, %127 ]
-  %.4 = phi i32 [ %.1130, %144 ], [ %136, %134 ], [ %143, %137 ], [ %133, %127 ]
+  %.198 = phi i32 [ 0, %144 ], [ 16, %127 ], [ %.097126, %134 ], [ %.097126, %137 ]
+  %.4 = phi i32 [ %.1130, %144 ], [ %133, %127 ], [ %136, %134 ], [ %143, %137 ]
   call void @Curl_bufref_free(ptr noundef nonnull %5) #8
   store i32 %.198, ptr %21, align 8, !tbaa !87
   br label %146
 
 146:                                              ; preds = %145, %116, %115, %109, %33, %31, %23
-  %.0 = phi i32 [ %spec.select, %23 ], [ 67, %31 ], [ %.4, %145 ], [ %126, %116 ], [ 0, %109 ], [ 67, %115 ], [ 0, %33 ]
+  %.0 = phi i32 [ %spec.select, %23 ], [ 67, %31 ], [ %.4, %145 ], [ 0, %33 ], [ 0, %109 ], [ 67, %115 ], [ %126, %116 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8

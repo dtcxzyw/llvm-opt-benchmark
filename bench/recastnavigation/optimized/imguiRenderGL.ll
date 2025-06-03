@@ -9549,7 +9549,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
   br label %303
 
 303:                                              ; preds = %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i, %237
-  %.063.i = phi float [ %226, %237 ], [ %302, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i ], [ %271, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i ]
+  %.063.i = phi float [ %226, %237 ], [ %271, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i ], [ %302, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i ]
   %304 = trunc i32 %233 to i8
   %305 = lshr i32 %233, 8
   %306 = trunc i32 %305 to i8

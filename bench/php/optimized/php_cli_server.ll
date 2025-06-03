@@ -4162,8 +4162,8 @@ php_cli_server_parse_addr.exit.i:                 ; preds = %72, %70, %63, %61
 
 .thread.sink.split.i.i:                           ; preds = %124, %124
   %133 = load i16, ptr %115, align 2, !tbaa !129
-  %rev.i77.i.i = call noundef i16 @llvm.bswap.i16(i16 %133)
-  %134 = zext i16 %rev.i77.i.i to i32
+  %rev.i78.i.i = call noundef i16 @llvm.bswap.i16(i16 %133)
+  %134 = zext i16 %rev.i78.i.i to i32
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.thread.sink.split.i.i, %._crit_edge.i.i, %124, %114
@@ -6942,7 +6942,7 @@ php_cli_server_begin_send_static.exit.thread.i:   ; preds = %368, %php_cli_serve
   br label %php_cli_server_dispatch.exit
 
 php_cli_server_dispatch.exit:                     ; preds = %394, %390, %376, %php_cli_server_begin_send_static.exit.thread.i, %194, %175, %164, %77, %.thread
-  %.0 = phi i32 [ %78, %77 ], [ -1, %.thread ], [ 0, %php_cli_server_begin_send_static.exit.thread.i ], [ 0, %194 ], [ 0, %376 ], [ 0, %175 ], [ -1, %164 ], [ 0, %390 ], [ 0, %394 ]
+  %.0 = phi i32 [ -1, %.thread ], [ %78, %77 ], [ 0, %php_cli_server_begin_send_static.exit.thread.i ], [ 0, %194 ], [ 0, %376 ], [ 0, %175 ], [ -1, %164 ], [ 0, %390 ], [ 0, %394 ]
   ret i32 %.0
 }
 
@@ -7219,7 +7219,7 @@ php_cli_server_content_sender_send.exit.thread.thread: ; preds = %php_cli_server
   br label %125
 
 125:                                              ; preds = %105, %115, %45, %123, %124
-  %.2 = phi i32 [ -1, %123 ], [ 0, %124 ], [ -1, %45 ], [ -1, %115 ], [ -1, %105 ]
+  %.2 = phi i32 [ 0, %124 ], [ -1, %123 ], [ -1, %45 ], [ -1, %115 ], [ -1, %105 ]
   ret i32 %.2
 }
 

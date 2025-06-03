@@ -981,8 +981,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15Rewrite
   br label %85
 
 85:                                               ; preds = %83, %._crit_edge._crit_edge.i.i.i
-  %86 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %81, %83 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %84, %83 ]
+  %86 = phi ptr [ %81, %83 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %84, %83 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %87 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !18
   %88 = icmp eq ptr %87, %86
   br i1 %88, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %89
@@ -992,8 +992,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15Rewrite
   br label %91
 
 91:                                               ; preds = %89, %._crit_edge._crit_edge57.i.i.i
-  %92 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %86, %89 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %90, %89 ]
+  %92 = phi ptr [ %86, %89 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %90, %89 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %93 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !18
   %94 = icmp eq ptr %93, %92
   %spec.select.i.i.i = select i1 %94, ptr %.sroa.032.2.i.i.i, ptr %47

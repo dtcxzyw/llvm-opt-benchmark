@@ -109,7 +109,7 @@ define hidden noundef nonnull ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %0) loc
   unreachable
 
 7:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.62, %4 ], [ @.str.61, %3 ], [ @.str.60, %2 ], [ @.str.59, %1 ]
+  %.0 = phi ptr [ @.str.60, %2 ], [ @.str.61, %3 ], [ @.str.62, %4 ], [ @.str.59, %1 ]
   ret ptr %.0
 }
 

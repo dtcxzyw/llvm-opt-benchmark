@@ -1765,7 +1765,7 @@ oscore_decrypt_and_verify.exit:                   ; preds = %232
   br label %266
 
 266:                                              ; preds = %4, %264, %oscore_decrypt_and_verify.exit.thread78, %244, %oscore_decrypt_and_verify.exit.thread75, %oscore_decrypt_and_verify.exit.thread72, %75, %oscore_find_context.exit.thread, %30
-  %.0 = phi i32 [ %32, %30 ], [ %70, %oscore_find_context.exit.thread ], [ %77, %75 ], [ %265, %264 ], [ %84, %oscore_decrypt_and_verify.exit.thread78 ], [ %246, %244 ], [ %231, %oscore_decrypt_and_verify.exit.thread75 ], [ %155, %oscore_decrypt_and_verify.exit.thread72 ], [ 0, %4 ]
+  %.0 = phi i32 [ %32, %30 ], [ %70, %oscore_find_context.exit.thread ], [ %77, %75 ], [ %265, %264 ], [ %155, %oscore_decrypt_and_verify.exit.thread72 ], [ %231, %oscore_decrypt_and_verify.exit.thread75 ], [ %246, %244 ], [ %84, %oscore_decrypt_and_verify.exit.thread78 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
   ret i32 %.0

@@ -21477,7 +21477,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   ret void
 
 479:                                              ; preds = %60, %62, %105, %407, %.body108, %291, %.body, %222
-  %.pn39.pn = phi { ptr, i32 } [ %223, %222 ], [ %.pn, %.body108 ], [ %408, %407 ], [ %.pn35, %.body ], [ %292, %291 ], [ %63, %62 ], [ %.pn37, %105 ], [ %61, %60 ]
+  %.pn39.pn = phi { ptr, i32 } [ %223, %222 ], [ %.pn35, %.body ], [ %292, %291 ], [ %.pn, %.body108 ], [ %408, %407 ], [ %63, %62 ], [ %.pn37, %105 ], [ %61, %60 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23

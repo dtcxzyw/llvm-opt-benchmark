@@ -3128,7 +3128,7 @@ _ZN19ruff_python_codegen9generator9Generator8newlines17h60a20178c3d27e20E.exit34
   unreachable
 
 930:                                              ; preds = %2272, %2255, %2245, %2235, %2225, %2222, %2183, %2144, %2090, %2063, %2038, %1968, %1950, %1907, %1818, %1782, %1742, %1693, %1629, %1621, %1592, %1505, %1487, %1425, %1407, %1329, %1277, %1240, %1221, %1194, %1167, %1152, %1142, %1008, %931, %836
-  %.pn = phi { ptr, i32 } [ %lpad.phi1050, %2272 ], [ %lpad.phi1055, %2255 ], [ %lpad.phi1045, %2245 ], [ %lpad.phi1040, %2235 ], [ %lpad.phi1035, %2225 ], [ %lpad.phi1030, %2222 ], [ %lpad.phi1025, %2183 ], [ %lpad.phi1020, %2144 ], [ %lpad.phi1015, %2090 ], [ %lpad.phi1009, %2063 ], [ %lpad.phi1004, %2038 ], [ %lpad.phi994, %1968 ], [ %lpad.phi984, %1950 ], [ %lpad.phi989, %1907 ], [ %lpad.phi999, %1818 ], [ %lpad.phi979, %1782 ], [ %lpad.phi968, %1742 ], [ %lpad.phi974, %1693 ], [ %lpad.phi963, %1629 ], [ %lpad.phi953, %1592 ], [ %lpad.phi948, %1621 ], [ %lpad.phi958, %1505 ], [ %lpad.phi938, %1487 ], [ %lpad.phi943, %1425 ], [ %lpad.phi928, %1407 ], [ %lpad.phi933, %1329 ], [ %lpad.phi923, %1277 ], [ %lpad.phi918, %1240 ], [ %lpad.phi913, %1221 ], [ %lpad.phi908, %1194 ], [ %lpad.phi903, %1167 ], [ %lpad.phi898, %1152 ], [ %lpad.phi893, %1142 ], [ %lpad.phi888, %1008 ], [ %lpad.phi883, %931 ], [ %lpad.phi, %836 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi883, %931 ], [ %lpad.phi, %836 ], [ %lpad.phi893, %1142 ], [ %lpad.phi888, %1008 ], [ %lpad.phi898, %1152 ], [ %lpad.phi903, %1167 ], [ %lpad.phi908, %1194 ], [ %lpad.phi913, %1221 ], [ %lpad.phi918, %1240 ], [ %lpad.phi923, %1277 ], [ %lpad.phi928, %1407 ], [ %lpad.phi933, %1329 ], [ %lpad.phi938, %1487 ], [ %lpad.phi943, %1425 ], [ %lpad.phi953, %1592 ], [ %lpad.phi948, %1621 ], [ %lpad.phi958, %1505 ], [ %lpad.phi963, %1629 ], [ %lpad.phi968, %1742 ], [ %lpad.phi974, %1693 ], [ %lpad.phi979, %1782 ], [ %lpad.phi994, %1968 ], [ %lpad.phi984, %1950 ], [ %lpad.phi989, %1907 ], [ %lpad.phi999, %1818 ], [ %lpad.phi1004, %2038 ], [ %lpad.phi1009, %2063 ], [ %lpad.phi1015, %2090 ], [ %lpad.phi1020, %2144 ], [ %lpad.phi1025, %2183 ], [ %lpad.phi1030, %2222 ], [ %lpad.phi1035, %2225 ], [ %lpad.phi1040, %2235 ], [ %lpad.phi1045, %2245 ], [ %lpad.phi1050, %2272 ], [ %lpad.phi1055, %2255 ]
   resume { ptr, i32 } %.pn
 
 .loopexit879:                                     ; preds = %.preheader.i301, %.noexc304
@@ -9453,7 +9453,7 @@ _ZN19ruff_python_codegen9generator9Generator21unparse_f_string_body17h35a93afa2f
   unreachable
 
 common.resume:                                    ; preds = %920, %931, %951, %1057, %437
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %437 ], [ %lpad.phi537, %1057 ], [ %.pn, %951 ], [ %932, %931 ], [ %921, %920 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %437 ], [ %921, %920 ], [ %932, %931 ], [ %.pn, %951 ], [ %lpad.phi537, %1057 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN19ruff_python_codegen9generator9Generator16unparse_f_string17h3e2e73d1aa331b61E.exit: ; preds = %_ZN19ruff_python_codegen9generator9Generator21unparse_f_string_body17h35a93afa2f45474eE.exit.i

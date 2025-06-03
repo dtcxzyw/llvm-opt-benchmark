@@ -2626,8 +2626,8 @@ next.exit:                                        ; preds = %peek.exit.i
 .loopexit738:                                     ; preds = %next.exit
   br label %33
 
-33:                                               ; preds = %next.exit, %.loopexit738, %.loopexit663, %.loopexit595, %.loopexit522, %.loopexit452, %.loopexit384, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %.loopexit198, %.loopexit330
-  %.0.i126.ph = phi ptr [ @.str.60, %21 ], [ @.str.61, %22 ], [ @.str.62, %23 ], [ @.str.63, %24 ], [ @.str.64, %25 ], [ @.str.65, %26 ], [ @.str.66, %27 ], [ @.str.67, %28 ], [ @.str.68, %29 ], [ @.str.69, %30 ], [ @.str.70, %31 ], [ @.str.71, %32 ], [ @.str.51, %.loopexit198 ], [ @.str.52, %.loopexit330 ], [ @.str.53, %.loopexit384 ], [ @.str.54, %.loopexit452 ], [ @.str.55, %.loopexit522 ], [ @.str.56, %.loopexit595 ], [ @.str.57, %.loopexit663 ], [ @.str.58, %.loopexit738 ], [ @.str.59, %next.exit ]
+33:                                               ; preds = %next.exit, %.loopexit738, %.loopexit663, %.loopexit595, %.loopexit522, %.loopexit452, %.loopexit384, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %.loopexit198, %.loopexit330
+  %.0.i126.ph = phi ptr [ @.str.71, %32 ], [ @.str.70, %31 ], [ @.str.69, %30 ], [ @.str.68, %29 ], [ @.str.67, %28 ], [ @.str.66, %27 ], [ @.str.65, %26 ], [ @.str.64, %25 ], [ @.str.63, %24 ], [ @.str.62, %23 ], [ @.str.61, %22 ], [ @.str.60, %21 ], [ @.str.51, %.loopexit198 ], [ @.str.52, %.loopexit330 ], [ @.str.53, %.loopexit384 ], [ @.str.54, %.loopexit452 ], [ @.str.55, %.loopexit522 ], [ @.str.56, %.loopexit595 ], [ @.str.57, %.loopexit663 ], [ @.str.58, %.loopexit738 ], [ @.str.59, %next.exit ]
   %34 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %common.ret, label %36
@@ -4779,7 +4779,7 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %451 = trunc nuw i8 %450 to i1
   br i1 %451, label %common.ret402, label %452
 
-common.ret402:                                    ; preds = %print_str.exit179, %112, %116, %74, %.thread, %22, %18, %parse_integer_62.exit, %27, %print_str.exit150, %152, %460, %456, %453, %print_str.exit224, %print_str.exit216, %print_str.exit204, %print_str.exit196, %print_str.exit180.thread, %print_str.exit152, %next.exit210.thread, %next.exit.thread, %.critedge, %print_str.exit, %7, %452
+common.ret402:                                    ; preds = %print_str.exit179, %112, %116, %74, %.thread, %22, %18, %parse_integer_62.exit, %152, %print_str.exit150, %27, %460, %456, %453, %print_str.exit224, %print_str.exit216, %print_str.exit204, %print_str.exit196, %print_str.exit180.thread, %print_str.exit152, %next.exit210.thread, %next.exit.thread, %.critedge, %print_str.exit, %7, %452
   ret void
 
 452:                                              ; preds = %parse_integer_62.exit

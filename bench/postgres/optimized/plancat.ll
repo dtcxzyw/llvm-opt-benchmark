@@ -3374,7 +3374,7 @@ define dso_local noundef zeroext i1 @has_row_triggers(ptr noundef readonly captu
   unreachable
 
 58:                                               ; preds = %18, %45, %50, %54, %35, %40, %44, %25, %30, %34
-  %.0 = phi i1 [ true, %54 ], [ false, %50 ], [ false, %45 ], [ true, %44 ], [ false, %40 ], [ false, %35 ], [ true, %34 ], [ false, %30 ], [ false, %25 ], [ false, %18 ]
+  %.0 = phi i1 [ true, %34 ], [ false, %30 ], [ false, %25 ], [ true, %44 ], [ false, %40 ], [ false, %35 ], [ true, %54 ], [ false, %50 ], [ false, %45 ], [ false, %18 ]
   tail call void @table_close(ptr noundef nonnull %22, i32 noundef 0) #10
   ret i1 %.0
 }

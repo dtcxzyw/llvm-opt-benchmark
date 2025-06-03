@@ -1292,7 +1292,7 @@ define hidden void @"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
   br label %30
 
 30:                                               ; preds = %23, %17, %11, %6
-  %.0 = phi <2 x i64> [ %29, %23 ], [ %22, %17 ], [ %16, %11 ], [ %10, %6 ]
+  %.0 = phi <2 x i64> [ %10, %6 ], [ %16, %11 ], [ %22, %17 ], [ %29, %23 ]
   store <2 x i64> %.0, ptr %0, align 16
   ret void
 }
@@ -1785,7 +1785,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -12163,7 +12163,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i"
 
 "_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i": ; preds = %21, %16
-  %.0.in.i = phi <4 x i32> [ %26, %21 ], [ %20, %16 ]
+  %.0.in.i = phi <4 x i32> [ %20, %16 ], [ %26, %21 ]
   %27 = trunc i64 %2 to i32
   switch i32 %13, label %28 [
     i32 0, label %29
@@ -12191,7 +12191,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   br label %_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit
 
 _ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit: ; preds = %29, %33
-  %.0112.i = phi <2 x i64> [ %37, %33 ], [ %32, %29 ]
+  %.0112.i = phi <2 x i64> [ %32, %29 ], [ %37, %33 ]
   store <2 x i64> %.0112.i, ptr %10, align 16, !alias.scope !3005
   br label %39
 
@@ -12311,7 +12311,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482f
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1"
 
 "_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1": ; preds = %10, %15
-  %.0.in = phi <4 x i32> [ %20, %15 ], [ %14, %10 ]
+  %.0.in = phi <4 x i32> [ %14, %10 ], [ %20, %15 ]
   %21 = trunc i64 %2 to i32
   switch i32 %7, label %22 [
     i32 0, label %23
@@ -12339,7 +12339,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482f
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit"
 
 "_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit": ; preds = %23, %27
-  %.0113 = phi <2 x i64> [ %31, %27 ], [ %26, %23 ]
+  %.0113 = phi <2 x i64> [ %26, %23 ], [ %31, %27 ]
   store <2 x i64> %.0113, ptr %4, align 16
   ret void
 }
@@ -12422,7 +12422,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i"
 
 "_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i": ; preds = %15, %10
-  %.0.in = phi <4 x i32> [ %20, %15 ], [ %14, %10 ]
+  %.0.in = phi <4 x i32> [ %14, %10 ], [ %20, %15 ]
   %21 = trunc i64 %2 to i32
   switch i32 %7, label %22 [
     i32 0, label %23
@@ -12450,7 +12450,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8
   br label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit
 
 _ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit: ; preds = %23, %27
-  %.0112 = phi <2 x i64> [ %31, %27 ], [ %26, %23 ]
+  %.0112 = phi <2 x i64> [ %26, %23 ], [ %31, %27 ]
   store <2 x i64> %.0112, ptr %4, align 16
   ret void
 }

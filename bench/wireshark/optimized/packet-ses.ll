@@ -723,9 +723,9 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
   br label %63
 
 63:                                               ; preds = %17, %19, %29, %27, %62, %46, %45
-  %.1128 = phi ptr [ %31, %29 ], [ null, %27 ], [ %.2129, %45 ], [ %.2129, %62 ], [ %.2129, %46 ], [ %21, %19 ], [ null, %17 ]
-  %.1125 = phi ptr [ %33, %29 ], [ null, %27 ], [ %.2126, %45 ], [ %.2126, %62 ], [ %.2126, %46 ], [ %23, %19 ], [ null, %17 ]
-  %.0122 = phi i1 [ false, %29 ], [ false, %27 ], [ false, %45 ], [ %.not141, %62 ], [ true, %46 ], [ true, %19 ], [ true, %17 ]
+  %.1128 = phi ptr [ %31, %29 ], [ null, %27 ], [ %.2129, %45 ], [ %.2129, %46 ], [ %.2129, %62 ], [ %21, %19 ], [ null, %17 ]
+  %.1125 = phi ptr [ %33, %29 ], [ null, %27 ], [ %.2126, %45 ], [ %.2126, %46 ], [ %.2126, %62 ], [ %23, %19 ], [ null, %17 ]
+  %.0122 = phi i1 [ false, %29 ], [ false, %27 ], [ false, %45 ], [ true, %46 ], [ %.not141, %62 ], [ true, %19 ], [ true, %17 ]
   %64 = add i32 %1, 1
   %65 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %66 = icmp eq i8 %65, -1
@@ -1543,7 +1543,7 @@ define internal fastcc zeroext i1 @dissect_parameter(ptr noundef %0, i32 noundef
   br label %180
 
 180:                                              ; preds = %102, %10, %174, %168, %162, %156, %150, %144, %138, %142, %128, %122, %112, %113, %92, %77, %78, %55, %56, %30, %24, %18, %12, %176, %170, %164, %158, %152, %146, %136, %130, %124, %109, %99, %94, %88, %85, %74, %69, %66, %61, %58, %45, %40, %37, %32, %26, %20, %14
-  %.0 = phi i1 [ true, %10 ], [ true, %174 ], [ true, %176 ], [ true, %168 ], [ true, %170 ], [ true, %162 ], [ true, %164 ], [ true, %156 ], [ true, %158 ], [ true, %150 ], [ true, %152 ], [ true, %144 ], [ true, %146 ], [ true, %136 ], [ true, %142 ], [ true, %138 ], [ true, %128 ], [ true, %130 ], [ true, %122 ], [ true, %124 ], [ true, %109 ], [ true, %113 ], [ true, %112 ], [ true, %99 ], [ true, %92 ], [ true, %94 ], [ true, %85 ], [ true, %88 ], [ true, %74 ], [ true, %78 ], [ true, %77 ], [ true, %66 ], [ true, %69 ], [ true, %58 ], [ true, %61 ], [ true, %45 ], [ true, %55 ], [ true, %56 ], [ true, %37 ], [ true, %40 ], [ true, %30 ], [ true, %32 ], [ true, %24 ], [ true, %26 ], [ true, %18 ], [ true, %20 ], [ true, %12 ], [ true, %14 ], [ %or.cond, %102 ]
+  %.0 = phi i1 [ true, %10 ], [ true, %12 ], [ true, %14 ], [ true, %18 ], [ true, %20 ], [ true, %24 ], [ true, %26 ], [ true, %30 ], [ true, %32 ], [ true, %37 ], [ true, %40 ], [ true, %45 ], [ true, %55 ], [ true, %56 ], [ true, %58 ], [ true, %61 ], [ true, %66 ], [ true, %69 ], [ true, %74 ], [ true, %78 ], [ true, %77 ], [ true, %85 ], [ true, %88 ], [ true, %92 ], [ true, %94 ], [ true, %99 ], [ true, %109 ], [ true, %113 ], [ true, %112 ], [ true, %122 ], [ true, %124 ], [ true, %128 ], [ true, %130 ], [ true, %136 ], [ true, %142 ], [ true, %138 ], [ true, %144 ], [ true, %146 ], [ true, %150 ], [ true, %152 ], [ true, %156 ], [ true, %158 ], [ true, %162 ], [ true, %164 ], [ true, %168 ], [ true, %170 ], [ true, %174 ], [ true, %176 ], [ %or.cond, %102 ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #4
   ret i1 %.0
 }

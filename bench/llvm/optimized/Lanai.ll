@@ -802,7 +802,7 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5cla
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit
 
 _ZNK12_GLOBAL__N_112LanaiABIInfo20classifyArgumentTypeEN5clang8QualTypeERNS0_7CCStateE.exit: ; preds = %47, %49, %50, %59, %72, %_ZN4llvm11SmallVectorIPNS_4TypeELj3EED2Ev.exit.i, %104, %.critedge51.i, %182, %186, %195, %197
-  %.sroa.020.2 = phi i32 [ %.sroa.020.027, %72 ], [ 0, %104 ], [ %97, %_ZN4llvm11SmallVectorIPNS_4TypeELj3EED2Ev.exit.i ], [ %.sroa.020.1, %.critedge51.i ], [ %.sroa.020.1, %182 ], [ %.sroa.020.1, %186 ], [ %.sroa.020.1, %195 ], [ %.sroa.020.1, %197 ], [ %.sroa.020.027, %59 ], [ %.sroa.020.027, %50 ], [ 0, %49 ], [ %48, %47 ]
+  %.sroa.020.2 = phi i32 [ %.sroa.020.027, %72 ], [ 0, %104 ], [ %97, %_ZN4llvm11SmallVectorIPNS_4TypeELj3EED2Ev.exit.i ], [ %.sroa.020.1, %.critedge51.i ], [ %.sroa.020.1, %182 ], [ %.sroa.020.1, %186 ], [ %.sroa.020.1, %195 ], [ %.sroa.020.1, %197 ], [ %.sroa.020.027, %59 ], [ 0, %49 ], [ %48, %47 ], [ %.sroa.020.027, %50 ]
   %199 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %199, ptr noundef nonnull align 8 dereferenceable(27) %5, i64 27, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13

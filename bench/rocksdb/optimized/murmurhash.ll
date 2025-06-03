@@ -54,7 +54,7 @@ define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address
   br label %26
 
 26:                                               ; preds = %._crit_edge, %20
-  %.2 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %25, %20 ]
+  %.2 = phi i64 [ %25, %20 ], [ %.0.lcssa, %._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 5
   %28 = load i8, ptr %27, align 1, !tbaa !10
   %29 = zext i8 %28 to i64
@@ -63,7 +63,7 @@ define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address
   br label %32
 
 32:                                               ; preds = %._crit_edge, %26
-  %.3 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %31, %26 ]
+  %.3 = phi i64 [ %31, %26 ], [ %.0.lcssa, %._crit_edge ]
   %33 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 4
   %34 = load i8, ptr %33, align 1, !tbaa !10
   %35 = zext i8 %34 to i64
@@ -72,7 +72,7 @@ define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address
   br label %38
 
 38:                                               ; preds = %._crit_edge, %32
-  %.4 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %37, %32 ]
+  %.4 = phi i64 [ %37, %32 ], [ %.0.lcssa, %._crit_edge ]
   %39 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 3
   %40 = load i8, ptr %39, align 1, !tbaa !10
   %41 = zext i8 %40 to i64
@@ -81,7 +81,7 @@ define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address
   br label %44
 
 44:                                               ; preds = %._crit_edge, %38
-  %.5 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %43, %38 ]
+  %.5 = phi i64 [ %43, %38 ], [ %.0.lcssa, %._crit_edge ]
   %45 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 2
   %46 = load i8, ptr %45, align 1, !tbaa !10
   %47 = zext i8 %46 to i64
@@ -90,7 +90,7 @@ define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address
   br label %50
 
 50:                                               ; preds = %._crit_edge, %44
-  %.6 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %49, %44 ]
+  %.6 = phi i64 [ %49, %44 ], [ %.0.lcssa, %._crit_edge ]
   %51 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !10
   %53 = zext i8 %52 to i64
@@ -99,7 +99,7 @@ define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address
   br label %56
 
 56:                                               ; preds = %._crit_edge, %50
-  %.7 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %55, %50 ]
+  %.7 = phi i64 [ %55, %50 ], [ %.0.lcssa, %._crit_edge ]
   %57 = load i8, ptr %.037.lcssa, align 1, !tbaa !10
   %58 = zext i8 %57 to i64
   %59 = xor i64 %.7, %58
@@ -110,7 +110,7 @@ default.unreachable43:                            ; preds = %._crit_edge
   unreachable
 
 61:                                               ; preds = %._crit_edge, %56
-  %.1 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %60, %56 ]
+  %.1 = phi i64 [ %60, %56 ], [ %.0.lcssa, %._crit_edge ]
   %62 = lshr i64 %.1, 47
   %63 = xor i64 %62, %.1
   %64 = mul i64 %63, -4132994306676758123

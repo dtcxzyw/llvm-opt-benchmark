@@ -1893,7 +1893,7 @@ ehcleanup137:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %ehcleanup139
 
 cleanup:                                          ; preds = %_ZN8QuantLib12InterestRateD2Ev.exit113, %sw.bb18, %sw.bb
-  %retval.0 = phi double [ %call109, %_ZN8QuantLib12InterestRateD2Ev.exit113 ], [ %call28, %sw.bb18 ], [ %call17, %sw.bb ]
+  %retval.0 = phi double [ %call17, %sw.bb ], [ %call28, %sw.bb18 ], [ %call109, %_ZN8QuantLib12InterestRateD2Ev.exit113 ]
   ret double %retval.0
 
 ehcleanup139:                                     ; preds = %ehcleanup137, %lpad78, %lpad52

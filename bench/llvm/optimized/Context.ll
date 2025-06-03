@@ -1217,8 +1217,8 @@ switch.lookup:                                    ; preds = %18
   br label %100
 
 100:                                              ; preds = %18, %switch.lookup, %66, %66, %66, %.fold.split, %16, %16, %16, %_ZNK5clang4Type16isFixedPointTypeEv.exit, %84, %76, %.thread91, %63, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit, %60, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %27, %_ZNK5clang4Type13isBooleanTypeEv.exit, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread, %34, %33, %32, %31, %30
-  %.sroa.080.0 = phi i64 [ 8, %34 ], [ 10, %33 ], [ 1, %32 ], [ 3, %31 ], [ 5, %30 ], [ 0, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ %86, %84 ], [ %78, %76 ], [ 10, %_ZNK5clang4Type13isBooleanTypeEv.exit ], [ 0, %16 ], [ 7, %27 ], [ 13, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 12, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 15, %60 ], [ 15, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit ], [ 14, %66 ], [ 14, %63 ], [ 14, %.thread91 ], [ 11, %_ZNK5clang4Type16isFixedPointTypeEv.exit ], [ 0, %16 ], [ 0, %16 ], [ 14, %66 ], [ 14, %66 ], [ 13, %.fold.split ], [ %switch.load, %switch.lookup ], [ 9, %18 ]
-  %.sroa.21.0 = phi i64 [ 4294967296, %34 ], [ 4294967296, %33 ], [ 4294967296, %32 ], [ 4294967296, %31 ], [ 4294967296, %30 ], [ 0, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ %86, %84 ], [ %78, %76 ], [ 4294967296, %_ZNK5clang4Type13isBooleanTypeEv.exit ], [ 0, %16 ], [ 4294967296, %27 ], [ 4294967296, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 4294967296, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 4294967296, %60 ], [ 4294967296, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit ], [ 4294967296, %66 ], [ 4294967296, %63 ], [ 4294967296, %.thread91 ], [ 4294967296, %_ZNK5clang4Type16isFixedPointTypeEv.exit ], [ 0, %16 ], [ 0, %16 ], [ 4294967296, %66 ], [ 4294967296, %66 ], [ 4294967296, %.fold.split ], [ 4294967296, %switch.lookup ], [ 4294967296, %18 ]
+  %.sroa.080.0 = phi i64 [ 8, %34 ], [ 5, %30 ], [ 3, %31 ], [ 1, %32 ], [ 10, %33 ], [ 0, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ %86, %84 ], [ %78, %76 ], [ 10, %_ZNK5clang4Type13isBooleanTypeEv.exit ], [ 0, %16 ], [ 7, %27 ], [ 13, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 12, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 15, %60 ], [ 15, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit ], [ 14, %66 ], [ 14, %63 ], [ 14, %.thread91 ], [ 11, %_ZNK5clang4Type16isFixedPointTypeEv.exit ], [ 0, %16 ], [ 0, %16 ], [ 14, %66 ], [ 14, %66 ], [ 13, %.fold.split ], [ %switch.load, %switch.lookup ], [ 9, %18 ]
+  %.sroa.21.0 = phi i64 [ 4294967296, %34 ], [ 4294967296, %30 ], [ 4294967296, %31 ], [ 4294967296, %32 ], [ 4294967296, %33 ], [ 0, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ %86, %84 ], [ %78, %76 ], [ 4294967296, %_ZNK5clang4Type13isBooleanTypeEv.exit ], [ 0, %16 ], [ 4294967296, %27 ], [ 4294967296, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 4294967296, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 4294967296, %60 ], [ 4294967296, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit ], [ 4294967296, %66 ], [ 4294967296, %63 ], [ 4294967296, %.thread91 ], [ 4294967296, %_ZNK5clang4Type16isFixedPointTypeEv.exit ], [ 0, %16 ], [ 0, %16 ], [ 4294967296, %66 ], [ 4294967296, %66 ], [ 4294967296, %.fold.split ], [ 4294967296, %switch.lookup ], [ 4294967296, %18 ]
   %.sroa.21.0.insert.ext = and i64 %.sroa.21.0, 4294967296
   %.sroa.080.0.insert.ext = and i64 %.sroa.080.0, 4294967295
   %.sroa.21.0.insert.insert = or disjoint i64 %.sroa.21.0.insert.ext, %.sroa.080.0.insert.ext
@@ -1330,7 +1330,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread8: ; preds = %1, %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %24, %.lr.ph.i
-  %.1.i.i = phi ptr [ %20, %.lr.ph.i ], [ %25, %24 ]
+  %.1.i.i = phi ptr [ %25, %24 ], [ %20, %.lr.ph.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %27 = load i24, ptr %26, align 16
   %28 = and i24 %27, 1048576
@@ -1383,7 +1383,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v(p
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 

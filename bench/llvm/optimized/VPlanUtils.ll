@@ -163,7 +163,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %43, %42 ]
+  %.1.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !10
   %45 = load ptr, ptr %.1.val.i.i.i.i.i, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
@@ -176,7 +176,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %49 ]
+  %.2.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !10
   %52 = load ptr, ptr %.2.val.i.i.i.i.i, align 8, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %43, %42 ]
+  %.1.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !10
   %45 = load ptr, ptr %.1.val.i.i.i.i.i, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -311,7 +311,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %49 ]
+  %.2.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !10
   %52 = load ptr, ptr %.2.val.i.i.i.i.i, align 8, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -467,7 +467,7 @@ _ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit: ; preds =
   br label %68
 
 68:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit, %66
-  %.1 = phi ptr [ %32, %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit ], [ %.022, %66 ]
+  %.1 = phi ptr [ %.022, %66 ], [ %32, %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit ]
   ret ptr %.1
 }
 
@@ -915,7 +915,7 @@ _ZN4llvm17VPlanPatternMatch5matchINS_12VPRecipeBaseENS0_12Recipe_matchISt5tupleI
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %48, %47 ]
+  %.1.i.i = phi ptr [ %48, %47 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %50 = load ptr, ptr %.1.i.i, align 8, !tbaa !27
   %51 = tail call noundef zeroext i1 @_ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE(ptr noundef %50)
   br i1 %51, label %52, label %"_ZSt13__find_if_notIPPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZNS0_7vputils24isUniformAcrossVFsAndUFsES2_E3$_0EEET_SA_SA_T0_.exit"
@@ -925,7 +925,7 @@ _ZN4llvm17VPlanPatternMatch5matchINS_12VPRecipeBaseENS0_12Recipe_matchISt5tupleI
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %53, %52 ]
+  %.2.i.i = phi ptr [ %53, %52 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %55 = load ptr, ptr %.2.i.i, align 8, !tbaa !27
   %56 = tail call noundef zeroext i1 @_ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE(ptr noundef %55)
   br i1 %56, label %57, label %"_ZSt13__find_if_notIPPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZNS0_7vputils24isUniformAcrossVFsAndUFsES2_E3$_0EEET_SA_SA_T0_.exit"
@@ -2508,7 +2508,7 @@ define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.1.i.i = phi ptr [ %31, %30 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %33 = load ptr, ptr %.1.i.i, align 8, !tbaa !27
   %34 = tail call noundef zeroext i1 @_ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE(ptr noundef %33)
   br i1 %34, label %35, label %"_ZSt13__find_if_notIPKPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EEESC_SC_SC_T0_.exit"
@@ -2518,7 +2518,7 @@ define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %36, %35 ]
+  %.2.i.i = phi ptr [ %36, %35 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %38 = load ptr, ptr %.2.i.i, align 8, !tbaa !27
   %39 = tail call noundef zeroext i1 @_ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE(ptr noundef %38)
   br i1 %39, label %40, label %"_ZSt13__find_if_notIPKPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EEESC_SC_SC_T0_.exit"

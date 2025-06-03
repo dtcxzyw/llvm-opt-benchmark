@@ -164,10 +164,10 @@ define void @_ZNK7rocksdb20SimpleSecondaryIndex26FinalizeSecondaryKeyPrefixEPSt7
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !tbaa !15
   store i8 0, ptr %6, align 8, !tbaa !16
-  %.pn9.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pn9.i.i.i = load i64, ptr %.pn9.in.i.i.i, align 8, !tbaa !31
-  %.pn11.i.i.i = load ptr, ptr %2, align 8, !tbaa !30
-  %8 = trunc i64 %.pn9.i.i.i to i32
+  %.sroa.2.0.copyload.i.i.i.i.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i.i.i.pn.in.i.i.i, align 8, !tbaa !31
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i = load ptr, ptr %2, align 8, !tbaa !30
+  %8 = trunc i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #14
   %9 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %4, i32 noundef %8)
           to label %.noexc unwind label %30
@@ -189,7 +189,7 @@ _ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #14
   %17 = load i64, ptr %7, align 8, !tbaa !15
   %18 = sub i64 4611686018427387903, %17
-  %19 = icmp ult i64 %18, %.pn9.i.i.i
+  %19 = icmp ult i64 %18, %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i
   br i1 %19, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
 
 .invoke:                                          ; preds = %.noexc6, %.noexc
@@ -200,7 +200,7 @@ _ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; preds = %.noexc6
-  %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %.pn11.i.i.i, i64 noundef %.pn9.i.i.i)
+  %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i, i64 noundef %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i)
           to label %21 unwind label %30
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i

@@ -6617,7 +6617,7 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
   br label %49
 
 49:                                               ; preds = %40, %33, %24
-  %.1 = phi i8 [ %48, %40 ], [ %spec.select, %33 ], [ %spec.select, %24 ]
+  %.1 = phi i8 [ %48, %40 ], [ %spec.select, %24 ], [ %spec.select, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = trunc nuw i64 %indvars.iv.next to i32
   %51 = icmp samesign ult i64 %indvars.iv.next, %15
@@ -6827,7 +6827,7 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
   br label %62
 
 62:                                               ; preds = %54, %48, %45, %29
-  %.1 = phi i32 [ %61, %54 ], [ %.pre, %48 ], [ %.0125, %45 ], [ %.0125, %29 ]
+  %.1 = phi i32 [ %61, %54 ], [ %.0125, %29 ], [ %.0125, %45 ], [ %.pre, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

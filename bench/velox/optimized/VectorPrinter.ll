@@ -2211,7 +2211,7 @@ invoke.cont121:                                   ; preds = %sw.epilog
   ret void
 
 ehcleanup:                                        ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %lpad.i, %lpad118, %lpad87, %lpad74, %lpad58, %lpad38, %lpad27, %lpad9
-  %.pn = phi { ptr, i32 } [ %35, %lpad118 ], [ %23, %lpad87 ], [ %22, %lpad74 ], [ %18, %lpad58 ], [ %12, %lpad27 ], [ %15, %lpad38 ], [ %11, %lpad9 ], [ %6, %lpad.i ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad27 ], [ %15, %lpad38 ], [ %11, %lpad9 ], [ %18, %lpad58 ], [ %23, %lpad87 ], [ %22, %lpad74 ], [ %35, %lpad118 ], [ %6, %lpad.i ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %newIndent) #22
   br label %ehcleanup122
 

@@ -1414,7 +1414,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %970
 
 970:                                              ; preds = %966, %965
-  %.1851 = phi i32 [ 0, %965 ], [ %969, %966 ]
+  %.1851 = phi i32 [ %969, %966 ], [ 0, %965 ]
   %971 = load i32, ptr %954, align 4, !tbaa !12
   %gep955 = getelementptr i32, ptr %invariant.gep954, i64 %indvars.iv1038
   %972 = load i32, ptr %gep955, align 4, !tbaa !12
@@ -1423,7 +1423,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %975
 
 975:                                              ; preds = %970, %965
-  %.2852 = phi i32 [ 0, %965 ], [ %974, %970 ]
+  %.2852 = phi i32 [ %974, %970 ], [ 0, %965 ]
   %976 = load i32, ptr %955, align 4, !tbaa !12
   %gep957 = getelementptr i32, ptr %invariant.gep956, i64 %indvars.iv1038
   %977 = load i32, ptr %gep957, align 4, !tbaa !12
@@ -1432,7 +1432,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %980
 
 980:                                              ; preds = %975, %965
-  %.3853 = phi i32 [ 0, %965 ], [ %979, %975 ]
+  %.3853 = phi i32 [ %979, %975 ], [ 0, %965 ]
   %981 = load i32, ptr %956, align 4, !tbaa !12
   %gep959 = getelementptr i32, ptr %invariant.gep958, i64 %indvars.iv1038
   %982 = load i32, ptr %gep959, align 4, !tbaa !12
@@ -1441,7 +1441,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %985
 
 985:                                              ; preds = %980, %965
-  %.4854 = phi i32 [ 0, %965 ], [ %984, %980 ]
+  %.4854 = phi i32 [ %984, %980 ], [ 0, %965 ]
   %986 = load i32, ptr %957, align 4, !tbaa !12
   %gep961 = getelementptr i32, ptr %invariant.gep960, i64 %indvars.iv1038
   %987 = load i32, ptr %gep961, align 4, !tbaa !12
@@ -1450,7 +1450,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %990
 
 990:                                              ; preds = %985, %965
-  %.5855 = phi i32 [ 0, %965 ], [ %989, %985 ]
+  %.5855 = phi i32 [ %989, %985 ], [ 0, %965 ]
   %991 = load i32, ptr %958, align 4, !tbaa !12
   %gep963 = getelementptr i32, ptr %invariant.gep962, i64 %indvars.iv1038
   %992 = load i32, ptr %gep963, align 4, !tbaa !12
@@ -1459,7 +1459,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %995
 
 995:                                              ; preds = %990, %965
-  %.6856 = phi i32 [ 0, %965 ], [ %994, %990 ]
+  %.6856 = phi i32 [ %994, %990 ], [ 0, %965 ]
   %996 = load i32, ptr %959, align 4, !tbaa !12
   %gep965 = getelementptr i32, ptr %invariant.gep964, i64 %indvars.iv1038
   %997 = load i32, ptr %gep965, align 4, !tbaa !12
@@ -1468,7 +1468,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1000
 
 1000:                                             ; preds = %995, %965
-  %.7857 = phi i32 [ 0, %965 ], [ %999, %995 ]
+  %.7857 = phi i32 [ %999, %995 ], [ 0, %965 ]
   %1001 = load i32, ptr %960, align 4, !tbaa !12
   %gep967 = getelementptr i32, ptr %invariant.gep966, i64 %indvars.iv1038
   %1002 = load i32, ptr %gep967, align 4, !tbaa !12
@@ -1477,7 +1477,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1005
 
 1005:                                             ; preds = %1000, %965
-  %.8858 = phi i32 [ 0, %965 ], [ %1004, %1000 ]
+  %.8858 = phi i32 [ %1004, %1000 ], [ 0, %965 ]
   %1006 = load i32, ptr %961, align 4, !tbaa !12
   %gep969 = getelementptr i32, ptr %invariant.gep968, i64 %indvars.iv1038
   %1007 = load i32, ptr %gep969, align 4, !tbaa !12
@@ -1486,7 +1486,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1010
 
 1010:                                             ; preds = %1005, %965
-  %.9859 = phi i32 [ 0, %965 ], [ %1009, %1005 ]
+  %.9859 = phi i32 [ %1009, %1005 ], [ 0, %965 ]
   %1011 = load i32, ptr %962, align 4, !tbaa !12
   %gep971 = getelementptr i32, ptr %invariant.gep970, i64 %indvars.iv1038
   %1012 = load i32, ptr %gep971, align 4, !tbaa !12
@@ -1495,7 +1495,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1015
 
 1015:                                             ; preds = %1010, %965
-  %.10860 = phi i32 [ 0, %965 ], [ %1014, %1010 ]
+  %.10860 = phi i32 [ %1014, %1010 ], [ 0, %965 ]
   %1016 = load i32, ptr %963, align 4, !tbaa !12
   %gep973 = getelementptr i32, ptr %invariant.gep972, i64 %indvars.iv1038
   %1017 = load i32, ptr %gep973, align 4, !tbaa !12
@@ -1504,7 +1504,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1020
 
 1020:                                             ; preds = %1015, %965
-  %.11861 = phi i32 [ 0, %965 ], [ %1019, %1015 ]
+  %.11861 = phi i32 [ %1019, %1015 ], [ 0, %965 ]
   %1021 = load i32, ptr %2, align 4, !tbaa !12
   %gep975 = getelementptr i32, ptr %invariant.gep974, i64 %indvars.iv1038
   %1022 = load i32, ptr %gep975, align 4, !tbaa !12
@@ -1557,7 +1557,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1036
 
 1036:                                             ; preds = %1032, %1031
-  %.13863 = phi i32 [ 0, %1031 ], [ %1035, %1032 ]
+  %.13863 = phi i32 [ %1035, %1032 ], [ 0, %1031 ]
   %1037 = load i32, ptr %11, align 4, !tbaa !12
   %gep881 = getelementptr i32, ptr %invariant.gep880, i64 %indvars.iv
   %1038 = load i32, ptr %gep881, align 4, !tbaa !12
@@ -1566,7 +1566,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1041
 
 1041:                                             ; preds = %1036, %1031
-  %.14864 = phi i32 [ 0, %1031 ], [ %1040, %1036 ]
+  %.14864 = phi i32 [ %1040, %1036 ], [ 0, %1031 ]
   %1042 = load i32, ptr %12, align 4, !tbaa !12
   %gep883 = getelementptr i32, ptr %invariant.gep882, i64 %indvars.iv
   %1043 = load i32, ptr %gep883, align 4, !tbaa !12
@@ -1575,7 +1575,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1046
 
 1046:                                             ; preds = %1041, %1031
-  %.15 = phi i32 [ 0, %1031 ], [ %1045, %1041 ]
+  %.15 = phi i32 [ %1045, %1041 ], [ 0, %1031 ]
   %1047 = load i32, ptr %13, align 4, !tbaa !12
   %gep885 = getelementptr i32, ptr %invariant.gep884, i64 %indvars.iv
   %1048 = load i32, ptr %gep885, align 4, !tbaa !12
@@ -1584,7 +1584,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1051
 
 1051:                                             ; preds = %1046, %1031
-  %.16 = phi i32 [ 0, %1031 ], [ %1050, %1046 ]
+  %.16 = phi i32 [ %1050, %1046 ], [ 0, %1031 ]
   %1052 = load i32, ptr %14, align 4, !tbaa !12
   %gep887 = getelementptr i32, ptr %invariant.gep886, i64 %indvars.iv
   %1053 = load i32, ptr %gep887, align 4, !tbaa !12
@@ -1593,7 +1593,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1056
 
 1056:                                             ; preds = %1051, %1031
-  %.17 = phi i32 [ 0, %1031 ], [ %1055, %1051 ]
+  %.17 = phi i32 [ %1055, %1051 ], [ 0, %1031 ]
   %1057 = load i32, ptr %15, align 4, !tbaa !12
   %gep889 = getelementptr i32, ptr %invariant.gep888, i64 %indvars.iv
   %1058 = load i32, ptr %gep889, align 4, !tbaa !12
@@ -1602,7 +1602,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1061
 
 1061:                                             ; preds = %1056, %1031
-  %.18 = phi i32 [ 0, %1031 ], [ %1060, %1056 ]
+  %.18 = phi i32 [ %1060, %1056 ], [ 0, %1031 ]
   %1062 = load i32, ptr %16, align 4, !tbaa !12
   %gep891 = getelementptr i32, ptr %invariant.gep890, i64 %indvars.iv
   %1063 = load i32, ptr %gep891, align 4, !tbaa !12
@@ -1611,7 +1611,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1066
 
 1066:                                             ; preds = %1061, %1031
-  %.19 = phi i32 [ 0, %1031 ], [ %1065, %1061 ]
+  %.19 = phi i32 [ %1065, %1061 ], [ 0, %1031 ]
   %1067 = load i32, ptr %17, align 4, !tbaa !12
   %gep893 = getelementptr i32, ptr %invariant.gep892, i64 %indvars.iv
   %1068 = load i32, ptr %gep893, align 4, !tbaa !12
@@ -1620,7 +1620,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1071
 
 1071:                                             ; preds = %1066, %1031
-  %.20 = phi i32 [ 0, %1031 ], [ %1070, %1066 ]
+  %.20 = phi i32 [ %1070, %1066 ], [ 0, %1031 ]
   %1072 = load i32, ptr %18, align 4, !tbaa !12
   %gep895 = getelementptr i32, ptr %invariant.gep894, i64 %indvars.iv
   %1073 = load i32, ptr %gep895, align 4, !tbaa !12
@@ -1629,7 +1629,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1076
 
 1076:                                             ; preds = %1071, %1031
-  %.21 = phi i32 [ 0, %1031 ], [ %1075, %1071 ]
+  %.21 = phi i32 [ %1075, %1071 ], [ 0, %1031 ]
   %1077 = load i32, ptr %19, align 4, !tbaa !12
   %gep897 = getelementptr i32, ptr %invariant.gep896, i64 %indvars.iv
   %1078 = load i32, ptr %gep897, align 4, !tbaa !12
@@ -1638,7 +1638,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1081
 
 1081:                                             ; preds = %1076, %1031
-  %.22 = phi i32 [ 0, %1031 ], [ %1080, %1076 ]
+  %.22 = phi i32 [ %1080, %1076 ], [ 0, %1031 ]
   %1082 = load i32, ptr %20, align 4, !tbaa !12
   %gep899 = getelementptr i32, ptr %invariant.gep898, i64 %indvars.iv
   %1083 = load i32, ptr %gep899, align 4, !tbaa !12
@@ -1647,7 +1647,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1086
 
 1086:                                             ; preds = %1081, %1031
-  %.23 = phi i32 [ 0, %1031 ], [ %1085, %1081 ]
+  %.23 = phi i32 [ %1085, %1081 ], [ 0, %1031 ]
   %1087 = load i32, ptr %21, align 4, !tbaa !12
   %gep901 = getelementptr i32, ptr %invariant.gep900, i64 %indvars.iv
   %1088 = load i32, ptr %gep901, align 4, !tbaa !12
@@ -1656,7 +1656,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1091
 
 1091:                                             ; preds = %1086, %1031
-  %.24 = phi i32 [ 0, %1031 ], [ %1090, %1086 ]
+  %.24 = phi i32 [ %1090, %1086 ], [ 0, %1031 ]
   %1092 = load i32, ptr %22, align 4, !tbaa !12
   %gep903 = getelementptr i32, ptr %invariant.gep902, i64 %indvars.iv
   %1093 = load i32, ptr %gep903, align 4, !tbaa !12
@@ -1665,7 +1665,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1096
 
 1096:                                             ; preds = %1091, %1031
-  %.25 = phi i32 [ 0, %1031 ], [ %1095, %1091 ]
+  %.25 = phi i32 [ %1095, %1091 ], [ 0, %1031 ]
   %1097 = load i32, ptr %23, align 4, !tbaa !12
   %gep905 = getelementptr i32, ptr %invariant.gep904, i64 %indvars.iv
   %1098 = load i32, ptr %gep905, align 4, !tbaa !12
@@ -1674,7 +1674,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1101
 
 1101:                                             ; preds = %1096, %1031
-  %.26 = phi i32 [ 0, %1031 ], [ %1100, %1096 ]
+  %.26 = phi i32 [ %1100, %1096 ], [ 0, %1031 ]
   %1102 = load i32, ptr %24, align 4, !tbaa !12
   %gep907 = getelementptr i32, ptr %invariant.gep906, i64 %indvars.iv
   %1103 = load i32, ptr %gep907, align 4, !tbaa !12
@@ -1683,7 +1683,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1106
 
 1106:                                             ; preds = %1101, %1031
-  %.27 = phi i32 [ 0, %1031 ], [ %1105, %1101 ]
+  %.27 = phi i32 [ %1105, %1101 ], [ 0, %1031 ]
   %1107 = load i32, ptr %25, align 4, !tbaa !12
   %gep909 = getelementptr i32, ptr %invariant.gep908, i64 %indvars.iv
   %1108 = load i32, ptr %gep909, align 4, !tbaa !12
@@ -1692,7 +1692,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1111
 
 1111:                                             ; preds = %1106, %1031
-  %.28 = phi i32 [ 0, %1031 ], [ %1110, %1106 ]
+  %.28 = phi i32 [ %1110, %1106 ], [ 0, %1031 ]
   %1112 = load i32, ptr %26, align 4, !tbaa !12
   %gep911 = getelementptr i32, ptr %invariant.gep910, i64 %indvars.iv
   %1113 = load i32, ptr %gep911, align 4, !tbaa !12
@@ -1701,7 +1701,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1116
 
 1116:                                             ; preds = %1111, %1031
-  %.29 = phi i32 [ 0, %1031 ], [ %1115, %1111 ]
+  %.29 = phi i32 [ %1115, %1111 ], [ 0, %1031 ]
   %1117 = load i32, ptr %27, align 4, !tbaa !12
   %gep913 = getelementptr i32, ptr %invariant.gep912, i64 %indvars.iv
   %1118 = load i32, ptr %gep913, align 4, !tbaa !12
@@ -1710,7 +1710,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1121
 
 1121:                                             ; preds = %1116, %1031
-  %.30 = phi i32 [ 0, %1031 ], [ %1120, %1116 ]
+  %.30 = phi i32 [ %1120, %1116 ], [ 0, %1031 ]
   %1122 = load i32, ptr %28, align 4, !tbaa !12
   %gep915 = getelementptr i32, ptr %invariant.gep914, i64 %indvars.iv
   %1123 = load i32, ptr %gep915, align 4, !tbaa !12
@@ -1719,7 +1719,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   br label %1126
 
 1126:                                             ; preds = %1121, %1031
-  %.31 = phi i32 [ 0, %1031 ], [ %1125, %1121 ]
+  %.31 = phi i32 [ %1125, %1121 ], [ 0, %1031 ]
   %1127 = load i32, ptr %29, align 4, !tbaa !12
   %1128 = getelementptr i32, ptr %0, i64 %indvars.iv
   %1129 = getelementptr i8, ptr %1128, i64 -52

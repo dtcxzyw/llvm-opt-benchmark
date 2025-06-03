@@ -719,7 +719,7 @@ cf_hc_baller_is_active.exit174.thread:            ; preds = %cf_hc_baller_is_act
   br label %297
 
 297:                                              ; preds = %97, %259, %._crit_edge185, %294, %289, %288, %11
-  %.3 = phi i32 [ 0, %11 ], [ 0, %294 ], [ %291, %289 ], [ %.2, %._crit_edge185 ], [ 0, %288 ], [ 0, %259 ], [ 0, %97 ]
+  %.3 = phi i32 [ 0, %11 ], [ %.2, %._crit_edge185 ], [ 0, %288 ], [ 0, %259 ], [ 0, %97 ], [ %291, %289 ], [ 0, %294 ]
   %.not163 = icmp eq ptr %1, null
   br i1 %.not163, label %319, label %298
 
@@ -1520,7 +1520,7 @@ cf_hc_baller_needs_flush.exit.thread:             ; preds = %cf_hc_baller_needs_
   br label %89
 
 89:                                               ; preds = %84, %.loopexit, %78, %cf_get_max_baller_time.exit49, %cf_get_max_baller_time.exit
-  %.0 = phi i32 [ 0, %78 ], [ 0, %cf_get_max_baller_time.exit49 ], [ 0, %cf_get_max_baller_time.exit ], [ %88, %84 ], [ 48, %.loopexit ]
+  %.0 = phi i32 [ 0, %cf_get_max_baller_time.exit ], [ 0, %cf_get_max_baller_time.exit49 ], [ 0, %78 ], [ %88, %84 ], [ 48, %.loopexit ]
   ret i32 %.0
 }
 
@@ -1590,8 +1590,8 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 16, ptr %6, align 4, !tbaa !101
   br label %25
 
-25:                                               ; preds = %24, %23, %22, %21, %16, %13
-  %.021.ph = phi i64 [ 1, %13 ], [ 1, %16 ], [ %.122, %21 ], [ 1, %22 ], [ 1, %23 ], [ 1, %24 ]
+25:                                               ; preds = %24, %13, %16, %21, %22, %23
+  %.021.ph = phi i64 [ 1, %23 ], [ 1, %22 ], [ %.122, %21 ], [ 1, %16 ], [ 1, %13 ], [ 1, %24 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8, !tbaa !135
   %26 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !97

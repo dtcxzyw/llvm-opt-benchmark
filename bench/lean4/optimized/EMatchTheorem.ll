@@ -595,7 +595,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %12, %10
   br label %28
 
 28:                                               ; preds = %26, %.thread
-  %.1 = phi ptr [ %.0.i.i, %26 ], [ %27, %.thread ]
+  %.1 = phi ptr [ %27, %.thread ], [ %.0.i.i, %26 ]
   ret ptr %.1
 }
 
@@ -2986,7 +2986,7 @@ lean_alloc_ctor.exit530:                          ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit267
 
 lean_dec.exit267:                                 ; preds = %lean_dec.exit289, %629, %631, %632, %lean_dec.exit277, %487, %489, %490, %lean_dec.exit266, %375, %377, %378, %lean_dec.exit283, %lean_dec.exit272, %675, %lean_dec.exit259, %lean_dec.exit260, %lean_dec.exit300, %lean_alloc_ctor.exit527, %lean_alloc_ctor.exit530, %lean_alloc_ctor.exit465, %lean_alloc_ctor.exit463, %lean_alloc_ctor.exit461
-  %.0 = phi ptr [ %153, %lean_alloc_ctor.exit465 ], [ %107, %lean_alloc_ctor.exit463 ], [ %61, %lean_alloc_ctor.exit461 ], [ %796, %lean_alloc_ctor.exit530 ], [ %196, %lean_dec.exit259 ], [ %290, %lean_dec.exit260 ], [ %196, %lean_dec.exit272 ], [ %527, %lean_dec.exit283 ], [ %.0243, %675 ], [ %743, %lean_alloc_ctor.exit527 ], [ %196, %lean_dec.exit300 ], [ %350, %378 ], [ %350, %377 ], [ %350, %375 ], [ %350, %lean_dec.exit266 ], [ %462, %490 ], [ %462, %489 ], [ %462, %487 ], [ %462, %lean_dec.exit277 ], [ %604, %632 ], [ %604, %631 ], [ %604, %629 ], [ %604, %lean_dec.exit289 ]
+  %.0 = phi ptr [ %61, %lean_alloc_ctor.exit461 ], [ %107, %lean_alloc_ctor.exit463 ], [ %153, %lean_alloc_ctor.exit465 ], [ %796, %lean_alloc_ctor.exit530 ], [ %196, %lean_dec.exit259 ], [ %290, %lean_dec.exit260 ], [ %196, %lean_dec.exit272 ], [ %527, %lean_dec.exit283 ], [ %.0243, %675 ], [ %743, %lean_alloc_ctor.exit527 ], [ %196, %lean_dec.exit300 ], [ %350, %378 ], [ %350, %377 ], [ %350, %375 ], [ %350, %lean_dec.exit266 ], [ %462, %490 ], [ %462, %489 ], [ %462, %487 ], [ %462, %lean_dec.exit277 ], [ %604, %632 ], [ %604, %631 ], [ %604, %629 ], [ %604, %lean_dec.exit289 ]
   ret ptr %.0
 }
 
@@ -7524,7 +7524,7 @@ lean_dec.exit:                                    ; preds = %279, %278, %276, %l
   br label %282
 
 282:                                              ; preds = %lean_dec.exit, %lean_dec.exit68, %lean_dec.exit73, %lean_alloc_closure.exit
-  %.0 = phi ptr [ %281, %lean_dec.exit ], [ %207, %lean_dec.exit68 ], [ %133, %lean_dec.exit73 ], [ %58, %lean_alloc_closure.exit ]
+  %.0 = phi ptr [ %281, %lean_dec.exit ], [ %58, %lean_alloc_closure.exit ], [ %133, %lean_dec.exit73 ], [ %207, %lean_dec.exit68 ]
   ret ptr %.0
 }
 
@@ -7919,7 +7919,7 @@ define noundef nonnull ptr @l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx(i8 nou
   br label %11
 
 11:                                               ; preds = %1, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -7991,7 +7991,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit
 
 l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit: ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21
-  %.0.i = phi ptr [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -8198,7 +8198,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_Grind_beqEMatchTheoremKind____x40_
   br label %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit
 
 l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit: ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11
-  %.0.i9 = phi ptr [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %20 [
     i8 0, label %lean_dec.exit
     i8 1, label %12
@@ -8239,7 +8239,7 @@ l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit: ; preds = %2, %3, %4, %5, %6
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %20, %19, %18, %17, %16, %15, %14, %13, %12, %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 19 to ptr), %20 ], [ inttoptr (i64 17 to ptr), %19 ], [ inttoptr (i64 15 to ptr), %18 ], [ inttoptr (i64 13 to ptr), %17 ], [ inttoptr (i64 11 to ptr), %16 ], [ inttoptr (i64 9 to ptr), %15 ], [ inttoptr (i64 7 to ptr), %14 ], [ inttoptr (i64 5 to ptr), %13 ], [ inttoptr (i64 3 to ptr), %12 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 19 to ptr), %20 ], [ inttoptr (i64 3 to ptr), %12 ], [ inttoptr (i64 5 to ptr), %13 ], [ inttoptr (i64 7 to ptr), %14 ], [ inttoptr (i64 9 to ptr), %15 ], [ inttoptr (i64 11 to ptr), %16 ], [ inttoptr (i64 13 to ptr), %17 ], [ inttoptr (i64 15 to ptr), %18 ], [ inttoptr (i64 17 to ptr), %19 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit ]
   %21 = icmp eq ptr %.0.i9, %.0.i10
   %22 = zext i1 %21 to i8
   ret i8 %22
@@ -8339,7 +8339,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit.i
 
 l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit.i: ; preds = %33, %32, %31, %30, %29, %28, %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 19 to ptr), %33 ], [ inttoptr (i64 17 to ptr), %32 ], [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 19 to ptr), %33 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 17 to ptr), %32 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %42 [
     i8 0, label %l_Lean_Meta_Grind_beqEMatchTheoremKind____x40_Lean_Meta_Tactic_Grind_EMatchTheorem___hyg_1217_.exit
     i8 1, label %34
@@ -8380,7 +8380,7 @@ l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit.i: ; preds = %33, %32, %31, %
   br label %l_Lean_Meta_Grind_beqEMatchTheoremKind____x40_Lean_Meta_Tactic_Grind_EMatchTheorem___hyg_1217_.exit
 
 l_Lean_Meta_Grind_beqEMatchTheoremKind____x40_Lean_Meta_Tactic_Grind_EMatchTheorem___hyg_1217_.exit: ; preds = %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit.i, %34, %35, %36, %37, %38, %39, %40, %41, %42
-  %.0.i10.i = phi ptr [ inttoptr (i64 19 to ptr), %42 ], [ inttoptr (i64 17 to ptr), %41 ], [ inttoptr (i64 15 to ptr), %40 ], [ inttoptr (i64 13 to ptr), %39 ], [ inttoptr (i64 11 to ptr), %38 ], [ inttoptr (i64 9 to ptr), %37 ], [ inttoptr (i64 7 to ptr), %36 ], [ inttoptr (i64 5 to ptr), %35 ], [ inttoptr (i64 3 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 19 to ptr), %42 ], [ inttoptr (i64 3 to ptr), %34 ], [ inttoptr (i64 5 to ptr), %35 ], [ inttoptr (i64 7 to ptr), %36 ], [ inttoptr (i64 9 to ptr), %37 ], [ inttoptr (i64 11 to ptr), %38 ], [ inttoptr (i64 13 to ptr), %39 ], [ inttoptr (i64 15 to ptr), %40 ], [ inttoptr (i64 17 to ptr), %41 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_Grind_EMatchTheoremKind_toCtorIdx.exit.i ]
   %43 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %44 = select i1 %43, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %44
@@ -8779,7 +8779,7 @@ define ptr @l___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_
   br label %24
 
 24:                                               ; preds = %21, %19, %17, %15, %13, %11, %9, %6, %4, %2
-  %.0 = phi ptr [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.0 = phi ptr [ %23, %21 ], [ %3, %2 ], [ %5, %4 ], [ %8, %6 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   ret ptr %.0
 }
 
@@ -8868,7 +8868,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_EMatchTheoremKind_explainFailure.exit
 
 l___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_EMatchTheoremKind_explainFailure.exit: ; preds = %13, %15, %17, %20, %22, %24, %26, %28, %30, %32
-  %.0.i = phi ptr [ %34, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.0.i = phi ptr [ %34, %32 ], [ %14, %13 ], [ %16, %15 ], [ %19, %17 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
   ret ptr %.0.i
 }
 
@@ -12475,7 +12475,7 @@ lean_ensure_exclusive_array.exit.i.i439:          ; preds = %203, %201
   br label %lean_array_set.exit443
 
 lean_array_set.exit443:                           ; preds = %217, %.thread.i436
-  %.1.i437 = phi ptr [ %.0.i.i.i440, %217 ], [ %218, %.thread.i436 ]
+  %.1.i437 = phi ptr [ %218, %.thread.i436 ], [ %.0.i.i.i440, %217 ]
   %219 = lshr i64 %1, 5
   %220 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Grind_EMatchTheorems_insert___spec__7(ptr noundef %197, i64 noundef %219, ptr noundef %2)
   %221 = ptrtoint ptr %220 to i64
@@ -12789,7 +12789,7 @@ lean_ensure_exclusive_array.exit.i.i468:          ; preds = %319, %317
   br label %lean_array_set.exit472
 
 lean_array_set.exit472:                           ; preds = %333, %.thread.i465
-  %.1.i466 = phi ptr [ %.0.i.i.i469, %333 ], [ %334, %.thread.i465 ]
+  %.1.i466 = phi ptr [ %334, %.thread.i465 ], [ %.0.i.i.i469, %333 ]
   %335 = lshr i64 %1, 5
   %336 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Grind_EMatchTheorems_insert___spec__7(ptr noundef %197, i64 noundef %335, ptr noundef %2)
   %337 = ptrtoint ptr %336 to i64
@@ -13164,7 +13164,7 @@ lean_ensure_exclusive_array.exit.i.i499:          ; preds = %457, %455
   br label %lean_array_set.exit503
 
 lean_array_set.exit503:                           ; preds = %471, %.thread.i496
-  %.1.i497 = phi ptr [ %.0.i.i.i500, %471 ], [ %472, %.thread.i496 ]
+  %.1.i497 = phi ptr [ %472, %.thread.i496 ], [ %.0.i.i.i500, %471 ]
   %473 = lshr i64 %1, 5
   %474 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Grind_EMatchTheorems_insert___spec__7(ptr noundef %426, i64 noundef %473, ptr noundef %2)
   %475 = ptrtoint ptr %474 to i64
@@ -28859,7 +28859,7 @@ lean_ensure_exclusive_array.exit.i.i423:          ; preds = %169, %167
   br label %lean_array_set.exit427
 
 lean_array_set.exit427:                           ; preds = %183, %.thread.i420
-  %.1.i421 = phi ptr [ %.0.i.i.i424, %183 ], [ %184, %.thread.i420 ]
+  %.1.i421 = phi ptr [ %184, %.thread.i420 ], [ %.0.i.i.i424, %183 ]
   %185 = lshr i64 %1, 5
   %186 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Grind_EMatchTheorems_retrieve_x3f___spec__2(ptr noundef %163, i64 noundef %185, ptr noundef %2)
   %187 = ptrtoint ptr %186 to i64
@@ -29173,7 +29173,7 @@ lean_ensure_exclusive_array.exit.i.i452:          ; preds = %285, %283
   br label %lean_array_set.exit456
 
 lean_array_set.exit456:                           ; preds = %299, %.thread.i449
-  %.1.i450 = phi ptr [ %.0.i.i.i453, %299 ], [ %300, %.thread.i449 ]
+  %.1.i450 = phi ptr [ %300, %.thread.i449 ], [ %.0.i.i.i453, %299 ]
   %301 = lshr i64 %1, 5
   %302 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Grind_EMatchTheorems_retrieve_x3f___spec__2(ptr noundef %163, i64 noundef %301, ptr noundef %2)
   %303 = ptrtoint ptr %302 to i64
@@ -29548,7 +29548,7 @@ lean_ensure_exclusive_array.exit.i.i483:          ; preds = %423, %421
   br label %lean_array_set.exit487
 
 lean_array_set.exit487:                           ; preds = %437, %.thread.i480
-  %.1.i481 = phi ptr [ %.0.i.i.i484, %437 ], [ %438, %.thread.i480 ]
+  %.1.i481 = phi ptr [ %438, %.thread.i480 ], [ %.0.i.i.i484, %437 ]
   %439 = lshr i64 %1, 5
   %440 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Grind_EMatchTheorems_retrieve_x3f___spec__2(ptr noundef %392, i64 noundef %439, ptr noundef %2)
   %441 = ptrtoint ptr %440 to i64
@@ -51488,7 +51488,7 @@ define noundef nonnull ptr @l_Lean_Meta_Grind_NormalizePattern_PatternArgKind_to
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -51536,7 +51536,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Meta_Grind_NormalizePattern_PatternArgKind_toCtorIdx.exit
 
 l_Lean_Meta_Grind_NormalizePattern_PatternArgKind_toCtorIdx.exit: ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -56357,7 +56357,7 @@ lean_alloc_ctor.exit154:                          ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit100
 
 lean_dec.exit100:                                 ; preds = %lean_dec.exit101, %65, %67, %68, %lean_dec.exit98, %lean_dec.exit96, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit154, %lean_dec.exit91
-  %.0 = phi ptr [ %110, %lean_dec.exit96 ], [ %90, %lean_dec.exit98 ], [ %160, %lean_dec.exit91 ], [ %111, %lean_alloc_ctor.exit ], [ %240, %lean_alloc_ctor.exit154 ], [ %27, %68 ], [ %27, %67 ], [ %27, %65 ], [ %27, %lean_dec.exit101 ]
+  %.0 = phi ptr [ %90, %lean_dec.exit98 ], [ %110, %lean_dec.exit96 ], [ %160, %lean_dec.exit91 ], [ %111, %lean_alloc_ctor.exit ], [ %240, %lean_alloc_ctor.exit154 ], [ %27, %68 ], [ %27, %67 ], [ %27, %65 ], [ %27, %lean_dec.exit101 ]
   ret ptr %.0
 }
 
@@ -220174,7 +220174,7 @@ lean_alloc_ctor.exit305:                          ; preds = %lean_alloc_ctor.exi
   br label %l___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_EMatchTheoremKind_explainFailure.exit
 
 l___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_EMatchTheoremKind_explainFailure.exit: ; preds = %207, %209, %211, %214, %216, %218, %220, %222, %224, %226
-  %.0.i306 = phi ptr [ %228, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %211 ], [ %210, %209 ], [ %208, %207 ]
+  %.0.i306 = phi ptr [ %228, %226 ], [ %208, %207 ], [ %210, %209 ], [ %213, %211 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ], [ %221, %220 ], [ %223, %222 ], [ %225, %224 ]
   %229 = tail call ptr @l_Lean_stringToMessageData(ptr noundef %.0.i306) #9
   %230 = ptrtoint ptr %.0.i306 to i64
   %231 = and i64 %230, 1

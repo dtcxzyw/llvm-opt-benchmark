@@ -367,7 +367,7 @@ _ZN3gmx8SetAtoms5atomsEv.exit38:                  ; preds = %38
   br label %67
 
 67:                                               ; preds = %.sink.split72, %63, %50, %33
-  %.pn33.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %51, %50 ], [ %34, %33 ], [ %.pn33.pn.pn.ph, %.sink.split72 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %34, %33 ], [ %51, %50 ], [ %.pn33.pn.pn.ph, %.sink.split72 ]
   resume { ptr, i32 } %.pn33.pn.pn
 
 68:                                               ; preds = %60, %47, %30

@@ -512,8 +512,8 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   br label %.loopexit
 
 _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split: ; preds = %.critedge101, %119, %134, %154, %143, %101
-  %.ph = phi i1 [ false, %101 ], [ false, %143 ], [ false, %119 ], [ false, %134 ], [ true, %154 ], [ false, %.critedge101 ]
-  %.030.ph = phi i32 [ 1, %101 ], [ 1, %143 ], [ 3, %119 ], [ 5, %134 ], [ 0, %154 ], [ 5, %.critedge101 ]
+  %.ph = phi i1 [ false, %101 ], [ false, %143 ], [ true, %154 ], [ false, %134 ], [ false, %119 ], [ false, %.critedge101 ]
+  %.030.ph = phi i32 [ 1, %101 ], [ 1, %143 ], [ 0, %154 ], [ 5, %134 ], [ 3, %119 ], [ 5, %.critedge101 ]
   %.pr = load i32, ptr %15, align 4, !tbaa !29
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit
 

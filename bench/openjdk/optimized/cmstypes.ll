@@ -1610,7 +1610,7 @@ define internal ptr @Type_Curve_Read(ptr noundef readonly captures(none) %0, ptr
   br label %38
 
 38:                                               ; preds = %27, %25, %17, %12, %4, %37, %36, %19, %16
-  %.0 = phi ptr [ %30, %37 ], [ null, %36 ], [ %24, %19 ], [ %15, %16 ], [ null, %4 ], [ null, %12 ], [ null, %17 ], [ null, %25 ], [ null, %27 ]
+  %.0 = phi ptr [ %30, %37 ], [ null, %36 ], [ %15, %16 ], [ %24, %19 ], [ null, %4 ], [ null, %12 ], [ null, %17 ], [ null, %25 ], [ null, %27 ]
   ret ptr %.0
 }
 
@@ -8447,7 +8447,7 @@ ReadEmbeddedCurve.exit.thread:                    ; preds = %.lr.ph35
   br label %.loopexit28
 
 ReadEmbeddedCurve.exit:                           ; preds = %16, %18
-  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ]
+  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6)
   %24 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv

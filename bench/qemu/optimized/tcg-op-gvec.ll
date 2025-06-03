@@ -1008,7 +1008,7 @@ define dso_local i64 @dup_const(i32 noundef %0, i64 noundef %1) local_unnamed_ad
   unreachable
 
 13:                                               ; preds = %2, %9, %6, %3
-  %.0 = phi i64 [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ %1, %2 ]
+  %.0 = phi i64 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %1, %2 ]
   ret i64 %.0
 }
 
@@ -1182,10 +1182,10 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   br label %49
 
 49:                                               ; preds = %44, %26
-  %.076 = phi i32 [ %3, %26 ], [ %48, %44 ]
-  %.074 = phi i32 [ %2, %26 ], [ %47, %44 ]
-  %.073 = phi i32 [ %1, %26 ], [ %46, %44 ]
-  %.072 = phi i32 [ %0, %26 ], [ %45, %44 ]
+  %.076 = phi i32 [ %48, %44 ], [ %3, %26 ]
+  %.074 = phi i32 [ %47, %44 ], [ %2, %26 ]
+  %.073 = phi i32 [ %46, %44 ], [ %1, %26 ]
+  %.072 = phi i32 [ %45, %44 ], [ %0, %26 ]
   %50 = load i8, ptr %28, align 4
   %51 = zext i8 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 46
@@ -1345,9 +1345,9 @@ check_size_impl.exit89.thread:                    ; preds = %check_size_impl.exi
   unreachable
 
 124:                                              ; preds = %expand_2_i64.exit, %expand_2_i32.exit, %35, %56, %49
-  %.177 = phi i32 [ %3, %expand_2_i64.exit ], [ %3, %expand_2_i32.exit ], [ %3, %56 ], [ %.076, %49 ], [ %3, %35 ]
-  %.175 = phi i32 [ %2, %expand_2_i64.exit ], [ %2, %expand_2_i32.exit ], [ %2, %56 ], [ %.074, %49 ], [ %2, %35 ]
-  %.1 = phi i32 [ %0, %expand_2_i64.exit ], [ %0, %expand_2_i32.exit ], [ %0, %56 ], [ %.072, %49 ], [ %0, %35 ]
+  %.177 = phi i32 [ %3, %35 ], [ %.076, %49 ], [ %3, %56 ], [ %3, %expand_2_i64.exit ], [ %3, %expand_2_i32.exit ]
+  %.175 = phi i32 [ %2, %35 ], [ %.074, %49 ], [ %2, %56 ], [ %2, %expand_2_i64.exit ], [ %2, %expand_2_i32.exit ]
+  %.1 = phi i32 [ %0, %35 ], [ %.072, %49 ], [ %0, %56 ], [ %0, %expand_2_i64.exit ], [ %0, %expand_2_i32.exit ]
   %125 = icmp ult i32 %.175, %.177
   br i1 %125, label %126, label %129
 
@@ -1617,10 +1617,10 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   br label %50
 
 50:                                               ; preds = %45, %27
-  %.089 = phi i32 [ %3, %27 ], [ %49, %45 ]
-  %.087 = phi i32 [ %2, %27 ], [ %48, %45 ]
-  %.086 = phi i32 [ %1, %27 ], [ %47, %45 ]
-  %.0 = phi i32 [ %0, %27 ], [ %46, %45 ]
+  %.089 = phi i32 [ %49, %45 ], [ %3, %27 ]
+  %.087 = phi i32 [ %48, %45 ], [ %2, %27 ]
+  %.086 = phi i32 [ %47, %45 ], [ %1, %27 ]
+  %.0 = phi i32 [ %46, %45 ], [ %0, %27 ]
   %51 = load i8, ptr %29, align 8
   %52 = zext i8 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 50
@@ -1784,9 +1784,9 @@ check_size_impl.exit102.thread:                   ; preds = %check_size_impl.exi
   unreachable
 
 130:                                              ; preds = %expand_2i_i64.exit, %expand_2i_i32.exit, %36, %57, %50
-  %.190 = phi i32 [ %3, %expand_2i_i64.exit ], [ %3, %expand_2i_i32.exit ], [ %3, %57 ], [ %.089, %50 ], [ %3, %36 ]
-  %.188 = phi i32 [ %2, %expand_2i_i64.exit ], [ %2, %expand_2i_i32.exit ], [ %2, %57 ], [ %.087, %50 ], [ %2, %36 ]
-  %.1 = phi i32 [ %0, %expand_2i_i64.exit ], [ %0, %expand_2i_i32.exit ], [ %0, %57 ], [ %.0, %50 ], [ %0, %36 ]
+  %.190 = phi i32 [ %3, %36 ], [ %.089, %50 ], [ %3, %57 ], [ %3, %expand_2i_i64.exit ], [ %3, %expand_2i_i32.exit ]
+  %.188 = phi i32 [ %2, %36 ], [ %.087, %50 ], [ %2, %57 ], [ %2, %expand_2i_i64.exit ], [ %2, %expand_2i_i32.exit ]
+  %.1 = phi i32 [ %0, %36 ], [ %.0, %50 ], [ %0, %57 ], [ %0, %expand_2i_i64.exit ], [ %0, %expand_2i_i32.exit ]
   %131 = icmp ult i32 %.188, %.190
   br i1 %131, label %132, label %.thread112
 
@@ -1942,10 +1942,10 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   br label %54
 
 54:                                               ; preds = %49, %36
-  %.095 = phi i32 [ %3, %36 ], [ %53, %49 ]
-  %.092 = phi i32 [ %2, %36 ], [ %52, %49 ]
-  %.091 = phi i32 [ %1, %36 ], [ %51, %49 ]
-  %.0 = phi i32 [ %0, %36 ], [ %50, %49 ]
+  %.095 = phi i32 [ %53, %49 ], [ %3, %36 ]
+  %.092 = phi i32 [ %52, %49 ], [ %2, %36 ]
+  %.091 = phi i32 [ %51, %49 ], [ %1, %36 ]
+  %.0 = phi i32 [ %50, %49 ], [ %0, %36 ]
   %55 = load i8, ptr %29, align 4
   %56 = zext i8 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 46
@@ -1970,9 +1970,9 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   unreachable
 
 69:                                               ; preds = %40, %61, %54
-  %.196 = phi i32 [ %3, %61 ], [ %.095, %54 ], [ %3, %40 ]
-  %.193 = phi i32 [ %2, %61 ], [ %.092, %54 ], [ %2, %40 ]
-  %.1 = phi i32 [ %0, %61 ], [ %.0, %54 ], [ %0, %40 ]
+  %.196 = phi i32 [ %3, %40 ], [ %.095, %54 ], [ %3, %61 ]
+  %.193 = phi i32 [ %2, %40 ], [ %.092, %54 ], [ %2, %61 ]
+  %.1 = phi i32 [ %0, %40 ], [ %.0, %54 ], [ %0, %61 ]
   tail call void @tcg_temp_free_vec(ptr noundef %37) #10
   br label %104
 
@@ -2345,11 +2345,11 @@ check_overlap_3.exit:                             ; preds = %check_overlap_2.exi
   br label %61
 
 61:                                               ; preds = %55, %37
-  %.087 = phi i32 [ %3, %37 ], [ %59, %55 ]
-  %.085 = phi i32 [ %4, %37 ], [ %60, %55 ]
-  %.084 = phi i32 [ %2, %37 ], [ %58, %55 ]
-  %.083 = phi i32 [ %1, %37 ], [ %57, %55 ]
-  %.082 = phi i32 [ %0, %37 ], [ %56, %55 ]
+  %.087 = phi i32 [ %59, %55 ], [ %3, %37 ]
+  %.085 = phi i32 [ %60, %55 ], [ %4, %37 ]
+  %.084 = phi i32 [ %58, %55 ], [ %2, %37 ]
+  %.083 = phi i32 [ %57, %55 ], [ %1, %37 ]
+  %.082 = phi i32 [ %56, %55 ], [ %0, %37 ]
   %62 = load i8, ptr %39, align 4
   %63 = zext i8 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 46
@@ -2529,9 +2529,9 @@ check_size_impl.exit99.thread:                    ; preds = %check_size_impl.exi
   unreachable
 
 150:                                              ; preds = %expand_3_i64.exit, %expand_3_i32.exit, %46, %68, %61
-  %.188 = phi i32 [ %3, %expand_3_i64.exit ], [ %3, %expand_3_i32.exit ], [ %3, %68 ], [ %.087, %61 ], [ %3, %46 ]
-  %.186 = phi i32 [ %4, %expand_3_i64.exit ], [ %4, %expand_3_i32.exit ], [ %4, %68 ], [ %.085, %61 ], [ %4, %46 ]
-  %.1 = phi i32 [ %0, %expand_3_i64.exit ], [ %0, %expand_3_i32.exit ], [ %0, %68 ], [ %.082, %61 ], [ %0, %46 ]
+  %.188 = phi i32 [ %3, %46 ], [ %.087, %61 ], [ %3, %68 ], [ %3, %expand_3_i64.exit ], [ %3, %expand_3_i32.exit ]
+  %.186 = phi i32 [ %4, %46 ], [ %.085, %61 ], [ %4, %68 ], [ %4, %expand_3_i64.exit ], [ %4, %expand_3_i32.exit ]
+  %.1 = phi i32 [ %0, %46 ], [ %.082, %61 ], [ %0, %68 ], [ %0, %expand_3_i64.exit ], [ %0, %expand_3_i32.exit ]
   %151 = icmp ult i32 %.188, %.186
   br i1 %151, label %152, label %155
 
@@ -2718,11 +2718,11 @@ check_overlap_3.exit:                             ; preds = %check_overlap_2.exi
   br label %65
 
 65:                                               ; preds = %59, %38
-  %.097 = phi i32 [ %4, %38 ], [ %64, %59 ]
-  %.095 = phi i32 [ %3, %38 ], [ %63, %59 ]
-  %.094 = phi i32 [ %2, %38 ], [ %62, %59 ]
-  %.093 = phi i32 [ %1, %38 ], [ %61, %59 ]
-  %.092 = phi i32 [ %0, %38 ], [ %60, %59 ]
+  %.097 = phi i32 [ %64, %59 ], [ %4, %38 ]
+  %.095 = phi i32 [ %63, %59 ], [ %3, %38 ]
+  %.094 = phi i32 [ %62, %59 ], [ %2, %38 ]
+  %.093 = phi i32 [ %61, %59 ], [ %1, %38 ]
+  %.092 = phi i32 [ %60, %59 ], [ %0, %38 ]
   %66 = load i8, ptr %40, align 8
   %67 = zext i8 %66 to i32
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 42
@@ -3014,9 +3014,9 @@ check_size_impl.exit109.thread:                   ; preds = %check_size_impl.exi
   unreachable
 
 216:                                              ; preds = %expand_3i_i64.exit, %expand_3i_i32.exit, %47, %75, %65
-  %.198 = phi i32 [ %4, %expand_3i_i64.exit ], [ %4, %expand_3i_i32.exit ], [ %4, %75 ], [ %.097, %65 ], [ %4, %47 ]
-  %.196 = phi i32 [ %3, %expand_3i_i64.exit ], [ %3, %expand_3i_i32.exit ], [ %3, %75 ], [ %.095, %65 ], [ %3, %47 ]
-  %.1 = phi i32 [ %0, %expand_3i_i64.exit ], [ %0, %expand_3i_i32.exit ], [ %0, %75 ], [ %.092, %65 ], [ %0, %47 ]
+  %.198 = phi i32 [ %4, %47 ], [ %.097, %65 ], [ %4, %75 ], [ %4, %expand_3i_i64.exit ], [ %4, %expand_3i_i32.exit ]
+  %.196 = phi i32 [ %3, %47 ], [ %.095, %65 ], [ %3, %75 ], [ %3, %expand_3i_i64.exit ], [ %3, %expand_3i_i32.exit ]
+  %.1 = phi i32 [ %0, %47 ], [ %.092, %65 ], [ %0, %75 ], [ %0, %expand_3i_i64.exit ], [ %0, %expand_3i_i32.exit ]
   %217 = icmp ult i32 %.196, %.198
   br i1 %217, label %218, label %221
 
@@ -3295,12 +3295,12 @@ check_overlap_4.exit:                             ; preds = %check_overlap_2.exi
   br label %77
 
 77:                                               ; preds = %70, %52
-  %.099 = phi i32 [ %3, %52 ], [ %74, %70 ]
-  %.097 = phi i32 [ %4, %52 ], [ %75, %70 ]
-  %.095 = phi i32 [ %5, %52 ], [ %76, %70 ]
-  %.094 = phi i32 [ %2, %52 ], [ %73, %70 ]
-  %.093 = phi i32 [ %1, %52 ], [ %72, %70 ]
-  %.092 = phi i32 [ %0, %52 ], [ %71, %70 ]
+  %.099 = phi i32 [ %74, %70 ], [ %3, %52 ]
+  %.097 = phi i32 [ %75, %70 ], [ %4, %52 ]
+  %.095 = phi i32 [ %76, %70 ], [ %5, %52 ]
+  %.094 = phi i32 [ %73, %70 ], [ %2, %52 ]
+  %.093 = phi i32 [ %72, %70 ], [ %1, %52 ]
+  %.092 = phi i32 [ %71, %70 ], [ %0, %52 ]
   %78 = load i8, ptr %54, align 4
   %79 = zext i8 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 46
@@ -3500,9 +3500,9 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
   unreachable
 
 180:                                              ; preds = %expand_4_i64.exit, %expand_4_i32.exit, %61, %84, %77
-  %.198 = phi i32 [ %4, %expand_4_i64.exit ], [ %4, %expand_4_i32.exit ], [ %4, %84 ], [ %.097, %77 ], [ %4, %61 ]
-  %.196 = phi i32 [ %5, %expand_4_i64.exit ], [ %5, %expand_4_i32.exit ], [ %5, %84 ], [ %.095, %77 ], [ %5, %61 ]
-  %.1 = phi i32 [ %0, %expand_4_i64.exit ], [ %0, %expand_4_i32.exit ], [ %0, %84 ], [ %.092, %77 ], [ %0, %61 ]
+  %.198 = phi i32 [ %4, %61 ], [ %.097, %77 ], [ %4, %84 ], [ %4, %expand_4_i64.exit ], [ %4, %expand_4_i32.exit ]
+  %.196 = phi i32 [ %5, %61 ], [ %.095, %77 ], [ %5, %84 ], [ %5, %expand_4_i64.exit ], [ %5, %expand_4_i32.exit ]
+  %.1 = phi i32 [ %0, %61 ], [ %.092, %77 ], [ %0, %84 ], [ %0, %expand_4_i64.exit ], [ %0, %expand_4_i32.exit ]
   %181 = icmp ult i32 %.198, %.196
   br i1 %181, label %182, label %185
 
@@ -3732,12 +3732,12 @@ check_overlap_4.exit:                             ; preds = %check_overlap_2.exi
   br label %75
 
 75:                                               ; preds = %68, %53
-  %.098 = phi i32 [ %4, %53 ], [ %73, %68 ]
-  %.096 = phi i32 [ %5, %53 ], [ %74, %68 ]
-  %.095 = phi i32 [ %3, %53 ], [ %72, %68 ]
-  %.094 = phi i32 [ %2, %53 ], [ %71, %68 ]
-  %.093 = phi i32 [ %1, %53 ], [ %70, %68 ]
-  %.092 = phi i32 [ %0, %53 ], [ %69, %68 ]
+  %.098 = phi i32 [ %73, %68 ], [ %4, %53 ]
+  %.096 = phi i32 [ %74, %68 ], [ %5, %53 ]
+  %.095 = phi i32 [ %72, %68 ], [ %3, %53 ]
+  %.094 = phi i32 [ %71, %68 ], [ %2, %53 ]
+  %.093 = phi i32 [ %70, %68 ], [ %1, %53 ]
+  %.092 = phi i32 [ %69, %68 ], [ %0, %53 ]
   %76 = load i8, ptr %55, align 8
   %77 = zext i8 %76 to i32
   %78 = load ptr, ptr %51, align 8
@@ -3875,9 +3875,9 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
   unreachable
 
 138:                                              ; preds = %expand_4i_i64.exit, %expand_4i_i32.exit, %62, %79, %75
-  %.199 = phi i32 [ %4, %expand_4i_i64.exit ], [ %4, %expand_4i_i32.exit ], [ %4, %79 ], [ %.098, %75 ], [ %4, %62 ]
-  %.197 = phi i32 [ %5, %expand_4i_i64.exit ], [ %5, %expand_4i_i32.exit ], [ %5, %79 ], [ %.096, %75 ], [ %5, %62 ]
-  %.1 = phi i32 [ %0, %expand_4i_i64.exit ], [ %0, %expand_4i_i32.exit ], [ %0, %79 ], [ %.092, %75 ], [ %0, %62 ]
+  %.199 = phi i32 [ %4, %62 ], [ %.098, %75 ], [ %4, %79 ], [ %4, %expand_4i_i64.exit ], [ %4, %expand_4i_i32.exit ]
+  %.197 = phi i32 [ %5, %62 ], [ %.096, %75 ], [ %5, %79 ], [ %5, %expand_4i_i64.exit ], [ %5, %expand_4i_i32.exit ]
+  %.1 = phi i32 [ %0, %62 ], [ %.092, %75 ], [ %0, %79 ], [ %0, %expand_4i_i64.exit ], [ %0, %expand_4i_i32.exit ]
   %139 = icmp ult i32 %.199, %.197
   br i1 %139, label %140, label %143
 
@@ -4093,7 +4093,7 @@ default.unreachable:                              ; preds = %12
   unreachable
 
 dup_const.exit:                                   ; preds = %19, %16, %13, %12
-  %22 = phi i64 [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %.tr221272387, %12 ]
+  %22 = phi i64 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %.tr221272387, %12 ]
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %.thread, label %24
 
@@ -7063,7 +7063,7 @@ define dso_local void @tcg_gen_gvec_andi(i32 noundef %0, i32 noundef %1, i32 nou
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
-  %17 = phi i64 [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ %3, %6 ]
+  %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
   %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #10
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_ands)
   ret void
@@ -7133,7 +7133,7 @@ define dso_local void @tcg_gen_gvec_xori(i32 noundef %0, i32 noundef %1, i32 nou
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
-  %17 = phi i64 [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ %3, %6 ]
+  %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
   %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #10
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_xors)
   ret void
@@ -7177,7 +7177,7 @@ define dso_local void @tcg_gen_gvec_ori(i32 noundef %0, i32 noundef %1, i32 noun
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
-  %17 = phi i64 [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ %3, %6 ]
+  %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
   %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #10
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_ors)
   ret void
@@ -8223,10 +8223,10 @@ expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %85
   br label %106
 
 106:                                              ; preds = %101, %84
-  %.3143 = phi i32 [ %5, %84 ], [ %105, %101 ]
-  %.3138 = phi i32 [ %4, %84 ], [ %104, %101 ]
-  %.1134 = phi i32 [ %2, %84 ], [ %103, %101 ]
-  %.3 = phi i32 [ %1, %84 ], [ %102, %101 ]
+  %.3143 = phi i32 [ %105, %101 ], [ %5, %84 ]
+  %.3138 = phi i32 [ %104, %101 ], [ %4, %84 ]
+  %.1134 = phi i32 [ %103, %101 ], [ %2, %84 ]
+  %.3 = phi i32 [ %102, %101 ], [ %1, %84 ]
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %108 = load ptr, ptr %107, align 8
   %.not.i166 = icmp eq i32 %.3138, 0
@@ -9142,11 +9142,11 @@ check_overlap_3.exit:                             ; preds = %check_overlap_2.exi
   br label %49
 
 49:                                               ; preds = %43, %37
-  %.094 = phi i32 [ %2, %37 ], [ %44, %43 ]
-  %.092 = phi i32 [ %3, %37 ], [ %45, %43 ]
-  %.090 = phi i32 [ %4, %37 ], [ %46, %43 ]
-  %.088 = phi i32 [ %5, %37 ], [ %47, %43 ]
-  %.087 = phi i32 [ %6, %37 ], [ %48, %43 ]
+  %.094 = phi i32 [ %44, %43 ], [ %2, %37 ]
+  %.092 = phi i32 [ %45, %43 ], [ %3, %37 ]
+  %.090 = phi i32 [ %46, %43 ], [ %4, %37 ]
+  %.088 = phi i32 [ %47, %43 ], [ %5, %37 ]
+  %.087 = phi i32 [ %48, %43 ], [ %6, %37 ]
   tail call fastcc void @expand_cmp_vec(i32 noundef %1, i32 noundef %.094, i32 noundef %.092, i32 noundef %.090, i32 noundef %.088, i32 noundef 16, i32 noundef 4, i32 noundef %0)
   br label %106
 
@@ -9277,9 +9277,9 @@ expand_cmp_i32.exit:                              ; preds = %.lr.ph.i108
   unreachable
 
 106:                                              ; preds = %expand_cmp_i64.exit, %expand_cmp_i32.exit, %40, %50, %49
-  %.195 = phi i32 [ %2, %expand_cmp_i64.exit ], [ %2, %expand_cmp_i32.exit ], [ %2, %50 ], [ %.094, %49 ], [ %2, %40 ]
-  %.189 = phi i32 [ %5, %expand_cmp_i64.exit ], [ %5, %expand_cmp_i32.exit ], [ %5, %50 ], [ %.088, %49 ], [ %5, %40 ]
-  %.1 = phi i32 [ %6, %expand_cmp_i64.exit ], [ %6, %expand_cmp_i32.exit ], [ %6, %50 ], [ %.087, %49 ], [ %6, %40 ]
+  %.195 = phi i32 [ %2, %40 ], [ %.094, %49 ], [ %2, %50 ], [ %2, %expand_cmp_i64.exit ], [ %2, %expand_cmp_i32.exit ]
+  %.189 = phi i32 [ %5, %40 ], [ %.088, %49 ], [ %5, %50 ], [ %5, %expand_cmp_i64.exit ], [ %5, %expand_cmp_i32.exit ]
+  %.1 = phi i32 [ %6, %40 ], [ %.087, %49 ], [ %6, %50 ], [ %6, %expand_cmp_i64.exit ], [ %6, %expand_cmp_i32.exit ]
   %107 = icmp ult i32 %.189, %.1
   br i1 %107, label %108, label %111
 
@@ -9834,10 +9834,10 @@ expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %32
   br label %49
 
 49:                                               ; preds = %expand_cmps_vec.exit, %30
-  %.0115 = phi i32 [ %6, %30 ], [ %48, %expand_cmps_vec.exit ]
-  %.0112 = phi i32 [ %5, %30 ], [ %47, %expand_cmps_vec.exit ]
-  %.0111 = phi i32 [ %3, %30 ], [ %45, %expand_cmps_vec.exit ]
-  %.0109 = phi i32 [ %2, %30 ], [ %46, %expand_cmps_vec.exit ]
+  %.0115 = phi i32 [ %48, %expand_cmps_vec.exit ], [ %6, %30 ]
+  %.0112 = phi i32 [ %47, %expand_cmps_vec.exit ], [ %5, %30 ]
+  %.0111 = phi i32 [ %45, %expand_cmps_vec.exit ], [ %3, %30 ]
+  %.0109 = phi i32 [ %46, %expand_cmps_vec.exit ], [ %2, %30 ]
   %50 = and i32 %.0112, -16
   %51 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
   %52 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10

@@ -2632,8 +2632,8 @@ mid_pred.exit334:                                 ; preds = %356, %358, %359, %3
   br label %get_luma_mv.exit
 
 get_luma_mv.exit:                                 ; preds = %187, %median4.exit318, %mid_pred.exit326, %mid_pred.exit334, %363
-  %.1342 = phi i16 [ undef, %187 ], [ %378, %363 ], [ %348, %mid_pred.exit334 ], [ %312, %mid_pred.exit326 ], [ %261, %median4.exit318 ]
-  %.1339 = phi i16 [ undef, %187 ], [ %392, %363 ], [ %362, %mid_pred.exit334 ], [ %326, %mid_pred.exit326 ], [ %290, %median4.exit318 ]
+  %.1342 = phi i16 [ undef, %187 ], [ %261, %median4.exit318 ], [ %312, %mid_pred.exit326 ], [ %348, %mid_pred.exit334 ], [ %378, %363 ]
+  %.1339 = phi i16 [ undef, %187 ], [ %290, %median4.exit318 ], [ %326, %mid_pred.exit326 ], [ %362, %mid_pred.exit334 ], [ %392, %363 ]
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 10420
   %394 = load i32, ptr %393, align 4, !tbaa !45
   %395 = lshr i64 59520, %228

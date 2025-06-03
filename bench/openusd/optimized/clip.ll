@@ -20806,9 +20806,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17_
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge._crit_edge.i.i.i.i
-  %84 = phi double [ %.pre, %._crit_edge._crit_edge.i.i.i.i ], [ %79, %81 ]
-  %85 = phi double [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %76, %81 ]
-  %.1.i.i.i.i28 = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %82, %81 ]
+  %84 = phi double [ %79, %81 ], [ %.pre, %._crit_edge._crit_edge.i.i.i.i ]
+  %85 = phi double [ %76, %81 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i28 = phi ptr [ %82, %81 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load double, ptr %.1.i.i.i.i28, align 8
   %86 = fcmp uge double %.1.val.i.i.i.i, %85
   %87 = fcmp ult double %.1.val.i.i.i.i, %84
@@ -20820,9 +20820,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17_
   br label %90
 
 90:                                               ; preds = %88, %._crit_edge._crit_edge76.i.i.i.i
-  %91 = phi double [ %.pre70, %._crit_edge._crit_edge76.i.i.i.i ], [ %84, %88 ]
-  %92 = phi double [ %.pre78.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ], [ %85, %88 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ], [ %89, %88 ]
+  %91 = phi double [ %84, %88 ], [ %.pre70, %._crit_edge._crit_edge76.i.i.i.i ]
+  %92 = phi double [ %85, %88 ], [ %.pre78.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %89, %88 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ]
   %.2.val.i.i.i.i = load double, ptr %.2.i.i.i.i, align 8
   %93 = fcmp uge double %.2.val.i.i.i.i, %92
   %94 = fcmp ult double %.2.val.i.i.i.i, %91

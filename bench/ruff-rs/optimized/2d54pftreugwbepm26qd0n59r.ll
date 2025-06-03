@@ -292,9 +292,9 @@ define hidden void @_ZN19ruff_python_literal6escape13UnicodeEscape26output_layou
   br label %68
 
 68:                                               ; preds = %62, %66, %64
-  %.sroa.02.0 = phi i64 [ %63, %62 ], [ 1, %66 ], [ 1, %64 ]
-  %.sroa.03.1 = phi i64 [ %.sroa.03.0, %62 ], [ %.sroa.03.0, %66 ], [ %65, %64 ]
-  %.sroa.06.1 = phi i64 [ %.sroa.06.0, %62 ], [ %67, %66 ], [ %.sroa.06.0, %64 ]
+  %.sroa.02.0 = phi i64 [ %63, %62 ], [ 1, %64 ], [ 1, %66 ]
+  %.sroa.03.1 = phi i64 [ %.sroa.03.0, %62 ], [ %65, %64 ], [ %.sroa.03.0, %66 ]
+  %.sroa.06.1 = phi i64 [ %.sroa.06.0, %62 ], [ %.sroa.06.0, %64 ], [ %67, %66 ]
   %69 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %.sroa.011.0, i64 %.sroa.02.0)
   %70 = extractvalue { i64, i1 } %69, 1
   %71 = extractvalue { i64, i1 } %69, 0
@@ -439,9 +439,9 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   %66 = trunc nuw i8 %65 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   switch i32 %.sroa.4.0.i.ph, label %67 [
-    i32 10, label %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit
-    i32 9, label %69
-    i32 13, label %71
+    i32 10, label %69
+    i32 9, label %71
+    i32 13, label %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit
   ]
 
 67:                                               ; preds = %61
@@ -450,11 +450,11 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   br i1 %or.cond.i, label %75, label %73
 
 69:                                               ; preds = %61
-  %70 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.16, i64 noundef 2)
+  %70 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.15, i64 noundef 2)
   br i1 %70, label %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit.thread, label %.backedge
 
 71:                                               ; preds = %61
-  %72 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.17, i64 noundef 2)
+  %72 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.16, i64 noundef 2)
   br i1 %72, label %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit.thread, label %.backedge
 
 73:                                               ; preds = %67
@@ -606,15 +606,15 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   br i1 %94, label %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit.thread, label %.backedge
 
 _ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit: ; preds = %61
-  %95 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.15, i64 noundef 2)
+  %95 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.17, i64 noundef 2)
   br i1 %95, label %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit.thread, label %.backedge
 
-.backedge:                                        ; preds = %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit, %93, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %82, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit12", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit7", %71, %69
+.backedge:                                        ; preds = %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit, %93, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %82, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit12", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit7", %69, %71
   %.not48 = icmp eq ptr %.sroa.0.1.ph, %23
   br i1 %.not48, label %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit.thread, label %25
 
-_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit.thread: ; preds = %69, %71, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit7", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit12", %82, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %93, %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit, %91, %.backedge, %2
-  %.lcssa = phi i1 [ false, %2 ], [ false, %.backedge ], [ true, %91 ], [ true, %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit ], [ true, %93 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %82 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit12" ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit" ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit7" ], [ true, %71 ], [ true, %69 ]
+_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit.thread: ; preds = %71, %69, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit7", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit", %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit12", %82, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %93, %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit, %91, %.backedge, %2
+  %.lcssa = phi i1 [ false, %2 ], [ false, %.backedge ], [ true, %91 ], [ true, %_ZN19ruff_python_literal6escape13UnicodeEscape10write_char17h3ec038302eaea6d3E.exit ], [ true, %93 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %82 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit12" ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit" ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit7" ], [ true, %69 ], [ true, %71 ]
   ret i1 %.lcssa
 }
 
@@ -1068,9 +1068,9 @@ define hidden void @_ZN19ruff_python_literal6escape11AsciiEscape26output_layout_
   br label %24
 
 24:                                               ; preds = %18, %22, %20
-  %.sroa.03.1 = phi i64 [ %.sroa.03.0, %18 ], [ %.sroa.03.0, %22 ], [ %21, %20 ]
-  %.sroa.02.0 = phi i64 [ %19, %18 ], [ 1, %22 ], [ 1, %20 ]
-  %.sroa.06.1 = phi i64 [ %.sroa.06.0, %18 ], [ %23, %22 ], [ %.sroa.06.0, %20 ]
+  %.sroa.03.1 = phi i64 [ %.sroa.03.0, %18 ], [ %21, %20 ], [ %.sroa.03.0, %22 ]
+  %.sroa.02.0 = phi i64 [ %19, %18 ], [ 1, %20 ], [ 1, %22 ]
+  %.sroa.06.1 = phi i64 [ %.sroa.06.0, %18 ], [ %.sroa.06.0, %20 ], [ %23, %22 ]
   %25 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %.sroa.011.0, i64 %.sroa.02.0)
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
@@ -1231,7 +1231,7 @@ _ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exi
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !76
   br i1 %48, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exit._crit_edge, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exit.thread
 
-_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exit.thread: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfaf70d42fb313d5eE.exit.i.i.i", %27, %28, %29, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exit
+_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exit.thread: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfaf70d42fb313d5eE.exit.i.i.i", %29, %28, %27, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exit
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 1
   %.not6 = icmp eq ptr %49, %11
   br i1 %.not6, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h3b5d74d633ff1de2E.exit._crit_edge, label %19
@@ -1278,9 +1278,9 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   %18 = trunc nuw i8 %17 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   switch i8 %14, label %19 [
-    i8 9, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit
-    i8 10, label %21
-    i8 13, label %23
+    i8 9, label %21
+    i8 10, label %23
+    i8 13, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit
   ]
 
 19:                                               ; preds = %13
@@ -1289,11 +1289,11 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   br i1 %or.cond.i, label %26, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i"
 
 21:                                               ; preds = %13
-  %22 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.15, i64 noundef 2)
+  %22 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.16, i64 noundef 2)
   br i1 %22, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit.thread, label %35
 
 23:                                               ; preds = %13
-  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.17, i64 noundef 2)
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.15, i64 noundef 2)
   br i1 %24, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit.thread, label %35
 
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i": ; preds = %19
@@ -1341,16 +1341,16 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   br i1 %33, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit.thread, label %35
 
 _ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit: ; preds = %13
-  %34 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.16, i64 noundef 2)
+  %34 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a1669a9a51d6bdf64e72fde3bd0e0301.17, i64 noundef 2)
   br i1 %34, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit.thread, label %35
 
-35:                                               ; preds = %21, %23, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %31, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit
+35:                                               ; preds = %23, %21, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %31, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 1
   %.not15 = icmp eq ptr %36, %11
   br i1 %.not15, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit.thread, label %13
 
-_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit.thread: ; preds = %35, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit, %31, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %23, %21, %29, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %29 ], [ true, %21 ], [ true, %23 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %31 ], [ true, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit ], [ false, %35 ]
+_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit.thread: ; preds = %35, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit, %31, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %21, %23, %29, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %29 ], [ true, %23 ], [ true, %21 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %31 ], [ true, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17h61e479fed670a84bE.exit ], [ false, %35 ]
   ret i1 %.lcssa
 }
 

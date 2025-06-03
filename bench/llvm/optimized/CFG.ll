@@ -2652,7 +2652,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %67, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %68, %67 ]
+  %.1.i.i.i = phi ptr [ %68, %67 ], [ %63, %.lr.ph.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %70 = load i24, ptr %69, align 16
   %71 = and i24 %70, 1048576
@@ -2709,7 +2709,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %48, %_ZNK5clang4Typ
   unreachable
 
 99:                                               ; preds = %2, %92, %79, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %._crit_edge
-  %.0 = phi ptr [ %37, %._crit_edge ], [ %78, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ], [ %84, %79 ], [ %97, %92 ], [ null, %2 ]
+  %.0 = phi ptr [ %97, %92 ], [ %84, %79 ], [ %78, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ], [ %37, %._crit_edge ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2779,7 +2779,7 @@ _ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit.us: ; preds = %21, %_ZN4l
   br i1 %25, label %.split.us.backedge, label %28
 
 .split.us.backedge:                               ; preds = %22, %28, %31, %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit.us
-  %.0.us.be = phi ptr [ %33, %31 ], [ %15, %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit.us ], [ %30, %28 ], [ %27, %22 ]
+  %.0.us.be = phi ptr [ %15, %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit.us ], [ %33, %31 ], [ %30, %28 ], [ %27, %22 ]
   br label %.split.us
 
 28:                                               ; preds = %22
@@ -2860,7 +2860,7 @@ _ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit: ; preds = %_ZN4llvm11Sma
   br i1 %.not25, label %.split42.us, label %.split.backedge
 
 .split.backedge:                                  ; preds = %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit, %37, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit
-  %.0.be = phi ptr [ %39, %37 ], [ %49, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit ], [ %51, %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit ]
+  %.0.be = phi ptr [ %51, %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit ], [ %49, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit ], [ %39, %37 ]
   br label %.split
 
 .split42.us:                                      ; preds = %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit, %_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsEv.exit.us
@@ -9125,7 +9125,7 @@ define dso_local noundef ptr @_ZN5clang8CFGBlock22getTerminatorConditionEb(ptr n
   br label %42
 
 42:                                               ; preds = %40, %38, %36, %30, %28, %26, %20, %18, %13, %11, %9
-  %.0.in = phi ptr [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %20 ], [ %19, %18 ], [ %17, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi ptr [ %10, %9 ], [ %12, %11 ], [ %17, %13 ], [ %19, %18 ], [ %25, %20 ], [ %27, %26 ], [ %29, %28 ], [ %35, %30 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !3
   br i1 %1, label %43, label %.thread28
 
@@ -10832,7 +10832,7 @@ tailrecurse.backedge:                             ; preds = %.thread, %_ZN12_GLO
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 _ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit: ; preds = %155, %439, %410, %405, %546, %544, %542, %540, %538, %536, %534, %532, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %505, %503, %501, %499, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %179, %177, %175, %173, %171, %169, %167, %165, %163, %156, %tailrecurse._crit_edge
-  %.0 = phi ptr [ %.2.i, %155 ], [ %157, %156 ], [ %547, %546 ], [ %545, %544 ], [ %543, %542 ], [ %541, %540 ], [ %539, %538 ], [ %537, %536 ], [ %535, %534 ], [ %533, %532 ], [ %531, %528 ], [ %527, %526 ], [ %525, %524 ], [ %523, %522 ], [ %521, %520 ], [ %519, %518 ], [ %517, %516 ], [ %515, %514 ], [ %513, %512 ], [ %511, %510 ], [ %509, %508 ], [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ %500, %499 ], [ %498, %497 ], [ %496, %495 ], [ %494, %493 ], [ %492, %491 ], [ %490, %489 ], [ %488, %487 ], [ %486, %485 ], [ %484, %483 ], [ %482, %481 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ], [ %474, %473 ], [ %472, %471 ], [ %470, %469 ], [ %468, %467 ], [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %460, %459 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %452, %451 ], [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %444, %443 ], [ %442, %441 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %164, %163 ], [ %166, %165 ], [ null, %tailrecurse._crit_edge ], [ %440, %439 ], [ %407, %405 ], [ null, %410 ]
+  %.0 = phi ptr [ %157, %156 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %450, %449 ], [ %452, %451 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %474, %473 ], [ %476, %475 ], [ %478, %477 ], [ %480, %479 ], [ %482, %481 ], [ %484, %483 ], [ %486, %485 ], [ %488, %487 ], [ %490, %489 ], [ %492, %491 ], [ %494, %493 ], [ %496, %495 ], [ %498, %497 ], [ %500, %499 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %509, %508 ], [ %511, %510 ], [ %513, %512 ], [ %515, %514 ], [ %517, %516 ], [ %519, %518 ], [ %521, %520 ], [ %523, %522 ], [ %525, %524 ], [ %527, %526 ], [ %531, %528 ], [ %533, %532 ], [ %535, %534 ], [ %537, %536 ], [ %539, %538 ], [ %541, %540 ], [ %543, %542 ], [ %545, %544 ], [ %547, %546 ], [ %.2.i, %155 ], [ null, %tailrecurse._crit_edge ], [ %440, %439 ], [ %407, %405 ], [ null, %410 ]
   ret ptr %.0
 }
 
@@ -13352,7 +13352,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %46, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %42, %.lr.ph.i.i ], [ %47, %46 ]
+  %.1.i.i.i = phi ptr [ %47, %46 ], [ %42, %.lr.ph.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %49 = load i24, ptr %48, align 16
   %50 = and i24 %49, 1048576
@@ -23594,8 +23594,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang9Label
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !224
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang9LabelDeclELj8EEES4_EEbOT_RKT0_.exit, label %50
@@ -23605,8 +23605,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang9Label
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !224
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang9LabelDeclELj8EEES4_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang9LabelDeclELj8EEES4_EEbOT_RKT0_.exit.thread
@@ -26828,7 +26828,7 @@ _ZNK4llvm6APSIntgeERKS0_.exit:                    ; preds = %59, %61
   br label %65
 
 65:                                               ; preds = %3, %_ZNK4llvm6APSIntgeERKS0_.exit, %_ZNK4llvm6APSIntgtERKS0_.exit, %_ZNK4llvm6APSIntleERKS0_.exit, %_ZNK4llvm6APSIntltERKS0_.exit, %_ZNK4llvm6APSIntneERKS0_.exit, %_ZNK4llvm6APSInteqERKS0_.exit
-  %.sroa.0.0 = phi i32 [ %64, %_ZNK4llvm6APSIntgeERKS0_.exit ], [ %54, %_ZNK4llvm6APSIntgtERKS0_.exit ], [ %44, %_ZNK4llvm6APSIntleERKS0_.exit ], [ %.in.i.lobit, %_ZNK4llvm6APSIntltERKS0_.exit ], [ %26, %_ZNK4llvm6APSIntneERKS0_.exit ], [ %14, %_ZNK4llvm6APSInteqERKS0_.exit ], [ -1, %3 ]
+  %.sroa.0.0 = phi i32 [ %14, %_ZNK4llvm6APSInteqERKS0_.exit ], [ %26, %_ZNK4llvm6APSIntneERKS0_.exit ], [ %.in.i.lobit, %_ZNK4llvm6APSIntltERKS0_.exit ], [ %44, %_ZNK4llvm6APSIntleERKS0_.exit ], [ %54, %_ZNK4llvm6APSIntgtERKS0_.exit ], [ %64, %_ZNK4llvm6APSIntgeERKS0_.exit ], [ -1, %3 ]
   ret i32 %.sroa.0.0
 }
 
@@ -29481,7 +29481,7 @@ _ZN12_GLOBAL__N_110CFGBuilder41VisitConditionalOperatorForTemporaryDtorsEPN5clan
   br label %.backedge
 
 .backedge:                                        ; preds = %303, %306, %309, %312, %365, %367
-  %.048.be = phi ptr [ %368, %367 ], [ %366, %365 ], [ %314, %312 ], [ %311, %309 ], [ %308, %306 ], [ %305, %303 ]
+  %.048.be = phi ptr [ %305, %303 ], [ %308, %306 ], [ %311, %309 ], [ %314, %312 ], [ %366, %365 ], [ %368, %367 ]
   %.not = icmp eq ptr %.048.be, null
   br i1 %.not, label %.outer._crit_edge, label %24
 
@@ -29635,7 +29635,7 @@ _ZN4llvm11SmallVectorIPKN5clang4ExprELj2EED2Ev.exit: ; preds = %_ZN4llvm11SmallV
   br label %.backedge
 
 _ZN12_GLOBAL__N_110CFGBuilder36VisitBinaryOperatorForTemporaryDtorsEPN5clang14BinaryOperatorEbRNS0_15TempDtorContextE.exit: ; preds = %360, %350, %_ZN12_GLOBAL__N_110CFGBuilder19appendTemporaryDtorEPN5clang8CFGBlockEPNS1_20CXXBindTemporaryExprE.exit, %89, %87, %79, %62, %37, %362, %347, %_ZN12_GLOBAL__N_110CFGBuilder41VisitConditionalOperatorForTemporaryDtorsEPN5clang27AbstractConditionalOperatorEbRNS0_15TempDtorContextE.exit, %29, %27, %.outer._crit_edge
-  %.0 = phi ptr [ %28, %27 ], [ %364, %362 ], [ %349, %347 ], [ %302, %_ZN12_GLOBAL__N_110CFGBuilder41VisitConditionalOperatorForTemporaryDtorsEPN5clang27AbstractConditionalOperatorEbRNS0_15TempDtorContextE.exit ], [ %31, %29 ], [ null, %.outer._crit_edge ], [ %44, %37 ], [ %75, %62 ], [ %86, %79 ], [ %88, %87 ], [ %93, %89 ], [ %192, %_ZN12_GLOBAL__N_110CFGBuilder19appendTemporaryDtorEPN5clang8CFGBlockEPNS1_20CXXBindTemporaryExprE.exit ], [ %352, %350 ], [ %.1, %360 ]
+  %.0 = phi ptr [ %28, %27 ], [ %31, %29 ], [ %302, %_ZN12_GLOBAL__N_110CFGBuilder41VisitConditionalOperatorForTemporaryDtorsEPN5clang27AbstractConditionalOperatorEbRNS0_15TempDtorContextE.exit ], [ %349, %347 ], [ %364, %362 ], [ null, %.outer._crit_edge ], [ %44, %37 ], [ %75, %62 ], [ %86, %79 ], [ %88, %87 ], [ %93, %89 ], [ %192, %_ZN12_GLOBAL__N_110CFGBuilder19appendTemporaryDtorEPN5clang8CFGBlockEPNS1_20CXXBindTemporaryExprE.exit ], [ %352, %350 ], [ %.1, %360 ]
   ret ptr %.0
 }
 
@@ -35487,7 +35487,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_123CFGBlockTerminatorPrintEvJEE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
+.critedge.thread:                                 ; preds = %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
   ret void
 }
 

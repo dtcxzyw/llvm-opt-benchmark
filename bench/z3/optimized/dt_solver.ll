@@ -7068,7 +7068,7 @@ _ZN6vectorISt4pairIN2dt6solver8stack_opEPN3euf5enodeEELb0EjE4backEv.exit10: ; pr
   %56 = tail call noundef zeroext i1 @_ZN2dt6solver18occurs_check_enterEPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %48)
   br i1 %56, label %.critedge8, label %.backedge
 
-.backedge:                                        ; preds = %_ZN6vectorISt4pairIN2dt6solver8stack_opEPN3euf5enodeEELb0EjE4backEv.exit10, %54, %55, %_ZN2dt6solver18oc_mark_cycle_freeEPN3euf5enodeE.exit
+.backedge:                                        ; preds = %_ZN6vectorISt4pairIN2dt6solver8stack_opEPN3euf5enodeEELb0EjE4backEv.exit10, %_ZN2dt6solver18oc_mark_cycle_freeEPN3euf5enodeE.exit, %54, %55
   %57 = load ptr, ptr %6, align 8, !tbaa !446
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.critedge, label %_ZNK6vectorISt4pairIN2dt6solver8stack_opEPN3euf5enodeEELb0EjE5emptyEv.exit

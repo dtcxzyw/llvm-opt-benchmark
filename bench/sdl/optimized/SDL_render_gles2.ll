@@ -3808,7 +3808,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br i1 %210, label %363, label %SetCopyState.exit.thread
 
 211:                                              ; preds = %208, %207, %206, %205, %204, %203, %202, %200, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %186, %184, %183, %183, %180
-  %.094.i = phi i32 [ 9, %197 ], [ 8, %196 ], [ 7, %195 ], [ 2, %191 ], [ 3, %194 ], [ 4, %193 ], [ 5, %192 ], [ 2, %188 ], [ 5, %190 ], [ 3, %189 ], [ 9, %208 ], [ 8, %207 ], [ 7, %206 ], [ 6, %205 ], [ 5, %204 ], [ 4, %203 ], [ 2, %202 ], [ 6, %183 ], [ 6, %183 ], [ 2, %180 ], [ 3, %200 ], [ %185, %184 ], [ %187, %186 ]
+  %.094.i = phi i32 [ 2, %188 ], [ 3, %189 ], [ 5, %190 ], [ 2, %191 ], [ 5, %192 ], [ 4, %193 ], [ 3, %194 ], [ 7, %195 ], [ 8, %196 ], [ 9, %197 ], [ 2, %202 ], [ 4, %203 ], [ 5, %204 ], [ 6, %205 ], [ 7, %206 ], [ 8, %207 ], [ 9, %208 ], [ 6, %183 ], [ 6, %183 ], [ 2, %180 ], [ 3, %200 ], [ %185, %184 ], [ %187, %186 ]
   %212 = call fastcc zeroext i1 @SetDrawState(ptr noundef %.val190, ptr noundef nonnull readonly %.0142254, i32 noundef %.094.i, ptr noundef %2)
   %213 = getelementptr inbounds nuw i8, ptr %.val190, i64 608
   %214 = load ptr, ptr %213, align 8
@@ -4123,7 +4123,7 @@ SetCopyState.exit:                                ; preds = %312
   br label %SetCopyState.exit.thread
 
 SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit112.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %350, %209, %198, %361, %SetCopyState.exit, %363, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
-  %.1 = phi ptr [ %.0142254, %65 ], [ %.0142254, %119 ], [ %.0142254, %121 ], [ %.0142254, %70 ], [ %.0142254, %67 ], [ %.0142254, %79 ], [ %.0142254, %77 ], [ %.0142254, %127 ], [ %.0157.lcssa, %.thread ], [ %.0149.lcssa, %363 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %361 ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %350 ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ]
+  %.1 = phi ptr [ %.0142254, %65 ], [ %.0142254, %121 ], [ %.0142254, %119 ], [ %.0142254, %70 ], [ %.0142254, %67 ], [ %.0142254, %79 ], [ %.0142254, %77 ], [ %.0142254, %127 ], [ %.0157.lcssa, %.thread ], [ %.0149.lcssa, %363 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %361 ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %350 ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ]
   %367 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %368 = load ptr, ptr %367, align 8
   %.not170 = icmp eq ptr %368, null
@@ -5289,8 +5289,8 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   br label %40
 
 40:                                               ; preds = %22, %19, %16, %13, %11, %34, %29, %25, %39
-  %.078 = phi i32 [ 15, %39 ], [ %.100, %34 ], [ %., %29 ], [ 10, %25 ], [ %2, %11 ], [ %spec.select, %13 ], [ %spec.select102, %16 ], [ %spec.select104, %19 ], [ %spec.select106, %22 ]
-  %.0 = phi ptr [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %25 ], [ null, %11 ], [ %spec.select101, %13 ], [ %spec.select103, %16 ], [ %spec.select105, %19 ], [ %spec.select107, %22 ]
+  %.078 = phi i32 [ 10, %25 ], [ %., %29 ], [ %.100, %34 ], [ 15, %39 ], [ %2, %11 ], [ %spec.select, %13 ], [ %spec.select102, %16 ], [ %spec.select104, %19 ], [ %spec.select106, %22 ]
+  %.0 = phi ptr [ %26, %25 ], [ %31, %29 ], [ %36, %34 ], [ null, %39 ], [ null, %11 ], [ %spec.select101, %13 ], [ %spec.select103, %16 ], [ %spec.select105, %19 ], [ %spec.select107, %22 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %42 = load i32, ptr %41, align 4
   %.not92 = icmp eq i32 %42, 0

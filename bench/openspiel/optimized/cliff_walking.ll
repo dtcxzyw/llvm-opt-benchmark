@@ -1477,7 +1477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ret void
 
 53:                                               ; preds = %52, %.body20, %.body15, %.body10, %.body, %18
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %52 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body16, %.body15 ], [ %eh.lpad-body11, %.body10 ], [ %eh.lpad-body, %.body ], [ %19, %18 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %52 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body11, %.body10 ], [ %eh.lpad-body16, %.body15 ], [ %eh.lpad-body21, %.body20 ], [ %19, %18 ]
   resume { ptr, i32 } %.pn.pn
 }
 

@@ -1075,7 +1075,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %77, %81, %87
   br i1 %.not, label %.loopexit, label %33
 
 92:                                               ; preds = %73, %61, %56, %50
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %62, %61 ], [ %57, %56 ], [ %51, %50 ]
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %57, %56 ], [ %62, %61 ], [ %51, %50 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   br label %93
 

@@ -90,11 +90,11 @@ define internal fastcc i32 @do_name_ex(ptr noundef readonly captures(none) %0, p
   br label %16
 
 16:                                               ; preds = %.loopexit149, %15, %14, %13
-  %.093 = phi i32 [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ %spec.store.select, %.loopexit149 ]
-  %.092 = phi ptr [ @.str.5, %15 ], [ @.str.4, %14 ], [ @.str.2, %13 ], [ @.str, %.loopexit149 ]
-  %.091 = phi ptr [ @.str.1, %15 ], [ @.str.1, %14 ], [ @.str.3, %13 ], [ @.str.1, %.loopexit149 ]
-  %.089 = phi i32 [ 2, %15 ], [ 2, %14 ], [ 1, %13 ], [ 1, %.loopexit149 ]
-  %.088 = phi i32 [ 3, %15 ], [ 3, %14 ], [ 1, %13 ], [ 3, %.loopexit149 ]
+  %.093 = phi i32 [ 0, %13 ], [ 0, %14 ], [ 0, %15 ], [ %spec.store.select, %.loopexit149 ]
+  %.092 = phi ptr [ @.str.2, %13 ], [ @.str.4, %14 ], [ @.str.5, %15 ], [ @.str, %.loopexit149 ]
+  %.091 = phi ptr [ @.str.3, %13 ], [ @.str.1, %14 ], [ @.str.1, %15 ], [ @.str.1, %.loopexit149 ]
+  %.089 = phi i32 [ 1, %13 ], [ 2, %14 ], [ 2, %15 ], [ 1, %.loopexit149 ]
+  %.088 = phi i32 [ 1, %13 ], [ 3, %14 ], [ 3, %15 ], [ 3, %.loopexit149 ]
   %17 = and i64 %4, 8388608
   %.not108 = icmp eq i64 %17, 0
   %.str.7..str.6 = select i1 %.not108, ptr @.str.7, ptr @.str.6
@@ -799,9 +799,9 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   %63 = or disjoint i64 %59, %62
   br label %.thread
 
-.thread:                                          ; preds = %32, %36, %45
-  %.sink = phi i64 [ %35, %32 ], [ %44, %36 ], [ %63, %45 ]
-  %.157.us.ph = phi ptr [ %33, %32 ], [ %41, %36 ], [ %60, %45 ]
+.thread:                                          ; preds = %45, %36, %32
+  %.sink = phi i64 [ %63, %45 ], [ %44, %36 ], [ %35, %32 ]
+  %.157.us.ph = phi ptr [ %60, %45 ], [ %41, %36 ], [ %33, %32 ]
   store i64 %.sink, ptr %12, align 8, !tbaa !24
   %64 = icmp ne ptr %.157.us.ph, %15
   %or.cond74.us129 = or i1 %.not70, %64
@@ -1000,9 +1000,9 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %157
 
 157:                                              ; preds = %153, %146, %137, %118
-  %158 = phi i64 [ %.pre, %153 ], [ %149, %146 ], [ %145, %137 ], [ %136, %118 ]
-  %.157 = phi ptr [ %156, %153 ], [ %147, %146 ], [ %142, %137 ], [ %133, %118 ]
-  %.155 = phi i32 [ %154, %153 ], [ %.054115, %146 ], [ %.054115, %137 ], [ %.054115, %118 ]
+  %158 = phi i64 [ %136, %118 ], [ %145, %137 ], [ %149, %146 ], [ %.pre, %153 ]
+  %.157 = phi ptr [ %133, %118 ], [ %142, %137 ], [ %147, %146 ], [ %156, %153 ]
+  %.155 = phi i32 [ %.054115, %118 ], [ %.054115, %137 ], [ %.054115, %146 ], [ %154, %153 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %13) #8
   %159 = call i32 @UTF8_putc(ptr noundef nonnull %13, i32 noundef 6, i64 noundef %158) #8
   %.not73109 = icmp sgt i32 %159, 0
@@ -1122,7 +1122,7 @@ do_esc_char.exit94.thread:                        ; preds = %65, %91, %93, %95, 
   br i1 %.not69, label %.loopexit, label %.lr.ph116.split.split, !llvm.loop !27
 
 .loopexit:                                        ; preds = %150, %.critedge, %29, %115, %23, %.lr.ph116, %do_esc_char.exit94.thread, %select.unfold, %22, %19
-  %.0 = phi i32 [ -1, %select.unfold ], [ -1, %22 ], [ -1, %19 ], [ -1, %do_esc_char.exit94.thread ], [ 0, %23 ], [ -1, %.lr.ph116 ], [ -1, %29 ], [ %116, %115 ], [ -1, %150 ], [ %.162.lcssa, %.critedge ]
+  %.0 = phi i32 [ -1, %select.unfold ], [ -1, %19 ], [ -1, %22 ], [ -1, %do_esc_char.exit94.thread ], [ 0, %23 ], [ -1, %.lr.ph116 ], [ -1, %29 ], [ %116, %115 ], [ -1, %150 ], [ %.162.lcssa, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
   ret i32 %.0
 }

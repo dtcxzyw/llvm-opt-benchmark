@@ -793,7 +793,7 @@ define hidden void @streamInitSufPQ(ptr noundef %0, ptr noundef captures(none) %
   br label %mmbit_get_flat_block.exit
 
 mmbit_get_flat_block.exit:                        ; preds = %28, %31, %34, %42
-  %.0.i99 = phi i64 [ %48, %42 ], [ %41, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.0.i99 = phi i64 [ %48, %42 ], [ %30, %28 ], [ %33, %31 ], [ %41, %34 ]
   %.not.i112.not = icmp eq i32 %19, 0
   br i1 %.not.i112.not, label %get_flat_masks.exit, label %49
 
@@ -923,7 +923,7 @@ get_flat_masks.exit116:                           ; preds = %.lr.ph, %77
   br label %mmbit_get_flat_block.exit103
 
 mmbit_get_flat_block.exit103:                     ; preds = %109, %101, %98, %95
-  %.0.i101 = phi i64 [ %115, %109 ], [ %108, %101 ], [ %100, %98 ], [ %97, %95 ]
+  %.0.i101 = phi i64 [ %115, %109 ], [ %97, %95 ], [ %100, %98 ], [ %108, %101 ]
   %116 = sub nuw i32 %19, %63
   %117 = icmp ult i32 %116, 64
   %118 = zext nneg i32 %116 to i64
@@ -1566,7 +1566,7 @@ fatbit_unset.exit:                                ; preds = %.lr.ph421, %450, %4
   br label %mmbit_get_flat_block.exit107
 
 mmbit_get_flat_block.exit107:                     ; preds = %506, %509, %512, %515
-  %.0.i105 = phi i64 [ %516, %515 ], [ %514, %512 ], [ %511, %509 ], [ %508, %506 ]
+  %.0.i105 = phi i64 [ %516, %515 ], [ %508, %506 ], [ %511, %509 ], [ %514, %512 ]
   %.not.i121.not = icmp eq i32 %501, 0
   br i1 %.not.i121.not, label %get_flat_masks.exit124, label %517
 
@@ -1679,7 +1679,7 @@ get_flat_masks.exit128:                           ; preds = %.lr.ph293, %544
   br label %mmbit_get_flat_block.exit111
 
 mmbit_get_flat_block.exit111:                     ; preds = %565, %562, %559, %556
-  %.0.i109 = phi i64 [ %566, %565 ], [ %564, %562 ], [ %561, %559 ], [ %558, %556 ]
+  %.0.i109 = phi i64 [ %566, %565 ], [ %558, %556 ], [ %561, %559 ], [ %564, %562 ]
   %567 = sub nuw i32 %501, %215
   %568 = icmp ult i32 %567, 64
   %569 = zext nneg i32 %567 to i64
@@ -2409,7 +2409,7 @@ rvermicelliDoubleExec.exit102:                    ; preds = %285, %.thread200, %
   br i1 %.not.i71, label %355, label %fatbit_unset.exit
 
 355:                                              ; preds = %66, %344, %334, %324, %315, %rvermicelliDoubleExec.exit102, %251, %rvermicelliDoubleExec.exit, %191, %rvermicelliExec.exit90, %128, %rvermicelliExec.exit, %69
-  %.0.i72 = phi i64 [ %16, %344 ], [ %16, %334 ], [ %16, %324 ], [ %16, %315 ], [ %16, %251 ], [ %314, %rvermicelliDoubleExec.exit102 ], [ %16, %191 ], [ %250, %rvermicelliDoubleExec.exit ], [ %16, %128 ], [ %190, %rvermicelliExec.exit90 ], [ %16, %69 ], [ %127, %rvermicelliExec.exit ], [ %16, %66 ]
+  %.0.i72 = phi i64 [ %16, %69 ], [ %127, %rvermicelliExec.exit ], [ %16, %128 ], [ %190, %rvermicelliExec.exit90 ], [ %16, %191 ], [ %250, %rvermicelliDoubleExec.exit ], [ %16, %251 ], [ %314, %rvermicelliDoubleExec.exit102 ], [ %16, %315 ], [ %16, %324 ], [ %16, %334 ], [ %16, %344 ], [ %16, %66 ]
   %356 = icmp ult i64 %.0.i72, %64
   br i1 %356, label %fatbit_unset.exit, label %nfaRevAccelCheck.exit
 
@@ -2964,7 +2964,7 @@ define hidden range(i64 -1, 1) i64 @roseCatchUpAll(i64 noundef %0, ptr noundef %
   br label %mmbit_get_flat_block.exit
 
 mmbit_get_flat_block.exit:                        ; preds = %37, %29, %26, %23
-  %.0.i39 = phi i64 [ %43, %37 ], [ %36, %29 ], [ %28, %26 ], [ %25, %23 ]
+  %.0.i39 = phi i64 [ %43, %37 ], [ %25, %23 ], [ %28, %26 ], [ %36, %29 ]
   %.not338 = icmp eq i32 %12, 64
   %44 = zext nneg i32 %12 to i64
   %notmask339 = shl nsw i64 -1, %44
@@ -3084,7 +3084,7 @@ get_flat_masks.exit48:                            ; preds = %.lr.ph, %68
   br label %mmbit_get_flat_block.exit43
 
 mmbit_get_flat_block.exit43:                      ; preds = %98, %90, %87, %84
-  %.0.i41 = phi i64 [ %104, %98 ], [ %97, %90 ], [ %89, %87 ], [ %86, %84 ]
+  %.0.i41 = phi i64 [ %104, %98 ], [ %86, %84 ], [ %89, %87 ], [ %97, %90 ]
   %105 = zext nneg i32 %81 to i64
   %notmask = shl nsw i64 -1, %105
   %106 = xor i64 %notmask, -1
@@ -3375,7 +3375,7 @@ canSkipCatchUpMPV.exit171.thread228:              ; preds = %208, %canSkipCatchU
   br label %mmbit_get_flat_block.exit82.i
 
 mmbit_get_flat_block.exit82.i:                    ; preds = %269, %266, %263, %260
-  %.0.i80.i96 = phi i64 [ %270, %269 ], [ %268, %266 ], [ %265, %263 ], [ %262, %260 ]
+  %.0.i80.i96 = phi i64 [ %270, %269 ], [ %262, %260 ], [ %265, %263 ], [ %268, %266 ]
   %271 = add nuw i32 %.050.i492, 1
   %272 = icmp eq i32 %271, 64
   %273 = zext nneg i32 %271 to i64
@@ -3444,7 +3444,7 @@ mmbit_get_flat_block.exit82.i:                    ; preds = %269, %266, %263, %2
   br label %mmbit_get_flat_block.exit78.i
 
 mmbit_get_flat_block.exit78.i:                    ; preds = %308, %300, %297, %294
-  %.0.i76.i = phi i64 [ %314, %308 ], [ %307, %300 ], [ %299, %297 ], [ %296, %294 ]
+  %.0.i76.i = phi i64 [ %314, %308 ], [ %296, %294 ], [ %299, %297 ], [ %307, %300 ]
   %315 = sub i32 %280, %287
   %316 = icmp eq i32 %315, 64
   %317 = zext nneg i32 %315 to i64
@@ -3543,7 +3543,7 @@ mmbit_get_flat_block.exit78.i:                    ; preds = %308, %300, %297, %2
   br label %mmbit_get_flat_block.exit.i
 
 mmbit_get_flat_block.exit.i:                      ; preds = %360, %352, %349, %346
-  %.0.i.i93 = phi i64 [ %366, %360 ], [ %359, %352 ], [ %351, %349 ], [ %348, %346 ]
+  %.0.i.i93 = phi i64 [ %366, %360 ], [ %348, %346 ], [ %351, %349 ], [ %359, %352 ]
   %.not70.i = icmp eq i64 %.0.i.i93, 0
   br i1 %.not70.i, label %mmbit_iterate.exit, label %367
 
@@ -6899,7 +6899,7 @@ define hidden range(i64 -1, 1) i64 @roseCatchUpSuf(i64 noundef %0, ptr noundef %
   br label %mmbit_get_flat_block.exit
 
 mmbit_get_flat_block.exit:                        ; preds = %37, %29, %26, %23
-  %.0.i27 = phi i64 [ %43, %37 ], [ %36, %29 ], [ %28, %26 ], [ %25, %23 ]
+  %.0.i27 = phi i64 [ %43, %37 ], [ %25, %23 ], [ %28, %26 ], [ %36, %29 ]
   %.not304 = icmp eq i32 %12, 64
   %44 = zext nneg i32 %12 to i64
   %notmask305 = shl nsw i64 -1, %44
@@ -7019,7 +7019,7 @@ get_flat_masks.exit36:                            ; preds = %.lr.ph, %68
   br label %mmbit_get_flat_block.exit31
 
 mmbit_get_flat_block.exit31:                      ; preds = %98, %90, %87, %84
-  %.0.i29 = phi i64 [ %104, %98 ], [ %97, %90 ], [ %89, %87 ], [ %86, %84 ]
+  %.0.i29 = phi i64 [ %104, %98 ], [ %86, %84 ], [ %89, %87 ], [ %97, %90 ]
   %105 = zext nneg i32 %81 to i64
   %notmask = shl nsw i64 -1, %105
   %106 = xor i64 %notmask, -1
@@ -7310,7 +7310,7 @@ canSkipCatchUpMPV.exit.thread204:                 ; preds = %208, %canSkipCatchU
   br label %mmbit_get_flat_block.exit82.i
 
 mmbit_get_flat_block.exit82.i:                    ; preds = %269, %266, %263, %260
-  %.0.i80.i84 = phi i64 [ %270, %269 ], [ %268, %266 ], [ %265, %263 ], [ %262, %260 ]
+  %.0.i80.i84 = phi i64 [ %270, %269 ], [ %262, %260 ], [ %265, %263 ], [ %268, %266 ]
   %271 = add nuw i32 %.050.i458, 1
   %272 = icmp eq i32 %271, 64
   %273 = zext nneg i32 %271 to i64
@@ -7379,7 +7379,7 @@ mmbit_get_flat_block.exit82.i:                    ; preds = %269, %266, %263, %2
   br label %mmbit_get_flat_block.exit78.i
 
 mmbit_get_flat_block.exit78.i:                    ; preds = %308, %300, %297, %294
-  %.0.i76.i = phi i64 [ %314, %308 ], [ %307, %300 ], [ %299, %297 ], [ %296, %294 ]
+  %.0.i76.i = phi i64 [ %314, %308 ], [ %296, %294 ], [ %299, %297 ], [ %307, %300 ]
   %315 = sub i32 %280, %287
   %316 = icmp eq i32 %315, 64
   %317 = zext nneg i32 %315 to i64
@@ -7478,7 +7478,7 @@ mmbit_get_flat_block.exit78.i:                    ; preds = %308, %300, %297, %2
   br label %mmbit_get_flat_block.exit.i
 
 mmbit_get_flat_block.exit.i:                      ; preds = %360, %352, %349, %346
-  %.0.i.i81 = phi i64 [ %366, %360 ], [ %359, %352 ], [ %351, %349 ], [ %348, %346 ]
+  %.0.i.i81 = phi i64 [ %366, %360 ], [ %348, %346 ], [ %351, %349 ], [ %359, %352 ]
   %.not70.i = icmp eq i64 %.0.i.i81, 0
   br i1 %.not70.i, label %mmbit_iterate.exit, label %367
 

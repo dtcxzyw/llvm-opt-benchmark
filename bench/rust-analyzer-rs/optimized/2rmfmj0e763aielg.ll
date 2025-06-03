@@ -1333,9 +1333,9 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17ha40e447211d9fe84E.exit"
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17ha40e447211d9fe84E.exit": ; preds = %130, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h0253f3c1af2c2482E.exit.i"
-  %.pn.i = phi ptr [ %151, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h0253f3c1af2c2482E.exit.i" ], [ %132, %130 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 -24
-  %159 = getelementptr inbounds i8, ptr %.pn.i, i64 -8
+  %.sroa.0.sroa.2.0.copyload.pn.i = phi ptr [ %132, %130 ], [ %151, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h0253f3c1af2c2482E.exit.i" ]
+  %.0.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.2.0.copyload.pn.i, i64 -24
+  %159 = getelementptr inbounds i8, ptr %.sroa.0.sroa.2.0.copyload.pn.i, i64 -8
   %160 = load i64, ptr %159, align 8, !alias.scope !264, !noundef !5
   %161 = load i64, ptr %.0.i, align 8, !alias.scope !264, !noundef !5
   %162 = icmp eq i64 %160, %161
@@ -1348,7 +1348,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit": ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17ha40e447211d9fe84E.exit", %163
   %164 = phi i64 [ %.pre.i44, %163 ], [ %160, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17ha40e447211d9fe84E.exit" ]
-  %165 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
+  %165 = getelementptr inbounds i8, ptr %.sroa.0.sroa.2.0.copyload.pn.i, i64 -16
   %166 = load ptr, ptr %165, align 8, !alias.scope !264, !nonnull !5, !noundef !5
   %167 = getelementptr inbounds { i32, i32 }, ptr %166, i64 %164
   store i32 %93, ptr %167, align 4

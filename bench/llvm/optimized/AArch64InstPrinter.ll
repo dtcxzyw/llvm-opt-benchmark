@@ -14471,8 +14471,8 @@ default.unreachable:                              ; preds = %5
 21:                                               ; preds = %5
   br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit.thread
 
-_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit.thread: ; preds = %21, %20, %19, %18, %16, %5
-  %.0.i.i.ph = phi i32 [ 5, %5 ], [ 6, %16 ], [ 9, %18 ], [ 10, %19 ], [ 11, %20 ], [ 12, %21 ]
+_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit.thread: ; preds = %16, %18, %19, %20, %21, %5
+  %.0.i.i.ph = phi i32 [ 5, %5 ], [ 12, %21 ], [ 11, %20 ], [ 10, %19 ], [ 9, %18 ], [ 6, %16 ]
   %22 = and i32 %13, 7
   br label %69
 
@@ -15352,7 +15352,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm18AArch64InstPrinter15getRegisterN
   br label %18
 
 18:                                               ; preds = %2, %11, %4
-  %.0 = phi ptr [ %17, %11 ], [ %10, %4 ], [ @_ZZN4llvm18AArch64InstPrinter15getRegisterNameENS_10MCRegisterEjE13AsmStrsvlist1, %2 ]
+  %.0 = phi ptr [ %10, %4 ], [ %17, %11 ], [ @_ZZN4llvm18AArch64InstPrinter15getRegisterNameENS_10MCRegisterEjE13AsmStrsvlist1, %2 ]
   ret ptr %.0
 }
 
@@ -16022,7 +16022,7 @@ _ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111: ; preds = %.lr.ph30.i1
   br label %218
 
 218:                                              ; preds = %103, %211, %203, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111, %172, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit92, %170, %140, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit75, %138, %107, %102, %72, %41, %10, %212, %204, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit60, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit43, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit
-  %.0 = phi i1 [ %217, %212 ], [ %210, %204 ], [ %.not.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit60 ], [ %.not9.i.i.i.i.i.i45, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit43 ], [ %.not9.i.i.i.i.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit ], [ false, %10 ], [ false, %41 ], [ false, %72 ], [ false, %102 ], [ false, %107 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit75 ], [ %139, %138 ], [ false, %140 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit92 ], [ %171, %170 ], [ false, %172 ], [ %202, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111 ], [ false, %203 ], [ false, %211 ], [ %spec.select, %103 ]
+  %.0 = phi i1 [ %.not9.i.i.i.i.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit ], [ %.not9.i.i.i.i.i.i45, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit43 ], [ %.not.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit60 ], [ %210, %204 ], [ %217, %212 ], [ false, %10 ], [ false, %41 ], [ false, %72 ], [ false, %102 ], [ false, %107 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit75 ], [ %139, %138 ], [ false, %140 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit92 ], [ %171, %170 ], [ false, %172 ], [ %202, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111 ], [ false, %203 ], [ false, %211 ], [ %spec.select, %103 ]
   ret i1 %.0
 }
 
@@ -20908,7 +20908,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm23AArch64AppleInstPrinter15getRegi
   br label %18
 
 18:                                               ; preds = %2, %11, %4
-  %.0 = phi ptr [ %17, %11 ], [ %10, %4 ], [ @_ZZN4llvm23AArch64AppleInstPrinter15getRegisterNameENS_10MCRegisterEjE13AsmStrsvlist1, %2 ]
+  %.0 = phi ptr [ %10, %4 ], [ %17, %11 ], [ @_ZZN4llvm23AArch64AppleInstPrinter15getRegisterNameENS_10MCRegisterEjE13AsmStrsvlist1, %2 ]
   ret ptr %.0
 }
 
@@ -21578,7 +21578,7 @@ _ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111: ; preds = %.lr.ph30.i1
   br label %218
 
 218:                                              ; preds = %103, %211, %203, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111, %172, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit92, %170, %140, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit75, %138, %107, %102, %72, %41, %10, %212, %204, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit60, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit43, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit
-  %.0 = phi i1 [ %217, %212 ], [ %210, %204 ], [ %.not.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit60 ], [ %.not9.i.i.i.i.i.i45, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit43 ], [ %.not9.i.i.i.i.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit ], [ false, %10 ], [ false, %41 ], [ false, %72 ], [ false, %102 ], [ false, %107 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit75 ], [ %139, %138 ], [ false, %140 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit92 ], [ %171, %170 ], [ false, %172 ], [ %202, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111 ], [ false, %203 ], [ false, %211 ], [ %spec.select, %103 ]
+  %.0 = phi i1 [ %.not9.i.i.i.i.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit ], [ %.not9.i.i.i.i.i.i45, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit43 ], [ %.not.i.i, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit60 ], [ %210, %204 ], [ %217, %212 ], [ false, %10 ], [ false, %41 ], [ false, %72 ], [ false, %102 ], [ false, %107 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit75 ], [ %139, %138 ], [ false, %140 ], [ false, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit92 ], [ %171, %170 ], [ false, %172 ], [ %202, %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit111 ], [ false, %203 ], [ false, %211 ], [ %spec.select, %103 ]
   ret i1 %.0
 }
 
@@ -22155,7 +22155,7 @@ define dso_local void @_ZN4llvm18AArch64InstPrinter12printRegNameERNS_11raw_ostr
   br label %_ZN4llvm9StringRefC2EPKc.exit.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %14, %7, %4
-  %.0.i = phi ptr [ %20, %14 ], [ %13, %7 ], [ @_ZZN4llvm18AArch64InstPrinter15getRegisterNameENS_10MCRegisterEjE13AsmStrsvlist1, %4 ]
+  %.0.i = phi ptr [ %13, %7 ], [ %20, %14 ], [ @_ZZN4llvm18AArch64InstPrinter15getRegisterNameENS_10MCRegisterEjE13AsmStrsvlist1, %4 ]
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !44
   %23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #23
@@ -25516,7 +25516,7 @@ define internal fastcc range(i32 268, 239) i32 @_ZN4llvmL15getWRegFromXRegENS_10
   br label %35
 
 35:                                               ; preds = %1, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 12, %33 ], [ 10, %32 ], [ 238, %31 ], [ 237, %30 ], [ 236, %29 ], [ 235, %28 ], [ 234, %27 ], [ 233, %26 ], [ 232, %25 ], [ 231, %24 ], [ 230, %23 ], [ 229, %22 ], [ 228, %21 ], [ 227, %20 ], [ 226, %19 ], [ 225, %18 ], [ 224, %17 ], [ 223, %16 ], [ 222, %15 ], [ 221, %14 ], [ 220, %13 ], [ 219, %12 ], [ 218, %11 ], [ 217, %10 ], [ 216, %9 ], [ 215, %8 ], [ 214, %7 ], [ 213, %6 ], [ 212, %5 ], [ 211, %4 ], [ 210, %3 ], [ 209, %2 ], [ 208, %1 ]
+  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 209, %2 ], [ 210, %3 ], [ 211, %4 ], [ 212, %5 ], [ 213, %6 ], [ 214, %7 ], [ 215, %8 ], [ 216, %9 ], [ 217, %10 ], [ 218, %11 ], [ 219, %12 ], [ 220, %13 ], [ 221, %14 ], [ 222, %15 ], [ 223, %16 ], [ 224, %17 ], [ 225, %18 ], [ 226, %19 ], [ 227, %20 ], [ 228, %21 ], [ 229, %22 ], [ 230, %23 ], [ 231, %24 ], [ 232, %25 ], [ 233, %26 ], [ 234, %27 ], [ 235, %28 ], [ 236, %29 ], [ 237, %30 ], [ 238, %31 ], [ 10, %32 ], [ 12, %33 ], [ 208, %1 ]
   ret i32 %.sroa.02.0
 }
 

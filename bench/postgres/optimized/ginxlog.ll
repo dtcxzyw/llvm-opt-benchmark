@@ -1522,9 +1522,9 @@ define internal fastcc void @ginRedoRecompress(ptr noundef %0, ptr noundef %1) u
   unreachable
 
 141:                                              ; preds = %132, %129, %126
-  %.1140 = phi ptr [ %135, %132 ], [ %.0139, %129 ], [ %127, %126 ]
-  %.2138 = phi ptr [ %134, %132 ], [ %131, %129 ], [ %.1137.lcssa, %126 ]
-  %.2 = phi i32 [ %136, %132 ], [ %.1.lcssa, %129 ], [ %128, %126 ]
+  %.1140 = phi ptr [ %127, %126 ], [ %.0139, %129 ], [ %135, %132 ]
+  %.2138 = phi ptr [ %.1137.lcssa, %126 ], [ %131, %129 ], [ %134, %132 ]
+  %.2 = phi i32 [ %128, %126 ], [ %.1.lcssa, %129 ], [ %136, %132 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   %142 = add nuw nsw i32 %.0177, 1

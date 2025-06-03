@@ -3113,7 +3113,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L21validateTransientMaskERKSt6
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %93, %92 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %93, %92 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %95 = load i8, ptr %.sroa.025.1.i.i.i, align 1
   %.not34.i.i.i = icmp eq i8 %95, 0
   br i1 %.not34.i.i.i, label %96, label %.loopexit
@@ -3123,7 +3123,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L21validateTransientMaskERKSt6
   br label %98
 
 98:                                               ; preds = %96, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %97, %96 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %97, %96 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %99 = load i8, ptr %.sroa.025.2.i.i.i, align 1
   %.not35.i.i.i = icmp eq i8 %99, 0
   %spec.select.i.i.i = select i1 %.not35.i.i.i, ptr %67, ptr %.sroa.025.2.i.i.i
@@ -5465,7 +5465,7 @@ _ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit77.thread.i: ; preds = %_ZN3u
   br label %355
 
 355:                                              ; preds = %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit77.thread.i, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %354, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit77.thread.i ]
+  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %354, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit77.thread.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %356 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i.i.i, i64 8
   %357 = load i64, ptr %356, align 8
   %.not.i50.i = icmp eq i64 %357, 0
@@ -5510,7 +5510,7 @@ _ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit63.thread.i: ; preds = %_ZN3u
   br label %376
 
 376:                                              ; preds = %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit63.thread.i, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %375, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit63.thread.i ]
+  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %375, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit63.thread.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %377 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i.i.i.i.i.i, i64 8
   %378 = load i64, ptr %377, align 8
   %.not.i48.i = icmp eq i64 %378, 0

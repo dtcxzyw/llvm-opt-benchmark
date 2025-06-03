@@ -14991,7 +14991,7 @@ _ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit.i: 
   br label %1776
 
 1776:                                             ; preds = %.noexc655, %_ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit.i, %1739, %_ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit651
-  %.06.i = phi i8 [ %1772, %_ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit.i ], [ 1, %.noexc655 ], [ 0, %1739 ], [ 0, %_ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit651 ]
+  %.06.i = phi i8 [ 1, %.noexc655 ], [ %1772, %_ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit.i ], [ 0, %1739 ], [ 0, %_ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit651 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %72) #29
   store i8 %.06.i, ptr %72, align 8, !tbaa !26
@@ -27072,7 +27072,7 @@ _ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit: ; 
   br label %_ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
 
 _ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds = %4, %9, %_ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit, %42
-  %.06 = phi i1 [ %41, %_ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit ], [ true, %42 ], [ false, %9 ], [ false, %4 ]
+  %.06 = phi i1 [ true, %42 ], [ %41, %_ZN4Luau20SubtypingEnvironment19getMappedPackBoundsEPKNS_11TypePackVarE.exit ], [ false, %9 ], [ false, %4 ]
   ret i1 %.06
 }
 

@@ -2718,10 +2718,10 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
   unreachable
 
 50:                                               ; preds = %41, %35
-  %.0109.i.i = phi ptr [ %48, %41 ], [ null, %35 ]
-  %.0108.i.i = phi ptr [ null, %41 ], [ %40, %35 ]
-  %.0107.i.i = phi ptr [ %46, %41 ], [ %38, %35 ]
-  %.0104.i.i = phi ptr [ %44, %41 ], [ %38, %35 ]
+  %.0109.i.i = phi ptr [ null, %35 ], [ %48, %41 ]
+  %.0108.i.i = phi ptr [ %40, %35 ], [ null, %41 ]
+  %.0107.i.i = phi ptr [ %38, %35 ], [ %46, %41 ]
+  %.0104.i.i = phi ptr [ %38, %35 ], [ %44, %41 ]
   %51 = call ptr @bdrv_lookup_bs(ptr noundef %.0104.i.i, ptr noundef %.0107.i.i, ptr noundef nonnull %11) #14
   store ptr %51, ptr %33, align 8
   %.not.i.i = icmp eq ptr %51, null

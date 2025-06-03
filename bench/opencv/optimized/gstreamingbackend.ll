@@ -2346,7 +2346,7 @@ _ZN2cv4RMatD2Ev.exit:                             ; preds = %"_ZN2cv9make_rmatIN
   ret void
 
 228:                                              ; preds = %226, %223, %161
-  %.pn44 = phi { ptr, i32 } [ %227, %226 ], [ %.pn31.pn.pn, %223 ], [ %.pn39.pn.pn.pn, %161 ]
+  %.pn44 = phi { ptr, i32 } [ %227, %226 ], [ %.pn39.pn.pn.pn, %161 ], [ %.pn31.pn.pn, %223 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   br label %common.resume
 }
@@ -3813,7 +3813,7 @@ _ZN2cv4RMatD2Ev.exit89:                           ; preds = %"_ZN2cv9make_rmatIN
   ret void
 
 269:                                              ; preds = %267, %.body95, %165
-  %.pn68 = phi { ptr, i32 } [ %268, %267 ], [ %eh.lpad-body96, %.body95 ], [ %.pn62.pn.pn.pn.pn, %165 ]
+  %.pn68 = phi { ptr, i32 } [ %268, %267 ], [ %.pn62.pn.pn.pn.pn, %165 ], [ %eh.lpad-body96, %.body95 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
   br label %common.resume
 }
@@ -7449,7 +7449,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i.i
-  %.sroa.032.1.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ], [ %27, %26 ]
+  %.sroa.032.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ]
   %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.1.i.i)
   br i1 %29, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit", label %30
 
@@ -7458,7 +7458,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i
-  %.sroa.032.2.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ], [ %31, %30 ]
+  %.sroa.032.2.i.i = phi ptr [ %31, %30 ], [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ]
   %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.2.i.i)
   %spec.select.i.i = select i1 %33, ptr %.sroa.032.2.i.i, ptr %1
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit"

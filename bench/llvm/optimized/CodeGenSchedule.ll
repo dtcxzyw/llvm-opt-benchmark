@@ -6704,7 +6704,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread169:      ; preds = %_ZN4llvmneENS_9Stri
   br label %213
 
 213:                                              ; preds = %211, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %212, %211 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %212, %211 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %214 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !93
   %215 = call noundef ptr @_ZNK4llvm6Record13getValueAsDefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %214, ptr nonnull @.str.21, i64 10) #20
   %216 = load ptr, ptr %58, align 8, !tbaa !68
@@ -6716,7 +6716,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread169:      ; preds = %_ZN4llvmneENS_9Stri
   br label %220
 
 220:                                              ; preds = %218, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %219, %218 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %219, %218 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %221 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !93
   %222 = call noundef ptr @_ZNK4llvm6Record13getValueAsDefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %221, ptr nonnull @.str.21, i64 10) #20
   %223 = load ptr, ptr %58, align 8, !tbaa !68
@@ -9513,7 +9513,7 @@ define dso_local void @_ZNK4llvm18CodeGenSchedModels7findRWsERKSt6vectorIPKNS_6R
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %41, %40 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %43 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i, i64 40
   %.val1.i26.i.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !196
   %44 = icmp eq ptr %.val1.i26.i.i.i.i.i, %13
@@ -9524,7 +9524,7 @@ define dso_local void @_ZNK4llvm18CodeGenSchedModels7findRWsERKSt6vectorIPKNS_6R
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %46, %45 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %48 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i, i64 40
   %.val1.i27.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !196
   %49 = icmp eq ptr %.val1.i27.i.i.i.i.i, %13
@@ -9825,7 +9825,7 @@ define dso_local noundef i32 @_ZNK4llvm18CodeGenSchedModels13getSchedRWIdxEPKNS_
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i
-  %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %33, %32 ]
+  %.sroa.038.1.i.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %35 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i, i64 40
   %.val1.i26.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !196
   %36 = icmp eq ptr %.val1.i26.i.i.i.i, %1
@@ -9836,7 +9836,7 @@ define dso_local noundef i32 @_ZNK4llvm18CodeGenSchedModels13getSchedRWIdxEPKNS_
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i.i
-  %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %38, %37 ]
+  %.sroa.038.2.i.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %40 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i, i64 40
   %.val1.i27.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !196
   %41 = icmp eq ptr %.val1.i27.i.i.i.i, %1
@@ -10396,7 +10396,7 @@ _ZNK4llvm18CodeGenSchedModels12getProcModelEPKNS_6RecordE.exit: ; preds = %53, %
   br label %110
 
 110:                                              ; preds = %108, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %109, %108 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %109, %108 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %111 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i, i64 40
   %.val1.i26.i.i.i.i.i = load ptr, ptr %111, align 8, !tbaa !196
   %112 = icmp eq ptr %.val1.i26.i.i.i.i.i, %.1
@@ -10407,7 +10407,7 @@ _ZNK4llvm18CodeGenSchedModels12getProcModelEPKNS_6RecordE.exit: ; preds = %53, %
   br label %115
 
 115:                                              ; preds = %113, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %114, %113 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %114, %113 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %116 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i, i64 40
   %.val1.i27.i.i.i.i.i = load ptr, ptr %116, align 8, !tbaa !196
   %117 = icmp eq ptr %.val1.i27.i.i.i.i.i, %.1
@@ -10646,7 +10646,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %33, %32 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %35 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i, i64 40
   %.val1.i26.i.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !196
   %36 = icmp eq ptr %.val1.i26.i.i.i.i.i, %1
@@ -10657,7 +10657,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %38, %37 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %40 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i, i64 40
   %.val1.i27.i.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !196
   %41 = icmp eq ptr %.val1.i27.i.i.i.i.i, %1
@@ -10954,7 +10954,7 @@ define dso_local noundef i32 @_ZN4llvm18CodeGenSchedModels14findOrInsertRWENS_8A
   br label %62
 
 62:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenSchedModels14findOrInsertRWENS2_8ArrayRefIjEEbE3$_0EclINS_17__normal_iteratorIPNS2_14CodeGenSchedRWESt6vectorISA_SaISA_EEEEEEbT_.exit60.thread108.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.086.1.i.i.i.i = phi ptr [ %.sroa.086.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenSchedModels14findOrInsertRWENS2_8ArrayRefIjEEbE3$_0EclINS_17__normal_iteratorIPNS2_14CodeGenSchedRWESt6vectorISA_SaISA_EEEEEEbT_.exit60.thread108.i.i.i.i" ]
+  %.sroa.086.1.i.i.i.i = phi ptr [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenSchedModels14findOrInsertRWENS2_8ArrayRefIjEEbE3$_0EclINS_17__normal_iteratorIPNS2_14CodeGenSchedRWESt6vectorISA_SaISA_EEEEEEbT_.exit60.thread108.i.i.i.i" ], [ %.sroa.086.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %63 = getelementptr i8, ptr %.sroa.086.1.i.i.i.i, i64 56
   %.val2.i61.i.i.i.i = load ptr, ptr %63, align 8, !tbaa !202
   %64 = getelementptr i8, ptr %.sroa.086.1.i.i.i.i, i64 64
@@ -10980,7 +10980,7 @@ define dso_local noundef i32 @_ZN4llvm18CodeGenSchedModels14findOrInsertRWENS_8A
   br label %71
 
 71:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenSchedModels14findOrInsertRWENS2_8ArrayRefIjEEbE3$_0EclINS_17__normal_iteratorIPNS2_14CodeGenSchedRWESt6vectorISA_SaISA_EEEEEEbT_.exit68.thread111.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.086.2.i.i.i.i = phi ptr [ %.sroa.086.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %70, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenSchedModels14findOrInsertRWENS2_8ArrayRefIjEEbE3$_0EclINS_17__normal_iteratorIPNS2_14CodeGenSchedRWESt6vectorISA_SaISA_EEEEEEbT_.exit68.thread111.i.i.i.i" ]
+  %.sroa.086.2.i.i.i.i = phi ptr [ %70, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenSchedModels14findOrInsertRWENS2_8ArrayRefIjEEbE3$_0EclINS_17__normal_iteratorIPNS2_14CodeGenSchedRWESt6vectorISA_SaISA_EEEEEEbT_.exit68.thread111.i.i.i.i" ], [ %.sroa.086.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %72 = getelementptr i8, ptr %.sroa.086.2.i.i.i.i, i64 56
   %.val2.i69.i.i.i.i = load ptr, ptr %72, align 8, !tbaa !202
   %73 = getelementptr i8, ptr %.sroa.086.2.i.i.i.i, i64 64
@@ -17116,8 +17116,8 @@ _ZN4llvm12is_containedIRSt6vectorIPKNS_6RecordESaIS4_EES4_EEbOT_RKT0_.exit.us: ;
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge._crit_edge57.i.i.i.i
-  %74 = phi ptr [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %68, %71 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.pre, %._crit_edge._crit_edge57.i.i.i.i ], [ %72, %71 ]
+  %74 = phi ptr [ %68, %71 ], [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %72, %71 ], [ %.pre, %._crit_edge._crit_edge57.i.i.i.i ]
   %75 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !93
   %76 = icmp eq ptr %75, %74
   %spec.select.i.i.i.i = select i1 %76, ptr %.sroa.032.2.i.i.i.i, ptr %18
@@ -17662,8 +17662,8 @@ _ZN4llvm12is_containedIRSt6vectorIPKNS_6RecordESaIS4_EES4_EEbOT_RKT0_.exit.us.i:
   br label %212
 
 212:                                              ; preds = %210, %._crit_edge._crit_edge57.i.i.i.i.i
-  %213 = phi ptr [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %207, %210 ]
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.pre.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %211, %210 ]
+  %213 = phi ptr [ %207, %210 ], [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %211, %210 ], [ %.pre.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
   %214 = load ptr, ptr %.sroa.032.2.i.i.i.i.i, align 8, !tbaa !93
   %215 = icmp eq ptr %214, %213
   %spec.select.i.i.i.i.i = select i1 %215, ptr %.sroa.032.2.i.i.i.i.i, ptr %157
@@ -18622,7 +18622,7 @@ _ZN4llvm12is_containedIRSt6vectorIPKNS_6RecordESaIS4_EES4_EEbOT_RKT0_.exit: ; pr
   br label %102
 
 102:                                              ; preds = %100, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %101, %100 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %101, %100 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %103 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i, i64 40
   %.val1.i26.i.i.i.i.i = load ptr, ptr %103, align 8, !tbaa !196
   %104 = icmp eq ptr %.val1.i26.i.i.i.i.i, %73
@@ -18633,7 +18633,7 @@ _ZN4llvm12is_containedIRSt6vectorIPKNS_6RecordESaIS4_EES4_EEbOT_RKT0_.exit: ; pr
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %106, %105 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %106, %105 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %108 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i, i64 40
   %.val1.i27.i.i.i.i.i = load ptr, ptr %108, align 8, !tbaa !196
   %109 = icmp eq ptr %.val1.i27.i.i.i.i.i, %73
@@ -24078,7 +24078,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit283: ; preds = %_ZNSt7__cxx111
   br label %351
 
 351:                                              ; preds = %349, %._crit_edge.i.i.i.i.i.i66
-  %.sroa.038.1.i.i.i.i.i.i75 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i68, %._crit_edge.i.i.i.i.i.i66 ], [ %350, %349 ]
+  %.sroa.038.1.i.i.i.i.i.i75 = phi ptr [ %350, %349 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i68, %._crit_edge.i.i.i.i.i.i66 ]
   %352 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i.i75, i64 40
   %.val1.i26.i.i.i.i.i.i76 = load ptr, ptr %352, align 8, !tbaa !196
   %353 = icmp eq ptr %.val1.i26.i.i.i.i.i.i76, %291
@@ -24089,7 +24089,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit283: ; preds = %_ZNSt7__cxx111
   br label %356
 
 356:                                              ; preds = %354, %._crit_edge.i.i.i.i.i.i66
-  %.sroa.038.2.i.i.i.i.i.i69 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i68, %._crit_edge.i.i.i.i.i.i66 ], [ %355, %354 ]
+  %.sroa.038.2.i.i.i.i.i.i69 = phi ptr [ %355, %354 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i68, %._crit_edge.i.i.i.i.i.i66 ]
   %357 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i.i69, i64 40
   %.val1.i27.i.i.i.i.i.i70 = load ptr, ptr %357, align 8, !tbaa !196
   %358 = icmp eq ptr %.val1.i27.i.i.i.i.i.i70, %291
@@ -24537,7 +24537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %539
 
 539:                                              ; preds = %537, %._crit_edge.i.i.i.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %538, %537 ]
+  %.sroa.032.1.i.i.i.i.i.i.i.i = phi ptr [ %538, %537 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %540 = load ptr, ptr %.sroa.032.1.i.i.i.i.i.i.i.i, align 8, !tbaa !93
   %541 = call noundef ptr @_ZNK4llvm6Record13getValueAsDefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %540, ptr nonnull @.str.118, i64 9) #20
   %542 = icmp eq ptr %541, %484
@@ -24548,7 +24548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %545
 
 545:                                              ; preds = %543, %._crit_edge.i.i.i.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %544, %543 ]
+  %.sroa.032.2.i.i.i.i.i.i.i.i = phi ptr [ %544, %543 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %546 = load ptr, ptr %.sroa.032.2.i.i.i.i.i.i.i.i, align 8, !tbaa !93
   %547 = call noundef ptr @_ZNK4llvm6Record13getValueAsDefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %546, ptr nonnull @.str.118, i64 9) #20
   %548 = icmp eq ptr %547, %484
@@ -24639,8 +24639,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %579
 
 579:                                              ; preds = %577, %._crit_edge._crit_edge.i.i.i.i.i.i
-  %580 = phi ptr [ %.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %575, %577 ]
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %578, %577 ]
+  %580 = phi ptr [ %575, %577 ], [ %.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %578, %577 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ]
   %581 = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !93
   %582 = icmp eq ptr %581, %580
   br i1 %582, label %_ZN4llvm12is_containedIRNS_8ArrayRefIPKNS_6RecordEEES4_EEbOT_RKT0_.exit.i.i, label %583
@@ -24650,8 +24650,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %585
 
 585:                                              ; preds = %583, %._crit_edge._crit_edge52.i.i.i.i.i.i
-  %586 = phi ptr [ %.pre53.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %580, %583 ]
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %584, %583 ]
+  %586 = phi ptr [ %580, %583 ], [ %.pre53.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %584, %583 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ]
   %587 = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !93
   %588 = icmp eq ptr %587, %586
   br i1 %588, label %_ZN4llvm12is_containedIRNS_8ArrayRefIPKNS_6RecordEEES4_EEbOT_RKT0_.exit.i.i, label %589
@@ -25073,7 +25073,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19PredCheckEE12emplace_backIJRbRKjRPKNS_
   br label %741
 
 741:                                              ; preds = %739, %._crit_edge.i.i.i.i.i.i205
-  %.sroa.038.1.i.i.i.i.i.i219 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i207, %._crit_edge.i.i.i.i.i.i205 ], [ %740, %739 ]
+  %.sroa.038.1.i.i.i.i.i.i219 = phi ptr [ %740, %739 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i207, %._crit_edge.i.i.i.i.i.i205 ]
   %742 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i.i219, i64 40
   %.val1.i26.i.i.i.i.i.i220 = load ptr, ptr %742, align 8, !tbaa !196
   %743 = icmp eq ptr %.val1.i26.i.i.i.i.i.i220, %712
@@ -25084,7 +25084,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19PredCheckEE12emplace_backIJRbRKjRPKNS_
   br label %746
 
 746:                                              ; preds = %744, %._crit_edge.i.i.i.i.i.i205
-  %.sroa.038.2.i.i.i.i.i.i208 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i207, %._crit_edge.i.i.i.i.i.i205 ], [ %745, %744 ]
+  %.sroa.038.2.i.i.i.i.i.i208 = phi ptr [ %745, %744 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i207, %._crit_edge.i.i.i.i.i.i205 ]
   %747 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i.i208, i64 40
   %.val1.i27.i.i.i.i.i.i209 = load ptr, ptr %747, align 8, !tbaa !196
   %748 = icmp eq ptr %.val1.i27.i.i.i.i.i.i209, %712
@@ -25283,7 +25283,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit261: ; preds = %_ZNK4llvm6Reco
   br label %817
 
 817:                                              ; preds = %815, %._crit_edge.i.i.i.i.i.i41
-  %.sroa.038.1.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i41 ], [ %816, %815 ]
+  %.sroa.038.1.i.i.i.i.i.i = phi ptr [ %816, %815 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i41 ]
   %818 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i.i, i64 40
   %.val1.i26.i.i.i.i.i.i = load ptr, ptr %818, align 8, !tbaa !196
   %819 = icmp eq ptr %.val1.i26.i.i.i.i.i.i, %785
@@ -25294,7 +25294,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit261: ; preds = %_ZNK4llvm6Reco
   br label %822
 
 822:                                              ; preds = %820, %._crit_edge.i.i.i.i.i.i41
-  %.sroa.038.2.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i41 ], [ %821, %820 ]
+  %.sroa.038.2.i.i.i.i.i.i = phi ptr [ %821, %820 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i41 ]
   %823 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i.i, i64 40
   %.val1.i27.i.i.i.i.i.i = load ptr, ptr %823, align 8, !tbaa !196
   %824 = icmp eq ptr %.val1.i27.i.i.i.i.i.i, %785
@@ -26814,7 +26814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %100
   br label %105
 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i, %88, %86, %84
-  %.1.i = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i ], [ %.015.i, %88 ], [ %87, %86 ], [ %85, %84 ]
+  %.1.i = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i ], [ %.015.i, %88 ], [ %85, %84 ], [ %87, %86 ]
   %106 = getelementptr inbounds nuw i8, ptr %.01114.i, i64 1
   %.not.i = icmp eq ptr %106, %82
   br i1 %.not.i, label %_ZN12_GLOBAL__N_111InstRegexOp12removeParensB5cxx11EN4llvm9StringRefE.exit, label %.lr.ph.i
@@ -27239,8 +27239,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_6RecordEN
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !93
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_6RecordELj16EEES4_EEbOT_RKT0_.exit, label %50
@@ -27250,8 +27250,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_6RecordEN
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !93
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_6RecordELj16EEES4_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_6RecordELj16EEES4_EEbOT_RKT0_.exit.thread
@@ -27485,7 +27485,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %_ZSt7adva
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111InstRegexOp5applyERN4llvm9SetTheoryEPKNS4_7DagInitERNS4_14SmallSetVectorIPKNS4_6RecordELj16EEENS4_8ArrayRefINS4_5SMLocEEEE4CompEclIPKPKNS4_18CodeGenInstructionEKNS4_9StringRefEEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111InstRegexOp5applyERN4llvm9SetTheoryEPKNS4_7DagInitERNS4_14SmallSetVectorIPKNS4_6RecordELj16EEENS4_8ArrayRefINS4_5SMLocEEEE4CompEclIPKPKNS4_18CodeGenInstructionEKNS4_9StringRefEEEbT_RT0_.exit.i.i: ; preds = %32, %.thread.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ %34, %32 ], [ 0, %.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %34, %32 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i ]
   %35 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %37 = xor i64 %25, -1

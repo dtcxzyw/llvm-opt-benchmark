@@ -2303,7 +2303,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26Trace_AggregateTreeBuilder15
   br label %13
 
 13:                                               ; preds = %4, %12
-  %.0 = phi i1 [ false, %4 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %12 ], [ false, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -2870,7 +2870,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventNode6GetKeyEv.exit.i.i56.i.i.i:
   br label %143
 
 143:                                              ; preds = %141, %._crit_edge.i.i.i
-  %.sroa.085.1.i.i.i = phi ptr [ %.sroa.085.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %142, %141 ]
+  %.sroa.085.1.i.i.i = phi ptr [ %142, %141 ], [ %.sroa.085.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val.i62.i.i.i = load ptr, ptr %.sroa.085.1.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %.not.i.i.i63.i.i.i = icmp eq ptr %.val.i62.i.i.i, null
@@ -2917,7 +2917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventNode6GetKeyEv.exit.i.i66.i.i.i:
   br label %163
 
 163:                                              ; preds = %161, %._crit_edge.i.i.i
-  %.sroa.085.2.i.i.i = phi ptr [ %.sroa.085.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %162, %161 ]
+  %.sroa.085.2.i.i.i = phi ptr [ %162, %161 ], [ %.sroa.085.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val.i72.i.i.i = load ptr, ptr %.sroa.085.2.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %.not.i.i.i73.i.i.i = icmp eq ptr %.val.i72.i.i.i, null

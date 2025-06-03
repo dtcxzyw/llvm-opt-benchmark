@@ -158,7 +158,7 @@ define dso_local i32 @lzma_raw_encoder(ptr noundef %0, ptr noundef %1) local_unn
   br label %16
 
 16:                                               ; preds = %10, %2, %11
-  %.1 = phi i32 [ %3, %2 ], [ %9, %10 ], [ 0, %11 ]
+  %.1 = phi i32 [ 0, %11 ], [ %9, %10 ], [ %3, %2 ]
   ret i32 %.1
 }
 

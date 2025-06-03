@@ -699,7 +699,7 @@ switch.early.test.i.i47.i.i.i.i:                  ; preds = %43
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %49, %48 ]
+  %.1.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !12
   %51 = and i8 %.1.val.i.i.i.i, -33
   %52 = add i8 %51, -65
@@ -721,7 +721,7 @@ switch.early.test.i.i51.i.i.i.i:                  ; preds = %50
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %56, %55 ]
+  %.2.i.i.i.i = phi ptr [ %56, %55 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !12
   %58 = and i8 %.2.val.i.i.i.i, -33
   %59 = add i8 %58, -65

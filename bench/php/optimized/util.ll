@@ -601,7 +601,7 @@ phar_get_fp_offset.exit:                          ; preds = %16, %39
   br label %51
 
 51:                                               ; preds = %phar_get_fp_offset.exit, %49, %46, %41
-  %.026 = phi i64 [ %50, %49 ], [ %48, %46 ], [ %45, %41 ], [ 0, %phar_get_fp_offset.exit ]
+  %.026 = phi i64 [ %45, %41 ], [ %48, %46 ], [ %50, %49 ], [ 0, %phar_get_fp_offset.exit ]
   %52 = load i32, ptr %.025, align 8, !tbaa !52
   %53 = zext i32 %52 to i64
   %54 = add nsw i64 %.0.i, %53
@@ -4774,7 +4774,7 @@ phar_hex_str.exit229:                             ; preds = %.lr.ph.i221
   br label %261
 
 261:                                              ; preds = %phar_hex_str.exit, %phar_hex_str.exit202, %phar_hex_str.exit211, %phar_hex_str.exit220, %phar_hex_str.exit229, %258, %259, %257, %217, %177, %137, %97
-  %.1110 = phi i32 [ -1, %257 ], [ -1, %217 ], [ -1, %177 ], [ -1, %137 ], [ -1, %97 ], [ -1, %259 ], [ -1, %258 ], [ 0, %phar_hex_str.exit229 ], [ 0, %phar_hex_str.exit220 ], [ 0, %phar_hex_str.exit211 ], [ 0, %phar_hex_str.exit202 ], [ 0, %phar_hex_str.exit ]
+  %.1110 = phi i32 [ -1, %97 ], [ -1, %137 ], [ -1, %177 ], [ -1, %217 ], [ -1, %257 ], [ -1, %259 ], [ -1, %258 ], [ 0, %phar_hex_str.exit229 ], [ 0, %phar_hex_str.exit220 ], [ 0, %phar_hex_str.exit211 ], [ 0, %phar_hex_str.exit202 ], [ 0, %phar_hex_str.exit ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #16
   ret i32 %.1110
 }

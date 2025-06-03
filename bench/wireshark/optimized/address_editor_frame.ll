@@ -954,7 +954,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %9, %_ZN7QStringD2Ev
   ret void
 
 70:                                               ; preds = %48, %67
-  %.sroa.033.0.ph = phi ptr [ %38, %48 ], [ %57, %67 ]
+  %.sroa.033.0.ph = phi ptr [ %57, %67 ], [ %38, %48 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i27 = icmp eq ptr %.sroa.033.0.ph, null

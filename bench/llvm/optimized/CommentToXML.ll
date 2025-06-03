@@ -2740,8 +2740,8 @@ default.unreachable507:                           ; preds = %_ZN4llvm11raw_ostre
   unreachable
 
 418:                                              ; preds = %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit.thread, %415, %412, %409, %406, %404, %402, %400, %394, %392, %389, %373
-  %.sroa.12.0 = phi i64 [ 0, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit.thread ], [ 7, %415 ], [ 10, %412 ], [ 12, %409 ], [ 11, %406 ], [ 8, %394 ], [ 8, %402 ], [ 8, %400 ], [ 8, %404 ], [ 11, %389 ], [ 11, %392 ], [ 8, %373 ]
-  %.sroa.0371.0 = phi ptr [ null, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit.thread ], [ @.str.80, %415 ], [ @.str.78, %412 ], [ @.str.76, %409 ], [ @.str.74, %406 ], [ @.str.71, %394 ], [ @.str.71, %402 ], [ @.str.71, %400 ], [ @.str.71, %404 ], [ @.str.65, %389 ], [ @.str.65, %392 ], [ @.str.63, %373 ]
+  %.sroa.12.0 = phi i64 [ 0, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit.thread ], [ 8, %373 ], [ 11, %389 ], [ 11, %392 ], [ 8, %404 ], [ 8, %400 ], [ 8, %402 ], [ 8, %394 ], [ 11, %406 ], [ 12, %409 ], [ 10, %412 ], [ 7, %415 ]
+  %.sroa.0371.0 = phi ptr [ null, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit.thread ], [ @.str.63, %373 ], [ @.str.65, %389 ], [ @.str.65, %392 ], [ @.str.71, %404 ], [ @.str.71, %400 ], [ @.str.71, %402 ], [ @.str.71, %394 ], [ @.str.74, %406 ], [ @.str.76, %409 ], [ @.str.78, %412 ], [ @.str.80, %415 ]
   %419 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %420 = load ptr, ptr %419, align 8, !tbaa !487
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 24

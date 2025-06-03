@@ -131,7 +131,7 @@ define dso_local noundef ptr @_ZNK4llvm6Target22createMCObjectStreamerERKNS_6Tri
   br label %40
 
 40:                                               ; preds = %24, %26, %17, %19, %38, %36, %32, %30, %28, %10, %7
-  %.0 = phi ptr [ null, %7 ], [ %37, %36 ], [ %35, %32 ], [ %31, %30 ], [ %29, %28 ], [ %25, %24 ], [ %27, %26 ], [ %18, %17 ], [ %20, %19 ], [ %13, %10 ], [ %39, %38 ]
+  %.0 = phi ptr [ null, %7 ], [ %39, %38 ], [ %13, %10 ], [ %18, %17 ], [ %20, %19 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %35, %32 ], [ %37, %36 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %.not21 = icmp eq ptr %42, null
@@ -1788,7 +1788,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %2
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %.thread.i, %9
-  %.1.i = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %11, %9 ], [ 0, %.thread.i ]
+  %.1.i = phi i32 [ %11, %9 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ]
   ret i32 %.1.i
 }
 

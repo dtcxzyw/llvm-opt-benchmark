@@ -1667,7 +1667,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h8b445863bf15e5f4E.exit31.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h496c971147daeadcE.exit.i
 
 114:                                              ; preds = %93, %92, %91, %90, %89, %.thread.i, %74
-  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
+  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %115 = load i64, ptr %.0.val, align 8, !range !34, !alias.scope !99, !noalias !102, !noundef !4
   %116 = load i64, ptr %6, align 8, !alias.scope !99, !noalias !102, !noundef !4
@@ -1981,7 +1981,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h5145396d14b85668E.exit31.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h6c4622c91f20c2f6E.exit.i
 
 114:                                              ; preds = %93, %92, %91, %90, %89, %.thread.i, %74
-  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
+  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
   %115 = load i64, ptr %.0.val, align 8, !range !34, !alias.scope !191, !noalias !194, !noundef !4
   %116 = load i64, ptr %6, align 8, !alias.scope !191, !noalias !194, !noundef !4
@@ -2295,7 +2295,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h6a74d620a209b431E.exit31.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h5a91028fd83bc8b4E.exit.i
 
 114:                                              ; preds = %93, %92, %91, %90, %89, %.thread.i, %74
-  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
+  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %115 = load i64, ptr %.0.val, align 8, !range !34, !alias.scope !283, !noalias !286, !noundef !4
   %116 = load i64, ptr %6, align 8, !alias.scope !283, !noalias !286, !noundef !4
@@ -2609,7 +2609,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17ha9632980016d6b88E.exit31.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17hdd0e31684a3abdacE.exit.i
 
 114:                                              ; preds = %93, %92, %91, %90, %89, %.thread.i, %74
-  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
+  %.sroa.02.0.i.i = phi ptr [ @anon.e9ef04808737cbe8ef653d32af212bbe.26, %89 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.27, %90 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.28, %91 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.29, %92 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.30, %93 ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.23, %.thread.i ], [ @anon.e9ef04808737cbe8ef653d32af212bbe.24, %74 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !375)
   %115 = load i64, ptr %.0.val, align 8, !range !34, !alias.scope !375, !noalias !378, !noundef !4
   %116 = load i64, ptr %6, align 8, !alias.scope !375, !noalias !378, !noundef !4
@@ -4226,7 +4226,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN60_$LT$h2..proto..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17he045f7787255e6b7E.exit"
 
 "_ZN60_$LT$h2..proto..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17he045f7787255e6b7E.exit": ; preds = %8, %13, %18
-  %.sroa.0.0.in.i = phi i1 [ %21, %18 ], [ %17, %13 ], [ %12, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %8 ], [ %17, %13 ], [ %21, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4348,7 +4348,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$h2..frame..Frame$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he0f44e99cb1bbba5E.exit"
 
 "_ZN62_$LT$h2..frame..Frame$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he0f44e99cb1bbba5E.exit": ; preds = %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f270f32ebee7348E.exit.i", %26, %29, %33, %36, %39, %43, %46, %50
-  %.sroa.0.0.in.i = phi i1 [ %53, %50 ], [ %49, %46 ], [ %45, %43 ], [ %42, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %29 ], [ %28, %26 ], [ %25, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f270f32ebee7348E.exit.i" ]
+  %.sroa.0.0.in.i = phi i1 [ %25, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f270f32ebee7348E.exit.i" ], [ %28, %26 ], [ %32, %29 ], [ %35, %33 ], [ %38, %36 ], [ %42, %39 ], [ %45, %43 ], [ %49, %46 ], [ %53, %50 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4433,7 +4433,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN52_$LT$h2..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17h76df50bdd7801b00E.exit"
 
 "_ZN52_$LT$h2..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17h76df50bdd7801b00E.exit": ; preds = %10, %15, %20, %23, %26
-  %.sroa.0.0.in.i = phi i1 [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %10 ], [ %19, %15 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4619,7 +4619,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$foundations..security..ArgCmp$u20$as$u20$core..fmt..Debug$GT$3fmt17h1112487bc7d2777fE.exit"
 
 "_ZN66_$LT$foundations..security..ArgCmp$u20$as$u20$core..fmt..Debug$GT$3fmt17h1112487bc7d2777fE.exit": ; preds = %13, %16, %19, %22, %25, %28, %31
-  %.sroa.0.0.in.i = phi i1 [ %34, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %34, %31 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4721,7 +4721,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN64_$LT$foundations..security..Rule$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d98586fec45f4afE.exit"
 
 "_ZN64_$LT$foundations..security..Rule$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d98586fec45f4afE.exit": ; preds = %9, %12, %15
-  %.sroa.0.0.in.i = phi i1 [ %18, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %18, %15 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4843,7 +4843,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$h2..frame..Frame$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b1a56ccf60b36b4E.exit"
 
 "_ZN62_$LT$h2..frame..Frame$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b1a56ccf60b36b4E.exit": ; preds = %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1686cb0c52e1a26aE.exit.i", %26, %29, %33, %36, %39, %43, %46, %50
-  %.sroa.0.0.in.i = phi i1 [ %53, %50 ], [ %49, %46 ], [ %45, %43 ], [ %42, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %29 ], [ %28, %26 ], [ %25, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1686cb0c52e1a26aE.exit.i" ]
+  %.sroa.0.0.in.i = phi i1 [ %25, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1686cb0c52e1a26aE.exit.i" ], [ %28, %26 ], [ %32, %29 ], [ %35, %33 ], [ %38, %36 ], [ %42, %39 ], [ %45, %43 ], [ %49, %46 ], [ %53, %50 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -6307,7 +6307,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h46fa9338ac083565E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h46fa9338ac083565E.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hfd753cb3289f5eb9E.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h4e673d41baac3664E.exit"
 
@@ -6437,7 +6437,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h46fa9338ac083565E.exit.i.i.i6"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h46fa9338ac083565E.exit.i.i.i6": ; preds = %130, %125, %122, %119
-  %.sroa.0.0.i.i.i.i.i.i.i7 = phi i8 [ %124, %122 ], [ %135, %130 ], [ %121, %119 ], [ %129, %125 ]
+  %.sroa.0.0.i.i.i.i.i.i.i7 = phi i8 [ %129, %125 ], [ %121, %119 ], [ %135, %130 ], [ %124, %122 ]
   %136 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i7 to i1
   br i1 %136, label %137, label %139
 
@@ -20705,7 +20705,7 @@ default.unreachable1:                             ; preds = %2
   br label %53
 
 53:                                               ; preds = %49, %45, %42, %38, %35, %32, %28, %25, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h14f4521c8f0b4f51E.exit"
-  %.sroa.0.0.in = phi i1 [ %52, %49 ], [ %48, %45 ], [ %44, %42 ], [ %41, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %28 ], [ %27, %25 ], [ %24, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h14f4521c8f0b4f51E.exit" ]
+  %.sroa.0.0.in = phi i1 [ %24, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h14f4521c8f0b4f51E.exit" ], [ %27, %25 ], [ %31, %28 ], [ %34, %32 ], [ %37, %35 ], [ %41, %38 ], [ %44, %42 ], [ %48, %45 ], [ %52, %49 ]
   ret i1 %.sroa.0.0.in
 }
 

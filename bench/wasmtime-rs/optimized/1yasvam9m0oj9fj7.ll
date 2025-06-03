@@ -410,8 +410,8 @@ default.unreachable96:                            ; preds = %3
   %.pn6775 = phi { ptr, i32 } [ %.pn6776, %.thread72 ], [ %lpad.phi, %73 ]
   resume { ptr, i32 } %.pn6775
 
-.thread72:                                        ; preds = %78, %89, %98, %104, %74, %113, %73
-  %.pn6776 = phi { ptr, i32 } [ %lpad.phi, %73 ], [ %79, %78 ], [ %90, %89 ], [ %99, %98 ], [ %105, %104 ], [ %75, %74 ], [ %114, %113 ]
+.thread72:                                        ; preds = %104, %113, %89, %98, %78, %74, %73
+  %.pn6776 = phi { ptr, i32 } [ %lpad.phi, %73 ], [ %105, %104 ], [ %114, %113 ], [ %90, %89 ], [ %99, %98 ], [ %79, %78 ], [ %75, %74 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %40) #9
           to label %133 unwind label %81
 }

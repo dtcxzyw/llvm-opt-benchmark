@@ -8195,7 +8195,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17hc34
           to label %"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h1268f023765306e3E.llvm.17203375404686012749.exit" unwind label %9
 
 8:                                                ; preds = %18, %24, %9
-  %.pn4 = phi { ptr, i32 } [ %10, %9 ], [ %25, %24 ], [ %19, %18 ]
+  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %19, %18 ], [ %10, %9 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17he1249b670b179f69E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1) #32
           to label %28 unwind label %26
 
@@ -8265,7 +8265,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17hc34
   unreachable
 
 28:                                               ; preds = %8
-  resume { ptr, i32 } %.pn4
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13734,8 +13734,8 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   br label %239
 
 239:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit", %43
-  %.pn31 = phi { i64, ptr } [ { i64 1, ptr poison }, %43 ], [ %220, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit" ]
-  %.pn32 = phi ptr [ %39, %43 ], [ %199, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit" ]
+  %.pn31 = phi { i64, ptr } [ %220, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit" ], [ { i64 1, ptr poison }, %43 ]
+  %.pn32 = phi ptr [ %199, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit" ], [ %39, %43 ]
   %.merged = insertvalue { i64, ptr } %.pn31, ptr %.pn32, 1
   ret { i64, ptr } %.merged
 
@@ -16099,7 +16099,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %224
 
 224:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit", %42
-  %.sroa.0.0 = phi ptr [ %38, %42 ], [ %187, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit" ]
+  %.sroa.0.0 = phi ptr [ %187, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h60bf695caf4044e4E.exit" ], [ %38, %42 ]
   ret ptr %.sroa.0.0
 
 225:                                              ; preds = %228, %.body, %.body18

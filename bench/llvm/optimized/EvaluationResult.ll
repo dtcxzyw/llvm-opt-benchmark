@@ -619,7 +619,7 @@ _ZNK5clang6interp7Pointer9getRecordEv.exit:       ; preds = %64, %.thread4.i.i, 
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %95, %99
-  %.1.i = phi ptr [ %57, %95 ], [ %100, %99 ]
+  %.1.i = phi ptr [ %100, %99 ], [ %57, %95 ]
   %101 = call fastcc noundef zeroext i1 @_ZN5clang6interpL21CheckArrayInitializedERNS0_11InterpStateENS_14SourceLocationERKNS0_7PointerEPKNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(52) %7, ptr noundef %.1.i)
   %102 = icmp ne i8 %.061139, 0
   %103 = select i1 %101, i1 %102, i1 false
@@ -2096,9 +2096,9 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i9.i.i123: ; preds = %250
   br i1 %282, label %_ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit, label %.lr.ph.i.i.i.i.i, !prof !205, !llvm.loop !206
 
 _ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit: ; preds = %276, %263
-  %.lcssa.i.i.i.i.pn.i = phi i64 [ %270, %263 ], [ %279, %276 ]
+  %.pn.i = phi i64 [ %270, %263 ], [ %279, %276 ]
   %283 = zext i32 %261 to i64
-  %.not140 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %283
+  %.not140 = icmp samesign eq i64 %.pn.i, %283
   br i1 %.not140, label %_ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit.thread, label %.critedge2
 
 _ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %259, %_ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit
@@ -3040,9 +3040,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6interp5BlockENS_6detail13DenseSet
   br label %_ZNK4llvm6detail12DenseSetImplIPKN5clang6interp5BlockENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E4findES6_.exit
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang6interp5BlockENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E4findES6_.exit: ; preds = %21, %8, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6interp5BlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E6doFindIS6_EEPKSC_RKT_.exit.thread.i.i
-  %.lcssa.i.i.i.i.pn = phi i64 [ %28, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6interp5BlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E6doFindIS6_EEPKSC_RKT_.exit.thread.i.i ], [ %15, %8 ], [ %24, %21 ]
+  %.pn = phi i64 [ %28, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6interp5BlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E6doFindIS6_EEPKSC_RKT_.exit.thread.i.i ], [ %15, %8 ], [ %24, %21 ]
   %29 = zext i32 %6 to i64
-  %30 = icmp samesign ne i64 %.lcssa.i.i.i.i.pn, %29
+  %30 = icmp samesign ne i64 %.pn, %29
   ret i1 %30
 }
 

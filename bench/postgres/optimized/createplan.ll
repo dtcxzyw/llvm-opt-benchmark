@@ -1369,7 +1369,7 @@ create_nestloop_plan.exit:                        ; preds = %702, %705
   br label %753
 
 753:                                              ; preds = %create_nestloop_plan.exit, %create_hashjoin_plan.exit, %create_mergejoin_plan.exit
-  %.0.i = phi ptr [ %721, %create_nestloop_plan.exit ], [ %631, %create_hashjoin_plan.exit ], [ %445, %create_mergejoin_plan.exit ]
+  %.0.i = phi ptr [ %445, %create_mergejoin_plan.exit ], [ %631, %create_hashjoin_plan.exit ], [ %721, %create_nestloop_plan.exit ]
   %754 = getelementptr inbounds nuw i8, ptr %0, i64 599
   %755 = load i8, ptr %754, align 1, !range !4, !noundef !5
   %756 = trunc nuw i8 %755 to i1
@@ -2101,7 +2101,7 @@ list_length.exit113:                              ; preds = %list_length.exit115
   br label %common.ret456
 
 common.ret456:                                    ; preds = %753, %1156, %1153, %create_gating_plan.exit, %get_gating_quals.exit, %1571, %1573, %1337, %1339, %1164, %1168, %1170, %1166, %create_limit_plan.exit, %make_modifytable.exit, %make_recursive_union.exit, %make_setop.exit, %create_windowagg_plan.exit, %list_length.exit121, %create_incrementalsort_plan.exit, %create_sort_plan.exit, %make_memoize.exit, %create_append_plan.exit, %58, %2281, %1923, %1341, %1205, %1172
-  %common.ret456.op = phi ptr [ %1177, %1172 ], [ %1210, %1205 ], [ %1351, %1341 ], [ %1931, %1923 ], [ %2288, %2281 ], [ %2244, %create_limit_plan.exit ], [ %1999, %make_modifytable.exit ], [ %1855, %make_recursive_union.exit ], [ %1746, %make_setop.exit ], [ %1680, %create_windowagg_plan.exit ], [ %1572, %1571 ], [ %1574, %1573 ], [ %1536, %list_length.exit121 ], [ %1478, %create_incrementalsort_plan.exit ], [ %1411, %create_sort_plan.exit ], [ %1338, %1337 ], [ %1340, %1339 ], [ %1293, %make_memoize.exit ], [ %1165, %1164 ], [ %1167, %1166 ], [ %1169, %1168 ], [ %1171, %1170 ], [ %.0.i76, %create_append_plan.exit ], [ %59, %58 ], [ %773, %create_gating_plan.exit ], [ %.0.i, %get_gating_quals.exit ], [ %1161, %1156 ], [ %1012, %1153 ], [ %.0.i, %753 ]
+  %common.ret456.op = phi ptr [ %1177, %1172 ], [ %1210, %1205 ], [ %1351, %1341 ], [ %1931, %1923 ], [ %2288, %2281 ], [ %59, %58 ], [ %.0.i76, %create_append_plan.exit ], [ %1165, %1164 ], [ %1167, %1166 ], [ %1169, %1168 ], [ %1171, %1170 ], [ %1293, %make_memoize.exit ], [ %1338, %1337 ], [ %1340, %1339 ], [ %1411, %create_sort_plan.exit ], [ %1478, %create_incrementalsort_plan.exit ], [ %1536, %list_length.exit121 ], [ %1572, %1571 ], [ %1574, %1573 ], [ %1680, %create_windowagg_plan.exit ], [ %1746, %make_setop.exit ], [ %1855, %make_recursive_union.exit ], [ %1999, %make_modifytable.exit ], [ %2244, %create_limit_plan.exit ], [ %773, %create_gating_plan.exit ], [ %.0.i, %get_gating_quals.exit ], [ %1161, %1156 ], [ %1012, %1153 ], [ %.0.i, %753 ]
   ret ptr %common.ret456.op
 
 1172:                                             ; preds = %3
@@ -6338,7 +6338,7 @@ create_worktablescan_plan.exit:                   ; preds = %878, %882
   unreachable
 
 create_foreignscan_plan.exit:                     ; preds = %1089, %._crit_edge, %.loopexit, %1011, %create_worktablescan_plan.exit, %create_resultscan_plan.exit, %create_namedtuplestorescan_plan.exit, %create_ctescan_plan.exit, %create_valuesscan_plan.exit, %create_tablefuncscan_plan.exit, %create_functionscan_plan.exit, %create_subqueryscan_plan.exit, %create_tidrangescan_plan.exit, %create_tidscan_plan.exit, %create_bitmap_scan_plan.exit, %168, %166, %create_samplescan_plan.exit, %create_seqscan_plan.exit
-  %.0111 = phi ptr [ %885, %create_worktablescan_plan.exit ], [ %806, %create_resultscan_plan.exit ], [ %771, %create_namedtuplestorescan_plan.exit ], [ %714, %create_ctescan_plan.exit ], [ %583, %create_valuesscan_plan.exit ], [ %526, %create_tablefuncscan_plan.exit ], [ %468, %create_functionscan_plan.exit ], [ %408, %create_subqueryscan_plan.exit ], [ %363, %create_tidrangescan_plan.exit ], [ %303, %create_tidscan_plan.exit ], [ %231, %create_bitmap_scan_plan.exit ], [ %169, %168 ], [ %167, %166 ], [ %137, %create_samplescan_plan.exit ], [ %81, %create_seqscan_plan.exit ], [ %948, %1011 ], [ %948, %.loopexit ], [ %1052, %._crit_edge ], [ %1052, %1089 ]
+  %.0111 = phi ptr [ %81, %create_seqscan_plan.exit ], [ %137, %create_samplescan_plan.exit ], [ %167, %166 ], [ %169, %168 ], [ %231, %create_bitmap_scan_plan.exit ], [ %303, %create_tidscan_plan.exit ], [ %363, %create_tidrangescan_plan.exit ], [ %408, %create_subqueryscan_plan.exit ], [ %468, %create_functionscan_plan.exit ], [ %526, %create_tablefuncscan_plan.exit ], [ %583, %create_valuesscan_plan.exit ], [ %714, %create_ctescan_plan.exit ], [ %771, %create_namedtuplestorescan_plan.exit ], [ %806, %create_resultscan_plan.exit ], [ %885, %create_worktablescan_plan.exit ], [ %948, %1011 ], [ %948, %.loopexit ], [ %1052, %._crit_edge ], [ %1052, %1089 ]
   br i1 %.not120, label %1139, label %1100
 
 1100:                                             ; preds = %create_foreignscan_plan.exit

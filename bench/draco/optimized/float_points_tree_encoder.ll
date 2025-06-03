@@ -486,7 +486,7 @@ define noundef zeroext i1 @_ZN5draco22FloatPointsTreeEncoder30EncodePointCloudKd
   ret i1 true
 
 85:                                               ; preds = %82, %73, %64, %55, %46, %37, %28
-  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %74, %73 ], [ %65, %64 ], [ %56, %55 ], [ %47, %46 ], [ %38, %37 ], [ %29, %28 ]
+  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %29, %28 ], [ %38, %37 ], [ %47, %46 ], [ %56, %55 ], [ %65, %64 ], [ %74, %73 ]
   resume { ptr, i32 } %.pn
 }
 

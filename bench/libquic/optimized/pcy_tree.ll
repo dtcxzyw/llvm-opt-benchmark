@@ -1019,7 +1019,7 @@ tree_calculate_user_set.exit:                     ; preds = %223, %144, %170, %1
   br label %.thread66
 
 .thread66:                                        ; preds = %5, %402, %tree_evaluate.exit, %tree_init.exit, %tree_calculate_user_set.exit, %406, %tree_init.exit.thread57, %tree_init.exit.thread, %113
-  %.0 = phi i32 [ 0, %tree_calculate_user_set.exit ], [ 1, %406 ], [ -2, %tree_init.exit.thread57 ], [ 0, %tree_init.exit.thread ], [ -1, %113 ], [ %., %tree_evaluate.exit ], [ -2, %402 ], [ 1, %5 ], [ 1, %tree_init.exit ]
+  %.0 = phi i32 [ 0, %tree_calculate_user_set.exit ], [ 1, %406 ], [ -1, %113 ], [ 0, %tree_init.exit.thread ], [ -2, %tree_init.exit.thread57 ], [ %., %tree_evaluate.exit ], [ -2, %402 ], [ 1, %5 ], [ 1, %tree_init.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret i32 %.0
 }

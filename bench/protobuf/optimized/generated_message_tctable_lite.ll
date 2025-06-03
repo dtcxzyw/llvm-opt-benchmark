@@ -15655,7 +15655,7 @@ if.end81:                                         ; preds = %_ZN6google8protobuf
   br i1 %or.cond, label %land.lhs.true86, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end81, %land.lhs.true86, %sw.bb52, %sw.bb53, %sw.bb59, %sw.bb64, %sw.bb66, %if.end28, %while.end110
-  %ptr.addr.0.be = phi ptr [ %call29, %if.end28 ], [ %call111, %while.end110 ], [ %add.ptr.i102, %sw.bb66 ], [ %add.ptr.i100, %sw.bb64 ], [ %retval.i.0.ph, %sw.bb59 ], [ %retval.i.0.ph, %sw.bb53 ], [ %retval.i.0.ph, %sw.bb52 ], [ %retval.0.i115197, %land.lhs.true86 ], [ %retval.0.i115197, %if.end81 ]
+  %ptr.addr.0.be = phi ptr [ %call29, %if.end28 ], [ %retval.i.0.ph, %sw.bb52 ], [ %retval.i.0.ph, %sw.bb53 ], [ %retval.i.0.ph, %sw.bb59 ], [ %add.ptr.i100, %sw.bb64 ], [ %add.ptr.i102, %sw.bb66 ], [ %call111, %while.end110 ], [ %retval.0.i115197, %land.lhs.true86 ], [ %retval.0.i115197, %if.end81 ]
   br label %while.cond, !llvm.loop !67
 
 land.lhs.true86:                                  ; preds = %if.end81
@@ -17327,7 +17327,7 @@ sw.epilog:                                        ; preds = %for.body.i.i.i.i, %
   tail call void @_ZN6google8protobuf8internal17PrintUTF8ErrorLogESt17basic_string_viewIcSt11char_traitsIcEES5_PKcb(i64 %conv.i3.i.i, ptr nonnull %arrayidx1.i.i.i, i64 %conv.i6.i.i, ptr nonnull %arrayidx1.i.i12.i, ptr noundef nonnull @.str, i1 noundef zeroext false)
   br label %if.then90
 
-if.then90:                                        ; preds = %sw.epilog, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.end51, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit
+if.then90:                                        ; preds = %sw.epilog, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit, %if.end51
   %36 = load i16, ptr %table, align 8
   %tobool.i.not.i109 = icmp eq i16 %36, 0
   br i1 %tobool.i.not.i109, label %common.ret, label %common.ret.sink.split
@@ -18195,7 +18195,7 @@ sw.default:                                       ; preds = %if.else
   unreachable
 
 if.end54:                                         ; preds = %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb
-  %node.0 = phi ptr [ %call52, %sw.bb51 ], [ %call50, %sw.bb49 ], [ %call48, %sw.bb47 ], [ %call46, %sw.bb ]
+  %node.0 = phi ptr [ %call46, %sw.bb ], [ %call48, %sw.bb47 ], [ %call50, %sw.bb49 ], [ %call52, %sw.bb51 ]
   %cmp55.not = icmp eq ptr %node.0, null
   br i1 %cmp55.not, label %if.end72, label %land.rhs56
 
@@ -19568,7 +19568,7 @@ sw.epilog:                                        ; preds = %for.body.i.i.i.i, %
   tail call void @_ZN6google8protobuf8internal17PrintUTF8ErrorLogESt17basic_string_viewIcSt11char_traitsIcEES5_PKcb(i64 %conv.i3.i.i, ptr nonnull %arrayidx1.i.i.i, i64 %conv.i6.i.i, ptr nonnull %arrayidx1.i.i12.i, ptr noundef nonnull @.str, i1 noundef zeroext false)
   br label %if.then90
 
-if.then90:                                        ; preds = %sw.epilog, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.end51, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit
+if.then90:                                        ; preds = %sw.epilog, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit, %if.end51
   %46 = load i16, ptr %table, align 8
   %tobool.i.not.i118 = icmp eq i16 %46, 0
   br i1 %tobool.i.not.i118, label %common.ret, label %common.ret.sink.split
@@ -20550,7 +20550,7 @@ sw.default:                                       ; preds = %if.else
   unreachable
 
 if.end54:                                         ; preds = %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb
-  %node.0 = phi ptr [ %call52, %sw.bb51 ], [ %call50, %sw.bb49 ], [ %call48, %sw.bb47 ], [ %call46, %sw.bb ]
+  %node.0 = phi ptr [ %call46, %sw.bb ], [ %call48, %sw.bb47 ], [ %call50, %sw.bb49 ], [ %call52, %sw.bb51 ]
   %cmp55.not = icmp eq ptr %node.0, null
   br i1 %cmp55.not, label %if.end72, label %land.rhs56
 

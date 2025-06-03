@@ -7868,8 +7868,8 @@ switch.lookup:                                    ; preds = %410
   br label %419
 
 419:                                              ; preds = %switch.lookup, %410, %417, %416, %415, %414, %413, %412, %401
-  %.0132.i.i = phi ptr [ @.str.260, %401 ], [ @.str.260, %415 ], [ @.str.377, %417 ], [ @.str.376, %416 ], [ @.str.260, %412 ], [ @.str.374, %414 ], [ @.str.369, %413 ], [ @.str.260, %410 ], [ %switch.load, %switch.lookup ]
-  %.0131.i.i = phi ptr [ @.str.260, %401 ], [ @.str.375, %415 ], [ @.str.375, %417 ], [ @.str.375, %416 ], [ @.str.373, %412 ], [ @.str.373, %414 ], [ @.str.373, %413 ], [ @.str.368, %410 ], [ @.str.368, %switch.lookup ]
+  %.0132.i.i = phi ptr [ @.str.260, %401 ], [ @.str.260, %410 ], [ @.str.260, %412 ], [ @.str.369, %413 ], [ @.str.374, %414 ], [ @.str.260, %415 ], [ @.str.376, %416 ], [ @.str.377, %417 ], [ %switch.load, %switch.lookup ]
+  %.0131.i.i = phi ptr [ @.str.260, %401 ], [ @.str.368, %410 ], [ @.str.373, %412 ], [ @.str.373, %413 ], [ @.str.373, %414 ], [ @.str.375, %415 ], [ @.str.375, %416 ], [ @.str.375, %417 ], [ @.str.368, %switch.lookup ]
   %420 = load i32, ptr @hf_dcm_assoc_reject_result, align 4
   %421 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %342, i32 noundef %420, ptr noundef %0, i32 noundef %402, i32 noundef 1, i32 noundef %408, ptr noundef nonnull @.str.306, ptr noundef nonnull %switch.select136.i.i)
   %422 = load i32, ptr @hf_dcm_assoc_reject_source, align 4
@@ -7921,8 +7921,8 @@ switch.lookup199:                                 ; preds = %447
   br label %450
 
 450:                                              ; preds = %switch.lookup199, %447, %446, %440
-  %.0134.i.i = phi ptr [ @.str.260, %440 ], [ @.str.382, %447 ], [ @.str.368, %446 ], [ @.str.382, %switch.lookup199 ]
-  %.0133.i.i = phi ptr [ @.str.260, %440 ], [ @.str.260, %447 ], [ @.str.381, %446 ], [ %switch.load201, %switch.lookup199 ]
+  %.0134.i.i = phi ptr [ @.str.260, %440 ], [ @.str.368, %446 ], [ @.str.382, %447 ], [ @.str.382, %switch.lookup199 ]
+  %.0133.i.i = phi ptr [ @.str.260, %440 ], [ @.str.381, %446 ], [ @.str.260, %447 ], [ %switch.load201, %switch.lookup199 ]
   %451 = load i32, ptr @hf_dcm_assoc_abort_source, align 4
   %452 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %342, i32 noundef %451, ptr noundef %0, i32 noundef %441, i32 noundef 1, i32 noundef %445, ptr noundef nonnull @.str.306, ptr noundef nonnull %.0134.i.i)
   %453 = load i32, ptr @hf_dcm_assoc_abort_reason, align 4
@@ -7952,14 +7952,14 @@ switch.lookup199:                                 ; preds = %447
   br label %470
 
 470:                                              ; preds = %467, %419, %372, %343
-  %.0129.i.i = phi ptr [ %.1.i51.i, %467 ], [ %433, %419 ], [ %398, %372 ], [ %369, %343 ]
-  %.0.i52.i = phi i32 [ %456, %467 ], [ %427, %419 ], [ %400, %372 ], [ %371, %343 ]
+  %.0129.i.i = phi ptr [ %369, %343 ], [ %398, %372 ], [ %433, %419 ], [ %.1.i51.i, %467 ]
+  %.0.i52.i = phi i32 [ %371, %343 ], [ %400, %372 ], [ %427, %419 ], [ %456, %467 ]
   %.not.i53.i = icmp eq ptr %.0129.i.i, null
   br i1 %.not.i53.i, label %dissect_dcm_assoc_header.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %470, %438, %436
-  %.0141.i.i = phi i32 [ %.0.i52.i, %470 ], [ %437, %436 ], [ %439, %438 ]
-  %.0129140.i.i = phi ptr [ %.0129.i.i, %470 ], [ @.str.379, %436 ], [ @.str.380, %438 ]
+  %.0141.i.i = phi i32 [ %.0.i52.i, %470 ], [ %439, %438 ], [ %437, %436 ]
+  %.0129140.i.i = phi ptr [ %.0129.i.i, %470 ], [ @.str.380, %438 ], [ @.str.379, %436 ]
   %471 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %471, ptr noundef nonnull @.str.306, ptr noundef nonnull %.0129140.i.i)
   %472 = load ptr, ptr %25, align 8
@@ -10998,7 +10998,7 @@ dissect_dcm_assoc_role_selection.exit.i:          ; preds = %122, %96
   br label %dissect_dcm_assoc_async_negotiation.exit.i
 
 dissect_dcm_assoc_async_negotiation.exit.i:       ; preds = %265, %254, %225, %221, %216, %210, %209, %205, %192, %dissect_dcm_assoc_role_selection.exit.i, %95, %92, %68, %62, %56
-  %.184.i = phi i8 [ %.0831.i, %265 ], [ %.0831.i, %dissect_dcm_assoc_role_selection.exit.i ], [ 0, %68 ], [ 0, %62 ], [ 0, %56 ], [ %.0831.i, %92 ], [ %.0831.i, %95 ], [ %.0831.i, %192 ], [ %.0831.i, %205 ], [ %.0831.i, %209 ], [ %.0831.i, %210 ], [ %.0831.i, %216 ], [ %.0831.i, %221 ], [ %.0831.i, %225 ], [ %.0831.i, %254 ]
+  %.184.i = phi i8 [ %.0831.i, %265 ], [ 0, %56 ], [ 0, %62 ], [ 0, %68 ], [ %.0831.i, %dissect_dcm_assoc_role_selection.exit.i ], [ %.0831.i, %92 ], [ %.0831.i, %95 ], [ %.0831.i, %192 ], [ %.0831.i, %205 ], [ %.0831.i, %209 ], [ %.0831.i, %210 ], [ %.0831.i, %216 ], [ %.0831.i, %221 ], [ %.0831.i, %225 ], [ %.0831.i, %254 ]
   %.pn.i = zext i16 %50 to i32
   %.1.i = add i32 %51, %.pn.i
   %279 = icmp ult i32 %.1.i, %33
@@ -11261,8 +11261,8 @@ dcm_set_syntax.exit.us:                           ; preds = %.lr.ph.split.us
   br label %76
 
 76:                                               ; preds = %73, %dcm_set_syntax.exit.us, %.lr.ph.split.us
-  %.198.us = phi i32 [ %.0975.us, %dcm_set_syntax.exit.us ], [ %75, %73 ], [ %.0975.us, %.lr.ph.split.us ]
-  %.1.us = phi i32 [ %72, %dcm_set_syntax.exit.us ], [ %.06.us, %73 ], [ %.06.us, %.lr.ph.split.us ]
+  %.198.us = phi i32 [ %75, %73 ], [ %.0975.us, %dcm_set_syntax.exit.us ], [ %.0975.us, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %.06.us, %73 ], [ %72, %dcm_set_syntax.exit.us ], [ %.06.us, %.lr.ph.split.us ]
   %.pn.us = zext i16 %69 to i32
   %.1103.us = add i32 %70, %.pn.us
   %77 = icmp ult i32 %.1103.us, %13
@@ -11355,8 +11355,8 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   br label %121
 
 121:                                              ; preds = %.lr.ph.split, %dcm_set_syntax.exit, %82
-  %.198 = phi i32 [ %.0975, %dcm_set_syntax.exit ], [ %84, %82 ], [ %.0975, %.lr.ph.split ]
-  %.1 = phi i32 [ %120, %dcm_set_syntax.exit ], [ %.06, %82 ], [ %.06, %.lr.ph.split ]
+  %.198 = phi i32 [ %84, %82 ], [ %.0975, %dcm_set_syntax.exit ], [ %.0975, %.lr.ph.split ]
+  %.1 = phi i32 [ %.06, %82 ], [ %120, %dcm_set_syntax.exit ], [ %.06, %.lr.ph.split ]
   %.pn = zext i16 %80 to i32
   %.1103 = add i32 %81, %.pn
   %122 = icmp ult i32 %.1103, %13

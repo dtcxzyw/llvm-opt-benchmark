@@ -174,7 +174,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$planus..errors..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c683f96fb52c656E.exit"
 
 "_ZN62_$LT$planus..errors..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c683f96fb52c656E.exit": ; preds = %9, %11, %13, %16, %19, %22, %25, %27
-  %.sroa.0.0.in.i = phi i1 [ %28, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %26, %25 ], [ %28, %27 ]
   ret i1 %.sroa.0.0.in.i
 }
 

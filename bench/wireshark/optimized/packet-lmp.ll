@@ -803,7 +803,7 @@ switch.early.test:                                ; preds = %14
   br label %lmp_msg_to_filter_num.exit
 
 lmp_msg_to_filter_num.exit:                       ; preds = %14, %switch.early.test, %34, %35, %36, %37, %38
-  %.0.i = phi i32 [ 37, %38 ], [ 36, %37 ], [ 35, %36 ], [ 34, %35 ], [ 33, %34 ], [ 32, %switch.early.test ], [ %12, %14 ]
+  %.0.i = phi i32 [ 33, %34 ], [ 34, %35 ], [ 35, %36 ], [ 36, %37 ], [ 37, %38 ], [ 32, %switch.early.test ], [ %12, %14 ]
   %39 = zext nneg i32 %.0.i to i64
   %40 = getelementptr [192 x i32], ptr @hf_lmp_filter, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
@@ -957,8 +957,8 @@ lmp_valid_class.exit.thread:                      ; preds = %proto_item_set_gene
   %106 = zext nneg i32 %105 to i64
   br label %lmp_valid_class.exit.thread.i
 
-lmp_valid_class.exit:                             ; preds = %proto_item_set_generated.exit, %100, %101, %102, %103, %104
-  %.0.i1114.ph.ph = phi i64 [ 62, %104 ], [ 61, %103 ], [ 60, %102 ], [ 59, %101 ], [ 58, %100 ], [ 57, %proto_item_set_generated.exit ]
+lmp_valid_class.exit:                             ; preds = %proto_item_set_generated.exit, %104, %103, %102, %101, %100
+  %.0.i1114.ph.ph = phi i64 [ 58, %100 ], [ 59, %101 ], [ 60, %102 ], [ 61, %103 ], [ 62, %104 ], [ 57, %proto_item_set_generated.exit ]
   %107 = and i32 %91, 254
   %or.cond3.i = icmp ne i32 %107, 20
   %108 = icmp ne i8 %87, 22
@@ -1500,7 +1500,7 @@ lmp_class_to_subtree.exit:                        ; preds = %lmp_valid_class.exi
   br label %414
 
 414:                                              ; preds = %411, %402, %390, %379
-  %.01050 = phi i32 [ %373, %411 ], [ 12, %402 ], [ 36, %390 ], [ 12, %379 ]
+  %.01050 = phi i32 [ %373, %411 ], [ 12, %379 ], [ 36, %390 ], [ 12, %402 ]
   %415 = icmp slt i32 %.01050, %134
   br i1 %415, label %.lr.ph1186, label %.thread1137
 
@@ -1681,7 +1681,7 @@ switch.lookup:                                    ; preds = %485
   br label %529
 
 529:                                              ; preds = %525, %520, %509, %497
-  %.4 = phi i32 [ %.31181, %525 ], [ %524, %520 ], [ %515, %509 ], [ %503, %497 ]
+  %.4 = phi i32 [ %.31181, %525 ], [ %503, %497 ], [ %515, %509 ], [ %524, %520 ]
   %530 = icmp eq i32 %.4, %134
   br i1 %530, label %.thread1137, label %531
 

@@ -350,7 +350,7 @@ default.unreachable7:                             ; preds = %2
   br i1 %43, label %44, label %53
 
 44:                                               ; preds = %42, %40, %53, %45, %32, %24, %16, %14
-  %.0.shrunk = phi i1 [ %55, %53 ], [ %52, %45 ], [ %39, %32 ], [ %31, %24 ], [ %23, %16 ], [ %15, %14 ], [ true, %40 ], [ true, %42 ]
+  %.0.shrunk = phi i1 [ %15, %14 ], [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %52, %45 ], [ %55, %53 ], [ true, %40 ], [ true, %42 ]
   ret i1 %.0.shrunk
 
 45:                                               ; preds = %40
@@ -820,7 +820,7 @@ _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread57: ; preds = %24, 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
 
 _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit: ; preds = %169, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03981213a55c5436E.exit.i.i"
-  %.0.i.i = phi ptr [ %.0.i18.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03981213a55c5436E.exit.i.i" ], [ %171, %169 ]
+  %.0.i.i = phi ptr [ %171, %169 ], [ %.0.i18.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03981213a55c5436E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !64
   %.not64 = icmp eq ptr %.0.i.i, null
   br i1 %.not64, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %207
@@ -1337,7 +1337,7 @@ _ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62: ; preds
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
 
 _ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit: ; preds = %355, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit.i.i"
-  %.0.i.i2 = phi ptr [ %.0.i20.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit.i.i" ], [ %357, %355 ]
+  %.0.i.i2 = phi ptr [ %357, %355 ], [ %.0.i20.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !135
   %.not = icmp eq ptr %.0.i.i2, null
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %421
@@ -1541,7 +1541,7 @@ default.unreachable1:                             ; preds = %4
   br label %12
 
 12:                                               ; preds = %4, %1, %7, %11
-  %.0 = phi i1 [ false, %11 ], [ %10, %7 ], [ false, %1 ], [ true, %4 ]
+  %.0 = phi i1 [ %10, %7 ], [ false, %11 ], [ false, %1 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -1656,8 +1656,8 @@ default.unreachable1:                             ; preds = %4
   br label %16
 
 16:                                               ; preds = %1, %8, %11, %14
-  %.sroa.5.0 = phi double [ %15, %14 ], [ %13, %11 ], [ %10, %8 ], [ undef, %1 ]
-  %.sroa.0.0 = phi i64 [ 1, %14 ], [ 1, %11 ], [ 1, %8 ], [ 0, %1 ]
+  %.sroa.5.0 = phi double [ %10, %8 ], [ %13, %11 ], [ %15, %14 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 1, %11 ], [ 1, %14 ], [ 0, %1 ]
   %17 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, double } %17, double %.sroa.5.0, 1
   ret { i64, double } %18
@@ -3192,7 +3192,7 @@ default.unreachable:                              ; preds = %6
   br label %_ZN10serde_json6number6Number6as_f3217h6ff4b83fc8296096E.exit.i
 
 _ZN10serde_json6number6Number6as_f3217h6ff4b83fc8296096E.exit.i: ; preds = %16, %13, %10
-  %.sroa.4.0.i.i = phi float [ %18, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.sroa.4.0.i.i = phi float [ %12, %10 ], [ %15, %13 ], [ %18, %16 ]
   %19 = fcmp oeq float %.sroa.4.0.i.i, %3
   br label %_ZN10serde_json5value10partial_eq6eq_f3217hd6f5973cff5eeefbE.exit
 
@@ -3238,7 +3238,7 @@ default.unreachable:                              ; preds = %7
   br label %_ZN10serde_json6number6Number6as_f3217h6ff4b83fc8296096E.exit.i
 
 _ZN10serde_json6number6Number6as_f3217h6ff4b83fc8296096E.exit.i: ; preds = %17, %14, %11
-  %.sroa.4.0.i.i = phi float [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.4.0.i.i = phi float [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
   %20 = fcmp oeq float %.sroa.4.0.i.i, %4
   br label %_ZN10serde_json5value10partial_eq6eq_f3217hd6f5973cff5eeefbE.exit
 
@@ -3284,7 +3284,7 @@ default.unreachable:                              ; preds = %7
   br label %_ZN10serde_json6number6Number6as_f3217h6ff4b83fc8296096E.exit.i
 
 _ZN10serde_json6number6Number6as_f3217h6ff4b83fc8296096E.exit.i: ; preds = %17, %14, %11
-  %.sroa.4.0.i.i = phi float [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.4.0.i.i = phi float [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
   %20 = fcmp oeq float %.sroa.4.0.i.i, %4
   br label %_ZN10serde_json5value10partial_eq6eq_f3217hd6f5973cff5eeefbE.exit
 
@@ -3328,7 +3328,7 @@ default.unreachable:                              ; preds = %6
   br label %_ZN10serde_json5value5Value6as_f6417h388c3cdb4fcc20e2E.exit.thread.i
 
 _ZN10serde_json5value5Value6as_f6417h388c3cdb4fcc20e2E.exit.thread.i: ; preds = %16, %13, %10
-  %.sroa.5.0.i.ph.i = phi double [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
+  %.sroa.5.0.i.ph.i = phi double [ %17, %16 ], [ %15, %13 ], [ %12, %10 ]
   %18 = fcmp oeq double %.sroa.5.0.i.ph.i, %3
   br label %_ZN10serde_json5value10partial_eq6eq_f6417h73bb8e405b9386e5E.exit
 
@@ -3373,7 +3373,7 @@ default.unreachable:                              ; preds = %7
   br label %_ZN10serde_json5value5Value6as_f6417h388c3cdb4fcc20e2E.exit.thread.i
 
 _ZN10serde_json5value5Value6as_f6417h388c3cdb4fcc20e2E.exit.thread.i: ; preds = %17, %14, %11
-  %.sroa.5.0.i.ph.i = phi double [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
+  %.sroa.5.0.i.ph.i = phi double [ %18, %17 ], [ %16, %14 ], [ %13, %11 ]
   %19 = fcmp oeq double %.sroa.5.0.i.ph.i, %4
   br label %_ZN10serde_json5value10partial_eq6eq_f6417h73bb8e405b9386e5E.exit
 
@@ -3418,7 +3418,7 @@ default.unreachable:                              ; preds = %7
   br label %_ZN10serde_json5value5Value6as_f6417h388c3cdb4fcc20e2E.exit.thread.i
 
 _ZN10serde_json5value5Value6as_f6417h388c3cdb4fcc20e2E.exit.thread.i: ; preds = %17, %14, %11
-  %.sroa.5.0.i.ph.i = phi double [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
+  %.sroa.5.0.i.ph.i = phi double [ %18, %17 ], [ %16, %14 ], [ %13, %11 ]
   %19 = fcmp oeq double %.sroa.5.0.i.ph.i, %4
   br label %_ZN10serde_json5value10partial_eq6eq_f6417h73bb8e405b9386e5E.exit
 

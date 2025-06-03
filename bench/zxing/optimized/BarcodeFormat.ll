@@ -689,7 +689,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge.loopexit.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %57, %._crit_edge.loopexit.i.i.i.i ], [ %66, %65 ]
+  %.1.i.i.i.i = phi ptr [ %66, %65 ], [ %57, %._crit_edge.loopexit.i.i.i.i ]
   %68 = getelementptr i8, ptr %.1.i.i.i.i, i64 8
   %.1.val.i.i.i.i = load i64, ptr %68, align 8, !tbaa !19
   %69 = getelementptr i8, ptr %.1.i.i.i.i, i64 16
@@ -705,7 +705,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.loopexit.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %57, %._crit_edge.loopexit.i.i.i.i ], [ %72, %71 ]
+  %.2.i.i.i.i = phi ptr [ %72, %71 ], [ %57, %._crit_edge.loopexit.i.i.i.i ]
   %74 = getelementptr i8, ptr %.2.i.i.i.i, i64 8
   %.2.val.i.i.i.i = load i64, ptr %74, align 8, !tbaa !19
   %75 = getelementptr i8, ptr %.2.i.i.i.i, i64 16
@@ -1067,7 +1067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i
-  %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %43, %42 ]
+  %.sroa.038.1.i.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i24.i.i.i.i = load i8, ptr %.sroa.038.1.i.i.i.i, align 1, !tbaa !18
   %45 = sext i8 %.val.i24.i.i.i.i to i32
   %memchr.i.i.i.i.i25.i.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.31, i32 %45, i64 5)
@@ -1079,7 +1079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i
-  %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %.sroa.038.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i26.i.i.i.i = load i8, ptr %.sroa.038.2.i.i.i.i, align 1, !tbaa !18
   %49 = sext i8 %.val.i26.i.i.i.i to i32
   %memchr.i.i.i.i.i27.i.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.31, i32 %49, i64 5)

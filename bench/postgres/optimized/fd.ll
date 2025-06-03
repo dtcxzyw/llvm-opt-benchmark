@@ -3407,7 +3407,7 @@ define internal fastcc i32 @FreeDesc(ptr noundef captures(none) %0) unnamed_addr
   unreachable
 
 22:                                               ; preds = %15, %11, %7, %3
-  %.0 = phi i32 [ %18, %15 ], [ %14, %11 ], [ %10, %7 ], [ %6, %3 ]
+  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ]
   %23 = load i32, ptr @numAllocatedDescs, align 4
   %24 = add i32 %23, -1
   store i32 %24, ptr @numAllocatedDescs, align 4

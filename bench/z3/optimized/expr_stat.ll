@@ -307,7 +307,7 @@ _ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit:   ; preds = %98, %101
   ret void
 
 105:                                              ; preds = %25, %63, %93
-  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %94, %93 ], [ %64, %63 ]
+  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %64, %63 ], [ %94, %93 ]
   call void @_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #10
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %3) #10
   resume { ptr, i32 } %.pn.pn
@@ -572,7 +572,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %76, %78
   ret i32 %14
 
 82:                                               ; preds = %45, %69
-  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %46, %45 ]
+  %.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %70, %69 ]
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %1) #10
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #10
   resume { ptr, i32 } %.pn.pn

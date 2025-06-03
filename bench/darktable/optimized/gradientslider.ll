@@ -3413,7 +3413,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   br i1 %exitcond137.not, label %.loopexit, label %130
 
 .loopexit:                                        ; preds = %130, %.preheader, %65, %67, %54, %56, %50, %61, %DTGTK_GRADIENT_SLIDER.exit
-  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %61 ], [ %2, %50 ], [ %55, %54 ], [ %60, %56 ], [ %66, %65 ], [ %71, %67 ], [ %105, %.preheader ], [ %105, %130 ]
+  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %50 ], [ %2, %61 ], [ %55, %54 ], [ %60, %56 ], [ %66, %65 ], [ %71, %67 ], [ %105, %.preheader ], [ %105, %130 ]
   %138 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %139 = sext i32 %1 to i64
   %140 = getelementptr inbounds [10 x double], ptr %138, i64 0, i64 %139

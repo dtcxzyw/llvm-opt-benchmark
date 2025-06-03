@@ -4484,7 +4484,7 @@ _ZN4llvm5APIntD2Ev.exit42:                        ; preds = %_ZN4llvm5APIntD2Ev.
   unreachable
 
 select.unfold:                                    ; preds = %51, %55, %45, %43, %37, %26, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit27, %_ZN4llvm5APIntD2Ev.exit42, %_ZN4llvm5APIntD2Ev.exit40, %_ZN4llvm5APIntD2Ev.exit38, %_ZN4llvm5APIntD2Ev.exit36, %_ZN4llvm5APIntD2Ev.exit34, %_ZN4llvm5APIntD2Ev.exit32, %_ZN4llvm5APIntD2Ev.exit30, %_ZN4llvm5APIntD2Ev.exit28, %_ZN4llvm13ConstantRangeD2Ev.exit
-  %.019 = phi i1 [ %195, %_ZN4llvm5APIntD2Ev.exit42 ], [ %178, %_ZN4llvm5APIntD2Ev.exit40 ], [ %161, %_ZN4llvm5APIntD2Ev.exit38 ], [ %144, %_ZN4llvm5APIntD2Ev.exit36 ], [ %127, %_ZN4llvm5APIntD2Ev.exit34 ], [ %110, %_ZN4llvm5APIntD2Ev.exit32 ], [ %93, %_ZN4llvm5APIntD2Ev.exit30 ], [ %76, %_ZN4llvm5APIntD2Ev.exit28 ], [ %58, %_ZN4llvm13ConstantRangeD2Ev.exit ], [ true, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit27 ], [ true, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit ], [ true, %26 ], [ true, %37 ], [ false, %43 ], [ false, %45 ], [ %56, %55 ], [ %54, %51 ]
+  %.019 = phi i1 [ %58, %_ZN4llvm13ConstantRangeD2Ev.exit ], [ %76, %_ZN4llvm5APIntD2Ev.exit28 ], [ %93, %_ZN4llvm5APIntD2Ev.exit30 ], [ %110, %_ZN4llvm5APIntD2Ev.exit32 ], [ %127, %_ZN4llvm5APIntD2Ev.exit34 ], [ %144, %_ZN4llvm5APIntD2Ev.exit36 ], [ %161, %_ZN4llvm5APIntD2Ev.exit38 ], [ %178, %_ZN4llvm5APIntD2Ev.exit40 ], [ %195, %_ZN4llvm5APIntD2Ev.exit42 ], [ true, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit27 ], [ true, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit ], [ true, %26 ], [ true, %37 ], [ false, %43 ], [ false, %45 ], [ %56, %55 ], [ %54, %51 ]
   ret i1 %.019
 }
 

@@ -669,7 +669,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN175_$LT$ty_python_semantic..lin
   br label %26
 
 19:                                               ; preds = %2, %24, %22, %14
-  %.sroa.111.0 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %15, %14 ], [ %.sroa.530.0.extract.trunc, %2 ]
+  %.sroa.111.0 = phi i32 [ %15, %14 ], [ %23, %22 ], [ %25, %24 ], [ %.sroa.530.0.extract.trunc, %2 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   br label %26

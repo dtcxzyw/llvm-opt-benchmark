@@ -117,7 +117,7 @@ define void @ff_sobel_8(i32 noundef %0, i32 noundef %1, ptr noundef writeonly ca
   br label %get_rounded_direction.exit.us
 
 get_rounded_direction.exit.us:                    ; preds = %76, %73, %70, %60
-  %.1.i.us = phi i8 [ 1, %73 ], [ 3, %76 ], [ 2, %70 ], [ 0, %60 ]
+  %.1.i.us = phi i8 [ 3, %76 ], [ 1, %73 ], [ 2, %70 ], [ 0, %60 ]
   %77 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   store i8 %.1.i.us, ptr %77, align 1, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -519,7 +519,7 @@ define void @ff_sobel_16(i32 noundef %0, i32 noundef %1, ptr noundef writeonly c
   br label %get_rounded_direction.exit.us
 
 get_rounded_direction.exit.us:                    ; preds = %79, %76, %73, %63
-  %.1.i.us = phi i8 [ 1, %76 ], [ 3, %79 ], [ 2, %73 ], [ 0, %63 ]
+  %.1.i.us = phi i8 [ 3, %79 ], [ 1, %76 ], [ 2, %73 ], [ 0, %63 ]
   %80 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   store i8 %.1.i.us, ptr %80, align 1, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -95091,7 +95091,7 @@ define noundef nonnull ptr @_ZN11processor_t20get_privilege_stringEv(ptr noundef
   unreachable
 
 20:                                               ; preds = %13, %11, %1, %15, %14, %12
-  %.0 = phi ptr [ @.str.8, %12 ], [ @.str.11, %15 ], [ @.str.10, %14 ], [ @.str.6, %1 ], [ @.str.7, %11 ], [ @.str.9, %13 ]
+  %.0 = phi ptr [ @.str.8, %12 ], [ @.str.10, %14 ], [ @.str.11, %15 ], [ @.str.6, %1 ], [ @.str.7, %11 ], [ @.str.9, %13 ]
   ret ptr %.0
 }
 
@@ -97813,7 +97813,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP11insn
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i
-  %.sroa.050.1.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i, %._crit_edge.i.i ], [ %39, %38 ]
+  %.sroa.050.1.i.i = phi ptr [ %39, %38 ], [ %.sroa.050.0.lcssa.i.i, %._crit_edge.i.i ]
   %.val1.i30.i.i = load i64, ptr %.sroa.050.1.i.i, align 8, !tbaa !351
   %41 = getelementptr i8, ptr %.sroa.050.1.i.i, i64 8
   %.val2.i31.i.i = load i64, ptr %41, align 8, !tbaa !353
@@ -97826,7 +97826,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP11insn
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i
-  %.sroa.050.2.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i, %._crit_edge.i.i ], [ %45, %44 ]
+  %.sroa.050.2.i.i = phi ptr [ %45, %44 ], [ %.sroa.050.0.lcssa.i.i, %._crit_edge.i.i ]
   %.val1.i32.i.i = load i64, ptr %.sroa.050.2.i.i, align 8, !tbaa !351
   %47 = getelementptr i8, ptr %.sroa.050.2.i.i, i64 8
   %.val2.i33.i.i = load i64, ptr %47, align 8, !tbaa !353

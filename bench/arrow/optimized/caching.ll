@@ -2931,7 +2931,7 @@ define linkonce_odr void @_ZN5arrow2io8internal14ReadRangeCache4Impl7WaitForESt6
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !78
   %49 = icmp eq i64 %48, 0
@@ -2942,7 +2942,7 @@ define linkonce_odr void @_ZN5arrow2io8internal14ReadRangeCache4Impl7WaitForESt6
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %51, %50 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i.i, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !78
   %55 = icmp eq i64 %54, 0

@@ -6244,7 +6244,7 @@ dissect_segment_safety.exit.i:                    ; preds = %807, %806, %584, %5
   br label %proto_item_set_generated.exit71.i
 
 proto_item_set_generated.exit71.i:                ; preds = %809, %dissect_segment_safety.exit.i, %dissect_segment_network_extended.exit.i, %dissect_segment_network_production_inhibit_us.exit.i
-  %.0.i283 = phi i32 [ 0, %809 ], [ %808, %dissect_segment_safety.exit.i ], [ %.050.i.i, %dissect_segment_network_extended.exit.i ], [ %493, %dissect_segment_network_production_inhibit_us.exit.i ]
+  %.0.i283 = phi i32 [ 0, %809 ], [ %493, %dissect_segment_network_production_inhibit_us.exit.i ], [ %.050.i.i, %dissect_segment_network_extended.exit.i ], [ %808, %dissect_segment_safety.exit.i ]
   br i1 %5, label %dissect_segment_port.exit, label %proto_item_set_generated.exit71.thread90.i
 
 proto_item_set_generated.exit71.thread90.sink.split.i: ; preds = %449, %435, %421
@@ -6565,7 +6565,7 @@ proto_item_set_generated.exit143.i:               ; preds = %913, %909, %906, %9
   br label %962
 
 962:                                              ; preds = %.thread.i, %proto_item_set_generated.exit140.i, %proto_item_set_generated.exit137.i
-  %.0120.i = phi i32 [ %885, %proto_item_set_generated.exit140.i ], [ %867, %proto_item_set_generated.exit137.i ], [ %.1121.i, %.thread.i ]
+  %.0120.i = phi i32 [ %867, %proto_item_set_generated.exit137.i ], [ %885, %proto_item_set_generated.exit140.i ], [ %.1121.i, %.thread.i ]
   %963 = add nuw nsw i32 %.0120.i, 2
   br label %dissect_segment_symbolic.exit
 
@@ -6588,7 +6588,7 @@ dissect_segment_symbolic.exit.thread:             ; preds = %proto_item_set_gene
   br label %dissect_segment_port.exit
 
 dissect_segment_port.exit:                        ; preds = %254, %proto_item_set_generated.exit71.thread90.i, %proto_item_set_generated.exit71.i, %459, %456, %450, %445, %442, %436, %431, %428, %422, %401, %398, %.critedge255, %.critedge253, %.critedge251, %288, %245, %.critedge, %263, %270, %293, %291, %289, %246, %179, %proto_item_set_generated.exit134.i, %173, %170, %165, %dissect_segment_data_simple.exit, %966, %dissect_segment_symbolic.exit, %967, %dissect_segment_symbolic.exit.thread, %402, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %967 ], [ 0, %dissect_segment_symbolic.exit.thread ], [ 0, %402 ], [ %964, %966 ], [ %964, %dissect_segment_symbolic.exit ], [ %321, %dissect_segment_data_simple.exit ], [ %.1.i, %165 ], [ %.1.i, %170 ], [ %.1.i, %173 ], [ %.1.i, %proto_item_set_generated.exit134.i ], [ %.1.i, %179 ], [ 0, %.critedge255 ], [ %261, %254 ], [ 0, %.critedge253 ], [ 0, %.critedge251 ], [ %261, %263 ], [ %261, %270 ], [ %216, %.critedge ], [ %236, %245 ], [ %253, %246 ], [ %279, %288 ], [ %290, %289 ], [ %292, %291 ], [ %297, %293 ], [ %.pre47.i, %398 ], [ %.pre47.i, %401 ], [ %.092.i, %proto_item_set_generated.exit71.thread90.i ], [ %.0.i283, %proto_item_set_generated.exit71.i ], [ 2, %459 ], [ 2, %456 ], [ 2, %450 ], [ 2, %445 ], [ 2, %442 ], [ 2, %436 ], [ 2, %431 ], [ 2, %428 ], [ 2, %422 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %967 ], [ 0, %402 ], [ 0, %dissect_segment_symbolic.exit.thread ], [ %321, %dissect_segment_data_simple.exit ], [ %964, %966 ], [ %964, %dissect_segment_symbolic.exit ], [ %.1.i, %165 ], [ %.1.i, %170 ], [ %.1.i, %173 ], [ %.1.i, %proto_item_set_generated.exit134.i ], [ %.1.i, %179 ], [ 0, %.critedge255 ], [ %261, %254 ], [ 0, %.critedge253 ], [ 0, %.critedge251 ], [ %261, %263 ], [ %261, %270 ], [ %297, %293 ], [ %292, %291 ], [ %290, %289 ], [ %279, %288 ], [ %253, %246 ], [ %236, %245 ], [ %216, %.critedge ], [ %.pre47.i, %398 ], [ %.pre47.i, %401 ], [ %.092.i, %proto_item_set_generated.exit71.thread90.i ], [ %.0.i283, %proto_item_set_generated.exit71.i ], [ 2, %459 ], [ 2, %456 ], [ 2, %450 ], [ 2, %445 ], [ 2, %442 ], [ 2, %436 ], [ 2, %431 ], [ 2, %428 ], [ 2, %422 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
   ret i32 %.0
 }
@@ -6866,7 +6866,7 @@ default.unreachable:                              ; preds = %proto_item_set_gene
   br label %126
 
 124:                                              ; preds = %64, %120, %121, %92, %93
-  %.0135 = phi i32 [ %.2137, %121 ], [ %.2137, %120 ], [ %.1136, %93 ], [ %.1136, %92 ], [ %spec.select150, %64 ]
+  %.0135 = phi i32 [ %.1136, %93 ], [ %.1136, %92 ], [ %.2137, %121 ], [ %.2137, %120 ], [ %spec.select150, %64 ]
   br i1 %3, label %126, label %125
 
 125:                                              ; preds = %124
@@ -7227,9 +7227,9 @@ define hidden i32 @dissect_cip_string_type(ptr noundef %0, ptr noundef %1, ptr n
   br label %19
 
 19:                                               ; preds = %15, %12, %9
-  %.029 = phi i32 [ 2, %15 ], [ 2, %12 ], [ 1, %9 ]
-  %.028 = phi i32 [ %18, %15 ], [ %14, %12 ], [ %11, %9 ]
-  %.027 = phi i32 [ -2147483642, %15 ], [ 0, %12 ], [ 0, %9 ]
+  %.029 = phi i32 [ 1, %9 ], [ 2, %12 ], [ 2, %15 ]
+  %.028 = phi i32 [ %11, %9 ], [ %14, %12 ], [ %18, %15 ]
+  %.027 = phi i32 [ 0, %9 ], [ 0, %12 ], [ -2147483642, %15 ]
   %20 = add nuw nsw i32 %.028, %.029
   %21 = icmp slt i32 %8, %20
   br i1 %21, label %22, label %24
@@ -7533,7 +7533,7 @@ dissect_cip_date.exit:                            ; preds = %117, %119
   br label %dissect_cip_string_type.exit
 
 dissect_cip_string_type.exit:                     ; preds = %.lr.ph, %.lr.ph120, %.preheader116, %.preheader, %144, %142, %70, %68, %57, %55, %.thread115, %149, %147, %123, %dissect_cip_date.exit, %101, %93, %dissect_cip_date_and_time.exit, %47, %44, %31, %28, %25
-  %.0 = phi i32 [ 0, %25 ], [ %6, %149 ], [ %148, %147 ], [ 4, %123 ], [ 2, %dissect_cip_date.exit ], [ 8, %101 ], [ 8, %93 ], [ 6, %dissect_cip_date_and_time.exit ], [ 8, %47 ], [ 4, %44 ], [ 2, %31 ], [ 1, %28 ], [ %spec.select, %.thread115 ], [ %52, %55 ], [ %58, %57 ], [ %63, %68 ], [ %66, %70 ], [ %136, %142 ], [ %140, %144 ], [ %6, %.preheader ], [ 0, %.preheader116 ], [ %6, %.lr.ph120 ], [ %42, %.lr.ph ]
+  %.0 = phi i32 [ 0, %25 ], [ 1, %28 ], [ 2, %31 ], [ 4, %44 ], [ 8, %47 ], [ 6, %dissect_cip_date_and_time.exit ], [ 8, %93 ], [ 8, %101 ], [ 2, %dissect_cip_date.exit ], [ 4, %123 ], [ %148, %147 ], [ %6, %149 ], [ %spec.select, %.thread115 ], [ %52, %55 ], [ %58, %57 ], [ %63, %68 ], [ %66, %70 ], [ %136, %142 ], [ %140, %144 ], [ %6, %.preheader ], [ 0, %.preheader116 ], [ %6, %.lr.ph120 ], [ %42, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -8844,7 +8844,7 @@ cip_get_attribute.exit.i:                         ; preds = %282, %299, %.prehea
   br label %dissect_cip_set_attribute_single_req.exit
 
 dissect_cip_set_attribute_single_req.exit:        ; preds = %308, %314, %cip_get_attribute.exit.i, %.split39.us.i.i, %262, %317, %259, %256, %253, %237
-  %.0.i209 = phi i32 [ 0, %237 ], [ 1, %317 ], [ %261, %259 ], [ %258, %256 ], [ %255, %253 ], [ %316, %314 ], [ 0, %cip_get_attribute.exit.i ], [ 0, %.split39.us.i.i ], [ 0, %262 ], [ 0, %308 ]
+  %.0.i209 = phi i32 [ 0, %237 ], [ %255, %253 ], [ %258, %256 ], [ %261, %259 ], [ 1, %317 ], [ %316, %314 ], [ 0, %cip_get_attribute.exit.i ], [ 0, %.split39.us.i.i ], [ 0, %262 ], [ 0, %308 ]
   %320 = add i32 %.0.i209, %248
   %321 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %320)
   %322 = icmp sgt i32 %321, 0
@@ -9700,7 +9700,7 @@ dissect_cip_find_next_object_rsp.exit:            ; preds = %210, %.loopexit.i
   br label %dissect_cip_get_attribute_single_rsp.exit
 
 dissect_cip_get_attribute_single_rsp.exit:        ; preds = %196, %202, %cip_get_attribute.exit.i76, %.split39.us.i.i71, %148, %34, %232, %dissect_cip_find_next_object_rsp.exit, %145, %142, %139, %dissect_cip_get_attribute_list_rsp.exit, %35
-  %.060 = phi i32 [ 0, %34 ], [ 1, %232 ], [ %.020.i, %dissect_cip_find_next_object_rsp.exit ], [ %147, %145 ], [ 2, %142 ], [ %141, %139 ], [ %.0.i, %dissect_cip_get_attribute_list_rsp.exit ], [ %36, %35 ], [ %205, %202 ], [ 0, %cip_get_attribute.exit.i76 ], [ 0, %.split39.us.i.i71 ], [ 0, %148 ], [ 0, %196 ]
+  %.060 = phi i32 [ 0, %34 ], [ %36, %35 ], [ %.0.i, %dissect_cip_get_attribute_list_rsp.exit ], [ %141, %139 ], [ 2, %142 ], [ %147, %145 ], [ %.020.i, %dissect_cip_find_next_object_rsp.exit ], [ 1, %232 ], [ %205, %202 ], [ 0, %cip_get_attribute.exit.i76 ], [ 0, %.split39.us.i.i71 ], [ 0, %148 ], [ 0, %196 ]
   %235 = add i32 %.060, %14
   %236 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %235)
   %237 = icmp sgt i32 %236, 0
@@ -11494,7 +11494,7 @@ dissect_cip_cm_fwd_close_rsp_success.exit.i:      ; preds = %display_connection_
   br label %534
 
 534:                                              ; preds = %527, %.split.i, %499, %483, %dissect_cip_cm_fwd_close_rsp_success.exit.i, %dissect_cip_cm_fwd_open_rsp_success.exit.i, %209
-  %.0.i = phi i32 [ 12, %483 ], [ %.0.i335.i, %dissect_cip_cm_fwd_close_rsp_success.exit.i ], [ %.0.i325.i, %dissect_cip_cm_fwd_open_rsp_success.exit.i ], [ 2, %527 ], [ 10, %.split.i ], [ 0, %209 ], [ 0, %499 ]
+  %.0.i = phi i32 [ %.0.i325.i, %dissect_cip_cm_fwd_open_rsp_success.exit.i ], [ %.0.i335.i, %dissect_cip_cm_fwd_close_rsp_success.exit.i ], [ 12, %483 ], [ 10, %.split.i ], [ 2, %527 ], [ 0, %209 ], [ 0, %499 ]
   %535 = add nuw nsw i32 %.0.i, %205
   %536 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %535)
   %537 = icmp sgt i32 %536, 0
@@ -12949,7 +12949,7 @@ default.unreachable43:                            ; preds = %25
   unreachable
 
 36:                                               ; preds = %34, %30, %27
-  %.035 = phi i32 [ %35, %34 ], [ %32, %30 ], [ %29, %27 ]
+  %.035 = phi i32 [ %29, %27 ], [ %32, %30 ], [ %35, %34 ]
   %37 = icmp eq i32 %.035, 243
   br i1 %37, label %.thread.sink.split, label %.thread
 
@@ -12959,8 +12959,8 @@ default.unreachable43:                            ; preds = %25
   %39 = tail call i32 @call_dissector(ptr noundef %38, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %18, %21, %33, %25, %4, %36, %9, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %25 ], [ false, %33 ], [ false, %21 ], [ false, %18 ], [ true, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %18, %21, %25, %33, %4, %36, %9, %13
+  %.0 = phi i1 [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %33 ], [ false, %25 ], [ false, %21 ], [ false, %18 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

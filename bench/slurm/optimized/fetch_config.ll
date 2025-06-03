@@ -945,7 +945,7 @@ define dso_local ptr @fetch_config_from_controller(i32 noundef %0) local_unnamed
   br label %23
 
 23:                                               ; preds = %1, %13, %21, %16
-  %.0 = phi ptr [ null, %21 ], [ null, %16 ], [ %15, %13 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %21 ], [ %15, %13 ], [ null, %16 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %2) #12

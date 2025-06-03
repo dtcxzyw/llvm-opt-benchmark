@@ -2290,7 +2290,7 @@ sw.epilog:                                        ; preds = %do.body28, %do.body
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup108, %ehcleanup66, %ehcleanup25
-  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup108 ], [ %.pn.pn.pn.pn, %ehcleanup66 ], [ %.pn9.pn.pn.pn, %ehcleanup25 ]
+  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup108 ], [ %.pn9.pn.pn.pn, %ehcleanup25 ], [ %.pn.pn.pn.pn, %ehcleanup66 ]
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont92, %invoke.cont50, %invoke.cont15

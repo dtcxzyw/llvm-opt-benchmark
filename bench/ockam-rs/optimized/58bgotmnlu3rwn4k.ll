@@ -1271,10 +1271,10 @@ define hidden void @"_ZN166_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   call void @"_ZN5serde2de5impls81_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$11deserialize17h177c47b6ce38694aE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !253
   %9 = load i8, ptr %6, align 8, !range !114, !noalias !253, !noundef !115
   %trunc.i.i = trunc nuw i8 %9 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !253, !nonnull !115, !align !116
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.sroa.06.0.copyload.i.i = load i32, ptr %12, align 1, !noalias !253
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.sroa.06.0.copyload.i.i = load i32, ptr %10, align 1, !noalias !253
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !253, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !253
   br i1 %trunc.i.i, label %20, label %15
 
@@ -1294,7 +1294,7 @@ define hidden void @"_ZN166_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br i1 %19, label %25, label %22
 
 20:                                               ; preds = %8, %13
-  %.sink = phi ptr [ %14, %13 ], [ %11, %8 ]
+  %.sink = phi ptr [ %14, %13 ], [ %12, %8 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %21, align 8
   br label %30
@@ -1420,13 +1420,13 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h08d8666bd25130c6E.llvm.281566960213045120"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load i8, ptr %3, align 8, !range !114, !noundef !115
   %trunc = trunc nuw i8 %4 to i1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !115, !align !116
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1, !range !313
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1, !range !313
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %spec.select = select i1 %trunc, ptr %6, ptr %1
-  %spec.select10 = select i1 %trunc, i8 5, i8 %8
+  %spec.select = select i1 %trunc, ptr %8, ptr %1
+  %spec.select10 = select i1 %trunc, i8 5, i8 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %9, align 8
   store i8 %spec.select10, ptr %0, align 8
@@ -1440,13 +1440,13 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h70a42fbcc60a7938E.llvm.281566960213045120"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load i8, ptr %3, align 8, !range !114, !noundef !115
   %trunc = trunc nuw i8 %4 to i1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !115, !align !116
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1, !range !114
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1, !range !114
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %spec.select = select i1 %trunc, ptr %6, ptr %1
-  %spec.select10 = select i1 %trunc, i8 2, i8 %8
+  %spec.select = select i1 %trunc, ptr %8, ptr %1
+  %spec.select10 = select i1 %trunc, i8 2, i8 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %9, align 8
   store i8 %spec.select10, ptr %0, align 8
@@ -1460,13 +1460,13 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h92c7cf56f7b754baE.llvm.281566960213045120"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load i8, ptr %3, align 8, !range !114, !noundef !115
   %trunc = trunc nuw i8 %4 to i1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !115, !align !116
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1, !range !314
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1, !range !314
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %spec.select = select i1 %trunc, ptr %6, ptr %1
-  %spec.select10 = select i1 %trunc, i8 3, i8 %8
+  %spec.select = select i1 %trunc, ptr %8, ptr %1
+  %spec.select10 = select i1 %trunc, i8 3, i8 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %9, align 8
   store i8 %spec.select10, ptr %0, align 8
@@ -1480,13 +1480,13 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17hc8881c3d5d98e03dE.llvm.281566960213045120"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load i8, ptr %3, align 8, !range !114, !noundef !115
   %trunc = trunc nuw i8 %4 to i1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !115, !align !116
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1, !range !315
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1, !range !315
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %spec.select = select i1 %trunc, ptr %6, ptr %1
-  %spec.select10 = select i1 %trunc, i8 17, i8 %8
+  %spec.select = select i1 %trunc, ptr %8, ptr %1
+  %spec.select10 = select i1 %trunc, i8 17, i8 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %9, align 8
   store i8 %spec.select10, ptr %0, align 8
@@ -1606,13 +1606,13 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h0b9daa10e5bdb07eE.llvm.281566960213045120"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load i8, ptr %3, align 8, !range !114, !noundef !115
   %trunc = trunc nuw i8 %4 to i1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !115, !align !116
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1, !range !114
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1, !range !114
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %spec.select = select i1 %trunc, ptr %6, ptr %1
-  %spec.select10 = select i1 %trunc, i8 2, i8 %8
+  %spec.select = select i1 %trunc, ptr %8, ptr %1
+  %spec.select10 = select i1 %trunc, i8 2, i8 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %9, align 8
   store i8 %spec.select10, ptr %0, align 8
@@ -1732,13 +1732,13 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h51935f30ec686785E.llvm.281566960213045120"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load i8, ptr %3, align 8, !range !114, !noundef !115
   %trunc = trunc nuw i8 %4 to i1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !115, !align !116
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1, !range !396
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1, !range !396
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %spec.select = select i1 %trunc, ptr %6, ptr %1
-  %spec.select10 = select i1 %trunc, i8 14, i8 %8
+  %spec.select = select i1 %trunc, ptr %8, ptr %1
+  %spec.select10 = select i1 %trunc, i8 14, i8 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %9, align 8
   store i8 %spec.select10, ptr %0, align 8
@@ -1878,8 +1878,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store i64 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1904,17 +1904,17 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 .noexc:                                           ; preds = %.lr.ph
   %19 = load i8, ptr %4, align 8, !range !114, !noalias !443, !noundef !115
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i8 %19 to i1
-  %20 = load ptr, ptr %13, align 8, !noalias !443, !nonnull !115, !align !116
-  %21 = load i8, ptr %14, align 1, !range !114, !noalias !443
+  %20 = load i8, ptr %13, align 1, !range !114, !noalias !443
+  %21 = load ptr, ptr %14, align 8, !noalias !443, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !443
   br i1 %trunc.i.i.i.i.i.i.i.i, label %23, label %22
 
 22:                                               ; preds = %.noexc
-  %trunc.i.i.i.i.i.i = trunc nuw i8 %21 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i8 %20 to i1
   br i1 %trunc.i.i.i.i.i.i, label %25, label %24
 
 23:                                               ; preds = %.noexc
-  store ptr %20, ptr %15, align 8, !alias.scope !454, !noalias !455
+  store ptr %21, ptr %15, align 8, !alias.scope !454, !noalias !455
   store i64 1, ptr %5, align 8, !alias.scope !454, !noalias !455
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9e9471223a00b627E.exit.i.i"
 
@@ -2036,10 +2036,10 @@ define hidden void @"_ZN169_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   call void @"_ZN5serde2de5impls81_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$11deserialize17h177c47b6ce38694aE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !486
   %16 = load i8, ptr %6, align 8, !range !114, !noalias !461, !noundef !115
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i8 %16 to i1
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !461, !nonnull !115, !align !116
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.sroa.06.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %19, align 1, !noalias !461
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.sroa.06.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %17, align 1, !noalias !461
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %19 = load ptr, ptr %18, align 8, !noalias !461, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !461
   br i1 %trunc.i.i.i.i.i.i.i.i, label %26, label %20
 
@@ -2066,7 +2066,7 @@ define hidden void @"_ZN169_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8925c90bd936fedbE.llvm.281566960213045120.exit"
 
 26:                                               ; preds = %23, %15
-  %.sroa.6.0.ph = phi ptr [ %21, %23 ], [ %18, %15 ]
+  %.sroa.6.0.ph = phi ptr [ %21, %23 ], [ %19, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.0.ph, ptr %27, align 8, !alias.scope !504, !noalias !507
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8925c90bd936fedbE.llvm.281566960213045120.exit"
@@ -2464,10 +2464,10 @@ define hidden void @"_ZN170_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   call void @"_ZN5serde2de5impls81_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$11deserialize17h177c47b6ce38694aE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !727
   %5 = load i8, ptr %4, align 8, !range !114, !noalias !712, !noundef !115
   %trunc.i.i.i.i.i.i = trunc nuw i8 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !noalias !712, !nonnull !115, !align !116
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %.sroa.06.0.copyload.i.i.i.i.i.i = load i32, ptr %8, align 1, !noalias !712
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %.sroa.06.0.copyload.i.i.i.i.i.i = load i32, ptr %6, align 1, !noalias !712
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8, !noalias !712, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !712
   br i1 %trunc.i.i.i.i.i.i, label %16, label %9
 
@@ -2494,7 +2494,7 @@ define hidden void @"_ZN170_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h887d68b44fb0bdddE.llvm.281566960213045120.exit"
 
 16:                                               ; preds = %12, %2
-  %.sroa.7.0.ph.i.i = phi ptr [ %7, %2 ], [ %10, %12 ]
+  %.sroa.7.0.ph.i.i = phi ptr [ %8, %2 ], [ %10, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph.i.i, ptr %17, align 8, !alias.scope !745, !noalias !748
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h887d68b44fb0bdddE.llvm.281566960213045120.exit"
@@ -2526,10 +2526,10 @@ define hidden void @"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..
   call void @"_ZN174_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Origin$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha8192b4fd23319d7E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !750
   %6 = load i8, ptr %5, align 8, !range !114, !noalias !750, !noundef !115
   %trunc.i.i = trunc nuw i8 %6 to i1
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !noalias !750, !nonnull !115, !align !116
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %10 = load i8, ptr %9, align 1, !range !396, !noalias !750
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %8 = load i8, ptr %7, align 1, !range !396, !noalias !750
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !750, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !750
   br i1 %trunc.i.i, label %17, label %11
 
@@ -2538,16 +2538,16 @@ define hidden void @"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..
   call void @"_ZN172_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Kind$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc7b6f8d721ee32e7E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !755
   %12 = load i8, ptr %4, align 8, !range !114, !noalias !755, !noundef !115
   %trunc.i.i41 = trunc nuw i8 %12 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8, !noalias !755, !nonnull !115, !align !116
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %16 = load i8, ptr %15, align 1, !range !315, !noalias !755
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %14 = load i8, ptr %13, align 1, !range !315, !noalias !755
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = load ptr, ptr %15, align 8, !noalias !755, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !755
   br i1 %trunc.i.i41, label %22, label %19
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %18, align 8
+  store ptr %10, ptr %18, align 8
   br label %29
 
 19:                                               ; preds = %11
@@ -2559,7 +2559,7 @@ define hidden void @"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..
 
 22:                                               ; preds = %11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %23, align 8
+  store ptr %16, ptr %23, align 8
   br label %29
 
 24:                                               ; preds = %19
@@ -2568,9 +2568,9 @@ define hidden void @"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %25, ptr %26, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %16, ptr %.sroa.4.0..sroa_idx, align 8
+  store i8 %14, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %10, ptr %.sroa.5.0..sroa_idx, align 1
+  store i8 %8, ptr %.sroa.5.0..sroa_idx, align 1
   br label %29
 
 27:                                               ; preds = %19
@@ -2717,10 +2717,10 @@ define hidden void @"_ZN179_$LT$ockam_core..error..inner.._..$LT$impl$u20$serde.
   call void @"_ZN174_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Origin$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha8192b4fd23319d7E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !838
   %9 = load i8, ptr %7, align 8, !range !114, !noalias !817, !noundef !115
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i8 %9 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !817, !nonnull !115, !align !116
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %13 = load i8, ptr %12, align 1, !range !396, !noalias !817
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %11 = load i8, ptr %10, align 1, !range !396, !noalias !817
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !817, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !817
   br i1 %trunc.i.i.i.i.i.i.i.i, label %31, label %14
 
@@ -2729,10 +2729,10 @@ define hidden void @"_ZN179_$LT$ockam_core..error..inner.._..$LT$impl$u20$serde.
   call void @"_ZN172_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Kind$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc7b6f8d721ee32e7E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !844
   %15 = load i8, ptr %6, align 8, !range !114, !noalias !839, !noundef !115
   %trunc.i.i41.i.i.i.i.i.i = trunc nuw i8 %15 to i1
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !839, !nonnull !115, !align !116
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %19 = load i8, ptr %18, align 1, !range !315, !noalias !839
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %17 = load i8, ptr %16, align 1, !range !315, !noalias !839
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %19 = load ptr, ptr %18, align 8, !noalias !839, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !839
   br i1 %trunc.i.i41.i.i.i.i.i.i, label %31, label %20
 
@@ -2753,8 +2753,8 @@ define hidden void @"_ZN179_$LT$ockam_core..error..inner.._..$LT$impl$u20$serde.
 25:                                               ; preds = %20
   %26 = load i32, ptr %5, align 4, !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !845
-  %.sroa.6.8.insert.ext.i.i = zext nneg i8 %19 to i32
-  %.sroa.6.9.insert.ext.i.i = zext nneg i8 %13 to i32
+  %.sroa.6.8.insert.ext.i.i = zext nneg i8 %17 to i32
+  %.sroa.6.9.insert.ext.i.i = zext nneg i8 %11 to i32
   %.sroa.6.9.insert.shift.i.i = shl nuw nsw i32 %.sroa.6.9.insert.ext.i.i, 8
   %.sroa.6.9.insert.insert.i.i = or disjoint i32 %.sroa.6.9.insert.shift.i.i, %.sroa.6.8.insert.ext.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -2770,7 +2770,7 @@ define hidden void @"_ZN179_$LT$ockam_core..error..inner.._..$LT$impl$u20$serde.
   br i1 %28, label %38, label %33
 
 31:                                               ; preds = %23, %14, %2
-  %.sroa.6.075.ph = phi ptr [ %21, %23 ], [ %11, %2 ], [ %17, %14 ]
+  %.sroa.6.075.ph = phi ptr [ %21, %23 ], [ %13, %2 ], [ %19, %14 ]
   store ptr %.sroa.6.075.ph, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 101
   store i8 14, ptr %32, align 1
@@ -4443,10 +4443,10 @@ define hidden void @_ZN5serde2de13VariantAccess15newtype_variant17h16de021bf4bc4
   call void @"_ZN5serde2de5impls81_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$11deserialize17h177c47b6ce38694aE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !1229
   %5 = load i8, ptr %4, align 8, !range !114, !noalias !1213, !noundef !115
   %trunc.i.i.i.i.i.i.i = trunc nuw i8 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !noalias !1213, !nonnull !115, !align !116
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %.sroa.06.0.copyload.i.i.i.i.i.i.i = load i32, ptr %8, align 1, !noalias !1213
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %.sroa.06.0.copyload.i.i.i.i.i.i.i = load i32, ptr %6, align 1, !noalias !1213
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8, !noalias !1213, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1213
   br i1 %trunc.i.i.i.i.i.i.i, label %16, label %9
 
@@ -4473,7 +4473,7 @@ define hidden void @_ZN5serde2de13VariantAccess15newtype_variant17h16de021bf4bc4
   br label %"_ZN170_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$..deserialize_enum..Enum$LT$R$GT$$u20$as$u20$serde..de..VariantAccess$GT$20newtype_variant_seed17hfb100ad36bdadc3eE.llvm.281566960213045120.exit"
 
 16:                                               ; preds = %12, %2
-  %.sroa.7.0.ph.i.i.i = phi ptr [ %7, %2 ], [ %10, %12 ]
+  %.sroa.7.0.ph.i.i.i = phi ptr [ %8, %2 ], [ %10, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph.i.i.i, ptr %17, align 8, !alias.scope !1247, !noalias !1250
   br label %"_ZN170_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$..deserialize_enum..Enum$LT$R$GT$$u20$as$u20$serde..de..VariantAccess$GT$20newtype_variant_seed17hfb100ad36bdadc3eE.llvm.281566960213045120.exit"
@@ -4963,10 +4963,10 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   call void @"_ZN5serde2de5impls81_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$11deserialize17h177c47b6ce38694aE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !1467
   %5 = load i8, ptr %4, align 8, !range !114, !noalias !1453, !noundef !115
   %trunc.i.i.i.i.i = trunc nuw i8 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !noalias !1453, !nonnull !115, !align !116
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %.sroa.06.0.copyload.i.i.i.i.i = load i32, ptr %8, align 1, !noalias !1453
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %.sroa.06.0.copyload.i.i.i.i.i = load i32, ptr %6, align 1, !noalias !1453
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8, !noalias !1453, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1453
   br i1 %trunc.i.i.i.i.i, label %16, label %9
 
@@ -4993,7 +4993,7 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN5serde2de5impls89_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..socket_addr..SocketAddrV4$GT$11deserialize17hd9be5b55b5124ef8E.exit"
 
 16:                                               ; preds = %12, %2
-  %.sroa.7.0.ph.i = phi ptr [ %7, %2 ], [ %10, %12 ]
+  %.sroa.7.0.ph.i = phi ptr [ %8, %2 ], [ %10, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph.i, ptr %17, align 8, !alias.scope !1485, !noalias !1488
   br label %"_ZN5serde2de5impls89_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..socket_addr..SocketAddrV4$GT$11deserialize17hd9be5b55b5124ef8E.exit"
@@ -7583,20 +7583,20 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h0b9daa10e5bdb07eE.llvm.281566960213045120"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !2181
   %8 = load i8, ptr %7, align 8, !range !114, !noalias !2173, !noundef !115
   %trunc.i.i.i = trunc nuw i8 %8 to i1
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !noalias !2173, !nonnull !115, !align !116
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %12 = load i8, ptr %11, align 1, !range !114, !noalias !2173
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %10 = load i8, ptr %9, align 1, !range !114, !noalias !2173
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !2173, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2173
   br i1 %trunc.i.i.i, label %14, label %13
 
 13:                                               ; preds = %6
-  %trunc.i = trunc nuw i8 %12 to i1
+  %trunc.i = trunc nuw i8 %10 to i1
   br i1 %trunc.i, label %17, label %16
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %15, align 8, !alias.scope !2170, !noalias !2182
+  store ptr %12, ptr %15, align 8, !alias.scope !2170, !noalias !2182
   store i64 1, ptr %0, align 8, !alias.scope !2170, !noalias !2182
   br label %"_ZN182_$LT$ockam_core..error..inner.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..inner..PayloadEntry$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hfb2edd40fb758006E.exit"
 
@@ -7750,10 +7750,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   call void @"_ZN5serde2de5impls81_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$11deserialize17h177c47b6ce38694aE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !2236
   %9 = load i8, ptr %6, align 8, !range !114, !noalias !2228, !noundef !115
   %trunc.i.i.i = trunc nuw i8 %9 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !2228, !nonnull !115, !align !116
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.sroa.06.0.copyload.i.i.i = load i32, ptr %12, align 1, !noalias !2228
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.sroa.06.0.copyload.i.i.i = load i32, ptr %10, align 1, !noalias !2228
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !2228, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2228
   br i1 %trunc.i.i.i, label %20, label %15
 
@@ -7773,7 +7773,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %19, label %25, label %22
 
 20:                                               ; preds = %13, %8
-  %.sink.i = phi ptr [ %14, %13 ], [ %11, %8 ]
+  %.sink.i = phi ptr [ %14, %13 ], [ %12, %8 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i, ptr %21, align 8, !alias.scope !2225, !noalias !2255
   br label %"_ZN166_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$$LP$T0$C$T1$RP$$GT$..deserialize..TupleVisitor$LT$T0$C$T1$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq17he3051483425ccda6E.llvm.281566960213045120.exit"
@@ -8039,10 +8039,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   call void @"_ZN174_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Origin$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha8192b4fd23319d7E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !2313
   %10 = load i8, ptr %9, align 8, !range !114, !noalias !2307, !noundef !115
   %trunc.i.i.i = trunc nuw i8 %10 to i1
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !2307, !nonnull !115, !align !116
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %14 = load i8, ptr %13, align 1, !range !396, !noalias !2307
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %12 = load i8, ptr %11, align 1, !range !396, !noalias !2307
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = load ptr, ptr %13, align 8, !noalias !2307, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !2307
   br i1 %trunc.i.i.i, label %21, label %15
 
@@ -8051,16 +8051,16 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   call void @"_ZN172_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Kind$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc7b6f8d721ee32e7E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !2319
   %16 = load i8, ptr %8, align 8, !range !114, !noalias !2314, !noundef !115
   %trunc.i.i41.i = trunc nuw i8 %16 to i1
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !2314, !nonnull !115, !align !116
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %20 = load i8, ptr %19, align 1, !range !315, !noalias !2314
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %18 = load i8, ptr %17, align 1, !range !315, !noalias !2314
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = load ptr, ptr %19, align 8, !noalias !2314, !nonnull !115, !align !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !2314
   br i1 %trunc.i.i41.i, label %26, label %23
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %22, align 8, !alias.scope !2304, !noalias !2320
+  store ptr %14, ptr %22, align 8, !alias.scope !2304, !noalias !2320
   br label %"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..ErrorCode$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h51577425eddfec45E.llvm.281566960213045120.exit"
 
 23:                                               ; preds = %15
@@ -8072,7 +8072,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %27, align 8, !alias.scope !2304, !noalias !2320
+  store ptr %20, ptr %27, align 8, !alias.scope !2304, !noalias !2320
   br label %"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..ErrorCode$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h51577425eddfec45E.llvm.281566960213045120.exit"
 
 28:                                               ; preds = %23
@@ -8081,9 +8081,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %29, ptr %30, align 4, !alias.scope !2304, !noalias !2320
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %20, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2304, !noalias !2320
+  store i8 %18, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2304, !noalias !2320
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %14, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !2304, !noalias !2320
+  store i8 %12, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !2304, !noalias !2320
   br label %"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..ErrorCode$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h51577425eddfec45E.llvm.281566960213045120.exit"
 
 31:                                               ; preds = %23
@@ -8893,27 +8893,27 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   %27 = shl i64 %25, %26
   %28 = or i64 %27, %.01656.i76
   %29 = icmp ugt i64 %28, 4294967295
-  br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit", label %31
+  br i1 %29, label %35, label %30
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit": ; preds = %24
-  %30 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h4a4ed214552cd993E"(ptr noalias noundef nonnull readonly align 1 @anon.c06183e97dfb1b64f2fc5efd32a496cf.40, i64 noundef 50), !noalias !2550
-  br label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit
+30:                                               ; preds = %24
+  %31 = icmp eq i64 %28, 0
+  br i1 %31, label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit, label %32
 
-31:                                               ; preds = %24
-  %32 = icmp eq i64 %28, 0
-  br i1 %32, label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit, label %33
-
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %28, ptr %34, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %28, ptr %33, align 8
   store i8 1, ptr %2, align 8
-  %35 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17hcf6c44588a82d0a6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.14e56edb1666607541a43f3723c7c41a.80.llvm.14829166003003082705, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.14e56edb1666607541a43f3723c7c41a.50.llvm.14829166003003082705)
+  %34 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17hcf6c44588a82d0a6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.14e56edb1666607541a43f3723c7c41a.80.llvm.14829166003003082705, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.14e56edb1666607541a43f3723c7c41a.50.llvm.14829166003003082705)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit
 
-_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit: ; preds = %.lr.ph.i._crit_edge, %11, %33, %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit"
-  %.0 = phi ptr [ %30, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit" ], [ %35, %33 ], [ null, %31 ], [ %.lcssa, %.lr.ph.i._crit_edge ], [ %12, %11 ]
+35:                                               ; preds = %24
+  %36 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h4a4ed214552cd993E"(ptr noalias noundef nonnull readonly align 1 @anon.c06183e97dfb1b64f2fc5efd32a496cf.40, i64 noundef 50), !noalias !2550
+  br label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit
+
+_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit: ; preds = %.lr.ph.i._crit_edge, %11, %32, %30, %35
+  %.0 = phi ptr [ %36, %35 ], [ %34, %32 ], [ null, %30 ], [ %.lcssa, %.lr.ph.i._crit_edge ], [ %12, %11 ]
   ret ptr %.0
 }
 

@@ -13203,8 +13203,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS2_9ModuleMap17In
   br label %31
 
 31:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS2_9ModuleMap17InferredDirectoryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPSC_RKT_.exit, %.loopexit
-  %.sroa.0.1 = phi ptr [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS2_9ModuleMap17InferredDirectoryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ], [ %30, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %28, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS2_9ModuleMap17InferredDirectoryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ], [ %30, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %30, %.loopexit ], [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS2_9ModuleMap17InferredDirectoryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ]
+  %.sroa.3.1 = phi ptr [ %30, %.loopexit ], [ %28, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS2_9ModuleMap17InferredDirectoryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -17520,8 +17520,8 @@ define dso_local void @_ZN5clang15ModuleMapParser9skipUntilENS_7MMToken9TokenKin
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %28, %31, %25, %27, %21, %23, %18, %13
-  %.127 = phi i32 [ 0, %31 ], [ %.026, %28 ], [ %26, %25 ], [ 0, %27 ], [ %.026, %21 ], [ %.026, %23 ], [ %19, %18 ], [ %.026, %13 ]
-  %.1 = phi i32 [ 0, %31 ], [ %.0, %28 ], [ %.0, %25 ], [ %.0, %27 ], [ %22, %21 ], [ 0, %23 ], [ %.0, %18 ], [ %14, %13 ]
+  %.127 = phi i32 [ 0, %31 ], [ %.026, %28 ], [ %.026, %13 ], [ %19, %18 ], [ %.026, %21 ], [ %.026, %23 ], [ %26, %25 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %31 ], [ %.0, %28 ], [ %14, %13 ], [ %.0, %18 ], [ %22, %21 ], [ 0, %23 ], [ %.0, %25 ], [ %.0, %27 ]
   %34 = tail call i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
   br label %8, !llvm.loop !721
 
@@ -20824,7 +20824,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit74:          ; preds = %_ZN5clang17Diagnost
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %221, %218, %213
-  %.0.i.be = phi i32 [ %219, %218 ], [ %214, %213 ], [ %spec.select182, %221 ]
+  %.0.i.be = phi i32 [ %214, %213 ], [ %219, %218 ], [ %spec.select182, %221 ]
   br label %.preheader, !llvm.loop !721
 
 223:                                              ; preds = %217
@@ -22105,7 +22105,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   br label %72
 
 72:                                               ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit, %70, %67
-  %.127.i = phi i32 [ %71, %70 ], [ %68, %67 ], [ %.026.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit ]
+  %.127.i = phi i32 [ %68, %67 ], [ %71, %70 ], [ %.026.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit ]
   %73 = call i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit, !llvm.loop !721
 
@@ -22395,7 +22395,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit69:          ; preds = %_ZN5clang17Diagnost
   br label %172
 
 172:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit69, %170, %167
-  %.127.i73 = phi i32 [ %171, %170 ], [ %168, %167 ], [ %.026.i70, %_ZN5clang17DiagnosticBuilderD2Ev.exit69 ]
+  %.127.i73 = phi i32 [ %168, %167 ], [ %171, %170 ], [ %.026.i70, %_ZN5clang17DiagnosticBuilderD2Ev.exit69 ]
   %173 = call i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit69, !llvm.loop !721
 
@@ -26006,8 +26006,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit96:          ; preds = %_ZNSt7__cxx1112basi
   br label %469
 
 469:                                              ; preds = %466, %465, %463, %460, %458
-  %.127.i = phi i32 [ %.026.i, %463 ], [ %461, %460 ], [ %.026.i, %458 ], [ %spec.select246, %465 ], [ %.026.i, %466 ]
-  %.1.i = phi i32 [ %464, %463 ], [ %.0.i97, %460 ], [ %459, %458 ], [ %.0.i97, %465 ], [ %spec.select248, %466 ]
+  %.127.i = phi i32 [ %.026.i, %458 ], [ %461, %460 ], [ %.026.i, %463 ], [ %spec.select246, %465 ], [ %.026.i, %466 ]
+  %.1.i = phi i32 [ %459, %458 ], [ %.0.i97, %460 ], [ %464, %463 ], [ %.0.i97, %465 ], [ %spec.select248, %466 ]
   %470 = call i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
   br label %456, !llvm.loop !721
 
@@ -26184,8 +26184,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit118:         ; preds = %_ZNSt7__cxx1112basi
   br label %534
 
 534:                                              ; preds = %531, %530, %528, %525, %523
-  %.127.i122 = phi i32 [ %.026.i119, %528 ], [ %526, %525 ], [ %.026.i119, %523 ], [ %spec.select249, %530 ], [ %.026.i119, %531 ]
-  %.1.i123 = phi i32 [ %529, %528 ], [ %.0.i120, %525 ], [ %524, %523 ], [ %.0.i120, %530 ], [ %spec.select251, %531 ]
+  %.127.i122 = phi i32 [ %.026.i119, %523 ], [ %526, %525 ], [ %.026.i119, %528 ], [ %spec.select249, %530 ], [ %.026.i119, %531 ]
+  %.1.i123 = phi i32 [ %524, %523 ], [ %.0.i120, %525 ], [ %529, %528 ], [ %.0.i120, %530 ], [ %spec.select251, %531 ]
   %535 = call i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
   br label %521, !llvm.loop !721
 
@@ -26295,8 +26295,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit134:         ; preds = %_ZN5clang17Diagnost
   br label %572
 
 572:                                              ; preds = %569, %568, %566, %563, %561
-  %.127.i138 = phi i32 [ %.026.i135, %566 ], [ %564, %563 ], [ %.026.i135, %561 ], [ %spec.select252, %568 ], [ %.026.i135, %569 ]
-  %.1.i139 = phi i32 [ %567, %566 ], [ %.0.i136, %563 ], [ %562, %561 ], [ %.0.i136, %568 ], [ %spec.select254, %569 ]
+  %.127.i138 = phi i32 [ %.026.i135, %561 ], [ %564, %563 ], [ %.026.i135, %566 ], [ %spec.select252, %568 ], [ %.026.i135, %569 ]
+  %.1.i139 = phi i32 [ %562, %561 ], [ %.0.i136, %563 ], [ %567, %566 ], [ %.0.i136, %568 ], [ %spec.select254, %569 ]
   %573 = call i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit134, !llvm.loop !721
 
@@ -34811,9 +34811,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic
   br label %50
 
 50:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91
-  %.sroa.2.0.copyload.i60 = phi i64 [ %.sroa.2.0.copyload.i60.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
-  %.sroa.0.0.copyload.i58 = phi ptr [ %.sroa.0.0.copyload.i58.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
+  %.sroa.2.0.copyload.i60 = phi i64 [ %.sroa.2.0.copyload.i53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.sroa.2.0.copyload.i60.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i58 = phi ptr [ %.sroa.0.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.sroa.0.0.copyload.i58.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %51 = load ptr, ptr %.1, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !11
@@ -34834,9 +34834,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic
   br label %58
 
 58:                                               ; preds = %._crit_edge._crit_edge131, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94
-  %.sroa.2.0.copyload.i67 = phi i64 [ %.sroa.2.0.copyload.i67.pre, %._crit_edge._crit_edge131 ], [ %.sroa.2.0.copyload.i60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
-  %.sroa.0.0.copyload.i65 = phi ptr [ %.sroa.0.0.copyload.i65.pre, %._crit_edge._crit_edge131 ], [ %.sroa.0.0.copyload.i58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge131 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
+  %.sroa.2.0.copyload.i67 = phi i64 [ %.sroa.2.0.copyload.i60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.sroa.2.0.copyload.i67.pre, %._crit_edge._crit_edge131 ]
+  %.sroa.0.0.copyload.i65 = phi ptr [ %.sroa.0.0.copyload.i58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.sroa.0.0.copyload.i65.pre, %._crit_edge._crit_edge131 ]
+  %.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.029.lcssa, %._crit_edge._crit_edge131 ]
   %59 = load ptr, ptr %.2, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !11

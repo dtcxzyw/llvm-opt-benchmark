@@ -330,7 +330,7 @@ define dso_local void @createDumpPayload(ptr noundef %0, ptr noundef %1, ptr nou
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %13, %22, %25, %29, %33, %37
-  %.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %22 ], [ 0, %13 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ], [ 0, %13 ]
   %40 = call i64 @crc64(i64 noundef 0, ptr noundef nonnull %17, i64 noundef %.0.i) #16
   store i64 %40, ptr %6, align 8, !tbaa !45
   %41 = load ptr, ptr %15, align 8, !tbaa !5
@@ -673,7 +673,7 @@ sdslen.exit.thread:                               ; preds = %89
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %99, %102, %106, %110, %114
-  %.0.i = phi i64 [ %116, %114 ], [ %113, %110 ], [ %109, %106 ], [ %105, %102 ], [ %101, %99 ]
+  %.0.i = phi i64 [ %101, %99 ], [ %105, %102 ], [ %109, %106 ], [ %113, %110 ], [ %116, %114 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   %117 = icmp ult i64 %.0.i, 10
   br i1 %117, label %verifyDumpPayload.exit.thread, label %118
@@ -961,7 +961,7 @@ define dso_local ptr @migrateGetSocket(ptr noundef %0, ptr noundef readonly capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %4, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %4 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %4 ]
   %30 = tail call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull %7, i64 noundef %.0.i) #16
   %31 = tail call ptr @sdscatlen(ptr noundef %30, ptr noundef nonnull @.str.14, i64 noundef 1) #16
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1007,7 +1007,7 @@ sdslen.exit:                                      ; preds = %4, %12, %15, %19, %
   br label %sdslen.exit34
 
 sdslen.exit34:                                    ; preds = %sdslen.exit, %38, %41, %45, %49, %53
-  %.0.i33 = phi i64 [ %55, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %38 ], [ 0, %sdslen.exit ]
+  %.0.i33 = phi i64 [ %40, %38 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %55, %53 ], [ 0, %sdslen.exit ]
   %56 = tail call ptr @sdscatlen(ptr noundef %31, ptr noundef nonnull %33, i64 noundef %.0.i33) #16
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1848), align 8, !tbaa !74
   %58 = tail call ptr @dictFetchValue(ptr noundef %57, ptr noundef %56) #16
@@ -1167,7 +1167,7 @@ define dso_local void @migrateCloseSocket(ptr noundef readonly captures(none) %0
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %10, %13, %17, %21, %25
-  %.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %27, %25 ], [ 0, %2 ]
   %28 = tail call ptr @sdscatlen(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i) #16
   %29 = tail call ptr @sdscatlen(ptr noundef %28, ptr noundef nonnull @.str.14, i64 noundef 1) #16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1213,7 +1213,7 @@ sdslen.exit:                                      ; preds = %2, %10, %13, %17, %
   br label %sdslen.exit15
 
 sdslen.exit15:                                    ; preds = %sdslen.exit, %36, %39, %43, %47, %51
-  %.0.i14 = phi i64 [ %53, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %36 ], [ 0, %sdslen.exit ]
+  %.0.i14 = phi i64 [ %38, %36 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ], [ 0, %sdslen.exit ]
   %54 = tail call ptr @sdscatlen(ptr noundef %29, ptr noundef nonnull %31, i64 noundef %.0.i14) #16
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1848), align 8, !tbaa !74
   %56 = tail call ptr @dictFetchValue(ptr noundef %55, ptr noundef %54) #16
@@ -1418,7 +1418,7 @@ define dso_local void @migrateCommand(ptr noundef %0) #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %56, %59, %63, %67, %71
-  %.0.i = phi i64 [ %73, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %56 ]
+  %.0.i = phi i64 [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ]
   %.not299 = icmp eq i64 %.0.i, 0
   br i1 %.not299, label %sdslen.exit.thread, label %74
 
@@ -1653,7 +1653,7 @@ sdslen.exit.thread:                               ; preds = %47, %sdslen.exit
   br label %sdslen.exit330
 
 sdslen.exit330:                                   ; preds = %164, %168, %171, %174, %177, %180
-  %.0.i329 = phi i64 [ %181, %180 ], [ %179, %177 ], [ %176, %174 ], [ %173, %171 ], [ %170, %168 ], [ 0, %164 ]
+  %.0.i329 = phi i64 [ %170, %168 ], [ %173, %171 ], [ %176, %174 ], [ %179, %177 ], [ %181, %180 ], [ 0, %164 ]
   %182 = call i64 @rioWriteBulkString(ptr noundef nonnull %4, ptr noundef nonnull %.0257423, i64 noundef %.0.i329) #16
   %.not305 = icmp eq i64 %182, 0
   br i1 %.not305, label %183, label %184, !prof !41
@@ -1700,7 +1700,7 @@ sdslen.exit330:                                   ; preds = %164, %168, %171, %1
   br label %sdslen.exit332
 
 sdslen.exit332:                                   ; preds = %184, %188, %191, %194, %197, %200
-  %.0.i331 = phi i64 [ %201, %200 ], [ %199, %197 ], [ %196, %194 ], [ %193, %191 ], [ %190, %188 ], [ 0, %184 ]
+  %.0.i331 = phi i64 [ %190, %188 ], [ %193, %191 ], [ %196, %194 ], [ %199, %197 ], [ %201, %200 ], [ 0, %184 ]
   %202 = call i64 @rioWriteBulkString(ptr noundef nonnull %4, ptr noundef nonnull %.0265427, i64 noundef %.0.i331) #16
   %.not306 = icmp eq i64 %202, 0
   br i1 %.not306, label %203, label %204, !prof !41
@@ -1880,7 +1880,7 @@ sdslen.exit332:                                   ; preds = %184, %188, %191, %1
   br label %sdslen.exit334
 
 sdslen.exit334:                                   ; preds = %255, %262, %265, %269, %273, %277
-  %.0.i333 = phi i64 [ %279, %277 ], [ %276, %273 ], [ %272, %269 ], [ %268, %265 ], [ %264, %262 ], [ 0, %255 ]
+  %.0.i333 = phi i64 [ %264, %262 ], [ %268, %265 ], [ %272, %269 ], [ %276, %273 ], [ %279, %277 ], [ 0, %255 ]
   %280 = call i64 @rioWriteBulkString(ptr noundef nonnull %4, ptr noundef nonnull %257, i64 noundef %.0.i333) #16
   %.not324 = icmp eq i64 %280, 0
   br i1 %.not324, label %281, label %282, !prof !41
@@ -1948,7 +1948,7 @@ sdslen.exit334:                                   ; preds = %255, %262, %265, %2
   br label %sdslen.exit336
 
 sdslen.exit336:                                   ; preds = %285, %295, %298, %302, %306, %310
-  %.0.i335 = phi i64 [ %312, %310 ], [ %309, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %295 ], [ 0, %285 ]
+  %.0.i335 = phi i64 [ %297, %295 ], [ %301, %298 ], [ %305, %302 ], [ %309, %306 ], [ %312, %310 ], [ 0, %285 ]
   %313 = call i64 @rioWriteBulkString(ptr noundef nonnull %4, ptr noundef nonnull %290, i64 noundef %.0.i335) #16
   %.not326 = icmp eq i64 %313, 0
   br i1 %.not326, label %314, label %315, !prof !41
@@ -2029,7 +2029,7 @@ sdslen.exit336:                                   ; preds = %285, %295, %298, %3
   br label %sdslen.exit338
 
 sdslen.exit338:                                   ; preds = %328, %332, %335, %338, %341, %344
-  %.0.i337 = phi i64 [ %345, %344 ], [ %343, %341 ], [ %340, %338 ], [ %337, %335 ], [ %334, %332 ], [ 0, %328 ]
+  %.0.i337 = phi i64 [ %334, %332 ], [ %337, %335 ], [ %340, %338 ], [ %343, %341 ], [ %345, %344 ], [ 0, %328 ]
   %.not310 = icmp eq i64 %.0.i337, %.0243
   br i1 %.not310, label %361, label %346
 
@@ -2916,7 +2916,7 @@ shouldReturnTlsInfo.exit:                         ; preds = %26, %30
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %shouldReturnTlsInfo.exit, %37, %40, %44, %48, %52
-  %.0.i112 = phi i64 [ %54, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ 0, %shouldReturnTlsInfo.exit ]
+  %.0.i112 = phi i64 [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %54, %52 ], [ 0, %shouldReturnTlsInfo.exit ]
   tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %32, i64 noundef %.0.i112, ptr noundef nonnull @.str.92) #16
   tail call void @sdsfree(ptr noundef nonnull %32) #16
   br label %clusterCommandMyId.exit
@@ -3036,7 +3036,7 @@ sdslen.exit:                                      ; preds = %shouldReturnTlsInfo
   br label %sdslen.exit116
 
 sdslen.exit116:                                   ; preds = %79, %85, %88, %92, %96, %100
-  %.0.i115 = phi i64 [ %102, %100 ], [ %99, %96 ], [ %95, %92 ], [ %91, %88 ], [ %87, %85 ], [ 0, %79 ]
+  %.0.i115 = phi i64 [ %87, %85 ], [ %91, %88 ], [ %95, %92 ], [ %99, %96 ], [ %102, %100 ], [ 0, %79 ]
   tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef %.0.i115, ptr noundef nonnull @.str.92) #16
   tail call void @sdsfree(ptr noundef nonnull %80) #16
   br label %clusterCommandMyId.exit
@@ -3094,7 +3094,7 @@ sdslen.exit116:                                   ; preds = %79, %85, %88, %92, 
   br label %sdslen.exit118
 
 sdslen.exit118:                                   ; preds = %114, %117, %121, %125, %129
-  %.0.i117 = phi i64 [ %131, %129 ], [ %128, %125 ], [ %124, %121 ], [ %120, %117 ], [ %116, %114 ]
+  %.0.i117 = phi i64 [ %116, %114 ], [ %120, %117 ], [ %124, %121 ], [ %128, %125 ], [ %131, %129 ]
   %132 = trunc i64 %.0.i117 to i32
   %133 = icmp sgt i32 %132, 0
   br i1 %133, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -3327,7 +3327,7 @@ keyHashSlot.exit:                                 ; preds = %._crit_edge.thread.
   br label %sdslen.exit120
 
 sdslen.exit120:                                   ; preds = %214, %220, %223, %227, %231, %235
-  %.0.i119 = phi i64 [ %237, %235 ], [ %234, %231 ], [ %230, %227 ], [ %226, %223 ], [ %222, %220 ], [ 0, %214 ]
+  %.0.i119 = phi i64 [ %222, %220 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %237, %235 ], [ 0, %214 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %215, i64 noundef %.0.i119) #16
   %238 = add nuw i32 %.089150, 1
   %exitcond.not = icmp eq i32 %238, %205
@@ -3398,7 +3398,7 @@ sdslen.exit120:                                   ; preds = %214, %220, %223, %2
   br label %sdslen.exit122
 
 sdslen.exit122:                                   ; preds = %245, %254, %257, %261, %265, %269
-  %.0.i121 = phi i64 [ %271, %269 ], [ %268, %265 ], [ %264, %261 ], [ %260, %257 ], [ %256, %254 ], [ 0, %245 ]
+  %.0.i121 = phi i64 [ %256, %254 ], [ %260, %257 ], [ %264, %261 ], [ %268, %265 ], [ %271, %269 ], [ 0, %245 ]
   %272 = trunc i64 %.0.i121 to i32
   %273 = tail call ptr @clusterLookupNode(ptr noundef nonnull %249, i32 noundef %272) #16
   %.not109 = icmp eq ptr %273, null
@@ -3717,7 +3717,7 @@ define dso_local ptr @getNodeByQuery(ptr noundef readonly captures(none) %0, ptr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %58, %61, %65, %69, %73
-  %.0.i = phi i64 [ %75, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %58 ]
+  %.0.i = phi i64 [ %60, %58 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %75, %73 ]
   %76 = trunc i64 %.0.i to i32
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -4277,7 +4277,7 @@ define dso_local range(i32 0, 2) i32 @clusterRedirectBlockedClientIfNeeded(ptr n
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %30, %33, %37, %41, %45
-  %.0.i = phi i64 [ %47, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %30 ]
+  %.0.i = phi i64 [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ]
   %48 = trunc i64 %.0.i to i32
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph.preheader.i, label %._crit_edge.i

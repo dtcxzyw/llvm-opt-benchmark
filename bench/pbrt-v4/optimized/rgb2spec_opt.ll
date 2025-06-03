@@ -612,7 +612,7 @@ define dso_local void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr 
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %9, %8, %7, %6, %5, %4, %3
-  %.040 = phi ptr [ @_ZL7cie_d65, %9 ], [ @_ZL7cie_d65, %8 ], [ @_ZL7cie_d60, %7 ], [ @_ZL7cie_d50, %6 ], [ @_ZL5cie_e, %5 ], [ @_ZL5cie_e, %4 ], [ @_ZL7cie_d65, %3 ]
+  %.040 = phi ptr [ @_ZL7cie_d65, %3 ], [ @_ZL5cie_e, %4 ], [ @_ZL5cie_e, %5 ], [ @_ZL7cie_d50, %6 ], [ @_ZL7cie_d60, %7 ], [ @_ZL7cie_d65, %8 ], [ @_ZL7cie_d65, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %19

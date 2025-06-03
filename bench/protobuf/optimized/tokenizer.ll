@@ -1180,9 +1180,9 @@ return:                                           ; preds = %sw.default, %return
 
 eh.resume:                                        ; preds = %lpad88, %lpad.i170, %lpad86, %lpad78, %lpad.i154, %lpad76, %lpad48, %lpad.i88, %lpad46, %lpad28, %lpad.i44, %lpad26, %lpad10, %lpad.i18, %lpad8, %lpad3, %lpad.i, %lpad
   %ref.tmp85.sink = phi ptr [ %ref.tmp2, %lpad ], [ %ref.tmp2, %lpad.i ], [ %ref.tmp2, %lpad3 ], [ %ref.tmp7, %lpad8 ], [ %ref.tmp7, %lpad.i18 ], [ %ref.tmp7, %lpad10 ], [ %ref.tmp25, %lpad26 ], [ %ref.tmp25, %lpad.i44 ], [ %ref.tmp25, %lpad28 ], [ %ref.tmp45, %lpad46 ], [ %ref.tmp45, %lpad.i88 ], [ %ref.tmp45, %lpad48 ], [ %ref.tmp75, %lpad76 ], [ %ref.tmp75, %lpad.i154 ], [ %ref.tmp75, %lpad78 ], [ %ref.tmp85, %lpad86 ], [ %ref.tmp85, %lpad.i170 ], [ %ref.tmp85, %lpad88 ]
-  %.pn6.pn = phi { ptr, i32 } [ %8, %lpad ], [ %1, %lpad.i ], [ %9, %lpad3 ], [ %18, %lpad8 ], [ %11, %lpad.i18 ], [ %19, %lpad10 ], [ %32, %lpad26 ], [ %25, %lpad.i44 ], [ %33, %lpad28 ], [ %49, %lpad46 ], [ %42, %lpad.i88 ], [ %50, %lpad48 ], [ %72, %lpad76 ], [ %65, %lpad.i154 ], [ %73, %lpad78 ], [ %81, %lpad86 ], [ %74, %lpad.i170 ], [ %82, %lpad88 ]
+  %.pn10.pn = phi { ptr, i32 } [ %8, %lpad ], [ %1, %lpad.i ], [ %9, %lpad3 ], [ %18, %lpad8 ], [ %11, %lpad.i18 ], [ %19, %lpad10 ], [ %32, %lpad26 ], [ %25, %lpad.i44 ], [ %33, %lpad28 ], [ %49, %lpad46 ], [ %42, %lpad.i88 ], [ %50, %lpad48 ], [ %72, %lpad76 ], [ %65, %lpad.i154 ], [ %73, %lpad78 ], [ %81, %lpad86 ], [ %74, %lpad.i170 ], [ %82, %lpad88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85.sink) #23
-  resume { ptr, i32 } %.pn6.pn
+  resume { ptr, i32 } %.pn10.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5394,7 +5394,7 @@ sw.default.i:                                     ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit: ; preds = %if.else, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.default.i
-  %retval.0.i65 = phi i8 [ 63, %sw.default.i ], [ %1, %sw.bb7.i ], [ 11, %sw.bb6.i ], [ 9, %sw.bb5.i ], [ 13, %sw.bb4.i ], [ 10, %sw.bb3.i ], [ 12, %sw.bb2.i ], [ 8, %sw.bb1.i ], [ 7, %if.else ]
+  %retval.0.i65 = phi i8 [ 63, %sw.default.i ], [ 8, %sw.bb1.i ], [ 12, %sw.bb2.i ], [ 10, %sw.bb3.i ], [ 13, %sw.bb4.i ], [ 9, %sw.bb5.i ], [ 11, %sw.bb6.i ], [ %1, %sw.bb7.i ], [ 7, %if.else ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output, i8 noundef signext %retval.0.i65)
   br label %for.cond.backedge
 

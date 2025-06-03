@@ -550,7 +550,7 @@ define internal fastcc noundef nonnull ptr @_ZL10modeToVerbc(i8 noundef signext 
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %1, %4, %3
-  %.0 = phi ptr [ @.str.7, %4 ], [ @.str.6, %3 ], [ @.str.5, %1 ]
+  %.0 = phi ptr [ @.str.6, %3 ], [ @.str.7, %4 ], [ @.str.5, %1 ]
   ret ptr %.0
 }
 
@@ -4028,7 +4028,7 @@ _ZNSt10unique_ptrIlN3gmx15functor_wrapperIlXadL_ZNS0_12free_wrapperIlEEvPT_EEEEE
   ret i1 %or.cond126.not
 
 279:                                              ; preds = %104, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %276
-  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %277, %276 ], [ %.pn114.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ %105, %104 ], [ %.pn108.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %.pn111.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %170, %169 ]
+  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %277, %276 ], [ %.pn114.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ %105, %104 ], [ %.pn111.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %170, %169 ], [ %.pn108.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ]
   %.not.i153 = icmp eq ptr %72, null
   br i1 %.not.i153, label %_ZNSt10unique_ptrIlN3gmx15functor_wrapperIlXadL_ZNS0_12free_wrapperIlEEvPT_EEEEED2Ev.exit154, label %280
 

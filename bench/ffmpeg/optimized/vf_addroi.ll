@@ -286,7 +286,7 @@ define internal i32 @addroi_filter_frame(ptr noundef readonly captures(none) %0,
   br label %93
 
 93:                                               ; preds = %92, %90
-  %.0 = phi i32 [ -12, %92 ], [ %91, %90 ]
+  %.0 = phi i32 [ %91, %90 ], [ -12, %92 ]
   ret i32 %.0
 }
 
@@ -346,7 +346,7 @@ default.unreachable:                              ; preds = %17
   unreachable
 
 31:                                               ; preds = %27, %23, %21, %19
-  %.1 = phi i32 [ %30, %27 ], [ %26, %23 ], [ %22, %21 ], [ %20, %19 ]
+  %.1 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %26, %23 ], [ %30, %27 ]
   %32 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = call nsz double @av_expr_eval(ptr noundef %33, ptr noundef nonnull %2, ptr noundef null) #5

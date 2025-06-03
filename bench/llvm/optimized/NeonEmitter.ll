@@ -5367,7 +5367,7 @@ _ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i.i: ; preds = %482, 
   unreachable
 
 492:                                              ; preds = %490, %489, %_ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i.i
-  %.08.ph.i.i.i = phi i32 [ 3, %489 ], [ 4, %490 ], [ 2, %_ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i.i ]
+  %.08.ph.i.i.i = phi i32 [ 4, %490 ], [ 3, %489 ], [ 2, %_ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i.i ]
   %493 = add nsw i32 %.08.ph.i.i.i, -1
   br label %_ZNK12_GLOBAL__N_14Type11getNeonEnumEv.exit.i.i
 
@@ -6782,7 +6782,7 @@ _ZNK12_GLOBAL__N_19Intrinsic7hasBodyEv.exit.thread.i73.i: ; preds = %_ZNK12_GLOB
   br label %1049
 
 1049:                                             ; preds = %1047, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.sroa.033.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %1048, %1047 ]
+  %.sroa.033.1.i.i.i.i.i.i.i.i.i = phi ptr [ %1048, %1047 ], [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %1050 = getelementptr i8, ptr %.sroa.033.1.i.i.i.i.i.i.i.i.i, i64 36
   %.val1.i23.i.i.i.i.i.i.i.i.i = load i8, ptr %1050, align 4, !tbaa !138, !range !146, !noundef !147
   %1051 = trunc nuw i8 %.val1.i23.i.i.i.i.i.i.i.i.i to i1
@@ -6793,7 +6793,7 @@ _ZNK12_GLOBAL__N_19Intrinsic7hasBodyEv.exit.thread.i73.i: ; preds = %_ZNK12_GLOB
   br label %1054
 
 1054:                                             ; preds = %1052, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.sroa.033.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %1053, %1052 ]
+  %.sroa.033.2.i.i.i.i.i.i.i.i.i = phi ptr [ %1053, %1052 ], [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %1055 = getelementptr i8, ptr %.sroa.033.2.i.i.i.i.i.i.i.i.i, i64 36
   %.val1.i24.i.i.i.i.i.i.i.i.i = load i8, ptr %1055, align 4, !tbaa !138, !range !146, !noundef !147
   %1056 = trunc nuw i8 %.val1.i24.i.i.i.i.i.i.i.i.i to i1
@@ -12546,8 +12546,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   unreachable
 
 70:                                               ; preds = %68, %67, %66, %64, %63, %61, %59, %57, %56, %55, %54, %53, %.lr.ph.i.i
-  %.1.i = phi i1 [ %.08.i, %68 ], [ %.08.i, %67 ], [ %.08.i, %66 ], [ %.08.i, %64 ], [ %.08.i, %63 ], [ %.08.i, %61 ], [ %.08.i, %59 ], [ %.08.i, %57 ], [ %.08.i, %56 ], [ %.08.i, %55 ], [ true, %54 ], [ %.08.i, %53 ], [ true, %.lr.ph.i.i ]
-  %.val9.i.i = phi i32 [ 6, %68 ], [ 5, %67 ], [ 4, %66 ], [ %.val1315.i.i, %64 ], [ %.val10.i.i, %63 ], [ %.val11.i.i, %61 ], [ %.val12.i.i, %59 ], [ %.val1315.i.i, %57 ], [ 3, %56 ], [ 4, %55 ], [ %.val1315.i.i, %54 ], [ %.val1315.i.i, %53 ], [ %.val1315.i.i, %.lr.ph.i.i ]
+  %.1.i = phi i1 [ %.08.i, %53 ], [ true, %54 ], [ %.08.i, %55 ], [ %.08.i, %56 ], [ %.08.i, %57 ], [ %.08.i, %59 ], [ %.08.i, %61 ], [ %.08.i, %63 ], [ %.08.i, %66 ], [ %.08.i, %64 ], [ %.08.i, %67 ], [ %.08.i, %68 ], [ true, %.lr.ph.i.i ]
+  %.val9.i.i = phi i32 [ %.val1315.i.i, %53 ], [ %.val1315.i.i, %54 ], [ 4, %55 ], [ 3, %56 ], [ %.val1315.i.i, %57 ], [ %.val12.i.i, %59 ], [ %.val11.i.i, %61 ], [ %.val10.i.i, %63 ], [ 4, %66 ], [ %.val1315.i.i, %64 ], [ 5, %67 ], [ 6, %68 ], [ %.val1315.i.i, %.lr.ph.i.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i.i, i64 1
   %.not.i.i = icmp eq ptr %71, %46
   br i1 %.not.i.i, label %._crit_edge.i.loopexit.i, label %.lr.ph.i.i
@@ -21794,7 +21794,7 @@ _ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i: ; preds = %1088, %
   unreachable
 
 1101:                                             ; preds = %1099, %1098, %_ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i
-  %.08.ph.i.i = phi i32 [ 3, %1098 ], [ 4, %1099 ], [ 2, %_ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i ]
+  %.08.ph.i.i = phi i32 [ 4, %1099 ], [ 3, %1098 ], [ 2, %_ZNK12_GLOBAL__N_19Intrinsic21getPolymorphicKeyTypeEv.exit.i ]
   %1102 = add nsw i32 %.08.ph.i.i, -1
   br label %_ZNK12_GLOBAL__N_14Type11getNeonEnumEv.exit.i
 
@@ -32071,7 +32071,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19Intrinsic14protoHa
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge.i.i.i.i.i.i
-  %.sroa.045.1.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %63, %62 ]
+  %.sroa.045.1.i.i.i.i.i.i = phi ptr [ %63, %62 ], [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.045.1.i.i.i.i.i.i, i64 32
   %.val.i.i.i31.i.i.i.i.i.i = load i32, ptr %65, align 8, !tbaa !137
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.045.1.i.i.i.i.i.i, i64 38
@@ -32094,7 +32094,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19Intrinsic14protoHa
   br label %76
 
 76:                                               ; preds = %74, %._crit_edge.i.i.i.i.i.i
-  %.sroa.045.2.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %75, %74 ]
+  %.sroa.045.2.i.i.i.i.i.i = phi ptr [ %75, %74 ], [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.045.2.i.i.i.i.i.i, i64 32
   %.val.i.i.i34.i.i.i.i.i.i = load i32, ptr %77, align 8, !tbaa !137
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.045.2.i.i.i.i.i.i, i64 38
@@ -37086,8 +37086,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %1118
 
 1118:                                             ; preds = %1116, %._crit_edge.i.i.i.i.i168.i
-  %.2.i = phi i32 [ %.0220.i, %._crit_edge.i.i.i.i.i168.i ], [ %1091, %1116 ]
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i168.i ], [ %1117, %1116 ]
+  %.2.i = phi i32 [ %1091, %1116 ], [ %.0220.i, %._crit_edge.i.i.i.i.i168.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %1117, %1116 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i168.i ]
   %.val39.val.i.i.i.i.i.i = load ptr, ptr %739, align 8, !tbaa !140
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19) #29
   %1119 = add i32 %.2.i, 1
@@ -37161,8 +37161,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %1146
 
 1146:                                             ; preds = %1144, %._crit_edge.i.i.i.i.i168.i
-  %.1.i = phi i32 [ %.0220.i, %._crit_edge.i.i.i.i.i168.i ], [ %1119, %1144 ]
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i168.i ], [ %1145, %1144 ]
+  %.1.i = phi i32 [ %1119, %1144 ], [ %.0220.i, %._crit_edge.i.i.i.i.i168.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %1145, %1144 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i168.i ]
   %.val41.val.i.i.i.i.i.i = load ptr, ptr %739, align 8, !tbaa !140
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21) #29
   %1147 = add i32 %.1.i, 1
@@ -40102,8 +40102,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_6RecordEN
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !39
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_6RecordELj16EEES4_EEbOT_RKT0_.exit, label %50
@@ -40113,8 +40113,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_6RecordEN
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !39
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_6RecordELj16EEES4_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_6RecordELj16EEES4_EEbOT_RKT0_.exit.thread

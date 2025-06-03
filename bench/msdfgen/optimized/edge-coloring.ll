@@ -3643,8 +3643,8 @@ sw.bb22.i:                                        ; preds = %for.end.i, %for.con
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb22.i, %sw.bb17.i, %sw.bb12.i, %sw.bb11.i, %sw.bb9.i, %sw.bb8.i, %for.end.i
-  %seed.addr.1.i = phi i64 [ %div.i827, %sw.bb22.i ], [ %shr21.i, %sw.bb17.i ], [ %shr16.i, %sw.bb12.i ], [ %seed.addr.022.i, %sw.bb11.i ], [ %shr.i, %sw.bb9.i ], [ %seed.addr.022.i, %sw.bb8.i ], [ %seed.addr.022.i, %for.end.i ]
-  %color.0.i = phi i32 [ %conv25.i, %sw.bb22.i ], [ %add20.i, %sw.bb17.i ], [ %shl15.i, %sw.bb12.i ], [ 2, %sw.bb11.i ], [ %and10.i, %sw.bb9.i ], [ 1, %sw.bb8.i ], [ 0, %for.end.i ]
+  %seed.addr.1.i = phi i64 [ %seed.addr.022.i, %sw.bb8.i ], [ %shr.i, %sw.bb9.i ], [ %seed.addr.022.i, %sw.bb11.i ], [ %shr16.i, %sw.bb12.i ], [ %shr21.i, %sw.bb17.i ], [ %div.i827, %sw.bb22.i ], [ %seed.addr.022.i, %for.end.i ]
+  %color.0.i = phi i32 [ 1, %sw.bb8.i ], [ %and10.i, %sw.bb9.i ], [ 2, %sw.bb11.i ], [ %shl15.i, %sw.bb12.i ], [ %add20.i, %sw.bb17.i ], [ %conv25.i, %sw.bb22.i ], [ 0, %for.end.i ]
   %arrayidx27.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i2.i.i813, i64 %indvars.iv25.i
   store i32 %color.0.i, ptr %arrayidx27.i, align 4
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1

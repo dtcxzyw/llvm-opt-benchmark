@@ -423,7 +423,7 @@ define internal range(i32 -1, 2) i32 @CVSptfqmrSolve(ptr noundef %0, ptr noundef
   br label %67
 
 67:                                               ; preds = %53, %53, %53, %59, %22, %26, %66, %65, %64, %63
-  %.0 = phi i32 [ 0, %66 ], [ -1, %65 ], [ -1, %64 ], [ -1, %63 ], [ 0, %26 ], [ 0, %22 ], [ %., %59 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ]
+  %.0 = phi i32 [ 0, %66 ], [ -1, %63 ], [ -1, %64 ], [ -1, %65 ], [ 0, %26 ], [ 0, %22 ], [ %., %59 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7

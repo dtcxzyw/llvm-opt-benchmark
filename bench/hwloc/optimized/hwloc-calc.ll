@@ -2443,7 +2443,7 @@ sub_179:                                          ; preds = %.tail73
   br label %204
 
 204:                                              ; preds = %.thread, %114, %.tail, %201, %127, %130, %195, %.critedge, %203, %96, %85
-  %.046 = phi i32 [ 1, %85 ], [ 1, %203 ], [ 1, %96 ], [ 1, %.critedge ], [ 0, %195 ], [ 0, %130 ], [ 0, %127 ], [ 0, %201 ], [ 0, %.tail ], [ 0, %114 ], [ 0, %.thread ]
+  %.046 = phi i32 [ 1, %85 ], [ 1, %96 ], [ 1, %203 ], [ 1, %.critedge ], [ 0, %195 ], [ 0, %130 ], [ 0, %127 ], [ 0, %201 ], [ 0, %.tail ], [ 0, %114 ], [ 0, %.thread ]
   ret i32 %.046
 }
 
@@ -3048,7 +3048,7 @@ hwloc_calc_parse_level_size.exit.thread:          ; preds = %41, %48, %hwloc_cal
   unreachable
 
 hwloc_utils_cpuset_format_sscanf.exit:            ; preds = %.thread.i, %.thread16.i, %.thread18.i
-  %.011.i = phi i32 [ %236, %.thread18.i ], [ %235, %.thread16.i ], [ %234, %.thread.i ]
+  %.011.i = phi i32 [ %234, %.thread.i ], [ %235, %.thread16.i ], [ %236, %.thread18.i ]
   %238 = icmp slt i32 %.011.i, 0
   br i1 %238, label %239, label %240
 
@@ -5304,7 +5304,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %23
   br label %.thread
 
 .thread:                                          ; preds = %22, %17, %29, %hwloc_obj_get_info_by_name.exit, %42, %65, %56, %47, %5, %8, %70
-  %.0 = phi i32 [ 1, %42 ], [ 0, %70 ], [ 1, %8 ], [ 1, %5 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %70 ], [ 1, %42 ], [ 1, %8 ], [ 1, %5 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
   ret i32 %.0
 }
 
@@ -5795,7 +5795,7 @@ define internal fastcc void @hwloc_utils_get_best_node_in_array_by_memattr(ptr n
   br label %hwloc_utils__update_best_node.exit
 
 hwloc_utils__update_best_node.exit:               ; preds = %92, %90, %86, %80, %78, %74, %65, %57, %55, %40, %46, %.lr.ph
-  %.3 = phi i64 [ %.294109, %57 ], [ %.294109, %55 ], [ %.294109, %46 ], [ %.294109, %40 ], [ %.294109, %.lr.ph ], [ %63, %86 ], [ %.294109, %92 ], [ %.294109, %90 ], [ %63, %74 ], [ %.294109, %80 ], [ %.294109, %78 ], [ %63, %65 ]
+  %.3 = phi i64 [ %.294109, %46 ], [ %.294109, %40 ], [ %.294109, %57 ], [ %.294109, %55 ], [ %.294109, %.lr.ph ], [ %63, %86 ], [ %.294109, %92 ], [ %.294109, %90 ], [ %63, %74 ], [ %.294109, %80 ], [ %.294109, %78 ], [ %63, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = load i32, ptr %9, align 4, !tbaa !16
   %97 = zext i32 %96 to i64

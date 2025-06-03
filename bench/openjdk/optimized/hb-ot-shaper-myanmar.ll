@@ -991,8 +991,8 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br label %118
 
 118:                                              ; preds = %41, %._crit_edge184, %._crit_edge178, %._crit_edge172, %._crit_edge166, %._crit_edge160, %._crit_edge154, %._crit_edge, %35
-  %.3127 = phi i32 [ %.2126, %35 ], [ %.2126, %41 ], [ %spec.store.select7, %._crit_edge ], [ %spec.store.select6, %._crit_edge154 ], [ %spec.store.select5, %._crit_edge160 ], [ %spec.store.select4, %._crit_edge166 ], [ %spec.store.select3, %._crit_edge172 ], [ %spec.store.select2, %._crit_edge178 ], [ %spec.store.select, %._crit_edge184 ]
-  %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %109, %._crit_edge ], [ %96, %._crit_edge154 ], [ %87, %._crit_edge160 ], [ %.2, %._crit_edge166 ], [ %.2, %._crit_edge172 ], [ %.2, %._crit_edge178 ], [ %.2, %._crit_edge184 ]
+  %.3127 = phi i32 [ %.2126, %35 ], [ %.2126, %41 ], [ %spec.store.select, %._crit_edge184 ], [ %spec.store.select2, %._crit_edge178 ], [ %spec.store.select3, %._crit_edge172 ], [ %spec.store.select4, %._crit_edge166 ], [ %spec.store.select5, %._crit_edge160 ], [ %spec.store.select6, %._crit_edge154 ], [ %spec.store.select7, %._crit_edge ]
+  %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %.2, %._crit_edge184 ], [ %.2, %._crit_edge178 ], [ %.2, %._crit_edge172 ], [ %.2, %._crit_edge166 ], [ %87, %._crit_edge160 ], [ %96, %._crit_edge154 ], [ %109, %._crit_edge ]
   %119 = sext i8 %37 to i64
   %120 = getelementptr inbounds [55 x i8], ptr @_ZL42_myanmar_syllable_machine_to_state_actions, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1

@@ -3764,7 +3764,7 @@ get_ndmp_protocol_version.exit:                   ; preds = %14, %17
   br label %38
 
 38:                                               ; preds = %21, %28, %35, %31, %4
-  %.0 = phi i32 [ %11, %4 ], [ %34, %31 ], [ %27, %21 ], [ %30, %28 ], [ %37, %35 ]
+  %.0 = phi i32 [ %11, %4 ], [ %37, %35 ], [ %27, %21 ], [ %30, %28 ], [ %34, %31 ]
   ret i32 %.0
 }
 
@@ -3905,7 +3905,7 @@ define internal i32 @dissect_file_name(ptr noundef %0, i32 noundef %1, ptr nound
   br label %32
 
 32:                                               ; preds = %27, %20, %15
-  %.0 = phi i32 [ %29, %27 ], [ %26, %20 ], [ %17, %15 ]
+  %.0 = phi i32 [ %29, %27 ], [ %17, %15 ], [ %26, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @file_fs_type_vals, ptr noundef nonnull @.str.761)
@@ -4023,7 +4023,7 @@ define internal fastcc i32 @dissect_auth_data(ptr noundef %0, i32 noundef %1, pt
   br label %19
 
 19:                                               ; preds = %13, %8, %3
-  %.0 = phi i32 [ %7, %3 ], [ %12, %8 ], [ %18, %13 ]
+  %.0 = phi i32 [ %7, %3 ], [ %18, %13 ], [ %12, %8 ]
   ret i32 %.0
 }
 

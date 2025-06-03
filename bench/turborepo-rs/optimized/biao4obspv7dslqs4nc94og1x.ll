@@ -6562,7 +6562,7 @@ default.unreachable:                              ; preds = %2
   br label %_RNvXso_NtCsaPKTPzkFU9s_3nom5errorNtB5_16VerboseErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 
 _RNvXso_NtCsaPKTPzkFU9s_3nom5errorNtB5_16VerboseErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit: ; preds = %8, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 

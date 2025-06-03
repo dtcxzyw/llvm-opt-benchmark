@@ -904,9 +904,9 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17h6f0561ba8529059
   br label %13
 
 13:                                               ; preds = %9, %.noexc
-  %.sroa.4.0 = phi i64 [ %.sroa.519.0.copyload, %9 ], [ %12, %.noexc ]
-  %.sroa.3.0 = phi ptr [ %.sroa.4.0.copyload, %9 ], [ %11, %.noexc ]
-  %.sroa.0.0 = phi i64 [ %.sroa.017.0.copyload, %9 ], [ -9223372036854775808, %.noexc ]
+  %.sroa.4.0 = phi i64 [ %12, %.noexc ], [ %.sroa.519.0.copyload, %9 ]
+  %.sroa.3.0 = phi ptr [ %11, %.noexc ], [ %.sroa.4.0.copyload, %9 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775808, %.noexc ], [ %.sroa.017.0.copyload, %9 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
@@ -2550,7 +2550,7 @@ define hidden void @"_ZN4gpui12subscription42SubscriberSet$LT$EmitterKey$C$Callb
   br label %"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$10or_default17hb0db9de9d696cb54E.exit"
 
 "_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$10or_default17hb0db9de9d696cb54E.exit": ; preds = %41, %.noexc13
-  %.sroa.0.0.i = phi ptr [ %42, %41 ], [ %40, %.noexc13 ]
+  %.sroa.0.0.i = phi ptr [ %40, %.noexc13 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %43 = load i64, ptr %.sroa.0.0.i, align 8, !range !372, !alias.scope !616, !noundef !9
   %trunc.i14 = trunc nuw i64 %43 to i1

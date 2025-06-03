@@ -2424,7 +2424,7 @@ define internal fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17conn
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i
-  %.sroa.044.1.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %42, %41 ]
+  %.sroa.044.1.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %44 = getelementptr i8, ptr %.sroa.044.1.i.i.i.i.i, i64 4
   %.val1.i26.i.i.i.i.i = load i32, ptr %44, align 4
   %45 = and i32 %.val1.i26.i.i.i.i.i, 1
@@ -2436,7 +2436,7 @@ define internal fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17conn
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
-  %.sroa.044.2.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %47, %46 ]
+  %.sroa.044.2.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %49 = getelementptr i8, ptr %.sroa.044.2.i.i.i.i.i, i64 4
   %.val1.i27.i.i.i.i.i = load i32, ptr %49, align 4
   %50 = and i32 %.val1.i27.i.i.i.i.i, 1
@@ -2620,7 +2620,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIP
   br label %122
 
 122:                                              ; preds = %120, %._crit_edge.i.i.i.i41.i
-  %.sroa.037.1.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i41.i ], [ %121, %120 ]
+  %.sroa.037.1.i.i.i.i.i = phi ptr [ %121, %120 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i41.i ]
   %.val.i24.i.i.i.i.i = load i32, ptr %.sroa.037.1.i.i.i.i.i, align 4
   %123 = getelementptr i8, ptr %.sroa.037.1.i.i.i.i.i, i64 4
   %.val1.i25.i.i.i.i49.i = load i32, ptr %123, align 4
@@ -2634,7 +2634,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIP
   br label %129
 
 129:                                              ; preds = %127, %._crit_edge.i.i.i.i41.i
-  %.sroa.037.2.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i41.i ], [ %128, %127 ]
+  %.sroa.037.2.i.i.i.i.i = phi ptr [ %128, %127 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i41.i ]
   %.val.i26.i.i.i.i.i = load i32, ptr %.sroa.037.2.i.i.i.i.i, align 4
   %130 = getelementptr i8, ptr %.sroa.037.2.i.i.i.i.i, i64 4
   %.val1.i27.i.i.i.i42.i = load i32, ptr %130, align 4
@@ -2790,7 +2790,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIP
   br label %183
 
 183:                                              ; preds = %181, %._crit_edge.i.i.i.i66.i
-  %.sroa.044.1.i.i.i.i86.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i68.i, %._crit_edge.i.i.i.i66.i ], [ %182, %181 ]
+  %.sroa.044.1.i.i.i.i86.i = phi ptr [ %182, %181 ], [ %.sroa.044.0.lcssa.i.i.i.i68.i, %._crit_edge.i.i.i.i66.i ]
   %184 = getelementptr i8, ptr %.sroa.044.1.i.i.i.i86.i, i64 4
   %.val1.i26.i.i.i.i87.i = load i32, ptr %184, align 4
   %185 = and i32 %.val1.i26.i.i.i.i87.i, 3
@@ -2802,7 +2802,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIP
   br label %189
 
 189:                                              ; preds = %187, %._crit_edge.i.i.i.i66.i
-  %.sroa.044.2.i.i.i.i69.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i68.i, %._crit_edge.i.i.i.i66.i ], [ %188, %187 ]
+  %.sroa.044.2.i.i.i.i69.i = phi ptr [ %188, %187 ], [ %.sroa.044.0.lcssa.i.i.i.i68.i, %._crit_edge.i.i.i.i66.i ]
   %190 = getelementptr i8, ptr %.sroa.044.2.i.i.i.i69.i, i64 4
   %.val1.i27.i.i.i.i70.i = load i32, ptr %190, align 4
   %191 = and i32 %.val1.i27.i.i.i.i70.i, 3
@@ -2966,8 +2966,8 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE5clearEv.exit.i: ; preds = %._crit_edge
   br label %256
 
 256:                                              ; preds = %254, %._crit_edge._crit_edge.i.i.i.i.i
-  %257 = phi i32 [ %.pre.i.i.i.i124.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %251, %254 ]
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %255, %254 ]
+  %257 = phi i32 [ %251, %254 ], [ %.pre.i.i.i.i124.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %255, %254 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %258 = load i32, ptr %.sroa.032.1.i.i.i.i.i, align 4
   %259 = icmp eq i32 %258, %257
   br i1 %259, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKjEEET_SD_SD_T0_.exit.i.i.i, label %260
@@ -2977,8 +2977,8 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE5clearEv.exit.i: ; preds = %._crit_edge
   br label %262
 
 262:                                              ; preds = %260, %._crit_edge._crit_edge57.i.i.i.i.i
-  %263 = phi i32 [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %257, %260 ]
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %261, %260 ]
+  %263 = phi i32 [ %257, %260 ], [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %261, %260 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
   %264 = load i32, ptr %.sroa.032.2.i.i.i.i.i, align 4
   %265 = icmp eq i32 %264, %263
   %spec.select.i.i.i.i115.i = select i1 %265, ptr %.sroa.032.2.i.i.i.i.i, ptr %221
@@ -3133,8 +3133,8 @@ _ZN3ue2L11filterEdgesERKNS_12_GLOBAL__N_122GlushkovBuildStateImplERKNS_12Positio
   br label %324
 
 324:                                              ; preds = %322, %._crit_edge._crit_edge.i.i.i
-  %325 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %319, %322 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %323, %322 ]
+  %325 = phi i32 [ %319, %322 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %323, %322 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %326 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %327 = icmp eq i32 %326, %325
   br i1 %327, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEjET_S9_S9_RKT0_.exit, label %328
@@ -3144,8 +3144,8 @@ _ZN3ue2L11filterEdgesERKNS_12_GLOBAL__N_122GlushkovBuildStateImplERKNS_12Positio
   br label %330
 
 330:                                              ; preds = %328, %._crit_edge._crit_edge57.i.i.i
-  %331 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %325, %328 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %329, %328 ]
+  %331 = phi i32 [ %325, %328 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %329, %328 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %332 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %333 = icmp eq i32 %332, %331
   %spec.select.i.i.i = select i1 %333, ptr %.sroa.032.2.i.i.i, ptr %289

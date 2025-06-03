@@ -2109,7 +2109,7 @@ smart_str_appendl_ex.exit61:                      ; preds = %273, %279
   br label %php_json_encode_serializable_enum.exit
 
 php_json_encode_serializable_enum.exit:           ; preds = %smart_str_appendc_ex.exit.i, %smart_str_appendl_ex.exit, %smart_str_appendl_ex.exit51, %smart_str_appendl_ex.exit56, %smart_str_append_long_ex.exit, %smart_str_appendc_ex.exit, %php_json_encode_double.exit, %268, %smart_str_appendl_ex.exit61, %zval_ptr_dtor_nogc.exit, %php_json_encode_serializable_object.exit, %144
-  %.0 = phi i32 [ %255, %zval_ptr_dtor_nogc.exit ], [ %.0.i83, %php_json_encode_serializable_object.exit ], [ %149, %144 ], [ -1, %smart_str_appendl_ex.exit61 ], [ -1, %268 ], [ 0, %php_json_encode_double.exit ], [ 0, %smart_str_appendc_ex.exit ], [ 0, %smart_str_append_long_ex.exit ], [ 0, %smart_str_appendl_ex.exit56 ], [ 0, %smart_str_appendl_ex.exit51 ], [ 0, %smart_str_appendl_ex.exit ], [ -1, %smart_str_appendc_ex.exit.i ]
+  %.0 = phi i32 [ %149, %144 ], [ %.0.i83, %php_json_encode_serializable_object.exit ], [ %255, %zval_ptr_dtor_nogc.exit ], [ -1, %smart_str_appendl_ex.exit61 ], [ -1, %268 ], [ 0, %php_json_encode_double.exit ], [ 0, %smart_str_appendc_ex.exit ], [ 0, %smart_str_append_long_ex.exit ], [ 0, %smart_str_appendl_ex.exit56 ], [ 0, %smart_str_appendl_ex.exit51 ], [ 0, %smart_str_appendl_ex.exit ], [ -1, %smart_str_appendc_ex.exit.i ]
   ret i32 %.0
 }
 

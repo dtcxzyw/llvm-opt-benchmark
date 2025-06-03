@@ -1010,9 +1010,9 @@ blf_read_log_object_header3.exit:                 ; preds = %74
   br label %blf_read_log_object_header2.exit.thread
 
 86:                                               ; preds = %80, %71, %60
-  %.0287.in = phi ptr [ %9, %80 ], [ %8, %71 ], [ %7, %60 ]
-  %.0286 = phi i64 [ %81, %80 ], [ %72, %71 ], [ %61, %60 ]
-  %.0285 = phi i16 [ %82, %80 ], [ %73, %71 ], [ %62, %60 ]
+  %.0287.in = phi ptr [ %7, %60 ], [ %8, %71 ], [ %9, %80 ]
+  %.0286 = phi i64 [ %61, %60 ], [ %72, %71 ], [ %81, %80 ]
+  %.0285 = phi i16 [ %62, %60 ], [ %73, %71 ], [ %82, %80 ]
   %.0287 = load i32, ptr %.0287.in, align 8
   %87 = icmp ne i64 %.0277583, 0
   %88 = load i32, ptr %28, align 4
@@ -1546,7 +1546,7 @@ blf_read_apptextmessage.exit.thread316:           ; preds = %362
   br label %399
 
 399:                                              ; preds = %394, %392, %390, %384
-  %.070.i = phi ptr [ null, %384 ], [ %398, %394 ], [ %393, %392 ], [ %391, %390 ]
+  %.070.i = phi ptr [ null, %384 ], [ %391, %390 ], [ %393, %392 ], [ %398, %394 ]
   %400 = load ptr, ptr %10, align 8
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 280
   call void @wtap_buffer_append_epdu_string(ptr noundef nonnull %401, i16 noundef zeroext 36, ptr noundef %.070.i)
@@ -1661,7 +1661,7 @@ blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object
   br label %blf_read_log_object_header2.exit.thread
 
 blf_read_log_object_header2.exit.thread:          ; preds = %424, %424, %424, %424, %blf_read_log_object_header2.exit.thread.loopexit, %.thread326, %66, %blf_read_log_object_header3.exit.thread, %blf_read_log_object_header.exit.thread, %._crit_edge, %33, %432, %425, %281, %274, %267, %260, %253, %246, %239, %232, %225, %218, %211, %204, %197, %190, %183, %176, %169, %162, %155, %148, %141, %134, %127, %120, %113, %106, %99, %92, %90, %83
-  %.1 = phi i1 [ false, %83 ], [ %438, %432 ], [ %431, %425 ], [ %287, %281 ], [ %280, %274 ], [ %273, %267 ], [ %266, %260 ], [ %259, %253 ], [ %252, %246 ], [ %245, %239 ], [ %238, %232 ], [ %231, %225 ], [ %224, %218 ], [ %217, %211 ], [ %210, %204 ], [ %203, %197 ], [ %196, %190 ], [ %189, %183 ], [ %182, %176 ], [ %175, %169 ], [ %168, %162 ], [ %161, %155 ], [ %154, %148 ], [ %147, %141 ], [ %140, %134 ], [ %133, %127 ], [ %126, %120 ], [ %119, %113 ], [ %112, %106 ], [ %105, %99 ], [ %98, %92 ], [ false, %90 ], [ false, %33 ], [ false, %._crit_edge ], [ false, %blf_read_log_object_header.exit.thread ], [ false, %blf_read_log_object_header3.exit.thread ], [ false, %66 ], [ true, %.thread326 ], [ false, %blf_read_log_object_header2.exit.thread.loopexit ], [ true, %424 ], [ true, %424 ], [ true, %424 ], [ true, %424 ]
+  %.1 = phi i1 [ false, %83 ], [ false, %90 ], [ %98, %92 ], [ %105, %99 ], [ %112, %106 ], [ %119, %113 ], [ %126, %120 ], [ %133, %127 ], [ %140, %134 ], [ %147, %141 ], [ %154, %148 ], [ %161, %155 ], [ %168, %162 ], [ %175, %169 ], [ %182, %176 ], [ %189, %183 ], [ %196, %190 ], [ %203, %197 ], [ %210, %204 ], [ %217, %211 ], [ %224, %218 ], [ %231, %225 ], [ %238, %232 ], [ %245, %239 ], [ %252, %246 ], [ %259, %253 ], [ %266, %260 ], [ %273, %267 ], [ %280, %274 ], [ %287, %281 ], [ %431, %425 ], [ %438, %432 ], [ false, %33 ], [ false, %._crit_edge ], [ false, %blf_read_log_object_header.exit.thread ], [ false, %blf_read_log_object_header3.exit.thread ], [ false, %66 ], [ true, %.thread326 ], [ false, %blf_read_log_object_header2.exit.thread.loopexit ], [ true, %424 ], [ true, %424 ], [ true, %424 ], [ true, %424 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14

@@ -1804,7 +1804,7 @@ _ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit: ; preds = %42, %45
   br label %53
 
 53:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %22, %6, %1, %_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit
-  %.0 = phi ptr [ null, %_ZN11MutexLockerD2Ev.exit ], [ %52, %_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit ], [ null, %1 ], [ null, %6 ], [ null, %22 ]
+  %.0 = phi ptr [ %52, %_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit ], [ null, %_ZN11MutexLockerD2Ev.exit ], [ null, %1 ], [ null, %6 ], [ null, %22 ]
   ret ptr %.0
 }
 

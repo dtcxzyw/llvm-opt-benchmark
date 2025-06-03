@@ -1261,9 +1261,9 @@ zend_string_release_ex.exit511:                   ; preds = %432, %438, %444, %4
   br label %.thread642
 
 .thread642:                                       ; preds = %420, %.thread638, %424, %449, %447
-  %451 = phi i16 [ %422, %424 ], [ %422, %449 ], [ %422, %447 ], [ %419, %.thread638 ], [ %423, %420 ]
-  %.sroa.36.0640644 = phi i8 [ %spec.select492, %424 ], [ 50, %449 ], [ 49, %447 ], [ 53, %.thread638 ], [ 53, %420 ]
-  %.sroa.33.0 = phi ptr [ null, %424 ], [ %450, %449 ], [ %448, %447 ], [ null, %.thread638 ], [ null, %420 ]
+  %451 = phi i16 [ %422, %424 ], [ %422, %447 ], [ %422, %449 ], [ %419, %.thread638 ], [ %423, %420 ]
+  %.sroa.36.0640644 = phi i8 [ %spec.select492, %424 ], [ 49, %447 ], [ 50, %449 ], [ 53, %.thread638 ], [ 53, %420 ]
+  %.sroa.33.0 = phi ptr [ null, %424 ], [ %448, %447 ], [ %450, %449 ], [ null, %.thread638 ], [ null, %420 ]
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %9) #15
   %452 = load i64, ptr %361, align 8, !tbaa !36
   %453 = load i32, ptr %73, align 8, !tbaa !37

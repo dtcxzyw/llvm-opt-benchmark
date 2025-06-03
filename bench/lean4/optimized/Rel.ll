@@ -308,14 +308,14 @@ select.unfold.sink.split:                         ; preds = %lean_obj_tag.exit, 
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   br label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.sink.split, %47, %17, %24, %31
-  %.148 = phi ptr [ %35, %31 ], [ %28, %24 ], [ %21, %17 ], [ %44, %47 ], [ %52, %select.unfold.sink.split ]
+select.unfold:                                    ; preds = %select.unfold.sink.split, %47, %31, %24, %17
+  %.148 = phi ptr [ %21, %17 ], [ %28, %24 ], [ %35, %31 ], [ %44, %47 ], [ %52, %select.unfold.sink.split ]
   %53 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.148) #5
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %select.unfold, %38, %lean_obj_tag.exit, %31, %24, %17, %47, %2, %13
-  %.174 = phi i8 [ %16, %13 ], [ 0, %2 ], [ 1, %47 ], [ 1, %17 ], [ 1, %24 ], [ 1, %31 ], [ 0, %lean_obj_tag.exit ], [ 1, %38 ], [ 0, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %38, %lean_obj_tag.exit, %17, %24, %31, %47, %2, %13
+  %.174 = phi i8 [ %16, %13 ], [ 0, %2 ], [ 1, %47 ], [ 1, %31 ], [ 1, %24 ], [ 1, %17 ], [ 0, %lean_obj_tag.exit ], [ 1, %38 ], [ 0, %select.unfold ]
   ret i8 %.174
 }
 

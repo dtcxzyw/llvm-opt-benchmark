@@ -1149,7 +1149,7 @@ lean_dec.exit:                                    ; preds = %55, %54, %52, %lean
   br label %59
 
 59:                                               ; preds = %57, %lean_dec.exit, %lean_dec.exit17
-  %.0 = phi ptr [ %58, %57 ], [ %56, %lean_dec.exit ], [ %37, %lean_dec.exit17 ]
+  %.0 = phi ptr [ %58, %57 ], [ %37, %lean_dec.exit17 ], [ %56, %lean_dec.exit ]
   ret ptr %.0
 }
 
@@ -1207,7 +1207,7 @@ define noundef nonnull ptr @l_Lean_JsonRpc_ErrorCode_toCtorIdx(i8 noundef zeroex
   br label %13
 
 13:                                               ; preds = %1, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -1287,7 +1287,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit
 
 l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit:          ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23
-  %.0.i = phi ptr [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -1502,7 +1502,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_JsonRpc_beqErrorCode____x40_Lean_Data_J
   br label %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit
 
 l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit:          ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13
-  %.0.i9 = phi ptr [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %24 [
     i8 0, label %lean_dec.exit
     i8 1, label %14
@@ -1551,7 +1551,7 @@ l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit:          ; preds = %2, %3, %4, %5, %6, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 23 to ptr), %24 ], [ inttoptr (i64 21 to ptr), %23 ], [ inttoptr (i64 19 to ptr), %22 ], [ inttoptr (i64 17 to ptr), %21 ], [ inttoptr (i64 15 to ptr), %20 ], [ inttoptr (i64 13 to ptr), %19 ], [ inttoptr (i64 11 to ptr), %18 ], [ inttoptr (i64 9 to ptr), %17 ], [ inttoptr (i64 7 to ptr), %16 ], [ inttoptr (i64 5 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 23 to ptr), %24 ], [ inttoptr (i64 3 to ptr), %14 ], [ inttoptr (i64 5 to ptr), %15 ], [ inttoptr (i64 7 to ptr), %16 ], [ inttoptr (i64 9 to ptr), %17 ], [ inttoptr (i64 11 to ptr), %18 ], [ inttoptr (i64 13 to ptr), %19 ], [ inttoptr (i64 15 to ptr), %20 ], [ inttoptr (i64 17 to ptr), %21 ], [ inttoptr (i64 19 to ptr), %22 ], [ inttoptr (i64 21 to ptr), %23 ], [ inttoptr (i64 1 to ptr), %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit ]
   %25 = icmp eq ptr %.0.i9, %.0.i10
   %26 = zext i1 %25 to i8
   ret i8 %26
@@ -1659,7 +1659,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i
 
 l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i:        ; preds = %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 23 to ptr), %35 ], [ inttoptr (i64 21 to ptr), %34 ], [ inttoptr (i64 19 to ptr), %33 ], [ inttoptr (i64 17 to ptr), %32 ], [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 23 to ptr), %35 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 17 to ptr), %32 ], [ inttoptr (i64 19 to ptr), %33 ], [ inttoptr (i64 21 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %46 [
     i8 0, label %l_Lean_JsonRpc_beqErrorCode____x40_Lean_Data_JsonRpc___hyg_331_.exit
     i8 1, label %36
@@ -1708,7 +1708,7 @@ l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i:        ; preds = %35, %34, %33, %32, 
   br label %l_Lean_JsonRpc_beqErrorCode____x40_Lean_Data_JsonRpc___hyg_331_.exit
 
 l_Lean_JsonRpc_beqErrorCode____x40_Lean_Data_JsonRpc___hyg_331_.exit: ; preds = %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46
-  %.0.i10.i = phi ptr [ inttoptr (i64 23 to ptr), %46 ], [ inttoptr (i64 21 to ptr), %45 ], [ inttoptr (i64 19 to ptr), %44 ], [ inttoptr (i64 17 to ptr), %43 ], [ inttoptr (i64 15 to ptr), %42 ], [ inttoptr (i64 13 to ptr), %41 ], [ inttoptr (i64 11 to ptr), %40 ], [ inttoptr (i64 9 to ptr), %39 ], [ inttoptr (i64 7 to ptr), %38 ], [ inttoptr (i64 5 to ptr), %37 ], [ inttoptr (i64 3 to ptr), %36 ], [ inttoptr (i64 1 to ptr), %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 23 to ptr), %46 ], [ inttoptr (i64 3 to ptr), %36 ], [ inttoptr (i64 5 to ptr), %37 ], [ inttoptr (i64 7 to ptr), %38 ], [ inttoptr (i64 9 to ptr), %39 ], [ inttoptr (i64 11 to ptr), %40 ], [ inttoptr (i64 13 to ptr), %41 ], [ inttoptr (i64 15 to ptr), %42 ], [ inttoptr (i64 17 to ptr), %43 ], [ inttoptr (i64 19 to ptr), %44 ], [ inttoptr (i64 21 to ptr), %45 ], [ inttoptr (i64 1 to ptr), %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i ]
   %47 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %48 = select i1 %47, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %48
@@ -5141,7 +5141,7 @@ lean_dec.exit62:                                  ; preds = %128, %127, %125, %l
   br label %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i
 
 l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i:        ; preds = %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138
-  %.0.i9.i = phi ptr [ inttoptr (i64 23 to ptr), %149 ], [ inttoptr (i64 21 to ptr), %148 ], [ inttoptr (i64 19 to ptr), %147 ], [ inttoptr (i64 17 to ptr), %146 ], [ inttoptr (i64 15 to ptr), %145 ], [ inttoptr (i64 13 to ptr), %144 ], [ inttoptr (i64 11 to ptr), %143 ], [ inttoptr (i64 9 to ptr), %142 ], [ inttoptr (i64 7 to ptr), %141 ], [ inttoptr (i64 5 to ptr), %140 ], [ inttoptr (i64 3 to ptr), %139 ], [ inttoptr (i64 1 to ptr), %138 ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 23 to ptr), %149 ], [ inttoptr (i64 3 to ptr), %139 ], [ inttoptr (i64 5 to ptr), %140 ], [ inttoptr (i64 7 to ptr), %141 ], [ inttoptr (i64 9 to ptr), %142 ], [ inttoptr (i64 11 to ptr), %143 ], [ inttoptr (i64 13 to ptr), %144 ], [ inttoptr (i64 15 to ptr), %145 ], [ inttoptr (i64 17 to ptr), %146 ], [ inttoptr (i64 19 to ptr), %147 ], [ inttoptr (i64 21 to ptr), %148 ], [ inttoptr (i64 1 to ptr), %138 ]
   switch i8 %.val111, label %160 [
     i8 0, label %l_Lean_JsonRpc_beqErrorCode____x40_Lean_Data_JsonRpc___hyg_331_.exit
     i8 1, label %150
@@ -5190,7 +5190,7 @@ l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i:        ; preds = %149, %148, %147, %1
   br label %l_Lean_JsonRpc_beqErrorCode____x40_Lean_Data_JsonRpc___hyg_331_.exit
 
 l_Lean_JsonRpc_beqErrorCode____x40_Lean_Data_JsonRpc___hyg_331_.exit: ; preds = %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160
-  %.0.i10.i = phi ptr [ inttoptr (i64 23 to ptr), %160 ], [ inttoptr (i64 21 to ptr), %159 ], [ inttoptr (i64 19 to ptr), %158 ], [ inttoptr (i64 17 to ptr), %157 ], [ inttoptr (i64 15 to ptr), %156 ], [ inttoptr (i64 13 to ptr), %155 ], [ inttoptr (i64 11 to ptr), %154 ], [ inttoptr (i64 9 to ptr), %153 ], [ inttoptr (i64 7 to ptr), %152 ], [ inttoptr (i64 5 to ptr), %151 ], [ inttoptr (i64 3 to ptr), %150 ], [ inttoptr (i64 1 to ptr), %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 23 to ptr), %160 ], [ inttoptr (i64 3 to ptr), %150 ], [ inttoptr (i64 5 to ptr), %151 ], [ inttoptr (i64 7 to ptr), %152 ], [ inttoptr (i64 9 to ptr), %153 ], [ inttoptr (i64 11 to ptr), %154 ], [ inttoptr (i64 13 to ptr), %155 ], [ inttoptr (i64 15 to ptr), %156 ], [ inttoptr (i64 17 to ptr), %157 ], [ inttoptr (i64 19 to ptr), %158 ], [ inttoptr (i64 21 to ptr), %159 ], [ inttoptr (i64 1 to ptr), %l_Lean_JsonRpc_ErrorCode_toCtorIdx.exit.i ]
   %.not135 = icmp eq ptr %.0.i9.i, %.0.i10.i
   br i1 %.not135, label %199, label %161
 
@@ -24810,7 +24810,7 @@ lean_alloc_ctor.exit1515:                         ; preds = %lean_dec.exit
   br label %2153
 
 2153:                                             ; preds = %lean_alloc_ctor.exit1515, %lean_dec.exit966, %2096, %lean_dec.exit1009, %828, %794, %lean_dec.exit1029, %lean_dec.exit1031, %lean_dec.exit1035, %lean_dec.exit1040, %476, %lean_dec.exit1016, %lean_dec.exit1023, %lean_alloc_ctor.exit1374, %lean_alloc_ctor.exit1385, %lean_alloc_ctor.exit1408, %lean_dec.exit977, %lean_dec.exit976, %lean_dec.exit975, %lean_dec.exit986, %lean_dec.exit984, %lean_dec.exit989, %lean_dec.exit987, %lean_dec.exit983, %lean_dec.exit979, %lean_dec.exit980, %lean_dec.exit981
-  %.21 = phi ptr [ %.0944, %2096 ], [ %7, %lean_dec.exit1023 ], [ %7, %lean_dec.exit1016 ], [ %7, %476 ], [ %7, %lean_dec.exit1040 ], [ %7, %lean_dec.exit1035 ], [ %7, %lean_dec.exit1031 ], [ %7, %lean_dec.exit1029 ], [ %660, %lean_dec.exit1009 ], [ %796, %794 ], [ %832, %828 ], [ %1116, %lean_alloc_ctor.exit1408 ], [ %7, %lean_alloc_ctor.exit1385 ], [ %7, %lean_alloc_ctor.exit1374 ], [ %7, %lean_dec.exit981 ], [ %7, %lean_dec.exit980 ], [ %7, %lean_dec.exit979 ], [ %7, %lean_dec.exit983 ], [ %7, %lean_dec.exit987 ], [ %7, %lean_dec.exit989 ], [ %7, %lean_dec.exit984 ], [ %7, %lean_dec.exit986 ], [ %1827, %lean_dec.exit975 ], [ %1798, %lean_dec.exit976 ], [ %1737, %lean_dec.exit977 ], [ %2147, %lean_alloc_ctor.exit1515 ], [ %7, %lean_dec.exit966 ]
+  %.21 = phi ptr [ %.0944, %2096 ], [ %7, %lean_dec.exit1023 ], [ %7, %lean_dec.exit1016 ], [ %7, %476 ], [ %7, %lean_dec.exit1040 ], [ %7, %lean_dec.exit1035 ], [ %7, %lean_dec.exit1031 ], [ %7, %lean_dec.exit1029 ], [ %660, %lean_dec.exit1009 ], [ %796, %794 ], [ %832, %828 ], [ %1116, %lean_alloc_ctor.exit1408 ], [ %7, %lean_alloc_ctor.exit1385 ], [ %7, %lean_alloc_ctor.exit1374 ], [ %7, %lean_dec.exit981 ], [ %7, %lean_dec.exit980 ], [ %7, %lean_dec.exit979 ], [ %7, %lean_dec.exit983 ], [ %7, %lean_dec.exit987 ], [ %7, %lean_dec.exit989 ], [ %7, %lean_dec.exit984 ], [ %7, %lean_dec.exit986 ], [ %1827, %lean_dec.exit975 ], [ %1737, %lean_dec.exit977 ], [ %1798, %lean_dec.exit976 ], [ %2147, %lean_alloc_ctor.exit1515 ], [ %7, %lean_dec.exit966 ]
   ret ptr %.21
 }
 
@@ -30334,7 +30334,7 @@ lean_alloc_ctor.exit1696:                         ; preds = %lean_dec.exit
   br label %2341
 
 2341:                                             ; preds = %lean_alloc_ctor.exit1696, %lean_dec.exit1133, %2284, %lean_dec.exit1201, %lean_dec.exit1200, %lean_dec.exit1199, %lean_dec.exit1204, %lean_dec.exit1208, %lean_dec.exit1210, %lean_dec.exit1205, %lean_dec.exit1207, %lean_dec.exit1167, %1304, %1266, %lean_dec.exit1184, %lean_dec.exit1186, %lean_dec.exit1190, %lean_dec.exit1194, %983, %lean_dec.exit1173, %lean_dec.exit1179, %lean_dec.exit1144, %lean_dec.exit1143, %lean_dec.exit1142, %lean_dec.exit1153, %lean_dec.exit1151, %lean_dec.exit1156, %lean_dec.exit1154, %lean_dec.exit1150, %lean_dec.exit1146, %lean_dec.exit1147, %lean_dec.exit1148
-  %.24 = phi ptr [ %.01109, %2284 ], [ %7, %lean_dec.exit1207 ], [ %7, %lean_dec.exit1205 ], [ %7, %lean_dec.exit1210 ], [ %7, %lean_dec.exit1208 ], [ %7, %lean_dec.exit1204 ], [ %576, %lean_dec.exit1199 ], [ %546, %lean_dec.exit1200 ], [ %484, %lean_dec.exit1201 ], [ %7, %lean_dec.exit1179 ], [ %7, %lean_dec.exit1173 ], [ %7, %983 ], [ %7, %lean_dec.exit1194 ], [ %7, %lean_dec.exit1190 ], [ %7, %lean_dec.exit1186 ], [ %7, %lean_dec.exit1184 ], [ %1139, %lean_dec.exit1167 ], [ %1268, %1266 ], [ %1307, %1304 ], [ %7, %lean_dec.exit1148 ], [ %7, %lean_dec.exit1147 ], [ %7, %lean_dec.exit1146 ], [ %7, %lean_dec.exit1150 ], [ %7, %lean_dec.exit1154 ], [ %7, %lean_dec.exit1156 ], [ %7, %lean_dec.exit1151 ], [ %7, %lean_dec.exit1153 ], [ %2015, %lean_dec.exit1142 ], [ %1986, %lean_dec.exit1143 ], [ %1925, %lean_dec.exit1144 ], [ %2335, %lean_alloc_ctor.exit1696 ], [ %7, %lean_dec.exit1133 ]
+  %.24 = phi ptr [ %.01109, %2284 ], [ %7, %lean_dec.exit1207 ], [ %7, %lean_dec.exit1205 ], [ %7, %lean_dec.exit1210 ], [ %7, %lean_dec.exit1208 ], [ %7, %lean_dec.exit1204 ], [ %576, %lean_dec.exit1199 ], [ %484, %lean_dec.exit1201 ], [ %546, %lean_dec.exit1200 ], [ %7, %lean_dec.exit1179 ], [ %7, %lean_dec.exit1173 ], [ %7, %983 ], [ %7, %lean_dec.exit1194 ], [ %7, %lean_dec.exit1190 ], [ %7, %lean_dec.exit1186 ], [ %7, %lean_dec.exit1184 ], [ %1139, %lean_dec.exit1167 ], [ %1268, %1266 ], [ %1307, %1304 ], [ %7, %lean_dec.exit1148 ], [ %7, %lean_dec.exit1147 ], [ %7, %lean_dec.exit1146 ], [ %7, %lean_dec.exit1150 ], [ %7, %lean_dec.exit1154 ], [ %7, %lean_dec.exit1156 ], [ %7, %lean_dec.exit1151 ], [ %7, %lean_dec.exit1153 ], [ %2015, %lean_dec.exit1142 ], [ %1925, %lean_dec.exit1144 ], [ %1986, %lean_dec.exit1143 ], [ %2335, %lean_alloc_ctor.exit1696 ], [ %7, %lean_dec.exit1133 ]
   ret ptr %.24
 }
 
@@ -33075,7 +33075,7 @@ lean_dec.exit1011:                                ; preds = %1144, %1143, %1141,
   br label %2077
 
 1151:                                             ; preds = %987, %lean_dec.exit1021, %lean_dec.exit1022
-  %.0955 = phi ptr [ %988, %987 ], [ %986, %lean_dec.exit1021 ], [ %967, %lean_dec.exit1022 ]
+  %.0955 = phi ptr [ %988, %987 ], [ %967, %lean_dec.exit1022 ], [ %986, %lean_dec.exit1021 ]
   %1152 = load ptr, ptr @l_IO_FS_Stream_readResponseAs___closed__2, align 8, !tbaa !4
   %1153 = tail call ptr @lean_string_append(ptr noundef %1152, ptr noundef %.0955) #7
   %1154 = ptrtoint ptr %.0955 to i64
@@ -34149,7 +34149,7 @@ lean_dec.exit989:                                 ; preds = %1589, %1588, %1586,
   br label %2077
 
 1596:                                             ; preds = %1464, %lean_dec.exit996, %lean_dec.exit997
-  %.0961 = phi ptr [ %1465, %1464 ], [ %1463, %lean_dec.exit996 ], [ %1444, %lean_dec.exit997 ]
+  %.0961 = phi ptr [ %1465, %1464 ], [ %1444, %lean_dec.exit997 ], [ %1463, %lean_dec.exit996 ]
   %1597 = load ptr, ptr @l_IO_FS_Stream_readResponseAs___closed__2, align 8, !tbaa !4
   %1598 = tail call ptr @lean_string_append(ptr noundef %1597, ptr noundef %.0961) #7
   %1599 = ptrtoint ptr %.0961 to i64
@@ -35357,7 +35357,7 @@ lean_alloc_ctor.exit1489:                         ; preds = %lean_dec.exit
   br label %2077
 
 2077:                                             ; preds = %lean_alloc_ctor.exit1489, %lean_dec.exit976, %2020, %lean_dec.exit1036, %lean_dec.exit1035, %lean_dec.exit1034, %lean_dec.exit1039, %lean_dec.exit1043, %lean_dec.exit1045, %lean_dec.exit1040, %lean_dec.exit1042, %lean_alloc_ctor.exit1331, %lean_alloc_ctor.exit1342, %lean_alloc_ctor.exit1361, %lean_dec.exit989, %1560, %1751, %1732, %1677, %lean_dec.exit1016, %lean_dec.exit1013, %lean_dec.exit1011, %1301, %1344, %1215, %1267, %1363
-  %.20 = phi ptr [ %.0949, %2020 ], [ %7, %lean_dec.exit1042 ], [ %7, %lean_dec.exit1040 ], [ %7, %lean_dec.exit1045 ], [ %7, %lean_dec.exit1043 ], [ %7, %lean_dec.exit1039 ], [ %576, %lean_dec.exit1034 ], [ %546, %lean_dec.exit1035 ], [ %484, %lean_dec.exit1036 ], [ %860, %lean_alloc_ctor.exit1361 ], [ %7, %lean_alloc_ctor.exit1342 ], [ %7, %lean_alloc_ctor.exit1331 ], [ %1148, %lean_dec.exit1011 ], [ %19, %lean_dec.exit1013 ], [ %19, %lean_dec.exit1016 ], [ %.0960, %1363 ], [ %.0956, %1215 ], [ %.0957, %1267 ], [ %.0958, %1301 ], [ %.0959, %1344 ], [ %1562, %1560 ], [ %1593, %lean_dec.exit989 ], [ %.0970, %1751 ], [ %.0969, %1732 ], [ %.0966, %1677 ], [ %2071, %lean_alloc_ctor.exit1489 ], [ %7, %lean_dec.exit976 ]
+  %.20 = phi ptr [ %.0949, %2020 ], [ %7, %lean_dec.exit1042 ], [ %7, %lean_dec.exit1040 ], [ %7, %lean_dec.exit1045 ], [ %7, %lean_dec.exit1043 ], [ %7, %lean_dec.exit1039 ], [ %576, %lean_dec.exit1034 ], [ %484, %lean_dec.exit1036 ], [ %546, %lean_dec.exit1035 ], [ %860, %lean_alloc_ctor.exit1361 ], [ %7, %lean_alloc_ctor.exit1342 ], [ %7, %lean_alloc_ctor.exit1331 ], [ %1148, %lean_dec.exit1011 ], [ %19, %lean_dec.exit1013 ], [ %19, %lean_dec.exit1016 ], [ %.0960, %1363 ], [ %.0956, %1215 ], [ %.0957, %1267 ], [ %.0958, %1301 ], [ %.0959, %1344 ], [ %1562, %1560 ], [ %1593, %lean_dec.exit989 ], [ %.0970, %1751 ], [ %.0966, %1677 ], [ %.0969, %1732 ], [ %2071, %lean_alloc_ctor.exit1489 ], [ %7, %lean_dec.exit976 ]
   ret ptr %.20
 }
 

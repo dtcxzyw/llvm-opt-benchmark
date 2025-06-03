@@ -6246,7 +6246,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %42
   %48 = icmp eq i32 %47, 255328256
   br i1 %48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %36, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %28, %36, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %49 = load ptr, ptr %0, align 8, !tbaa !342
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #25
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !336
@@ -23432,7 +23432,7 @@ _ZN12_GLOBAL__N_19intersectISt8optionalIN5clang4ento8RangeSetEES5_JS5_S4_EEENS_1
   unreachable
 
 _ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_121SymbolicRangeInferrerENS0_8RangeSetEE5VisitEPKNS0_7SymExprE.exit: ; preds = %_ZN12_GLOBAL__N_19intersectISt8optionalIN5clang4ento8RangeSetEES5_JS5_S4_EEENS_18IntersectionTraitsIJT_T0_DpT1_EE4TypeERNS4_7FactoryES7_S8_SA_.exit.sink.split.i.i, %436, %64, %61, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer7inferAsERKN4llvm6APSIntEN5clang8QualTypeE.exit15, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer7inferAsERKN4llvm6APSIntEN5clang8QualTypeE.exit, %439, %441, %443, %445, %447, %449
-  %.sroa.0.0.i = phi ptr [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %444, %443 ], [ %442, %441 ], [ %440, %439 ], [ %109, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer7inferAsERKN4llvm6APSIntEN5clang8QualTypeE.exit ], [ %89, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer7inferAsERKN4llvm6APSIntEN5clang8QualTypeE.exit15 ], [ %63, %61 ], [ %69, %64 ], [ %417, %436 ], [ %438, %_ZN12_GLOBAL__N_19intersectISt8optionalIN5clang4ento8RangeSetEES5_JS5_S4_EEENS_18IntersectionTraitsIJT_T0_DpT1_EE4TypeERNS4_7FactoryES7_S8_SA_.exit.sink.split.i.i ]
+  %.sroa.0.0.i = phi ptr [ %89, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer7inferAsERKN4llvm6APSIntEN5clang8QualTypeE.exit15 ], [ %109, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer7inferAsERKN4llvm6APSIntEN5clang8QualTypeE.exit ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %450, %449 ], [ %69, %64 ], [ %63, %61 ], [ %417, %436 ], [ %438, %_ZN12_GLOBAL__N_19intersectISt8optionalIN5clang4ento8RangeSetEES5_JS5_S4_EEENS_18IntersectionTraitsIJT_T0_DpT1_EE4TypeERNS4_7FactoryES7_S8_SA_.exit.sink.split.i.i ]
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19intersectIPKN5clang4ento8RangeSetES3_JEEENS_18IntersectionTraitsIJT_T0_DpT1_EE4TypeERNS3_7FactoryES7_S8_SA_.exit, label %452
 
@@ -25361,7 +25361,7 @@ _ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOp
   br label %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE15EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit
 
 _ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE15EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit: ; preds = %5, %38, %.thread111.i, %251, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit58.i, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit44.i, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit.i, %773, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE4EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE16EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE18EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit
-  %.sroa.018.0 = phi ptr [ %774, %773 ], [ %.sroa.024.0.i52, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE4EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit ], [ %.sroa.024.0.i33, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE16EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit ], [ %.sroa.024.0.i26, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE18EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit ], [ %74, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit.i ], [ %252, %.thread111.i ], [ %139, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit44.i ], [ %244, %251 ], [ %200, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit58.i ], [ @_ZN5clang4ento8RangeSet7Factory8EmptySetE, %38 ], [ @_ZN5clang4ento8RangeSet7Factory8EmptySetE, %5 ]
+  %.sroa.018.0 = phi ptr [ %774, %773 ], [ %.sroa.024.0.i26, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE18EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit ], [ %.sroa.024.0.i33, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE16EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit ], [ %.sroa.024.0.i52, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOperatorKindE4EEENS2_4ento8RangeSetES5_S5_NS2_8QualTypeE.exit ], [ %74, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit.i ], [ %252, %.thread111.i ], [ %139, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit44.i ], [ %244, %251 ], [ %200, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer12getTrueRangeEN5clang8QualTypeE.exit58.i ], [ @_ZN5clang4ento8RangeSet7Factory8EmptySetE, %38 ], [ @_ZN5clang4ento8RangeSet7Factory8EmptySetE, %5 ]
   ret ptr %.sroa.018.0
 }
 
@@ -25443,7 +25443,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %34
   %40 = icmp eq i32 %39, 255328256
   br i1 %40, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread7
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %34, %34, %34, %34, %34, %28, %20, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %34, %34, %34, %34, %34, %20, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %41 = tail call fastcc ptr @_ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1)
   br label %43
 
@@ -27850,7 +27850,7 @@ _ZN12_GLOBAL__N_121SymbolicRangeInferrer21getRangeForNegatedSymEPKN5clang4ento7S
   br label %49
 
 49:                                               ; preds = %_ZN12_GLOBAL__N_121SymbolicRangeInferrer21getRangeForNegatedSymEPKN5clang4ento7SymExprE.exit, %43
-  %.sroa.03.1 = phi ptr [ %.sroa.013.0.i.i, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer21getRangeForNegatedSymEPKN5clang4ento7SymExprE.exit ], [ %48, %43 ]
+  %.sroa.03.1 = phi ptr [ %48, %43 ], [ %.sroa.013.0.i.i, %_ZN12_GLOBAL__N_121SymbolicRangeInferrer21getRangeForNegatedSymEPKN5clang4ento7SymExprE.exit ]
   ret ptr %.sroa.03.1
 }
 
@@ -40825,7 +40825,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i.i.i: ;
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit58.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit58.i.i.i: ; preds = %161, %160
-  %.sroa.04.1.i.i.i.i.i = phi ptr [ %.sroa.04.0.copyload.i.i.i.i.i, %160 ], [ %167, %161 ]
+  %.sroa.04.1.i.i.i.i.i = phi ptr [ %167, %161 ], [ %.sroa.04.0.copyload.i.i.i.i.i, %160 ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %144) #25, !noalias !1317
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #25, !noalias !1317
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %144) #25, !noalias !1317

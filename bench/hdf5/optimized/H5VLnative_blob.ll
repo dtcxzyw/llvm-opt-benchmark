@@ -289,7 +289,7 @@ define range(i32 -1, 1) i32 @H5VL__native_blob_specific(ptr noundef %0, ptr noun
   br label %58
 
 58:                                               ; preds = %53, %54, %16, %10
-  %.015 = phi i32 [ -1, %54 ], [ %.014, %53 ], [ 0, %16 ], [ 0, %10 ]
+  %.015 = phi i32 [ -1, %54 ], [ 0, %10 ], [ 0, %16 ], [ %.014, %53 ]
   ret i32 %.015
 }
 

@@ -745,7 +745,7 @@ ERR_ATTIC_error.exit:                             ; preds = %29, %32
   br label %35
 
 35:                                               ; preds = %21, %25, %ERR_ATTIC_error.exit, %3
-  %.1 = phi i32 [ 1, %3 ], [ 0, %ERR_ATTIC_error.exit ], [ 1, %25 ], [ 1, %21 ]
+  %.1 = phi i32 [ 1, %3 ], [ 0, %ERR_ATTIC_error.exit ], [ 1, %21 ], [ 1, %25 ]
   ret i32 %.1
 }
 

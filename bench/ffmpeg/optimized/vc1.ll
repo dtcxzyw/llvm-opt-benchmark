@@ -3703,7 +3703,7 @@ decode_rowskip.exit.thread:                       ; preds = %276, %328, %._crit_
   br label %402
 
 402:                                              ; preds = %.loopexit, %.split.us259, %.split.us, %47
-  %.0 = phi i32 [ %401, %.loopexit ], [ -1, %.split.us259 ], [ -1, %.split.us ], [ %29, %47 ]
+  %.0 = phi i32 [ %401, %.loopexit ], [ %29, %47 ], [ -1, %.split.us259 ], [ -1, %.split.us ]
   ret i32 %.0
 }
 

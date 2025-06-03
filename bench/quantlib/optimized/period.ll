@@ -2762,7 +2762,7 @@ if.end443:                                        ; preds = %if.then7, %sw.bb300
   ret ptr %this
 
 eh.resume:                                        ; preds = %ehcleanup438, %ehcleanup394, %ehcleanup349, %ehcleanup294, %ehcleanup249, %ehcleanup192, %ehcleanup147, %ehcleanup93, %ehcleanup51
-  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn, %ehcleanup438 ], [ %.pn28.pn.pn.pn, %ehcleanup394 ], [ %.pn.pn.pn.pn, %ehcleanup349 ], [ %.pn38.pn.pn.pn, %ehcleanup294 ], [ %.pn33.pn.pn.pn, %ehcleanup249 ], [ %.pn48.pn.pn.pn, %ehcleanup192 ], [ %.pn43.pn.pn.pn, %ehcleanup147 ], [ %.pn58.pn.pn.pn, %ehcleanup93 ], [ %.pn53.pn.pn.pn, %ehcleanup51 ]
+  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn, %ehcleanup438 ], [ %.pn58.pn.pn.pn, %ehcleanup93 ], [ %.pn53.pn.pn.pn, %ehcleanup51 ], [ %.pn48.pn.pn.pn, %ehcleanup192 ], [ %.pn43.pn.pn.pn, %ehcleanup147 ], [ %.pn38.pn.pn.pn, %ehcleanup294 ], [ %.pn33.pn.pn.pn, %ehcleanup249 ], [ %.pn28.pn.pn.pn, %ehcleanup394 ], [ %.pn.pn.pn.pn, %ehcleanup349 ]
   resume { ptr, i32 } %.pn63.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont422, %invoke.cont378, %invoke.cont333, %invoke.cont278, %invoke.cont233, %invoke.cont176, %invoke.cont131, %invoke.cont77, %invoke.cont41
@@ -3012,8 +3012,8 @@ sw.bb29:                                          ; preds = %if.else
   br label %do.body31
 
 do.body31:                                        ; preds = %sw.bb, %sw.bb29, %if.else
-  %units.0 = phi i32 [ %22, %if.else ], [ 0, %sw.bb29 ], [ 2, %sw.bb ]
-  %length.0 = phi i32 [ %21, %if.else ], [ %mul30, %sw.bb29 ], [ %mul, %sw.bb ]
+  %units.0 = phi i32 [ %22, %if.else ], [ 2, %sw.bb ], [ 0, %sw.bb29 ]
+  %length.0 = phi i32 [ %21, %if.else ], [ %mul, %sw.bb ], [ %mul30, %sw.bb29 ]
   %rem32 = srem i32 %length.0, %n
   %div76 = sdiv i32 %length.0, %n
   %cmp33 = icmp eq i32 %rem32, 0
@@ -3725,11 +3725,11 @@ ehcleanup109:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 return:                                           ; preds = %entry, %sw.bb66, %sw.bb64
-  %retval.0 = phi double [ %conv68, %sw.bb66 ], [ %div, %sw.bb64 ], [ 0.000000e+00, %entry ]
+  %retval.0 = phi double [ %div, %sw.bb64 ], [ %conv68, %sw.bb66 ], [ 0.000000e+00, %entry ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup109, %ehcleanup61, %ehcleanup24
-  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn.pn.pn.pn, %ehcleanup61 ], [ %.pn9.pn.pn.pn, %ehcleanup24 ]
+  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn9.pn.pn.pn, %ehcleanup24 ], [ %.pn.pn.pn.pn, %ehcleanup61 ]
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont93, %invoke.cont45, %invoke.cont14
@@ -4258,11 +4258,11 @@ ehcleanup109:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 return:                                           ; preds = %entry, %sw.bb66, %sw.bb64
-  %retval.0 = phi double [ %mul, %sw.bb66 ], [ %conv, %sw.bb64 ], [ 0.000000e+00, %entry ]
+  %retval.0 = phi double [ %conv, %sw.bb64 ], [ %mul, %sw.bb66 ], [ 0.000000e+00, %entry ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup109, %ehcleanup61, %ehcleanup24
-  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn.pn.pn.pn, %ehcleanup61 ], [ %.pn9.pn.pn.pn, %ehcleanup24 ]
+  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn9.pn.pn.pn, %ehcleanup24 ], [ %.pn.pn.pn.pn, %ehcleanup61 ]
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont93, %invoke.cont45, %invoke.cont14
@@ -4791,11 +4791,11 @@ ehcleanup109:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 return:                                           ; preds = %entry, %sw.bb3, %sw.bb
-  %retval.0 = phi double [ %conv5, %sw.bb3 ], [ %div, %sw.bb ], [ 0.000000e+00, %entry ]
+  %retval.0 = phi double [ %div, %sw.bb ], [ %conv5, %sw.bb3 ], [ 0.000000e+00, %entry ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup109, %ehcleanup66, %ehcleanup29
-  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn.pn.pn.pn, %ehcleanup66 ], [ %.pn9.pn.pn.pn, %ehcleanup29 ]
+  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn9.pn.pn.pn, %ehcleanup29 ], [ %.pn.pn.pn.pn, %ehcleanup66 ]
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont93, %invoke.cont50, %invoke.cont19
@@ -5324,11 +5324,11 @@ ehcleanup109:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 return:                                           ; preds = %entry, %sw.bb3, %sw.bb
-  %retval.0 = phi double [ %mul, %sw.bb3 ], [ %conv, %sw.bb ], [ 0.000000e+00, %entry ]
+  %retval.0 = phi double [ %conv, %sw.bb ], [ %mul, %sw.bb3 ], [ 0.000000e+00, %entry ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup109, %ehcleanup66, %ehcleanup29
-  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn.pn.pn.pn, %ehcleanup66 ], [ %.pn9.pn.pn.pn, %ehcleanup29 ]
+  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup109 ], [ %.pn9.pn.pn.pn, %ehcleanup29 ], [ %.pn.pn.pn.pn, %ehcleanup66 ]
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont93, %invoke.cont50, %invoke.cont19
@@ -5835,7 +5835,7 @@ ehcleanup56:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %sw.bb20, %sw.bb12, %sw.bb5, %sw.bb
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i25, %sw.bb20 ], [ %retval.sroa.0.0.insert.insert.i21, %sw.bb12 ], [ %retval.sroa.0.0.insert.insert.i17, %sw.bb5 ], [ %retval.sroa.0.0.insert.insert.i, %sw.bb ]
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i, %sw.bb ], [ %retval.sroa.0.0.insert.insert.i17, %sw.bb5 ], [ %retval.sroa.0.0.insert.insert.i21, %sw.bb12 ], [ %retval.sroa.0.0.insert.insert.i25, %sw.bb20 ]
   ret i64 %retval.sroa.0.0
 
 unreachable:                                      ; preds = %invoke.cont46
@@ -6308,7 +6308,7 @@ ehcleanup49:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 cleanup:                                          ; preds = %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb
-  %retval.0 = phi ptr [ %call16, %sw.bb15 ], [ %call11, %sw.bb10 ], [ %call6, %sw.bb5 ], [ %call3, %sw.bb ]
+  %retval.0 = phi ptr [ %call3, %sw.bb ], [ %call6, %sw.bb5 ], [ %call11, %sw.bb10 ], [ %call16, %sw.bb15 ]
   ret ptr %retval.0
 
 unreachable:                                      ; preds = %invoke.cont39

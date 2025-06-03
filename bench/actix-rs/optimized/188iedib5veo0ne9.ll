@@ -1440,7 +1440,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN52_$LT$h2..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17h18a03ab5a98b0e96E.exit"
 
 "_ZN52_$LT$h2..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17h18a03ab5a98b0e96E.exit": ; preds = %10, %15, %20, %23, %26
-  %.0.in.i = phi i1 [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %15 ], [ %14, %10 ]
+  %.0.in.i = phi i1 [ %14, %10 ], [ %19, %15 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   ret i1 %.0.in.i
 }
 
@@ -8147,7 +8147,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   unreachable
 
 156:                                              ; preds = %309, %233, %157, %77
-  %.pn = phi { ptr, i32 } [ %310, %309 ], [ %234, %233 ], [ %158, %157 ], [ %78, %77 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %158, %157 ], [ %234, %233 ], [ %310, %309 ]
   resume { ptr, i32 } %.pn
 
 157:                                              ; preds = %.invoke480, %167, %226, %215, %197, %188, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit304.thread
@@ -10792,8 +10792,8 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-.thread:                                          ; preds = %58, %59, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit35", %57
-  %.0.shrunk219 = phi i1 [ %48, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit" ], [ %48, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit35" ], [ %48, %57 ], [ %48, %58 ], [ true, %59 ]
+.thread:                                          ; preds = %59, %58, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit35", %57
+  %.0.shrunk219 = phi i1 [ %48, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit" ], [ %48, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h0a5968fda537ed93E.exit35" ], [ %48, %57 ], [ true, %59 ], [ %48, %58 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1499)
   call void @llvm.experimental.noalias.scope.decl(metadata !1502)
   %154 = load ptr, ptr %2, align 8, !alias.scope !1505, !noalias !1506, !nonnull !21, !noundef !21
@@ -12263,7 +12263,7 @@ default.unreachable:                              ; preds = %2
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21, %19, %17, %15, %13, %11, %9
-  %.0.in = phi i1 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   ret i1 %.0.in
 }
 
@@ -12480,7 +12480,7 @@ default.unreachable:                              ; preds = %2
   br label %85
 
 85:                                               ; preds = %78, %71, %65, %59, %53, %47, %41, %35, %28, %22
-  %.0.in = phi i1 [ %84, %78 ], [ %77, %71 ], [ %70, %65 ], [ %64, %59 ], [ %58, %53 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ %34, %28 ], [ %27, %22 ]
+  %.0.in = phi i1 [ %27, %22 ], [ %34, %28 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %58, %53 ], [ %64, %59 ], [ %70, %65 ], [ %77, %71 ], [ %84, %78 ]
   ret i1 %.0.in
 }
 
@@ -12541,7 +12541,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$actix_http..error..PayloadError$u20
   br label %24
 
 24:                                               ; preds = %21, %19, %17, %15, %13, %10
-  %.0.in = phi i1 [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %10 ]
+  %.0.in = phi i1 [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ]
   ret i1 %.0.in
 }
 
@@ -12692,7 +12692,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$actix_http..error..PayloadError$u20
   br label %60
 
 60:                                               ; preds = %52, %45, %39, %33, %27, %19
-  %.0.in = phi i1 [ %59, %52 ], [ %51, %45 ], [ %44, %39 ], [ %38, %33 ], [ %32, %27 ], [ %26, %19 ]
+  %.0.in = phi i1 [ %26, %19 ], [ %32, %27 ], [ %38, %33 ], [ %44, %39 ], [ %51, %45 ], [ %59, %52 ]
   ret i1 %.0.in
 }
 
@@ -12776,7 +12776,7 @@ default.unreachable1:                             ; preds = %2
   br label %32
 
 32:                                               ; preds = %29, %26, %24, %22, %20, %18, %15, %12, %10, %8
-  %.0.in = phi i1 [ %31, %29 ], [ %28, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %14, %12 ], [ %17, %15 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %28, %26 ], [ %31, %29 ]
   ret i1 %.0.in
 }
 
@@ -13004,7 +13004,7 @@ default.unreachable7:                             ; preds = %2
   br label %90
 
 90:                                               ; preds = %82, %74, %68, %62, %56, %50, %42, %34, %28, %22
-  %.0.in = phi i1 [ %89, %82 ], [ %81, %74 ], [ %73, %68 ], [ %67, %62 ], [ %61, %56 ], [ %55, %50 ], [ %49, %42 ], [ %41, %34 ], [ %33, %28 ], [ %27, %22 ]
+  %.0.in = phi i1 [ %27, %22 ], [ %33, %28 ], [ %41, %34 ], [ %49, %42 ], [ %55, %50 ], [ %61, %56 ], [ %67, %62 ], [ %73, %68 ], [ %81, %74 ], [ %89, %82 ]
   ret i1 %.0.in
 }
 
@@ -13134,7 +13134,7 @@ default.unreachable1:                             ; preds = %2
   br label %46
 
 46:                                               ; preds = %40, %34, %28, %22, %16, %10
-  %.0.in = phi i1 [ %45, %40 ], [ %39, %34 ], [ %33, %28 ], [ %27, %22 ], [ %21, %16 ], [ %15, %10 ]
+  %.0.in = phi i1 [ %15, %10 ], [ %21, %16 ], [ %27, %22 ], [ %33, %28 ], [ %39, %34 ], [ %45, %40 ]
   ret i1 %.0.in
 }
 

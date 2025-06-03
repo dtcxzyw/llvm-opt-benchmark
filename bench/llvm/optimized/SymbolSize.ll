@@ -576,7 +576,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br label %_ZL18getSymbolSectionIDRKN4llvm6object10ObjectFileENS0_9SymbolRefE.exit
 
 _ZL18getSymbolSectionIDRKN4llvm6object10ObjectFileENS0_9SymbolRefE.exit: ; preds = %192, %196, %200, %202
-  %.1.i = phi i32 [ %193, %192 ], [ %197, %196 ], [ %201, %200 ], [ %203, %202 ]
+  %.1.i = phi i32 [ %203, %202 ], [ %201, %200 ], [ %197, %196 ], [ %193, %192 ]
   %.not.i.i176 = icmp eq ptr %.sroa.15.0359, %.sroa.27.0358
   br i1 %.not.i.i176, label %205, label %204
 
@@ -747,7 +747,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %226, %_ZNKSt14defau
   br label %_ZL12getSectionIDRKN4llvm6object10ObjectFileENS0_10SectionRefE.exit
 
 _ZL12getSectionIDRKN4llvm6object10ObjectFileENS0_10SectionRefE.exit: ; preds = %254, %258, %266, %272
-  %.1.i196 = phi i32 [ %255, %254 ], [ %263, %258 ], [ %271, %266 ], [ %273, %272 ]
+  %.1.i196 = phi i32 [ %263, %258 ], [ %271, %266 ], [ %273, %272 ], [ %255, %254 ]
   %.not.i.i197 = icmp eq ptr %.sroa.15.1372, %.sroa.27.1371
   br i1 %.not.i.i197, label %275, label %274
 

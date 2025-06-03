@@ -1889,7 +1889,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIKSt6vectorIPNS2_3ELF6
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %60, %59 ]
+  %.sroa.037.1 = phi ptr [ %60, %59 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.037.1, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !56
   %.not.i.i.i.i24 = icmp eq ptr %63, null
@@ -1912,7 +1912,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIKSt6vectorIPNS2_3ELF6
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %71, %70 ]
+  %.sroa.037.2 = phi ptr [ %71, %70 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.037.2, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !56
   %.not.i.i.i.i26 = icmp eq ptr %74, null
@@ -2069,7 +2069,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIKSt6vectorIPNS2_3ELF6
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %60, %59 ]
+  %.sroa.037.1 = phi ptr [ %60, %59 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.037.1, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !56
   %.not.i.i.i.i24 = icmp eq ptr %63, null
@@ -2092,7 +2092,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIKSt6vectorIPNS2_3ELF6
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %71, %70 ]
+  %.sroa.037.2 = phi ptr [ %71, %70 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.037.2, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !56
   %.not.i.i.i.i26 = icmp eq ptr %74, null

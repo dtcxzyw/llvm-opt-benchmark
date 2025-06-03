@@ -1471,8 +1471,8 @@ define range(i32 0, 2) i32 @st__foreach(ptr noundef captures(none) %0, ptr nound
   br label %27
 
 27:                                               ; preds = %21, %18, %.lr.ph
-  %.123 = phi ptr [ %.02226, %.lr.ph ], [ %26, %21 ], [ %20, %18 ]
-  %.1 = phi ptr [ %.02127, %.lr.ph ], [ %.02127, %21 ], [ %19, %18 ]
+  %.123 = phi ptr [ %.02226, %.lr.ph ], [ %20, %18 ], [ %26, %21 ]
+  %.1 = phi ptr [ %.02127, %.lr.ph ], [ %19, %18 ], [ %.02127, %21 ]
   %.not = icmp eq ptr %.123, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
 

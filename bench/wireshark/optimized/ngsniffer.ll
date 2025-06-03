@@ -727,7 +727,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
   br i1 %42, label %17, label %._crit_edge
 
 .loopexit:                                        ; preds = %37, %read_rec_header.exit.thread, %32, %28, %24, %35, %30
-  %.0 = phi i1 [ false, %35 ], [ true, %30 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ false, %read_rec_header.exit.thread ], [ false, %37 ]
+  %.0 = phi i1 [ true, %30 ], [ false, %35 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ false, %read_rec_header.exit.thread ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
   ret i1 %.0
@@ -1909,7 +1909,7 @@ ng_read_bytes.exit130:                            ; preds = %325
   br label %fix_pseudo_header.exit
 
 fix_pseudo_header.exit:                           ; preds = %369, %ng_read_bytes.exit130, %.critedge.i.i, %372, %378, %382, %383, %384, %396, %398, %402
-  %.0.i = phi i32 [ %343, %ng_read_bytes.exit130 ], [ 13, %396 ], [ 13, %402 ], [ 13, %398 ], [ 13, %384 ], [ %.019.i.ph.i, %382 ], [ %.019.i.ph.i, %383 ], [ 12, %378 ], [ 12, %.critedge.i.i ], [ 27, %372 ], [ 12, %369 ]
+  %.0.i = phi i32 [ %343, %ng_read_bytes.exit130 ], [ %.019.i.ph.i, %382 ], [ %.019.i.ph.i, %383 ], [ 13, %396 ], [ 13, %402 ], [ 13, %398 ], [ 13, %384 ], [ 12, %378 ], [ 12, %.critedge.i.i ], [ 27, %372 ], [ 12, %369 ]
   %403 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.0.i, ptr %403, align 8
   %404 = zext i8 %.091 to i64
@@ -1941,7 +1941,7 @@ fix_pseudo_header.exit:                           ; preds = %369, %ng_read_bytes
   br label %ng_read_bytes.exit.thread
 
 ng_read_bytes.exit.thread:                        ; preds = %341, %338, %285, %282, %135, %132, %35, %32, %fix_pseudo_header.exit, %320, %278, %128, %116, %28, %24
-  %.0 = phi i1 [ false, %278 ], [ false, %320 ], [ true, %fix_pseudo_header.exit ], [ false, %116 ], [ false, %128 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ false, %35 ], [ false, %132 ], [ false, %135 ], [ false, %282 ], [ false, %285 ], [ false, %338 ], [ false, %341 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %28 ], [ false, %320 ], [ true, %fix_pseudo_header.exit ], [ false, %116 ], [ false, %128 ], [ false, %278 ], [ false, %32 ], [ false, %35 ], [ false, %132 ], [ false, %135 ], [ false, %282 ], [ false, %285 ], [ false, %338 ], [ false, %341 ]
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %8) #12
@@ -2514,8 +2514,8 @@ define internal fastcc noundef zeroext i1 @read_blob(ptr noundef %0, ptr noundef
   br label %146
 
 146:                                              ; preds = %145, %118, %83, %63, %45
-  %.1129.i = phi ptr [ %125, %145 ], [ %103, %118 ], [ %77, %83 ], [ %57, %63 ], [ %42, %45 ]
-  %.2.i = phi ptr [ %123, %145 ], [ %99, %118 ], [ %84, %83 ], [ %64, %63 ], [ %46, %45 ]
+  %.1129.i = phi ptr [ %125, %145 ], [ %57, %63 ], [ %77, %83 ], [ %103, %118 ], [ %42, %45 ]
+  %.2.i = phi ptr [ %123, %145 ], [ %64, %63 ], [ %84, %83 ], [ %99, %118 ], [ %46, %45 ]
   %147 = icmp ult ptr %.2.i, %28
   br i1 %147, label %.lr.ph.i, label %SnifferDecompress.exit, !llvm.loop !14
 
@@ -2528,7 +2528,7 @@ SnifferDecompress.exit:                           ; preds = %146, %.preheader.i
   %152 = icmp slt i32 %151, 0
   br i1 %152, label %SnifferDecompress.exit.thread, label %153
 
-SnifferDecompress.exit.thread:                    ; preds = %44, %61, %59, %81, %79, %67, %116, %111, %105, %96, %87, %143, %138, %127, %120, %35, %SnifferDecompress.exit
+SnifferDecompress.exit.thread:                    ; preds = %44, %116, %111, %105, %96, %87, %81, %79, %67, %61, %59, %143, %138, %127, %120, %35, %SnifferDecompress.exit
   call void @g_free(ptr noundef %19)
   br label %156
 

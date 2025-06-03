@@ -522,7 +522,7 @@ define dso_local ptr @lookup_object_by_type(ptr noundef %0, ptr noundef %1, i32 
   unreachable
 
 13:                                               ; preds = %10, %8, %6, %4
-  %.0 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   ret ptr %.0
 }
 

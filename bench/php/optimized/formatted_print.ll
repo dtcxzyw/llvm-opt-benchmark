@@ -634,11 +634,11 @@ php_sprintf_get_argnum.exit:                      ; preds = %191, %196
   br label %.thread422
 
 214:                                              ; preds = %203, %205, %206, %209
-  %.6362 = phi ptr [ %210, %209 ], [ %.5361, %206 ], [ %.5361, %203 ], [ %.5361, %205 ]
-  %.6353 = phi i64 [ %211, %209 ], [ %.5352, %206 ], [ %.5352, %203 ], [ %.5352, %205 ]
-  %.2133 = phi i32 [ %.1132, %209 ], [ %.1132, %206 ], [ 0, %203 ], [ %.1132, %205 ]
-  %.2130 = phi i8 [ %212, %209 ], [ %.1129, %206 ], [ %.1129, %203 ], [ %204, %205 ]
-  %.2127 = phi i32 [ %.1126, %209 ], [ 1, %206 ], [ %.1126, %203 ], [ %.1126, %205 ]
+  %.6362 = phi ptr [ %.5361, %205 ], [ %.5361, %203 ], [ %.5361, %206 ], [ %210, %209 ]
+  %.6353 = phi i64 [ %.5352, %205 ], [ %.5352, %203 ], [ %.5352, %206 ], [ %211, %209 ]
+  %.2133 = phi i32 [ %.1132, %205 ], [ 0, %203 ], [ %.1132, %206 ], [ %.1132, %209 ]
+  %.2130 = phi i8 [ %204, %205 ], [ %.1129, %203 ], [ %.1129, %206 ], [ %212, %209 ]
+  %.2127 = phi i32 [ %.1126, %205 ], [ %.1126, %203 ], [ 1, %206 ], [ %.1126, %209 ]
   %215 = getelementptr inbounds nuw i8, ptr %.6362, i64 1
   %216 = add i64 %.6353, -1
   br label %203
@@ -1701,9 +1701,9 @@ php_sprintf_appendchar.exit301:                   ; preds = %638, %zend_string_e
   br label %.thread422
 
 zend_tmp_string_release.exit:                     ; preds = %zval_get_tmp_string.exit, %369, %373, %378, %php_sprintf_appendint.exit, %php_sprintf_appenduint.exit, %php_sprintf_appenddouble.exit, %php_sprintf_appendchar.exit277, %php_sprintf_append2n.exit, %php_sprintf_append2n.exit283, %php_sprintf_append2n.exit287, %php_sprintf_append2n.exit291, %php_sprintf_appendchar.exit301, %php_sprintf_appendchar.exit
-  %.3359 = phi ptr [ %131, %php_sprintf_appendchar.exit ], [ %.8364, %php_sprintf_appendchar.exit301 ], [ %.8364, %php_sprintf_append2n.exit291 ], [ %.8364, %php_sprintf_append2n.exit287 ], [ %.8364, %php_sprintf_append2n.exit283 ], [ %.8364, %php_sprintf_append2n.exit ], [ %.8364, %php_sprintf_appendchar.exit277 ], [ %.8364, %php_sprintf_appenddouble.exit ], [ %.8364, %php_sprintf_appenduint.exit ], [ %.8364, %php_sprintf_appendint.exit ], [ %.8364, %378 ], [ %.8364, %373 ], [ %.8364, %369 ], [ %.8364, %zval_get_tmp_string.exit ]
-  %.3350 = phi i64 [ %132, %php_sprintf_appendchar.exit ], [ %.8355, %php_sprintf_appendchar.exit301 ], [ %.8355, %php_sprintf_append2n.exit291 ], [ %.8355, %php_sprintf_append2n.exit287 ], [ %.8355, %php_sprintf_append2n.exit283 ], [ %.8355, %php_sprintf_append2n.exit ], [ %.8355, %php_sprintf_appendchar.exit277 ], [ %.8355, %php_sprintf_appenddouble.exit ], [ %.8355, %php_sprintf_appenduint.exit ], [ %.8355, %php_sprintf_appendint.exit ], [ %.8355, %378 ], [ %.8355, %373 ], [ %.8355, %369 ], [ %.8355, %zval_get_tmp_string.exit ]
-  %.2153 = phi i32 [ %.0151526, %php_sprintf_appendchar.exit ], [ %spec.select, %php_sprintf_appendchar.exit301 ], [ %spec.select, %php_sprintf_append2n.exit291 ], [ %spec.select, %php_sprintf_append2n.exit287 ], [ %spec.select, %php_sprintf_append2n.exit283 ], [ %spec.select, %php_sprintf_append2n.exit ], [ %spec.select, %php_sprintf_appendchar.exit277 ], [ %spec.select, %php_sprintf_appenddouble.exit ], [ %spec.select, %php_sprintf_appenduint.exit ], [ %spec.select, %php_sprintf_appendint.exit ], [ %spec.select, %378 ], [ %spec.select, %373 ], [ %spec.select, %369 ], [ %spec.select, %zval_get_tmp_string.exit ]
+  %.3359 = phi ptr [ %131, %php_sprintf_appendchar.exit ], [ %.8364, %php_sprintf_appendint.exit ], [ %.8364, %php_sprintf_appenduint.exit ], [ %.8364, %php_sprintf_appenddouble.exit ], [ %.8364, %php_sprintf_appendchar.exit277 ], [ %.8364, %php_sprintf_append2n.exit ], [ %.8364, %php_sprintf_append2n.exit283 ], [ %.8364, %php_sprintf_append2n.exit287 ], [ %.8364, %php_sprintf_append2n.exit291 ], [ %.8364, %php_sprintf_appendchar.exit301 ], [ %.8364, %378 ], [ %.8364, %373 ], [ %.8364, %369 ], [ %.8364, %zval_get_tmp_string.exit ]
+  %.3350 = phi i64 [ %132, %php_sprintf_appendchar.exit ], [ %.8355, %php_sprintf_appendint.exit ], [ %.8355, %php_sprintf_appenduint.exit ], [ %.8355, %php_sprintf_appenddouble.exit ], [ %.8355, %php_sprintf_appendchar.exit277 ], [ %.8355, %php_sprintf_append2n.exit ], [ %.8355, %php_sprintf_append2n.exit283 ], [ %.8355, %php_sprintf_append2n.exit287 ], [ %.8355, %php_sprintf_append2n.exit291 ], [ %.8355, %php_sprintf_appendchar.exit301 ], [ %.8355, %378 ], [ %.8355, %373 ], [ %.8355, %369 ], [ %.8355, %zval_get_tmp_string.exit ]
+  %.2153 = phi i32 [ %.0151526, %php_sprintf_appendchar.exit ], [ %spec.select, %php_sprintf_appendint.exit ], [ %spec.select, %php_sprintf_appenduint.exit ], [ %spec.select, %php_sprintf_appenddouble.exit ], [ %spec.select, %php_sprintf_appendchar.exit277 ], [ %spec.select, %php_sprintf_append2n.exit ], [ %spec.select, %php_sprintf_append2n.exit283 ], [ %spec.select, %php_sprintf_append2n.exit287 ], [ %spec.select, %php_sprintf_append2n.exit291 ], [ %spec.select, %php_sprintf_appendchar.exit301 ], [ %spec.select, %378 ], [ %spec.select, %373 ], [ %spec.select, %369 ], [ %spec.select, %zval_get_tmp_string.exit ]
   %storemerge190 = getelementptr inbounds nuw i8, ptr %.3359, i64 1
   %storemerge = add i64 %.3350, -1
   br label %.thread

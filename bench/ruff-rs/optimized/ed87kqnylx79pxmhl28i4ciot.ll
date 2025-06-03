@@ -5606,7 +5606,7 @@ default.unreachable1:                             ; preds = %1
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.sroa.4.0 = phi ptr [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.4.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   %11 = insertvalue { i64, ptr } poison, i64 %2, 0
   %12 = insertvalue { i64, ptr } %11, ptr %.sroa.4.0, 1
   ret { i64, ptr } %12

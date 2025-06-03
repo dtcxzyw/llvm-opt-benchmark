@@ -5309,7 +5309,7 @@ define noundef i32 @_ZN3spv7Builder20makeIntegerDebugTypeEib(ptr noundef nonnull
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %.017 = phi ptr [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.017 = phi ptr [ %16, %15 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
@@ -9695,7 +9695,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %29, %30
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %55, %58
-  %.0.i.i.in = phi ptr [ %61, %58 ], [ %57, %55 ]
+  %.0.i.i.in = phi ptr [ %57, %55 ], [ %61, %58 ]
   %.0.i.i = load i32, ptr %.0.i.i.in, align 4
   store i32 %.0.i.i, ptr %6, align 4
   %62 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEixEOj(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -9878,7 +9878,7 @@ define noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEj(ptr noundef nonnull r
   br label %_ZNK3spv7Builder18getContainedTypeIdEji.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEji.exit:     ; preds = %2, %10, %14, %19
-  %.0.i = phi i32 [ %22, %19 ], [ %18, %14 ], [ %13, %10 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %13, %10 ], [ %18, %14 ], [ %22, %19 ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -15356,7 +15356,7 @@ define noundef i32 @_ZNK3spv7Builder22getNumTypeConstituentsEj(ptr noundef nonnu
   br label %36
 
 36:                                               ; preds = %2, %26, %15, %10
-  %.0 = phi i32 [ %35, %26 ], [ %25, %15 ], [ %14, %10 ], [ 1, %2 ]
+  %.0 = phi i32 [ %14, %10 ], [ %25, %15 ], [ %35, %26 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -15403,7 +15403,7 @@ tailrecurse:                                      ; preds = %_ZNK3spv7Builder18g
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %13, %16
-  %.0.i.i.in = phi ptr [ %19, %16 ], [ %15, %13 ]
+  %.0.i.i.in = phi ptr [ %15, %13 ], [ %19, %16 ]
   %.0.i.i = load i32, ptr %.0.i.i.in, align 4
   br label %tailrecurse
 
@@ -15454,7 +15454,7 @@ define noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEji(ptr noundef nonnull 
   br label %26
 
 26:                                               ; preds = %3, %20, %15, %11
-  %.0 = phi i32 [ %25, %20 ], [ %19, %15 ], [ %14, %11 ], [ 0, %3 ]
+  %.0 = phi i32 [ %14, %11 ], [ %19, %15 ], [ %25, %20 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -15513,7 +15513,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %1, %10
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit, %19, %23, %28
-  %.0.i.i = phi i32 [ %31, %28 ], [ %27, %23 ], [ %22, %19 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit ]
+  %.0.i.i = phi i32 [ %22, %19 ], [ %27, %23 ], [ %31, %28 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %34 = load ptr, ptr %33, align 8
@@ -15579,7 +15579,7 @@ _ZNK3spv7Builder18getContainedTypeIdEji.exit:     ; preds = %.lr.ph
   br label %_ZNK3spv7Builder18getContainedTypeIdEji.exit11
 
 _ZNK3spv7Builder18getContainedTypeIdEji.exit11:   ; preds = %.lr.ph, %64, %60, %_ZNK3spv7Builder18getContainedTypeIdEji.exit
-  %.1 = phi i32 [ %59, %_ZNK3spv7Builder18getContainedTypeIdEji.exit ], [ %68, %64 ], [ %63, %60 ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ %59, %_ZNK3spv7Builder18getContainedTypeIdEji.exit ], [ %63, %60 ], [ %68, %64 ], [ 0, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !297
@@ -17867,7 +17867,7 @@ tailrecurse.i.i:                                  ; preds = %_ZNK3spv7Builder18g
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit.i.i
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit.i.i:  ; preds = %19, %16
-  %.0.i.i.in.i.i = phi ptr [ %22, %19 ], [ %18, %16 ]
+  %.0.i.i.in.i.i = phi ptr [ %18, %16 ], [ %22, %19 ]
   %.0.i.i.i.i = load i32, ptr %.0.i.i.in.i.i, align 4
   br label %tailrecurse.i.i
 
@@ -17899,7 +17899,7 @@ _ZNK3spv7Builder18getScalarTypeWidthEj.exit:      ; preds = %tailrecurse.i.i, %1
   br label %36
 
 36:                                               ; preds = %_ZNK3spv7Builder18getScalarTypeWidthEj.exit, %34, %31, %28
-  %.0 = phi i32 [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ 0, %_ZNK3spv7Builder18getScalarTypeWidthEj.exit ]
+  %.0 = phi i32 [ %30, %28 ], [ %33, %31 ], [ %35, %34 ], [ 0, %_ZNK3spv7Builder18getScalarTypeWidthEj.exit ]
   ret i32 %.0
 }
 
@@ -22451,7 +22451,7 @@ _ZNSt5stackIjSt5dequeIjSaIjEEE4pushERKj.exit:     ; preds = %43, %46
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %74, %77
-  %.0.i.i.in = phi ptr [ %80, %77 ], [ %76, %74 ]
+  %.0.i.i.in = phi ptr [ %76, %74 ], [ %80, %77 ]
   %.0.i.i = load i32, ptr %.0.i.i.in, align 4
   store i32 %.0.i.i, ptr %12, align 4
   br label %81
@@ -26571,7 +26571,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i:              ; preds = %22, %15
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit
 
 _ZNK3spv7Builder16getNumComponentsEj.exit:        ; preds = %31, %36, %47
-  %.0.i.i.i = phi i32 [ %56, %47 ], [ %46, %36 ], [ %35, %31 ]
+  %.0.i.i.i = phi i32 [ %35, %31 ], [ %46, %36 ], [ %56, %47 ]
   %57 = icmp eq i32 %.0.i.i.i, 1
   br i1 %57, label %_ZNK3spv7Builder16getNumComponentsEj.exit.thread, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -26673,7 +26673,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i39:            ; preds = %83, %_ZN3spv11Instr
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit41
 
 _ZNK3spv7Builder16getNumComponentsEj.exit41:      ; preds = %92, %97, %108
-  %.0.i.i.i40 = phi i32 [ %117, %108 ], [ %107, %97 ], [ %96, %92 ]
+  %.0.i.i.i40 = phi i32 [ %96, %92 ], [ %107, %97 ], [ %117, %108 ]
   %118 = icmp sgt i32 %.0.i.i.i40, 0
   br i1 %118, label %.lr.ph.preheader, label %.preheader
 
@@ -26886,7 +26886,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i:              ; preds = %12, %4
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit
 
 _ZNK3spv7Builder16getNumComponentsEj.exit:        ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit.i, %21, %26, %37
-  %.0.i.i.i = phi i32 [ %46, %37 ], [ %36, %26 ], [ %25, %21 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i ]
+  %.0.i.i.i = phi i32 [ %25, %21 ], [ %36, %26 ], [ %46, %37 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i ]
   %47 = load i32, ptr %2, align 4
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %8, i64 %48
@@ -26946,7 +26946,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i14:            ; preds = %52, %_ZNK3spv7Build
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit16
 
 _ZNK3spv7Builder16getNumComponentsEj.exit16:      ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit.i14, %61, %66, %77
-  %.0.i.i.i15 = phi i32 [ %86, %77 ], [ %76, %66 ], [ %65, %61 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i14 ]
+  %.0.i.i.i15 = phi i32 [ %65, %61 ], [ %76, %66 ], [ %86, %77 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i14 ]
   %87 = sub i32 %.0.i.i.i, %.0.i.i.i15
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %89, label %131
@@ -27015,7 +27015,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i17:            ; preds = %94, %_ZNK3spv7Build
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit19
 
 _ZNK3spv7Builder16getNumComponentsEj.exit19:      ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit.i17, %103, %108, %119
-  %.0.i.i.i18 = phi i32 [ %128, %119 ], [ %118, %108 ], [ %107, %103 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i17 ]
+  %.0.i.i.i18 = phi i32 [ %107, %103 ], [ %118, %108 ], [ %128, %119 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i17 ]
   %129 = tail call noundef i32 @_ZN3spv7Builder14makeVectorTypeEji(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %93, i32 noundef %.0.i.i.i18)
   %130 = tail call noundef i32 @_ZN3spv7Builder11smearScalarENS_10DecorationEjj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %47, i32 noundef %129)
   store i32 %130, ptr %2, align 4
@@ -27089,7 +27089,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i21:            ; preds = %138, %_ZNK3spv7Buil
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit23
 
 _ZNK3spv7Builder16getNumComponentsEj.exit23:      ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit.i21, %147, %152, %163
-  %.0.i.i.i22 = phi i32 [ %172, %163 ], [ %162, %152 ], [ %151, %147 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i21 ]
+  %.0.i.i.i22 = phi i32 [ %151, %147 ], [ %162, %152 ], [ %172, %163 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i21 ]
   %173 = tail call noundef i32 @_ZN3spv7Builder14makeVectorTypeEji(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %137, i32 noundef %.0.i.i.i22)
   %174 = tail call noundef i32 @_ZN3spv7Builder11smearScalarENS_10DecorationEjj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %5, i32 noundef %173)
   store i32 %174, ptr %3, align 4
@@ -27152,7 +27152,7 @@ define noundef i32 @_ZN3spv7Builder11smearScalarENS_10DecorationEjj(ptr noundef 
   br label %_ZNK3spv7Builder20getNumTypeComponentsEj.exit
 
 _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %16, %21, %32
-  %.0.i.i = phi i32 [ %41, %32 ], [ %31, %21 ], [ %20, %16 ]
+  %.0.i.i = phi i32 [ %20, %16 ], [ %31, %21 ], [ %41, %32 ]
   %42 = icmp eq i32 %.0.i.i, 1
   br i1 %42, label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit, label %43
 
@@ -28672,7 +28672,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit.i
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit.i:    ; preds = %480, %477
-  %.0.i.i.in.i = phi ptr [ %483, %480 ], [ %479, %477 ]
+  %.0.i.i.in.i = phi ptr [ %479, %477 ], [ %483, %480 ]
   %.0.i.i.i = load i32, ptr %.0.i.i.in.i, align 4
   %.phi.trans.insert = zext i32 %.0.i.i.i to i64
   %.phi.trans.insert440 = getelementptr inbounds nuw ptr, ptr %466, i64 %.phi.trans.insert
@@ -29091,7 +29091,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit.i
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit.i:    ; preds = %83, %80
-  %.0.i.i.in.i = phi ptr [ %86, %83 ], [ %82, %80 ]
+  %.0.i.i.in.i = phi ptr [ %82, %80 ], [ %86, %83 ]
   %.0.i.i.i = load i32, ptr %.0.i.i.in.i, align 4
   br label %tailrecurse.i
 
@@ -29112,7 +29112,7 @@ _ZNK3spv7Builder15getScalarTypeIdEj.exit:         ; preds = %tailrecurse.i, %77
   br label %93
 
 93:                                               ; preds = %89, %91, %_ZNK3spv7Builder12getImageTypeEj.exit28, %4, %58, %_ZNK3spv7Builder15getScalarTypeIdEj.exit
-  %.0 = phi i32 [ 0, %4 ], [ %87, %_ZNK3spv7Builder15getScalarTypeIdEj.exit ], [ %59, %58 ], [ %56, %_ZNK3spv7Builder12getImageTypeEj.exit28 ], [ %90, %89 ], [ %92, %91 ]
+  %.0 = phi i32 [ 0, %4 ], [ %59, %58 ], [ %87, %_ZNK3spv7Builder15getScalarTypeIdEj.exit ], [ %56, %_ZNK3spv7Builder12getImageTypeEj.exit28 ], [ %90, %89 ], [ %92, %91 ]
   %94 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %96 = load i32, ptr %95, align 8
@@ -29306,7 +29306,7 @@ _ZNK3spv7Builder22getNumTypeConstituentsEj.exit.thread: ; preds = %_ZNK3spv7Buil
   br i1 %48, label %55, label %.preheader
 
 .preheader:                                       ; preds = %23, %34, %_ZNK3spv7Builder22getNumTypeConstituentsEj.exit.thread
-  %.0.i6879 = phi i32 [ %47, %_ZNK3spv7Builder22getNumTypeConstituentsEj.exit.thread ], [ %43, %34 ], [ %33, %23 ]
+  %.0.i6879 = phi i32 [ %47, %_ZNK3spv7Builder22getNumTypeConstituentsEj.exit.thread ], [ %33, %23 ], [ %43, %34 ]
   %49 = icmp sgt i32 %.0.i6879, 0
   br i1 %49, label %.lr.ph, label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit57
 
@@ -29372,8 +29372,8 @@ tailrecurse.backedge.i:                           ; preds = %61, %58
   br label %71
 
 71:                                               ; preds = %69, %67, %65
-  %.052 = phi i32 [ %68, %67 ], [ %70, %69 ], [ %66, %65 ]
-  %.050 = phi i32 [ %1, %67 ], [ 2147483647, %69 ], [ %1, %65 ]
+  %.052 = phi i32 [ %68, %67 ], [ %66, %65 ], [ %70, %69 ]
+  %.050 = phi i32 [ %1, %67 ], [ %1, %65 ], [ 2147483647, %69 ]
   br i1 %switch.i71, label %72, label %74
 
 72:                                               ; preds = %71
@@ -29468,7 +29468,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit58:              ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZNK3spv7Builder18getContainedTypeIdEji.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEji.exit:     ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit58, %102, %106, %111
-  %.0.i59 = phi i32 [ %115, %111 ], [ %110, %106 ], [ %105, %102 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit58 ]
+  %.0.i59 = phi i32 [ %105, %102 ], [ %110, %106 ], [ %115, %111 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit58 ]
   %116 = getelementptr inbounds nuw ptr, ptr %89, i64 %52
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
@@ -29518,7 +29518,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit60:              ; preds = %_ZNK3spv7Builder18g
   br label %_ZNK3spv7Builder18getContainedTypeIdEji.exit62
 
 _ZNK3spv7Builder18getContainedTypeIdEji.exit62:   ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit60, %128, %132, %137
-  %.0.i61 = phi i32 [ %141, %137 ], [ %136, %132 ], [ %131, %128 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit60 ]
+  %.0.i61 = phi i32 [ %131, %128 ], [ %136, %132 ], [ %141, %137 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit60 ]
   %142 = call noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %2, i32 noundef %.0.i59, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %143 = call noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %3, i32 noundef %.0.i61, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %144 = tail call noundef i32 @_ZN3spv7Builder22createCompositeCompareENS_10DecorationEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %142, i32 noundef %143, i1 noundef zeroext %4)
@@ -30002,7 +30002,7 @@ define noundef i32 @_ZN3spv7Builder17createConstructorENS_10DecorationERKSt6vect
   br label %_ZNK3spv7Builder20getNumTypeComponentsEj.exit
 
 _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %4, %19, %24, %35
-  %.0.i.i = phi i32 [ %44, %35 ], [ %34, %24 ], [ %23, %19 ], [ 1, %4 ]
+  %.0.i.i = phi i32 [ %23, %19 ], [ %34, %24 ], [ %44, %35 ], [ 1, %4 ]
   store i32 %.0.i.i, ptr %8, align 4
   store i32 0, ptr %9, align 4
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -30114,7 +30114,7 @@ tailrecurse.i:                                    ; preds = %_ZNK3spv7Builder18g
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit.i
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit.i:    ; preds = %99, %96
-  %.0.i.i.in.i = phi ptr [ %102, %99 ], [ %98, %96 ]
+  %.0.i.i.in.i = phi ptr [ %98, %96 ], [ %102, %99 ]
   %.0.i.i.i33 = load i32, ptr %.0.i.i.in.i, align 4
   %.phi.trans.insert = zext i32 %.0.i.i.i33 to i64
   %.phi.trans.insert70 = getelementptr inbounds nuw ptr, ptr %14, i64 %.phi.trans.insert
@@ -30564,7 +30564,7 @@ tailrecurse.i:                                    ; preds = %_ZNK3spv7Builder18g
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit.i
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit.i:    ; preds = %25, %22
-  %.0.i.i.in.i = phi ptr [ %28, %25 ], [ %24, %22 ]
+  %.0.i.i.in.i = phi ptr [ %24, %22 ], [ %28, %25 ]
   %.0.i.i.i = load i32, ptr %.0.i.i.in.i, align 4
   br label %tailrecurse.i
 
@@ -30615,7 +30615,7 @@ _ZNK3spv7Builder15getScalarTypeIdEj.exit:         ; preds = %tailrecurse.i, %19
   br label %_ZNK3spv7Builder17getTypeNumColumnsEj.exit
 
 _ZNK3spv7Builder17getTypeNumColumnsEj.exit:       ; preds = %_ZNK3spv7Builder15getScalarTypeIdEj.exit, %34, %39, %50
-  %.0.i.i = phi i32 [ %59, %50 ], [ %49, %39 ], [ %38, %34 ], [ 1, %_ZNK3spv7Builder15getScalarTypeIdEj.exit ]
+  %.0.i.i = phi i32 [ %38, %34 ], [ %49, %39 ], [ %59, %50 ], [ 1, %_ZNK3spv7Builder15getScalarTypeIdEj.exit ]
   %60 = tail call noundef i32 @_ZNK3spv7Builder14getTypeNumRowsEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %3)
   %61 = zext i32 %.0.i to i64
   %62 = load ptr, ptr %12, align 8
@@ -30716,7 +30716,7 @@ _ZNK3spv7Builder10getNumRowsEj.exit:              ; preds = %_ZNK3spv7Builder13g
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %99, %106, %110, %115
-  %.0.i.i120 = phi i32 [ %118, %115 ], [ %114, %110 ], [ %109, %106 ], [ 0, %99 ]
+  %.0.i.i120 = phi i32 [ %109, %106 ], [ %114, %110 ], [ %118, %115 ], [ 0, %99 ]
   %119 = zext i32 %100 to i64
   %120 = getelementptr inbounds nuw ptr, ptr %101, i64 %119
   %121 = load ptr, ptr %120, align 8
@@ -30766,7 +30766,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %_ZNK3spv7Builder18g
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit122
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit122:   ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit, %132, %136, %141
-  %.0.i.i121 = phi i32 [ %144, %141 ], [ %140, %136 ], [ %135, %132 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit ]
+  %.0.i.i121 = phi i32 [ %135, %132 ], [ %140, %136 ], [ %144, %141 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit ]
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false)
   %.not356 = icmp eq i32 %60, 0
@@ -31603,7 +31603,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i183:           ; preds = %495, %486
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit185
 
 _ZNK3spv7Builder16getNumComponentsEj.exit185:     ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit.i183, %504, %509, %520
-  %.0.i.i.i184 = phi i32 [ %529, %520 ], [ %519, %509 ], [ %508, %504 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i183 ]
+  %.0.i.i.i184 = phi i32 [ %508, %504 ], [ %519, %509 ], [ %529, %520 ], [ 1, %_ZNK3spv7Builder9getTypeIdEj.exit.i183 ]
   %530 = icmp ult i32 %.098, %.0.i.i.i184
   br i1 %530, label %531, label %split
 
@@ -31662,7 +31662,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i186:           ; preds = %532, %531
   br label %_ZNK3spv7Builder16getNumComponentsEj.exit188
 
 _ZNK3spv7Builder16getNumComponentsEj.exit188:     ; preds = %541, %546, %557
-  %.0.i.i.i187 = phi i32 [ %566, %557 ], [ %556, %546 ], [ %545, %541 ]
+  %.0.i.i.i187 = phi i32 [ %545, %541 ], [ %556, %546 ], [ %566, %557 ]
   %567 = icmp ugt i32 %.0.i.i.i187, 1
   br i1 %567, label %568, label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit190
 
@@ -31748,7 +31748,7 @@ split:                                            ; preds = %_ZNK3spv7Builder16g
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit192
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit192:   ; preds = %.loopexit, %596, %600, %605
-  %.0.i.i191 = phi i32 [ %608, %605 ], [ %604, %600 ], [ %599, %596 ], [ 0, %.loopexit ]
+  %.0.i.i191 = phi i32 [ %599, %596 ], [ %604, %600 ], [ %608, %605 ], [ 0, %.loopexit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %.not360 = icmp eq i32 %.0.i.i, 0
   br i1 %.not360, label %._crit_edge355, label %.lr.ph354
@@ -32003,7 +32003,7 @@ define linkonce_odr noundef i32 @_ZNK3spv7Builder14getTypeNumRowsEj(ptr noundef 
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %2, %10, %14, %19
-  %.0.i.i = phi i32 [ %22, %19 ], [ %18, %14 ], [ %13, %10 ], [ 0, %2 ]
+  %.0.i.i = phi i32 [ %13, %10 ], [ %18, %14 ], [ %22, %19 ], [ 0, %2 ]
   %23 = zext i32 %.0.i.i to i64
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %23
   %25 = load ptr, ptr %24, align 8
@@ -32049,7 +32049,7 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %2, %10, %14, %19
   br label %_ZNK3spv7Builder20getNumTypeComponentsEj.exit
 
 _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %_ZNK3spv7Builder18getContainedTypeIdEj.exit, %28, %33, %44
-  %.0.i.i1 = phi i32 [ %53, %44 ], [ %43, %33 ], [ %32, %28 ], [ 1, %_ZNK3spv7Builder18getContainedTypeIdEj.exit ]
+  %.0.i.i1 = phi i32 [ %32, %28 ], [ %43, %33 ], [ %53, %44 ], [ 1, %_ZNK3spv7Builder18getContainedTypeIdEj.exit ]
   ret i32 %.0.i.i1
 }
 
@@ -33869,7 +33869,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge, %80
   br label %_ZNK3spv7Builder20getNumTypeComponentsEj.exit.i
 
 _ZNK3spv7Builder20getNumTypeComponentsEj.exit.i:  ; preds = %106, %95, %90, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %.0.i.i.i = phi i32 [ %115, %106 ], [ %105, %95 ], [ %94, %90 ], [ 1, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
+  %.0.i.i.i = phi i32 [ %94, %90 ], [ %105, %95 ], [ %115, %106 ], [ 1, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   %116 = zext i32 %.0.i.i.i to i64
   %117 = load ptr, ptr %22, align 8
   %118 = load ptr, ptr %21, align 8
@@ -34077,7 +34077,7 @@ define void @_ZN3spv7Builder26simplifyAccessChainSwizzleEv(ptr noundef nonnull a
   br label %_ZNK3spv7Builder20getNumTypeComponentsEj.exit
 
 _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %1, %11, %16, %27
-  %.0.i.i = phi i32 [ %36, %27 ], [ %26, %16 ], [ %15, %11 ], [ 1, %1 ]
+  %.0.i.i = phi i32 [ %15, %11 ], [ %26, %16 ], [ %36, %27 ], [ 1, %1 ]
   %37 = zext i32 %.0.i.i to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -34189,7 +34189,7 @@ define void @_ZN3spv7Builder16accessChainStoreEjNS_10DecorationENS_16MemoryAcces
   br label %_ZNK3spv7Builder20getNumTypeComponentsEj.exit
 
 _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %15, %24, %29, %40
-  %.0.i.i = phi i32 [ %49, %40 ], [ %39, %29 ], [ %28, %24 ], [ 1, %15 ]
+  %.0.i.i = phi i32 [ %28, %24 ], [ %39, %29 ], [ %49, %40 ], [ 1, %15 ]
   %50 = zext i32 %.0.i.i to i64
   %.not39 = icmp ne i64 %14, %50
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -34333,7 +34333,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit, %107, %111, %116
-  %.0.i.i44 = phi i32 [ %119, %116 ], [ %115, %111 ], [ %110, %107 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit ]
+  %.0.i.i44 = phi i32 [ %110, %107 ], [ %115, %111 ], [ %119, %116 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit ]
   %120 = tail call noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %.0.i.i44, i32 noundef %.03749)
   %.03641 = sub i32 0, %.03650
   %121 = and i32 %.03650, %.03641
@@ -35094,7 +35094,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit.i
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit.i:    ; preds = %179, %176
-  %.0.i.i.in.i = phi ptr [ %182, %179 ], [ %178, %176 ]
+  %.0.i.i.in.i = phi ptr [ %178, %176 ], [ %182, %179 ]
   %.0.i.i.i = load i32, ptr %.0.i.i.in.i, align 4
   br label %tailrecurse.i
 
@@ -35213,7 +35213,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %5, %12
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %34, %29, %25, %19, %_ZNK3spv7Builder9getTypeIdEj.exit
-  %.0 = phi i32 [ %15, %_ZNK3spv7Builder9getTypeIdEj.exit ], [ %37, %34 ], [ %33, %29 ], [ %28, %25 ], [ 0, %19 ]
+  %.0 = phi i32 [ %15, %_ZNK3spv7Builder9getTypeIdEj.exit ], [ %28, %25 ], [ %33, %29 ], [ %37, %34 ], [ 0, %19 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -35269,7 +35269,7 @@ _ZNK3spv7Builder18getContainedTypeIdEji.exit:     ; preds = %.lr.ph
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit12
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit12:    ; preds = %.lr.ph, %63, %59, %_ZNK3spv7Builder18getContainedTypeIdEji.exit
-  %.2 = phi i32 [ %58, %_ZNK3spv7Builder18getContainedTypeIdEji.exit ], [ %67, %63 ], [ %62, %59 ], [ 0, %.lr.ph ]
+  %.2 = phi i32 [ %58, %_ZNK3spv7Builder18getContainedTypeIdEji.exit ], [ %62, %59 ], [ %67, %63 ], [ 0, %.lr.ph ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.019.024, i64 4
   %.not22 = icmp eq ptr %68, %41
   br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !535
@@ -35364,13 +35364,13 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit12:    ; preds = %.lr.ph, %63, %59, %
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit16
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit16:    ; preds = %99, %105, %109, %114
-  %.0.i.i15 = phi i32 [ %117, %114 ], [ %113, %109 ], [ %108, %105 ], [ 0, %99 ]
+  %.0.i.i15 = phi i32 [ %108, %105 ], [ %113, %109 ], [ %117, %114 ], [ 0, %99 ]
   %118 = trunc i64 %76 to i32
   %119 = tail call noundef i32 @_ZN3spv7Builder14makeVectorTypeEji(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %.0.i.i15, i32 noundef %118)
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit14
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit14:    ; preds = %93, %88, %84, %78, %97, %_ZNK3spv7Builder18getContainedTypeIdEj.exit16
-  %.3 = phi i32 [ %119, %_ZNK3spv7Builder18getContainedTypeIdEj.exit16 ], [ %.1.lcssa, %97 ], [ %96, %93 ], [ %92, %88 ], [ %87, %84 ], [ 0, %78 ]
+  %.3 = phi i32 [ %119, %_ZNK3spv7Builder18getContainedTypeIdEj.exit16 ], [ %.1.lcssa, %97 ], [ %87, %84 ], [ %92, %88 ], [ %96, %93 ], [ 0, %78 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %121 = load i32, ptr %120, align 8
   %.not = icmp eq i32 %121, 0
@@ -35414,7 +35414,7 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit14:    ; preds = %93, %88, %84, %78, 
   br label %_ZNK3spv7Builder18getContainedTypeIdEj.exit18
 
 _ZNK3spv7Builder18getContainedTypeIdEj.exit18:    ; preds = %138, %133, %129, %122, %_ZNK3spv7Builder18getContainedTypeIdEj.exit14, %1
-  %.09 = phi i32 [ 0, %1 ], [ %.3, %_ZNK3spv7Builder18getContainedTypeIdEj.exit14 ], [ %141, %138 ], [ %137, %133 ], [ %132, %129 ], [ 0, %122 ]
+  %.09 = phi i32 [ 0, %1 ], [ %.3, %_ZNK3spv7Builder18getContainedTypeIdEj.exit14 ], [ %132, %129 ], [ %137, %133 ], [ %141, %138 ], [ 0, %122 ]
   ret i32 %.09
 }
 
@@ -39826,7 +39826,7 @@ _ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormali
   %.not16.not = icmp eq i32 %47, 0
   br i1 %.not16.not, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %.critedge18
 
-.critedge18:                                      ; preds = %34, %36, %42, %45
+.critedge18:                                      ; preds = %36, %34, %42, %45
   %48 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
   %49 = add i32 %48, %30
   %50 = and i32 %49, 8388608
@@ -39839,8 +39839,8 @@ _ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormali
   %53 = and i32 %52, 2143289343
   br label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
 
-_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit: ; preds = %45, %38, %33, %36, %34, %51, %.critedge18, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
-  %.012.in.in = phi i32 [ %30, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit ], [ %53, %51 ], [ %49, %.critedge18 ], [ %30, %34 ], [ %30, %36 ], [ %30, %33 ], [ %30, %38 ], [ %30, %45 ]
+_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit: ; preds = %45, %38, %33, %34, %36, %51, %.critedge18, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
+  %.012.in.in = phi i32 [ %30, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit ], [ %53, %51 ], [ %49, %.critedge18 ], [ %30, %36 ], [ %30, %34 ], [ %30, %33 ], [ %30, %38 ], [ %30, %45 ]
   %.012.in = lshr i32 %.012.in.in, 13
   %.012 = trunc i32 %.012.in to i16
   ret i16 %.012

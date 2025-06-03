@@ -1214,9 +1214,9 @@ define internal float @_action_process_ratings(ptr noundef %0, i32 noundef %1, i
   br label %57
 
 57:                                               ; preds = %52, %55, %37, %43, %27, %32, %20, %24, %15
-  %.174 = phi nsz double [ %11, %15 ], [ %7, %52 ], [ %11, %55 ], [ %.6, %37 ], [ %.8, %43 ], [ %.477, %27 ], [ %.578, %32 ], [ %.376, %20 ], [ %11, %24 ]
-  %.172 = phi i32 [ %13, %15 ], [ %54, %52 ], [ %56, %55 ], [ %42, %37 ], [ %47, %43 ], [ %31, %27 ], [ %35, %32 ], [ %23, %20 ], [ %25, %24 ]
-  %.1 = phi nsz double [ %9, %15 ], [ %.5, %52 ], [ %9, %55 ], [ %.3, %37 ], [ %.4, %43 ], [ %.2, %27 ], [ %9, %32 ], [ %7, %20 ], [ %9, %24 ]
+  %.174 = phi nsz double [ %11, %15 ], [ %.376, %20 ], [ %11, %24 ], [ %.477, %27 ], [ %.578, %32 ], [ %.6, %37 ], [ %.8, %43 ], [ %7, %52 ], [ %11, %55 ]
+  %.172 = phi i32 [ %13, %15 ], [ %23, %20 ], [ %25, %24 ], [ %31, %27 ], [ %35, %32 ], [ %42, %37 ], [ %47, %43 ], [ %54, %52 ], [ %56, %55 ]
+  %.1 = phi nsz double [ %9, %15 ], [ %7, %20 ], [ %9, %24 ], [ %.2, %27 ], [ %9, %32 ], [ %.3, %37 ], [ %.4, %43 ], [ %.5, %52 ], [ %9, %55 ]
   tail call void @dtgtk_range_select_set_selection(ptr noundef nonnull %0, i32 noundef %.172, double noundef %.1, double noundef %.174, i32 noundef 1, i32 noundef 0) #20
   %58 = tail call ptr @dtgtk_range_select_get_bounds_pretty(ptr noundef nonnull %0) #20
   tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef null, ptr noundef nonnull %0, ptr noundef %58) #20
@@ -10826,7 +10826,7 @@ define internal noalias ptr @_rating_print_func(double noundef %0, i32 noundef %
   br label %18
 
 18:                                               ; preds = %16, %13, %10
-  %.0 = phi ptr [ %17, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.0 = phi ptr [ %17, %16 ], [ %12, %10 ], [ %15, %13 ]
   ret ptr %.0
 }
 

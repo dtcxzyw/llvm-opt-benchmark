@@ -1533,8 +1533,8 @@ ssl_tls13_parse_server_hello.exit.i:              ; preds = %174
   br label %ssl_tls13_process_server_hello.exit
 
 ssl_tls13_parse_server_hello.exit.thread.i:       ; preds = %203, %199, %195, %223, %ssl_tls13_parse_server_hello.exit.i, %.thread209.i.i, %.thread194.thread.i.i, %217, %207, %202, %194, %183, %173, %165, %156, %126, %.thread212.i.i, %94, %ssl_tls13_preprocess_server_hello.exit.thread49.i
-  %.024.i = phi i32 [ -110, %ssl_tls13_parse_server_hello.exit.i ], [ %226, %223 ], [ 0, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ %.4.i.i, %217 ], [ %201, %202 ], [ -29440, %183 ], [ -29440, %194 ], [ %206, %207 ], [ -28288, %.thread212.i.i ], [ -26112, %.thread209.i.i ], [ -29952, %.thread194.thread.i.i ], [ -29440, %173 ], [ -29440, %165 ], [ -29440, %156 ], [ -29440, %126 ], [ -29440, %94 ], [ %198, %195 ], [ -27648, %199 ], [ %204, %203 ]
-  %.0.i = phi i32 [ %85, %ssl_tls13_parse_server_hello.exit.i ], [ %85, %223 ], [ %82, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ %85, %217 ], [ %85, %202 ], [ %85, %183 ], [ %85, %194 ], [ %85, %207 ], [ %85, %.thread212.i.i ], [ %85, %.thread209.i.i ], [ %85, %.thread194.thread.i.i ], [ %85, %173 ], [ %85, %165 ], [ %85, %156 ], [ %85, %126 ], [ %85, %94 ], [ %85, %195 ], [ %85, %199 ], [ %85, %203 ]
+  %.024.i = phi i32 [ -110, %ssl_tls13_parse_server_hello.exit.i ], [ %226, %223 ], [ 0, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ %201, %202 ], [ %.4.i.i, %217 ], [ -29440, %183 ], [ -29440, %194 ], [ %206, %207 ], [ -28288, %.thread212.i.i ], [ -26112, %.thread209.i.i ], [ -29952, %.thread194.thread.i.i ], [ -29440, %173 ], [ -29440, %165 ], [ -29440, %156 ], [ -29440, %126 ], [ -29440, %94 ], [ %198, %195 ], [ -27648, %199 ], [ %204, %203 ]
+  %.0.i = phi i32 [ %85, %ssl_tls13_parse_server_hello.exit.i ], [ %85, %223 ], [ %82, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ %85, %202 ], [ %85, %217 ], [ %85, %183 ], [ %85, %194 ], [ %85, %207 ], [ %85, %.thread212.i.i ], [ %85, %.thread209.i.i ], [ %85, %.thread194.thread.i.i ], [ %85, %173 ], [ %85, %165 ], [ %85, %156 ], [ %85, %126 ], [ %85, %94 ], [ %85, %195 ], [ %85, %199 ], [ %85, %203 ]
   %.0.fr.i = freeze i32 %.0.i
   %.not39.i = icmp eq i32 %.0.fr.i, 0
   %spec.select.i = select i1 %.not39.i, ptr @.str.29, ptr @.str.28
@@ -2465,7 +2465,7 @@ ssl_tls13_postprocess_new_session_ticket.exit.thread28.thread32.i: ; preds = %ss
   br label %592
 
 592:                                              ; preds = %ssl_tls13_postprocess_new_session_ticket.exit.thread28.thread32.i, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.i, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.thread.i
-  %.1.i65 = phi i32 [ 0, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.thread32.i ], [ -31488, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.thread.i ], [ -27648, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.i ]
+  %.1.i65 = phi i32 [ -31488, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.thread.i ], [ 0, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.thread32.i ], [ -27648, %ssl_tls13_postprocess_new_session_ticket.exit.thread28.i ]
   store i32 27, ptr %12, align 8, !tbaa !68
   br label %ssl_tls13_process_new_session_ticket.exit
 
@@ -2481,7 +2481,7 @@ ssl_tls13_process_new_session_ticket.exit:        ; preds = %478, %489, %495, %5
   br label %ssl_tls13_process_server_certificate.exit
 
 ssl_tls13_process_server_certificate.exit:        ; preds = %469, %468, %464, %463, %460, %.sink.split.i, %446, %437, %436, %432, %431, %429, %428, %426, %14, %15, %ssl_tls13_process_server_hello.exit, %ssl_tls13_process_encrypted_extensions.exit, %ssl_tls13_process_certificate_request.exit, %470, %471, %474, %477, %ssl_tls13_process_new_session_ticket.exit, %472, %475, %593
-  %.024 = phi i32 [ -28928, %593 ], [ %.0.i57, %ssl_tls13_process_new_session_ticket.exit ], [ %476, %475 ], [ 0, %477 ], [ %473, %472 ], [ 0, %474 ], [ 0, %471 ], [ 0, %470 ], [ %.016.i, %ssl_tls13_process_certificate_request.exit ], [ %.0.i30, %ssl_tls13_process_encrypted_extensions.exit ], [ %.02461.i, %ssl_tls13_process_server_hello.exit ], [ %16, %15 ], [ 0, %14 ], [ %427, %426 ], [ 0, %428 ], [ %430, %429 ], [ 0, %431 ], [ %435, %436 ], [ 0, %437 ], [ %433, %432 ], [ %447, %446 ], [ 0, %.sink.split.i ], [ %461, %460 ], [ 0, %463 ], [ %467, %468 ], [ 0, %469 ], [ %465, %464 ]
+  %.024 = phi i32 [ -28928, %593 ], [ 0, %14 ], [ %16, %15 ], [ %.02461.i, %ssl_tls13_process_server_hello.exit ], [ %.0.i30, %ssl_tls13_process_encrypted_extensions.exit ], [ %.016.i, %ssl_tls13_process_certificate_request.exit ], [ 0, %470 ], [ 0, %471 ], [ %473, %472 ], [ 0, %474 ], [ %476, %475 ], [ 0, %477 ], [ %.0.i57, %ssl_tls13_process_new_session_ticket.exit ], [ %427, %426 ], [ 0, %428 ], [ %430, %429 ], [ 0, %431 ], [ %435, %436 ], [ 0, %437 ], [ %433, %432 ], [ %447, %446 ], [ 0, %.sink.split.i ], [ %461, %460 ], [ 0, %463 ], [ %467, %468 ], [ 0, %469 ], [ %465, %464 ]
   ret i32 %.024
 }
 
@@ -2659,8 +2659,8 @@ switch.lookup40:                                  ; preds = %10
   store ptr %26, ptr %27, align 8, !tbaa !106
   br label %29
 
-28:                                               ; preds = %9, %18, %21, %switch.lookup
-  %.0.ph = phi i32 [ -28160, %switch.lookup ], [ %20, %21 ], [ %17, %18 ], [ -28160, %9 ]
+28:                                               ; preds = %18, %21, %switch.lookup, %9
+  %.0.ph = phi i32 [ -28160, %9 ], [ -28160, %switch.lookup ], [ %20, %21 ], [ %17, %18 ]
   tail call void @mbedtls_ssl_pend_fatal_alert(ptr noundef nonnull %0, i8 noundef zeroext 40, i32 noundef -28160) #12
   br label %29
 

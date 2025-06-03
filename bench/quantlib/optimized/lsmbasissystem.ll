@@ -844,7 +844,7 @@ ehcleanup106:                                     ; preds = %ehcleanup105, %lpad
   br label %ehcleanup107
 
 ehcleanup107:                                     ; preds = %ehcleanup106, %ehcleanup75, %ehcleanup62, %ehcleanup49, %lpad30.split.us, %ehcleanup25, %ehcleanup
-  %.pn26.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn, %ehcleanup106 ], [ %.pn, %ehcleanup75 ], [ %.pn18, %ehcleanup62 ], [ %.pn20, %ehcleanup49 ], [ %32, %lpad30.split.us ], [ %.pn22, %ehcleanup25 ], [ %.pn24, %ehcleanup ]
+  %.pn26.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn, %ehcleanup106 ], [ %.pn24, %ehcleanup ], [ %.pn22, %ehcleanup25 ], [ %32, %lpad30.split.us ], [ %.pn20, %ehcleanup49 ], [ %.pn18, %ehcleanup62 ], [ %.pn, %ehcleanup75 ]
   call void @_ZNSt6vectorISt8functionIFddEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #24
   resume { ptr, i32 } %.pn26.pn.pn.pn.pn.pn
 

@@ -3022,8 +3022,8 @@ dissect_host_anchor_id.exit.i:                    ; preds = %555, %536, %proto_i
   br label %588
 
 588:                                              ; preds = %582, %557, %dissect_host_anchor_id.exit.i, %460, %391, %375, %dissect_channelised_ex_header.exit.i, %270, %250, %233, %205
-  %.2111.i = phi i64 [ %.1110138.i, %582 ], [ %.1110138.i, %557 ], [ %.1110138.i, %dissect_host_anchor_id.exit.i ], [ %427, %460 ], [ %.1110138.i, %391 ], [ %.1110138.i, %375 ], [ %.1110138.i, %dissect_channelised_ex_header.exit.i ], [ %.1110138.i, %270 ], [ %.1110138.i, %250 ], [ %.1110138.i, %233 ], [ %.1110138.i, %205 ]
-  %.1.i136 = phi i8 [ %.0108139.i, %582 ], [ %.0108139.i, %557 ], [ %.0108139.i, %dissect_host_anchor_id.exit.i ], [ %429, %460 ], [ %.2.i, %391 ], [ %.0108139.i, %375 ], [ %.0108139.i, %dissect_channelised_ex_header.exit.i ], [ %.0108139.i, %270 ], [ %.0108139.i, %250 ], [ %.0108139.i, %233 ], [ %.0108139.i, %205 ]
+  %.2111.i = phi i64 [ %.1110138.i, %582 ], [ %.1110138.i, %205 ], [ %.1110138.i, %233 ], [ %.1110138.i, %250 ], [ %.1110138.i, %270 ], [ %.1110138.i, %dissect_channelised_ex_header.exit.i ], [ %.1110138.i, %375 ], [ %.1110138.i, %391 ], [ %427, %460 ], [ %.1110138.i, %dissect_host_anchor_id.exit.i ], [ %.1110138.i, %557 ]
+  %.1.i136 = phi i8 [ %.0108139.i, %582 ], [ %.0108139.i, %205 ], [ %.0108139.i, %233 ], [ %.0108139.i, %250 ], [ %.0108139.i, %270 ], [ %.0108139.i, %dissect_channelised_ex_header.exit.i ], [ %.0108139.i, %375 ], [ %.2.i, %391 ], [ %429, %460 ], [ %.0108139.i, %dissect_host_anchor_id.exit.i ], [ %.0108139.i, %557 ]
   %589 = trunc nuw i64 %198 to i8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.0112.i = and i8 %589, -128
@@ -3737,7 +3737,7 @@ dissect_mc_hdlc_header.exit:                      ; preds = %960, %964
   br label %meta_tag_expected_length.exit.i
 
 meta_tag_expected_length.exit.i:                  ; preds = %1029, %1028, %1026
-  %.1.i.i142 = phi i32 [ %.0.i.i141, %1026 ], [ 16, %1029 ], [ 4, %1028 ]
+  %.1.i.i142 = phi i32 [ %.0.i.i141, %1026 ], [ 4, %1028 ], [ 16, %1029 ]
   %1030 = zext i16 %1008 to i32
   %1031 = add nuw nsw i32 %1030, 4
   %1032 = icmp samesign ult i32 %1005, %1031
@@ -4572,8 +4572,8 @@ erf_ts_to_nstime.exit.i:                          ; preds = %1393, %1389
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1398, %erf_ts_to_nstime.exit.i, %1367, %1363, %dissect_meta_tag_ext_hdrs.exit.i, %1257, %dissect_relative_time.exit.i, %dissect_ptp_timeinterval.exit.i, %1217, %1199, %dissect_meta_tag_bitfield.exit.i, %1172, %1143, %1134, %1129, %1122, %1115, %1108, %1102
-  %.1563.i = phi ptr [ null, %1363 ], [ null, %erf_ts_to_nstime.exit.i ], [ null, %1398 ], [ null, %1367 ], [ %1280, %dissect_meta_tag_ext_hdrs.exit.i ], [ null, %1257 ], [ null, %dissect_relative_time.exit.i ], [ null, %dissect_ptp_timeinterval.exit.i ], [ %1205, %1199 ], [ %1205, %1217 ], [ %1194, %dissect_meta_tag_bitfield.exit.i ], [ null, %1172 ], [ %1157, %1143 ], [ null, %1134 ], [ null, %1129 ], [ null, %1122 ], [ null, %1115 ], [ null, %1108 ], [ null, %1102 ]
-  %.3561.i = phi ptr [ %.1559.i, %1363 ], [ %.1559.i, %erf_ts_to_nstime.exit.i ], [ %.1559.i, %1398 ], [ %.1559.i, %1367 ], [ %spec.select590.i, %dissect_meta_tag_ext_hdrs.exit.i ], [ %.1559.i, %1257 ], [ %.1559.i, %dissect_relative_time.exit.i ], [ %.1559.i, %dissect_ptp_timeinterval.exit.i ], [ %.1559.i, %1199 ], [ %.1559.i, %1217 ], [ %.1559.i, %dissect_meta_tag_bitfield.exit.i ], [ %.1559.i, %1172 ], [ %.1559.i, %1143 ], [ %.1559.i, %1134 ], [ %.1559.i, %1129 ], [ %.1559.i, %1122 ], [ %.1559.i, %1115 ], [ %.1559.i, %1108 ], [ %.1559.i, %1102 ]
+  %.1563.i = phi ptr [ null, %1363 ], [ null, %erf_ts_to_nstime.exit.i ], [ null, %1398 ], [ null, %1367 ], [ null, %1102 ], [ null, %1108 ], [ null, %1115 ], [ null, %1122 ], [ null, %1129 ], [ null, %1134 ], [ %1157, %1143 ], [ null, %1172 ], [ %1194, %dissect_meta_tag_bitfield.exit.i ], [ %1205, %1199 ], [ %1205, %1217 ], [ null, %dissect_ptp_timeinterval.exit.i ], [ null, %dissect_relative_time.exit.i ], [ null, %1257 ], [ %1280, %dissect_meta_tag_ext_hdrs.exit.i ]
+  %.3561.i = phi ptr [ %.1559.i, %1363 ], [ %.1559.i, %erf_ts_to_nstime.exit.i ], [ %.1559.i, %1398 ], [ %.1559.i, %1367 ], [ %.1559.i, %1102 ], [ %.1559.i, %1108 ], [ %.1559.i, %1115 ], [ %.1559.i, %1122 ], [ %.1559.i, %1129 ], [ %.1559.i, %1134 ], [ %.1559.i, %1143 ], [ %.1559.i, %1172 ], [ %.1559.i, %dissect_meta_tag_bitfield.exit.i ], [ %.1559.i, %1199 ], [ %.1559.i, %1217 ], [ %.1559.i, %dissect_ptp_timeinterval.exit.i ], [ %.1559.i, %dissect_relative_time.exit.i ], [ %.1559.i, %1257 ], [ %spec.select590.i, %dissect_meta_tag_ext_hdrs.exit.i ]
   call void @llvm.lifetime.end.p0(i64 241, ptr nonnull %12) #11
   br label %1402
 

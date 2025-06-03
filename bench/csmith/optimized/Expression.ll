@@ -605,7 +605,7 @@ unreachable:                                      ; preds = %88
   unreachable
 
 99:                                               ; preds = %97, %95, %93, %91, %89
-  %.039 = phi ptr [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ]
+  %.039 = phi ptr [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ]
   %100 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %101 = load i32, ptr %100, align 8, !tbaa !96
   %switch48 = icmp ult i32 %101, 2
@@ -891,7 +891,7 @@ unreachable:                                      ; preds = %55
   unreachable
 
 66:                                               ; preds = %64, %62, %60, %58, %56
-  %.030 = phi ptr [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ]
+  %.030 = phi ptr [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !96
   %switch = icmp ult i32 %68, 2

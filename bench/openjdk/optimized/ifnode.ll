@@ -683,10 +683,10 @@ define hidden noundef range(i32 0, 3) i32 @_ZN14RangeCheckNode14is_range_checkER
   br label %38
 
 38:                                               ; preds = %37, %28
-  %39 = phi i32 [ 0, %28 ], [ 1, %37 ]
-  %.036 = phi i32 [ 1, %28 ], [ 2, %37 ]
-  %.034 = phi ptr [ %32, %28 ], [ %34, %37 ]
-  %.033 = phi ptr [ %34, %28 ], [ %32, %37 ]
+  %39 = phi i32 [ 1, %37 ], [ 0, %28 ]
+  %.036 = phi i32 [ 2, %37 ], [ 1, %28 ]
+  %.034 = phi ptr [ %34, %37 ], [ %32, %28 ]
+  %.033 = phi ptr [ %32, %37 ], [ %34, %28 ]
   %40 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
@@ -1137,8 +1137,8 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   br label %127
 
 127:                                              ; preds = %109, %53, %123, %118, %114
-  %.045 = phi i32 [ %57, %53 ], [ %126, %123 ], [ %122, %118 ], [ %57, %114 ], [ %spec.select, %109 ]
-  %.044 = phi i32 [ %55, %53 ], [ %55, %123 ], [ %spec.select62, %118 ], [ %117, %114 ], [ %112, %109 ]
+  %.045 = phi i32 [ %57, %53 ], [ %57, %114 ], [ %122, %118 ], [ %126, %123 ], [ %spec.select, %109 ]
+  %.044 = phi i32 [ %55, %53 ], [ %117, %114 ], [ %spec.select62, %118 ], [ %55, %123 ], [ %112, %109 ]
   %128 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %129 = load i16, ptr %128, align 4
   %130 = sext i16 %129 to i32
@@ -2077,10 +2077,10 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   br label %352
 
 217:                                              ; preds = %117, %163, %144, %133, %59, %67, %87, %105
-  %.0162 = phi ptr [ %28, %87 ], [ %108, %105 ], [ %70, %67 ], [ %28, %59 ], [ %147, %144 ], [ %166, %163 ], [ %32, %117 ], [ %32, %133 ]
-  %.0161 = phi ptr [ %32, %87 ], [ %32, %105 ], [ %32, %67 ], [ %32, %59 ], [ %28, %144 ], [ %28, %163 ], [ %28, %117 ], [ %28, %133 ]
-  %.099 = phi ptr [ %90, %87 ], [ %99, %105 ], [ null, %67 ], [ null, %59 ], [ null, %144 ], [ %157, %163 ], [ null, %117 ], [ %136, %133 ]
-  %.098 = phi i32 [ 3, %87 ], [ 3, %105 ], [ 3, %67 ], [ 3, %59 ], [ 7, %144 ], [ 7, %163 ], [ 7, %117 ], [ 7, %133 ]
+  %.0162 = phi ptr [ %70, %67 ], [ %28, %59 ], [ %28, %87 ], [ %108, %105 ], [ %32, %117 ], [ %32, %133 ], [ %147, %144 ], [ %166, %163 ]
+  %.0161 = phi ptr [ %32, %67 ], [ %32, %59 ], [ %32, %87 ], [ %32, %105 ], [ %28, %117 ], [ %28, %133 ], [ %28, %144 ], [ %28, %163 ]
+  %.099 = phi ptr [ null, %67 ], [ null, %59 ], [ %90, %87 ], [ %99, %105 ], [ null, %117 ], [ %136, %133 ], [ null, %144 ], [ %157, %163 ]
+  %.098 = phi i32 [ 3, %67 ], [ 3, %59 ], [ 3, %87 ], [ 3, %105 ], [ 7, %117 ], [ 7, %133 ], [ 7, %144 ], [ 7, %163 ]
   %218 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 1808
@@ -2778,9 +2778,9 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit53: ; preds = %_ZN9VectorSet8
   br label %234
 
 234:                                              ; preds = %233, %224
-  %235 = phi i32 [ 0, %224 ], [ 1, %233 ]
-  %.072 = phi ptr [ %228, %224 ], [ %230, %233 ]
-  %.071 = phi ptr [ %230, %224 ], [ %228, %233 ]
+  %235 = phi i32 [ 1, %233 ], [ 0, %224 ]
+  %.072 = phi ptr [ %230, %233 ], [ %228, %224 ]
+  %.071 = phi ptr [ %228, %233 ], [ %230, %224 ]
   %236 = getelementptr inbounds nuw i8, ptr %.072, i64 16
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null

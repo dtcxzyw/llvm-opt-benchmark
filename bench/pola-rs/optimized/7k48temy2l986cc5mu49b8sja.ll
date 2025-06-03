@@ -278,7 +278,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$value_trait..node..StaticNode$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a2ddbb465d7ecf2E.exit"
 
 "_ZN66_$LT$value_trait..node..StaticNode$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a2ddbb465d7ecf2E.exit": ; preds = %9, %12, %15, %18, %21
-  %.sroa.0.0.in.i = phi i1 [ %22, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -587,7 +587,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN75_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fa79e2ae926cf6aE.exit"
 
 "_ZN75_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fa79e2ae926cf6aE.exit": ; preds = %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %53, %55, %57, %60, %63, %66, %69, %71, %74, %76, %78, %80, %83, %87, %90, %93, %97, %102, %106, %110, %113, %115, %117, %119
-  %.sroa.0.0.in.i = phi i1 [ %121, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %110 ], [ %109, %106 ], [ %105, %102 ], [ %101, %97 ], [ %96, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %83 ], [ %82, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %71 ], [ %70, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ]
+  %.sroa.0.0.in.i = phi i1 [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %52, %49 ], [ %54, %53 ], [ %56, %55 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %70, %69 ], [ %73, %71 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %82, %80 ], [ %86, %83 ], [ %89, %87 ], [ %92, %90 ], [ %96, %93 ], [ %101, %97 ], [ %105, %102 ], [ %109, %106 ], [ %112, %110 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %121, %119 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9522,7 +9522,7 @@ define hidden noalias noundef ptr @_ZN11polars_json4json5write4utf89write_str17h
   br label %.outer
 
 .thread:                                          ; preds = %36, %43, %42, %41, %40, %39, %38
-  %.sroa.02.0.i = phi ptr [ @anon.d7078fb00108575983bc3d6b7da589b6.142, %43 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.141, %42 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.140, %41 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.139, %40 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.138, %39 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.137, %38 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.136, %36 ]
+  %.sroa.02.0.i = phi ptr [ @anon.d7078fb00108575983bc3d6b7da589b6.137, %38 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.138, %39 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.139, %40 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.140, %41 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.141, %42 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.142, %43 ], [ @anon.d7078fb00108575983bc3d6b7da589b6.136, %36 ]
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h511d3456a537f61fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d7078fb00108575983bc3d6b7da589b6.21)
   br label %.outer.backedge
 }

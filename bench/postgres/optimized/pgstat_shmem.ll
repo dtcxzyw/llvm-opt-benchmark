@@ -2021,7 +2021,7 @@ default.unreachable19.i.i.i:                      ; preds = %._crit_edge.i.i
   br label %fasthash32.exit
 
 fasthash32.exit:                                  ; preds = %._crit_edge.i.i, %55
-  %.sroa.12.1.i.i = phi i64 [ %.sroa.12.0.lcssa.i.i, %._crit_edge.i.i ], [ %62, %55 ]
+  %.sroa.12.1.i.i = phi i64 [ %62, %55 ], [ %.sroa.12.0.lcssa.i.i, %._crit_edge.i.i ]
   %63 = lshr i64 %.sroa.12.1.i.i, 23
   %64 = xor i64 %63, %.sroa.12.1.i.i
   %65 = mul i64 %64, 2388976653695081527

@@ -272,7 +272,7 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %exitcond49.not, label %dnxhd_find_hr_cid.exit, label %19, !llvm.loop !46
 
 dnxhd_find_hr_cid.exit:                           ; preds = %.loopexit, %2, %55, %13, %12, %11, %10, %9, %14
-  %.0 = phi i32 [ %56, %55 ], [ 0, %14 ], [ 0, %13 ], [ 1274, %12 ], [ 1273, %11 ], [ 1272, %10 ], [ 1271, %9 ], [ 1270, %2 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ %56, %55 ], [ 0, %14 ], [ 0, %13 ], [ 1271, %9 ], [ 1272, %10 ], [ 1273, %11 ], [ 1274, %12 ], [ 1270, %2 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

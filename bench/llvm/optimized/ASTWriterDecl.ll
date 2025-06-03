@@ -2217,8 +2217,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang11Dec
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !339
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit, label %50
@@ -2228,8 +2228,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang11Dec
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !339
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.thread
@@ -16907,10 +16907,10 @@ _ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.e
   %28 = and i64 %.sroa.0.0.copyload.i.i.i.i.i34, -8
   %.not.not8.i = icmp eq i64 %28, 0
   %.not.not.i36 = or i1 %.not.i.i.i.i.i35, %.not.not8.i
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %.1.in.i = select i1 %.not.not.i36, ptr %31, ptr %30
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %30 = inttoptr i64 %28 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.1.in.i = select i1 %.not.not.i36, ptr %29, ptr %31
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !798
   tail call void @_ZN5clang15ASTRecordWriter23AddTemplateArgumentListEPKNS_20TemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(216) %22, ptr noundef nonnull %.1.i) #21
   br label %32
@@ -17678,10 +17678,10 @@ _ZNK5clang29VarTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exi
   %28 = and i64 %.sroa.0.0.copyload.i.i.i.i.i27, -8
   %.not.not8.i = icmp eq i64 %28, 0
   %.not.not.i29 = or i1 %.not.i.i.i.i.i28, %.not.not8.i
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %.1.in.i = select i1 %.not.not.i29, ptr %31, ptr %30
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %30 = inttoptr i64 %28 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.1.in.i = select i1 %.not.not.i29, ptr %29, ptr %31
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !798
   tail call void @_ZN5clang15ASTRecordWriter23AddTemplateArgumentListEPKNS_20TemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(216) %22, ptr noundef nonnull %.1.i) #21
   br label %32

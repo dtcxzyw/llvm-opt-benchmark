@@ -1165,7 +1165,7 @@ if.then.i.i.i2.i57:                               ; preds = %_ZNSt6vectorImSaImE
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i2.i57, %_ZNSt6vectorImSaImEED2Ev.exit.i54, %sw.bb25, %cond.false, %if.end22, %sw.bb, %if.end28, %if.then10
-  %retval.0 = phi i32 [ %cond31, %if.end28 ], [ %call18, %if.then10 ], [ 2, %sw.bb ], [ %call24, %cond.false ], [ 4, %if.end22 ], [ 2, %sw.bb25 ], [ %cond60, %_ZNSt6vectorImSaImEED2Ev.exit.i54 ], [ %cond60, %if.then.i.i.i2.i57 ]
+  %retval.0 = phi i32 [ %call18, %if.then10 ], [ %cond31, %if.end28 ], [ 2, %sw.bb ], [ %call24, %cond.false ], [ 4, %if.end22 ], [ 2, %sw.bb25 ], [ %cond60, %_ZNSt6vectorImSaImEED2Ev.exit.i54 ], [ %cond60, %if.then.i.i.i2.i57 ]
   ret i32 %retval.0
 }
 

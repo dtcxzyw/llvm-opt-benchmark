@@ -2783,7 +2783,7 @@ _ZNK4llvm6detail12DenseSetImplIPKN5clang4DeclENS_8DenseMapIS5_NS0_13DenseSetEmpt
   br label %_ZN12_GLOBAL__N_116AnalysisConsumer26getInliningModeForFunctionEPKN5clang4DeclERKN4llvm8DenseSetIS4_NS5_12DenseMapInfoIS4_vEEEE.exit.i.i
 
 _ZN12_GLOBAL__N_116AnalysisConsumer26getInliningModeForFunctionEPKN5clang4DeclERKN4llvm8DenseSetIS4_NS5_12DenseMapInfoIS4_vEEEE.exit.i.i: ; preds = %_ZNK4llvm6detail12DenseSetImplIPKN5clang4DeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit.thread.i.i.i, %373
-  %.1.i.i.i = phi i32 [ 1, %373 ], [ 0, %_ZNK4llvm6detail12DenseSetImplIPKN5clang4DeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit.thread.i.i.i ]
+  %.1.i.i.i = phi i32 [ 0, %_ZNK4llvm6detail12DenseSetImplIPKN5clang4DeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit.thread.i.i.i ], [ 1, %373 ]
   %375 = load ptr, ptr %131, align 8, !tbaa !479
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 256
   %377 = load ptr, ptr %376, align 8, !tbaa !1006

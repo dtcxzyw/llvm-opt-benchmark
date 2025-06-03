@@ -3304,7 +3304,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %.noexc356.i
   br label %1357
 
 1357:                                             ; preds = %1355, %._crit_edge.i.i.i.i.i
-  %.sroa.039.1.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %1356, %1355 ]
+  %.sroa.039.1.i.i.i.i.i = phi ptr [ %1356, %1355 ], [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i27.i.i.i.i.i = load ptr, ptr %.sroa.039.1.i.i.i.i.i, align 8, !tbaa !66
   %.not.i.i.i28.i.i.i.i.i = icmp eq ptr %.val1.i27.i.i.i.i.i, null
   br i1 %.not.i.i.i28.i.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNS5_5MergeERSB_SF_RKS9_IS9_IiSaIiEESaISH_EERKNS4_10PointCloudEE3$_0EEET_SR_SR_T0_.exit.i.i.i", label %1358
@@ -3314,7 +3314,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %.noexc356.i
   br label %1360
 
 1360:                                             ; preds = %1358, %._crit_edge.i.i.i.i.i
-  %.sroa.039.2.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %1359, %1358 ]
+  %.sroa.039.2.i.i.i.i.i = phi ptr [ %1359, %1358 ], [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i29.i.i.i.i.i = load ptr, ptr %.sroa.039.2.i.i.i.i.i, align 8, !tbaa !66
   %.not.i.i.i30.i.i.i.i.i = icmp eq ptr %.val1.i29.i.i.i.i.i, null
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i30.i.i.i.i.i, ptr %.sroa.039.2.i.i.i.i.i, ptr %.val259.i.pre
@@ -6842,7 +6842,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector1
   br label %541
 
 541:                                              ; preds = %539, %._crit_edge.i.i.i.i.i.i
-  %.sroa.097.1.i.i.i.i.i.i = phi ptr [ %.sroa.097.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %540, %539 ]
+  %.sroa.097.1.i.i.i.i.i.i = phi ptr [ %540, %539 ], [ %.sroa.097.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val1.i70.i.i.i.i.i.i = load i64, ptr %.sroa.097.1.i.i.i.i.i.i, align 8, !tbaa !47
   %542 = load i64, ptr %341, align 8, !tbaa !269
   %543 = urem i64 %.val1.i70.i.i.i.i.i.i, %542
@@ -6909,7 +6909,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector1
   br label %568
 
 568:                                              ; preds = %566, %._crit_edge.i.i.i.i.i.i
-  %.sroa.097.2.i.i.i.i.i.i = phi ptr [ %.sroa.097.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %567, %566 ]
+  %.sroa.097.2.i.i.i.i.i.i = phi ptr [ %567, %566 ], [ %.sroa.097.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val1.i82.i.i.i.i.i.i = load i64, ptr %.sroa.097.2.i.i.i.i.i.i, align 8, !tbaa !47
   %569 = load i64, ptr %341, align 8, !tbaa !269
   %570 = urem i64 %.val1.i82.i.i.i.i.i.i, %569

@@ -540,9 +540,9 @@ _ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i: ; pred
   unreachable
 
 _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i.i: ; preds = %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.i32.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i53.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
-  %.sroa.7111.0.i.i = phi i64 [ %.sroa.0.0.i41.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i62.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %118, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
-  %.sroa.11.0.i.i = phi i8 [ %60, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i44.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %.sroa.0.0.i42.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ], [ %.sroa.0.0.i53.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %.sroa.0.0.i32.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ]
+  %.sroa.7111.0.i.i = phi i64 [ %118, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ], [ %.sroa.0.0.i62.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %.sroa.0.0.i41.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ]
+  %.sroa.11.0.i.i = phi i8 [ %.sroa.0.0.i42.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ], [ %.sroa.0.0.i44.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %60, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ]
   %184 = add i64 %.sroa.0.0.i.i, %.sroa.0.sroa.7.0.copyload.i.i
   %185 = load ptr, ptr %14, align 8, !alias.scope !14, !noalias !15, !nonnull !4, !align !66, !noundef !4
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -1373,7 +1373,7 @@ default.unreachable.i.i:                          ; preds = %132
   br label %_ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i
 
 _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i: ; preds = %.noexc38.i, %.noexc34.i, %.noexc32.i
-  %.sroa.5313.0.i = phi i64 [ %.sroa.0.0.i98.i, %.noexc32.i ], [ %.sroa.0.0.i128.i, %.noexc38.i ], [ %195, %.noexc34.i ]
+  %.sroa.5313.0.i = phi i64 [ %195, %.noexc34.i ], [ %.sroa.0.0.i128.i, %.noexc38.i ], [ %.sroa.0.0.i98.i, %.noexc32.i ]
   %237 = load ptr, ptr %26, align 8, !alias.scope !110, !noalias !113, !nonnull !4, !align !66, !noundef !4
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load i64, ptr %238, align 8, !noalias !113, !noundef !4
@@ -2038,9 +2038,9 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
   br label %42
 
 _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit51.i: ; preds = %.noexc49.i, %.noexc45.i, %.noexc43.i
-  %.sroa.7.0.i340832.i = phi i64 [ %420, %.noexc43.i ], [ 1, %.noexc49.i ], [ 1, %.noexc45.i ]
-  %.sroa.6268.0.i = phi i64 [ %.sroa.0.0.i189.i, %.noexc43.i ], [ %.sroa.0.0.i224.i, %.noexc49.i ], [ %429, %.noexc45.i ]
-  %.sroa.0267.0.i = phi i64 [ %.sroa.0.0.i174.i, %.noexc43.i ], [ %.sroa.0.0.i211.i, %.noexc49.i ], [ 0, %.noexc45.i ]
+  %.sroa.7.0.i340832.i = phi i64 [ 1, %.noexc45.i ], [ 1, %.noexc49.i ], [ %420, %.noexc43.i ]
+  %.sroa.6268.0.i = phi i64 [ %429, %.noexc45.i ], [ %.sroa.0.0.i224.i, %.noexc49.i ], [ %.sroa.0.0.i189.i, %.noexc43.i ]
+  %.sroa.0267.0.i = phi i64 [ 0, %.noexc45.i ], [ %.sroa.0.0.i211.i, %.noexc49.i ], [ %.sroa.0.0.i174.i, %.noexc43.i ]
   %510 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !234, !noalias !113, !noundef !4
   %511 = load i64, ptr %27, align 8, !alias.scope !234, !noalias !113, !noundef !4
   %512 = icmp eq i64 %510, %511

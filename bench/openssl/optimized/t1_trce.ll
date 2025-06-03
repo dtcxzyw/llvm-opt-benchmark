@@ -2487,7 +2487,7 @@ ssl_print_hex.exit62:                             ; preds = %.lr.ph.i59, %146
   br label %156
 
 156:                                              ; preds = %ssl_print_hexbuf.exit52, %ssl_print_hexbuf.exit44, %ssl_print_hexbuf.exit36, %ssl_print_hex.exit, %ssl_print_hex.exit62, %ssl_print_hex.exit57, %55
-  %.187 = phi i64 [ %.086, %55 ], [ 0, %ssl_print_hex.exit62 ], [ 0, %ssl_print_hex.exit57 ], [ %135, %ssl_print_hexbuf.exit52 ], [ %118, %ssl_print_hexbuf.exit44 ], [ %.086, %ssl_print_hex.exit ], [ %94, %ssl_print_hexbuf.exit36 ]
+  %.187 = phi i64 [ %.086, %55 ], [ %.086, %ssl_print_hex.exit ], [ %94, %ssl_print_hexbuf.exit36 ], [ %118, %ssl_print_hexbuf.exit44 ], [ %135, %ssl_print_hexbuf.exit52 ], [ 0, %ssl_print_hex.exit57 ], [ 0, %ssl_print_hex.exit62 ]
   %.not26 = icmp eq i64 %.187, 0
   %157 = zext i1 %.not26 to i32
   br label %ssl_print_hexbuf.exit.thread
@@ -4283,7 +4283,7 @@ do_ssl_trace_str.exit.i331.i:                     ; preds = %397, %394
   br label %ssl_print_extension.exit.thread68
 
 ssl_print_extension.exit:                         ; preds = %150, %340, %407
-  %.0.i = phi i32 [ %409, %407 ], [ %342, %340 ], [ %152, %150 ]
+  %.0.i = phi i32 [ %152, %150 ], [ %342, %340 ], [ %409, %407 ]
   %.not64 = icmp eq i32 %.0.i, 0
   br i1 %.not64, label %.thread, label %ssl_print_extension.exit.thread68
 

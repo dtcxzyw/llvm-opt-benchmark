@@ -1812,7 +1812,7 @@ Py_DECREF.exit:                                   ; preds = %set_richcompare.exi
   br label %61
 
 61:                                               ; preds = %9, %56, %51, %Py_DECREF.exit, %set_richcompare.exit, %16, %10, %7, %59, %54, %49, %47, %44, %19
-  %.0 = phi ptr [ %60, %59 ], [ %55, %54 ], [ %50, %49 ], [ %48, %47 ], [ %46, %44 ], [ %20, %19 ], [ @_Py_NotImplementedStruct, %7 ], [ @_Py_FalseStruct, %10 ], [ @_Py_FalseStruct, %16 ], [ null, %set_richcompare.exit ], [ null, %Py_DECREF.exit ], [ @_Py_FalseStruct, %51 ], [ @_Py_FalseStruct, %56 ], [ @_Py_NotImplementedStruct, %9 ]
+  %.0 = phi ptr [ %20, %19 ], [ %46, %44 ], [ %48, %47 ], [ %50, %49 ], [ %55, %54 ], [ %60, %59 ], [ @_Py_NotImplementedStruct, %7 ], [ @_Py_FalseStruct, %10 ], [ @_Py_FalseStruct, %16 ], [ null, %set_richcompare.exit ], [ null, %Py_DECREF.exit ], [ @_Py_FalseStruct, %51 ], [ @_Py_FalseStruct, %56 ], [ @_Py_NotImplementedStruct, %9 ]
   ret ptr %.0
 }
 

@@ -2846,7 +2846,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   ret void
 
 39:                                               ; preds = %36, %30, %22
-  %.pn12.pn = phi { ptr, i32 } [ %37, %36 ], [ %31, %30 ], [ %23, %22 ]
+  %.pn12.pn = phi { ptr, i32 } [ %37, %36 ], [ %23, %22 ], [ %31, %30 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #24
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #24

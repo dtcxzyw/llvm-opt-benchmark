@@ -5551,8 +5551,8 @@ default.unreachable:                              ; preds = %2
   br label %12
 
 12:                                               ; preds = %2, %7, %6
-  %.sroa.4.0 = phi i64 [ %11, %7 ], [ 3, %6 ], [ 3, %2 ]
-  %.sroa.0.0 = phi ptr [ %9, %7 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.81.llvm.15204554659183753403, %6 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.80.llvm.15204554659183753403, %2 ]
+  %.sroa.4.0 = phi i64 [ 3, %6 ], [ %11, %7 ], [ 3, %2 ]
+  %.sroa.0.0 = phi ptr [ @anon.80e0e8421008f8c9b869018c9376c80d.81.llvm.15204554659183753403, %6 ], [ %9, %7 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.80.llvm.15204554659183753403, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2976)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2979)
@@ -5667,8 +5667,8 @@ default.unreachable:                              ; preds = %2
   br label %18
 
 18:                                               ; preds = %2, %13, %12, %11, %10, %9, %8, %7, %6
-  %.sroa.10.0 = phi i64 [ %17, %13 ], [ 10, %12 ], [ 9, %11 ], [ 9, %10 ], [ 7, %9 ], [ 7, %8 ], [ 7, %7 ], [ 6, %6 ], [ 4, %2 ]
-  %.sroa.0.0 = phi ptr [ %15, %13 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.89.llvm.15204554659183753403, %12 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.88.llvm.15204554659183753403, %11 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.87.llvm.15204554659183753403, %10 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.86.llvm.15204554659183753403, %9 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.85.llvm.15204554659183753403, %8 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.84.llvm.15204554659183753403, %7 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.83.llvm.15204554659183753403, %6 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.82.llvm.15204554659183753403, %2 ]
+  %.sroa.10.0 = phi i64 [ 6, %6 ], [ 7, %7 ], [ 7, %8 ], [ 7, %9 ], [ 9, %10 ], [ 9, %11 ], [ 10, %12 ], [ %17, %13 ], [ 4, %2 ]
+  %.sroa.0.0 = phi ptr [ @anon.80e0e8421008f8c9b869018c9376c80d.83.llvm.15204554659183753403, %6 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.84.llvm.15204554659183753403, %7 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.85.llvm.15204554659183753403, %8 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.86.llvm.15204554659183753403, %9 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.87.llvm.15204554659183753403, %10 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.88.llvm.15204554659183753403, %11 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.89.llvm.15204554659183753403, %12 ], [ %15, %13 ], [ @anon.80e0e8421008f8c9b869018c9376c80d.82.llvm.15204554659183753403, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3030)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3033)

@@ -110945,7 +110945,7 @@ switch.lookup75:                                  ; preds = %switch.hole_check
   br label %_ZNK14VBasicDTypeKwd5widthEv.exit31
 
 _ZNK14VBasicDTypeKwd5widthEv.exit31:              ; preds = %.critedge, %.critedge, %.critedge, %43, %44, %45
-  %.0.i30 = phi i32 [ 0, %45 ], [ 32, %44 ], [ 64, %43 ], [ 1, %.critedge ], [ 1, %.critedge ], [ 1, %.critedge ]
+  %.0.i30 = phi i32 [ 0, %45 ], [ 64, %43 ], [ 32, %44 ], [ 1, %.critedge ], [ 1, %.critedge ], [ 1, %.critedge ]
   switch i8 %.sroa.0.0.copyload.i29, label %48 [
     i8 1, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
     i8 2, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread
@@ -110981,8 +110981,8 @@ _ZNK14VBasicDTypeKwd5widthEv.exit31.thread65:     ; preds = %.critedge, %_ZNK14V
   br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
 
 _ZNK14VBasicDTypeKwd5widthEv.exit34:              ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread, %46, %47, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65, %48
-  %.0.i3064 = phi i32 [ %.0.i30, %48 ], [ %.0.i3067, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ %.0.i30, %47 ], [ %.0.i30, %46 ], [ %.0.i3063, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
-  %.0.i33 = phi i32 [ 0, %48 ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ 32, %47 ], [ 64, %46 ], [ 8, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
+  %.0.i3064 = phi i32 [ %.0.i30, %48 ], [ %.0.i3063, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ %.0.i30, %46 ], [ %.0.i30, %47 ], [ %.0.i3067, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
+  %.0.i33 = phi i32 [ 0, %48 ], [ 8, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ 64, %46 ], [ 32, %47 ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %.0.i3064, ptr %49, align 8, !tbaa !421
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 156

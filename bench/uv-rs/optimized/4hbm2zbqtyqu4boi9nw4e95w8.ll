@@ -927,9 +927,9 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
   %104 = add nuw nsw i64 %103, 1
   %105 = call i32 @_ZN14regex_automata4util8alphabet4Unit3eoi17he163b282f5fbe749E(i64 noundef %104), !noalias !140
   %trunc.i17 = trunc i32 %105 to i1
-  %.sroa.54.0.extract.shift.i = lshr i32 %105, 16
   %.sroa.43.0.extract.shift.i = lshr i32 %105, 8
   %106 = and i32 %.sroa.43.0.extract.shift.i, 255
+  %.sroa.54.0.extract.shift.i = lshr i32 %105, 16
   %.sroa.01.0.in.i = select i1 %trunc.i17, i32 %.sroa.54.0.extract.shift.i, i32 %106
   %.sroa.01.0.i = zext nneg i32 %.sroa.01.0.in.i to i64
   %107 = zext i32 %.sroa.06.0.lcssa to i64

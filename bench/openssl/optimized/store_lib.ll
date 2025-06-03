@@ -804,9 +804,9 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   br label %82
 
-.thread:                                          ; preds = %22, %31, %36, %40, %46, %20, %51, %44, %27, %63, %57
-  %.061 = phi ptr [ %.062, %63 ], [ null, %57 ], [ null, %27 ], [ %39, %44 ], [ null, %51 ], [ null, %22 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %46 ], [ null, %20 ]
-  %.2 = phi i32 [ %70, %63 ], [ 0, %57 ], [ 0, %27 ], [ 0, %44 ], [ 0, %51 ], [ 0, %22 ], [ 0, %31 ], [ 0, %36 ], [ 0, %40 ], [ 0, %46 ], [ 0, %20 ]
+.thread:                                          ; preds = %46, %31, %36, %40, %22, %20, %51, %44, %27, %63, %57
+  %.061 = phi ptr [ %.062, %63 ], [ null, %57 ], [ null, %27 ], [ %39, %44 ], [ null, %51 ], [ null, %46 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %22 ], [ null, %20 ]
+  %.2 = phi i32 [ %70, %63 ], [ 0, %57 ], [ 0, %27 ], [ 0, %44 ], [ 0, %51 ], [ 0, %46 ], [ 0, %31 ], [ 0, %36 ], [ 0, %40 ], [ 0, %22 ], [ 0, %20 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %18) #9
   %71 = load ptr, ptr %3, align 8, !tbaa !21
   call void @CRYPTO_free(ptr noundef %71, ptr noundef nonnull @.str.2, i32 noundef 403) #9
@@ -1793,7 +1793,7 @@ define i32 @OSSL_STORE_supports_search(ptr noundef readonly captures(none) %0, i
   br label %29
 
 29:                                               ; preds = %27, %25, %21, %19, %12
-  %.228.shrunk = phi i1 [ false, %12 ], [ %28, %27 ], [ %26, %25 ], [ %24, %21 ], [ %20, %19 ]
+  %.228.shrunk = phi i1 [ false, %12 ], [ %20, %19 ], [ %24, %21 ], [ %26, %25 ], [ %28, %27 ]
   %.228 = zext i1 %.228.shrunk to i32
   %.pr = load ptr, ptr %4, align 8, !tbaa !33
   %30 = icmp eq ptr %.pr, null

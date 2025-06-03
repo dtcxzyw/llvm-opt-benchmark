@@ -2471,8 +2471,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %87
 
 87:                                               ; preds = %67, %70
-  %.sroa.3.0 = phi i32 [ undef, %70 ], [ %69, %67 ]
-  %.sroa.0.0 = phi i32 [ 0, %70 ], [ 1, %67 ]
+  %.sroa.3.0 = phi i32 [ %69, %67 ], [ undef, %70 ]
+  %.sroa.0.0 = phi i32 [ 1, %67 ], [ 0, %70 ]
   %88 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %89 = insertvalue { i32, i32 } %88, i32 %.sroa.3.0, 1
   ret { i32, i32 } %89
@@ -3429,8 +3429,8 @@ define hidden void @"_ZN90_$LT$text..LineIndent$u20$as$u20$core..iter..traits..c
   br label %46
 
 46:                                               ; preds = %48, %44
-  %.sroa.04.1 = phi i32 [ %49, %48 ], [ %.sroa.04.014, %44 ]
-  %.sroa.02.1 = phi i32 [ %.sroa.02.015, %48 ], [ %45, %44 ]
+  %.sroa.04.1 = phi i32 [ %.sroa.04.014, %44 ], [ %49, %48 ]
+  %.sroa.02.1 = phi i32 [ %45, %44 ], [ %.sroa.02.015, %48 ]
   %47 = icmp eq ptr %.sroa.0.1, %2
   br i1 %47, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.17817136177563930616.exit.thread", label %.lr.ph
 

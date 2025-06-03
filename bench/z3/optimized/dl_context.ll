@@ -5006,7 +5006,7 @@ _ZN7datalog7context18uint64_sort_domainC2ERS0_P4sort.exit: ; preds = %.lr.ph.i.i
   br label %79
 
 79:                                               ; preds = %78, %_ZN7datalog7context18uint64_sort_domainC2ERS0_P4sort.exit, %_ZN7datalog7context18symbol_sort_domainC2ERS0_P4sort.exit
-  %.0 = phi ptr [ null, %78 ], [ %52, %_ZN7datalog7context18uint64_sort_domainC2ERS0_P4sort.exit ], [ %26, %_ZN7datalog7context18symbol_sort_domainC2ERS0_P4sort.exit ]
+  %.0 = phi ptr [ null, %78 ], [ %26, %_ZN7datalog7context18symbol_sort_domainC2ERS0_P4sort.exit ], [ %52, %_ZN7datalog7context18uint64_sort_domainC2ERS0_P4sort.exit ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
   store ptr %1, ptr %4, align 8, !tbaa !352
@@ -23804,7 +23804,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %449, %452
   ret void
 
 457:                                              ; preds = %361, %398, %122, %204, %266, %100, %314, %359
-  %.pn53.pn = phi { ptr, i32 } [ %101, %100 ], [ %315, %314 ], [ %360, %359 ], [ %123, %122 ], [ %267, %266 ], [ %205, %204 ], [ %399, %398 ], [ %362, %361 ]
+  %.pn53.pn = phi { ptr, i32 } [ %101, %100 ], [ %315, %314 ], [ %360, %359 ], [ %123, %122 ], [ %205, %204 ], [ %267, %266 ], [ %399, %398 ], [ %362, %361 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #29
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #29
   resume { ptr, i32 } %.pn53.pn

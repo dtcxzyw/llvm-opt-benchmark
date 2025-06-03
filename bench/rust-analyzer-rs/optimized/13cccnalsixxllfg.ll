@@ -15563,7 +15563,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$hir_def..hir..type_ref..Type
   br label %common.resume
 
 common.resume:                                    ; preds = %151, %156, %.body, %.body9, %.body19, %108, %111, %96, %99, %.body32, %24, %49, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %50, %49 ], [ %17, %24 ], [ %17, %.body32 ], [ %97, %99 ], [ %97, %96 ], [ %109, %111 ], [ %109, %108 ], [ %eh.lpad-body42, %.body19 ], [ %44, %.body9 ], [ %39, %.body ], [ %152, %156 ], [ %152, %151 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %50, %49 ], [ %17, %24 ], [ %17, %.body32 ], [ %97, %99 ], [ %97, %96 ], [ %109, %111 ], [ %109, %108 ], [ %39, %.body ], [ %44, %.body9 ], [ %eh.lpad-body42, %.body19 ], [ %152, %156 ], [ %152, %151 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$hir_def..hir..type_ref..TypeRef$GT$$GT$17h0fc8f02764d3855aE.exit": ; preds = %9
@@ -16948,7 +16948,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$hir_def..generics..
   unreachable
 
 common.resume:                                    ; preds = %116, %121, %.body, %67, %.body10, %49, %54
-  %common.resume.op = phi { ptr, i32 } [ %50, %54 ], [ %50, %49 ], [ %.pn, %.body10 ], [ %68, %67 ], [ %eh.lpad-body, %.body ], [ %117, %121 ], [ %117, %116 ]
+  %common.resume.op = phi { ptr, i32 } [ %50, %54 ], [ %50, %49 ], [ %.pn, %.body10 ], [ %eh.lpad-body, %.body ], [ %68, %67 ], [ %117, %121 ], [ %117, %116 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr78drop_in_place$LT$intern..Interned$LT$hir_def..hir..type_ref..TypeBound$GT$$GT$17h918b47a8860d7686E.exit": ; preds = %127, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h206e754bf473a2b4E.exit.i13", %78, %73, %72, %"_ZN4core3ptr56drop_in_place$LT$hir_def..hir..type_ref..LifetimeRef$GT$17hb0d6095417bf6114E.llvm.13580319295917089645.exit", %60, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h206e754bf473a2b4E.exit.i"
@@ -23461,7 +23461,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$chalk_ir..TyKind$LT$hir_ty..
   unreachable
 
 common.resume:                                    ; preds = %399, %404, %.body, %.body15, %373, %378, %349, %354, %.body.i, %323, %328, %251, %256, %229, %234, %207, %212, %185, %190, %163, %168, %119, %124, %97, %102, %53, %58, %31, %36, %9, %14
-  %common.resume.op = phi { ptr, i32 } [ %10, %14 ], [ %10, %9 ], [ %32, %36 ], [ %32, %31 ], [ %54, %58 ], [ %54, %53 ], [ %98, %102 ], [ %98, %97 ], [ %120, %124 ], [ %120, %119 ], [ %164, %168 ], [ %164, %163 ], [ %186, %190 ], [ %186, %185 ], [ %208, %212 ], [ %208, %207 ], [ %230, %234 ], [ %230, %229 ], [ %252, %256 ], [ %252, %251 ], [ %324, %328 ], [ %324, %323 ], [ %eh.lpad-body.i, %.body.i ], [ %350, %354 ], [ %350, %349 ], [ %374, %378 ], [ %374, %373 ], [ %eh.lpad-body16, %.body15 ], [ %eh.lpad-body, %.body ], [ %400, %404 ], [ %400, %399 ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %14 ], [ %10, %9 ], [ %32, %36 ], [ %32, %31 ], [ %54, %58 ], [ %54, %53 ], [ %98, %102 ], [ %98, %97 ], [ %120, %124 ], [ %120, %119 ], [ %164, %168 ], [ %164, %163 ], [ %186, %190 ], [ %186, %185 ], [ %208, %212 ], [ %208, %207 ], [ %230, %234 ], [ %230, %229 ], [ %252, %256 ], [ %252, %251 ], [ %324, %328 ], [ %324, %323 ], [ %eh.lpad-body.i, %.body.i ], [ %350, %354 ], [ %350, %349 ], [ %374, %378 ], [ %374, %373 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body16, %.body15 ], [ %400, %404 ], [ %400, %399 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %1
@@ -31876,7 +31876,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h628d12ea9f362b8cE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -31936,7 +31936,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h63ceb20f84dfa898E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 

@@ -611,7 +611,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17he7339aac8a2074baE.exit.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17he7339aac8a2074baE.exit.i": ; preds = %76, %73
-  %.0.i9.i = phi ptr [ %79, %76 ], [ %75, %73 ]
+  %.0.i9.i = phi ptr [ %75, %73 ], [ %79, %76 ]
   %82 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %83 = load i64, ptr %82, align 8, !range !77, !invariant.load !10, !noalias !62
   %84 = add i64 %83, -1
@@ -939,7 +939,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17he7339aac8a2074baE.exit.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17he7339aac8a2074baE.exit.i": ; preds = %51, %48
-  %.0.i11.i = phi ptr [ %54, %51 ], [ %50, %48 ]
+  %.0.i11.i = phi ptr [ %50, %48 ], [ %54, %51 ]
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %58 = load i64, ptr %57, align 8, !range !77, !invariant.load !10, !noalias !107
   %59 = add i64 %58, -1

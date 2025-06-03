@@ -1658,7 +1658,7 @@ BackwardReferencesLz77Box.exit.i:                 ; preds = %._crit_edge.i.i, %2
   br label %420
 
 420:                                              ; preds = %BackwardReferencesLz77Box.exit.i, %284, %BackwardReferencesRle.exit.i
-  %.0112.i = phi i32 [ %.0.i131.i, %BackwardReferencesLz77Box.exit.i ], [ %285, %284 ], [ %283, %BackwardReferencesRle.exit.i ]
+  %.0112.i = phi i32 [ %283, %BackwardReferencesRle.exit.i ], [ %285, %284 ], [ %.0.i131.i, %BackwardReferencesLz77Box.exit.i ]
   %.not123.i = icmp eq i32 %.0112.i, 0
   br i1 %.not123.i, label %.critedge, label %.preheader244.i
 

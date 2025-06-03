@@ -3628,9 +3628,9 @@ _ZN7QStringD2Ev.exit194:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 483:                                              ; preds = %482, %471, %460, %449, %251, %240, %229, %218, %51
-  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %.pn47.pn.pn, %482 ], [ %52, %51 ], [ %.pn43.pn.pn, %471 ], [ %.pn39.pn.pn, %460 ], [ %.pn.pn.pn, %449 ], [ %.pn63.pn.pn, %251 ], [ %.pn59.pn.pn, %240 ], [ %.pn55.pn.pn, %229 ], [ %.pn51.pn.pn, %218 ]
+  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn, %251 ], [ %52, %51 ], [ %.pn59.pn.pn, %240 ], [ %.pn55.pn.pn, %229 ], [ %.pn51.pn.pn, %218 ], [ %.pn47.pn.pn, %482 ], [ %.pn43.pn.pn, %471 ], [ %.pn39.pn.pn, %460 ], [ %.pn.pn.pn, %449 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #30
-  resume { ptr, i32 } %.pn47.pn.pn.pn
+  resume { ptr, i32 } %.pn63.pn.pn.pn
 }
 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
@@ -4164,9 +4164,9 @@ _ZN7QStringD2Ev.exit54:                           ; preds = %_ZN9QtPrivate8RefCo
 
 118:                                              ; preds = %103, %112, %60, %69
   %.sink = phi ptr [ %8, %69 ], [ %8, %60 ], [ %12, %112 ], [ %12, %103 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn, %69 ], [ %61, %60 ], [ %.pn.pn, %112 ], [ %104, %103 ]
+  %.pn30.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn, %69 ], [ %61, %60 ], [ %.pn.pn, %112 ], [ %104, %103 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #30
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn30.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

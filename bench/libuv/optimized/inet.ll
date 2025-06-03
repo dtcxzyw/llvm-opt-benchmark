@@ -386,7 +386,7 @@ inet_ntop6.exit:                                  ; preds = %147, %159, %164
   br label %166
 
 166:                                              ; preds = %4, %inet_ntop6.exit, %inet_ntop4.exit
-  %.0 = phi i32 [ %.1.i, %inet_ntop6.exit ], [ %.0.i, %inet_ntop4.exit ], [ -97, %4 ]
+  %.0 = phi i32 [ %.0.i, %inet_ntop4.exit ], [ %.1.i, %inet_ntop6.exit ], [ -97, %4 ]
   ret i32 %.0
 }
 
@@ -613,7 +613,7 @@ inet_pton6.exit:                                  ; preds = %.thread.i, %39, %41
   br label %76
 
 76:                                               ; preds = %8, %3, %75, %9
-  %.0 = phi i32 [ %.1, %75 ], [ %10, %9 ], [ -22, %3 ], [ -97, %8 ]
+  %.0 = phi i32 [ %10, %9 ], [ %.1, %75 ], [ -22, %3 ], [ -97, %8 ]
   ret i32 %.0
 }
 

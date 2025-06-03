@@ -5191,8 +5191,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %135
 
 135:                                              ; preds = %.noexc, %130
-  %136 = phi i32 [ %131, %130 ], [ %.pre.i, %.noexc ]
-  %.1.i.i = phi ptr [ %132, %130 ], [ %134, %.noexc ]
+  %136 = phi i32 [ %.pre.i, %.noexc ], [ %131, %130 ]
+  %.1.i.i = phi ptr [ %134, %.noexc ], [ %132, %130 ]
   %137 = zext i32 %136 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #26
   store ptr %.1.i.i, ptr %5, align 8, !tbaa !472
@@ -5276,7 +5276,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %138, %_ZNKSt14defau
   br label %165
 
 165:                                              ; preds = %.noexc107, %161
-  %166 = phi i32 [ %162, %161 ], [ %.pre.i103, %.noexc107 ]
+  %166 = phi i32 [ %.pre.i103, %.noexc107 ], [ %162, %161 ]
   %167 = zext i32 %166 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
   %168 = add i64 %153, %167
@@ -7750,7 +7750,7 @@ _ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit2
   br i1 %cond, label %884, label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEENS0_9DestroyerIS3_EEED2Ev.exit
 
 876:                                              ; preds = %.loopexit375, %.loopexit.split-lp376, %748, %750, %850, %811, %809, %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit241, %537
-  %.pn144 = phi { ptr, i32 } [ %812, %811 ], [ %810, %809 ], [ %851, %850 ], [ %.pn141.pn, %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit241 ], [ %.pn132, %537 ], [ %749, %748 ], [ %751, %750 ], [ %lpad.loopexit377, %.loopexit375 ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp376 ]
+  %.pn144 = phi { ptr, i32 } [ %.pn141.pn, %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit241 ], [ %812, %811 ], [ %810, %809 ], [ %851, %850 ], [ %.pn132, %537 ], [ %749, %748 ], [ %751, %750 ], [ %lpad.loopexit377, %.loopexit375 ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp376 ]
   call void @_ZN7rocksdb18CompactionIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(1241) %16) #26
   br label %877
 
@@ -8145,7 +8145,7 @@ _ZNK7rocksdb17InstrumentedMutex10AssertHeldEv.exit: ; preds = %2
   br label %_ZN7rocksdb8FlushJob22GetRateLimiterPriorityEv.exit
 
 _ZN7rocksdb8FlushJob22GetRateLimiterPriorityEv.exit: ; preds = %93, %89, %.noexc
-  %.1.i = phi i32 [ 3, %89 ], [ 2, %93 ], [ 3, %.noexc ]
+  %.1.i = phi i32 [ 2, %93 ], [ 3, %89 ], [ 3, %.noexc ]
   %94 = load ptr, ptr %37, align 8, !tbaa !126
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %94)
           to label %_ZN7rocksdb17InstrumentedMutex6UnlockEv.exit unwind label %106
@@ -13327,7 +13327,7 @@ define noundef range(i32 2, 4) i32 @_ZN7rocksdb8FlushJob22GetRateLimiterPriority
   br label %.thread
 
 .thread:                                          ; preds = %10, %12, %16
-  %.1 = phi i32 [ 3, %12 ], [ 2, %16 ], [ 3, %10 ]
+  %.1 = phi i32 [ 2, %16 ], [ 3, %12 ], [ 3, %10 ]
   ret i32 %.1
 }
 

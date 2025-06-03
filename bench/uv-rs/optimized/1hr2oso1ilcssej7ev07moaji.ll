@@ -531,7 +531,7 @@ define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Resu
   unreachable
 
 common.resume.i:                                  ; preds = %176, %171, %166, %153, %151, %145, %130
-  %common.resume.op.i = phi { ptr, i32 } [ %152, %151 ], [ %177, %176 ], [ %172, %171 ], [ %167, %166 ], [ %154, %153 ], [ %146, %145 ], [ %131, %130 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %152, %151 ], [ %131, %130 ], [ %146, %145 ], [ %154, %153 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ]
   resume { ptr, i32 } %common.resume.op.i
 
 145:                                              ; preds = %45, %40

@@ -4663,8 +4663,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %52, %59 ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi i32 [ %52, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.031.1 = phi ptr [ %60, %59 ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !109
   %65 = icmp eq i32 %64, %62
@@ -4683,8 +4683,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS
   br label %73
 
 73:                                               ; preds = %._crit_edge._crit_edge70, %71
-  %74 = phi i32 [ %.pre72, %._crit_edge._crit_edge70 ], [ %62, %71 ]
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge70 ], [ %72, %71 ]
+  %74 = phi i32 [ %62, %71 ], [ %.pre72, %._crit_edge._crit_edge70 ]
+  %.sroa.031.2 = phi ptr [ %72, %71 ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge70 ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !109
   %77 = icmp eq i32 %76, %74

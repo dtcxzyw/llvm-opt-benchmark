@@ -20849,7 +20849,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -47682,8 +47682,8 @@ _ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.
   br i1 %.not11, label %45, label %62
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha6c60c2236f679dbE.exit.thread": ; preds = %82, %45, %3, %97, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15, %62, %21
-  %.sroa.10.0 = phi ptr [ %98, %97 ], [ %26, %21 ], [ %80, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %63, %62 ], [ undef, %3 ], [ undef, %45 ], [ undef, %82 ]
-  %.sroa.0.0 = phi ptr [ %96, %97 ], [ %25, %21 ], [ %79, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %59, %62 ], [ null, %3 ], [ null, %45 ], [ null, %82 ]
+  %.sroa.10.0 = phi ptr [ %80, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %63, %62 ], [ %26, %21 ], [ %98, %97 ], [ undef, %3 ], [ undef, %45 ], [ undef, %82 ]
+  %.sroa.0.0 = phi ptr [ %79, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %59, %62 ], [ %25, %21 ], [ %96, %97 ], [ null, %3 ], [ null, %45 ], [ null, %82 ]
   %60 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %61 = insertvalue { ptr, ptr } %60, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %61
@@ -56561,7 +56561,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
   ]
 
 7:                                                ; preds = %14, %138, %126, %108, %114, %96, %72, %8, %6, %2, %144, %132, %120, %102, %78, %20, %156, %150, %90, %84, %66, %60, %54, %48, %42, %36
-  %.sroa.0.0.shrunk = phi i1 [ %161, %156 ], [ %155, %150 ], [ %149, %144 ], [ %137, %132 ], [ %125, %120 ], [ %107, %102 ], [ %95, %90 ], [ %89, %84 ], [ %83, %78 ], [ %71, %66 ], [ %65, %60 ], [ %59, %54 ], [ %53, %48 ], [ %47, %42 ], [ %41, %36 ], [ %35, %20 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ %35, %20 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ %125, %120 ], [ %137, %132 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6

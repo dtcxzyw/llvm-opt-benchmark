@@ -193,7 +193,7 @@ define internal fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr 
   unreachable
 
 17:                                               ; preds = %14, %8
-  %.1.in.i.i = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.1.in.i.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
   br label %.preheader.i
 
@@ -244,7 +244,7 @@ define internal fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr 
   unreachable
 
 40:                                               ; preds = %37, %31
-  %.1.in.i126 = phi ptr [ %38, %37 ], [ %36, %31 ]
+  %.1.in.i126 = phi ptr [ %36, %31 ], [ %38, %37 ]
   %.1.i127 = load ptr, ptr %.1.in.i126, align 8
   br label %27
 
@@ -474,7 +474,7 @@ type_flatten.exit128:                             ; preds = %27
   unreachable
 
 132:                                              ; preds = %129, %123
-  %.1.in.i = phi ptr [ %130, %129 ], [ %128, %123 ]
+  %.1.in.i = phi ptr [ %128, %123 ], [ %130, %129 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.critedge
 
@@ -1105,7 +1105,7 @@ define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %
   unreachable
 
 34:                                               ; preds = %31, %25
-  %.1.in.i = phi ptr [ %32, %31 ], [ %30, %25 ]
+  %.1.in.i = phi ptr [ %30, %25 ], [ %32, %31 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.critedge91
 
@@ -1497,7 +1497,7 @@ tailrecurse:                                      ; preds = %89, %2
   unreachable
 
 16:                                               ; preds = %13, %7
-  %.1.in.i.i = phi ptr [ %14, %13 ], [ %12, %7 ]
+  %.1.in.i.i = phi ptr [ %12, %7 ], [ %14, %13 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
   br label %.preheader.i
 
@@ -1588,7 +1588,7 @@ type_is_func_pointer.exit.thread:                 ; preds = %type_is_func_pointe
   unreachable
 
 38:                                               ; preds = %35, %29
-  %.1.in.i = phi ptr [ %36, %35 ], [ %34, %29 ]
+  %.1.in.i = phi ptr [ %34, %29 ], [ %36, %35 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %type_is_func_pointer.exit.thread
 

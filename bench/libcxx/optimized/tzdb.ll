@@ -1238,7 +1238,7 @@ _ZNSt3__16chronoL27__skip_mandatory_whitespaceB8ne210000ERNS_13basic_istreamIcNS
           to label %375 unwind label %442
 
 375:                                              ; preds = %373, %372, %371, %.noexc86.i.i
-  %.0.i.i84.i.i = phi i32 [ 2, %372 ], [ 1, %371 ], [ 0, %.noexc86.i.i ], [ 0, %373 ]
+  %.0.i.i84.i.i = phi i32 [ 1, %371 ], [ 2, %372 ], [ 0, %.noexc86.i.i ], [ 0, %373 ]
   %376 = getelementptr inbounds i8, ptr %.0.i3.i.sink.i, i64 -56
   store i64 %369, ptr %376, align 8, !tbaa !37
   %.sroa.57.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.0.i3.i.sink.i, i64 -48
@@ -2192,7 +2192,7 @@ _ZNSt3__16chronoL26__skip_optional_whitespaceB8ne210000ERNS_13basic_istreamIcNS_
           to label %588 unwind label %589
 
 588:                                              ; preds = %586, %585, %584, %.noexc63.i.i.i
-  %.0.i.i.i.i.i = phi i32 [ 2, %585 ], [ 1, %584 ], [ 0, %.noexc63.i.i.i ], [ 0, %586 ]
+  %.0.i.i.i.i.i = phi i32 [ 1, %584 ], [ 2, %585 ], [ 0, %.noexc63.i.i.i ], [ 0, %586 ]
   store i64 %582, ptr %118, align 8, !tbaa !37, !alias.scope !54
   store i32 %.0.i.i.i.i.i, ptr %119, align 8, !tbaa !39, !alias.scope !54
   br label %_ZNSt3__16chronoL20__parse_continuationB8ne210000ERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS1_INS0_4__tz6__ruleENS6_ISA_EEEEEENS6_ISD_EEEERNS_13basic_istreamIcS5_EE.exit.i.i
@@ -9065,7 +9065,7 @@ _ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6c
   %.082.ph214.be = phi ptr [ %104, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit59.thread ], [ %114, %113 ]
   br label %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneES7_EET1_S8_S8_T2_RT0_.exit.outer213, !llvm.loop !206
 
-_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneES7_EET1_S8_S8_T2_RT0_.exit.thread: ; preds = %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneES7_EET1_S8_S8_T2_RT0_.exit, %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneES7_EET1_S8_S8_T2_RT0_.exit, %111, %.lr.ph.i.i, %27, %57, %53, %54, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit, %_ZNKSt3__16ranges11__iter_swap4__fnclB8ne210000IRPNS_6chrono9time_zoneES7_Qaant23__unqualified_iter_swapIT_T0_E20__readable_swappableIS8_S9_EEEvOS8_OS9_.exit, %36, %40, %44
+_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneES7_EET1_S8_S8_T2_RT0_.exit.thread: ; preds = %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneES7_EET1_S8_S8_T2_RT0_.exit, %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneES7_EET1_S8_S8_T2_RT0_.exit, %111, %.lr.ph.i.i, %27, %57, %53, %54, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit, %_ZNKSt3__16ranges11__iter_swap4__fnclB8ne210000IRPNS_6chrono9time_zoneES7_Qaant23__unqualified_iter_swapIT_T0_E20__readable_swappableIS8_S9_EEEvOS8_OS9_.exit, %44, %40, %36
   ret void
 }
 
@@ -10772,7 +10772,7 @@ _ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_w
   br i1 %.not, label %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread, label %.lr.ph, !llvm.loop !269
 
 _ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread: ; preds = %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit30.thread, %42, %.thread, %20, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit, %_ZNKSt3__16ranges11__iter_swap4__fnclB8ne210000IRPNS_6chrono9time_zoneES7_Qaant23__unqualified_iter_swapIT_T0_E20__readable_swappableIS8_S9_EEEvOS8_OS9_.exit, %3, %3, %37, %33, %29
-  %.020 = phi i1 [ true, %37 ], [ true, %33 ], [ true, %29 ], [ true, %3 ], [ true, %3 ], [ true, %_ZNKSt3__16ranges11__iter_swap4__fnclB8ne210000IRPNS_6chrono9time_zoneES7_Qaant23__unqualified_iter_swapIT_T0_E20__readable_swappableIS8_S9_EEEvOS8_OS9_.exit ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit ], [ true, %20 ], [ %81, %.thread ], [ true, %42 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit30.thread ]
+  %.020 = phi i1 [ true, %29 ], [ true, %33 ], [ true, %37 ], [ true, %3 ], [ true, %3 ], [ true, %_ZNKSt3__16ranges11__iter_swap4__fnclB8ne210000IRPNS_6chrono9time_zoneES7_Qaant23__unqualified_iter_swapIT_T0_E20__readable_swappableIS8_S9_EEEvOS8_OS9_.exit ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit ], [ true, %20 ], [ %81, %.thread ], [ true, %42 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit30.thread ]
   ret i1 %.020
 }
 
@@ -11432,7 +11432,7 @@ _ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6c
   %.080.ph240.be = phi ptr [ %123, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit58.thread ], [ %133, %132 ]
   br label %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkES7_EET1_S8_S8_T2_RT0_.exit.outer239, !llvm.loop !275
 
-_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkES7_EET1_S8_S8_T2_RT0_.exit.thread: ; preds = %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkES7_EET1_S8_S8_T2_RT0_.exit, %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkES7_EET1_S8_S8_T2_RT0_.exit, %130, %.lr.ph.i.i, %41, %65, %61, %62, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread87, %44, %48, %52
+_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkES7_EET1_S8_S8_T2_RT0_.exit.thread: ; preds = %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkES7_EET1_S8_S8_T2_RT0_.exit, %_ZNSt3__114__partial_sortB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkES7_EET1_S8_S8_T2_RT0_.exit, %130, %.lr.ph.i.i, %41, %65, %61, %62, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread87, %52, %48, %44
   ret void
 }
 
@@ -13188,7 +13188,7 @@ _ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ord
   br i1 %.not, label %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread, label %60, !llvm.loop !293
 
 _ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread: ; preds = %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit32.thread, %51, %_ZNSt3__16chrono14time_zone_linkD2Ev.exit.thread, %35, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread55, %3, %3, %46, %42, %38
-  %.020 = phi i1 [ true, %46 ], [ true, %42 ], [ true, %38 ], [ true, %3 ], [ true, %3 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread55 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit ], [ true, %35 ], [ %150, %_ZNSt3__16chrono14time_zone_linkD2Ev.exit.thread ], [ true, %51 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit32.thread ]
+  %.020 = phi i1 [ true, %38 ], [ true, %42 ], [ true, %46 ], [ true, %3 ], [ true, %3 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread55 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit ], [ true, %35 ], [ %150, %_ZNSt3__16chrono14time_zone_linkD2Ev.exit.thread ], [ true, %51 ], [ true, %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit32.thread ]
   ret i1 %.020
 }
 
@@ -16924,7 +16924,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vec
   call fastcc void @"_ZNSt3__111__introsortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_Lb0EEEvT1_SS_T0_NS_15iterator_traitsISS_E15difference_typeEb"(ptr noundef %.021, ptr noundef nonnull %1237, i64 noundef %828, i1 noundef zeroext %78)
   br label %"_ZNSt3__116__insertion_sortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SS_T0_.exit.outer852"
 
-"_ZNSt3__116__insertion_sortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SS_T0_.exit.thread": ; preds = %"_ZNSt3__116__insertion_sortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SS_T0_.exit", %"_ZNSt3__116__insertion_sortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SS_T0_.exit", %1282, %"_ZNSt3__110__pop_heapB8ne210000INS_15_RangeAlgPolicyENS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SR_RT0_NS_15iterator_traitsISR_E15difference_typeE.exit.i.i.i", %408, %261, %411, %.preheader.i55, %262, %.preheader.i, %115, %82, %85, %98, %101, %105
+"_ZNSt3__116__insertion_sortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SS_T0_.exit.thread": ; preds = %"_ZNSt3__116__insertion_sortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SS_T0_.exit", %"_ZNSt3__116__insertion_sortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SS_T0_.exit", %1282, %"_ZNSt3__110__pop_heapB8ne210000INS_15_RangeAlgPolicyENS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_SR_RT0_NS_15iterator_traitsISR_E15difference_typeE.exit.i.i.i", %408, %261, %411, %.preheader.i55, %262, %.preheader.i, %115, %82, %85, %105, %101, %98
   ret void
 }
 
@@ -17625,7 +17625,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vec
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %.loopexit.loopexit.split.loop.exit, %36, %8, %11, %2, %2, %31, %27, %24
-  %.0 = phi i1 [ true, %31 ], [ true, %27 ], [ true, %24 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %8 ], [ true, %36 ], [ %97, %.loopexit.loopexit.split.loop.exit ], [ true, %94 ]
+  %.0 = phi i1 [ true, %24 ], [ true, %27 ], [ true, %31 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %8 ], [ true, %36 ], [ %97, %.loopexit.loopexit.split.loop.exit ], [ true, %94 ]
   ret i1 %.0
 }
 

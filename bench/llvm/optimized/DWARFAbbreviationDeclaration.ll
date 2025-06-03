@@ -476,8 +476,8 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %107, %104
   br label %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit
 
 _ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit: ; preds = %151, %150, %145, %146, %134, %137, %128, %131, %122, %125
-  %.not.i = phi i8 [ %.sroa.049.0.extract.trunc, %146 ], [ %.sroa.049.0.extract.trunc, %145 ], [ %.sroa.5.080, %137 ], [ %.sroa.5.080, %134 ], [ %.sroa.5.080, %131 ], [ %.sroa.5.080, %128 ], [ %.sroa.5.080, %125 ], [ %.sroa.5.080, %122 ], [ %.sroa.5.080, %150 ], [ %.sroa.5.080, %151 ]
-  %.sroa.550.0 = phi i64 [ 1, %146 ], [ 1, %145 ], [ 0, %137 ], [ 0, %134 ], [ 0, %131 ], [ 0, %128 ], [ 0, %125 ], [ 0, %122 ], [ 0, %150 ], [ 0, %151 ]
+  %.not.i = phi i8 [ %.sroa.049.0.extract.trunc, %146 ], [ %.sroa.049.0.extract.trunc, %145 ], [ %.sroa.5.080, %125 ], [ %.sroa.5.080, %122 ], [ %.sroa.5.080, %131 ], [ %.sroa.5.080, %128 ], [ %.sroa.5.080, %137 ], [ %.sroa.5.080, %134 ], [ %.sroa.5.080, %150 ], [ %.sroa.5.080, %151 ]
+  %.sroa.550.0 = phi i64 [ 1, %146 ], [ 1, %145 ], [ 0, %125 ], [ 0, %122 ], [ 0, %131 ], [ 0, %128 ], [ 0, %137 ], [ 0, %134 ], [ 0, %150 ], [ 0, %151 ]
   %.sroa.2.0.insert.ext = shl i64 %88, 16
   %.sroa.2.0.insert.shift = and i64 %.sroa.2.0.insert.ext, 4294901760
   %.sroa.044.0.insert.ext = and i64 %80, 65535

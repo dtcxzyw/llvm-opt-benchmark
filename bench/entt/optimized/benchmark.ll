@@ -37633,7 +37633,7 @@ _ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit19: ; preds = %91, %_ZNS
   br label %158
 
 158:                                              ; preds = %124, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit, %46, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit
-  %.0 = phi i64 [ %39, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit ], [ %129, %124 ], [ %39, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit ], [ %44, %46 ]
+  %.0 = phi i64 [ %39, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit ], [ %39, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit ], [ %44, %46 ], [ %129, %124 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %32, 0
   %159 = add nsw i64 %.0, 1
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %159, 1
@@ -39354,7 +39354,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -41879,7 +41879,7 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   br label %12
 
 12:                                               ; preds = %3, %8, %6, %9, %5
-  %.0 = phi ptr [ %11, %9 ], [ %2, %5 ], [ null, %6 ], [ null, %8 ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %11, %9 ], [ null, %6 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -43619,7 +43619,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -45592,7 +45592,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -47868,7 +47868,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -50090,7 +50090,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -52082,7 +52082,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -56506,7 +56506,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16b
   br label %120
 
 120:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit31.thread, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit31.thread ]
+  %.sroa.049.1 = phi ptr [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit31.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %121 = load ptr, ptr %.sroa.049.1, align 8, !tbaa !109
   %.not.i.i32 = icmp eq ptr %121, null
   br i1 %.not.i.i32, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread, label %122
@@ -56546,7 +56546,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16b
   br label %145
 
 145:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread ]
+  %.sroa.049.2 = phi ptr [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.049.2, align 8, !tbaa !109
   %.not.i.i36 = icmp eq ptr %146, null
   br i1 %.not.i.i36, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit39.thread, label %147

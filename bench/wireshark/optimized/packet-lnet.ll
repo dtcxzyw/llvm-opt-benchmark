@@ -758,7 +758,7 @@ dissect_ib_msg.exit:                              ; preds = %22, %37
   br label %184
 
 184:                                              ; preds = %90, %177, %170, %148, %126, %113
-  %.2 = phi i32 [ %111, %90 ], [ %183, %177 ], [ %176, %170 ], [ %169, %148 ], [ %147, %126 ], [ %125, %113 ]
+  %.2 = phi i32 [ %111, %90 ], [ %125, %113 ], [ %147, %126 ], [ %169, %148 ], [ %176, %170 ], [ %183, %177 ]
   %185 = load i32, ptr %12, align 4
   switch i32 %185, label %195 [
     i32 214, label %190
@@ -780,7 +780,7 @@ dissect_ib_msg.exit:                              ; preds = %22, %37
   br label %195
 
 195:                                              ; preds = %190, %186, %184
-  %.3 = phi i32 [ %.2, %184 ], [ %189, %186 ], [ %194, %190 ]
+  %.3 = phi i32 [ %.2, %184 ], [ %194, %190 ], [ %189, %186 ]
   %reass.sub = add i32 %14, 96
   %196 = sub i32 %reass.sub, %.3
   br label %.thread
@@ -797,8 +797,8 @@ dissect_ib_msg.exit:                              ; preds = %22, %37
   %201 = add i32 %.1, %.1126
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %69, %79, %66, %198, %.thread
-  %.4 = phi i32 [ %201, %198 ], [ %.1, %.thread ], [ %78, %69 ], [ %87, %79 ], [ %47, %66 ]
+.thread.thread:                                   ; preds = %66, %69, %79, %198, %.thread
+  %.4 = phi i32 [ %201, %198 ], [ %.1, %.thread ], [ %47, %66 ], [ %78, %69 ], [ %87, %79 ]
   %202 = load i32, ptr %9, align 4
   %.not131 = icmp eq i32 %202, 0
   br i1 %.not131, label %251, label %203

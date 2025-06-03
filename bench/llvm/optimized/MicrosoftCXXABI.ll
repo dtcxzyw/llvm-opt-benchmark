@@ -757,7 +757,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115MicrosoftCXXABI19requires
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %2, %9
-  %.1.i.i = phi ptr [ %6, %2 ], [ %10, %9 ]
+  %.1.i.i = phi ptr [ %10, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i1.i = load i64, ptr %11, align 16, !tbaa !383
   %12 = tail call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %.sroa.0.0.copyload.i1.i) #25
@@ -1531,7 +1531,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   br label %_ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit15
 
 _ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit15: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit, %62
-  %.1.i.i.i14 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ], [ %64, %62 ]
+  %.1.i.i.i14 = phi i1 [ %64, %62 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ]
   %65 = icmp sgt i32 %5, 0
   %66 = and i1 %65, %.1.i.i.i14
   br i1 %66, label %67, label %_ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit15.thread
@@ -1695,7 +1695,7 @@ define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABI31EmitLoadOfMemberFuncti
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %8, %25
-  %.1.i = phi ptr [ %22, %8 ], [ %26, %25 ]
+  %.1.i = phi ptr [ %26, %25 ], [ %22, %8 ]
   %27 = tail call noundef ptr @_ZNK5clang17MemberPointerType26getMostRecentCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %7) #25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %29 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl21getMSInheritanceModelEv(ptr noundef nonnull align 8 dereferenceable(144) %27) #25
@@ -1960,7 +1960,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI27EmitMemberPoint
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %19, %28
-  %.1.i = phi ptr [ %25, %19 ], [ %29, %28 ]
+  %.1.i = phi ptr [ %29, %28 ], [ %25, %19 ]
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i50 = load i64, ptr %30, align 8, !tbaa !383
   %31 = and i64 %.sroa.0.0.copyload.i50, -16
@@ -1976,7 +1976,7 @@ _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %19, %28
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit54
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit54: ; preds = %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit, %36
-  %.1.i53 = phi ptr [ %33, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ %37, %36 ]
+  %.1.i53 = phi ptr [ %37, %36 ], [ %33, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %38, align 8
   %39 = and i64 %.0.copyload.i.i.i.i.i.i, -16
@@ -2010,7 +2010,7 @@ _ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit.thread: ; preds = 
   br label %_ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit
 
 _ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit: ; preds = %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit54, %55
-  %.1.i.i.i = phi i1 [ true, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit54 ], [ %57, %55 ]
+  %.1.i.i.i = phi i1 [ %57, %55 ], [ true, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit54 ]
   %58 = load i32, ptr %2, align 8
   %59 = and i32 %58, 66584576
   %60 = icmp eq i32 %59, 9437184
@@ -2340,7 +2340,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI27EmitMemberPoint
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %3, %12
-  %.1.i = phi ptr [ %9, %3 ], [ %13, %12 ]
+  %.1.i = phi ptr [ %13, %12 ], [ %9, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i9 = load i64, ptr %14, align 8, !tbaa !383
   %15 = and i64 %.sroa.0.0.copyload.i9, -16
@@ -2356,7 +2356,7 @@ _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %3, %12
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit13
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit13: ; preds = %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit, %20
-  %.1.i12 = phi ptr [ %17, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ %21, %20 ]
+  %.1.i12 = phi ptr [ %21, %20 ], [ %17, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit ]
   %22 = load i32, ptr %1, align 8
   %23 = lshr i32 %22, 19
   %24 = and i32 %23, 127
@@ -2566,7 +2566,7 @@ _ZNK5clang13CXXRecordDecl28getMostRecentNonInjectedDeclEv.exit: ; preds = %.lr.p
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %_ZNK5clang13CXXRecordDecl28getMostRecentNonInjectedDeclEv.exit, %41
-  %.1.i = phi ptr [ %38, %_ZNK5clang13CXXRecordDecl28getMostRecentNonInjectedDeclEv.exit ], [ %42, %41 ]
+  %.1.i = phi ptr [ %42, %41 ], [ %38, %_ZNK5clang13CXXRecordDecl28getMostRecentNonInjectedDeclEv.exit ]
   %43 = load ptr, ptr %1, align 8, !tbaa !348
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
@@ -3155,7 +3155,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI17EmitMemberPoint
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %3, %10
-  %.1.i = phi ptr [ %7, %3 ], [ %11, %10 ]
+  %.1.i = phi ptr [ %11, %10 ], [ %7, %3 ]
   %12 = tail call noundef ptr @_ZNK5clang7APValue20getMemberPointerDeclEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #25
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %18
@@ -3316,7 +3316,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %90, 
   br label %.lr.ph90.preheader
 
 .lr.ph90.preheader:                               ; preds = %103, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
-  %.1.i73 = phi ptr [ %100, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit ], [ %104, %103 ]
+  %.1.i73 = phi ptr [ %104, %103 ], [ %100, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit ]
   %105 = tail call noundef zeroext i1 @_ZNK5clang7APValue30isMemberPointerToDerivedMemberEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #25
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #25
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3867,7 +3867,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %92, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %103, %92 ], [ %105, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %105, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %103, %92 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6581,7 +6581,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.
   br label %_ZL21hasDefaultCXXMethodCCRN5clang10ASTContextEPKNS_13CXXMethodDeclE.exit
 
 _ZL21hasDefaultCXXMethodCCRN5clang10ASTContextEPKNS_13CXXMethodDeclE.exit: ; preds = %28, %39
-  %.1.i.i = phi ptr [ %36, %28 ], [ %40, %39 ]
+  %.1.i.i = phi ptr [ %40, %39 ], [ %36, %28 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %42 = load i64, ptr %41, align 16
   %43 = trunc i64 %42 to i32
@@ -6701,7 +6701,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %36, %44
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %52
-  %.1.i = phi ptr [ %49, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ %53, %52 ]
+  %.1.i = phi ptr [ %53, %52 ], [ %49, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !422
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 96
@@ -7526,7 +7526,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %16, %24
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %34, %47
-  %.1.i = phi ptr [ %44, %34 ], [ %48, %47 ]
+  %.1.i = phi ptr [ %48, %47 ], [ %44, %34 ]
   %49 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %50 = load i64, ptr %49, align 16
   %51 = and i64 %50, 1152921504606846976
@@ -8200,7 +8200,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %7, %17
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %35, %42
-  %.1.i = phi ptr [ %39, %35 ], [ %43, %42 ]
+  %.1.i = phi ptr [ %43, %42 ], [ %39, %35 ]
   br i1 %6, label %44, label %47
 
 44:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
@@ -8692,7 +8692,7 @@ define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABI21emitVTableDefinitionsE
   br label %106
 
 106:                                              ; preds = %104, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %105, %104 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %105, %104 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i64, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !1301
   %107 = and i64 %.1.val.i.i.i.i.i.i, 7
   %108 = icmp eq i64 %107, 3
@@ -8703,7 +8703,7 @@ define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABI21emitVTableDefinitionsE
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %110, %109 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %110, %109 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i64, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !1301
   %112 = and i64 %.2.val.i.i.i.i.i.i, 7
   %113 = icmp eq i64 %112, 3
@@ -10917,7 +10917,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %3, %11
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %21, %28
-  %.1.i = phi ptr [ %25, %21 ], [ %29, %28 ]
+  %.1.i = phi ptr [ %29, %28 ], [ %25, %21 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %31 = load i64, ptr %30, align 16
   %32 = and i64 %31, 1152921504606846976
@@ -11727,7 +11727,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %227, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %245, %227 ], [ %248, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %248, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %245, %227 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #25
   %264 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 257, ptr %264, align 8
@@ -11810,7 +11810,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i178
-  %.1.i170 = phi ptr [ %284, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %287, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i178 ]
+  %.1.i170 = phi ptr [ %287, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i178 ], [ %284, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit ]
   %303 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(160) %101, ptr noundef %.1.i170, ptr noundef %234, i16 %.sroa.02.0.insert.insert.i, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #25
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 2224
@@ -13529,7 +13529,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit:
   br label %54
 
 54:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %12, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %12, %5 ]
   ret ptr %.1
 }
 
@@ -14532,7 +14532,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -15397,7 +15397,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -15670,7 +15670,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %34
 
 34:                                               ; preds = %7, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %15, %7 ], [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ], [ %15, %7 ]
   ret ptr %.1
 }
 
@@ -15817,7 +15817,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI34EmitNonN
   br label %_ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit
 
 _ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit: ; preds = %8, %55, %63
-  %.1.i.i.i = phi i1 [ true, %8 ], [ %65, %63 ], [ false, %55 ]
+  %.1.i.i.i = phi i1 [ %65, %63 ], [ true, %8 ], [ false, %55 ]
   %66 = load i8, ptr %6, align 8, !tbaa !508
   %67 = icmp ult i8 %66, 22
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16540,7 +16540,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit: 
   br label %38
 
 38:                                               ; preds = %6, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %6 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %6 ]
   ret ptr %.1
 }
 
@@ -16854,7 +16854,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -17206,7 +17206,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit23: ; pr
   br label %_ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit28
 
 _ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit28: ; preds = %76, %90
-  %.1.i.i.i27 = phi i1 [ true, %76 ], [ %92, %90 ]
+  %.1.i.i.i27 = phi i1 [ %92, %90 ], [ true, %76 ]
   %93 = icmp sgt i32 %5, 0
   %94 = and i1 %93, %.1.i.i.i27
   br i1 %94, label %95, label %_ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit28.thread
@@ -18758,8 +18758,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_8ConstantE
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !793
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8ConstantELj2EEES3_EEbOT_RKT0_.exit, label %50
@@ -18769,8 +18769,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_8ConstantE
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !793
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8ConstantELj2EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8ConstantELj2EEES3_EEbOT_RKT0_.exit.thread
@@ -18930,7 +18930,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI16getCatch
   br label %_ZL21hasDefaultCXXMethodCCRN5clang10ASTContextEPKNS_13CXXMethodDeclE.exit
 
 _ZL21hasDefaultCXXMethodCCRN5clang10ASTContextEPKNS_13CXXMethodDeclE.exit: ; preds = %21, %32
-  %.1.i.i = phi ptr [ %29, %21 ], [ %33, %32 ]
+  %.1.i.i = phi ptr [ %33, %32 ], [ %29, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %35 = load i64, ptr %34, align 16
   %36 = trunc i64 %35 to i32
@@ -20727,7 +20727,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit82: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %._crit_edge, %325
-  %.1.i = phi ptr [ %322, %._crit_edge ], [ %326, %325 ]
+  %.1.i = phi ptr [ %326, %325 ], [ %322, %._crit_edge ]
   %327 = ptrtoint ptr %.1.i to i64
   %328 = and i64 %327, -5
   %329 = load ptr, ptr %18, align 8, !tbaa !402
@@ -26161,8 +26161,8 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %7, %18
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge._crit_edge.i.i.i.i
-  %.val38.val.i.i.i.i = phi i64 [ %.val38.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.val36.val.i.i.i.i, %57 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %58, %57 ]
+  %.val38.val.i.i.i.i = phi i64 [ %.val36.val.i.i.i.i, %57 ], [ %.val38.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %58, %57 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !1234
   %60 = getelementptr i8, ptr %.1.val.i.i.i.i, i64 104
   %.1.val.val.i.i.i.i = load i64, ptr %60, align 8, !tbaa !817
@@ -26174,8 +26174,8 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %7, %18
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge._crit_edge57.i.i.i.i
-  %.val39.val.i.i.i.i = phi i64 [ %.val39.val.pre.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.val38.val.i.i.i.i, %62 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %63, %62 ]
+  %.val39.val.i.i.i.i = phi i64 [ %.val38.val.i.i.i.i, %62 ], [ %.val39.val.pre.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %63, %62 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !1234
   %65 = getelementptr i8, ptr %.2.val.i.i.i.i, i64 104
   %.2.val.val.i.i.i.i = load i64, ptr %65, align 8, !tbaa !817
@@ -26963,7 +26963,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %3, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %30, %3 ], [ %33, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %33, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %30, %3 ]
   %.sroa.019.0.copyload = load i64, ptr %8, align 8, !tbaa !383
   %.sroa.321.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !412
   %49 = and i64 %.sroa.019.0.copyload, -8

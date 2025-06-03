@@ -968,7 +968,7 @@ get_ue_golomb.exit58:                             ; preds = %79, %89
   br label %115
 
 115:                                              ; preds = %._crit_edge65, %.thread
-  %.040 = phi i32 [ -1094995529, %._crit_edge65 ], [ 0, %.thread ]
+  %.040 = phi i32 [ 0, %.thread ], [ -1094995529, %._crit_edge65 ]
   ret i32 %.040
 }
 
@@ -1596,7 +1596,7 @@ define internal fastcc i32 @decode_extradata_ps(ptr noundef %0, i32 noundef %1, 
   br label %.thread49
 
 .thread49:                                        ; preds = %.thread, %45, %42, %51
-  %.352 = phi i32 [ %.13657, %51 ], [ %49, %45 ], [ %43, %42 ], [ %.2.ph, %.thread ]
+  %.352 = phi i32 [ %.13657, %51 ], [ %43, %42 ], [ %49, %45 ], [ %.2.ph, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8, !tbaa !55
   %53 = sext i32 %52 to i64

@@ -556,7 +556,7 @@ default.unreachable25:                            ; preds = %13, %3
   br i1 %12, label %18, label %16
 
 13:                                               ; preds = %3, %16, %5
-  %.sroa.01.0 = phi i64 [ %17, %16 ], [ %7, %5 ], [ 0, %3 ]
+  %.sroa.01.0 = phi i64 [ %7, %5 ], [ %17, %16 ], [ 0, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val23 = load i64, ptr %14, align 8, !range !61, !noundef !9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -598,7 +598,7 @@ default.unreachable25:                            ; preds = %13, %3
   unreachable
 
 30:                                               ; preds = %13, %27, %24
-  %.sroa.08.0 = phi i64 [ %26, %24 ], [ %28, %27 ], [ %1, %13 ]
+  %.sroa.08.0 = phi i64 [ %28, %27 ], [ %26, %24 ], [ %1, %13 ]
   %31 = icmp ugt i64 %.sroa.01.0, %.sroa.08.0
   br i1 %31, label %34, label %32
 
@@ -874,7 +874,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit"
 
 "_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit": ; preds = %1, %3, %4, %5, %6
-  %.sroa.0.0.i = phi i8 [ 5, %6 ], [ 4, %5 ], [ 3, %4 ], [ 2, %3 ], [ 1, %1 ]
+  %.sroa.0.0.i = phi i8 [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 5, %6 ], [ 1, %1 ]
   store i8 %.sroa.0.0.i, ptr %0, align 1
   br label %7
 
@@ -935,7 +935,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
 
 "_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit": ; preds = %1, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12
-  %.sroa.0.0.i = phi i8 [ 11, %12 ], [ 10, %11 ], [ 9, %10 ], [ 8, %9 ], [ 7, %8 ], [ 6, %7 ], [ 5, %6 ], [ 4, %5 ], [ 3, %4 ], [ 2, %3 ], [ 1, %1 ]
+  %.sroa.0.0.i = phi i8 [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 5, %6 ], [ 6, %7 ], [ 7, %8 ], [ 8, %9 ], [ 9, %10 ], [ 10, %11 ], [ 11, %12 ], [ 1, %1 ]
   store i8 %.sroa.0.0.i, ptr %0, align 1
   br label %13
 
@@ -2695,7 +2695,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
 "_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %5, %8, %9, %10, %11, %12, %13
-  %.sroa.0.0.i = phi i8 [ -121, %13 ], [ -117, %12 ], [ 118, %11 ], [ 26, %10 ], [ 26, %9 ], [ 26, %8 ], [ 26, %5 ]
+  %.sroa.0.0.i = phi i8 [ 118, %11 ], [ -117, %12 ], [ -121, %13 ], [ 26, %10 ], [ 26, %9 ], [ 26, %8 ], [ 26, %5 ]
   ret i8 %.sroa.0.0.i
 }
 

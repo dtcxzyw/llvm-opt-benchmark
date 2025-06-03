@@ -977,7 +977,7 @@ define internal noundef zeroext i1 @observer_dump_open(ptr noundef initializes((
   br label %wtap_to_observer_encap.exit
 
 wtap_to_observer_encap.exit:                      ; preds = %3, %16, %17, %18
-  %.0.i = phi i8 [ -1, %18 ], [ 8, %17 ], [ 1, %16 ], [ 0, %3 ]
+  %.0.i = phi i8 [ -1, %18 ], [ 1, %16 ], [ 8, %17 ], [ 0, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 %.0.i, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 12

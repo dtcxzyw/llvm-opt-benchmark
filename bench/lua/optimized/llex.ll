@@ -2001,7 +2001,7 @@ readdecesc.exit.i:                                ; preds = %.critedge.i.i
   br label %inclinenumber.exit.i
 
 743:                                              ; preds = %577, %367, %366, %365, %364, %363, %362, %361, %359
-  %.0.i167 = phi i32 [ %360, %577 ], [ %371, %367 ], [ 11, %366 ], [ 9, %365 ], [ 13, %364 ], [ 10, %363 ], [ 12, %362 ], [ 8, %361 ], [ 7, %359 ]
+  %.0.i167 = phi i32 [ 8, %361 ], [ 12, %362 ], [ 10, %363 ], [ 13, %364 ], [ 9, %365 ], [ 11, %366 ], [ %371, %367 ], [ %360, %577 ], [ 7, %359 ]
   %744 = load ptr, ptr %8, align 8, !tbaa !53
   %745 = load i64, ptr %744, align 8, !tbaa !59
   %746 = add i64 %745, -1
@@ -2543,7 +2543,7 @@ save.exit180:                                     ; preds = %._crit_edge.i175, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %71, %check_next1.exit174, %922, %check_next1.exit165, %274, %check_next1.exit162, %246, %check_next1.exit159, %218, %check_next1.exit156, %check_next1.exit153, %check_next1.exit, %130, %1007, %1010, %938, %204, %174, %114, %115, %1024, %946, %944, %read_string.exit
-  %.0 = phi i32 [ %10, %1024 ], [ %947, %946 ], [ %945, %944 ], [ 292, %read_string.exit ], [ 292, %114 ], [ 91, %115 ], [ 283, %check_next1.exit153 ], [ %.144, %174 ], [ 282, %check_next1.exit156 ], [ %.145, %204 ], [ 46, %938 ], [ %1009, %1007 ], [ 291, %1010 ], [ 281, %check_next1.exit ], [ 61, %130 ], [ 278, %check_next1.exit159 ], [ 47, %218 ], [ 284, %check_next1.exit162 ], [ 126, %246 ], [ 287, %check_next1.exit165 ], [ 58, %274 ], [ 280, %check_next1.exit174 ], [ 279, %922 ], [ 288, %.critedge ], [ 45, %71 ]
+  %.0 = phi i32 [ %10, %1024 ], [ 292, %read_string.exit ], [ %945, %944 ], [ %947, %946 ], [ 292, %114 ], [ 91, %115 ], [ 283, %check_next1.exit153 ], [ %.144, %174 ], [ 282, %check_next1.exit156 ], [ %.145, %204 ], [ 46, %938 ], [ %1009, %1007 ], [ 291, %1010 ], [ 281, %check_next1.exit ], [ 61, %130 ], [ 278, %check_next1.exit159 ], [ 47, %218 ], [ 284, %check_next1.exit162 ], [ 126, %246 ], [ 287, %check_next1.exit165 ], [ 58, %274 ], [ 280, %check_next1.exit174 ], [ 279, %922 ], [ 288, %.critedge ], [ 45, %71 ]
   ret i32 %.0
 }
 

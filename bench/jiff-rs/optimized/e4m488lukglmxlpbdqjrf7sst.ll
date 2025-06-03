@@ -2217,8 +2217,8 @@ _ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit: 
   br label %46
 
 57:                                               ; preds = %49, %22, %26, %35, %27
-  %.sroa.033.2 = phi i8 [ %.sroa.033.083, %26 ], [ %36, %35 ], [ %.sroa.033.083, %27 ], [ %.sroa.033.083, %22 ], [ %50, %49 ]
-  %.sroa.011.1 = phi i1 [ false, %26 ], [ false, %35 ], [ true, %27 ], [ false, %22 ], [ false, %49 ]
+  %.sroa.033.2 = phi i8 [ %.sroa.033.083, %26 ], [ %.sroa.033.083, %27 ], [ %36, %35 ], [ %.sroa.033.083, %22 ], [ %50, %49 ]
+  %.sroa.011.1 = phi i1 [ false, %26 ], [ true, %27 ], [ false, %35 ], [ false, %22 ], [ false, %49 ]
   %58 = icmp ne ptr %.sroa.012.188, %15
   %.sroa.012.1.idx = zext i1 %58 to i64
   %.sroa.012.1 = getelementptr inbounds nuw i8, ptr %.sroa.012.188, i64 %.sroa.012.1.idx
@@ -4033,7 +4033,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i: ; preds = %_ZN4ji
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; preds = %27, %33
-  %.pn = phi { ptr, i64 } [ %38, %33 ], [ %32, %27 ]
+  %.pn = phi { ptr, i64 } [ %32, %27 ], [ %38, %33 ]
   %.sroa.0.1 = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.17.sroa.0.1.in.in = extractvalue { ptr, i64 } %.pn, 1
   %.sroa.7.1 = trunc i64 %.sroa.17.sroa.0.1.in.in to i1
@@ -5102,7 +5102,7 @@ _ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread65
 
 _ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit: ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i
-  %.pn = phi { ptr, i64 } [ %247, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i ], [ %137, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i ], [ %93, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i ]
+  %.pn = phi { ptr, i64 } [ %247, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i ], [ %93, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i ], [ %137, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i ]
   %.sroa.0.0 = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.13.0 = extractvalue { ptr, i64 } %.pn, 1
   %.not = icmp eq ptr %.sroa.0.0, null
@@ -5116,8 +5116,8 @@ _ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread: 
   store i64 %.sroa.13.061, ptr %286, align 8
   br label %447
 
-_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread65: ; preds = %132, %242, %285, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit
-  %.sroa.13.069 = phi i64 [ %.sroa.13.0, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit ], [ %.sroa.13.10.insert.shift, %132 ], [ %.sroa.13.11.insert.insert, %242 ], [ %.sroa.13.10.insert.insert50, %285 ]
+_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread65: ; preds = %242, %132, %285, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit
+  %.sroa.13.069 = phi i64 [ %.sroa.13.0, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit ], [ %.sroa.13.11.insert.insert, %242 ], [ %.sroa.13.10.insert.shift, %132 ], [ %.sroa.13.10.insert.insert50, %285 ]
   %.sroa.13.8.extract.trunc = trunc i64 %.sroa.13.069 to i32
   %287 = load i64, ptr %78, align 8, !noundef !8
   %.val.i = load i64, ptr %77, align 8, !noundef !8
@@ -5238,7 +5238,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i: ; preds = %323, %317
-  %.pn.i36 = phi { ptr, i64 } [ %328, %323 ], [ %322, %317 ]
+  %.pn.i36 = phi { ptr, i64 } [ %322, %317 ], [ %328, %323 ]
   %.sroa.0.1.i37 = extractvalue { ptr, i64 } %.pn.i36, 0
   %.sroa.17.sroa.0.1.in.in.i = extractvalue { ptr, i64 } %.pn.i36, 1
   %.not52.i = icmp eq ptr %.sroa.0.1.i37, null

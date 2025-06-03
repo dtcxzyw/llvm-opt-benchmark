@@ -908,7 +908,7 @@ define hidden noundef zeroext i1 @_ZN4ring2io10der_writer9write_tlv17h59241b8b3a
   br label %34
 
 34:                                               ; preds = %30, %28, %26, %24, %14, %10, %13, %32
-  %.0 = phi i1 [ true, %13 ], [ %33, %32 ], [ true, %10 ], [ true, %14 ], [ true, %26 ], [ true, %24 ], [ true, %30 ], [ true, %28 ]
+  %.0 = phi i1 [ %33, %32 ], [ true, %13 ], [ true, %10 ], [ true, %14 ], [ true, %26 ], [ true, %24 ], [ true, %30 ], [ true, %28 ]
   ret i1 %.0
 }
 

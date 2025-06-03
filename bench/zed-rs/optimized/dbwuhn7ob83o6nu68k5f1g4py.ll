@@ -2530,7 +2530,7 @@ define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$call..room..Room..
   unreachable
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteTrackPublication$GT$$GT$17habc1cda6de8c6b4aE.exit.i": ; preds = %82, %68, %60, %54
-  %.pn.i = phi { ptr, i32 } [ %83, %82 ], [ %69, %68 ], [ %55, %60 ], [ %55, %54 ]
+  %.pn.i = phi { ptr, i32 } [ %69, %68 ], [ %83, %82 ], [ %55, %60 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn.i
 
 68:                                               ; preds = %31
@@ -20439,7 +20439,7 @@ define void @_ZN4call10ActiveCall6invite17hf5c5d1944f88e18aE(ptr dead_on_unwind 
 .body81:                                          ; preds = %306, %.body52
   br i1 %.sroa.020.3, label %308, label %common.resume
 
-.thread132:                                       ; preds = %94, %51, %45, %35, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h55fd4283b60f6811E.llvm.13537110341245814796.exit.i"
+.thread132:                                       ; preds = %45, %94, %51, %35, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h55fd4283b60f6811E.llvm.13537110341245814796.exit.i"
   %lpad.thr_comm130 = landingpad { ptr, i32 }
           cleanup
   br label %308
@@ -20673,8 +20673,8 @@ _ZN4call10OneAtATime7running17h15cb6ce7a147a7a0E.exit.thread: ; preds = %86, %_Z
   br i1 %or.cond, label %306, label %.body81
 
 129:                                              ; preds = %.noexc55, %.noexc.i, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hdaf21e4c1d8288f7E.exit.i", %275, %169
-  %.sroa.016.2 = phi i1 [ true, %275 ], [ false, %169 ], [ true, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hdaf21e4c1d8288f7E.exit.i" ], [ false, %.noexc.i ], [ false, %.noexc55 ]
-  %.sroa.020.2 = phi i1 [ false, %275 ], [ false, %169 ], [ true, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hdaf21e4c1d8288f7E.exit.i" ], [ false, %.noexc.i ], [ false, %.noexc55 ]
+  %.sroa.016.2 = phi i1 [ false, %169 ], [ true, %275 ], [ true, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hdaf21e4c1d8288f7E.exit.i" ], [ false, %.noexc.i ], [ false, %.noexc55 ]
+  %.sroa.020.2 = phi i1 [ false, %169 ], [ false, %275 ], [ true, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hdaf21e4c1d8288f7E.exit.i" ], [ false, %.noexc.i ], [ false, %.noexc55 ]
   %130 = landingpad { ptr, i32 }
           cleanup
   br label %.body52

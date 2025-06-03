@@ -721,7 +721,7 @@ pmix_pointer_array_get_item.exit188:              ; preds = %155
   br label %179
 
 179:                                              ; preds = %10, %.thread225, %.thread219, %.thread213, %.thread207, %.thread201, %.thread195, %.thread, %8, %5
-  %.0 = phi i32 [ %7, %5 ], [ %11, %10 ], [ %.8228, %.thread225 ], [ %.7222, %.thread219 ], [ %.5216, %.thread213 ], [ %.4210, %.thread207 ], [ %.3204, %.thread201 ], [ %.2198, %.thread195 ], [ %.1192, %.thread ], [ -46, %8 ]
+  %.0 = phi i32 [ %7, %5 ], [ %11, %10 ], [ %.1192, %.thread ], [ %.2198, %.thread195 ], [ %.3204, %.thread201 ], [ %.4210, %.thread207 ], [ %.5216, %.thread213 ], [ %.7222, %.thread219 ], [ %.8228, %.thread225 ], [ -46, %8 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   ret i32 %.0
 }
@@ -1092,7 +1092,7 @@ pmix_pointer_array_get_item.exit188:              ; preds = %138
   br label %157
 
 157:                                              ; preds = %10, %.thread225, %.thread219, %.thread213, %.thread207, %.thread201, %.thread195, %.thread, %8, %5
-  %.0 = phi i32 [ %7, %5 ], [ %11, %10 ], [ %.8228, %.thread225 ], [ %.6222, %.thread219 ], [ %.5216, %.thread213 ], [ %.4210, %.thread207 ], [ %.3204, %.thread201 ], [ %.2198, %.thread195 ], [ %.1192, %.thread ], [ -46, %8 ]
+  %.0 = phi i32 [ %7, %5 ], [ %11, %10 ], [ %.1192, %.thread ], [ %.2198, %.thread195 ], [ %.3204, %.thread201 ], [ %.4210, %.thread207 ], [ %.5216, %.thread213 ], [ %.6222, %.thread219 ], [ %.8228, %.thread225 ], [ -46, %8 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   ret i32 %.0
 }
@@ -1451,7 +1451,7 @@ pmix_pointer_array_get_item.exit188:              ; preds = %155
   br label %179
 
 179:                                              ; preds = %10, %.thread225, %.thread219, %.thread213, %.thread207, %.thread201, %.thread195, %.thread, %8, %5
-  %.0 = phi i32 [ %7, %5 ], [ %11, %10 ], [ %.8228, %.thread225 ], [ %.7222, %.thread219 ], [ %.6216, %.thread213 ], [ %.4210, %.thread207 ], [ %.3204, %.thread201 ], [ %.2198, %.thread195 ], [ %.1192, %.thread ], [ -46, %8 ]
+  %.0 = phi i32 [ %7, %5 ], [ %11, %10 ], [ %.1192, %.thread ], [ %.2198, %.thread195 ], [ %.3204, %.thread201 ], [ %.4210, %.thread207 ], [ %.6216, %.thread213 ], [ %.7222, %.thread219 ], [ %.8228, %.thread225 ], [ -46, %8 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   ret i32 %.0
 }

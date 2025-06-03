@@ -599,7 +599,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   br label %process_sample_double.exit
 
 process_sample_double.exit:                       ; preds = %.lr.ph, %124, %125, %126, %127
-  %.0.i = phi nsz double [ %97, %.lr.ph ], [ %128, %127 ], [ %100, %126 ], [ %74, %125 ], [ %72, %124 ]
+  %.0.i = phi nsz double [ %97, %.lr.ph ], [ %72, %124 ], [ %74, %125 ], [ %100, %126 ], [ %128, %127 ]
   %129 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv
   store double %.0.i, ptr %129, align 8, !tbaa !74
   %130 = load i32, ptr %31, align 8, !tbaa !84
@@ -791,7 +791,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   br label %process_sample_float.exit
 
 process_sample_float.exit:                        ; preds = %.lr.ph, %119, %120, %121, %122
-  %.0.i = phi nsz float [ %94, %.lr.ph ], [ %123, %122 ], [ %97, %121 ], [ %74, %120 ], [ %72, %119 ]
+  %.0.i = phi nsz float [ %94, %.lr.ph ], [ %72, %119 ], [ %74, %120 ], [ %97, %121 ], [ %123, %122 ]
   %124 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
   store float %.0.i, ptr %124, align 4, !tbaa !87
   %125 = load i32, ptr %31, align 8, !tbaa !84

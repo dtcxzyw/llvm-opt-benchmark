@@ -6782,7 +6782,7 @@ stbtt__csctx_rline_to.exit:                       ; preds = %stbtt__track_vertex
   br i1 %134, label %.critedge, label %135
 
 135:                                              ; preds = %133, %stbtt__csctx_rline_to.exit293
-  %.2246 = phi i32 [ 0, %133 ], [ %232, %stbtt__csctx_rline_to.exit293 ]
+  %.2246 = phi i32 [ %232, %stbtt__csctx_rline_to.exit293 ], [ 0, %133 ]
   %.not273 = icmp slt i32 %.2246, %.0241466
   br i1 %.not273, label %136, label %.thread
 
@@ -6887,7 +6887,7 @@ stbtt__csctx_rline_to.exit284:                    ; preds = %stbtt__track_vertex
   br label %184
 
 184:                                              ; preds = %131, %stbtt__csctx_rline_to.exit284
-  %.1245 = phi i32 [ %183, %stbtt__csctx_rline_to.exit284 ], [ 0, %131 ]
+  %.1245 = phi i32 [ 0, %131 ], [ %183, %stbtt__csctx_rline_to.exit284 ]
   %.not272 = icmp slt i32 %.1245, %.0241466
   br i1 %.not272, label %185, label %.thread
 
@@ -7000,7 +7000,7 @@ stbtt__csctx_rline_to.exit293:                    ; preds = %stbtt__track_vertex
   br i1 %236, label %.critedge, label %237
 
 237:                                              ; preds = %235, %._crit_edge531
-  %.4 = phi i32 [ 0, %235 ], [ %292, %._crit_edge531 ]
+  %.4 = phi i32 [ %292, %._crit_edge531 ], [ 0, %235 ]
   %238 = add nsw i32 %.4, 3
   %.not271 = icmp slt i32 %238, %.0241466
   br i1 %.not271, label %239, label %.thread
@@ -7053,7 +7053,7 @@ stbtt__csctx_rline_to.exit293:                    ; preds = %stbtt__track_vertex
   br label %276
 
 276:                                              ; preds = %233, %._crit_edge530
-  %.3247 = phi i32 [ %256, %._crit_edge530 ], [ 0, %233 ]
+  %.3247 = phi i32 [ 0, %233 ], [ %256, %._crit_edge530 ]
   %277 = add nsw i32 %.3247, 3
   %.not270 = icmp slt i32 %277, %.0241466
   br i1 %.not270, label %278, label %.thread
@@ -7582,9 +7582,9 @@ stbtt__csctx_rline_to.exit311:                    ; preds = %stbtt__track_vertex
   br label %606
 
 606:                                              ; preds = %600, %602, %599, %stbtt__buf_get8.exit
-  %.sroa.073.1 = phi ptr [ %.sroa.073.0463, %stbtt__buf_get8.exit ], [ %.sroa.073.0463, %599 ], [ %604, %602 ], [ %.sroa.073.0463, %600 ]
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0464, %stbtt__buf_get8.exit ], [ %.sroa.5.0464, %599 ], [ %605, %602 ], [ %.sroa.5.0464, %600 ]
-  %.1249 = phi i32 [ %.0248465, %stbtt__buf_get8.exit ], [ 1, %599 ], [ 1, %602 ], [ 1, %600 ]
+  %.sroa.073.1 = phi ptr [ %.sroa.073.0463, %599 ], [ %.sroa.073.0463, %stbtt__buf_get8.exit ], [ %604, %602 ], [ %.sroa.073.0463, %600 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0464, %599 ], [ %.sroa.5.0464, %stbtt__buf_get8.exit ], [ %605, %602 ], [ %.sroa.5.0464, %600 ]
+  %.1249 = phi i32 [ 1, %599 ], [ %.0248465, %stbtt__buf_get8.exit ], [ 1, %602 ], [ 1, %600 ]
   %607 = icmp slt i32 %.0241466, 1
   br i1 %607, label %.critedge, label %608
 
@@ -8246,16 +8246,16 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   store float %.2255, ptr %962, align 4, !tbaa !71
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader437, %stbtt__csctx_rline_to.exit, %533, %824, %782, %739, %705, %44, %50, %55, %66, %73, %184, %135, %276, %237, %stbtt__csctx_rline_to.exit302, %495, %959, %647, %643
-  %.1233431 = phi i32 [ %.0232471, %959 ], [ %.0232471, %647 ], [ %.0232471, %643 ], [ %.0232471, %824 ], [ %.0232471, %782 ], [ %.0232471, %739 ], [ %.0232471, %705 ], [ 0, %44 ], [ %.0232471, %50 ], [ 0, %55 ], [ 0, %66 ], [ 0, %73 ], [ %.0232471, %184 ], [ %.0232471, %135 ], [ %.0232471, %276 ], [ %.0232471, %237 ], [ %.0232471, %stbtt__csctx_rline_to.exit302 ], [ %.0232471, %495 ], [ %.0232471, %533 ], [ %.0232471, %stbtt__csctx_rline_to.exit ], [ %.0232471, %.preheader437 ], [ %.0232471, %.lr.ph.split.us ], [ %.0232471, %.lr.ph.split ]
-  %.2236430 = phi i32 [ %.0234470, %959 ], [ %.0234470, %647 ], [ %.0234470, %643 ], [ %.0234470, %824 ], [ %.0234470, %782 ], [ %.0234470, %739 ], [ %.0234470, %705 ], [ %.1235, %44 ], [ %52, %50 ], [ %.0234470, %55 ], [ %.0234470, %66 ], [ %.0234470, %73 ], [ %.0234470, %184 ], [ %.0234470, %135 ], [ %.0234470, %276 ], [ %.0234470, %237 ], [ %.0234470, %stbtt__csctx_rline_to.exit302 ], [ %.0234470, %495 ], [ %.0234470, %533 ], [ %.0234470, %stbtt__csctx_rline_to.exit ], [ %.0234470, %.preheader437 ], [ %.0234470, %.lr.ph.split.us ], [ %.0234470, %.lr.ph.split ]
-  %.1240429 = phi i32 [ %.0239469, %959 ], [ %648, %647 ], [ %616, %643 ], [ %.0239469, %824 ], [ %.0239469, %782 ], [ %.0239469, %739 ], [ %.0239469, %705 ], [ %.0239469, %44 ], [ %.0239469, %50 ], [ %.0239469, %55 ], [ %.0239469, %66 ], [ %.0239469, %73 ], [ %.0239469, %184 ], [ %.0239469, %135 ], [ %.0239469, %276 ], [ %.0239469, %237 ], [ %.0239469, %stbtt__csctx_rline_to.exit302 ], [ %.0239469, %495 ], [ %.0239469, %533 ], [ %.0239469, %stbtt__csctx_rline_to.exit ], [ %.0239469, %.preheader437 ], [ %.0239469, %.lr.ph.split.us ], [ %.0239469, %.lr.ph.split ]
-  %.2250428 = phi i32 [ %.0248465, %959 ], [ %.0248465, %647 ], [ %.1249, %643 ], [ %.0248465, %824 ], [ %.0248465, %782 ], [ %.0248465, %739 ], [ %.0248465, %705 ], [ %.0248465, %44 ], [ %.0248465, %50 ], [ %.0248465, %55 ], [ %.0248465, %66 ], [ %.0248465, %73 ], [ %.0248465, %184 ], [ %.0248465, %135 ], [ %.0248465, %276 ], [ %.0248465, %237 ], [ %.0248465, %stbtt__csctx_rline_to.exit302 ], [ %.0248465, %495 ], [ %.0248465, %533 ], [ %.0248465, %stbtt__csctx_rline_to.exit ], [ %.0248465, %.preheader437 ], [ %.0248465, %.lr.ph.split.us ], [ %.0248465, %.lr.ph.split ]
-  %.sroa.5.2427 = phi i64 [ %.sroa.5.0464, %959 ], [ %.sroa.5.0464, %647 ], [ %.sroa.5.1, %643 ], [ %.sroa.5.0464, %824 ], [ %.sroa.5.0464, %782 ], [ %.sroa.5.0464, %739 ], [ %.sroa.5.0464, %705 ], [ %.sroa.5.0464, %44 ], [ %.sroa.5.0464, %50 ], [ %.sroa.5.0464, %55 ], [ %.sroa.5.0464, %66 ], [ %.sroa.5.0464, %73 ], [ %.sroa.5.0464, %184 ], [ %.sroa.5.0464, %135 ], [ %.sroa.5.0464, %276 ], [ %.sroa.5.0464, %237 ], [ %.sroa.5.0464, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.5.0464, %495 ], [ %.sroa.5.0464, %533 ], [ %.sroa.5.0464, %stbtt__csctx_rline_to.exit ], [ %.sroa.5.0464, %.preheader437 ], [ %.sroa.5.0464, %.lr.ph.split.us ], [ %.sroa.5.0464, %.lr.ph.split ]
-  %.sroa.073.2426 = phi ptr [ %.sroa.073.0463, %959 ], [ %.sroa.073.0463, %647 ], [ %.sroa.073.1, %643 ], [ %.sroa.073.0463, %824 ], [ %.sroa.073.0463, %782 ], [ %.sroa.073.0463, %739 ], [ %.sroa.073.0463, %705 ], [ %.sroa.073.0463, %44 ], [ %.sroa.073.0463, %50 ], [ %.sroa.073.0463, %55 ], [ %.sroa.073.0463, %66 ], [ %.sroa.073.0463, %73 ], [ %.sroa.073.0463, %184 ], [ %.sroa.073.0463, %135 ], [ %.sroa.073.0463, %276 ], [ %.sroa.073.0463, %237 ], [ %.sroa.073.0463, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.073.0463, %495 ], [ %.sroa.073.0463, %533 ], [ %.sroa.073.0463, %stbtt__csctx_rline_to.exit ], [ %.sroa.073.0463, %.preheader437 ], [ %.sroa.073.0463, %.lr.ph.split.us ], [ %.sroa.073.0463, %.lr.ph.split ]
-  %.sroa.0.1425 = phi ptr [ %.sroa.0.0411462, %959 ], [ %.sroa.0.0.copyload336, %647 ], [ %644, %643 ], [ %.sroa.0.0411462, %824 ], [ %.sroa.0.0411462, %782 ], [ %.sroa.0.0411462, %739 ], [ %.sroa.0.0411462, %705 ], [ %.sroa.0.0411462, %44 ], [ %.sroa.0.0411462, %50 ], [ %.sroa.0.0411462, %55 ], [ %.sroa.0.0411462, %66 ], [ %.sroa.0.0411462, %73 ], [ %.sroa.0.0411462, %184 ], [ %.sroa.0.0411462, %135 ], [ %.sroa.0.0411462, %276 ], [ %.sroa.0.0411462, %237 ], [ %.sroa.0.0411462, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.0.0411462, %495 ], [ %.sroa.0.0411462, %533 ], [ %.sroa.0.0411462, %stbtt__csctx_rline_to.exit ], [ %.sroa.0.0411462, %.preheader437 ], [ %.sroa.0.0411462, %.lr.ph.split.us ], [ %.sroa.0.0411462, %.lr.ph.split ]
-  %.sroa.10.1424 = phi i64 [ %.sroa.10.2, %959 ], [ %.sroa.10.0.copyload338, %647 ], [ %.sroa.10.8.insert.mask, %643 ], [ %.sroa.10.8.insert.insert355, %824 ], [ %.sroa.10.8.insert.insert355, %782 ], [ %.sroa.10.8.insert.insert355, %739 ], [ %.sroa.10.8.insert.insert355, %705 ], [ %.sroa.10.8.insert.insert349, %44 ], [ %.sroa.10.8.insert.insert343, %50 ], [ %.sroa.10.8.insert.insert343, %55 ], [ %.sroa.10.8.insert.insert343, %66 ], [ %.sroa.10.8.insert.insert343, %73 ], [ %.sroa.10.8.insert.insert343, %184 ], [ %.sroa.10.8.insert.insert343, %135 ], [ %.sroa.10.8.insert.insert343, %276 ], [ %.sroa.10.8.insert.insert343, %237 ], [ %.sroa.10.8.insert.insert343, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.10.8.insert.insert343, %495 ], [ %.sroa.10.8.insert.insert343, %533 ], [ %.sroa.10.8.insert.insert343, %stbtt__csctx_rline_to.exit ], [ %.sroa.10.8.insert.insert343, %.preheader437 ], [ %.sroa.10.8.insert.insert343, %.lr.ph.split.us ], [ %.sroa.10.8.insert.insert343, %.lr.ph.split ]
-  %963 = phi i32 [ %960, %959 ], [ %.0241466, %647 ], [ %609, %643 ], [ 0, %824 ], [ 0, %782 ], [ 0, %739 ], [ 0, %705 ], [ 0, %44 ], [ 0, %50 ], [ 0, %55 ], [ 0, %66 ], [ 0, %73 ], [ 0, %184 ], [ 0, %135 ], [ 0, %276 ], [ 0, %237 ], [ 0, %stbtt__csctx_rline_to.exit302 ], [ 0, %495 ], [ 0, %533 ], [ 0, %stbtt__csctx_rline_to.exit ], [ 0, %.preheader437 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+.thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader437, %stbtt__csctx_rline_to.exit, %533, %824, %782, %739, %705, %495, %stbtt__csctx_rline_to.exit302, %237, %276, %135, %184, %73, %66, %55, %50, %44, %959, %647, %643
+  %.1233431 = phi i32 [ %.0232471, %959 ], [ %.0232471, %643 ], [ %.0232471, %647 ], [ %.0232471, %824 ], [ %.0232471, %782 ], [ %.0232471, %739 ], [ %.0232471, %705 ], [ %.0232471, %495 ], [ %.0232471, %stbtt__csctx_rline_to.exit302 ], [ %.0232471, %237 ], [ %.0232471, %276 ], [ %.0232471, %135 ], [ %.0232471, %184 ], [ 0, %73 ], [ 0, %66 ], [ 0, %55 ], [ %.0232471, %50 ], [ 0, %44 ], [ %.0232471, %533 ], [ %.0232471, %stbtt__csctx_rline_to.exit ], [ %.0232471, %.preheader437 ], [ %.0232471, %.lr.ph.split.us ], [ %.0232471, %.lr.ph.split ]
+  %.2236430 = phi i32 [ %.0234470, %959 ], [ %.0234470, %643 ], [ %.0234470, %647 ], [ %.0234470, %824 ], [ %.0234470, %782 ], [ %.0234470, %739 ], [ %.0234470, %705 ], [ %.0234470, %495 ], [ %.0234470, %stbtt__csctx_rline_to.exit302 ], [ %.0234470, %237 ], [ %.0234470, %276 ], [ %.0234470, %135 ], [ %.0234470, %184 ], [ %.0234470, %73 ], [ %.0234470, %66 ], [ %.0234470, %55 ], [ %52, %50 ], [ %.1235, %44 ], [ %.0234470, %533 ], [ %.0234470, %stbtt__csctx_rline_to.exit ], [ %.0234470, %.preheader437 ], [ %.0234470, %.lr.ph.split.us ], [ %.0234470, %.lr.ph.split ]
+  %.1240429 = phi i32 [ %.0239469, %959 ], [ %616, %643 ], [ %648, %647 ], [ %.0239469, %824 ], [ %.0239469, %782 ], [ %.0239469, %739 ], [ %.0239469, %705 ], [ %.0239469, %495 ], [ %.0239469, %stbtt__csctx_rline_to.exit302 ], [ %.0239469, %237 ], [ %.0239469, %276 ], [ %.0239469, %135 ], [ %.0239469, %184 ], [ %.0239469, %73 ], [ %.0239469, %66 ], [ %.0239469, %55 ], [ %.0239469, %50 ], [ %.0239469, %44 ], [ %.0239469, %533 ], [ %.0239469, %stbtt__csctx_rline_to.exit ], [ %.0239469, %.preheader437 ], [ %.0239469, %.lr.ph.split.us ], [ %.0239469, %.lr.ph.split ]
+  %.2250428 = phi i32 [ %.0248465, %959 ], [ %.1249, %643 ], [ %.0248465, %647 ], [ %.0248465, %824 ], [ %.0248465, %782 ], [ %.0248465, %739 ], [ %.0248465, %705 ], [ %.0248465, %495 ], [ %.0248465, %stbtt__csctx_rline_to.exit302 ], [ %.0248465, %237 ], [ %.0248465, %276 ], [ %.0248465, %135 ], [ %.0248465, %184 ], [ %.0248465, %73 ], [ %.0248465, %66 ], [ %.0248465, %55 ], [ %.0248465, %50 ], [ %.0248465, %44 ], [ %.0248465, %533 ], [ %.0248465, %stbtt__csctx_rline_to.exit ], [ %.0248465, %.preheader437 ], [ %.0248465, %.lr.ph.split.us ], [ %.0248465, %.lr.ph.split ]
+  %.sroa.5.2427 = phi i64 [ %.sroa.5.0464, %959 ], [ %.sroa.5.1, %643 ], [ %.sroa.5.0464, %647 ], [ %.sroa.5.0464, %824 ], [ %.sroa.5.0464, %782 ], [ %.sroa.5.0464, %739 ], [ %.sroa.5.0464, %705 ], [ %.sroa.5.0464, %495 ], [ %.sroa.5.0464, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.5.0464, %237 ], [ %.sroa.5.0464, %276 ], [ %.sroa.5.0464, %135 ], [ %.sroa.5.0464, %184 ], [ %.sroa.5.0464, %73 ], [ %.sroa.5.0464, %66 ], [ %.sroa.5.0464, %55 ], [ %.sroa.5.0464, %50 ], [ %.sroa.5.0464, %44 ], [ %.sroa.5.0464, %533 ], [ %.sroa.5.0464, %stbtt__csctx_rline_to.exit ], [ %.sroa.5.0464, %.preheader437 ], [ %.sroa.5.0464, %.lr.ph.split.us ], [ %.sroa.5.0464, %.lr.ph.split ]
+  %.sroa.073.2426 = phi ptr [ %.sroa.073.0463, %959 ], [ %.sroa.073.1, %643 ], [ %.sroa.073.0463, %647 ], [ %.sroa.073.0463, %824 ], [ %.sroa.073.0463, %782 ], [ %.sroa.073.0463, %739 ], [ %.sroa.073.0463, %705 ], [ %.sroa.073.0463, %495 ], [ %.sroa.073.0463, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.073.0463, %237 ], [ %.sroa.073.0463, %276 ], [ %.sroa.073.0463, %135 ], [ %.sroa.073.0463, %184 ], [ %.sroa.073.0463, %73 ], [ %.sroa.073.0463, %66 ], [ %.sroa.073.0463, %55 ], [ %.sroa.073.0463, %50 ], [ %.sroa.073.0463, %44 ], [ %.sroa.073.0463, %533 ], [ %.sroa.073.0463, %stbtt__csctx_rline_to.exit ], [ %.sroa.073.0463, %.preheader437 ], [ %.sroa.073.0463, %.lr.ph.split.us ], [ %.sroa.073.0463, %.lr.ph.split ]
+  %.sroa.0.1425 = phi ptr [ %.sroa.0.0411462, %959 ], [ %644, %643 ], [ %.sroa.0.0.copyload336, %647 ], [ %.sroa.0.0411462, %824 ], [ %.sroa.0.0411462, %782 ], [ %.sroa.0.0411462, %739 ], [ %.sroa.0.0411462, %705 ], [ %.sroa.0.0411462, %495 ], [ %.sroa.0.0411462, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.0.0411462, %237 ], [ %.sroa.0.0411462, %276 ], [ %.sroa.0.0411462, %135 ], [ %.sroa.0.0411462, %184 ], [ %.sroa.0.0411462, %73 ], [ %.sroa.0.0411462, %66 ], [ %.sroa.0.0411462, %55 ], [ %.sroa.0.0411462, %50 ], [ %.sroa.0.0411462, %44 ], [ %.sroa.0.0411462, %533 ], [ %.sroa.0.0411462, %stbtt__csctx_rline_to.exit ], [ %.sroa.0.0411462, %.preheader437 ], [ %.sroa.0.0411462, %.lr.ph.split.us ], [ %.sroa.0.0411462, %.lr.ph.split ]
+  %.sroa.10.1424 = phi i64 [ %.sroa.10.2, %959 ], [ %.sroa.10.8.insert.mask, %643 ], [ %.sroa.10.0.copyload338, %647 ], [ %.sroa.10.8.insert.insert355, %824 ], [ %.sroa.10.8.insert.insert355, %782 ], [ %.sroa.10.8.insert.insert355, %739 ], [ %.sroa.10.8.insert.insert355, %705 ], [ %.sroa.10.8.insert.insert343, %495 ], [ %.sroa.10.8.insert.insert343, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.10.8.insert.insert343, %237 ], [ %.sroa.10.8.insert.insert343, %276 ], [ %.sroa.10.8.insert.insert343, %135 ], [ %.sroa.10.8.insert.insert343, %184 ], [ %.sroa.10.8.insert.insert343, %73 ], [ %.sroa.10.8.insert.insert343, %66 ], [ %.sroa.10.8.insert.insert343, %55 ], [ %.sroa.10.8.insert.insert343, %50 ], [ %.sroa.10.8.insert.insert349, %44 ], [ %.sroa.10.8.insert.insert343, %533 ], [ %.sroa.10.8.insert.insert343, %stbtt__csctx_rline_to.exit ], [ %.sroa.10.8.insert.insert343, %.preheader437 ], [ %.sroa.10.8.insert.insert343, %.lr.ph.split.us ], [ %.sroa.10.8.insert.insert343, %.lr.ph.split ]
+  %963 = phi i32 [ %960, %959 ], [ %609, %643 ], [ %.0241466, %647 ], [ 0, %824 ], [ 0, %782 ], [ 0, %739 ], [ 0, %705 ], [ 0, %495 ], [ 0, %stbtt__csctx_rline_to.exit302 ], [ 0, %237 ], [ 0, %276 ], [ 0, %135 ], [ 0, %184 ], [ 0, %73 ], [ 0, %66 ], [ 0, %55 ], [ 0, %50 ], [ 0, %44 ], [ 0, %533 ], [ 0, %stbtt__csctx_rline_to.exit ], [ 0, %.preheader437 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
   %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.1424 to i32
   %.sroa.10.12.extract.shift391 = lshr i64 %.sroa.10.1424, 32
   %.sroa.10.12.extract.trunc392 = trunc nuw i64 %.sroa.10.12.extract.shift391 to i32
@@ -8959,7 +8959,7 @@ define range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %81, %43, %10, %20, %82, %31, %2
-  %.1 = phi i32 [ %90, %82 ], [ %42, %31 ], [ -1, %2 ], [ 0, %20 ], [ 0, %10 ], [ 0, %43 ], [ 0, %81 ]
+  %.1 = phi i32 [ %42, %31 ], [ %90, %82 ], [ -1, %2 ], [ 0, %20 ], [ 0, %10 ], [ 0, %43 ], [ 0, %81 ]
   ret i32 %.1
 }
 
@@ -13678,10 +13678,10 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
   br label %stbtt__add_point.exit.us
 
 stbtt__add_point.exit.us:                         ; preds = %99, %91, %80, %72, %55, %33, %29
-  %.397.us = phi i32 [ %.296120.us, %29 ], [ %.296120.us, %33 ], [ %.296120.us, %55 ], [ %92, %91 ], [ %92, %99 ], [ %.296120.us, %72 ], [ %.296120.us, %80 ]
-  %.3.us = phi i32 [ %.2121.us, %29 ], [ %.2121.us, %33 ], [ %.2121.us, %55 ], [ %.pre, %91 ], [ %.pre, %99 ], [ %.2121.us, %72 ], [ %.2121.us, %80 ]
-  %.189.us = phi float [ %.088122.us, %29 ], [ %52, %33 ], [ %69, %55 ], [ %94, %91 ], [ %94, %99 ], [ %74, %72 ], [ %74, %80 ]
-  %.1.us = phi float [ %.0123.us, %29 ], [ %54, %33 ], [ %71, %55 ], [ %97, %91 ], [ %97, %99 ], [ %77, %72 ], [ %77, %80 ]
+  %.397.us = phi i32 [ %.296120.us, %29 ], [ %.296120.us, %55 ], [ %.296120.us, %33 ], [ %92, %91 ], [ %92, %99 ], [ %.296120.us, %72 ], [ %.296120.us, %80 ]
+  %.3.us = phi i32 [ %.2121.us, %29 ], [ %.2121.us, %55 ], [ %.2121.us, %33 ], [ %.pre, %91 ], [ %.pre, %99 ], [ %.2121.us, %72 ], [ %.2121.us, %80 ]
+  %.189.us = phi float [ %.088122.us, %29 ], [ %69, %55 ], [ %52, %33 ], [ %94, %91 ], [ %94, %99 ], [ %74, %72 ], [ %74, %80 ]
+  %.1.us = phi float [ %.0123.us, %29 ], [ %71, %55 ], [ %54, %33 ], [ %97, %91 ], [ %97, %99 ], [ %77, %72 ], [ %77, %80 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
   br i1 %exitcond138.not, label %._crit_edge126.us, label %29, !llvm.loop !142

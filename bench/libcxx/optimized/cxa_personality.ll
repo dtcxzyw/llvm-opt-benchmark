@@ -297,8 +297,8 @@ _ZN10__cxxabiv1L11readSLEB128EPPKh.exit.i:        ; preds = %111
 
 switch.lookup:                                    ; preds = %131
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.neg.i.i = mul i64 %switch.load, %.1.i.i
-  %138 = getelementptr inbounds i8, ptr %.0137.i, i64 %.neg.i.i
+  %.neg14.i.i = mul i64 %switch.load, %.1.i.i
+  %138 = getelementptr inbounds i8, ptr %.0137.i, i64 %.neg14.i.i
   store ptr %138, ptr %6, align 8, !tbaa !16
   %139 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %6, i8 noundef zeroext %52, i64 noundef 0)
   %140 = inttoptr i64 %139 to ptr
@@ -933,8 +933,8 @@ _ZN10__cxxabiv1L11readSLEB128EPPKh.exit:          ; preds = %.preheader44
   unreachable
 
 _ZN10__cxxabiv1L11readULEB128EPPKh.exit:          ; preds = %.preheader, %43, %40, %37, %35, %32, %29, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit, %9
-  %.041 = phi ptr [ %44, %43 ], [ %41, %40 ], [ %38, %37 ], [ %36, %35 ], [ %33, %32 ], [ %30, %29 ], [ %18, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %10, %9 ], [ %11, %.preheader ]
-  %.0 = phi i64 [ %.0.copyload.i31, %43 ], [ %42, %40 ], [ %39, %37 ], [ %.0.copyload.i28, %35 ], [ %34, %32 ], [ %31, %29 ], [ %.1.i, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %.0.copyload.i, %9 ], [ %16, %.preheader ]
+  %.041 = phi ptr [ %10, %9 ], [ %18, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ], [ %38, %37 ], [ %41, %40 ], [ %44, %43 ], [ %11, %.preheader ]
+  %.0 = phi i64 [ %.0.copyload.i, %9 ], [ %.1.i, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %31, %29 ], [ %34, %32 ], [ %.0.copyload.i28, %35 ], [ %39, %37 ], [ %42, %40 ], [ %.0.copyload.i31, %43 ], [ %16, %.preheader ]
   %46 = lshr i32 %4, 4
   %47 = and i32 %46, 7
   switch i32 %47, label %56 [
@@ -970,7 +970,7 @@ _ZN10__cxxabiv1L11readULEB128EPPKh.exit:          ; preds = %.preheader, %43, %4
   unreachable
 
 57:                                               ; preds = %54, %49, %_ZN10__cxxabiv1L11readULEB128EPPKh.exit
-  %.1 = phi i64 [ %51, %49 ], [ %.0, %_ZN10__cxxabiv1L11readULEB128EPPKh.exit ], [ %55, %54 ]
+  %.1 = phi i64 [ %.0, %_ZN10__cxxabiv1L11readULEB128EPPKh.exit ], [ %51, %49 ], [ %55, %54 ]
   %.not22 = icmp eq i64 %.1, 0
   br i1 %.not22, label %.thread, label %58
 
@@ -1063,8 +1063,8 @@ _ZN10__cxxabiv1L11readULEB128EPPKh.exit:          ; preds = %19
 
 switch.lookup:                                    ; preds = %28
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.neg.i = mul i64 %switch.load, %25
-  %33 = getelementptr inbounds i8, ptr %1, i64 %.neg.i
+  %.neg14.i = mul i64 %switch.load, %25
+  %33 = getelementptr inbounds i8, ptr %1, i64 %.neg14.i
   store ptr %33, ptr %8, align 8, !tbaa !16
   %34 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %2, i64 noundef %6)
   %35 = inttoptr i64 %34 to ptr

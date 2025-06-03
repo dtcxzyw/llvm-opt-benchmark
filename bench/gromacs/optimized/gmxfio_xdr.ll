@@ -1339,7 +1339,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader235, %216, %.preheader233.split.us, %193, %.loopexit.loopexit248, %.loopexit230, %.preheader231, %.thread221, %.thread220, %173, %151, %139, %127, %115, %103, %91, %79, %67, %54, %270, %175, %153, %141, %129, %117, %105, %93, %81, %56, %69, %262, %.thread270, %.thread
-  %.0 = phi i32 [ %.3277, %262 ], [ %176, %175 ], [ %174, %173 ], [ %165, %.thread270 ], [ %160, %.thread ], [ %154, %153 ], [ %152, %151 ], [ %142, %141 ], [ %140, %139 ], [ %130, %129 ], [ %128, %127 ], [ %118, %117 ], [ %116, %115 ], [ %106, %105 ], [ %104, %103 ], [ %94, %93 ], [ %92, %91 ], [ %82, %81 ], [ %80, %79 ], [ %57, %56 ], [ %55, %54 ], [ %70, %69 ], [ %68, %67 ], [ 1, %270 ], [ %183, %.thread220 ], [ %199, %.thread221 ], [ 1, %.preheader231 ], [ %204, %.loopexit230 ], [ %281, %.loopexit.loopexit248 ], [ %192, %193 ], [ %37, %.preheader233.split.us ], [ %218, %216 ], [ %274, %.preheader235 ]
+  %.0 = phi i32 [ %57, %56 ], [ %55, %54 ], [ %70, %69 ], [ %68, %67 ], [ %82, %81 ], [ %80, %79 ], [ %94, %93 ], [ %92, %91 ], [ %106, %105 ], [ %104, %103 ], [ %118, %117 ], [ %116, %115 ], [ %130, %129 ], [ %128, %127 ], [ %142, %141 ], [ %140, %139 ], [ %154, %153 ], [ %152, %151 ], [ %160, %.thread ], [ %165, %.thread270 ], [ %176, %175 ], [ %174, %173 ], [ %.3277, %262 ], [ 1, %270 ], [ %183, %.thread220 ], [ %199, %.thread221 ], [ 1, %.preheader231 ], [ %204, %.loopexit230 ], [ %281, %.loopexit.loopexit248 ], [ %192, %193 ], [ %37, %.preheader233.split.us ], [ %218, %216 ], [ %274, %.preheader235 ]
   %282 = icmp ne i32 %.0, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #16
@@ -1354,7 +1354,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   ret i1 %282
 
 283:                                              ; preds = %268, %241
-  %.pn = phi { ptr, i32 } [ %269, %268 ], [ %242, %241 ]
+  %.pn = phi { ptr, i32 } [ %242, %241 ], [ %269, %268 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #16

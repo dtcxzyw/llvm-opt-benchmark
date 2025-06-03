@@ -7501,7 +7501,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i: ;
   br label %2474
 
 2474:                                             ; preds = %2472, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %2473, %2472 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %2473, %2472 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !221
   %.val43.val.i.i.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !246
   %2475 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %.val43.val.i.i.i.i.i.i.i, ptr noundef %.1.val.i.i.i.i.i.i.i, ptr noundef %2449) #26
@@ -7512,7 +7512,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i: ;
   br label %2478
 
 2478:                                             ; preds = %2476, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %2477, %2476 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %2477, %2476 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !221
   %.val45.val.i.i.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !246
   %2479 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %.val45.val.i.i.i.i.i.i.i, ptr noundef %.2.val.i.i.i.i.i.i.i, ptr noundef %2449) #26

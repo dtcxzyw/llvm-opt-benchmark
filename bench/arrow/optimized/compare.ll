@@ -1634,7 +1634,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit50.i: 
   resume { ptr, i32 } %221
 
 _ZN5arrow12_GLOBAL__N_119IntegerTensorEqualsERKNS_6TensorES3_.exit: ; preds = %13, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit50.i, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %39, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit, %10, %3, %35, %31
-  %.0 = phi i1 [ %38, %35 ], [ %34, %31 ], [ false, %3 ], [ true, %10 ], [ false, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit ], [ true, %39 ], [ %219, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit50.i ], [ %83, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ false, %13 ]
+  %.0 = phi i1 [ %34, %31 ], [ %38, %35 ], [ false, %3 ], [ true, %10 ], [ false, %_ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit ], [ true, %39 ], [ %219, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit50.i ], [ %83, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ false, %13 ]
   ret i1 %.0
 }
 

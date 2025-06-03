@@ -664,7 +664,7 @@ define internal { double, double } @_ZL14aeqd_e_forward5PJ_LPP8PJconsts(double %
   br label %14
 
 14:                                               ; preds = %12, %3
-  %.0 = phi double [ %9, %3 ], [ %13, %12 ]
+  %.0 = phi double [ %13, %12 ], [ %9, %3 ]
   %15 = tail call double @cos(double noundef %1) #8, !tbaa !50
   %16 = tail call double @sin(double noundef %1) #8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -708,8 +708,8 @@ define internal { double, double } @_ZL14aeqd_e_forward5PJ_LPP8PJconsts(double %
   br label %47
 
 47:                                               ; preds = %32, %._crit_edge, %14, %3
-  %.sroa.525.0 = phi double [ 0.000000e+00, %3 ], [ %46, %._crit_edge ], [ %26, %14 ], [ 0.000000e+00, %32 ]
-  %.sroa.024.0 = phi double [ 0.000000e+00, %3 ], [ %44, %._crit_edge ], [ %25, %14 ], [ 0.000000e+00, %32 ]
+  %.sroa.525.0 = phi double [ 0.000000e+00, %3 ], [ %26, %14 ], [ %46, %._crit_edge ], [ 0.000000e+00, %32 ]
+  %.sroa.024.0 = phi double [ 0.000000e+00, %3 ], [ %25, %14 ], [ %44, %._crit_edge ], [ 0.000000e+00, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8

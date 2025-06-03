@@ -593,7 +593,7 @@ _ZN15crossbeam_epoch7default6HANDLE7__getit17hca412f4b36e00003E.llvm.15976509990
   br label %39
 
 39:                                               ; preds = %37, %35
-  %.0 = phi ptr [ %38, %37 ], [ %36, %35 ]
+  %.0 = phi ptr [ %36, %35 ], [ %38, %37 ]
   ret ptr %.0
 }
 
@@ -21450,7 +21450,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -29046,7 +29046,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br label %12
 
 12:                                               ; preds = %10, %8, %6
-  %.0.i = phi i8 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.i = phi i8 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   %.not = icmp eq i8 %.0.i, 2
   %13 = trunc i8 %.0.i to i1
   %or.cond.i.i = or i1 %.not, %13
@@ -29080,7 +29080,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br label %24
 
 24:                                               ; preds = %22, %20, %18
-  %.0.i1 = phi i8 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
+  %.0.i1 = phi i8 [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
   %.not6 = icmp eq i8 %.0.i1, 2
   %25 = trunc i8 %.0.i1 to i1
   %or.cond.i.i3 = or i1 %.not6, %25

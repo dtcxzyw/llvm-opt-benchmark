@@ -1046,7 +1046,7 @@ define internal fastcc void @lua_rawseti(ptr noundef %0, i32 noundef range(i32 -
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %6, %16, %22, %26
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %32, %26 ], [ %25, %22 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %25, %22 ], [ %32, %26 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !62
   %38 = getelementptr inbounds i8, ptr %37, i64 -16
@@ -1520,7 +1520,7 @@ lua_settop.exit:                                  ; preds = %.lr.ph.i, %.prehead
   br label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %172, %170, %160, %157, %152, %144
-  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %144 ], [ %155, %152 ], [ %186, %172 ], [ %171, %170 ], [ %166, %160 ], [ %159, %157 ]
+  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %144 ], [ %155, %152 ], [ %186, %172 ], [ %159, %157 ], [ %166, %160 ], [ %171, %170 ]
   %187 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %188 = load ptr, ptr %6, align 8, !tbaa !62
   %189 = icmp ult ptr %187, %188
@@ -1634,7 +1634,7 @@ define internal fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr no
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %6, %16, %22, %26, %36, %38
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %52, %38 ], [ %37, %36 ], [ %32, %26 ], [ %25, %22 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %52, %38 ], [ %25, %22 ], [ %32, %26 ], [ %37, %36 ]
   %53 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !69
   switch i32 %54, label %55 [
@@ -1802,7 +1802,7 @@ luaC_step.exit:                                   ; preds = %89, %92, %95
   br label %index2adr.exit26
 
 index2adr.exit26:                                 ; preds = %index2adr.exit, %135, %133, %123, %120, %114, %104
-  %.0 = phi ptr [ %.1.i, %index2adr.exit ], [ %.luaO_nilobject_.i25, %104 ], [ %118, %114 ], [ %149, %135 ], [ %134, %133 ], [ %129, %123 ], [ %122, %120 ]
+  %.0 = phi ptr [ %.1.i, %index2adr.exit ], [ %.luaO_nilobject_.i25, %104 ], [ %118, %114 ], [ %149, %135 ], [ %122, %120 ], [ %129, %123 ], [ %134, %133 ]
   %.not20 = icmp eq ptr %2, null
   %.pre29 = load ptr, ptr %.0, align 8, !tbaa !46
   br i1 %.not20, label %153, label %150
@@ -4351,7 +4351,7 @@ define internal fastcc range(i32 0, 2) i32 @call_binTM(ptr noundef %0, ptr nound
   br label %20
 
 20:                                               ; preds = %14, %11, %8
-  %.0.in.i = phi ptr [ %19, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in.i = phi ptr [ %19, %14 ], [ %10, %8 ], [ %13, %11 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !46
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %luaT_gettmbyobj.exit, label %21
@@ -4431,7 +4431,7 @@ luaT_gettmbyobj.exit:                             ; preds = %42, %46, %20
   br label %68
 
 68:                                               ; preds = %62, %59, %56
-  %.0.in.i14 = phi ptr [ %67, %62 ], [ %61, %59 ], [ %58, %56 ]
+  %.0.in.i14 = phi ptr [ %67, %62 ], [ %58, %56 ], [ %61, %59 ]
   %.0.i15 = load ptr, ptr %.0.in.i14, align 8, !tbaa !46
   %.not.i16 = icmp eq ptr %.0.i15, null
   br i1 %.not.i16, label %luaT_gettmbyobj.exit22, label %69
@@ -4718,6 +4718,11 @@ define internal fastcc void @luaD_call(ptr noundef %0, ptr noundef %1, i32 nound
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 %77, ptr %78, align 8, !tbaa !69
   br label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %1725, %1499, %96, %71, %79, %87, %99, %110, %116, %126, %164, %luaC_step.exit19, %239, %442, %luaC_step.exit23, %524, %711, %735, %1090, %1110, %1134, %luaV_tonumber.exit58.thread, %1394, %1501, %luaC_step.exit72, %149, %144, %132, %279, %274, %306, %301, %333, %328, %360, %355, %390, %382, %417, %412, %430, %426, %469, %456, %451, %1153, %1199, %1256, %1254, %1252, %1417, %.backedge, %157, %158, %1439, %1708
+  %.0707.i.be = phi ptr [ %64, %1708 ], [ %.11718.i, %1439 ], [ %64, %158 ], [ %64, %157 ], [ %64, %.backedge ], [ %.11718.i, %1417 ], [ %64, %1252 ], [ %64, %1254 ], [ %1260, %1256 ], [ %64, %1199 ], [ %64, %1153 ], [ %64, %451 ], [ %64, %456 ], [ %64, %469 ], [ %64, %426 ], [ %64, %430 ], [ %64, %412 ], [ %64, %417 ], [ %64, %382 ], [ %64, %390 ], [ %64, %355 ], [ %64, %360 ], [ %64, %328 ], [ %64, %333 ], [ %64, %301 ], [ %64, %306 ], [ %64, %274 ], [ %64, %279 ], [ %64, %132 ], [ %64, %144 ], [ %64, %149 ], [ %.12719.i.lcssa, %luaC_step.exit72 ], [ %64, %1501 ], [ %1395, %1394 ], [ %1354, %luaV_tonumber.exit58.thread ], [ %1135, %1134 ], [ %1111, %1110 ], [ %1092, %1090 ], [ %737, %735 ], [ %713, %711 ], [ %528, %524 ], [ %64, %luaC_step.exit23 ], [ %64, %442 ], [ %64, %239 ], [ %64, %luaC_step.exit19 ], [ %64, %164 ], [ %64, %126 ], [ %64, %116 ], [ %64, %110 ], [ %64, %99 ], [ %spec.select.i, %87 ], [ %64, %79 ], [ %64, %71 ], [ %64, %96 ], [ %.11718.i, %1499 ], [ %64, %1725 ]
+  %.0703.i.be = phi ptr [ %.12.i, %1708 ], [ %.0703.i, %1439 ], [ %.0703.i, %158 ], [ %.0703.i, %157 ], [ %.0703.i, %.backedge ], [ %.0703.i, %1417 ], [ %.0703.i, %1252 ], [ %.0703.i, %1254 ], [ %.0703.i, %1256 ], [ %1200, %1199 ], [ %1154, %1153 ], [ %.0703.i, %451 ], [ %.0703.i, %456 ], [ %470, %469 ], [ %.0703.i, %426 ], [ %431, %430 ], [ %.0703.i, %412 ], [ %418, %417 ], [ %.0703.i, %382 ], [ %391, %390 ], [ %.0703.i, %355 ], [ %361, %360 ], [ %.0703.i, %328 ], [ %334, %333 ], [ %.0703.i, %301 ], [ %307, %306 ], [ %.0703.i, %274 ], [ %280, %279 ], [ %.0703.i, %132 ], [ %.0703.i, %144 ], [ %.0703.i, %149 ], [ %1673, %luaC_step.exit72 ], [ %.0703.i, %1501 ], [ %1376, %1394 ], [ %.0703.i, %luaV_tonumber.exit58.thread ], [ %.0703.i, %1134 ], [ %.0703.i, %1110 ], [ %1091, %1090 ], [ %736, %735 ], [ %712, %711 ], [ %.0703.i, %524 ], [ %516, %luaC_step.exit23 ], [ %.0703.i, %442 ], [ %253, %239 ], [ %238, %luaC_step.exit19 ], [ %177, %164 ], [ %131, %126 ], [ %125, %116 ], [ %115, %110 ], [ %.0703.i, %99 ], [ %.0703.i, %87 ], [ %.0703.i, %79 ], [ %.0703.i, %71 ], [ %.0703.i, %96 ], [ %.0703.i, %1499 ], [ %.12.i, %1725 ]
+  br label %.backedge
 
 79:                                               ; preds = %.backedge
   %80 = lshr i32 %65, 14
@@ -5658,24 +5663,24 @@ luaT_gettm.exit36.i:                              ; preds = %luaH_getstr.exit.i3
 
 644:                                              ; preds = %luaT_gettm.exit36.i
   switch i32 %608, label %653 [
-    i32 2, label %649
-    i32 3, label %luaO_rawequalObj.exit.i
-    i32 1, label %645
+    i32 2, label %luaO_rawequalObj.exit.i
+    i32 3, label %645
+    i32 1, label %649
   ]
 
 645:                                              ; preds = %644
-  %646 = load i32, ptr %.010.i.i.i, align 8, !tbaa !46
-  %647 = load i32, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %648 = icmp eq i32 %646, %647
-  %cond.fr45.i = freeze i1 %648
-  br i1 %cond.fr45.i, label %get_compTM.exit, label %luaV_equalval.exit
+  %646 = load double, ptr %.010.i.i.i, align 8, !tbaa !46
+  %647 = load double, ptr %.010.i.i34.i, align 8, !tbaa !46
+  %648 = fcmp oeq double %646, %647
+  %cond.fr44.i = freeze i1 %648
+  br i1 %cond.fr44.i, label %get_compTM.exit, label %luaV_equalval.exit
 
 649:                                              ; preds = %644
-  %650 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
-  %651 = load ptr, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %652 = icmp eq ptr %650, %651
-  %cond.fr44.i = freeze i1 %652
-  br i1 %cond.fr44.i, label %get_compTM.exit, label %luaV_equalval.exit
+  %650 = load i32, ptr %.010.i.i.i, align 8, !tbaa !46
+  %651 = load i32, ptr %.010.i.i34.i, align 8, !tbaa !46
+  %652 = icmp eq i32 %650, %651
+  %cond.fr45.i = freeze i1 %652
+  br i1 %cond.fr45.i, label %get_compTM.exit, label %luaV_equalval.exit
 
 653:                                              ; preds = %644
   %654 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
@@ -5685,9 +5690,9 @@ luaT_gettm.exit36.i:                              ; preds = %luaH_getstr.exit.i3
   br i1 %cond.fr43.i, label %get_compTM.exit, label %luaV_equalval.exit
 
 luaO_rawequalObj.exit.i:                          ; preds = %644
-  %657 = load double, ptr %.010.i.i.i, align 8, !tbaa !46
-  %658 = load double, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %659 = fcmp oeq double %657, %658
+  %657 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
+  %658 = load ptr, ptr %.010.i.i34.i, align 8, !tbaa !46
+  %659 = icmp eq ptr %657, %658
   %cond.fr.i = freeze i1 %659
   br i1 %cond.fr.i, label %get_compTM.exit, label %luaV_equalval.exit
 
@@ -5766,8 +5771,8 @@ callTMres.exit:                                   ; preds = %get_compTM.exit, %l
 .fold.split.i25:                                  ; preds = %callTMres.exit
   br label %luaV_equalval.exit
 
-luaV_equalval.exit:                               ; preds = %luaT_gettm.exit36.i, %645, %649, %653, %luaO_rawequalObj.exit.i, %642, %615, %613, %610, %578, %572, %.fold.split.i25, %700, %callTMres.exit, %568, %564, %560, %556, %552, %548, %547, %529
-  %.shrunk = phi i1 [ false, %529 ], [ %571, %568 ], [ %559, %556 ], [ %555, %552 ], [ %551, %548 ], [ true, %547 ], [ true, %560 ], [ true, %564 ], [ false, %callTMres.exit ], [ %702, %700 ], [ true, %.fold.split.i25 ], [ false, %572 ], [ false, %578 ], [ false, %610 ], [ false, %613 ], [ false, %615 ], [ false, %642 ], [ false, %luaO_rawequalObj.exit.i ], [ false, %653 ], [ false, %649 ], [ false, %645 ], [ false, %luaT_gettm.exit36.i ]
+luaV_equalval.exit:                               ; preds = %luaT_gettm.exit36.i, %649, %645, %653, %luaO_rawequalObj.exit.i, %642, %615, %613, %610, %578, %572, %.fold.split.i25, %700, %callTMres.exit, %568, %564, %560, %556, %552, %548, %547, %529
+  %.shrunk = phi i1 [ false, %529 ], [ %571, %568 ], [ %551, %548 ], [ %555, %552 ], [ %559, %556 ], [ true, %547 ], [ true, %560 ], [ true, %564 ], [ false, %callTMres.exit ], [ %702, %700 ], [ true, %.fold.split.i25 ], [ false, %572 ], [ false, %578 ], [ false, %610 ], [ false, %613 ], [ false, %615 ], [ false, %642 ], [ false, %luaO_rawequalObj.exit.i ], [ false, %653 ], [ false, %645 ], [ false, %649 ], [ false, %luaT_gettm.exit36.i ]
   %703 = zext i1 %.shrunk to i32
   %704 = icmp eq i32 %67, %703
   br i1 %704, label %705, label %711
@@ -5948,7 +5953,7 @@ l_strcmp.exit.i:                                  ; preds = %791, %789, %786, %7
   br label %810
 
 810:                                              ; preds = %805, %802, %799
-  %.0.in.i102 = phi ptr [ %809, %805 ], [ %804, %802 ], [ %801, %799 ]
+  %.0.in.i102 = phi ptr [ %809, %805 ], [ %801, %799 ], [ %804, %802 ]
   %.0.i103 = load ptr, ptr %.0.in.i102, align 8, !tbaa !46
   %.not.i104 = icmp eq ptr %.0.i103, null
   br i1 %.not.i104, label %luaT_gettmbyobj.exit110, label %811
@@ -6022,7 +6027,7 @@ luaT_gettmbyobj.exit110:                          ; preds = %829, %833, %810
   br label %852
 
 852:                                              ; preds = %847, %844, %841
-  %.0.in.i93 = phi ptr [ %851, %847 ], [ %846, %844 ], [ %843, %841 ]
+  %.0.in.i93 = phi ptr [ %851, %847 ], [ %843, %841 ], [ %846, %844 ]
   %.0.i94 = load ptr, ptr %.0.in.i93, align 8, !tbaa !46
   %.not.i95 = icmp eq ptr %.0.i94, null
   br i1 %.not.i95, label %luaT_gettmbyobj.exit101, label %853
@@ -6075,21 +6080,21 @@ luaT_gettmbyobj.exit101:                          ; preds = %871, %875, %852
 881:                                              ; preds = %luaT_gettmbyobj.exit101
   switch i32 %838, label %890 [
     i32 0, label %luaO_rawequalObj.exit92.thread120
-    i32 3, label %luaO_rawequalObj.exit92
-    i32 1, label %882
-    i32 2, label %886
+    i32 3, label %882
+    i32 1, label %886
+    i32 2, label %luaO_rawequalObj.exit92
   ]
 
 882:                                              ; preds = %881
-  %883 = load i32, ptr %836, align 8, !tbaa !46
-  %884 = load i32, ptr %878, align 8, !tbaa !46
-  %885 = icmp eq i32 %883, %884
+  %883 = load double, ptr %836, align 8, !tbaa !46
+  %884 = load double, ptr %878, align 8, !tbaa !46
+  %885 = fcmp oeq double %883, %884
   br i1 %885, label %luaO_rawequalObj.exit92.thread120, label %luaO_rawequalObj.exit92.thread
 
 886:                                              ; preds = %881
-  %887 = load ptr, ptr %836, align 8, !tbaa !46
-  %888 = load ptr, ptr %878, align 8, !tbaa !46
-  %889 = icmp eq ptr %887, %888
+  %887 = load i32, ptr %836, align 8, !tbaa !46
+  %888 = load i32, ptr %878, align 8, !tbaa !46
+  %889 = icmp eq i32 %887, %888
   br i1 %889, label %luaO_rawequalObj.exit92.thread120, label %luaO_rawequalObj.exit92.thread
 
 890:                                              ; preds = %881
@@ -6099,12 +6104,12 @@ luaT_gettmbyobj.exit101:                          ; preds = %871, %875, %852
   br i1 %893, label %luaO_rawequalObj.exit92.thread120, label %luaO_rawequalObj.exit92.thread
 
 luaO_rawequalObj.exit92:                          ; preds = %881
-  %894 = load double, ptr %836, align 8, !tbaa !46
-  %895 = load double, ptr %878, align 8, !tbaa !46
-  %896 = fcmp oeq double %894, %895
+  %894 = load ptr, ptr %836, align 8, !tbaa !46
+  %895 = load ptr, ptr %878, align 8, !tbaa !46
+  %896 = icmp eq ptr %894, %895
   br i1 %896, label %luaO_rawequalObj.exit92.thread120, label %luaO_rawequalObj.exit92.thread
 
-luaO_rawequalObj.exit92.thread120:                ; preds = %882, %886, %890, %881, %luaO_rawequalObj.exit92
+luaO_rawequalObj.exit92.thread120:                ; preds = %886, %882, %890, %881, %luaO_rawequalObj.exit92
   %897 = load ptr, ptr %44, align 8, !tbaa !62
   %898 = load ptr, ptr %51, align 8, !tbaa !30
   %899 = load i64, ptr %836, align 8, !tbaa !46
@@ -6179,7 +6184,7 @@ callTMres.exit337:                                ; preds = %luaO_rawequalObj.ex
 .fold.split.i.i:                                  ; preds = %callTMres.exit337
   br label %lessequal.exit
 
-luaO_rawequalObj.exit92.thread:                   ; preds = %882, %886, %890, %luaT_gettmbyobj.exit101, %luaT_gettmbyobj.exit110, %luaO_rawequalObj.exit92
+luaO_rawequalObj.exit92.thread:                   ; preds = %886, %882, %890, %luaT_gettmbyobj.exit101, %luaT_gettmbyobj.exit110, %luaO_rawequalObj.exit92
   switch i32 %752, label %946 [
     i32 5, label %940
     i32 7, label %943
@@ -6203,7 +6208,7 @@ luaO_rawequalObj.exit92.thread:                   ; preds = %882, %886, %890, %l
   br label %951
 
 951:                                              ; preds = %946, %943, %940
-  %.0.in.i80 = phi ptr [ %950, %946 ], [ %945, %943 ], [ %942, %940 ]
+  %.0.in.i80 = phi ptr [ %950, %946 ], [ %942, %940 ], [ %945, %943 ]
   %.0.i81 = load ptr, ptr %.0.in.i80, align 8, !tbaa !46
   %.not.i82 = icmp eq ptr %.0.i81, null
   br i1 %.not.i82, label %luaT_gettmbyobj.exit88, label %952
@@ -6277,7 +6282,7 @@ luaT_gettmbyobj.exit88:                           ; preds = %970, %974, %951
   br label %993
 
 993:                                              ; preds = %988, %985, %982
-  %.0.in.i = phi ptr [ %992, %988 ], [ %987, %985 ], [ %984, %982 ]
+  %.0.in.i = phi ptr [ %992, %988 ], [ %984, %982 ], [ %987, %985 ]
   %.0.i76 = load ptr, ptr %.0.in.i, align 8, !tbaa !46
   %.not.i77 = icmp eq ptr %.0.i76, null
   br i1 %.not.i77, label %luaT_gettmbyobj.exit, label %994
@@ -6330,21 +6335,21 @@ luaT_gettmbyobj.exit:                             ; preds = %1012, %1016, %993
 1022:                                             ; preds = %luaT_gettmbyobj.exit
   switch i32 %979, label %1031 [
     i32 0, label %luaO_rawequalObj.exit.thread129
-    i32 3, label %luaO_rawequalObj.exit
-    i32 1, label %1023
-    i32 2, label %1027
+    i32 3, label %1023
+    i32 1, label %1027
+    i32 2, label %luaO_rawequalObj.exit
   ]
 
 1023:                                             ; preds = %1022
-  %1024 = load i32, ptr %977, align 8, !tbaa !46
-  %1025 = load i32, ptr %1019, align 8, !tbaa !46
-  %1026 = icmp eq i32 %1024, %1025
+  %1024 = load double, ptr %977, align 8, !tbaa !46
+  %1025 = load double, ptr %1019, align 8, !tbaa !46
+  %1026 = fcmp oeq double %1024, %1025
   br i1 %1026, label %luaO_rawequalObj.exit.thread129, label %luaO_rawequalObj.exit.thread
 
 1027:                                             ; preds = %1022
-  %1028 = load ptr, ptr %977, align 8, !tbaa !46
-  %1029 = load ptr, ptr %1019, align 8, !tbaa !46
-  %1030 = icmp eq ptr %1028, %1029
+  %1028 = load i32, ptr %977, align 8, !tbaa !46
+  %1029 = load i32, ptr %1019, align 8, !tbaa !46
+  %1030 = icmp eq i32 %1028, %1029
   br i1 %1030, label %luaO_rawequalObj.exit.thread129, label %luaO_rawequalObj.exit.thread
 
 1031:                                             ; preds = %1022
@@ -6354,12 +6359,12 @@ luaT_gettmbyobj.exit:                             ; preds = %1012, %1016, %993
   br i1 %1034, label %luaO_rawequalObj.exit.thread129, label %luaO_rawequalObj.exit.thread
 
 luaO_rawequalObj.exit:                            ; preds = %1022
-  %1035 = load double, ptr %977, align 8, !tbaa !46
-  %1036 = load double, ptr %1019, align 8, !tbaa !46
-  %1037 = fcmp oeq double %1035, %1036
+  %1035 = load ptr, ptr %977, align 8, !tbaa !46
+  %1036 = load ptr, ptr %1019, align 8, !tbaa !46
+  %1037 = icmp eq ptr %1035, %1036
   br i1 %1037, label %luaO_rawequalObj.exit.thread129, label %luaO_rawequalObj.exit.thread
 
-luaO_rawequalObj.exit.thread129:                  ; preds = %1023, %1027, %1031, %1022, %luaO_rawequalObj.exit
+luaO_rawequalObj.exit.thread129:                  ; preds = %1027, %1023, %1031, %1022, %luaO_rawequalObj.exit
   %1038 = load ptr, ptr %44, align 8, !tbaa !62
   %1039 = load ptr, ptr %51, align 8, !tbaa !30
   %1040 = load i64, ptr %977, align 8, !tbaa !46
@@ -6434,7 +6439,7 @@ callTMres.exit341:                                ; preds = %luaO_rawequalObj.ex
 .fold.split.i31.i:                                ; preds = %callTMres.exit341
   br label %lessequal.exit
 
-luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit88, %luaT_gettmbyobj.exit, %1031, %1027, %1023
+luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit88, %luaT_gettmbyobj.exit, %1031, %1023, %1027
   %1080 = sext i32 %752 to i64
   %1081 = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %1080
   %1082 = load ptr, ptr %1081, align 8, !tbaa !70
@@ -7631,11 +7636,6 @@ luaC_step.exit72:                                 ; preds = %luaC_step.exit72.si
   %1673 = load ptr, ptr %42, align 8, !tbaa !86
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %1725, %1499, %96, %luaC_step.exit72, %1501, %1394, %luaV_tonumber.exit58.thread, %1134, %1110, %1090, %735, %711, %524, %luaC_step.exit23, %442, %239, %luaC_step.exit19, %164, %126, %116, %110, %99, %87, %79, %71, %149, %144, %132, %279, %274, %306, %301, %333, %328, %360, %355, %390, %382, %417, %412, %430, %426, %469, %456, %451, %1153, %1199, %1256, %1254, %1252, %1417, %.backedge, %157, %158, %1439, %1708
-  %.0707.i.be = phi ptr [ %64, %1708 ], [ %.11718.i, %1439 ], [ %64, %158 ], [ %64, %157 ], [ %64, %.backedge ], [ %.11718.i, %1417 ], [ %64, %1252 ], [ %64, %1254 ], [ %1260, %1256 ], [ %64, %1199 ], [ %64, %1153 ], [ %64, %451 ], [ %64, %456 ], [ %64, %469 ], [ %64, %426 ], [ %64, %430 ], [ %64, %412 ], [ %64, %417 ], [ %64, %382 ], [ %64, %390 ], [ %64, %355 ], [ %64, %360 ], [ %64, %328 ], [ %64, %333 ], [ %64, %301 ], [ %64, %306 ], [ %64, %274 ], [ %64, %279 ], [ %64, %132 ], [ %64, %144 ], [ %64, %149 ], [ %64, %71 ], [ %64, %79 ], [ %spec.select.i, %87 ], [ %64, %99 ], [ %64, %110 ], [ %64, %116 ], [ %64, %126 ], [ %64, %164 ], [ %64, %luaC_step.exit19 ], [ %64, %239 ], [ %64, %442 ], [ %64, %luaC_step.exit23 ], [ %528, %524 ], [ %713, %711 ], [ %737, %735 ], [ %1092, %1090 ], [ %1111, %1110 ], [ %1135, %1134 ], [ %1354, %luaV_tonumber.exit58.thread ], [ %1395, %1394 ], [ %64, %1501 ], [ %.12719.i.lcssa, %luaC_step.exit72 ], [ %64, %96 ], [ %.11718.i, %1499 ], [ %64, %1725 ]
-  %.0703.i.be = phi ptr [ %.12.i, %1708 ], [ %.0703.i, %1439 ], [ %.0703.i, %158 ], [ %.0703.i, %157 ], [ %.0703.i, %.backedge ], [ %.0703.i, %1417 ], [ %.0703.i, %1252 ], [ %.0703.i, %1254 ], [ %.0703.i, %1256 ], [ %1200, %1199 ], [ %1154, %1153 ], [ %.0703.i, %451 ], [ %.0703.i, %456 ], [ %470, %469 ], [ %.0703.i, %426 ], [ %431, %430 ], [ %.0703.i, %412 ], [ %418, %417 ], [ %.0703.i, %382 ], [ %391, %390 ], [ %.0703.i, %355 ], [ %361, %360 ], [ %.0703.i, %328 ], [ %334, %333 ], [ %.0703.i, %301 ], [ %307, %306 ], [ %.0703.i, %274 ], [ %280, %279 ], [ %.0703.i, %132 ], [ %.0703.i, %144 ], [ %.0703.i, %149 ], [ %.0703.i, %71 ], [ %.0703.i, %79 ], [ %.0703.i, %87 ], [ %.0703.i, %99 ], [ %115, %110 ], [ %125, %116 ], [ %131, %126 ], [ %177, %164 ], [ %238, %luaC_step.exit19 ], [ %253, %239 ], [ %.0703.i, %442 ], [ %516, %luaC_step.exit23 ], [ %.0703.i, %524 ], [ %712, %711 ], [ %736, %735 ], [ %1091, %1090 ], [ %.0703.i, %1110 ], [ %.0703.i, %1134 ], [ %.0703.i, %luaV_tonumber.exit58.thread ], [ %1376, %1394 ], [ %.0703.i, %1501 ], [ %1673, %luaC_step.exit72 ], [ %.0703.i, %96 ], [ %.0703.i, %1499 ], [ %.12.i, %1725 ]
-  br label %.backedge
-
 1674:                                             ; preds = %.backedge
   %1675 = lshr i32 %65, 23
   %1676 = add nsw i32 %1675, -1
@@ -7836,7 +7836,7 @@ define internal fastcc range(i32 0, 3) i32 @luaD_precall(ptr noundef %0, ptr nou
   br label %18
 
 18:                                               ; preds = %12, %9, %6
-  %.0.in.i.i = phi ptr [ %17, %12 ], [ %11, %9 ], [ %8, %6 ]
+  %.0.in.i.i = phi ptr [ %17, %12 ], [ %8, %6 ], [ %11, %9 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %luaT_gettmbyobj.exit.i, label %19
@@ -9565,7 +9565,7 @@ l_strcmp.exit:                                    ; preds = %40, %42, %.lr.ph.i,
   br label %61
 
 61:                                               ; preds = %55, %52, %49
-  %.0.in.i = phi ptr [ %60, %55 ], [ %54, %52 ], [ %51, %49 ]
+  %.0.in.i = phi ptr [ %60, %55 ], [ %51, %49 ], [ %54, %52 ]
   %.0.i23 = load ptr, ptr %.0.in.i, align 8, !tbaa !46
   %.not.i24 = icmp eq ptr %.0.i23, null
   br i1 %.not.i24, label %luaT_gettmbyobj.exit, label %62
@@ -9641,7 +9641,7 @@ luaT_gettmbyobj.exit:                             ; preds = %81, %85, %61
   br label %105
 
 105:                                              ; preds = %99, %96, %93
-  %.0.in.i25 = phi ptr [ %104, %99 ], [ %98, %96 ], [ %95, %93 ]
+  %.0.in.i25 = phi ptr [ %104, %99 ], [ %95, %93 ], [ %98, %96 ]
   %.0.i26 = load ptr, ptr %.0.in.i25, align 8, !tbaa !46
   %.not.i27 = icmp eq ptr %.0.i26, null
   br i1 %.not.i27, label %luaT_gettmbyobj.exit33, label %106
@@ -9695,21 +9695,21 @@ luaT_gettmbyobj.exit33:                           ; preds = %125, %129, %105
 135:                                              ; preds = %luaT_gettmbyobj.exit33
   switch i32 %90, label %144 [
     i32 0, label %luaO_rawequalObj.exit.thread39
-    i32 3, label %luaO_rawequalObj.exit
-    i32 1, label %136
-    i32 2, label %140
+    i32 3, label %136
+    i32 1, label %140
+    i32 2, label %luaO_rawequalObj.exit
   ]
 
 136:                                              ; preds = %135
-  %137 = load i32, ptr %88, align 8, !tbaa !46
-  %138 = load i32, ptr %132, align 8, !tbaa !46
-  %139 = icmp eq i32 %137, %138
+  %137 = load double, ptr %88, align 8, !tbaa !46
+  %138 = load double, ptr %132, align 8, !tbaa !46
+  %139 = fcmp oeq double %137, %138
   br i1 %139, label %luaO_rawequalObj.exit.thread39, label %luaO_rawequalObj.exit.thread
 
 140:                                              ; preds = %135
-  %141 = load ptr, ptr %88, align 8, !tbaa !46
-  %142 = load ptr, ptr %132, align 8, !tbaa !46
-  %143 = icmp eq ptr %141, %142
+  %141 = load i32, ptr %88, align 8, !tbaa !46
+  %142 = load i32, ptr %132, align 8, !tbaa !46
+  %143 = icmp eq i32 %141, %142
   br i1 %143, label %luaO_rawequalObj.exit.thread39, label %luaO_rawequalObj.exit.thread
 
 144:                                              ; preds = %135
@@ -9719,12 +9719,12 @@ luaT_gettmbyobj.exit33:                           ; preds = %125, %129, %105
   br i1 %147, label %luaO_rawequalObj.exit.thread39, label %luaO_rawequalObj.exit.thread
 
 luaO_rawequalObj.exit:                            ; preds = %135
-  %148 = load double, ptr %88, align 8, !tbaa !46
-  %149 = load double, ptr %132, align 8, !tbaa !46
-  %150 = fcmp oeq double %148, %149
+  %148 = load ptr, ptr %88, align 8, !tbaa !46
+  %149 = load ptr, ptr %132, align 8, !tbaa !46
+  %150 = icmp eq ptr %148, %149
   br i1 %150, label %luaO_rawequalObj.exit.thread39, label %luaO_rawequalObj.exit.thread
 
-luaO_rawequalObj.exit.thread39:                   ; preds = %136, %140, %144, %135, %luaO_rawequalObj.exit
+luaO_rawequalObj.exit.thread39:                   ; preds = %140, %136, %144, %135, %luaO_rawequalObj.exit
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %152 = load ptr, ptr %151, align 8, !tbaa !62
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -9804,7 +9804,7 @@ callTMres.exit:                                   ; preds = %luaO_rawequalObj.ex
 .fold.split.i:                                    ; preds = %callTMres.exit
   br label %luaG_ordererror.exit
 
-luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit, %luaT_gettmbyobj.exit33, %144, %140, %136
+luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit, %luaT_gettmbyobj.exit33, %144, %136, %140
   %199 = sext i32 %5 to i64
   %200 = getelementptr inbounds [11 x ptr], ptr @luaT_typenames, i64 0, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !70
@@ -10011,8 +10011,8 @@ hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preh
   br label %mainposition.exit.preheader
 
 mainposition.exit.preheader:                      ; preds = %72, %.critedge.i.i27, %86, %98, %112
-  %.ph = phi i32 [ %34, %.critedge.i.i27 ], [ %34, %72 ], [ %89, %86 ], [ %111, %98 ], [ %125, %112 ]
-  %.0.ph = phi ptr [ %85, %.critedge.i.i27 ], [ %74, %72 ], [ %97, %86 ], [ %110, %98 ], [ %124, %112 ]
+  %.ph = phi i32 [ %34, %.critedge.i.i27 ], [ %34, %72 ], [ %111, %98 ], [ %89, %86 ], [ %125, %112 ]
+  %.0.ph = phi ptr [ %85, %.critedge.i.i27 ], [ %74, %72 ], [ %110, %98 ], [ %97, %86 ], [ %124, %112 ]
   br label %mainposition.exit
 
 mainposition.exit:                                ; preds = %mainposition.exit.preheader, %luaO_rawequalObj.exit.thread
@@ -10027,23 +10027,23 @@ mainposition.exit:                                ; preds = %mainposition.exit.p
 130:                                              ; preds = %mainposition.exit
   switch i32 %4, label %140 [
     i32 0, label %luaH_getstr.exit
-    i32 3, label %luaO_rawequalObj.exit
-    i32 1, label %131
-    i32 2, label %134
+    i32 3, label %131
+    i32 1, label %137
+    i32 2, label %luaO_rawequalObj.exit
   ]
 
 131:                                              ; preds = %130
-  %132 = load i32, ptr %127, align 8, !tbaa !46
-  %133 = icmp eq i32 %132, %126
-  br i1 %133, label %luaH_getstr.exit, label %luaO_rawequalObj.exit.thread
+  %132 = load double, ptr %127, align 8, !tbaa !46
+  %133 = load double, ptr %1, align 8
+  %134 = fcmp oeq double %132, %133
+  %135 = bitcast double %133 to i64
+  %136 = trunc i64 %135 to i32
+  br i1 %134, label %luaH_getstr.exit, label %luaO_rawequalObj.exit.thread
 
-134:                                              ; preds = %130
-  %135 = load ptr, ptr %127, align 8, !tbaa !46
-  %136 = load ptr, ptr %1, align 8
-  %137 = icmp eq ptr %135, %136
-  %138 = ptrtoint ptr %136 to i64
-  %139 = trunc i64 %138 to i32
-  br i1 %137, label %luaH_getstr.exit, label %luaO_rawequalObj.exit.thread
+137:                                              ; preds = %130
+  %138 = load i32, ptr %127, align 8, !tbaa !46
+  %139 = icmp eq i32 %138, %126
+  br i1 %139, label %luaH_getstr.exit, label %luaO_rawequalObj.exit.thread
 
 140:                                              ; preds = %130
   %141 = load ptr, ptr %127, align 8, !tbaa !46
@@ -10054,22 +10054,22 @@ mainposition.exit:                                ; preds = %mainposition.exit.p
   br i1 %143, label %luaH_getstr.exit, label %luaO_rawequalObj.exit.thread
 
 luaO_rawequalObj.exit:                            ; preds = %130
-  %146 = load double, ptr %127, align 8, !tbaa !46
-  %147 = load double, ptr %1, align 8
-  %148 = fcmp oeq double %146, %147
-  %149 = bitcast double %147 to i64
+  %146 = load ptr, ptr %127, align 8, !tbaa !46
+  %147 = load ptr, ptr %1, align 8
+  %148 = icmp eq ptr %146, %147
+  %149 = ptrtoint ptr %147 to i64
   %150 = trunc i64 %149 to i32
   br i1 %148, label %luaH_getstr.exit, label %luaO_rawequalObj.exit.thread
 
-luaO_rawequalObj.exit.thread:                     ; preds = %131, %134, %140, %mainposition.exit, %luaO_rawequalObj.exit
-  %151 = phi i32 [ %126, %mainposition.exit ], [ %150, %luaO_rawequalObj.exit ], [ %145, %140 ], [ %139, %134 ], [ %126, %131 ]
+luaO_rawequalObj.exit.thread:                     ; preds = %137, %131, %140, %mainposition.exit, %luaO_rawequalObj.exit
+  %151 = phi i32 [ %126, %mainposition.exit ], [ %150, %luaO_rawequalObj.exit ], [ %145, %140 ], [ %136, %131 ], [ %126, %137 ]
   %152 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %153 = load ptr, ptr %152, align 8, !tbaa !46
   %.not20 = icmp eq ptr %153, null
   br i1 %.not20, label %luaH_getstr.exit, label %mainposition.exit, !llvm.loop !203
 
-luaH_getstr.exit:                                 ; preds = %64, %68, %25, %21, %130, %luaO_rawequalObj.exit, %luaO_rawequalObj.exit.thread, %140, %134, %131, %2, %luaH_getnum.exit.thread34
-  %.018 = phi ptr [ @luaO_nilobject_, %2 ], [ %43, %luaH_getnum.exit.thread34 ], [ %.0, %131 ], [ %.0, %134 ], [ %.0, %140 ], [ %.0, %130 ], [ @luaO_nilobject_, %luaO_rawequalObj.exit.thread ], [ %.0, %luaO_rawequalObj.exit ], [ @luaO_nilobject_, %25 ], [ %.0.i, %21 ], [ %.0.i22, %64 ], [ @luaO_nilobject_, %68 ]
+luaH_getstr.exit:                                 ; preds = %64, %68, %25, %21, %130, %luaO_rawequalObj.exit, %luaO_rawequalObj.exit.thread, %140, %131, %137, %2, %luaH_getnum.exit.thread34
+  %.018 = phi ptr [ @luaO_nilobject_, %2 ], [ %43, %luaH_getnum.exit.thread34 ], [ %.0, %137 ], [ %.0, %131 ], [ %.0, %140 ], [ %.0, %130 ], [ @luaO_nilobject_, %luaO_rawequalObj.exit.thread ], [ %.0, %luaO_rawequalObj.exit ], [ @luaO_nilobject_, %25 ], [ %.0.i, %21 ], [ %.0.i22, %64 ], [ @luaO_nilobject_, %68 ]
   ret ptr %.018
 }
 
@@ -10176,8 +10176,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %mainposition.exit
 
 mainposition.exit:                                ; preds = %16, %.critedge.i.i, %28, %40, %50, %61
-  %72 = phi ptr [ %62, %61 ], [ %51, %50 ], [ %41, %40 ], [ %29, %28 ], [ %17, %16 ], [ %20, %.critedge.i.i ]
-  %.0.i = phi ptr [ %71, %61 ], [ %60, %50 ], [ %49, %40 ], [ %39, %28 ], [ %17, %16 ], [ %27, %.critedge.i.i ]
+  %72 = phi ptr [ %62, %61 ], [ %29, %28 ], [ %41, %40 ], [ %51, %50 ], [ %17, %16 ], [ %20, %.critedge.i.i ]
+  %.0.i = phi ptr [ %71, %61 ], [ %39, %28 ], [ %49, %40 ], [ %60, %50 ], [ %17, %16 ], [ %27, %.critedge.i.i ]
   %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !204
   %75 = icmp ne i32 %74, 0
@@ -10537,7 +10537,7 @@ getfreepos.exit:                                  ; preds = %82
   br label %mainposition.exit66
 
 mainposition.exit66:                              ; preds = %190, %.critedge.i.i62, %202, %213, %222, %232
-  %.0.i59 = phi ptr [ %241, %232 ], [ %231, %222 ], [ %221, %213 ], [ %212, %202 ], [ %201, %.critedge.i.i62 ], [ %72, %190 ]
+  %.0.i59 = phi ptr [ %241, %232 ], [ %212, %202 ], [ %221, %213 ], [ %231, %222 ], [ %201, %.critedge.i.i62 ], [ %72, %190 ]
   %.not = icmp eq ptr %.0.i59, %.0.i
   br i1 %.not, label %247, label %.preheader
 
@@ -11759,7 +11759,7 @@ checkSizes.exit:                                  ; preds = %238, %luaM_realloc_
   br label %290
 
 290:                                              ; preds = %1, %282, %286, %288, %274, %214, %atomic.exit, %52, %markroot.exit
-  %.0 = phi i64 [ 0, %288 ], [ 400, %274 ], [ 10, %214 ], [ %53, %52 ], [ 0, %atomic.exit ], [ 0, %markroot.exit ], [ 100, %286 ], [ 100, %282 ], [ 0, %1 ]
+  %.0 = phi i64 [ 0, %markroot.exit ], [ %53, %52 ], [ 0, %atomic.exit ], [ 10, %214 ], [ 400, %274 ], [ 0, %288 ], [ 100, %286 ], [ 100, %282 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -12562,7 +12562,7 @@ traverseproto.exit:                               ; preds = %.preheader.i51.trav
   br label %406
 
 406:                                              ; preds = %1, %traverseproto.exit, %traversestack.exit, %traverseclosure.exit, %152
-  %.0 = phi i64 [ %405, %traverseproto.exit ], [ %306, %traversestack.exit ], [ %222, %traverseclosure.exit ], [ %162, %152 ], [ 0, %1 ]
+  %.0 = phi i64 [ %162, %152 ], [ %222, %traverseclosure.exit ], [ %306, %traversestack.exit ], [ %405, %traverseproto.exit ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -14850,9 +14850,9 @@ mainposition.exit.i.i.i:                          ; preds = %lua_settop.exit
   br i1 %101, label %mainposition.exit.split.preheader.i.i.i, label %mainposition.exit.split.us.preheader.i.i.i
 
 mainposition.exit.split.us.preheader.i.i.i:       ; preds = %mainposition.exit.i.i.i, %74, %62, %.critedge.i.i.i.i.i, %33
-  %.0.i43.i.i.i = phi ptr [ %99, %mainposition.exit.i.i.i ], [ %46, %.critedge.i.i.i.i.i ], [ %35, %33 ], [ %73, %62 ], [ %86, %74 ]
-  %102 = phi i32 [ %100, %mainposition.exit.i.i.i ], [ %25, %.critedge.i.i.i.i.i ], [ %25, %33 ], [ %65, %62 ], [ %87, %74 ]
-  %103 = phi ptr [ %89, %mainposition.exit.i.i.i ], [ %38, %.critedge.i.i.i.i.i ], [ %35, %33 ], [ %64, %62 ], [ %76, %74 ]
+  %.0.i43.i.i.i = phi ptr [ %99, %mainposition.exit.i.i.i ], [ %46, %.critedge.i.i.i.i.i ], [ %35, %33 ], [ %86, %74 ], [ %73, %62 ]
+  %102 = phi i32 [ %100, %mainposition.exit.i.i.i ], [ %25, %.critedge.i.i.i.i.i ], [ %25, %33 ], [ %87, %74 ], [ %65, %62 ]
+  %103 = phi ptr [ %89, %mainposition.exit.i.i.i ], [ %38, %.critedge.i.i.i.i.i ], [ %35, %33 ], [ %76, %74 ], [ %64, %62 ]
   br label %mainposition.exit.split.us.i.i.i
 
 mainposition.exit.split.preheader.i.i.i:          ; preds = %mainposition.exit.i.i.i, %mainposition.exit.thread44.i.i.i
@@ -14877,23 +14877,23 @@ mainposition.exit.split.us.i.i.i:                 ; preds = %luaO_rawequalObj.ex
 112:                                              ; preds = %mainposition.exit.split.us.i.i.i
   switch i32 %18, label %122 [
     i32 0, label %luaO_rawequalObj.exit.thread32.i.i.i
-    i32 3, label %luaO_rawequalObj.exit.us.i.i.i
-    i32 1, label %119
-    i32 2, label %113
+    i32 3, label %116
+    i32 1, label %113
+    i32 2, label %luaO_rawequalObj.exit.us.i.i.i
   ]
 
 113:                                              ; preds = %112
-  %114 = load ptr, ptr %109, align 8, !tbaa !46
-  %115 = load ptr, ptr %16, align 8
-  %116 = icmp eq ptr %114, %115
-  %117 = ptrtoint ptr %115 to i64
-  %118 = trunc i64 %117 to i32
-  br i1 %116, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.us.i.i.i
+  %114 = load i32, ptr %109, align 8, !tbaa !46
+  %115 = icmp eq i32 %114, %108
+  br i1 %115, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.us.i.i.i
 
-119:                                              ; preds = %112
-  %120 = load i32, ptr %109, align 8, !tbaa !46
-  %121 = icmp eq i32 %120, %108
-  br i1 %121, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.us.i.i.i
+116:                                              ; preds = %112
+  %117 = load double, ptr %109, align 8, !tbaa !46
+  %118 = load double, ptr %16, align 8
+  %119 = fcmp oeq double %117, %118
+  %120 = bitcast double %118 to i64
+  %121 = trunc i64 %120 to i32
+  br i1 %119, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.us.i.i.i
 
 122:                                              ; preds = %112
   %123 = load ptr, ptr %109, align 8, !tbaa !46
@@ -14904,15 +14904,15 @@ mainposition.exit.split.us.i.i.i:                 ; preds = %luaO_rawequalObj.ex
   br i1 %125, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.us.i.i.i
 
 luaO_rawequalObj.exit.us.i.i.i:                   ; preds = %112
-  %128 = load double, ptr %109, align 8, !tbaa !46
-  %129 = load double, ptr %16, align 8
-  %130 = fcmp oeq double %128, %129
-  %131 = bitcast double %129 to i64
+  %128 = load ptr, ptr %109, align 8, !tbaa !46
+  %129 = load ptr, ptr %16, align 8
+  %130 = icmp eq ptr %128, %129
+  %131 = ptrtoint ptr %129 to i64
   %132 = trunc i64 %131 to i32
   br i1 %130, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.us.i.i.i
 
-luaO_rawequalObj.exit.thread.us.i.i.i:            ; preds = %luaO_rawequalObj.exit.us.i.i.i, %122, %119, %113, %mainposition.exit.split.us.i.i.i
-  %133 = phi i32 [ %132, %luaO_rawequalObj.exit.us.i.i.i ], [ %108, %mainposition.exit.split.us.i.i.i ], [ %127, %122 ], [ %118, %113 ], [ %108, %119 ]
+luaO_rawequalObj.exit.thread.us.i.i.i:            ; preds = %luaO_rawequalObj.exit.us.i.i.i, %122, %116, %113, %mainposition.exit.split.us.i.i.i
+  %133 = phi i32 [ %132, %luaO_rawequalObj.exit.us.i.i.i ], [ %108, %mainposition.exit.split.us.i.i.i ], [ %127, %122 ], [ %121, %116 ], [ %108, %113 ]
   %134 = getelementptr inbounds nuw i8, ptr %.0.us.i.i.i, i64 32
   %135 = load ptr, ptr %134, align 8, !tbaa !46
   %.not25.us.i.i.i = icmp eq ptr %135, null
@@ -14929,38 +14929,38 @@ mainposition.exit.split.i.i.i:                    ; preds = %170, %mainposition.
   br i1 %.not.i.i.i.i, label %141, label %luaO_rawequalObj.exit.thread.i.i.i
 
 141:                                              ; preds = %mainposition.exit.split.i.i.i
-  switch i32 %18, label %150 [
+  switch i32 %18, label %148 [
     i32 0, label %luaO_rawequalObj.exit.thread32.i.i.i
-    i32 3, label %luaO_rawequalObj.exit.i.i.i
-    i32 1, label %142
-    i32 2, label %145
+    i32 3, label %142
+    i32 1, label %145
+    i32 2, label %luaO_rawequalObj.exit.i.i.i
   ]
 
 142:                                              ; preds = %141
-  %143 = load i32, ptr %138, align 8, !tbaa !46
-  %144 = icmp eq i32 %143, %137
+  %143 = load double, ptr %138, align 8, !tbaa !46
+  %144 = fcmp oeq double %143, %106
   br i1 %144, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.i.i.i
 
 145:                                              ; preds = %141
-  %146 = load ptr, ptr %138, align 8, !tbaa !46
-  %147 = icmp eq ptr %146, %136
-  %148 = ptrtoint ptr %136 to i64
-  %149 = trunc i64 %148 to i32
+  %146 = load i32, ptr %138, align 8, !tbaa !46
+  %147 = icmp eq i32 %146, %137
   br i1 %147, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.i.i.i
 
-150:                                              ; preds = %141
-  %151 = load ptr, ptr %138, align 8, !tbaa !46
-  %152 = icmp eq ptr %151, %104
-  br i1 %152, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.i.i.i
+148:                                              ; preds = %141
+  %149 = load ptr, ptr %138, align 8, !tbaa !46
+  %150 = icmp eq ptr %149, %104
+  br i1 %150, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.i.i.i
 
 luaO_rawequalObj.exit.i.i.i:                      ; preds = %141
-  %153 = load double, ptr %138, align 8, !tbaa !46
-  %154 = fcmp oeq double %153, %106
-  br i1 %154, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.i.i.i
+  %151 = load ptr, ptr %138, align 8, !tbaa !46
+  %152 = icmp eq ptr %151, %136
+  %153 = ptrtoint ptr %136 to i64
+  %154 = trunc i64 %153 to i32
+  br i1 %152, label %luaO_rawequalObj.exit.thread32.i.i.i, label %luaO_rawequalObj.exit.thread.i.i.i
 
-luaO_rawequalObj.exit.thread.i.i.i:               ; preds = %luaO_rawequalObj.exit.i.i.i, %150, %145, %142, %mainposition.exit.split.i.i.i
-  %155 = phi ptr [ %136, %mainposition.exit.split.i.i.i ], [ %107, %luaO_rawequalObj.exit.i.i.i ], [ %104, %150 ], [ %136, %145 ], [ %136, %142 ]
-  %156 = phi i32 [ %137, %mainposition.exit.split.i.i.i ], [ %.pre-phi31.i, %luaO_rawequalObj.exit.i.i.i ], [ %.pre-phi31.i, %150 ], [ %149, %145 ], [ %137, %142 ]
+luaO_rawequalObj.exit.thread.i.i.i:               ; preds = %luaO_rawequalObj.exit.i.i.i, %148, %145, %142, %mainposition.exit.split.i.i.i
+  %155 = phi ptr [ %136, %mainposition.exit.split.i.i.i ], [ %136, %luaO_rawequalObj.exit.i.i.i ], [ %104, %148 ], [ %107, %142 ], [ %136, %145 ]
+  %156 = phi i32 [ %137, %mainposition.exit.split.i.i.i ], [ %154, %luaO_rawequalObj.exit.i.i.i ], [ %.pre-phi31.i, %148 ], [ %.pre-phi31.i, %142 ], [ %137, %145 ]
   %157 = icmp eq i32 %140, 11
   br i1 %157, label %158, label %170
 
@@ -14969,9 +14969,9 @@ luaO_rawequalObj.exit.thread.i.i.i:               ; preds = %luaO_rawequalObj.ex
   %160 = icmp eq ptr %159, %104
   br i1 %160, label %luaO_rawequalObj.exit.thread32.i.i.i, label %170
 
-luaO_rawequalObj.exit.thread32.i.i.i:             ; preds = %luaO_rawequalObj.exit.us.i.i.i, %122, %119, %113, %112, %158, %luaO_rawequalObj.exit.i.i.i, %150, %145, %142, %141
-  %161 = phi ptr [ %105, %141 ], [ %105, %142 ], [ %105, %145 ], [ %105, %150 ], [ %105, %luaO_rawequalObj.exit.i.i.i ], [ %105, %158 ], [ %103, %112 ], [ %103, %113 ], [ %103, %119 ], [ %103, %122 ], [ %103, %luaO_rawequalObj.exit.us.i.i.i ]
-  %.us-phi.i.i.i = phi ptr [ %.0.i.i.i, %141 ], [ %.0.i.i.i, %142 ], [ %.0.i.i.i, %145 ], [ %.0.i.i.i, %150 ], [ %.0.i.i.i, %luaO_rawequalObj.exit.i.i.i ], [ %.0.i.i.i, %158 ], [ %.0.us.i.i.i, %112 ], [ %.0.us.i.i.i, %113 ], [ %.0.us.i.i.i, %119 ], [ %.0.us.i.i.i, %122 ], [ %.0.us.i.i.i, %luaO_rawequalObj.exit.us.i.i.i ]
+luaO_rawequalObj.exit.thread32.i.i.i:             ; preds = %luaO_rawequalObj.exit.us.i.i.i, %122, %116, %113, %112, %158, %luaO_rawequalObj.exit.i.i.i, %148, %145, %142, %141
+  %161 = phi ptr [ %105, %141 ], [ %105, %142 ], [ %105, %145 ], [ %105, %148 ], [ %105, %luaO_rawequalObj.exit.i.i.i ], [ %105, %158 ], [ %103, %112 ], [ %103, %113 ], [ %103, %116 ], [ %103, %122 ], [ %103, %luaO_rawequalObj.exit.us.i.i.i ]
+  %.us-phi.i.i.i = phi ptr [ %.0.i.i.i, %141 ], [ %.0.i.i.i, %142 ], [ %.0.i.i.i, %145 ], [ %.0.i.i.i, %148 ], [ %.0.i.i.i, %luaO_rawequalObj.exit.i.i.i ], [ %.0.i.i.i, %158 ], [ %.0.us.i.i.i, %112 ], [ %.0.us.i.i.i, %113 ], [ %.0.us.i.i.i, %116 ], [ %.0.us.i.i.i, %122 ], [ %.0.us.i.i.i, %luaO_rawequalObj.exit.us.i.i.i ]
   %162 = ptrtoint ptr %.us-phi.i.i.i to i64
   %163 = ptrtoint ptr %161 to i64
   %164 = sub i64 %162, %163
@@ -15498,7 +15498,7 @@ lua_type.exit.thread:                             ; preds = %lua_toboolean.exit.
   br label %140
 
 140:                                              ; preds = %134, %131, %128
-  %.0.in.i = phi ptr [ %139, %134 ], [ %133, %131 ], [ %130, %128 ]
+  %.0.in.i = phi ptr [ %139, %134 ], [ %130, %128 ], [ %133, %131 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !46
   %141 = icmp eq ptr %.0.i, null
   br i1 %141, label %.critedge, label %142
@@ -15585,7 +15585,7 @@ lua_toboolean.exit28:                             ; preds = %142
   br label %182
 
 182:                                              ; preds = %176, %173, %170
-  %.0.in.i31 = phi ptr [ %181, %176 ], [ %175, %173 ], [ %172, %170 ]
+  %.0.in.i31 = phi ptr [ %181, %176 ], [ %172, %170 ], [ %175, %173 ]
   %.0.i32 = load ptr, ptr %.0.in.i31, align 8, !tbaa !46
   %183 = icmp eq ptr %.0.i32, null
   br i1 %183, label %lua_getmetatable.exit34, label %184
@@ -18935,7 +18935,7 @@ define internal fastcc void @luaL_typerror(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not.i.i, label %lua_typename.exit, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %37, %35, %25, %21, %15, %5
-  %.1.i.i = phi ptr [ %19, %15 ], [ %50, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ], [ %10, %5 ]
+  %.1.i.i = phi ptr [ %19, %15 ], [ %50, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ], [ %10, %5 ]
   %51 = icmp eq ptr %.1.i.i, @luaO_nilobject_
   br i1 %51, label %lua_typename.exit, label %lua_type.exit
 
@@ -19076,7 +19076,7 @@ define internal fastcc i64 @lua_tointeger(ptr noundef captures(none) %0, i32 nou
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !69
   switch i32 %53, label %luaV_tonumber.exit [
@@ -19236,7 +19236,7 @@ define internal fastcc range(i32 0, 2) i32 @lua_isnumber(ptr noundef captures(no
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !69
   switch i32 %53, label %luaV_tonumber.exit [
@@ -22678,7 +22678,7 @@ exprstat.exit:                                    ; preds = %1217, %1227
   br label %statement.exit
 
 statement.exit:                                   ; preds = %ifstat.exit, %whilestat.exit, %luaX_next.exit51, %forstat.exit, %repeatstat.exit, %body.exit, %luaK_reserveregs.exit.i, %localstat.exit, %retstat.exit, %luaX_next.exit, %exprstat.exit
-  %.not = phi i1 [ true, %exprstat.exit ], [ false, %luaX_next.exit ], [ false, %retstat.exit ], [ true, %body.exit ], [ true, %repeatstat.exit ], [ true, %forstat.exit ], [ true, %luaX_next.exit51 ], [ true, %whilestat.exit ], [ true, %ifstat.exit ], [ true, %localstat.exit ], [ true, %luaK_reserveregs.exit.i ]
+  %.not = phi i1 [ true, %exprstat.exit ], [ true, %ifstat.exit ], [ true, %whilestat.exit ], [ true, %luaX_next.exit51 ], [ true, %forstat.exit ], [ true, %repeatstat.exit ], [ true, %body.exit ], [ false, %retstat.exit ], [ false, %luaX_next.exit ], [ true, %localstat.exit ], [ true, %luaK_reserveregs.exit.i ]
   %1228 = load i32, ptr %32, align 8, !tbaa !301
   %1229 = icmp eq i32 %1228, 59
   br i1 %1229, label %1230, label %testnext.exit
@@ -24129,7 +24129,7 @@ luaZ_fill.exit79.i:                               ; preds = %432, %421
   br label %thread-pre-split.i, !llvm.loop !343
 
 450:                                              ; preds = %370, %369, %368, %367, %366, %365, %363
-  %.058.i = phi i32 [ 11, %370 ], [ 9, %369 ], [ 13, %368 ], [ 10, %367 ], [ 12, %366 ], [ 8, %365 ], [ 7, %363 ]
+  %.058.i = phi i32 [ 8, %365 ], [ 12, %366 ], [ 10, %367 ], [ 13, %368 ], [ 9, %369 ], [ 11, %370 ], [ 7, %363 ]
   call fastcc void @save(ptr noundef nonnull %0, i32 noundef %.058.i)
   %451 = load ptr, ptr %25, align 8, !tbaa !288
   %452 = load i64, ptr %451, align 8, !tbaa !293
@@ -24670,7 +24670,7 @@ luaZ_fill.exit194:                                ; preds = %691, %702
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %26, %599, %check_next.exit188, %724, %727, %630, %288, %245, %202, %159, %129, %130, %740, %677, %637, %read_string.exit, %302, %259, %216, %173
-  %.0 = phi i32 [ 284, %677 ], [ %27, %740 ], [ 284, %637 ], [ 286, %read_string.exit ], [ 283, %302 ], [ 281, %259 ], [ 282, %216 ], [ 280, %173 ], [ 286, %129 ], [ 91, %130 ], [ 61, %159 ], [ 60, %202 ], [ 62, %245 ], [ 126, %288 ], [ 46, %630 ], [ %726, %724 ], [ 285, %727 ], [ 279, %check_next.exit188 ], [ 278, %599 ], [ 287, %26 ], [ 45, %56 ]
+  %.0 = phi i32 [ 284, %677 ], [ %27, %740 ], [ 280, %173 ], [ 282, %216 ], [ 281, %259 ], [ 283, %302 ], [ 286, %read_string.exit ], [ 284, %637 ], [ 286, %129 ], [ 91, %130 ], [ 61, %159 ], [ 60, %202 ], [ 62, %245 ], [ 126, %288 ], [ 46, %630 ], [ %726, %724 ], [ 285, %727 ], [ 279, %check_next.exit188 ], [ 278, %599 ], [ 287, %26 ], [ 45, %56 ]
   ret i32 %.0
 }
 
@@ -26787,8 +26787,8 @@ enterlevel.exit:                                  ; preds = %3
 18:                                               ; preds = %enterlevel.exit
   br label %19
 
-19:                                               ; preds = %enterlevel.exit, %18, %17
-  %.0.i.ph = phi i32 [ 1, %enterlevel.exit ], [ 0, %17 ], [ 2, %18 ]
+19:                                               ; preds = %enterlevel.exit, %17, %18
+  %.0.i.ph = phi i32 [ 1, %enterlevel.exit ], [ 2, %18 ], [ 0, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !290
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27345,8 +27345,8 @@ simpleexp.exit:                                   ; preds = %simpleexp.exitthrea
 250:                                              ; preds = %simpleexp.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %simpleexp.exit
-  %.0.i30.ph = phi i32 [ 0, %simpleexp.exit ], [ 1, %237 ], [ 2, %238 ], [ 3, %239 ], [ 4, %240 ], [ 5, %241 ], [ 6, %242 ], [ 7, %243 ], [ 8, %244 ], [ 9, %245 ], [ 10, %246 ], [ 11, %247 ], [ 12, %248 ], [ 13, %249 ], [ 14, %250 ]
+.lr.ph:                                           ; preds = %237, %238, %239, %240, %241, %242, %243, %244, %245, %246, %247, %248, %249, %250, %simpleexp.exit
+  %.0.i30.ph = phi i32 [ 0, %simpleexp.exit ], [ 14, %250 ], [ 13, %249 ], [ 12, %248 ], [ 11, %247 ], [ 10, %246 ], [ 9, %245 ], [ 8, %244 ], [ 7, %243 ], [ 6, %242 ], [ 5, %241 ], [ 4, %240 ], [ 3, %239 ], [ 2, %238 ], [ 1, %237 ]
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -28489,7 +28489,7 @@ isnumeral.exit29.i:                               ; preds = %16
   br label %48
 
 48:                                               ; preds = %46, %44, %39, %35, %31, %29, %27
-  %.0.i = phi double [ %47, %46 ], [ %45, %44 ], [ %43, %39 ], [ %36, %35 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.0.i = phi double [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %36, %35 ], [ %43, %39 ], [ %45, %44 ], [ %47, %46 ]
   %49 = fcmp ord double %.0.i, 0.000000e+00
   br i1 %49, label %constfolding.exit, label %50
 
@@ -29794,7 +29794,7 @@ luaK_exp2val.exit:                                ; preds = %11, %13
   br label %48
 
 48:                                               ; preds = %46, %44, %36
-  %.0 = phi i32 [ %47, %46 ], [ %45, %44 ], [ %39, %36 ]
+  %.0 = phi i32 [ %47, %46 ], [ %39, %36 ], [ %45, %44 ]
   ret i32 %.0
 }
 
@@ -32382,7 +32382,7 @@ freeexp.exit:                                     ; preds = %discharge2anyreg.ex
   br label %54
 
 54:                                               ; preds = %16, %freeexp.exit
-  %.1 = phi i32 [ %22, %16 ], [ %53, %freeexp.exit ]
+  %.1 = phi i32 [ %53, %freeexp.exit ], [ %22, %16 ]
   ret i32 %.1
 }
 
@@ -33964,7 +33964,7 @@ define internal fastcc double @lua_tonumber(ptr noundef captures(none) %0, i32 n
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !69
   switch i32 %53, label %luaV_tonumber.exit [
@@ -34122,7 +34122,7 @@ define internal fastcc i64 @lua_objlen(ptr noundef %0, i32 noundef range(i32 -21
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !69
   switch i32 %53, label %73 [
@@ -34164,7 +34164,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %73
 
 73:                                               ; preds = %index2adr.exit, %66, %62, %58, %54
-  %.0 = phi i64 [ %65, %62 ], [ %61, %58 ], [ %57, %54 ], [ %72, %66 ], [ 0, %index2adr.exit ]
+  %.0 = phi i64 [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ %72, %66 ], [ 0, %index2adr.exit ]
   ret i64 %.0
 }
 
@@ -34774,7 +34774,7 @@ luaC_step.exit.i.i:                               ; preds = %154, %151, %148
   br label %lua_objlen.exit.i
 
 lua_objlen.exit.i:                                ; preds = %191, %187, %183, %179, %172
-  %.0.i.i = phi i64 [ %190, %187 ], [ %186, %183 ], [ %182, %179 ], [ %197, %191 ], [ 0, %172 ]
+  %.0.i.i = phi i64 [ %182, %179 ], [ %186, %183 ], [ %190, %187 ], [ %197, %191 ], [ 0, %172 ]
   %198 = getelementptr inbounds nuw i8, ptr %173, i64 120
   %199 = getelementptr inbounds nuw i8, ptr %173, i64 40
   %200 = getelementptr inbounds nuw i8, ptr %173, i64 136
@@ -34837,7 +34837,7 @@ lua_objlen.exit.i:                                ; preds = %191, %187, %183, %1
   br label %index2adr.exit.i49
 
 index2adr.exit.i49:                               ; preds = %209, %221, %214, %211, %206
-  %.1.i.i = phi ptr [ %208, %206 ], [ %233, %221 ], [ %200, %214 ], [ %213, %211 ], [ %198, %209 ]
+  %.1.i.i = phi ptr [ %208, %206 ], [ %233, %221 ], [ %213, %211 ], [ %200, %214 ], [ %198, %209 ]
   %234 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %235 = load i32, ptr %234, align 8, !tbaa !69
   switch i32 %235, label %lua_objlen.exit [
@@ -34879,7 +34879,7 @@ index2adr.exit.i49:                               ; preds = %209, %221, %214, %2
   br label %lua_objlen.exit
 
 lua_objlen.exit:                                  ; preds = %index2adr.exit.i49, %236, %240, %244, %248
-  %.0.i50 = phi i64 [ %247, %244 ], [ %243, %240 ], [ %239, %236 ], [ %254, %248 ], [ 0, %index2adr.exit.i49 ]
+  %.0.i50 = phi i64 [ %239, %236 ], [ %243, %240 ], [ %247, %244 ], [ %254, %248 ], [ 0, %index2adr.exit.i49 ]
   %255 = load i32, ptr %107, align 8, !tbaa !381
   %256 = sub nsw i32 %255, %indvars72
   %257 = icmp sgt i32 %256, 8
@@ -35998,7 +35998,7 @@ define internal fastcc void @adjuststack(ptr noundef nonnull captures(none) %0) 
   br label %lua_objlen.exit.preheader
 
 lua_objlen.exit.preheader:                        ; preds = %6, %14, %18, %22, %26
-  %.020.ph = phi i64 [ 0, %6 ], [ %32, %26 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ]
+  %.020.ph = phi i64 [ 0, %6 ], [ %32, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ]
   br label %lua_objlen.exit
 
 lua_objlen.exit:                                  ; preds = %lua_objlen.exit.preheader, %lua_objlen.exit
@@ -38437,21 +38437,21 @@ lua_touserdata.exit:                              ; preds = %1
 42:                                               ; preds = %37
   switch i32 %39, label %51 [
     i32 0, label %lua_rawequal.exit.thread14
-    i32 3, label %lua_rawequal.exit
-    i32 1, label %43
-    i32 2, label %47
+    i32 3, label %43
+    i32 1, label %47
+    i32 2, label %lua_rawequal.exit
   ]
 
 43:                                               ; preds = %42
-  %44 = load i32, ptr %32, align 8, !tbaa !46
-  %45 = load i32, ptr %34, align 8, !tbaa !46
-  %46 = icmp eq i32 %44, %45
+  %44 = load double, ptr %32, align 8, !tbaa !46
+  %45 = load double, ptr %34, align 8, !tbaa !46
+  %46 = fcmp oeq double %44, %45
   br i1 %46, label %lua_rawequal.exit.thread14, label %lua_touserdata.exit.thread
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr %32, align 8, !tbaa !46
-  %49 = load ptr, ptr %34, align 8, !tbaa !46
-  %50 = icmp eq ptr %48, %49
+  %48 = load i32, ptr %32, align 8, !tbaa !46
+  %49 = load i32, ptr %34, align 8, !tbaa !46
+  %50 = icmp eq i32 %48, %49
   br i1 %50, label %lua_rawequal.exit.thread14, label %lua_touserdata.exit.thread
 
 51:                                               ; preds = %42
@@ -38461,17 +38461,17 @@ lua_touserdata.exit:                              ; preds = %1
   br i1 %54, label %lua_rawequal.exit.thread14, label %lua_touserdata.exit.thread
 
 lua_rawequal.exit:                                ; preds = %42
-  %55 = load double, ptr %32, align 8, !tbaa !46
-  %56 = load double, ptr %34, align 8, !tbaa !46
-  %57 = fcmp oeq double %55, %56
+  %55 = load ptr, ptr %32, align 8, !tbaa !46
+  %56 = load ptr, ptr %34, align 8, !tbaa !46
+  %57 = icmp eq ptr %55, %56
   br i1 %57, label %lua_rawequal.exit.thread14, label %lua_touserdata.exit.thread
 
-lua_rawequal.exit.thread14:                       ; preds = %43, %47, %51, %42, %lua_rawequal.exit
+lua_rawequal.exit.thread14:                       ; preds = %47, %43, %51, %42, %lua_rawequal.exit
   store ptr %34, ptr %5, align 8, !tbaa !62
   ret ptr %.0.i619
 
-lua_touserdata.exit.thread:                       ; preds = %43, %47, %51, %37, %22, %20, %1, %lua_rawequal.exit, %lua_touserdata.exit
-  %58 = phi ptr [ %33, %37 ], [ %33, %22 ], [ %6, %20 ], [ %6, %1 ], [ %33, %lua_rawequal.exit ], [ %6, %lua_touserdata.exit ], [ %33, %51 ], [ %33, %47 ], [ %33, %43 ]
+lua_touserdata.exit.thread:                       ; preds = %47, %43, %51, %37, %22, %20, %1, %lua_rawequal.exit, %lua_touserdata.exit
+  %58 = phi ptr [ %33, %37 ], [ %33, %22 ], [ %6, %20 ], [ %6, %1 ], [ %33, %lua_rawequal.exit ], [ %6, %lua_touserdata.exit ], [ %33, %51 ], [ %33, %43 ], [ %33, %47 ]
   %59 = load ptr, ptr %3, align 8, !tbaa !86
   %.not28.i.i.i = icmp uge ptr %59, %58
   %60 = icmp eq ptr %59, @luaO_nilobject_
@@ -38754,7 +38754,7 @@ luaL_prepbuffer.exit:                             ; preds = %8, %10
   br label %lua_objlen.exit
 
 lua_objlen.exit:                                  ; preds = %13, %22, %26, %30, %34
-  %.0.i = phi i64 [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %40, %34 ], [ 0, %13 ]
+  %.0.i = phi i64 [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %40, %34 ], [ 0, %13 ]
   %41 = icmp ne i64 %.0.i, 0
   %42 = zext i1 %41 to i32
   br label %59
@@ -39063,7 +39063,7 @@ read_number.exit:                                 ; preds = %133, %138
   unreachable
 
 .thread:                                          ; preds = %read_number.exit, %141, %143, %test_eof.exit, %119
-  %.4 = phi i32 [ %118, %test_eof.exit ], [ %120, %119 ], [ %.0.i, %read_number.exit ], [ %142, %141 ], [ 1, %143 ]
+  %.4 = phi i32 [ %118, %test_eof.exit ], [ %120, %119 ], [ 1, %143 ], [ %142, %141 ], [ %.0.i, %read_number.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = add nsw i32 %56, -1
   %147 = icmp ne i32 %56, 0
@@ -39215,7 +39215,7 @@ luaL_prepbuffer.exit:                             ; preds = %9, %11
   br label %lua_objlen.exit
 
 lua_objlen.exit:                                  ; preds = %24, %30, %34, %38, %42
-  %.0.i = phi i64 [ %41, %38 ], [ %37, %34 ], [ %33, %30 ], [ %48, %42 ], [ 0, %24 ]
+  %.0.i = phi i64 [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %48, %42 ], [ 0, %24 ]
   %49 = icmp ne i64 %.0.i, 0
   %50 = zext i1 %49 to i32
   br label %51
@@ -39720,9 +39720,9 @@ luaL_checklstring.exit:                           ; preds = %58
   br label %aux_lines.exit
 
 aux_lines.exit:                                   ; preds = %110, %108, %98, %95, %91, %85, %f_lines.exit
-  %.1.i.i.i.sink24 = phi ptr [ %.luaO_nilobject_.i.i.i.i, %f_lines.exit ], [ %.luaO_nilobject_.i.i.i, %85 ], [ %93, %91 ], [ %124, %110 ], [ %109, %108 ], [ %104, %98 ], [ %97, %95 ]
-  %.val.sink23 = phi ptr [ %57, %f_lines.exit ], [ %.val, %85 ], [ %.val, %91 ], [ %.val, %110 ], [ %.val, %108 ], [ %.val, %98 ], [ %.val, %95 ]
-  %.sink = phi i32 [ 0, %f_lines.exit ], [ 1, %85 ], [ 1, %91 ], [ 1, %110 ], [ 1, %108 ], [ 1, %98 ], [ 1, %95 ]
+  %.1.i.i.i.sink24 = phi ptr [ %.luaO_nilobject_.i.i.i.i, %f_lines.exit ], [ %.luaO_nilobject_.i.i.i, %85 ], [ %93, %91 ], [ %124, %110 ], [ %97, %95 ], [ %104, %98 ], [ %109, %108 ]
+  %.val.sink23 = phi ptr [ %57, %f_lines.exit ], [ %.val, %85 ], [ %.val, %91 ], [ %.val, %110 ], [ %.val, %95 ], [ %.val, %98 ], [ %.val, %108 ]
+  %.sink = phi i32 [ 0, %f_lines.exit ], [ 1, %85 ], [ 1, %91 ], [ 1, %110 ], [ 1, %95 ], [ 1, %98 ], [ 1, %108 ]
   %125 = load i64, ptr %.1.i.i.i.sink24, align 8, !tbaa !46
   store i64 %125, ptr %.val.sink23, align 8, !tbaa !46
   %126 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.sink24, i64 8
@@ -39956,7 +39956,7 @@ lua_type.exit.thread.i:                           ; preds = %lua_type.exit.i, %1
   br label %lua_touserdata.exit
 
 lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %10, %13
-  %.0.i = phi ptr [ %14, %13 ], [ %12, %10 ], [ null, %lua_type.exit.i ]
+  %.0.i = phi ptr [ %12, %10 ], [ %14, %13 ], [ null, %lua_type.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !29
@@ -40003,7 +40003,7 @@ lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %1
   br label %39
 
 39:                                               ; preds = %34, %31, %28
-  %.0.in.i = phi ptr [ %38, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.0.in.i = phi ptr [ %38, %34 ], [ %30, %28 ], [ %33, %31 ]
   %.0.i13 = load ptr, ptr %.0.in.i, align 8, !tbaa !46
   %40 = icmp eq ptr %.0.i13, null
   br i1 %40, label %lua_getmetatable.exit.thread, label %41
@@ -40032,21 +40032,21 @@ lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %1
 53:                                               ; preds = %48
   switch i32 %50, label %62 [
     i32 0, label %lua_rawequal.exit.thread30
-    i32 3, label %lua_rawequal.exit
-    i32 1, label %54
-    i32 2, label %58
+    i32 3, label %54
+    i32 1, label %58
+    i32 2, label %lua_rawequal.exit
   ]
 
 54:                                               ; preds = %53
-  %55 = load i32, ptr %45, align 8, !tbaa !46
-  %56 = load i32, ptr %43, align 8, !tbaa !46
-  %57 = icmp eq i32 %55, %56
+  %55 = load double, ptr %45, align 8, !tbaa !46
+  %56 = load double, ptr %43, align 8, !tbaa !46
+  %57 = fcmp oeq double %55, %56
   br i1 %57, label %lua_rawequal.exit.thread30, label %lua_getmetatable.exit.thread
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr %45, align 8, !tbaa !46
-  %60 = load ptr, ptr %43, align 8, !tbaa !46
-  %61 = icmp eq ptr %59, %60
+  %59 = load i32, ptr %45, align 8, !tbaa !46
+  %60 = load i32, ptr %43, align 8, !tbaa !46
+  %61 = icmp eq i32 %59, %60
   br i1 %61, label %lua_rawequal.exit.thread30, label %lua_getmetatable.exit.thread
 
 62:                                               ; preds = %53
@@ -40056,18 +40056,18 @@ lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %1
   br i1 %65, label %lua_rawequal.exit.thread30, label %lua_getmetatable.exit.thread
 
 lua_rawequal.exit:                                ; preds = %53
-  %66 = load double, ptr %45, align 8, !tbaa !46
-  %67 = load double, ptr %43, align 8, !tbaa !46
-  %68 = fcmp oeq double %66, %67
+  %66 = load ptr, ptr %45, align 8, !tbaa !46
+  %67 = load ptr, ptr %43, align 8, !tbaa !46
+  %68 = icmp eq ptr %66, %67
   br i1 %68, label %lua_rawequal.exit.thread30, label %lua_getmetatable.exit.thread
 
-lua_getmetatable.exit.thread:                     ; preds = %54, %58, %62, %48, %41, %39, %lua_rawequal.exit, %lua_touserdata.exit
-  %69 = phi ptr [ %44, %48 ], [ %44, %41 ], [ %22, %39 ], [ %44, %lua_rawequal.exit ], [ %22, %lua_touserdata.exit ], [ %44, %62 ], [ %44, %58 ], [ %44, %54 ]
+lua_getmetatable.exit.thread:                     ; preds = %58, %54, %62, %48, %41, %39, %lua_rawequal.exit, %lua_touserdata.exit
+  %69 = phi ptr [ %44, %48 ], [ %44, %41 ], [ %22, %39 ], [ %44, %lua_rawequal.exit ], [ %22, %lua_touserdata.exit ], [ %44, %62 ], [ %44, %54 ], [ %44, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 0, ptr %70, align 8, !tbaa !69
   br label %158
 
-lua_rawequal.exit.thread30:                       ; preds = %54, %58, %62, %53, %lua_rawequal.exit
+lua_rawequal.exit.thread30:                       ; preds = %58, %54, %62, %53, %lua_rawequal.exit
   %71 = load ptr, ptr %.0.i, align 8, !tbaa !81
   %72 = icmp eq ptr %71, null
   %73 = load ptr, ptr %15, align 8, !tbaa !29
@@ -41571,7 +41571,7 @@ luaL_checklstring.exit63:                         ; preds = %216
   br label %lua_pushvalue.exit
 
 lua_pushvalue.exit:                               ; preds = %237, %225, %233, %238, %241, %248
-  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %225 ], [ %236, %233 ], [ %261, %248 ], [ %27, %241 ], [ %240, %238 ], [ %25, %237 ]
+  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %225 ], [ %236, %233 ], [ %261, %248 ], [ %240, %238 ], [ %27, %241 ], [ %25, %237 ]
   %262 = load ptr, ptr %9, align 8, !tbaa !62
   %263 = load i64, ptr %.1.i.i, align 8, !tbaa !46
   store i64 %263, ptr %262, align 8, !tbaa !46
@@ -42869,7 +42869,7 @@ luaC_step.exit.i.i:                               ; preds = %94, %91, %88
   br label %lua_objlen.exit.i
 
 lua_objlen.exit.i:                                ; preds = %131, %127, %123, %119, %112
-  %.0.i.i = phi i64 [ %130, %127 ], [ %126, %123 ], [ %122, %119 ], [ %137, %131 ], [ 0, %112 ]
+  %.0.i.i = phi i64 [ %122, %119 ], [ %126, %123 ], [ %130, %127 ], [ %137, %131 ], [ 0, %112 ]
   %138 = getelementptr inbounds nuw i8, ptr %113, i64 120
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %140 = getelementptr inbounds nuw i8, ptr %113, i64 136
@@ -42932,7 +42932,7 @@ lua_objlen.exit.i:                                ; preds = %131, %127, %123, %1
   br label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %149, %161, %154, %151, %146
-  %.1.i.i = phi ptr [ %148, %146 ], [ %173, %161 ], [ %140, %154 ], [ %153, %151 ], [ %138, %149 ]
+  %.1.i.i = phi ptr [ %148, %146 ], [ %173, %161 ], [ %153, %151 ], [ %140, %154 ], [ %138, %149 ]
   %174 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %175 = load i32, ptr %174, align 8, !tbaa !69
   switch i32 %175, label %lua_objlen.exit [
@@ -42974,7 +42974,7 @@ index2adr.exit.i:                                 ; preds = %149, %161, %154, %1
   br label %lua_objlen.exit
 
 lua_objlen.exit:                                  ; preds = %index2adr.exit.i, %176, %180, %184, %188
-  %.0.i9 = phi i64 [ %187, %184 ], [ %183, %180 ], [ %179, %176 ], [ %194, %188 ], [ 0, %index2adr.exit.i ]
+  %.0.i9 = phi i64 [ %179, %176 ], [ %183, %180 ], [ %187, %184 ], [ %194, %188 ], [ 0, %index2adr.exit.i ]
   %195 = load i32, ptr %48, align 8, !tbaa !381
   %196 = sub nsw i32 %195, %indvars25
   %197 = icmp sgt i32 %196, 8
@@ -44415,9 +44415,9 @@ check_capture.exit.i:                             ; preds = %202
   br label %classend.exit123
 
 classend.exit123:                                 ; preds = %222, %230, %235, %255
-  %257 = phi i8 [ 91, %255 ], [ 37, %235 ], [ %11, %230 ], [ 36, %222 ]
-  %258 = phi ptr [ %231, %255 ], [ %188, %235 ], [ %231, %230 ], [ %223, %222 ]
-  %.015.i120 = phi ptr [ %256, %255 ], [ %236, %235 ], [ %231, %230 ], [ %223, %222 ]
+  %257 = phi i8 [ 37, %235 ], [ 91, %255 ], [ %11, %230 ], [ 36, %222 ]
+  %258 = phi ptr [ %188, %235 ], [ %231, %255 ], [ %231, %230 ], [ %223, %222 ]
+  %.015.i120 = phi ptr [ %236, %235 ], [ %256, %255 ], [ %231, %230 ], [ %223, %222 ]
   %259 = load ptr, ptr %4, align 8, !tbaa !400
   %260 = icmp ult ptr %.075.ph.ph, %259
   br i1 %260, label %261, label %singlematch.exit
@@ -45485,7 +45485,7 @@ default.unreachable66:                            ; preds = %4
   unreachable
 
 lua_pushvalue.exit:                               ; preds = %5, %9, %19
-  %.1.i.i = phi ptr [ %20, %19 ], [ %15, %9 ], [ %8, %5 ]
+  %.1.i.i = phi ptr [ %8, %5 ], [ %15, %9 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !62
   %23 = load i64, ptr %.1.i.i, align 8, !tbaa !46
@@ -47862,7 +47862,7 @@ define internal fastcc void @errfile(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %43, %41, %31, %27, %21, %11
-  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %11 ], [ %25, %21 ], [ %57, %43 ], [ %42, %41 ], [ %37, %31 ], [ %30, %27 ]
+  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %11 ], [ %25, %21 ], [ %57, %43 ], [ %30, %27 ], [ %37, %31 ], [ %42, %41 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %60 = load ptr, ptr %58, align 8, !tbaa !62

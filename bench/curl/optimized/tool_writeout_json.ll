@@ -89,7 +89,7 @@ define dso_local i32 @jsonquoted(ptr noundef readonly captures(address) %0, i64 
   br label %32
 
 32:                                               ; preds = %9, %11, %13, %15, %17, %19, %21, %27, %25
-  %.1 = phi i32 [ %26, %25 ], [ %31, %27 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.1 = phi i32 [ %26, %25 ], [ %31, %27 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   %33 = getelementptr inbounds nuw i8, ptr %.02932, i64 1
   %34 = icmp ult ptr %33, %6
   %.not = icmp eq i32 %.1, 0
@@ -317,7 +317,7 @@ define dso_local void @headerJSON(ptr noundef captures(none) %0, ptr noundef rea
   br label %55
 
 55:                                               ; preds = %53, %51, %47, %45, %43, %41, %39, %37, %35
-  %.1.i = phi i32 [ %52, %51 ], [ %54, %53 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ]
+  %.1.i = phi i32 [ %52, %51 ], [ %54, %53 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ]
   %56 = getelementptr inbounds nuw i8, ptr %.02932.i, i64 1
   %57 = icmp ult ptr %56, %32
   %.not.i32 = icmp eq i32 %.1.i, 0

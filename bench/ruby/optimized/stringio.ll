@@ -3838,8 +3838,8 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br label %detect_bom.exit
 
 detect_bom.exit:                                  ; preds = %22, %30, %48, %50, %66
-  %.011 = phi i64 [ 4, %66 ], [ 4, %48 ], [ 2, %50 ], [ 2, %30 ], [ 3, %22 ]
-  %.0.i = phi i32 [ %67, %66 ], [ %49, %48 ], [ %51, %50 ], [ %31, %30 ], [ %23, %22 ]
+  %.011 = phi i64 [ 3, %22 ], [ 2, %30 ], [ 4, %48 ], [ 2, %50 ], [ 4, %66 ]
+  %.0.i = phi i32 [ %23, %22 ], [ %31, %30 ], [ %49, %48 ], [ %51, %50 ], [ %67, %66 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %detect_bom.exit.thread, label %68
 
@@ -4076,8 +4076,8 @@ rb_num2long_inline.exit:                          ; preds = %60, %62
   br label %rb_num2long_inline.exit37thread-pre-split
 
 rb_num2long_inline.exit37thread-pre-split:        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %70, %75, %77
-  %.ph = phi i1 [ %42, %77 ], [ %42, %75 ], [ true, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %42, %70 ]
-  %.0.ph = phi i64 [ %78, %77 ], [ %76, %75 ], [ -1, %rbimpl_RB_TYPE_P_fastpath.exit ], [ -1, %70 ]
+  %.ph = phi i1 [ %42, %77 ], [ %42, %75 ], [ %42, %70 ], [ true, %rbimpl_RB_TYPE_P_fastpath.exit ]
+  %.0.ph = phi i64 [ %78, %77 ], [ %76, %75 ], [ -1, %70 ], [ -1, %rbimpl_RB_TYPE_P_fastpath.exit ]
   %.pre51.pr = load i64, ptr %4, align 8, !tbaa !6
   br label %rb_num2long_inline.exit37
 

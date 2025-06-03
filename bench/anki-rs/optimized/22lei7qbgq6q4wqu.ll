@@ -704,7 +704,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 _ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %6, %7, %10
-  %.0.i = phi i8 [ %14, %10 ], [ %9, %7 ], [ %spec.select, %5 ], [ %switch.select, %6 ]
+  %.0.i = phi i8 [ %9, %7 ], [ %14, %10 ], [ %spec.select, %5 ], [ %switch.select, %6 ]
   %15 = icmp eq i8 %.0.i, 0
   ret i1 %15
 }

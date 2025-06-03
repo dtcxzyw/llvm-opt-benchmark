@@ -1601,7 +1601,7 @@ _ZNSt13unordered_setIN4lean4exprENS0_9expr_hashENS0_16is_bi_equal_procESaIS1_EE6
   br label %_ZN4lean4exprC2ERKS0_.exit
 
 425:                                              ; preds = %422, %348, %293, %238, %202, %166, %130, %75
-  %.pn69 = phi { ptr, i32 } [ %76, %75 ], [ %.pn.pn.pn.pn, %422 ], [ %.pn48.pn.pn, %348 ], [ %.pn52.pn.pn, %293 ], [ %.pn56.pn, %238 ], [ %.pn59.pn, %202 ], [ %.pn62.pn, %166 ], [ %.pn65.pn, %130 ]
+  %.pn69 = phi { ptr, i32 } [ %76, %75 ], [ %.pn65.pn, %130 ], [ %.pn62.pn, %166 ], [ %.pn59.pn, %202 ], [ %.pn56.pn, %238 ], [ %.pn52.pn.pn, %293 ], [ %.pn48.pn.pn, %348 ], [ %.pn.pn.pn.pn, %422 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   resume { ptr, i32 } %.pn69
 
@@ -2224,7 +2224,7 @@ _ZNSt13unordered_setIN4lean5levelENS0_10level_hashESt8equal_toIS1_ESaIS1_EE6inse
   br label %_ZN4lean5levelC2ERKS0_.exit
 
 227:                                              ; preds = %224, %169, %114, %60
-  %.pn33 = phi { ptr, i32 } [ %61, %60 ], [ %.pn.pn.pn, %224 ], [ %.pn26.pn.pn, %169 ], [ %.pn30.pn, %114 ]
+  %.pn33 = phi { ptr, i32 } [ %61, %60 ], [ %.pn30.pn, %114 ], [ %.pn26.pn.pn, %169 ], [ %.pn.pn.pn, %224 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   resume { ptr, i32 } %.pn33
 

@@ -3107,7 +3107,7 @@ if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i, %if.end29.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i, %if.end29.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %call.val.i25.i.i.i.i = load ptr, ptr %__first.sroa.0.1.i.i.i.i, align 8
   %cmp.i.i.i26.i.i.i.i = icmp eq ptr %call.val.i25.i.i.i.i, null
   br i1 %cmp.i.i.i26.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i", label %if.end36.i.i.i.i
@@ -3117,7 +3117,7 @@ if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i, %if.end36.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i, %if.end36.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %call.val.i28.i.i.i.i = load ptr, ptr %__first.sroa.0.2.i.i.i.i, align 8
   %cmp.i.i.i29.i.i.i.i = icmp eq ptr %call.val.i28.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i29.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %2

@@ -4767,8 +4767,8 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit61:   ; preds = %230
   br label %269
 
 269:                                              ; preds = %267, %262, %260, %251
-  %.133.i = phi i32 [ %.03239.i, %251 ], [ %268, %267 ], [ %.03239.i, %262 ], [ %261, %260 ]
-  %.1.i = phi i1 [ %.040.i, %251 ], [ true, %267 ], [ %.040.i, %262 ], [ %.040.i, %260 ]
+  %.133.i = phi i32 [ %.03239.i, %251 ], [ %261, %260 ], [ %.03239.i, %262 ], [ %268, %267 ]
+  %.1.i = phi i1 [ %.040.i, %251 ], [ %.040.i, %260 ], [ %.040.i, %262 ], [ true, %267 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %251, !llvm.loop !290
@@ -5650,8 +5650,8 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %4
   br label %70
 
 70:                                               ; preds = %68, %63, %61, %52
-  %.133.i = phi i32 [ %.03239.i, %52 ], [ %69, %68 ], [ %.03239.i, %63 ], [ %62, %61 ]
-  %.1.i = phi i1 [ %.040.i, %52 ], [ true, %68 ], [ %.040.i, %63 ], [ %.040.i, %61 ]
+  %.133.i = phi i32 [ %.03239.i, %52 ], [ %62, %61 ], [ %.03239.i, %63 ], [ %69, %68 ]
+  %.1.i = phi i1 [ %.040.i, %52 ], [ %.040.i, %61 ], [ %.040.i, %63 ], [ true, %68 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %52, !llvm.loop !290
@@ -5806,7 +5806,7 @@ _ZN3sat6solver11assign_unitENS_7literalE.exit:    ; preds = %84, %90, %92, %93, 
   br label %118
 
 118:                                              ; preds = %29, %75, %111, %116, %106, %_ZN3sat6solver11assign_unitENS_7literalE.exit, %.critedge.thread
-  %.161.ph = phi ptr [ %.06092, %.critedge.thread ], [ %.06092, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ %.06092, %106 ], [ %113, %116 ], [ %113, %111 ], [ %.06092, %75 ], [ %.06092, %29 ]
+  %.161.ph = phi ptr [ %.06092, %.critedge.thread ], [ %.06092, %106 ], [ %.06092, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ %113, %116 ], [ %113, %111 ], [ %.06092, %75 ], [ %.06092, %29 ]
   %119 = getelementptr inbounds nuw i8, ptr %.093, i64 8
   %.not = icmp eq ptr %119, %14
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !303
@@ -5911,8 +5911,8 @@ define hidden noundef zeroext i1 @_ZN3sat10simplifier14cleanup_clauseERNS_6claus
   br label %29
 
 29:                                               ; preds = %27, %22, %20, %11
-  %.133 = phi i32 [ %.03239, %11 ], [ %28, %27 ], [ %.03239, %22 ], [ %21, %20 ]
-  %.1 = phi i1 [ %.040, %11 ], [ true, %27 ], [ %.040, %22 ], [ %.040, %20 ]
+  %.133 = phi i32 [ %.03239, %11 ], [ %21, %20 ], [ %.03239, %22 ], [ %28, %27 ]
+  %.1 = phi i1 [ %.040, %11 ], [ %.040, %20 ], [ %.040, %22 ], [ true, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !290
@@ -7142,8 +7142,8 @@ _ZN3sat10simplifier16insert_elim_todoEj.exit:     ; preds = %_ZN6vectorIcLb0EjE7
   br label %101
 
 101:                                              ; preds = %99, %94, %92, %83
-  %.133.i = phi i32 [ %.03239.i, %83 ], [ %100, %99 ], [ %.03239.i, %94 ], [ %93, %92 ]
-  %.1.i = phi i1 [ %.040.i, %83 ], [ true, %99 ], [ %.040.i, %94 ], [ %.040.i, %92 ]
+  %.133.i = phi i32 [ %.03239.i, %83 ], [ %93, %92 ], [ %.03239.i, %94 ], [ %100, %99 ]
+  %.1.i = phi i1 [ %.040.i, %83 ], [ %.040.i, %92 ], [ %.040.i, %94 ], [ true, %99 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %83, !llvm.loop !290
@@ -25873,8 +25873,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit45.th
   br label %79
 
 79:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit45.thread64
-  %80 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit45.thread64 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit45.thread64 ]
+  %80 = phi i32 [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit45.thread64 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit45.thread64 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %81 = load i32, ptr %.1, align 4, !tbaa !283
   %82 = icmp eq i32 %81, %80
   br i1 %82, label %83, label %._crit_edge.i.i46
@@ -25908,8 +25908,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit49.th
   br label %96
 
 96:                                               ; preds = %._crit_edge._crit_edge97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit49.thread65
-  %97 = phi i32 [ %.pre98, %._crit_edge._crit_edge97 ], [ %80, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit49.thread65 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge97 ], [ %95, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit49.thread65 ]
+  %97 = phi i32 [ %80, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit49.thread65 ], [ %.pre98, %._crit_edge._crit_edge97 ]
+  %.2 = phi ptr [ %95, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3sat10bin_clauseEEclIPS3_EEbT_.exit49.thread65 ], [ %.029.lcssa, %._crit_edge._crit_edge97 ]
   %98 = load i32, ptr %.2, align 4, !tbaa !283
   %99 = icmp eq i32 %98, %97
   br i1 %99, label %100, label %._crit_edge.i.i50

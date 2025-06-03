@@ -255,7 +255,7 @@ dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit
   br label %90
 
 90:                                               ; preds = %4, %83, %dissect_bmc_schedule_message.exit, %25
-  %.0 = phi i32 [ 1, %4 ], [ %89, %83 ], [ %.3.i, %dissect_bmc_schedule_message.exit ], [ %31, %25 ]
+  %.0 = phi i32 [ 1, %4 ], [ %31, %25 ], [ %.3.i, %dissect_bmc_schedule_message.exit ], [ %89, %83 ]
   ret i32 %.0
 }
 

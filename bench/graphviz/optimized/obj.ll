@@ -53,7 +53,7 @@ default.unreachable9:                             ; preds = %9
   unreachable
 
 18:                                               ; preds = %16, %14, %12, %8
-  %.0 = phi i32 [ -1, %8 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0 = phi i32 [ -1, %8 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
   ret i32 %.0
 }
 
@@ -119,7 +119,7 @@ agroot.exit:                                      ; preds = %2
   br label %agroot.exit22
 
 agroot.exit22:                                    ; preds = %17, %21, %23
-  %.0.i20.in = phi ptr [ %24, %23 ], [ %22, %21 ], [ %20, %17 ]
+  %.0.i20.in = phi ptr [ %20, %17 ], [ %22, %21 ], [ %24, %23 ]
   %.0.i20 = load ptr, ptr %.0.i20.in, align 8, !tbaa !12
   %25 = call i32 @agmapnametoid(ptr noundef %.0.i20, i32 noundef %16, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true) #11
   %26 = icmp eq i32 %25, 0
@@ -151,7 +151,7 @@ default.unreachable23:                            ; preds = %14, %2
   unreachable
 
 37:                                               ; preds = %2, %2, %29, %agroot.exit22, %11, %agroot.exit, %33, %35
-  %.0 = phi i32 [ %36, %35 ], [ 0, %33 ], [ -1, %agroot.exit ], [ 0, %11 ], [ -1, %agroot.exit22 ], [ -1, %29 ], [ -1, %2 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %33 ], [ %36, %35 ], [ -1, %agroot.exit ], [ 0, %11 ], [ -1, %agroot.exit22 ], [ -1, %29 ], [ -1, %2 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   ret i32 %.0
 }
@@ -227,7 +227,7 @@ default.unreachable7:                             ; preds = %3
   unreachable
 
 17:                                               ; preds = %1, %14, %11, %6
-  %.0 = phi ptr [ %16, %14 ], [ %13, %11 ], [ %10, %6 ], [ null, %1 ]
+  %.0 = phi ptr [ %10, %6 ], [ %13, %11 ], [ %16, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -289,7 +289,7 @@ default.unreachable16:                            ; preds = %5
   unreachable
 
 18:                                               ; preds = %15, %12, %10
-  %.0.in = phi ptr [ %17, %15 ], [ %14, %12 ], [ %11, %10 ]
+  %.0.in = phi ptr [ %11, %10 ], [ %14, %12 ], [ %17, %15 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !41
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %19
@@ -524,7 +524,7 @@ default.unreachable:                              ; preds = %19, %4
   unreachable
 
 agroot.exit:                                      ; preds = %2, %7, %12, %15
-  %.0.i = phi ptr [ %17, %15 ], [ %14, %12 ], [ %11, %7 ], [ null, %2 ]
+  %.0.i = phi ptr [ %11, %7 ], [ %14, %12 ], [ %17, %15 ], [ null, %2 ]
   %18 = icmp eq ptr %1, null
   br i1 %18, label %agroot.exit16, label %19
 
@@ -556,7 +556,7 @@ agroot.exit:                                      ; preds = %2, %7, %12, %15
   br label %agroot.exit16
 
 agroot.exit16:                                    ; preds = %agroot.exit, %22, %27, %30
-  %.0.i14 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %22 ], [ null, %agroot.exit ]
+  %.0.i14 = phi ptr [ %26, %22 ], [ %29, %27 ], [ %32, %30 ], [ null, %agroot.exit ]
   %.not = icmp eq ptr %.0.i, %.0.i14
   br i1 %.not, label %33, label %.loopexit
 

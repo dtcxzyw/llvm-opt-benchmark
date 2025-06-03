@@ -495,7 +495,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   br label %133
 
 133:                                              ; preds = %129, %132, %.thread, %116, %104
-  %.0 = phi i32 [ -1, %.thread ], [ -1, %116 ], [ -1, %104 ], [ %.064, %132 ], [ %.064, %129 ]
+  %.0 = phi i32 [ -1, %116 ], [ -1, %104 ], [ -1, %.thread ], [ %.064, %132 ], [ %.064, %129 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #7
   ret i32 %.0

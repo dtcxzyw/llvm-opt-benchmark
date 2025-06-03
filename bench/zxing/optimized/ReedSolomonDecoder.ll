@@ -158,7 +158,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %44, %43 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %46 = load i32, ptr %.sroa.025.1.i.i.i.i, align 4, !tbaa !3
   %.not34.i.i.i.i = icmp eq i32 %46, 0
   br i1 %.not34.i.i.i.i, label %47, label %.loopexit
@@ -168,7 +168,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %48, %47 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %48, %47 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %50 = load i32, ptr %.sroa.025.2.i.i.i.i, align 4, !tbaa !3
   %.not35.i.i.i.i = icmp eq i32 %50, 0
   %spec.select.i.i.i.i = select i1 %.not35.i.i.i.i, ptr %.0.i.i.i.i.i230, ptr %.sroa.025.2.i.i.i.i

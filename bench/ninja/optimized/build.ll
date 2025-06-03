@@ -5972,7 +5972,7 @@ _ZN13CommandRunner6ResultD2Ev.exit87:             ; preds = %_ZNKSt7__cxx1112bas
   br label %.thread100
 
 .thread100:                                       ; preds = %_ZN13CommandRunner6ResultD2Ev.exit, %94, %85, %.loopexit, %187
-  %.6 = phi i32 [ 0, %.loopexit ], [ %188, %187 ], [ 1, %85 ], [ 1, %94 ], [ %.7, %_ZN13CommandRunner6ResultD2Ev.exit ]
+  %.6 = phi i32 [ %188, %187 ], [ 0, %.loopexit ], [ 1, %85 ], [ 1, %94 ], [ %.7, %_ZN13CommandRunner6ResultD2Ev.exit ]
   ret i32 %.6
 
 193:                                              ; preds = %_ZN13CommandRunner6ResultD2Ev.exit87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %20
@@ -9193,7 +9193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %_Z
   br label %374
 
 374:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %_ZN8CLParserD2Ev.exit, %373
-  %.1 = phi i1 [ false, %_ZN8CLParserD2Ev.exit ], [ true, %373 ], [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ]
+  %.1 = phi i1 [ true, %373 ], [ false, %_ZN8CLParserD2Ev.exit ], [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ]
   ret i1 %.1
 
 375:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58

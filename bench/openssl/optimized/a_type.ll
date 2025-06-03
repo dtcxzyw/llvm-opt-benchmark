@@ -244,7 +244,7 @@ define i32 @ASN1_TYPE_cmp(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %27
 
 27:                                               ; preds = %9, %15, %21, %8, %2, %5
-  %.013 = phi i32 [ -1, %5 ], [ -1, %2 ], [ %26, %21 ], [ %20, %15 ], [ %14, %9 ], [ 0, %8 ]
+  %.013 = phi i32 [ -1, %5 ], [ -1, %2 ], [ %26, %21 ], [ %14, %9 ], [ %20, %15 ], [ 0, %8 ]
   ret i32 %.013
 }
 

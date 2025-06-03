@@ -2781,7 +2781,7 @@ _ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i.loopexit: ; pr
   br label %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i
 
 _ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i: ; preds = %166, %.preheader.i93.i, %.preheader.i100.i, %189, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i.loopexit, %205, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %.loopexit.i, %176, %174, %172, %169, %162
-  %.7.i = phi i32 [ %.5.i, %169 ], [ 2, %205 ], [ %.5.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %.5.i, %.loopexit.i ], [ %.sroa.speculated133.i, %174 ], [ %.5.i, %162 ], [ %spec.select188.i, %176 ], [ %spec.select187.i, %172 ], [ 1, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i.loopexit ], [ %spec.select188.i, %189 ], [ %spec.select188.i, %.preheader.i100.i ], [ %.5.i, %.preheader.i93.i ], [ %.5.i, %166 ]
+  %.7.i = phi i32 [ %.5.i, %169 ], [ %.sroa.speculated133.i, %174 ], [ 2, %205 ], [ %.5.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %.5.i, %.loopexit.i ], [ %.5.i, %162 ], [ %spec.select188.i, %176 ], [ %spec.select187.i, %172 ], [ 1, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i.loopexit ], [ %spec.select188.i, %189 ], [ %spec.select188.i, %.preheader.i100.i ], [ %.5.i, %.preheader.i93.i ], [ %.5.i, %166 ]
   %206 = load ptr, ptr %2, align 8, !tbaa !167
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load i16, ptr %207, align 8, !tbaa !168
@@ -2859,7 +2859,7 @@ _ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit124.thread.i: ; preds = 
   br label %_ZN5clang6formatL15computeNewlinesERKNS0_13AnnotatedLineEPS2_S4_RKN4llvm15SmallVectorImplIPS1_EERKNS0_11FormatStyleE.exit
 
 _ZN5clang6formatL15computeNewlinesERKNS0_13AnnotatedLineEPS2_S4_RKN4llvm15SmallVectorImplIPS1_EERKNS0_11FormatStyleE.exit: ; preds = %.preheader.i110.i, %211, %222, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread.i, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i, %218, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit124.thread.i, %227, %228, %229, %231
-  %.9.i = phi i32 [ %.5.i, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread.i ], [ %.7.i, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit124.thread.i ], [ %.sroa.speculated.i, %231 ], [ %.sroa.speculated129.i, %228 ], [ 1, %227 ], [ %.7.i, %218 ], [ 1, %229 ], [ %.7.i, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i ], [ %.7.i, %222 ], [ %.7.i, %211 ], [ %.7.i, %.preheader.i110.i ]
+  %.9.i = phi i32 [ %.5.i, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread.i ], [ %.7.i, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit124.thread.i ], [ 1, %227 ], [ %.sroa.speculated129.i, %228 ], [ %.sroa.speculated.i, %231 ], [ %.7.i, %218 ], [ 1, %229 ], [ %.7.i, %_ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i ], [ %.7.i, %222 ], [ %.7.i, %211 ], [ %.7.i, %.preheader.i110.i ]
   store i32 %.9.i, ptr %30, align 4, !tbaa !296
   br label %232
 

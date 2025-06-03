@@ -537,7 +537,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE6resizeEm.exit: ; preds = %
   unreachable
 
 _ZL12getAlignmentRKN4llvm13MCSectionCOFFE.exit:   ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE6resizeEm.exit, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118
-  %.0.i = phi i32 [ 14680064, %118 ], [ 13631488, %117 ], [ 12582912, %116 ], [ 11534336, %115 ], [ 10485760, %114 ], [ 9437184, %113 ], [ 8388608, %112 ], [ 7340032, %111 ], [ 6291456, %110 ], [ 5242880, %109 ], [ 4194304, %108 ], [ 3145728, %107 ], [ 2097152, %106 ], [ 1048576, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE6resizeEm.exit ]
+  %.0.i = phi i32 [ 2097152, %106 ], [ 3145728, %107 ], [ 4194304, %108 ], [ 5242880, %109 ], [ 6291456, %110 ], [ 7340032, %111 ], [ 8388608, %112 ], [ 9437184, %113 ], [ 10485760, %114 ], [ 11534336, %115 ], [ 12582912, %116 ], [ 13631488, %117 ], [ 14680064, %118 ], [ 1048576, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE6resizeEm.exit ]
   %120 = or i32 %.0.i, %101
   store i32 %120, ptr %102, align 4, !tbaa !178
   %121 = getelementptr inbounds nuw i8, ptr %.val.i, i64 80

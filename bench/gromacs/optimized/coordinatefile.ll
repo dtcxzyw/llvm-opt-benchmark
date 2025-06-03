@@ -350,7 +350,7 @@ _ZN3gmxL11getFileTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
   unreachable
 
 _ZN3gmxL26getSupportedOutputAdaptersEi.exit.thread: ; preds = %_ZN3gmxL11getFileTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %45, %47, %48
-  %.014.i.ph = phi i64 [ 63, %45 ], [ 7, %47 ], [ 33, %48 ], [ 1, %_ZN3gmxL11getFileTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %.014.i.ph = phi i64 [ 1, %_ZN3gmxL11getFileTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 33, %48 ], [ 7, %47 ], [ 63, %45 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %76
 

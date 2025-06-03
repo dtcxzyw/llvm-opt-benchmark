@@ -341,7 +341,7 @@ define hidden { i64, ptr } @"_ZN114_$LT$async_zip..base..read..io..compressed..C
   br label %17
 
 17:                                               ; preds = %15, %13, %10
-  %.pn = phi { i64, ptr } [ %16, %15 ], [ %14, %13 ], [ %12, %10 ]
+  %.pn = phi { i64, ptr } [ %12, %10 ], [ %14, %13 ], [ %16, %15 ]
   ret { i64, ptr } %.pn
 }
 

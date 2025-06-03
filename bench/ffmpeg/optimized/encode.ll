@@ -1566,7 +1566,7 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
   br label %249
 
 249:                                              ; preds = %encode_preinit_audio.exit, %encode_preinit_video.exit
-  %.059 = phi i32 [ %.071.i, %encode_preinit_audio.exit ], [ %.0.i, %encode_preinit_video.exit ]
+  %.059 = phi i32 [ %.0.i, %encode_preinit_video.exit ], [ %.071.i, %encode_preinit_audio.exit ]
   %250 = icmp slt i32 %.059, 0
   br i1 %250, label %.loopexit, label %251
 

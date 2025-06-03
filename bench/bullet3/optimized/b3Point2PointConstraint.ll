@@ -580,7 +580,7 @@ define dso_local noundef float @_ZNK23b3Point2PointConstraint8getParamEii(ptr no
   br label %11
 
 11:                                               ; preds = %5, %8, %4, %3
-  %.0 = phi float [ 0x47EFFFFFE0000000, %3 ], [ 0x47EFFFFFE0000000, %4 ], [ %10, %8 ], [ %7, %5 ]
+  %.0 = phi float [ 0x47EFFFFFE0000000, %3 ], [ 0x47EFFFFFE0000000, %4 ], [ %7, %5 ], [ %10, %8 ]
   ret float %.0
 }
 

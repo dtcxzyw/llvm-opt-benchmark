@@ -1057,8 +1057,8 @@ get_rorder.exit:                                  ; preds = %59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.7, i32 noundef %65) #16
   br label %.critedge.sink.split
 
-66:                                               ; preds = %59, %59, %64, %63
-  %.0.i.ph = phi i32 [ 1, %63 ], [ 2, %64 ], [ 0, %59 ], [ 0, %59 ]
+66:                                               ; preds = %59, %59, %63, %64
+  %.0.i.ph = phi i32 [ 2, %64 ], [ 1, %63 ], [ 0, %59 ], [ 0, %59 ]
   %67 = getelementptr inbounds nuw [3 x i32], ptr %58, i64 0, i64 %indvars.iv
   store i32 %.0.i.ph, ptr %67, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1111,10 +1111,10 @@ get_rorder.exit:                                  ; preds = %59
   unreachable
 
 set_dimensions.exit:                              ; preds = %83, %77, %72
-  %.0446 = phi i32 [ %88, %83 ], [ %82, %77 ], [ %76, %72 ]
-  %.0444 = phi i32 [ %85, %83 ], [ %80, %77 ], [ %74, %72 ]
-  %.0443 = phi i32 [ %88, %83 ], [ 0, %77 ], [ 0, %72 ]
-  %.0442 = phi i32 [ 0, %83 ], [ %80, %77 ], [ 0, %72 ]
+  %.0446 = phi i32 [ %76, %72 ], [ %82, %77 ], [ %88, %83 ]
+  %.0444 = phi i32 [ %74, %72 ], [ %80, %77 ], [ %85, %83 ]
+  %.0443 = phi i32 [ 0, %72 ], [ 0, %77 ], [ %88, %83 ]
+  %.0442 = phi i32 [ 0, %72 ], [ %80, %77 ], [ 0, %83 ]
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 488
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 504
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 9
@@ -1190,8 +1190,8 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   br label %132
 
 132:                                              ; preds = %set_dimensions.exit, %131, %130
-  %.0432 = phi nsz float [ 1.800000e+02, %set_dimensions.exit ], [ 1.800000e+02, %131 ], [ 4.500000e+01, %130 ]
-  %.0431 = phi nsz float [ 3.600000e+02, %set_dimensions.exit ], [ 1.800000e+02, %131 ], [ 9.000000e+01, %130 ]
+  %.0432 = phi nsz float [ 1.800000e+02, %set_dimensions.exit ], [ 4.500000e+01, %130 ], [ 1.800000e+02, %131 ]
+  %.0431 = phi nsz float [ 3.600000e+02, %set_dimensions.exit ], [ 9.000000e+01, %130 ], [ 1.800000e+02, %131 ]
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %134 = load float, ptr %133, align 8, !tbaa !100
   %135 = fcmp nsz oeq float %134, 0.000000e+00
@@ -1655,15 +1655,15 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   br label %.loopexit
 
 427:                                              ; preds = %189, %182, %175
-  %.0451 = phi i32 [ %191, %189 ], [ %184, %182 ], [ %177, %175 ]
-  %.0439 = phi nsz float [ %196, %189 ], [ %188, %182 ], [ %181, %175 ]
-  %.0438 = phi nsz float [ %194, %189 ], [ %186, %182 ], [ %180, %175 ]
+  %.0451 = phi i32 [ %177, %175 ], [ %184, %182 ], [ %191, %189 ]
+  %.0439 = phi nsz float [ %181, %175 ], [ %188, %182 ], [ %196, %189 ]
+  %.0438 = phi nsz float [ %180, %175 ], [ %186, %182 ], [ %194, %189 ]
   %.not470 = icmp eq i32 %.0451, 0
   br i1 %.not470, label %.thread517, label %.loopexit
 
-.thread517:                                       ; preds = %157, %197, %215, %238, %250, %256, %281, %286, %291, %295, %299, %312, %316, %337, %352, %356, %362, %366, %371, %396, %421, %427
-  %.0438523 = phi float [ %.0438, %427 ], [ %173, %157 ], [ %211, %197 ], [ %235, %215 ], [ %248, %238 ], [ %254, %250 ], [ %278, %256 ], [ %283, %281 ], [ %288, %286 ], [ %293, %291 ], [ %297, %295 ], [ %310, %299 ], [ %314, %312 ], [ %334, %316 ], [ %350, %337 ], [ %354, %352 ], [ %360, %356 ], [ %364, %362 ], [ %369, %366 ], [ %393, %371 ], [ %418, %396 ], [ %423, %421 ]
-  %.0439522 = phi float [ %.0439, %427 ], [ %174, %157 ], [ %214, %197 ], [ %236, %215 ], [ %249, %238 ], [ %255, %250 ], [ %280, %256 ], [ %285, %281 ], [ %290, %286 ], [ %294, %291 ], [ %298, %295 ], [ %311, %299 ], [ %315, %312 ], [ %336, %316 ], [ %351, %337 ], [ %355, %352 ], [ %361, %356 ], [ %365, %362 ], [ %370, %366 ], [ %395, %371 ], [ %420, %396 ], [ %425, %421 ]
+.thread517:                                       ; preds = %421, %396, %371, %366, %362, %356, %352, %337, %316, %312, %299, %295, %291, %286, %281, %256, %250, %238, %215, %197, %157, %427
+  %.0438523 = phi float [ %.0438, %427 ], [ %423, %421 ], [ %418, %396 ], [ %393, %371 ], [ %369, %366 ], [ %364, %362 ], [ %360, %356 ], [ %354, %352 ], [ %350, %337 ], [ %334, %316 ], [ %314, %312 ], [ %310, %299 ], [ %297, %295 ], [ %293, %291 ], [ %288, %286 ], [ %283, %281 ], [ %278, %256 ], [ %254, %250 ], [ %248, %238 ], [ %235, %215 ], [ %211, %197 ], [ %173, %157 ]
+  %.0439522 = phi float [ %.0439, %427 ], [ %425, %421 ], [ %420, %396 ], [ %395, %371 ], [ %370, %366 ], [ %365, %362 ], [ %361, %356 ], [ %355, %352 ], [ %351, %337 ], [ %336, %316 ], [ %315, %312 ], [ %311, %299 ], [ %298, %295 ], [ %294, %291 ], [ %290, %286 ], [ %285, %281 ], [ %280, %256 ], [ %255, %250 ], [ %249, %238 ], [ %236, %215 ], [ %214, %197 ], [ %174, %157 ]
   %428 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %429 = load i32, ptr %428, align 4, !tbaa !105
   switch i32 %429, label %528 [
@@ -2107,10 +2107,10 @@ set_dimensions.exit492:                           ; preds = %623, %622
   unreachable
 
 set_dimensions.exit493:                           ; preds = %set_dimensions.exit492, %647, %645
-  %.4450 = phi i32 [ %648, %647 ], [ %.2448534, %645 ], [ %.2448534, %set_dimensions.exit492 ]
-  %.4 = phi i32 [ %.2536, %647 ], [ %646, %645 ], [ %.2536, %set_dimensions.exit492 ]
-  %.0441 = phi i32 [ %.2448534, %647 ], [ 0, %645 ], [ %644, %set_dimensions.exit492 ]
-  %.0440 = phi i32 [ 0, %647 ], [ %.2536, %645 ], [ %644, %set_dimensions.exit492 ]
+  %.4450 = phi i32 [ %.2448534, %645 ], [ %648, %647 ], [ %.2448534, %set_dimensions.exit492 ]
+  %.4 = phi i32 [ %646, %645 ], [ %.2536, %647 ], [ %.2536, %set_dimensions.exit492 ]
+  %.0441 = phi i32 [ 0, %645 ], [ %.2448534, %647 ], [ %644, %set_dimensions.exit492 ]
+  %.0440 = phi i32 [ %.2536, %645 ], [ 0, %647 ], [ %644, %set_dimensions.exit492 ]
   %650 = getelementptr inbounds nuw i8, ptr %8, i64 424
   %651 = getelementptr inbounds nuw i8, ptr %8, i64 440
   %652 = sub nsw i32 0, %.0440
@@ -5482,8 +5482,8 @@ get_direction.exit:                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %19) #16
   br label %.critedge
 
-20:                                               ; preds = %10, %18, %17, %16, %15, %14
-  %.0.i.ph = phi i64 [ 1, %14 ], [ 2, %15 ], [ 3, %16 ], [ 4, %17 ], [ 5, %18 ], [ 0, %10 ]
+20:                                               ; preds = %10, %14, %15, %16, %17, %18
+  %.0.i.ph = phi i64 [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 0, %10 ]
   %21 = getelementptr inbounds nuw [6 x i32], ptr %6, i64 0, i64 %.0.i.ph
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 4, !tbaa !90
@@ -5521,8 +5521,8 @@ get_rotation.exit:                                ; preds = %23
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %30) #16
   br label %.critedge
 
-.critedge44:                                      ; preds = %23, %29, %28, %27
-  %.0.i47.ph = phi i32 [ 1, %27 ], [ 2, %28 ], [ 3, %29 ], [ 0, %23 ]
+.critedge44:                                      ; preds = %23, %27, %28, %29
+  %.0.i47.ph = phi i32 [ 3, %29 ], [ 2, %28 ], [ 1, %27 ], [ 0, %23 ]
   %31 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv63
   store i32 %.0.i47.ph, ptr %31, align 4, !tbaa !90
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
@@ -8531,8 +8531,8 @@ get_direction.exit:                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %19) #16
   br label %.critedge
 
-20:                                               ; preds = %10, %18, %17, %16, %15, %14
-  %.0.i.ph = phi i32 [ 1, %14 ], [ 2, %15 ], [ 3, %16 ], [ 4, %17 ], [ 5, %18 ], [ 0, %10 ]
+20:                                               ; preds = %10, %14, %15, %16, %17, %18
+  %.0.i.ph = phi i32 [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 0, %10 ]
   %21 = getelementptr inbounds nuw [6 x i32], ptr %6, i64 0, i64 %indvars.iv
   store i32 %.0.i.ph, ptr %21, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8569,8 +8569,8 @@ get_rotation.exit:                                ; preds = %22
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %29) #16
   br label %.critedge
 
-.critedge44:                                      ; preds = %22, %28, %27, %26
-  %.0.i47.ph = phi i32 [ 1, %26 ], [ 2, %27 ], [ 3, %28 ], [ 0, %22 ]
+.critedge44:                                      ; preds = %22, %26, %27, %28
+  %.0.i47.ph = phi i32 [ 3, %28 ], [ 2, %27 ], [ 1, %26 ], [ 0, %22 ]
   %30 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv63
   store i32 %.0.i47.ph, ptr %30, align 4, !tbaa !90
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
@@ -8821,9 +8821,9 @@ define internal noundef i32 @eac_to_xyz(ptr readnone captures(none) %0, i32 noun
   unreachable
 
 77:                                               ; preds = %62, %74, %71, %68, %66, %65
-  %.054 = phi nsz float [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ 1.000000e+00, %66 ], [ %.1, %65 ], [ -1.000000e+00, %62 ]
-  %.053 = phi nsz float [ -1.000000e+00, %74 ], [ %73, %71 ], [ 1.000000e+00, %68 ], [ %.0, %66 ], [ %.0, %65 ], [ %.0, %62 ]
-  %.052 = phi nsz float [ %.1, %74 ], [ -1.000000e+00, %71 ], [ %70, %68 ], [ %67, %66 ], [ 1.000000e+00, %65 ], [ %.1, %62 ]
+  %.054 = phi nsz float [ %.1, %65 ], [ 1.000000e+00, %66 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ], [ -1.000000e+00, %62 ]
+  %.053 = phi nsz float [ %.0, %65 ], [ %.0, %66 ], [ 1.000000e+00, %68 ], [ %73, %71 ], [ -1.000000e+00, %74 ], [ %.0, %62 ]
+  %.052 = phi nsz float [ 1.000000e+00, %65 ], [ %67, %66 ], [ %70, %68 ], [ -1.000000e+00, %71 ], [ %.1, %74 ], [ %.1, %62 ]
   store float %.054, ptr %5, align 4, !tbaa !49
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %.053, ptr %78, align 4, !tbaa !49
@@ -9694,8 +9694,8 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
   unreachable
 
 84:                                               ; preds = %78, %73
-  %.070 = phi nsz float [ %72, %78 ], [ %74, %73 ]
-  %.0 = phi nsz float [ %82, %78 ], [ %77, %73 ]
+  %.070 = phi nsz float [ %74, %73 ], [ %72, %78 ]
+  %.0 = phi nsz float [ %77, %73 ], [ %82, %78 ]
   %85 = fsub nsz float 5.000000e-01, %.070
   %86 = fdiv nsz float %85, %64
   %87 = fmul nsz float %71, 5.000000e-01
@@ -10749,8 +10749,8 @@ define internal fastcc void @process_cube_coordinates(ptr noundef readonly captu
   unreachable
 
 rotate_cube_face_inverse.exit:                    ; preds = %16, %18, %21, %7
-  %.1 = phi nsz float [ %1, %7 ], [ %22, %21 ], [ %19, %18 ], [ %2, %16 ]
-  %.0122 = phi nsz float [ %2, %7 ], [ %1, %21 ], [ %20, %18 ], [ %17, %16 ]
+  %.1 = phi nsz float [ %1, %7 ], [ %2, %16 ], [ %19, %18 ], [ %22, %21 ]
+  %.0122 = phi nsz float [ %2, %7 ], [ %17, %16 ], [ %20, %18 ], [ %1, %21 ]
   %24 = fcmp nsz olt float %.1, -1.000000e+00
   %25 = fcmp nsz oge float %.1, 1.000000e+00
   %or.cond = or i1 %24, %25
@@ -11068,8 +11068,8 @@ define internal fastcc void @cube_to_xyz(ptr noundef readonly captures(none) %0,
   unreachable
 
 rotate_cube_face_inverse.exit:                    ; preds = %17, %19, %22, %7
-  %.1 = phi nsz float [ %12, %7 ], [ %23, %22 ], [ %20, %19 ], [ %13, %17 ]
-  %.032 = phi nsz float [ %13, %7 ], [ %12, %22 ], [ %21, %19 ], [ %18, %17 ]
+  %.1 = phi nsz float [ %12, %7 ], [ %13, %17 ], [ %20, %19 ], [ %23, %22 ]
+  %.032 = phi nsz float [ %13, %7 ], [ %18, %17 ], [ %21, %19 ], [ %12, %22 ]
   switch i32 %11, label %33 [
     i32 0, label %25
     i32 1, label %34
@@ -11103,9 +11103,9 @@ rotate_cube_face_inverse.exit:                    ; preds = %17, %19, %22, %7
   unreachable
 
 34:                                               ; preds = %rotate_cube_face_inverse.exit, %31, %30, %28, %27, %25
-  %.013 = phi nsz float [ %32, %31 ], [ %.1, %30 ], [ %.1, %28 ], [ %.1, %27 ], [ 1.000000e+00, %25 ], [ -1.000000e+00, %rotate_cube_face_inverse.exit ]
-  %.012 = phi nsz float [ %.032, %31 ], [ %.032, %30 ], [ 1.000000e+00, %28 ], [ -1.000000e+00, %27 ], [ %.032, %25 ], [ %.032, %rotate_cube_face_inverse.exit ]
-  %.0 = phi nsz float [ -1.000000e+00, %31 ], [ 1.000000e+00, %30 ], [ %29, %28 ], [ %.032, %27 ], [ %26, %25 ], [ %.1, %rotate_cube_face_inverse.exit ]
+  %.013 = phi nsz float [ 1.000000e+00, %25 ], [ %.1, %27 ], [ %.1, %28 ], [ %.1, %30 ], [ %32, %31 ], [ -1.000000e+00, %rotate_cube_face_inverse.exit ]
+  %.012 = phi nsz float [ %.032, %25 ], [ -1.000000e+00, %27 ], [ 1.000000e+00, %28 ], [ %.032, %30 ], [ %.032, %31 ], [ %.032, %rotate_cube_face_inverse.exit ]
+  %.0 = phi nsz float [ %26, %25 ], [ %.032, %27 ], [ %29, %28 ], [ 1.000000e+00, %30 ], [ -1.000000e+00, %31 ], [ %.1, %rotate_cube_face_inverse.exit ]
   store float %.013, ptr %4, align 4, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %.012, ptr %35, align 4, !tbaa !49

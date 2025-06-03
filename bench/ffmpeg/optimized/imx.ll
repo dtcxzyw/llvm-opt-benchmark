@@ -118,8 +118,8 @@ bytestream2_get_byte.exit146:                     ; preds = %39, %44
   br label %49
 
 49:                                               ; preds = %bytestream2_get_byte.exit146, %bytestream2_get_byte.exit
-  %.sroa.0.1 = phi ptr [ %34, %bytestream2_get_byte.exit ], [ %.sroa.0.6, %bytestream2_get_byte.exit146 ]
-  %.097 = phi i32 [ %37, %bytestream2_get_byte.exit ], [ %48, %bytestream2_get_byte.exit146 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.6, %bytestream2_get_byte.exit146 ], [ %34, %bytestream2_get_byte.exit ]
+  %.097 = phi i32 [ %48, %bytestream2_get_byte.exit146 ], [ %37, %bytestream2_get_byte.exit ]
   %.old7.not = icmp eq i32 %.097, 0
   br i1 %.old7.not, label %.backedge.sink.split, label %.preheader
 

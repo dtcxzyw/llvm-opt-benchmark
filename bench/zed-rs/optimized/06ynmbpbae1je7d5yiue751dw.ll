@@ -2037,7 +2037,7 @@ default.unreachable11:                            ; preds = %1
   br label %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3len17h908a7f7212799614E.exit"
 
 "_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3len17h908a7f7212799614E.exit": ; preds = %35, %30, %26, %24, %"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3len17hb828a1fc24d6e8d9E.exit", %3
-  %.sroa.0.0 = phi i64 [ %61, %"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3len17hb828a1fc24d6e8d9E.exit" ], [ %.lobit, %3 ], [ %25, %24 ], [ %34, %30 ], [ %37, %35 ], [ 0, %26 ]
+  %.sroa.0.0 = phi i64 [ %.lobit, %3 ], [ %61, %"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3len17hb828a1fc24d6e8d9E.exit" ], [ %25, %24 ], [ %34, %30 ], [ %37, %35 ], [ 0, %26 ]
   ret i64 %.sroa.0.0
 }
 
@@ -2106,7 +2106,7 @@ default.unreachable3:                             ; preds = %1
   br label %"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17hf4a64d8a94587bceE.exit"
 
 "_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17hf4a64d8a94587bceE.exit": ; preds = %12, %._crit_edge.i, %29, %26
-  %.sroa.0.0 = phi i8 [ %31, %29 ], [ %28, %26 ], [ 2, %._crit_edge.i ], [ %..i, %12 ]
+  %.sroa.0.0 = phi i8 [ %28, %26 ], [ %31, %29 ], [ 2, %._crit_edge.i ], [ %..i, %12 ]
   ret i8 %.sroa.0.0
 }
 
@@ -2236,7 +2236,7 @@ default.unreachable1:                             ; preds = %1
   br label %"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17h751a5d9f0d07aa57E.exit"
 
 "_ZN16concurrent_queue6single15Single$LT$T$GT$4push17h751a5d9f0d07aa57E.exit": ; preds = %10, %8, %16, %13
-  %.sroa.0.0 = phi i8 [ %18, %16 ], [ %15, %13 ], [ 2, %8 ], [ %..i, %10 ]
+  %.sroa.0.0 = phi i8 [ %15, %13 ], [ %18, %16 ], [ 2, %8 ], [ %..i, %10 ]
   ret i8 %.sroa.0.0
 }
 
@@ -2268,7 +2268,7 @@ default.unreachable2:                             ; preds = %2
   br label %13
 
 13:                                               ; preds = %10, %7, %4
-  %.pn = phi { i64, ptr } [ %12, %10 ], [ %9, %7 ], [ %6, %4 ]
+  %.pn = phi { i64, ptr } [ %6, %4 ], [ %9, %7 ], [ %12, %10 ]
   ret { i64, ptr } %.pn
 }
 
@@ -2309,7 +2309,7 @@ default.unreachable4:                             ; preds = %1
   br label %21
 
 21:                                               ; preds = %16, %8, %3
-  %.sroa.0.0 = phi i1 [ %20, %16 ], [ %15, %8 ], [ %7, %3 ]
+  %.sroa.0.0 = phi i1 [ %7, %3 ], [ %15, %8 ], [ %20, %16 ]
   ret i1 %.sroa.0.0
 }
 
@@ -4176,7 +4176,7 @@ default.unreachable63.i.i.i.i.i.i:                ; preds = %26
   %60 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %60, label %61, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h32e829663b4131e2E.exit.thread.i.i"
 
-61:                                               ; preds = %22, %23, %53, %49, %39, %28, %36, %47, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h32e829663b4131e2E.exit.i.i"
+61:                                               ; preds = %22, %23, %53, %49, %39, %28, %47, %36, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h32e829663b4131e2E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !1110
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
@@ -4307,7 +4307,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -10135,7 +10135,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$concurrent_queue..PushError$LT$T$GT
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.sroa.0.0.in = phi i1 [ %12, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %12, %10 ]
   ret i1 %.sroa.0.0.in
 }
 

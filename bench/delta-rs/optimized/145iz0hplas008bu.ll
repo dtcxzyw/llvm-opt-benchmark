@@ -516,7 +516,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr45drop
   unreachable
 
 common.resume:                                    ; preds = %25, %.body, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %eh.lpad-body, %.body ], [ %26, %25 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %26, %25 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr45drop_in_place$LT$object_store..PutOptions$GT$17hc745a2b017657aeaE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$object_store..PutMode$GT$17h52da671f33101c5cE.llvm.16543861533300112609.exit.i", %35
@@ -1832,8 +1832,8 @@ default.unreachable1:                             ; preds = %1
   br label %24
 
 24:                                               ; preds = %22, %17, %15, %13, %8, %3
-  %.sroa.7.0 = phi ptr [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.39, %22 ], [ %21, %17 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.37, %15 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.35, %13 ], [ %12, %8 ], [ %7, %3 ]
-  %.sroa.0.0 = phi ptr [ %23, %22 ], [ %19, %17 ], [ %16, %15 ], [ %14, %13 ], [ %10, %8 ], [ %5, %3 ]
+  %.sroa.7.0 = phi ptr [ %7, %3 ], [ %12, %8 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.35, %13 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.37, %15 ], [ %21, %17 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.39, %22 ]
+  %.sroa.0.0 = phi ptr [ %5, %3 ], [ %10, %8 ], [ %14, %13 ], [ %16, %15 ], [ %19, %17 ], [ %23, %22 ]
   %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %26
@@ -2071,7 +2071,7 @@ default.unreachable23:                            ; preds = %2
   br label %94
 
 94:                                               ; preds = %83, %72, %61, %50, %39, %28
-  %.0.in = phi i1 [ %93, %83 ], [ %82, %72 ], [ %71, %61 ], [ %60, %50 ], [ %49, %39 ], [ %38, %28 ]
+  %.0.in = phi i1 [ %38, %28 ], [ %49, %39 ], [ %60, %50 ], [ %71, %61 ], [ %82, %72 ], [ %93, %83 ]
   ret i1 %.0.in
 }
 

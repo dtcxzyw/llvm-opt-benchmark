@@ -1091,7 +1091,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hf89b37923dcb469fE.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hf89b37923dcb469fE.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he29d3b1b6e924da2E.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h266aa9fa756ca16dE.exit"
 
@@ -1221,7 +1221,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hf89b37923dcb469fE.exit.i.i.i6"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hf89b37923dcb469fE.exit.i.i.i6": ; preds = %130, %125, %122, %119
-  %.sroa.0.0.i.i.i.i.i.i.i7 = phi i8 [ %124, %122 ], [ %135, %130 ], [ %121, %119 ], [ %129, %125 ]
+  %.sroa.0.0.i.i.i.i.i.i.i7 = phi i8 [ %129, %125 ], [ %121, %119 ], [ %135, %130 ], [ %124, %122 ]
   %136 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i7 to i1
   br i1 %136, label %137, label %139
 
@@ -3934,7 +3934,7 @@ default.unreachable59:                            ; preds = %20, %19
   br label %45
 
 45:                                               ; preds = %63, %53, %46, %36, %27, %21
-  %.sroa.0.0.in = phi i1 [ %72, %63 ], [ %62, %53 ], [ %52, %46 ], [ %44, %36 ], [ %35, %27 ], [ %26, %21 ]
+  %.sroa.0.0.in = phi i1 [ %52, %46 ], [ %62, %53 ], [ %72, %63 ], [ %26, %21 ], [ %35, %27 ], [ %44, %36 ]
   ret i1 %.sroa.0.0.in
 
 46:                                               ; preds = %20
@@ -10503,8 +10503,8 @@ default.unreachable:                              ; preds = %38
   br label %57
 
 57:                                               ; preds = %58, %52, %48, %47, %46, %45, %44, %43, %42, %41, %38
-  %.sroa.12.0.i = phi i64 [ %56, %52 ], [ %60, %58 ], [ 5, %48 ], [ 7, %47 ], [ 5, %46 ], [ 4, %45 ], [ 6, %44 ], [ 3, %43 ], [ 4, %42 ], [ 3, %41 ], [ 7, %38 ]
-  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %59, %58 ], [ @anon.6f793cd01208a0f693c6a29297457473.344, %48 ], [ @anon.6f793cd01208a0f693c6a29297457473.343, %47 ], [ @anon.6f793cd01208a0f693c6a29297457473.342, %46 ], [ @anon.6f793cd01208a0f693c6a29297457473.341, %45 ], [ @anon.6f793cd01208a0f693c6a29297457473.340, %44 ], [ @anon.6f793cd01208a0f693c6a29297457473.339, %43 ], [ @anon.6f793cd01208a0f693c6a29297457473.338, %42 ], [ @anon.6f793cd01208a0f693c6a29297457473.337, %41 ], [ @anon.6f793cd01208a0f693c6a29297457473.336, %38 ]
+  %.sroa.12.0.i = phi i64 [ 3, %41 ], [ 4, %42 ], [ 3, %43 ], [ 6, %44 ], [ 4, %45 ], [ 5, %46 ], [ 7, %47 ], [ 5, %48 ], [ %60, %58 ], [ %56, %52 ], [ 7, %38 ]
+  %.sroa.0.0.i = phi ptr [ @anon.6f793cd01208a0f693c6a29297457473.337, %41 ], [ @anon.6f793cd01208a0f693c6a29297457473.338, %42 ], [ @anon.6f793cd01208a0f693c6a29297457473.339, %43 ], [ @anon.6f793cd01208a0f693c6a29297457473.340, %44 ], [ @anon.6f793cd01208a0f693c6a29297457473.341, %45 ], [ @anon.6f793cd01208a0f693c6a29297457473.342, %46 ], [ @anon.6f793cd01208a0f693c6a29297457473.343, %47 ], [ @anon.6f793cd01208a0f693c6a29297457473.344, %48 ], [ %59, %58 ], [ %54, %52 ], [ @anon.6f793cd01208a0f693c6a29297457473.336, %38 ]
   invoke void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h15a1be303cbe19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.12.0.i)
           to label %61 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1242
 

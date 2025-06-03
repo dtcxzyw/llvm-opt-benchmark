@@ -552,7 +552,7 @@ _ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit: ; preds = %1
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %8, %16
-  %.1.i.i = phi ptr [ %12, %8 ], [ %17, %16 ]
+  %.1.i.i = phi ptr [ %17, %16 ], [ %12, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %18, align 8, !tbaa !54
   %19 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -635,7 +635,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %65, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i ], [ %66, %65 ]
+  %.1.i.i.i.i = phi ptr [ %66, %65 ], [ %61, %.lr.ph.i.i.i ]
   %67 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %68 = load i24, ptr %67, align 16
   %69 = and i24 %68, 1048576
@@ -786,7 +786,7 @@ _ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit: ;
   br label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
 
 _ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit63, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit44, %5, %12, %20, %30, %34
-  %.sroa.0.0.i = phi i64 [ %37, %34 ], [ %33, %30 ], [ %23, %20 ], [ %19, %12 ], [ %8, %5 ], [ 3, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit44 ], [ 5, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit63 ], [ 2, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ]
+  %.sroa.0.0.i = phi i64 [ %8, %5 ], [ %19, %12 ], [ %23, %20 ], [ %33, %30 ], [ %37, %34 ], [ 3, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit44 ], [ 5, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit63 ], [ 2, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ]
   %39 = trunc i64 %.sroa.0.0.i to i32
   %40 = and i32 %39, 7
   %41 = and i64 %.sroa.0.0.i, -8
@@ -3292,7 +3292,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit355.thread:     ; preds = %503, %_ZNK5clang4Ty
   %532 = call noundef zeroext i1 %.val244(i64 noundef %.val245, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.4, i32 noundef 0) #17
   br label %.critedge232
 
-.critedge232:                                     ; preds = %80, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.lr.ph451, %.lr.ph455, %.critedge6, %158, %440, %142, %139, %195, %172, %136, %430, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryELb1EE9push_backERKS4_.exit267, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryELb1EE9push_backERKS4_.exit258, %531, %529, %519, %_ZN5clang4sema12_GLOBAL__N_119RevertToOldSizeRAIID2Ev.exit, %426, %436, %471, %486, %472, %_ZNK5clang4Type10isVoidTypeEv.exit355.thread, %_ZNK5clang4Type10isVoidTypeEv.exit355, %379
+.critedge232:                                     ; preds = %80, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.lr.ph451, %.lr.ph455, %.critedge6, %158, %440, %142, %139, %195, %172, %136, %430, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryELb1EE9push_backERKS4_.exit258, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryELb1EE9push_backERKS4_.exit267, %531, %529, %519, %_ZN5clang4sema12_GLOBAL__N_119RevertToOldSizeRAIID2Ev.exit, %426, %436, %471, %486, %472, %_ZNK5clang4Type10isVoidTypeEv.exit355.thread, %_ZNK5clang4Type10isVoidTypeEv.exit355, %379
   %533 = zext i32 %20 to i64
   %534 = load i32, ptr %19, align 8, !tbaa !15
   %535 = icmp eq i32 %20, %534
@@ -3485,7 +3485,7 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %21, %28
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %71, %80
-  %.1.i.i = phi ptr [ %76, %71 ], [ %81, %80 ]
+  %.1.i.i = phi ptr [ %81, %80 ], [ %76, %71 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %82, align 8, !tbaa !54
   %83 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -3730,7 +3730,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4sema12_GLOBAL__N_122IndirectLocalPathE
   br label %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit.i
 
 _ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit.i: ; preds = %195, %188
-  %.1.i.i.i = phi ptr [ %191, %188 ], [ %196, %195 ]
+  %.1.i.i.i = phi ptr [ %196, %195 ], [ %191, %188 ]
   %197 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i = load i64, ptr %197, align 8, !tbaa !54
   %198 = call fastcc noundef zeroext i1 @_ZN5clang4semaL16isRecordWithAttrINS_11PointerAttrEEEbNS_8QualTypeE(i64 %.sroa.0.0.copyload.i1.i.i)
@@ -3925,7 +3925,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i.i: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i.i: ; preds = %298, %.lr.ph.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %294, %.lr.ph.i.i.i.i ], [ %299, %298 ]
+  %.1.i.i.i.i.i = phi ptr [ %299, %298 ], [ %294, %.lr.ph.i.i.i.i ]
   %300 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 16
   %301 = load i24, ptr %300, align 16
   %302 = and i24 %301, 1048576
@@ -3997,7 +3997,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i38.i: ; preds =
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i45.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i45.i: ; preds = %332, %.lr.ph.i.i.i41.i
-  %.1.i.i.i.i46.i = phi ptr [ %328, %.lr.ph.i.i.i41.i ], [ %333, %332 ]
+  %.1.i.i.i.i46.i = phi ptr [ %333, %332 ], [ %328, %.lr.ph.i.i.i41.i ]
   %334 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i46.i, i64 16
   %335 = load i24, ptr %334, align 16
   %336 = and i24 %335, 1048576
@@ -4031,7 +4031,7 @@ _ZNK5clang13CXXMethodDecl30getFunctionObjectParameterTypeEv.exit51.i: ; preds = 
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %346, %339
-  %.1.i.i54.i = phi ptr [ %342, %339 ], [ %347, %346 ]
+  %.1.i.i54.i = phi ptr [ %347, %346 ], [ %342, %339 ]
   %348 = getelementptr inbounds nuw i8, ptr %.1.i.i54.i, i64 24
   %.sroa.0.0.copyload.i1.i55.i = load i64, ptr %348, align 8, !tbaa !54
   %349 = call fastcc noundef zeroext i1 @_ZN5clang4semaL16isRecordWithAttrINS_11PointerAttrEEEbNS_8QualTypeE(i64 %.sroa.0.0.copyload.i1.i55.i)
@@ -4189,7 +4189,7 @@ _ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.thread244.i: ; preds = %_Z
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit62.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit62.i: ; preds = %398, %_ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.thread244.i
-  %.1.i.i60.i = phi ptr [ %394, %_ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.thread244.i ], [ %399, %398 ]
+  %.1.i.i60.i = phi ptr [ %399, %398 ], [ %394, %_ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.thread244.i ]
   %400 = getelementptr inbounds nuw i8, ptr %.1.i.i60.i, i64 24
   %.sroa.0.0.copyload.i1.i61.i = load i64, ptr %400, align 8, !tbaa !54
   %401 = and i64 %.sroa.0.0.copyload.i1.i61.i, -16
@@ -4633,7 +4633,7 @@ _ZNK5clang4Decl7getAttrINS_21LifetimeCaptureByAttrEEEPT_v.exit: ; preds = %.lr.p
   br label %604
 
 604:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %602
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %603, %602 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %603, %602 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 4, !tbaa !897
   %605 = icmp eq i32 %.1.val.i.i.i.i.i.i, 0
   br i1 %605, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPiEEZN5clang4semaL26visitFunctionCallArgumentsERNS_15SmallVectorImplINS5_12_GLOBAL__N_122IndirectLocalPathEntryEEEPNS4_4ExprENS_12function_refIFbSA_SC_NS7_13ReferenceKindEEEEE3$_0EEbOT_T0_.exit", label %606
@@ -4643,7 +4643,7 @@ _ZNK5clang4Decl7getAttrINS_21LifetimeCaptureByAttrEEEPT_v.exit: ; preds = %.lr.p
   br label %608
 
 608:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %606
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %607, %606 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %607, %606 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 4, !tbaa !897
   %609 = icmp eq i32 %.2.val.i.i.i.i.i.i, 0
   br i1 %609, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPiEEZN5clang4semaL26visitFunctionCallArgumentsERNS_15SmallVectorImplINS5_12_GLOBAL__N_122IndirectLocalPathEntryEEEPNS4_4ExprENS_12function_refIFbSA_SC_NS7_13ReferenceKindEEEEE3$_0EEbOT_T0_.exit", label %.critedge3
@@ -4855,7 +4855,7 @@ _ZNK5clang4Decl7hasAttrINS_9OwnerAttrEEEbv.exit.i163: ; preds = %.lr.ph.i.i.i.i.
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i166
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i166: ; preds = %698, %691
-  %.1.i.i.i167 = phi ptr [ %694, %691 ], [ %699, %698 ]
+  %.1.i.i.i167 = phi ptr [ %699, %698 ], [ %694, %691 ]
   %700 = getelementptr inbounds nuw i8, ptr %.1.i.i.i167, i64 24
   %.sroa.0.0.copyload.i1.i.i168 = load i64, ptr %700, align 8, !tbaa !54
   %701 = and i64 %.sroa.0.0.copyload.i1.i.i168, -16
@@ -4887,7 +4887,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i166: ; preds = %698, %691
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit32.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit32.i: ; preds = %718, %711
-  %.1.i.i30.i = phi ptr [ %714, %711 ], [ %719, %718 ]
+  %.1.i.i30.i = phi ptr [ %719, %718 ], [ %714, %711 ]
   %720 = getelementptr inbounds nuw i8, ptr %.1.i.i30.i, i64 24
   %.sroa.0.0.copyload.i1.i31.i = load i64, ptr %720, align 8, !tbaa !54
   %721 = call fastcc noundef zeroext i1 @_ZN5clang4semaL16isRecordWithAttrINS_11PointerAttrEEEbNS_8QualTypeE(i64 %.sroa.0.0.copyload.i1.i31.i)
@@ -4986,7 +4986,7 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i: ; preds = %_ZN4llvm
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit38.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit38.i: ; preds = %750, %743
-  %.1.i.i36.i = phi ptr [ %746, %743 ], [ %751, %750 ]
+  %.1.i.i36.i = phi ptr [ %751, %750 ], [ %746, %743 ]
   %752 = getelementptr inbounds nuw i8, ptr %.1.i.i36.i, i64 24
   %.sroa.0.0.copyload.i1.i37.i = load i64, ptr %752, align 8, !tbaa !54
   %753 = and i64 %.sroa.0.0.copyload.i1.i37.i, -16
@@ -5719,7 +5719,7 @@ define internal fastcc void @"_ZZN5clang4semaL26visitFunctionCallArgumentsERN4ll
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %3, %12
-  %.1.i.i = phi ptr [ %8, %3 ], [ %13, %12 ]
+  %.1.i.i = phi ptr [ %13, %12 ], [ %8, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %14, align 8, !tbaa !54
   %15 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -6321,7 +6321,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread22: ; preds = %5, %_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %35, %.lr.ph.i
-  %.1.i.i = phi ptr [ %31, %.lr.ph.i ], [ %36, %35 ]
+  %.1.i.i = phi ptr [ %36, %35 ], [ %31, %.lr.ph.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %38 = load i24, ptr %37, align 16
   %39 = and i24 %38, 1048576
@@ -6611,7 +6611,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang4semaL21checkExprLifetimeI
   br label %131
 
 131:                                              ; preds = %129, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %130, %129 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %130, %129 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !54
   %132 = and i32 %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i.i, -3
   %133 = icmp eq i32 %132, 0
@@ -6622,7 +6622,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang4semaL21checkExprLifetimeI
   br label %136
 
 136:                                              ; preds = %134, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %135, %134 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %135, %134 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !54
   %137 = and i32 %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i.i, -3
   %138 = icmp eq i32 %137, 0
@@ -6765,8 +6765,8 @@ _ZN4llvm15isa_and_presentIJN5clang18CXXConstructorDeclEEPKNS1_12FunctionDeclEEEb
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %200, %192
-  %.sroa.0.0.copyload.i.i81.pre198.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %192 ], [ %.sroa.0.0.copyload.i.i81.pre198.pre.i, %200 ]
-  %.1.i.i.i = phi ptr [ %196, %192 ], [ %201, %200 ]
+  %.sroa.0.0.copyload.i.i81.pre198.i = phi i64 [ %.sroa.0.0.copyload.i.i81.pre198.pre.i, %200 ], [ %.sroa.0.0.copyload.i.i.i, %192 ]
+  %.1.i.i.i = phi ptr [ %201, %200 ], [ %196, %192 ]
   %202 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i = load i64, ptr %202, align 8, !tbaa !54
   %203 = and i64 %.sroa.0.0.copyload.i1.i.i, -16
@@ -6798,7 +6798,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %200, %192
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit79.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit79.i: ; preds = %220, %213
-  %.1.i.i77.i = phi ptr [ %216, %213 ], [ %221, %220 ]
+  %.1.i.i77.i = phi ptr [ %221, %220 ], [ %216, %213 ]
   %222 = getelementptr inbounds nuw i8, ptr %.1.i.i77.i, i64 24
   %.sroa.0.0.copyload.i1.i78.i = load i64, ptr %222, align 8, !tbaa !54
   %223 = and i64 %.sroa.0.0.copyload.i1.i78.i, -16
@@ -6828,7 +6828,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit79._crit_edge.i: ; preds = %_ZNK5c
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit85.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit85.i: ; preds = %235, %228
-  %.1.i.i83.i = phi ptr [ %231, %228 ], [ %236, %235 ]
+  %.1.i.i83.i = phi ptr [ %236, %235 ], [ %231, %228 ]
   %237 = getelementptr inbounds nuw i8, ptr %.1.i.i83.i, i64 24
   %.sroa.0.0.copyload.i1.i84.i = load i64, ptr %237, align 8, !tbaa !54
   %238 = tail call fastcc noundef zeroext i1 @_ZN5clang4semaL16isRecordWithAttrINS_11PointerAttrEEEbNS_8QualTypeE(i64 %.sroa.0.0.copyload.i1.i84.i)
@@ -6934,7 +6934,7 @@ _ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.i: ; preds = %239
   br label %281
 
 281:                                              ; preds = %279, %._crit_edge.i.i.i.i.i.i.i99.i
-  %.1.i.i.i.i.i.i.i105.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i101.i, %._crit_edge.i.i.i.i.i.i.i99.i ], [ %280, %279 ]
+  %.1.i.i.i.i.i.i.i105.i = phi ptr [ %280, %279 ], [ %.029.lcssa.i.i.i.i.i.i.i101.i, %._crit_edge.i.i.i.i.i.i.i99.i ]
   %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i106.i = load i32, ptr %.1.i.i.i.i.i.i.i105.i, align 8, !tbaa !54
   %282 = and i32 %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i106.i, -3
   %283 = icmp eq i32 %282, 0
@@ -6945,7 +6945,7 @@ _ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.i: ; preds = %239
   br label %286
 
 286:                                              ; preds = %284, %._crit_edge.i.i.i.i.i.i.i99.i
-  %.2.i.i.i.i.i.i.i102.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i101.i, %._crit_edge.i.i.i.i.i.i.i99.i ], [ %285, %284 ]
+  %.2.i.i.i.i.i.i.i102.i = phi ptr [ %285, %284 ], [ %.029.lcssa.i.i.i.i.i.i.i101.i, %._crit_edge.i.i.i.i.i.i.i99.i ]
   %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i103.i = load i32, ptr %.2.i.i.i.i.i.i.i102.i, align 8, !tbaa !54
   %287 = and i32 %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i103.i, -3
   %288 = icmp eq i32 %287, 0
@@ -7354,7 +7354,7 @@ _ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exi
   br label %469
 
 469:                                              ; preds = %467, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %468, %467 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %468, %467 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !54
   %470 = and i32 %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i, -3
   %471 = icmp eq i32 %470, 0
@@ -7365,7 +7365,7 @@ _ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exi
   br label %474
 
 474:                                              ; preds = %472, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %473, %472 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %473, %472 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !54
   %475 = and i32 %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i, -3
   %476 = icmp eq i32 %475, 0
@@ -7642,7 +7642,7 @@ _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_1
   br label %596
 
 596:                                              ; preds = %594, %._crit_edge.i.i.i.i.i.i.i186
-  %.1.i.i.i.i.i.i.i192 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i188, %._crit_edge.i.i.i.i.i.i.i186 ], [ %595, %594 ]
+  %.1.i.i.i.i.i.i.i192 = phi ptr [ %595, %594 ], [ %.029.lcssa.i.i.i.i.i.i.i188, %._crit_edge.i.i.i.i.i.i.i186 ]
   %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i193 = load i32, ptr %.1.i.i.i.i.i.i.i192, align 8, !tbaa !54
   %597 = and i32 %.sroa.0.0.copyload.i34.i.i.i.i.i.i.i193, -3
   %598 = icmp eq i32 %597, 0
@@ -7653,7 +7653,7 @@ _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_1
   br label %601
 
 601:                                              ; preds = %599, %._crit_edge.i.i.i.i.i.i.i186
-  %.2.i.i.i.i.i.i.i189 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i188, %._crit_edge.i.i.i.i.i.i.i186 ], [ %600, %599 ]
+  %.2.i.i.i.i.i.i.i189 = phi ptr [ %600, %599 ], [ %.029.lcssa.i.i.i.i.i.i.i188, %._crit_edge.i.i.i.i.i.i.i186 ]
   %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i190 = load i32, ptr %.2.i.i.i.i.i.i.i189, align 8, !tbaa !54
   %602 = and i32 %.sroa.0.0.copyload.i35.i.i.i.i.i.i.i190, -3
   %603 = icmp eq i32 %602, 0
@@ -10864,9 +10864,9 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread: ; preds = %15, %.lr.p
   %.sroa.7.0.extract.trunc6 = trunc nuw i64 %.sroa.7.0.extract.shift5 to i32
   br label %.thread
 
-.thread:                                          ; preds = %6, %29, %25, %.loopexit, %._crit_edge
-  %.sroa.7.1 = phi i32 [ %.sroa.7.0.extract.trunc6, %._crit_edge ], [ 0, %6 ], [ %.sroa.0.0.copyload.i, %29 ], [ %.sroa.7.0.extract.trunc4, %25 ], [ %.sroa.7.0.extract.trunc, %.loopexit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.extract.trunc2, %._crit_edge ], [ 0, %6 ], [ %.sroa.0.0.copyload.i, %29 ], [ %.sroa.0.0.extract.trunc1, %25 ], [ %.sroa.0.0.extract.trunc, %.loopexit ]
+.thread:                                          ; preds = %6, %.loopexit, %25, %29, %._crit_edge
+  %.sroa.7.1 = phi i32 [ %.sroa.7.0.extract.trunc6, %._crit_edge ], [ 0, %6 ], [ %.sroa.7.0.extract.trunc, %.loopexit ], [ %.sroa.7.0.extract.trunc4, %25 ], [ %.sroa.0.0.copyload.i, %29 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.extract.trunc2, %._crit_edge ], [ 0, %6 ], [ %.sroa.0.0.extract.trunc, %.loopexit ], [ %.sroa.0.0.extract.trunc1, %25 ], [ %.sroa.0.0.copyload.i, %29 ]
   %.sroa.7.0.insert.ext = zext i32 %.sroa.7.1 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.1 to i64
@@ -11022,7 +11022,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang4semaL16pathContainsInitERKN
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %28, %27 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i34.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !54
   %30 = and i32 %.sroa.0.0.copyload.i34.i.i.i.i.i.i, -3
   %31 = icmp eq i32 %30, 0
@@ -11033,7 +11033,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang4semaL16pathContainsInitERKN
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %33, %32 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i35.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !54
   %35 = and i32 %.sroa.0.0.copyload.i35.i.i.i.i.i.i, -3
   %36 = icmp eq i32 %35, 0

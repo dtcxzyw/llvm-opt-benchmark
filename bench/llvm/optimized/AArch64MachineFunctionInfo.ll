@@ -680,7 +680,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %31, %30 ]
+  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %31, %30 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val.i20.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.1.i.i.i.i.i.i.i, align 4, !tbaa !244
   %33 = icmp eq i32 %.val.i20.i.i.i.i.i.i.i, 6
   br i1 %33, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %34
@@ -690,7 +690,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %35, %34 ]
+  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val.i21.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.2.i.i.i.i.i.i.i, align 4, !tbaa !244
   %37 = icmp eq i32 %.val.i21.i.i.i.i.i.i.i, 6
   %spec.select.i.i.i.i.i.i.i = select i1 %37, ptr %.sroa.031.2.i.i.i.i.i.i.i, ptr %.val.val2
@@ -805,7 +805,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %31, %30 ]
+  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %31, %30 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val.i20.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.1.i.i.i.i.i.i.i, align 4, !tbaa !244
   %33 = icmp eq i32 %.val.i20.i.i.i.i.i.i.i, 6
   br i1 %33, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %34
@@ -815,7 +815,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %35, %34 ]
+  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val.i21.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.2.i.i.i.i.i.i.i, align 4, !tbaa !244
   %37 = icmp eq i32 %.val.i21.i.i.i.i.i.i.i, 6
   %spec.select.i.i.i.i.i.i.i = select i1 %37, ptr %.sroa.031.2.i.i.i.i.i.i.i, ptr %.val.val4

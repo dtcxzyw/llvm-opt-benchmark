@@ -2983,9 +2983,9 @@ define internal noundef zeroext i1 @php_auto_globals_create_request(ptr noundef 
   br label %11
 
 11:                                               ; preds = %.sink.split, %.lr.ph, %8, %9, %10
-  %.sroa.7.1 = phi i8 [ 1, %10 ], [ %.sroa.7.016, %9 ], [ %.sroa.7.016, %8 ], [ %.sroa.7.016, %.lr.ph ], [ %.sroa.7.1.ph, %.sink.split ]
-  %.sroa.5.1 = phi i8 [ %.sroa.5.018, %10 ], [ 1, %9 ], [ %.sroa.5.018, %8 ], [ %.sroa.5.018, %.lr.ph ], [ %.sroa.5.1.ph, %.sink.split ]
-  %.sroa.0.1 = phi i8 [ %.sroa.0.019, %10 ], [ %.sroa.0.019, %9 ], [ 1, %8 ], [ %.sroa.0.019, %.lr.ph ], [ %.sroa.0.1.ph, %.sink.split ]
+  %.sroa.7.1 = phi i8 [ %.sroa.7.016, %8 ], [ %.sroa.7.016, %9 ], [ 1, %10 ], [ %.sroa.7.016, %.lr.ph ], [ %.sroa.7.1.ph, %.sink.split ]
+  %.sroa.5.1 = phi i8 [ %.sroa.5.018, %8 ], [ 1, %9 ], [ %.sroa.5.018, %10 ], [ %.sroa.5.018, %.lr.ph ], [ %.sroa.5.1.ph, %.sink.split ]
+  %.sroa.0.1 = phi i8 [ 1, %8 ], [ %.sroa.0.019, %9 ], [ %.sroa.0.019, %10 ], [ %.sroa.0.019, %.lr.ph ], [ %.sroa.0.1.ph, %.sink.split ]
   %12 = getelementptr inbounds nuw i8, ptr %.117, i64 1
   br label %.lr.ph
 

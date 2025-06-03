@@ -353,7 +353,7 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %69, %68 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load i16, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !127
   %71 = getelementptr i8, ptr %.1.i.i.i.i.i.i.i, i64 8
   %.1.val38.i.i.i.i.i.i.i = load ptr, ptr %71, align 8, !tbaa !129
@@ -379,7 +379,7 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %76, %75 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %76, %75 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load i16, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !127
   %78 = getelementptr i8, ptr %.2.i.i.i.i.i.i.i, i64 8
   %.2.val39.i.i.i.i.i.i.i = load ptr, ptr %78, align 8, !tbaa !129
@@ -981,7 +981,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoI
   br label %252
 
 252:                                              ; preds = %250, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %251, %250 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %251, %250 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i16, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !127
   %253 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val38.i.i.i.i.i.i = load ptr, ptr %253, align 8, !tbaa !129
@@ -1008,7 +1008,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoI
   br label %260
 
 260:                                              ; preds = %258, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %259, %258 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %259, %258 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i16, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !127
   %261 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val39.i.i.i.i.i.i = load ptr, ptr %261, align 8, !tbaa !129
@@ -1285,7 +1285,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   br label %348
 
 348:                                              ; preds = %346, %._crit_edge.i.i.i.i.i.i1331
-  %.sroa.072.1.i.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i1331 ], [ %347, %346 ]
+  %.sroa.072.1.i.i.i.i.i.i = phi ptr [ %347, %346 ], [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i1331 ]
   %.sroa.0.0.copyload.i52.i.i.i.i.i.i = load ptr, ptr %.sroa.072.1.i.i.i.i.i.i, align 8, !tbaa !119
   %.sroa.2.0..sroa_idx.i53.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.072.1.i.i.i.i.i.i, i64 8
   %.sroa.2.0.copyload.i54.i.i.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i53.i.i.i.i.i.i, align 8, !tbaa !120
@@ -1319,7 +1319,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   br label %359
 
 359:                                              ; preds = %357, %._crit_edge.i.i.i.i.i.i1331
-  %.sroa.072.2.i.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i1331 ], [ %358, %357 ]
+  %.sroa.072.2.i.i.i.i.i.i = phi ptr [ %358, %357 ], [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i1331 ]
   %.sroa.0.0.copyload.i61.i.i.i.i.i.i = load ptr, ptr %.sroa.072.2.i.i.i.i.i.i, align 8, !tbaa !119
   %.sroa.2.0..sroa_idx.i62.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.072.2.i.i.i.i.i.i, i64 8
   %.sroa.2.0.copyload.i63.i.i.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i62.i.i.i.i.i.i, align 8, !tbaa !120
@@ -7386,7 +7386,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1400.thread4576:
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1400: ; preds = %2607, %2590, %2573, %2556, %2539, %2522, %2495, %2468, %2441, %2414, %2387, %2360, %2333, %2306, %2279, %2252, %2225, %2198, %2171, %2144, %2117, %2090, %2063, %2046, %2029, %2012, %1985, %1958, %1931, %1866, %1905, %1862, %1845, %1828, %1811, %1794, %1777, %1760, %1743, %1726, %1709, %1692, %1675, %1649, %1623, %1606, %1589, %1572, %1555, %1538, %1521, %1504, %1487, %1470, %1453, %1436, %1419, %1402, %1385, %1368, %1351, %1334, %1317, %1300, %1283, %1266, %1249, %1232, %1215, %1198, %1181, %1164, %1147, %1121, %1095, %1078, %1061, %1044, %1027, %1010, %993, %976, %959, %942, %925, %908, %891, %874, %857, %840, %823, %806, %789, %772, %755, %738, %721, %704, %687, %670, %631, %609, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i, %560, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit, %635, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit, %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1382
-  %.104 = phi i8 [ %.3, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1382 ], [ %.1, %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit ], [ %.01310, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit ], [ %662, %635 ], [ %.fr, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit ], [ %563, %560 ], [ %586, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i ], [ %612, %609 ], [ %634, %631 ], [ %673, %670 ], [ %690, %687 ], [ %707, %704 ], [ %724, %721 ], [ %741, %738 ], [ %758, %755 ], [ %775, %772 ], [ %792, %789 ], [ %809, %806 ], [ %826, %823 ], [ %843, %840 ], [ %860, %857 ], [ %877, %874 ], [ %894, %891 ], [ %911, %908 ], [ %928, %925 ], [ %945, %942 ], [ %962, %959 ], [ %979, %976 ], [ %996, %993 ], [ %1013, %1010 ], [ %1030, %1027 ], [ %1047, %1044 ], [ %1064, %1061 ], [ %1081, %1078 ], [ %1098, %1095 ], [ %1124, %1121 ], [ %1150, %1147 ], [ %1167, %1164 ], [ %1184, %1181 ], [ %1201, %1198 ], [ %1218, %1215 ], [ %1235, %1232 ], [ %1252, %1249 ], [ %1269, %1266 ], [ %1286, %1283 ], [ %1303, %1300 ], [ %1320, %1317 ], [ %1337, %1334 ], [ %1354, %1351 ], [ %1371, %1368 ], [ %1388, %1385 ], [ %1405, %1402 ], [ %1422, %1419 ], [ %1439, %1436 ], [ %1456, %1453 ], [ %1473, %1470 ], [ %1490, %1487 ], [ %1507, %1504 ], [ %1524, %1521 ], [ %1541, %1538 ], [ %1558, %1555 ], [ %1575, %1572 ], [ %1592, %1589 ], [ %1609, %1606 ], [ %1626, %1623 ], [ %1652, %1649 ], [ %1678, %1675 ], [ %1695, %1692 ], [ %1712, %1709 ], [ %1729, %1726 ], [ %1746, %1743 ], [ %1763, %1760 ], [ %1780, %1777 ], [ %1797, %1794 ], [ %1814, %1811 ], [ %1831, %1828 ], [ %1848, %1845 ], [ %1865, %1862 ], [ %1893, %1866 ], [ %1908, %1905 ], [ %1934, %1931 ], [ %1961, %1958 ], [ %1988, %1985 ], [ %2015, %2012 ], [ %2032, %2029 ], [ %2049, %2046 ], [ %2066, %2063 ], [ %2093, %2090 ], [ %2120, %2117 ], [ %2147, %2144 ], [ %2174, %2171 ], [ %2201, %2198 ], [ %2228, %2225 ], [ %2255, %2252 ], [ %2282, %2279 ], [ %2309, %2306 ], [ %2336, %2333 ], [ %2363, %2360 ], [ %2390, %2387 ], [ %2417, %2414 ], [ %2444, %2441 ], [ %2471, %2468 ], [ %2498, %2495 ], [ %2525, %2522 ], [ %2542, %2539 ], [ %2559, %2556 ], [ %2576, %2573 ], [ %2593, %2590 ], [ %2610, %2607 ]
+  %.104 = phi i8 [ %.01310, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit ], [ %.1, %_ZNK4llvm18TargetLoweringBase19getTruncStoreActionENS_3EVTES1_.exit ], [ %.3, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1382 ], [ %662, %635 ], [ %.fr, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit ], [ %563, %560 ], [ %586, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i ], [ %612, %609 ], [ %634, %631 ], [ %673, %670 ], [ %690, %687 ], [ %707, %704 ], [ %724, %721 ], [ %741, %738 ], [ %758, %755 ], [ %775, %772 ], [ %792, %789 ], [ %809, %806 ], [ %826, %823 ], [ %843, %840 ], [ %860, %857 ], [ %877, %874 ], [ %894, %891 ], [ %911, %908 ], [ %928, %925 ], [ %945, %942 ], [ %962, %959 ], [ %979, %976 ], [ %996, %993 ], [ %1013, %1010 ], [ %1030, %1027 ], [ %1047, %1044 ], [ %1064, %1061 ], [ %1081, %1078 ], [ %1098, %1095 ], [ %1124, %1121 ], [ %1150, %1147 ], [ %1167, %1164 ], [ %1184, %1181 ], [ %1201, %1198 ], [ %1218, %1215 ], [ %1235, %1232 ], [ %1252, %1249 ], [ %1269, %1266 ], [ %1286, %1283 ], [ %1303, %1300 ], [ %1320, %1317 ], [ %1337, %1334 ], [ %1354, %1351 ], [ %1371, %1368 ], [ %1388, %1385 ], [ %1405, %1402 ], [ %1422, %1419 ], [ %1439, %1436 ], [ %1456, %1453 ], [ %1473, %1470 ], [ %1490, %1487 ], [ %1507, %1504 ], [ %1524, %1521 ], [ %1541, %1538 ], [ %1558, %1555 ], [ %1575, %1572 ], [ %1592, %1589 ], [ %1609, %1606 ], [ %1626, %1623 ], [ %1652, %1649 ], [ %1678, %1675 ], [ %1695, %1692 ], [ %1712, %1709 ], [ %1729, %1726 ], [ %1746, %1743 ], [ %1763, %1760 ], [ %1780, %1777 ], [ %1797, %1794 ], [ %1814, %1811 ], [ %1831, %1828 ], [ %1848, %1845 ], [ %1865, %1862 ], [ %1893, %1866 ], [ %1908, %1905 ], [ %1934, %1931 ], [ %1961, %1958 ], [ %1988, %1985 ], [ %2015, %2012 ], [ %2032, %2029 ], [ %2049, %2046 ], [ %2066, %2063 ], [ %2093, %2090 ], [ %2120, %2117 ], [ %2147, %2144 ], [ %2174, %2171 ], [ %2201, %2198 ], [ %2228, %2225 ], [ %2255, %2252 ], [ %2282, %2279 ], [ %2309, %2306 ], [ %2336, %2333 ], [ %2363, %2360 ], [ %2390, %2387 ], [ %2417, %2414 ], [ %2444, %2441 ], [ %2471, %2468 ], [ %2498, %2495 ], [ %2525, %2522 ], [ %2542, %2539 ], [ %2559, %2556 ], [ %2576, %2573 ], [ %2593, %2590 ], [ %2610, %2607 ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %138) #14
   %2614 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr %2614, ptr %138, align 8, !tbaa !148
@@ -21370,7 +21370,7 @@ define linkonce_odr hidden i16 @_ZNK4llvm3MVT32changeVectorElementTypeToIntegerE
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %1, %13, %14, %15, %16, %17, %18, %19, %20
-  %.sroa.0.0.i = phi i16 [ 0, %20 ], [ 9, %19 ], [ 8, %18 ], [ 7, %17 ], [ 6, %16 ], [ 5, %15 ], [ 4, %14 ], [ 3, %13 ], [ 2, %1 ]
+  %.sroa.0.0.i = phi i16 [ 0, %20 ], [ 3, %13 ], [ 4, %14 ], [ 5, %15 ], [ 6, %16 ], [ 7, %17 ], [ 8, %18 ], [ 9, %19 ], [ 2, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
   %21 = load i16, ptr %0, align 2, !tbaa !156
   %22 = zext i16 %21 to i64

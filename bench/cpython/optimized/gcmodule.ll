@@ -1194,7 +1194,7 @@ define internal noundef ptr @gc_set_threshold(ptr readnone captures(none) %0, pt
   br label %gc_set_threshold_impl.exit
 
 gc_set_threshold_impl.exit:                       ; preds = %.thread17, %.thread15, %29, %19, %9, %7, %21
-  %.08 = phi ptr [ null, %21 ], [ null, %19 ], [ null, %9 ], [ null, %7 ], [ @_Py_NoneStruct, %29 ], [ @_Py_NoneStruct, %.thread15 ], [ @_Py_NoneStruct, %.thread17 ]
+  %.08 = phi ptr [ null, %21 ], [ null, %7 ], [ null, %9 ], [ null, %19 ], [ @_Py_NoneStruct, %29 ], [ @_Py_NoneStruct, %.thread15 ], [ @_Py_NoneStruct, %.thread17 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5

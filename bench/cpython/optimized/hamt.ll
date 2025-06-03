@@ -3152,7 +3152,7 @@ define internal i32 @hamt_baseiter_tp_traverse(ptr noundef readonly captures(non
   br label %9
 
 9:                                                ; preds = %6, %8
-  %.1 = phi i32 [ %7, %6 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -3210,7 +3210,7 @@ define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %0) #0
   br label %14
 
 14:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %13, %8 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %6 ], [ %13, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   ret ptr %.0

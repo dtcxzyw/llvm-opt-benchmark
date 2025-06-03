@@ -411,7 +411,7 @@ Parse_ParserPerformTopOp.exit201.thread:          ; preds = %105, %Parse_ParserP
   %134 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 52, i64 1, ptr %0)
   br label %.thread216
 
-.thread216:                                       ; preds = %.thread, %33, %37, %42, %47, %67, %.critedge2, %87, %129, %131, %133
+.thread216:                                       ; preds = %.thread, %67, %47, %42, %37, %33, %.critedge2, %87, %129, %131, %133
   tail call void @free(ptr noundef %19) #9
   br label %135
 

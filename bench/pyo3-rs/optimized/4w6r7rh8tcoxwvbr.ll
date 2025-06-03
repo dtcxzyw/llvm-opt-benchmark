@@ -1947,8 +1947,8 @@ default.unreachable:                              ; preds = %298, %274, %256, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.thread369, %.thread366, %.thread363, %.thread360, %341, %.noexc167, %.noexc153, %.noexc141
-  %.sroa.0.0.ph.be = phi i8 [ %.sroa.0.0.ph, %.noexc141 ], [ %.sroa.0.0.ph, %.noexc153 ], [ %.sroa.0.0.ph, %.noexc167 ], [ %.sroa.0.0.ph, %341 ], [ 1, %.thread360 ], [ 2, %.thread363 ], [ 2, %.thread366 ], [ 3, %.thread369 ]
+.outer.backedge:                                  ; preds = %.thread369, %.thread366, %.thread363, %.thread360, %.noexc141, %.noexc153, %.noexc167, %341
+  %.sroa.0.0.ph.be = phi i8 [ %.sroa.0.0.ph, %341 ], [ %.sroa.0.0.ph, %.noexc167 ], [ %.sroa.0.0.ph, %.noexc153 ], [ %.sroa.0.0.ph, %.noexc141 ], [ 1, %.thread360 ], [ 2, %.thread363 ], [ 2, %.thread366 ], [ 3, %.thread369 ]
   br label %.outer
 
 .noexc177:                                        ; preds = %.noexc174
@@ -2234,7 +2234,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17Fun
           to label %35 unwind label %33
 
 32:                                               ; preds = %113, %106, %98, %93, %90, %82, %73, %33
-  %.pn13 = phi { ptr, i32 } [ %107, %106 ], [ %34, %33 ], [ %99, %98 ], [ %94, %93 ], [ %91, %90 ], [ %.pn, %82 ], [ %.pn11, %73 ], [ %114, %113 ]
+  %.pn13 = phi { ptr, i32 } [ %34, %33 ], [ %.pn11, %73 ], [ %.pn, %82 ], [ %91, %90 ], [ %94, %93 ], [ %99, %98 ], [ %107, %106 ], [ %114, %113 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %22) #11
           to label %115 unwind label %79
 

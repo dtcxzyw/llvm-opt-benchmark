@@ -4350,7 +4350,7 @@ define internal fastcc i64 @calculate_iseq_label(i64 noundef %0, ptr noundef rea
   br i1 %26, label %.thread, label %29
 
 common.ret74:                                     ; preds = %10, %7, %29, %.thread
-  %common.ret74.op = phi i64 [ %28, %.thread ], [ %31, %29 ], [ %13, %10 ], [ %9, %7 ]
+  %common.ret74.op = phi i64 [ %28, %.thread ], [ %31, %29 ], [ %9, %7 ], [ %13, %10 ]
   ret i64 %common.ret74.op
 
 .thread:                                          ; preds = %.preheader, %14, %._crit_edge
@@ -4639,8 +4639,8 @@ rb_num2long_inline.exit48:                        ; preds = %95, %97
   br label %109
 
 109:                                              ; preds = %48, %.thread52, %106, %52
-  %.028 = phi i64 [ %108, %106 ], [ %54, %52 ], [ %.129, %.thread52 ], [ 0, %48 ]
-  %.026 = phi i64 [ %.0.i47, %106 ], [ -1, %52 ], [ %.127, %.thread52 ], [ 0, %48 ]
+  %.028 = phi i64 [ %54, %52 ], [ %108, %106 ], [ %.129, %.thread52 ], [ 0, %48 ]
+  %.026 = phi i64 [ -1, %52 ], [ %.0.i47, %106 ], [ %.127, %.thread52 ], [ 0, %48 ]
   store i64 %.026, ptr %5, align 8, !tbaa !15
   br label %110
 

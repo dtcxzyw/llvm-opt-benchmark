@@ -276,7 +276,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %58
 
 58:                                               ; preds = %31, %40, %45, %49, %54
-  %.not232 = phi i1 [ true, %31 ], [ true, %54 ], [ false, %49 ], [ false, %45 ], [ true, %40 ]
+  %.not232 = phi i1 [ true, %31 ], [ true, %40 ], [ false, %45 ], [ false, %49 ], [ true, %54 ]
   %59 = and i32 %3, 2147483646
   %60 = icmp eq i32 %59, 16
   %or.cond11 = and i1 %60, %13
@@ -545,7 +545,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %43
 
 43:                                               ; preds = %39, %34, %29, %23, %13
-  %.not = phi i1 [ true, %13 ], [ true, %39 ], [ false, %34 ], [ false, %29 ], [ true, %23 ]
+  %.not = phi i1 [ true, %13 ], [ true, %23 ], [ false, %29 ], [ false, %34 ], [ true, %39 ]
   %44 = icmp eq i32 %3, 8
   br i1 %44, label %45, label %57
 

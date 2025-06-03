@@ -520,7 +520,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %88, %96
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %122, %131
-  %.1.i = phi ptr [ %127, %122 ], [ %132, %131 ]
+  %.1.i = phi ptr [ %132, %131 ], [ %127, %122 ]
   %133 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %134 = load i64, ptr %133, align 16
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -539,7 +539,7 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %122, %131
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114: ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit, %142
-  %.1.i113 = phi ptr [ %138, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ], [ %143, %142 ]
+  %.1.i113 = phi ptr [ %143, %142 ], [ %138, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ]
   %144 = getelementptr inbounds nuw i8, ptr %.1.i113, i64 16
   %145 = load i64, ptr %144, align 16
   %146 = xor i64 %145, %134

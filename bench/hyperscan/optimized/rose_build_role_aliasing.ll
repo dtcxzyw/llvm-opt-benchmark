@@ -16983,7 +16983,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   br label %862
 
 861:                                              ; preds = %641, %643, %640, %8, %859, %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.thread357, %.thread, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit, %_ZN3ue2L15mergeSameCastleERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_RNS_12_GLOBAL__N_116RoseAliasingInfoE.exit
-  %.0 = phi i1 [ %101, %_ZN3ue2L15mergeSameCastleERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_RNS_12_GLOBAL__N_116RoseAliasingInfoE.exit ], [ true, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit ], [ true, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269 ], [ true, %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ true, %.thread357 ], [ true, %.thread ], [ %.1, %859 ], [ false, %8 ], [ false, %640 ], [ false, %643 ], [ false, %641 ]
+  %.0 = phi i1 [ %101, %_ZN3ue2L15mergeSameCastleERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_RNS_12_GLOBAL__N_116RoseAliasingInfoE.exit ], [ true, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit ], [ true, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269 ], [ true, %.thread ], [ true, %.thread357 ], [ true, %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.1, %859 ], [ false, %8 ], [ false, %640 ], [ false, %643 ], [ false, %641 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32) #27
   ret i1 %.0
@@ -28821,7 +28821,7 @@ define internal fastcc void @_ZN3ue2L22removeSingletonBucketsERSt6vectorIS0_INS_
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i
-  %.sroa.037.1.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %50, %49 ]
+  %.sroa.037.1.i.i.i.i = phi ptr [ %50, %49 ], [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i24.i.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i.i, align 8
   %52 = getelementptr i8, ptr %.sroa.037.1.i.i.i.i, i64 8
   %.val1.i25.i.i.i.i = load ptr, ptr %52, align 8
@@ -28836,7 +28836,7 @@ define internal fastcc void @_ZN3ue2L22removeSingletonBucketsERSt6vectorIS0_INS_
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i.i
-  %.sroa.037.2.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %58, %57 ]
+  %.sroa.037.2.i.i.i.i = phi ptr [ %58, %57 ], [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i26.i.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i.i, align 8
   %60 = getelementptr i8, ptr %.sroa.037.2.i.i.i.i, i64 8
   %.val1.i27.i.i.i.i = load ptr, ptr %60, align 8

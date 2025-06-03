@@ -1774,8 +1774,8 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %.thread18
 
 155:                                              ; preds = %42, %.loopexit30, %122, %90
-  %.1134 = phi i32 [ %.6139, %.loopexit30 ], [ %.4137, %122 ], [ %.2135, %90 ], [ 0, %42 ]
-  %.2132 = phi i32 [ %.7, %.loopexit30 ], [ %.5, %122 ], [ %.3, %90 ], [ %46, %42 ]
+  %.1134 = phi i32 [ 0, %42 ], [ %.2135, %90 ], [ %.4137, %122 ], [ %.6139, %.loopexit30 ]
+  %.2132 = phi i32 [ %46, %42 ], [ %.3, %90 ], [ %.5, %122 ], [ %.7, %.loopexit30 ]
   %.not182 = icmp eq i32 %.2132, 0
   br i1 %.not182, label %.thread23, label %.thread18
 
@@ -1815,8 +1815,8 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   call void @free(ptr noundef nonnull %.0143) #13
   br label %179
 
-.thread18:                                        ; preds = %57, %41, %153, %154, %155
-  %.113422 = phi i32 [ %.1134, %155 ], [ 14, %57 ], [ %39, %41 ], [ 0, %153 ], [ 0, %154 ]
+.thread18:                                        ; preds = %57, %153, %41, %154, %155
+  %.113422 = phi i32 [ %.1134, %155 ], [ 14, %57 ], [ 0, %153 ], [ %39, %41 ], [ 0, %154 ]
   %172 = call i32 @close(i32 noundef %29) #13
   %173 = load ptr, ptr %16, align 8, !tbaa !12
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 40
@@ -2227,7 +2227,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br label %209
 
 209:                                              ; preds = %99, %204, %199, %185, %125, %115, %105, %86, %81, %30, %21, %18
-  %.0140 = phi i32 [ 0, %21 ], [ 0, %30 ], [ 0, %81 ], [ 0, %86 ], [ 0, %99 ], [ 0, %115 ], [ 0, %125 ], [ 0, %185 ], [ 0, %199 ], [ %208, %204 ], [ 0, %105 ], [ 0, %18 ]
+  %.0140 = phi i32 [ 0, %21 ], [ 0, %30 ], [ 0, %81 ], [ 0, %86 ], [ 0, %115 ], [ 0, %125 ], [ 0, %185 ], [ 0, %199 ], [ %208, %204 ], [ 0, %105 ], [ 0, %99 ], [ 0, %18 ]
   %210 = load ptr, ptr %13, align 8, !tbaa !64
   %.not176 = icmp eq ptr %210, null
   br i1 %.not176, label %212, label %211

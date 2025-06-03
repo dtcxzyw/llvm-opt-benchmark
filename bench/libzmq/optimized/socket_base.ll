@@ -9747,7 +9747,7 @@ _ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %15, %17
   br i1 %.not8, label %.loopexit, label %.lr.ph, !llvm.loop !217
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN3zmq13scoped_lock_tD2Ev.exit, %36
-  %.1 = phi i32 [ -1, %_ZN3zmq13scoped_lock_tD2Ev.exit ], [ -1, %36 ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ -1, %36 ], [ -1, %_ZN3zmq13scoped_lock_tD2Ev.exit ], [ 0, %.lr.ph ]
   ret i32 %.1
 }
 

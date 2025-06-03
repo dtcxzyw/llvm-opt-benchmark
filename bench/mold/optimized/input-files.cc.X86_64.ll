@@ -5825,7 +5825,7 @@ default.unreachable:                              ; preds = %_ZNSt13__atomic_bas
   unreachable
 
 _ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit.i: ; preds = %_ZNSt13__atomic_baseIhE21compare_exchange_weakERhhSt12memory_orderS2_.exit.i.i38, %94, %93
-  %.0.i.i = phi i32 [ 3, %94 ], [ 2, %93 ], [ 1, %_ZNSt13__atomic_baseIhE21compare_exchange_weakERhhSt12memory_orderS2_.exit.i.i38 ]
+  %.0.i.i = phi i32 [ 2, %93 ], [ 3, %94 ], [ 1, %_ZNSt13__atomic_baseIhE21compare_exchange_weakERhhSt12memory_orderS2_.exit.i.i38 ]
   switch i8 %92, label %106 [
     i8 2, label %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhhE_clEhh.exit43
     i8 3, label %104
@@ -5853,7 +5853,7 @@ _ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6Symb
   unreachable
 
 _ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhhE_clEhh.exit43: ; preds = %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit.i, %104, %105
-  %.0.i2.i42 = phi i32 [ 3, %105 ], [ 2, %104 ], [ 1, %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit.i ]
+  %.0.i2.i42 = phi i32 [ 2, %104 ], [ 3, %105 ], [ 1, %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit.i ]
   %115 = icmp samesign ult i32 %.0.i.i, %.0.i2.i42
   br i1 %115, label %.lr.ph.i.i36, label %_ZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEh.exit39, !llvm.loop !627
 
@@ -11441,8 +11441,8 @@ _ZN4moldL14is_rust_symbolINS_6X86_64EEEbRKNS_6SymbolIT_EE.exit.thread18: ; preds
   br label %35
 
 35:                                               ; preds = %28, %23, %29
-  %.sroa.07.1 = phi i64 [ %.sroa.07.0.copyload, %23 ], [ %34, %29 ], [ %.sroa.07.0.copyload8, %28 ]
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0.copyload, %23 ], [ %31, %29 ], [ %.sroa.4.0.copyload10, %28 ]
+  %.sroa.07.1 = phi i64 [ %34, %29 ], [ %.sroa.07.0.copyload, %23 ], [ %.sroa.07.0.copyload8, %28 ]
+  %.sroa.4.1 = phi ptr [ %31, %29 ], [ %.sroa.4.0.copyload, %23 ], [ %.sroa.4.0.copyload10, %28 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.07.1, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.1, 1
   ret { i64, ptr } %.fca.1.insert
@@ -21010,7 +21010,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN4mold10ObjectFileINS_6X86_
   unreachable
 
 _ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit: ; preds = %3, %7, %8
-  %.0.i = phi i32 [ 3, %8 ], [ 2, %7 ], [ 1, %3 ]
+  %.0.i = phi i32 [ 2, %7 ], [ 3, %8 ], [ 1, %3 ]
   switch i8 %2, label %20 [
     i8 2, label %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit3
     i8 3, label %18
@@ -21038,7 +21038,7 @@ _ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6Symb
   unreachable
 
 _ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit3: ; preds = %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit, %18, %19
-  %.0.i2 = phi i32 [ 3, %19 ], [ 2, %18 ], [ 1, %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit ]
+  %.0.i2 = phi i32 [ 2, %18 ], [ 3, %19 ], [ 1, %_ZZN4mold10ObjectFileINS_6X86_64EE16merge_visibilityERNS_7ContextIS1_EERNS_6SymbolIS1_EEhENKUlhE_clEh.exit ]
   %29 = icmp samesign ult i32 %.0.i, %.0.i2
   ret i1 %29
 }

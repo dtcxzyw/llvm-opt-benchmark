@@ -355,7 +355,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN58_$LT$wast..lexer..LexError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7913900a4fce39c7E.exit"
 
 "_ZN58_$LT$wast..lexer..LexError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7913900a4fce39c7E.exit": ; preds = %19, %21, %23, %25, %27, %29, %31, %34, %36, %38, %40, %42, %44, %46, %48
-  %.sroa.0.0.in.i = phi i1 [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+  %.sroa.0.0.in.i = phi i1 [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %33, %31 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -647,7 +647,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 "_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit": ; preds = %14, %17, %20, %23, %26, %29, %32, %35, %38
-  %.sroa.0.0.in.i = phi i1 [ %41, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %41, %38 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1497,10 +1497,10 @@ define hidden void @_ZN11wasmi_c_api5types6export17wasm_exporttype_t3new17hbf1c2
   br label %62
 
 62:                                               ; preds = %56, %57, %58, %59
-  %.sroa.75.0 = phi i64 [ %.sroa.75.0.copyload9, %58 ], [ %.sroa.75.0.copyload7, %57 ], [ %.sroa.75.0.copyload, %56 ], [ %47, %59 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload15, %58 ], [ %.sroa.8.0.copyload13, %57 ], [ %.sroa.8.0.copyload, %56 ], [ %48, %59 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.9.0.copyload21, %58 ], [ %.sroa.9.0.copyload19, %57 ], [ %.sroa.9.0.copyload, %56 ], [ %60, %59 ]
-  %.sroa.10.0 = phi ptr [ %.sroa.10.0.copyload27, %58 ], [ %.sroa.10.0.copyload25, %57 ], [ %.sroa.10.0.copyload, %56 ], [ %61, %59 ]
+  %.sroa.75.0 = phi i64 [ %47, %59 ], [ %.sroa.75.0.copyload, %56 ], [ %.sroa.75.0.copyload7, %57 ], [ %.sroa.75.0.copyload9, %58 ]
+  %.sroa.8.0 = phi ptr [ %48, %59 ], [ %.sroa.8.0.copyload, %56 ], [ %.sroa.8.0.copyload13, %57 ], [ %.sroa.8.0.copyload15, %58 ]
+  %.sroa.9.0 = phi i64 [ %60, %59 ], [ %.sroa.9.0.copyload, %56 ], [ %.sroa.9.0.copyload19, %57 ], [ %.sroa.9.0.copyload21, %58 ]
+  %.sroa.10.0 = phi ptr [ %61, %59 ], [ %.sroa.10.0.copyload, %56 ], [ %.sroa.10.0.copyload25, %57 ], [ %.sroa.10.0.copyload27, %58 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04, i64 24, i1 false), !alias.scope !99
   %.sroa.75.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %.sroa.75.0, ptr %.sroa.75.0..sroa_idx10, align 8, !alias.scope !99
@@ -2364,10 +2364,10 @@ define hidden void @_ZN11wasmi_c_api5types6import17wasm_importtype_t3new17h302ad
   br label %72
 
 72:                                               ; preds = %66, %67, %68, %69
-  %.sroa.74.0 = phi i64 [ %.sroa.74.0.copyload8, %68 ], [ %.sroa.74.0.copyload6, %67 ], [ %.sroa.74.0.copyload, %66 ], [ %57, %69 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload14, %68 ], [ %.sroa.8.0.copyload12, %67 ], [ %.sroa.8.0.copyload, %66 ], [ %58, %69 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.9.0.copyload20, %68 ], [ %.sroa.9.0.copyload18, %67 ], [ %.sroa.9.0.copyload, %66 ], [ %70, %69 ]
-  %.sroa.10.0 = phi ptr [ %.sroa.10.0.copyload26, %68 ], [ %.sroa.10.0.copyload24, %67 ], [ %.sroa.10.0.copyload, %66 ], [ %71, %69 ]
+  %.sroa.74.0 = phi i64 [ %57, %69 ], [ %.sroa.74.0.copyload, %66 ], [ %.sroa.74.0.copyload6, %67 ], [ %.sroa.74.0.copyload8, %68 ]
+  %.sroa.8.0 = phi ptr [ %58, %69 ], [ %.sroa.8.0.copyload, %66 ], [ %.sroa.8.0.copyload12, %67 ], [ %.sroa.8.0.copyload14, %68 ]
+  %.sroa.9.0 = phi i64 [ %70, %69 ], [ %.sroa.9.0.copyload, %66 ], [ %.sroa.9.0.copyload18, %67 ], [ %.sroa.9.0.copyload20, %68 ]
+  %.sroa.10.0 = phi ptr [ %71, %69 ], [ %.sroa.10.0.copyload, %66 ], [ %.sroa.10.0.copyload24, %67 ], [ %.sroa.10.0.copyload26, %68 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -3872,10 +3872,10 @@ define noalias noundef nonnull align 8 ptr @wasm_exporttype_copy(ptr noalias nou
   unreachable
 
 113:                                              ; preds = %106, %105, %104, %103
-  %.sroa.737.0.i = phi i64 [ %.sroa.737.0.copyload41.i, %105 ], [ %.sroa.737.0.copyload39.i, %104 ], [ %.sroa.737.0.copyload.i, %103 ], [ %94, %106 ]
-  %.sroa.8.0.i = phi ptr [ %.sroa.8.0.copyload47.i, %105 ], [ %.sroa.8.0.copyload45.i, %104 ], [ %.sroa.8.0.copyload.i, %103 ], [ %95, %106 ]
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.0.copyload53.i, %105 ], [ %.sroa.9.0.copyload51.i, %104 ], [ %.sroa.9.0.copyload.i, %103 ], [ %107, %106 ]
-  %.sroa.10.0.i = phi ptr [ %.sroa.10.0.copyload59.i, %105 ], [ %.sroa.10.0.copyload57.i, %104 ], [ %.sroa.10.0.copyload.i, %103 ], [ %108, %106 ]
+  %.sroa.737.0.i = phi i64 [ %94, %106 ], [ %.sroa.737.0.copyload.i, %103 ], [ %.sroa.737.0.copyload39.i, %104 ], [ %.sroa.737.0.copyload41.i, %105 ]
+  %.sroa.8.0.i = phi ptr [ %95, %106 ], [ %.sroa.8.0.copyload.i, %103 ], [ %.sroa.8.0.copyload45.i, %104 ], [ %.sroa.8.0.copyload47.i, %105 ]
+  %.sroa.9.0.i = phi i64 [ %107, %106 ], [ %.sroa.9.0.copyload.i, %103 ], [ %.sroa.9.0.copyload51.i, %104 ], [ %.sroa.9.0.copyload53.i, %105 ]
+  %.sroa.10.0.i = phi ptr [ %108, %106 ], [ %.sroa.10.0.copyload.i, %103 ], [ %.sroa.10.0.copyload57.i, %104 ], [ %.sroa.10.0.copyload59.i, %105 ]
   %114 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %114)
   store ptr %10, ptr %8, align 8, !alias.scope !175, !noalias !178
@@ -4109,10 +4109,10 @@ define noalias noundef nonnull align 8 ptr @wasm_externtype_copy(ptr noalias nou
   br label %45
 
 45:                                               ; preds = %42, %41, %40, %39
-  %.sroa.74.0 = phi i64 [ %.sroa.74.0.copyload8, %41 ], [ %.sroa.74.0.copyload6, %40 ], [ %.sroa.74.0.copyload, %39 ], [ %30, %42 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload14, %41 ], [ %.sroa.8.0.copyload12, %40 ], [ %.sroa.8.0.copyload, %39 ], [ %31, %42 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.9.0.copyload20, %41 ], [ %.sroa.9.0.copyload18, %40 ], [ %.sroa.9.0.copyload, %39 ], [ %43, %42 ]
-  %.sroa.10.0 = phi ptr [ %.sroa.10.0.copyload26, %41 ], [ %.sroa.10.0.copyload24, %40 ], [ %.sroa.10.0.copyload, %39 ], [ %44, %42 ]
+  %.sroa.74.0 = phi i64 [ %30, %42 ], [ %.sroa.74.0.copyload, %39 ], [ %.sroa.74.0.copyload6, %40 ], [ %.sroa.74.0.copyload8, %41 ]
+  %.sroa.8.0 = phi ptr [ %31, %42 ], [ %.sroa.8.0.copyload, %39 ], [ %.sroa.8.0.copyload12, %40 ], [ %.sroa.8.0.copyload14, %41 ]
+  %.sroa.9.0 = phi i64 [ %43, %42 ], [ %.sroa.9.0.copyload, %39 ], [ %.sroa.9.0.copyload18, %40 ], [ %.sroa.9.0.copyload20, %41 ]
+  %.sroa.10.0 = phi ptr [ %44, %42 ], [ %.sroa.10.0.copyload, %39 ], [ %.sroa.10.0.copyload24, %40 ], [ %.sroa.10.0.copyload26, %41 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03, i64 24, i1 false)
   %.sroa.74.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.74.0, ptr %.sroa.74.0..sroa_idx9, align 8
@@ -4555,10 +4555,10 @@ define noalias noundef nonnull align 8 ptr @wasm_importtype_copy(ptr noalias nou
   unreachable
 
 124:                                              ; preds = %117, %116, %115, %114
-  %.sroa.735.0.i = phi i64 [ %.sroa.735.0.copyload39.i, %116 ], [ %.sroa.735.0.copyload37.i, %115 ], [ %.sroa.735.0.copyload.i, %114 ], [ %105, %117 ]
-  %.sroa.8.0.i = phi ptr [ %.sroa.8.0.copyload45.i, %116 ], [ %.sroa.8.0.copyload43.i, %115 ], [ %.sroa.8.0.copyload.i, %114 ], [ %106, %117 ]
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.0.copyload51.i, %116 ], [ %.sroa.9.0.copyload49.i, %115 ], [ %.sroa.9.0.copyload.i, %114 ], [ %118, %117 ]
-  %.sroa.10.0.i = phi ptr [ %.sroa.10.0.copyload57.i, %116 ], [ %.sroa.10.0.copyload55.i, %115 ], [ %.sroa.10.0.copyload.i, %114 ], [ %119, %117 ]
+  %.sroa.735.0.i = phi i64 [ %105, %117 ], [ %.sroa.735.0.copyload.i, %114 ], [ %.sroa.735.0.copyload37.i, %115 ], [ %.sroa.735.0.copyload39.i, %116 ]
+  %.sroa.8.0.i = phi ptr [ %106, %117 ], [ %.sroa.8.0.copyload.i, %114 ], [ %.sroa.8.0.copyload43.i, %115 ], [ %.sroa.8.0.copyload45.i, %116 ]
+  %.sroa.9.0.i = phi i64 [ %118, %117 ], [ %.sroa.9.0.copyload.i, %114 ], [ %.sroa.9.0.copyload49.i, %115 ], [ %.sroa.9.0.copyload51.i, %116 ]
+  %.sroa.10.0.i = phi ptr [ %119, %117 ], [ %.sroa.10.0.copyload.i, %114 ], [ %.sroa.10.0.copyload55.i, %115 ], [ %.sroa.10.0.copyload57.i, %116 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !215
   %125 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !215
@@ -4796,10 +4796,10 @@ define noalias noundef nonnull align 8 ptr @wasm_memorytype_copy(ptr noalias nou
   br label %45
 
 45:                                               ; preds = %42, %41, %40, %39
-  %.sroa.74.0 = phi i64 [ %.sroa.74.0.copyload8, %41 ], [ %.sroa.74.0.copyload6, %40 ], [ %.sroa.74.0.copyload, %39 ], [ %30, %42 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload14, %41 ], [ %.sroa.8.0.copyload12, %40 ], [ %.sroa.8.0.copyload, %39 ], [ %31, %42 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.9.0.copyload20, %41 ], [ %.sroa.9.0.copyload18, %40 ], [ %.sroa.9.0.copyload, %39 ], [ %43, %42 ]
-  %.sroa.10.0 = phi ptr [ %.sroa.10.0.copyload26, %41 ], [ %.sroa.10.0.copyload24, %40 ], [ %.sroa.10.0.copyload, %39 ], [ %44, %42 ]
+  %.sroa.74.0 = phi i64 [ %30, %42 ], [ %.sroa.74.0.copyload, %39 ], [ %.sroa.74.0.copyload6, %40 ], [ %.sroa.74.0.copyload8, %41 ]
+  %.sroa.8.0 = phi ptr [ %31, %42 ], [ %.sroa.8.0.copyload, %39 ], [ %.sroa.8.0.copyload12, %40 ], [ %.sroa.8.0.copyload14, %41 ]
+  %.sroa.9.0 = phi i64 [ %43, %42 ], [ %.sroa.9.0.copyload, %39 ], [ %.sroa.9.0.copyload18, %40 ], [ %.sroa.9.0.copyload20, %41 ]
+  %.sroa.10.0 = phi ptr [ %44, %42 ], [ %.sroa.10.0.copyload, %39 ], [ %.sroa.10.0.copyload24, %40 ], [ %.sroa.10.0.copyload26, %41 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03, i64 24, i1 false)
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.74.0, ptr %.sroa.430.0..sroa_idx, align 8

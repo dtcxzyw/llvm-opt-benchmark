@@ -5763,7 +5763,7 @@ define noundef zeroext i1 @_ZN6rustls4msgs5enums10NamedGroup22key_exchange_algor
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit": ; preds = %2, %2, %2, %2, %2, %4, %5
-  %.0.i = phi i1 [ %7, %5 ], [ false, %4 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+  %.0.i = phi i1 [ false, %4 ], [ %7, %5 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -6001,7 +6001,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums102_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ClientCertificateType$GT$$u20$for$u20$u8$GT$4from17hfe1a3aa652b1c6feE.exit"
 
 "_ZN6rustls4msgs5enums102_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ClientCertificateType$GT$$u20$for$u20$u8$GT$4from17hfe1a3aa652b1c6feE.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13
-  %.0.i = phi i8 [ %15, %13 ], [ 66, %12 ], [ 65, %11 ], [ 64, %10 ], [ 20, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i8 [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 20, %9 ], [ 64, %10 ], [ 65, %11 ], [ 66, %12 ], [ %15, %13 ], [ 1, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !768, !noalias !773, !noundef !9
   %18 = load i64, ptr %1, align 8, !alias.scope !768, !noalias !773, !noundef !9
@@ -6126,7 +6126,7 @@ define { i8, i8 } @"_ZN92_$LT$rustls..msgs..enums..ClientCertificateType$u20$as$
   br label %12
 
 12:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i8 [ 9, %11 ], [ 8, %10 ], [ 7, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %2 ], [ 10, %1 ]
+  %.sroa.0.0 = phi i8 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %1 ]
   %13 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %14 = insertvalue { i8, i8 } %13, i8 %0, 1
   ret { i8, i8 } %14
@@ -6182,7 +6182,7 @@ define noundef i8 @"_ZN6rustls4msgs5enums102_$LT$impl$u20$core..convert..From$LT
   br label %14
 
 14:                                               ; preds = %2, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i8 [ %1, %13 ], [ 66, %12 ], [ 65, %11 ], [ 64, %10 ], [ 20, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i8 [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 20, %9 ], [ 64, %10 ], [ 65, %11 ], [ 66, %12 ], [ %1, %13 ], [ 1, %2 ]
   ret i8 %.0
 }
 
@@ -6205,7 +6205,7 @@ define i8 @_ZN6rustls4msgs5enums11Compression8to_array17h8584bdebe23a76d7E(i8 no
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit": ; preds = %2, %2, %4, %5
-  %.0.i = phi i8 [ %1, %5 ], [ 64, %4 ], [ %0, %2 ], [ %0, %2 ]
+  %.0.i = phi i8 [ 64, %4 ], [ %1, %5 ], [ %0, %2 ], [ %0, %2 ]
   ret i8 %.0.i
 }
 
@@ -6246,7 +6246,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit": ; preds = %2, %2, %4, %5
-  %.0.i = phi i8 [ %7, %5 ], [ 64, %4 ], [ %3, %2 ], [ %3, %2 ]
+  %.0.i = phi i8 [ 64, %4 ], [ %7, %5 ], [ %3, %2 ], [ %3, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !792, !noalias !797, !noundef !9
   %10 = load i64, ptr %1, align 8, !alias.scope !792, !noalias !797, !noundef !9
@@ -6316,7 +6316,7 @@ define void @"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs
   br label %"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit"
 
 "_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit": ; preds = %16, %19, %20
-  %.sroa.0.0.i = phi i8 [ 2, %20 ], [ %18, %19 ], [ 3, %16 ]
+  %.sroa.0.0.i = phi i8 [ %18, %19 ], [ 2, %20 ], [ 3, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.0.0.i, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -6351,7 +6351,7 @@ define { i8, i8 } @"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.sroa.0.0 = phi i8 [ 2, %3 ], [ %0, %2 ], [ 3, %1 ]
+  %.sroa.0.0 = phi i8 [ %0, %2 ], [ 2, %3 ], [ 3, %1 ]
   %5 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %6 = insertvalue { i8, i8 } %5, i8 %0, 1
   ret { i8, i8 } %6
@@ -6376,7 +6376,7 @@ define noundef i8 @"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$
   br label %6
 
 6:                                                ; preds = %2, %2, %5, %4
-  %.0 = phi i8 [ %1, %5 ], [ 64, %4 ], [ %0, %2 ], [ %0, %2 ]
+  %.0 = phi i8 [ 64, %4 ], [ %1, %5 ], [ %0, %2 ], [ %0, %2 ]
   ret i8 %.0
 }
 
@@ -6398,7 +6398,7 @@ define i8 @_ZN6rustls4msgs5enums10AlertLevel8to_array17h2ecb7189a1babbe1E(i8 nou
   br label %"_ZN6rustls4msgs5enums91_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..AlertLevel$GT$$u20$for$u20$u8$GT$4from17h5c6bd5e5efe261e2E.exit"
 
 "_ZN6rustls4msgs5enums91_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..AlertLevel$GT$$u20$for$u20$u8$GT$4from17h5c6bd5e5efe261e2E.exit": ; preds = %2, %4, %5
-  %.0.i = phi i8 [ %1, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i8 [ 2, %4 ], [ %1, %5 ], [ 1, %2 ]
   ret i8 %.0.i
 }
 
@@ -6438,7 +6438,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums91_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..AlertLevel$GT$$u20$for$u20$u8$GT$4from17h5c6bd5e5efe261e2E.exit"
 
 "_ZN6rustls4msgs5enums91_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..AlertLevel$GT$$u20$for$u20$u8$GT$4from17h5c6bd5e5efe261e2E.exit": ; preds = %2, %4, %5
-  %.0.i = phi i8 [ %7, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i8 [ 2, %4 ], [ %7, %5 ], [ 1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !816, !noalias !821, !noundef !9
   %10 = load i64, ptr %1, align 8, !alias.scope !816, !noalias !821, !noundef !9
@@ -6547,7 +6547,7 @@ define noundef i8 @"_ZN6rustls4msgs5enums91_$LT$impl$u20$core..convert..From$LT$
   br label %6
 
 6:                                                ; preds = %2, %5, %4
-  %.0 = phi i8 [ %1, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i8 [ 2, %4 ], [ %1, %5 ], [ 1, %2 ]
   ret i8 %.0
 }
 
@@ -6572,7 +6572,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums101_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HeartbeatMessageType$GT$$u20$for$u20$u8$GT$4from17h16539e0c46b70142E.exit"
 
 "_ZN6rustls4msgs5enums101_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HeartbeatMessageType$GT$$u20$for$u20$u8$GT$4from17h16539e0c46b70142E.exit": ; preds = %2, %4, %5
-  %.0.i = phi i8 [ %7, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i8 [ 2, %4 ], [ %7, %5 ], [ 1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !839, !noalias !844, !noundef !9
   %10 = load i64, ptr %1, align 8, !alias.scope !839, !noalias !844, !noundef !9
@@ -6681,7 +6681,7 @@ define noundef i8 @"_ZN6rustls4msgs5enums101_$LT$impl$u20$core..convert..From$LT
   br label %6
 
 6:                                                ; preds = %2, %5, %4
-  %.0 = phi i8 [ %1, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i8 [ 2, %4 ], [ %1, %5 ], [ 1, %2 ]
   ret i8 %.0
 }
 
@@ -6798,7 +6798,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums95_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ExtensionType$GT$$u20$for$u20$u16$GT$4from17h302f5b3706e03197E.exit"
 
 "_ZN6rustls4msgs5enums95_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ExtensionType$GT$$u20$for$u20$u16$GT$4from17h302f5b3706e03197E.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24
-  %.0.i = phi i16 [ %26, %24 ], [ -91, %23 ], [ -255, %22 ], [ 30031, %21 ], [ 13172, %20 ], [ 57, %19 ], [ 51, %18 ], [ 50, %17 ], [ 49, %16 ], [ 48, %15 ], [ 47, %14 ], [ 46, %13 ], [ 45, %12 ], [ 44, %11 ], [ 43, %10 ], [ 42, %9 ], [ 41, %8 ], [ 35, %7 ], [ 23, %6 ], [ 21, %5 ], [ 18, %4 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ]
+  %.0.i = phi i16 [ 18, %4 ], [ 21, %5 ], [ 23, %6 ], [ 35, %7 ], [ 41, %8 ], [ 42, %9 ], [ 43, %10 ], [ 44, %11 ], [ 45, %12 ], [ 46, %13 ], [ 47, %14 ], [ 48, %15 ], [ 49, %16 ], [ 50, %17 ], [ 51, %18 ], [ 57, %19 ], [ 13172, %20 ], [ 30031, %21 ], [ -255, %22 ], [ -91, %23 ], [ %26, %24 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !863, !noalias !872, !noundef !9
   %29 = load i64, ptr %1, align 8, !alias.scope !863, !noalias !872, !noundef !9
@@ -6990,7 +6990,7 @@ define { i16, i16 } @"_ZN85_$LT$rustls..msgs..enums..ExtensionType$u20$as$u20$co
   br label %23
 
 23:                                               ; preds = %1, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 36, %22 ], [ 35, %21 ], [ 34, %20 ], [ 33, %19 ], [ 32, %18 ], [ 31, %17 ], [ 30, %16 ], [ 29, %15 ], [ 28, %14 ], [ 27, %13 ], [ 26, %12 ], [ 25, %11 ], [ 24, %10 ], [ 23, %9 ], [ 22, %8 ], [ 21, %7 ], [ 20, %6 ], [ 19, %5 ], [ 18, %4 ], [ 17, %3 ], [ %0, %2 ], [ 37, %1 ]
+  %.sroa.0.0 = phi i16 [ %0, %2 ], [ 17, %3 ], [ 18, %4 ], [ 19, %5 ], [ 20, %6 ], [ 21, %7 ], [ 22, %8 ], [ 23, %9 ], [ 24, %10 ], [ 25, %11 ], [ 26, %12 ], [ 27, %13 ], [ 28, %14 ], [ 29, %15 ], [ 30, %16 ], [ 31, %17 ], [ 32, %18 ], [ 33, %19 ], [ 34, %20 ], [ 35, %21 ], [ 36, %22 ], [ 37, %1 ]
   %24 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %25 = insertvalue { i16, i16 } %24, i16 %0, 1
   ret { i16, i16 } %25
@@ -7106,7 +7106,7 @@ define noundef i16 @"_ZN6rustls4msgs5enums95_$LT$impl$u20$core..convert..From$LT
   br label %25
 
 25:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %24 ], [ -91, %23 ], [ -255, %22 ], [ 30031, %21 ], [ 13172, %20 ], [ 57, %19 ], [ 51, %18 ], [ 50, %17 ], [ 49, %16 ], [ 48, %15 ], [ 47, %14 ], [ 46, %13 ], [ 45, %12 ], [ 44, %11 ], [ 43, %10 ], [ 42, %9 ], [ 41, %8 ], [ 35, %7 ], [ 23, %6 ], [ 21, %5 ], [ 18, %4 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
+  %.0 = phi i16 [ 18, %4 ], [ 21, %5 ], [ 23, %6 ], [ 35, %7 ], [ 41, %8 ], [ 42, %9 ], [ 43, %10 ], [ 44, %11 ], [ 45, %12 ], [ 46, %13 ], [ 47, %14 ], [ 48, %15 ], [ 49, %16 ], [ 50, %17 ], [ 51, %18 ], [ 57, %19 ], [ 13172, %20 ], [ 30031, %21 ], [ -255, %22 ], [ -91, %23 ], [ %1, %24 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
   ret i16 %.0
 }
 
@@ -7350,7 +7350,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedCurve$GT$$u20$for$u20$u16$GT$4from17h8bc0bf2251c98aa5E.exit"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedCurve$GT$$u20$for$u20$u16$GT$4from17h8bc0bf2251c98aa5E.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35
-  %.0.i = phi i16 [ %37, %35 ], [ -254, %34 ], [ -255, %33 ], [ 30, %32 ], [ 29, %31 ], [ 28, %30 ], [ 27, %29 ], [ 26, %28 ], [ 25, %27 ], [ 24, %26 ], [ 23, %25 ], [ 22, %24 ], [ 21, %23 ], [ 20, %22 ], [ 19, %21 ], [ 18, %20 ], [ 17, %19 ], [ 16, %18 ], [ 15, %17 ], [ 14, %16 ], [ 13, %15 ], [ 12, %14 ], [ 11, %13 ], [ 10, %12 ], [ 9, %11 ], [ 8, %10 ], [ 7, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i16 [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ 15, %17 ], [ 16, %18 ], [ 17, %19 ], [ 18, %20 ], [ 19, %21 ], [ 20, %22 ], [ 21, %23 ], [ 22, %24 ], [ 23, %25 ], [ 24, %26 ], [ 25, %27 ], [ 26, %28 ], [ 27, %29 ], [ 28, %30 ], [ 29, %31 ], [ 30, %32 ], [ -255, %33 ], [ -254, %34 ], [ %37, %35 ], [ 1, %2 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !918, !noalias !927, !noundef !9
   %40 = load i64, ptr %1, align 8, !alias.scope !918, !noalias !927, !noundef !9
@@ -7570,7 +7570,7 @@ define { i16, i16 } @"_ZN82_$LT$rustls..msgs..enums..NamedCurve$u20$as$u20$core.
   br label %34
 
 34:                                               ; preds = %1, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 31, %33 ], [ 30, %32 ], [ 29, %31 ], [ 28, %30 ], [ 27, %29 ], [ 26, %28 ], [ 25, %27 ], [ 24, %26 ], [ 23, %25 ], [ 22, %24 ], [ 21, %23 ], [ 20, %22 ], [ 19, %21 ], [ 18, %20 ], [ 17, %19 ], [ 16, %18 ], [ 15, %17 ], [ 14, %16 ], [ 13, %15 ], [ 12, %14 ], [ 11, %13 ], [ 10, %12 ], [ 9, %11 ], [ 8, %10 ], [ 7, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %2 ], [ 32, %1 ]
+  %.sroa.0.0 = phi i16 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ 15, %17 ], [ 16, %18 ], [ 17, %19 ], [ 18, %20 ], [ 19, %21 ], [ 20, %22 ], [ 21, %23 ], [ 22, %24 ], [ 23, %25 ], [ 24, %26 ], [ 25, %27 ], [ 26, %28 ], [ 27, %29 ], [ 28, %30 ], [ 29, %31 ], [ 30, %32 ], [ 31, %33 ], [ 32, %1 ]
   %35 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %36 = insertvalue { i16, i16 } %35, i16 %0, 1
   ret { i16, i16 } %36
@@ -7714,7 +7714,7 @@ define noundef i16 @"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT
   br label %36
 
 36:                                               ; preds = %2, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %35 ], [ -254, %34 ], [ -255, %33 ], [ 30, %32 ], [ 29, %31 ], [ 28, %30 ], [ 27, %29 ], [ 26, %28 ], [ 25, %27 ], [ 24, %26 ], [ 23, %25 ], [ 22, %24 ], [ 21, %23 ], [ 20, %22 ], [ 19, %21 ], [ 18, %20 ], [ 17, %19 ], [ 16, %18 ], [ 15, %17 ], [ 14, %16 ], [ 13, %15 ], [ 12, %14 ], [ 11, %13 ], [ 10, %12 ], [ 9, %11 ], [ 8, %10 ], [ 7, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i16 [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ 15, %17 ], [ 16, %18 ], [ 17, %19 ], [ 18, %20 ], [ 19, %21 ], [ 20, %22 ], [ 21, %23 ], [ 22, %24 ], [ 23, %25 ], [ 24, %26 ], [ 25, %27 ], [ 26, %28 ], [ 27, %29 ], [ 28, %30 ], [ 29, %31 ], [ 30, %32 ], [ -255, %33 ], [ -254, %34 ], [ %1, %35 ], [ 1, %2 ]
   ret i16 %.0
 }
 
@@ -7768,7 +7768,7 @@ define i16 @_ZN6rustls4msgs5enums10NamedGroup8to_array17h385c3d7cc0b50499E(i16 n
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13
-  %.0.i = phi i16 [ %1, %13 ], [ 260, %12 ], [ 259, %11 ], [ 258, %10 ], [ 257, %9 ], [ 256, %8 ], [ 30, %7 ], [ 29, %6 ], [ 25, %5 ], [ 24, %4 ], [ 23, %2 ]
+  %.0.i = phi i16 [ 24, %4 ], [ 25, %5 ], [ 29, %6 ], [ 30, %7 ], [ 256, %8 ], [ 257, %9 ], [ 258, %10 ], [ 259, %11 ], [ 260, %12 ], [ %1, %13 ], [ 23, %2 ]
   %14 = tail call i16 @llvm.bswap.i16(i16 %.0.i)
   ret i16 %14
 }
@@ -7841,7 +7841,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13
-  %.0.i = phi i16 [ %15, %13 ], [ 260, %12 ], [ 259, %11 ], [ 258, %10 ], [ 257, %9 ], [ 256, %8 ], [ 30, %7 ], [ 29, %6 ], [ 25, %5 ], [ 24, %4 ], [ 23, %2 ]
+  %.0.i = phi i16 [ 24, %4 ], [ 25, %5 ], [ 29, %6 ], [ 30, %7 ], [ 256, %8 ], [ 257, %9 ], [ 258, %10 ], [ 259, %11 ], [ 260, %12 ], [ %15, %13 ], [ 23, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !949, !noalias !958, !noundef !9
   %18 = load i64, ptr %1, align 8, !alias.scope !949, !noalias !958, !noundef !9
@@ -7949,7 +7949,7 @@ define void @"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs.
   br label %"_ZN82_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h2688af22efdb4a46E.exit"
 
 "_ZN82_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h2688af22efdb4a46E.exit": ; preds = %17, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
-  %.sroa.0.0.i = phi i16 [ 9, %30 ], [ 8, %29 ], [ 7, %28 ], [ 6, %27 ], [ 5, %26 ], [ 4, %25 ], [ 3, %24 ], [ 2, %23 ], [ 1, %22 ], [ 0, %21 ], [ 10, %17 ]
+  %.sroa.0.0.i = phi i16 [ 0, %21 ], [ 1, %22 ], [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 9, %30 ], [ 10, %17 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.0.0.i, ptr %31, align 2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -8015,7 +8015,7 @@ define { i16, i16 } @"_ZN82_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$core.
   br label %12
 
 12:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 9, %11 ], [ 8, %10 ], [ 7, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %2 ], [ 10, %1 ]
+  %.sroa.0.0 = phi i16 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %1 ]
   %13 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %14 = insertvalue { i16, i16 } %13, i16 %0, 1
   ret { i16, i16 } %14
@@ -8071,7 +8071,7 @@ define noundef i16 @"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT
   br label %14
 
 14:                                               ; preds = %2, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %13 ], [ 260, %12 ], [ 259, %11 ], [ 258, %10 ], [ 257, %9 ], [ 256, %8 ], [ 30, %7 ], [ 29, %6 ], [ 25, %5 ], [ 24, %4 ], [ 23, %2 ]
+  %.0 = phi i16 [ 24, %4 ], [ 25, %5 ], [ 29, %6 ], [ 30, %7 ], [ 256, %8 ], [ 257, %9 ], [ 258, %10 ], [ 259, %11 ], [ 260, %12 ], [ %1, %13 ], [ 23, %2 ]
   ret i16 %.0
 }
 
@@ -8219,7 +8219,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums94_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HeartbeatMode$GT$$u20$for$u20$u8$GT$4from17h6fa74b9a0786e638E.exit"
 
 "_ZN6rustls4msgs5enums94_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HeartbeatMode$GT$$u20$for$u20$u8$GT$4from17h6fa74b9a0786e638E.exit": ; preds = %2, %4, %5
-  %.0.i = phi i8 [ %7, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i8 [ 2, %4 ], [ %7, %5 ], [ 1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !1002, !noalias !1007, !noundef !9
   %10 = load i64, ptr %1, align 8, !alias.scope !1002, !noalias !1007, !noundef !9
@@ -8328,7 +8328,7 @@ define noundef i8 @"_ZN6rustls4msgs5enums94_$LT$impl$u20$core..convert..From$LT$
   br label %6
 
 6:                                                ; preds = %2, %5, %4
-  %.0 = phi i8 [ %1, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i8 [ 2, %4 ], [ %1, %5 ], [ 1, %2 ]
   ret i8 %.0
 }
 
@@ -8357,7 +8357,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ECCurveType$GT$$u20$for$u20$u8$GT$4from17h059236e24f30e6a4E.exit"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ECCurveType$GT$$u20$for$u20$u8$GT$4from17h059236e24f30e6a4E.exit": ; preds = %2, %4, %5, %6
-  %.0.i = phi i8 [ %8, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i8 [ 2, %4 ], [ 3, %5 ], [ %8, %6 ], [ 1, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !1025, !noalias !1030, !noundef !9
   %11 = load i64, ptr %1, align 8, !alias.scope !1025, !noalias !1030, !noundef !9
@@ -8474,7 +8474,7 @@ define noundef i8 @"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$
   br label %7
 
 7:                                                ; preds = %2, %6, %5, %4
-  %.0 = phi i8 [ %1, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i8 [ 2, %4 ], [ 3, %5 ], [ %1, %6 ], [ 1, %2 ]
   ret i8 %.0
 }
 
@@ -8879,7 +8879,7 @@ define i16 @_ZN6rustls4msgs5enums7HpkeKem8to_array17h7c6c285fe7928011E(i16 nound
   br label %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit"
 
 "_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit": ; preds = %2, %4, %5, %6, %7, %8
-  %.0.i = phi i16 [ %1, %8 ], [ 33, %7 ], [ 32, %6 ], [ 18, %5 ], [ 17, %4 ], [ 16, %2 ]
+  %.0.i = phi i16 [ 17, %4 ], [ 18, %5 ], [ 32, %6 ], [ 33, %7 ], [ %1, %8 ], [ 16, %2 ]
   %9 = tail call i16 @llvm.bswap.i16(i16 %.0.i)
   ret i16 %9
 }
@@ -8932,7 +8932,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit"
 
 "_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit": ; preds = %2, %4, %5, %6, %7, %8
-  %.0.i = phi i16 [ %10, %8 ], [ 33, %7 ], [ 32, %6 ], [ 18, %5 ], [ 17, %4 ], [ 16, %2 ]
+  %.0.i = phi i16 [ 17, %4 ], [ 18, %5 ], [ 32, %6 ], [ 33, %7 ], [ %10, %8 ], [ 16, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !1118, !noalias !1127, !noundef !9
   %13 = load i64, ptr %1, align 8, !alias.scope !1118, !noalias !1127, !noundef !9
@@ -9020,7 +9020,7 @@ define void @"_ZN75_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$rustls..msgs..co
   br label %"_ZN79_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h3a8d9419b0194bb0E.exit"
 
 "_ZN79_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h3a8d9419b0194bb0E.exit": ; preds = %17, %21, %22, %23, %24, %25
-  %.sroa.0.0.i = phi i16 [ 4, %25 ], [ 3, %24 ], [ 2, %23 ], [ 1, %22 ], [ 0, %21 ], [ 5, %17 ]
+  %.sroa.0.0.i = phi i16 [ 0, %21 ], [ 1, %22 ], [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.0.0.i, ptr %26, align 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -9066,7 +9066,7 @@ define { i16, i16 } @"_ZN79_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$core..co
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %2 ], [ 5, %1 ]
+  %.sroa.0.0 = phi i16 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %1 ]
   %8 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %9 = insertvalue { i16, i16 } %8, i16 %0, 1
   ret { i16, i16 } %9
@@ -9102,7 +9102,7 @@ define noundef i16 @"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT
   br label %9
 
 9:                                                ; preds = %2, %8, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %8 ], [ 33, %7 ], [ 32, %6 ], [ 18, %5 ], [ 17, %4 ], [ 16, %2 ]
+  %.0 = phi i16 [ 17, %4 ], [ 18, %5 ], [ 32, %6 ], [ 33, %7 ], [ %1, %8 ], [ 16, %2 ]
   ret i16 %.0
 }
 
@@ -9128,7 +9128,7 @@ define i16 @_ZN6rustls4msgs5enums7HpkeKdf8to_array17h289f1baba2595b45E(i16 nound
   br label %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit"
 
 "_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit": ; preds = %2, %4, %5, %6
-  %.0.i = phi i16 [ %1, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i16 [ 2, %4 ], [ 3, %5 ], [ %1, %6 ], [ 1, %2 ]
   %7 = tail call i16 @llvm.bswap.i16(i16 %.0.i)
   ret i16 %7
 }
@@ -9170,7 +9170,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit"
 
 "_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit": ; preds = %2, %4, %5, %6
-  %.0.i = phi i16 [ %8, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i16 [ 2, %4 ], [ 3, %5 ], [ %8, %6 ], [ 1, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !1149, !noalias !1158, !noundef !9
   %11 = load i64, ptr %1, align 8, !alias.scope !1149, !noalias !1158, !noundef !9
@@ -9294,7 +9294,7 @@ define noundef i16 @"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT
   br label %7
 
 7:                                                ; preds = %2, %6, %5, %4
-  %.0 = phi i16 [ %1, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i16 [ 2, %4 ], [ 3, %5 ], [ %1, %6 ], [ 1, %2 ]
   ret i16 %.0
 }
 
@@ -9324,7 +9324,7 @@ define i16 @_ZN6rustls4msgs5enums8HpkeAead8to_array17h9e0bae0f3d2fbb49E(i16 noun
   br label %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit"
 
 "_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit": ; preds = %2, %4, %5, %6, %7
-  %.0.i = phi i16 [ %1, %7 ], [ -1, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i16 [ 2, %4 ], [ 3, %5 ], [ -1, %6 ], [ %1, %7 ], [ 1, %2 ]
   %8 = tail call i16 @llvm.bswap.i16(i16 %.0.i)
   ret i16 %8
 }
@@ -9373,7 +9373,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit"
 
 "_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit": ; preds = %2, %4, %5, %6, %7
-  %.0.i = phi i16 [ %9, %7 ], [ -1, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i = phi i16 [ 2, %4 ], [ 3, %5 ], [ -1, %6 ], [ %9, %7 ], [ 1, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !1180, !noalias !1189, !noundef !9
   %12 = load i64, ptr %1, align 8, !alias.scope !1180, !noalias !1189, !noundef !9
@@ -9513,7 +9513,7 @@ define noundef i16 @"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT
   br label %8
 
 8:                                                ; preds = %2, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %7 ], [ -1, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0 = phi i16 [ 2, %4 ], [ 3, %5 ], [ -1, %6 ], [ %1, %7 ], [ 1, %2 ]
   ret i16 %.0
 }
 

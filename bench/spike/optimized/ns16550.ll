@@ -569,8 +569,8 @@ _ZN9ns16550_t7rx_byteEv.exit:                     ; preds = %.sink.split.i, %_ZN
   tail call void @_ZN9ns16550_t16update_interruptEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
   br label %84
 
-.critedge:                                        ; preds = %62, %59, %65, %69, %72, %75, %78, %81
-  %.1.ph = phi i8 [ %64, %62 ], [ %61, %59 ], [ %68, %65 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ]
+.critedge:                                        ; preds = %81, %78, %75, %72, %69, %65, %62, %59
+  %.1.ph = phi i8 [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %65 ], [ %64, %62 ], [ %61, %59 ]
   store i8 %.1.ph, ptr %3, align 1, !tbaa !46
   br label %84
 
@@ -589,7 +589,7 @@ define noundef zeroext i1 @_ZN9ns16550_t5storeEmmPKh(ptr noundef nonnull align 8
   %9 = add i64 %2, %1
   %10 = icmp ult i64 %9, 4097
   %or.cond.not = and i1 %10, %.not
-  br i1 %or.cond.not, label %11, label %.critedge
+  br i1 %or.cond.not, label %11, label %64
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -605,8 +605,8 @@ define noundef zeroext i1 @_ZN9ns16550_t5storeEmmPKh(ptr noundef nonnull align 8
     i64 2, label %56
     i64 3, label %58
     i64 4, label %60
-    i64 5, label %.critedge
-    i64 6, label %.critedge
+    i64 5, label %64
+    i64 6, label %64
     i64 7, label %62
   ]
 
@@ -619,7 +619,7 @@ define noundef zeroext i1 @_ZN9ns16550_t5storeEmmPKh(ptr noundef nonnull align 8
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %17, ptr %22, align 8, !tbaa !32
-  br label %64
+  br label %.critedge
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 118
@@ -632,7 +632,7 @@ define noundef zeroext i1 @_ZN9ns16550_t5storeEmmPKh(ptr noundef nonnull align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = tail call noundef i64 @_ZNKSt5queueIhSt5dequeIhSaIhEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %28)
   %30 = icmp ult i64 %29, 64
-  br i1 %30, label %31, label %64
+  br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -659,7 +659,7 @@ _ZNSt5queueIhSt5dequeIhSaIhEEE4pushERKh.exit:     ; preds = %37, %40
   %42 = load i8, ptr %41, align 1, !tbaa !30
   %43 = or i8 %42, 1
   store i8 %43, ptr %41, align 1, !tbaa !30
-  br label %64
+  br label %.critedge
 
 44:                                               ; preds = %23
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 119
@@ -667,7 +667,7 @@ _ZNSt5queueIhSt5dequeIhSaIhEEE4pushERKh.exit:     ; preds = %37, %40
   %47 = or i8 %46, 96
   store i8 %47, ptr %45, align 1, !tbaa !30
   tail call void @_ZN20canonical_terminal_t5writeEc(i8 noundef signext %17)
-  br label %64
+  br label %.critedge
 
 48:                                               ; preds = %11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 117
@@ -679,41 +679,41 @@ _ZNSt5queueIhSt5dequeIhSaIhEEE4pushERKh.exit:     ; preds = %37, %40
   %52 = and i8 %17, 15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 %52, ptr %53, align 1, !tbaa !26
-  br label %64
+  br label %.critedge
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 %17, ptr %55, align 1, !tbaa !47
-  br label %64
+  br label %.critedge
 
 56:                                               ; preds = %11
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 %17, ptr %57, align 4, !tbaa !28
-  br label %64
+  br label %.critedge
 
 58:                                               ; preds = %11
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 117
   store i8 %17, ptr %59, align 1, !tbaa !29
-  br label %64
+  br label %.critedge
 
 60:                                               ; preds = %11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 118
   store i8 %17, ptr %61, align 2, !tbaa !33
-  br label %64
+  br label %.critedge
 
 62:                                               ; preds = %11
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 121
   store i8 %17, ptr %63, align 1, !tbaa !34
-  br label %.critedge
+  br label %64
 
 default.unreachable18:                            ; preds = %11
   unreachable
 
-64:                                               ; preds = %21, %44, %56, %58, %60, %_ZNSt5queueIhSt5dequeIhSaIhEEE4pushERKh.exit, %27, %54, %51
+.critedge:                                        ; preds = %51, %54, %60, %58, %56, %44, %27, %_ZNSt5queueIhSt5dequeIhSaIhEEE4pushERKh.exit, %21
   call void @_ZN9ns16550_t16update_interruptEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  br label %.critedge
+  br label %64
 
-.critedge:                                        ; preds = %64, %11, %11, %62, %4
+64:                                               ; preds = %.critedge, %62, %11, %11, %4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   ret i1 %or.cond.not
 }

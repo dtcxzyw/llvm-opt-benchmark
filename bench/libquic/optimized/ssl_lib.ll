@@ -1379,7 +1379,7 @@ thread-pre-split:                                 ; preds = %21, %39, %33
   br label %57
 
 57:                                               ; preds = %33, %51, %41, %21, %56, %17, %11, %6
-  %.021 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 1, %17 ], [ -1, %33 ], [ 0, %56 ], [ -1, %21 ], [ -1, %41 ], [ 1, %51 ]
+  %.021 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 1, %17 ], [ 0, %56 ], [ -1, %33 ], [ -1, %21 ], [ -1, %41 ], [ 1, %51 ]
   ret i32 %.021
 }
 
@@ -3813,7 +3813,7 @@ define hidden noundef nonnull ptr @SSL_get_version(ptr noundef readonly captures
   br label %ssl_get_version.exit
 
 ssl_get_version.exit:                             ; preds = %1, %3, %4, %5, %6, %7, %8
-  %.0.i = phi ptr [ @.str.13, %8 ], [ @.str.12, %7 ], [ @.str.11, %6 ], [ @.str.10, %5 ], [ @.str.9, %4 ], [ @.str.8, %3 ], [ @.str.7, %1 ]
+  %.0.i = phi ptr [ @.str.13, %8 ], [ @.str.8, %3 ], [ @.str.9, %4 ], [ @.str.10, %5 ], [ @.str.11, %6 ], [ @.str.12, %7 ], [ @.str.7, %1 ]
   ret ptr %.0.i
 }
 
@@ -3849,7 +3849,7 @@ define hidden noundef nonnull ptr @SSL_SESSION_get_version(ptr noundef readonly 
   br label %ssl_get_version.exit
 
 ssl_get_version.exit:                             ; preds = %1, %4, %5, %6, %7, %8, %9
-  %.0.i = phi ptr [ @.str.13, %9 ], [ @.str.12, %8 ], [ @.str.11, %7 ], [ @.str.10, %6 ], [ @.str.9, %5 ], [ @.str.8, %4 ], [ @.str.7, %1 ]
+  %.0.i = phi ptr [ @.str.13, %9 ], [ @.str.8, %4 ], [ @.str.9, %5 ], [ @.str.10, %6 ], [ @.str.11, %7 ], [ @.str.12, %8 ], [ @.str.7, %1 ]
   ret ptr %.0.i
 }
 

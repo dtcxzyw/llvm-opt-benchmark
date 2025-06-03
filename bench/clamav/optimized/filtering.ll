@@ -544,7 +544,7 @@ define i32 @filter_add_acpatt(ptr noundef captures(none) %0, ptr noundef readonl
   br label %.loopexit
 
 140:                                              ; preds = %115, %81, %93, %88, %131, %124, %97, %73
-  %.4382.ph = phi i32 [ %.2380695, %73 ], [ %.2380695, %93 ], [ %.2380695, %88 ], [ %.2380695, %81 ], [ %.2380695, %97 ], [ %116, %115 ], [ %.2380695, %124 ], [ %.2380695, %131 ]
+  %.4382.ph = phi i32 [ %.2380695, %131 ], [ %.2380695, %124 ], [ %116, %115 ], [ %.2380695, %97 ], [ %.2380695, %93 ], [ %.2380695, %88 ], [ %.2380695, %81 ], [ %.2380695, %73 ]
   %indvars.iv.next1212 = add nuw nsw i64 %indvars.iv1211, 1
   %indvars.iv.next1210 = add nuw nsw i64 %indvars.iv1209, 1
   %141 = icmp samesign ult i64 %indvars.iv.next1210, %60
@@ -1322,8 +1322,8 @@ add_choice.exit:                                  ; preds = %408, %429
   br label %433
 
 433:                                              ; preds = %380, %377, %373, %add_choice.exit
-  %.1549 = phi i32 [ %.0548973, %377 ], [ %.3550, %add_choice.exit ], [ %.0548973, %380 ], [ %.0548973, %373 ]
-  %.6 = phi i32 [ %.5974, %377 ], [ %spec.select497, %add_choice.exit ], [ %.5974, %380 ], [ %.5974, %373 ]
+  %.1549 = phi i32 [ %.0548973, %377 ], [ %.3550, %add_choice.exit ], [ %.0548973, %373 ], [ %.0548973, %380 ]
+  %.6 = phi i32 [ %.5974, %377 ], [ %spec.select497, %add_choice.exit ], [ %.5974, %373 ], [ %.5974, %380 ]
   %434 = add i32 %.6, 1
   %435 = icmp ult i32 %434, %145
   %436 = icmp ult i32 %.1549, 8
@@ -1403,7 +1403,7 @@ add_choice.exit:                                  ; preds = %408, %429
   br i1 %.not72.i, label %get_score.exit.thread, label %.thread.i519
 
 .thread.i519:                                     ; preds = %460, %459, %458, %452
-  %.091.i = phi i32 [ 0, %460 ], [ 0, %452 ], [ 512, %458 ], [ 513, %459 ]
+  %.091.i = phi i32 [ 0, %460 ], [ 0, %452 ], [ 513, %459 ], [ 512, %458 ]
   %461 = getelementptr inbounds nuw i8, ptr %455, i64 8
   %462 = load i8, ptr %461, align 8, !tbaa !25
   %463 = zext i8 %462 to i32

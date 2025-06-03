@@ -2965,7 +2965,7 @@ if.then11.i:                                      ; preds = %sw.bb8.i
 default.unreachable173:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i37, %if.then5.i, %if.then11.i
+if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i, %if.then5.i, %if.then.i37
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
@@ -3466,7 +3466,7 @@ if.then11.i.i:                                    ; preds = %sw.bb8.i.i
 default.unreachable114:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
+if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i.i, %if.then5.i.i, %if.then.i.i
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
@@ -3751,8 +3751,8 @@ if.then11.i:                                      ; preds = %sw.bb8.i
 default.unreachable:                              ; preds = %if.then16.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.then.i35, %if.then5.i, %if.then11.i, %if.end15.i
-  %ret.i.sroa.555.0 = phi i64 [ 0, %if.end15.i ], [ %9, %if.then.i35 ], [ %10, %if.then5.i ], [ %11, %if.then11.i ]
+if.end23.i:                                       ; preds = %if.then11.i, %if.then5.i, %if.then.i35, %if.end15.i
+  %ret.i.sroa.555.0 = phi i64 [ 0, %if.end15.i ], [ %11, %if.then11.i ], [ %10, %if.then5.i ], [ %9, %if.then.i35 ]
   %12 = and i8 %5, 4
   %tobool26.i.not = icmp eq i8 %12, 0
   br i1 %tobool26.i.not, label %if.end33.i, label %if.then27.i
@@ -4502,7 +4502,7 @@ if.then11.i:                                      ; preds = %sw.bb8.i
 default.unreachable127:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i19, %if.then5.i, %if.then11.i
+if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i, %if.then5.i, %if.then.i19
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
@@ -4812,7 +4812,7 @@ if.then11.i.i:                                    ; preds = %sw.bb8.i.i
 default.unreachable147:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
+if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i.i, %if.then5.i.i, %if.then.i.i
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i

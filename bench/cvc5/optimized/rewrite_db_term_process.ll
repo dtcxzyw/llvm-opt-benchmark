@@ -3606,8 +3606,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73: ; preds = %522, %516, %_ZN4cvc
   ret void
 
 533:                                              ; preds = %532, %378, %169
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %532 ], [ %.pn48.pn, %378 ], [ %.pn51.pn.pn, %169 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  %.pn51.pn.pn.pn = phi { ptr, i32 } [ %.pn51.pn.pn, %169 ], [ %.pn48.pn, %378 ], [ %.pn.pn.pn, %532 ]
+  resume { ptr, i32 } %.pn51.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

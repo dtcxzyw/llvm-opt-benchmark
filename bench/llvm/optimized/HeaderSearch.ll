@@ -1679,12 +1679,12 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %2, %12
   br i1 %69, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i.i, !prof !319, !llvm.loop !320
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %63, %55
-  %.lcssa.i.i.i.pn = phi i64 [ %57, %55 ], [ %66, %63 ]
-  %.not13 = icmp samesign eq i64 %.lcssa.i.i.i.pn, %47
+  %.pn = phi i64 [ %57, %55 ], [ %66, %63 ]
+  %.not13 = icmp samesign eq i64 %.pn, %47
   br i1 %.not13, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %70
 
 70:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %42, i64 %.lcssa.i.i.i.pn, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %42, i64 %.pn, i32 0, i32 1
   %72 = load i32, ptr %71, align 4, !tbaa !321
   %73 = lshr i32 %72, 6
   %.zext12 = zext nneg i32 %73 to i64
@@ -6121,9 +6121,9 @@ define dso_local void @_ZN5clang12HeaderSearch15noteLookupUsageEjNS_14SourceLoca
   br i1 %34, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !319, !llvm.loop !320
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %28, %19
-  %.lcssa.i.i.pn = phi i64 [ %22, %19 ], [ %31, %28 ]
+  %.pn = phi i64 [ %22, %19 ], [ %31, %28 ]
   %35 = zext i32 %17 to i64
-  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %35
+  %.not = icmp samesign eq i64 %.pn, %35
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %36
 
 36:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
@@ -6133,7 +6133,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr noundef nonnull align 8 dereferenceable(15248) %38, i32 %2, i32 noundef 1297) #23
   %39 = load ptr, ptr %0, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %.lcssa.i.i.pn, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %.pn, i32 0, i32 1
   %42 = load i32, ptr %41, align 4, !tbaa !321
   %43 = zext i32 %42 to i64
   %44 = load ptr, ptr %40, align 8, !tbaa !316

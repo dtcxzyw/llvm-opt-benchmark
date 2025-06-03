@@ -2163,7 +2163,7 @@ set_param_references.exit:                        ; preds = %.lr.ph650, %.lr.ph6
   br label %944
 
 944:                                              ; preds = %3, %set_param_references.exit, %903, %901, %155, %87
-  %.0 = phi ptr [ %1, %set_param_references.exit ], [ %904, %903 ], [ %902, %901 ], [ %156, %155 ], [ %1, %87 ], [ null, %3 ]
+  %.0 = phi ptr [ %1, %set_param_references.exit ], [ %1, %87 ], [ %156, %155 ], [ %902, %901 ], [ %904, %903 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -5876,7 +5876,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %2, %65, %16, %19, %114, %69, %23
-  %.0 = phi ptr [ %25, %23 ], [ %66, %65 ], [ %70, %69 ], [ %116, %114 ], [ %8, %19 ], [ %8, %16 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %25, %23 ], [ %70, %69 ], [ %116, %114 ], [ %66, %65 ], [ %8, %19 ], [ %8, %16 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 

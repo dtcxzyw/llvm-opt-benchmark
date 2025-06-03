@@ -1195,7 +1195,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %129, %_ZNK4llvm7APF
   unreachable
 
 "_ZZN4llvm11VRegRenamer24getInstructionOpcodeHashB5cxx11ERNS_12MachineInstrEENK3$_0clERKNS_14MachineOperandE.exit.i.i": ; preds = %153, %144, %140, %134, %130, %_ZN4llvm5APIntD2Ev.exit.i.i.i, %71, %68, %68, %68, %68, %68, %68, %68, %68, %68, %68, %68, %68, %68
-  %.0.i.i.i = phi i32 [ %155, %153 ], [ %152, %144 ], [ %143, %140 ], [ %139, %134 ], [ %127, %_ZN4llvm5APIntD2Ev.exit.i.i.i ], [ %97, %71 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ %132, %130 ]
+  %.0.i.i.i = phi i32 [ %97, %71 ], [ %127, %_ZN4llvm5APIntD2Ev.exit.i.i.i ], [ %139, %134 ], [ %143, %140 ], [ %152, %144 ], [ %155, %153 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ 0, %68 ], [ %132, %130 ]
   %157 = load i32, ptr %55, align 8, !tbaa !26
   %158 = load i32, ptr %56, align 4, !tbaa !27
   %.not.i.i.not.i.i.i.i = icmp ult i32 %157, %158

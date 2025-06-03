@@ -839,8 +839,8 @@ lean_alloc_ctor.exit75:                           ; preds = %lean_dec.exit
   store ptr %100, ptr %105, align 8, !tbaa !4
   br label %lean_dec.exit45.thread
 
-lean_dec.exit45.thread:                           ; preds = %lean_dec.exit47, %lean_dec.exit46, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %37, %lean_alloc_ctor.exit ], [ %101, %lean_alloc_ctor.exit75 ], [ %76, %lean_dec.exit47 ], [ %85, %lean_dec.exit46 ]
+lean_dec.exit45.thread:                           ; preds = %lean_dec.exit46, %lean_dec.exit47, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
+  %.0 = phi ptr [ %37, %lean_alloc_ctor.exit ], [ %101, %lean_alloc_ctor.exit75 ], [ %85, %lean_dec.exit46 ], [ %76, %lean_dec.exit47 ]
   ret ptr %.0
 }
 

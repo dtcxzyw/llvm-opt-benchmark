@@ -785,7 +785,7 @@ default.unreachable:                              ; preds = %27, %15
   br label %_ZN4ring4aead3aes3Key13encrypt_block17hb516baeef254fb70E.exit
 
 _ZN4ring4aead3aes3Key13encrypt_block17hb516baeef254fb70E.exit: ; preds = %31, %32, %33
-  %.sroa.017.0 = phi <16 x i8> [ %.sroa.017.0.copyload, %33 ], [ %.sroa.017.0.copyload18, %32 ], [ %.sroa.017.0.copyload19, %31 ]
+  %.sroa.017.0 = phi <16 x i8> [ %.sroa.017.0.copyload19, %31 ], [ %.sroa.017.0.copyload18, %32 ], [ %.sroa.017.0.copyload, %33 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !103
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !103
   store <16 x i8> %.sroa.017.0, ptr %6, align 16, !noalias !103

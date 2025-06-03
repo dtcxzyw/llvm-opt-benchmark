@@ -187,7 +187,7 @@ define hidden align 8 ptr @_ZN19pyo3_macros_backend6method5FnArg4name17h23fb16d4
   br label %23
 
 23:                                               ; preds = %20, %17, %14, %11, %8
-  %.sroa.0.0 = phi ptr [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0 = phi ptr [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ]
   ret ptr %.sroa.0.0
 }
 
@@ -278,7 +278,7 @@ define hidden void @_ZN19pyo3_macros_backend6method5FnArg14to_varargs_mut17ha6a9
   br label %_ZN19pyo3_macros_backend6method5FnArg4name17h23fb16d4e03312fdE.exit
 
 _ZN19pyo3_macros_backend6method5FnArg4name17h23fb16d4e03312fdE.exit: ; preds = %.thread, %15, %18, %21, %24
-  %.sroa.0.0.i = phi ptr [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %.thread ]
+  %.sroa.0.0.i = phi ptr [ %14, %.thread ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
   %28 = load i8, ptr %27, align 8
   %29 = icmp eq i8 %28, 2
@@ -381,7 +381,7 @@ define hidden void @_ZN19pyo3_macros_backend6method5FnArg13to_kwargs_mut17h0e9a2
   br label %_ZN19pyo3_macros_backend6method5FnArg4name17h23fb16d4e03312fdE.exit
 
 _ZN19pyo3_macros_backend6method5FnArg4name17h23fb16d4e03312fdE.exit: ; preds = %.thread, %14, %17, %20, %23
-  %.sroa.0.0.i = phi ptr [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %.thread ]
+  %.sroa.0.0.i = phi ptr [ %13, %.thread ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
   %27 = load i8, ptr %26, align 8
   %28 = icmp eq i8 %27, 2
@@ -744,8 +744,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnType8self_arg17hd1ed8fadc8
   unreachable
 
 57:                                               ; preds = %154, %61, %50
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %154 ], [ %.pn30, %61 ], [ %51, %50 ]
-  resume { ptr, i32 } %.pn17.pn
+  %.pn32 = phi { ptr, i32 } [ %51, %50 ], [ %.pn30, %61 ], [ %.pn17, %154 ]
+  resume { ptr, i32 } %.pn32
 
 58:                                               ; preds = %6, %6
   %.sroa.03.0 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3287,7 +3287,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %201 unwind label %199, !noalias !6
 
 198:                                              ; preds = %.thread.i, %364, %316, %291, %280, %255, %199
-  %.pn147.pn.i = phi { ptr, i32 } [ %.pn147155.i, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %364 ], [ %200, %199 ], [ %.pn.i, %316 ], [ %.pn.i, %291 ], [ %.pn143.i, %280 ], [ %.pn143.i, %255 ]
+  %.pn147.pn.i = phi { ptr, i32 } [ %.pn147155.i, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %364 ], [ %200, %199 ], [ %.pn143.i, %280 ], [ %.pn143.i, %255 ], [ %.pn.i, %316 ], [ %.pn.i, %291 ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..method..MethodTypeAttribute$GT$$GT$17h99fb52d5ccb83f63E"(ptr nonnull align 8 %81) #10
           to label %.body unwind label %281, !noalias !6
 
@@ -3312,8 +3312,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %207
 
 206:                                              ; preds = %332, %311, %275, %246, %226, %225, %208, %201
-  %.sroa.068.0.i = phi i32 [ 4, %332 ], [ 8, %225 ], [ 5, %246 ], [ 6, %208 ], [ 3, %226 ], [ 2, %201 ], [ 0, %275 ], [ 1, %311 ]
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.4.insert.ext70.i, %332 ], [ undef, %225 ], [ %.sroa.9.4.insert.ext.i, %246 ], [ undef, %208 ], [ undef, %226 ], [ %.sroa.081.0.copyload.i, %201 ], [ %.sroa.094.0.copyload.i, %275 ], [ %.sroa.0107.0.copyload.i, %311 ]
+  %.sroa.068.0.i = phi i32 [ 5, %246 ], [ 8, %225 ], [ 4, %332 ], [ 6, %208 ], [ 3, %226 ], [ 2, %201 ], [ 0, %275 ], [ 1, %311 ]
+  %.sroa.9.0.i = phi i64 [ %.sroa.9.4.insert.ext.i, %246 ], [ undef, %225 ], [ %.sroa.9.4.insert.ext70.i, %332 ], [ undef, %208 ], [ undef, %226 ], [ %.sroa.081.0.copyload.i, %201 ], [ %.sroa.094.0.copyload.i, %275 ], [ %.sroa.0107.0.copyload.i, %311 ]
   store i32 %.sroa.068.0.i, ptr %.sroa.12, align 8, !alias.scope !6
   %.sroa.12.4..sroa_idx232 = getelementptr inbounds nuw i8, ptr %.sroa.12, i64 4
   store i64 %.sroa.9.0.i, ptr %.sroa.12.4..sroa_idx232, align 4, !alias.scope !6
@@ -3366,7 +3366,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %._crit_edge
 
 207:                                              ; preds = %385, %334, %315, %300, %279, %264, %243, %229, %205
-  %.sroa.0127.0 = phi i64 [ %.sroa.0127.0.copyload128, %385 ], [ %330, %334 ], [ %312, %315 ], [ %.sroa.0127.0.copyload130, %300 ], [ %276, %279 ], [ %.sroa.0127.0.copyload131, %264 ], [ %.sroa.0127.0.copyload132, %243 ], [ %227, %229 ], [ %202, %205 ]
+  %.sroa.0127.0 = phi i64 [ %.sroa.0127.0.copyload128, %385 ], [ %202, %205 ], [ %227, %229 ], [ %.sroa.0127.0.copyload132, %243 ], [ %276, %279 ], [ %.sroa.0127.0.copyload131, %264 ], [ %312, %315 ], [ %.sroa.0127.0.copyload130, %300 ], [ %330, %334 ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..method..MethodTypeAttribute$GT$$GT$17h99fb52d5ccb83f63E"(ptr nonnull align 8 %81)
           to label %396 unwind label %394
 
@@ -4708,7 +4708,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_function
           to label %499 unwind label %147
 
 146:                                              ; preds = %501, %368, %246, %150, %147
-  %.pn70 = phi { ptr, i32 } [ %148, %147 ], [ %.pn37, %501 ], [ %.pn48, %368 ], [ %.pn59, %246 ], [ %.pn68, %150 ]
+  %.pn70 = phi { ptr, i32 } [ %148, %147 ], [ %.pn68, %150 ], [ %.pn59, %246 ], [ %.pn48, %368 ], [ %.pn37, %501 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %66) #10
           to label %135 unwind label %130
 
@@ -6791,8 +6791,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec7get_doc17hd5a44ce2b66
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %5
-  %.sroa.03.0.i = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %16 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %15 ], [ null, %14 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %5 ]
-  %.sroa.5.0.i = phi i64 [ 6, %16 ], [ 3, %15 ], [ undef, %14 ], [ 4, %5 ]
+  %.sroa.03.0.i = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %15 ], [ null, %14 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %16 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %5 ]
+  %.sroa.5.0.i = phi i64 [ 3, %15 ], [ undef, %14 ], [ 6, %16 ], [ 4, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %19 = load i8, ptr %18, align 8
   switch i8 %19, label %_ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_signature17hc46bcdbfc0fc5baeE.exit.thread [
@@ -6876,8 +6876,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_
   br label %12
 
 12:                                               ; preds = %2, %11, %10, %9
-  %.sroa.03.0 = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %11 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %10 ], [ null, %9 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %2 ]
-  %.sroa.5.0 = phi i64 [ 6, %11 ], [ 3, %10 ], [ undef, %9 ], [ 4, %2 ]
+  %.sroa.03.0 = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %10 ], [ null, %9 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %11 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %2 ]
+  %.sroa.5.0 = phi i64 [ 3, %10 ], [ undef, %9 ], [ 6, %11 ], [ 4, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %14 = load i8, ptr %13, align 8
   switch i8 %14, label %19 [
@@ -7283,7 +7283,7 @@ define zeroext i1 @"_ZN87_$LT$pyo3_macros_backend..method..MethodTypeAttribute$u
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -270,7 +270,7 @@ lws.exit:                                         ; preds = %.lr.ph.i69, %.lws.e
   br label %check_authority.exit
 
 check_authority.exit:                             ; preds = %130, %132, %85, %83, %44, %36
-  %.055 = phi i32 [ %131, %130 ], [ %133, %132 ], [ %84, %83 ], [ %86, %85 ], [ %51, %44 ], [ %43, %36 ]
+  %.055 = phi i32 [ %131, %130 ], [ %133, %132 ], [ %43, %36 ], [ %51, %44 ], [ %84, %83 ], [ %86, %85 ]
   %134 = icmp eq i32 %.055, 0
   br i1 %134, label %check_authority.exit.thread, label %check_authority.exit.thread83
 

@@ -444,7 +444,7 @@ define dso_local range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %select_file_type.exit
 
 select_file_type.exit:                            ; preds = %107, %124, %126, %132, %136, %138, %140, %142
-  %.0.i = phi ptr [ %108, %107 ], [ null, %142 ], [ %141, %140 ], [ %133, %132 ], [ %137, %136 ], [ %139, %138 ], [ %127, %126 ], [ %125, %124 ]
+  %.0.i = phi ptr [ %108, %107 ], [ null, %142 ], [ %125, %124 ], [ %127, %126 ], [ %133, %132 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ]
   %146 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %.055, ptr %146, align 8, !tbaa !45
   %147 = load ptr, ptr %.0.i, align 8, !tbaa !48

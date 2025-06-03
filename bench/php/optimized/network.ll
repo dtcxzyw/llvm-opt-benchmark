@@ -1317,8 +1317,8 @@ sub_0:                                            ; preds = %56
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %54, %.tail, %62, %52
-  %.2 = phi ptr [ null, %62 ], [ %.0599297, %.tail ], [ null, %54 ], [ %.0599297, %52 ], [ %.0599297, %sub_0 ]
-  %.058 = phi i32 [ 16, %62 ], [ 16, %.tail ], [ 16, %54 ], [ 28, %52 ], [ 16, %sub_0 ]
+  %.2 = phi ptr [ %.0599297, %52 ], [ null, %62 ], [ %.0599297, %.tail ], [ null, %54 ], [ %.0599297, %sub_0 ]
+  %.058 = phi i32 [ 28, %52 ], [ 16, %62 ], [ 16, %.tail ], [ 16, %54 ], [ 16, %sub_0 ]
   %63 = zext nneg i16 %48 to i32
   %64 = call i32 @socket(i32 noundef %63, i32 noundef %2, i32 noundef 0) #19
   %65 = icmp eq i32 %64, -1
@@ -1582,7 +1582,7 @@ define dso_local range(i32 0, 111) i32 @php_sockaddr_size(ptr noundef readonly c
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3
-  %.0 = phi i32 [ 0, %5 ], [ 110, %4 ], [ 28, %3 ], [ 16, %1 ]
+  %.0 = phi i32 [ 0, %5 ], [ 28, %3 ], [ 110, %4 ], [ 16, %1 ]
   ret i32 %.0
 }
 

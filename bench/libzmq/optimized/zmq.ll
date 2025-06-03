@@ -1459,7 +1459,7 @@ define i32 @zmq_msg_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %20
 
 20:                                               ; preds = %13, %15, %7, %18, %10, %3
-  %.0 = phi i32 [ -1, %18 ], [ %12, %10 ], [ %6, %3 ], [ -1, %7 ], [ 1, %13 ], [ %17, %15 ]
+  %.0 = phi i32 [ -1, %18 ], [ %6, %3 ], [ %12, %10 ], [ -1, %7 ], [ 1, %13 ], [ %17, %15 ]
   ret i32 %.0
 }
 
@@ -3235,7 +3235,7 @@ define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef captures(address_is_
   br label %8
 
 8:                                                ; preds = %6, %.thread
-  %.1 = phi i32 [ 0, %6 ], [ -1, %.thread ]
+  %.1 = phi i32 [ -1, %.thread ], [ 0, %6 ]
   ret i32 %.1
 }
 

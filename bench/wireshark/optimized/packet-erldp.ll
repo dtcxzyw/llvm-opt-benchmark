@@ -1342,7 +1342,7 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph53, %172
   br label %dissect_etf_type_content.exitthread-pre-split
 
 dissect_etf_type_content.exitthread-pre-split:    ; preds = %.lr.ph, %.lr.ph31, %.lr.ph36, %.lr.ph40, %.lr.ph44, %266, %252, %238, %222, %191, %292, %210, %201, %._crit_edge, %dissect_etf_tuple_content.exit, %dissect_etf_tuple_content.exit22, %152, %141, %133, %125, %117, %60, %54, %27
-  %.0.i.ph = phi i32 [ %59, %54 ], [ %65, %60 ], [ %124, %117 ], [ %132, %125 ], [ %140, %133 ], [ %151, %141 ], [ %162, %152 ], [ %.1.i20.lcssa, %dissect_etf_tuple_content.exit22 ], [ %.1.i18.lcssa, %dissect_etf_tuple_content.exit ], [ %295, %292 ], [ %190, %._crit_edge ], [ %209, %201 ], [ %221, %210 ], [ %22, %27 ], [ %194, %191 ], [ %229, %222 ], [ %.4.i33, %238 ], [ %259, %252 ], [ %285, %266 ], [ %197, %.lr.ph44 ], [ %234, %.lr.ph40 ], [ %.4.i, %.lr.ph36 ], [ %263, %.lr.ph31 ], [ %289, %.lr.ph ]
+  %.0.i.ph = phi i32 [ %221, %210 ], [ %209, %201 ], [ %190, %._crit_edge ], [ %295, %292 ], [ %.1.i18.lcssa, %dissect_etf_tuple_content.exit ], [ %.1.i20.lcssa, %dissect_etf_tuple_content.exit22 ], [ %162, %152 ], [ %151, %141 ], [ %140, %133 ], [ %132, %125 ], [ %124, %117 ], [ %65, %60 ], [ %59, %54 ], [ %22, %27 ], [ %194, %191 ], [ %229, %222 ], [ %.4.i33, %238 ], [ %259, %252 ], [ %285, %266 ], [ %197, %.lr.ph44 ], [ %234, %.lr.ph40 ], [ %.4.i, %.lr.ph36 ], [ %263, %.lr.ph31 ], [ %289, %.lr.ph ]
   %.pr = load ptr, ptr %16, align 8
   br label %dissect_etf_type_content.exit
 
@@ -1452,7 +1452,7 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noun
   br label %31
 
 31:                                               ; preds = %29, %27, %25, %23, %20, %17, %14, %11, %10
-  %.059 = phi i64 [ 0, %10 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.059 = phi i64 [ 0, %10 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ]
   %32 = load i32, ptr @hf_erldp_big_ext_int, align 4
   %.not = icmp eq i8 %7, 0
   %33 = select i1 %.not, ptr @.str.251, ptr @.str.250

@@ -133,9 +133,9 @@ get_txb_wide.exit.thread409:                      ; preds = %8, %get_txb_bwl.exi
   br label %get_txb_high.exit
 
 get_txb_high.exit:                                ; preds = %get_txb_wide.exit, %get_txb_wide.exit, %get_txb_wide.exit, %get_txb_wide.exit.thread, %get_txb_wide.exit.thread409, %61
-  %62 = phi i32 [ %56, %61 ], [ %59, %get_txb_wide.exit.thread409 ], [ %57, %get_txb_wide.exit.thread ], [ %56, %get_txb_wide.exit ], [ %56, %get_txb_wide.exit ], [ %56, %get_txb_wide.exit ]
-  %63 = phi i32 [ %53, %61 ], [ %60, %get_txb_wide.exit.thread409 ], [ %58, %get_txb_wide.exit.thread ], [ %53, %get_txb_wide.exit ], [ %53, %get_txb_wide.exit ], [ %53, %get_txb_wide.exit ]
-  %.0.i.i278 = phi i64 [ %18, %61 ], [ 9, %get_txb_wide.exit.thread409 ], [ 10, %get_txb_wide.exit.thread ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ]
+  %62 = phi i32 [ %56, %61 ], [ %57, %get_txb_wide.exit.thread ], [ %59, %get_txb_wide.exit.thread409 ], [ %56, %get_txb_wide.exit ], [ %56, %get_txb_wide.exit ], [ %56, %get_txb_wide.exit ]
+  %63 = phi i32 [ %53, %61 ], [ %58, %get_txb_wide.exit.thread ], [ %60, %get_txb_wide.exit.thread409 ], [ %53, %get_txb_wide.exit ], [ %53, %get_txb_wide.exit ], [ %53, %get_txb_wide.exit ]
+  %.0.i.i278 = phi i64 [ %18, %61 ], [ 10, %get_txb_wide.exit.thread ], [ 9, %get_txb_wide.exit.thread409 ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ]
   %64 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %.0.i.i278
   %65 = load i32, ptr %64, align 4
   %66 = zext nneg i16 %27 to i64
@@ -1773,7 +1773,7 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   br label %133
 
 133:                                              ; preds = %106, %103, %128, %122, %115
-  %.0 = phi i32 [ %132, %128 ], [ %127, %122 ], [ %121, %115 ], [ 0, %103 ], [ 0, %106 ]
+  %.0 = phi i32 [ %121, %115 ], [ %127, %122 ], [ %132, %128 ], [ 0, %103 ], [ 0, %106 ]
   %134 = sext i32 %.0 to i64
   %135 = getelementptr inbounds [5 x i16], ptr %7, i64 %134
   %136 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %14, ptr noundef %135, i32 noundef range(i32 2, 12) 4) #5
@@ -1923,12 +1923,12 @@ aom_read_symbol_.exit:                            ; preds = %133, %update_cdf.ex
   br label %231
 
 229:                                              ; preds = %171, %225, %210, %196
-  %.0145 = phi i32 [ %186, %171 ], [ %223, %225 ], [ %208, %210 ], [ %194, %196 ]
+  %.0145 = phi i32 [ %186, %171 ], [ %194, %196 ], [ %208, %210 ], [ %223, %225 ]
   %230 = add nuw nsw i32 %.0145, 14
   br label %231
 
 231:                                              ; preds = %214, %201, %187, %229, %227, %212, %199
-  %.0144 = phi i32 [ %230, %229 ], [ %228, %227 ], [ %213, %212 ], [ %200, %199 ], [ %194, %187 ], [ %208, %201 ], [ %223, %214 ]
+  %.0144 = phi i32 [ %230, %229 ], [ %200, %199 ], [ %213, %212 ], [ %228, %227 ], [ %194, %187 ], [ %208, %201 ], [ %223, %214 ]
   %232 = zext nneg i32 %.0144 to i64
   %233 = getelementptr inbounds nuw [5 x i16], ptr %8, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
@@ -2312,8 +2312,8 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   br label %get_entropy_context.exit.i
 
 get_entropy_context.exit.i:                       ; preds = %191, %183, %178, %173, %168, %163, %155, %147, %136, %131, %126, %121, %116, %111, %106, %101, %96, %91, %86, %85
-  %.046.shrunk.i.i = phi i1 [ false, %85 ], [ %196, %191 ], [ %185, %183 ], [ %180, %178 ], [ %175, %173 ], [ %170, %168 ], [ %165, %163 ], [ %160, %155 ], [ %149, %147 ], [ %141, %136 ], [ %133, %131 ], [ %128, %126 ], [ %123, %121 ], [ %118, %116 ], [ %113, %111 ], [ %108, %106 ], [ %103, %101 ], [ %98, %96 ], [ %93, %91 ], [ %88, %86 ]
-  %.0.shrunk.i.i = phi i1 [ false, %85 ], [ %198, %191 ], [ %190, %183 ], [ %182, %178 ], [ %177, %173 ], [ %172, %168 ], [ %167, %163 ], [ %162, %155 ], [ %154, %147 ], [ %146, %136 ], [ %135, %131 ], [ %130, %126 ], [ %125, %121 ], [ %120, %116 ], [ %115, %111 ], [ %110, %106 ], [ %105, %101 ], [ %100, %96 ], [ %95, %91 ], [ %90, %86 ]
+  %.046.shrunk.i.i = phi i1 [ false, %85 ], [ %88, %86 ], [ %93, %91 ], [ %98, %96 ], [ %103, %101 ], [ %108, %106 ], [ %113, %111 ], [ %118, %116 ], [ %123, %121 ], [ %128, %126 ], [ %133, %131 ], [ %141, %136 ], [ %149, %147 ], [ %160, %155 ], [ %165, %163 ], [ %170, %168 ], [ %175, %173 ], [ %180, %178 ], [ %185, %183 ], [ %196, %191 ]
+  %.0.shrunk.i.i = phi i1 [ false, %85 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ], [ %115, %111 ], [ %120, %116 ], [ %125, %121 ], [ %130, %126 ], [ %135, %131 ], [ %146, %136 ], [ %154, %147 ], [ %162, %155 ], [ %167, %163 ], [ %172, %168 ], [ %177, %173 ], [ %182, %178 ], [ %190, %183 ], [ %198, %191 ]
   %.0.i.i = zext i1 %.0.shrunk.i.i to i32
   %.046.i.i = zext i1 %.046.shrunk.i.i to i32
   %narrow.i.i.i = add nuw nsw i32 %.0.i.i, %.046.i.i

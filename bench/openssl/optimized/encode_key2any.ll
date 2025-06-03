@@ -16351,7 +16351,7 @@ define internal range(i32 0, 2) i32 @rsa_check_key_type(ptr noundef %0, i32 noun
   br label %8
 
 8:                                                ; preds = %2, %6, %4
-  %.0.shrunk = phi i1 [ %7, %6 ], [ %5, %4 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ %5, %4 ], [ %7, %6 ], [ false, %2 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -16441,7 +16441,7 @@ define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %0, i32 %1, 
   br i1 %.not22, label %.loopexit.sink.split, label %26
 
 26:                                               ; preds = %23, %18
-  %.2 = phi ptr [ %21, %23 ], [ %.01730, %18 ]
+  %.2 = phi ptr [ %.01730, %18 ], [ %21, %23 ]
   %27 = call i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef nonnull %6, i32 noundef -1, ptr noundef %8) #5
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %.loopexit.sink.split, label %28
@@ -16493,7 +16493,7 @@ define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %0, i32 %1, 
   br label %42
 
 42:                                               ; preds = %5, %41, %13, %10
-  %.018 = phi i32 [ 1, %13 ], [ %.119, %41 ], [ 1, %10 ], [ 0, %5 ]
+  %.018 = phi i32 [ 1, %10 ], [ 1, %13 ], [ %.119, %41 ], [ 0, %5 ]
   ret i32 %.018
 }
 

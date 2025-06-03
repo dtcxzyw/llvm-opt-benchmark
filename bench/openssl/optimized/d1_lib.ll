@@ -543,12 +543,12 @@ define range(i64 -2147483648, -9223372036854775808) i64 @dtls1_ctrl(ptr noundef 
   br label %dtls1_get_timeout.exit.thread
 
 dtls1_get_timeout.exit.thread:                    ; preds = %10, %15, %39, %25
-  %.020 = phi i32 [ %41, %39 ], [ %26, %25 ], [ 1, %15 ], [ 0, %10 ]
+  %.020 = phi i32 [ %41, %39 ], [ 1, %15 ], [ %26, %25 ], [ 0, %10 ]
   %42 = sext i32 %.020 to i64
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %9, %33, %27, %dtls1_get_timeout.exit.thread, %35, %29
-  %.0 = phi i64 [ %42, %dtls1_get_timeout.exit.thread ], [ %2, %35 ], [ 1, %29 ], [ 0, %27 ], [ 0, %33 ], [ 256, %9 ], [ 0, %6 ], [ 0, %4 ]
+  %.0 = phi i64 [ %42, %dtls1_get_timeout.exit.thread ], [ 1, %29 ], [ %2, %35 ], [ 0, %27 ], [ 0, %33 ], [ 256, %9 ], [ 0, %6 ], [ 0, %4 ]
   ret i64 %.0
 }
 

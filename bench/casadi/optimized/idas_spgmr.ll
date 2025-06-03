@@ -366,7 +366,7 @@ define internal range(i32 -1, 2) i32 @IDASpgmrSolve(ptr noundef %0, ptr noundef 
   br label %63
 
 63:                                               ; preds = %53, %53, %53, %53, %53, %62, %61, %60, %59
-  %.0 = phi i32 [ 0, %62 ], [ -1, %61 ], [ -1, %60 ], [ -1, %59 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ]
+  %.0 = phi i32 [ 0, %62 ], [ -1, %59 ], [ -1, %60 ], [ -1, %61 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8

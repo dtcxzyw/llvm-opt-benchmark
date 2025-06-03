@@ -131,7 +131,7 @@ define hidden range(i32 0, 2) i32 @luaO_rawequalObj(ptr noundef readonly capture
   br label %24
 
 24:                                               ; preds = %7, %2, %20, %16, %12, %8
-  %.0.shrunk = phi i1 [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ false, %2 ], [ true, %7 ]
+  %.0.shrunk = phi i1 [ %23, %20 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ false, %2 ], [ true, %7 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

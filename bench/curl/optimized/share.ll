@@ -145,7 +145,7 @@ define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ..
   %.not52 = icmp eq i32 %47, 0
   br i1 %.not52, label %.thread, label %.thread69
 
-.thread:                                          ; preds = %24, %24, %27, %32, %37, %42, %40, %35, %30, %45
+.thread:                                          ; preds = %24, %24, %42, %37, %32, %27, %40, %35, %30, %45
   %48 = shl nuw nsw i32 1, %26
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !26
@@ -311,7 +311,7 @@ define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ..
   br label %.thread69
 
 .thread69:                                        ; preds = %24, %40, %35, %30, %10, %65, %65, %85, %76, %73, %80, %77, %84, %81, %45, %.thread, %133, %116, %99
-  %.1 = phi i32 [ 0, %133 ], [ 0, %116 ], [ 0, %99 ], [ 1, %85 ], [ 0, %84 ], [ 0, %81 ], [ 0, %80 ], [ 0, %77 ], [ 0, %76 ], [ 0, %73 ], [ 0, %65 ], [ 0, %65 ], [ 4, %45 ], [ 0, %.thread ], [ 1, %10 ], [ 4, %30 ], [ 4, %35 ], [ 4, %40 ], [ 1, %24 ]
+  %.1 = phi i32 [ 4, %45 ], [ 0, %.thread ], [ 1, %85 ], [ 0, %76 ], [ 0, %73 ], [ 0, %80 ], [ 0, %77 ], [ 0, %84 ], [ 0, %81 ], [ 0, %65 ], [ 0, %65 ], [ 0, %99 ], [ 0, %116 ], [ 0, %133 ], [ 1, %10 ], [ 4, %30 ], [ 4, %35 ], [ 4, %40 ], [ 1, %24 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %137
 

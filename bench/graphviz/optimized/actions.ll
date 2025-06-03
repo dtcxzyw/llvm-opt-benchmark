@@ -2848,7 +2848,7 @@ default.unreachable36:                            ; preds = %8
   unreachable
 
 42:                                               ; preds = %14, %16, %20, %9
-  %.034 = phi ptr [ %41, %20 ], [ %15, %14 ], [ %19, %16 ], [ %11, %9 ]
+  %.034 = phi ptr [ %11, %9 ], [ %15, %14 ], [ %19, %16 ], [ %41, %20 ]
   %.not = icmp eq ptr %.034, null
   br i1 %.not, label %45, label %43
 
@@ -3154,7 +3154,7 @@ default.unreachable50:                            ; preds = %8
   unreachable
 
 47:                                               ; preds = %12, %9, %23, %22, %45, %25, %7
-  %.0 = phi ptr [ null, %7 ], [ %44, %45 ], [ null, %25 ], [ %.1, %23 ], [ null, %22 ], [ %11, %12 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %7 ], [ %11, %12 ], [ null, %9 ], [ %.1, %23 ], [ null, %22 ], [ %44, %45 ], [ null, %25 ]
   ret ptr %.0
 }
 

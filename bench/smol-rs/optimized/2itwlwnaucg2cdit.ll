@@ -238,7 +238,7 @@ default.unreachable17:                            ; preds = %24, %8
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit": ; preds = %27, %29, %31
-  %.pn.i = phi { i64, ptr } [ %32, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.pn.i = phi { i64, ptr } [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   %.fca.0.extract = extractvalue { i64, ptr } %.pn.i, 0
   store i64 %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { i64, ptr } %.pn.i, 1
@@ -628,7 +628,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit": ; preds = %7, %10, %13
-  %.pn.i = phi { i64, ptr } [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.pn.i = phi { i64, ptr } [ %9, %7 ], [ %12, %10 ], [ %15, %13 ]
   %16 = extractvalue { i64, ptr } %.pn.i, 0
   %17 = icmp eq i64 %16, 2
   br i1 %17, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b7b60c4dc814325E.llvm.9207735705138050903.exit", label %18
@@ -768,7 +768,7 @@ define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$async_executor..Ex
   br label %"_ZN4core3ptr167drop_in_place$LT$async_executor..Executor..spawn$LT$core..convert..Infallible$C$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc51403f27911247dE.exit"
 
 common.resume.i:                                  ; preds = %26, %21, %16, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %12 ], [ %22, %26 ], [ %22, %21 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %17, %16 ], [ %22, %26 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op.i
 
 14:                                               ; preds = %16, %12
@@ -875,7 +875,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$async_process..driv
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %"_ZN4core3ptr77drop_in_place$LT$async_process..Reaper..reap..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca8c3e5d2375fe22E.exit", %"_ZN4core3ptr60drop_in_place$LT$async_lock..mutex..Lock$LT$$LP$$RP$$GT$$GT$17h6d7bc27325e53b61E.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr60drop_in_place$LT$async_lock..mutex..Lock$LT$$LP$$RP$$GT$$GT$17h6d7bc27325e53b61E.exit", %"_ZN4core3ptr77drop_in_place$LT$async_process..Reaper..reap..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca8c3e5d2375fe22E.exit", %1
   ret void
 
 6:                                                ; preds = %1
@@ -899,13 +899,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %15, align 8, !nonnull !10, !align !13, !noundef !10
-  %16 = atomicrmw sub ptr %.val.i, i64 1 release, align 8
+  %.val4.i = load ptr, ptr %15, align 8, !nonnull !10, !align !13, !noundef !10
+  %16 = atomicrmw sub ptr %.val4.i, i64 1 release, align 8
   %17 = invoke noundef i64 @"_ZN64_$LT$i32$u20$as$u20$event_listener..notify..IntoNotification$GT$17into_notification17h1560063b65d058faE"(i32 noundef 1)
           to label %.noexc2 unwind label %50
 
 .noexc2:                                          ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #20, !srcloc !73
@@ -933,13 +933,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
 
 26:                                               ; preds = %24, %11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val4.i = load ptr, ptr %27, align 8, !nonnull !10, !align !13, !noundef !10
-  %28 = atomicrmw sub ptr %.val4.i, i64 1 release, align 8
+  %.val.i = load ptr, ptr %27, align 8, !nonnull !10, !align !13, !noundef !10
+  %28 = atomicrmw sub ptr %.val.i, i64 1 release, align 8
   %29 = invoke noundef i64 @"_ZN64_$LT$i32$u20$as$u20$event_listener..notify..IntoNotification$GT$17into_notification17h1560063b65d058faE"(i32 noundef 1)
           to label %.noexc6 unwind label %50
 
 .noexc6:                                          ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %2) #20, !srcloc !73
@@ -1215,7 +1215,7 @@ default.unreachable:                              ; preds = %3
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit.i"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit.i": ; preds = %14, %11, %8
-  %.pn.i.i = phi { i64, ptr } [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.pn.i.i = phi { i64, ptr } [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   %17 = extractvalue { i64, ptr } %.pn.i.i, 0
   %18 = icmp eq i64 %17, 2
   br i1 %18, label %"_ZN14async_executor8Executor8schedule28_$u7b$$u7b$closure$u7d$$u7d$17haf916e72fee2cb8fE.llvm.9207735705138050903.exit", label %19

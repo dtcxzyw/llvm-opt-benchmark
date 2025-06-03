@@ -337,7 +337,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.050.1.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.050.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i30.i.i.i = load ptr, ptr %.sroa.050.1.i.i.i, align 8, !tbaa !12
   %39 = getelementptr i8, ptr %.val1.i30.i.i.i, i64 108
   %.val1.val.i31.i.i.i = load i32, ptr %39, align 4, !tbaa !18
@@ -349,7 +349,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.sroa.050.2.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %42, %41 ]
+  %.sroa.050.2.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i32.i.i.i = load ptr, ptr %.sroa.050.2.i.i.i, align 8, !tbaa !12
   %44 = getelementptr i8, ptr %.val1.i32.i.i.i, i64 108
   %.val1.val.i33.i.i.i = load i32, ptr %44, align 4, !tbaa !18

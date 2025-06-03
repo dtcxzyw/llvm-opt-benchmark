@@ -109,7 +109,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm20archToWindowsSDKArchENS_6Triple8
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.4, %5 ], [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.4, %5 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -132,7 +132,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm18archToLegacyVCArchENS_6Triple8Ar
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.4, %4 ], [ @.str.3, %3 ], [ @.str.2, %2 ], [ @.str.5, %1 ]
+  %.0 = phi ptr [ @.str.4, %4 ], [ @.str.2, %2 ], [ @.str.3, %3 ], [ @.str.5, %1 ]
   ret ptr %.0
 }
 
@@ -159,7 +159,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm24archToDevDivInternalArchENS_6Tri
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.4, %5 ], [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.5, %2 ], [ @.str.6, %1 ]
+  %.0 = phi ptr [ @.str.4, %5 ], [ @.str.5, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.6, %1 ]
   ret ptr %.0
 }
 
@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm29appendArchToWindowsSDKLibPathEiNS
   br label %_ZN4llvm20archToWindowsSDKArchENS_6Triple8ArchTypeE.exit
 
 _ZN4llvm20archToWindowsSDKArchENS_6Triple8ArchTypeE.exit: ; preds = %16, %17, %18, %19, %20
-  %.0.i = phi ptr [ @.str.4, %20 ], [ @.str.3, %19 ], [ @.str.2, %18 ], [ @.str.1, %17 ], [ @.str, %16 ]
+  %.0.i = phi ptr [ @.str.4, %20 ], [ @.str.1, %17 ], [ @.str.2, %18 ], [ @.str.3, %19 ], [ @.str, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %22, align 1, !tbaa !3

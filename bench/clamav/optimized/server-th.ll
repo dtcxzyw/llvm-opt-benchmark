@@ -1952,9 +1952,9 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   br label %929
 
 929:                                              ; preds = %928, %.lr.ph531
-  %.not48.i.i = phi i1 [ false, %.lr.ph531 ], [ true, %928 ]
-  %.1124.i = phi i8 [ 10, %.lr.ph531 ], [ 0, %928 ]
-  %930 = phi i32 [ 10, %.lr.ph531 ], [ 0, %928 ]
+  %.not48.i.i = phi i1 [ true, %928 ], [ false, %.lr.ph531 ]
+  %.1124.i = phi i8 [ 0, %928 ], [ 10, %.lr.ph531 ]
+  %930 = phi i32 [ 0, %928 ], [ 10, %.lr.ph531 ]
   %931 = sub i64 %924, %.092182.i530
   %932 = call ptr @memchr(ptr noundef nonnull %926, i32 noundef %930, i64 noundef %931) #18
   %.not47.i.i = icmp eq ptr %932, null
@@ -3505,7 +3505,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr noundef nonnull captu
   %80 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.244) #15
   br label %.thread67
 
-.thread:                                          ; preds = %18, %26, %34, %48, %62, %77, %75, %73, %71
+.thread:                                          ; preds = %18, %26, %34, %48, %62, %77, %71, %73, %75
   %81 = load ptr, ptr %calloc, align 8, !tbaa !78
   %.not61 = icmp eq ptr %81, null
   br i1 %.not61, label %84, label %82

@@ -155,7 +155,7 @@ define hidden zeroext i1 @SDL_BlendPoint(ptr noundef %0, i32 noundef %1, i32 nou
   br label %82
 
 82:                                               ; preds = %18, %22, %26, %30, %80, %78, %73, %71, %63, %58, %.critedge, %10
-  %.0 = phi i1 [ %17, %.critedge ], [ %81, %80 ], [ %79, %78 ], [ true, %73 ], [ true, %71 ], [ true, %63 ], [ true, %58 ], [ %11, %10 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ]
+  %.0 = phi i1 [ %17, %.critedge ], [ %81, %80 ], [ %79, %78 ], [ true, %58 ], [ true, %63 ], [ true, %73 ], [ true, %71 ], [ %11, %10 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ]
   ret i1 %.0
 }
 

@@ -8887,7 +8887,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit.thread: ; preds = %_ZN9Node_List4push
   call void @_ZN8GraphKit14replace_in_mapEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %4, ptr noundef nonnull %.1104) #15
   br label %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread106
 
-_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread106: ; preds = %151, %214, %152, %210, %206, %_ZN4NodenwEm.exit, %197, %146, %131, %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
+_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread106: ; preds = %151, %152, %210, %206, %214, %_ZN4NodenwEm.exit, %197, %146, %131, %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
   ret void
 }
 
@@ -13946,7 +13946,7 @@ _ZN5Parse19maybe_add_safepointEi.exit283:         ; preds = %2975, %2980
   br label %3021
 
 3021:                                             ; preds = %_ZN7Compile16check_node_countEjPKc.exit, %3020, %3019, %3018, %3017, %3016
-  %.2 = phi i32 [ 7, %3020 ], [ 1, %3019 ], [ 5, %3018 ], [ 3, %3017 ], [ 4, %3016 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
+  %.2 = phi i32 [ 4, %3016 ], [ 3, %3017 ], [ 5, %3018 ], [ 1, %3019 ], [ 7, %3020 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
   %3022 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3023 = tail call noundef i32 @_ZNK16ciBytecodeStream8get_destEv(ptr noundef nonnull align 8 dereferenceable(72) %3022)
   %3024 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14013,7 +14013,7 @@ _ZN5Parse19maybe_add_safepointEi.exit285:         ; preds = %3021, %3026
   br label %3059
 
 3059:                                             ; preds = %_ZN7Compile16check_node_countEjPKc.exit, %3058, %3057, %3056, %3055, %3054
-  %.3 = phi i32 [ 7, %3058 ], [ 1, %3057 ], [ 5, %3056 ], [ 3, %3055 ], [ 4, %3054 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
+  %.3 = phi i32 [ 4, %3054 ], [ 3, %3055 ], [ 5, %3056 ], [ 1, %3057 ], [ 7, %3058 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
   %3060 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3061 = tail call noundef i32 @_ZNK16ciBytecodeStream8get_destEv(ptr noundef nonnull align 8 dereferenceable(72) %3060)
   %3062 = getelementptr inbounds nuw i8, ptr %0, i64 56

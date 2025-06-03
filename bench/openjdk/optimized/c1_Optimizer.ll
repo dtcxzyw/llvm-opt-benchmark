@@ -6389,7 +6389,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8Constant7compareEN11Instruction9Con
   unreachable
 
 14:                                               ; preds = %5, %11, %10
-  %.0 = phi ptr [ %3, %11 ], [ %4, %10 ], [ null, %5 ]
+  %.0 = phi ptr [ %4, %10 ], [ %3, %11 ], [ null, %5 ]
   ret ptr %.0
 }
 

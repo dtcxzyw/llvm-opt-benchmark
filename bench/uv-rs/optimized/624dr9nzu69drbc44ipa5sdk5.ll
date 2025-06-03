@@ -724,7 +724,7 @@ define noundef zeroext i1 @"_ZN73_$LT$uv_normalize..InvalidPipGroupError$u20$as$
   br label %15
 
 15:                                               ; preds = %13, %11
-  %.sroa.0.0.in = phi i1 [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -1042,7 +1042,7 @@ define internal fastcc void @refr_position(ptr noundef %0, i1 noundef zeroext %1
   br label %18
 
 18:                                               ; preds = %6, %14, %9
-  %.0 = phi i32 [ %17, %14 ], [ %13, %9 ], [ 0, %6 ]
+  %.0 = phi i32 [ %13, %9 ], [ %17, %14 ], [ 0, %6 ]
   tail call void @lv_obj_set_x(ptr noundef nonnull %4, i32 noundef %.0) #6
   %19 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 90) #6
   %20 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 92) #6

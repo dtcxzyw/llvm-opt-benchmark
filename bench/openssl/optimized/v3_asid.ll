@@ -509,8 +509,8 @@ define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_is_canonical(ptr 
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %26, %23
-  %.177 = phi ptr [ %29, %26 ], [ %25, %23 ]
-  %.075 = phi ptr [ %31, %26 ], [ %25, %23 ]
+  %.177 = phi ptr [ %25, %23 ], [ %29, %26 ]
+  %.075 = phi ptr [ %25, %23 ], [ %31, %26 ]
   %.not.i50 = icmp eq ptr %20, null
   br i1 %.not.i50, label %.thread, label %32, !prof !18
 
@@ -535,8 +535,8 @@ extract_min_max.exit:                             ; preds = %26, %23
   br label %extract_min_max.exit54
 
 extract_min_max.exit54:                           ; preds = %37, %34
-  %.174 = phi ptr [ %40, %37 ], [ %36, %34 ]
-  %.072 = phi ptr [ %42, %37 ], [ %36, %34 ]
+  %.174 = phi ptr [ %36, %34 ], [ %40, %37 ]
+  %.072 = phi ptr [ %36, %34 ], [ %42, %37 ]
   %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.177, ptr noundef %.174) #6
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %.thread, label %45
@@ -721,8 +721,8 @@ define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noun
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %26, %23
-  %.1104 = phi ptr [ %29, %26 ], [ %25, %23 ]
-  %.0102 = phi ptr [ %31, %26 ], [ %25, %23 ]
+  %.1104 = phi ptr [ %25, %23 ], [ %29, %26 ]
+  %.0102 = phi ptr [ %25, %23 ], [ %31, %26 ]
   %.not.i72 = icmp eq ptr %20, null
   br i1 %.not.i72, label %.thread, label %32, !prof !18
 
@@ -747,8 +747,8 @@ extract_min_max.exit:                             ; preds = %26, %23
   br label %extract_min_max.exit76
 
 extract_min_max.exit76:                           ; preds = %37, %34
-  %.1101 = phi ptr [ %40, %37 ], [ %36, %34 ]
-  %.099 = phi ptr [ %42, %37 ], [ %36, %34 ]
+  %.1101 = phi ptr [ %36, %34 ], [ %40, %37 ]
+  %.099 = phi ptr [ %36, %34 ], [ %42, %37 ]
   %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1104, ptr noundef %.1101) #6
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %45, label %.thread, !prof !24
@@ -1385,8 +1385,8 @@ define internal fastcc range(i32 0, 2) i32 @asid_contains(ptr noundef %0, ptr no
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %16, %19
-  %.2 = phi ptr [ %22, %19 ], [ %18, %16 ]
-  %.129 = phi ptr [ %24, %19 ], [ %18, %16 ]
+  %.2 = phi ptr [ %18, %16 ], [ %22, %19 ]
+  %.129 = phi ptr [ %18, %16 ], [ %24, %19 ]
   %25 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #6
   %.not1848 = icmp slt i32 %.01452, %25
   br i1 %.not1848, label %.lr.ph, label %extract_min_max.exit.thread
@@ -1418,8 +1418,8 @@ extract_min_max.exit:                             ; preds = %16, %19
   br label %extract_min_max.exit24
 
 extract_min_max.exit24:                           ; preds = %32, %29
-  %.3 = phi ptr [ %35, %32 ], [ %31, %29 ]
-  %.234 = phi ptr [ %37, %32 ], [ %31, %29 ]
+  %.3 = phi ptr [ %31, %29 ], [ %35, %32 ]
+  %.234 = phi ptr [ %31, %29 ], [ %37, %32 ]
   %38 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.234, ptr noundef %.129) #6
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %43, label %40
@@ -1574,8 +1574,8 @@ X509v3_asid_is_canonical.exit.thread:             ; preds = %22, %X509v3_asid_is
   br label %43
 
 43:                                               ; preds = %37, %39, %40, %35
-  %.0159 = phi ptr [ null, %37 ], [ %42, %40 ], [ null, %39 ], [ null, %35 ]
-  %.0144 = phi i32 [ 0, %37 ], [ 0, %40 ], [ 1, %39 ], [ 0, %35 ]
+  %.0159 = phi ptr [ null, %37 ], [ null, %39 ], [ %42, %40 ], [ null, %35 ]
+  %.0144 = phi i32 [ 0, %37 ], [ 1, %39 ], [ 0, %40 ], [ 0, %35 ]
   %44 = getelementptr inbounds nuw i8, ptr %.0164, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !23
   %.not195 = icmp eq ptr %45, null
@@ -1597,8 +1597,8 @@ X509v3_asid_is_canonical.exit.thread:             ; preds = %22, %X509v3_asid_is
   br label %52
 
 52:                                               ; preds = %46, %48, %49, %43
-  %.0155 = phi ptr [ null, %46 ], [ %51, %49 ], [ null, %48 ], [ null, %43 ]
-  %.0142 = phi i32 [ 0, %46 ], [ 0, %49 ], [ 1, %48 ], [ 0, %43 ]
+  %.0155 = phi ptr [ null, %46 ], [ null, %48 ], [ %51, %49 ], [ null, %43 ]
+  %.0142 = phi i32 [ 0, %46 ], [ 1, %48 ], [ 0, %49 ], [ 0, %43 ]
   %.1154279 = add nsw i32 %.0153, 1
   %53 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #6
   %54 = icmp slt i32 %.1154279, %53

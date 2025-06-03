@@ -7460,7 +7460,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %100
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i.i: ; preds = %105, %.thread.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ %107, %105 ], [ 0, %.thread.i.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i.i = phi i32 [ %107, %105 ], [ %spec.select.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i.i ]
   %108 = icmp slt i32 %.1.i.i.i.i.i.i.i.i, 0
   br label %109
 
@@ -8031,7 +8031,7 @@ _ZNK12_GLOBAL__N_113ACLEIntrinsic13requiresFloatEv.exit: ; preds = %220, %219
   br label %277
 
 277:                                              ; preds = %275, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.027.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %276, %275 ]
+  %.sroa.027.1.i.i.i.i.i.i.i = phi ptr [ %276, %275 ], [ %.sroa.027.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %278 = load ptr, ptr %.sroa.027.1.i.i.i.i.i.i.i, align 8, !tbaa !73
   %279 = load ptr, ptr %278, align 8, !tbaa !3
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 24
@@ -8044,7 +8044,7 @@ _ZNK12_GLOBAL__N_113ACLEIntrinsic13requiresFloatEv.exit: ; preds = %220, %219
   br label %285
 
 285:                                              ; preds = %283, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.027.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %284, %283 ]
+  %.sroa.027.2.i.i.i.i.i.i.i = phi ptr [ %284, %283 ], [ %.sroa.027.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %286 = load ptr, ptr %.sroa.027.2.i.i.i.i.i.i.i, align 8, !tbaa !73
   %287 = load ptr, ptr %286, align 8, !tbaa !3
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 24
@@ -11094,8 +11094,8 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit220.thread: ; preds = %549, %_
   unreachable
 
 _ZN12_GLOBAL__N_111EmitterBase7getTypeEPKN4llvm4InitEPKNS_4TypeE.exit.i.i: ; preds = %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit220.thread, %581
-  %.0109.i.i456 = phi i1 [ %.0109.i.i, %581 ], [ %.0109.i.i457, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit220.thread ]
-  %.1.i.i.i = phi ptr [ %582, %581 ], [ %585, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit220.thread ]
+  %.0109.i.i456 = phi i1 [ %.0109.i.i457, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit220.thread ], [ %.0109.i.i, %581 ]
+  %.1.i.i.i = phi ptr [ %585, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit220.thread ], [ %582, %581 ]
   %589 = load ptr, ptr %508, align 8, !tbaa !300, !noalias !250
   %590 = load ptr, ptr %509, align 8, !tbaa !301, !noalias !250
   %.not.i144.i.i = icmp eq ptr %589, %590
@@ -17681,7 +17681,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111EmitterBase7getTypeEPKN4l
   unreachable
 
 19:                                               ; preds = %12, %8
-  %.1 = phi ptr [ %9, %8 ], [ %15, %12 ]
+  %.1 = phi ptr [ %15, %12 ], [ %9, %8 ]
   ret ptr %.1
 }
 
@@ -22139,7 +22139,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit224.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   unreachable
 
 _ZN12_GLOBAL__N_111EmitterBase7getTypeEPKN4llvm4InitEPKNS_4TypeE.exit: ; preds = %444, %448
-  %.1.i = phi ptr [ %445, %444 ], [ %451, %448 ]
+  %.1.i = phi ptr [ %451, %448 ], [ %445, %444 ]
   %455 = getelementptr i8, ptr %.1.i, i64 8
   %.val.val.i.i226 = load i32, ptr %455, align 8, !tbaa !240
   %456 = icmp ne i32 %.val.val.i.i226, 5

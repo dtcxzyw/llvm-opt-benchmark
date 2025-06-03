@@ -1165,7 +1165,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h7900111826f66f86E.exit: 
   br label %33
 
 33:                                               ; preds = %24, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h7900111826f66f86E.exit
-  %.0 = phi i32 [ %32, %24 ], [ %23, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h7900111826f66f86E.exit ]
+  %.0 = phi i32 [ %23, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h7900111826f66f86E.exit ], [ %32, %24 ]
   ret i32 %.0
 }
 

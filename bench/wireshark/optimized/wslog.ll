@@ -2621,7 +2621,7 @@ level_color_on.exit.thread:                       ; preds = %33
   br label %level_color_on.exit
 
 level_color_on.exit:                              ; preds = %domain_to_string.exit, %33, %33, %34, %35, %36
-  %.0.i = phi ptr [ @.str.67, %36 ], [ @.str.80, %35 ], [ @.str.79, %34 ], [ @.str.67, %domain_to_string.exit ], [ @.str.78, %33 ], [ @.str.78, %33 ]
+  %.0.i = phi ptr [ @.str.67, %36 ], [ @.str.79, %34 ], [ @.str.80, %35 ], [ @.str.67, %domain_to_string.exit ], [ @.str.78, %33 ], [ @.str.78, %33 ]
   switch i32 %6, label %45 [
     i32 0, label %ws_log_level_to_string.exit
     i32 8, label %37
@@ -2662,8 +2662,8 @@ level_color_on.exit:                              ; preds = %domain_to_string.ex
   br label %ws_log_level_to_string.exit
 
 ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on.exit.thread, %level_color_on.exit, %37, %38, %39, %40, %41, %42, %43, %44, %45
-  %.0.i41 = phi ptr [ %.0.i, %45 ], [ %.0.i, %44 ], [ %.0.i, %43 ], [ %.0.i, %42 ], [ %.0.i, %41 ], [ %.0.i, %40 ], [ %.0.i, %37 ], [ %.0.i, %level_color_on.exit ], [ @.str.82, %level_color_on.exit.thread ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ @.str.81, %33 ]
-  %.0.i38 = phi ptr [ @.str.9, %45 ], [ @.str.8, %44 ], [ @.str.7, %43 ], [ @.str.6, %42 ], [ @.str.5, %41 ], [ @.str.4, %40 ], [ @.str.1, %37 ], [ @.str, %level_color_on.exit ], [ @.str.2, %level_color_on.exit.thread ], [ @.str.2, %38 ], [ @.str.3, %39 ], [ @.str.3, %33 ]
+  %.0.i41 = phi ptr [ %.0.i, %45 ], [ %.0.i, %37 ], [ %.0.i, %40 ], [ %.0.i, %41 ], [ %.0.i, %42 ], [ %.0.i, %43 ], [ %.0.i, %44 ], [ %.0.i, %level_color_on.exit ], [ @.str.82, %level_color_on.exit.thread ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ @.str.81, %33 ]
+  %.0.i38 = phi ptr [ @.str.9, %45 ], [ @.str.1, %37 ], [ @.str.4, %40 ], [ @.str.5, %41 ], [ @.str.6, %42 ], [ @.str.7, %43 ], [ @.str.8, %44 ], [ @.str, %level_color_on.exit ], [ @.str.2, %level_color_on.exit.thread ], [ @.str.2, %38 ], [ @.str.3, %39 ], [ @.str.3, %33 ]
   %46 = select i1 %1, ptr @.str.83, ptr @.str.67
   %47 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %32, ptr noundef nonnull %.0.i41, ptr noundef nonnull %.0.i38, ptr noundef nonnull %46)
   %.not36 = icmp eq ptr %7, null

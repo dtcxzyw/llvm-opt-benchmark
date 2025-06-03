@@ -4272,7 +4272,7 @@ _ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit:    ; preds = %142
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %.lr.ph79, %115, %86, %74, %57, %59, %171, %164, %150, %_ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit, %124, %121, %._crit_edge, %65, %49, %35, %_ZN10LogMessageD2Ev.exit
-  %.051 = phi ptr [ %11, %_ZN10LogMessageD2Ev.exit ], [ %170, %164 ], [ %151, %150 ], [ %129, %_ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit ], [ %126, %124 ], [ %123, %121 ], [ %98, %._crit_edge ], [ %66, %65 ], [ %58, %57 ], [ %60, %59 ], [ %50, %49 ], [ %36, %35 ], [ %172, %171 ], [ %75, %74 ], [ %87, %86 ], [ %116, %115 ], [ %82, %.lr.ph79 ], [ %94, %.lr.ph74 ], [ %120, %.lr.ph ]
+  %.051 = phi ptr [ %11, %_ZN10LogMessageD2Ev.exit ], [ %172, %171 ], [ %36, %35 ], [ %50, %49 ], [ %58, %57 ], [ %60, %59 ], [ %66, %65 ], [ %98, %._crit_edge ], [ %123, %121 ], [ %126, %124 ], [ %129, %_ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit ], [ %151, %150 ], [ %170, %164 ], [ %75, %74 ], [ %87, %86 ], [ %116, %115 ], [ %82, %.lr.ph79 ], [ %94, %.lr.ph74 ], [ %120, %.lr.ph ]
   ret ptr %.051
 }
 
@@ -5586,7 +5586,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
   br label %157
 
 157:                                              ; preds = %96, %140, %156, %153, %69
-  %.265 = phi ptr [ %75, %69 ], [ %82, %96 ], [ %150, %153 ], [ %150, %156 ], [ %150, %140 ]
+  %.265 = phi ptr [ %75, %69 ], [ %150, %153 ], [ %150, %156 ], [ %150, %140 ], [ %82, %96 ]
   %158 = load ptr, ptr %35, align 8, !tbaa !155
   %159 = load ptr, ptr %44, align 8, !tbaa !165
   %.not.i.i = icmp eq ptr %158, %159

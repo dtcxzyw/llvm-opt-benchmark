@@ -11684,7 +11684,7 @@ define internal fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef 
   br label %58
 
 58:                                               ; preds = %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.1 = phi i32 [ %.0, %13 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ]
   %59 = load ptr, ptr %8, align 8
   %60 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %59, i32 noundef %60)
@@ -12116,7 +12116,7 @@ define internal fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %
   br label %50
 
 50:                                               ; preds = %47, %44, %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ]
   %51 = load ptr, ptr %8, align 8
   %52 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %51, i32 noundef %52)
@@ -12299,7 +12299,7 @@ define internal fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %
   br label %44
 
 44:                                               ; preds = %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %45 = load ptr, ptr %8, align 8
   %46 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %45, i32 noundef %46)
@@ -12592,7 +12592,7 @@ define internal fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1
   br label %97
 
 97:                                               ; preds = %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.1 = phi i32 [ %.0, %13 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ]
   %98 = load ptr, ptr %8, align 8
   %99 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %98, i32 noundef %99)
@@ -12951,7 +12951,7 @@ define internal fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1
   br label %50
 
 50:                                               ; preds = %47, %44, %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ]
   %51 = load ptr, ptr %8, align 8
   %52 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %51, i32 noundef %52)
@@ -13929,7 +13929,7 @@ define internal i32 @samr_dissect_element_ValidatePassword_req_(ptr noundef %0, 
   br label %samr_dissect_ValidatePasswordReq.exit
 
 samr_dissect_ValidatePasswordReq.exit:            ; preds = %13, %22, %25, %28
-  %.1.i = phi i32 [ %.0.i, %13 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.1.i = phi i32 [ %.0.i, %13 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ]
   %31 = load ptr, ptr %7, align 8
   %32 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %31, i32 noundef %32)

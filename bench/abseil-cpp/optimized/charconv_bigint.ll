@@ -199,7 +199,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EEC2E
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i8, ptr %.1.i.i.i, align 1, !tbaa !10
   %40 = add i8 %39, -48
   %41 = icmp ult i8 %40, 10
@@ -210,7 +210,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EEC2E
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %43, %42 ]
+  %.2.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %45 = load i8, ptr %.2.i.i.i, align 1, !tbaa !10
   %46 = add i8 %45, -48
   %47 = icmp ult i8 %46, 10
@@ -2537,7 +2537,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EEC2
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i8, ptr %.1.i.i.i, align 1, !tbaa !10
   %40 = add i8 %39, -48
   %41 = icmp ult i8 %40, 10
@@ -2548,7 +2548,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EEC2
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %43, %42 ]
+  %.2.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %45 = load i8, ptr %.2.i.i.i, align 1, !tbaa !10
   %46 = add i8 %45, -48
   %47 = icmp ult i8 %46, 10

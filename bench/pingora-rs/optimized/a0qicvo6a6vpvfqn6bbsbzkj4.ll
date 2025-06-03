@@ -50,7 +50,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN88_$LT$pingora_lru..
   br label %13
 
 13:                                               ; preds = %14, %11, %9
-  %.sroa.0.0 = phi ptr [ %17, %14 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0 = phi ptr [ %17, %14 ], [ %10, %9 ], [ %12, %11 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %4
@@ -87,7 +87,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN91_$LT$pingora_lru..
   br label %13
 
 13:                                               ; preds = %14, %11, %9
-  %.sroa.0.0 = phi ptr [ %17, %14 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0 = phi ptr [ %17, %14 ], [ %10, %9 ], [ %12, %11 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %4
@@ -240,7 +240,7 @@ _ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit: ; preds =
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit": ; preds = %43, %45, %47
-  %.sroa.0.0.i = phi ptr [ %50, %47 ], [ %46, %45 ], [ %44, %43 ]
+  %.sroa.0.0.i = phi ptr [ %50, %47 ], [ %44, %43 ], [ %46, %45 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
   store i64 %1, ptr %52, align 8
   br label %53
@@ -442,7 +442,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3": ; preds = %27, %29, %31
-  %.sroa.0.0.i2 = phi ptr [ %34, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.sroa.0.0.i2 = phi ptr [ %34, %31 ], [ %28, %27 ], [ %30, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2, i64 8
   store i64 %21, ptr %36, align 8
   store i64 %2, ptr %.sroa.0.0.i2, align 8
@@ -478,7 +478,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5": ; preds = %42, %44, %46
-  %.sroa.0.0.i4 = phi ptr [ %49, %46 ], [ %45, %44 ], [ %43, %42 ]
+  %.sroa.0.0.i4 = phi ptr [ %49, %46 ], [ %43, %42 ], [ %45, %44 ]
   store i64 %1, ptr %.sroa.0.0.i4, align 8
   ret void
 }
@@ -640,7 +640,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3": ; preds = %25, %27, %29
-  %.sroa.0.0.i2 = phi ptr [ %30, %29 ], [ %28, %27 ], [ %26, %25 ]
+  %.sroa.0.0.i2 = phi ptr [ %30, %29 ], [ %26, %25 ], [ %28, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2, i64 8
   store i64 %14, ptr %32, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
@@ -672,7 +672,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5": ; preds = %37, %39, %41
-  %.sroa.0.0.i4 = phi ptr [ %42, %41 ], [ %40, %39 ], [ %38, %37 ]
+  %.sroa.0.0.i4 = phi ptr [ %42, %41 ], [ %38, %37 ], [ %40, %39 ]
   store i64 %12, ptr %.sroa.0.0.i4, align 8
   ret i64 %21
 }
@@ -906,7 +906,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN99_$LT$pingora_lru..l
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E.exit: ; preds = %10, %12, %14
-  %.sroa.0.0.i.i = phi ptr [ %17, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.i.i = phi ptr [ %17, %14 ], [ %11, %10 ], [ %13, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !noundef !3
   switch i64 %20, label %21 [
@@ -1006,7 +1006,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN114_$LT$pingora_lru..
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit: ; preds = %10, %12, %14
-  %.sroa.0.0.i.i = phi ptr [ %17, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.i.i = phi ptr [ %17, %14 ], [ %11, %10 ], [ %13, %12 ]
   %19 = load i64, ptr %.sroa.0.0.i.i, align 8, !noundef !3
   switch i64 %19, label %20 [
     i64 0, label %37

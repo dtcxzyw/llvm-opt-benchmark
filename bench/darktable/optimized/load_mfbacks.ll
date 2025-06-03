@@ -1124,8 +1124,8 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw17phase_one_correctEv(ptr no
   br label %.loopexit
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %.invoke, %.loopexit432, %303, %295, %289, %210
-  %.sroa.0.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %.sroa.0.8, %.loopexit432 ], [ %.sroa.0.2.ph, %303 ], [ %.sroa.0.2.ph, %295 ], [ %.sroa.0.2.ph, %289 ], [ %.sroa.0.2.ph, %210 ], [ %.sroa.0.2.ph, %.invoke ]
-  %.sroa.24.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %.sroa.24.8, %.loopexit432 ], [ %.sroa.24.2.ph, %303 ], [ %.sroa.24.2.ph, %295 ], [ %.sroa.24.2.ph, %289 ], [ %.sroa.24.2.ph, %210 ], [ %.sroa.24.2.ph, %.invoke ]
+  %.sroa.0.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %.sroa.0.8, %.loopexit432 ], [ %.sroa.0.2.ph, %210 ], [ %.sroa.0.2.ph, %303 ], [ %.sroa.0.2.ph, %295 ], [ %.sroa.0.2.ph, %289 ], [ %.sroa.0.2.ph, %.invoke ]
+  %.sroa.24.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %.sroa.24.8, %.loopexit432 ], [ %.sroa.24.2.ph, %210 ], [ %.sroa.24.2.ph, %303 ], [ %.sroa.24.2.ph, %295 ], [ %.sroa.24.2.ph, %289 ], [ %.sroa.24.2.ph, %.invoke ]
   %lpad.loopexit.split-lp462 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit

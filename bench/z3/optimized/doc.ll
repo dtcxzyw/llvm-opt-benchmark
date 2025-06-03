@@ -7913,7 +7913,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %140
 
 140:                                              ; preds = %63, %92, %138
-  %.pn.pn = phi { ptr, i32 } [ %139, %138 ], [ %93, %92 ], [ %64, %63 ]
+  %.pn.pn = phi { ptr, i32 } [ %139, %138 ], [ %64, %63 ], [ %93, %92 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22

@@ -258,7 +258,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vfmv_f_sP1
   unreachable
 
 96:                                               ; preds = %88, %84, %80
-  %.061 = phi i64 [ %90, %88 ], [ %87, %84 ], [ %83, %80 ]
+  %.061 = phi i64 [ %83, %80 ], [ %87, %84 ], [ %90, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -619,7 +619,7 @@ define noundef i64 @_Z19fast_rv64i_vfmv_f_sP11processor_t6insn_tm(ptr noundef %0
   unreachable
 
 96:                                               ; preds = %88, %84, %80
-  %.061 = phi i64 [ %90, %88 ], [ %87, %84 ], [ %83, %80 ]
+  %.061 = phi i64 [ %83, %80 ], [ %87, %84 ], [ %90, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -858,7 +858,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vfmv_f_s
   unreachable
 
 98:                                               ; preds = %90, %86, %82
-  %.062 = phi i64 [ %92, %90 ], [ %89, %86 ], [ %85, %82 ]
+  %.062 = phi i64 [ %85, %82 ], [ %89, %86 ], [ %92, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -1123,7 +1123,7 @@ define noundef i64 @_Z21logged_rv64i_vfmv_f_sP11processor_t6insn_tm(ptr noundef 
   unreachable
 
 98:                                               ; preds = %90, %86, %82
-  %.062 = phi i64 [ %92, %90 ], [ %89, %86 ], [ %85, %82 ]
+  %.062 = phi i64 [ %85, %82 ], [ %89, %86 ], [ %92, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -1384,7 +1384,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vfmv_f_sP1
   unreachable
 
 96:                                               ; preds = %88, %84, %80
-  %.061 = phi i64 [ %90, %88 ], [ %87, %84 ], [ %83, %80 ]
+  %.061 = phi i64 [ %83, %80 ], [ %87, %84 ], [ %90, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -1623,7 +1623,7 @@ define noundef i64 @_Z19fast_rv64e_vfmv_f_sP11processor_t6insn_tm(ptr noundef %0
   unreachable
 
 96:                                               ; preds = %88, %84, %80
-  %.061 = phi i64 [ %90, %88 ], [ %87, %84 ], [ %83, %80 ]
+  %.061 = phi i64 [ %83, %80 ], [ %87, %84 ], [ %90, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -1862,7 +1862,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vfmv_f_s
   unreachable
 
 98:                                               ; preds = %90, %86, %82
-  %.062 = phi i64 [ %92, %90 ], [ %89, %86 ], [ %85, %82 ]
+  %.062 = phi i64 [ %85, %82 ], [ %89, %86 ], [ %92, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -2127,7 +2127,7 @@ define noundef i64 @_Z21logged_rv64e_vfmv_f_sP11processor_t6insn_tm(ptr noundef 
   unreachable
 
 98:                                               ; preds = %90, %86, %82
-  %.062 = phi i64 [ %92, %90 ], [ %89, %86 ], [ %85, %82 ]
+  %.062 = phi i64 [ %85, %82 ], [ %89, %86 ], [ %92, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40

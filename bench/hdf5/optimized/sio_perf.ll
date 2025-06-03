@@ -2075,7 +2075,7 @@ define internal fastcc i64 @parse_size_directive(ptr noundef %0) unnamed_addr #5
   unreachable
 
 20:                                               ; preds = %10, %12, %14, %5, %1
-  %.0 = phi i64 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %3, %5 ], [ %3, %1 ]
+  %.0 = phi i64 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %3, %5 ], [ %3, %1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
   ret i64 %.0
 }

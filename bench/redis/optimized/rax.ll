@@ -3010,7 +3010,7 @@ define dso_local range(i32 0, 2) i32 @raxIteratorAddChars(ptr noundef %0, ptr no
   br label %33
 
 33:                                               ; preds = %23, %3, %26
-  %.030 = phi i32 [ 0, %23 ], [ 1, %26 ], [ 1, %3 ]
+  %.030 = phi i32 [ 1, %26 ], [ 0, %23 ], [ 1, %3 ]
   ret i32 %.030
 }
 

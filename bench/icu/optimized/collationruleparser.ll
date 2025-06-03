@@ -3601,8 +3601,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit49:       ; preds = %101
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit46.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit46.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit49, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %101, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit46, %97, %100
-  %.126 = phi i32 [ 15, %101 ], [ 2, %100 ], [ %99, %97 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select77, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
-  %.124 = phi i32 [ %57, %101 ], [ %57, %100 ], [ %98, %97 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ %57, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select78, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
+  %.126 = phi i32 [ %99, %97 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ 2, %100 ], [ 15, %101 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select77, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
+  %.124 = phi i32 [ %98, %97 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ %57, %100 ], [ %57, %101 ], [ %57, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select78, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
   %109 = sub nsw i32 %.124, %.0.lcssa.i
   %110 = shl i32 %109, 8
   %111 = or i32 %110, %.126

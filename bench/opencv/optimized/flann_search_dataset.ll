@@ -12126,7 +12126,7 @@ _ZN7cvflann11LinearIndexINS_7HammingIhEEEC2ERKNS_6MatrixIhEERKSt3mapINSt7__cxx11
   ret ptr %.0
 
 60:                                               ; preds = %41, %45, %49, %53, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %.pn17.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %59, %58 ], [ %54, %53 ], [ %50, %49 ], [ %46, %45 ], [ %42, %41 ]
+  %.pn17.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %59, %58 ], [ %42, %41 ], [ %46, %45 ], [ %50, %49 ], [ %54, %53 ]
   resume { ptr, i32 } %.pn17.pn
 }
 

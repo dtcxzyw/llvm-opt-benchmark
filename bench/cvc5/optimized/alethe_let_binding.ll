@@ -6635,7 +6635,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclIN
   br label %168
 
 168:                                              ; preds = %166, %._crit_edge
-  %.sroa.051.1 = phi ptr [ %.sroa.051.0.lcssa, %._crit_edge ], [ %167, %166 ]
+  %.sroa.051.1 = phi ptr [ %167, %166 ], [ %.sroa.051.0.lcssa, %._crit_edge ]
   %169 = load ptr, ptr %.sroa.051.1, align 8, !tbaa !43, !noalias !200
   %170 = load i64, ptr %169, align 8, !noalias !200
   %171 = lshr i64 %170, 40
@@ -6699,7 +6699,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclIN
   br label %200
 
 200:                                              ; preds = %198, %._crit_edge
-  %.sroa.051.2 = phi ptr [ %.sroa.051.0.lcssa, %._crit_edge ], [ %199, %198 ]
+  %.sroa.051.2 = phi ptr [ %199, %198 ], [ %.sroa.051.0.lcssa, %._crit_edge ]
   %201 = load ptr, ptr %.sroa.051.2, align 8, !tbaa !43, !noalias !203
   %202 = load i64, ptr %201, align 8, !noalias !203
   %203 = lshr i64 %202, 40

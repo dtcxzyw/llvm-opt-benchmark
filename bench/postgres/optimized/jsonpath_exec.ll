@@ -2640,7 +2640,7 @@ appendBoolResult.exit:                            ; preds = %152, %147, %163, %1
   br label %JsonbArraySize.exit
 
 JsonbArraySize.exit:                              ; preds = %253, %259
-  %.1.i = phi i32 [ %258, %253 ], [ -1, %259 ]
+  %.1.i = phi i32 [ -1, %259 ], [ %258, %253 ]
   %260 = icmp slt i32 %.1.i, 0
   %261 = call zeroext i1 @jspGetNext(ptr noundef nonnull %1, ptr noundef nonnull %29) #11
   %spec.select = select i1 %260, i32 1, i32 %.1.i
@@ -4079,7 +4079,7 @@ JsonbType.exit.thread767:                         ; preds = %590, %589
   unreachable
 
 892:                                              ; preds = %887, %832, %792, %767, %742, %.loopexit901
-  %.4129.i = phi i64 [ %.15.i, %887 ], [ %.11.i, %832 ], [ %.8133.i, %792 ], [ %.7132.i, %767 ], [ %.5130.i, %742 ], [ %.0125.i, %.loopexit901 ]
+  %.4129.i = phi i64 [ %.0125.i, %.loopexit901 ], [ %.5130.i, %742 ], [ %.7132.i, %767 ], [ %.8133.i, %792 ], [ %.11.i, %832 ], [ %.15.i, %887 ]
   call void @pfree(ptr noundef %637) #11
   %893 = icmp eq i32 %.1135.i, 2
   br i1 %893, label %executeDateTimeMethod.exit, label %894
@@ -4994,7 +4994,7 @@ unreachable:                                      ; preds = %1306
   br label %.thread738
 
 1344:                                             ; preds = %1308, %1315, %1321, %1326
-  %.0 = phi ptr [ %1333, %1326 ], [ %1325, %1321 ], [ %1320, %1315 ], [ %1314, %1308 ]
+  %.0 = phi ptr [ %1314, %1308 ], [ %1320, %1315 ], [ %1325, %1321 ], [ %1333, %1326 ]
   %1345 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %1346 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %.0, ptr %1346, align 8
@@ -5015,7 +5015,7 @@ unreachable:                                      ; preds = %1306
   unreachable
 
 .thread738:                                       ; preds = %472, %JsonbArraySize.exit685, %446, %442, %appendBoolResult.exit, %424, %setBaseObject.exit, %450, %192, %194, %182, %229, %336, %412, %132, %938, %359, %362, %353, %.thread728, %.thread734, %587, %1000, %.thread799, %.thread821, %1293, %1344, %.thread846, %.thread841, %.thread829, %.thread805, %.thread793, %.thread762, %476, %448, %405, %.loopexit, %416, %340, %233, %198, %916, %914, %executeDateTimeMethod.exit, %executeAnyItem.exit, %495, %493, %491, %410, %227, %216, %177, %175, %173, %171, %169, %167, %165
-  %.0568 = phi i32 [ %915, %914 ], [ %917, %916 ], [ %.us-phi, %executeAnyItem.exit ], [ %.0.i690, %executeDateTimeMethod.exit ], [ %496, %495 ], [ %494, %493 ], [ %492, %491 ], [ %449, %448 ], [ 2, %405 ], [ %411, %410 ], [ %.3.ph723, %.loopexit ], [ %222, %216 ], [ %228, %227 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ 2, %198 ], [ 2, %233 ], [ 2, %340 ], [ 2, %416 ], [ 2, %476 ], [ %.11.ph, %.thread762 ], [ %.15.ph, %.thread793 ], [ %.19.ph, %.thread805 ], [ %.23.ph, %.thread829 ], [ %.28.ph, %.thread841 ], [ %.32.ph, %.thread846 ], [ %1349, %1344 ], [ %1299, %1293 ], [ %1230, %.thread821 ], [ %1072, %.thread799 ], [ %1006, %1000 ], [ %.22595, %938 ], [ %588, %587 ], [ %458, %450 ], [ %437, %setBaseObject.exit ], [ %427, %424 ], [ 1, %412 ], [ 1, %336 ], [ 1, %229 ], [ %187, %182 ], [ %193, %192 ], [ 1, %194 ], [ %.0.i, %appendBoolResult.exit ], [ %.0573, %132 ], [ 0, %353 ], [ %371, %362 ], [ %.10583, %359 ], [ %.3576, %.thread728 ], [ %.14587.ph, %.thread734 ], [ 1, %442 ], [ %447, %446 ], [ 1, %472 ], [ %490, %JsonbArraySize.exit685 ]
+  %.0568 = phi i32 [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %222, %216 ], [ %228, %227 ], [ %.3.ph723, %.loopexit ], [ 2, %405 ], [ %411, %410 ], [ %449, %448 ], [ %492, %491 ], [ %494, %493 ], [ %496, %495 ], [ %.us-phi, %executeAnyItem.exit ], [ %.0.i690, %executeDateTimeMethod.exit ], [ %915, %914 ], [ %917, %916 ], [ 2, %198 ], [ 2, %233 ], [ 2, %340 ], [ 2, %416 ], [ 2, %476 ], [ %.11.ph, %.thread762 ], [ %.15.ph, %.thread793 ], [ %.19.ph, %.thread805 ], [ %.23.ph, %.thread829 ], [ %.28.ph, %.thread841 ], [ %.32.ph, %.thread846 ], [ %.0573, %132 ], [ %.0.i, %appendBoolResult.exit ], [ %187, %182 ], [ %193, %192 ], [ 1, %194 ], [ 1, %229 ], [ 1, %336 ], [ 1, %412 ], [ %427, %424 ], [ %437, %setBaseObject.exit ], [ %458, %450 ], [ %588, %587 ], [ %.22595, %938 ], [ %1006, %1000 ], [ %1072, %.thread799 ], [ %1230, %.thread821 ], [ %1299, %1293 ], [ %1349, %1344 ], [ 0, %353 ], [ %371, %362 ], [ %.10583, %359 ], [ %.3576, %.thread728 ], [ %.14587.ph, %.thread734 ], [ 1, %442 ], [ %447, %446 ], [ 1, %472 ], [ %490, %JsonbArraySize.exit685 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #11
   ret i32 %.0568
 }
@@ -5588,7 +5588,7 @@ executePredicate.exit87:                          ; preds = %174, %171, %JsonVal
   unreachable
 
 200:                                              ; preds = %35, %28, %21, %189, %188, %executePredicate.exit87, %executePredicate.exit, %45, %41, %38, %31, %24
-  %.0 = phi i32 [ %.2, %189 ], [ %.1, %188 ], [ %.0.i85, %executePredicate.exit87 ], [ %.0.i, %executePredicate.exit ], [ %46, %45 ], [ %44, %41 ], [ %40, %38 ], [ %34, %31 ], [ %27, %24 ], [ 0, %21 ], [ 1, %28 ], [ 2, %35 ]
+  %.0 = phi i32 [ %27, %24 ], [ %34, %31 ], [ %40, %38 ], [ %44, %41 ], [ %46, %45 ], [ %.0.i, %executePredicate.exit ], [ %.0.i85, %executePredicate.exit87 ], [ %.2, %189 ], [ %.1, %188 ], [ 0, %21 ], [ 1, %28 ], [ 2, %35 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #11
   ret i32 %.0
@@ -7552,9 +7552,9 @@ cmpTimestampToTimestampTz.exit49.i.i:             ; preds = %162
   unreachable
 
 176:                                              ; preds = %152, %137, %castTimeToTimeTz.exit47.i.i, %126, %castTimeToTimeTz.exit.i.i, %115, %100
-  %.046.i.i = phi i64 [ %133, %castTimeToTimeTz.exit47.i.i ], [ %97, %castTimeToTimeTz.exit.i.i ], [ %97, %100 ], [ %97, %115 ], [ %97, %126 ], [ %97, %137 ], [ %97, %152 ]
-  %.045.i.i = phi i64 [ %93, %castTimeToTimeTz.exit47.i.i ], [ %122, %castTimeToTimeTz.exit.i.i ], [ %93, %100 ], [ %93, %115 ], [ %93, %126 ], [ %93, %137 ], [ %93, %152 ]
-  %.0.i44.i = phi ptr [ @timetz_cmp, %castTimeToTimeTz.exit47.i.i ], [ @timetz_cmp, %castTimeToTimeTz.exit.i.i ], [ @date_cmp, %100 ], [ @time_cmp, %115 ], [ @timetz_cmp, %126 ], [ @timestamp_cmp, %137 ], [ @timestamp_cmp, %152 ]
+  %.046.i.i = phi i64 [ %97, %castTimeToTimeTz.exit.i.i ], [ %133, %castTimeToTimeTz.exit47.i.i ], [ %97, %100 ], [ %97, %115 ], [ %97, %126 ], [ %97, %137 ], [ %97, %152 ]
+  %.045.i.i = phi i64 [ %122, %castTimeToTimeTz.exit.i.i ], [ %93, %castTimeToTimeTz.exit47.i.i ], [ %93, %100 ], [ %93, %115 ], [ %93, %126 ], [ %93, %137 ], [ %93, %152 ]
+  %.0.i44.i = phi ptr [ @timetz_cmp, %castTimeToTimeTz.exit.i.i ], [ @timetz_cmp, %castTimeToTimeTz.exit47.i.i ], [ @date_cmp, %100 ], [ @time_cmp, %115 ], [ @timetz_cmp, %126 ], [ @timestamp_cmp, %137 ], [ @timestamp_cmp, %152 ]
   %177 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %.0.i44.i, i32 noundef 0, i64 noundef %.045.i.i, i64 noundef %.046.i.i) #11
   %178 = trunc i64 %177 to i32
   br label %compareStrings.exit.i
@@ -7568,7 +7568,7 @@ cmpTimestampToTimestampTz.exit49.i.i:             ; preds = %162
   unreachable
 
 compareStrings.exit.i:                            ; preds = %176, %cmpTimestampToTimestampTz.exit49.i.i, %cmpDateToTimestampTz.exit48.i.i, %cmpTimestampToTimestampTz.exit.i.i, %138, %cmpDateToTimestampTz.exit.i.i, %101, %.sink.split.i.i, %86, %77, %27, %18, %17
-  %.038.i = phi i32 [ %35, %27 ], [ %26, %18 ], [ %9, %17 ], [ %.0.i47.i.i, %77 ], [ %.0.i47.i.i, %86 ], [ %.0.i50.i.i, %.sink.split.i.i ], [ %103, %101 ], [ %111, %cmpDateToTimestampTz.exit.i.i ], [ %141, %138 ], [ %148, %cmpTimestampToTimestampTz.exit.i.i ], [ %161, %cmpDateToTimestampTz.exit48.i.i ], [ %169, %cmpTimestampToTimestampTz.exit49.i.i ], [ %178, %176 ]
+  %.038.i = phi i32 [ %26, %18 ], [ %35, %27 ], [ %9, %17 ], [ %.0.i47.i.i, %77 ], [ %.0.i47.i.i, %86 ], [ %.0.i50.i.i, %.sink.split.i.i ], [ %169, %cmpTimestampToTimestampTz.exit49.i.i ], [ %161, %cmpDateToTimestampTz.exit48.i.i ], [ %148, %cmpTimestampToTimestampTz.exit.i.i ], [ %141, %138 ], [ %111, %cmpDateToTimestampTz.exit.i.i ], [ %103, %101 ], [ %178, %176 ]
   switch i32 %5, label %195 [
     i32 8, label %183
     i32 9, label %185
@@ -7610,7 +7610,7 @@ compareStrings.exit.i:                            ; preds = %176, %cmpTimestampT
   unreachable
 
 198:                                              ; preds = %193, %191, %189, %187, %185, %183
-  %.037.i = phi i1 [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ]
+  %.037.i = phi i1 [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ]
   %199 = zext i1 %.037.i to i32
   br label %compareItems.exit
 

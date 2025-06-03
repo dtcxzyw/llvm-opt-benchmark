@@ -662,7 +662,7 @@ define { ptr, i64 } @_ZN3mbe13syntax_bridge12delim_to_str17hdb446d6a27d4ee7eE(i8
   br label %6
 
 6:                                                ; preds = %2, %5, %4
-  %.sroa.02.0 = phi ptr [ @anon.943a3ed84a6e38d1c804328418f4af13.35, %5 ], [ @anon.943a3ed84a6e38d1c804328418f4af13.34, %4 ], [ @anon.943a3ed84a6e38d1c804328418f4af13.33, %2 ]
+  %.sroa.02.0 = phi ptr [ @anon.943a3ed84a6e38d1c804328418f4af13.34, %4 ], [ @anon.943a3ed84a6e38d1c804328418f4af13.35, %5 ], [ @anon.943a3ed84a6e38d1c804328418f4af13.33, %2 ]
   %7 = zext i1 %1 to i64
   br i1 %1, label %8, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i"
 
@@ -1145,8 +1145,8 @@ default.unreachable:                              ; preds = %224
 167:                                              ; preds = %161
   br label %168
 
-168:                                              ; preds = %167, %166, %161
-  %.079.ph = phi i16 [ 5, %161 ], [ 7, %166 ], [ 9, %167 ]
+168:                                              ; preds = %166, %167, %161
+  %.079.ph = phi i16 [ 5, %161 ], [ 9, %167 ], [ 7, %166 ]
   %169 = invoke noundef i64 @_ZN6parser5input5Input3len17hb3d1b394b2ee5637E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %20)
           to label %.noexc115 unwind label %.loopexit.loopexit
 
@@ -1288,8 +1288,8 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit119: ; preds = %"_ZN5al
 228:                                              ; preds = %224
   br label %229
 
-229:                                              ; preds = %228, %227, %224
-  %.080.ph = phi i16 [ 4, %224 ], [ 6, %227 ], [ 8, %228 ]
+229:                                              ; preds = %227, %228, %224
+  %.080.ph = phi i16 [ 4, %224 ], [ 8, %228 ], [ 6, %227 ]
   %230 = invoke noundef i64 @_ZN6parser5input5Input3len17hb3d1b394b2ee5637E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %20)
           to label %.noexc129 unwind label %.loopexit.loopexit
 
@@ -1478,8 +1478,8 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit133: ; preds = %"_ZN5al
   br label %492
 
 317:                                              ; preds = %280, %286, %291
-  %.pn5.i = phi ptr [ %294, %291 ], [ %288, %286 ], [ %285, %280 ]
-  %.pn3.i = phi i64 [ %293, %291 ], [ %290, %286 ], [ %284, %280 ]
+  %.pn5.i = phi ptr [ %285, %280 ], [ %288, %286 ], [ %294, %291 ]
+  %.pn3.i = phi i64 [ %284, %280 ], [ %290, %286 ], [ %293, %291 ]
   %.not.i = icmp eq i64 %.pn3.i, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef140300909768c4E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99d9439ed15623b0E.exit.i"
 
@@ -1519,8 +1519,8 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit133: ; preds = %"_ZN5al
   br label %334
 
 334:                                              ; preds = %330, %325, %319
-  %.pn5.i147 = phi ptr [ %333, %330 ], [ %327, %325 ], [ %324, %319 ]
-  %.pn3.i148 = phi i64 [ %332, %330 ], [ %329, %325 ], [ %323, %319 ]
+  %.pn5.i147 = phi ptr [ %324, %319 ], [ %327, %325 ], [ %333, %330 ]
+  %.pn3.i148 = phi i64 [ %323, %319 ], [ %329, %325 ], [ %332, %330 ]
   %. = zext i1 %.0.i145 to i64
   br i1 %.0.i145, label %335, label %343
 
@@ -1918,8 +1918,8 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit191: ; preds = %.noexc1
   br label %415
 
 492:                                              ; preds = %313, %308, %302
-  %.pn5.i139 = phi ptr [ %316, %313 ], [ %310, %308 ], [ %307, %302 ]
-  %.pn3.i140 = phi i64 [ %315, %313 ], [ %312, %308 ], [ %306, %302 ]
+  %.pn5.i139 = phi ptr [ %307, %302 ], [ %310, %308 ], [ %316, %313 ]
+  %.pn3.i140 = phi i64 [ %306, %302 ], [ %312, %308 ], [ %315, %313 ]
   switch i64 %.pn3.i140, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef140300909768c4E.exit208thread-pre-split" [
     i64 1, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99d9439ed15623b0E.exit"
     i64 0, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef140300909768c4E.exit208.thread"
@@ -2125,8 +2125,8 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit225: ; preds = %"_ZN5al
   br label %415
 
 576:                                              ; preds = %539, %534, %528
-  %.pn5.i210 = phi ptr [ %542, %539 ], [ %536, %534 ], [ %533, %528 ]
-  %.pn3.i211 = phi i64 [ %541, %539 ], [ %538, %534 ], [ %532, %528 ]
+  %.pn5.i210 = phi ptr [ %533, %528 ], [ %536, %534 ], [ %542, %539 ]
+  %.pn3.i211 = phi i64 [ %532, %528 ], [ %538, %534 ], [ %541, %539 ]
   %577 = invoke noundef i16 @_ZN6parser11syntax_kind9generated10SyntaxKind12from_keyword17he6dfd60fdadcc8cfE(ptr noalias noundef nonnull readonly align 1 %.pn5.i210, i64 noundef %.pn3.i211)
           to label %578 unwind label %.loopexit.loopexit, !range !198
 
@@ -2245,8 +2245,8 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit242: ; preds = %"_ZN5al
   br label %415
 
 631:                                              ; preds = %594, %589, %583
-  %.pn5.i227 = phi ptr [ %597, %594 ], [ %591, %589 ], [ %588, %583 ]
-  %.pn3.i228 = phi i64 [ %596, %594 ], [ %593, %589 ], [ %587, %583 ]
+  %.pn5.i227 = phi ptr [ %588, %583 ], [ %591, %589 ], [ %597, %594 ]
+  %.pn3.i228 = phi i64 [ %587, %583 ], [ %593, %589 ], [ %596, %594 ]
   %632 = invoke noundef i16 @_ZN6parser11syntax_kind9generated10SyntaxKind23from_contextual_keyword17h582f9f3c20b0481dE(ptr noalias noundef nonnull readonly align 1 %.pn5.i227, i64 noundef %.pn3.i228)
           to label %633 unwind label %.loopexit.loopexit, !range !198
 

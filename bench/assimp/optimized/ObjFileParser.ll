@@ -835,7 +835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   ]
 
 .backedge:                                        ; preds = %83, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit, %_ZN6Assimp13ObjFileParser10getCommentEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %123, %130, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit71, %369, %352, %167, %160, %153, %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
-  %.038.be = phi i1 [ %.139, %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit ], [ false, %369 ], [ false, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit ], [ false, %352 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ false, %_ZN6Assimp13ObjFileParser10getCommentEv.exit ], [ false, %167 ], [ false, %153 ], [ false, %160 ], [ false, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit71 ], [ false, %130 ], [ false, %123 ], [ false, %83 ]
+  %.038.be = phi i1 [ %.139, %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit ], [ false, %153 ], [ false, %160 ], [ false, %167 ], [ false, %_ZN6Assimp13ObjFileParser10getCommentEv.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ false, %352 ], [ false, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit ], [ false, %369 ], [ false, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit71 ], [ false, %130 ], [ false, %123 ], [ false, %83 ]
   br label %40, !llvm.loop !8
 
 86:                                               ; preds = %83, %83
@@ -1719,7 +1719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   br label %412
 
 389:                                              ; preds = %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149
-  %.139 = phi i1 [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %62 ], [ false, %82 ], [ %374, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ]
+  %.139 = phi i1 [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %62 ], [ false, %82 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ %374, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ]
   %.sroa.01.0.copyload = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload = load ptr, ptr %18, align 8
   %390 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1807,7 +1807,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %405, %406
   ret void
 
 412:                                              ; preds = %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %158, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %146, %117, %91, %55
-  %.pn63.pn = phi { ptr, i32 } [ %56, %55 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %58, %57 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125 ], [ %.pn58.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ], [ %159, %158 ], [ %147, %146 ], [ %92, %91 ], [ %118, %117 ]
+  %.pn63.pn = phi { ptr, i32 } [ %56, %55 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %159, %158 ], [ %58, %57 ], [ %.pn58.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125 ], [ %382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %147, %146 ], [ %92, %91 ], [ %118, %117 ]
   %413 = load ptr, ptr %5, align 8
   %.not.i.i.i154 = icmp eq ptr %413, null
   br i1 %.not.i.i.i154, label %_ZNSt6vectorIcSaIcEED2Ev.exit155, label %414
@@ -4783,9 +4783,9 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99: ; preds = %.lr.ph.i87, %.lr.
   resume { ptr, i32 } %159
 
 160:                                              ; preds = %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit30
-  %.0112 = phi float [ %98, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99 ], [ %39, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit30 ]
-  %.0111 = phi float [ %126, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99 ], [ %67, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit30 ]
-  %storemerge = phi float [ %154, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99 ], [ 0.000000e+00, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit30 ]
+  %.0112 = phi float [ %39, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit30 ], [ %98, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99 ]
+  %.0111 = phi float [ %67, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit30 ], [ %126, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99 ]
+  %storemerge = phi float [ 0.000000e+00, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit30 ], [ %154, %_ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit99 ]
   %161 = call float @llvm.fabs.f32(float %.0112)
   %162 = fcmp one float %161, 0x7FF0000000000000
   %.1113 = select i1 %162, float %.0112, float 0.000000e+00
@@ -12060,7 +12060,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.031.1 = phi ptr [ %37, %36 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %39 = load i8, ptr %.sroa.031.1, align 1
   %40 = zext i8 %39 to i32
   %41 = tail call i32 @isspace(i32 noundef %40) #33
@@ -12072,7 +12072,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.sroa.031.2 = phi ptr [ %43, %42 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %45 = load i8, ptr %.sroa.031.2, align 1
   %46 = zext i8 %45 to i32
   %47 = tail call i32 @isspace(i32 noundef %46) #33

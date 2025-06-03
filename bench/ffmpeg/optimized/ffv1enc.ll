@@ -3623,7 +3623,7 @@ define i32 @ff_ffv1_encode_setup_plane_info(ptr noundef %0, i32 noundef %1) loca
   br label %190
 
 190:                                              ; preds = %.thread, %186, %183, %154, %46
-  %.0 = phi i32 [ -38, %154 ], [ -22, %183 ], [ %189, %.thread ], [ -22, %186 ], [ -1094995529, %46 ]
+  %.0 = phi i32 [ -38, %154 ], [ -1094995529, %46 ], [ -22, %183 ], [ %189, %.thread ], [ -22, %186 ]
   ret i32 %.0
 }
 

@@ -281,7 +281,7 @@ define internal range(i32 0, 2) i32 @i2r_ATTRIBUTE_MAPPINGS(ptr readnone capture
   br label %i2r_ATTRIBUTE_MAPPING.exit
 
 i2r_ATTRIBUTE_MAPPING.exit:                       ; preds = %25, %61
-  %.0.i = phi i32 [ %62, %61 ], [ %29, %25 ]
+  %.0.i = phi i32 [ %29, %25 ], [ %62, %61 ]
   %63 = icmp slt i32 %.0.i, 1
   br i1 %63, label %i2r_ATTRIBUTE_MAPPING.exit.thread, label %64
 

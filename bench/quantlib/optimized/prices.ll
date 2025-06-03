@@ -976,7 +976,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %entry, %sw.bb4, %sw.bb3, %sw.bb2
-  %retval.0.in = phi ptr [ %low_, %sw.bb4 ], [ %high_, %sw.bb3 ], [ %close_, %sw.bb2 ], [ %this, %entry ]
+  %retval.0.in = phi ptr [ %close_, %sw.bb2 ], [ %high_, %sw.bb3 ], [ %low_, %sw.bb4 ], [ %this, %entry ]
   %retval.0 = load double, ptr %retval.0.in, align 8, !tbaa !24
   ret double %retval.0
 

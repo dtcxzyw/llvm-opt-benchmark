@@ -1779,7 +1779,7 @@ _ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread: ; preds =
   br label %208
 
 208:                                              ; preds = %206, %182, %180, %153, %151, %124, %122, %116, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread
-  %.0 = phi ptr [ %117, %116 ], [ %207, %206 ], [ %181, %180 ], [ %205, %182 ], [ %152, %151 ], [ %177, %153 ], [ %123, %122 ], [ %148, %124 ], [ %104, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread ], [ %78, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread ]
+  %.0 = phi ptr [ %117, %116 ], [ %207, %206 ], [ %123, %122 ], [ %148, %124 ], [ %152, %151 ], [ %177, %153 ], [ %181, %180 ], [ %205, %182 ], [ %104, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread ], [ %78, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread ]
   ret ptr %.0
 }
 
@@ -4324,7 +4324,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br label %92
 
 92:                                               ; preds = %12, %2, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %45, %43, %41, %39, %37, %35, %33, %31, %23, %19, %14
-  %.0 = phi i1 [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %narrow.i.i.i, %23 ], [ %.not.i.i.i, %19 ], [ %18, %14 ], [ false, %2 ], [ true, %12 ]
+  %.0 = phi i1 [ %18, %14 ], [ %.not.i.i.i, %19 ], [ %narrow.i.i.i, %23 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %49, %45 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ false, %2 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -7326,28 +7326,28 @@ _ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_san
 92:                                               ; preds = %80
   %93 = load i8, ptr %88, align 1
   switch i8 %93, label %111 [
-    i8 1, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
-    i8 2, label %94
+    i8 1, label %94
+    i8 2, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
   ]
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 13
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 9
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %96, %66
-  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %97, %69
-  %98 = getelementptr inbounds nuw i8, ptr %88, i64 9
-  %99 = ptrtoint ptr %98 to i64
-  %100 = sub i64 %99, %66
-  %101 = icmp ule i64 %100, %69
-  %narrow.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %101, i1 false
-  br i1 %narrow.i.i.i.i.i.i.i.i.i, label %111, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i
+  %.not22.i.i.i = icmp ugt i64 %97, %69
+  br i1 %.not22.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i, label %111
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i: ; preds = %92
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 9
-  %103 = ptrtoint ptr %102 to i64
-  %104 = sub i64 %103, %66
-  %.not22.i.i.i = icmp ugt i64 %104, %69
-  br i1 %.not22.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i, label %111
+  %98 = getelementptr inbounds nuw i8, ptr %88, i64 13
+  %99 = ptrtoint ptr %98 to i64
+  %100 = sub i64 %99, %66
+  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %100, %69
+  %101 = getelementptr inbounds nuw i8, ptr %88, i64 9
+  %102 = ptrtoint ptr %101 to i64
+  %103 = sub i64 %102, %66
+  %104 = icmp ule i64 %103, %69
+  %narrow.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %104, i1 false
+  br i1 %narrow.i.i.i.i.i.i.i.i.i, label %111, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %94, %80
   %105 = load i32, ptr %59, align 4

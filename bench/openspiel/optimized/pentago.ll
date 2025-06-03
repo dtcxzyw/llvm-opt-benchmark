@@ -2341,7 +2341,7 @@ define noundef range(i32 0, 3) i32 @_ZN10open_spiel7pentago14PlayerRelativeENS0_
   resume { ptr, i32 } %.pn
 
 19:                                               ; preds = %2, %8, %5
-  %.06 = phi i32 [ %10, %8 ], [ %7, %5 ], [ %0, %2 ]
+  %.06 = phi i32 [ %7, %5 ], [ %10, %8 ], [ %0, %2 ]
   ret i32 %.06
 }
 
@@ -2500,7 +2500,7 @@ default.unreachable21:                            ; preds = %50
   unreachable
 
 _ZN10open_spiel7pentago14PlayerRelativeENS0_13PentagoPlayerEi.exit: ; preds = %50, %59, %60
-  %.06.i = phi i32 [ %47, %60 ], [ %49, %59 ], [ %58, %50 ]
+  %.06.i = phi i32 [ %49, %59 ], [ %47, %60 ], [ %58, %50 ]
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   br label %62
 

@@ -2016,7 +2016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %268
   resume { ptr, i32 } %.pn89
 
 278:                                              ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit, %9
-  %.038 = phi i32 [ %262, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84 ], [ %191, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62 ], [ %124, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit ], [ %39, %9 ]
+  %.038 = phi i32 [ %39, %9 ], [ %124, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit ], [ %191, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62 ], [ %262, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84 ]
   %279 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %.038, ptr %279, align 4, !tbaa !128
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -4039,7 +4039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %269
   resume { ptr, i32 } %.pn89
 
 279:                                              ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit, %9
-  %.038 = phi i64 [ %263, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84 ], [ %191, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62 ], [ %123, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit ], [ %38, %9 ]
+  %.038 = phi i64 [ %38, %9 ], [ %123, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit ], [ %191, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62 ], [ %263, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84 ]
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %.038, ptr %280, align 8, !tbaa !191
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 32

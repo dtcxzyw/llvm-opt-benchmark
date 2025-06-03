@@ -411,7 +411,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br label %108
 
 108:                                              ; preds = %103, %99
-  %.0 = phi i64 [ 0, %99 ], [ %107, %103 ]
+  %.0 = phi i64 [ %107, %103 ], [ 0, %99 ]
   %109 = getelementptr i8, ptr %.079.lcssa, i64 %.082.lcssa
   %110 = getelementptr i8, ptr %109, i64 -6
   %111 = load i8, ptr %110, align 1, !tbaa !9
@@ -423,7 +423,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br label %117
 
 117:                                              ; preds = %108, %99
-  %.1 = phi i64 [ 0, %99 ], [ %116, %108 ]
+  %.1 = phi i64 [ %116, %108 ], [ 0, %99 ]
   %118 = getelementptr i8, ptr %.079.lcssa, i64 %.082.lcssa
   %119 = getelementptr i8, ptr %118, i64 -5
   %120 = load i8, ptr %119, align 1, !tbaa !9
@@ -435,7 +435,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br label %126
 
 126:                                              ; preds = %117, %99
-  %.2 = phi i64 [ 0, %99 ], [ %125, %117 ]
+  %.2 = phi i64 [ %125, %117 ], [ 0, %99 ]
   %127 = getelementptr i8, ptr %.079.lcssa, i64 %.082.lcssa
   %128 = getelementptr i8, ptr %127, i64 -4
   %129 = load i8, ptr %128, align 1, !tbaa !9
@@ -447,7 +447,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br label %135
 
 135:                                              ; preds = %126, %99
-  %.3 = phi i64 [ 0, %99 ], [ %134, %126 ]
+  %.3 = phi i64 [ %134, %126 ], [ 0, %99 ]
   %136 = getelementptr i8, ptr %.079.lcssa, i64 %.082.lcssa
   %137 = getelementptr i8, ptr %136, i64 -3
   %138 = load i8, ptr %137, align 1, !tbaa !9
@@ -459,7 +459,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   br label %144
 
 144:                                              ; preds = %135, %99
-  %.4 = phi i64 [ 0, %99 ], [ %143, %135 ]
+  %.4 = phi i64 [ %143, %135 ], [ 0, %99 ]
   %145 = and i64 %101, 255
   %146 = add nuw nsw i64 %.4, %145
   %147 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %146
@@ -2022,9 +2022,9 @@ _ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit: ; preds = %87, %86, %83
   %89 = getelementptr inbounds nuw i8, ptr %75, i64 1
   br label %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit.thread.sink.split
 
-_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit.thread.sink.split: ; preds = %_ZN4utf88internal14get_sequence_1IPKcEENS0_9utf_errorERT_S5_Rj.exit, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i, %16, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i25, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit29.i, %27, %32, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i27, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit41.i, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit44.i, %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit, %51, %62, %83, %86, %87, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
-  %.sink = phi ptr [ %89, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ %4, %87 ], [ %4, %86 ], [ %4, %83 ], [ %4, %62 ], [ %4, %51 ], [ %4, %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit44.i ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit41.i ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i27 ], [ %4, %32 ], [ %4, %27 ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit29.i ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i25 ], [ %4, %16 ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i ], [ %4, %_ZN4utf88internal14get_sequence_1IPKcEENS0_9utf_errorERT_S5_Rj.exit ]
-  %.020.ph = phi i32 [ 0, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ 4, %87 ], [ 4, %86 ], [ 4, %83 ], [ 1, %62 ], [ 1, %51 ], [ 1, %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit44.i ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit41.i ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i27 ], [ 1, %32 ], [ 1, %27 ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit29.i ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i25 ], [ 1, %16 ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i ], [ 5, %_ZN4utf88internal14get_sequence_1IPKcEENS0_9utf_errorERT_S5_Rj.exit ]
+_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit.thread.sink.split: ; preds = %_ZN4utf88internal14get_sequence_1IPKcEENS0_9utf_errorERT_S5_Rj.exit, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i, %16, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit29.i, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i25, %27, %32, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit44.i, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit41.i, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i27, %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit, %51, %62, %83, %86, %87, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
+  %.sink = phi ptr [ %89, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ %4, %87 ], [ %4, %86 ], [ %4, %83 ], [ %4, %62 ], [ %4, %51 ], [ %4, %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i27 ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit41.i ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit44.i ], [ %4, %32 ], [ %4, %27 ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i25 ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit29.i ], [ %4, %16 ], [ %4, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i ], [ %4, %_ZN4utf88internal14get_sequence_1IPKcEENS0_9utf_errorERT_S5_Rj.exit ]
+  %.020.ph = phi i32 [ 0, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ 4, %87 ], [ 4, %86 ], [ 4, %83 ], [ 1, %62 ], [ 1, %51 ], [ 1, %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i27 ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit41.i ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit44.i ], [ 1, %32 ], [ 1, %27 ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i25 ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit29.i ], [ 1, %16 ], [ 3, %_ZN4utf88internal15increase_safelyIPKcEENS0_9utf_errorERT_S5_.exit.i ], [ 5, %_ZN4utf88internal14get_sequence_1IPKcEENS0_9utf_errorERT_S5_Rj.exit ]
   store ptr %.sink, ptr %0, align 8, !tbaa !17
   br label %_ZN4utf88internal15sequence_lengthIPKcEENSt15iterator_traitsIT_E15difference_typeES5_.exit.thread
 

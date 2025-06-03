@@ -4221,7 +4221,7 @@ define hidden noundef ptr @_ZN6fs_err5write17ha8bfa91fef429f3dE(ptr noalias noun
   resume { ptr, i32 } %.pn
 
 50:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit17"
-  %.sroa.0.1 = phi ptr [ %20, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit17" ], [ %.sroa.0.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit" ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit" ], [ %20, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit17" ]
   ret ptr %.sroa.0.1
 
 51:                                               ; preds = %.body

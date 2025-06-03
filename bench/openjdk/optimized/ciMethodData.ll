@@ -1650,7 +1650,7 @@ define hidden noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull
   br label %80
 
 80:                                               ; preds = %70, %48, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6
-  %.0 = phi ptr [ %49, %48 ], [ %34, %33 ], [ %31, %30 ], [ %28, %27 ], [ %25, %24 ], [ %22, %21 ], [ %19, %18 ], [ %16, %15 ], [ %13, %12 ], [ %10, %9 ], [ %7, %6 ], [ %71, %70 ]
+  %.0 = phi ptr [ %71, %70 ], [ %7, %6 ], [ %10, %9 ], [ %13, %12 ], [ %16, %15 ], [ %19, %18 ], [ %22, %21 ], [ %25, %24 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %49, %48 ]
   ret ptr %.0
 }
 
@@ -1857,7 +1857,7 @@ define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(pt
   br i1 %53, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %43, %51, %.lr.ph.split.us.split.us, %25, %4, %.split35.us, %.split31.us
-  %.0 = phi ptr [ %34, %.split35.us ], [ null, %.split31.us ], [ null, %4 ], [ null, %25 ], [ null, %.lr.ph.split.us.split.us ], [ null, %.lr.ph.split.split ], [ %37, %43 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %.split31.us ], [ %34, %.split35.us ], [ null, %4 ], [ null, %25 ], [ null, %.lr.ph.split.us.split.us ], [ null, %.lr.ph.split.split ], [ %37, %43 ], [ null, %51 ]
   ret ptr %.0
 }
 

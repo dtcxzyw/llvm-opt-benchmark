@@ -1974,7 +1974,7 @@ define dso_local void @_ZN5clang15BackendConsumer21DiagnosticHandlerImplERKN4llv
   br label %40
 
 40:                                               ; preds = %.sink.split, %37, %23, %21, %17
-  %.0 = phi i32 [ 722, %37 ], [ 722, %23 ], [ 722, %21 ], [ 722, %17 ], [ %switch.load44, %.sink.split ]
+  %.0 = phi i32 [ 722, %37 ], [ 722, %17 ], [ 722, %21 ], [ 722, %23 ], [ %switch.load44, %.sink.split ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %41, ptr %3, align 8, !tbaa !80

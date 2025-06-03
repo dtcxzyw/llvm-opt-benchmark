@@ -2856,24 +2856,24 @@ _ZN4llvm5dwarf10isUnitTypeENS0_3TagE.exit.thread: ; preds = %_ZNK4llvm8DWARFDie6
 _ZNK4llvm8DWARFDie6getTagEv.exit49:               ; preds = %_ZN4llvm5dwarf10isUnitTypeENS0_3TagE.exit.thread, %175
   %.0.i48 = phi i16 [ %177, %175 ], [ 0, %_ZN4llvm5dwarf10isUnitTypeENS0_3TagE.exit.thread ]
   switch i8 %172, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread [
-    i8 1, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit
-    i8 2, label %178
-    i8 3, label %180
-    i8 4, label %182
+    i8 1, label %178
+    i8 2, label %180
+    i8 3, label %182
+    i8 4, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit
     i8 5, label %184
     i8 6, label %184
   ]
 
 178:                                              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49
-  %179 = icmp eq i16 %.0.i48, 65
+  %179 = icmp eq i16 %.0.i48, 17
   br i1 %179, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread83, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread
 
 180:                                              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49
-  %181 = icmp eq i16 %.0.i48, 60
+  %181 = icmp eq i16 %.0.i48, 65
   br i1 %181, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread83, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread
 
 182:                                              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49
-  %183 = icmp eq i16 %.0.i48, 74
+  %183 = icmp eq i16 %.0.i48, 60
   br i1 %183, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread83, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread
 
 184:                                              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49, %_ZNK4llvm8DWARFDie6getTagEv.exit49
@@ -2885,10 +2885,10 @@ _ZNK4llvm8DWARFDie6getTagEv.exit49:               ; preds = %_ZN4llvm5dwarf10isU
   ]
 
 _ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit: ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49
-  %185 = icmp eq i16 %.0.i48, 17
+  %185 = icmp eq i16 %.0.i48, 74
   br i1 %185, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread83, label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread
 
-_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread: ; preds = %184, %_ZNK4llvm8DWARFDie6getTagEv.exit49, %178, %180, %182, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit
+_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread: ; preds = %184, %_ZNK4llvm8DWARFDie6getTagEv.exit49, %182, %180, %178, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %187 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %188 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -2919,9 +2919,9 @@ _ZNSt14_Function_baseD2Ev.exit52:                 ; preds = %_ZN4llvm9DWARFUnit2
   %.pre101 = load ptr, ptr %.phi.trans.insert100, align 8, !tbaa !103
   br label %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread83
 
-_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread83: ; preds = %184, %184, %184, %184, %178, %180, %182, %_ZNSt14_Function_baseD2Ev.exit52, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit
-  %195 = phi ptr [ %174, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit ], [ %.pre101, %_ZNSt14_Function_baseD2Ev.exit52 ], [ %174, %182 ], [ %174, %180 ], [ %174, %178 ], [ %174, %184 ], [ %174, %184 ], [ %174, %184 ], [ %174, %184 ]
-  %.4 = phi i32 [ %.3, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit ], [ %194, %_ZNSt14_Function_baseD2Ev.exit52 ], [ %.3, %182 ], [ %.3, %180 ], [ %.3, %178 ], [ %.3, %184 ], [ %.3, %184 ], [ %.3, %184 ], [ %.3, %184 ]
+_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit.thread83: ; preds = %184, %184, %184, %184, %182, %180, %178, %_ZNSt14_Function_baseD2Ev.exit52, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit
+  %195 = phi ptr [ %174, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit ], [ %.pre101, %_ZNSt14_Function_baseD2Ev.exit52 ], [ %174, %178 ], [ %174, %180 ], [ %174, %182 ], [ %174, %184 ], [ %174, %184 ], [ %174, %184 ], [ %174, %184 ]
+  %.4 = phi i32 [ %.3, %_ZN4llvm9DWARFUnit24isMatchingUnitTypeAndTagEhNS_5dwarf3TagE.exit ], [ %194, %_ZNSt14_Function_baseD2Ev.exit52 ], [ %.3, %178 ], [ %.3, %180 ], [ %.3, %182 ], [ %.3, %184 ], [ %.3, %184 ], [ %.3, %184 ], [ %.3, %184 ]
   %.not.i53 = icmp eq ptr %195, null
   br i1 %.not.i53, label %_ZNK4llvm8DWARFDie6getTagEv.exit55.thread, label %_ZNK4llvm8DWARFDie6getTagEv.exit55
 
@@ -37136,9 +37136,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_
   br label %50
 
 50:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91
-  %.sroa.2.0.copyload.i60 = phi i64 [ %.sroa.2.0.copyload.i60.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
-  %.sroa.0.0.copyload.i58 = phi ptr [ %.sroa.0.0.copyload.i58.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
+  %.sroa.2.0.copyload.i60 = phi i64 [ %.sroa.2.0.copyload.i53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.sroa.2.0.copyload.i60.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i58 = phi ptr [ %.sroa.0.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.sroa.0.0.copyload.i58.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %51 = load ptr, ptr %.1, align 8, !tbaa !83
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !84
@@ -37159,9 +37159,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_
   br label %58
 
 58:                                               ; preds = %._crit_edge._crit_edge131, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94
-  %.sroa.2.0.copyload.i67 = phi i64 [ %.sroa.2.0.copyload.i67.pre, %._crit_edge._crit_edge131 ], [ %.sroa.2.0.copyload.i60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
-  %.sroa.0.0.copyload.i65 = phi ptr [ %.sroa.0.0.copyload.i65.pre, %._crit_edge._crit_edge131 ], [ %.sroa.0.0.copyload.i58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge131 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
+  %.sroa.2.0.copyload.i67 = phi i64 [ %.sroa.2.0.copyload.i60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.sroa.2.0.copyload.i67.pre, %._crit_edge._crit_edge131 ]
+  %.sroa.0.0.copyload.i65 = phi ptr [ %.sroa.0.0.copyload.i58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.sroa.0.0.copyload.i65.pre, %._crit_edge._crit_edge131 ]
+  %.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.029.lcssa, %._crit_edge._crit_edge131 ]
   %59 = load ptr, ptr %.2, align 8, !tbaa !83
   %60 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !84

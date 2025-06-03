@@ -2865,7 +2865,7 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit: ; preds = %2
   br label %common.ret
 
 common.ret:                                       ; preds = %241, %.thread, %switch.lookup, %_ZN14btCapsuleShape16deSerializeFloatEP18btCapsuleShapeData.exit, %2, %_ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev.exit, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit, %122, %103, %231, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit259, %233, %364, %376, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit179
-  %common.ret.op = phi ptr [ %31, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit179 ], [ null, %241 ], [ null, %2 ], [ %387, %_ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev.exit ], [ %22, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit ], [ %42, %_ZN14btCapsuleShape16deSerializeFloatEP18btCapsuleShapeData.exit ], [ null, %switch.lookup ], [ null, %.thread ], [ %.2314, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit259 ], [ null, %233 ], [ null, %231 ], [ null, %103 ], [ null, %122 ], [ %368, %364 ], [ %368, %376 ]
+  %common.ret.op = phi ptr [ %31, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit179 ], [ null, %241 ], [ null, %2 ], [ %22, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit ], [ %387, %_ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev.exit ], [ %42, %_ZN14btCapsuleShape16deSerializeFloatEP18btCapsuleShapeData.exit ], [ null, %switch.lookup ], [ null, %.thread ], [ %.2314, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit259 ], [ null, %233 ], [ null, %231 ], [ null, %103 ], [ null, %122 ], [ %368, %364 ], [ %368, %376 ]
   ret ptr %common.ret.op
 
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit179: ; preds = %2
@@ -3374,7 +3374,7 @@ _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit: ; preds = %209, %
   br label %common.ret
 
 233:                                              ; preds = %107, %112, %117, %87, %92, %97, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %77, %65
-  %.2 = phi ptr [ %163, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %81, %77 ], [ %76, %65 ], [ %102, %97 ], [ %96, %92 ], [ %91, %87 ], [ %121, %117 ], [ %116, %112 ], [ %111, %107 ]
+  %.2 = phi ptr [ %76, %65 ], [ %81, %77 ], [ %163, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %91, %87 ], [ %96, %92 ], [ %102, %97 ], [ %111, %107 ], [ %116, %112 ], [ %121, %117 ]
   %.not169 = icmp eq ptr %.2, null
   br i1 %.not169, label %common.ret, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit259
 
@@ -3733,8 +3733,8 @@ _ZN11btTransform16deSerializeFloatERK20btTransformFloatData.exit: ; preds = %414
   br label %428
 
 428:                                              ; preds = %179, %230, %427
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %427 ], [ %.pn159, %230 ], [ %.pn163, %179 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn163.pn.pn.pn = phi { ptr, i32 } [ %.pn, %427 ], [ %.pn163, %179 ], [ %.pn159, %230 ]
+  resume { ptr, i32 } %.pn163.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

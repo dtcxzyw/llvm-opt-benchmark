@@ -1124,10 +1124,10 @@ av_cmp_q.exit70.thread78:                         ; preds = %50, %47
   br label %76
 
 71:                                               ; preds = %68, %66, %63
-  %.053 = phi i32 [ %69, %68 ], [ %13, %66 ], [ %13, %63 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload, %68 ], [ %.sroa.6.0.copyload, %66 ], [ %64, %63 ]
-  %.052 = phi i32 [ %11, %68 ], [ %67, %66 ], [ %11, %63 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %68 ], [ %.sroa.0.0.copyload, %66 ], [ %65, %63 ]
+  %.053 = phi i32 [ %13, %63 ], [ %13, %66 ], [ %69, %68 ]
+  %.sroa.6.0 = phi i32 [ %64, %63 ], [ %.sroa.6.0.copyload, %66 ], [ %.sroa.6.0.copyload, %68 ]
+  %.052 = phi i32 [ %11, %63 ], [ %67, %66 ], [ %11, %68 ]
+  %.sroa.0.0 = phi i32 [ %65, %63 ], [ %.sroa.0.0.copyload, %66 ], [ %.sroa.0.0.copyload, %68 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.052, ptr %72, align 8, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 44

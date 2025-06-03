@@ -1679,7 +1679,7 @@ H5HF__sect_indirect_build_parent.exit.i:          ; preds = %290, %243
   %308 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_merge_row, i32 noundef 3497, i64 noundef %306, i64 noundef %307, ptr noundef nonnull @.str.50) #13
   br label %309
 
-309:                                              ; preds = %175, %208, %305, %220, %227, %235, %.thread176.i
+309:                                              ; preds = %208, %305, %220, %227, %235, %175, %.thread176.i
   %310 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
   %311 = load i64, ptr @H5E_CANTMERGE_g, align 8, !tbaa !18
   %312 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_merge, i32 noundef 1711, i64 noundef %310, i64 noundef %311, ptr noundef nonnull @.str.43) #13
@@ -3587,7 +3587,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   store i32 %.0191, ptr %225, align 8, !tbaa !26
   br label %233
 
-.thread262:                                       ; preds = %135, %.loopexit, %218, %55, %37
+.thread262:                                       ; preds = %135, %.loopexit, %37, %55, %218
   %226 = load ptr, ptr %23, align 8, !tbaa !26
   %.not223 = icmp eq ptr %226, null
   br i1 %.not223, label %229, label %227

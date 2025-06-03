@@ -3993,7 +3993,7 @@ _ZN7testing15AssertionResultD2Ev.exit53:          ; preds = %94, %_ZNKSt14defaul
   unreachable
 
 "_ZSt5visitIRN4absl8OverloadIJZN12_GLOBAL__N_149OverloadTest_VariantVisitDispatchesCorrectly_Test8TestBodyEvE3$_0ZNS3_8TestBodyEvE3$_1ZNS3_8TestBodyEvE3$_2EEEJRSt7variantIJidNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit55": ; preds = %109, %108, %107
-  %.pn.i.i54 = phi { i64, ptr } [ { i64 6, ptr @.str.66 }, %109 ], [ { i64 6, ptr @.str.64 }, %108 ], [ { i64 3, ptr @.str.62 }, %107 ]
+  %.pn.i.i54 = phi { i64, ptr } [ { i64 6, ptr @.str.64 }, %108 ], [ { i64 6, ptr @.str.66 }, %109 ], [ { i64 3, ptr @.str.62 }, %107 ]
   %111 = extractvalue { i64, ptr } %.pn.i.i54, 0
   store i64 %111, ptr %9, align 8
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 8

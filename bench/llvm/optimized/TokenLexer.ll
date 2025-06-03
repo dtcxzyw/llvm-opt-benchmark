@@ -2777,8 +2777,8 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i.i
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.0.i, %._crit_edge.i.i.i.i.i.i ], [ %.029.val37.i.i.i.i.i.i, %67 ]
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %68, %67 ]
+  %.sroa.0.2.i = phi i32 [ %.029.val37.i.i.i.i.i.i, %67 ], [ %.sroa.0.0.i, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !19
   %70 = icmp slt i32 %.1.val.i.i.i.i.i.i, 0
   %71 = sub nsw i32 %.1.val.i.i.i.i.i.i, %.sroa.0.2.i
@@ -2791,8 +2791,8 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i.i.i.i.i.i
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.i, %._crit_edge.i.i.i.i.i.i ], [ %.1.val.i.i.i.i.i.i, %73 ]
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %74, %73 ]
+  %.sroa.0.1.i = phi i32 [ %.1.val.i.i.i.i.i.i, %73 ], [ %.sroa.0.0.i, %._crit_edge.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %74, %73 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !19
   %76 = icmp slt i32 %.2.val.i.i.i.i.i.i, 0
   %77 = sub nsw i32 %.2.val.i.i.i.i.i.i, %.sroa.0.1.i
@@ -2914,8 +2914,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i: ; preds = %84, 
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %114, %._crit_edge.i.i.i.i.i32.i
-  %.sroa.0.6.i = phi i32 [ %.sroa.0.4.i, %._crit_edge.i.i.i.i.i32.i ], [ %.029.val32.i.i.i.i.i.i, %114 ]
-  %.1.i.i.i.i.i39.i = phi ptr [ %.029.lcssa.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i32.i ], [ %115, %114 ]
+  %.sroa.0.6.i = phi i32 [ %.029.val32.i.i.i.i.i.i, %114 ], [ %.sroa.0.4.i, %._crit_edge.i.i.i.i.i32.i ]
+  %.1.i.i.i.i.i39.i = phi ptr [ %115, %114 ], [ %.029.lcssa.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i32.i ]
   %.1.val.i.i.i.i.i40.i = load i32, ptr %.1.i.i.i.i.i39.i, align 8, !tbaa !19
   %.not.i.i45.i.i.i.i.i.i = icmp ult i32 %.1.val.i.i.i.i.i40.i, %27
   %.not2.i.i46.i.i.i.i.i.i = icmp ugt i32 %.1.val.i.i.i.i.i40.i, %87
@@ -2930,8 +2930,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i: ; preds = %84, 
   br label %._crit_edge._crit_edge95.i.i.i.i.i.i
 
 ._crit_edge._crit_edge95.i.i.i.i.i.i:             ; preds = %118, %._crit_edge.i.i.i.i.i32.i
-  %.sroa.0.5.i = phi i32 [ %.sroa.0.4.i, %._crit_edge.i.i.i.i.i32.i ], [ %.1.val.i.i.i.i.i40.i, %118 ]
-  %.2.i.i.i.i.i34.i = phi ptr [ %.029.lcssa.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i32.i ], [ %119, %118 ]
+  %.sroa.0.5.i = phi i32 [ %.1.val.i.i.i.i.i40.i, %118 ], [ %.sroa.0.4.i, %._crit_edge.i.i.i.i.i32.i ]
+  %.2.i.i.i.i.i34.i = phi ptr [ %119, %118 ], [ %.029.lcssa.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i32.i ]
   %.2.val.i.i.i.i.i35.i = load i32, ptr %.2.i.i.i.i.i34.i, align 8, !tbaa !19
   %.not.i.i48.i.i.i.i.i.i = icmp ult i32 %.2.val.i.i.i.i.i35.i, %27
   %.not2.i.i49.i.i.i.i.i.i = icmp ugt i32 %.2.val.i.i.i.i.i35.i, %87

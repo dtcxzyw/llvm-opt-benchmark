@@ -26770,7 +26770,7 @@ common.resume.i.i.i.i:                            ; preds = %320, %.body.i.i.i.i
   br label %.body.i.i.i.i.i
 
 .body.i.i.i.i.i:                                  ; preds = %270, %252, %244, %227, %224, %214, %197, %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i.i.i, %270 ], [ %253, %252 ], [ %225, %224 ], [ %198, %197 ], [ %215, %214 ], [ %228, %227 ], [ %245, %244 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i.i.i, %270 ], [ %225, %224 ], [ %253, %252 ], [ %198, %197 ], [ %215, %214 ], [ %228, %227 ], [ %245, %244 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E"(ptr noalias noundef align 16 dereferenceable(160) %29) #29
           to label %common.resume.i.i.i.i unwind label %314, !noalias !4802
 
@@ -27453,8 +27453,8 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit73.i.i.i.i.i: ;
   unreachable
 
 "_ZN103_$LT$polars_expr..expressions..sortby..SortByExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$8evaluate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb065973fd1f0f675E.exit.i.i.i.i": ; preds = %285, %281, %280, %279
-  %.sroa.04.1.i.i.i.i = phi i8 [ %.sroa.04.0.copyload.i.i.i.i, %285 ], [ %.sroa.04.0.i.i.i.i, %279 ], [ %.sroa.04.0.i.i.i.i, %281 ], [ %.sroa.04.0.i.i.i.i, %280 ]
-  %.sroa.9.1.i.i.i.i = phi i64 [ %.sroa.9.0.copyload.i.i.i.i, %285 ], [ %.sroa.9.0.i.i.i.i, %279 ], [ %.sroa.9.0.i.i.i.i, %281 ], [ %.sroa.9.0.i.i.i.i, %280 ]
+  %.sroa.04.1.i.i.i.i = phi i8 [ %.sroa.04.0.copyload.i.i.i.i, %285 ], [ %.sroa.04.0.i.i.i.i, %279 ], [ %.sroa.04.0.i.i.i.i, %280 ], [ %.sroa.04.0.i.i.i.i, %281 ]
+  %.sroa.9.1.i.i.i.i = phi i64 [ %.sroa.9.0.copyload.i.i.i.i, %285 ], [ %.sroa.9.0.i.i.i.i, %279 ], [ %.sroa.9.0.i.i.i.i, %280 ], [ %.sroa.9.0.i.i.i.i, %281 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %29), !noalias !4802
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !4801
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !4801
@@ -39559,7 +39559,7 @@ default.unreachable:                              ; preds = %1
   br label %13
 
 13:                                               ; preds = %11, %8, %4
-  %.sroa.0.0 = phi i64 [ %12, %11 ], [ %10, %8 ], [ %7, %4 ]
+  %.sroa.0.0 = phi i64 [ %7, %4 ], [ %10, %8 ], [ %12, %11 ]
   ret i64 %.sroa.0.0
 }
 
@@ -40075,7 +40075,7 @@ common.resume:                                    ; preds = %147, %98, %84
   unreachable
 
 157:                                              ; preds = %110, %146, %145
-  %.sroa.072.0 = phi i8 [ 37, %146 ], [ 36, %145 ], [ 13, %110 ]
+  %.sroa.072.0 = phi i8 [ 36, %145 ], [ 37, %146 ], [ 13, %110 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.072.0, ptr %158, align 8
   store i64 17, ptr %0, align 8
@@ -46814,7 +46814,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 

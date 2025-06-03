@@ -731,7 +731,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br i1 %77, label %select.unfold260, label %.thread306
 
 select.unfold260:                                 ; preds = %76, %61, %68, %48, %44, %74, %66, %59, %43
-  %.5 = phi i32 [ %.1.fr323, %43 ], [ %75, %74 ], [ %67, %66 ], [ %60, %59 ], [ %spec.select229, %44 ], [ %spec.select230, %48 ], [ %.1.fr323, %68 ], [ %.1.fr323, %61 ], [ %78, %76 ]
+  %.5 = phi i32 [ %.1.fr323, %43 ], [ %60, %59 ], [ %67, %66 ], [ %75, %74 ], [ %spec.select229, %44 ], [ %spec.select230, %48 ], [ %.1.fr323, %68 ], [ %.1.fr323, %61 ], [ %78, %76 ]
   %.not197 = icmp eq i32 %.5, 0
   br i1 %.not197, label %.thread306, label %79
 

@@ -934,15 +934,15 @@ switch.lookup:                                    ; preds = %70
   br label %95
 
 95:                                               ; preds = %92, %83, %switch.lookup, %read_var_byte.exit88
-  %.072 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %92 ], [ 249, %83 ], [ %switch.load, %switch.lookup ]
-  %.170 = phi i32 [ %.06998, %read_var_byte.exit88 ], [ 2, %92 ], [ 0, %83 ], [ 1, %switch.lookup ]
-  %.068 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %92 ], [ %86, %83 ], [ 0, %switch.lookup ]
-  %.067 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %92 ], [ %87, %83 ], [ 0, %switch.lookup ]
-  %.066 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %92 ], [ 0, %83 ], [ %77, %switch.lookup ]
-  %.065 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %92 ], [ 0, %83 ], [ %79, %switch.lookup ]
-  %.064 = phi i32 [ -1, %read_var_byte.exit88 ], [ %93, %92 ], [ %81, %83 ], [ %71, %switch.lookup ]
-  %.sroa.7.0 = phi i32 [ 1, %read_var_byte.exit88 ], [ 1, %92 ], [ %84, %83 ], [ %77, %switch.lookup ]
-  %.sroa.012.0 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %92 ], [ %85, %83 ], [ 1, %switch.lookup ]
+  %.072 = phi i32 [ 0, %read_var_byte.exit88 ], [ %switch.load, %switch.lookup ], [ 249, %83 ], [ 0, %92 ]
+  %.170 = phi i32 [ %.06998, %read_var_byte.exit88 ], [ 1, %switch.lookup ], [ 0, %83 ], [ 2, %92 ]
+  %.068 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %switch.lookup ], [ %86, %83 ], [ 0, %92 ]
+  %.067 = phi i32 [ 0, %read_var_byte.exit88 ], [ 0, %switch.lookup ], [ %87, %83 ], [ 0, %92 ]
+  %.066 = phi i32 [ 0, %read_var_byte.exit88 ], [ %77, %switch.lookup ], [ 0, %83 ], [ 0, %92 ]
+  %.065 = phi i32 [ 0, %read_var_byte.exit88 ], [ %79, %switch.lookup ], [ 0, %83 ], [ 0, %92 ]
+  %.064 = phi i32 [ -1, %read_var_byte.exit88 ], [ %71, %switch.lookup ], [ %81, %83 ], [ %93, %92 ]
+  %.sroa.7.0 = phi i32 [ 1, %read_var_byte.exit88 ], [ %77, %switch.lookup ], [ %84, %83 ], [ 1, %92 ]
+  %.sroa.012.0 = phi i32 [ 0, %read_var_byte.exit88 ], [ 1, %switch.lookup ], [ %85, %83 ], [ 0, %92 ]
   %96 = load i32, ptr %18, align 4, !tbaa !41
   %97 = icmp eq i32 %.064, %96
   br i1 %97, label %98, label %112
@@ -985,8 +985,8 @@ switch.lookup:                                    ; preds = %70
   %.not77 = icmp eq i32 %113, 0
   br i1 %.not77, label %19, label %.thread, !llvm.loop !71
 
-.thread:                                          ; preds = %112, %98, %100, %11, %66, %67, %74, %91, %7, %9
-  %.0 = phi i32 [ 1, %9 ], [ -541478725, %7 ], [ 0, %66 ], [ 0, %67 ], [ -1163346256, %74 ], [ -1163346256, %91 ], [ 0, %11 ], [ 0, %112 ], [ -12, %98 ], [ -12, %100 ]
+.thread:                                          ; preds = %112, %98, %100, %11, %66, %67, %91, %74, %7, %9
+  %.0 = phi i32 [ 1, %9 ], [ -541478725, %7 ], [ 0, %66 ], [ 0, %67 ], [ -1163346256, %91 ], [ -1163346256, %74 ], [ 0, %11 ], [ 0, %112 ], [ -12, %98 ], [ -12, %100 ]
   ret i32 %.0
 }
 

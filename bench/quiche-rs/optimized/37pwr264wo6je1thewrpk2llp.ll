@@ -4248,11 +4248,11 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br i1 %.not34, label %.critedge, label %.thread
 
 169:                                              ; preds = %23, %85, %164, %166, %167, %165
-  %.sroa.016.4 = phi ptr [ null, %165 ], [ %.sroa.016.062, %23 ], [ %.sroa.016.062, %166 ], [ %.sroa.016.062, %167 ], [ %.sroa.016.062, %164 ], [ %87, %85 ]
-  %.sroa.11.5 = phi i64 [ %.sroa.11.4, %165 ], [ %.sroa.11.063, %23 ], [ %.sroa.11.063, %166 ], [ %.sroa.11.063, %167 ], [ %.sroa.11.063, %164 ], [ %.sroa.11.063, %85 ]
-  %.sroa.06.5 = phi ptr [ %.sroa.06.4, %165 ], [ null, %23 ], [ null, %166 ], [ null, %167 ], [ null, %164 ], [ null, %85 ]
-  %.sroa.10.5 = phi i64 [ %.sroa.10.4, %165 ], [ %.sroa.10.066, %23 ], [ undef, %166 ], [ %168, %167 ], [ undef, %164 ], [ %.sroa.10.066, %85 ]
-  %.sroa.0.5 = phi i64 [ 0, %165 ], [ %.sroa.0.068, %23 ], [ 0, %166 ], [ 1, %167 ], [ 0, %164 ], [ %.sroa.0.068, %85 ]
+  %.sroa.016.4 = phi ptr [ null, %165 ], [ %.sroa.016.062, %23 ], [ %87, %85 ], [ %.sroa.016.062, %166 ], [ %.sroa.016.062, %167 ], [ %.sroa.016.062, %164 ]
+  %.sroa.11.5 = phi i64 [ %.sroa.11.4, %165 ], [ %.sroa.11.063, %23 ], [ %.sroa.11.063, %85 ], [ %.sroa.11.063, %166 ], [ %.sroa.11.063, %167 ], [ %.sroa.11.063, %164 ]
+  %.sroa.06.5 = phi ptr [ %.sroa.06.4, %165 ], [ null, %23 ], [ null, %85 ], [ null, %166 ], [ null, %167 ], [ null, %164 ]
+  %.sroa.10.5 = phi i64 [ %.sroa.10.4, %165 ], [ %.sroa.10.066, %23 ], [ %.sroa.10.066, %85 ], [ undef, %166 ], [ %168, %167 ], [ undef, %164 ]
+  %.sroa.0.5 = phi i64 [ 0, %165 ], [ %.sroa.0.068, %23 ], [ %.sroa.0.068, %85 ], [ 0, %166 ], [ 1, %167 ], [ 0, %164 ]
   %170 = icmp eq ptr %12, %6
   br i1 %170, label %._crit_edge, label %11
 
@@ -5143,7 +5143,7 @@ define internal noundef zeroext i1 @"_ZN83_$LT$tokio_quiche..http3..driver..H3Co
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %12, %10
-  %.sroa.0.0.in = phi i1 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
   ret i1 %.sroa.0.0.in
 }
 

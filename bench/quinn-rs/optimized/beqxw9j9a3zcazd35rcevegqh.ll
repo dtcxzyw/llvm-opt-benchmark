@@ -415,7 +415,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$quinn_proto..connection..Connecti
   br label %30
 
 30:                                               ; preds = %28, %26, %24, %22, %19, %17, %14, %12
-  %.sroa.0.0.in = phi i1 [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %16, %14 ], [ %18, %17 ], [ %21, %19 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4285,7 +4285,7 @@ default.unreachable24:                            ; preds = %106
           to label %134 unwind label %123
 
 122:                                              ; preds = %106, %120, %119
-  %.sroa.0.0 = phi i64 [ 12, %120 ], [ 11, %119 ], [ 10, %106 ]
+  %.sroa.0.0 = phi i64 [ 11, %119 ], [ 12, %120 ], [ 10, %106 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %118
@@ -7187,7 +7187,7 @@ common.resume:                                    ; preds = %92, %.body, %26
           to label %common.resume unwind label %136
 
 _ZN5quinn10connection5State4wake17hbe58586656adee20E.exit: ; preds = %111, %112, %99, %107, %101
-  %storemerge = phi i64 [ 13, %101 ], [ 13, %107 ], [ 12, %112 ], [ 11, %111 ], [ 10, %99 ]
+  %storemerge = phi i64 [ 13, %101 ], [ 13, %107 ], [ 11, %111 ], [ 12, %112 ], [ 10, %99 ]
   store i64 %storemerge, ptr %0, align 8
   call void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -7959,7 +7959,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %6
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -603,7 +603,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantE
   br label %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit
 
 _ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit:   ; preds = %20, %23
-  %.0.i = phi i64 [ %26, %23 ], [ %22, %20 ]
+  %.0.i = phi i64 [ %22, %20 ], [ %26, %23 ]
   store i64 %.0.i, ptr %1, align 8, !tbaa !73
   br label %switch.lookup
 
@@ -632,7 +632,7 @@ define dso_local noundef range(i64 -2048, 1048576) i64 @_ZNK4llvm11RISCVMCExpr15
   br label %12
 
 12:                                               ; preds = %8, %5
-  %.0 = phi i64 [ %11, %8 ], [ %7, %5 ]
+  %.0 = phi i64 [ %7, %5 ], [ %11, %8 ]
   ret i64 %.0
 }
 

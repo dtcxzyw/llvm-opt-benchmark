@@ -2277,7 +2277,7 @@ GlobalVisHorizonKindForRel.exit:                  ; preds = %39, %35
   br label %53
 
 53:                                               ; preds = %GlobalVisHorizonKindForRel.exit, %48, %45, %42
-  %.0 = phi i32 [ %52, %GlobalVisHorizonKindForRel.exit ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.0 = phi i32 [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %GlobalVisHorizonKindForRel.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #15
   ret i32 %.0
 }

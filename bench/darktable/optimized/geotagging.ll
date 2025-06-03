@@ -1127,7 +1127,7 @@ define internal range(i32 0, 2) i32 @_timezone_key_pressed(ptr readnone captures
   br label %21
 
 21:                                               ; preds = %14, %8, %6
-  %.0 = phi i32 [ 0, %14 ], [ 1, %8 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %6 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -2183,7 +2183,7 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
   br label %60
 
 60:                                               ; preds = %54, %49, %45, %41, %37, %33, %29
-  %.0 = phi ptr [ %59, %54 ], [ %53, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ]
+  %.0 = phi ptr [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %53, %49 ], [ %59, %54 ]
   %61 = load ptr, ptr %7, align 8, !tbaa !6
   %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %_new_datetime.exit, label %62

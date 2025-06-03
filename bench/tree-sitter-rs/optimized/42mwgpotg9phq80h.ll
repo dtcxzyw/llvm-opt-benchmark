@@ -793,7 +793,7 @@ define hidden noundef align 8 ptr @_ZN10serde_json4read13ignore_escape17heff4185
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %7, %7, %7, %7, %7, %7, %7, %7, %35, %13, %10
-  %.0 = phi ptr [ %12, %10 ], [ %18, %13 ], [ %.sroa.74.0, %35 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %34 ]
+  %.0 = phi ptr [ %18, %13 ], [ %.sroa.74.0, %35 ], [ %12, %10 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -1490,8 +1490,8 @@ tailrecurse.i:                                    ; preds = %270
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !374
   br label %317
 
-317:                                              ; preds = %tailrecurse._crit_edge.i, %73, %178, %311, %241, %250, %272, %273, %290, %297, %304
-  %.0.i.ph = phi ptr [ %309, %304 ], [ %302, %297 ], [ %295, %290 ], [ %278, %273 ], [ %.sroa.818.3, %272 ], [ %252, %250 ], [ %243, %241 ], [ %316, %311 ], [ %.sroa.846.0.i, %178 ], [ %78, %73 ], [ %72, %tailrecurse._crit_edge.i ]
+317:                                              ; preds = %73, %tailrecurse._crit_edge.i, %311, %273, %290, %272, %297, %250, %304, %241, %178
+  %.0.i.ph = phi ptr [ %.sroa.846.0.i, %178 ], [ %243, %241 ], [ %309, %304 ], [ %252, %250 ], [ %302, %297 ], [ %.sroa.818.3, %272 ], [ %295, %290 ], [ %278, %273 ], [ %316, %311 ], [ %72, %tailrecurse._crit_edge.i ], [ %78, %73 ]
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %318, align 8
   store ptr null, ptr %0, align 8
@@ -3637,7 +3637,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$
   br i1 %24, label %.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %22, %15, %16, %._crit_edge
-  %.0 = phi ptr [ %14, %._crit_edge ], [ %21, %16 ], [ %23, %22 ], [ null, %15 ]
+  %.0 = phi ptr [ %21, %16 ], [ %14, %._crit_edge ], [ %23, %22 ], [ null, %15 ]
   ret ptr %.0
 }
 

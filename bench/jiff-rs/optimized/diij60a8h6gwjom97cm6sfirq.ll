@@ -2378,9 +2378,9 @@ define internal fastcc void @_ZN4jiff5civil8datetime8DateTime8to_zoned17hbf4112d
   br label %49
 
 49:                                               ; preds = %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, %45
-  %.sroa.028.0 = phi i32 [ %.sroa.0.0.i56, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94 ], [ %.sroa.0.0.i, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit ], [ %.sroa.5.0.copyload97104, %45 ]
-  %.sroa.032.0 = phi i64 [ %147, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94 ], [ %61, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit ], [ %46, %45 ]
-  %.sroa.837.0 = phi i32 [ %149, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94 ], [ %63, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit ], [ %48, %45 ]
+  %.sroa.028.0 = phi i32 [ %.sroa.5.0.copyload97104, %45 ], [ %.sroa.0.0.i, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit ], [ %.sroa.0.0.i56, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94 ]
+  %.sroa.032.0 = phi i64 [ %46, %45 ], [ %61, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit ], [ %147, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94 ]
+  %.sroa.837.0 = phi i32 [ %48, %45 ], [ %63, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit ], [ %149, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94 ]
   %50 = load ptr, ptr %12, align 8, !noundef !4
   %.sroa.726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.726.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -6904,7 +6904,7 @@ default.unreachable1:                             ; preds = %2
   br label %77
 
 77:                                               ; preds = %70, %63, %56, %49, %43, %35, %27, %19, %11, %3
-  %.sroa.0.0 = phi i64 [ %76, %70 ], [ %69, %63 ], [ %62, %56 ], [ %55, %49 ], [ %48, %43 ], [ %42, %35 ], [ %34, %27 ], [ %26, %19 ], [ %18, %11 ], [ %10, %3 ]
+  %.sroa.0.0 = phi i64 [ %10, %3 ], [ %18, %11 ], [ %26, %19 ], [ %34, %27 ], [ %42, %35 ], [ %48, %43 ], [ %55, %49 ], [ %62, %56 ], [ %69, %63 ], [ %76, %70 ]
   ret i64 %.sroa.0.0
 }
 
@@ -9763,15 +9763,15 @@ _ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit12.i: ; preds = %53
   br label %"_ZN4core3ptr41drop_in_place$LT$jiff..span..Relative$GT$17h2fe59d808ce3c3beE.exit95"
 
 163:                                              ; preds = %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i, %44
-  %.sroa.10133.0 = phi ptr [ %51, %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i ], [ %39, %44 ]
+  %.sroa.10133.0 = phi ptr [ %39, %44 ], [ %51, %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.10133.0, ptr %164, align 8
   br label %261
 
-165:                                              ; preds = %45, %40
-  %.sroa.0132.0.ph = phi i64 [ 2, %45 ], [ 1, %40 ]
-  %.sroa.10133.0.ph = phi ptr [ %39, %45 ], [ %.sroa.6131.0.copyload, %40 ]
+165:                                              ; preds = %40, %45
+  %.sroa.0132.0.ph = phi i64 [ 1, %40 ], [ 2, %45 ]
+  %.sroa.10133.0.ph = phi ptr [ %.sroa.6131.0.copyload, %40 ], [ %39, %45 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.16134, i64 32, i1 false)
@@ -10385,15 +10385,15 @@ _ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit12.i: ; preds = %61
   ret void
 
 80:                                               ; preds = %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i, %52
-  %.sroa.10.0116 = phi ptr [ %59, %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i ], [ %47, %52 ]
+  %.sroa.10.0116 = phi ptr [ %47, %52 ], [ %59, %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.10.0116, ptr %81, align 8
   br label %90
 
-82:                                               ; preds = %53, %48
-  %.sroa.0115.0.ph = phi i64 [ 2, %53 ], [ 1, %48 ]
-  %.sroa.10.0116.ph = phi ptr [ %47, %53 ], [ %.sroa.6.0.copyload, %48 ]
+82:                                               ; preds = %48, %53
+  %.sroa.0115.0.ph = phi i64 [ 1, %48 ], [ 2, %53 ]
+  %.sroa.10.0116.ph = phi ptr [ %.sroa.6.0.copyload, %48 ], [ %47, %53 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.16, i64 32, i1 false)
@@ -10977,10 +10977,10 @@ define void @_ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E(ptr dead_on_unwin
 73:                                               ; preds = %62
   br label %_ZN4jiff4span4Unit10from_usize17he96f1be1d4ca1e42E.exit
 
-_ZN4jiff4span4Unit10from_usize17he96f1be1d4ca1e42E.exit: ; preds = %65, %66, %67, %68, %69, %70, %71, %72, %73, %3, %62
-  %switch15.i118 = phi i1 [ false, %3 ], [ false, %65 ], [ false, %66 ], [ false, %67 ], [ false, %68 ], [ false, %69 ], [ false, %70 ], [ false, %71 ], [ false, %72 ], [ true, %73 ], [ false, %62 ]
-  %switch18.i123 = phi i1 [ false, %3 ], [ false, %65 ], [ false, %66 ], [ false, %67 ], [ false, %68 ], [ false, %69 ], [ true, %70 ], [ false, %71 ], [ false, %72 ], [ false, %73 ], [ false, %62 ]
-  %.sroa.0.0 = phi i8 [ 0, %3 ], [ 1, %65 ], [ 2, %66 ], [ 3, %67 ], [ 4, %68 ], [ 5, %69 ], [ 6, %70 ], [ 7, %71 ], [ 8, %72 ], [ 9, %73 ], [ 0, %62 ]
+_ZN4jiff4span4Unit10from_usize17he96f1be1d4ca1e42E.exit: ; preds = %73, %72, %71, %70, %69, %68, %67, %66, %65, %3, %62
+  %switch15.i118 = phi i1 [ false, %3 ], [ true, %73 ], [ false, %72 ], [ false, %71 ], [ false, %70 ], [ false, %69 ], [ false, %68 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ false, %62 ]
+  %switch18.i123 = phi i1 [ false, %3 ], [ false, %73 ], [ false, %72 ], [ false, %71 ], [ true, %70 ], [ false, %69 ], [ false, %68 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ false, %62 ]
+  %.sroa.0.0 = phi i8 [ 0, %3 ], [ 9, %73 ], [ 8, %72 ], [ 7, %71 ], [ 6, %70 ], [ 5, %69 ], [ 4, %68 ], [ 3, %67 ], [ 2, %66 ], [ 1, %65 ], [ 0, %62 ]
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load i8, ptr %74, align 8, !range !668, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 25
@@ -11495,13 +11495,13 @@ _ZN4jiff4span26requires_relative_date_err17h0fc0bcb6aefe9d1dE.exit127: ; preds =
   br label %366
 
 227:                                              ; preds = %120, %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i
-  %.sroa.9178.0 = phi ptr [ %127, %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i ], [ %114, %120 ]
+  %.sroa.9178.0 = phi ptr [ %114, %120 ], [ %127, %_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %47)
   br label %364
 
-228:                                              ; preds = %121, %115
-  %.sroa.0177.0.ph = phi i64 [ 2, %121 ], [ 1, %115 ]
-  %.sroa.9178.0.ph = phi ptr [ %114, %121 ], [ %117, %115 ]
+228:                                              ; preds = %115, %121
+  %.sroa.0177.0.ph = phi i64 [ 1, %115 ], [ 2, %121 ]
+  %.sroa.9178.0.ph = phi ptr [ %117, %115 ], [ %114, %121 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %47)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15, i64 32, i1 false)
@@ -14365,8 +14365,8 @@ default.unreachable1.i:                           ; preds = %36
   %62 = sext i32 %61 to i64
   br label %_ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit.thread
 
-_ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit.thread: ; preds = %57, %51, %45, %39
-  %.sroa.0.0.i42.ph = phi i64 [ %44, %39 ], [ %50, %45 ], [ %56, %51 ], [ %62, %57 ]
+_ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit.thread: ; preds = %39, %45, %51, %57
+  %.sroa.0.0.i42.ph = phi i64 [ %62, %57 ], [ %56, %51 ], [ %50, %45 ], [ %44, %39 ]
   %63 = trunc i128 %5 to i64
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %.thread95
@@ -16772,11 +16772,11 @@ default.unreachable:                              ; preds = %449, %.outer.split
 260:                                              ; preds = %.outer.split
   br label %261
 
-261:                                              ; preds = %.outer.split, %260, %259
-  %262 = phi i1 [ false, %259 ], [ true, %260 ], [ false, %.outer.split ]
-  %263 = phi i1 [ true, %259 ], [ false, %260 ], [ true, %.outer.split ]
-  %264 = phi i1 [ false, %259 ], [ false, %260 ], [ true, %.outer.split ]
-  %.sroa.0.0.i74.ph = phi i8 [ 8, %259 ], [ 7, %260 ], [ 9, %.outer.split ]
+261:                                              ; preds = %.outer.split, %259, %260
+  %262 = phi i1 [ true, %260 ], [ false, %259 ], [ false, %.outer.split ]
+  %263 = phi i1 [ false, %260 ], [ true, %259 ], [ true, %.outer.split ]
+  %264 = phi i1 [ false, %260 ], [ false, %259 ], [ true, %.outer.split ]
+  %.sroa.0.0.i74.ph = phi i8 [ 7, %260 ], [ 8, %259 ], [ 9, %.outer.split ]
   %265 = icmp samesign ugt i8 %.sroa.0.0.i74.ph, %4
   br i1 %265, label %_ZN4jiff4span4Unit4next17hd66ef693b5c58291E.exit, label %267
 
@@ -17208,7 +17208,7 @@ _ZN4jiff4span4Unit4next17hd66ef693b5c58291E.exit: ; preds = %.outer.split.us, %2
   br label %_ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit
 
 _ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit: ; preds = %403, %427, %433
-  %.sroa.0.0.i100 = phi i64 [ %438, %433 ], [ %432, %427 ], [ %426, %403 ]
+  %.sroa.0.0.i100 = phi i64 [ %426, %403 ], [ %432, %427 ], [ %438, %433 ]
   %439 = load i8, ptr %41, align 1, !noundef !4
   %440 = sext i8 %439 to i64
   %441 = call noundef i64 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17hbb452073c25a97b2E"(i64 noundef %440)
@@ -17274,7 +17274,7 @@ _ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit: ; preds = %403, %
   br label %_ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit.i
 
 _ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit.i: ; preds = %464, %458, %452
-  %.sroa.0.0.i11.i = phi i64 [ %469, %464 ], [ %463, %458 ], [ %457, %452 ]
+  %.sroa.0.0.i11.i = phi i64 [ %457, %452 ], [ %463, %458 ], [ %469, %464 ]
   store i64 %.sroa.0.0.i11.i, ptr %9, align 8, !noalias !1207
   store ptr %41, ptr %11, align 8, !noalias !1207
   store ptr @"_ZN77_$LT$jiff..util..rangeint..ri8$LT$_$C$_$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17heddc422279d07339E", ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1207
@@ -17802,7 +17802,7 @@ default.unreachable:                              ; preds = %107, %5
   br label %_ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit
 
 _ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit: ; preds = %25, %33, %41, %49, %57, %65, %71, %78, %85, %92
-  %.sroa.0.0.i49 = phi i64 [ %98, %92 ], [ %91, %85 ], [ %84, %78 ], [ %77, %71 ], [ %70, %65 ], [ %64, %57 ], [ %56, %49 ], [ %48, %41 ], [ %40, %33 ], [ %32, %25 ]
+  %.sroa.0.0.i49 = phi i64 [ %32, %25 ], [ %40, %33 ], [ %48, %41 ], [ %56, %49 ], [ %64, %57 ], [ %70, %65 ], [ %77, %71 ], [ %84, %78 ], [ %91, %85 ], [ %98, %92 ]
   %99 = tail call noundef i64 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17hbb452073c25a97b2E"(i64 noundef %4)
   %100 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %.sroa.0.0.i49, i64 %99)
   %101 = extractvalue { i64, i1 } %100, 1
@@ -17966,7 +17966,7 @@ _ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit: ; preds = %25, %3
   br label %_ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit.i
 
 _ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit.i: ; preds = %179, %172, %165, %158, %152, %144, %136, %128, %120, %112
-  %.sroa.0.0.i15.i = phi i64 [ %185, %179 ], [ %178, %172 ], [ %171, %165 ], [ %164, %158 ], [ %157, %152 ], [ %151, %144 ], [ %143, %136 ], [ %135, %128 ], [ %127, %120 ], [ %119, %112 ]
+  %.sroa.0.0.i15.i = phi i64 [ %119, %112 ], [ %127, %120 ], [ %135, %128 ], [ %143, %136 ], [ %151, %144 ], [ %157, %152 ], [ %164, %158 ], [ %171, %165 ], [ %178, %172 ], [ %185, %179 ]
   store i64 %.sroa.0.0.i15.i, ptr %9, align 8, !noalias !1254
   store ptr %24, ptr %11, align 8, !noalias !1254
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8

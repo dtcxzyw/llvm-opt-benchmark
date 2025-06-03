@@ -286,7 +286,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %26 unwind label %27
 
 26:                                               ; preds = %.body3, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body4, %.body3 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body4, %.body3 ]
   resume { ptr, i32 } %.pn
 
 27:                                               ; preds = %.body3, %.body
@@ -1245,10 +1245,10 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
   br label %24
 
 24:                                               ; preds = %23, %19
-  %.sroa.610.026.i = phi ptr [ %.sroa.610.0.copyload.i, %23 ], [ %.sroa.610.025.i, %19 ]
-  %.sroa.9.024.i = phi ptr [ %.sroa.9.0.copyload.i, %23 ], [ %.sroa.9.023.i, %19 ]
-  %.sroa.6.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.11.sroa.0.0.copyload.i, %23 ], [ %22, %19 ]
-  %.sroa.03.0.i = phi i64 [ 0, %23 ], [ 1, %19 ]
+  %.sroa.610.026.i = phi ptr [ %.sroa.610.025.i, %19 ], [ %.sroa.610.0.copyload.i, %23 ]
+  %.sroa.9.024.i = phi ptr [ %.sroa.9.023.i, %19 ], [ %.sroa.9.0.copyload.i, %23 ]
+  %.sroa.6.sroa.7.sroa.0.0.i = phi i64 [ %22, %19 ], [ %.sroa.11.sroa.0.0.copyload.i, %23 ]
+  %.sroa.03.0.i = phi i64 [ 1, %19 ], [ 0, %23 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !264
   store i64 %.sroa.03.0.i, ptr %6, align 8, !noalias !263
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1408,12 +1408,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430
   br label %74
 
 74:                                               ; preds = %58, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit13, %73, %72
-  %.2 = phi i8 [ 3, %73 ], [ 1, %72 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit13 ], [ 2, %58 ]
+  %.2 = phi i8 [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit13 ], [ 1, %72 ], [ 3, %73 ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %75
 
 75:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit, %74, %1, %60
-  %.1 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit ], [ %.2, %74 ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %60 ], [ %.2, %74 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 

@@ -779,7 +779,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %4, %_ZNK4llvm9Stri
   br label %55
 
 55:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang10installapi16DirectoryScanner18getOrCreateLibraryEN4llvm9StringRefERSt6vectorINS3_7LibraryESaIS8_EEE3$_0EclINS_17__normal_iteratorIPS8_SA_EEEEbT_.exit52.thread96.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.074.1.i.i.i.i = phi ptr [ %.sroa.074.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang10installapi16DirectoryScanner18getOrCreateLibraryEN4llvm9StringRefERSt6vectorINS3_7LibraryESaIS8_EEE3$_0EclINS_17__normal_iteratorIPS8_SA_EEEEbT_.exit52.thread96.i.i.i.i" ]
+  %.sroa.074.1.i.i.i.i = phi ptr [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang10installapi16DirectoryScanner18getOrCreateLibraryEN4llvm9StringRefERSt6vectorINS3_7LibraryESaIS8_EEE3$_0EclINS_17__normal_iteratorIPS8_SA_EEEEbT_.exit52.thread96.i.i.i.i" ], [ %.sroa.074.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val2.i53.i.i.i.i = load ptr, ptr %.sroa.074.1.i.i.i.i, align 8, !tbaa !41
   %56 = getelementptr i8, ptr %.sroa.074.1.i.i.i.i, i64 8
   %.val3.i54.i.i.i.i = load i64, ptr %56, align 8, !tbaa !43
@@ -800,7 +800,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %4, %_ZNK4llvm9Stri
   br label %61
 
 61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang10installapi16DirectoryScanner18getOrCreateLibraryEN4llvm9StringRefERSt6vectorINS3_7LibraryESaIS8_EEE3$_0EclINS_17__normal_iteratorIPS8_SA_EEEEbT_.exit58.thread99.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.074.2.i.i.i.i = phi ptr [ %.sroa.074.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang10installapi16DirectoryScanner18getOrCreateLibraryEN4llvm9StringRefERSt6vectorINS3_7LibraryESaIS8_EEE3$_0EclINS_17__normal_iteratorIPS8_SA_EEEEbT_.exit58.thread99.i.i.i.i" ]
+  %.sroa.074.2.i.i.i.i = phi ptr [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang10installapi16DirectoryScanner18getOrCreateLibraryEN4llvm9StringRefERSt6vectorINS3_7LibraryESaIS8_EEE3$_0EclINS_17__normal_iteratorIPS8_SA_EEEEbT_.exit58.thread99.i.i.i.i" ], [ %.sroa.074.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val2.i59.i.i.i.i = load ptr, ptr %.sroa.074.2.i.i.i.i, align 8, !tbaa !41
   %62 = getelementptr i8, ptr %.sroa.074.2.i.i.i.i, i64 8
   %.val3.i60.i.i.i.i = load i64, ptr %62, align 8, !tbaa !43

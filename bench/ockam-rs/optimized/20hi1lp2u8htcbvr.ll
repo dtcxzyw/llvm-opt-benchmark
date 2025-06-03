@@ -334,8 +334,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN68_$LT$ockam_multiaddr..error..Error$u20$as$u20$core..error..Error$GT$6source17h6ceb618a40faf550E.exit"
 
 "_ZN68_$LT$ockam_multiaddr..error..Error$u20$as$u20$core..error..Error$GT$6source17h6ceb618a40faf550E.exit": ; preds = %1, %1, %1, %1, %1, %3, %5, %7
-  %.sroa.5.0.i = phi ptr [ %11, %7 ], [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.38, %5 ], [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.36, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.5.0.i = phi ptr [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.36, %3 ], [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.38, %5 ], [ %11, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.5.0.i, 1
   ret { ptr, ptr } %13
@@ -1019,7 +1019,7 @@ default.unreachable11:                            ; preds = %2
   br label %77
 
 77:                                               ; preds = %69, %58, %55, %47, %44, %36, %28, %20
-  %.0.in = phi i1 [ %76, %69 ], [ %68, %58 ], [ %57, %55 ], [ %54, %47 ], [ %46, %44 ], [ %43, %36 ], [ %35, %28 ], [ %27, %20 ]
+  %.0.in = phi i1 [ %27, %20 ], [ %35, %28 ], [ %43, %36 ], [ %46, %44 ], [ %54, %47 ], [ %57, %55 ], [ %68, %58 ], [ %76, %69 ]
   ret i1 %.0.in
 }
 
@@ -1056,8 +1056,8 @@ default.unreachable1:                             ; preds = %1
   br label %12
 
 12:                                               ; preds = %1, %1, %1, %1, %1, %7, %5, %3
-  %.sroa.5.0 = phi ptr [ %11, %7 ], [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.38, %5 ], [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.36, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.5.0 = phi ptr [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.36, %3 ], [ @anon.05a6e1260e3c6d1447b4da0ac4e042c1.38, %5 ], [ %11, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %13 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %14 = insertvalue { ptr, ptr } %13, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %14
@@ -1178,7 +1178,7 @@ default.unreachable1:                             ; preds = %2
   br label %37
 
 37:                                               ; preds = %34, %30, %27, %24, %21, %18, %15, %12
-  %.0.in = phi i1 [ %36, %34 ], [ %33, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %33, %30 ], [ %36, %34 ]
   ret i1 %.0.in
 }
 

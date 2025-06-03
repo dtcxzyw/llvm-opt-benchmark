@@ -508,8 +508,8 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %43
 
 43:                                               ; preds = %38, %36
-  %.071.i = phi ptr [ %.170112, %36 ], [ %42, %38 ]
-  %.1.i = phi i32 [ 0, %36 ], [ %41, %38 ]
+  %.071.i = phi ptr [ %42, %38 ], [ %.170112, %36 ]
+  %.1.i = phi i32 [ %41, %38 ], [ 0, %36 ]
   %44 = load i8, ptr %.071.i, align 1
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %.1.i, %45
@@ -518,8 +518,8 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %49
 
 49:                                               ; preds = %43, %36
-  %.172.i = phi ptr [ %.170112, %36 ], [ %48, %43 ]
-  %.2.i = phi i32 [ 0, %36 ], [ %47, %43 ]
+  %.172.i = phi ptr [ %48, %43 ], [ %.170112, %36 ]
+  %.2.i = phi i32 [ %47, %43 ], [ 0, %36 ]
   %50 = load i8, ptr %.172.i, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %.2.i, %51
@@ -528,8 +528,8 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %55
 
 55:                                               ; preds = %49, %36
-  %.273.i = phi ptr [ %.170112, %36 ], [ %54, %49 ]
-  %.3.i = phi i32 [ 0, %36 ], [ %53, %49 ]
+  %.273.i = phi ptr [ %54, %49 ], [ %.170112, %36 ]
+  %.3.i = phi i32 [ %53, %49 ], [ 0, %36 ]
   %56 = load i8, ptr %.273.i, align 1
   %57 = zext i8 %56 to i32
   %58 = or disjoint i32 %.3.i, %57
@@ -552,8 +552,8 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %66
 
 66:                                               ; preds = %61, %59
-  %.374.i = phi ptr [ %.170112, %59 ], [ %65, %61 ]
-  %.4.i = phi i32 [ 0, %59 ], [ %64, %61 ]
+  %.374.i = phi ptr [ %65, %61 ], [ %.170112, %59 ]
+  %.4.i = phi i32 [ %64, %61 ], [ 0, %59 ]
   %67 = load i8, ptr %.374.i, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw nsw i32 %68, 16
@@ -562,8 +562,8 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %72
 
 72:                                               ; preds = %66, %59
-  %.475.i = phi ptr [ %.170112, %59 ], [ %71, %66 ]
-  %.5.i = phi i32 [ 0, %59 ], [ %70, %66 ]
+  %.475.i = phi ptr [ %71, %66 ], [ %.170112, %59 ]
+  %.5.i = phi i32 [ %70, %66 ], [ 0, %59 ]
   %73 = load i8, ptr %.475.i, align 1
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, 8
@@ -572,8 +572,8 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %78
 
 78:                                               ; preds = %72, %59
-  %.576.i = phi ptr [ %.170112, %59 ], [ %77, %72 ]
-  %.6.i = phi i32 [ 0, %59 ], [ %76, %72 ]
+  %.576.i = phi ptr [ %77, %72 ], [ %.170112, %59 ]
+  %.6.i = phi i32 [ %76, %72 ], [ 0, %59 ]
   %79 = load i8, ptr %.576.i, align 1
   %80 = zext i8 %79 to i32
   %81 = or i32 %.6.i, %80
@@ -606,7 +606,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %93
 
 93:                                               ; preds = %90, %87, %86, %84, %82, %78, %59, %55, %36, %35
-  %.0.i = phi i32 [ 0, %35 ], [ 0, %82 ], [ %92, %90 ], [ %89, %87 ], [ -1, %86 ], [ %85, %84 ], [ 0, %59 ], [ %81, %78 ], [ 0, %36 ], [ %58, %55 ]
+  %.0.i = phi i32 [ 0, %35 ], [ 0, %36 ], [ %58, %55 ], [ 0, %59 ], [ %81, %78 ], [ 0, %82 ], [ %85, %84 ], [ -1, %86 ], [ %89, %87 ], [ %92, %90 ]
   br i1 %.not.i, label %101, label %94
 
 94:                                               ; preds = %93
@@ -703,8 +703,8 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %148
 
 148:                                              ; preds = %143, %141
-  %.071.i98 = phi ptr [ %.2116, %141 ], [ %147, %143 ]
-  %.1.i99 = phi i32 [ 0, %141 ], [ %146, %143 ]
+  %.071.i98 = phi ptr [ %147, %143 ], [ %.2116, %141 ]
+  %.1.i99 = phi i32 [ %146, %143 ], [ 0, %141 ]
   %149 = load i8, ptr %.071.i98, align 1
   %150 = zext i8 %149 to i32
   %151 = or disjoint i32 %.1.i99, %150
@@ -713,8 +713,8 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %154
 
 154:                                              ; preds = %148, %141
-  %.172.i96 = phi ptr [ %.2116, %141 ], [ %153, %148 ]
-  %.2.i97 = phi i32 [ 0, %141 ], [ %152, %148 ]
+  %.172.i96 = phi ptr [ %153, %148 ], [ %.2116, %141 ]
+  %.2.i97 = phi i32 [ %152, %148 ], [ 0, %141 ]
   %155 = load i8, ptr %.172.i96, align 1
   %156 = zext i8 %155 to i32
   %157 = or disjoint i32 %.2.i97, %156
@@ -723,8 +723,8 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %160
 
 160:                                              ; preds = %154, %141
-  %.273.i94 = phi ptr [ %.2116, %141 ], [ %159, %154 ]
-  %.3.i95 = phi i32 [ 0, %141 ], [ %158, %154 ]
+  %.273.i94 = phi ptr [ %159, %154 ], [ %.2116, %141 ]
+  %.3.i95 = phi i32 [ %158, %154 ], [ 0, %141 ]
   %161 = load i8, ptr %.273.i94, align 1
   %162 = zext i8 %161 to i32
   %163 = or disjoint i32 %.3.i95, %162
@@ -747,8 +747,8 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %171
 
 171:                                              ; preds = %166, %164
-  %.374.i92 = phi ptr [ %.2116, %164 ], [ %170, %166 ]
-  %.4.i93 = phi i32 [ 0, %164 ], [ %169, %166 ]
+  %.374.i92 = phi ptr [ %170, %166 ], [ %.2116, %164 ]
+  %.4.i93 = phi i32 [ %169, %166 ], [ 0, %164 ]
   %172 = load i8, ptr %.374.i92, align 1
   %173 = zext i8 %172 to i32
   %174 = shl nuw nsw i32 %173, 16
@@ -757,8 +757,8 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %177
 
 177:                                              ; preds = %171, %164
-  %.475.i90 = phi ptr [ %.2116, %164 ], [ %176, %171 ]
-  %.5.i91 = phi i32 [ 0, %164 ], [ %175, %171 ]
+  %.475.i90 = phi ptr [ %176, %171 ], [ %.2116, %164 ]
+  %.5.i91 = phi i32 [ %175, %171 ], [ 0, %164 ]
   %178 = load i8, ptr %.475.i90, align 1
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 8
@@ -767,8 +767,8 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %183
 
 183:                                              ; preds = %177, %164
-  %.576.i88 = phi ptr [ %.2116, %164 ], [ %182, %177 ]
-  %.6.i89 = phi i32 [ 0, %164 ], [ %181, %177 ]
+  %.576.i88 = phi ptr [ %182, %177 ], [ %.2116, %164 ]
+  %.6.i89 = phi i32 [ %181, %177 ], [ 0, %164 ]
   %184 = load i8, ptr %.576.i88, align 1
   %185 = zext i8 %184 to i32
   %186 = or i32 %.6.i89, %185
@@ -801,7 +801,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %198
 
 198:                                              ; preds = %195, %192, %191, %189, %187, %183, %164, %160, %141, %.lr.ph117
-  %.0.i81 = phi i32 [ 0, %.lr.ph117 ], [ 0, %187 ], [ %197, %195 ], [ %194, %192 ], [ -1, %191 ], [ %190, %189 ], [ 0, %164 ], [ %186, %183 ], [ 0, %141 ], [ %163, %160 ]
+  %.0.i81 = phi i32 [ 0, %.lr.ph117 ], [ 0, %141 ], [ %163, %160 ], [ 0, %164 ], [ %186, %183 ], [ 0, %187 ], [ %190, %189 ], [ -1, %191 ], [ %194, %192 ], [ %197, %195 ]
   br i1 %.not.i, label %206, label %199
 
 199:                                              ; preds = %198

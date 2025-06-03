@@ -3929,7 +3929,7 @@ stbte__hittest.exit._crit_edge:                   ; preds = %stbte__hittest.exit
   br label %38
 
 35:                                               ; preds = %stbte__hittest.exit._crit_edge, %30
-  %36 = phi i32 [ %.pre, %stbte__hittest.exit._crit_edge ], [ %33, %30 ]
+  %36 = phi i32 [ %33, %30 ], [ %.pre, %stbte__hittest.exit._crit_edge ]
   %37 = icmp eq i32 %36, %5
   br i1 %37, label %38, label %47
 
@@ -3957,7 +3957,7 @@ stbte__hittest.exit._crit_edge:                   ; preds = %stbte__hittest.exit
   br label %47
 
 47:                                               ; preds = %stbte__hittest.exit, %21, %35, %43, %46, %38
-  %.036 = phi i32 [ 2, %46 ], [ %.03541, %38 ], [ 0, %43 ], [ 0, %35 ], [ 0, %21 ], [ 0, %stbte__hittest.exit ]
+  %.036 = phi i32 [ %.03541, %38 ], [ 2, %46 ], [ 0, %43 ], [ 0, %35 ], [ 0, %21 ], [ 0, %stbte__hittest.exit ]
   ret i32 %.036
 }
 
@@ -4111,7 +4111,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br label %84
 
 84:                                               ; preds = %stbte__hittest.exit, %23, %43, %47, %37, %42, %80, %46
-  %.0 = phi i32 [ 3, %80 ], [ 2, %46 ], [ 1, %42 ], [ 1, %37 ], [ 0, %47 ], [ 0, %43 ], [ 0, %23 ], [ 0, %stbte__hittest.exit ]
+  %.0 = phi i32 [ 2, %46 ], [ 3, %80 ], [ 1, %42 ], [ 1, %37 ], [ 0, %47 ], [ 0, %43 ], [ 0, %23 ], [ 0, %stbte__hittest.exit ]
   ret i32 %.0
 }
 

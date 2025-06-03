@@ -321,8 +321,8 @@ switch.lookup:                                    ; preds = %64
   br i1 %.not96.i.i, label %.thread116.i.i, label %.thread109.i.i
 
 .thread109.i.i:                                   ; preds = %140, %139, %138, %109, %106
-  %.075115.i.i = phi ptr [ %.176.i.i, %140 ], [ %111, %109 ], [ @.str.8, %138 ], [ @.str.9, %139 ], [ @.str.7, %106 ]
-  %.077114.i.i = phi ptr [ %.077.i.i, %140 ], [ null, %109 ], [ null, %138 ], [ null, %139 ], [ null, %106 ]
+  %.075115.i.i = phi ptr [ %.176.i.i, %140 ], [ %111, %109 ], [ @.str.9, %139 ], [ @.str.8, %138 ], [ @.str.7, %106 ]
+  %.077114.i.i = phi ptr [ %.077.i.i, %140 ], [ null, %109 ], [ null, %139 ], [ null, %138 ], [ null, %106 ]
   %141 = call ptr @cstring_to_text(ptr noundef nonnull %.075115.i.i) #4
   %142 = ptrtoint ptr %141 to i64
   store i64 %142, ptr %30, align 16

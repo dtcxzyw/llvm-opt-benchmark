@@ -408,7 +408,7 @@ define internal i32 @be_ssl_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef cap
   br label %26
 
 26:                                               ; preds = %3, %4, %23, %18, %11
-  %.0 = phi i32 [ 0, %23 ], [ 0, %18 ], [ %17, %11 ], [ %10, %4 ], [ -1, %3 ]
+  %.0 = phi i32 [ %17, %11 ], [ 0, %18 ], [ 0, %23 ], [ %10, %4 ], [ -1, %3 ]
   ret i32 %.0
 }
 

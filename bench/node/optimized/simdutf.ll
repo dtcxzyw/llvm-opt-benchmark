@@ -2829,7 +2829,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %entry, %sw.default, %sw.bb4, %sw.bb2
-  %retval.0 = phi i64 [ 0, %sw.default ], [ 3, %sw.bb4 ], [ 4, %sw.bb2 ], [ 2, %entry ], [ 2, %entry ]
+  %retval.0 = phi i64 [ 0, %sw.default ], [ 4, %sw.bb2 ], [ 3, %sw.bb4 ], [ 2, %entry ], [ 2, %entry ]
   ret i64 %retval.0
 }
 
@@ -27811,8 +27811,8 @@ if.end163.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit: ; preds = %if.then.i685, %if.then6.i, %if.then20.i, %if.end163.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr39.i, %if.then20.i ], [ %utf16_output.addr.i.4, %if.end163.i ], [ %add.ptr16.i, %if.then6.i ], [ %add.ptr.i687, %if.then.i685 ]
-  %retval.0.i = phi i64 [ 12, %if.then20.i ], [ %conv164.i, %if.end163.i ], [ 16, %if.then6.i ], [ 16, %if.then.i685 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr39.i, %if.then20.i ], [ %utf16_output.addr.i.4, %if.end163.i ], [ %add.ptr.i687, %if.then.i685 ], [ %add.ptr16.i, %if.then6.i ]
+  %retval.0.i = phi i64 [ 12, %if.then20.i ], [ %conv164.i, %if.end163.i ], [ 16, %if.then.i685 ], [ 16, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
   %add28.i = add i64 %retval.0.i, %pos.i.2717
@@ -28230,8 +28230,8 @@ if.end174.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit: ; preds = %if.then.i691, %if.then10.i, %if.then25.i, %if.end174.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr21.i, %if.then10.i ], [ %add.ptr.i693, %if.then.i691 ]
-  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then10.i ], [ 16, %if.then.i691 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr.i693, %if.then.i691 ], [ %add.ptr21.i, %if.then10.i ]
+  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then.i691 ], [ 16, %if.then10.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer_swap.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
@@ -28635,8 +28635,8 @@ if.end163.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit: ; preds = %if.then.i705, %if.then6.i, %if.then20.i, %if.end163.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr39.i, %if.then20.i ], [ %utf16_output.addr.i.4, %if.end163.i ], [ %add.ptr16.i, %if.then6.i ], [ %add.ptr.i707, %if.then.i705 ]
-  %retval.0.i = phi i64 [ 12, %if.then20.i ], [ %conv164.i, %if.end163.i ], [ 16, %if.then6.i ], [ 16, %if.then.i705 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr39.i, %if.then20.i ], [ %utf16_output.addr.i.4, %if.end163.i ], [ %add.ptr.i707, %if.then.i705 ], [ %add.ptr16.i, %if.then6.i ]
+  %retval.0.i = phi i64 [ 12, %if.then20.i ], [ %conv164.i, %if.end163.i ], [ 16, %if.then.i705 ], [ 16, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
   %add34.i = add i64 %retval.0.i, %pos.i.2744
@@ -29085,8 +29085,8 @@ if.end174.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit: ; preds = %if.then.i711, %if.then10.i, %if.then25.i, %if.end174.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr21.i, %if.then10.i ], [ %add.ptr.i713, %if.then.i711 ]
-  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then10.i ], [ 16, %if.then.i711 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr.i713, %if.then.i711 ], [ %add.ptr21.i, %if.then10.i ]
+  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then.i711 ], [ 16, %if.then10.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer_swap.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
@@ -29411,8 +29411,8 @@ if.end163.i.i:                                    ; preds = %for.inc.i.i, %if.en
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit.i
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit.i: ; preds = %if.end163.i.i, %if.then20.i.i, %if.then6.i.i, %if.then.i.i
-  %utf16_output.addr.5.i = phi ptr [ %add.ptr39.i.i, %if.then20.i.i ], [ %utf16_output.addr.3.i, %if.end163.i.i ], [ %add.ptr16.i.i, %if.then6.i.i ], [ %add.ptr.i64.i, %if.then.i.i ]
-  %retval.0.i.i = phi i64 [ 12, %if.then20.i.i ], [ %conv164.i.i, %if.end163.i.i ], [ 16, %if.then6.i.i ], [ 16, %if.then.i.i ]
+  %utf16_output.addr.5.i = phi ptr [ %add.ptr39.i.i, %if.then20.i.i ], [ %utf16_output.addr.3.i, %if.end163.i.i ], [ %add.ptr.i64.i, %if.then.i.i ], [ %add.ptr16.i.i, %if.then6.i.i ]
+  %retval.0.i.i = phi i64 [ 12, %if.then20.i.i ], [ %conv164.i.i, %if.end163.i.i ], [ 16, %if.then.i.i ], [ 16, %if.then6.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i.i)
   %add11.i = add i64 %retval.0.i.i, %pos.285.i
@@ -29723,8 +29723,8 @@ if.end174.i.i:                                    ; preds = %for.inc.i.i, %if.en
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit.i
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit.i: ; preds = %if.end174.i.i, %if.then25.i.i, %if.then10.i.i, %if.then.i.i
-  %utf16_output.addr.5.i = phi ptr [ %add.ptr45.i.i, %if.then25.i.i ], [ %utf16_output.addr.3.i, %if.end174.i.i ], [ %add.ptr21.i.i, %if.then10.i.i ], [ %add.ptr.i70.i, %if.then.i.i ]
-  %retval.0.i.i = phi i64 [ 12, %if.then25.i.i ], [ %conv175.i.i, %if.end174.i.i ], [ 16, %if.then10.i.i ], [ 16, %if.then.i.i ]
+  %utf16_output.addr.5.i = phi ptr [ %add.ptr45.i.i, %if.then25.i.i ], [ %utf16_output.addr.3.i, %if.end174.i.i ], [ %add.ptr.i70.i, %if.then.i.i ], [ %add.ptr21.i.i, %if.then10.i.i ]
+  %retval.0.i.i = phi i64 [ 12, %if.then25.i.i ], [ %conv175.i.i, %if.end174.i.i ], [ 16, %if.then.i.i ], [ 16, %if.then10.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer_swap.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i.i)
@@ -30076,8 +30076,8 @@ if.end135.i:                                      ; preds = %if.end135.sink.spli
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit: ; preds = %if.then.i703, %if.then9.i, %if.then24.i, %if.end135.i
-  %utf32_output.addr.i.5 = phi ptr [ %add.ptr42.i711, %if.then24.i ], [ %utf32_output.addr.i.4, %if.end135.i ], [ %add.ptr20.i, %if.then9.i ], [ %add.ptr6.i, %if.then.i703 ]
-  %retval.0.i = phi i64 [ 12, %if.then24.i ], [ %conv136.i, %if.end135.i ], [ 16, %if.then9.i ], [ 16, %if.then.i703 ]
+  %utf32_output.addr.i.5 = phi ptr [ %add.ptr42.i711, %if.then24.i ], [ %utf32_output.addr.i.4, %if.end135.i ], [ %add.ptr6.i, %if.then.i703 ], [ %add.ptr20.i, %if.then9.i ]
+  %retval.0.i = phi i64 [ 12, %if.then24.i ], [ %conv136.i, %if.end135.i ], [ 16, %if.then.i703 ], [ 16, %if.then9.i ]
   %add28.i = add i64 %retval.0.i, %pos.i.2734
   %shr29.i = lshr i64 %utf8_end_of_code_point_mask.i.0733, %retval.0.i
   %cmp24.i = icmp ult i64 %add28.i, %sub22.i
@@ -30462,8 +30462,8 @@ if.end135.i:                                      ; preds = %if.end135.sink.spli
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit: ; preds = %if.then.i723, %if.then9.i, %if.then24.i, %if.end135.i
-  %utf32_output.addr.i.5 = phi ptr [ %add.ptr42.i, %if.then24.i ], [ %utf32_output.addr.i.4, %if.end135.i ], [ %add.ptr20.i, %if.then9.i ], [ %add.ptr6.i, %if.then.i723 ]
-  %retval.0.i = phi i64 [ 12, %if.then24.i ], [ %conv136.i, %if.end135.i ], [ 16, %if.then9.i ], [ 16, %if.then.i723 ]
+  %utf32_output.addr.i.5 = phi ptr [ %add.ptr42.i, %if.then24.i ], [ %utf32_output.addr.i.4, %if.end135.i ], [ %add.ptr6.i, %if.then.i723 ], [ %add.ptr20.i, %if.then9.i ]
+  %retval.0.i = phi i64 [ 12, %if.then24.i ], [ %conv136.i, %if.end135.i ], [ 16, %if.then.i723 ], [ 16, %if.then9.i ]
   %add34.i = add i64 %retval.0.i, %pos.i.2757
   %shr35.i = lshr i64 %utf8_end_of_code_point_mask.i.0756, %retval.0.i
   %cmp30.i = icmp ult i64 %add34.i, %sub28.i
@@ -30769,8 +30769,8 @@ if.end135.i.i:                                    ; preds = %if.end135.sink.spli
   br label %_ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit.i
 
 _ZN7simdutf7haswell12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit.i: ; preds = %if.end135.i.i, %if.then24.i.i, %if.then9.i.i, %if.then.i.i
-  %utf32_output.addr.4.i = phi ptr [ %add.ptr42.i.i, %if.then24.i.i ], [ %utf32_output.addr.3.i, %if.end135.i.i ], [ %add.ptr20.i.i, %if.then9.i.i ], [ %add.ptr6.i.i, %if.then.i.i ]
-  %retval.0.i.i = phi i64 [ 12, %if.then24.i.i ], [ %conv136.i.i, %if.end135.i.i ], [ 16, %if.then9.i.i ], [ 16, %if.then.i.i ]
+  %utf32_output.addr.4.i = phi ptr [ %add.ptr42.i.i, %if.then24.i.i ], [ %utf32_output.addr.3.i, %if.end135.i.i ], [ %add.ptr6.i.i, %if.then.i.i ], [ %add.ptr20.i.i, %if.then9.i.i ]
+  %retval.0.i.i = phi i64 [ 12, %if.then24.i.i ], [ %conv136.i.i, %if.end135.i.i ], [ 16, %if.then.i.i ], [ 16, %if.then9.i.i ]
   %add11.i = add i64 %retval.0.i.i, %pos.2102.i
   %shr12.i = lshr i64 %utf8_end_of_code_point_mask.0101.i, %retval.0.i.i
   %cmp7.i = icmp ult i64 %add11.i, %sub.i
@@ -31734,8 +31734,8 @@ if.end260.i:                                      ; preds = %if.else243.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end260.i, %if.then226.i, %if.then211.i, %if.then205.i
-  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then205.i ], [ %incdec.ptr242.i, %if.then226.i ], [ %incdec.ptr282.i, %if.end260.i ], [ %incdec.ptr221.i, %if.then211.i ]
-  %k.1.i = phi i64 [ %k.0267.i, %if.then205.i ], [ %k.0267.i, %if.then226.i ], [ %add247.i, %if.end260.i ], [ %k.0267.i, %if.then211.i ]
+  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then205.i ], [ %incdec.ptr242.i, %if.then226.i ], [ %incdec.ptr221.i, %if.then211.i ], [ %incdec.ptr282.i, %if.end260.i ]
+  %k.1.i = phi i64 [ %k.0267.i, %if.then205.i ], [ %k.0267.i, %if.then226.i ], [ %k.0267.i, %if.then211.i ], [ %add247.i, %if.end260.i ]
   %inc286.i = add i64 %k.1.i, 1
   %cmp198.i = icmp ult i64 %inc286.i, %spec.select.i
   br i1 %cmp198.i, label %for.body.i, label %for.end.i, !llvm.loop !451
@@ -32063,8 +32063,8 @@ if.end266.i:                                      ; preds = %if.else248.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end266.i, %if.then231.i, %if.then216.i, %if.then210.i
-  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then210.i ], [ %incdec.ptr247.i, %if.then231.i ], [ %incdec.ptr288.i, %if.end266.i ], [ %incdec.ptr226.i, %if.then216.i ]
-  %k.1.i = phi i64 [ %k.0271.i, %if.then210.i ], [ %k.0271.i, %if.then231.i ], [ %add252.i, %if.end266.i ], [ %k.0271.i, %if.then216.i ]
+  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then210.i ], [ %incdec.ptr247.i, %if.then231.i ], [ %incdec.ptr226.i, %if.then216.i ], [ %incdec.ptr288.i, %if.end266.i ]
+  %k.1.i = phi i64 [ %k.0271.i, %if.then210.i ], [ %k.0271.i, %if.then231.i ], [ %k.0271.i, %if.then216.i ], [ %add252.i, %if.end266.i ]
   %inc292.i = add i64 %k.1.i, 1
   %cmp202.i = icmp ult i64 %inc292.i, %spec.select.i
   br i1 %cmp202.i, label %for.body.i, label %for.end.i, !llvm.loop !453
@@ -32387,8 +32387,8 @@ if.end265.i:                                      ; preds = %if.else243.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end265.i, %if.then226.i, %if.then211.i, %if.then205.i
-  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then205.i ], [ %incdec.ptr242.i, %if.then226.i ], [ %incdec.ptr287.i, %if.end265.i ], [ %incdec.ptr221.i, %if.then211.i ]
-  %k.1.i = phi i64 [ %k.0278.i, %if.then205.i ], [ %k.0278.i, %if.then226.i ], [ %add247.i, %if.end265.i ], [ %k.0278.i, %if.then211.i ]
+  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then205.i ], [ %incdec.ptr242.i, %if.then226.i ], [ %incdec.ptr221.i, %if.then211.i ], [ %incdec.ptr287.i, %if.end265.i ]
+  %k.1.i = phi i64 [ %k.0278.i, %if.then205.i ], [ %k.0278.i, %if.then226.i ], [ %k.0278.i, %if.then211.i ], [ %add247.i, %if.end265.i ]
   %inc291.i = add i64 %k.1.i, 1
   %cmp198.i = icmp ult i64 %inc291.i, %spec.select.i
   br i1 %cmp198.i, label %for.body.i, label %for.end.i, !llvm.loop !458
@@ -32732,8 +32732,8 @@ if.end271.i:                                      ; preds = %if.else248.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end271.i, %if.then231.i, %if.then216.i, %if.then210.i
-  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then210.i ], [ %incdec.ptr247.i, %if.then231.i ], [ %incdec.ptr293.i, %if.end271.i ], [ %incdec.ptr226.i, %if.then216.i ]
-  %k.1.i = phi i64 [ %k.0281.i, %if.then210.i ], [ %k.0281.i, %if.then231.i ], [ %add252.i, %if.end271.i ], [ %k.0281.i, %if.then216.i ]
+  %utf8_output.addr.3.i = phi ptr [ %incdec.ptr.i, %if.then210.i ], [ %incdec.ptr247.i, %if.then231.i ], [ %incdec.ptr226.i, %if.then216.i ], [ %incdec.ptr293.i, %if.end271.i ]
+  %k.1.i = phi i64 [ %k.0281.i, %if.then210.i ], [ %k.0281.i, %if.then231.i ], [ %k.0281.i, %if.then216.i ], [ %add252.i, %if.end271.i ]
   %inc297.i = add i64 %k.1.i, 1
   %cmp202.i = icmp ult i64 %inc297.i, %spec.select.i
   br i1 %cmp202.i, label %for.body.i, label %for.end.i, !llvm.loop !463
@@ -41137,8 +41137,8 @@ if.end165.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit: ; preds = %if.then.i555, %if.then9.i, %if.then22.i, %if.end165.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr41.i, %if.then22.i ], [ %utf16_output.addr.i.4, %if.end165.i ], [ %add.ptr18.i554, %if.then9.i ], [ %add.ptr6.i, %if.then.i555 ]
-  %retval.0.i = phi i64 [ 12, %if.then22.i ], [ %conv166.i, %if.end165.i ], [ 16, %if.then9.i ], [ 16, %if.then.i555 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr41.i, %if.then22.i ], [ %utf16_output.addr.i.4, %if.end165.i ], [ %add.ptr6.i, %if.then.i555 ], [ %add.ptr18.i554, %if.then9.i ]
+  %retval.0.i = phi i64 [ 12, %if.then22.i ], [ %conv166.i, %if.end165.i ], [ 16, %if.then.i555 ], [ 16, %if.then9.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
   %add106.i = add i64 %retval.0.i, %pos.i.2589
@@ -41655,8 +41655,8 @@ if.end174.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit: ; preds = %if.then.i566, %if.then11.i, %if.then25.i, %if.end174.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr21.i, %if.then11.i ], [ %add.ptr8.i, %if.then.i566 ]
-  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then11.i ], [ 16, %if.then.i566 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr8.i, %if.then.i566 ], [ %add.ptr21.i, %if.then11.i ]
+  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then.i566 ], [ 16, %if.then11.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer_swap.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
@@ -42149,8 +42149,8 @@ if.end165.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit: ; preds = %if.then.i575, %if.then9.i, %if.then22.i, %if.end165.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr41.i, %if.then22.i ], [ %utf16_output.addr.i.4, %if.end165.i ], [ %add.ptr18.i574, %if.then9.i ], [ %add.ptr6.i, %if.then.i575 ]
-  %retval.0.i = phi i64 [ 12, %if.then22.i ], [ %conv166.i, %if.end165.i ], [ 16, %if.then9.i ], [ 16, %if.then.i575 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr41.i, %if.then22.i ], [ %utf16_output.addr.i.4, %if.end165.i ], [ %add.ptr6.i, %if.then.i575 ], [ %add.ptr18.i574, %if.then9.i ]
+  %retval.0.i = phi i64 [ 12, %if.then22.i ], [ %conv166.i, %if.end165.i ], [ 16, %if.then.i575 ], [ 16, %if.then9.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
   %add112.i = add i64 %retval.0.i, %pos.i.2614
@@ -42698,8 +42698,8 @@ if.end174.i:                                      ; preds = %for.inc.i, %if.end1
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit: ; preds = %if.then.i586, %if.then11.i, %if.then25.i, %if.end174.i
-  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr21.i, %if.then11.i ], [ %add.ptr8.i, %if.then.i586 ]
-  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then11.i ], [ 16, %if.then.i586 ]
+  %utf16_output.addr.i.6 = phi ptr [ %add.ptr45.i, %if.then25.i ], [ %utf16_output.addr.i.4, %if.end174.i ], [ %add.ptr8.i, %if.then.i586 ], [ %add.ptr21.i, %if.then11.i ]
+  %retval.0.i = phi i64 [ 12, %if.then25.i ], [ %conv175.i, %if.end174.i ], [ 16, %if.then.i586 ], [ 16, %if.then11.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer_swap.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i)
@@ -43064,8 +43064,8 @@ if.end165.i.i:                                    ; preds = %for.inc.i.i, %if.en
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit.i
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE0EEEmPKcmRPDs.exit.i: ; preds = %if.end165.i.i, %if.then22.i.i, %if.then9.i.i, %if.then.i.i
-  %utf16_output.addr.5.i = phi ptr [ %add.ptr41.i.i, %if.then22.i.i ], [ %utf16_output.addr.3.i, %if.end165.i.i ], [ %add.ptr18.i62.i, %if.then9.i.i ], [ %add.ptr6.i.i, %if.then.i.i ]
-  %retval.0.i.i = phi i64 [ 12, %if.then22.i.i ], [ %conv166.i.i, %if.end165.i.i ], [ 16, %if.then9.i.i ], [ 16, %if.then.i.i ]
+  %utf16_output.addr.5.i = phi ptr [ %add.ptr41.i.i, %if.then22.i.i ], [ %utf16_output.addr.3.i, %if.end165.i.i ], [ %add.ptr6.i.i, %if.then.i.i ], [ %add.ptr18.i62.i, %if.then9.i.i ]
+  %retval.0.i.i = phi i64 [ 12, %if.then22.i.i ], [ %conv166.i.i, %if.end165.i.i ], [ 16, %if.then.i.i ], [ 16, %if.then9.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i.i)
   %add11.i = add i64 %retval.0.i.i, %pos.287.i
@@ -43426,8 +43426,8 @@ if.end174.i.i:                                    ; preds = %for.inc.i.i, %if.en
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit.i
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf16ILNS_10endiannessE1EEEmPKcmRPDs.exit.i: ; preds = %if.end174.i.i, %if.then25.i.i, %if.then11.i.i, %if.then.i.i
-  %utf16_output.addr.5.i = phi ptr [ %add.ptr45.i.i, %if.then25.i.i ], [ %utf16_output.addr.3.i, %if.end174.i.i ], [ %add.ptr21.i.i, %if.then11.i.i ], [ %add.ptr8.i.i, %if.then.i.i ]
-  %retval.0.i.i = phi i64 [ 12, %if.then25.i.i ], [ %conv175.i.i, %if.end174.i.i ], [ 16, %if.then11.i.i ], [ 16, %if.then.i.i ]
+  %utf16_output.addr.5.i = phi ptr [ %add.ptr45.i.i, %if.then25.i.i ], [ %utf16_output.addr.3.i, %if.end174.i.i ], [ %add.ptr8.i.i, %if.then.i.i ], [ %add.ptr21.i.i, %if.then11.i.i ]
+  %retval.0.i.i = phi i64 [ 12, %if.then25.i.i ], [ %conv175.i.i, %if.end174.i.i ], [ 16, %if.then.i.i ], [ 16, %if.then11.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %basic_buffer_swap.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %surrogate_buffer.i.i)
@@ -43893,8 +43893,8 @@ if.end152.i:                                      ; preds = %if.end152.sink.spli
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit: ; preds = %if.then.i578, %if.then18.i, %if.then37.i, %if.end152.i
-  %utf32_output.addr.i.5 = phi ptr [ %add.ptr55.i, %if.then37.i ], [ %utf32_output.addr.i.4, %if.end152.i ], [ %add.ptr33.i, %if.then18.i ], [ %add.ptr15.i, %if.then.i578 ]
-  %retval.0.i = phi i64 [ 12, %if.then37.i ], [ %conv153.i, %if.end152.i ], [ 16, %if.then18.i ], [ 16, %if.then.i578 ]
+  %utf32_output.addr.i.5 = phi ptr [ %add.ptr55.i, %if.then37.i ], [ %utf32_output.addr.i.4, %if.end152.i ], [ %add.ptr15.i, %if.then.i578 ], [ %add.ptr33.i, %if.then18.i ]
+  %retval.0.i = phi i64 [ 12, %if.then37.i ], [ %conv153.i, %if.end152.i ], [ 16, %if.then.i578 ], [ 16, %if.then18.i ]
   %add106.i = add i64 %retval.0.i, %pos.i.2612
   %shr107.i = lshr i64 %utf8_end_of_code_point_mask.i.0611, %retval.0.i
   %cmp102.i = icmp ult i64 %add106.i, %sub100.i
@@ -44393,8 +44393,8 @@ if.end152.i:                                      ; preds = %if.end152.sink.spli
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit: ; preds = %if.then.i598, %if.then18.i, %if.then37.i, %if.end152.i
-  %utf32_output.addr.i.5 = phi ptr [ %add.ptr55.i, %if.then37.i ], [ %utf32_output.addr.i.4, %if.end152.i ], [ %add.ptr33.i, %if.then18.i ], [ %add.ptr15.i, %if.then.i598 ]
-  %retval.0.i = phi i64 [ 12, %if.then37.i ], [ %conv153.i, %if.end152.i ], [ 16, %if.then18.i ], [ 16, %if.then.i598 ]
+  %utf32_output.addr.i.5 = phi ptr [ %add.ptr55.i, %if.then37.i ], [ %utf32_output.addr.i.4, %if.end152.i ], [ %add.ptr15.i, %if.then.i598 ], [ %add.ptr33.i, %if.then18.i ]
+  %retval.0.i = phi i64 [ 12, %if.then37.i ], [ %conv153.i, %if.end152.i ], [ 16, %if.then.i598 ], [ 16, %if.then18.i ]
   %add112.i = add i64 %retval.0.i, %pos.i.2638
   %shr113.i = lshr i64 %utf8_end_of_code_point_mask.i.0637, %retval.0.i
   %cmp108.i = icmp ult i64 %add112.i, %sub106.i
@@ -44765,8 +44765,8 @@ if.end152.i.i:                                    ; preds = %if.end152.sink.spli
   br label %_ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit.i
 
 _ZN7simdutf8westmere12_GLOBAL__N_128convert_masked_utf8_to_utf32EPKcmRPDi.exit.i: ; preds = %if.end152.i.i, %if.then37.i.i, %if.then18.i.i, %if.then.i.i
-  %utf32_output.addr.4.i = phi ptr [ %add.ptr55.i.i, %if.then37.i.i ], [ %utf32_output.addr.3.i, %if.end152.i.i ], [ %add.ptr33.i.i, %if.then18.i.i ], [ %add.ptr15.i.i, %if.then.i.i ]
-  %retval.0.i.i = phi i64 [ 12, %if.then37.i.i ], [ %conv153.i.i, %if.end152.i.i ], [ 16, %if.then18.i.i ], [ 16, %if.then.i.i ]
+  %utf32_output.addr.4.i = phi ptr [ %add.ptr55.i.i, %if.then37.i.i ], [ %utf32_output.addr.3.i, %if.end152.i.i ], [ %add.ptr15.i.i, %if.then.i.i ], [ %add.ptr33.i.i, %if.then18.i.i ]
+  %retval.0.i.i = phi i64 [ 12, %if.then37.i.i ], [ %conv153.i.i, %if.end152.i.i ], [ 16, %if.then.i.i ], [ 16, %if.then18.i.i ]
   %add11.i = add i64 %retval.0.i.i, %pos.2112.i
   %shr12.i = lshr i64 %utf8_end_of_code_point_mask.0111.i, %retval.0.i.i
   %cmp7.i = icmp ult i64 %add11.i, %sub.i
@@ -45668,8 +45668,8 @@ if.end165.i:                                      ; preds = %if.else148.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end165.i, %if.then131.i, %if.then116.i, %if.then110.i
-  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then110.i ], [ %incdec.ptr147.i, %if.then131.i ], [ %incdec.ptr187.i, %if.end165.i ], [ %incdec.ptr126.i, %if.then116.i ]
-  %k.1.i = phi i64 [ %k.0148.i, %if.then110.i ], [ %k.0148.i, %if.then131.i ], [ %add152.i, %if.end165.i ], [ %k.0148.i, %if.then116.i ]
+  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then110.i ], [ %incdec.ptr147.i, %if.then131.i ], [ %incdec.ptr126.i, %if.then116.i ], [ %incdec.ptr187.i, %if.end165.i ]
+  %k.1.i = phi i64 [ %k.0148.i, %if.then110.i ], [ %k.0148.i, %if.then131.i ], [ %k.0148.i, %if.then116.i ], [ %add152.i, %if.end165.i ]
   %inc191.i = add i64 %k.1.i, 1
   %cmp103.i = icmp ult i64 %inc191.i, %spec.select.i
   br i1 %cmp103.i, label %for.body.i, label %for.end.i, !llvm.loop !643
@@ -45986,8 +45986,8 @@ if.end172.i:                                      ; preds = %if.else154.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end172.i, %if.then137.i, %if.then122.i, %if.then116.i
-  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then116.i ], [ %incdec.ptr153.i, %if.then137.i ], [ %incdec.ptr194.i, %if.end172.i ], [ %incdec.ptr132.i, %if.then122.i ]
-  %k.1.i = phi i64 [ %k.0153.i, %if.then116.i ], [ %k.0153.i, %if.then137.i ], [ %add158.i, %if.end172.i ], [ %k.0153.i, %if.then122.i ]
+  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then116.i ], [ %incdec.ptr153.i, %if.then137.i ], [ %incdec.ptr132.i, %if.then122.i ], [ %incdec.ptr194.i, %if.end172.i ]
+  %k.1.i = phi i64 [ %k.0153.i, %if.then116.i ], [ %k.0153.i, %if.then137.i ], [ %k.0153.i, %if.then122.i ], [ %add158.i, %if.end172.i ]
   %inc198.i = add i64 %k.1.i, 1
   %cmp108.i = icmp ult i64 %inc198.i, %spec.select.i
   br i1 %cmp108.i, label %for.body.i, label %for.end.i, !llvm.loop !645
@@ -46298,8 +46298,8 @@ if.end170.i:                                      ; preds = %if.else148.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end170.i, %if.then131.i, %if.then116.i, %if.then110.i
-  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then110.i ], [ %incdec.ptr147.i, %if.then131.i ], [ %incdec.ptr192.i, %if.end170.i ], [ %incdec.ptr126.i, %if.then116.i ]
-  %k.1.i = phi i64 [ %k.0159.i, %if.then110.i ], [ %k.0159.i, %if.then131.i ], [ %add152.i, %if.end170.i ], [ %k.0159.i, %if.then116.i ]
+  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then110.i ], [ %incdec.ptr147.i, %if.then131.i ], [ %incdec.ptr126.i, %if.then116.i ], [ %incdec.ptr192.i, %if.end170.i ]
+  %k.1.i = phi i64 [ %k.0159.i, %if.then110.i ], [ %k.0159.i, %if.then131.i ], [ %k.0159.i, %if.then116.i ], [ %add152.i, %if.end170.i ]
   %inc196.i = add i64 %k.1.i, 1
   %cmp103.i = icmp ult i64 %inc196.i, %spec.select.i
   br i1 %cmp103.i, label %for.body.i, label %for.end.i, !llvm.loop !650
@@ -46634,8 +46634,8 @@ if.end177.i:                                      ; preds = %if.else154.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end177.i, %if.then137.i, %if.then122.i, %if.then116.i
-  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then116.i ], [ %incdec.ptr153.i, %if.then137.i ], [ %incdec.ptr199.i, %if.end177.i ], [ %incdec.ptr132.i, %if.then122.i ]
-  %k.1.i = phi i64 [ %k.0163.i, %if.then116.i ], [ %k.0163.i, %if.then137.i ], [ %add158.i, %if.end177.i ], [ %k.0163.i, %if.then122.i ]
+  %utf8_output.addr.4.i = phi ptr [ %incdec.ptr.i, %if.then116.i ], [ %incdec.ptr153.i, %if.then137.i ], [ %incdec.ptr132.i, %if.then122.i ], [ %incdec.ptr199.i, %if.end177.i ]
+  %k.1.i = phi i64 [ %k.0163.i, %if.then116.i ], [ %k.0163.i, %if.then137.i ], [ %k.0163.i, %if.then122.i ], [ %add158.i, %if.end177.i ]
   %inc203.i = add i64 %k.1.i, 1
   %cmp108.i = icmp ult i64 %inc203.i, %spec.select.i
   br i1 %cmp108.i, label %for.body.i, label %for.end.i, !llvm.loop !655

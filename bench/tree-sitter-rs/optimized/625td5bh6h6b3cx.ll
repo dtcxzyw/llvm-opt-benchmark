@@ -354,7 +354,7 @@ define internal fastcc void @"_ZN103_$LT$regex_automata..meta..regex..CapturesMa
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i": ; preds = %24, %21
-  %.0.i.i.i.i = phi ptr [ %27, %24 ], [ %23, %21 ]
+  %.0.i.i.i.i = phi ptr [ %23, %21 ], [ %27, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 0, ptr %30, align 8, !noalias !19
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -784,7 +784,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i.i": ; preds = %21, %18
-  %.0.i.i.i.i.i = phi ptr [ %24, %21 ], [ %20, %18 ]
+  %.0.i.i.i.i.i = phi ptr [ %20, %18 ], [ %24, %21 ]
   %.val.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !155, !noalias !156, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 32
@@ -1000,7 +1000,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN99_$LT$regex_au
           to label %"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..search..MatchError$GT$17h59a3d362ce51c8b7E.exit.i.i" unwind label %117, !noalias !205
 
 110:                                              ; preds = %.thread101.i.i.i, %.thread.i.i.i
-  %.sroa.9.0.in.i.i = phi ptr [ %102, %.thread101.i.i.i ], [ %.sroa.4.0.copyload.i.i.i, %.thread.i.i.i ]
+  %.sroa.9.0.in.i.i = phi ptr [ %.sroa.4.0.copyload.i.i.i, %.thread.i.i.i ], [ %102, %.thread101.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !204
   store ptr %.sroa.9.0.in.i.i, ptr %12, align 8, !noalias !204
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !204
@@ -2299,7 +2299,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit": ; preds = %73, %70
-  %.0.i11 = phi ptr [ %76, %73 ], [ %72, %70 ]
+  %.0.i11 = phi ptr [ %72, %70 ], [ %76, %73 ]
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %80 = load i64, ptr %79, align 8, !range !51, !invariant.load !4
   %81 = add i64 %80, -1
@@ -9158,7 +9158,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h8dbe5ad7ccea9a66E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -9294,7 +9294,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h044e
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -11978,19 +11978,19 @@ common.resume:                                    ; preds = %154, %24
 .noexc:                                           ; preds = %46
   %47 = load i8, ptr %12, align 8, !range !225, !noalias !1721, !noundef !4
   %trunc.i.i = trunc nuw i8 %47 to i1
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %49 = load i8, ptr %48, align 1, !range !225, !noalias !1721
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %51 = load double, ptr %50, align 8, !noalias !1721
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %49 = load double, ptr %48, align 8, !noalias !1721
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %51 = load i8, ptr %50, align 1, !range !225, !noalias !1721
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1721
   br i1 %trunc.i.i, label %112, label %52
 
 52:                                               ; preds = %.noexc
-  %53 = fcmp olt double %51, 0.000000e+00
+  %53 = fcmp olt double %49, 0.000000e+00
   br i1 %53, label %.thread20.i.i.i, label %54
 
 54:                                               ; preds = %52
-  %55 = bitcast double %51 to i64
+  %55 = bitcast double %49 to i64
   %56 = and i64 %55, 4503599627370495
   %57 = or disjoint i64 %56, 4503599627370496
   %58 = lshr i64 %55, 52
@@ -12097,7 +12097,7 @@ _ZN4core4time8Duration13from_secs_f6417h665274dcf5532c00E.exit.i.i: ; preds = %1
   br i1 %trunc61.i.i, label %122, label %115
 
 112:                                              ; preds = %.noexc
-  %113 = trunc nuw i8 %49 to i1
+  %113 = trunc nuw i8 %51 to i1
   %114 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h53d3eedff8f1ca94E"(i1 noundef zeroext %113)
           to label %173 unwind label %154
 
@@ -18623,7 +18623,7 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   br label %337
 
 337:                                              ; preds = %331, %326, %323, %320
-  %.0.i = phi i8 [ %325, %323 ], [ %336, %331 ], [ %322, %320 ], [ %330, %326 ]
+  %.0.i = phi i8 [ %330, %326 ], [ %322, %320 ], [ %336, %331 ], [ %325, %323 ]
   %338 = trunc i8 %.0.i to i1
   %339 = icmp ne ptr %.sroa.0159.1, %267
   %or.cond331.not = select i1 %338, i1 %339, i1 false
@@ -18785,7 +18785,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i": ; preds = %394, %392
-  %.0.i9.i.i = phi ptr [ %396, %394 ], [ %393, %392 ]
+  %.0.i9.i.i = phi ptr [ %393, %392 ], [ %396, %394 ]
   %399 = getelementptr inbounds nuw i8, ptr %390, i64 16
   %400 = load i64, ptr %399, align 8, !range !51, !invariant.load !4, !noalias !4064
   %401 = add i64 %400, -1
@@ -19625,7 +19625,7 @@ define noundef ptr @_ZN15tree_sitter_cli4test17run_tests_at_path17h03c5cc25bb671
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tree_sitter_cli..util..LogSession$GT$$GT$17h07411fc455ebb8b1E.exit" unwind label %224
 
 59:                                               ; preds = %226, %180, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc3ff95827392700aE.exit", %52
-  %.0118 = phi i8 [ 0, %226 ], [ 0, %180 ], [ 1, %52 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc3ff95827392700aE.exit" ]
+  %.0118 = phi i8 [ 0, %180 ], [ 0, %226 ], [ 1, %52 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc3ff95827392700aE.exit" ]
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -20956,7 +20956,7 @@ define void @_ZN15tree_sitter_cli4test10print_diff17hfa8acd24ed908cc4E(ptr noali
   br label %55
 
 50:                                               ; preds = %.loopexit, %.loopexit.split-lp, %81, %64
-  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %65, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %82, %81 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$difference..Changeset$GT$17h55b03896136998d5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17) #33
           to label %96 unwind label %79
 
@@ -21505,8 +21505,8 @@ define internal fastcc void @_ZN15tree_sitter_cli4test9run_tests17hd2ba23ab5fe61
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3aae4850b54a0339E.exit.lr.ph": ; preds = %180
   %.sroa.6577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 72
   %.sroa.8580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 80
-  %186 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %187 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %187 = getelementptr inbounds nuw i8, ptr %50, i64 8
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3aae4850b54a0339E.exit"
 
 188:                                              ; preds = %193
@@ -21631,20 +21631,20 @@ define internal fastcc void @_ZN15tree_sitter_cli4test9run_tests17hd2ba23ab5fe61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !4514
   %229 = load i32, ptr %43, align 8, !range !106, !noalias !4510, !noundef !4
   %trunc.i = trunc nuw i32 %229 to i1
-  %230 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %231 = load ptr, ptr %230, align 8, !noalias !4510, !nonnull !4
-  %232 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %233 = load i32, ptr %232, align 4, !range !4518, !noalias !4510
+  %230 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %231 = load i32, ptr %230, align 4, !range !4518, !noalias !4510
+  %232 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %233 = load ptr, ptr %232, align 8, !noalias !4510, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !4510
   br i1 %trunc.i, label %236, label %234
 
 234:                                              ; preds = %.noexc393
-  store i32 %233, ptr %44, align 4, !noalias !4510
+  store i32 %231, ptr %44, align 4, !noalias !4510
   %235 = invoke noundef ptr @_ZN15tree_sitter_cli4test21write_tests_to_buffer17h21a6f0cb180e6751E(ptr noalias noundef nonnull align 4 dereferenceable(4) %44, ptr noalias noundef nonnull readonly align 8 %226, i64 noundef %228)
           to label %242 unwind label %238
 
 236:                                              ; preds = %.noexc393
-  %237 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hdb2579c755d0d7ddE"(ptr noundef nonnull %231)
+  %237 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hdb2579c755d0d7ddE"(ptr noundef nonnull %233)
           to label %.thread606 unwind label %247
 
 .thread606:                                       ; preds = %236
@@ -21765,18 +21765,18 @@ define internal fastcc void @_ZN15tree_sitter_cli4test9run_tests17hd2ba23ab5fe61
 274:                                              ; preds = %193
   %275 = load i8, ptr %50, align 8, !range !225, !noundef !4
   %trunc = trunc nuw i8 %275 to i1
-  %276 = load ptr, ptr %186, align 8, !nonnull !4
-  %277 = load i8, ptr %187, align 1, !range !225
+  %276 = load i8, ptr %186, align 1, !range !225
+  %277 = load ptr, ptr %187, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
   br i1 %trunc, label %280, label %278
 
 278:                                              ; preds = %274
-  %279 = trunc nuw i8 %277 to i1
+  %279 = trunc nuw i8 %276 to i1
   br i1 %279, label %284, label %282
 
 280:                                              ; preds = %274
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %276, ptr %281, align 8
+  store ptr %277, ptr %281, align 8
   br label %288
 
 282:                                              ; preds = %278
@@ -25051,7 +25051,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i.i": ; preds = %200, %197
-  %.0.i10.i.i.i.i = phi ptr [ %203, %200 ], [ %199, %197 ]
+  %.0.i10.i.i.i.i = phi ptr [ %199, %197 ], [ %203, %200 ]
   %206 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %207 = load i64, ptr %206, align 8, !range !51, !invariant.load !4, !noalias !5161
   %208 = add i64 %207, -1
@@ -26917,7 +26917,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h542c9529100e7aaeE.exit.i.i.i": ; preds = %722, %720
-  %.0.i9.i.i.i = phi ptr [ %724, %722 ], [ %721, %720 ]
+  %.0.i9.i.i.i = phi ptr [ %721, %720 ], [ %724, %722 ]
   %727 = getelementptr inbounds nuw i8, ptr %718, i64 16
   %728 = load i64, ptr %727, align 8, !range !51, !invariant.load !4, !noalias !5583
   %729 = add i64 %728, -1

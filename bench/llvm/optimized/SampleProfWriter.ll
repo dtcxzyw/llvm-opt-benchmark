@@ -5052,7 +5052,7 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
   br label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit: ; preds = %180, %190, %201, %194, %167, %147, %144, %141, %138, %204
-  %.fca.1.insert.merged = phi { i32, ptr } [ %198, %194 ], [ %202, %201 ], [ %206, %204 ], [ %168, %167 ], [ %165, %147 ], [ %145, %144 ], [ %142, %141 ], [ %139, %138 ], [ %192, %190 ], [ %182, %180 ]
+  %.fca.1.insert.merged = phi { i32, ptr } [ %198, %194 ], [ %202, %201 ], [ %206, %204 ], [ %139, %138 ], [ %142, %141 ], [ %145, %144 ], [ %165, %147 ], [ %168, %167 ], [ %192, %190 ], [ %182, %180 ]
   ret { i32, ptr } %.fca.1.insert.merged
 }
 
@@ -8097,8 +8097,8 @@ _ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_
   store ptr %68, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !349
   br label %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EED2Ev.exit
 
-72:                                               ; preds = %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit17, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit14
-  %.sroa.0.1.ph = phi ptr [ %28, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit14 ], [ %59, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit17 ], [ %16, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit ]
+72:                                               ; preds = %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit14, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit17
+  %.sroa.0.1.ph = phi ptr [ %59, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit17 ], [ %28, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit14 ], [ %16, %_ZNSt10unique_ptrIN4llvm10sampleprof19SampleProfileWriterESt14default_deleteIS2_EE5resetEPS2_.exit ]
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.ph, i64 32
   store i32 %2, ptr %73, align 8, !tbaa !343
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16

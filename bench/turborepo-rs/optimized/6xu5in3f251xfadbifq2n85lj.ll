@@ -249,8 +249,8 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   br label %117
 
 117:                                              ; preds = %91, %98
-  %.sroa.3.0 = phi i64 [ undef, %98 ], [ %97, %91 ]
-  %.sroa.0.0 = phi ptr [ null, %98 ], [ %95, %91 ]
+  %.sroa.3.0 = phi i64 [ %97, %91 ], [ undef, %98 ]
+  %.sroa.0.0 = phi ptr [ %95, %91 ], [ null, %98 ]
   %118 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %119 = insertvalue { ptr, i64 } %118, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %119

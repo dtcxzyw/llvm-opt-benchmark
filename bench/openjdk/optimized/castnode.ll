@@ -2022,7 +2022,7 @@ _ZL11fits_in_intPK4Typeb.exit25:                  ; preds = %87
   br label %_ZL11fits_in_intPK4Typeb.exit.thread
 
 _ZL11fits_in_intPK4Typeb.exit.thread:             ; preds = %20, %87, %_ZL11fits_in_intPK4Typeb.exit22.thread, %44, %_ZN11PhaseValues13find_long_conEP4Nodel.exit.thread, %3, %_ZL11fits_in_intPK4Typeb.exit, %_ZL11fits_in_intPK4Typeb.exit25, %93, %79, %50
-  %.0 = phi ptr [ %80, %79 ], [ %94, %93 ], [ %51, %50 ], [ null, %_ZL11fits_in_intPK4Typeb.exit25 ], [ null, %_ZL11fits_in_intPK4Typeb.exit ], [ null, %3 ], [ null, %_ZN11PhaseValues13find_long_conEP4Nodel.exit.thread ], [ null, %44 ], [ null, %_ZL11fits_in_intPK4Typeb.exit22.thread ], [ null, %87 ], [ null, %20 ]
+  %.0 = phi ptr [ %51, %50 ], [ %80, %79 ], [ %94, %93 ], [ null, %_ZL11fits_in_intPK4Typeb.exit25 ], [ null, %_ZL11fits_in_intPK4Typeb.exit ], [ null, %3 ], [ null, %_ZN11PhaseValues13find_long_conEP4Nodel.exit.thread ], [ null, %44 ], [ null, %_ZL11fits_in_intPK4Typeb.exit22.thread ], [ null, %87 ], [ null, %20 ]
   ret ptr %.0
 }
 

@@ -553,6 +553,11 @@ if.then43:                                        ; preds = %sw.bb40, %_ZN3re24P
   %31 = load i32, ptr %30, align 4
   br label %Loop.outer.backedge
 
+Loop.outer.backedge:                              ; preds = %if.end45, %if.then43, %_ZN3re28BitState11ShouldVisitEiPKc.exit124
+  %p.1.ph.be = phi ptr [ %p.2, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %add.ptr, %if.then43 ], [ %add.ptr, %if.end45 ]
+  %id.0.ph.be = phi i32 [ %id.1, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %31, %if.then43 ], [ %shr.i.i, %if.end45 ]
+  br label %Loop.outer
+
 if.end45:                                         ; preds = %sw.bb40, %_ZN3re24Prog4Inst6greedyEPS0_.exit
   %32 = load i8, ptr %longest_120, align 1
   %tobool = trunc i8 %32 to i1
@@ -710,11 +715,6 @@ _ZN3re28BitState11ShouldVisitEiPKc.exit124:       ; preds = %CheckAndLoop
   store i64 %or.i123, ptr %arrayidx.i.i.i116, align 8
   br label %Loop.outer.backedge
 
-Loop.outer.backedge:                              ; preds = %if.end45, %_ZN3re28BitState11ShouldVisitEiPKc.exit124, %if.then43
-  %p.1.ph.be = phi ptr [ %add.ptr, %if.then43 ], [ %p.2, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %add.ptr, %if.end45 ]
-  %id.0.ph.be = phi i32 [ %31, %if.then43 ], [ %id.1, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %shr.i.i, %if.end45 ]
-  br label %Loop.outer
-
 sw.bb107:                                         ; preds = %Loop
   %67 = load i8, ptr %endmatch_, align 2
   %tobool108 = trunc i8 %67 to i1
@@ -801,8 +801,8 @@ if.end147.Next_crit_edge:                         ; preds = %if.end147
   br label %Next
 
 Next:                                             ; preds = %if.end147.Next_crit_edge, %sw.bb107, %sw.bb84, %if.end52, %if.end45
-  %82 = phi i32 [ %.pre266, %sw.bb84 ], [ %24, %if.end52 ], [ %24, %if.end45 ], [ %24, %sw.bb107 ], [ %.pre265, %if.end147.Next_crit_edge ]
-  %matched.3 = phi i1 [ %matched.1, %sw.bb84 ], [ %matched.1, %if.end52 ], [ %matched.1, %if.end45 ], [ %matched.1, %sw.bb107 ], [ true, %if.end147.Next_crit_edge ]
+  %82 = phi i32 [ %24, %if.end45 ], [ %24, %if.end52 ], [ %.pre266, %sw.bb84 ], [ %24, %sw.bb107 ], [ %.pre265, %if.end147.Next_crit_edge ]
+  %matched.3 = phi i1 [ %matched.1, %if.end45 ], [ %matched.1, %if.end52 ], [ %matched.1, %sw.bb84 ], [ %matched.1, %sw.bb107 ], [ true, %if.end147.Next_crit_edge ]
   %83 = and i32 %82, 8
   %tobool156.not = icmp eq i32 %83, 0
   br i1 %tobool156.not, label %if.then157, label %sw.epilog
@@ -812,7 +812,7 @@ if.then157:                                       ; preds = %Next
   br label %Loop
 
 sw.epilog:                                        ; preds = %CheckAndLoop, %Loop, %Next
-  %matched.2 = phi i1 [ %matched.1, %Loop ], [ %matched.3, %Next ], [ %matched.1, %CheckAndLoop ]
+  %matched.2 = phi i1 [ %matched.3, %Next ], [ %matched.1, %Loop ], [ %matched.1, %CheckAndLoop ]
   %84 = load i32, ptr %njob_, align 8
   %cmp195 = icmp sgt i32 %84, 0
   br i1 %cmp195, label %while.body.lr.ph, label %return, !llvm.loop !4

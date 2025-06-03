@@ -3555,7 +3555,7 @@ _ZN8GraphKit21has_exception_handlerEv.exit.thread39: ; preds = %31, %_ZN8GraphKi
   br label %61
 
 61:                                               ; preds = %38, %57, %53, %49, %44, %39
-  %.031 = phi ptr [ null, %38 ], [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %44 ], [ %43, %39 ]
+  %.031 = phi ptr [ null, %38 ], [ %43, %39 ], [ %48, %44 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ]
   %62 = load ptr, ptr %7, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 352
   %64 = load ptr, ptr %63, align 8
@@ -7424,7 +7424,7 @@ _ZN8GraphKit14replace_in_mapEP4NodeS1_.exit123:   ; preds = %407, %411, %435
   br label %_ZN8GraphKit14replace_in_mapEP4NodeS1_.exit124
 
 _ZN8GraphKit14replace_in_mapEP4NodeS1_.exit124:   ; preds = %_ZN8GraphKit7stoppedEv.exit122, %._ZN8GraphKit7stoppedEv.exit122.thread_crit_edge, %_ZN8GraphKit7stoppedEv.exit, %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge, %475, %451, %450, %440, %443, %112, %106, %_ZN8GraphKit14replace_in_mapEP4NodeS1_.exit123, %206, %201, %94
-  %.0 = phi ptr [ %102, %94 ], [ %205, %201 ], [ %211, %206 ], [ %439, %_ZN8GraphKit14replace_in_mapEP4NodeS1_.exit123 ], [ %1, %106 ], [ %1, %112 ], [ %1, %440 ], [ %442, %443 ], [ %442, %450 ], [ %442, %451 ], [ %442, %475 ], [ %.pre139, %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge ], [ %17, %_ZN8GraphKit7stoppedEv.exit ], [ %.pre135, %._ZN8GraphKit7stoppedEv.exit122.thread_crit_edge ], [ %404, %_ZN8GraphKit7stoppedEv.exit122 ]
+  %.0 = phi ptr [ %205, %201 ], [ %211, %206 ], [ %439, %_ZN8GraphKit14replace_in_mapEP4NodeS1_.exit123 ], [ %102, %94 ], [ %1, %106 ], [ %1, %112 ], [ %1, %440 ], [ %442, %443 ], [ %442, %450 ], [ %442, %451 ], [ %442, %475 ], [ %.pre139, %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge ], [ %17, %_ZN8GraphKit7stoppedEv.exit ], [ %.pre135, %._ZN8GraphKit7stoppedEv.exit122.thread_crit_edge ], [ %404, %_ZN8GraphKit7stoppedEv.exit122 ]
   ret ptr %.0
 }
 
@@ -12115,7 +12115,7 @@ _ZN8GraphKit7stoppedEv.exit:                      ; preds = %20
   br label %67
 
 67:                                               ; preds = %29, %58, %61, %64
-  %.041 = phi i32 [ %1, %29 ], [ %1, %64 ], [ %1, %61 ], [ %60, %58 ]
+  %.041 = phi i32 [ %1, %29 ], [ %1, %61 ], [ %60, %58 ], [ %1, %64 ]
   %68 = load ptr, ptr %8, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 368
   %70 = load ptr, ptr %69, align 8
@@ -16586,7 +16586,7 @@ _ZN4Node8init_reqEjPS_.exit289:                   ; preds = %862, %868, %879
   br label %891
 
 891:                                              ; preds = %570, %574, %_ZN4Node8init_reqEjPS_.exit289, %306, %119, %56, %51, %20, %15
-  %.0 = phi ptr [ %17, %15 ], [ %22, %20 ], [ %308, %306 ], [ %890, %_ZN4Node8init_reqEjPS_.exit289 ], [ %122, %119 ], [ %58, %56 ], [ %52, %51 ], [ %569, %574 ], [ %569, %570 ]
+  %.0 = phi ptr [ %17, %15 ], [ %22, %20 ], [ %52, %51 ], [ %58, %56 ], [ %122, %119 ], [ %308, %306 ], [ %890, %_ZN4Node8init_reqEjPS_.exit289 ], [ %569, %574 ], [ %569, %570 ]
   ret ptr %.0
 }
 
@@ -21034,7 +21034,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
   br label %628
 
 628:                                              ; preds = %_ZNK8GraphKit15record_for_igvnEP4Node.exit, %_ZN8GraphKit11set_controlEP4Node.exit, %98, %_ZNK8GraphKit7java_bcEv.exit.thread, %55
-  %.0 = phi ptr [ %302, %_ZN8GraphKit11set_controlEP4Node.exit ], [ %627, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %112, %98 ], [ %89, %_ZNK8GraphKit7java_bcEv.exit.thread ], [ %56, %55 ]
+  %.0 = phi ptr [ %302, %_ZN8GraphKit11set_controlEP4Node.exit ], [ %627, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %56, %55 ], [ %112, %98 ], [ %89, %_ZNK8GraphKit7java_bcEv.exit.thread ]
   ret ptr %.0
 }
 

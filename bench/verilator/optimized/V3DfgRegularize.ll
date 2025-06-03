@@ -5471,7 +5471,7 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %1, %52
   br label %60
 
 60:                                               ; preds = %37, %_ZNK7AstNode5widthEv.exit
-  %.1 = phi ptr [ %8, %37 ], [ %59, %_ZNK7AstNode5widthEv.exit ]
+  %.1 = phi ptr [ %59, %_ZNK7AstNode5widthEv.exit ], [ %8, %37 ]
   ret ptr %.1
 }
 

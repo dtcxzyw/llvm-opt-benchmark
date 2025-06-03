@@ -913,7 +913,7 @@ define void @_ZN7rocksdb14ThreadPoolImpl4Impl15BGThreadWrapperEPv(ptr noundef %0
   br label %11
 
 11:                                               ; preds = %10, %9, %8, %7, %1
-  %.0 = phi i32 [ 4, %1 ], [ 2, %10 ], [ 3, %9 ], [ 1, %8 ], [ 0, %7 ]
+  %.0 = phi i32 [ 4, %1 ], [ 0, %7 ], [ 1, %8 ], [ 3, %9 ], [ 2, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !83
   tail call void @_ZN7rocksdb16ThreadStatusUtil14RegisterThreadEPKNS_3EnvENS_12ThreadStatus10ThreadTypeE(ptr noundef %13, i32 noundef %.0)

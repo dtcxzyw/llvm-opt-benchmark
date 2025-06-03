@@ -113,7 +113,7 @@ define void @_ZN4YAML6StreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(1
   br label %_ZN4YAML15IntroCharTypeOfEi.exit
 
 _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, %31, %32, %33, %.fold.split.i
-  %.0.i = phi i64 [ 5, %32 ], [ 4, %31 ], [ 3, %30 ], [ 2, %29 ], [ 1, %28 ], [ 7, %24 ], [ %..i, %33 ], [ 0, %.fold.split.i ]
+  %.0.i = phi i64 [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 4, %31 ], [ 5, %32 ], [ 7, %24 ], [ %..i, %33 ], [ 0, %.fold.split.i ]
   %35 = getelementptr inbounds nuw [18 x [8 x i32]], ptr @_ZN4YAMLL18s_introTransitionsE, i64 0, i64 %22, i64 %.0.i
   %36 = load i32, ptr %35, align 4, !tbaa !34
   %37 = getelementptr inbounds nuw [18 x [8 x i8]], ptr @_ZN4YAMLL17s_introUngetCountE, i64 0, i64 %22, i64 %.0.i
@@ -1073,7 +1073,7 @@ define void @_ZNK4YAML6Stream12StreamInUtf8Ev(ptr noundef nonnull align 8 derefe
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit
 
 _ZNK4YAML6Stream11GetNextByteEv.exit:             ; preds = %21, %._crit_edge.i
-  %.1.i = phi i8 [ 0, %21 ], [ %36, %._crit_edge.i ]
+  %.1.i = phi i8 [ %36, %._crit_edge.i ], [ 0, %21 ]
   %37 = load ptr, ptr %0, align 8, !tbaa !57
   %38 = load ptr, ptr %37, align 8, !tbaa !22
   %39 = getelementptr i8, ptr %38, i64 -24
@@ -1227,7 +1227,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit:             ; preds = %1, %23, %9
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit38
 
 _ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %54, %._crit_edge.i34
-  %.1.i36 = phi i8 [ 0, %54 ], [ %69, %._crit_edge.i34 ]
+  %.1.i36 = phi i8 [ %69, %._crit_edge.i34 ], [ 0, %54 ]
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %.1.i36, ptr %70, align 1, !tbaa !36
   %71 = load ptr, ptr %0, align 8, !tbaa !57
@@ -1385,7 +1385,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit45:           ; preds = %98, %._crit_edge.i4
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit52
 
 _ZNK4YAML6Stream11GetNextByteEv.exit52:           ; preds = %142, %152
-  %.1.i50 = phi i8 [ 0, %142 ], [ %157, %152 ]
+  %.1.i50 = phi i8 [ %157, %152 ], [ 0, %142 ]
   store i8 %.1.i50, ptr %70, align 1, !tbaa !36
   %158 = load ptr, ptr %0, align 8, !tbaa !57
   %159 = load ptr, ptr %158, align 8, !tbaa !22
@@ -1660,7 +1660,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit21:           ; preds = %_ZNK4YAML6Stream11G
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit28
 
 _ZNK4YAML6Stream11GetNextByteEv.exit28:           ; preds = %121, %._crit_edge.i24
-  %.1.i26 = phi i8 [ 0, %121 ], [ %136, %._crit_edge.i24 ]
+  %.1.i26 = phi i8 [ %136, %._crit_edge.i24 ], [ 0, %121 ]
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %.1.i26, ptr %137, align 1, !tbaa !36
   %138 = load ptr, ptr %0, align 8, !tbaa !57
@@ -1755,7 +1755,7 @@ define noundef zeroext i8 @_ZNK4YAML6Stream11GetNextByteEv(ptr noundef nonnull a
   br label %37
 
 37:                                               ; preds = %20, %30
-  %.1 = phi i8 [ 0, %20 ], [ %36, %30 ]
+  %.1 = phi i8 [ %36, %30 ], [ 0, %20 ]
   ret i8 %.1
 }
 

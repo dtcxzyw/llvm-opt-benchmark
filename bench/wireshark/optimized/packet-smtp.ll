@@ -1582,8 +1582,8 @@ dissect_ntlm_auth.exit.i:                         ; preds = %684, %681, %678, %5
   br i1 %689, label %428, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %dissect_ntlm_auth.exit.i, %423, %dissect_smtp_data.exit.i, %411, %400, %.preheader.i, %380
-  %.0300.i = phi ptr [ null, %380 ], [ null, %423 ], [ %408, %411 ], [ %408, %400 ], [ null, %dissect_smtp_data.exit.i ], [ null, %.preheader.i ], [ %.2302.i, %dissect_ntlm_auth.exit.i ]
-  %.0298.i = phi i32 [ 0, %380 ], [ 0, %423 ], [ 0, %411 ], [ 0, %400 ], [ 0, %dissect_smtp_data.exit.i ], [ 0, %.preheader.i ], [ %688, %dissect_ntlm_auth.exit.i ]
+  %.0300.i = phi ptr [ null, %380 ], [ %408, %411 ], [ %408, %400 ], [ null, %dissect_smtp_data.exit.i ], [ null, %423 ], [ null, %.preheader.i ], [ %.2302.i, %dissect_ntlm_auth.exit.i ]
+  %.0298.i = phi i32 [ 0, %380 ], [ 0, %411 ], [ 0, %400 ], [ 0, %dissect_smtp_data.exit.i ], [ 0, %423 ], [ 0, %.preheader.i ], [ %688, %dissect_ntlm_auth.exit.i ]
   %690 = load i8, ptr @smtp_data_desegment, align 1, !range !6, !noundef !7
   %691 = trunc nuw i8 %690 to i1
   br i1 %691, label %692, label %dissect_smtp_request.exit

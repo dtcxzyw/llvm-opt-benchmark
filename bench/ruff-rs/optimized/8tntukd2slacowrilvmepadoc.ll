@@ -397,7 +397,7 @@ define void @_ZN19ruff_python_codegen7stylist7Stylist11from_tokens17hf12661774bb
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h49871400c5df031dE.exit.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h49871400c5df031dE.exit.i.i.i.i.i": ; preds = %188, %183, %180, %177
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi i8 [ %182, %180 ], [ %193, %188 ], [ %179, %177 ], [ %187, %183 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i = phi i8 [ %187, %183 ], [ %179, %177 ], [ %193, %188 ], [ %182, %180 ]
   %194 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i to i1
   br i1 %194, label %195, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hdcc528c66e47c29cE.exit.i"
 
@@ -541,7 +541,7 @@ _ZN19ruff_python_codegen7stylist18detect_indentation17h0cf0de2c3f236687E.exit: ;
   br label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit
 
 _ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit: ; preds = %226, %.noexc4, %.noexc3, %218
-  %.sroa.0.0.i2 = phi i1 [ %231, %.noexc3 ], [ %233, %.noexc4 ], [ true, %218 ], [ true, %226 ]
+  %.sroa.0.0.i2 = phi i1 [ %233, %.noexc4 ], [ %231, %.noexc3 ], [ true, %218 ], [ true, %226 ]
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -5251,8 +5251,8 @@ define internal fastcc i32 @cli_loadhash(ptr noundef captures(address_is_null) %
   %68 = icmp ult i32 %67, %64
   br i1 %68, label %.outer161.backedge, label %69
 
-.outer161.backedge:                               ; preds = %66, %71, %96, %100, %109
-  %.099.ph163.be = phi i32 [ %64, %66 ], [ %64, %71 ], [ %.1100, %96 ], [ %.1100, %100 ], [ %.1100, %109 ]
+.outer161.backedge:                               ; preds = %66, %96, %100, %109, %71
+  %.099.ph163.be = phi i32 [ %64, %66 ], [ %.1100, %96 ], [ %.1100, %100 ], [ %.1100, %109 ], [ %64, %71 ]
   br label %.outer161
 
 69:                                               ; preds = %66
@@ -9146,7 +9146,7 @@ define internal fastcc range(i32 0, 23) i32 @cli_loadpwdb(ptr noundef captures(a
   br label %.loopexit
 
 72:                                               ; preds = %67, %65, %70, %69
-  %.072 = phi i64 [ 2, %70 ], [ 1, %69 ], [ 0, %65 ], [ 0, %67 ]
+  %.072 = phi i64 [ 1, %69 ], [ 2, %70 ], [ 0, %65 ], [ 0, %67 ]
   %73 = load i32, ptr %17, align 8, !tbaa !38
   %.not100 = icmp eq i32 %73, 0
   br i1 %.not100, label %77, label %74
@@ -14878,8 +14878,8 @@ define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef nonnull initia
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.264) #21
   br label %289
 
-289:                                              ; preds = %248, %238, %212, %209, %199, %182, %177, %166, %114, %125, %105, %94, %86, %._crit_edge.i, %73, %288, %._crit_edge365.thread.i, %.thread211.i
-  %.1.i.ph = phi i1 [ %162, %.thread211.i ], [ false, %._crit_edge365.thread.i ], [ false, %288 ], [ false, %73 ], [ true, %._crit_edge.i ], [ false, %86 ], [ false, %94 ], [ false, %105 ], [ false, %125 ], [ true, %114 ], [ false, %166 ], [ false, %177 ], [ false, %182 ], [ false, %199 ], [ false, %209 ], [ false, %212 ], [ false, %238 ], [ true, %248 ]
+289:                                              ; preds = %248, %105, %94, %114, %125, %182, %177, %166, %212, %209, %199, %238, %86, %._crit_edge.i, %73, %288, %._crit_edge365.thread.i, %.thread211.i
+  %.1.i.ph = phi i1 [ %162, %.thread211.i ], [ false, %._crit_edge365.thread.i ], [ false, %288 ], [ false, %73 ], [ true, %._crit_edge.i ], [ false, %86 ], [ false, %238 ], [ false, %199 ], [ false, %209 ], [ false, %212 ], [ false, %166 ], [ false, %177 ], [ false, %182 ], [ false, %125 ], [ true, %114 ], [ false, %94 ], [ false, %105 ], [ true, %248 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21

@@ -742,8 +742,8 @@ XXH_readLE32_align.exit158:                       ; preds = %3
   br label %XXH_readLE32_align.exit155
 
 XXH_readLE32_align.exit155:                       ; preds = %XXH_readLE32_align.exit158, %3
-  %.0115 = phi i32 [ %0, %3 ], [ %9, %XXH_readLE32_align.exit158 ]
-  %.0 = phi ptr [ %1, %3 ], [ %7, %XXH_readLE32_align.exit158 ]
+  %.0115 = phi i32 [ %9, %XXH_readLE32_align.exit158 ], [ %0, %3 ]
+  %.0 = phi ptr [ %7, %XXH_readLE32_align.exit158 ], [ %1, %3 ]
   %.0.i154 = load i32, ptr %.0, align 1
   %10 = mul i32 %.0.i154, -1028477379
   %11 = add i32 %10, %.0115
@@ -753,8 +753,8 @@ XXH_readLE32_align.exit155:                       ; preds = %XXH_readLE32_align.
   br label %XXH_readLE32_align.exit152
 
 XXH_readLE32_align.exit152:                       ; preds = %XXH_readLE32_align.exit155, %3
-  %.1116 = phi i32 [ %0, %3 ], [ %14, %XXH_readLE32_align.exit155 ]
-  %.1 = phi ptr [ %1, %3 ], [ %12, %XXH_readLE32_align.exit155 ]
+  %.1116 = phi i32 [ %14, %XXH_readLE32_align.exit155 ], [ %0, %3 ]
+  %.1 = phi ptr [ %12, %XXH_readLE32_align.exit155 ], [ %1, %3 ]
   %.0.i151 = load i32, ptr %.1, align 1
   %15 = mul i32 %.0.i151, -1028477379
   %16 = add i32 %15, %.1116
@@ -772,8 +772,8 @@ XXH_readLE32_align.exit149:                       ; preds = %3
   br label %XXH_readLE32_align.exit146
 
 XXH_readLE32_align.exit146:                       ; preds = %XXH_readLE32_align.exit149, %3
-  %.2117 = phi i32 [ %0, %3 ], [ %23, %XXH_readLE32_align.exit149 ]
-  %.2 = phi ptr [ %1, %3 ], [ %21, %XXH_readLE32_align.exit149 ]
+  %.2117 = phi i32 [ %23, %XXH_readLE32_align.exit149 ], [ %0, %3 ]
+  %.2 = phi ptr [ %21, %XXH_readLE32_align.exit149 ], [ %1, %3 ]
   %.0.i145 = load i32, ptr %.2, align 1
   %24 = mul i32 %.0.i145, -1028477379
   %25 = add i32 %24, %.2117
@@ -783,8 +783,8 @@ XXH_readLE32_align.exit146:                       ; preds = %XXH_readLE32_align.
   br label %XXH_readLE32_align.exit143
 
 XXH_readLE32_align.exit143:                       ; preds = %XXH_readLE32_align.exit146, %3
-  %.3118 = phi i32 [ %0, %3 ], [ %28, %XXH_readLE32_align.exit146 ]
-  %.3 = phi ptr [ %1, %3 ], [ %26, %XXH_readLE32_align.exit146 ]
+  %.3118 = phi i32 [ %28, %XXH_readLE32_align.exit146 ], [ %0, %3 ]
+  %.3 = phi ptr [ %26, %XXH_readLE32_align.exit146 ], [ %1, %3 ]
   %.0.i142 = load i32, ptr %.3, align 1
   %29 = mul i32 %.0.i142, -1028477379
   %30 = add i32 %29, %.3118
@@ -809,8 +809,8 @@ XXH_readLE32_align.exit140:                       ; preds = %3
   br label %XXH_readLE32_align.exit137
 
 XXH_readLE32_align.exit137:                       ; preds = %XXH_readLE32_align.exit140, %3
-  %.4119 = phi i32 [ %0, %3 ], [ %44, %XXH_readLE32_align.exit140 ]
-  %.4 = phi ptr [ %1, %3 ], [ %42, %XXH_readLE32_align.exit140 ]
+  %.4119 = phi i32 [ %44, %XXH_readLE32_align.exit140 ], [ %0, %3 ]
+  %.4 = phi ptr [ %42, %XXH_readLE32_align.exit140 ], [ %1, %3 ]
   %.0.i136 = load i32, ptr %.4, align 1
   %45 = mul i32 %.0.i136, -1028477379
   %46 = add i32 %45, %.4119
@@ -820,8 +820,8 @@ XXH_readLE32_align.exit137:                       ; preds = %XXH_readLE32_align.
   br label %XXH_readLE32_align.exit134
 
 XXH_readLE32_align.exit134:                       ; preds = %XXH_readLE32_align.exit137, %3
-  %.5120 = phi i32 [ %0, %3 ], [ %49, %XXH_readLE32_align.exit137 ]
-  %.5 = phi ptr [ %1, %3 ], [ %47, %XXH_readLE32_align.exit137 ]
+  %.5120 = phi i32 [ %49, %XXH_readLE32_align.exit137 ], [ %0, %3 ]
+  %.5 = phi ptr [ %47, %XXH_readLE32_align.exit137 ], [ %1, %3 ]
   %.0.i133 = load i32, ptr %.5, align 1
   %50 = mul i32 %.0.i133, -1028477379
   %51 = add i32 %50, %.5120
@@ -853,8 +853,8 @@ XXH_readLE32_align.exit131:                       ; preds = %3
   br label %XXH_readLE32_align.exit128
 
 XXH_readLE32_align.exit128:                       ; preds = %XXH_readLE32_align.exit131, %3
-  %.6121 = phi i32 [ %0, %3 ], [ %72, %XXH_readLE32_align.exit131 ]
-  %.6 = phi ptr [ %1, %3 ], [ %70, %XXH_readLE32_align.exit131 ]
+  %.6121 = phi i32 [ %72, %XXH_readLE32_align.exit131 ], [ %0, %3 ]
+  %.6 = phi ptr [ %70, %XXH_readLE32_align.exit131 ], [ %1, %3 ]
   %.0.i127 = load i32, ptr %.6, align 1
   %73 = mul i32 %.0.i127, -1028477379
   %74 = add i32 %73, %.6121
@@ -864,8 +864,8 @@ XXH_readLE32_align.exit128:                       ; preds = %XXH_readLE32_align.
   br label %XXH_readLE32_align.exit
 
 XXH_readLE32_align.exit:                          ; preds = %XXH_readLE32_align.exit128, %3
-  %.7122 = phi i32 [ %0, %3 ], [ %77, %XXH_readLE32_align.exit128 ]
-  %.7 = phi ptr [ %1, %3 ], [ %75, %XXH_readLE32_align.exit128 ]
+  %.7122 = phi i32 [ %77, %XXH_readLE32_align.exit128 ], [ %0, %3 ]
+  %.7 = phi ptr [ %75, %XXH_readLE32_align.exit128 ], [ %1, %3 ]
   %.0.i = load i32, ptr %.7, align 1
   %78 = mul i32 %.0.i, -1028477379
   %79 = add i32 %78, %.7122
@@ -875,8 +875,8 @@ XXH_readLE32_align.exit:                          ; preds = %XXH_readLE32_align.
   br label %83
 
 83:                                               ; preds = %XXH_readLE32_align.exit, %3
-  %.8123 = phi i32 [ %0, %3 ], [ %82, %XXH_readLE32_align.exit ]
-  %.8 = phi ptr [ %1, %3 ], [ %80, %XXH_readLE32_align.exit ]
+  %.8123 = phi i32 [ %82, %XXH_readLE32_align.exit ], [ %0, %3 ]
+  %.8 = phi ptr [ %80, %XXH_readLE32_align.exit ], [ %1, %3 ]
   %84 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %85 = load i8, ptr %.8, align 1, !tbaa !28
   %86 = zext i8 %85 to i32
@@ -887,8 +887,8 @@ XXH_readLE32_align.exit:                          ; preds = %XXH_readLE32_align.
   br label %91
 
 91:                                               ; preds = %83, %3
-  %.9124 = phi i32 [ %0, %3 ], [ %90, %83 ]
-  %.9 = phi ptr [ %1, %3 ], [ %84, %83 ]
+  %.9124 = phi i32 [ %90, %83 ], [ %0, %3 ]
+  %.9 = phi ptr [ %84, %83 ], [ %1, %3 ]
   %92 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   %93 = load i8, ptr %.9, align 1, !tbaa !28
   %94 = zext i8 %93 to i32
@@ -899,8 +899,8 @@ XXH_readLE32_align.exit:                          ; preds = %XXH_readLE32_align.
   br label %99
 
 99:                                               ; preds = %91, %3
-  %.10125 = phi i32 [ %0, %3 ], [ %98, %91 ]
-  %.10 = phi ptr [ %1, %3 ], [ %92, %91 ]
+  %.10125 = phi i32 [ %98, %91 ], [ %0, %3 ]
+  %.10 = phi ptr [ %92, %91 ], [ %1, %3 ]
   %100 = load i8, ptr %.10, align 1, !tbaa !28
   %101 = zext i8 %100 to i32
   %102 = mul i32 %101, 374761393
@@ -913,7 +913,7 @@ default.unreachable162:                           ; preds = %3
   unreachable
 
 106:                                              ; preds = %3, %99, %XXH_readLE32_align.exit134, %XXH_readLE32_align.exit143, %XXH_readLE32_align.exit152
-  %.11.sink168 = phi i32 [ %67, %XXH_readLE32_align.exit134 ], [ %39, %XXH_readLE32_align.exit143 ], [ %18, %XXH_readLE32_align.exit152 ], [ %0, %3 ], [ %105, %99 ]
+  %.11.sink168 = phi i32 [ %67, %XXH_readLE32_align.exit134 ], [ %39, %XXH_readLE32_align.exit143 ], [ %18, %XXH_readLE32_align.exit152 ], [ %105, %99 ], [ %0, %3 ]
   %107 = lshr i32 %.11.sink168, 15
   %108 = xor i32 %107, %.11.sink168
   %109 = mul i32 %108, -2048144777
@@ -982,8 +982,8 @@ XXH_readLE64_align.exit381:                       ; preds = %3
   br label %XXH_readLE64_align.exit378
 
 XXH_readLE64_align.exit378:                       ; preds = %XXH_readLE64_align.exit381, %3
-  %.0279 = phi ptr [ %1, %3 ], [ %8, %XXH_readLE64_align.exit381 ]
-  %.0278 = phi i64 [ %0, %3 ], [ %12, %XXH_readLE64_align.exit381 ]
+  %.0279 = phi ptr [ %8, %XXH_readLE64_align.exit381 ], [ %1, %3 ]
+  %.0278 = phi i64 [ %12, %XXH_readLE64_align.exit381 ], [ %0, %3 ]
   %.0.i377 = load i64, ptr %.0279, align 1
   %13 = mul i64 %.0.i377, -4417276706812531889
   %14 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 31)
@@ -996,8 +996,8 @@ XXH_readLE64_align.exit378:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit375
 
 XXH_readLE64_align.exit375:                       ; preds = %XXH_readLE64_align.exit378, %3
-  %.1280 = phi ptr [ %1, %3 ], [ %16, %XXH_readLE64_align.exit378 ]
-  %.1 = phi i64 [ %0, %3 ], [ %20, %XXH_readLE64_align.exit378 ]
+  %.1280 = phi ptr [ %16, %XXH_readLE64_align.exit378 ], [ %1, %3 ]
+  %.1 = phi i64 [ %20, %XXH_readLE64_align.exit378 ], [ %0, %3 ]
   %.0.i374 = load i64, ptr %.1280, align 1
   %21 = mul i64 %.0.i374, -4417276706812531889
   %22 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 31)
@@ -1021,8 +1021,8 @@ XXH_readLE64_align.exit372:                       ; preds = %3
   br label %XXH_readLE64_align.exit369
 
 XXH_readLE64_align.exit369:                       ; preds = %XXH_readLE64_align.exit372, %3
-  %.2281 = phi ptr [ %1, %3 ], [ %31, %XXH_readLE64_align.exit372 ]
-  %.2 = phi i64 [ %0, %3 ], [ %35, %XXH_readLE64_align.exit372 ]
+  %.2281 = phi ptr [ %31, %XXH_readLE64_align.exit372 ], [ %1, %3 ]
+  %.2 = phi i64 [ %35, %XXH_readLE64_align.exit372 ], [ %0, %3 ]
   %.0.i368 = load i64, ptr %.2281, align 1
   %36 = mul i64 %.0.i368, -4417276706812531889
   %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
@@ -1035,8 +1035,8 @@ XXH_readLE64_align.exit369:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit366
 
 XXH_readLE64_align.exit366:                       ; preds = %XXH_readLE64_align.exit369, %3
-  %.3282 = phi ptr [ %1, %3 ], [ %39, %XXH_readLE64_align.exit369 ]
-  %.3 = phi i64 [ %0, %3 ], [ %43, %XXH_readLE64_align.exit369 ]
+  %.3282 = phi ptr [ %39, %XXH_readLE64_align.exit369 ], [ %1, %3 ]
+  %.3 = phi i64 [ %43, %XXH_readLE64_align.exit369 ], [ %0, %3 ]
   %.0.i365 = load i64, ptr %.3282, align 1
   %44 = mul i64 %.0.i365, -4417276706812531889
   %45 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 31)
@@ -1049,8 +1049,8 @@ XXH_readLE64_align.exit366:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE32_align.exit310
 
 XXH_readLE32_align.exit310:                       ; preds = %XXH_readLE64_align.exit366, %3
-  %.4283 = phi ptr [ %1, %3 ], [ %47, %XXH_readLE64_align.exit366 ]
-  %.4 = phi i64 [ %0, %3 ], [ %51, %XXH_readLE64_align.exit366 ]
+  %.4283 = phi ptr [ %47, %XXH_readLE64_align.exit366 ], [ %1, %3 ]
+  %.4 = phi i64 [ %51, %XXH_readLE64_align.exit366 ], [ %0, %3 ]
   %.0.i309 = load i32, ptr %.4283, align 1
   %52 = zext i32 %.0.i309 to i64
   %53 = mul i64 %52, -7046029288634856825
@@ -1073,8 +1073,8 @@ XXH_readLE64_align.exit363:                       ; preds = %3
   br label %XXH_readLE64_align.exit360
 
 XXH_readLE64_align.exit360:                       ; preds = %XXH_readLE64_align.exit363, %3
-  %.5284 = phi ptr [ %1, %3 ], [ %61, %XXH_readLE64_align.exit363 ]
-  %.5 = phi i64 [ %0, %3 ], [ %65, %XXH_readLE64_align.exit363 ]
+  %.5284 = phi ptr [ %61, %XXH_readLE64_align.exit363 ], [ %1, %3 ]
+  %.5 = phi i64 [ %65, %XXH_readLE64_align.exit363 ], [ %0, %3 ]
   %.0.i359 = load i64, ptr %.5284, align 1
   %66 = mul i64 %.0.i359, -4417276706812531889
   %67 = tail call i64 @llvm.fshl.i64(i64 %66, i64 %66, i64 31)
@@ -1087,8 +1087,8 @@ XXH_readLE64_align.exit360:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit357
 
 XXH_readLE64_align.exit357:                       ; preds = %XXH_readLE64_align.exit360, %3
-  %.6285 = phi ptr [ %1, %3 ], [ %69, %XXH_readLE64_align.exit360 ]
-  %.6 = phi i64 [ %0, %3 ], [ %73, %XXH_readLE64_align.exit360 ]
+  %.6285 = phi ptr [ %69, %XXH_readLE64_align.exit360 ], [ %1, %3 ]
+  %.6 = phi i64 [ %73, %XXH_readLE64_align.exit360 ], [ %0, %3 ]
   %.0.i356 = load i64, ptr %.6285, align 1
   %74 = mul i64 %.0.i356, -4417276706812531889
   %75 = tail call i64 @llvm.fshl.i64(i64 %74, i64 %74, i64 31)
@@ -1119,8 +1119,8 @@ XXH_readLE64_align.exit354:                       ; preds = %3
   br label %XXH_readLE64_align.exit351
 
 XXH_readLE64_align.exit351:                       ; preds = %XXH_readLE64_align.exit354, %3
-  %.7286 = phi ptr [ %1, %3 ], [ %91, %XXH_readLE64_align.exit354 ]
-  %.7 = phi i64 [ %0, %3 ], [ %95, %XXH_readLE64_align.exit354 ]
+  %.7286 = phi ptr [ %91, %XXH_readLE64_align.exit354 ], [ %1, %3 ]
+  %.7 = phi i64 [ %95, %XXH_readLE64_align.exit354 ], [ %0, %3 ]
   %.0.i350 = load i64, ptr %.7286, align 1
   %96 = mul i64 %.0.i350, -4417276706812531889
   %97 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 31)
@@ -1133,8 +1133,8 @@ XXH_readLE64_align.exit351:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit348
 
 XXH_readLE64_align.exit348:                       ; preds = %XXH_readLE64_align.exit351, %3
-  %.8287 = phi ptr [ %1, %3 ], [ %99, %XXH_readLE64_align.exit351 ]
-  %.8 = phi i64 [ %0, %3 ], [ %103, %XXH_readLE64_align.exit351 ]
+  %.8287 = phi ptr [ %99, %XXH_readLE64_align.exit351 ], [ %1, %3 ]
+  %.8 = phi i64 [ %103, %XXH_readLE64_align.exit351 ], [ %0, %3 ]
   %.0.i347 = load i64, ptr %.8287, align 1
   %104 = mul i64 %.0.i347, -4417276706812531889
   %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 31)
@@ -1147,8 +1147,8 @@ XXH_readLE64_align.exit348:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE32_align.exit307
 
 XXH_readLE32_align.exit307:                       ; preds = %XXH_readLE64_align.exit348, %3
-  %.9288 = phi ptr [ %1, %3 ], [ %107, %XXH_readLE64_align.exit348 ]
-  %.9 = phi i64 [ %0, %3 ], [ %111, %XXH_readLE64_align.exit348 ]
+  %.9288 = phi ptr [ %107, %XXH_readLE64_align.exit348 ], [ %1, %3 ]
+  %.9 = phi i64 [ %111, %XXH_readLE64_align.exit348 ], [ %0, %3 ]
   %.0.i306 = load i32, ptr %.9288, align 1
   %112 = zext i32 %.0.i306 to i64
   %113 = mul i64 %112, -7046029288634856825
@@ -1178,8 +1178,8 @@ XXH_readLE64_align.exit345:                       ; preds = %3
   br label %XXH_readLE64_align.exit342
 
 XXH_readLE64_align.exit342:                       ; preds = %XXH_readLE64_align.exit345, %3
-  %.10289 = phi ptr [ %1, %3 ], [ %128, %XXH_readLE64_align.exit345 ]
-  %.10 = phi i64 [ %0, %3 ], [ %132, %XXH_readLE64_align.exit345 ]
+  %.10289 = phi ptr [ %128, %XXH_readLE64_align.exit345 ], [ %1, %3 ]
+  %.10 = phi i64 [ %132, %XXH_readLE64_align.exit345 ], [ %0, %3 ]
   %.0.i341 = load i64, ptr %.10289, align 1
   %133 = mul i64 %.0.i341, -4417276706812531889
   %134 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 31)
@@ -1192,8 +1192,8 @@ XXH_readLE64_align.exit342:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit339
 
 XXH_readLE64_align.exit339:                       ; preds = %XXH_readLE64_align.exit342, %3
-  %.11290 = phi ptr [ %1, %3 ], [ %136, %XXH_readLE64_align.exit342 ]
-  %.11 = phi i64 [ %0, %3 ], [ %140, %XXH_readLE64_align.exit342 ]
+  %.11290 = phi ptr [ %136, %XXH_readLE64_align.exit342 ], [ %1, %3 ]
+  %.11 = phi i64 [ %140, %XXH_readLE64_align.exit342 ], [ %0, %3 ]
   %.0.i338 = load i64, ptr %.11290, align 1
   %141 = mul i64 %.0.i338, -4417276706812531889
   %142 = tail call i64 @llvm.fshl.i64(i64 %141, i64 %141, i64 31)
@@ -1231,8 +1231,8 @@ XXH_readLE64_align.exit336:                       ; preds = %3
   br label %XXH_readLE64_align.exit333
 
 XXH_readLE64_align.exit333:                       ; preds = %XXH_readLE64_align.exit336, %3
-  %.12291 = phi ptr [ %1, %3 ], [ %165, %XXH_readLE64_align.exit336 ]
-  %.12 = phi i64 [ %0, %3 ], [ %169, %XXH_readLE64_align.exit336 ]
+  %.12291 = phi ptr [ %165, %XXH_readLE64_align.exit336 ], [ %1, %3 ]
+  %.12 = phi i64 [ %169, %XXH_readLE64_align.exit336 ], [ %0, %3 ]
   %.0.i332 = load i64, ptr %.12291, align 1
   %170 = mul i64 %.0.i332, -4417276706812531889
   %171 = tail call i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 31)
@@ -1245,8 +1245,8 @@ XXH_readLE64_align.exit333:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit330
 
 XXH_readLE64_align.exit330:                       ; preds = %XXH_readLE64_align.exit333, %3
-  %.13292 = phi ptr [ %1, %3 ], [ %173, %XXH_readLE64_align.exit333 ]
-  %.13 = phi i64 [ %0, %3 ], [ %177, %XXH_readLE64_align.exit333 ]
+  %.13292 = phi ptr [ %173, %XXH_readLE64_align.exit333 ], [ %1, %3 ]
+  %.13 = phi i64 [ %177, %XXH_readLE64_align.exit333 ], [ %0, %3 ]
   %.0.i329 = load i64, ptr %.13292, align 1
   %178 = mul i64 %.0.i329, -4417276706812531889
   %179 = tail call i64 @llvm.fshl.i64(i64 %178, i64 %178, i64 31)
@@ -1259,8 +1259,8 @@ XXH_readLE64_align.exit330:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE32_align.exit304
 
 XXH_readLE32_align.exit304:                       ; preds = %XXH_readLE64_align.exit330, %3
-  %.14293 = phi ptr [ %1, %3 ], [ %181, %XXH_readLE64_align.exit330 ]
-  %.14 = phi i64 [ %0, %3 ], [ %185, %XXH_readLE64_align.exit330 ]
+  %.14293 = phi ptr [ %181, %XXH_readLE64_align.exit330 ], [ %1, %3 ]
+  %.14 = phi i64 [ %185, %XXH_readLE64_align.exit330 ], [ %0, %3 ]
   %.0.i303 = load i32, ptr %.14293, align 1
   %186 = zext i32 %.0.i303 to i64
   %187 = mul i64 %186, -7046029288634856825
@@ -1297,8 +1297,8 @@ XXH_readLE64_align.exit327:                       ; preds = %3
   br label %XXH_readLE64_align.exit324
 
 XXH_readLE64_align.exit324:                       ; preds = %XXH_readLE64_align.exit327, %3
-  %.15294 = phi ptr [ %1, %3 ], [ %209, %XXH_readLE64_align.exit327 ]
-  %.15 = phi i64 [ %0, %3 ], [ %213, %XXH_readLE64_align.exit327 ]
+  %.15294 = phi ptr [ %209, %XXH_readLE64_align.exit327 ], [ %1, %3 ]
+  %.15 = phi i64 [ %213, %XXH_readLE64_align.exit327 ], [ %0, %3 ]
   %.0.i323 = load i64, ptr %.15294, align 1
   %214 = mul i64 %.0.i323, -4417276706812531889
   %215 = tail call i64 @llvm.fshl.i64(i64 %214, i64 %214, i64 31)
@@ -1311,8 +1311,8 @@ XXH_readLE64_align.exit324:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit321
 
 XXH_readLE64_align.exit321:                       ; preds = %XXH_readLE64_align.exit324, %3
-  %.16295 = phi ptr [ %1, %3 ], [ %217, %XXH_readLE64_align.exit324 ]
-  %.16 = phi i64 [ %0, %3 ], [ %221, %XXH_readLE64_align.exit324 ]
+  %.16295 = phi ptr [ %217, %XXH_readLE64_align.exit324 ], [ %1, %3 ]
+  %.16 = phi i64 [ %221, %XXH_readLE64_align.exit324 ], [ %0, %3 ]
   %.0.i320 = load i64, ptr %.16295, align 1
   %222 = mul i64 %.0.i320, -4417276706812531889
   %223 = tail call i64 @llvm.fshl.i64(i64 %222, i64 %222, i64 31)
@@ -1357,8 +1357,8 @@ XXH_readLE64_align.exit318:                       ; preds = %3
   br label %XXH_readLE64_align.exit315
 
 XXH_readLE64_align.exit315:                       ; preds = %XXH_readLE64_align.exit318, %3
-  %.17296 = phi ptr [ %1, %3 ], [ %253, %XXH_readLE64_align.exit318 ]
-  %.17 = phi i64 [ %0, %3 ], [ %257, %XXH_readLE64_align.exit318 ]
+  %.17296 = phi ptr [ %253, %XXH_readLE64_align.exit318 ], [ %1, %3 ]
+  %.17 = phi i64 [ %257, %XXH_readLE64_align.exit318 ], [ %0, %3 ]
   %.0.i314 = load i64, ptr %.17296, align 1
   %258 = mul i64 %.0.i314, -4417276706812531889
   %259 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 31)
@@ -1371,8 +1371,8 @@ XXH_readLE64_align.exit315:                       ; preds = %XXH_readLE64_align.
   br label %XXH_readLE64_align.exit
 
 XXH_readLE64_align.exit:                          ; preds = %XXH_readLE64_align.exit315, %3
-  %.18297 = phi ptr [ %1, %3 ], [ %261, %XXH_readLE64_align.exit315 ]
-  %.18 = phi i64 [ %0, %3 ], [ %265, %XXH_readLE64_align.exit315 ]
+  %.18297 = phi ptr [ %261, %XXH_readLE64_align.exit315 ], [ %1, %3 ]
+  %.18 = phi i64 [ %265, %XXH_readLE64_align.exit315 ], [ %0, %3 ]
   %.0.i312 = load i64, ptr %.18297, align 1
   %266 = mul i64 %.0.i312, -4417276706812531889
   %267 = tail call i64 @llvm.fshl.i64(i64 %266, i64 %266, i64 31)
@@ -1385,8 +1385,8 @@ XXH_readLE64_align.exit:                          ; preds = %XXH_readLE64_align.
   br label %XXH_readLE32_align.exit
 
 XXH_readLE32_align.exit:                          ; preds = %XXH_readLE64_align.exit, %3
-  %.19298 = phi ptr [ %1, %3 ], [ %269, %XXH_readLE64_align.exit ]
-  %.19 = phi i64 [ %0, %3 ], [ %273, %XXH_readLE64_align.exit ]
+  %.19298 = phi ptr [ %269, %XXH_readLE64_align.exit ], [ %1, %3 ]
+  %.19 = phi i64 [ %273, %XXH_readLE64_align.exit ], [ %0, %3 ]
   %.0.i = load i32, ptr %.19298, align 1
   %274 = zext i32 %.0.i to i64
   %275 = mul i64 %274, -7046029288634856825
@@ -1398,8 +1398,8 @@ XXH_readLE32_align.exit:                          ; preds = %XXH_readLE64_align.
   br label %281
 
 281:                                              ; preds = %XXH_readLE32_align.exit, %3
-  %.20299 = phi ptr [ %1, %3 ], [ %277, %XXH_readLE32_align.exit ]
-  %.20 = phi i64 [ %0, %3 ], [ %280, %XXH_readLE32_align.exit ]
+  %.20299 = phi ptr [ %277, %XXH_readLE32_align.exit ], [ %1, %3 ]
+  %.20 = phi i64 [ %280, %XXH_readLE32_align.exit ], [ %0, %3 ]
   %282 = getelementptr inbounds nuw i8, ptr %.20299, i64 1
   %283 = load i8, ptr %.20299, align 1, !tbaa !28
   %284 = zext i8 %283 to i64
@@ -1410,8 +1410,8 @@ XXH_readLE32_align.exit:                          ; preds = %XXH_readLE64_align.
   br label %289
 
 289:                                              ; preds = %281, %3
-  %.21300 = phi ptr [ %1, %3 ], [ %282, %281 ]
-  %.21 = phi i64 [ %0, %3 ], [ %288, %281 ]
+  %.21300 = phi ptr [ %282, %281 ], [ %1, %3 ]
+  %.21 = phi i64 [ %288, %281 ], [ %0, %3 ]
   %290 = getelementptr inbounds nuw i8, ptr %.21300, i64 1
   %291 = load i8, ptr %.21300, align 1, !tbaa !28
   %292 = zext i8 %291 to i64
@@ -1422,8 +1422,8 @@ XXH_readLE32_align.exit:                          ; preds = %XXH_readLE64_align.
   br label %297
 
 297:                                              ; preds = %289, %3
-  %.22301 = phi ptr [ %1, %3 ], [ %290, %289 ]
-  %.22 = phi i64 [ %0, %3 ], [ %296, %289 ]
+  %.22301 = phi ptr [ %290, %289 ], [ %1, %3 ]
+  %.22 = phi i64 [ %296, %289 ], [ %0, %3 ]
   %298 = load i8, ptr %.22301, align 1, !tbaa !28
   %299 = zext i8 %298 to i64
   %300 = mul i64 %299, 2870177450012600261
@@ -1436,7 +1436,7 @@ default.unreachable389:                           ; preds = %3
   unreachable
 
 304:                                              ; preds = %3, %297, %XXH_readLE64_align.exit321, %XXH_readLE32_align.exit304, %XXH_readLE64_align.exit339, %XXH_readLE32_align.exit307, %XXH_readLE64_align.exit357, %XXH_readLE32_align.exit310, %XXH_readLE64_align.exit375
-  %.23.sink395 = phi i64 [ %249, %XXH_readLE64_align.exit321 ], [ %205, %XXH_readLE32_align.exit304 ], [ %161, %XXH_readLE64_align.exit339 ], [ %124, %XXH_readLE32_align.exit307 ], [ %87, %XXH_readLE64_align.exit357 ], [ %57, %XXH_readLE32_align.exit310 ], [ %27, %XXH_readLE64_align.exit375 ], [ %0, %3 ], [ %303, %297 ]
+  %.23.sink395 = phi i64 [ %249, %XXH_readLE64_align.exit321 ], [ %205, %XXH_readLE32_align.exit304 ], [ %161, %XXH_readLE64_align.exit339 ], [ %124, %XXH_readLE32_align.exit307 ], [ %87, %XXH_readLE64_align.exit357 ], [ %57, %XXH_readLE32_align.exit310 ], [ %27, %XXH_readLE64_align.exit375 ], [ %303, %297 ], [ %0, %3 ]
   %305 = lshr i64 %.23.sink395, 33
   %306 = xor i64 %305, %.23.sink395
   %307 = mul i64 %306, -4417276706812531889

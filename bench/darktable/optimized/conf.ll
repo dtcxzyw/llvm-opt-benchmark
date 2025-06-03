@@ -434,7 +434,7 @@ dt_confgen_get.exit:                              ; preds = %14, %switch.lookup3
   br label %35
 
 35:                                               ; preds = %29, %31, %33, %dt_confgen_value_exists.exit.thread
-  %.0 = phi i32 [ %switch.select25, %dt_confgen_value_exists.exit.thread ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ]
+  %.0 = phi i32 [ %switch.select25, %dt_confgen_value_exists.exit.thread ], [ %34, %33 ], [ %30, %29 ], [ %32, %31 ]
   ret i32 %.0
 }
 
@@ -668,7 +668,7 @@ dt_confgen_get.exit:                              ; preds = %14, %switch.lookup3
   br label %41
 
 41:                                               ; preds = %25, %31, %35, %dt_confgen_value_exists.exit.thread
-  %.0 = phi i64 [ %switch.select25, %dt_confgen_value_exists.exit.thread ], [ %40, %35 ], [ %34, %31 ], [ %30, %25 ]
+  %.0 = phi i64 [ %switch.select25, %dt_confgen_value_exists.exit.thread ], [ %40, %35 ], [ %30, %25 ], [ %34, %31 ]
   ret i64 %.0
 }
 
@@ -1037,7 +1037,7 @@ dt_confgen_get.exit:                              ; preds = %14, %switch.lookup2
   br label %33
 
 33:                                               ; preds = %27, %29, %31, %dt_confgen_value_exists.exit.thread
-  %.0 = phi nsz float [ %switch.select17, %dt_confgen_value_exists.exit.thread ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.0 = phi nsz float [ %switch.select17, %dt_confgen_value_exists.exit.thread ], [ %32, %31 ], [ %28, %27 ], [ %30, %29 ]
   ret float %.0
 }
 
@@ -1849,7 +1849,7 @@ dt_confgen_get.exit116.i:                         ; preds = %209, %._crit_edge.i
   br label %_sanitize_confgen.exit
 
 _sanitize_confgen.exit:                           ; preds = %27, %31, %dt_confgen_get_int.exit.i, %dt_confgen_get_int64.exit.i, %dt_confgen_get_float.exit.i, %dt_confgen_get.exit.i, %189, %201, %dt_confgen_get.exit116.i, %213
-  %.069.i = phi ptr [ %28, %27 ], [ %32, %31 ], [ %214, %213 ], [ %188, %dt_confgen_get.exit.i ], [ %190, %189 ], [ %175, %dt_confgen_get_float.exit.i ], [ %128, %dt_confgen_get_int64.exit.i ], [ %81, %dt_confgen_get_int.exit.i ], [ %202, %201 ], [ %212, %dt_confgen_get.exit116.i ]
+  %.069.i = phi ptr [ %28, %27 ], [ %32, %31 ], [ %214, %213 ], [ %81, %dt_confgen_get_int.exit.i ], [ %128, %dt_confgen_get_int64.exit.i ], [ %175, %dt_confgen_get_float.exit.i ], [ %188, %dt_confgen_get.exit.i ], [ %190, %189 ], [ %202, %201 ], [ %212, %dt_confgen_get.exit116.i ]
   %215 = call ptr %1(ptr noundef nonnull %3, ptr noundef %.069.i) #11
   call void @g_free(ptr noundef %.069.i) #11
   %.not47 = icmp eq ptr %215, null
@@ -2444,7 +2444,7 @@ dt_confgen_get.exit:                              ; preds = %dt_confgen_type.exi
   br label %112
 
 112:                                              ; preds = %1, %dt_confgen_get.exit, %dt_confgen_get_bool.exit, %dt_confgen_get_float.exit, %dt_confgen_get_int64.exit, %dt_confgen_get_int.exit
-  %.0.shrunk = phi i1 [ %111, %dt_confgen_get.exit ], [ %101, %dt_confgen_get_bool.exit ], [ %84, %dt_confgen_get_float.exit ], [ %61, %dt_confgen_get_int64.exit ], [ %36, %dt_confgen_get_int.exit ], [ true, %1 ]
+  %.0.shrunk = phi i1 [ %111, %dt_confgen_get.exit ], [ %36, %dt_confgen_get_int.exit ], [ %61, %dt_confgen_get_int64.exit ], [ %84, %dt_confgen_get_float.exit ], [ %101, %dt_confgen_get_bool.exit ], [ true, %1 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

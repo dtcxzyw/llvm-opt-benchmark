@@ -3724,8 +3724,8 @@ default.unreachable:                              ; preds = %166
   unreachable
 
 238:                                              ; preds = %.thread292, %273, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h0480f2d37f8a4845E.exit"
-  %.sroa.11.2 = phi ptr [ %274, %273 ], [ %.sroa.11.3295, %.thread292 ], [ %.sroa.11.1261, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h0480f2d37f8a4845E.exit" ]
-  %.sroa.0.2 = phi ptr [ %270, %273 ], [ %.sroa.0.3296, %.thread292 ], [ %.sroa.0.1263, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h0480f2d37f8a4845E.exit" ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.1261, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h0480f2d37f8a4845E.exit" ], [ %274, %273 ], [ %.sroa.11.3295, %.thread292 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1263, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h0480f2d37f8a4845E.exit" ], [ %270, %273 ], [ %.sroa.0.3296, %.thread292 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   br label %380
 

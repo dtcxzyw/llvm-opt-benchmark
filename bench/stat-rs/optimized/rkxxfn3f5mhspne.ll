@@ -132,7 +132,7 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hb4e
   br i1 %switch.not.not, label %11, label %13
 
 10:                                               ; preds = %11, %13, %2
-  %.sroa.04.0 = phi i1 [ false, %2 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.04.0 = phi i1 [ false, %2 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.04.0
 
 11:                                               ; preds = %6

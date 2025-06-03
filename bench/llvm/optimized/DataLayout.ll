@@ -5681,7 +5681,7 @@ _ZN4llvm12PowerOf2CeilEm.exit95:                  ; preds = %139, %142
   unreachable
 
 .loopexit:                                        ; preds = %tailrecurse, %136, %_ZN4llvm12PowerOf2CeilEm.exit95, %105, %_ZN4llvm12PowerOf2CeilEm.exit, %49, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit, %8, %10, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
-  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ 0, %49 ], [ %118, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %107, %105 ], [ %150, %_ZN4llvm12PowerOf2CeilEm.exit95 ], [ %138, %136 ], [ 6, %tailrecurse ]
+  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ 0, %49 ], [ %118, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %107, %105 ], [ %150, %_ZN4llvm12PowerOf2CeilEm.exit95 ], [ %138, %136 ], [ 6, %tailrecurse ]
   ret i8 %.sroa.0118.0
 }
 
@@ -5886,8 +5886,8 @@ _ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit: ; preds = %50, %_
   unreachable
 
 87:                                               ; preds = %2, %2, %83, %72, %71, %70, %69, %68, %67, %64, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit, %28, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit, %6
-  %.sroa.081.0 = phi i64 [ %.fca.0.extract, %83 ], [ %81, %72 ], [ 80, %71 ], [ 8192, %70 ], [ 128, %69 ], [ 64, %68 ], [ 32, %67 ], [ %66, %64 ], [ %63, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %44, %28 ], [ %27, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ %9, %6 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %83 ], [ %82, %72 ], [ 0, %71 ], [ 0, %70 ], [ 0, %69 ], [ 0, %68 ], [ 0, %67 ], [ 0, %64 ], [ %.sroa.6.0.copyload.i.i.i.i, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %35, %28 ], [ 0, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ 0, %6 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.081.0 = phi i64 [ %9, %6 ], [ %27, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ %44, %28 ], [ %63, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %66, %64 ], [ 32, %67 ], [ 64, %68 ], [ 128, %69 ], [ 8192, %70 ], [ 80, %71 ], [ %81, %72 ], [ %.fca.0.extract, %83 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %6 ], [ 0, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ %35, %28 ], [ %.sroa.6.0.copyload.i.i.i.i, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ 0, %64 ], [ 0, %67 ], [ 0, %68 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ %82, %72 ], [ %.fca.1.extract, %83 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.081.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -6401,7 +6401,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %47, %54
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE14getIndexedTypeEv.exit.i
 
 _ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE14getIndexedTypeEv.exit.i: ; preds = %64, %61, %57
-  %.1.i.i = phi ptr [ %18, %57 ], [ %63, %61 ], [ %65, %64 ]
+  %.1.i.i = phi ptr [ %65, %64 ], [ %63, %61 ], [ %18, %57 ]
   %66 = icmp eq i64 %15, 2
   %67 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %.1.i.i)
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %67, 0
@@ -6454,8 +6454,8 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %47, %_ZNK4llvm11C
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE14getIndexedTypeEv.exit.i36
 
 _ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE14getIndexedTypeEv.exit.i36: ; preds = %86, %83, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread
-  %.161 = phi i64 [ %.1, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread ], [ %.1, %83 ], [ %.16265, %86 ]
-  %.1.i.i37 = phi ptr [ %18, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread ], [ %85, %83 ], [ %88, %86 ]
+  %.161 = phi i64 [ %.16265, %86 ], [ %.1, %83 ], [ %.1, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread ]
+  %.1.i.i37 = phi ptr [ %88, %86 ], [ %85, %83 ], [ %18, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread ]
   %89 = getelementptr inbounds nuw i8, ptr %.1.i.i37, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 255

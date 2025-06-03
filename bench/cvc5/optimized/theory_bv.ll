@@ -12248,7 +12248,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit169:          ; preds = %580
   ret void
 
 .body138:                                         ; preds = %563, %569, %459, %463, %.body.i135, %461, %414, %_ZN4cvc58internal9BitVectorD2Ev.exit128, %168, %170, %115, %117, %_ZN4cvc58internal9BitVectorD2Ev.exit105, %215, %237, %260, %282, %305, %327, %350, %372, %.body149, %576, %172, %166, %119, %113
-  %.pn68.pn = phi { ptr, i32 } [ %120, %119 ], [ %173, %172 ], [ %167, %166 ], [ %114, %113 ], [ %577, %576 ], [ %.pn41.pn.pn, %.body149 ], [ %.pn54, %350 ], [ %.pn52, %372 ], [ %.pn58, %305 ], [ %.pn56, %327 ], [ %.pn62, %260 ], [ %.pn60, %282 ], [ %.pn66, %215 ], [ %.pn64, %237 ], [ %.pn36, %_ZN4cvc58internal9BitVectorD2Ev.exit105 ], [ %118, %117 ], [ %116, %115 ], [ %171, %170 ], [ %169, %168 ], [ %.pn48.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit128 ], [ %415, %414 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %.pn5.i.i136, %.body.i135 ], [ %.pn38, %569 ], [ %564, %563 ]
+  %.pn68.pn = phi { ptr, i32 } [ %120, %119 ], [ %173, %172 ], [ %167, %166 ], [ %114, %113 ], [ %577, %576 ], [ %.pn66, %215 ], [ %.pn64, %237 ], [ %.pn62, %260 ], [ %.pn60, %282 ], [ %.pn58, %305 ], [ %.pn56, %327 ], [ %.pn54, %350 ], [ %.pn52, %372 ], [ %.pn41.pn.pn, %.body149 ], [ %.pn36, %_ZN4cvc58internal9BitVectorD2Ev.exit105 ], [ %118, %117 ], [ %116, %115 ], [ %171, %170 ], [ %169, %168 ], [ %.pn48.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit128 ], [ %415, %414 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %.pn5.i.i136, %.body.i135 ], [ %.pn38, %569 ], [ %564, %563 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit170 unwind label %584
 
@@ -17963,7 +17963,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit176:          ; preds = %646, %644
   ret void
 
 653:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit176, %_ZN4cvc58internal9BitVectorD2Ev.exit174, %_ZN4cvc58internal9BitVectorD2Ev.exit168, %_ZN4cvc58internal9BitVectorD2Ev.exit163, %_ZN4cvc58internal9BitVectorD2Ev.exit161, %_ZN4cvc58internal9BitVectorD2Ev.exit155
-  %.pn83.pn = phi { ptr, i32 } [ %.pn83, %_ZN4cvc58internal9BitVectorD2Ev.exit176 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit174 ], [ %.pn45.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit168 ], [ %.pn50.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit163 ], [ %.pn48, %_ZN4cvc58internal9BitVectorD2Ev.exit161 ], [ %.pn76.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit155 ]
+  %.pn83.pn = phi { ptr, i32 } [ %.pn83, %_ZN4cvc58internal9BitVectorD2Ev.exit176 ], [ %.pn76.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit155 ], [ %.pn50.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit163 ], [ %.pn48, %_ZN4cvc58internal9BitVectorD2Ev.exit161 ], [ %.pn45.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit168 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit174 ]
   resume { ptr, i32 } %.pn83.pn
 }
 

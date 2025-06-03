@@ -5082,8 +5082,8 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   br label %105
 
 105:                                              ; preds = %72, %73, %92, %85, %84
-  %.sroa.0256.5 = phi i64 [ %103, %92 ], [ %.sroa.0256.4, %84 ], [ %90, %85 ], [ %78, %73 ], [ %.sroa.0256.4, %72 ]
-  %.sroa.17.5 = phi ptr [ %104, %92 ], [ %.sroa.17.4, %84 ], [ %91, %85 ], [ %79, %73 ], [ %.sroa.17.4, %72 ]
+  %.sroa.0256.5 = phi i64 [ %.sroa.0256.4, %72 ], [ %78, %73 ], [ %.sroa.0256.4, %84 ], [ %90, %85 ], [ %103, %92 ]
+  %.sroa.17.5 = phi ptr [ %.sroa.17.4, %72 ], [ %79, %73 ], [ %.sroa.17.4, %84 ], [ %91, %85 ], [ %104, %92 ]
   %106 = add nuw nsw i32 %.1416643, 1
   %exitcond704.not = icmp eq i32 %106, %57
   br i1 %exitcond704.not, label %.thread498.loopexit, label %.lr.ph646, !llvm.loop !24
@@ -5493,7 +5493,7 @@ sub_1:                                            ; preds = %sub_0
   br label %294
 
 294:                                              ; preds = %278, %283
-  %.pn475 = phi { i64, ptr } [ %293, %283 ], [ %282, %278 ]
+  %.pn475 = phi { i64, ptr } [ %282, %278 ], [ %293, %283 ]
   %295 = add nuw nsw i32 %.1434618, 1
   %exitcond699.not = icmp eq i32 %295, %265
   br i1 %exitcond699.not, label %.thread540, label %.lr.ph621, !llvm.loop !31
@@ -6029,8 +6029,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br label %87
 
 87:                                               ; preds = %.lr.ph, %73, %75, %77, %79, %81, %83, %85
-  %.3411 = phi i32 [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %.2410494, %.lr.ph ]
-  %.3 = phi i32 [ %.2495, %85 ], [ %.2495, %83 ], [ %.2495, %81 ], [ %.2495, %79 ], [ %.2495, %77 ], [ %.2495, %75 ], [ %.2495, %73 ], [ 1, %.lr.ph ]
+  %.3411 = phi i32 [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %.2410494, %.lr.ph ]
+  %.3 = phi i32 [ %.2495, %73 ], [ %.2495, %75 ], [ %.2495, %77 ], [ %.2495, %79 ], [ %.2495, %81 ], [ %.2495, %83 ], [ %.2495, %85 ], [ 1, %.lr.ph ]
   %88 = add nuw nsw i32 %.1414493, 1
   %exitcond.not = icmp eq i32 %88, %64
   br i1 %exitcond.not, label %.thread468.loopexit, label %.lr.ph, !llvm.loop !40
@@ -8328,7 +8328,7 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
   br label %32
 
 32:                                               ; preds = %31, %.thread37
-  %.3 = phi i32 [ 0, %31 ], [ 1, %.thread37 ]
+  %.3 = phi i32 [ 1, %.thread37 ], [ 0, %31 ]
   ret i32 %.3
 }
 

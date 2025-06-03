@@ -15758,8 +15758,8 @@ _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %645, %_ZNK4decl13ge
   br label %.critedge
 
 1539:                                             ; preds = %1437, %1128, %1012, %919
-  %.pn354.pn.pn = phi { ptr, i32 } [ %.pn354.pn, %1437 ], [ %.pn359.pn, %1128 ], [ %.pn364.pn, %1012 ], [ %.pn369.pn, %919 ]
-  resume { ptr, i32 } %.pn354.pn.pn
+  %.pn369.pn.pn = phi { ptr, i32 } [ %.pn369.pn, %919 ], [ %.pn364.pn, %1012 ], [ %.pn359.pn, %1128 ], [ %.pn354.pn, %1437 ]
+  resume { ptr, i32 } %.pn369.pn.pn
 
 1540:                                             ; preds = %641
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.30, i32 noundef 494, ptr noundef nonnull @.str.1)
@@ -26661,7 +26661,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %199, %202
   ret void
 
 207:                                              ; preds = %170, %191, %68, %92, %114, %42, %121
-  %.pn53.pn = phi { ptr, i32 } [ %43, %42 ], [ %122, %121 ], [ %69, %68 ], [ %115, %114 ], [ %93, %92 ], [ %192, %191 ], [ %171, %170 ]
+  %.pn53.pn = phi { ptr, i32 } [ %43, %42 ], [ %122, %121 ], [ %69, %68 ], [ %93, %92 ], [ %115, %114 ], [ %192, %191 ], [ %171, %170 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #25
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #25
   resume { ptr, i32 } %.pn53.pn
@@ -29864,7 +29864,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %280, %283
   ret void
 
 288:                                              ; preds = %235, %272, %76, %116, %159, %54, %190
-  %.pn53.pn = phi { ptr, i32 } [ %55, %54 ], [ %191, %190 ], [ %77, %76 ], [ %160, %159 ], [ %117, %116 ], [ %273, %272 ], [ %236, %235 ]
+  %.pn53.pn = phi { ptr, i32 } [ %55, %54 ], [ %191, %190 ], [ %77, %76 ], [ %117, %116 ], [ %160, %159 ], [ %273, %272 ], [ %236, %235 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #25
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #25
   resume { ptr, i32 } %.pn53.pn

@@ -5068,7 +5068,7 @@ define internal noundef float @rt_gslider_scale_callback(ptr readnone captures(n
   br label %10
 
 10:                                               ; preds = %3, %7, %4
-  %.0 = phi nsz float [ %9, %7 ], [ %6, %4 ], [ %1, %3 ]
+  %.0 = phi nsz float [ %6, %4 ], [ %9, %7 ], [ %1, %3 ]
   ret float %.0
 }
 

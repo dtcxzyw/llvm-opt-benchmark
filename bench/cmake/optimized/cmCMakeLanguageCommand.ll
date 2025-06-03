@@ -11490,9 +11490,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i54: ; preds = %46
   br label %51
 
 51:                                               ; preds = %._crit_edge._crit_edge, %49
-  %52 = phi i64 [ %.pre108, %._crit_edge._crit_edge ], [ %44, %49 ]
-  %53 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %42, %49 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %50, %49 ]
+  %52 = phi i64 [ %44, %49 ], [ %.pre108, %._crit_edge._crit_edge ]
+  %53 = phi ptr [ %42, %49 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %50, %49 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i58 = load i64, ptr %.1, align 8, !tbaa !4
   %.sroa.22.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.22.0.copyload.i60 = load ptr, ptr %.sroa.22.0..sroa_idx.i59, align 8, !tbaa !173
@@ -11513,9 +11513,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i61: ; preds = %55
   br label %60
 
 60:                                               ; preds = %._crit_edge._crit_edge109, %58
-  %61 = phi i64 [ %.pre112, %._crit_edge._crit_edge109 ], [ %52, %58 ]
-  %62 = phi ptr [ %.pre110, %._crit_edge._crit_edge109 ], [ %53, %58 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge109 ], [ %59, %58 ]
+  %61 = phi i64 [ %52, %58 ], [ %.pre112, %._crit_edge._crit_edge109 ]
+  %62 = phi ptr [ %53, %58 ], [ %.pre110, %._crit_edge._crit_edge109 ]
+  %.2 = phi ptr [ %59, %58 ], [ %.029.lcssa, %._crit_edge._crit_edge109 ]
   %.sroa.01.0.copyload.i65 = load i64, ptr %.2, align 8, !tbaa !4
   %.sroa.22.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.22.0.copyload.i67 = load ptr, ptr %.sroa.22.0..sroa_idx.i66, align 8, !tbaa !173
@@ -12412,7 +12412,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.032.1 = phi ptr [ %32, %31 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %34 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.1, ptr noundef %2) #24
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.loopexit, label %36
@@ -12422,7 +12422,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.032.2 = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.2, ptr noundef %2) #24
   %40 = icmp eq i32 %39, 0
   %spec.select = select i1 %40, ptr %.sroa.032.2, ptr %1

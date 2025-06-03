@@ -3589,7 +3589,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit263: ; preds = %451, %446, %45
   unreachable
 
 482:                                              ; preds = %128, %474, %473
-  %.033 = phi i32 [ 21, %474 ], [ 22, %473 ], [ 24, %128 ]
+  %.033 = phi i32 [ 22, %473 ], [ 21, %474 ], [ 24, %128 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %37) #21
   call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %37, ptr noundef %48, i32 noundef %.033)
   br label %483

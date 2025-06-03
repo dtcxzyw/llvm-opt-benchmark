@@ -727,7 +727,7 @@ define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #4 {
   br label %9
 
 9:                                                ; preds = %5, %8, %7
-  %.0 = phi ptr [ @.str.5, %8 ], [ @.str.4, %7 ], [ @.str.3, %5 ]
+  %.0 = phi ptr [ @.str.4, %7 ], [ @.str.5, %8 ], [ @.str.3, %5 ]
   %10 = uitofp i64 %0 to double
   %11 = fmul double %10, 0x3EB0000000000000
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.ggml_aligned_malloc, ptr noundef nonnull %.0, double noundef %11)
@@ -2073,7 +2073,7 @@ ggml_malloc.exit:                                 ; preds = %20
   br label %38
 
 38:                                               ; preds = %37, %36, %34
-  %.0.i = phi ptr [ @.str.5, %37 ], [ @.str.4, %36 ], [ @.str.3, %34 ]
+  %.0.i = phi ptr [ @.str.4, %36 ], [ @.str.5, %37 ], [ @.str.3, %34 ]
   %39 = uitofp i64 %29 to double
   %40 = fmul double %39, 0x3EB0000000000000
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.ggml_aligned_malloc, ptr noundef nonnull %.0.i, double noundef %40)
@@ -18013,8 +18013,8 @@ ggml_fp32_to_bf16_row_ref.exit:                   ; preds = %ggml_compute_fp32_t
   br label %207
 
 207:                                              ; preds = %ggml_quantize_init.exit, %202, %ggml_fp32_to_bf16_row_ref.exit, %ggml_fp32_to_fp16_row.exit, %145, %140, %135, %130, %125, %118, %111, %106, %101, %96, %91, %86, %81, %76, %71, %66, %61, %56, %51, %46, %41
-  %208 = phi i64 [ %40, %ggml_quantize_init.exit ], [ %40, %202 ], [ %40, %ggml_fp32_to_bf16_row_ref.exit ], [ %40, %ggml_fp32_to_fp16_row.exit ], [ %40, %145 ], [ %40, %140 ], [ %40, %135 ], [ %40, %130 ], [ %40, %125 ], [ %119, %118 ], [ %112, %111 ], [ %40, %106 ], [ %40, %101 ], [ %40, %96 ], [ %40, %91 ], [ %40, %86 ], [ %40, %81 ], [ %40, %76 ], [ %40, %71 ], [ %40, %66 ], [ %40, %61 ], [ %40, %56 ], [ %40, %51 ], [ %40, %46 ], [ %40, %41 ]
-  %.0 = phi i64 [ 0, %ggml_quantize_init.exit ], [ %203, %202 ], [ %201, %ggml_fp32_to_bf16_row_ref.exit ], [ %179, %ggml_fp32_to_fp16_row.exit ], [ %149, %145 ], [ %144, %140 ], [ %139, %135 ], [ %134, %130 ], [ %129, %125 ], [ %124, %118 ], [ %117, %111 ], [ %110, %106 ], [ %105, %101 ], [ %100, %96 ], [ %95, %91 ], [ %90, %86 ], [ %85, %81 ], [ %80, %76 ], [ %75, %71 ], [ %70, %66 ], [ %65, %61 ], [ %60, %56 ], [ %55, %51 ], [ %50, %46 ], [ %45, %41 ]
+  %208 = phi i64 [ %40, %ggml_quantize_init.exit ], [ %40, %41 ], [ %40, %46 ], [ %40, %51 ], [ %40, %56 ], [ %40, %61 ], [ %40, %66 ], [ %40, %71 ], [ %40, %76 ], [ %40, %81 ], [ %40, %86 ], [ %40, %91 ], [ %40, %96 ], [ %40, %101 ], [ %40, %106 ], [ %112, %111 ], [ %119, %118 ], [ %40, %125 ], [ %40, %130 ], [ %40, %135 ], [ %40, %140 ], [ %40, %145 ], [ %40, %ggml_fp32_to_fp16_row.exit ], [ %40, %ggml_fp32_to_bf16_row_ref.exit ], [ %40, %202 ]
+  %.0 = phi i64 [ 0, %ggml_quantize_init.exit ], [ %45, %41 ], [ %50, %46 ], [ %55, %51 ], [ %60, %56 ], [ %65, %61 ], [ %70, %66 ], [ %75, %71 ], [ %80, %76 ], [ %85, %81 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ], [ %117, %111 ], [ %124, %118 ], [ %129, %125 ], [ %134, %130 ], [ %139, %135 ], [ %144, %140 ], [ %149, %145 ], [ %179, %ggml_fp32_to_fp16_row.exit ], [ %201, %ggml_fp32_to_bf16_row_ref.exit ], [ %203, %202 ]
   %209 = mul i64 %208, %4
   %210 = icmp eq i64 %.0, %209
   br i1 %210, label %212, label %211

@@ -244,7 +244,7 @@ define dso_local range(i64 0, 4294967312) i64 @_ZN4llvm9sandboxir16LegalityAnaly
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %35, %34 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !3
   %37 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i = load i32, ptr %37, align 8, !tbaa !8
@@ -256,7 +256,7 @@ define dso_local range(i64 0, 4294967312) i64 @_ZN4llvm9sandboxir16LegalityAnaly
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %39, %38 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !3
   %41 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i = load i32, ptr %41, align 8, !tbaa !8
@@ -387,7 +387,7 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge.i.i.i.i.i.i38
-  %.1.i.i.i.i.i.i43 = phi ptr [ %.029.lcssa.i.i.i.i.i.i39, %._crit_edge.i.i.i.i.i.i38 ], [ %87, %86 ]
+  %.1.i.i.i.i.i.i43 = phi ptr [ %87, %86 ], [ %.029.lcssa.i.i.i.i.i.i39, %._crit_edge.i.i.i.i.i.i38 ]
   %.1.val.i.i.i.i.i.i44 = load ptr, ptr %.1.i.i.i.i.i.i43, align 8, !tbaa !3
   %89 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_1EclIPKS7_EEbT_"(ptr readnone %68, ptr %.1.val.i.i.i.i.i.i44)
   br i1 %89, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit", label %90
@@ -397,7 +397,7 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge.i.i.i.i.i.i38
-  %.2.i.i.i.i.i.i40 = phi ptr [ %.029.lcssa.i.i.i.i.i.i39, %._crit_edge.i.i.i.i.i.i38 ], [ %91, %90 ]
+  %.2.i.i.i.i.i.i40 = phi ptr [ %91, %90 ], [ %.029.lcssa.i.i.i.i.i.i39, %._crit_edge.i.i.i.i.i.i38 ]
   %.2.val.i.i.i.i.i.i41 = load ptr, ptr %.2.i.i.i.i.i.i40, align 8, !tbaa !3
   %93 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_1EclIPKS7_EEbT_"(ptr readnone %68, ptr %.2.val.i.i.i.i.i.i41)
   br i1 %93, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.thread"
@@ -508,7 +508,7 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   br label %130
 
 130:                                              ; preds = %128, %._crit_edge.i.i.i.i.i.i55
-  %.1.i.i.i.i.i.i63 = phi ptr [ %.029.lcssa.i.i.i.i.i.i57, %._crit_edge.i.i.i.i.i.i55 ], [ %129, %128 ]
+  %.1.i.i.i.i.i.i63 = phi ptr [ %129, %128 ], [ %.029.lcssa.i.i.i.i.i.i57, %._crit_edge.i.i.i.i.i.i55 ]
   %.1.val.i.i.i.i.i.i64 = load ptr, ptr %.1.i.i.i.i.i.i63, align 8, !tbaa !3
   %131 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i64, i64 16
   %.1.val.val.i.i.i.i.i.i65 = load ptr, ptr %131, align 8, !tbaa !23
@@ -521,7 +521,7 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   br label %135
 
 135:                                              ; preds = %133, %._crit_edge.i.i.i.i.i.i55
-  %.2.i.i.i.i.i.i58 = phi ptr [ %.029.lcssa.i.i.i.i.i.i57, %._crit_edge.i.i.i.i.i.i55 ], [ %134, %133 ]
+  %.2.i.i.i.i.i.i58 = phi ptr [ %134, %133 ], [ %.029.lcssa.i.i.i.i.i.i57, %._crit_edge.i.i.i.i.i.i55 ]
   %.2.val.i.i.i.i.i.i59 = load ptr, ptr %.2.i.i.i.i.i.i58, align 8, !tbaa !3
   %136 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i59, i64 16
   %.2.val.val.i.i.i.i.i.i60 = load ptr, ptr %136, align 8, !tbaa !23
@@ -677,7 +677,7 @@ _ZN4llvm3isaINS_9sandboxir25OverflowingBinaryOperatorEPNS1_11InstructionEEEbRKT0
   br label %192
 
 192:                                              ; preds = %190, %._crit_edge.i.i.i.i.i.i92
-  %.1.i.i.i.i.i.i98 = phi ptr [ %.029.lcssa.i.i.i.i.i.i93, %._crit_edge.i.i.i.i.i.i92 ], [ %191, %190 ]
+  %.1.i.i.i.i.i.i98 = phi ptr [ %191, %190 ], [ %.029.lcssa.i.i.i.i.i.i93, %._crit_edge.i.i.i.i.i.i92 ]
   %.1.val.i.i.i.i.i.i99 = load ptr, ptr %.1.i.i.i.i.i.i98, align 8, !tbaa !3
   %193 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i99, i64 16
   %.1.val.val.i.i.i.i.i.i100 = load ptr, ptr %193, align 8, !tbaa !23
@@ -695,7 +695,7 @@ _ZN4llvm3isaINS_9sandboxir25OverflowingBinaryOperatorEPNS1_11InstructionEEEbRKT0
   br label %200
 
 200:                                              ; preds = %198, %._crit_edge.i.i.i.i.i.i92
-  %.2.i.i.i.i.i.i94 = phi ptr [ %.029.lcssa.i.i.i.i.i.i93, %._crit_edge.i.i.i.i.i.i92 ], [ %199, %198 ]
+  %.2.i.i.i.i.i.i94 = phi ptr [ %199, %198 ], [ %.029.lcssa.i.i.i.i.i.i93, %._crit_edge.i.i.i.i.i.i92 ]
   %.2.val.i.i.i.i.i.i95 = load ptr, ptr %.2.i.i.i.i.i.i94, align 8, !tbaa !3
   %201 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i95, i64 16
   %.2.val.val.i.i.i.i.i.i96 = load ptr, ptr %201, align 8, !tbaa !23
@@ -896,7 +896,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   br label %259
 
 259:                                              ; preds = %257, %._crit_edge.i.i.i.i.i.i117
-  %.1.i.i.i.i.i.i123 = phi ptr [ %.029.lcssa.i.i.i.i.i.i119, %._crit_edge.i.i.i.i.i.i117 ], [ %258, %257 ]
+  %.1.i.i.i.i.i.i123 = phi ptr [ %258, %257 ], [ %.029.lcssa.i.i.i.i.i.i119, %._crit_edge.i.i.i.i.i.i117 ]
   %.1.val.i.i.i.i.i.i124 = load ptr, ptr %.1.i.i.i.i.i.i123, align 8, !tbaa !3
   %260 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_4EclIPKS7_EEbT_"(ptr readnone %232, ptr %.1.val.i.i.i.i.i.i124)
   br i1 %260, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", label %261
@@ -906,7 +906,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   br label %263
 
 263:                                              ; preds = %261, %._crit_edge.i.i.i.i.i.i117
-  %.2.i.i.i.i.i.i120 = phi ptr [ %.029.lcssa.i.i.i.i.i.i119, %._crit_edge.i.i.i.i.i.i117 ], [ %262, %261 ]
+  %.2.i.i.i.i.i.i120 = phi ptr [ %262, %261 ], [ %.029.lcssa.i.i.i.i.i.i119, %._crit_edge.i.i.i.i.i.i117 ]
   %.2.val.i.i.i.i.i.i121 = load ptr, ptr %.2.i.i.i.i.i.i120, align 8, !tbaa !3
   %264 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_4EclIPKS7_EEbT_"(ptr readnone %232, ptr %.2.val.i.i.i.i.i.i121)
   br i1 %264, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", label %.thread272
@@ -1088,7 +1088,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_9s
   br label %39
 
 39:                                               ; preds = %._crit_edge.i.i.i.i, %37
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %38, %37 ]
+  %.1.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !3
   %40 = getelementptr i8, ptr %.1.val.i.i.i.i, i64 16
   %.1.val.val.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !23
@@ -1104,7 +1104,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_9s
   br label %46
 
 46:                                               ; preds = %._crit_edge.i.i.i.i, %44
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !3
   %47 = getelementptr i8, ptr %.2.val.i.i.i.i, i64 16
   %.2.val.val.i.i.i.i = load ptr, ptr %47, align 8, !tbaa !23
@@ -1664,7 +1664,7 @@ define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm9sandb
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !3
   %39 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %.1.val.i.i.i.i.i.i) #13
   br i1 %39, label %40, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit"
@@ -1674,7 +1674,7 @@ define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm9sandb
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %41, %40 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !3
   %43 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %.2.val.i.i.i.i.i.i) #13
   br i1 %43, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit"
@@ -1843,7 +1843,7 @@ _ZN4llvm9sandboxir16LegalityAnalysis20createLegalityResultINS0_4PackEJNS0_12Resu
   br label %110
 
 110:                                              ; preds = %108, %._crit_edge.i.i.i.i.i.i31
-  %.1.i.i.i.i.i.i36 = phi ptr [ %.029.lcssa.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i31 ], [ %109, %108 ]
+  %.1.i.i.i.i.i.i36 = phi ptr [ %109, %108 ], [ %.029.lcssa.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i31 ]
   %.1.val.i.i.i.i.i.i37 = load ptr, ptr %.1.i.i.i.i.i.i36, align 8, !tbaa !3
   %111 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.1.val.i.i.i.i.i.i37) #13
   %.not40.i.i.i.i.i.i = icmp eq ptr %111, %87
@@ -1854,7 +1854,7 @@ _ZN4llvm9sandboxir16LegalityAnalysis20createLegalityResultINS0_4PackEJNS0_12Resu
   br label %114
 
 114:                                              ; preds = %112, %._crit_edge.i.i.i.i.i.i31
-  %.2.i.i.i.i.i.i33 = phi ptr [ %.029.lcssa.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i31 ], [ %113, %112 ]
+  %.2.i.i.i.i.i.i33 = phi ptr [ %113, %112 ], [ %.029.lcssa.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i31 ]
   %.2.val.i.i.i.i.i.i34 = load ptr, ptr %.2.i.i.i.i.i.i33, align 8, !tbaa !3
   %115 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.2.val.i.i.i.i.i.i34) #13
   %.not41.i.i.i.i.i.i = icmp eq ptr %115, %87
@@ -2178,7 +2178,7 @@ _ZN4llvm11SmallPtrSetIPNS_9sandboxir5ValueELj8EEC2IPKS3_EET_S8_.exit.thread: ; p
   br label %254
 
 254:                                              ; preds = %252, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %253, %252 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %253, %252 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %255 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 12
   %256 = load i8, ptr %255, align 4, !tbaa !131, !range !156, !noundef !158
   %257 = trunc nuw i8 %256 to i1
@@ -2189,7 +2189,7 @@ _ZN4llvm11SmallPtrSetIPNS_9sandboxir5ValueELj8EEC2IPKS3_EET_S8_.exit.thread: ; p
   br label %260
 
 260:                                              ; preds = %258, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %259, %258 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %259, %258 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %261 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i.i, i64 12
   %262 = load i8, ptr %261, align 4, !tbaa !131, !range !156, !noundef !158
   %263 = trunc nuw i8 %262 to i1
@@ -4778,8 +4778,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

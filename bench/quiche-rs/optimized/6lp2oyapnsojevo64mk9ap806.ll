@@ -2065,7 +2065,7 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %554)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
 
-.critedge321:                                     ; preds = %532, %531, %529, %521, %523, %527, %533, %thread-pre-split, %thread-pre-split, %535
+.critedge321:                                     ; preds = %532, %531, %529, %521, %533, %527, %523, %thread-pre-split, %thread-pre-split, %535
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %30, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %30)
   br label %555
@@ -3688,7 +3688,7 @@ define noundef i64 @_ZN6quiche5frame5Frame8wire_len17h41353290038c5b4bE(ptr noal
   br label %204
 
 204:                                              ; preds = %1, %1, %257, %200, %195, %184, %169, %168, %163, %150, %145, %140, %131, %126, %121, %116, %107, %102, %90, %70, %63, %55, %40, %31, %18, %12
-  %.sroa.0.0 = phi i64 [ %203, %200 ], [ %199, %195 ], [ %194, %184 ], [ %183, %169 ], [ 9, %168 ], [ %167, %163 ], [ %162, %150 ], [ %149, %145 ], [ %144, %140 ], [ %139, %131 ], [ %130, %126 ], [ %125, %121 ], [ %120, %116 ], [ %115, %107 ], [ %106, %102 ], [ %101, %90 ], [ %89, %70 ], [ %69, %63 ], [ %62, %55 ], [ %54, %40 ], [ %39, %31 ], [ %30, %18 ], [ %.sroa.0.2, %257 ], [ %14, %12 ], [ 1, %1 ], [ 1, %1 ]
+  %.sroa.0.0 = phi i64 [ %14, %12 ], [ %.sroa.0.2, %257 ], [ %30, %18 ], [ %39, %31 ], [ %54, %40 ], [ %62, %55 ], [ %69, %63 ], [ %89, %70 ], [ %101, %90 ], [ %106, %102 ], [ %115, %107 ], [ %120, %116 ], [ %125, %121 ], [ %130, %126 ], [ %139, %131 ], [ %144, %140 ], [ %149, %145 ], [ %162, %150 ], [ %167, %163 ], [ 9, %168 ], [ %183, %169 ], [ %194, %184 ], [ %199, %195 ], [ %203, %200 ], [ 1, %1 ], [ 1, %1 ]
   ret i64 %.sroa.0.0
 
 205:                                              ; preds = %15

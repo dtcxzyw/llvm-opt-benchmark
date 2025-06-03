@@ -2866,7 +2866,7 @@ _ZNR5folly8ExpectedINS_12json_pointerENS1_11parse_errorEE5errorEv.exit: ; preds 
   br label %.body
 
 .body:                                            ; preds = %39, %23, %21, %48, %45
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %46, %45 ], [ %40, %39 ], [ %22, %23 ], [ %22, %21 ]
+  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %49, %48 ], [ %40, %39 ], [ %22, %23 ], [ %22, %21 ]
   call void @_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   resume { ptr, i32 } %.pn

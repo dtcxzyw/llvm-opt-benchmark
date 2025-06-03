@@ -672,7 +672,7 @@ define range(i32 0, 7) i32 @u_getIDTypes_77(i32 noundef %0, ptr noundef writeonl
   br label %68
 
 24:                                               ; preds = %18, %23, %22, %21, %20, %19
-  %.038 = phi i32 [ 11, %23 ], [ 10, %22 ], [ 3, %21 ], [ 2, %20 ], [ 1, %19 ], [ %15, %18 ]
+  %.038 = phi i32 [ 1, %19 ], [ 2, %20 ], [ 3, %21 ], [ 10, %22 ], [ 11, %23 ], [ %15, %18 ]
   store i32 %.038, ptr %1, align 4, !tbaa !36
   br label %68
 
@@ -2265,7 +2265,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL17layoutGetMaxValueRK11IntProp
   br label %12
 
 12:                                               ; preds = %5, %2, %10, %8, %6
-  %.0 = phi i32 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ 0, %2 ], [ 0, %5 ]
+  %.0 = phi i32 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 

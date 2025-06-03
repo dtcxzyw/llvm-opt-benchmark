@@ -149,7 +149,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %60
 
 60:                                               ; preds = %54, %._crit_edge
-  %.1185 = phi i32 [ %53, %._crit_edge ], [ %59, %54 ]
+  %.1185 = phi i32 [ %59, %54 ], [ %53, %._crit_edge ]
   %61 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 9
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
@@ -158,7 +158,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %66
 
 66:                                               ; preds = %60, %._crit_edge
-  %.2186 = phi i32 [ %53, %._crit_edge ], [ %65, %60 ]
+  %.2186 = phi i32 [ %65, %60 ], [ %53, %._crit_edge ]
   %67 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 8
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
@@ -167,7 +167,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %72
 
 72:                                               ; preds = %66, %._crit_edge
-  %.3187 = phi i32 [ %53, %._crit_edge ], [ %71, %66 ]
+  %.3187 = phi i32 [ %71, %66 ], [ %53, %._crit_edge ]
   %73 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 7
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
@@ -176,8 +176,8 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %78
 
 78:                                               ; preds = %72, %._crit_edge
-  %.4188 = phi i32 [ %53, %._crit_edge ], [ %.3187, %72 ]
-  %.1 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %77, %72 ]
+  %.4188 = phi i32 [ %.3187, %72 ], [ %53, %._crit_edge ]
+  %.1 = phi i32 [ %77, %72 ], [ %.0178.lcssa, %._crit_edge ]
   %79 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 6
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
@@ -186,8 +186,8 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %84
 
 84:                                               ; preds = %78, %._crit_edge
-  %.5189 = phi i32 [ %53, %._crit_edge ], [ %.4188, %78 ]
-  %.2 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %83, %78 ]
+  %.5189 = phi i32 [ %.4188, %78 ], [ %53, %._crit_edge ]
+  %.2 = phi i32 [ %83, %78 ], [ %.0178.lcssa, %._crit_edge ]
   %85 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 5
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
@@ -196,8 +196,8 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %90
 
 90:                                               ; preds = %84, %._crit_edge
-  %.6190 = phi i32 [ %53, %._crit_edge ], [ %.5189, %84 ]
-  %.3 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %89, %84 ]
+  %.6190 = phi i32 [ %.5189, %84 ], [ %53, %._crit_edge ]
+  %.3 = phi i32 [ %89, %84 ], [ %.0178.lcssa, %._crit_edge ]
   %91 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 4
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
@@ -205,8 +205,8 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %95
 
 95:                                               ; preds = %90, %._crit_edge
-  %.7191 = phi i32 [ %53, %._crit_edge ], [ %.6190, %90 ]
-  %.4 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %94, %90 ]
+  %.7191 = phi i32 [ %.6190, %90 ], [ %53, %._crit_edge ]
+  %.4 = phi i32 [ %94, %90 ], [ %.0178.lcssa, %._crit_edge ]
   %96 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 3
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
@@ -215,9 +215,9 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %101
 
 101:                                              ; preds = %95, %._crit_edge
-  %.8192 = phi i32 [ %53, %._crit_edge ], [ %.7191, %95 ]
-  %.1180 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ %100, %95 ]
-  %.5 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %.4, %95 ]
+  %.8192 = phi i32 [ %.7191, %95 ], [ %53, %._crit_edge ]
+  %.1180 = phi i32 [ %100, %95 ], [ %.0179.lcssa, %._crit_edge ]
+  %.5 = phi i32 [ %.4, %95 ], [ %.0178.lcssa, %._crit_edge ]
   %102 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 2
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
@@ -226,9 +226,9 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %107
 
 107:                                              ; preds = %101, %._crit_edge
-  %.9 = phi i32 [ %53, %._crit_edge ], [ %.8192, %101 ]
-  %.2181 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ %106, %101 ]
-  %.6 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %.5, %101 ]
+  %.9 = phi i32 [ %.8192, %101 ], [ %53, %._crit_edge ]
+  %.2181 = phi i32 [ %106, %101 ], [ %.0179.lcssa, %._crit_edge ]
+  %.6 = phi i32 [ %.5, %101 ], [ %.0178.lcssa, %._crit_edge ]
   %108 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 1
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
@@ -237,9 +237,9 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %113
 
 113:                                              ; preds = %107, %._crit_edge
-  %.10 = phi i32 [ %53, %._crit_edge ], [ %.9, %107 ]
-  %.3182 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ %112, %107 ]
-  %.7 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %.6, %107 ]
+  %.10 = phi i32 [ %.9, %107 ], [ %53, %._crit_edge ]
+  %.3182 = phi i32 [ %112, %107 ], [ %.0179.lcssa, %._crit_edge ]
+  %.7 = phi i32 [ %.6, %107 ], [ %.0178.lcssa, %._crit_edge ]
   %114 = load i8, ptr %.0176.lcssa, align 1
   %115 = zext i8 %114 to i32
   %116 = add i32 %.3182, %115
@@ -479,7 +479,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %67
 
 67:                                               ; preds = %61, %._crit_edge
-  %.1 = phi i32 [ %60, %._crit_edge ], [ %66, %61 ]
+  %.1 = phi i32 [ %66, %61 ], [ %60, %._crit_edge ]
   %68 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 9
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
@@ -488,7 +488,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge
-  %.2 = phi i32 [ %60, %._crit_edge ], [ %72, %67 ]
+  %.2 = phi i32 [ %72, %67 ], [ %60, %._crit_edge ]
   %74 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 8
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
@@ -497,7 +497,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %79
 
 79:                                               ; preds = %73, %._crit_edge
-  %.3 = phi i32 [ %60, %._crit_edge ], [ %78, %73 ]
+  %.3 = phi i32 [ %78, %73 ], [ %60, %._crit_edge ]
   %80 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 7
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
@@ -506,8 +506,8 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %85
 
 85:                                               ; preds = %79, %._crit_edge
-  %.1266 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %84, %79 ]
-  %.4 = phi i32 [ %60, %._crit_edge ], [ %.3, %79 ]
+  %.1266 = phi i32 [ %84, %79 ], [ %.0265.lcssa, %._crit_edge ]
+  %.4 = phi i32 [ %.3, %79 ], [ %60, %._crit_edge ]
   %86 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 6
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
@@ -516,8 +516,8 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %91
 
 91:                                               ; preds = %85, %._crit_edge
-  %.2267 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %90, %85 ]
-  %.5 = phi i32 [ %60, %._crit_edge ], [ %.4, %85 ]
+  %.2267 = phi i32 [ %90, %85 ], [ %.0265.lcssa, %._crit_edge ]
+  %.5 = phi i32 [ %.4, %85 ], [ %60, %._crit_edge ]
   %92 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 5
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
@@ -526,8 +526,8 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %97
 
 97:                                               ; preds = %91, %._crit_edge
-  %.3268 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %96, %91 ]
-  %.6 = phi i32 [ %60, %._crit_edge ], [ %.5, %91 ]
+  %.3268 = phi i32 [ %96, %91 ], [ %.0265.lcssa, %._crit_edge ]
+  %.6 = phi i32 [ %.5, %91 ], [ %60, %._crit_edge ]
   %98 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 4
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
@@ -535,8 +535,8 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %102
 
 102:                                              ; preds = %97, %._crit_edge
-  %.4269 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %101, %97 ]
-  %.7 = phi i32 [ %60, %._crit_edge ], [ %.6, %97 ]
+  %.4269 = phi i32 [ %101, %97 ], [ %.0265.lcssa, %._crit_edge ]
+  %.7 = phi i32 [ %.6, %97 ], [ %60, %._crit_edge ]
   %103 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 3
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
@@ -545,9 +545,9 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %108
 
 108:                                              ; preds = %102, %._crit_edge
-  %.5270 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.4269, %102 ]
-  %.1261 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %107, %102 ]
-  %.8 = phi i32 [ %60, %._crit_edge ], [ %.7, %102 ]
+  %.5270 = phi i32 [ %.4269, %102 ], [ %.0265.lcssa, %._crit_edge ]
+  %.1261 = phi i32 [ %107, %102 ], [ %.0260.lcssa, %._crit_edge ]
+  %.8 = phi i32 [ %.7, %102 ], [ %60, %._crit_edge ]
   %109 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
@@ -556,9 +556,9 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %114
 
 114:                                              ; preds = %108, %._crit_edge
-  %.6271 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.5270, %108 ]
-  %.2262 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %113, %108 ]
-  %.9 = phi i32 [ %60, %._crit_edge ], [ %.8, %108 ]
+  %.6271 = phi i32 [ %.5270, %108 ], [ %.0265.lcssa, %._crit_edge ]
+  %.2262 = phi i32 [ %113, %108 ], [ %.0260.lcssa, %._crit_edge ]
+  %.9 = phi i32 [ %.8, %108 ], [ %60, %._crit_edge ]
   %115 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 1
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
@@ -567,9 +567,9 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   br label %120
 
 120:                                              ; preds = %114, %._crit_edge
-  %.7272 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.6271, %114 ]
-  %.3263 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %119, %114 ]
-  %.10 = phi i32 [ %60, %._crit_edge ], [ %.9, %114 ]
+  %.7272 = phi i32 [ %.6271, %114 ], [ %.0265.lcssa, %._crit_edge ]
+  %.3263 = phi i32 [ %119, %114 ], [ %.0260.lcssa, %._crit_edge ]
+  %.10 = phi i32 [ %.9, %114 ], [ %60, %._crit_edge ]
   %121 = load i8, ptr %.0274.lcssa, align 1
   %122 = zext i8 %121 to i32
   %123 = add i32 %.3263, %122

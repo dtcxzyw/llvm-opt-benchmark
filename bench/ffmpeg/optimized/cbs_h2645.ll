@@ -9517,7 +9517,7 @@ cbs_h265_read_sei.exit:                           ; preds = %.preheader.i.i, %92
   br label %.thread
 
 .thread:                                          ; preds = %955, %951, %947, %941, %898, %cbs_h265_read_slice_segment_header.exit.thread, %cbs_h2645_read_more_rbsp_data.exit.thread115, %cbs_h2645_read_more_rbsp_data.exit, %cbs_h265_read_slice_segment_header.exit, %98, %90, %82, %80, %936, %931, %77, %2, %87, %95, %103, %cbs_h265_read_sei.exit
-  %.0 = phi i32 [ 0, %cbs_h265_read_sei.exit ], [ %104, %103 ], [ %96, %95 ], [ %88, %87 ], [ -1094995529, %2 ], [ %78, %77 ], [ %934, %931 ], [ %939, %936 ], [ -38, %80 ], [ %85, %82 ], [ %93, %90 ], [ %101, %98 ], [ %.0612.i.ph, %cbs_h265_read_slice_segment_header.exit.thread ], [ -12, %cbs_h2645_read_more_rbsp_data.exit.thread115 ], [ -1094995529, %cbs_h2645_read_more_rbsp_data.exit ], [ %893, %cbs_h265_read_slice_segment_header.exit ], [ -1094995529, %898 ], [ %952, %951 ], [ %949, %947 ], [ %945, %941 ], [ %956, %955 ]
+  %.0 = phi i32 [ 0, %cbs_h265_read_sei.exit ], [ %88, %87 ], [ %96, %95 ], [ %104, %103 ], [ -1094995529, %2 ], [ %78, %77 ], [ %934, %931 ], [ %939, %936 ], [ -38, %80 ], [ %85, %82 ], [ %93, %90 ], [ %101, %98 ], [ %.0612.i.ph, %cbs_h265_read_slice_segment_header.exit.thread ], [ -12, %cbs_h2645_read_more_rbsp_data.exit.thread115 ], [ -1094995529, %cbs_h2645_read_more_rbsp_data.exit ], [ %893, %cbs_h265_read_slice_segment_header.exit ], [ -1094995529, %898 ], [ %952, %951 ], [ %949, %947 ], [ %945, %941 ], [ %956, %955 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62) #11
   ret i32 %.0
 }
@@ -17564,7 +17564,7 @@ cbs_h266_read_aps.exit:                           ; preds = %.preheader.i.i146, 
   br label %.thread
 
 .thread:                                          ; preds = %1760, %701, %1756, %1752, %1746, %1713, %1694, %cbs_h266_read_slice_header.exit.thread, %1724, %cbs_h2645_read_more_rbsp_data.exit, %cbs_h266_read_slice_header.exit, %704, %697, %cbs_h266_read_scaling_list_data.exit.thread.i, %cbs_h266_read_lmcs_data.exit.thread.i, %cbs_h266_read_alf_data.exit.thread.i, %693, %.critedge.i, %171, %187, %194, %688, %163, %155, %147, %135, %1741, %142, %137, %132, %2, %152, %160, %168, %709, %cbs_h266_read_aps.exit
-  %.0 = phi i32 [ 0, %cbs_h266_read_aps.exit ], [ %711, %709 ], [ %169, %168 ], [ %161, %160 ], [ %153, %152 ], [ -1094995529, %2 ], [ %133, %132 ], [ %140, %137 ], [ %145, %142 ], [ %1744, %1741 ], [ -38, %135 ], [ %150, %147 ], [ %158, %155 ], [ %166, %163 ], [ %698, %697 ], [ %spec.select.i.ph.i, %cbs_h266_read_scaling_list_data.exit.thread.i ], [ %.171.i.ph.i, %cbs_h266_read_lmcs_data.exit.thread.i ], [ %.1.i.ph.i, %cbs_h266_read_alf_data.exit.thread.i ], [ %695, %693 ], [ %177, %.critedge.i ], [ %174, %171 ], [ %185, %187 ], [ %192, %194 ], [ %686, %688 ], [ %707, %704 ], [ %.0.i.ph, %cbs_h266_read_slice_header.exit.thread ], [ -12, %1724 ], [ -1094995529, %cbs_h2645_read_more_rbsp_data.exit ], [ %1689, %cbs_h266_read_slice_header.exit ], [ -1094995529, %1694 ], [ %1716, %1713 ], [ %1757, %1756 ], [ %1754, %1752 ], [ %1750, %1746 ], [ %702, %701 ], [ %1761, %1760 ]
+  %.0 = phi i32 [ 0, %cbs_h266_read_aps.exit ], [ %153, %152 ], [ %161, %160 ], [ %169, %168 ], [ %711, %709 ], [ -1094995529, %2 ], [ %133, %132 ], [ %140, %137 ], [ %145, %142 ], [ %1744, %1741 ], [ -38, %135 ], [ %150, %147 ], [ %158, %155 ], [ %166, %163 ], [ %698, %697 ], [ %spec.select.i.ph.i, %cbs_h266_read_scaling_list_data.exit.thread.i ], [ %.171.i.ph.i, %cbs_h266_read_lmcs_data.exit.thread.i ], [ %.1.i.ph.i, %cbs_h266_read_alf_data.exit.thread.i ], [ %695, %693 ], [ %177, %.critedge.i ], [ %174, %171 ], [ %185, %187 ], [ %192, %194 ], [ %686, %688 ], [ %707, %704 ], [ %.0.i.ph, %cbs_h266_read_slice_header.exit.thread ], [ -12, %1724 ], [ -1094995529, %cbs_h2645_read_more_rbsp_data.exit ], [ %1689, %cbs_h266_read_slice_header.exit ], [ -1094995529, %1694 ], [ %1716, %1713 ], [ %1757, %1756 ], [ %1754, %1752 ], [ %1750, %1746 ], [ %702, %701 ], [ %1761, %1760 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %115) #11
   ret i32 %.0
 }
@@ -26047,7 +26047,7 @@ define ptr @ff_cbs_sei_find_type(ptr noundef readonly captures(none) %0, i32 nou
   br label %8
 
 8:                                                ; preds = %2, %7, %6
-  %.014 = phi ptr [ @cbs_sei_h266_types, %7 ], [ @cbs_sei_h265_types, %6 ], [ @cbs_sei_h264_types, %2 ]
+  %.014 = phi ptr [ @cbs_sei_h265_types, %6 ], [ @cbs_sei_h266_types, %7 ], [ @cbs_sei_h264_types, %2 ]
   %9 = load i32, ptr %.014, align 16, !tbaa !821
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %.lr.ph, label %.preheader
@@ -28893,7 +28893,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_read_message_list(
   br label %106
 
 106:                                              ; preds = %105, %104, %98
-  %.014.i.i = phi ptr [ @cbs_sei_h266_types, %105 ], [ @cbs_sei_h265_types, %104 ], [ @cbs_sei_h264_types, %98 ]
+  %.014.i.i = phi ptr [ @cbs_sei_h265_types, %104 ], [ @cbs_sei_h266_types, %105 ], [ @cbs_sei_h264_types, %98 ]
   %107 = load i32, ptr %.014.i.i, align 16, !tbaa !821
   %108 = icmp sgt i32 %107, -1
   br i1 %108, label %.lr.ph.i.i, label %.preheader.i.i
@@ -32010,7 +32010,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_write_message_list
   br label %55
 
 55:                                               ; preds = %54, %53, %49
-  %.014.i.i = phi ptr [ @cbs_sei_h266_types, %54 ], [ @cbs_sei_h265_types, %53 ], [ @cbs_sei_h264_types, %49 ]
+  %.014.i.i = phi ptr [ @cbs_sei_h265_types, %53 ], [ @cbs_sei_h266_types, %54 ], [ @cbs_sei_h264_types, %49 ]
   %56 = load i32, ptr %.014.i.i, align 16, !tbaa !821
   %57 = icmp sgt i32 %56, -1
   br i1 %57, label %.lr.ph.i.i, label %.preheader.i.i

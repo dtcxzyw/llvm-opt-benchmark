@@ -7890,8 +7890,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc1
           to label %.thread11.i.i unwind label %475, !noalias !552
 
 .thread.i.i:                                      ; preds = %.thread23.i.i, %548, %522, %500, %.thread11.i.i, %466, %440, %418
-  %.pn37.pn.i.i = phi { ptr, i32 } [ %.pn3726.i.i, %.thread23.i.i ], [ %.pn35.i.i, %500 ], [ %.pn4514.i.i, %.thread11.i.i ], [ %.pn43.i.i, %418 ], [ %.pn39.i.i, %440 ], [ %.pn41.i.i, %466 ], [ %.pn.i.i, %522 ], [ %.pn33.i.i, %548 ]
-  resume { ptr, i32 } %.pn37.pn.i.i
+  %.pn45.pn.i.i = phi { ptr, i32 } [ %.pn4514.i.i, %.thread11.i.i ], [ %.pn43.i.i, %418 ], [ %.pn3726.i.i, %.thread23.i.i ], [ %.pn35.i.i, %500 ], [ %.pn39.i.i, %440 ], [ %.pn41.i.i, %466 ], [ %.pn.i.i, %522 ], [ %.pn33.i.i, %548 ]
+  resume { ptr, i32 } %.pn45.pn.i.i
 
 .thread11.i.i:                                    ; preds = %497, %419, %418
   %.pn4514.i.i = phi { ptr, i32 } [ %.pn43.i.i, %418 ], [ %420, %419 ], [ %498, %497 ]
@@ -13043,7 +13043,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -14238,7 +14238,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14281,7 +14281,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14324,7 +14324,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14367,7 +14367,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14410,7 +14410,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14453,7 +14453,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14496,7 +14496,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14539,7 +14539,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14582,7 +14582,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14625,7 +14625,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14668,7 +14668,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14711,7 +14711,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14754,7 +14754,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14797,7 +14797,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14840,7 +14840,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14883,7 +14883,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14926,7 +14926,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -14969,7 +14969,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15012,7 +15012,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15055,7 +15055,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15098,7 +15098,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15141,7 +15141,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15184,7 +15184,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15227,7 +15227,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15270,7 +15270,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15313,7 +15313,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15356,7 +15356,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15399,7 +15399,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15442,7 +15442,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15485,7 +15485,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15528,7 +15528,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15571,7 +15571,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15614,7 +15614,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15657,7 +15657,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15700,7 +15700,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15743,7 +15743,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15786,7 +15786,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15829,7 +15829,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15872,7 +15872,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15915,7 +15915,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -15958,7 +15958,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16001,7 +16001,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16044,7 +16044,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16087,7 +16087,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16130,7 +16130,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16173,7 +16173,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16216,7 +16216,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16259,7 +16259,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16302,7 +16302,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16345,7 +16345,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16388,7 +16388,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16431,7 +16431,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16474,7 +16474,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16517,7 +16517,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16560,7 +16560,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16603,7 +16603,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16646,7 +16646,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16689,7 +16689,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16732,7 +16732,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16775,7 +16775,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16818,7 +16818,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16861,7 +16861,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16904,7 +16904,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16947,7 +16947,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -16990,7 +16990,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17033,7 +17033,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17076,7 +17076,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17119,7 +17119,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17162,7 +17162,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17205,7 +17205,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17248,7 +17248,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17291,7 +17291,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17334,7 +17334,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17377,7 +17377,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17420,7 +17420,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17463,7 +17463,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17506,7 +17506,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17549,7 +17549,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17592,7 +17592,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17635,7 +17635,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17678,7 +17678,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17721,7 +17721,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17764,7 +17764,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17807,7 +17807,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17850,7 +17850,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17893,7 +17893,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17936,7 +17936,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -17979,7 +17979,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -18022,7 +18022,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -18065,7 +18065,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -18108,7 +18108,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %11, %15, %18
-  %.sroa.0.0.i = phi i64 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ]
+  %.sroa.0.0.i = phi i64 [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   %20 = icmp ult i64 %.sroa.0.0.i, 2147483648
   br i1 %20, label %22, label %21, !prof !24
 
@@ -26655,7 +26655,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -26689,7 +26689,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hb504886a7fe7e3ccE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -26799,7 +26799,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -26833,7 +26833,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hf522a76945b6491bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -26943,7 +26943,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -26977,7 +26977,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h5887668a8f76ed8bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -27087,7 +27087,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -27121,7 +27121,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -27228,7 +27228,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -27262,7 +27262,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h9f27aa43dc8facd5E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -27372,7 +27372,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -27406,7 +27406,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hf75681a9385c7934E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -27516,7 +27516,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -27550,7 +27550,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hb10f4799243bb9f1E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -27660,7 +27660,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -27694,7 +27694,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd427b887b289b5fcE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -27804,7 +27804,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -27838,7 +27838,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd6abbd0c0d841a79E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -27948,7 +27948,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -27982,7 +27982,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbd07cf21b1198e4aE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -28092,7 +28092,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -28126,7 +28126,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17ha7df9ec64476865bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -28236,7 +28236,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -28270,7 +28270,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h4bbed2d9fc15741aE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -28380,7 +28380,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -28414,7 +28414,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -28521,7 +28521,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -28555,7 +28555,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h6055f0b8508461aaE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -28665,7 +28665,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -28699,7 +28699,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h0f65ffe05fcd0009E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -28809,7 +28809,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -28843,7 +28843,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN113_$LT$polars_expr..reduce..first_last..BinaryFirstLastReducer$LT$P$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hcd4250f9731d9419E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -28953,7 +28953,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -28987,7 +28987,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h62d113871bcd9abdE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -29097,7 +29097,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -29131,7 +29131,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hf26a46b4b567d317E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -29241,7 +29241,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -29275,7 +29275,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h6aa92f8e75745dfbE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -29385,7 +29385,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -29419,7 +29419,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbe3ff42c3bba52e2E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -29529,7 +29529,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -29563,7 +29563,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hcadb7ee734e21923E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -29673,7 +29673,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -29707,7 +29707,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h232f1424ee5e74bfE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -29819,7 +29819,7 @@ default.unreachable:                              ; preds = %27, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %11, %20, %23
-  %.sroa.0.0.i = phi ptr [ %24, %23 ], [ %22, %20 ], [ %19, %11 ]
+  %.sroa.0.0.i = phi ptr [ %19, %11 ], [ %22, %20 ], [ %24, %23 ]
   %25 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %25, label %27, label %26, !prof !24
 
@@ -29853,7 +29853,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %31, %34, %37
-  %.sroa.0.0.i4 = phi ptr [ %38, %37 ], [ %36, %34 ], [ %33, %31 ]
+  %.sroa.0.0.i4 = phi ptr [ %33, %31 ], [ %36, %34 ], [ %38, %37 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1286)
@@ -29996,7 +29996,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -30030,7 +30030,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h9a31ad3ab4235b97E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -30140,7 +30140,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -30174,7 +30174,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h56ad566846ecc7d0E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -30284,7 +30284,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -30318,7 +30318,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h05e71b276f584ac1E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -30428,7 +30428,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -30462,7 +30462,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h6aeb7f4cc91b0a88E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -30572,7 +30572,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -30606,7 +30606,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h2bf297868ce53be1E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -30716,7 +30716,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -30750,7 +30750,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h5a51dc7bb701c7c6E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -30860,7 +30860,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -30894,7 +30894,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h8c92ce0de779b29bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -31004,7 +31004,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -31038,7 +31038,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h020530edab4c82deE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -31148,7 +31148,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -31182,7 +31182,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h1d57ccff02d56959E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -31292,7 +31292,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -31326,7 +31326,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h39427a4662f7147bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -31436,7 +31436,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -31470,7 +31470,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h56a23206eca8530bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -31580,7 +31580,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -31614,7 +31614,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h3607c653e90aea95E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -31727,7 +31727,7 @@ default.unreachable:                              ; preds = %28, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %12, %21, %24
-  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ %23, %21 ], [ %20, %12 ]
+  %.sroa.0.0.i = phi ptr [ %20, %12 ], [ %23, %21 ], [ %25, %24 ]
   %26 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %26, label %28, label %27, !prof !24
 
@@ -31760,7 +31760,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %31, %34, %37
-  %.sroa.0.0.i8 = phi ptr [ %38, %37 ], [ %36, %34 ], [ %33, %31 ]
+  %.sroa.0.0.i8 = phi ptr [ %33, %31 ], [ %36, %34 ], [ %38, %37 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1377)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !1380
@@ -31990,7 +31990,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -32024,7 +32024,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h0d6a959dcb0e0f78E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -32134,7 +32134,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -32168,7 +32168,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hc0f5c3388ef57037E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -32278,7 +32278,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -32312,7 +32312,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h3bd78254f2f5fe68E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -32422,7 +32422,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -32456,7 +32456,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h1c49d1bd67d66c7dE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -32566,7 +32566,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -32600,7 +32600,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbddc2d2153e4cf23E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -32710,7 +32710,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -32744,7 +32744,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h04a5226a190daac0E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -32854,7 +32854,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -32888,7 +32888,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h5f59cc09eca6078aE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -32998,7 +32998,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -33032,7 +33032,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hc6cb6da82c10ea59E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -33142,7 +33142,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -33176,7 +33176,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN113_$LT$polars_expr..reduce..first_last..BinaryFirstLastReducer$LT$P$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbef88b925630b9bdE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -33286,7 +33286,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -33320,7 +33320,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd11a09f325255a97E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -33430,7 +33430,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -33464,7 +33464,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h85953653e1c916abE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -33574,7 +33574,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -33608,7 +33608,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h4ec7dabd640a3349E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -33718,7 +33718,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -33752,7 +33752,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h64274589f42d7683E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -33862,7 +33862,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -33896,7 +33896,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h28fe653415f78963E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -34006,7 +34006,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -34040,7 +34040,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -34147,7 +34147,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -34181,7 +34181,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hc3b17c0ccac05616E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -34291,7 +34291,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -34325,7 +34325,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h0b656b1e19064150E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -34435,7 +34435,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -34469,7 +34469,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h386d9434603d525cE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -34579,7 +34579,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -34613,7 +34613,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd7ba7837e6a4e113E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -34723,7 +34723,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -34757,7 +34757,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h41a6e3c304288af9E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -34867,7 +34867,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -34901,7 +34901,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -35008,7 +35008,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -35042,7 +35042,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h2abb28ec083a5253E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -35152,7 +35152,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -35186,7 +35186,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h22d92e977b97fdc0E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -35296,7 +35296,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -35330,7 +35330,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h70034fb93a8f232eE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -35440,7 +35440,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -35474,7 +35474,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -35581,7 +35581,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -35615,7 +35615,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hda8db5447646d09dE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -35725,7 +35725,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -35759,7 +35759,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hee8306bc67fb2c63E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -35869,7 +35869,7 @@ default.unreachable:                              ; preds = %25, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %23, label %25, label %24, !prof !24
 
@@ -35903,7 +35903,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i4 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i4 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17he21c410cc47ef264E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i4)
@@ -36021,7 +36021,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -36062,7 +36062,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h04a5226a190daac0E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -36419,7 +36419,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -36460,7 +36460,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h386d9434603d525cE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -36803,7 +36803,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -36845,7 +36845,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %39, %42, %45
-  %.sroa.0.0.i18 = phi ptr [ %46, %45 ], [ %44, %42 ], [ %41, %39 ]
+  %.sroa.0.0.i18 = phi ptr [ %41, %39 ], [ %44, %42 ], [ %46, %45 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -37223,7 +37223,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -37265,7 +37265,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h9a31ad3ab4235b97E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -37619,7 +37619,7 @@ default.unreachable:                              ; preds = %41, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %22, %31, %34
-  %.sroa.0.0.i = phi ptr [ %35, %34 ], [ %33, %31 ], [ %30, %22 ]
+  %.sroa.0.0.i = phi ptr [ %30, %22 ], [ %33, %31 ], [ %35, %34 ]
   %36 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %36, label %38, label %37, !prof !24
 
@@ -37660,7 +37660,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %44, %47, %50
-  %.sroa.0.0.i27 = phi ptr [ %51, %50 ], [ %49, %47 ], [ %46, %44 ]
+  %.sroa.0.0.i27 = phi ptr [ %46, %44 ], [ %49, %47 ], [ %51, %50 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1679)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14), !noalias !1682
@@ -38245,7 +38245,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -38286,7 +38286,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h1c49d1bd67d66c7dE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -38645,7 +38645,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -38687,7 +38687,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd7ba7837e6a4e113E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -39035,7 +39035,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -39076,7 +39076,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h6055f0b8508461aaE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -39439,7 +39439,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -39480,7 +39480,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h85953653e1c916abE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -39823,7 +39823,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -39864,7 +39864,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h020530edab4c82deE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -40205,7 +40205,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -40246,7 +40246,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h2abb28ec083a5253E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -40606,7 +40606,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -40647,7 +40647,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hcadb7ee734e21923E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -40988,7 +40988,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -41029,7 +41029,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hf522a76945b6491bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -41396,7 +41396,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -41438,7 +41438,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h22d92e977b97fdc0E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -41786,7 +41786,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -41827,7 +41827,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i20 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i20 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.0.0.i20, ptr %46, align 8, !alias.scope !1944, !noalias !1947
@@ -42190,7 +42190,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -42231,7 +42231,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h5887668a8f76ed8bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -42592,7 +42592,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -42634,7 +42634,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h28fe653415f78963E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -42986,7 +42986,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -43028,7 +43028,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h41a6e3c304288af9E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -43380,7 +43380,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -43422,7 +43422,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hda8db5447646d09dE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -43770,7 +43770,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -43811,7 +43811,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h4ec7dabd640a3349E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -44174,7 +44174,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -44215,7 +44215,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h56a23206eca8530bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -44560,7 +44560,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -44602,7 +44602,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h70034fb93a8f232eE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -44954,7 +44954,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -44995,7 +44995,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17he21c410cc47ef264E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -45356,7 +45356,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -45397,7 +45397,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hf75681a9385c7934E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -45758,7 +45758,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -45800,7 +45800,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h6aeb7f4cc91b0a88E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -46152,7 +46152,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -46194,7 +46194,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hb10f4799243bb9f1E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -46546,7 +46546,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -46587,7 +46587,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h62d113871bcd9abdE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -46944,7 +46944,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -46985,7 +46985,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h6aa92f8e75745dfbE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -47348,7 +47348,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -47389,7 +47389,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h39427a4662f7147bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -47730,7 +47730,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -47771,7 +47771,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hf26a46b4b567d317E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -48133,7 +48133,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -48174,7 +48174,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i19 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i19 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.0.0.i19, ptr %46, align 8, !alias.scope !2261, !noalias !2264
@@ -48556,7 +48556,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -48598,7 +48598,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h4bbed2d9fc15741aE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -48950,7 +48950,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -48992,7 +48992,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hc3b17c0ccac05616E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -49344,7 +49344,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -49386,7 +49386,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h64274589f42d7683E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -49738,7 +49738,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -49780,7 +49780,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h0b656b1e19064150E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -50132,7 +50132,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -50173,7 +50173,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h232f1424ee5e74bfE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -50535,7 +50535,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -50577,7 +50577,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd427b887b289b5fcE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -50925,7 +50925,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -50966,7 +50966,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h5a51dc7bb701c7c6E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -51332,7 +51332,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -51374,7 +51374,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i17 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i17 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN113_$LT$polars_expr..reduce..first_last..BinaryFirstLastReducer$LT$P$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hcd4250f9731d9419E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i17)
@@ -51761,7 +51761,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -51802,7 +51802,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hb504886a7fe7e3ccE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -52169,7 +52169,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -52211,7 +52211,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbe3ff42c3bba52e2E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -52559,7 +52559,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -52600,7 +52600,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i19 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i19 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -52997,7 +52997,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -53038,7 +53038,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd11a09f325255a97E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -53399,7 +53399,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -53441,7 +53441,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hc6cb6da82c10ea59E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -53793,7 +53793,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -53835,7 +53835,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h9f27aa43dc8facd5E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -54184,7 +54184,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -54226,7 +54226,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %39, %42, %45
-  %.sroa.0.0.i18 = phi ptr [ %46, %45 ], [ %44, %42 ], [ %41, %39 ]
+  %.sroa.0.0.i18 = phi ptr [ %41, %39 ], [ %44, %42 ], [ %46, %45 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -54604,7 +54604,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -54646,7 +54646,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hd6abbd0c0d841a79E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -54998,7 +54998,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -55039,7 +55039,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h2bf297868ce53be1E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -55400,7 +55400,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -55442,7 +55442,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hee8306bc67fb2c63E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -55794,7 +55794,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -55835,7 +55835,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h1d57ccff02d56959E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -56192,7 +56192,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -56233,7 +56233,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h5f59cc09eca6078aE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -56601,7 +56601,7 @@ default.unreachable:                              ; preds = %41, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %22, %31, %34
-  %.sroa.0.0.i = phi ptr [ %35, %34 ], [ %33, %31 ], [ %30, %22 ]
+  %.sroa.0.0.i = phi ptr [ %30, %22 ], [ %33, %31 ], [ %35, %34 ]
   %36 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %36, label %38, label %37, !prof !24
 
@@ -56643,7 +56643,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %45, %48, %51
-  %.sroa.0.0.i17 = phi ptr [ %52, %51 ], [ %50, %48 ], [ %47, %45 ]
+  %.sroa.0.0.i17 = phi ptr [ %47, %45 ], [ %50, %48 ], [ %52, %51 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2692)
@@ -57067,7 +57067,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -57109,7 +57109,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i17 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i17 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN113_$LT$polars_expr..reduce..first_last..BinaryFirstLastReducer$LT$P$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbef88b925630b9bdE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i17)
@@ -57500,7 +57500,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -57542,7 +57542,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbd07cf21b1198e4aE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -57895,7 +57895,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -57936,7 +57936,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %42, %45, %48
-  %.sroa.0.0.i22 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.sroa.0.0.i22 = phi ptr [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN101_$LT$polars_expr..reduce..var_std..VarStdReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hc0f5c3388ef57037E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i22)
@@ -58293,7 +58293,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -58334,7 +58334,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17ha7df9ec64476865bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -58677,7 +58677,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -58718,7 +58718,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17hbddc2d2153e4cf23E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -59080,7 +59080,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -59121,7 +59121,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h0d6a959dcb0e0f78E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -59464,7 +59464,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -59505,7 +59505,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h3bd78254f2f5fe68E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -59850,7 +59850,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -59892,7 +59892,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h56ad566846ecc7d0E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -60240,7 +60240,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -60281,7 +60281,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h0f65ffe05fcd0009E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -60622,7 +60622,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -60663,7 +60663,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i23 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i23 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN99_$LT$polars_expr..reduce..mean..NumMeanReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h3607c653e90aea95E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i23)
@@ -61027,7 +61027,7 @@ default.unreachable:                              ; preds = %39, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %20, %29, %32
-  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %29 ], [ %28, %20 ]
+  %.sroa.0.0.i = phi ptr [ %28, %20 ], [ %31, %29 ], [ %33, %32 ]
   %34 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %34, label %36, label %35, !prof !24
 
@@ -61069,7 +61069,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %43, %46, %49
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.sroa.0.0.i18 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN114_$LT$polars_expr..reduce..first_last..NumFirstLastReducer$LT$P$C$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h8c92ce0de779b29bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i18)
@@ -61417,7 +61417,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %16, %25, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %25 ], [ %24, %16 ]
+  %.sroa.0.0.i = phi ptr [ %24, %16 ], [ %27, %25 ], [ %29, %28 ]
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %1)
   br i1 %30, label %32, label %31, !prof !24
 
@@ -61458,7 +61458,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i25 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i25 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN97_$LT$polars_expr..reduce..sum..NumSumReducer$LT$T$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$11cast_series17h05e71b276f584ac1E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i25)
@@ -80392,7 +80392,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -80426,7 +80426,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -80578,7 +80578,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -80612,7 +80612,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -80764,7 +80764,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -80798,7 +80798,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -80950,7 +80950,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -80984,7 +80984,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -81135,7 +81135,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -81169,7 +81169,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -81321,7 +81321,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -81355,7 +81355,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -81507,7 +81507,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -81541,7 +81541,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -81693,7 +81693,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -81727,7 +81727,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -81879,7 +81879,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -81913,7 +81913,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -82069,7 +82069,7 @@ default.unreachable:                              ; preds = %27, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %10, %19, %22
-  %.sroa.0.0.i = phi ptr [ %23, %22 ], [ %21, %19 ], [ %18, %10 ]
+  %.sroa.0.0.i = phi ptr [ %18, %10 ], [ %21, %19 ], [ %23, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %24)
   br i1 %25, label %27, label %26, !prof !24
@@ -82103,7 +82103,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %30, %33, %36
-  %.sroa.0.0.i5 = phi ptr [ %37, %36 ], [ %35, %33 ], [ %32, %30 ]
+  %.sroa.0.0.i5 = phi ptr [ %32, %30 ], [ %35, %33 ], [ %37, %36 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %38 = load ptr, ptr %7, align 8, !noundef !6
@@ -82259,7 +82259,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -82293,7 +82293,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -82445,7 +82445,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -82479,7 +82479,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -82630,7 +82630,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -82664,7 +82664,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -82816,7 +82816,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -82850,7 +82850,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -83001,7 +83001,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -83035,7 +83035,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -83187,7 +83187,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -83221,7 +83221,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -83376,7 +83376,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -83410,7 +83410,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -83562,7 +83562,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -83596,7 +83596,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -83751,7 +83751,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -83785,7 +83785,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -83940,7 +83940,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -83974,7 +83974,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -84126,7 +84126,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -84160,7 +84160,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -84313,7 +84313,7 @@ default.unreachable:                              ; preds = %27, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %10, %19, %22
-  %.sroa.0.0.i = phi ptr [ %23, %22 ], [ %21, %19 ], [ %18, %10 ]
+  %.sroa.0.0.i = phi ptr [ %18, %10 ], [ %21, %19 ], [ %23, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %24)
   br i1 %25, label %27, label %26, !prof !24
@@ -84347,7 +84347,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %30, %33, %36
-  %.sroa.0.0.i5 = phi ptr [ %37, %36 ], [ %35, %33 ], [ %32, %30 ]
+  %.sroa.0.0.i5 = phi ptr [ %32, %30 ], [ %35, %33 ], [ %37, %36 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %38 = load ptr, ptr %7, align 8, !noundef !6
@@ -84503,7 +84503,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -84537,7 +84537,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -84689,7 +84689,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -84723,7 +84723,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -84875,7 +84875,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -84909,7 +84909,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -85061,7 +85061,7 @@ default.unreachable:                              ; preds = %26, %5
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %9, %18, %21
-  %.sroa.0.0.i = phi ptr [ %22, %21 ], [ %20, %18 ], [ %17, %9 ]
+  %.sroa.0.0.i = phi ptr [ %17, %9 ], [ %20, %18 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %23)
   br i1 %24, label %26, label %25, !prof !24
@@ -85095,7 +85095,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %29, %32, %35
-  %.sroa.0.0.i5 = phi ptr [ %36, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.sroa.0.0.i5 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i5)
   %37 = load ptr, ptr %6, align 8, !noundef !6
@@ -85249,7 +85249,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -85291,7 +85291,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -85644,7 +85644,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -85686,7 +85686,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -86039,7 +86039,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -86081,7 +86081,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -86434,7 +86434,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -86476,7 +86476,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i20 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i20 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i20)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -86821,7 +86821,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -86863,7 +86863,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -87216,7 +87216,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -87258,7 +87258,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -87611,7 +87611,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -87653,7 +87653,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -88006,7 +88006,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -88048,7 +88048,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -88401,7 +88401,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -88443,7 +88443,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -88796,7 +88796,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -88838,7 +88838,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i19 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i19 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i19)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -89182,7 +89182,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -89224,7 +89224,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i19 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i19 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i19)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -89568,7 +89568,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -89610,7 +89610,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i17 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i17 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i17)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -89964,7 +89964,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -90006,7 +90006,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -90359,7 +90359,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -90401,7 +90401,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i20 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i20 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i20)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -90746,7 +90746,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -90788,7 +90788,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -91141,7 +91141,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -91183,7 +91183,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i19 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i19 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i19)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -91527,7 +91527,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -91569,7 +91569,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i20 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i20 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i20)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -91914,7 +91914,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -91956,7 +91956,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i20 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i20 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i20)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -92301,7 +92301,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -92343,7 +92343,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -92696,7 +92696,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -92738,7 +92738,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -93091,7 +93091,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -93133,7 +93133,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -93486,7 +93486,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -93528,7 +93528,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i19 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i19 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i19)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -93872,7 +93872,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -93914,7 +93914,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -94267,7 +94267,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -94309,7 +94309,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -94662,7 +94662,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -94704,7 +94704,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i17 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i17 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i17)
   %46 = load ptr, ptr %12, align 8, !noundef !6
@@ -95058,7 +95058,7 @@ default.unreachable:                              ; preds = %35, %8
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %15, %24, %27
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %26, %24 ], [ %23, %15 ]
+  %.sroa.0.0.i = phi ptr [ %23, %15 ], [ %26, %24 ], [ %28, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @"_ZN80_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h691bd3af1913922aE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29)
   br i1 %30, label %32, label %31, !prof !24
@@ -95100,7 +95100,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %38, %41, %44
-  %.sroa.0.0.i21 = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i21 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @_ZN11polars_core6series6Series16to_physical_repr17h7a45da8d99dc0733E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i21)
   %46 = load ptr, ptr %12, align 8, !noundef !6

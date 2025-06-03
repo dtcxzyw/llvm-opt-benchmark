@@ -786,7 +786,7 @@ define internal i32 @dissect_dect_mitel_eth(ptr noundef %0, ptr noundef %1, ptr 
   br label %156
 
 156:                                              ; preds = %152, %143, %139, %96, %91, %83, %78, %72, %59
-  %.1.i = phi i32 [ %155, %152 ], [ %151, %143 ], [ %142, %139 ], [ %138, %96 ], [ %95, %91 ], [ %90, %83 ], [ %82, %78 ], [ %77, %72 ], [ %71, %59 ]
+  %.1.i = phi i32 [ %155, %152 ], [ %71, %59 ], [ %77, %72 ], [ %82, %78 ], [ %90, %83 ], [ %95, %91 ], [ %138, %96 ], [ %142, %139 ], [ %151, %143 ]
   %157 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
   %.not.i = icmp eq i32 %157, 0
   br i1 %.not.i, label %dissect_dect_mitel_eth_rfpc.exit, label %.lr.ph.i, !llvm.loop !8

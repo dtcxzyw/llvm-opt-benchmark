@@ -6045,7 +6045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   br label %100
 
 99:                                               ; preds = %16, %12
-  %.017.in = phi ptr [ %20, %16 ], [ %15, %12 ]
+  %.017.in = phi ptr [ %15, %12 ], [ %20, %16 ]
   %.017 = load i64, ptr %.017.in, align 8, !tbaa !41
   ret i64 %.017
 

@@ -793,13 +793,13 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i8, ptr %4, align 8, !range !345, !alias.scope !346, !noalias !349, !noundef !9
   %trunc.i.i = trunc nuw i8 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %.val.i.i = load ptr, ptr %6, align 8, !alias.scope !346, !noalias !349
-  %.val4.i.i = load ptr, ptr %8, align 8, !alias.scope !346, !noalias !349, !nonnull !9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.val.i.i = load ptr, ptr %7, align 8, !alias.scope !346, !noalias !349
+  %.val4.i.i = load ptr, ptr %6, align 8, !alias.scope !346, !noalias !349, !nonnull !9
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val4.i.i
-  %.val5.i.i = load i64, ptr %7, align 8, !alias.scope !346, !noalias !349
+  %.val5.i.i = load i64, ptr %8, align 8, !alias.scope !346, !noalias !349
   %.val6.cast.i.i = ptrtoint ptr %.val.i.i to i64
   %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 %.val5.i.i, i64 %.val6.cast.i.i
   %9 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !342
@@ -905,10 +905,10 @@ define hidden void @"_ZN44_$LT$T$u20$as$u20$alloc..borrow..ToOwned$GT$8to_owned1
   resume { ptr, i32 } %47
 
 "_ZN49_$LT$mime..Mime$u20$as$u20$core..clone..Clone$GT$5clone17ha98534f37f594891E.llvm.1214063349730439972.exit": ; preds = %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i", %30, %.noexc.i
-  %.sroa.9.0.i = phi i64 [ %35, %.noexc.i ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
-  %.sroa.8.0.i = phi i64 [ %39, %.noexc.i ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
-  %.sroa.6.0.i = phi i64 [ %45, %.noexc.i ], [ %32, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
-  %.sroa.0.02.i = phi i64 [ %41, %.noexc.i ], [ -9223372036854775808, %30 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
+  %.sroa.9.0.i = phi i64 [ undef, %30 ], [ %35, %.noexc.i ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
+  %.sroa.8.0.i = phi i64 [ undef, %30 ], [ %39, %.noexc.i ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
+  %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %45, %.noexc.i ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
+  %.sroa.0.02.i = phi i64 [ -9223372036854775808, %30 ], [ %41, %.noexc.i ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
   %trunc.i = trunc nuw i64 %21 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i64 %23, i64 undef
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1018,10 +1018,10 @@ define hidden void @"_ZN49_$LT$mime..Mime$u20$as$u20$core..clone..Clone$GT$5clon
           to label %54 unwind label %52
 
 "_ZN56_$LT$mime..ParamSource$u20$as$u20$core..clone..Clone$GT$5clone17h0ae01319fdba652fE.llvm.1214063349730439972.exit": ; preds = %.noexc, %30, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit"
-  %.sroa.9.0 = phi i64 [ %35, %.noexc ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
-  %.sroa.8.0 = phi i64 [ %39, %.noexc ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
-  %.sroa.6.0 = phi i64 [ %45, %.noexc ], [ %32, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
-  %.sroa.0.02 = phi i64 [ %41, %.noexc ], [ -9223372036854775808, %30 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
+  %.sroa.9.0 = phi i64 [ undef, %30 ], [ %35, %.noexc ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
+  %.sroa.8.0 = phi i64 [ undef, %30 ], [ %39, %.noexc ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
+  %.sroa.6.0 = phi i64 [ %32, %30 ], [ %45, %.noexc ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
+  %.sroa.0.02 = phi i64 [ -9223372036854775808, %30 ], [ %41, %.noexc ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
   %trunc = trunc nuw i64 %21 to i1
   %.sroa.5.0 = select i1 %trunc, i64 %23, i64 undef
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1516,13 +1516,13 @@ default.unreachable7:                             ; preds = %2
   %28 = load i64, ptr %27, align 8, !alias.scope !514, !noalias !517, !noundef !9
   %29 = load i8, ptr %20, align 8, !range !345, !alias.scope !519, !noalias !522, !noundef !9
   %trunc.i.i = trunc nuw i8 %29 to i1
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.val.i.i = load ptr, ptr %30, align 8, !alias.scope !519, !noalias !522
-  %.val4.i.i = load ptr, ptr %32, align 8, !alias.scope !519, !noalias !522, !nonnull !9
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.val.i.i = load ptr, ptr %31, align 8, !alias.scope !519, !noalias !522
+  %.val4.i.i = load ptr, ptr %30, align 8, !alias.scope !519, !noalias !522, !nonnull !9
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val4.i.i
-  %.val5.i.i = load i64, ptr %31, align 8, !alias.scope !519, !noalias !522
+  %.val5.i.i = load i64, ptr %32, align 8, !alias.scope !519, !noalias !522
   %.val6.cast.i.i = ptrtoint ptr %.val.i.i to i64
   %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 %.val5.i.i, i64 %.val6.cast.i.i
   %.not.i.i = icmp ugt i64 %22, %24

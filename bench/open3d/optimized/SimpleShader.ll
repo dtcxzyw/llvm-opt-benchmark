@@ -1288,8 +1288,8 @@ _ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread: ; preds = %171, %_ZNK6
   br label %193
 
 193:                                              ; preds = %180, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread, %162, %153, %144
-  %.sroa.9.0 = phi double [ %184, %180 ], [ %.sroa.9.0.copyload72, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.9.0.copyload70, %162 ], [ %.sroa.9.0.copyload68, %153 ], [ %.sroa.9.0.copyload, %144 ]
-  %.sroa.0.0 = phi <2 x double> [ %182, %180 ], [ %.sroa.0.0.copyload66, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.0.0.copyload65, %162 ], [ %.sroa.0.0.copyload64, %153 ], [ %.sroa.0.0.copyload, %144 ]
+  %.sroa.9.0 = phi double [ %184, %180 ], [ %.sroa.9.0.copyload72, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.9.0.copyload, %144 ], [ %.sroa.9.0.copyload68, %153 ], [ %.sroa.9.0.copyload70, %162 ]
+  %.sroa.0.0 = phi <2 x double> [ %182, %180 ], [ %.sroa.0.0.copyload66, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.0.0.copyload, %144 ], [ %.sroa.0.0.copyload64, %153 ], [ %.sroa.0.0.copyload65, %162 ]
   %194 = load ptr, ptr %5, align 8, !tbaa !34
   %195 = getelementptr inbounds nuw %"class.Eigen::Matrix.77", ptr %194, i64 %.03774
   %.sroa.0.0.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 0
@@ -3717,8 +3717,8 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread: ; preds = %193, %_
   br label %211
 
 211:                                              ; preds = %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread, %204, %184, %175, %166
-  %.sroa.9.0 = phi double [ %210, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %208, %204 ], [ %.sroa.9.0.copyload79, %184 ], [ %.sroa.9.0.copyload77, %175 ], [ %.sroa.9.0.copyload, %166 ]
-  %.sroa.0.0 = phi <2 x double> [ %209, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %206, %204 ], [ %.sroa.0.0.copyload75, %184 ], [ %.sroa.0.0.copyload74, %175 ], [ %.sroa.0.0.copyload, %166 ]
+  %.sroa.9.0 = phi double [ %210, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %.sroa.9.0.copyload, %166 ], [ %.sroa.9.0.copyload77, %175 ], [ %.sroa.9.0.copyload79, %184 ], [ %208, %204 ]
+  %.sroa.0.0 = phi <2 x double> [ %209, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %.sroa.0.0.copyload, %166 ], [ %.sroa.0.0.copyload74, %175 ], [ %.sroa.0.0.copyload75, %184 ], [ %206, %204 ]
   %212 = load ptr, ptr %5, align 8, !tbaa !34
   %213 = getelementptr inbounds nuw %"class.Eigen::Matrix.77", ptr %212, i64 %147
   %.sroa.0.0.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 0
@@ -4416,8 +4416,8 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit:
   br label %230
 
 230:                                              ; preds = %227, %222, %219, %206, %193
-  %.sroa.0200.0 = phi <2 x double> [ %228, %227 ], [ %224, %222 ], [ %.sroa.0200.0.copyload202, %219 ], [ %.sroa.0200.0.copyload201, %206 ], [ %.sroa.0200.0.copyload, %193 ]
-  %.sroa.10.0207 = phi double [ %229, %227 ], [ %226, %222 ], [ %.sroa.10.0.copyload206, %219 ], [ %.sroa.10.0.copyload204, %206 ], [ %.sroa.10.0.copyload, %193 ]
+  %.sroa.0200.0 = phi <2 x double> [ %228, %227 ], [ %.sroa.0200.0.copyload, %193 ], [ %.sroa.0200.0.copyload201, %206 ], [ %.sroa.0200.0.copyload202, %219 ], [ %224, %222 ]
+  %.sroa.10.0207 = phi double [ %229, %227 ], [ %.sroa.10.0.copyload, %193 ], [ %.sroa.10.0.copyload204, %206 ], [ %.sroa.10.0.copyload206, %219 ], [ %226, %222 ]
   %.sroa.0200.0.vec.extract = extractelement <2 x double> %.sroa.0200.0, i64 0
   %231 = fptrunc double %.sroa.0200.0.vec.extract to float
   %.sroa.0200.8.vec.extract = extractelement <2 x double> %.sroa.0200.0, i64 1
@@ -4757,9 +4757,9 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   br label %344
 
 344:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit212, %.loopexit.split-lp213, %194, %207, %220
-  %.sroa.14.1232 = phi ptr [ %.sroa.14.1.lcssa, %220 ], [ %.sroa.14.1.lcssa, %207 ], [ %.sroa.14.1.lcssa, %194 ], [ %.sroa.10.1250, %.loopexit212 ], [ %.sroa.10.1250, %.loopexit.split-lp213 ], [ %.sroa.14.1.lcssa, %.loopexit ], [ %.sroa.14.1.lcssa, %.loopexit.split-lp ]
-  %.sroa.0169.1219 = phi ptr [ %.sroa.0169.1.lcssa, %220 ], [ %.sroa.0169.1.lcssa, %207 ], [ %.sroa.0169.1.lcssa, %194 ], [ %.sroa.0169.1251, %.loopexit212 ], [ %.sroa.0169.1251, %.loopexit.split-lp213 ], [ %.sroa.0169.1.lcssa, %.loopexit ], [ %.sroa.0169.1.lcssa, %.loopexit.split-lp ]
-  %.pn47 = phi { ptr, i32 } [ %221, %220 ], [ %208, %207 ], [ %195, %194 ], [ %lpad.loopexit214, %.loopexit212 ], [ %lpad.loopexit.split-lp215, %.loopexit.split-lp213 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.14.1232 = phi ptr [ %.sroa.14.1.lcssa, %194 ], [ %.sroa.14.1.lcssa, %207 ], [ %.sroa.14.1.lcssa, %220 ], [ %.sroa.10.1250, %.loopexit212 ], [ %.sroa.10.1250, %.loopexit.split-lp213 ], [ %.sroa.14.1.lcssa, %.loopexit ], [ %.sroa.14.1.lcssa, %.loopexit.split-lp ]
+  %.sroa.0169.1219 = phi ptr [ %.sroa.0169.1.lcssa, %194 ], [ %.sroa.0169.1.lcssa, %207 ], [ %.sroa.0169.1.lcssa, %220 ], [ %.sroa.0169.1251, %.loopexit212 ], [ %.sroa.0169.1251, %.loopexit.split-lp213 ], [ %.sroa.0169.1.lcssa, %.loopexit ], [ %.sroa.0169.1.lcssa, %.loopexit.split-lp ]
+  %.pn47 = phi { ptr, i32 } [ %195, %194 ], [ %208, %207 ], [ %221, %220 ], [ %lpad.loopexit214, %.loopexit212 ], [ %lpad.loopexit.split-lp215, %.loopexit.split-lp213 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i125 = icmp eq ptr %.sroa.0169.1219, null
   br i1 %.not.i.i.i125, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit126, label %345
 
@@ -5451,8 +5451,8 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit:
   br label %230
 
 230:                                              ; preds = %227, %222, %219, %206, %193
-  %.sroa.0245.0 = phi <2 x double> [ %228, %227 ], [ %224, %222 ], [ %.sroa.0245.0.copyload247, %219 ], [ %.sroa.0245.0.copyload246, %206 ], [ %.sroa.0245.0.copyload, %193 ]
-  %.sroa.10.0 = phi double [ %229, %227 ], [ %226, %222 ], [ %.sroa.10.0.copyload252, %219 ], [ %.sroa.10.0.copyload250, %206 ], [ %.sroa.10.0.copyload, %193 ]
+  %.sroa.0245.0 = phi <2 x double> [ %228, %227 ], [ %.sroa.0245.0.copyload, %193 ], [ %.sroa.0245.0.copyload246, %206 ], [ %.sroa.0245.0.copyload247, %219 ], [ %224, %222 ]
+  %.sroa.10.0 = phi double [ %229, %227 ], [ %.sroa.10.0.copyload, %193 ], [ %.sroa.10.0.copyload250, %206 ], [ %.sroa.10.0.copyload252, %219 ], [ %226, %222 ]
   %.sroa.0245.0.vec.extract = extractelement <2 x double> %.sroa.0245.0, i64 0
   %231 = fptrunc double %.sroa.0245.0.vec.extract to float
   %.sroa.0245.8.vec.extract = extractelement <2 x double> %.sroa.0245.0, i64 1
@@ -5938,9 +5938,9 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   br label %397
 
 397:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit257, %.loopexit.split-lp258, %194, %207, %220
-  %.sroa.15.1279 = phi ptr [ %.sroa.15.1.lcssa, %220 ], [ %.sroa.15.1.lcssa, %207 ], [ %.sroa.15.1.lcssa, %194 ], [ %.sroa.11219.1301, %.loopexit257 ], [ %.sroa.11219.1301, %.loopexit.split-lp258 ], [ %.sroa.15.1.lcssa, %.loopexit ], [ %.sroa.15.1.lcssa, %.loopexit.split-lp ]
-  %.sroa.0213.1264 = phi ptr [ %.sroa.0213.1.lcssa, %220 ], [ %.sroa.0213.1.lcssa, %207 ], [ %.sroa.0213.1.lcssa, %194 ], [ %.sroa.0213.1302, %.loopexit257 ], [ %.sroa.0213.1302, %.loopexit.split-lp258 ], [ %.sroa.0213.1.lcssa, %.loopexit ], [ %.sroa.0213.1.lcssa, %.loopexit.split-lp ]
-  %.pn50 = phi { ptr, i32 } [ %221, %220 ], [ %208, %207 ], [ %195, %194 ], [ %lpad.loopexit259, %.loopexit257 ], [ %lpad.loopexit.split-lp260, %.loopexit.split-lp258 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.1279 = phi ptr [ %.sroa.15.1.lcssa, %194 ], [ %.sroa.15.1.lcssa, %207 ], [ %.sroa.15.1.lcssa, %220 ], [ %.sroa.11219.1301, %.loopexit257 ], [ %.sroa.11219.1301, %.loopexit.split-lp258 ], [ %.sroa.15.1.lcssa, %.loopexit ], [ %.sroa.15.1.lcssa, %.loopexit.split-lp ]
+  %.sroa.0213.1264 = phi ptr [ %.sroa.0213.1.lcssa, %194 ], [ %.sroa.0213.1.lcssa, %207 ], [ %.sroa.0213.1.lcssa, %220 ], [ %.sroa.0213.1302, %.loopexit257 ], [ %.sroa.0213.1302, %.loopexit.split-lp258 ], [ %.sroa.0213.1.lcssa, %.loopexit ], [ %.sroa.0213.1.lcssa, %.loopexit.split-lp ]
+  %.pn50 = phi { ptr, i32 } [ %195, %194 ], [ %208, %207 ], [ %221, %220 ], [ %lpad.loopexit259, %.loopexit257 ], [ %lpad.loopexit.split-lp260, %.loopexit.split-lp258 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i160 = icmp eq ptr %.sroa.0213.1264, null
   br i1 %.not.i.i.i160, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit161, label %398
 
@@ -8753,8 +8753,8 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit.
   br label %142
 
 142:                                              ; preds = %137, %131, %128, %109, %90
-  %.sroa.067.0.i.i.i = phi <2 x double> [ %139, %137 ], [ %134, %131 ], [ %.sroa.067.0.copyload69.i.i.i, %128 ], [ %.sroa.067.0.copyload68.i.i.i, %109 ], [ %.sroa.067.0.copyload.i.i.i, %90 ]
-  %.sroa.10.0.i.i.i = phi double [ %141, %137 ], [ %136, %131 ], [ %.sroa.10.0.copyload74.i.i.i, %128 ], [ %.sroa.10.0.copyload72.i.i.i, %109 ], [ %.sroa.10.0.copyload.i.i.i, %90 ]
+  %.sroa.067.0.i.i.i = phi <2 x double> [ %139, %137 ], [ %.sroa.067.0.copyload.i.i.i, %90 ], [ %.sroa.067.0.copyload68.i.i.i, %109 ], [ %.sroa.067.0.copyload69.i.i.i, %128 ], [ %134, %131 ]
+  %.sroa.10.0.i.i.i = phi double [ %141, %137 ], [ %.sroa.10.0.copyload.i.i.i, %90 ], [ %.sroa.10.0.copyload72.i.i.i, %109 ], [ %.sroa.10.0.copyload74.i.i.i, %128 ], [ %136, %131 ]
   %.sroa.067.0.vec.extract.i.i.i = extractelement <2 x double> %.sroa.067.0.i.i.i, i64 0
   %143 = fptrunc double %.sroa.067.0.vec.extract.i.i.i to float
   %.sroa.067.8.vec.extract.i.i.i = extractelement <2 x double> %.sroa.067.0.i.i.i, i64 1
@@ -9253,9 +9253,9 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   br label %329
 
 329:                                              ; preds = %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i, %129, %110, %91, %.loopexit.split-lp78.i.i.i, %.loopexit77.i.i.i
-  %.sroa.15.095.i.i.i = phi ptr [ %.sroa.15.0.lcssa.i.i.i, %129 ], [ %.sroa.15.0.lcssa.i.i.i, %110 ], [ %.sroa.15.0.lcssa.i.i.i, %91 ], [ %.sroa.1158.0101.i.i.i, %.loopexit77.i.i.i ], [ %.sroa.1158.0101.i.i.i, %.loopexit.split-lp78.i.i.i ], [ %.sroa.15.0.lcssa.i.i.i, %.loopexit.i.i.i ], [ %.sroa.15.0.lcssa.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.052.090.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %129 ], [ %.sroa.052.0.lcssa.i.i.i, %110 ], [ %.sroa.052.0.lcssa.i.i.i, %91 ], [ %.sroa.052.0102.i.i.i, %.loopexit77.i.i.i ], [ %.sroa.052.0102.i.i.i, %.loopexit.split-lp78.i.i.i ], [ %.sroa.052.0.lcssa.i.i.i, %.loopexit.i.i.i ], [ %.sroa.052.0.lcssa.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.pn16.pn.i.i.i = phi { ptr, i32 } [ %130, %129 ], [ %111, %110 ], [ %92, %91 ], [ %lpad.loopexit79.i.i.i, %.loopexit77.i.i.i ], [ %lpad.loopexit.split-lp80.i.i.i, %.loopexit.split-lp78.i.i.i ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.15.095.i.i.i = phi ptr [ %.sroa.15.0.lcssa.i.i.i, %91 ], [ %.sroa.15.0.lcssa.i.i.i, %110 ], [ %.sroa.15.0.lcssa.i.i.i, %129 ], [ %.sroa.1158.0101.i.i.i, %.loopexit77.i.i.i ], [ %.sroa.1158.0101.i.i.i, %.loopexit.split-lp78.i.i.i ], [ %.sroa.15.0.lcssa.i.i.i, %.loopexit.i.i.i ], [ %.sroa.15.0.lcssa.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.052.090.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %91 ], [ %.sroa.052.0.lcssa.i.i.i, %110 ], [ %.sroa.052.0.lcssa.i.i.i, %129 ], [ %.sroa.052.0102.i.i.i, %.loopexit77.i.i.i ], [ %.sroa.052.0102.i.i.i, %.loopexit.split-lp78.i.i.i ], [ %.sroa.052.0.lcssa.i.i.i, %.loopexit.i.i.i ], [ %.sroa.052.0.lcssa.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.pn16.pn.i.i.i = phi { ptr, i32 } [ %92, %91 ], [ %111, %110 ], [ %130, %129 ], [ %lpad.loopexit79.i.i.i, %.loopexit77.i.i.i ], [ %lpad.loopexit.split-lp80.i.i.i, %.loopexit.split-lp78.i.i.i ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   %.not.i.i.i106.i.i.i = icmp eq ptr %.sroa.052.090.i.i.i, null
   br i1 %.not.i.i.i106.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit107.i.i.i, label %330
 

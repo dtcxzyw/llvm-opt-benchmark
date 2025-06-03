@@ -949,7 +949,7 @@ define internal i32 @mmap_object_traverse(ptr noundef readonly captures(none) %0
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -2280,7 +2280,7 @@ define internal ptr @mmap_seek_method(ptr noundef captures(none) %0, ptr noundef
   br label %44
 
 34:                                               ; preds = %30, %22, %14
-  %.0 = phi i64 [ %31, %30 ], [ %23, %22 ], [ %15, %14 ]
+  %.0 = phi i64 [ %15, %14 ], [ %23, %22 ], [ %31, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i64, ptr %35, align 8, !tbaa !34
   %37 = icmp sgt i64 %.0, %36

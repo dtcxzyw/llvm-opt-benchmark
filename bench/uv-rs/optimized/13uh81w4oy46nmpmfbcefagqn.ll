@@ -182,7 +182,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71371d8efb30877cE.exit"
 
 "_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71371d8efb30877cE.exit": ; preds = %1, %3, %4
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", %3 ], [ @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", %1 ]
+  %.sroa.0.0.i = phi ptr [ @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", %3 ], [ null, %4 ], [ @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", %1 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -374,7 +374,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %common.ret
 
 38:                                               ; preds = %41, %26
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %27, %26 ]
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %42, %41 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 89
   store i8 0, ptr %39, align 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -449,7 +449,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$reqwest..async_impl..respons
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %5, %1
+common.ret:                                       ; preds = %5, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -472,7 +472,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$reqwest..async_impl..respons
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %5, %"_ZN4core3ptr54drop_in_place$LT$alloc..boxed..Box$LT$url..Url$GT$$GT$17hfb8e2b3f340ed5efE.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr54drop_in_place$LT$alloc..boxed..Box$LT$url..Url$GT$$GT$17hfb8e2b3f340ed5efE.exit", %5, %1
   ret void
 
 5:                                                ; preds = %1
@@ -620,7 +620,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %eh.lpad-body.i, %.body.i ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 648
   invoke void @"_ZN4core3ptr69drop_in_place$LT$reqwest_middleware..client..ClientWithMiddleware$GT$17h22359f3c1fb49cd0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27) #17
-          to label %.body8 unwind label %56
+          to label %.body9 unwind label %56
 
 "_ZN4core3ptr123drop_in_place$LT$reqwest_middleware..client..ClientWithMiddleware..execute_with_extensions..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8e0b9be612e8fc3E.exit": ; preds = %"_ZN4core3ptr255drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$reqwest..async_impl..response..Response$C$reqwest_middleware..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h47ffb7bb890cc1afE.exit.i", %5, %8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -654,7 +654,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   %.pn.i = phi { ptr, i32 } [ %40, %39 ], [ %34, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 672
   invoke void @"_ZN4core3ptr136drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..sync..Arc$LT$dyn$u20$reqwest_middleware..req_init..RequestInitialiser$GT$$u5d$$GT$$GT$17haf9852d195b4c073E.llvm.2244516386555417354"(ptr noalias noundef nonnull align 8 dereferenceable(16) %38) #17
-          to label %.body8 unwind label %43
+          to label %.body9 unwind label %43
 
 39:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$reqwest..async_impl..client..Client$GT$17h809fc675b571af3eE.exit.i"
   %40 = landingpad { ptr, i32 }
@@ -672,16 +672,16 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #18
   unreachable
 
-.body8:                                           ; preds = %46, %37, %.body
+.body9:                                           ; preds = %46, %37, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %47, %46 ], [ %.pn.i, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 640
   invoke void @"_ZN4core3ptr49drop_in_place$LT$http..extensions..Extensions$GT$17hfbb229f7669545a2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45) #17
-          to label %.body10 unwind label %56
+          to label %.body11 unwind label %56
 
 46:                                               ; preds = %41
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %.body8
+  br label %.body9
 
 "_ZN4core3ptr69drop_in_place$LT$reqwest_middleware..client..ClientWithMiddleware$GT$17h22359f3c1fb49cd0E.exit": ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -700,7 +700,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   %54 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %49, i64 noundef 32, i64 noundef 8) #19, !noalias !122
-  br label %.body10
+  br label %.body11
 
 "_ZN4core3ptr282drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$http..extensions..IdHasher$GT$$GT$$GT$$GT$17hfce57099aa1e8ecfE.llvm.2244516386555417354.exit.i.i": ; preds = %51
   tail call void @__rust_dealloc(ptr noundef nonnull %49, i64 noundef 32, i64 noundef 8) #19, !noalias !125
@@ -711,14 +711,14 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   store i8 0, ptr %55, align 1
   br label %common.ret
 
-56:                                               ; preds = %.body8, %.body
+56:                                               ; preds = %.body9, %.body
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #18
   unreachable
 
-.body10:                                          ; preds = %53, %.body8
-  %.pn4 = phi { ptr, i32 } [ %.pn, %.body8 ], [ %54, %53 ]
+.body11:                                          ; preds = %53, %.body9
+  %.pn4 = phi { ptr, i32 } [ %.pn, %.body9 ], [ %54, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1273
   store i8 0, ptr %58, align 1
   resume { ptr, i32 } %.pn4
@@ -3983,8 +3983,8 @@ define hidden { i16, i16 } @_ZN6rustix4path3arg10with_c_str17ha37a6c0fddc61a35E.
   br label %25
 
 25:                                               ; preds = %24, %11, %15
-  %.sroa.4.0 = phi i16 [ %14, %11 ], [ -22, %24 ], [ %23, %15 ]
-  %.sroa.0.0 = phi i16 [ %13, %11 ], [ 1, %24 ], [ %.sroa.0.0.i, %15 ]
+  %.sroa.4.0 = phi i16 [ %14, %11 ], [ %23, %15 ], [ -22, %24 ]
+  %.sroa.0.0 = phi i16 [ %13, %11 ], [ %.sroa.0.0.i, %15 ], [ 1, %24 ]
   %26 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %27 = insertvalue { i16, i16 } %26, i16 %.sroa.4.0, 1
   ret { i16, i16 } %27

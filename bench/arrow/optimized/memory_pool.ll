@@ -820,7 +820,7 @@ _ZN5arrow4util12ArrowLogBaselsIA50_cEERS1_RKT_.exit: ; preds = %.noexc, %.noexc6
   br label %common.resume
 
 44:                                               ; preds = %_ZN5arrow4util12ArrowLogBaselsIA50_cEERS1_RKT_.exit, %_ZN5arrow11GlobalState20mimalloc_memory_poolEv.exit, %_ZN5arrow11GlobalState18system_memory_poolEv.exit
-  %.0 = phi ptr [ null, %_ZN5arrow4util12ArrowLogBaselsIA50_cEERS1_RKT_.exit ], [ %.0.i4, %_ZN5arrow11GlobalState20mimalloc_memory_poolEv.exit ], [ %.0.i, %_ZN5arrow11GlobalState18system_memory_poolEv.exit ]
+  %.0 = phi ptr [ null, %_ZN5arrow4util12ArrowLogBaselsIA50_cEERS1_RKT_.exit ], [ %.0.i, %_ZN5arrow11GlobalState18system_memory_poolEv.exit ], [ %.0.i4, %_ZN5arrow11GlobalState20mimalloc_memory_poolEv.exit ]
   ret ptr %.0
 }
 
@@ -4057,7 +4057,7 @@ _ZN5arrow12_GLOBAL__N_117SupportedBackendsEv.exit15: ; preds = %46, %42, %_ZN5ar
   br label %80
 
 80:                                               ; preds = %78, %._crit_edge.i.i.i
-  %.sroa.041.1.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %79, %78 ]
+  %.sroa.041.1.i.i.i = phi ptr [ %79, %78 ], [ %.sroa.041.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val2.i30.i.i.i = load ptr, ptr %.sroa.041.1.i.i.i, align 8, !tbaa !267
   %81 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %.val2.i30.i.i.i) #32
   %82 = icmp eq i32 %81, 0
@@ -4068,7 +4068,7 @@ _ZN5arrow12_GLOBAL__N_117SupportedBackendsEv.exit15: ; preds = %46, %42, %_ZN5ar
   br label %85
 
 85:                                               ; preds = %83, %._crit_edge.i.i.i
-  %.sroa.041.2.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %84, %83 ]
+  %.sroa.041.2.i.i.i = phi ptr [ %84, %83 ], [ %.sroa.041.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val2.i31.i.i.i = load ptr, ptr %.sroa.041.2.i.i.i, align 8, !tbaa !267
   %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %.val2.i31.i.i.i) #32
   %87 = icmp eq i32 %86, 0

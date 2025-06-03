@@ -138,7 +138,7 @@ _ZNK5clang4Type10isSamplerTEv.exit.thread:        ; preds = %11, %_ZNK5clang4Typ
   br label %_ZN5clang7CodeGen15CGOpenCLRuntime14getSamplerTypeEPKNS_4TypeE.exit
 
 _ZN5clang7CodeGen15CGOpenCLRuntime14getSamplerTypeEPKNS_4TypeE.exit: ; preds = %49, %22, %2, %_ZNK5clang4Type10isSamplerTEv.exit.thread
-  %.1 = phi ptr [ %10, %2 ], [ %58, %_ZNK5clang4Type10isSamplerTEv.exit.thread ], [ %storemerge.i, %49 ], [ %24, %22 ]
+  %.1 = phi ptr [ %58, %_ZNK5clang4Type10isSamplerTEv.exit.thread ], [ %10, %2 ], [ %storemerge.i, %49 ], [ %24, %22 ]
   ret ptr %.1
 }
 
@@ -291,7 +291,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenCLRuntime15getPipeElemSiz
   br label %_ZNK5clang4Type6castAsINS_8PipeTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_8PipeTypeEEEPKT_v.exit: ; preds = %2, %9
-  %.1.i = phi ptr [ %6, %2 ], [ %10, %9 ]
+  %.1.i = phi ptr [ %10, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 232
@@ -331,7 +331,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenCLRuntime16getPipeElemAli
   br label %_ZNK5clang4Type6castAsINS_8PipeTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_8PipeTypeEEEPKT_v.exit: ; preds = %2, %9
-  %.1.i = phi ptr [ %6, %2 ], [ %10, %9 ]
+  %.1.i = phi ptr [ %10, %9 ], [ %6, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 232

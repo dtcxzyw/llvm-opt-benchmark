@@ -398,10 +398,10 @@ define noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_al
 33:                                               ; preds = %27
   %34 = and i64 %32, 3
   switch i64 %34, label %default.unreachable [
-    i64 2, label %58
+    i64 2, label %47
     i64 3, label %35
-    i64 0, label %47
-    i64 1, label %52
+    i64 0, label %49
+    i64 1, label %54
   ], !prof !20
 
 default.unreachable:                              ; preds = %33
@@ -427,8 +427,8 @@ default.unreachable:                              ; preds = %33
 .noexc.i:                                         ; preds = %40
   unreachable
 
-.thread58.i:                                      ; preds = %58, %52, %47, %36, %35
-  %.sroa.04.1.i = phi ptr [ @anon.e4433a5ff53cad8b3f265405bc7a918a.1, %36 ], [ %30, %47 ], [ %30, %52 ], [ %30, %58 ], [ %30, %35 ]
+.thread58.i:                                      ; preds = %54, %49, %47, %36, %35
+  %.sroa.04.1.i = phi ptr [ @anon.e4433a5ff53cad8b3f265405bc7a918a.1, %36 ], [ %30, %49 ], [ %30, %47 ], [ %30, %54 ], [ %30, %35 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
   br label %_ZN3std2io5Write9write_all17h738fb0293bb7601eE.exit
 
@@ -445,28 +445,28 @@ default.unreachable:                              ; preds = %33
   br label %60
 
 47:                                               ; preds = %33
-  %48 = icmp ne ptr %30, null
-  call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %50 = load i8, ptr %49, align 8, !range !21, !noundef !3
-  %51 = icmp eq i8 %50, 35
-  br i1 %51, label %.thread.i, label %.thread58.i
-
-52:                                               ; preds = %33
-  %53 = getelementptr i8, ptr %30, i64 -1
-  %54 = icmp ne ptr %53, null
-  call void @llvm.assume(i1 %54)
-  %55 = getelementptr i8, ptr %30, i64 15
-  %56 = load i8, ptr %55, align 8, !range !21, !noundef !3
-  %57 = icmp eq i8 %56, 35
-  br i1 %57, label %.thread.i, label %.thread58.i
-
-58:                                               ; preds = %33
   %.mask60.i = and i64 %32, -4294967296
-  %59 = icmp eq i64 %.mask60.i, 17179869184
+  %48 = icmp eq i64 %.mask60.i, 17179869184
+  br i1 %48, label %.thread.i, label %.thread58.i
+
+49:                                               ; preds = %33
+  %50 = icmp ne ptr %30, null
+  call void @llvm.assume(i1 %50)
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %52 = load i8, ptr %51, align 8, !range !21, !noundef !3
+  %53 = icmp eq i8 %52, 35
+  br i1 %53, label %.thread.i, label %.thread58.i
+
+54:                                               ; preds = %33
+  %55 = getelementptr i8, ptr %30, i64 -1
+  %56 = icmp ne ptr %55, null
+  call void @llvm.assume(i1 %56)
+  %57 = getelementptr i8, ptr %30, i64 15
+  %58 = load i8, ptr %57, align 8, !range !21, !noundef !3
+  %59 = icmp eq i8 %58, 35
   br i1 %59, label %.thread.i, label %.thread58.i
 
-.thread.i:                                        ; preds = %58, %52, %47, %35
+.thread.i:                                        ; preds = %54, %49, %47, %35
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h99967b86a8aa2756E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
   br label %60
 
@@ -552,10 +552,10 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
 24:                                               ; preds = %19
   %25 = and i64 %23, 3
   switch i64 %25, label %default.unreachable [
-    i64 2, label %43
+    i64 2, label %32
     i64 3, label %26
-    i64 0, label %32
-    i64 1, label %37
+    i64 0, label %34
+    i64 1, label %39
   ], !prof !20
 
 default.unreachable:                              ; preds = %24
@@ -570,8 +570,8 @@ default.unreachable:                              ; preds = %24
   %28 = icmp eq ptr %21, null
   br i1 %28, label %.thread47, label %29
 
-.thread47:                                        ; preds = %26, %43, %37, %32, %27
-  %.sroa.0.1 = phi ptr [ @anon.e4433a5ff53cad8b3f265405bc7a918a.10, %27 ], [ %21, %32 ], [ %21, %37 ], [ %21, %43 ], [ %21, %26 ]
+.thread47:                                        ; preds = %26, %39, %32, %34, %27
+  %.sroa.0.1 = phi ptr [ @anon.e4433a5ff53cad8b3f265405bc7a918a.10, %27 ], [ %21, %34 ], [ %21, %32 ], [ %21, %39 ], [ %21, %26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %._crit_edge
 
@@ -582,25 +582,25 @@ default.unreachable:                              ; preds = %24
   br label %45
 
 32:                                               ; preds = %24
-  %33 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %35 = load i8, ptr %34, align 8, !range !21, !noundef !3
-  %36 = icmp eq i8 %35, 35
-  br i1 %36, label %.thread, label %.thread47
-
-37:                                               ; preds = %24
-  %38 = getelementptr i8, ptr %21, i64 -1
-  %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
-  %40 = getelementptr i8, ptr %21, i64 15
-  %41 = load i8, ptr %40, align 8, !range !21, !noundef !3
-  %42 = icmp eq i8 %41, 35
-  br i1 %42, label %.thread, label %.thread47
-
-43:                                               ; preds = %24
   %.mask49 = and i64 %23, -4294967296
-  %44 = icmp eq i64 %.mask49, 17179869184
+  %33 = icmp eq i64 %.mask49, 17179869184
+  br i1 %33, label %.thread, label %.thread47
+
+34:                                               ; preds = %24
+  %35 = icmp ne ptr %21, null
+  call void @llvm.assume(i1 %35)
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %37 = load i8, ptr %36, align 8, !range !21, !noundef !3
+  %38 = icmp eq i8 %37, 35
+  br i1 %38, label %.thread, label %.thread47
+
+39:                                               ; preds = %24
+  %40 = getelementptr i8, ptr %21, i64 -1
+  %41 = icmp ne ptr %40, null
+  call void @llvm.assume(i1 %41)
+  %42 = getelementptr i8, ptr %21, i64 15
+  %43 = load i8, ptr %42, align 8, !range !21, !noundef !3
+  %44 = icmp eq i8 %43, 35
   br i1 %44, label %.thread, label %.thread47
 
 ._crit_edge:                                      ; preds = %45, %1, %.thread47
@@ -609,7 +609,7 @@ default.unreachable:                              ; preds = %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret ptr %.sroa.0.0
 
-.thread:                                          ; preds = %26, %43, %37, %32
+.thread:                                          ; preds = %26, %39, %32, %34
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h99967b86a8aa2756E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %.thread._crit_edge unwind label %13
 

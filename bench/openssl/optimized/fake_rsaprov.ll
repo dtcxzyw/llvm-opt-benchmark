@@ -203,7 +203,7 @@ define internal noundef ptr @fake_rsa_query(ptr readnone captures(none) %0, i32 
   br label %7
 
 7:                                                ; preds = %3, %6, %5, %4
-  %.0 = phi ptr [ null, %6 ], [ @fake_rsa_store_algs, %5 ], [ @fake_rsa_keymgmt_algs, %4 ], [ @fake_rsa_sig_algs, %3 ]
+  %.0 = phi ptr [ null, %6 ], [ @fake_rsa_keymgmt_algs, %4 ], [ @fake_rsa_store_algs, %5 ], [ @fake_rsa_sig_algs, %3 ]
   ret ptr %.0
 }
 
@@ -951,7 +951,7 @@ define internal noundef i32 @fake_rsa_st_load(ptr noundef captures(none) %0, ptr
   br label %29
 
 29:                                               ; preds = %19, %15, %28, %27, %22, %14
-  %.0 = phi i32 [ 0, %28 ], [ 0, %27 ], [ 0, %14 ], [ %26, %22 ], [ 0, %19 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %14 ], [ %26, %22 ], [ 0, %19 ], [ 0, %15 ], [ 0, %27 ]
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.9, i32 noundef 656, ptr noundef nonnull @.str.56, i32 noundef %.0) #12
   %30 = icmp ne i32 %.0, 0
   %.b = load i1, ptr @key_deleted, align 4

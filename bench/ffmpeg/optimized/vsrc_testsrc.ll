@@ -1937,7 +1937,7 @@ define internal void @test2_fill_picture(ptr noundef readonly captures(none) %0,
   unreachable
 
 color_gradient.exit:                              ; preds = %72, %75, %78, %80, %83, %86
-  %.0.i = phi i32 [ %87, %86 ], [ %85, %83 ], [ %82, %80 ], [ %79, %78 ], [ %77, %75 ], [ %74, %72 ]
+  %.0.i = phi i32 [ %74, %72 ], [ %77, %75 ], [ %79, %78 ], [ %82, %80 ], [ %85, %83 ], [ %87, %86 ]
   %89 = or disjoint i32 %.0.i, %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
   %90 = lshr i32 %.0.i, 16
@@ -3343,7 +3343,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   br label %192
 
 192:                                              ; preds = %191, %37, %37, %37
-  %.1.i.us = phi i32 [ %39, %37 ], [ %39, %37 ], [ %39, %37 ], [ 255, %191 ]
+  %.1.i.us = phi i32 [ 255, %191 ], [ %39, %37 ], [ %39, %37 ], [ %39, %37 ]
   %193 = load i8, ptr %23, align 1, !tbaa !76
   %194 = zext i8 %193 to i32
   %195 = shl nuw nsw i32 %194, 3
@@ -3377,7 +3377,7 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   br label %220
 
 220:                                              ; preds = %219, %37
-  %.0.i.us = phi i32 [ %39, %37 ], [ 65535, %219 ]
+  %.0.i.us = phi i32 [ 65535, %219 ], [ %39, %37 ]
   %221 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %222 = load i32, ptr %221, align 4, !tbaa !114
   %223 = shl i32 %.035.us, %222

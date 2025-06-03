@@ -1186,8 +1186,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorISt10shared_ptrINS1_9Proo
   br label %303
 
 303:                                              ; preds = %301, %._crit_edge._crit_edge.i.i.i
-  %304 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %299, %301 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %302, %301 ]
+  %304 = phi ptr [ %299, %301 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %302, %301 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %305 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !39
   %306 = icmp eq ptr %305, %304
   br i1 %306, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %307
@@ -1197,8 +1197,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorISt10shared_ptrINS1_9Proo
   br label %309
 
 309:                                              ; preds = %307, %._crit_edge._crit_edge57.i.i.i
-  %310 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %304, %307 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %308, %307 ]
+  %310 = phi ptr [ %304, %307 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %308, %307 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %311 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !39
   %312 = icmp eq ptr %311, %310
   %spec.select.i.i.i = select i1 %312, ptr %.sroa.032.2.i.i.i, ptr %269
@@ -4064,8 +4064,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %11, %16, %22
   %spec.select = select i1 %29, i32 75, i32 74
   br label %30
 
-30:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %2, %2, %2, %2, %2, %2, %2, %2, %28
-  %.0.ph = phi i32 [ %spec.select, %28 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ %12, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
+30:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %_ZN4cvc58internal8TypeNodeD2Ev.exit, %28
+  %.0.ph = phi i32 [ %spec.select, %28 ], [ %12, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ], [ 74, %2 ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16

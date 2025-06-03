@@ -4094,20 +4094,20 @@ _ZL10skipPGOUseRKN4llvm8FunctionE.exit.thread9.i.i: ; preds = %_ZL10skipPGOUseRK
   call void @_ZNK4llvm8Function13getEntryCountEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.295") align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %73, i1 noundef zeroext false) #24
   %106 = load i8, ptr %46, align 8, !tbaa !247, !range !51, !noundef !52
   %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %108, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.i
+  br i1 %107, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.i, label %108
 
 108:                                              ; preds = %105
-  %109 = load i64, ptr %5, align 8, !tbaa !249
-  %110 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL31PGOColdInstrumentEntryThreshold, i64 120), align 8, !tbaa !91
-  %111 = icmp ugt i64 %109, %110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  br i1 %111, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i
+  %109 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21PGOTreatUnknownAsCold, i64 120), align 8, !tbaa !53, !range !51, !noundef !52
+  %110 = trunc nuw i8 %109 to i1
+  br i1 %110, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i
 
 _ZL10skipPGOGenRKN4llvm8FunctionE.exit.i:         ; preds = %105
+  %111 = load i64, ptr %5, align 8, !tbaa !249
+  %112 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL31PGOColdInstrumentEntryThreshold, i64 120), align 8, !tbaa !91
+  %113 = icmp ugt i64 %111, %112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21PGOTreatUnknownAsCold, i64 120), align 8, !tbaa !53, !range !51, !noundef !52
-  %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i
+  br i1 %113, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i
 
 _ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i: ; preds = %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.i, %108, %102
   %114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %73) #24
@@ -16481,7 +16481,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %.lr.ph320
   br label %1468
 
 1468:                                             ; preds = %1466, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %1467, %1466 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %1467, %1466 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %1469 = load i32, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !930
   %1470 = icmp eq i32 %1469, 0
   br i1 %1470, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i, label %1471
@@ -16491,7 +16491,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %.lr.ph320
   br label %1473
 
 1473:                                             ; preds = %1471, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %1472, %1471 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %1472, %1471 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %1474 = load i32, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !930
   %1475 = icmp eq i32 %1474, 0
   br i1 %1475, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread
@@ -20953,7 +20953,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !930
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -20963,7 +20963,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !930
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit

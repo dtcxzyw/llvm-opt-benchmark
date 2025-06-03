@@ -2116,7 +2116,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h620a5b9ce30e
   resume { ptr, i32 } %.pn
 
 48:                                               ; preds = %11, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Span$GT$$GT$17ha05740bdc4332deeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #21
           to label %47 unwind label %45
 }

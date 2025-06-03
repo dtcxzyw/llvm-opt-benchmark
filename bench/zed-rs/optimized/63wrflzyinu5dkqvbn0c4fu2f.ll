@@ -177,7 +177,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %13 = invoke { ptr, i64 } @"_ZN75_$LT$pulldown_cmark..strings..CowStr$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7cf77751bf462393E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.split unwind label %.thread125.loopexit.split-lp
 
-.thread125.loopexit:                              ; preds = %285, %173, %126, %136, %141, %94, %72, %74
+.thread125.loopexit:                              ; preds = %285, %173, %126, %74, %72, %136, %141, %94
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -461,8 +461,8 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br label %134
 
 134:                                              ; preds = %76, %140, %._crit_edge207, %286, %252, %174, %127
-  %.sroa.031.1 = phi i64 [ %292, %286 ], [ %.sroa.031.2, %252 ], [ %80, %127 ], [ %77, %174 ], [ %.sroa.031.0182, %._crit_edge207 ], [ %.sroa.031.0182, %140 ], [ %.sroa.031.0182, %76 ]
-  %.sroa.0.1 = phi i64 [ %292, %286 ], [ %.sroa.0.2, %252 ], [ %133, %127 ], [ %180, %174 ], [ %.pre, %._crit_edge207 ], [ %77, %140 ], [ %77, %76 ]
+  %.sroa.031.1 = phi i64 [ %80, %127 ], [ %77, %174 ], [ %.sroa.031.2, %252 ], [ %292, %286 ], [ %.sroa.031.0182, %._crit_edge207 ], [ %.sroa.031.0182, %140 ], [ %.sroa.031.0182, %76 ]
+  %.sroa.0.1 = phi i64 [ %133, %127 ], [ %180, %174 ], [ %.sroa.0.2, %252 ], [ %292, %286 ], [ %.pre, %._crit_edge207 ], [ %77, %140 ], [ %77, %76 ]
   %135 = icmp ult i64 %.sroa.0.1, %16
   br i1 %135, label %68, label %._crit_edge
 
@@ -567,7 +567,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
           to label %194 unwind label %.loopexit
 
 187:                                              ; preds = %181
-  %188 = add i64 %.sroa.0.0183, 1
+  %188 = add nuw i64 %.sroa.0.0183, 1
   br label %252
 
 .loopexit:                                        ; preds = %184, %225, %224, %240

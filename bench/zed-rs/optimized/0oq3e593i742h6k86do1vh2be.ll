@@ -1029,7 +1029,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a39f3a878086d90E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a39f3a878086d90E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1055,7 +1055,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29f47630efe2e0f0E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29f47630efe2e0f0E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -3535,7 +3535,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   unreachable
 
 common.resume:                                    ; preds = %438, %249, %.thread299, %491, %521, %352, %.thread341, %378, %342, %279, %220, %169, %68
-  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %170, %169 ], [ %221, %220 ], [ %280, %279 ], [ %522, %521 ], [ %lpad.phi, %491 ], [ %eh.lpad-body298, %.thread299 ], [ %250, %249 ], [ %353, %352 ], [ %468, %.thread341 ], [ %343, %342 ], [ %379, %378 ], [ %439, %438 ]
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %170, %169 ], [ %221, %220 ], [ %280, %279 ], [ %522, %521 ], [ %eh.lpad-body298, %.thread299 ], [ %250, %249 ], [ %lpad.phi, %491 ], [ %353, %352 ], [ %468, %.thread341 ], [ %343, %342 ], [ %379, %378 ], [ %439, %438 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread:                                          ; preds = %62

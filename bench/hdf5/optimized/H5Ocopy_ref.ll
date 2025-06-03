@@ -809,7 +809,7 @@ H5O__copy_expand_ref_object2.exit:                ; preds = %379, %380
   br label %396
 
 396:                                              ; preds = %H5O__copy_expand_ref_object2.exit.thread39, %H5O__copy_expand_ref_region1.exit.thread, %H5O__copy_expand_ref_object1.exit.thread, %32, %45, %54, %130, %190, %388, %392, %H5O__copy_expand_ref_object2.exit, %36
-  %.0 = phi i32 [ -1, %32 ], [ -1, %45 ], [ -1, %54 ], [ -1, %392 ], [ -1, %388 ], [ 0, %H5O__copy_expand_ref_object2.exit ], [ -1, %190 ], [ -1, %130 ], [ 0, %36 ], [ 0, %H5O__copy_expand_ref_object1.exit.thread ], [ 0, %H5O__copy_expand_ref_region1.exit.thread ], [ 0, %H5O__copy_expand_ref_object2.exit.thread39 ]
+  %.0 = phi i32 [ -1, %32 ], [ -1, %45 ], [ -1, %54 ], [ -1, %392 ], [ -1, %130 ], [ -1, %190 ], [ -1, %388 ], [ 0, %H5O__copy_expand_ref_object2.exit ], [ 0, %36 ], [ 0, %H5O__copy_expand_ref_object1.exit.thread ], [ 0, %H5O__copy_expand_ref_region1.exit.thread ], [ 0, %H5O__copy_expand_ref_object2.exit.thread39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #8

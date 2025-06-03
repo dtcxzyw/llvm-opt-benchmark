@@ -1800,7 +1800,7 @@ jvp_object_equal.exit:                            ; preds = %99, %74, %jv_copy.e
   br label %jvp_array_equal.exit
 
 jvp_array_equal.exit:                             ; preds = %jv_copy.exit, %21, %55, %50, %20, %16, %10, %4, %jvp_object_equal.exit, %17
-  %.0.shrunk = phi i1 [ %narrow, %jvp_object_equal.exit ], [ %19, %17 ], [ false, %4 ], [ true, %10 ], [ true, %16 ], [ false, %20 ], [ %59, %55 ], [ false, %50 ], [ true, %21 ], [ %.not26.i.not, %jv_copy.exit ]
+  %.0.shrunk = phi i1 [ %19, %17 ], [ %narrow, %jvp_object_equal.exit ], [ false, %4 ], [ true, %10 ], [ true, %16 ], [ false, %20 ], [ %59, %55 ], [ false, %50 ], [ true, %21 ], [ %.not26.i.not, %jv_copy.exit ]
   %.0 = zext i1 %.0.shrunk to i32
   tail call void @jv_free(i64 %0, ptr %1)
   tail call void @jv_free(i64 %2, ptr %3)
@@ -2704,7 +2704,7 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
   br label %34
 
 34:                                               ; preds = %29, %._crit_edge.i
-  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ %33, %29 ]
+  %.0.i = phi i32 [ %33, %29 ], [ 0, %._crit_edge.i ]
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !8
   %37 = zext i8 %36 to i32
@@ -2713,7 +2713,7 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
   br label %40
 
 40:                                               ; preds = %34, %._crit_edge.i
-  %.1.i = phi i32 [ 0, %._crit_edge.i ], [ %39, %34 ]
+  %.1.i = phi i32 [ %39, %34 ], [ 0, %._crit_edge.i ]
   %41 = load i8, ptr %14, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %43 = xor i32 %.1.i, %42
@@ -2727,7 +2727,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 48:                                               ; preds = %40, %._crit_edge.i
-  %.150.i = phi i32 [ %.049.lcssa.i, %._crit_edge.i ], [ %47, %40 ]
+  %.150.i = phi i32 [ %47, %40 ], [ %.049.lcssa.i, %._crit_edge.i ]
   %49 = xor i32 %.150.i, %11
   %50 = lshr i32 %49, 16
   %51 = xor i32 %50, %49
@@ -3525,7 +3525,7 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
   br label %40
 
 40:                                               ; preds = %35, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %39, %35 ]
+  %.0.i.i = phi i32 [ %39, %35 ], [ 0, %._crit_edge.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
@@ -3534,7 +3534,7 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
   br label %46
 
 46:                                               ; preds = %40, %._crit_edge.i.i
-  %.1.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %45, %40 ]
+  %.1.i.i = phi i32 [ %45, %40 ], [ 0, %._crit_edge.i.i ]
   %47 = load i8, ptr %20, align 1, !tbaa !8
   %48 = zext i8 %47 to i32
   %49 = xor i32 %.1.i.i, %48
@@ -3548,7 +3548,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 54:                                               ; preds = %46, %._crit_edge.i.i
-  %.150.i.i = phi i32 [ %.049.lcssa.i.i, %._crit_edge.i.i ], [ %53, %46 ]
+  %.150.i.i = phi i32 [ %53, %46 ], [ %.049.lcssa.i.i, %._crit_edge.i.i ]
   %55 = xor i32 %.150.i.i, %17
   %56 = lshr i32 %55, 16
   %57 = xor i32 %56, %55
@@ -4035,7 +4035,7 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
   br label %69
 
 69:                                               ; preds = %64, %._crit_edge.i.i84
-  %.0.i.i88 = phi i32 [ 0, %._crit_edge.i.i84 ], [ %68, %64 ]
+  %.0.i.i88 = phi i32 [ %68, %64 ], [ 0, %._crit_edge.i.i84 ]
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !8
   %72 = zext i8 %71 to i32
@@ -4044,7 +4044,7 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
   br label %75
 
 75:                                               ; preds = %69, %._crit_edge.i.i84
-  %.1.i.i87 = phi i32 [ 0, %._crit_edge.i.i84 ], [ %74, %69 ]
+  %.1.i.i87 = phi i32 [ %74, %69 ], [ 0, %._crit_edge.i.i84 ]
   %76 = load i8, ptr %49, align 1, !tbaa !8
   %77 = zext i8 %76 to i32
   %78 = xor i32 %.1.i.i87, %77
@@ -4058,7 +4058,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i84
   unreachable
 
 83:                                               ; preds = %75, %._crit_edge.i.i84
-  %.150.i.i86 = phi i32 [ %.049.lcssa.i.i85, %._crit_edge.i.i84 ], [ %82, %75 ]
+  %.150.i.i86 = phi i32 [ %82, %75 ], [ %.049.lcssa.i.i85, %._crit_edge.i.i84 ]
   %84 = xor i32 %.150.i.i86, %46
   %85 = lshr i32 %84, 16
   %86 = xor i32 %85, %84
@@ -4381,7 +4381,7 @@ jv_copy.exit122:                                  ; preds = %41, %42
   br label %76
 
 76:                                               ; preds = %71, %._crit_edge.i.i174
-  %.0.i.i178 = phi i32 [ 0, %._crit_edge.i.i174 ], [ %75, %71 ]
+  %.0.i.i178 = phi i32 [ %75, %71 ], [ 0, %._crit_edge.i.i174 ]
   %77 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %78 = load i8, ptr %77, align 1, !tbaa !8
   %79 = zext i8 %78 to i32
@@ -4390,7 +4390,7 @@ jv_copy.exit122:                                  ; preds = %41, %42
   br label %82
 
 82:                                               ; preds = %76, %._crit_edge.i.i174
-  %.1.i.i177 = phi i32 [ 0, %._crit_edge.i.i174 ], [ %81, %76 ]
+  %.1.i.i177 = phi i32 [ %81, %76 ], [ 0, %._crit_edge.i.i174 ]
   %83 = load i8, ptr %56, align 1, !tbaa !8
   %84 = zext i8 %83 to i32
   %85 = xor i32 %.1.i.i177, %84
@@ -4404,7 +4404,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i174
   unreachable
 
 90:                                               ; preds = %82, %._crit_edge.i.i174
-  %.150.i.i176 = phi i32 [ %.049.lcssa.i.i175, %._crit_edge.i.i174 ], [ %89, %82 ]
+  %.150.i.i176 = phi i32 [ %89, %82 ], [ %.049.lcssa.i.i175, %._crit_edge.i.i174 ]
   %91 = xor i32 %.150.i.i176, %53
   %92 = lshr i32 %91, 16
   %93 = xor i32 %92, %91
@@ -4909,7 +4909,7 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
   br label %35
 
 35:                                               ; preds = %30, %._crit_edge.i
-  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ %34, %30 ]
+  %.0.i = phi i32 [ %34, %30 ], [ 0, %._crit_edge.i ]
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = zext i8 %37 to i32
@@ -4918,7 +4918,7 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i
-  %.1.i = phi i32 [ 0, %._crit_edge.i ], [ %40, %35 ]
+  %.1.i = phi i32 [ %40, %35 ], [ 0, %._crit_edge.i ]
   %42 = load i8, ptr %15, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
   %44 = xor i32 %.1.i, %43
@@ -4932,7 +4932,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 49:                                               ; preds = %41, %._crit_edge.i
-  %.150.i = phi i32 [ %.049.lcssa.i, %._crit_edge.i ], [ %48, %41 ]
+  %.150.i = phi i32 [ %48, %41 ], [ %.049.lcssa.i, %._crit_edge.i ]
   %50 = xor i32 %.150.i, %12
   %51 = lshr i32 %50, 16
   %52 = xor i32 %51, %50
@@ -5025,7 +5025,7 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
   br label %35
 
 35:                                               ; preds = %30, %._crit_edge.i
-  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ %34, %30 ]
+  %.0.i = phi i32 [ %34, %30 ], [ 0, %._crit_edge.i ]
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = zext i8 %37 to i32
@@ -5034,7 +5034,7 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i
-  %.1.i = phi i32 [ 0, %._crit_edge.i ], [ %40, %35 ]
+  %.1.i = phi i32 [ %40, %35 ], [ 0, %._crit_edge.i ]
   %42 = load i8, ptr %15, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
   %44 = xor i32 %.1.i, %43
@@ -5048,7 +5048,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 49:                                               ; preds = %41, %._crit_edge.i
-  %.150.i = phi i32 [ %.049.lcssa.i, %._crit_edge.i ], [ %48, %41 ]
+  %.150.i = phi i32 [ %48, %41 ], [ %.049.lcssa.i, %._crit_edge.i ]
   %50 = xor i32 %.150.i, %12
   %51 = lshr i32 %50, 16
   %52 = xor i32 %51, %50
@@ -5375,7 +5375,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
   br label %46
 
 46:                                               ; preds = %41, %._crit_edge.i
-  %.0.i17 = phi i32 [ 0, %._crit_edge.i ], [ %45, %41 ]
+  %.0.i17 = phi i32 [ %45, %41 ], [ 0, %._crit_edge.i ]
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !8
   %49 = zext i8 %48 to i32
@@ -5384,7 +5384,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
   br label %52
 
 52:                                               ; preds = %46, %._crit_edge.i
-  %.1.i = phi i32 [ 0, %._crit_edge.i ], [ %51, %46 ]
+  %.1.i = phi i32 [ %51, %46 ], [ 0, %._crit_edge.i ]
   %53 = load i8, ptr %26, align 1, !tbaa !8
   %54 = zext i8 %53 to i32
   %55 = xor i32 %.1.i, %54
@@ -5398,7 +5398,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 60:                                               ; preds = %52, %._crit_edge.i
-  %.150.i = phi i32 [ %.049.lcssa.i, %._crit_edge.i ], [ %59, %52 ]
+  %.150.i = phi i32 [ %59, %52 ], [ %.049.lcssa.i, %._crit_edge.i ]
   %61 = xor i32 %.150.i, %23
   %62 = lshr i32 %61, 16
   %63 = xor i32 %62, %61

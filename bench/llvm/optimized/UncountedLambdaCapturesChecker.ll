@@ -2173,9 +2173,9 @@ define internal noundef zeroext i1 @_ZZNK12_GLOBAL__N_130UncountedLambdaCaptures
   br i1 %27, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang10LambdaExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit, label %.lr.ph.i.i.i.i, !prof !47, !llvm.loop !93
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang10LambdaExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit: ; preds = %21, %8
-  %.lcssa.i.i.i.pn.i = phi i64 [ %15, %8 ], [ %24, %21 ]
+  %.pn.i = phi i64 [ %15, %8 ], [ %24, %21 ]
   %28 = zext i32 %6 to i64
-  %.not = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %28
+  %.not = icmp samesign eq i64 %.pn.i, %28
   br i1 %.not, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang10LambdaExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit.thread, label %36
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang10LambdaExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %2, %_ZNK4llvm6detail12DenseSetImplIPKN5clang10LambdaExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit
@@ -2305,9 +2305,9 @@ define internal noundef zeroext i1 @_ZZNK12_GLOBAL__N_130UncountedLambdaCaptures
   br i1 %30, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang11DeclRefExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit, label %.lr.ph.i.i.i.i, !prof !47, !llvm.loop !96
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang11DeclRefExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit: ; preds = %24, %11
-  %.lcssa.i.i.i.pn.i = phi i64 [ %18, %11 ], [ %27, %24 ]
+  %.pn.i = phi i64 [ %18, %11 ], [ %27, %24 ]
   %31 = zext i32 %9 to i64
-  %.not = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %31
+  %.not = icmp samesign eq i64 %.pn.i, %31
   br i1 %.not, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang11DeclRefExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit.thread, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.thread
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang11DeclRefExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %2, %_ZNK4llvm6detail12DenseSetImplIPKN5clang11DeclRefExprENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit

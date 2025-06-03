@@ -2910,14 +2910,14 @@ define internal fastcc ptr @decode(ptr noundef captures(none) %0, ptr noundef re
   br label %11
 
 11:                                               ; preds = %8, %5
-  %.0113 = phi i8 [ 0, %5 ], [ %10, %8 ]
+  %.0113 = phi i8 [ %10, %8 ], [ 0, %5 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 121
   %13 = load i8, ptr %12, align 1, !tbaa !69
   br label %.thread
 
 .thread:                                          ; preds = %5, %11
-  %.0115 = phi i8 [ 0, %5 ], [ %13, %11 ]
-  %.1114 = phi i8 [ 0, %5 ], [ %.0113, %11 ]
+  %.0115 = phi i8 [ %13, %11 ], [ 0, %5 ]
+  %.1114 = phi i8 [ %.0113, %11 ], [ 0, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %15 = load i8, ptr %14, align 8, !tbaa !70
   br label %48
@@ -3191,7 +3191,7 @@ select.unfold:                                    ; preds = %77, %52
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %140, %.lr.ph251, %.preheader232, %.preheader, %51, %94, %101, %78, %91, %select.unfold, %.thread224, %18
-  %.0129 = phi ptr [ %2, %18 ], [ %.4247, %.thread224 ], [ %2, %51 ], [ %105, %select.unfold ], [ %103, %101 ], [ %99, %94 ], [ %93, %91 ], [ %89, %78 ], [ %2, %.preheader ], [ %2, %.preheader232 ], [ %46, %.lr.ph251 ], [ %156, %140 ]
+  %.0129 = phi ptr [ %2, %18 ], [ %.4247, %.thread224 ], [ %2, %51 ], [ %93, %91 ], [ %89, %78 ], [ %103, %101 ], [ %99, %94 ], [ %105, %select.unfold ], [ %2, %.preheader ], [ %2, %.preheader232 ], [ %46, %.lr.ph251 ], [ %156, %140 ]
   ret ptr %.0129
 }
 
@@ -5428,14 +5428,14 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   br label %107
 
 107:                                              ; preds = %104, %100
-  %.0113.i = phi i8 [ 0, %100 ], [ %106, %104 ]
+  %.0113.i = phi i8 [ %106, %104 ], [ 0, %100 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 121
   %109 = load i8, ptr %108, align 1, !tbaa !69
   br label %.thread.i
 
 .thread.i:                                        ; preds = %107, %100
-  %.0115.i = phi i8 [ 0, %100 ], [ %109, %107 ]
-  %.1114.i = phi i8 [ 0, %100 ], [ %.0113.i, %107 ]
+  %.0115.i = phi i8 [ %109, %107 ], [ 0, %100 ]
+  %.1114.i = phi i8 [ %.0113.i, %107 ], [ 0, %100 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %111 = load i8, ptr %110, align 8, !tbaa !70
   %.pre = load i8, ptr %.087, align 1, !tbaa !24
@@ -5756,7 +5756,7 @@ decode.exit:                                      ; preds = %197, %.lr.ph251.i, 
   br label %.preheader
 
 .critedge.thread:                                 ; preds = %21, %21, %.preheader, %258, %254, %249, %251, %233, %229, %226, %223, %218, %decode.exit, %217, %79, %72, %.critedge, %248, %18
-  %.195 = phi ptr [ %19, %18 ], [ %71, %.critedge ], [ %3, %72 ], [ %.0129.i, %217 ], [ %.0129.i, %decode.exit ], [ %3, %79 ], [ %3, %218 ], [ %3, %223 ], [ %3, %226 ], [ %3, %229 ], [ %3, %233 ], [ %.6, %248 ], [ %3, %249 ], [ %3, %251 ], [ %3, %254 ], [ %.7, %258 ], [ %.7, %.preheader ], [ %.296175, %21 ], [ %.296175, %21 ]
+  %.195 = phi ptr [ %3, %249 ], [ %3, %251 ], [ %3, %254 ], [ %3, %218 ], [ %3, %223 ], [ %3, %226 ], [ %3, %229 ], [ %3, %233 ], [ %.6, %248 ], [ %3, %72 ], [ %.0129.i, %217 ], [ %.0129.i, %decode.exit ], [ %3, %79 ], [ %19, %18 ], [ %71, %.critedge ], [ %.7, %258 ], [ %.7, %.preheader ], [ %.296175, %21 ], [ %.296175, %21 ]
   store i8 0, ptr %.195, align 1, !tbaa !24
   br label %269
 

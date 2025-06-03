@@ -665,7 +665,7 @@ define hidden { ptr, i64 } @_ZNK3ue28NGHolder16getSpecialVertexEj(ptr noundef no
   br label %19
 
 19:                                               ; preds = %2, %15, %11, %7, %3
-  %.fca.1.insert.merged = phi { ptr, i64 } [ %18, %15 ], [ %14, %11 ], [ %10, %7 ], [ %6, %3 ], [ zeroinitializer, %2 ]
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ zeroinitializer, %2 ]
   ret { ptr, i64 } %.fca.1.insert.merged
 }
 

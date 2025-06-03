@@ -1265,7 +1265,7 @@ _ZN12_GLOBAL__N_13ErrD2Ev.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZL8byteSizePN4llvm3BTF10CommonTypeE.exit
 
 _ZL8byteSizePN4llvm3BTF10CommonTypeE.exit:        ; preds = %117, %121, %122, %123, %125, %128, %130, %133
-  %.0.shrunk.i = phi i32 [ 12, %117 ], [ %narrow1.i, %133 ], [ %narrow2.i, %130 ], [ %narrow4.i, %128 ], [ %narrow5.i, %125 ], [ %narrow7.i, %123 ], [ 24, %122 ], [ 16, %121 ]
+  %.0.shrunk.i = phi i32 [ 12, %117 ], [ 16, %121 ], [ 24, %122 ], [ %narrow7.i, %123 ], [ %narrow5.i, %125 ], [ %narrow4.i, %128 ], [ %narrow2.i, %130 ], [ %narrow1.i, %133 ]
   %.0.i = zext nneg i32 %.0.shrunk.i to i64
   %.not = icmp ult i64 %58, %.0.i
   br i1 %.not, label %._crit_edge.i.i.i30, label %206

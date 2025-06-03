@@ -758,7 +758,7 @@ define void @lv_draw_sw_blend_image_to_al88(ptr noundef readonly %0) local_unnam
   br label %73
 
 73:                                               ; preds = %68, %63, %58
-  %.sroa.0.0.i.us.i = phi i16 [ %62, %58 ], [ %spec.select15.i.us.i, %63 ], [ %spec.select.i.us.i, %68 ]
+  %.sroa.0.0.i.us.i = phi i16 [ %spec.select.i.us.i, %68 ], [ %spec.select15.i.us.i, %63 ], [ %62, %58 ]
   %.sroa.0.0.insert.insert.i.us.i = add nuw nsw i16 %.sroa.0.0.i.us.i, %.sroa.4.0.insert.shift.us.i
   %.sroa.027.0.extract.trunc.i.i.us.i = trunc nuw i16 %.sroa.0.0.i.us.i to i8
   %74 = icmp ugt i8 %.sroa.4.0.us.i, -4
@@ -1509,7 +1509,7 @@ rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i, %
   br label %413
 
 413:                                              ; preds = %408, %403, %398
-  %.sroa.0.0.i.us.i13 = phi i16 [ %402, %398 ], [ %spec.select15.i.us.i33, %403 ], [ %spec.select.i.us.i35, %408 ]
+  %.sroa.0.0.i.us.i13 = phi i16 [ %spec.select.i.us.i35, %408 ], [ %spec.select15.i.us.i33, %403 ], [ %402, %398 ]
   %.sroa.0.0.insert.insert.i.us.i14 = add nuw nsw i16 %.sroa.0.0.i.us.i13, %.sroa.4.0.insert.shift.us.i11
   %.sroa.027.0.extract.trunc.i.i.us.i15 = trunc nuw i16 %.sroa.0.0.i.us.i13 to i8
   %.sroa.6.0.extract.trunc.i.i.us.i = trunc nuw i16 %.sroa.4.0.us.i10 to i8
@@ -2346,7 +2346,7 @@ argb8888_image_blend.exit:                        ; preds = %._crit_edge.us.i26,
   br label %803
 
 803:                                              ; preds = %798, %793, %788
-  %.sroa.0.0.i.us.i64 = phi i16 [ %792, %788 ], [ %spec.select15.i.us.i84, %793 ], [ %spec.select.i.us.i86, %798 ]
+  %.sroa.0.0.i.us.i64 = phi i16 [ %spec.select.i.us.i86, %798 ], [ %spec.select15.i.us.i84, %793 ], [ %792, %788 ]
   %.sroa.0.0.insert.insert.i.us.i65 = add nuw nsw i16 %.sroa.0.0.i.us.i64, %.sroa.4.0.insert.shift.us.i62
   %.sroa.027.0.extract.trunc.i.i.us.i66 = trunc nuw i16 %.sroa.0.0.i.us.i64 to i8
   %804 = icmp ugt i8 %.sroa.4.0.us.i61, -4
@@ -3104,7 +3104,7 @@ l8_image_blend.exit:                              ; preds = %._crit_edge.us.i77,
   br label %1158
 
 1158:                                             ; preds = %1153, %1148, %1143
-  %.sroa.0.0.i.us.i122 = phi i16 [ %1147, %1143 ], [ %spec.select15.i.us.i144, %1148 ], [ %spec.select.i.us.i146, %1153 ]
+  %.sroa.0.0.i.us.i122 = phi i16 [ %spec.select.i.us.i146, %1153 ], [ %spec.select15.i.us.i144, %1148 ], [ %1147, %1143 ]
   %.sroa.0.0.insert.insert.i.us.i123 = add nuw nsw i16 %.sroa.0.0.i.us.i122, %.sroa.4.0.insert.shift.us.i120
   %.sroa.027.0.extract.trunc.i.i.us.i124 = trunc nuw i16 %.sroa.0.0.i.us.i122 to i8
   %.sroa.6.0.extract.trunc.i.i.us.i125 = trunc nuw i16 %.sroa.4.0.us.i119 to i8
@@ -4370,7 +4370,7 @@ lv_color_16a_16a_mix.exit166.us.i:                ; preds = %1705, %1699, %1697,
   br label %1763
 
 1763:                                             ; preds = %1758, %1753, %1748
-  %.sroa.0.0.i.us.i191 = phi i16 [ %1752, %1748 ], [ %spec.select15.i.us.i213, %1753 ], [ %spec.select.i.us.i215, %1758 ]
+  %.sroa.0.0.i.us.i191 = phi i16 [ %spec.select.i.us.i215, %1758 ], [ %spec.select15.i.us.i213, %1753 ], [ %1752, %1748 ]
   %.sroa.0.0.insert.insert.i.us.i192 = add nuw nsw i16 %.sroa.0.0.i.us.i191, %.sroa.4.0.insert.shift.us.i189
   %.sroa.027.0.extract.trunc.i.i.us.i193 = trunc nuw i16 %.sroa.0.0.i.us.i191 to i8
   %1764 = icmp ugt i8 %.sroa.4.0.us.i188, -4
@@ -4767,7 +4767,7 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   br label %67
 
 67:                                               ; preds = %62, %57, %52
-  %.sroa.0.0.i.us = phi i16 [ %56, %52 ], [ %spec.select15.i.us, %57 ], [ %spec.select.i.us, %62 ]
+  %.sroa.0.0.i.us = phi i16 [ %spec.select.i.us, %62 ], [ %spec.select15.i.us, %57 ], [ %56, %52 ]
   %.sroa.0.0.insert.insert.i.us = add nuw nsw i16 %.sroa.0.0.i.us, %.sroa.4.0.insert.shift.us
   %.sroa.027.0.extract.trunc.i.i.us = trunc nuw i16 %.sroa.0.0.i.us to i8
   %68 = icmp ugt i8 %.sroa.4.0.us, -4

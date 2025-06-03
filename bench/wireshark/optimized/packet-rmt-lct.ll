@@ -659,7 +659,7 @@ proto_item_set_generated.exit229:                 ; preds = %proto_item_set_gene
   unreachable
 
 133:                                              ; preds = %129, %124, %119
-  %.0203 = phi i64 [ %132, %129 ], [ %128, %124 ], [ %123, %119 ]
+  %.0203 = phi i64 [ %123, %119 ], [ %128, %124 ], [ %132, %129 ]
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %135 = load ptr, ptr %134, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %135, i32 noundef 25, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, i64 noundef %.0203)
@@ -715,7 +715,7 @@ proto_item_set_generated.exit229:                 ; preds = %proto_item_set_gene
   unreachable
 
 158:                                              ; preds = %152, %148, %143, %138
-  %.0204.ph = phi i64 [ %142, %138 ], [ %147, %143 ], [ %151, %148 ], [ %155, %152 ]
+  %.0204.ph = phi i64 [ %155, %152 ], [ %151, %148 ], [ %147, %143 ], [ %142, %138 ]
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %160 = load ptr, ptr %159, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %160, i32 noundef 25, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.111, i64 noundef %.0204.ph)

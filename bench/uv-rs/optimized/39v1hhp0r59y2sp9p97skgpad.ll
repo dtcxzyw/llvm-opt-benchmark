@@ -1837,17 +1837,17 @@ define hidden void @"_ZN204_$LT$uv_pep508..marker..environment.._..$LT$impl$u20$
   unreachable
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %140, %458, %436, %411, %392, %373, %348, %323, %298, %273, %248, %223, %200
-  %.sroa.0217.2 = phi i8 [ %.sroa.0217.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0217.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0219.2 = phi i8 [ %.sroa.0219.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0219.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0221.2 = phi i8 [ %.sroa.0221.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0221.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0223.2 = phi i8 [ %.sroa.0223.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0223.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0225.2 = phi i8 [ %.sroa.0225.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0225.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0227.2 = phi i8 [ %.sroa.0227.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0227.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0229.2 = phi i8 [ %.sroa.0229.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0229.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0231.2 = phi i8 [ %.sroa.0231.8, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0231.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0233.2 = phi i8 [ %.sroa.0233.9, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0233.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.sroa.0235.2 = phi i8 [ %.sroa.0235.6, %458 ], [ 1, %436 ], [ 1, %411 ], [ 1, %392 ], [ 1, %373 ], [ 1, %348 ], [ 1, %323 ], [ 1, %298 ], [ 1, %273 ], [ 1, %248 ], [ 1, %223 ], [ 1, %200 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0235.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
-  %.pn410 = phi { ptr, i32 } [ %.pn408, %458 ], [ %437, %436 ], [ %412, %411 ], [ %393, %392 ], [ %374, %373 ], [ %349, %348 ], [ %324, %323 ], [ %299, %298 ], [ %274, %273 ], [ %249, %248 ], [ %224, %223 ], [ %201, %200 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp696, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit865, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0217.2 = phi i8 [ %.sroa.0217.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0217.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0219.2 = phi i8 [ %.sroa.0219.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0219.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0221.2 = phi i8 [ %.sroa.0221.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0221.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0223.2 = phi i8 [ %.sroa.0223.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0223.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0225.2 = phi i8 [ %.sroa.0225.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0225.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0227.2 = phi i8 [ %.sroa.0227.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0227.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0229.2 = phi i8 [ %.sroa.0229.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0229.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0231.2 = phi i8 [ %.sroa.0231.8, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0231.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0233.2 = phi i8 [ %.sroa.0233.9, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0233.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.sroa.0235.2 = phi i8 [ %.sroa.0235.6, %458 ], [ 1, %200 ], [ 1, %223 ], [ 1, %248 ], [ 1, %273 ], [ 1, %298 ], [ 1, %323 ], [ 1, %348 ], [ 1, %373 ], [ 1, %392 ], [ 1, %411 ], [ 1, %436 ], [ 1, %140 ], [ 1, %.loopexit ], [ %.sroa.0235.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.loopexit ]
+  %.pn410 = phi { ptr, i32 } [ %.pn408, %458 ], [ %201, %200 ], [ %224, %223 ], [ %249, %248 ], [ %274, %273 ], [ %299, %298 ], [ %324, %323 ], [ %349, %348 ], [ %374, %373 ], [ %393, %392 ], [ %412, %411 ], [ %437, %436 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp696, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit865, %.loopexit.split-lp.loopexit.loopexit ]
   %144 = load i64, ptr %81, align 8, !range !64, !noundef !4
   %.not412 = icmp eq i64 %144, -9223372036854775808
   br i1 %.not412, label %627, label %798
@@ -1868,16 +1868,16 @@ define hidden void @"_ZN204_$LT$uv_pep508..marker..environment.._..$LT$impl$u20$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %470, %466, %444, %397, %378, %209, %174, %413, %394, %375, %350, %325, %300, %275, %250, %225, %206, %177
-  %.sroa.0217.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0217.9, %466 ], [ %.sroa.0217.9, %470 ]
-  %.sroa.0219.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0219.9, %466 ], [ %.sroa.0219.9, %470 ]
-  %.sroa.0221.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0221.9, %466 ], [ %.sroa.0221.9, %470 ]
-  %.sroa.0223.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0223.9, %466 ], [ %.sroa.0223.9, %470 ]
-  %.sroa.0225.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0225.9, %466 ], [ %.sroa.0225.9, %470 ]
-  %.sroa.0227.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0227.9, %466 ], [ %.sroa.0227.9, %470 ]
-  %.sroa.0229.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0229.9, %466 ], [ %.sroa.0229.9, %470 ]
-  %.sroa.0231.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0231.9, %466 ], [ %.sroa.0231.9, %470 ]
-  %.sroa.0233.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0233.10, %466 ], [ %.sroa.0233.10, %470 ]
-  %.sroa.0235.1.ph.ph = phi i8 [ 1, %413 ], [ 1, %394 ], [ 1, %375 ], [ 1, %350 ], [ 1, %325 ], [ 1, %300 ], [ 1, %275 ], [ 1, %250 ], [ 1, %225 ], [ 1, %206 ], [ 1, %177 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0235.6, %466 ], [ %.sroa.0235.6, %470 ]
+  %.sroa.0217.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0217.9, %466 ], [ %.sroa.0217.9, %470 ]
+  %.sroa.0219.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0219.9, %466 ], [ %.sroa.0219.9, %470 ]
+  %.sroa.0221.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0221.9, %466 ], [ %.sroa.0221.9, %470 ]
+  %.sroa.0223.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0223.9, %466 ], [ %.sroa.0223.9, %470 ]
+  %.sroa.0225.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0225.9, %466 ], [ %.sroa.0225.9, %470 ]
+  %.sroa.0227.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0227.9, %466 ], [ %.sroa.0227.9, %470 ]
+  %.sroa.0229.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0229.9, %466 ], [ %.sroa.0229.9, %470 ]
+  %.sroa.0231.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0231.9, %466 ], [ %.sroa.0231.9, %470 ]
+  %.sroa.0233.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0233.10, %466 ], [ %.sroa.0233.10, %470 ]
+  %.sroa.0235.1.ph.ph = phi i8 [ 1, %177 ], [ 1, %206 ], [ 1, %225 ], [ 1, %250 ], [ 1, %275 ], [ 1, %300 ], [ 1, %325 ], [ 1, %350 ], [ 1, %375 ], [ 1, %394 ], [ 1, %413 ], [ 1, %174 ], [ 1, %209 ], [ 1, %378 ], [ 1, %397 ], [ 1, %444 ], [ %.sroa.0235.6, %466 ], [ %.sroa.0235.6, %470 ]
   %lpad.loopexit.split-lp696 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4683,17 +4683,17 @@ define hidden void @"_ZN204_$LT$uv_pep508..marker..environment.._..$LT$impl$u20$
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %122, %422, %410, %386, %368, %350, %326, %302, %278, %254, %230, %206, %184
-  %.sroa.0400.2 = phi i8 [ %.sroa.0400.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0400.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0402.2 = phi i8 [ %.sroa.0402.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0402.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0404.2 = phi i8 [ %.sroa.0404.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0404.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0406.2 = phi i8 [ %.sroa.0406.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0406.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0408.2 = phi i8 [ %.sroa.0408.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0408.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0410.2 = phi i8 [ %.sroa.0410.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0410.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0412.2 = phi i8 [ %.sroa.0412.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0412.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0414.2 = phi i8 [ %.sroa.0414.8, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0414.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0416.2 = phi i8 [ %.sroa.0416.9, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0416.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0418.2 = phi i8 [ 0, %422 ], [ 1, %410 ], [ 1, %386 ], [ 1, %368 ], [ 1, %350 ], [ 1, %326 ], [ 1, %302 ], [ 1, %278 ], [ 1, %254 ], [ 1, %230 ], [ 1, %206 ], [ 1, %184 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0418.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn561 = phi { ptr, i32 } [ %.pn559, %422 ], [ %411, %410 ], [ %387, %386 ], [ %369, %368 ], [ %351, %350 ], [ %327, %326 ], [ %303, %302 ], [ %279, %278 ], [ %255, %254 ], [ %231, %230 ], [ %207, %206 ], [ %185, %184 ], [ %123, %122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit841, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp842, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0400.2 = phi i8 [ %.sroa.0400.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0400.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0402.2 = phi i8 [ %.sroa.0402.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0402.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0404.2 = phi i8 [ %.sroa.0404.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0404.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0406.2 = phi i8 [ %.sroa.0406.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0406.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0408.2 = phi i8 [ %.sroa.0408.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0408.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0410.2 = phi i8 [ %.sroa.0410.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0410.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0412.2 = phi i8 [ %.sroa.0412.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0412.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0414.2 = phi i8 [ %.sroa.0414.8, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0414.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0416.2 = phi i8 [ %.sroa.0416.9, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0416.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0418.2 = phi i8 [ 0, %422 ], [ 1, %184 ], [ 1, %206 ], [ 1, %230 ], [ 1, %254 ], [ 1, %278 ], [ 1, %302 ], [ 1, %326 ], [ 1, %350 ], [ 1, %368 ], [ 1, %386 ], [ 1, %410 ], [ 1, %122 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.0418.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn561 = phi { ptr, i32 } [ %.pn559, %422 ], [ %185, %184 ], [ %207, %206 ], [ %231, %230 ], [ %255, %254 ], [ %279, %278 ], [ %303, %302 ], [ %327, %326 ], [ %351, %350 ], [ %369, %368 ], [ %387, %386 ], [ %411, %410 ], [ %123, %122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit840, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp841, %.loopexit.split-lp.loopexit.split-lp ]
   %126 = load i64, ptr %57, align 8, !range !64, !noundef !4
   %.not563 = icmp eq i64 %126, -9223372036854775808
   br i1 %.not563, label %546, label %717
@@ -4704,26 +4704,26 @@ define hidden void @"_ZN204_$LT$uv_pep508..marker..environment.._..$LT$impl$u20$
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %394, %376, %358, %334, %310, %286, %262, %238, %214, %196, %168, %161, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$serde..__private..de..content..Content$GT$$GT$17h7dd3ca6b28876018E.llvm.10726615453632412928.exit.i.i"
-  %lpad.loopexit841 = landingpad { ptr, i32 }
+  %lpad.loopexit840 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %434, %430, %413, %392, %374, %356, %332, %308, %284, %260, %236, %212, %194, %166, %159, %388, %370, %352, %328, %304, %280, %256, %232, %208, %190, %162
-  %.sroa.0400.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0400.9, %430 ], [ %.sroa.0400.9, %434 ]
-  %.sroa.0402.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0402.9, %430 ], [ %.sroa.0402.9, %434 ]
-  %.sroa.0404.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0404.9, %430 ], [ %.sroa.0404.9, %434 ]
-  %.sroa.0406.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0406.9, %430 ], [ %.sroa.0406.9, %434 ]
-  %.sroa.0408.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0408.9, %430 ], [ %.sroa.0408.9, %434 ]
-  %.sroa.0410.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0410.9, %430 ], [ %.sroa.0410.9, %434 ]
-  %.sroa.0412.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0412.9, %430 ], [ %.sroa.0412.9, %434 ]
-  %.sroa.0414.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0414.9, %430 ], [ %.sroa.0414.9, %434 ]
-  %.sroa.0416.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0416.10, %430 ], [ %.sroa.0416.10, %434 ]
-  %.sroa.0418.1.ph.ph = phi i8 [ 1, %388 ], [ 1, %370 ], [ 1, %352 ], [ 1, %328 ], [ 1, %304 ], [ 1, %280 ], [ 1, %256 ], [ 1, %232 ], [ 1, %208 ], [ 1, %190 ], [ 1, %162 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ 0, %430 ], [ 0, %434 ]
-  %lpad.loopexit.split-lp842 = landingpad { ptr, i32 }
+  %.sroa.0400.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0400.9, %430 ], [ %.sroa.0400.9, %434 ]
+  %.sroa.0402.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0402.9, %430 ], [ %.sroa.0402.9, %434 ]
+  %.sroa.0404.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0404.9, %430 ], [ %.sroa.0404.9, %434 ]
+  %.sroa.0406.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0406.9, %430 ], [ %.sroa.0406.9, %434 ]
+  %.sroa.0408.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0408.9, %430 ], [ %.sroa.0408.9, %434 ]
+  %.sroa.0410.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0410.9, %430 ], [ %.sroa.0410.9, %434 ]
+  %.sroa.0412.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0412.9, %430 ], [ %.sroa.0412.9, %434 ]
+  %.sroa.0414.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0414.9, %430 ], [ %.sroa.0414.9, %434 ]
+  %.sroa.0416.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ %.sroa.0416.10, %430 ], [ %.sroa.0416.10, %434 ]
+  %.sroa.0418.1.ph.ph = phi i8 [ 1, %162 ], [ 1, %190 ], [ 1, %208 ], [ 1, %232 ], [ 1, %256 ], [ 1, %280 ], [ 1, %304 ], [ 1, %328 ], [ 1, %352 ], [ 1, %370 ], [ 1, %388 ], [ 1, %159 ], [ 1, %166 ], [ 1, %194 ], [ 1, %212 ], [ 1, %236 ], [ 1, %260 ], [ 1, %284 ], [ 1, %308 ], [ 1, %332 ], [ 1, %356 ], [ 1, %374 ], [ 1, %392 ], [ 1, %413 ], [ 0, %430 ], [ 0, %434 ]
+  %lpad.loopexit.split-lp841 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-default.unreachable975:                           ; preds = %127
+default.unreachable974:                           ; preds = %127
   unreachable
 
 127:                                              ; preds = %.noexc588
@@ -4731,7 +4731,7 @@ default.unreachable975:                           ; preds = %127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !712
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !712
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35), !noalias !712
-  switch i8 %128, label %default.unreachable975 [
+  switch i8 %128, label %default.unreachable974 [
     i8 11, label %157
     i8 0, label %135
     i8 1, label %137
@@ -4860,7 +4860,7 @@ _ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit.thread: ; preds = %1
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit.thread: ; preds = %166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
-  br label %.loopexit854
+  br label %.loopexit853
 
 168:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30), !noalias !742
@@ -4882,7 +4882,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit: ; preds = %168
   %172 = load ptr, ptr %105, align 8
   %.sroa.5423.0.copyload = load i64, ptr %.sroa.5423.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
-  br i1 %171, label %.loopexit854, label %173
+  br i1 %171, label %.loopexit853, label %173
 
 173:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !743)
@@ -4910,7 +4910,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit: ; preds = %168
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !746
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit"
 
-.loopexit854:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit.thread
+.loopexit853:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit.thread
   %182 = phi ptr [ %167, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit.thread ], [ %172, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit ]
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %182, ptr %183, align 8
@@ -4953,7 +4953,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit: ; preds = %168
 
 194:                                              ; preds = %192
   %195 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h9a6f33a23348e7c0E"(ptr noalias noundef nonnull readonly align 1 @anon.1d5da30567e40dfed109e037ca48b623.75, i64 noundef 16)
-          to label %.loopexit853 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.loopexit852 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 196:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28), !noalias !770
@@ -4972,8 +4972,8 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit: ; preds = %196
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !770
   %.pr795 = load i64, ptr %55, align 8
   %199 = icmp eq i64 %.pr795, -9223372036854775808
-  %.pre974 = load ptr, ptr %.sroa.4426.0..sroa_idx, align 8
-  br i1 %199, label %.loopexit853, label %200
+  %.pre973 = load ptr, ptr %.sroa.4426.0..sroa_idx, align 8
+  br i1 %199, label %.loopexit852, label %200
 
 200:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.782, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5427.0..sroa_idx, i64 24, i1 false)
@@ -4986,8 +4986,8 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit: ; preds = %196
   invoke void @"_ZN4core3ptr59drop_in_place$LT$uv_pep508..marker..tree..StringVersion$GT$17h7c83732236a48500E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %66)
           to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..StringVersion$GT$$GT$17h0af856776f0836c0E.exit" unwind label %206
 
-.loopexit853:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit, %194
-  %204 = phi ptr [ %195, %194 ], [ %.pre974, %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit ]
+.loopexit852:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit, %194
+  %204 = phi ptr [ %195, %194 ], [ %.pre973, %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55)
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %204, ptr %205, align 8
@@ -4999,13 +4999,13 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit: ; preds = %196
   %207 = landingpad { ptr, i32 }
           cleanup
   store i64 %.pr795, ptr %66, align 8
-  store ptr %.pre974, ptr %.sroa.679.0..sroa_idx80, align 8
+  store ptr %.pre973, ptr %.sroa.679.0..sroa_idx80, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.782.0..sroa_idx83, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.782, i64 24, i1 false)
   br label %.body
 
 "_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..StringVersion$GT$$GT$17h0af856776f0836c0E.exit": ; preds = %200, %203
   store i64 %.pr795, ptr %66, align 8
-  store ptr %.pre974, ptr %.sroa.679.0..sroa_idx80, align 8
+  store ptr %.pre973, ptr %.sroa.679.0..sroa_idx80, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.782.0..sroa_idx83, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.782, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.782)
   br label %186
@@ -5029,7 +5029,7 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit: ; preds = %196
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607.thread: ; preds = %212
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
-  br label %.loopexit852
+  br label %.loopexit851
 
 214:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !784
@@ -5051,7 +5051,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607: ; preds = %214
   %218 = load ptr, ptr %101, align 8
   %.sroa.5431.0.copyload = load i64, ptr %.sroa.5431.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
-  br i1 %217, label %.loopexit852, label %219
+  br i1 %217, label %.loopexit851, label %219
 
 219:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607
   call void @llvm.experimental.noalias.scope.decl(metadata !785)
@@ -5079,7 +5079,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607: ; preds = %214
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !788
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit611"
 
-.loopexit852:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607.thread
+.loopexit851:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607.thread
   %228 = phi ptr [ %213, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607.thread ], [ %218, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607 ]
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %228, ptr %229, align 8
@@ -5119,7 +5119,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit607: ; preds = %214
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617.thread: ; preds = %236
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
-  br label %.loopexit851
+  br label %.loopexit850
 
 238:                                              ; preds = %234
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !809
@@ -5141,7 +5141,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617: ; preds = %238
   %242 = load ptr, ptr %97, align 8
   %.sroa.5435.0.copyload = load i64, ptr %.sroa.5435.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
-  br i1 %241, label %.loopexit851, label %243
+  br i1 %241, label %.loopexit850, label %243
 
 243:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617
   call void @llvm.experimental.noalias.scope.decl(metadata !810)
@@ -5169,7 +5169,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617: ; preds = %238
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !813
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit621"
 
-.loopexit851:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617.thread
+.loopexit850:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617.thread
   %252 = phi ptr [ %237, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617.thread ], [ %242, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617 ]
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %252, ptr %253, align 8
@@ -5209,7 +5209,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit617: ; preds = %238
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627.thread: ; preds = %260
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  br label %.loopexit850
+  br label %.loopexit849
 
 262:                                              ; preds = %258
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !834
@@ -5231,7 +5231,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627: ; preds = %262
   %266 = load ptr, ptr %93, align 8
   %.sroa.5439.0.copyload = load i64, ptr %.sroa.5439.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  br i1 %265, label %.loopexit850, label %267
+  br i1 %265, label %.loopexit849, label %267
 
 267:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627
   call void @llvm.experimental.noalias.scope.decl(metadata !835)
@@ -5259,7 +5259,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627: ; preds = %262
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !838
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit631"
 
-.loopexit850:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627.thread
+.loopexit849:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627.thread
   %276 = phi ptr [ %261, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627.thread ], [ %266, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %276, ptr %277, align 8
@@ -5299,7 +5299,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit627: ; preds = %262
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637.thread: ; preds = %284
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51)
-  br label %.loopexit849
+  br label %.loopexit848
 
 286:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !859
@@ -5321,7 +5321,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637: ; preds = %286
   %290 = load ptr, ptr %89, align 8
   %.sroa.5443.0.copyload = load i64, ptr %.sroa.5443.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51)
-  br i1 %289, label %.loopexit849, label %291
+  br i1 %289, label %.loopexit848, label %291
 
 291:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637
   call void @llvm.experimental.noalias.scope.decl(metadata !860)
@@ -5349,7 +5349,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637: ; preds = %286
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !863
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit641"
 
-.loopexit849:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637.thread
+.loopexit848:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637.thread
   %300 = phi ptr [ %285, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637.thread ], [ %290, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637 ]
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %300, ptr %301, align 8
@@ -5389,7 +5389,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit637: ; preds = %286
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647.thread: ; preds = %308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
-  br label %.loopexit848
+  br label %.loopexit847
 
 310:                                              ; preds = %306
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !884
@@ -5411,7 +5411,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647: ; preds = %310
   %314 = load ptr, ptr %85, align 8
   %.sroa.5447.0.copyload = load i64, ptr %.sroa.5447.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
-  br i1 %313, label %.loopexit848, label %315
+  br i1 %313, label %.loopexit847, label %315
 
 315:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647
   call void @llvm.experimental.noalias.scope.decl(metadata !885)
@@ -5439,7 +5439,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647: ; preds = %310
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !888
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit651"
 
-.loopexit848:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647.thread
+.loopexit847:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647.thread
   %324 = phi ptr [ %309, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647.thread ], [ %314, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647 ]
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %324, ptr %325, align 8
@@ -5479,7 +5479,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit647: ; preds = %310
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657.thread: ; preds = %332
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
-  br label %.loopexit847
+  br label %.loopexit846
 
 334:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !909
@@ -5501,7 +5501,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657: ; preds = %334
   %338 = load ptr, ptr %81, align 8
   %.sroa.5451.0.copyload = load i64, ptr %.sroa.5451.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
-  br i1 %337, label %.loopexit847, label %339
+  br i1 %337, label %.loopexit846, label %339
 
 339:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657
   call void @llvm.experimental.noalias.scope.decl(metadata !910)
@@ -5529,7 +5529,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657: ; preds = %334
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !913
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit661"
 
-.loopexit847:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657.thread
+.loopexit846:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657.thread
   %348 = phi ptr [ %333, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657.thread ], [ %338, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657 ]
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %348, ptr %349, align 8
@@ -5566,7 +5566,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit657: ; preds = %334
 
 356:                                              ; preds = %354
   %357 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h9a6f33a23348e7c0E"(ptr noalias noundef nonnull readonly align 1 @anon.1d5da30567e40dfed109e037ca48b623.75, i64 noundef 16)
-          to label %.loopexit846 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.loopexit845 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 358:                                              ; preds = %354
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !934
@@ -5585,8 +5585,8 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667: ; preds = %358
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !934
   %.pr824 = load i64, ptr %48, align 8
   %361 = icmp eq i64 %.pr824, -9223372036854775808
-  %.pre973 = load ptr, ptr %.sroa.4454.0..sroa_idx, align 8
-  br i1 %361, label %.loopexit846, label %362
+  %.pre972 = load ptr, ptr %.sroa.4454.0..sroa_idx, align 8
+  br i1 %361, label %.loopexit845, label %362
 
 362:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7220, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5455.0..sroa_idx, i64 24, i1 false)
@@ -5599,8 +5599,8 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667: ; preds = %358
   invoke void @"_ZN4core3ptr59drop_in_place$LT$uv_pep508..marker..tree..StringVersion$GT$17h7c83732236a48500E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %59)
           to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..StringVersion$GT$$GT$17h0af856776f0836c0E.exit669" unwind label %368
 
-.loopexit846:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667, %356
-  %366 = phi ptr [ %357, %356 ], [ %.pre973, %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667 ]
+.loopexit845:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667, %356
+  %366 = phi ptr [ %357, %356 ], [ %.pre972, %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48)
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %366, ptr %367, align 8
@@ -5612,13 +5612,13 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667: ; preds = %358
   %369 = landingpad { ptr, i32 }
           cleanup
   store i64 %.pr824, ptr %59, align 8
-  store ptr %.pre973, ptr %.sroa.6217.0..sroa_idx218, align 8
+  store ptr %.pre972, ptr %.sroa.6217.0..sroa_idx218, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7220.0..sroa_idx221, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7220, i64 24, i1 false)
   br label %.body
 
 "_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..StringVersion$GT$$GT$17h0af856776f0836c0E.exit669": ; preds = %362, %365
   store i64 %.pr824, ptr %59, align 8
-  store ptr %.pre973, ptr %.sroa.6217.0..sroa_idx218, align 8
+  store ptr %.pre972, ptr %.sroa.6217.0..sroa_idx218, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7220.0..sroa_idx221, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7220, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7220)
   br label %186
@@ -5639,7 +5639,7 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit667: ; preds = %358
 
 374:                                              ; preds = %372
   %375 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h9a6f33a23348e7c0E"(ptr noalias noundef nonnull readonly align 1 @anon.1d5da30567e40dfed109e037ca48b623.75, i64 noundef 16)
-          to label %.loopexit845 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.loopexit844 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 376:                                              ; preds = %372
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !948
@@ -5659,7 +5659,7 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit675: ; preds = %376
   %.pr829 = load i64, ptr %47, align 8
   %379 = icmp eq i64 %.pr829, -9223372036854775808
   %.pre = load ptr, ptr %.sroa.4458.0..sroa_idx, align 8
-  br i1 %379, label %.loopexit845, label %380
+  br i1 %379, label %.loopexit844, label %380
 
 380:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit675
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7238, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5459.0..sroa_idx, i64 24, i1 false)
@@ -5672,7 +5672,7 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit675: ; preds = %376
   invoke void @"_ZN4core3ptr59drop_in_place$LT$uv_pep508..marker..tree..StringVersion$GT$17h7c83732236a48500E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %58)
           to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..StringVersion$GT$$GT$17h0af856776f0836c0E.exit677" unwind label %386
 
-.loopexit845:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit675, %374
+.loopexit844:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit675, %374
   %384 = phi ptr [ %375, %374 ], [ %.pre, %_ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit675 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47)
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5715,7 +5715,7 @@ _ZN5serde2de9MapAccess10next_value17h55b05d3c00c54c34E.exit675: ; preds = %376
 
 _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683.thread: ; preds = %392
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
-  br label %.loopexit844
+  br label %.loopexit843
 
 394:                                              ; preds = %390
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !962
@@ -5737,7 +5737,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683: ; preds = %394
   %398 = load ptr, ptr %77, align 8
   %.sroa.5463.0.copyload = load i64, ptr %.sroa.5463.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
-  br i1 %397, label %.loopexit844, label %399
+  br i1 %397, label %.loopexit843, label %399
 
 399:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683
   call void @llvm.experimental.noalias.scope.decl(metadata !963)
@@ -5765,7 +5765,7 @@ _ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683: ; preds = %394
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !966
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcfc17df2dc547166E.exit687"
 
-.loopexit844:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683.thread
+.loopexit843:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683.thread
   %408 = phi ptr [ %393, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683.thread ], [ %398, %_ZN5serde2de9MapAccess10next_value17hfa903da95729c6a8E.exit683 ]
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %408, ptr %409, align 8
@@ -6339,17 +6339,17 @@ _ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit: ; preds = %159
   %528 = icmp eq i8 %527, 22
   br i1 %528, label %"_ZN4core3ptr91drop_in_place$LT$serde..__private..de..FlatStructAccess$LT$serde_json..error..Error$GT$$GT$17h5daa16cb36174691E.exit", label %"_ZN4core3ptr91drop_in_place$LT$serde..__private..de..FlatStructAccess$LT$serde_json..error..Error$GT$$GT$17h5daa16cb36174691E.exit.sink.split"
 
-529:                                              ; preds = %129, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit, %.loopexit844, %395, %.loopexit845, %377, %.loopexit846, %359, %.loopexit847, %335, %.loopexit848, %311, %.loopexit849, %287, %.loopexit850, %263, %.loopexit851, %239, %.loopexit852, %215, %.loopexit853, %197, %.loopexit854, %169, %419
-  %.sroa.0400.5 = phi i8 [ %.sroa.0400.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0402.5 = phi i8 [ %.sroa.0402.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0404.5 = phi i8 [ %.sroa.0404.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0406.5 = phi i8 [ %.sroa.0406.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0408.5 = phi i8 [ %.sroa.0408.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0410.5 = phi i8 [ %.sroa.0410.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0412.5 = phi i8 [ %.sroa.0412.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0414.5 = phi i8 [ %.sroa.0414.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0416.5 = phi i8 [ %.sroa.0416.6, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
-  %.sroa.0418.5 = phi i8 [ %.sroa.0418.7, %419 ], [ 1, %169 ], [ 1, %.loopexit854 ], [ 1, %197 ], [ 1, %.loopexit853 ], [ 1, %215 ], [ 1, %.loopexit852 ], [ 1, %239 ], [ 1, %.loopexit851 ], [ 1, %263 ], [ 1, %.loopexit850 ], [ 1, %287 ], [ 1, %.loopexit849 ], [ 1, %311 ], [ 1, %.loopexit848 ], [ 1, %335 ], [ 1, %.loopexit847 ], [ 1, %359 ], [ 1, %.loopexit846 ], [ 1, %377 ], [ 1, %.loopexit845 ], [ 1, %395 ], [ 1, %.loopexit844 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+529:                                              ; preds = %129, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit, %.loopexit843, %395, %.loopexit844, %377, %.loopexit845, %359, %.loopexit846, %335, %.loopexit847, %311, %.loopexit848, %287, %.loopexit849, %263, %.loopexit850, %239, %.loopexit851, %215, %.loopexit852, %197, %.loopexit853, %169, %419
+  %.sroa.0400.5 = phi i8 [ %.sroa.0400.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0402.5 = phi i8 [ %.sroa.0402.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0404.5 = phi i8 [ %.sroa.0404.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0406.5 = phi i8 [ %.sroa.0406.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0408.5 = phi i8 [ %.sroa.0408.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0410.5 = phi i8 [ %.sroa.0410.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0412.5 = phi i8 [ %.sroa.0412.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0414.5 = phi i8 [ %.sroa.0414.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0416.5 = phi i8 [ %.sroa.0416.6, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
+  %.sroa.0418.5 = phi i8 [ %.sroa.0418.7, %419 ], [ 1, %169 ], [ 1, %.loopexit853 ], [ 1, %197 ], [ 1, %.loopexit852 ], [ 1, %215 ], [ 1, %.loopexit851 ], [ 1, %239 ], [ 1, %.loopexit850 ], [ 1, %263 ], [ 1, %.loopexit849 ], [ 1, %287 ], [ 1, %.loopexit848 ], [ 1, %311 ], [ 1, %.loopexit847 ], [ 1, %335 ], [ 1, %.loopexit846 ], [ 1, %359 ], [ 1, %.loopexit845 ], [ 1, %377 ], [ 1, %.loopexit844 ], [ 1, %395 ], [ 1, %.loopexit843 ], [ 1, %_ZN5serde2de9MapAccess10next_value17h66cfb3d1f827630eE.exit ], [ 1, %129 ]
   %530 = load i64, ptr %57, align 8, !range !64, !noundef !4
   %.not564 = icmp eq i64 %530, -9223372036854775808
   br i1 %.not564, label %533, label %537
@@ -8031,7 +8031,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i32 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i32 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i32 %.sroa.01.0
 }
 
@@ -8086,8 +8086,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN68_$LT$uv_python..interpreter..Error$u20$as$u20$core..error..Error$GT$6source17hc12dd2e783e362a7E.exit"
 
 "_ZN68_$LT$uv_python..interpreter..Error$u20$as$u20$core..error..Error$GT$6source17hc12dd2e783e362a7E.exit": ; preds = %1, %1, %1, %3, %5, %10, %12, %14
-  %.sroa.9.0.i = phi ptr [ @anon.aa72cd09675a613f70bae4f22405c9d0.298.llvm.14122256660917248924, %14 ], [ @anon.aa72cd09675a613f70bae4f22405c9d0.296.llvm.14122256660917248924, %12 ], [ @anon.aa72cd09675a613f70bae4f22405c9d0.160.llvm.14122256660917248924, %10 ], [ %9, %5 ], [ @anon.aa72cd09675a613f70bae4f22405c9d0.160.llvm.14122256660917248924, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %8, %5 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.9.0.i = phi ptr [ @anon.aa72cd09675a613f70bae4f22405c9d0.160.llvm.14122256660917248924, %3 ], [ %9, %5 ], [ @anon.aa72cd09675a613f70bae4f22405c9d0.160.llvm.14122256660917248924, %10 ], [ @anon.aa72cd09675a613f70bae4f22405c9d0.296.llvm.14122256660917248924, %12 ], [ @anon.aa72cd09675a613f70bae4f22405c9d0.298.llvm.14122256660917248924, %14 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ %8, %5 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.9.0.i, 1
   ret { ptr, ptr } %17
@@ -13185,7 +13185,7 @@ define hidden noundef ptr @_ZN6fs_err5write17h43fb6de32755fb8eE(ptr noalias noun
   br label %62
 
 62:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit21", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit"
-  %.sroa.0.1 = phi ptr [ %22, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit21" ], [ %.sroa.0.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit" ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit" ], [ %22, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit21" ]
   ret ptr %.sroa.0.1
 
 63:                                               ; preds = %51, %.body
@@ -13346,7 +13346,7 @@ define hidden noundef ptr @_ZN6fs_err5write17h742d731ef442d742E(ptr noalias noun
   br label %48
 
 48:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit15", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit"
-  %.sroa.0.1 = phi ptr [ %21, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit15" ], [ %.sroa.0.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit" ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit" ], [ %21, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcfbca97d6a60645dE.exit15" ]
   ret ptr %.sroa.0.1
 
 49:                                               ; preds = %.body
@@ -13462,7 +13462,7 @@ common.resume:                                    ; preds = %13, %34
   br label %33
 
 33:                                               ; preds = %"_ZN6fs_err5write28_$u7b$$u7b$closure$u7d$$u7d$17h9f5c76d61046c925E.exit", %30
-  %.sroa.0.1 = phi ptr [ %17, %"_ZN6fs_err5write28_$u7b$$u7b$closure$u7d$$u7d$17h9f5c76d61046c925E.exit" ], [ %.sroa.0.0, %30 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %30 ], [ %17, %"_ZN6fs_err5write28_$u7b$$u7b$closure$u7d$$u7d$17h9f5c76d61046c925E.exit" ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret ptr %.sroa.0.1
 
@@ -22608,7 +22608,7 @@ define hidden void @"_ZN9uv_python11interpreter1_98_$LT$impl$u20$serde..de..Dese
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread"
 
 139:                                              ; preds = %105, %112, %89, %96, %73, %80, %255, %208, %174, %164, %158
-  %.sroa.21.1 = phi ptr [ %256, %255 ], [ %209, %208 ], [ %175, %174 ], [ %125, %164 ], [ %159, %158 ], [ %74, %73 ], [ %81, %80 ], [ %90, %89 ], [ %97, %96 ], [ %106, %105 ], [ %113, %112 ]
+  %.sroa.21.1 = phi ptr [ %256, %255 ], [ %159, %158 ], [ %125, %164 ], [ %175, %174 ], [ %209, %208 ], [ %81, %80 ], [ %74, %73 ], [ %97, %96 ], [ %90, %89 ], [ %113, %112 ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.63.i)
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread"
 
@@ -22766,7 +22766,7 @@ default.unreachable1.i.i:                         ; preds = %148
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread73"
 
 "_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread73": ; preds = %165, %169, %207, %239
-  %.sroa.45141.0.i = phi ptr [ %240, %239 ], [ %.sroa.45141.4.i, %207 ], [ %168, %165 ], [ %172, %169 ]
+  %.sroa.45141.0.i = phi ptr [ %240, %239 ], [ %168, %165 ], [ %172, %169 ], [ %.sroa.45141.4.i, %207 ]
   %173 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h019fd6268754cf05E(ptr noalias noundef nonnull align 8 %.sroa.45141.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1), !noalias !4751
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.63.i)
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread"
@@ -22892,7 +22892,7 @@ common.resume.sink.split.i:                       ; preds = %237, %205
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %215, %common.resume.sink.split.i, %181
-  %common.resume.op.i = phi { ptr, i32 } [ %216, %215 ], [ %182, %181 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %182, %181 ], [ %216, %215 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 205:                                              ; preds = %203, %199, %197
@@ -22905,8 +22905,8 @@ common.resume.i:                                  ; preds = %215, %common.resume
   br label %.thread.i
 
 207:                                              ; preds = %.thread238.i, %.thread.i
-  %.sroa.0115.3.i = phi i8 [ %.sroa.0115.5243.i, %.thread238.i ], [ %.sroa.0115.1235.i, %.thread.i ]
-  %.sroa.45141.4.i = phi ptr [ %.sroa.45141.6244.i, %.thread238.i ], [ %.sroa.45141.2236.i, %.thread.i ]
+  %.sroa.0115.3.i = phi i8 [ %.sroa.0115.1235.i, %.thread.i ], [ %.sroa.0115.5243.i, %.thread238.i ]
+  %.sroa.45141.4.i = phi ptr [ %.sroa.45141.2236.i, %.thread.i ], [ %.sroa.45141.6244.i, %.thread238.i ]
   %.not246.i = icmp eq i8 %.sroa.0115.3.i, 2
   br i1 %.not246.i, label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread73", label %259
 
@@ -23109,8 +23109,8 @@ default.unreachable1.i112.i:                      ; preds = %245
   %trunc = trunc nuw i8 %.sroa.0115.3.i to i1
   br i1 %trunc, label %295, label %262
 
-"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread": ; preds = %.loopexit.i, %136, %140, %144, %160, %257, %139, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread73"
-  %.sroa.21.272 = phi ptr [ %173, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread73" ], [ %63, %.loopexit.i ], [ %138, %136 ], [ %143, %140 ], [ %147, %144 ], [ %161, %160 ], [ %258, %257 ], [ %.sroa.21.1, %139 ]
+"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread": ; preds = %.loopexit.i, %160, %144, %140, %136, %257, %139, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread73"
+  %.sroa.21.272 = phi ptr [ %173, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9bb2e257f1603206E.exit.thread73" ], [ %63, %.loopexit.i ], [ %161, %160 ], [ %147, %144 ], [ %143, %140 ], [ %138, %136 ], [ %258, %257 ], [ %.sroa.21.1, %139 ]
   %260 = icmp ne ptr %.sroa.21.272, null
   call void @llvm.assume(i1 %260)
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 8

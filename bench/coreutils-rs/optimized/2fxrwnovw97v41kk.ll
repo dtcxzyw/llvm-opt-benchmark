@@ -995,8 +995,8 @@ _ZN3std2fs8metadata17hbb5aded539c6484bE.exit:     ; preds = %53, %58
   br label %59
 
 59:                                               ; preds = %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit
-  %.sroa.941.0 = phi ptr [ %51, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ], [ %57, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ]
-  %.sroa.0.046 = phi i64 [ %48, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ], [ %54, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ]
+  %.sroa.941.0 = phi ptr [ %57, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ], [ %51, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ]
+  %.sroa.0.046 = phi i64 [ %54, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ], [ %48, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ]
   %60 = icmp eq i64 %.sroa.0.046, 2
   br i1 %60, label %72, label %61
 
@@ -3059,7 +3059,7 @@ default.unreachable29:                            ; preds = %2
   br label %74
 
 74:                                               ; preds = %66, %60, %42, %30, %18
-  %.0.in = phi i1 [ %73, %66 ], [ %65, %60 ], [ %59, %42 ], [ %41, %30 ], [ %29, %18 ]
+  %.0.in = phi i1 [ %29, %18 ], [ %41, %30 ], [ %59, %42 ], [ %65, %60 ], [ %73, %66 ]
   ret i1 %.0.in
 }
 
@@ -4269,9 +4269,9 @@ default.unreachable:                              ; preds = %131
   %163 = icmp eq i64 %162, 0
   %164 = select i1 %163, i64 %.0.i, i64 0
   %spec.select = add i64 %164, %.0
-  %165 = icmp ugt i64 %.0.i, %57
-  %166 = icmp ult i64 %.0.i, %57
-  %.0.in.i.i.i = select i1 %trunc.i.i.i, i1 %165, i1 %166
+  %165 = icmp ult i64 %.0.i, %57
+  %166 = icmp ugt i64 %.0.i, %57
+  %.0.in.i.i.i = select i1 %trunc.i.i.i, i1 %166, i1 %165
   %.0.i38 = select i1 %58, i1 %.0.in.i.i.i, i1 false
   %167 = icmp ugt i64 %162, %61
   %spec.select.i.not = select i1 %trunc.i, i1 %167, i1 false
@@ -11807,7 +11807,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %19, %17, %14, %11, %8
-  %.0.in = phi i1 [ %21, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %21, %19 ]
   ret i1 %.0.in
 }
 

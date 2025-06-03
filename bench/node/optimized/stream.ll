@@ -1245,7 +1245,7 @@ sw.bb1:                                           ; preds = %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
-  %err.0 = phi i32 [ %call2, %sw.bb1 ], [ %call, %sw.bb ]
+  %err.0 = phi i32 [ %call, %sw.bb ], [ %call2, %sw.bb1 ]
   %cmp3 = icmp eq i32 %err.0, 0
   br i1 %cmp3, label %do.body, label %return
 

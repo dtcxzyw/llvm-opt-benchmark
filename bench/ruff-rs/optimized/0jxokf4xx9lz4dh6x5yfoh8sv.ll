@@ -37212,9 +37212,9 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   %18 = trunc nuw i8 %17 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !2130)
   switch i8 %14, label %19 [
-    i8 9, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
-    i8 10, label %21
-    i8 13, label %23
+    i8 9, label %21
+    i8 10, label %23
+    i8 13, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
   ]
 
 19:                                               ; preds = %13
@@ -37223,11 +37223,11 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   br i1 %or.cond.i, label %26, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i"
 
 21:                                               ; preds = %13
-  %22 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.13, i64 noundef 2)
+  %22 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.12, i64 noundef 2)
   br i1 %22, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
 
 23:                                               ; preds = %13
-  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.14, i64 noundef 2)
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.13, i64 noundef 2)
   br i1 %24, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
 
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i": ; preds = %19
@@ -37275,16 +37275,16 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   br i1 %33, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
 
 _ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit: ; preds = %13
-  %34 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.12, i64 noundef 2)
+  %34 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.14, i64 noundef 2)
   br i1 %34, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
 
-35:                                               ; preds = %21, %23, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %31, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
+35:                                               ; preds = %23, %21, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %31, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 1
   %.not15 = icmp eq ptr %36, %11
   br i1 %.not15, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %13
 
-_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread: ; preds = %35, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit, %31, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %23, %21, %29, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %29 ], [ true, %21 ], [ true, %23 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %31 ], [ true, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit ], [ false, %35 ]
+_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread: ; preds = %35, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit, %31, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %21, %23, %29, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %29 ], [ true, %23 ], [ true, %21 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %31 ], [ true, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit ], [ false, %35 ]
   ret i1 %.lcssa
 }
 
@@ -39079,9 +39079,9 @@ define hidden noundef i32 @"_ZN18ty_python_semantic4list24ListBuilder$LT$K$C$V$G
   br label %47
 
 47:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab5956f017b429e0E.exit", %44, %30
-  %48 = phi i64 [ %13, %44 ], [ %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab5956f017b429e0E.exit" ], [ %13, %30 ]
-  %.sroa.02.1 = phi i32 [ %.sroa.02.032, %44 ], [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab5956f017b429e0E.exit" ], [ %32, %30 ]
-  %.sroa.0.1 = phi i32 [ %46, %44 ], [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab5956f017b429e0E.exit" ], [ %.sroa.0.033, %30 ]
+  %48 = phi i64 [ %13, %30 ], [ %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab5956f017b429e0E.exit" ], [ %13, %44 ]
+  %.sroa.02.1 = phi i32 [ %32, %30 ], [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab5956f017b429e0E.exit" ], [ %.sroa.02.032, %44 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.033, %30 ], [ %41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab5956f017b429e0E.exit" ], [ %46, %44 ]
   %.not = icmp eq i32 %.sroa.0.1, 0
   %.not15 = icmp eq i32 %.sroa.02.1, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not15
@@ -40402,7 +40402,7 @@ default.unreachable1:                             ; preds = %2
   br label %11
 
 11:                                               ; preds = %2, %10, %6
-  %.sroa.0.0 = phi i1 [ false, %10 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %10 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -43663,7 +43663,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN102_$LT$ty_python_semantic..semantic_index..predicate..PredicateNode$u20$as$u20$salsa..update..Update$GT$12maybe_update17hefd8adc927b49a69E.exit"
 
 "_ZN102_$LT$ty_python_semantic..semantic_index..predicate..PredicateNode$u20$as$u20$salsa..update..Update$GT$12maybe_update17hefd8adc927b49a69E.exit": ; preds = %15, %18, %19, %21, %24, %25, %27, %30, %31
-  %.sroa.011.0.shrunk.i = phi i1 [ true, %31 ], [ true, %25 ], [ true, %19 ], [ false, %15 ], [ true, %18 ], [ false, %21 ], [ true, %24 ], [ false, %27 ], [ true, %30 ]
+  %.sroa.011.0.shrunk.i = phi i1 [ true, %19 ], [ true, %25 ], [ true, %31 ], [ false, %15 ], [ true, %18 ], [ false, %21 ], [ true, %24 ], [ false, %27 ], [ true, %30 ]
   %33 = trunc nuw i8 %7 to i1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = tail call noundef zeroext i1 @"_ZN46_$LT$bool$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3cf4196883ad4ebE"(ptr noundef nonnull %34, i1 noundef zeroext %33)
@@ -43712,7 +43712,7 @@ default.unreachable14:                            ; preds = %3
   br label %"_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E.exit"
 
 "_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E.exit": ; preds = %26, %23, %20, %17, %14, %11, %27, %21, %15
-  %.sroa.011.0.shrunk = phi i1 [ true, %27 ], [ true, %21 ], [ true, %15 ], [ false, %11 ], [ true, %14 ], [ false, %17 ], [ true, %20 ], [ false, %23 ], [ true, %26 ]
+  %.sroa.011.0.shrunk = phi i1 [ true, %15 ], [ true, %21 ], [ true, %27 ], [ false, %11 ], [ true, %14 ], [ false, %17 ], [ true, %20 ], [ false, %23 ], [ true, %26 ]
   ret i1 %.sroa.011.0.shrunk
 
 17:                                               ; preds = %7
@@ -43807,7 +43807,7 @@ define noundef zeroext i1 @"_ZN109_$LT$ty_python_semantic..semantic_index..predi
           to label %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit" unwind label %32
 
 "_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E.exit": ; preds = %62, %57, %40, %35, %20, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit12", %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit10", %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit6", %48, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit4", %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit", %22
-  %.sroa.0.0.shrunk = phi i1 [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit12" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit10" ], [ %49, %48 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit6" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit4" ], [ %26, %22 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit" ], [ false, %20 ], [ false, %35 ], [ true, %40 ], [ false, %57 ], [ true, %62 ]
+  %.sroa.0.0.shrunk = phi i1 [ %26, %22 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit4" ], [ %49, %48 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit6" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit10" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit12" ], [ false, %20 ], [ false, %35 ], [ true, %40 ], [ false, %57 ], [ true, %62 ]
   ret i1 %.sroa.0.0.shrunk
 
 32:                                               ; preds = %31
@@ -43820,7 +43820,7 @@ define noundef zeroext i1 @"_ZN109_$LT$ty_python_semantic..semantic_index..predi
   br label %"_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E.exit"
 
 34:                                               ; preds = %75, %68, %55, %46, %32
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %69, %68 ], [ %56, %55 ], [ %47, %46 ], [ %33, %32 ]
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %47, %46 ], [ %56, %55 ], [ %69, %68 ], [ %76, %75 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   resume { ptr, i32 } %.pn
 
@@ -45679,7 +45679,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   ]
 
 105:                                              ; preds = %308, %148, %103
-  %.sroa.06.1.i = phi i32 [ %.sroa.06.0117.i, %103 ], [ %309, %308 ], [ %.sroa.06.0117.i, %148 ]
+  %.sroa.06.1.i = phi i32 [ %.sroa.06.0117.i, %103 ], [ %.sroa.06.0117.i, %148 ], [ %309, %308 ]
   %106 = icmp eq ptr %70, %50
   br i1 %106, label %._crit_edge.i, label %69
 
@@ -46921,7 +46921,7 @@ default.unreachable1:                             ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8, %6, %4
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.0.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 

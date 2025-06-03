@@ -4263,7 +4263,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread59: ; preds = %154, %_ZNK4llvm9S
   br label %173
 
 173:                                              ; preds = %163, %165, %166, %167, %168, %169, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread59
-  %.110 = phi i64 [ %172, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread59 ], [ %164, %163 ], [ 13, %169 ], [ 12, %168 ], [ 8, %167 ], [ 10, %166 ], [ 9, %165 ], [ 39, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
+  %.110 = phi i64 [ %172, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread59 ], [ %164, %163 ], [ 9, %165 ], [ 10, %166 ], [ 8, %167 ], [ 12, %168 ], [ 13, %169 ], [ 39, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
   store i32 4, ptr %0, align 8, !tbaa !52
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %156, ptr %174, align 8, !tbaa !32

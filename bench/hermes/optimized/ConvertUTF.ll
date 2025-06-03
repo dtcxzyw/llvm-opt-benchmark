@@ -322,8 +322,8 @@ sw.bb.us:                                         ; preds = %if.end53.us
   br label %sw.bb57.us
 
 sw.bb57.us:                                       ; preds = %sw.bb.us, %if.end53.us
-  %ch.2.us = phi i32 [ %ch.0.us, %if.end53.us ], [ %shr.us, %sw.bb.us ]
-  %target.3.us = phi ptr [ %add.ptr.us, %if.end53.us ], [ %incdec.ptr56.us, %sw.bb.us ]
+  %ch.2.us = phi i32 [ %shr.us, %sw.bb.us ], [ %ch.0.us, %if.end53.us ]
+  %target.3.us = phi ptr [ %incdec.ptr56.us, %sw.bb.us ], [ %add.ptr.us, %if.end53.us ]
   %8 = trunc i32 %ch.2.us to i8
   %9 = and i8 %8, 63
   %conv60.us = or disjoint i8 %9, -128
@@ -333,8 +333,8 @@ sw.bb57.us:                                       ; preds = %sw.bb.us, %if.end53
   br label %sw.bb63.us
 
 sw.bb63.us:                                       ; preds = %sw.bb57.us, %if.end53.us
-  %ch.3.us = phi i32 [ %ch.0.us, %if.end53.us ], [ %shr62.us, %sw.bb57.us ]
-  %target.4.us = phi ptr [ %add.ptr.us, %if.end53.us ], [ %incdec.ptr61.us, %sw.bb57.us ]
+  %ch.3.us = phi i32 [ %shr62.us, %sw.bb57.us ], [ %ch.0.us, %if.end53.us ]
+  %target.4.us = phi ptr [ %incdec.ptr61.us, %sw.bb57.us ], [ %add.ptr.us, %if.end53.us ]
   %10 = trunc i32 %ch.3.us to i8
   %11 = and i8 %10, 63
   %conv66.us = or disjoint i8 %11, -128
@@ -344,8 +344,8 @@ sw.bb63.us:                                       ; preds = %sw.bb57.us, %if.end
   br label %sw.bb69.us
 
 sw.bb69.us:                                       ; preds = %sw.bb63.us, %if.end53.us
-  %ch.4.us = phi i32 [ %ch.0.us, %if.end53.us ], [ %shr68.us, %sw.bb63.us ]
-  %target.5.us = phi ptr [ %add.ptr.us, %if.end53.us ], [ %incdec.ptr67.us, %sw.bb63.us ]
+  %ch.4.us = phi i32 [ %shr68.us, %sw.bb63.us ], [ %ch.0.us, %if.end53.us ]
+  %target.5.us = phi ptr [ %incdec.ptr67.us, %sw.bb63.us ], [ %add.ptr.us, %if.end53.us ]
   %arrayidx.us = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvhL13firstByteMarkE, i64 0, i64 %idx.ext.us
   %12 = load i8, ptr %arrayidx.us, align 1
   %13 = trunc i32 %ch.4.us to i8
@@ -426,8 +426,8 @@ sw.bb.us110:                                      ; preds = %if.end53.us109
   br label %sw.bb57.us114
 
 sw.bb57.us114:                                    ; preds = %sw.bb.us110, %if.end53.us109
-  %ch.2.us115 = phi i32 [ %ch.0.us96, %if.end53.us109 ], [ %shr.us113, %sw.bb.us110 ]
-  %target.3.us116 = phi ptr [ %add.ptr.us107, %if.end53.us109 ], [ %incdec.ptr56.us112, %sw.bb.us110 ]
+  %ch.2.us115 = phi i32 [ %shr.us113, %sw.bb.us110 ], [ %ch.0.us96, %if.end53.us109 ]
+  %target.3.us116 = phi ptr [ %incdec.ptr56.us112, %sw.bb.us110 ], [ %add.ptr.us107, %if.end53.us109 ]
   %20 = trunc i32 %ch.2.us115 to i8
   %21 = and i8 %20, 63
   %conv60.us117 = or disjoint i8 %21, -128
@@ -437,8 +437,8 @@ sw.bb57.us114:                                    ; preds = %sw.bb.us110, %if.en
   br label %sw.bb63.us120
 
 sw.bb63.us120:                                    ; preds = %sw.bb57.us114, %if.end53.us109
-  %ch.3.us121 = phi i32 [ %ch.0.us96, %if.end53.us109 ], [ %shr62.us119, %sw.bb57.us114 ]
-  %target.4.us122 = phi ptr [ %add.ptr.us107, %if.end53.us109 ], [ %incdec.ptr61.us118, %sw.bb57.us114 ]
+  %ch.3.us121 = phi i32 [ %shr62.us119, %sw.bb57.us114 ], [ %ch.0.us96, %if.end53.us109 ]
+  %target.4.us122 = phi ptr [ %incdec.ptr61.us118, %sw.bb57.us114 ], [ %add.ptr.us107, %if.end53.us109 ]
   %22 = trunc i32 %ch.3.us121 to i8
   %23 = and i8 %22, 63
   %conv66.us123 = or disjoint i8 %23, -128
@@ -448,8 +448,8 @@ sw.bb63.us120:                                    ; preds = %sw.bb57.us114, %if.
   br label %sw.bb69.us126
 
 sw.bb69.us126:                                    ; preds = %sw.bb63.us120, %if.end53.us109
-  %ch.4.us127 = phi i32 [ %ch.0.us96, %if.end53.us109 ], [ %shr68.us125, %sw.bb63.us120 ]
-  %target.5.us128 = phi ptr [ %add.ptr.us107, %if.end53.us109 ], [ %incdec.ptr67.us124, %sw.bb63.us120 ]
+  %ch.4.us127 = phi i32 [ %shr68.us125, %sw.bb63.us120 ], [ %ch.0.us96, %if.end53.us109 ]
+  %target.5.us128 = phi ptr [ %incdec.ptr67.us124, %sw.bb63.us120 ], [ %add.ptr.us107, %if.end53.us109 ]
   %arrayidx.us129 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvhL13firstByteMarkE, i64 0, i64 %idx.ext.us106
   %24 = load i8, ptr %arrayidx.us129, align 1
   %25 = trunc i32 %ch.4.us127 to i8
@@ -535,8 +535,8 @@ sw.bb.us:                                         ; preds = %if.end28.us
   br label %sw.bb32.us
 
 sw.bb32.us:                                       ; preds = %sw.bb.us, %if.end28.us
-  %target.3.us = phi ptr [ %add.ptr.us, %if.end28.us ], [ %incdec.ptr31.us, %sw.bb.us ]
-  %ch.1.us = phi i32 [ %ch.0.us, %if.end28.us ], [ %shr.us, %sw.bb.us ]
+  %target.3.us = phi ptr [ %incdec.ptr31.us, %sw.bb.us ], [ %add.ptr.us, %if.end28.us ]
+  %ch.1.us = phi i32 [ %shr.us, %sw.bb.us ], [ %ch.0.us, %if.end28.us ]
   %5 = trunc i32 %ch.1.us to i8
   %6 = and i8 %5, 63
   %conv35.us = or disjoint i8 %6, -128
@@ -546,8 +546,8 @@ sw.bb32.us:                                       ; preds = %sw.bb.us, %if.end28
   br label %sw.bb38.us
 
 sw.bb38.us:                                       ; preds = %sw.bb32.us, %if.end28.us
-  %target.4.us = phi ptr [ %add.ptr.us, %if.end28.us ], [ %incdec.ptr36.us, %sw.bb32.us ]
-  %ch.2.us = phi i32 [ %ch.0.us, %if.end28.us ], [ %shr37.us, %sw.bb32.us ]
+  %target.4.us = phi ptr [ %incdec.ptr36.us, %sw.bb32.us ], [ %add.ptr.us, %if.end28.us ]
+  %ch.2.us = phi i32 [ %shr37.us, %sw.bb32.us ], [ %ch.0.us, %if.end28.us ]
   %7 = trunc i32 %ch.2.us to i8
   %8 = and i8 %7, 63
   %conv41.us = or disjoint i8 %8, -128
@@ -557,8 +557,8 @@ sw.bb38.us:                                       ; preds = %sw.bb32.us, %if.end
   br label %sw.bb44.us
 
 sw.bb44.us:                                       ; preds = %sw.bb38.us, %if.end28.us
-  %target.5.us = phi ptr [ %add.ptr.us, %if.end28.us ], [ %incdec.ptr42.us, %sw.bb38.us ]
-  %ch.3.us = phi i32 [ %ch.0.us, %if.end28.us ], [ %shr43.us, %sw.bb38.us ]
+  %target.5.us = phi ptr [ %incdec.ptr42.us, %sw.bb38.us ], [ %add.ptr.us, %if.end28.us ]
+  %ch.3.us = phi i32 [ %shr43.us, %sw.bb38.us ], [ %ch.0.us, %if.end28.us ]
   %arrayidx.us = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvhL13firstByteMarkE, i64 0, i64 %idx.ext.us
   %9 = load i8, ptr %arrayidx.us, align 1
   %10 = trunc i32 %ch.3.us to i8
@@ -625,8 +625,8 @@ sw.bb:                                            ; preds = %if.end28
   br label %sw.bb32
 
 sw.bb32:                                          ; preds = %sw.bb, %if.end28
-  %target.3 = phi ptr [ %add.ptr, %if.end28 ], [ %incdec.ptr31, %sw.bb ]
-  %ch.1 = phi i32 [ %ch.0, %if.end28 ], [ %shr, %sw.bb ]
+  %target.3 = phi ptr [ %incdec.ptr31, %sw.bb ], [ %add.ptr, %if.end28 ]
+  %ch.1 = phi i32 [ %shr, %sw.bb ], [ %ch.0, %if.end28 ]
   %15 = trunc i32 %ch.1 to i8
   %16 = and i8 %15, 63
   %conv35 = or disjoint i8 %16, -128
@@ -636,8 +636,8 @@ sw.bb32:                                          ; preds = %sw.bb, %if.end28
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %sw.bb32, %if.end28
-  %target.4 = phi ptr [ %add.ptr, %if.end28 ], [ %incdec.ptr36, %sw.bb32 ]
-  %ch.2 = phi i32 [ %ch.0, %if.end28 ], [ %shr37, %sw.bb32 ]
+  %target.4 = phi ptr [ %incdec.ptr36, %sw.bb32 ], [ %add.ptr, %if.end28 ]
+  %ch.2 = phi i32 [ %shr37, %sw.bb32 ], [ %ch.0, %if.end28 ]
   %17 = trunc i32 %ch.2 to i8
   %18 = and i8 %17, 63
   %conv41 = or disjoint i8 %18, -128
@@ -647,8 +647,8 @@ sw.bb38:                                          ; preds = %sw.bb32, %if.end28
   br label %sw.bb44
 
 sw.bb44:                                          ; preds = %sw.bb38, %if.end28
-  %target.5 = phi ptr [ %add.ptr, %if.end28 ], [ %incdec.ptr42, %sw.bb38 ]
-  %ch.3 = phi i32 [ %ch.0, %if.end28 ], [ %shr43, %sw.bb38 ]
+  %target.5 = phi ptr [ %incdec.ptr42, %sw.bb38 ], [ %add.ptr, %if.end28 ]
+  %ch.3 = phi i32 [ %shr43, %sw.bb38 ], [ %ch.0, %if.end28 ]
   %arrayidx = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvhL13firstByteMarkE, i64 0, i64 %idx.ext
   %19 = load i8, ptr %arrayidx, align 1
   %20 = trunc i32 %ch.3 to i8
@@ -719,14 +719,14 @@ sw.bb:                                            ; preds = %entry
   br i1 %or.cond, label %return, label %sw.bb3
 
 sw.bb3:                                           ; preds = %sw.bb, %entry
-  %srcptr.0 = phi ptr [ %add.ptr, %entry ], [ %incdec.ptr, %sw.bb ]
+  %srcptr.0 = phi ptr [ %incdec.ptr, %sw.bb ], [ %add.ptr, %entry ]
   %incdec.ptr4 = getelementptr inbounds i8, ptr %srcptr.0, i64 -1
   %1 = load i8, ptr %incdec.ptr4, align 1
   %or.cond1 = icmp sgt i8 %1, -65
   br i1 %or.cond1, label %return, label %sw.bb12
 
 sw.bb12:                                          ; preds = %sw.bb3, %entry
-  %srcptr.1 = phi ptr [ %add.ptr, %entry ], [ %incdec.ptr4, %sw.bb3 ]
+  %srcptr.1 = phi ptr [ %incdec.ptr4, %sw.bb3 ], [ %add.ptr, %entry ]
   %incdec.ptr13 = getelementptr inbounds i8, ptr %srcptr.1, i64 -1
   %2 = load i8, ptr %incdec.ptr13, align 1
   %or.cond2 = icmp sgt i8 %2, -65
@@ -877,9 +877,9 @@ sw.bb:                                            ; preds = %if.end5
   br label %sw.bb9
 
 sw.bb9:                                           ; preds = %sw.bb, %if.end5
-  %4 = phi i8 [ %2, %if.end5 ], [ %.pre, %sw.bb ]
-  %source.3 = phi ptr [ %source.069, %if.end5 ], [ %incdec.ptr, %sw.bb ]
-  %ch.1 = phi i32 [ 0, %if.end5 ], [ %shl, %sw.bb ]
+  %4 = phi i8 [ %.pre, %sw.bb ], [ %2, %if.end5 ]
+  %source.3 = phi ptr [ %incdec.ptr, %sw.bb ], [ %source.069, %if.end5 ]
+  %ch.1 = phi i32 [ %shl, %sw.bb ], [ 0, %if.end5 ]
   %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %source.3, i64 1
   %conv11 = zext i8 %4 to i32
   %add12 = add nuw nsw i32 %ch.1, %conv11
@@ -888,9 +888,9 @@ sw.bb9:                                           ; preds = %sw.bb, %if.end5
   br label %sw.bb14
 
 sw.bb14:                                          ; preds = %sw.bb9, %if.end5
-  %5 = phi i8 [ %2, %if.end5 ], [ %.pre89, %sw.bb9 ]
-  %source.4 = phi ptr [ %source.069, %if.end5 ], [ %incdec.ptr10, %sw.bb9 ]
-  %ch.2 = phi i32 [ 0, %if.end5 ], [ %shl13, %sw.bb9 ]
+  %5 = phi i8 [ %.pre89, %sw.bb9 ], [ %2, %if.end5 ]
+  %source.4 = phi ptr [ %incdec.ptr10, %sw.bb9 ], [ %source.069, %if.end5 ]
+  %ch.2 = phi i32 [ %shl13, %sw.bb9 ], [ 0, %if.end5 ]
   %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %source.4, i64 1
   %conv16 = zext i8 %5 to i32
   %add17 = add nuw nsw i32 %ch.2, %conv16
@@ -899,9 +899,9 @@ sw.bb14:                                          ; preds = %sw.bb9, %if.end5
   br label %sw.bb19
 
 sw.bb19:                                          ; preds = %sw.bb14, %if.end5
-  %6 = phi i8 [ %2, %if.end5 ], [ %.pre90, %sw.bb14 ]
-  %source.5 = phi ptr [ %source.069, %if.end5 ], [ %incdec.ptr15, %sw.bb14 ]
-  %ch.3 = phi i32 [ 0, %if.end5 ], [ %shl18, %sw.bb14 ]
+  %6 = phi i8 [ %.pre90, %sw.bb14 ], [ %2, %if.end5 ]
+  %source.5 = phi ptr [ %incdec.ptr15, %sw.bb14 ], [ %source.069, %if.end5 ]
+  %ch.3 = phi i32 [ %shl18, %sw.bb14 ], [ 0, %if.end5 ]
   %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %source.5, i64 1
   %conv21 = zext i8 %6 to i32
   %add22 = add nuw nsw i32 %ch.3, %conv21
@@ -910,9 +910,9 @@ sw.bb19:                                          ; preds = %sw.bb14, %if.end5
   br label %sw.bb24
 
 sw.bb24:                                          ; preds = %sw.bb19, %if.end5
-  %7 = phi i8 [ %2, %if.end5 ], [ %.pre91, %sw.bb19 ]
-  %source.6 = phi ptr [ %source.069, %if.end5 ], [ %incdec.ptr20, %sw.bb19 ]
-  %ch.4 = phi i32 [ 0, %if.end5 ], [ %shl23, %sw.bb19 ]
+  %7 = phi i8 [ %.pre91, %sw.bb19 ], [ %2, %if.end5 ]
+  %source.6 = phi ptr [ %incdec.ptr20, %sw.bb19 ], [ %source.069, %if.end5 ]
+  %ch.4 = phi i32 [ %shl23, %sw.bb19 ], [ 0, %if.end5 ]
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %source.6, i64 1
   %conv26 = zext i8 %7 to i32
   %add27 = add i32 %ch.4, %conv26
@@ -921,9 +921,9 @@ sw.bb24:                                          ; preds = %sw.bb19, %if.end5
   br label %sw.bb29
 
 sw.bb29:                                          ; preds = %sw.bb24, %if.end5
-  %8 = phi i8 [ %2, %if.end5 ], [ %.pre92, %sw.bb24 ]
-  %source.7 = phi ptr [ %source.069, %if.end5 ], [ %incdec.ptr25, %sw.bb24 ]
-  %ch.5 = phi i32 [ 0, %if.end5 ], [ %shl28, %sw.bb24 ]
+  %8 = phi i8 [ %.pre92, %sw.bb24 ], [ %2, %if.end5 ]
+  %source.7 = phi ptr [ %incdec.ptr25, %sw.bb24 ], [ %source.069, %if.end5 ]
+  %ch.5 = phi i32 [ %shl28, %sw.bb24 ], [ 0, %if.end5 ]
   %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %source.7, i64 1
   %conv31 = zext i8 %8 to i32
   %add32 = add i32 %ch.5, %conv31
@@ -1326,9 +1326,9 @@ sw.bb:                                            ; preds = %if.end19
   br label %sw.bb24
 
 sw.bb24:                                          ; preds = %sw.bb, %if.end19
-  %38 = phi i8 [ %2, %if.end19 ], [ %.pre, %sw.bb ]
-  %source.3 = phi ptr [ %source.0102, %if.end19 ], [ %incdec.ptr21, %sw.bb ]
-  %ch.1 = phi i32 [ 0, %if.end19 ], [ %shl, %sw.bb ]
+  %38 = phi i8 [ %.pre, %sw.bb ], [ %2, %if.end19 ]
+  %source.3 = phi ptr [ %incdec.ptr21, %sw.bb ], [ %source.0102, %if.end19 ]
+  %ch.1 = phi i32 [ %shl, %sw.bb ], [ 0, %if.end19 ]
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %source.3, i64 1
   %conv26 = zext i8 %38 to i32
   %add27 = add nuw nsw i32 %ch.1, %conv26
@@ -1337,9 +1337,9 @@ sw.bb24:                                          ; preds = %sw.bb, %if.end19
   br label %sw.bb29
 
 sw.bb29:                                          ; preds = %sw.bb24, %if.end19
-  %39 = phi i8 [ %2, %if.end19 ], [ %.pre117, %sw.bb24 ]
-  %source.4 = phi ptr [ %source.0102, %if.end19 ], [ %incdec.ptr25, %sw.bb24 ]
-  %ch.2 = phi i32 [ 0, %if.end19 ], [ %shl28, %sw.bb24 ]
+  %39 = phi i8 [ %.pre117, %sw.bb24 ], [ %2, %if.end19 ]
+  %source.4 = phi ptr [ %incdec.ptr25, %sw.bb24 ], [ %source.0102, %if.end19 ]
+  %ch.2 = phi i32 [ %shl28, %sw.bb24 ], [ 0, %if.end19 ]
   %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %source.4, i64 1
   %conv31 = zext i8 %39 to i32
   %add32 = add nuw nsw i32 %ch.2, %conv31
@@ -1348,9 +1348,9 @@ sw.bb29:                                          ; preds = %sw.bb24, %if.end19
   br label %sw.bb34
 
 sw.bb34:                                          ; preds = %sw.bb29, %if.end19
-  %40 = phi i8 [ %2, %if.end19 ], [ %.pre118, %sw.bb29 ]
-  %source.5 = phi ptr [ %source.0102, %if.end19 ], [ %incdec.ptr30, %sw.bb29 ]
-  %ch.3 = phi i32 [ 0, %if.end19 ], [ %shl33, %sw.bb29 ]
+  %40 = phi i8 [ %.pre118, %sw.bb29 ], [ %2, %if.end19 ]
+  %source.5 = phi ptr [ %incdec.ptr30, %sw.bb29 ], [ %source.0102, %if.end19 ]
+  %ch.3 = phi i32 [ %shl33, %sw.bb29 ], [ 0, %if.end19 ]
   %incdec.ptr35 = getelementptr inbounds nuw i8, ptr %source.5, i64 1
   %conv36 = zext i8 %40 to i32
   %add37 = add nuw nsw i32 %ch.3, %conv36
@@ -1359,9 +1359,9 @@ sw.bb34:                                          ; preds = %sw.bb29, %if.end19
   br label %sw.bb39
 
 sw.bb39:                                          ; preds = %sw.bb34, %if.end19
-  %41 = phi i8 [ %2, %if.end19 ], [ %.pre119, %sw.bb34 ]
-  %source.6 = phi ptr [ %source.0102, %if.end19 ], [ %incdec.ptr35, %sw.bb34 ]
-  %ch.4 = phi i32 [ 0, %if.end19 ], [ %shl38, %sw.bb34 ]
+  %41 = phi i8 [ %.pre119, %sw.bb34 ], [ %2, %if.end19 ]
+  %source.6 = phi ptr [ %incdec.ptr35, %sw.bb34 ], [ %source.0102, %if.end19 ]
+  %ch.4 = phi i32 [ %shl38, %sw.bb34 ], [ 0, %if.end19 ]
   %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %source.6, i64 1
   %conv41 = zext i8 %41 to i32
   %add42 = add i32 %ch.4, %conv41
@@ -1370,9 +1370,9 @@ sw.bb39:                                          ; preds = %sw.bb34, %if.end19
   br label %sw.bb44
 
 sw.bb44:                                          ; preds = %sw.bb39, %if.end19
-  %42 = phi i8 [ %2, %if.end19 ], [ %.pre120, %sw.bb39 ]
-  %source.7 = phi ptr [ %source.0102, %if.end19 ], [ %incdec.ptr40, %sw.bb39 ]
-  %ch.5 = phi i32 [ 0, %if.end19 ], [ %shl43, %sw.bb39 ]
+  %42 = phi i8 [ %.pre120, %sw.bb39 ], [ %2, %if.end19 ]
+  %source.7 = phi ptr [ %incdec.ptr40, %sw.bb39 ], [ %source.0102, %if.end19 ]
+  %ch.5 = phi i32 [ %shl43, %sw.bb39 ], [ 0, %if.end19 ]
   %incdec.ptr45 = getelementptr inbounds nuw i8, ptr %source.7, i64 1
   %conv46 = zext i8 %42 to i32
   %add47 = add i32 %ch.5, %conv46

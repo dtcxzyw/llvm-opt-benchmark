@@ -2216,7 +2216,7 @@ RARRAY_AREF.exit71.i:                             ; preds = %171, %.thread.i
   br label %163, !llvm.loop !66
 
 RB_SYMBOL_P.exit.thread81:                        ; preds = %RB_SYMBOL_P.exit.thread, %59, %rb_scan_args_set.exit, %37, %38, %rb_class_of.exit, %rbimpl_RB_TYPE_P_fastpath.exit, %RB_SYMBOL_P.exit
-  %.03179 = phi ptr [ @inject_op_i, %rb_class_of.exit ], [ @inject_op_i, %rbimpl_RB_TYPE_P_fastpath.exit ], [ @inject_op_i, %RB_SYMBOL_P.exit ], [ @inject_i, %rb_scan_args_set.exit ], [ @inject_i, %38 ], [ @inject_i, %37 ], [ @inject_op_i, %59 ], [ @inject_op_i, %RB_SYMBOL_P.exit.thread ]
+  %.03179 = phi ptr [ @inject_op_i, %rb_class_of.exit ], [ @inject_op_i, %rbimpl_RB_TYPE_P_fastpath.exit ], [ @inject_op_i, %RB_SYMBOL_P.exit ], [ @inject_i, %rb_scan_args_set.exit ], [ @inject_i, %37 ], [ @inject_i, %38 ], [ @inject_op_i, %59 ], [ @inject_op_i, %RB_SYMBOL_P.exit.thread ]
   %177 = load i64, ptr %5, align 8, !tbaa !7
   %178 = load i64, ptr %6, align 8, !tbaa !7
   %179 = call i64 @rb_imemo_new(i32 noundef 5, i64 noundef 0, i64 noundef 40) #14
@@ -11122,7 +11122,7 @@ rb_float_new_inline.exit:                         ; preds = %46, %50, %52
   br label %83
 
 rb_float_value_inline.exit:                       ; preds = %28, %22, %21, %36, %34, %rb_type.exit.thread54
-  %.041 = phi double [ %37, %36 ], [ %35, %34 ], [ %33, %rb_type.exit.thread54 ], [ %31, %28 ], [ %27, %22 ], [ 0.000000e+00, %21 ]
+  %.041 = phi double [ %33, %rb_type.exit.thread54 ], [ %35, %34 ], [ %37, %36 ], [ %31, %28 ], [ %27, %22 ], [ 0.000000e+00, %21 ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load double, ptr %56, align 8, !tbaa !101
   %58 = fcmp uno double %57, 0.000000e+00

@@ -1835,9 +1835,9 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %.outer
 
 .outer:                                           ; preds = %.outer103.split.us.split, %26, %35, %29, %64, %60, %.loopexit102.split.us
-  %.192 = phi i32 [ %.091.ph177, %64 ], [ %.091.ph177, %60 ], [ %34, %29 ], [ %40, %35 ], [ %.091.ph177, %.loopexit102.split.us ], [ %.091.ph177, %26 ], [ %.091.ph177, %.outer103.split.us.split ]
-  %.2 = phi i32 [ 9, %64 ], [ 8, %60 ], [ 8, %29 ], [ 9, %35 ], [ %.190, %.loopexit102.split.us ], [ %27, %26 ], [ %.089.us, %.outer103.split.us.split ]
-  %.1 = phi ptr [ %65, %64 ], [ %61, %60 ], [ %28, %29 ], [ %28, %35 ], [ %25, %.loopexit102.split.us ], [ %28, %26 ], [ %.0.ph105171, %.outer103.split.us.split ]
+  %.192 = phi i32 [ %.091.ph177, %.loopexit102.split.us ], [ %34, %29 ], [ %40, %35 ], [ %.091.ph177, %60 ], [ %.091.ph177, %64 ], [ %.091.ph177, %26 ], [ %.091.ph177, %.outer103.split.us.split ]
+  %.2 = phi i32 [ %.190, %.loopexit102.split.us ], [ 8, %29 ], [ 9, %35 ], [ 8, %60 ], [ 9, %64 ], [ %27, %26 ], [ %.089.us, %.outer103.split.us.split ]
+  %.1 = phi ptr [ %25, %.loopexit102.split.us ], [ %28, %29 ], [ %28, %35 ], [ %61, %60 ], [ %65, %64 ], [ %28, %26 ], [ %.0.ph105171, %.outer103.split.us.split ]
   %66 = icmp ult ptr %.1, %8
   br i1 %66, label %.outer103.split.us.lr.ph, label %.critedge, !llvm.loop !58
 
@@ -1907,7 +1907,7 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %90
 
 90:                                               ; preds = %80, %81, %82, %83, %77, %.loopexit
-  %.3 = phi i32 [ 8, %83 ], [ 9, %82 ], [ 8, %81 ], [ %.us-phi120203, %80 ], [ %.us-phi120203, %77 ], [ %.us-phi120203, %.loopexit ]
+  %.3 = phi i32 [ 8, %83 ], [ %.us-phi120203, %80 ], [ 8, %81 ], [ 9, %82 ], [ %.us-phi120203, %77 ], [ %.us-phi120203, %.loopexit ]
   store i32 %.3, ptr %11, align 4, !tbaa !57
   ret void
 }

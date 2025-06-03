@@ -1782,7 +1782,7 @@ define internal void @_ZL22qt_log_message_handler9QtMsgTypeRK18QMessageLogContex
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %13, %3
-  %.020 = phi i32 [ 0, %3 ], [ 8, %16 ], [ 7, %15 ], [ 6, %14 ], [ 5, %13 ]
+  %.020 = phi i32 [ 0, %3 ], [ 5, %13 ], [ 6, %14 ], [ 7, %15 ], [ 8, %16 ]
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.thread, label %18
 

@@ -2585,7 +2585,7 @@ _ZN7QStringD2Ev.exit17:                           ; preds = %117, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit13
 
 _ZN7QStringD2Ev.exit13:                           ; preds = %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i11, %38, %122, %57
-  %.pn = phi { ptr, i32 } [ %123, %122 ], [ %58, %57 ], [ %39, %38 ], [ %39, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i11 ], [ %39, %42 ]
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %123, %122 ], [ %39, %38 ], [ %39, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i11 ], [ %39, %42 ]
   %124 = load ptr, ptr %3, align 8
   %.not.i.i.i18 = icmp eq ptr %124, null
   br i1 %.not.i.i.i18, label %_ZN7QStringD2Ev.exit21, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19
@@ -2948,7 +2948,7 @@ _ZN22ExportDissectionDialog7isValidEv.exit:       ; preds = %19, %25, %28
   br label %35
 
 35:                                               ; preds = %33, %.thread
-  %.1 = phi i1 [ true, %33 ], [ %34, %.thread ]
+  %.1 = phi i1 [ %34, %.thread ], [ true, %33 ]
   ret i1 %.1
 }
 

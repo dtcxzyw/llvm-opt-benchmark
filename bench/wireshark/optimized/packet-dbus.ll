@@ -1127,7 +1127,7 @@ is_dbus_interface_valid.exit219.thread.i:         ; preds = %is_dbus_interface_v
   br i1 %394, label %.preheader.i, label %reader_cleanup.exit.i, !llvm.loop !10
 
 reader_cleanup.exit.i:                            ; preds = %391, %388, %372, %367, %353, %325, %is_dbus_interface_valid.exit219.i, %is_dbus_member_name_valid.exit.i, %is_dbus_interface_valid.exit.i, %190
-  %.3115.i = phi ptr [ %387, %388 ], [ %371, %372 ], [ %366, %367 ], [ %338, %353 ], [ %310, %325 ], [ %269, %is_dbus_interface_valid.exit219.i ], [ %235, %is_dbus_member_name_valid.exit.i ], [ %194, %is_dbus_interface_valid.exit.i ], [ %189, %190 ], [ %390, %391 ]
+  %.3115.i = phi ptr [ %189, %190 ], [ %194, %is_dbus_interface_valid.exit.i ], [ %235, %is_dbus_member_name_valid.exit.i ], [ %269, %is_dbus_interface_valid.exit219.i ], [ %310, %325 ], [ %338, %353 ], [ %366, %367 ], [ %371, %372 ], [ %387, %388 ], [ %390, %391 ]
   %395 = call fastcc ptr @reader_next(ptr noundef nonnull %.3115.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
   %.not176.not.i = icmp eq ptr %395, null
   br i1 %.not176.not.i, label %dissect_dbus_header_fields.exit.thread, label %144, !llvm.loop !11
@@ -1292,7 +1292,7 @@ reader_cleanup.exit.i:                            ; preds = %391, %388, %372, %3
   br label %479
 
 479:                                              ; preds = %478, %448, %440, %430, %423
-  %.0.i241.i = phi i1 [ false, %448 ], [ false, %478 ], [ false, %440 ], [ true, %423 ], [ true, %430 ]
+  %.0.i241.i = phi i1 [ true, %423 ], [ true, %430 ], [ false, %448 ], [ false, %478 ], [ false, %440 ]
   %480 = load ptr, ptr %18, align 8
   %481 = call ptr @find_or_create_conversation(ptr noundef %480)
   %482 = load i32, ptr @proto_dbus, align 4
@@ -2545,9 +2545,9 @@ is_basic_type.exit351:                            ; preds = %285, %switch.lookup
   unreachable
 
 325:                                              ; preds = %280, %278, %276, %is_basic_type.exit, %196, %217, %200, %20, %34, %316, %309, %is_basic_type.exit351, %221, %163, %is_dbus_object_path_valid.exit.thread354, %121, %97, %83, %69, %61, %53, %45, %37, %12
-  %.0296 = phi i1 [ true, %316 ], [ true, %309 ], [ false, %is_basic_type.exit351 ], [ false, %221 ], [ true, %163 ], [ true, %is_dbus_object_path_valid.exit.thread354 ], [ true, %121 ], [ true, %97 ], [ true, %83 ], [ true, %69 ], [ true, %61 ], [ true, %53 ], [ true, %45 ], [ true, %37 ], [ true, %12 ], [ true, %34 ], [ true, %20 ], [ false, %200 ], [ false, %217 ], [ true, %196 ], [ false, %is_basic_type.exit ], [ false, %276 ], [ false, %278 ], [ false, %280 ]
-  %.0288 = phi i32 [ 0, %316 ], [ 0, %309 ], [ 0, %is_basic_type.exit351 ], [ 0, %221 ], [ %.4292, %163 ], [ %.3291, %is_dbus_object_path_valid.exit.thread354 ], [ %.2290, %121 ], [ 0, %97 ], [ 0, %83 ], [ 0, %69 ], [ 0, %61 ], [ 0, %53 ], [ 0, %45 ], [ 0, %37 ], [ 0, %12 ], [ 1, %34 ], [ 0, %20 ], [ 0, %200 ], [ 1, %217 ], [ 0, %196 ], [ 0, %is_basic_type.exit ], [ 0, %276 ], [ 0, %278 ], [ 1, %280 ]
-  %.0287 = phi ptr [ %0, %316 ], [ %315, %309 ], [ %296, %is_basic_type.exit351 ], [ %232, %221 ], [ %0, %163 ], [ %0, %is_dbus_object_path_valid.exit.thread354 ], [ %0, %121 ], [ %0, %97 ], [ %0, %83 ], [ %0, %69 ], [ %0, %61 ], [ %0, %53 ], [ %0, %45 ], [ %0, %37 ], [ %0, %12 ], [ %0, %34 ], [ %0, %20 ], [ %208, %200 ], [ %0, %217 ], [ %0, %196 ], [ %260, %is_basic_type.exit ], [ %260, %276 ], [ %0, %278 ], [ %0, %280 ]
+  %.0296 = phi i1 [ true, %12 ], [ true, %37 ], [ true, %45 ], [ true, %53 ], [ true, %61 ], [ true, %69 ], [ true, %83 ], [ true, %97 ], [ true, %121 ], [ true, %is_dbus_object_path_valid.exit.thread354 ], [ true, %163 ], [ false, %221 ], [ false, %is_basic_type.exit351 ], [ true, %309 ], [ true, %316 ], [ true, %34 ], [ true, %20 ], [ false, %200 ], [ false, %217 ], [ true, %196 ], [ false, %is_basic_type.exit ], [ false, %276 ], [ false, %278 ], [ false, %280 ]
+  %.0288 = phi i32 [ 0, %12 ], [ 0, %37 ], [ 0, %45 ], [ 0, %53 ], [ 0, %61 ], [ 0, %69 ], [ 0, %83 ], [ 0, %97 ], [ %.2290, %121 ], [ %.3291, %is_dbus_object_path_valid.exit.thread354 ], [ %.4292, %163 ], [ 0, %221 ], [ 0, %is_basic_type.exit351 ], [ 0, %309 ], [ 0, %316 ], [ 1, %34 ], [ 0, %20 ], [ 0, %200 ], [ 1, %217 ], [ 0, %196 ], [ 0, %is_basic_type.exit ], [ 0, %276 ], [ 0, %278 ], [ 1, %280 ]
+  %.0287 = phi ptr [ %0, %12 ], [ %0, %37 ], [ %0, %45 ], [ %0, %53 ], [ %0, %61 ], [ %0, %69 ], [ %0, %83 ], [ %0, %97 ], [ %0, %121 ], [ %0, %is_dbus_object_path_valid.exit.thread354 ], [ %0, %163 ], [ %232, %221 ], [ %296, %is_basic_type.exit351 ], [ %315, %309 ], [ %0, %316 ], [ %0, %34 ], [ %0, %20 ], [ %208, %200 ], [ %0, %217 ], [ %0, %196 ], [ %260, %is_basic_type.exit ], [ %260, %276 ], [ %0, %278 ], [ %0, %280 ]
   %326 = getelementptr inbounds nuw i8, ptr %.0287, i64 16
   %327 = load i32, ptr %326, align 8
   %328 = icmp ugt i32 %327, 64
@@ -2914,7 +2914,7 @@ define internal fastcc range(i32 0, 2) i32 @add_padding(ptr noundef captures(non
   br label %calculate_padding_len.exit
 
 calculate_padding_len.exit:                       ; preds = %2, %7, %8, %9
-  %.0.i = phi i32 [ 4, %8 ], [ 2, %7 ], [ 8, %9 ], [ 1, %2 ]
+  %.0.i = phi i32 [ 2, %7 ], [ 4, %8 ], [ 8, %9 ], [ 1, %2 ]
   %10 = srem i32 %6, %.0.i
   %11 = sub nsw i32 %.0.i, %10
   %.lhs.trunc.i = trunc nsw i32 %11 to i8

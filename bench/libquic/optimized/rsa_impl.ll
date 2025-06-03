@@ -108,7 +108,7 @@ check_modulus_and_exponent_sizes.exit:            ; preds = %24
   br label %72
 
 48:                                               ; preds = %44, %41, %38
-  %.057 = phi i32 [ %46, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.057 = phi i32 [ %40, %38 ], [ %43, %41 ], [ %46, %44 ]
   %49 = icmp slt i32 %.057, 1
   br i1 %49, label %72, label %50
 
@@ -254,7 +254,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_sign_raw(ptr noundef %0, ptr noun
   br label %29
 
 23:                                               ; preds = %19, %16
-  %.026 = phi i32 [ %21, %19 ], [ %18, %16 ]
+  %.026 = phi i32 [ %18, %16 ], [ %21, %19 ]
   %24 = icmp slt i32 %.026, 1
   br i1 %24, label %29, label %25
 
@@ -344,7 +344,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_decrypt(ptr noundef %0, ptr nound
   br label %32
 
 27:                                               ; preds = %21, %24, %22
-  %.034 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %8, %21 ]
+  %.034 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %8, %21 ]
   %28 = icmp slt i32 %.034, 0
   br i1 %28, label %29, label %30
 

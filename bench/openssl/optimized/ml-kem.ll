@@ -172,9 +172,9 @@ define internal void @create_mlkem_raw_key(ptr noundef captures(none) %0, ptr no
   br label %select_keytype_and_size.exit
 
 select_keytype_and_size.exit:                     ; preds = %19, %14, %13, %12, %11, %4
-  %20 = phi ptr [ %7, %19 ], [ %15, %14 ], [ %7, %13 ], [ %7, %12 ], [ %7, %11 ], [ %7, %4 ]
-  %.012 = phi ptr [ null, %19 ], [ @.str.14, %14 ], [ @.str.15, %13 ], [ @.str.14, %12 ], [ @.str.13, %11 ], [ @.str.12, %4 ]
-  %.sink.i = phi i64 [ 0, %19 ], [ %18, %14 ], [ 13, %13 ], [ 1568, %12 ], [ 1184, %11 ], [ 800, %4 ]
+  %20 = phi ptr [ %7, %19 ], [ %7, %11 ], [ %7, %12 ], [ %7, %13 ], [ %15, %14 ], [ %7, %4 ]
+  %.012 = phi ptr [ null, %19 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.14, %14 ], [ @.str.12, %4 ]
+  %.sink.i = phi i64 [ 0, %19 ], [ 1184, %11 ], [ 1568, %12 ], [ 13, %13 ], [ %18, %14 ], [ 800, %4 ]
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = and i8 %21, 1
   %.not6.not = icmp eq i8 %22, 0

@@ -3203,7 +3203,7 @@ lpad184:                                          ; preds = %invoke.cont191, %in
   br label %common.resume
 
 return:                                           ; preds = %if.else.i, %if.then.i29, %cond.true44, %cond.true, %cleanup.action66, %cond.end48, %cleanup.action, %cond.end, %sw.bb166, %sw.bb164, %sw.bb161, %sw.bb159, %sw.bb157, %sw.bb155, %if.then124, %sw.bb119, %sw.bb117, %sw.bb115, %sw.bb113, %sw.bb111, %sw.bb, %invoke.cont90
-  %retval.0 = phi i8 [ 1, %invoke.cont90 ], [ %call165, %sw.bb164 ], [ %call167, %sw.bb166 ], [ %call162, %sw.bb161 ], [ %call160, %sw.bb159 ], [ %call158, %sw.bb157 ], [ %call156, %sw.bb155 ], [ %call125, %if.then124 ], [ %call120, %sw.bb119 ], [ %call118, %sw.bb117 ], [ %call116, %sw.bb115 ], [ %call114, %sw.bb113 ], [ %call112, %sw.bb111 ], [ %call110, %sw.bb ], [ 1, %cond.end ], [ 1, %cleanup.action ], [ 1, %cond.end48 ], [ 1, %cleanup.action66 ], [ 1, %cond.true ], [ 1, %cond.true44 ], [ 0, %if.then.i29 ], [ 0, %if.else.i ]
+  %retval.0 = phi i8 [ 1, %invoke.cont90 ], [ %call110, %sw.bb ], [ %call112, %sw.bb111 ], [ %call114, %sw.bb113 ], [ %call116, %sw.bb115 ], [ %call118, %sw.bb117 ], [ %call120, %sw.bb119 ], [ %call125, %if.then124 ], [ %call156, %sw.bb155 ], [ %call158, %sw.bb157 ], [ %call160, %sw.bb159 ], [ %call162, %sw.bb161 ], [ %call167, %sw.bb166 ], [ %call165, %sw.bb164 ], [ 1, %cond.end ], [ 1, %cleanup.action ], [ 1, %cond.end48 ], [ 1, %cleanup.action66 ], [ 1, %cond.true ], [ 1, %cond.true44 ], [ 0, %if.then.i29 ], [ 0, %if.else.i ]
   ret i8 %retval.0
 }
 
@@ -11522,7 +11522,7 @@ _ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EED2Ev.exit: ; preds = %cleanup, %if.
   ret i8 %retval.0
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad299, %lpad254, %lpad200, %lpad156, %lpad108, %lpad62, %lpad12
-  %.pn = phi { ptr, i32 } [ %43, %lpad299 ], [ %39, %lpad254 ], [ %38, %lpad200 ], [ %29, %lpad156 ], [ %25, %lpad108 ], [ %21, %lpad62 ], [ %13, %lpad12 ], [ %lpad.loopexit77, %lpad.loopexit ], [ %lpad.loopexit.split-lp78, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %13, %lpad12 ], [ %21, %lpad62 ], [ %25, %lpad108 ], [ %29, %lpad156 ], [ %39, %lpad254 ], [ %38, %lpad200 ], [ %43, %lpad299 ], [ %lpad.loopexit77, %lpad.loopexit ], [ %lpad.loopexit.split-lp78, %lpad.loopexit.split-lp ]
   %56 = load ptr, ptr %settingsList, align 8
   %tobool.not.i.i.i65 = icmp eq ptr %56, null
   br i1 %tobool.not.i.i.i65, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EED2Ev.exit67, label %if.then.i.i.i66
@@ -15949,7 +15949,7 @@ lpad151:                                          ; preds = %invoke.cont163, %in
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad151, %lpad88, %lpad113, %lpad9
-  %.pn = phi { ptr, i32 } [ %19, %lpad113 ], [ %15, %lpad88 ], [ %4, %lpad9 ], [ %41, %lpad151 ], [ %lpad.loopexit35, %lpad.loopexit ], [ %lpad.loopexit.split-lp36, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad113 ], [ %4, %lpad9 ], [ %15, %lpad88 ], [ %41, %lpad151 ], [ %lpad.loopexit35, %lpad.loopexit ], [ %lpad.loopexit.split-lp36, %lpad.loopexit.split-lp ]
   call void @_ZNSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %settings) #30
   resume { ptr, i32 } %.pn
 }

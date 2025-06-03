@@ -2734,7 +2734,7 @@ define i64 @deflateBound(ptr noundef readonly captures(address_is_null) %0, i64 
   br label %49
 
 49:                                               ; preds = %.loopexit, %17, %24, %48, %20
-  %.032 = phi i64 [ 6, %48 ], [ 18, %24 ], [ %23, %20 ], [ 0, %17 ], [ %spec.select, %.loopexit ]
+  %.032 = phi i64 [ 6, %48 ], [ %23, %20 ], [ 18, %24 ], [ 0, %17 ], [ %spec.select, %.loopexit ]
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %51 = load i32, ptr %50, align 8, !tbaa !28
   %.not47 = icmp eq i32 %51, 15

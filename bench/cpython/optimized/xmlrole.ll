@@ -173,7 +173,7 @@ define internal range(i32 -1, 60) i32 @prolog1(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %19, %5, %5, %18, %17, %7, %6
-  %.0 = phi i32 [ 2, %18 ], [ 3, %17 ], [ 56, %7 ], [ 55, %6 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %19 ]
+  %.0 = phi i32 [ 55, %6 ], [ 56, %7 ], [ 3, %17 ], [ 2, %18 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %19 ]
   ret i32 %.0
 }
 
@@ -352,7 +352,7 @@ define internal range(i32 -1, 61) i32 @internalSubset(ptr noundef captures(none)
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %44, %5, %5, %43, %42, %41, %40, %39, %31, %23, %15
-  %.0 = phi i32 [ 3, %43 ], [ 60, %42 ], [ 56, %41 ], [ 55, %40 ], [ 11, %15 ], [ 33, %23 ], [ 39, %31 ], [ 17, %39 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %44 ]
+  %.0 = phi i32 [ 11, %15 ], [ 33, %23 ], [ 39, %31 ], [ 17, %39 ], [ 55, %40 ], [ 56, %41 ], [ 60, %42 ], [ 3, %43 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %44 ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ define internal range(i32 -1, 60) i32 @prolog2(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %16, %11, %5, %10, %9, %8
-  %.0 = phi i32 [ 2, %10 ], [ 56, %9 ], [ 55, %8 ], [ 0, %5 ], [ -1, %16 ], [ 59, %11 ]
+  %.0 = phi i32 [ 55, %8 ], [ 56, %9 ], [ 2, %10 ], [ 0, %5 ], [ -1, %16 ], [ 59, %11 ]
   ret i32 %.0
 }
 
@@ -656,7 +656,7 @@ define internal range(i32 -1, 60) i32 @entity2(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %17, %5, %15, %14, %10
-  %.0 = phi i32 [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
+  %.0 = phi i32 [ 11, %10 ], [ 11, %14 ], [ 12, %15 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
   ret i32 %.0
 }
 
@@ -708,7 +708,7 @@ define internal range(i32 -1, 60) i32 @entity7(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %17, %5, %15, %14, %10
-  %.0 = phi i32 [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
+  %.0 = phi i32 [ 11, %10 ], [ 11, %14 ], [ 12, %15 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
   ret i32 %.0
 }
 
@@ -799,7 +799,7 @@ define internal i32 @declClose(ptr noundef captures(none) %0, i32 noundef %1, pt
   br label %common.exit
 
 common.exit:                                      ; preds = %20, %15, %9, %6
-  %.0 = phi i32 [ %14, %9 ], [ %8, %6 ], [ -1, %20 ], [ 59, %15 ]
+  %.0 = phi i32 [ %8, %6 ], [ %14, %9 ], [ -1, %20 ], [ 59, %15 ]
   ret i32 %.0
 }
 
@@ -876,7 +876,7 @@ common.exit:                                      ; preds = %13, %7, %5
   br label %18
 
 18:                                               ; preds = %13, %5, %common.exit, %16, %11, %6
-  %.0 = phi i32 [ %17, %16 ], [ -1, %common.exit ], [ 0, %11 ], [ 0, %6 ], [ 0, %5 ], [ 0, %13 ]
+  %.0 = phi i32 [ %17, %16 ], [ 0, %6 ], [ -1, %common.exit ], [ 0, %11 ], [ 0, %5 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -1200,7 +1200,7 @@ define internal range(i32 -1, 60) i32 @attlist2(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %26, %21, %13, %5, %20, %19
-  %.020 = phi i32 [ 33, %20 ], [ %15, %13 ], [ 33, %19 ], [ 33, %5 ], [ -1, %26 ], [ 59, %21 ]
+  %.020 = phi i32 [ 33, %19 ], [ %15, %13 ], [ 33, %20 ], [ 33, %5 ], [ -1, %26 ], [ 59, %21 ]
   ret i32 %.020
 }
 
@@ -1481,7 +1481,7 @@ define internal range(i32 -1, 60) i32 @element1(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %19, %5, %17, %15, %10
-  %.0 = phi i32 [ 44, %17 ], [ 42, %10 ], [ 41, %15 ], [ 39, %5 ], [ -1, %.thread ], [ 59, %19 ]
+  %.0 = phi i32 [ 42, %10 ], [ 41, %15 ], [ 44, %17 ], [ 39, %5 ], [ -1, %.thread ], [ 59, %19 ]
   ret i32 %.0
 }
 
@@ -1583,7 +1583,7 @@ define internal range(i32 -1, 60) i32 @element3(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %16, %11, %5, %10, %8, %6
-  %.0 = phi i32 [ 39, %10 ], [ 46, %8 ], [ 45, %6 ], [ 39, %5 ], [ -1, %16 ], [ 59, %11 ]
+  %.0 = phi i32 [ 45, %6 ], [ 46, %8 ], [ 39, %10 ], [ 39, %5 ], [ -1, %16 ], [ 59, %11 ]
   ret i32 %.0
 }
 
@@ -1635,7 +1635,7 @@ define internal range(i32 -1, 60) i32 @element6(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %19, %14, %5, %13, %12, %11, %10, %6
-  %.0 = phi i32 [ 54, %13 ], [ 52, %12 ], [ 53, %11 ], [ 51, %10 ], [ 44, %6 ], [ 39, %5 ], [ -1, %19 ], [ 59, %14 ]
+  %.0 = phi i32 [ 44, %6 ], [ 51, %10 ], [ 53, %11 ], [ 52, %12 ], [ 54, %13 ], [ 39, %5 ], [ -1, %19 ], [ 59, %14 ]
   ret i32 %.0
 }
 
@@ -1728,7 +1728,7 @@ define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %41, %36, %27, %32, %20, %25, %13, %18, %6, %11, %5, %35, %34
-  %.0 = phi i32 [ 49, %35 ], [ 50, %34 ], [ 39, %5 ], [ 45, %11 ], [ 45, %6 ], [ 46, %18 ], [ 46, %13 ], [ 47, %25 ], [ 47, %20 ], [ 48, %32 ], [ 48, %27 ], [ -1, %41 ], [ 59, %36 ]
+  %.0 = phi i32 [ 50, %34 ], [ 49, %35 ], [ 39, %5 ], [ 45, %11 ], [ 45, %6 ], [ 46, %18 ], [ 46, %13 ], [ 47, %25 ], [ 47, %20 ], [ 48, %32 ], [ 48, %27 ], [ -1, %41 ], [ 59, %36 ]
   ret i32 %.0
 }
 
@@ -1790,7 +1790,7 @@ define internal range(i32 -1, 60) i32 @element5(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %14, %9, %5, %8, %6
-  %.0 = phi i32 [ 39, %8 ], [ 46, %6 ], [ 39, %5 ], [ -1, %14 ], [ 59, %9 ]
+  %.0 = phi i32 [ 46, %6 ], [ 39, %8 ], [ 39, %5 ], [ -1, %14 ], [ 59, %9 ]
   ret i32 %.0
 }
 
@@ -1927,7 +1927,7 @@ define internal range(i32 -1, 60) i32 @notation4(ptr noundef captures(none) %0, 
   br label %common.exit
 
 common.exit:                                      ; preds = %17, %12, %5, %8, %6
-  %.0 = phi i32 [ 20, %8 ], [ 19, %6 ], [ 17, %5 ], [ -1, %17 ], [ 59, %12 ]
+  %.0 = phi i32 [ 19, %6 ], [ 20, %8 ], [ 17, %5 ], [ -1, %17 ], [ 59, %12 ]
   ret i32 %.0
 }
 

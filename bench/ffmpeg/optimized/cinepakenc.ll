@@ -1440,9 +1440,9 @@ calculate_mode_score.exit.thread.i.i:             ; preds = %511, %471, %452, %.
   br i1 %exitcond.not.i163.i.i, label %calculate_mode_score.exit170.i.i, label %580, !llvm.loop !93
 
 calculate_mode_score.exit170.i.i:                 ; preds = %605, %564, %553, %575, %561, %547, %526
-  %.8198.i.i = phi i32 [ %.7197.i.i, %526 ], [ 0, %561 ], [ %.7197.i.i, %547 ], [ 0, %575 ], [ %.7197.i.i, %553 ], [ 0, %564 ], [ %.1115.i.i.i, %605 ]
-  %.8.i.i = phi i32 [ %.7189.i.i, %526 ], [ 0, %561 ], [ %.7189.i.i, %547 ], [ 0, %575 ], [ %.7189.i.i, %553 ], [ 0, %564 ], [ %.1.i.i.i, %605 ]
-  %.0116.i160.i.i = phi i64 [ %545, %526 ], [ %545, %561 ], [ %550, %547 ], [ %545, %575 ], [ %559, %553 ], [ %574, %564 ], [ %.6.i.i.i, %605 ]
+  %.8198.i.i = phi i32 [ %.7197.i.i, %526 ], [ %.7197.i.i, %547 ], [ 0, %561 ], [ 0, %575 ], [ %.7197.i.i, %553 ], [ 0, %564 ], [ %.1115.i.i.i, %605 ]
+  %.8.i.i = phi i32 [ %.7189.i.i, %526 ], [ %.7189.i.i, %547 ], [ 0, %561 ], [ 0, %575 ], [ %.7189.i.i, %553 ], [ 0, %564 ], [ %.1.i.i.i, %605 ]
+  %.0116.i160.i.i = phi i64 [ %545, %526 ], [ %550, %547 ], [ %545, %561 ], [ %545, %575 ], [ %559, %553 ], [ %574, %564 ], [ %.6.i.i.i, %605 ]
   %606 = icmp ne i32 %.8198.i.i, 0
   %607 = icmp ne i32 %.8.i.i, 0
   %or.cond4.i.i = select i1 %606, i1 true, i1 %607
@@ -2379,7 +2379,7 @@ thread-pre-split.i.i.i:                           ; preds = %1016, %1009, %1006
   br label %encode_mode.exit.i.i
 
 encode_mode.exit.i.i:                             ; preds = %.loopexit.loopexit.i.i.i, %._crit_edge279.thread.i.i.i, %._crit_edge300.i.i.i, %908, %.split261.i.i.i
-  %.2171.i.i.i = phi i32 [ %.1170.i.i.i, %.split261.i.i.i ], [ %.11.i.i.i, %._crit_edge279.thread.i.i.i ], [ %.4173.lcssa.i.i.i, %._crit_edge300.i.i.i ], [ %920, %908 ], [ %1064, %.loopexit.loopexit.i.i.i ]
+  %.2171.i.i.i = phi i32 [ %.1170.i.i.i, %.split261.i.i.i ], [ %.4173.lcssa.i.i.i, %._crit_edge300.i.i.i ], [ %.11.i.i.i, %._crit_edge279.thread.i.i.i ], [ %920, %908 ], [ %1064, %.loopexit.loopexit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8

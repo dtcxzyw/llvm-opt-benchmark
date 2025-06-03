@@ -563,7 +563,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   br label %146
 
 146:                                              ; preds = %142, %139, %9
-  %.187 = phi i16 [ %spec.select, %9 ], [ %spec.select, %142 ], [ %102, %139 ]
+  %.187 = phi i16 [ %spec.select, %9 ], [ %102, %139 ], [ %spec.select, %142 ]
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %148 = load i32, ptr %76, align 8
   %149 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %1, ptr noundef nonnull %147, i32 noundef %148, ptr noundef %3, ptr noundef %4)

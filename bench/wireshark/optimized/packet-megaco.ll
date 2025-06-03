@@ -1107,7 +1107,7 @@ find_megaco_messageBody_names.exit:               ; preds = %207, %.split.loop.e
   br label %222
 
 222:                                              ; preds = %220, %218, %216
-  %.1.i = phi i32 [ %.012.i, %216 ], [ %221, %220 ], [ %219, %218 ]
+  %.1.i = phi i32 [ %.012.i, %216 ], [ %219, %218 ], [ %221, %220 ]
   %223 = icmp sgt i32 %.1.i, 0
   br i1 %223, label %212, label %224, !llvm.loop !13
 
@@ -1576,7 +1576,7 @@ megaco_tvb_skip_wsp.exit1132:                     ; preds = %.lr.ph.i1128, %436,
   br label %455
 
 455:                                              ; preds = %441, %447, %446, %445
-  %.0875 = phi i32 [ %454, %447 ], [ 0, %446 ], [ -1, %445 ], [ -2, %441 ]
+  %.0875 = phi i32 [ %454, %447 ], [ -1, %445 ], [ 0, %446 ], [ -2, %441 ]
   %456 = load i32, ptr @hf_megaco_Context, align 4
   %457 = call ptr @proto_tree_add_uint(ptr noundef %91, i32 noundef %456, ptr noundef %0, i32 noundef %.1865, i32 noundef 1, i32 noundef %.0875)
   call void @proto_item_set_len(ptr noundef %457, i32 noundef %426)
@@ -2236,8 +2236,8 @@ megaco_tvb_skip_wsp_return.exit1169:              ; preds = %.lr.ph.i1166, %643,
   br label %767
 
 767:                                              ; preds = %670, %674, %679, %666, %662, %658, %694, %689, %684, %719, %714, %709, %704, %699, %734, %730, %762
-  %.14 = phi i32 [ %switch1046, %730 ], [ %switch1018, %734 ], [ 0, %699 ], [ 0, %719 ], [ 0, %714 ], [ 0, %709 ], [ 0, %704 ], [ %.2868, %684 ], [ %switch1042, %694 ], [ %switch1038, %689 ], [ %switch1034, %679 ], [ %switch1030, %666 ], [ %switch1026, %662 ], [ %switch1022, %658 ], [ %.15, %762 ], [ 0, %674 ], [ 0, %670 ]
-  %cond1 = phi i1 [ false, %730 ], [ false, %734 ], [ false, %699 ], [ false, %719 ], [ true, %714 ], [ false, %709 ], [ false, %704 ], [ false, %684 ], [ false, %694 ], [ false, %689 ], [ false, %679 ], [ false, %666 ], [ false, %662 ], [ false, %658 ], [ false, %762 ], [ false, %674 ], [ false, %670 ]
+  %.14 = phi i32 [ %switch1030, %666 ], [ %switch1022, %658 ], [ %switch1026, %662 ], [ %switch1034, %679 ], [ %.2868, %684 ], [ %switch1038, %689 ], [ %switch1042, %694 ], [ 0, %699 ], [ 0, %704 ], [ 0, %709 ], [ 0, %714 ], [ 0, %719 ], [ %switch1046, %730 ], [ %switch1018, %734 ], [ %.15, %762 ], [ 0, %674 ], [ 0, %670 ]
+  %cond1 = phi i1 [ false, %666 ], [ false, %658 ], [ false, %662 ], [ false, %679 ], [ false, %684 ], [ false, %689 ], [ false, %694 ], [ false, %699 ], [ false, %704 ], [ false, %709 ], [ true, %714 ], [ false, %719 ], [ false, %730 ], [ false, %734 ], [ false, %762 ], [ false, %674 ], [ false, %670 ]
   %768 = icmp eq i32 %.14, 0
   %or.cond52 = and i1 %420, %768
   %spec.store.select = select i1 %or.cond52, i32 21, i32 %.14
@@ -2507,7 +2507,7 @@ megaco_tvb_skip_wsp.exit1164:                     ; preds = %596, %megaco_tvb_sk
   br label %megaco_tvb_skip_wsp.exit1164.thread1193
 
 megaco_tvb_skip_wsp.exit1164.thread1193:          ; preds = %592, %585, %861, %900, %795, %777, %738, %632, %438, %415, %351, %269, %267, %246, %149, %megaco_tvb_skip_wsp.exit1065.thread, %94, %58, %38, %18
-  %.0 = phi i32 [ %20, %18 ], [ %96, %94 ], [ %spec.select978, %megaco_tvb_skip_wsp.exit1065.thread ], [ %151, %149 ], [ %419, %415 ], [ %440, %438 ], [ %901, %900 ], [ %634, %632 ], [ %743, %738 ], [ %780, %777 ], [ %798, %795 ], [ %864, %861 ], [ %353, %351 ], [ %285, %269 ], [ %268, %267 ], [ %247, %246 ], [ %69, %58 ], [ %39, %38 ], [ %595, %592 ], [ %588, %585 ]
+  %.0 = phi i32 [ %20, %18 ], [ %96, %94 ], [ %spec.select978, %megaco_tvb_skip_wsp.exit1065.thread ], [ %151, %149 ], [ %419, %415 ], [ %247, %246 ], [ %268, %267 ], [ %285, %269 ], [ %353, %351 ], [ %440, %438 ], [ %901, %900 ], [ %634, %632 ], [ %743, %738 ], [ %780, %777 ], [ %798, %795 ], [ %864, %861 ], [ %69, %58 ], [ %39, %38 ], [ %595, %592 ], [ %588, %585 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #11
@@ -2760,7 +2760,7 @@ megacostat_had_request.exit.thread:               ; preds = %30, %.thread54, %me
   br label %110
 
 110:                                              ; preds = %22, %26, %megacostat_had_request.exit.thread, %105, %megacostat_is_duplicate_reply.exit, %5, %9
-  %.042 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %megacostat_is_duplicate_reply.exit ], [ 1, %105 ], [ 0, %megacostat_had_request.exit.thread ], [ 0, %22 ], [ 0, %26 ]
+  %.042 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %22 ], [ 0, %26 ], [ 0, %megacostat_is_duplicate_reply.exit ], [ 1, %105 ], [ 0, %megacostat_had_request.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   ret i32 %.042
 }
@@ -3022,7 +3022,7 @@ define internal fastcc i32 @megaco_tvb_find_token(ptr noundef %0, i32 noundef %1
   br label %15
 
 15:                                               ; preds = %11, %13, %9
-  %.1 = phi i32 [ %.012, %9 ], [ %14, %13 ], [ %12, %11 ]
+  %.1 = phi i32 [ %.012, %9 ], [ %12, %11 ], [ %14, %13 ]
   %16 = icmp sgt i32 %.1, 0
   br i1 %16, label %5, label %17, !llvm.loop !13
 
@@ -5463,7 +5463,7 @@ megaco_tvb_skip_wsp.exit409.i:                    ; preds = %454, %.lr.ph.i405.i
   br i1 %exitcond.not.i443.i, label %megaco_tvb_skip_wsp.exit314.i, label %.lr.ph.i440.i, !llvm.loop !8
 
 megaco_tvb_skip_wsp.exit314.i:                    ; preds = %518, %.lr.ph.i433.i, %502, %.lr.ph.i426.i, %486, %.lr.ph.i419.i, %470, %.lr.ph.i412.i, %431, %.lr.ph.i398.i, %415, %.lr.ph.i391.i, %399, %.lr.ph.i384.i, %383, %.lr.ph.i377.i, %367, %.lr.ph.i370.i, %351, %.lr.ph.i363.i, %335, %.lr.ph.i356.i, %319, %.lr.ph.i349.i, %211, %.lr.ph.i322.i, %195, %.lr.ph.i316.i, %179, %.lr.ph.i310.i, %531, %.lr.ph.i440.i, %520, %504, %488, %472, %456, %megaco_tvb_skip_wsp.exit409.i, %417, %401, %385, %369, %353, %337, %321, %304, %megaco_tvb_skip_wsp.exit346.i, %megaco_tvb_skip_wsp.exit339.i, %dissect_megaco_h324_h223caprn.exit.i, %197, %181, %162
-  %.1.i = phi i32 [ %.0.lcssa.i404.i, %megaco_tvb_skip_wsp.exit409.i ], [ %.0.lcssa.i341.i, %megaco_tvb_skip_wsp.exit346.i ], [ %.0.lcssa.i334.i, %megaco_tvb_skip_wsp.exit339.i ], [ %.0.lcssa.i327.i, %dissect_megaco_h324_h223caprn.exit.i ], [ %171, %162 ], [ %187, %181 ], [ %203, %197 ], [ %311, %304 ], [ %327, %321 ], [ %343, %337 ], [ %359, %353 ], [ %375, %369 ], [ %391, %385 ], [ %407, %401 ], [ %423, %417 ], [ %462, %456 ], [ %478, %472 ], [ %494, %488 ], [ %510, %504 ], [ %523, %520 ], [ %524, %531 ], [ %.08.i441.i, %.lr.ph.i440.i ], [ %172, %179 ], [ %.08.i311.i, %.lr.ph.i310.i ], [ %188, %195 ], [ %.08.i317.i, %.lr.ph.i316.i ], [ %204, %211 ], [ %.08.i323.i, %.lr.ph.i322.i ], [ %312, %319 ], [ %.08.i350.i, %.lr.ph.i349.i ], [ %328, %335 ], [ %.08.i357.i, %.lr.ph.i356.i ], [ %344, %351 ], [ %.08.i364.i, %.lr.ph.i363.i ], [ %360, %367 ], [ %.08.i371.i, %.lr.ph.i370.i ], [ %376, %383 ], [ %.08.i378.i, %.lr.ph.i377.i ], [ %392, %399 ], [ %.08.i385.i, %.lr.ph.i384.i ], [ %408, %415 ], [ %.08.i392.i, %.lr.ph.i391.i ], [ %424, %431 ], [ %.08.i399.i, %.lr.ph.i398.i ], [ %463, %470 ], [ %.08.i413.i, %.lr.ph.i412.i ], [ %479, %486 ], [ %.08.i420.i, %.lr.ph.i419.i ], [ %495, %502 ], [ %.08.i427.i, %.lr.ph.i426.i ], [ %511, %518 ], [ %.08.i434.i, %.lr.ph.i433.i ]
+  %.1.i = phi i32 [ %.0.lcssa.i327.i, %dissect_megaco_h324_h223caprn.exit.i ], [ %.0.lcssa.i334.i, %megaco_tvb_skip_wsp.exit339.i ], [ %.0.lcssa.i341.i, %megaco_tvb_skip_wsp.exit346.i ], [ %.0.lcssa.i404.i, %megaco_tvb_skip_wsp.exit409.i ], [ %171, %162 ], [ %187, %181 ], [ %203, %197 ], [ %311, %304 ], [ %327, %321 ], [ %343, %337 ], [ %359, %353 ], [ %375, %369 ], [ %391, %385 ], [ %407, %401 ], [ %423, %417 ], [ %462, %456 ], [ %478, %472 ], [ %494, %488 ], [ %510, %504 ], [ %523, %520 ], [ %524, %531 ], [ %.08.i441.i, %.lr.ph.i440.i ], [ %172, %179 ], [ %.08.i311.i, %.lr.ph.i310.i ], [ %188, %195 ], [ %.08.i317.i, %.lr.ph.i316.i ], [ %204, %211 ], [ %.08.i323.i, %.lr.ph.i322.i ], [ %312, %319 ], [ %.08.i350.i, %.lr.ph.i349.i ], [ %328, %335 ], [ %.08.i357.i, %.lr.ph.i356.i ], [ %344, %351 ], [ %.08.i364.i, %.lr.ph.i363.i ], [ %360, %367 ], [ %.08.i371.i, %.lr.ph.i370.i ], [ %376, %383 ], [ %.08.i378.i, %.lr.ph.i377.i ], [ %392, %399 ], [ %.08.i385.i, %.lr.ph.i384.i ], [ %408, %415 ], [ %.08.i392.i, %.lr.ph.i391.i ], [ %424, %431 ], [ %.08.i399.i, %.lr.ph.i398.i ], [ %463, %470 ], [ %.08.i413.i, %.lr.ph.i412.i ], [ %479, %486 ], [ %.08.i420.i, %.lr.ph.i419.i ], [ %495, %502 ], [ %.08.i427.i, %.lr.ph.i426.i ], [ %511, %518 ], [ %.08.i434.i, %.lr.ph.i433.i ]
   %533 = icmp slt i32 %.2.i, %63
   br i1 %533, label %.preheader.i, label %dissect_megaco_LocalControldescriptor.exit, !llvm.loop !39
 
@@ -5672,7 +5672,7 @@ megaco_tvb_skip_wsp.exit108.i:                    ; preds = %630, %.lr.ph.i104.i
   br label %dissect_megaco_TerminationStatedescriptor.exit
 
 dissect_megaco_TerminationStatedescriptor.exit:   ; preds = %megaco_tvb_skip_wsp.exit108.i, %megaco_tvb_skip_wsp.exit143, %find_megaco_mediaParm_names.exit.thread, %find_megaco_mediaParm_names.exit, %636, %dissect_megaco_LocalControldescriptor.exit, %megaco_tvb_skip_wsp.exit119, %megaco_tvb_skip_wsp.exit113
-  %.0102 = phi i32 [ %.0.lcssa.i, %find_megaco_mediaParm_names.exit ], [ %63, %636 ], [ %63, %dissect_megaco_LocalControldescriptor.exit ], [ %63, %megaco_tvb_skip_wsp.exit119 ], [ %63, %megaco_tvb_skip_wsp.exit113 ], [ %.0.lcssa.i, %find_megaco_mediaParm_names.exit.thread ], [ %63, %megaco_tvb_skip_wsp.exit143 ], [ %63, %megaco_tvb_skip_wsp.exit108.i ]
+  %.0102 = phi i32 [ %.0.lcssa.i, %find_megaco_mediaParm_names.exit ], [ %63, %megaco_tvb_skip_wsp.exit113 ], [ %63, %megaco_tvb_skip_wsp.exit119 ], [ %63, %dissect_megaco_LocalControldescriptor.exit ], [ %63, %636 ], [ %.0.lcssa.i, %find_megaco_mediaParm_names.exit.thread ], [ %63, %megaco_tvb_skip_wsp.exit143 ], [ %63, %megaco_tvb_skip_wsp.exit108.i ]
   %637 = add i32 %.0102, 1
   %638 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %637, i32 noundef %3, i8 noundef zeroext 44)
   %spec.select = call i32 @llvm.smin.i32(i32 %638, i32 %3)

@@ -3121,7 +3121,7 @@ _ZN4lean8optionalINS_5levelEED2Ev.exit:           ; preds = %_ZN4lean5levelC2ERK
   ret void
 
 173:                                              ; preds = %143, %78, %25
-  %.pn18 = phi { ptr, i32 } [ %26, %25 ], [ %.pn.pn, %143 ], [ %.pn16, %78 ]
+  %.pn18 = phi { ptr, i32 } [ %26, %25 ], [ %.pn16, %78 ], [ %.pn.pn, %143 ]
   call void @_ZN4lean8optionalINS_5levelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   resume { ptr, i32 } %.pn18
@@ -6182,7 +6182,7 @@ _ZNSt4pairIN4lean5levelEjED2Ev.exit283:           ; preds = %_ZN4lean5levelC2ERK
   ret void
 
 676:                                              ; preds = %658, %133, %53
-  %.pn98 = phi { ptr, i32 } [ %54, %53 ], [ %.pn91.pn, %658 ], [ %.pn94.pn.pn, %133 ]
+  %.pn98 = phi { ptr, i32 } [ %54, %53 ], [ %.pn94.pn.pn, %133 ], [ %.pn91.pn, %658 ]
   call void @_ZNSt4pairIN4lean5levelEjED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #19
   br label %677
 

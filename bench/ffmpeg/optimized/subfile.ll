@@ -188,8 +188,8 @@ define internal i64 @subfile_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br label %25
 
 25:                                               ; preds = %.sink.split, %16
-  %.025.pn = phi i64 [ %.025, %16 ], [ %24, %.sink.split ]
-  %.026 = add nsw i64 %.025.pn, %1
+  %.pn = phi i64 [ %.025, %16 ], [ %24, %.sink.split ]
+  %.026 = add nsw i64 %.pn, %1
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !19
   %28 = icmp slt i64 %.026, %27
@@ -235,7 +235,7 @@ slave_seek.exit:                                  ; preds = %29
   br label %49
 
 49:                                               ; preds = %25, %11, %45, %43, %17
-  %.0 = phi i64 [ %44, %43 ], [ %48, %45 ], [ %20, %17 ], [ %14, %11 ], [ -22, %25 ]
+  %.0 = phi i64 [ %20, %17 ], [ %44, %43 ], [ %48, %45 ], [ %14, %11 ], [ -22, %25 ]
   ret i64 %.0
 }
 

@@ -885,7 +885,7 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   br label %316
 
 316:                                              ; preds = %.sink.split.i305, %312, %307, %303, %297
-  %.0.i303 = phi i1 [ false, %312 ], [ false, %307 ], [ false, %303 ], [ false, %297 ], [ %315, %.sink.split.i305 ]
+  %.0.i303 = phi i1 [ false, %297 ], [ false, %303 ], [ false, %307 ], [ false, %312 ], [ %315, %.sink.split.i305 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 noundef 16, i1 noundef false) #8
   br label %network_prefix.exit310
 
@@ -1236,7 +1236,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   br label %61
 
 61:                                               ; preds = %.sink.split, %55, %47, %30, %15
-  %.0 = phi i32 [ 0, %55 ], [ 0, %47 ], [ 0, %30 ], [ 0, %15 ], [ %.sink68, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %30 ], [ 0, %47 ], [ 0, %55 ], [ %.sink68, %.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 noundef 16, i1 noundef false) #8
   br label %62
 

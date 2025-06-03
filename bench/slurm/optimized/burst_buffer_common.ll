@@ -3334,7 +3334,7 @@ define dso_local i32 @bb_write_file(ptr noundef %0, ptr noundef readonly capture
   br label %39
 
 39:                                               ; preds = %36, %.outer._crit_edge, %11, %6
-  %.0 = phi i32 [ %9, %6 ], [ -1, %36 ], [ 0, %.outer._crit_edge ], [ -1, %11 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %.outer._crit_edge ], [ -1, %36 ], [ -1, %11 ]
   ret i32 %.0
 }
 

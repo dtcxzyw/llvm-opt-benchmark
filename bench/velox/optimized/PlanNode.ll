@@ -2525,7 +2525,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit:                 ; preds = %sw.bb.i.i, %sw.bb4.i.i, %sw.bb7.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %call2.i.i.i, %sw.bb10.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i, %sw.bb10.i.i ]
   %call.i6 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 10))
   %4 = load i32, ptr %call.i6, align 8
   switch i32 %4, label %sw.default.i.i23 [
@@ -2566,7 +2566,7 @@ sw.default.i.i23:                                 ; preds = %_ZNK5folly7dynamic6
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit24:               ; preds = %sw.bb.i.i20, %sw.bb4.i.i17, %sw.bb7.i.i14, %sw.bb10.i.i7
-  %retval.0.i.i13 = phi i1 [ %call2.i.i.i12, %sw.bb10.i.i7 ], [ %tobool.i.i.i16, %sw.bb7.i.i14 ], [ %cmp.i4.i.i19, %sw.bb4.i.i17 ], [ %cmp.i.i.i22, %sw.bb.i.i20 ]
+  %retval.0.i.i13 = phi i1 [ %cmp.i.i.i22, %sw.bb.i.i20 ], [ %cmp.i4.i.i19, %sw.bb4.i.i17 ], [ %tobool.i.i.i16, %sw.bb7.i.i14 ], [ %call2.i.i.i12, %sw.bb10.i.i7 ]
   %retval.sroa.2.0.insert.shift = select i1 %retval.0.i.i13, i16 256, i16 0
   %retval.sroa.0.0.insert.ext = zext i1 %retval.0.i.i to i16
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.2.0.insert.shift, %retval.sroa.0.0.insert.ext
@@ -6916,7 +6916,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont31
   unreachable
 
 invoke.cont33:                                    ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i51, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i51, %sw.bb10.i.i ]
   %11 = load ptr, ptr %call, align 8
   store ptr %11, ptr %agg.result, align 8
   %_M_refcount.i.i53 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -8326,7 +8326,7 @@ sw.bb10.i.i:                                      ; preds = %for.body47
           to label %invoke.cont50 unwind label %lpad33.loopexit
 
 invoke.cont50:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %32, %sw.bb.i.i ], [ %call6.i.i69, %sw.bb4.i.i ], [ %call2.i.i.i70, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %32, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i69, %sw.bb4.i.i ], [ %call2.i.i.i70, %sw.bb10.i.i ]
   %conv = trunc i64 %retval.0.i.i to i32
   %35 = load ptr, ptr %_M_finish.i.i72, align 8
   %36 = load ptr, ptr %_M_end_of_storage.i.i73, align 8
@@ -8686,7 +8686,7 @@ sw.default.i.i130:                                ; preds = %invoke.cont85
   unreachable
 
 invoke.cont87:                                    ; preds = %sw.bb7.i.i125, %sw.bb4.i.i126, %sw.bb.i.i128, %sw.bb10.i.i120
-  %retval.0.i.i124 = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i125 ], [ %cmp.i4.i.i, %sw.bb4.i.i126 ], [ %cmp.i.i.i, %sw.bb.i.i128 ], [ %call2.i.i.i132, %sw.bb10.i.i120 ]
+  %retval.0.i.i124 = phi i1 [ %cmp.i.i.i, %sw.bb.i.i128 ], [ %cmp.i4.i.i, %sw.bb4.i.i126 ], [ %tobool.i.i.i, %sw.bb7.i.i125 ], [ %call2.i.i.i132, %sw.bb10.i.i120 ]
   %frombool = zext i1 %retval.0.i.i124 to i8
   store i8 %frombool, ptr %ref.tmp82, align 1
   invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
@@ -14918,7 +14918,7 @@ sw.bb10.i.i:                                      ; preds = %invoke.cont29
           to label %invoke.cont31 unwind label %lpad27
 
 invoke.cont31:                                    ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i57, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i57, %sw.bb10.i.i ]
   %frombool = zext i1 %retval.0.i.i to i8
   store i8 %frombool, ptr %ref.tmp25, align 1
   %call.i6263 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.47, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 11))
@@ -14967,7 +14967,7 @@ sw.default.i.i75.cont:                            ; preds = %sw.default.i.i75.in
   unreachable
 
 invoke.cont38:                                    ; preds = %sw.bb7.i.i70, %sw.bb.i.i73, %sw.bb4.i.i71, %sw.bb10.i.i65
-  %retval.0.i.i69 = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i70 ], [ %40, %sw.bb.i.i73 ], [ %call6.i.i76, %sw.bb4.i.i71 ], [ %call2.i.i.i78, %sw.bb10.i.i65 ]
+  %retval.0.i.i69 = phi i64 [ %40, %sw.bb.i.i73 ], [ %conv.i.i.i.i.i, %sw.bb7.i.i70 ], [ %call6.i.i76, %sw.bb4.i.i71 ], [ %call2.i.i.i78, %sw.bb10.i.i65 ]
   store i64 %retval.0.i.i69, ptr %ref.tmp33, align 8
   %call5.i.i.i3.i.i.i.i82 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #35
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad27
@@ -22269,7 +22269,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont1
   unreachable
 
 invoke.cont3:                                     ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i18, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i18, %sw.bb10.i.i ]
   %frombool = zext i1 %retval.0.i.i to i8
   store i8 %frombool, ptr %nullAware, align 1
   %call.i22 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.66, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 8))
@@ -26994,7 +26994,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont11
   unreachable
 
 invoke.cont13:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %1, %sw.bb.i.i ], [ %call6.i.i14, %sw.bb4.i.i ], [ %call2.i.i.i15, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %1, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i14, %sw.bb4.i.i ], [ %call2.i.i.i15, %sw.bb10.i.i ]
   store i64 %retval.0.i.i, ptr %ref.tmp7, align 8
   %call5.i.i.i3.i.i.i.i16 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #35
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad9
@@ -30218,7 +30218,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont8
   unreachable
 
 invoke.cont10:                                    ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i16, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i16, %sw.bb10.i.i ]
   %ignoreNulls = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   %frombool = zext i1 %retval.0.i.i to i8
   store i8 %frombool, ptr %ignoreNulls, align 8
@@ -31038,7 +31038,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont39
   unreachable
 
 invoke.cont41:                                    ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i52, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i52, %sw.bb10.i.i ]
   %frombool = zext i1 %retval.0.i.i to i8
   store i8 %frombool, ptr %inputsSorted, align 1
   %call.i.i54 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.57, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.57, i64 2))
@@ -33470,7 +33470,7 @@ sw.default.i.i.cont:                              ; preds = %sw.default.i.i.invo
   unreachable
 
 invoke.cont12:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %4, %sw.bb.i.i ], [ %call6.i.i22, %sw.bb4.i.i ], [ %call2.i.i.i23, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %4, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i22, %sw.bb4.i.i ], [ %call2.i.i.i23, %sw.bb10.i.i ]
   %9 = load i8, ptr %_M_engaged.i.i.i.i, align 4
   %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %_ZNSt8optionalIiEaSIlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIiES4_IiNSt5decayIS7_E4typeEEEEESt16is_constructibleIiJS7_EESt13is_assignableIRiS7_EEERS0_E4typeEOS7_.exit, label %if.else.i
@@ -34557,7 +34557,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont33
   unreachable
 
 invoke.cont35:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %9, %sw.bb.i.i ], [ %call6.i.i44, %sw.bb4.i.i ], [ %call2.i.i.i45, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %9, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i44, %sw.bb4.i.i ], [ %call2.i.i.i45, %sw.bb10.i.i ]
   store i64 %retval.0.i.i, ptr %ref.tmp29, align 8
   %call5.i.i.i3.i.i.i.i47 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #35
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad31
@@ -35979,7 +35979,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont38
   unreachable
 
 invoke.cont40:                                    ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i142, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i142, %sw.bb10.i.i ]
   %frombool = zext i1 %retval.0.i.i to i8
   store i8 %frombool, ptr %hasPartitioningScheme, align 1
   %call.i147148 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.52, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.52, i64 10))
@@ -39162,7 +39162,7 @@ sw.bb10.i.i:                                      ; preds = %invoke.cont19
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %1, %sw.bb.i.i ], [ %call6.i.i28, %sw.bb4.i.i ], [ %call2.i.i.i29, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %1, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i28, %sw.bb4.i.i ], [ %call2.i.i.i29, %sw.bb10.i.i ]
   store i64 %retval.0.i.i, ptr %ref.tmp15, align 8
   %call.i33 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.117, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 20))
           to label %invoke.cont26 unwind label %lpad17
@@ -39211,7 +39211,7 @@ sw.default.i.i45.cont:                            ; preds = %sw.default.i.i45.in
   unreachable
 
 invoke.cont28:                                    ; preds = %sw.bb7.i.i40, %sw.bb4.i.i41, %sw.bb.i.i43, %sw.bb10.i.i35
-  %retval.0.i.i39 = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i40 ], [ %cmp.i4.i.i, %sw.bb4.i.i41 ], [ %cmp.i.i.i, %sw.bb.i.i43 ], [ %call2.i.i.i47, %sw.bb10.i.i35 ]
+  %retval.0.i.i39 = phi i1 [ %cmp.i.i.i, %sw.bb.i.i43 ], [ %cmp.i4.i.i, %sw.bb4.i.i41 ], [ %tobool.i.i.i, %sw.bb7.i.i40 ], [ %call2.i.i.i47, %sw.bb10.i.i35 ]
   %frombool = zext i1 %retval.0.i.i39 to i8
   store i8 %frombool, ptr %ref.tmp23, align 1
   %call.i52 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.104, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.104, i64 21))
@@ -40772,7 +40772,7 @@ sw.bb10.i.i:                                      ; preds = %invoke.cont16
           to label %invoke.cont18 unwind label %lpad14
 
 invoke.cont18:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %1, %sw.bb.i.i ], [ %call6.i.i23, %sw.bb4.i.i ], [ %call2.i.i.i24, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %1, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i23, %sw.bb4.i.i ], [ %call2.i.i.i24, %sw.bb10.i.i ]
   %call.i28 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.120, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 7))
           to label %invoke.cont23 unwind label %lpad14
 
@@ -40820,7 +40820,7 @@ sw.default.i.i40.cont:                            ; preds = %sw.default.i.i40.in
   unreachable
 
 invoke.cont25:                                    ; preds = %sw.bb7.i.i35, %sw.bb4.i.i36, %sw.bb.i.i38, %sw.bb10.i.i30
-  %retval.0.i.i34 = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i35 ], [ %cmp.i4.i.i, %sw.bb4.i.i36 ], [ %cmp.i.i.i, %sw.bb.i.i38 ], [ %call2.i.i.i42, %sw.bb10.i.i30 ]
+  %retval.0.i.i34 = phi i1 [ %cmp.i.i.i, %sw.bb.i.i38 ], [ %cmp.i4.i.i, %sw.bb4.i.i36 ], [ %tobool.i.i.i, %sw.bb7.i.i35 ], [ %call2.i.i.i42, %sw.bb10.i.i30 ]
   %call5.i.i.i3.i.i.i.i44 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #35
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad14
 
@@ -41231,7 +41231,7 @@ sw.bb10.i.i:                                      ; preds = %invoke.cont5
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %1, %sw.bb.i.i ], [ %call6.i.i9, %sw.bb4.i.i ], [ %call2.i.i.i10, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %1, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i9, %sw.bb4.i.i ], [ %call2.i.i.i10, %sw.bb10.i.i ]
   %call.i14 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.119, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.119, i64 5))
           to label %invoke.cont11 unwind label %lpad3
 
@@ -41270,7 +41270,7 @@ sw.bb10.i.i16:                                    ; preds = %invoke.cont11
           to label %invoke.cont13 unwind label %lpad3
 
 invoke.cont13:                                    ; preds = %sw.bb7.i.i22, %sw.bb.i.i27, %sw.bb4.i.i25, %sw.bb10.i.i16
-  %retval.0.i.i21 = phi i64 [ %conv.i.i.i.i.i24, %sw.bb7.i.i22 ], [ %5, %sw.bb.i.i27 ], [ %call6.i.i31, %sw.bb4.i.i25 ], [ %call2.i.i.i33, %sw.bb10.i.i16 ]
+  %retval.0.i.i21 = phi i64 [ %5, %sw.bb.i.i27 ], [ %conv.i.i.i.i.i24, %sw.bb7.i.i22 ], [ %call6.i.i31, %sw.bb4.i.i25 ], [ %call2.i.i.i33, %sw.bb10.i.i16 ]
   %call.i39 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.120, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 7))
           to label %invoke.cont18 unwind label %lpad3
 
@@ -41318,7 +41318,7 @@ sw.default.i.i51.cont:                            ; preds = %sw.default.i.i51.in
   unreachable
 
 invoke.cont20:                                    ; preds = %sw.bb7.i.i46, %sw.bb4.i.i47, %sw.bb.i.i49, %sw.bb10.i.i41
-  %retval.0.i.i45 = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i46 ], [ %cmp.i4.i.i, %sw.bb4.i.i47 ], [ %cmp.i.i.i, %sw.bb.i.i49 ], [ %call2.i.i.i53, %sw.bb10.i.i41 ]
+  %retval.0.i.i45 = phi i1 [ %cmp.i.i.i, %sw.bb.i.i49 ], [ %cmp.i4.i.i, %sw.bb4.i.i47 ], [ %tobool.i.i.i, %sw.bb7.i.i46 ], [ %call2.i.i.i53, %sw.bb10.i.i41 ]
   %call5.i.i.i3.i.i.i.i55 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #35
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad3
 
@@ -41614,7 +41614,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont16
   unreachable
 
 invoke.cont18:                                    ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i22, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i22, %sw.bb10.i.i ]
   %call5.i.i.i3.i.i.i.i23 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #35
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad14
 

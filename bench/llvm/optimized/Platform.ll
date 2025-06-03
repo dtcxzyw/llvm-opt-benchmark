@@ -86,7 +86,7 @@ define dso_local noundef i32 @_ZN4llvm5MachO17mapToPlatformTypeENS0_12PlatformTy
   br label %9
 
 9:                                                ; preds = %2, %7, %5, %3
-  %.0 = phi i32 [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %0, %2 ]
+  %.0 = phi i32 [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %0, %2 ]
   ret i32 %.0
 }
 
@@ -146,7 +146,7 @@ define dso_local noundef range(i32 0, 13) i32 @_ZN4llvm5MachO17mapToPlatformType
   br label %28
 
 28:                                               ; preds = %9, %5, %1, %23, %22, %21, %16, %11, %4
-  %.0 = phi i32 [ %27, %23 ], [ 10, %22 ], [ 5, %21 ], [ %20, %16 ], [ %15, %11 ], [ 1, %4 ], [ 0, %1 ], [ 7, %5 ], [ %., %9 ]
+  %.0 = phi i32 [ 1, %4 ], [ %15, %11 ], [ %20, %16 ], [ 5, %21 ], [ 10, %22 ], [ %27, %23 ], [ 0, %1 ], [ 7, %5 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -231,7 +231,7 @@ define dso_local void @_ZN4llvm5MachO16mapToPlatformSetENS_8ArrayRefINS_6TripleE
   br label %_ZN4llvm5MachO17mapToPlatformTypeERKNS_6TripleE.exit
 
 _ZN4llvm5MachO17mapToPlatformTypeERKNS_6TripleE.exit: ; preds = %.lr.ph, %17, %18, %22, %24, %29, %34, %35, %36
-  %.0.i = phi i32 [ %40, %36 ], [ 10, %35 ], [ 5, %34 ], [ %33, %29 ], [ %28, %24 ], [ 1, %17 ], [ 0, %.lr.ph ], [ 7, %18 ], [ %..i, %22 ]
+  %.0.i = phi i32 [ 1, %17 ], [ %28, %24 ], [ %33, %29 ], [ 5, %34 ], [ 10, %35 ], [ %40, %36 ], [ 0, %.lr.ph ], [ 7, %18 ], [ %..i, %22 ]
   store i32 %.0.i, ptr %5, align 4, !tbaa !33
   call void @_ZN4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE10insertImplIS2_EESt4pairINS_16SmallSetIteratorIS2_Lj3ES4_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16

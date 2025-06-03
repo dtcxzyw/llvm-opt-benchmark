@@ -1473,7 +1473,7 @@ default.unreachable1:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.0.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2099,7 +2099,7 @@ default.unreachable:                              ; preds = %16, %3
   ret void
 
 33:                                               ; preds = %.body, %34, %28
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %29, %34 ], [ %29, %28 ]
+  %.pn = phi { ptr, i32 } [ %29, %34 ], [ %29, %28 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 34:                                               ; preds = %28
@@ -2635,7 +2635,7 @@ default.unreachable:                              ; preds = %16, %3
   ret void
 
 33:                                               ; preds = %.body, %34, %28
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %29, %34 ], [ %29, %28 ]
+  %.pn = phi { ptr, i32 } [ %29, %34 ], [ %29, %28 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 34:                                               ; preds = %28

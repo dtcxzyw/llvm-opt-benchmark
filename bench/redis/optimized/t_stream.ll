@@ -590,7 +590,7 @@ define dso_local ptr @streamDup(ptr noundef readonly captures(none) %0) local_un
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph75, %118, %121, %125, %129, %133
-  %.0.i62 = phi i64 [ %135, %133 ], [ %132, %129 ], [ %128, %125 ], [ %124, %121 ], [ %120, %118 ], [ 0, %.lr.ph75 ]
+  %.0.i62 = phi i64 [ %120, %118 ], [ %124, %121 ], [ %128, %125 ], [ %132, %129 ], [ %135, %133 ], [ 0, %.lr.ph75 ]
   %136 = call i32 @raxInsert(ptr noundef %112, ptr noundef nonnull %113, i64 noundef %.0.i62, ptr noundef nonnull %105, ptr noundef null) #17
   %137 = load i64, ptr %104, align 8, !tbaa !51
   store i64 %137, ptr %105, align 8, !tbaa !51
@@ -1990,7 +1990,7 @@ streamNextID.exit.thread.thread:                  ; preds = %41, %53, %streamNex
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %70, %73, %77, %81, %85
-  %.0.i157 = phi i64 [ %87, %85 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %70 ], [ 0, %.lr.ph ]
+  %.0.i157 = phi i64 [ %72, %70 ], [ %76, %73 ], [ %80, %77 ], [ %84, %81 ], [ %87, %85 ], [ 0, %.lr.ph ]
   %88 = add i64 %.0.i157, %.0118231
   %89 = add nuw nsw i64 %.0119230, 1
   %exitcond.not = icmp eq i64 %89, %smax
@@ -2192,7 +2192,7 @@ lpGetIntegerIfValid.exit161:                      ; preds = %120, %126
   br label %sdslen.exit163
 
 sdslen.exit163:                                   ; preds = %.lr.ph238, %159, %162, %166, %170, %174
-  %.0.i162 = phi i64 [ %176, %174 ], [ %173, %170 ], [ %169, %166 ], [ %165, %162 ], [ %161, %159 ], [ 0, %.lr.ph238 ]
+  %.0.i162 = phi i64 [ %161, %159 ], [ %165, %162 ], [ %169, %166 ], [ %173, %170 ], [ %176, %174 ], [ 0, %.lr.ph238 ]
   %177 = trunc i64 %.0.i162 to i32
   %178 = call ptr @lpAppend(ptr noundef %.3236, ptr noundef nonnull %154, i32 noundef %177) #17
   %179 = add nuw nsw i64 %.0126235, 1
@@ -2348,7 +2348,7 @@ lpGetIntegerIfValid.exit170:                      ; preds = %207, %213
   br label %sdslen.exit172
 
 sdslen.exit172:                                   ; preds = %.lr.ph233, %228, %231, %235, %239, %243
-  %.0.i171 = phi i64 [ %245, %243 ], [ %242, %239 ], [ %238, %235 ], [ %234, %231 ], [ %230, %228 ], [ 0, %.lr.ph233 ]
+  %.0.i171 = phi i64 [ %230, %228 ], [ %234, %231 ], [ %238, %235 ], [ %242, %239 ], [ %245, %243 ], [ 0, %.lr.ph233 ]
   %246 = load i64, ptr %18, align 8, !tbaa !25
   %.not147 = icmp eq i64 %.0.i171, %246
   br i1 %.not147, label %247, label %.thread224
@@ -2459,7 +2459,7 @@ sdslen.exit172:                                   ; preds = %.lr.ph233, %228, %2
   br label %sdslen.exit174.us
 
 sdslen.exit174.us:                                ; preds = %291, %287, %283, %279, %276, %.lr.ph244.split.us
-  %.0.i173.us = phi i64 [ %278, %276 ], [ %282, %279 ], [ %286, %283 ], [ %290, %287 ], [ %293, %291 ], [ 0, %.lr.ph244.split.us ]
+  %.0.i173.us = phi i64 [ %293, %291 ], [ %290, %287 ], [ %286, %283 ], [ %282, %279 ], [ %278, %276 ], [ 0, %.lr.ph244.split.us ]
   %294 = trunc i64 %.0.i173.us to i32
   %295 = call ptr @lpAppend(ptr noundef %.6241.us, ptr noundef nonnull %271, i32 noundef %294) #17
   %296 = getelementptr inbounds i8, ptr %268, i64 -1
@@ -2503,7 +2503,7 @@ sdslen.exit174.us:                                ; preds = %291, %287, %283, %2
   br label %sdslen.exit176.us
 
 sdslen.exit176.us:                                ; preds = %315, %311, %307, %303, %300, %sdslen.exit174.us
-  %.0.i175.us = phi i64 [ %302, %300 ], [ %306, %303 ], [ %310, %307 ], [ %314, %311 ], [ %317, %315 ], [ 0, %sdslen.exit174.us ]
+  %.0.i175.us = phi i64 [ %317, %315 ], [ %314, %311 ], [ %310, %307 ], [ %306, %303 ], [ %302, %300 ], [ 0, %sdslen.exit174.us ]
   %318 = trunc i64 %.0.i175.us to i32
   %319 = call ptr @lpAppend(ptr noundef %295, ptr noundef nonnull %268, i32 noundef %318) #17
   %320 = add nuw nsw i64 %.0117242.us, 1
@@ -2575,7 +2575,7 @@ sdslen.exit176.us:                                ; preds = %315, %311, %307, %3
   br label %sdslen.exit176
 
 sdslen.exit176:                                   ; preds = %327, %335, %338, %342, %346, %350
-  %.0.i175 = phi i64 [ %352, %350 ], [ %349, %346 ], [ %345, %342 ], [ %341, %338 ], [ %337, %335 ], [ 0, %327 ]
+  %.0.i175 = phi i64 [ %337, %335 ], [ %341, %338 ], [ %345, %342 ], [ %349, %346 ], [ %352, %350 ], [ 0, %327 ]
   %353 = trunc i64 %.0.i175 to i32
   %354 = call ptr @lpAppend(ptr noundef %.6241, ptr noundef nonnull %330, i32 noundef %353) #17
   %355 = add nuw nsw i64 %.0117242, 1
@@ -4288,7 +4288,7 @@ define dso_local void @streamPropagateXCLAIM(ptr noundef readonly captures(none)
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %6, %19, %22, %26, %30, %34
-  %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ 0, %6 ]
+  %.0.i = phi i64 [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ 0, %6 ]
   %37 = tail call ptr @createStringObject(ptr noundef nonnull %14, i64 noundef %.0.i) #17
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %37, ptr %38, align 8, !tbaa !109
@@ -5159,7 +5159,7 @@ define dso_local range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.0.i = phi i64 [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ]
   %31 = icmp ugt i64 %.0.i, 127
   br i1 %31, label %92, label %sdslen.exit.thread
 
@@ -5203,7 +5203,7 @@ default.unreachable:                              ; preds = %sdslen.exit.thread
   unreachable
 
 sdslen.exit51:                                    ; preds = %6, %32, %35, %39, %43, %47
-  %.0.i50 = phi i64 [ %49, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %32 ], [ 0, %6 ]
+  %.0.i50 = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ], [ 0, %6 ]
   %50 = add i64 %.0.i50, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %11, i64 %50, i1 false)
   %.not = icmp eq i32 %4, 0
@@ -5386,7 +5386,7 @@ define dso_local range(i32 -1, 1) i32 @streamParseIntervalIDOrReply(ptr noundef 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %30
 
@@ -5755,7 +5755,7 @@ createStreamIDString.exit:                        ; preds = %75, %81, %82, %84, 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %createStreamIDString.exit, %98, %101, %105, %109, %113
-  %.0.i = phi i64 [ %115, %113 ], [ %112, %109 ], [ %108, %105 ], [ %104, %101 ], [ %100, %98 ], [ 0, %createStreamIDString.exit ]
+  %.0.i = phi i64 [ %100, %98 ], [ %104, %101 ], [ %108, %105 ], [ %112, %109 ], [ %115, %113 ], [ 0, %createStreamIDString.exit ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %93, i64 noundef %.0.i) #17
   %116 = load ptr, ptr %28, align 8, !tbaa !159
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -6489,7 +6489,7 @@ define dso_local void @xreadCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %22, %25, %29, %33, %37
-  %.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %22 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ], [ 0, %1 ]
   %40 = icmp eq i64 %.0.i, 10
   %41 = zext i1 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6774,7 +6774,7 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   br label %streamLookupCG.exit
 
 streamLookupCG.exit:                              ; preds = %169, %174, %177, %181, %185, %189
-  %.0.i.i = phi i64 [ %191, %189 ], [ %188, %185 ], [ %184, %181 ], [ %180, %177 ], [ %176, %174 ], [ 0, %169 ]
+  %.0.i.i = phi i64 [ %176, %174 ], [ %180, %177 ], [ %184, %181 ], [ %188, %185 ], [ %191, %189 ], [ 0, %169 ]
   %192 = call i32 @raxFind(ptr noundef nonnull %167, ptr noundef nonnull %.pre508, i64 noundef %.0.i.i, ptr noundef nonnull %4) #17
   %193 = load ptr, ptr %4, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
@@ -7063,7 +7063,7 @@ streamCompareID.exit:                             ; preds = %293, %291, %298
   br label %streamLookupConsumer.exit
 
 streamLookupConsumer.exit:                        ; preds = %305, %312, %315, %319, %323, %327
-  %.0.i.i314 = phi i64 [ %329, %327 ], [ %326, %323 ], [ %322, %319 ], [ %318, %315 ], [ %314, %312 ], [ 0, %305 ]
+  %.0.i.i314 = phi i64 [ %314, %312 ], [ %318, %315 ], [ %322, %319 ], [ %326, %323 ], [ %329, %327 ], [ 0, %305 ]
   %330 = call i32 @raxFind(ptr noundef %307, ptr noundef nonnull %303, i64 noundef %.0.i.i314, ptr noundef nonnull %3) #17
   %331 = load ptr, ptr %3, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
@@ -7450,7 +7450,7 @@ define dso_local ptr @streamLookupCG(ptr noundef readonly captures(none) %0, ptr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %7, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %7 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %7 ]
   %30 = call i32 @raxFind(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef nonnull %3) #17
   %31 = load ptr, ptr %3, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
@@ -7513,7 +7513,7 @@ define dso_local ptr @streamLookupConsumer(ptr noundef readonly captures(address
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %5, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %5 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %5 ]
   %30 = call i32 @raxFind(ptr noundef %7, ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef nonnull %3) #17
   %31 = load ptr, ptr %3, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
@@ -7576,7 +7576,7 @@ define dso_local noundef ptr @streamCreateConsumer(ptr noundef readonly captures
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %7, %16, %19, %23, %27, %31
-  %.0.i = phi i64 [ %33, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %16 ], [ 0, %7 ]
+  %.0.i = phi i64 [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %33, %31 ], [ 0, %7 ]
   %34 = tail call i32 @raxTryInsert(ptr noundef %11, ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %9, ptr noundef null) #17
   %.not21 = icmp eq i32 %34, 0
   br i1 %.not21, label %35, label %36
@@ -7747,7 +7747,7 @@ define dso_local void @streamDelConsumer(ptr noundef readonly captures(none) %0,
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %._crit_edge, %27, %30, %34, %38, %42
-  %.0.i = phi i64 [ %44, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %27 ], [ 0, %._crit_edge ]
+  %.0.i = phi i64 [ %29, %27 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %44, %42 ], [ 0, %._crit_edge ]
   %45 = call i32 @raxRemove(ptr noundef %20, ptr noundef nonnull %22, i64 noundef %.0.i, ptr noundef null) #17
   %46 = load ptr, ptr %4, align 8, !tbaa !46
   call void @raxFree(ptr noundef %46) #17
@@ -7986,7 +7986,7 @@ define dso_local void @xgroupCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %streamLookupCG.exit
 
 streamLookupCG.exit:                              ; preds = %94, %99, %102, %106, %110, %114
-  %.0.i.i = phi i64 [ %116, %114 ], [ %113, %110 ], [ %109, %106 ], [ %105, %102 ], [ %101, %99 ], [ 0, %94 ]
+  %.0.i.i = phi i64 [ %101, %99 ], [ %105, %102 ], [ %109, %106 ], [ %113, %110 ], [ %116, %114 ], [ 0, %94 ]
   %117 = call i32 @raxFind(ptr noundef nonnull %92, ptr noundef nonnull %85, i64 noundef %.0.i.i, ptr noundef nonnull %3) #17
   %118 = load ptr, ptr %3, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
@@ -8158,7 +8158,7 @@ sub_0:                                            ; preds = %137
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %170, %175, %178, %182, %186, %190
-  %.0.i171 = phi i64 [ %192, %190 ], [ %189, %186 ], [ %185, %182 ], [ %181, %178 ], [ %177, %175 ], [ 0, %170 ]
+  %.0.i171 = phi i64 [ %177, %175 ], [ %181, %178 ], [ %185, %182 ], [ %189, %186 ], [ %192, %190 ], [ 0, %170 ]
   %193 = load i64, ptr %4, align 8, !tbaa !58
   %194 = getelementptr inbounds nuw i8, ptr %.3, i64 72
   %195 = load ptr, ptr %194, align 8, !tbaa !13
@@ -8330,7 +8330,7 @@ sub_0204:                                         ; preds = %225, %225
   br label %sdslen.exit174
 
 sdslen.exit174:                                   ; preds = %255, %262, %265, %269, %273, %277
-  %.0.i173 = phi i64 [ %279, %277 ], [ %276, %273 ], [ %272, %269 ], [ %268, %265 ], [ %264, %262 ], [ 0, %255 ]
+  %.0.i173 = phi i64 [ %264, %262 ], [ %268, %265 ], [ %272, %269 ], [ %276, %273 ], [ %279, %277 ], [ 0, %255 ]
   %280 = call i32 @raxRemove(ptr noundef %257, ptr noundef nonnull %.0125187, i64 noundef %.0.i173, ptr noundef null) #17
   %281 = getelementptr inbounds nuw i8, ptr %.0127, i64 24
   %282 = load ptr, ptr %281, align 8, !tbaa !14
@@ -8450,7 +8450,7 @@ sdslen.exit174:                                   ; preds = %255, %262, %265, %2
   br label %streamLookupConsumer.exit
 
 streamLookupConsumer.exit:                        ; preds = %327, %334, %337, %341, %345, %349
-  %.0.i.i176 = phi i64 [ %351, %349 ], [ %348, %345 ], [ %344, %341 ], [ %340, %337 ], [ %336, %334 ], [ 0, %327 ]
+  %.0.i.i176 = phi i64 [ %336, %334 ], [ %340, %337 ], [ %344, %341 ], [ %348, %345 ], [ %351, %349 ], [ 0, %327 ]
   %352 = call i32 @raxFind(ptr noundef %329, ptr noundef nonnull %325, i64 noundef %.0.i.i176, ptr noundef nonnull %2) #17
   %353 = load ptr, ptr %2, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
@@ -8827,7 +8827,7 @@ define dso_local void @xackCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %streamLookupCG.exit
 
 streamLookupCG.exit:                              ; preds = %26, %31, %34, %38, %42, %46
-  %.0.i.i = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ], [ 0, %26 ]
+  %.0.i.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ 0, %26 ]
   %49 = call i32 @raxFind(ptr noundef nonnull %24, ptr noundef nonnull %22, i64 noundef %.0.i.i, ptr noundef nonnull %2) #17
   %50 = load ptr, ptr %2, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
@@ -9220,7 +9220,7 @@ streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.t
   br label %streamLookupCG.exit
 
 streamLookupCG.exit:                              ; preds = %118, %123, %126, %130, %134, %138
-  %.0.i.i = phi i64 [ %140, %138 ], [ %137, %134 ], [ %133, %130 ], [ %129, %126 ], [ %125, %123 ], [ 0, %118 ]
+  %.0.i.i = phi i64 [ %125, %123 ], [ %129, %126 ], [ %133, %130 ], [ %137, %134 ], [ %140, %138 ], [ 0, %118 ]
   %141 = call i32 @raxFind(ptr noundef nonnull %116, ptr noundef nonnull %114, i64 noundef %.0.i.i, ptr noundef nonnull %3) #17
   %142 = load ptr, ptr %3, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
@@ -9456,7 +9456,7 @@ addReplyStreamID.exit131:                         ; preds = %addReplyStreamID.ex
   br label %streamLookupConsumer.exit
 
 streamLookupConsumer.exit:                        ; preds = %222, %231, %234, %238, %242, %246
-  %.0.i.i133 = phi i64 [ %248, %246 ], [ %245, %242 ], [ %241, %238 ], [ %237, %234 ], [ %233, %231 ], [ 0, %222 ]
+  %.0.i.i133 = phi i64 [ %233, %231 ], [ %237, %234 ], [ %241, %238 ], [ %245, %242 ], [ %248, %246 ], [ 0, %222 ]
   %249 = call i32 @raxFind(ptr noundef %226, ptr noundef nonnull %224, i64 noundef %.0.i.i133, ptr noundef nonnull %2) #17
   %250 = load ptr, ptr %2, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
@@ -9628,7 +9628,7 @@ addReplyStreamID.exit140:                         ; preds = %284, %296, %297, %2
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %addReplyStreamID.exit140, %314, %317, %321, %325, %329
-  %.0.i141 = phi i64 [ %331, %329 ], [ %328, %325 ], [ %324, %321 ], [ %320, %317 ], [ %316, %314 ], [ 0, %addReplyStreamID.exit140 ]
+  %.0.i141 = phi i64 [ %316, %314 ], [ %320, %317 ], [ %324, %321 ], [ %328, %325 ], [ %331, %329 ], [ 0, %addReplyStreamID.exit140 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %309, i64 noundef %.0.i141) #17
   %332 = load i64, ptr %279, align 8, !tbaa !38
   %333 = sub nsw i64 %254, %332
@@ -9762,7 +9762,7 @@ define dso_local void @xclaimCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %streamLookupCG.exit
 
 streamLookupCG.exit:                              ; preds = %35, %40, %43, %47, %51, %55
-  %.0.i.i = phi i64 [ %57, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %40 ], [ 0, %35 ]
+  %.0.i.i = phi i64 [ %42, %40 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %57, %55 ], [ 0, %35 ]
   %58 = call i32 @raxFind(ptr noundef nonnull %33, ptr noundef nonnull %31, i64 noundef %.0.i.i, ptr noundef nonnull %6) #17
   %59 = load ptr, ptr %6, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
@@ -10052,7 +10052,7 @@ streamCompareID.exit:                             ; preds = %161, %157, %167
   br label %streamLookupConsumer.exit
 
 streamLookupConsumer.exit:                        ; preds = %172, %184, %187, %191, %195, %199
-  %.0.i.i210 = phi i64 [ %201, %199 ], [ %198, %195 ], [ %194, %191 ], [ %190, %187 ], [ %186, %184 ], [ 0, %172 ]
+  %.0.i.i210 = phi i64 [ %186, %184 ], [ %190, %187 ], [ %194, %191 ], [ %198, %195 ], [ %201, %199 ], [ 0, %172 ]
   %202 = call i32 @raxFind(ptr noundef %179, ptr noundef nonnull %177, i64 noundef %.0.i.i210, ptr noundef nonnull %5) #17
   %203 = load ptr, ptr %5, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
@@ -11878,7 +11878,7 @@ addReplyStreamID.exit153:                         ; preds = %184, %194, %195, %1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %207, %214, %217, %221, %225, %229
-  %.0.i = phi i64 [ %231, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %214 ], [ 0, %207 ]
+  %.0.i = phi i64 [ %216, %214 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %231, %229 ], [ 0, %207 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %209, i64 noundef %.0.i) #17
   %232 = load i64, ptr %185, align 8, !tbaa !38
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %232) #17
@@ -11954,7 +11954,7 @@ sdslen.exit:                                      ; preds = %207, %214, %217, %2
   br label %sdslen.exit155
 
 sdslen.exit155:                                   ; preds = %.lr.ph174, %250, %253, %257, %261, %265
-  %.0.i154 = phi i64 [ %267, %265 ], [ %264, %261 ], [ %260, %257 ], [ %256, %253 ], [ %252, %250 ], [ 0, %.lr.ph174 ]
+  %.0.i154 = phi i64 [ %252, %250 ], [ %256, %253 ], [ %260, %257 ], [ %264, %261 ], [ %267, %265 ], [ 0, %.lr.ph174 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %245, i64 noundef %.0.i154) #17
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull @.str.123) #17
   %268 = load i64, ptr %243, align 8, !tbaa !51
@@ -12180,7 +12180,7 @@ define dso_local void @xinfoCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %streamLookupCG.exit
 
 streamLookupCG.exit:                              ; preds = %39, %44, %47, %51, %55, %59
-  %.0.i.i = phi i64 [ %61, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %44 ], [ 0, %39 ]
+  %.0.i.i = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %39 ]
   %62 = call i32 @raxFind(ptr noundef nonnull %37, ptr noundef nonnull %35, i64 noundef %.0.i.i, ptr noundef nonnull %2) #17
   %63 = load ptr, ptr %2, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
@@ -12275,7 +12275,7 @@ streamLookupCG.exit.thread:                       ; preds = %streamLookupCG.exit
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %76, %90, %93, %97, %101, %105
-  %.0.i88 = phi i64 [ %107, %105 ], [ %104, %101 ], [ %100, %97 ], [ %96, %93 ], [ %92, %90 ], [ 0, %76 ]
+  %.0.i88 = phi i64 [ %92, %90 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %107, %105 ], [ 0, %76 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %85, i64 noundef %.0.i88) #17
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull @.str.120) #17
   %108 = getelementptr inbounds nuw i8, ptr %77, i64 24

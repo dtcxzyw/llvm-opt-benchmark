@@ -260,7 +260,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.thread: ; preds = %39, %
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %65, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %61, %.lr.ph.i.i ], [ %66, %65 ]
+  %.1.i.i.i = phi ptr [ %66, %65 ], [ %61, %.lr.ph.i.i ]
   %67 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %68 = load i24, ptr %67, align 16
   %69 = and i24 %68, 1048576
@@ -950,7 +950,7 @@ _ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit: ; preds = %_ZN5clang12_GLOBA
   br label %56
 
 56:                                               ; preds = %4, %2, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit, %6
-  %.sroa.010.0 = phi i64 [ %.sroa.0.0.i14, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit ], [ %13, %6 ], [ 0, %2 ], [ 0, %4 ]
+  %.sroa.010.0 = phi i64 [ %13, %6 ], [ %.sroa.0.0.i14, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit ], [ 0, %2 ], [ 0, %4 ]
   ret i64 %.sroa.010.0
 }
 
@@ -1017,7 +1017,7 @@ define internal fastcc i64 @_ZN5clang12_GLOBAL__N_121HeuristicResolverImpl14getP
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %15, %18
-  %.1.i = phi ptr [ %7, %15 ], [ %19, %18 ]
+  %.1.i = phi ptr [ %19, %18 ], [ %7, %15 ]
   %20 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %20, align 16, !tbaa !42
   br label %51
@@ -1921,7 +1921,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17ClassTemplateDeclENS1_12TemplateDeclEEEDaPT0
   br label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit46.thread
 
 _ZNK5clang8QualType16getTypePtrOrNullEv.exit46.thread: ; preds = %98, %94, %.thread33, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit.thread, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit46, %_ZN4llvm16dyn_cast_or_nullIN5clang17ClassTemplateDeclENS1_12TemplateDeclEEEDaPT0_.exit.thread
-  %.1 = phi ptr [ %95, %94 ], [ %.3, %_ZN4llvm16dyn_cast_or_nullIN5clang17ClassTemplateDeclENS1_12TemplateDeclEEEDaPT0_.exit.thread ], [ null, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit46 ], [ null, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit.thread ], [ null, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit ], [ %93, %.thread33 ], [ null, %98 ]
+  %.1 = phi ptr [ %.3, %_ZN4llvm16dyn_cast_or_nullIN5clang17ClassTemplateDeclENS1_12TemplateDeclEEEDaPT0_.exit.thread ], [ %95, %94 ], [ null, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit46 ], [ null, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit.thread ], [ null, %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit ], [ %93, %.thread33 ], [ null, %98 ]
   ret ptr %.1
 }
 
@@ -2299,7 +2299,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbPKN5clang9N
   br label %_ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit.i
 
 _ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit.i: ; preds = %26, %19
-  %.1.i.i.i = phi ptr [ %23, %19 ], [ %27, %26 ]
+  %.1.i.i.i = phi ptr [ %27, %26 ], [ %23, %19 ]
   %28 = tail call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i.i)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !255

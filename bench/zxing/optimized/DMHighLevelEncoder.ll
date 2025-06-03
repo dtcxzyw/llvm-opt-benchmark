@@ -487,7 +487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   br label %176
 
 176:                                              ; preds = %174, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %175, %174 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %175, %174 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %177 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !12
   %178 = sext i8 %177 to i32
   %179 = add nsw i32 %178, -48
@@ -499,7 +499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   br label %183
 
 183:                                              ; preds = %181, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %182, %181 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %182, %181 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %184 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !12
   %185 = sext i8 %184 to i32
   %186 = add nsw i32 %185, -48

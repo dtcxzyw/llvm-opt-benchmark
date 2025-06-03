@@ -547,8 +547,8 @@ zend_string_release_ex.exit210:                   ; preds = %118, %113, %109, %1
   br label %zend_string_release_ex.exit212
 
 162:                                              ; preds = %.lr.ph271, %.lr.ph271, %.lr.ph271, %.lr.ph271, %.lr.ph271, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126
-  %.1161 = phi i32 [ %.0160268, %146 ], [ %.0160268, %144 ], [ %.0160268, %142 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %141, %140 ], [ %.0160268, %138 ], [ %.0160268, %136 ], [ %.0160268, %134 ], [ %.0160268, %132 ], [ %.0160268, %130 ], [ %.0160268, %128 ], [ %.0160268, %126 ]
-  %.1156 = phi i32 [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ]
+  %.1161 = phi i32 [ %.0160268, %126 ], [ %.0160268, %128 ], [ %.0160268, %130 ], [ %.0160268, %132 ], [ %.0160268, %134 ], [ %.0160268, %136 ], [ %.0160268, %138 ], [ %141, %140 ], [ %.0160268, %142 ], [ %.0160268, %144 ], [ %.0160268, %146 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ]
+  %.1156 = phi i32 [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %.0155269, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ]
   %.5 = getelementptr inbounds nuw i8, ptr %.5270, i64 1
   %163 = icmp ult ptr %.5, %51
   br i1 %163, label %.lr.ph271, label %._crit_edge
@@ -1010,7 +1010,7 @@ define internal fastcc void @pcre_handle_exec_error(i32 noundef %0) unnamed_addr
   br label %7
 
 7:                                                ; preds = %5, %1, %4, %3, %2
-  %.0 = phi i32 [ 6, %4 ], [ 5, %3 ], [ 3, %2 ], [ 2, %1 ], [ %., %5 ]
+  %.0 = phi i32 [ 3, %2 ], [ 5, %3 ], [ 6, %4 ], [ 2, %1 ], [ %., %5 ]
   store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
   ret void
 }
@@ -1135,7 +1135,7 @@ define dso_local ptr @php_pcre_create_match_data(i32 noundef %0, ptr noundef %1)
   br label %15
 
 15:                                               ; preds = %11, %.thread
-  %.1 = phi ptr [ %12, %11 ], [ %14, %.thread ]
+  %.1 = phi ptr [ %14, %.thread ], [ %12, %11 ]
   ret ptr %.1
 }
 
@@ -3729,7 +3729,7 @@ zend_string_release_ex.exit241:                   ; preds = %242, %._crit_edge42
   br label %pcre_handle_exec_error.exit
 
 pcre_handle_exec_error.exit:                      ; preds = %zend_string_release_ex.exit241, %315, %316, %317, %318
-  %.0.i261 = phi i32 [ 6, %317 ], [ 5, %316 ], [ 3, %315 ], [ 2, %zend_string_release_ex.exit241 ], [ %..i262, %318 ]
+  %.0.i261 = phi i32 [ 3, %315 ], [ 5, %316 ], [ 6, %317 ], [ 2, %zend_string_release_ex.exit241 ], [ %..i262, %318 ]
   store i32 %.0.i261, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
   %.not236 = icmp eq ptr %.7, null
   br i1 %.not236, label %zend_string_copy.exit, label %320
@@ -3780,7 +3780,7 @@ pcre_handle_exec_error.exit:                      ; preds = %zend_string_release
   br i1 %or.cond5, label %44, label %._crit_edge428
 
 zend_string_copy.exit:                            ; preds = %62, %57, %53, %52, %329, %324, %320, %266, %262, %pcre_handle_exec_error.exit, %zend_string_realloc.exit
-  %.5 = phi ptr [ null, %pcre_handle_exec_error.exit ], [ %.8, %zend_string_realloc.exit ], [ %1, %262 ], [ %1, %266 ], [ null, %320 ], [ null, %324 ], [ null, %329 ], [ null, %52 ], [ null, %53 ], [ null, %57 ], [ null, %62 ]
+  %.5 = phi ptr [ %.8, %zend_string_realloc.exit ], [ null, %pcre_handle_exec_error.exit ], [ %1, %262 ], [ %1, %266 ], [ null, %320 ], [ null, %324 ], [ null, %329 ], [ null, %52 ], [ null, %53 ], [ null, %57 ], [ null, %62 ]
   %342 = load ptr, ptr @mdata, align 8, !tbaa !66
   %.not238 = icmp eq ptr %.0170, %342
   br i1 %.not238, label %344, label %343
@@ -5152,7 +5152,7 @@ zend_string_release.exit180:                      ; preds = %104, %109, %116, %1
   unreachable
 
 122:                                              ; preds = %zend_string_release.exit180, %zend_array_release.exit
-  %.4202 = phi ptr [ %.1199278, %zend_string_release.exit180 ], [ %103, %zend_array_release.exit ]
+  %.4202 = phi ptr [ %103, %zend_array_release.exit ], [ %.1199278, %zend_string_release.exit180 ]
   %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !68
   %.not169 = icmp eq ptr %123, null
   br i1 %.not169, label %124, label %.thread255
@@ -5970,8 +5970,8 @@ calculate_unit_length.exit:                       ; preds = %212, %219
   br i1 %243, label %71, label %._crit_edge
 
 .loopexit188.sink.split:                          ; preds = %74, %228, %227, %226, %225, %.loopexit189
-  %.0.i183.sink = phi i32 [ 6, %227 ], [ 5, %226 ], [ 3, %225 ], [ 2, %.loopexit189 ], [ %..i, %228 ], [ 1, %74 ]
-  %.3147.ph = phi i64 [ %.4148, %227 ], [ %.4148, %226 ], [ %.4148, %225 ], [ %.4148, %.loopexit189 ], [ %.4148, %228 ], [ %.2146, %74 ]
+  %.0.i183.sink = phi i32 [ 3, %225 ], [ 5, %226 ], [ 6, %227 ], [ 2, %.loopexit189 ], [ %..i, %228 ], [ 1, %74 ]
+  %.3147.ph = phi i64 [ %.4148, %225 ], [ %.4148, %226 ], [ %.4148, %227 ], [ %.4148, %.loopexit189 ], [ %.4148, %228 ], [ %.2146, %74 ]
   store i32 %.0.i183.sink, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
   br label %.loopexit188
 
@@ -6344,7 +6344,7 @@ zend_parse_arg_str.exit:                          ; preds = %18
   br label %88
 
 88:                                               ; preds = %86, %76, %73
-  %.198 = phi ptr [ %87, %86 ], [ %80, %76 ], [ %75, %73 ]
+  %.198 = phi ptr [ %87, %86 ], [ %75, %73 ], [ %80, %76 ]
   %89 = getelementptr inbounds nuw i8, ptr %.196, i64 1
   %.not113 = icmp eq ptr %89, %34
   br i1 %.not113, label %90, label %71
@@ -8268,7 +8268,7 @@ zend_string_realloc.exit:                         ; preds = %231, %zend_string_a
   br label %pcre_handle_exec_error.exit
 
 pcre_handle_exec_error.exit:                      ; preds = %.loopexit, %261, %262, %263, %264
-  %.0.i214 = phi i32 [ 6, %263 ], [ 5, %262 ], [ 3, %261 ], [ 2, %.loopexit ], [ %..i216, %264 ]
+  %.0.i214 = phi i32 [ 3, %261 ], [ 5, %262 ], [ 6, %263 ], [ 2, %.loopexit ], [ %..i216, %264 ]
   store i32 %.0.i214, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
   %.not189 = icmp eq ptr %.3159, null
   br i1 %.not189, label %zend_string_release_ex.exit195, label %266

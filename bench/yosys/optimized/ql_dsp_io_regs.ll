@@ -3719,13 +3719,13 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit405.i:            ; preds = %1375, %_ZSt8_Destro
   br i1 %1381, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.i, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit.i
 
 1382:                                             ; preds = %1333, %1303, %.body376.i
-  %.pn160.pn.i = phi { ptr, i32 } [ %1334, %1333 ], [ %1304, %1303 ], [ %.pn158.i, %.body376.i ]
+  %.pn162.pn.i = phi { ptr, i32 } [ %1304, %1303 ], [ %1334, %1333 ], [ %.pn158.i, %.body376.i ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #24
   br label %1383
 
 1383:                                             ; preds = %1382, %1271, %.loopexit.split-lp554.i, %.loopexit553.i
-  %.pn160.pn.pn.i = phi { ptr, i32 } [ %.pn160.pn.i, %1382 ], [ %.pn156.i, %1271 ], [ %lpad.loopexit555.i, %.loopexit553.i ], [ %lpad.loopexit.split-lp556.i, %.loopexit.split-lp554.i ]
+  %.pn162.pn.pn.i = phi { ptr, i32 } [ %.pn162.pn.i, %1382 ], [ %.pn156.i, %1271 ], [ %lpad.loopexit555.i, %.loopexit553.i ], [ %lpad.loopexit.split-lp556.i, %.loopexit.split-lp554.i ]
   %1384 = load ptr, ptr %25, align 8, !tbaa !25
   %1385 = icmp eq ptr %1384, %153
   br i1 %1385, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i407.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i406.i
@@ -3747,7 +3747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit408.i: ; preds = %
   br label %1390
 
 1390:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit408.i, %1186, %1185
-  %.pn167.i = phi { ptr, i32 } [ %1187, %1186 ], [ %.pn160.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit408.i ], [ %.pn152.pn.i, %1185 ]
+  %.pn167.i = phi { ptr, i32 } [ %1187, %1186 ], [ %.pn162.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit408.i ], [ %.pn152.pn.i, %1185 ]
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #24
   br label %1391
 

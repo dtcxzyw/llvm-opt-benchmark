@@ -579,7 +579,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %145
   br label %178
 
 178:                                              ; preds = %176, %._crit_edge.i.i.i.i.i.i.us.i
-  %.1.i.i.i.i.i.i.us.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.us.i, %._crit_edge.i.i.i.i.i.i.us.i ], [ %177, %176 ]
+  %.1.i.i.i.i.i.i.us.i = phi ptr [ %177, %176 ], [ %.029.lcssa.i.i.i.i.i.i.us.i, %._crit_edge.i.i.i.i.i.i.us.i ]
   %.1.val.i.i.i.i.i.i.us.i = load i8, ptr %.1.i.i.i.i.i.i.us.i, align 1, !tbaa !11
   %179 = add i8 %.1.val.i.i.i.i.i.i.us.i, -97
   %180 = icmp ult i8 %179, 6
@@ -590,7 +590,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %145
   br label %183
 
 183:                                              ; preds = %181, %._crit_edge.i.i.i.i.i.i.us.i
-  %.2.i.i.i.i.i.i.us.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.us.i, %._crit_edge.i.i.i.i.i.i.us.i ], [ %182, %181 ]
+  %.2.i.i.i.i.i.i.us.i = phi ptr [ %182, %181 ], [ %.029.lcssa.i.i.i.i.i.i.us.i, %._crit_edge.i.i.i.i.i.i.us.i ]
   %.2.val.i.i.i.i.i.i.us.i = load i8, ptr %.2.i.i.i.i.i.i.us.i, align 1, !tbaa !11
   %184 = add i8 %.2.val.i.i.i.i.i.i.us.i, -97
   %185 = icmp ult i8 %184, 6

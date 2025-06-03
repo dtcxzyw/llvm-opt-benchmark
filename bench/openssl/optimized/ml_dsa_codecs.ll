@@ -634,7 +634,7 @@ switch.lookup:                                    ; preds = %3
   br label %.thread114
 
 72:                                               ; preds = %65, %60, %57
-  %.088 = phi ptr [ %55, %57 ], [ %69, %65 ], [ %64, %60 ]
+  %.088 = phi ptr [ %64, %60 ], [ %69, %65 ], [ %55, %57 ]
   %73 = load i64, ptr %33, align 8, !tbaa !32
   %.not105 = icmp eq i64 %73, 0
   br i1 %.not105, label %90, label %74

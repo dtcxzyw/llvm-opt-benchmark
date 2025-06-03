@@ -3918,7 +3918,7 @@ _ZNSt14_Function_baseD2Ev.exit207:                ; preds = %522, %520, %511
   br i1 %.not, label %._crit_edge, label %90
 
 530:                                              ; preds = %.loopexit, %.loopexit276, %336, %.loopexit274
-  %.pn78.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn78.pn.pn.pn.pn.pn, %.loopexit ], [ %.pn.pn.pn.pn.pn, %.loopexit276 ], [ %.pn69.pn, %336 ], [ %.pn72.pn.pn.pn.pn, %.loopexit274 ]
+  %.pn78.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn78.pn.pn.pn.pn.pn, %.loopexit ], [ %.pn72.pn.pn.pn.pn, %.loopexit274 ], [ %.pn69.pn, %336 ], [ %.pn.pn.pn.pn.pn, %.loopexit276 ]
   call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #23
   br label %535
@@ -4576,7 +4576,7 @@ _ZN6duckdb11LogicalTypeaSERKS0_.exit50:           ; preds = %_ZN6duckdb11Logical
   br label %232
 
 232:                                              ; preds = %230, %142, %112, %82, %52
-  %.pn20 = phi { ptr, i32 } [ %231, %230 ], [ %.pn18, %142 ], [ %.pn, %112 ], [ %.pn14, %82 ], [ %.pn16, %52 ]
+  %.pn20 = phi { ptr, i32 } [ %231, %230 ], [ %.pn18, %142 ], [ %.pn16, %52 ], [ %.pn14, %82 ], [ %.pn, %112 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #23
   resume { ptr, i32 } %.pn20
@@ -4841,9 +4841,9 @@ define internal void @_ZN6duckdbL17PropagateAbsStatsERNS_13ClientContextERNS_23F
   %36 = load i8, ptr %35, align 1, !tbaa !90
   switch i8 %36, label %83 [
     i8 3, label %45
-    i8 5, label %53
-    i8 7, label %63
-    i8 9, label %73
+    i8 5, label %55
+    i8 7, label %65
+    i8 9, label %75
   ]
 
 37:                                               ; preds = %3
@@ -4871,111 +4871,111 @@ define internal void @_ZN6duckdbL17PropagateAbsStatsERNS_13ClientContextERNS_23F
 45:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #23
   invoke void @_ZN6duckdb12NumericStats3MinERKNS_14BaseStatisticsE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %27)
-          to label %46 unwind label %48
+          to label %46 unwind label %50
 
 46:                                               ; preds = %45
   %47 = invoke noundef signext i8 @_ZNK6duckdb5Value8GetValueIaEET_v(ptr noundef nonnull align 8 dereferenceable(64) %9)
-          to label %84 unwind label %50
+          to label %48 unwind label %52
 
-48:                                               ; preds = %45
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  br label %52
+48:                                               ; preds = %46
+  %49 = icmp eq i8 %47, -128
+  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #23
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #23
+  br i1 %49, label %.critedge, label %103
 
-50:                                               ; preds = %46
+50:                                               ; preds = %45
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #23
-  br label %52
+  br label %54
 
-52:                                               ; preds = %50, %48
-  %.pn62 = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
+52:                                               ; preds = %46
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #23
+  br label %54
+
+54:                                               ; preds = %52, %50
+  %.pn62 = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #23
   br label %194
 
-53:                                               ; preds = %33
+55:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #23
   invoke void @_ZN6duckdb12NumericStats3MinERKNS_14BaseStatisticsE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %10, ptr noundef nonnull align 8 dereferenceable(88) %27)
-          to label %54 unwind label %58
-
-54:                                               ; preds = %53
-  %55 = invoke noundef signext i16 @_ZNK6duckdb5Value8GetValueIsEET_v(ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %56 unwind label %60
 
-56:                                               ; preds = %54
-  %57 = icmp eq i16 %55, -32768
+56:                                               ; preds = %55
+  %57 = invoke noundef signext i16 @_ZNK6duckdb5Value8GetValueIsEET_v(ptr noundef nonnull align 8 dereferenceable(64) %10)
+          to label %58 unwind label %62
+
+58:                                               ; preds = %56
+  %59 = icmp eq i16 %57, -32768
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #23
-  br i1 %57, label %.critedge, label %103
+  br i1 %59, label %.critedge, label %103
 
-58:                                               ; preds = %53
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  br label %62
-
-60:                                               ; preds = %54
+60:                                               ; preds = %55
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #23
-  br label %62
+  br label %64
 
-62:                                               ; preds = %60, %58
-  %.pn60 = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
+62:                                               ; preds = %56
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #23
+  br label %64
+
+64:                                               ; preds = %62, %60
+  %.pn60 = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #23
   br label %194
 
-63:                                               ; preds = %33
+65:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #23
   invoke void @_ZN6duckdb12NumericStats3MinERKNS_14BaseStatisticsE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %11, ptr noundef nonnull align 8 dereferenceable(88) %27)
-          to label %64 unwind label %68
-
-64:                                               ; preds = %63
-  %65 = invoke noundef i32 @_ZNK6duckdb5Value8GetValueIiEET_v(ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %66 unwind label %70
 
-66:                                               ; preds = %64
-  %67 = icmp eq i32 %65, -2147483648
+66:                                               ; preds = %65
+  %67 = invoke noundef i32 @_ZNK6duckdb5Value8GetValueIiEET_v(ptr noundef nonnull align 8 dereferenceable(64) %11)
+          to label %68 unwind label %72
+
+68:                                               ; preds = %66
+  %69 = icmp eq i32 %67, -2147483648
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #23
-  br i1 %67, label %.critedge, label %103
+  br i1 %69, label %.critedge, label %103
 
-68:                                               ; preds = %63
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  br label %72
-
-70:                                               ; preds = %64
+70:                                               ; preds = %65
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #23
-  br label %72
+  br label %74
 
-72:                                               ; preds = %70, %68
-  %.pn58 = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ]
+72:                                               ; preds = %66
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #23
+  br label %74
+
+74:                                               ; preds = %72, %70
+  %.pn58 = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #23
   br label %194
 
-73:                                               ; preds = %33
+75:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #23
   invoke void @_ZN6duckdb12NumericStats3MinERKNS_14BaseStatisticsE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %12, ptr noundef nonnull align 8 dereferenceable(88) %27)
-          to label %74 unwind label %78
+          to label %76 unwind label %78
 
-74:                                               ; preds = %73
-  %75 = invoke noundef i64 @_ZNK6duckdb5Value8GetValueIlEET_v(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %76 unwind label %80
+76:                                               ; preds = %75
+  %77 = invoke noundef i64 @_ZNK6duckdb5Value8GetValueIlEET_v(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %84 unwind label %80
 
-76:                                               ; preds = %74
-  %77 = icmp eq i64 %75, -9223372036854775808
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #23
-  br i1 %77, label %.critedge, label %103
-
-78:                                               ; preds = %73
+78:                                               ; preds = %75
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %82
 
-80:                                               ; preds = %74
+80:                                               ; preds = %76
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #23
@@ -4990,13 +4990,13 @@ define internal void @_ZN6duckdbL17PropagateAbsStatsERNS_13ClientContextERNS_23F
   store ptr null, ptr %0, align 8, !tbaa !103
   br label %193
 
-84:                                               ; preds = %46
-  %85 = icmp eq i8 %47, -128
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #23
+84:                                               ; preds = %76
+  %85 = icmp eq i64 %77, -9223372036854775808
+  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #23
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #23
   br i1 %85, label %.critedge, label %103
 
-.critedge:                                        ; preds = %56, %66, %76, %32, %84
+.critedge:                                        ; preds = %68, %58, %48, %32, %84
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #23
   %86 = getelementptr inbounds nuw i8, ptr %26, i64 56
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %86)
@@ -5058,7 +5058,7 @@ define internal void @_ZN6duckdbL17PropagateAbsStatsERNS_13ClientContextERNS_23F
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #23
   br label %194
 
-103:                                              ; preds = %56, %66, %76, %84
+103:                                              ; preds = %68, %58, %48, %84
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #23
   invoke void @_ZN6duckdb12NumericStats3MinERKNS_14BaseStatisticsE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %17, ptr noundef nonnull align 8 dereferenceable(88) %27)
           to label %104 unwind label %114
@@ -5340,8 +5340,8 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt8functionIFvRN
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #23
   ret void
 
-194:                                              ; preds = %118, %124, %172, %174, %176, %123, %192, %102, %97, %82, %72, %62, %52, %43
-  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %192 ], [ %.pn74, %102 ], [ %.pn72, %97 ], [ %.pn, %82 ], [ %.pn58, %72 ], [ %.pn60, %62 ], [ %.pn62, %52 ], [ %44, %43 ], [ %.pn64, %118 ], [ %.pn66, %123 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %125, %124 ]
+194:                                              ; preds = %118, %124, %172, %174, %176, %123, %192, %102, %97, %82, %74, %64, %54, %43
+  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %192 ], [ %.pn74, %102 ], [ %.pn72, %97 ], [ %.pn62, %54 ], [ %.pn60, %64 ], [ %.pn58, %74 ], [ %.pn, %82 ], [ %44, %43 ], [ %.pn64, %118 ], [ %.pn66, %123 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %125, %124 ]
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #23
   br label %195
 
@@ -8444,7 +8444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %72
   br label %197
 
 81:                                               ; preds = %49, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit
-  %.023 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_19CeilDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %49 ]
+  %.023 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38 ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_19CeilDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %49 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #23
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.069.0100)
           to label %82 unwind label %178
@@ -9428,7 +9428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %72
   br label %197
 
 81:                                               ; preds = %49, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit
-  %.023 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_20FloorDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %49 ]
+  %.023 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38 ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_20FloorDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %49 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #23
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.069.0100)
           to label %82 unwind label %178
@@ -10344,7 +10344,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43
   br label %167
 
 52:                                               ; preds = %36, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit35, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit
-  %.021 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit35 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_20TruncDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %36 ]
+  %.021 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit35 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit38 ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_20TruncDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %36 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #23
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.069.0103)
           to label %53 unwind label %148
@@ -11682,7 +11682,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
   br label %215
 
 215:                                              ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit70, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit82, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit79, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit76, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit73, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit61, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit64, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit67
-  %.037 = phi i8 [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit67 ], [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit64 ], [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit61 ], [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ %89, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit70 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit82 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit79 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit76 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit73 ]
+  %.037 = phi i8 [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit67 ], [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit ], [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit61 ], [ 0, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit64 ], [ %89, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit70 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit82 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit73 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit76 ], [ %165, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit79 ]
   %216 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %217 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb6vectorINS_11LogicalTypeELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %216, i64 noundef 0)
           to label %218 unwind label %102
@@ -17837,8 +17837,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %115
   br label %366
 
 124:                                              ; preds = %78, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit66, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit60
-  %.038 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit66 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit60 ], [ @_ZN6duckdb25BindDecimalRoundPrecisionERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE, %78 ]
-  %.035 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit66 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit60 ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_20RoundDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %78 ]
+  %.038 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit60 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit66 ], [ @_ZN6duckdb25BindDecimalRoundPrecisionERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE, %78 ]
+  %.035 = phi ptr [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit60 ], [ null, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSC_.exit66 ], [ @_ZN6duckdb31BindGenericRoundFunctionDecimalINS_20RoundDecimalOperatorEEENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS3_ELb1EEERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS2_INS_10ExpressionES4_ISC_ELb1EEELb1EEE, %78 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #23
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0155.0258)
           to label %125 unwind label %325

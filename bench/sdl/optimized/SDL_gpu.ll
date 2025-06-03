@@ -3762,7 +3762,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br label %.thread360
 
 .thread360:                                       ; preds = %.preheader379, %.preheader374, %.preheader369, %.preheader366, %.preheader, %181, %146, %120, %92, %19, %182, %183, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ null, %182 ], [ %188, %183 ], [ null, %19 ], [ null, %92 ], [ null, %120 ], [ null, %146 ], [ null, %181 ], [ null, %.preheader ], [ null, %.preheader366 ], [ null, %.preheader369 ], [ null, %.preheader374 ], [ null, %.preheader379 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %188, %183 ], [ null, %182 ], [ null, %19 ], [ null, %92 ], [ null, %120 ], [ null, %146 ], [ null, %181 ], [ null, %.preheader ], [ null, %.preheader366 ], [ null, %.preheader369 ], [ null, %.preheader374 ], [ null, %.preheader379 ]
   ret ptr %.0
 }
 

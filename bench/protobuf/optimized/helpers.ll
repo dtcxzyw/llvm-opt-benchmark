@@ -2545,7 +2545,7 @@ sw.bb26:                                          ; preds = %_ZNK6google8protobu
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %entry, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8, %sw.bb5, %sw.bb
-  %retval.0 = phi i1 [ true, %sw.bb26 ], [ %cmp25, %sw.bb23 ], [ %cmp22, %sw.bb20 ], [ %cmp19, %sw.bb17 ], [ %cmp16, %sw.bb14 ], [ %cmp13, %sw.bb11 ], [ %cmp10, %sw.bb8 ], [ %cmp7, %sw.bb5 ], [ %cmp, %sw.bb ], [ false, %entry ], [ false, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit ]
+  %retval.0 = phi i1 [ %cmp, %sw.bb ], [ %cmp7, %sw.bb5 ], [ %cmp10, %sw.bb8 ], [ %cmp13, %sw.bb11 ], [ %cmp16, %sw.bb14 ], [ %cmp19, %sw.bb17 ], [ %cmp22, %sw.bb20 ], [ %cmp25, %sw.bb23 ], [ true, %sw.bb26 ], [ false, %entry ], [ false, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit ]
   ret i1 %retval.0
 }
 
@@ -2662,7 +2662,7 @@ sw.bb23:                                          ; preds = %_ZNK6google8protobu
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %entry, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8, %sw.bb5, %sw.bb
-  %retval.0 = phi i1 [ %cmp25, %sw.bb23 ], [ %cmp22, %sw.bb20 ], [ %cmp19, %sw.bb17 ], [ %cmp16, %sw.bb14 ], [ %cmp13, %sw.bb11 ], [ %cmp10, %sw.bb8 ], [ %cmp7, %sw.bb5 ], [ %cmp, %sw.bb ], [ false, %entry ], [ false, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit ]
+  %retval.0 = phi i1 [ %cmp, %sw.bb ], [ %cmp7, %sw.bb5 ], [ %cmp10, %sw.bb8 ], [ %cmp13, %sw.bb11 ], [ %cmp16, %sw.bb14 ], [ %cmp19, %sw.bb17 ], [ %cmp22, %sw.bb20 ], [ %cmp25, %sw.bb23 ], [ false, %entry ], [ false, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit ]
   ret i1 %retval.0
 }
 
@@ -5343,7 +5343,7 @@ lpad:                                             ; preds = %sw.epilog
   unreachable
 
 return:                                           ; preds = %sw.bb12, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit36, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %lor.rhs, %_ZNK6google8protobuf15FieldDescriptor6is_mapEv.exit, %entry, %sw.bb11, %sw.bb10
-  %retval.0 = phi i32 [ 8, %sw.bb11 ], [ 4, %sw.bb10 ], [ 0, %entry ], [ 32, %_ZNK6google8protobuf15FieldDescriptor6is_mapEv.exit ], [ 16, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit ], [ %14, %lor.rhs ], [ 1, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit36 ], [ %., %sw.bb12 ]
+  %retval.0 = phi i32 [ 4, %sw.bb10 ], [ 8, %sw.bb11 ], [ 0, %entry ], [ 32, %_ZNK6google8protobuf15FieldDescriptor6is_mapEv.exit ], [ 16, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit ], [ %14, %lor.rhs ], [ 1, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit36 ], [ %., %sw.bb12 ]
   ret i32 %retval.0
 }
 
@@ -6399,7 +6399,7 @@ sw.bb93:                                          ; preds = %_ZNK6google8protobu
           to label %invoke.cont100 unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad.body, %lpad17.body, %lpad23, %lpad33.body, %lpad41.body, %lpad47, %lpad53, %lpad58.body, %ehcleanup, %ehcleanup92, %lpad97, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %67, %lpad.i.i ], [ %72, %lpad97 ], [ %.pn, %ehcleanup92 ], [ %.pn21, %ehcleanup ], [ %eh.lpad-body74, %lpad58.body ], [ %eh.lpad-body54, %lpad33.body ], [ %eh.lpad-body63, %lpad41.body ], [ %35, %lpad47 ], [ %36, %lpad53 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body45, %lpad17.body ], [ %28, %lpad23 ]
+  %common.resume.op = phi { ptr, i32 } [ %67, %lpad.i.i ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body45, %lpad17.body ], [ %28, %lpad23 ], [ %eh.lpad-body54, %lpad33.body ], [ %eh.lpad-body63, %lpad41.body ], [ %35, %lpad47 ], [ %36, %lpad53 ], [ %eh.lpad-body74, %lpad58.body ], [ %.pn21, %ehcleanup ], [ %.pn, %ehcleanup92 ], [ %72, %lpad97 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %sw.bb93

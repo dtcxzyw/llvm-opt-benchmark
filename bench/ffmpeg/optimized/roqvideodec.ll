@@ -706,7 +706,7 @@ bytestream2_get_byte.exit254.i:                   ; preds = %bytestream2_get_byt
   br label %294
 
 294:                                              ; preds = %bytestream2_get_byte.exit254.i, %bytestream2_get_byte.exit246.i, %bytestream2_get_byte.exit244.i, %bytestream2_get_le16.exit224.i
-  %.sroa.0.10 = phi ptr [ %.sroa.0.9, %bytestream2_get_le16.exit224.i ], [ %.sroa.0.11, %bytestream2_get_byte.exit246.i ], [ %.sroa.0.12, %bytestream2_get_byte.exit244.i ], [ %.sroa.0.16, %bytestream2_get_byte.exit254.i ]
+  %.sroa.0.10 = phi ptr [ %.sroa.0.16, %bytestream2_get_byte.exit254.i ], [ %.sroa.0.12, %bytestream2_get_byte.exit244.i ], [ %.sroa.0.11, %bytestream2_get_byte.exit246.i ], [ %.sroa.0.9, %bytestream2_get_le16.exit224.i ]
   %295 = add nuw nsw i32 %.0196319.i, 1
   %exitcond347.not.i = icmp eq i32 %295, 4
   br i1 %exitcond347.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !52
@@ -718,9 +718,9 @@ bytestream2_get_le16.exit222.i.unreachabledefault: ; preds = %bytestream2_get_le
   unreachable
 
 .loopexit.i:                                      ; preds = %294, %bytestream2_get_byte.exit242.i, %bytestream2_get_byte.exit240.i, %bytestream2_get_le16.exit222.i
-  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %bytestream2_get_le16.exit222.i ], [ %.sroa.0.6, %bytestream2_get_byte.exit242.i ], [ %.sroa.0.7, %bytestream2_get_byte.exit240.i ], [ %.sroa.0.10, %294 ]
-  %.6194.i = phi i32 [ %.3191.i, %bytestream2_get_le16.exit222.i ], [ %.3191.i, %bytestream2_get_byte.exit242.i ], [ %.3191.i, %bytestream2_get_byte.exit240.i ], [ %.5193.i, %294 ]
-  %.6.i = phi i32 [ %162, %bytestream2_get_le16.exit222.i ], [ %162, %bytestream2_get_byte.exit242.i ], [ %162, %bytestream2_get_byte.exit240.i ], [ %221, %294 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.7, %bytestream2_get_byte.exit240.i ], [ %.sroa.0.6, %bytestream2_get_byte.exit242.i ], [ %.sroa.0.4, %bytestream2_get_le16.exit222.i ], [ %.sroa.0.10, %294 ]
+  %.6194.i = phi i32 [ %.3191.i, %bytestream2_get_byte.exit240.i ], [ %.3191.i, %bytestream2_get_byte.exit242.i ], [ %.3191.i, %bytestream2_get_le16.exit222.i ], [ %.5193.i, %294 ]
+  %.6.i = phi i32 [ %162, %bytestream2_get_byte.exit240.i ], [ %162, %bytestream2_get_byte.exit242.i ], [ %162, %bytestream2_get_le16.exit222.i ], [ %221, %294 ]
   %296 = add nsw i32 %.0180324.i, 8
   %297 = icmp slt i32 %.0180324.i, %144
   br i1 %297, label %146, label %298, !llvm.loop !53

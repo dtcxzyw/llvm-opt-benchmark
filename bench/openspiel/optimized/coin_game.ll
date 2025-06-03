@@ -2458,7 +2458,7 @@ define void @_ZNK10open_spiel9coin_game9CoinState14ChanceOutcomesEv(ptr dead_on_
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = tail call noundef i32 @_ZNK10open_spiel9coin_game9CoinState8GetPhaseEv(ptr noundef nonnull align 8 dereferenceable(288) %1)
-  switch i32 %11, label %default.unreachable25 [
+  switch i32 %11, label %default.unreachable26 [
     i32 0, label %12
     i32 1, label %37
     i32 2, label %62
@@ -2549,47 +2549,47 @@ _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit:         ; preds = %12, %27
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %44 = load ptr, ptr %43, align 8
-  %.not.i.i7 = icmp eq ptr %44, null
-  br i1 %.not.i.i7, label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14, label %45
+  %.not.i.i8 = icmp eq ptr %44, null
+  br i1 %.not.i.i8, label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit15, label %45
 
 45:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
   %46 = call noundef ptr @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE7_M_copyILb0ENS5_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIiESA_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %44, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br label %.noexc.i.i8
+  br label %.noexc.i.i9
 
-.noexc.i.i8:                                      ; preds = %.noexc.i.i8, %45
-  %.0.i.i.i.i.i.i9 = phi ptr [ %48, %.noexc.i.i8 ], [ %46, %45 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i9, i64 16
+.noexc.i.i9:                                      ; preds = %.noexc.i.i9, %45
+  %.0.i.i.i.i.i.i10 = phi ptr [ %48, %.noexc.i.i9 ], [ %46, %45 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 16
   %48 = load ptr, ptr %47, align 8
-  %.not.i.i.i.i.i.i10 = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i.i10, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i11, label %.noexc.i.i8, !llvm.loop !7
+  %.not.i.i.i.i.i.i11 = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i.i.i11, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i12, label %.noexc.i.i9, !llvm.loop !7
 
-_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i11: ; preds = %.noexc.i.i8
-  store ptr %.0.i.i.i.i.i.i9, ptr %40, align 8
+_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i12: ; preds = %.noexc.i.i9
+  store ptr %.0.i.i.i.i.i.i10, ptr %40, align 8
   br label %49
 
-49:                                               ; preds = %49, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i11
-  %.0.i.i7.i.i.i.i12 = phi ptr [ %46, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i11 ], [ %51, %49 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i12, i64 24
+49:                                               ; preds = %49, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i12
+  %.0.i.i7.i.i.i.i13 = phi ptr [ %46, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i12 ], [ %51, %49 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i13, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.not.i.i8.i.i.i.i13 = icmp eq ptr %51, null
-  br i1 %.not.i.i8.i.i.i.i13, label %52, label %49, !llvm.loop !8
+  %.not.i.i8.i.i.i.i14 = icmp eq ptr %51, null
+  br i1 %.not.i.i8.i.i.i.i14, label %52, label %49, !llvm.loop !8
 
 52:                                               ; preds = %49
-  store ptr %.0.i.i7.i.i.i.i12, ptr %41, align 8
+  store ptr %.0.i.i7.i.i.i.i13, ptr %41, align 8
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %54 = load i64, ptr %53, align 8
   store i64 %54, ptr %42, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr %46, ptr %39, align 8
-  br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14
+  br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit15
 
-_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14:       ; preds = %37, %52
+_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit15:       ; preds = %37, %52
   invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %7)
           to label %55 unwind label %60
 
-55:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14
+55:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit15
   %56 = load ptr, ptr %39, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %56)
           to label %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit unwind label %57
@@ -2601,7 +2601,7 @@ _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14:       ; preds = %37, %52
   call void @__clang_call_terminate(ptr %59) #28
   unreachable
 
-60:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14
+60:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit15
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27
@@ -2620,47 +2620,47 @@ _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14:       ; preds = %37, %52
   store i64 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %69 = load ptr, ptr %68, align 8
-  %.not.i.i16 = icmp eq ptr %69, null
-  br i1 %.not.i.i16, label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23, label %70
+  %.not.i.i17 = icmp eq ptr %69, null
+  br i1 %.not.i.i17, label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit24, label %70
 
 70:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %8, ptr %3, align 8
   %71 = call noundef ptr @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE7_M_copyILb0ENS5_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIiESA_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %69, ptr noundef nonnull %63, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.noexc.i.i17
+  br label %.noexc.i.i18
 
-.noexc.i.i17:                                     ; preds = %.noexc.i.i17, %70
-  %.0.i.i.i.i.i.i18 = phi ptr [ %73, %.noexc.i.i17 ], [ %71, %70 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i18, i64 16
+.noexc.i.i18:                                     ; preds = %.noexc.i.i18, %70
+  %.0.i.i.i.i.i.i19 = phi ptr [ %73, %.noexc.i.i18 ], [ %71, %70 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i19, i64 16
   %73 = load ptr, ptr %72, align 8
-  %.not.i.i.i.i.i.i19 = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i.i.i19, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i20, label %.noexc.i.i17, !llvm.loop !7
+  %.not.i.i.i.i.i.i20 = icmp eq ptr %73, null
+  br i1 %.not.i.i.i.i.i.i20, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i21, label %.noexc.i.i18, !llvm.loop !7
 
-_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i20: ; preds = %.noexc.i.i17
-  store ptr %.0.i.i.i.i.i.i18, ptr %65, align 8
+_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i21: ; preds = %.noexc.i.i18
+  store ptr %.0.i.i.i.i.i.i19, ptr %65, align 8
   br label %74
 
-74:                                               ; preds = %74, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i20
-  %.0.i.i7.i.i.i.i21 = phi ptr [ %71, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i20 ], [ %76, %74 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i21, i64 24
+74:                                               ; preds = %74, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i21
+  %.0.i.i7.i.i.i.i22 = phi ptr [ %71, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i21 ], [ %76, %74 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i22, i64 24
   %76 = load ptr, ptr %75, align 8
-  %.not.i.i8.i.i.i.i22 = icmp eq ptr %76, null
-  br i1 %.not.i.i8.i.i.i.i22, label %77, label %74, !llvm.loop !8
+  %.not.i.i8.i.i.i.i23 = icmp eq ptr %76, null
+  br i1 %.not.i.i8.i.i.i.i23, label %77, label %74, !llvm.loop !8
 
 77:                                               ; preds = %74
-  store ptr %.0.i.i7.i.i.i.i21, ptr %66, align 8
+  store ptr %.0.i.i7.i.i.i.i22, ptr %66, align 8
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %79 = load i64, ptr %78, align 8
   store i64 %79, ptr %67, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %71, ptr %64, align 8
-  br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23
+  br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit24
 
-_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23:       ; preds = %62, %77
+_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit24:       ; preds = %62, %77
   invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %8)
           to label %80 unwind label %85
 
-80:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23
+80:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit24
   %81 = load ptr, ptr %64, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %81)
           to label %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit unwind label %82
@@ -2672,7 +2672,7 @@ _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23:       ; preds = %62, %77
   call void @__clang_call_terminate(ptr %84) #28
   unreachable
 
-85:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23
+85:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit24
   %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #27
@@ -2706,15 +2706,15 @@ _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23:       ; preds = %62, %77
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   br label %95
 
-default.unreachable25:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %80, %55, %30
   ret void
 
 95:                                               ; preds = %94, %85, %60, %35
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %94 ], [ %86, %85 ], [ %61, %60 ], [ %36, %35 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn6 = phi { ptr, i32 } [ %36, %35 ], [ %61, %60 ], [ %86, %85 ], [ %.pn, %94 ]
+  resume { ptr, i32 } %.pn6
 }
 
 ; Function Attrs: mustprogress uwtable

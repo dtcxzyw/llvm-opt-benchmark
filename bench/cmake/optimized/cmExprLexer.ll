@@ -1359,12 +1359,12 @@ _ZL21yy_get_previous_statePv.exit206:             ; preds = %_ZL18yy_get_next_bu
   br label %602
 
 602:                                              ; preds = %150, %.loopexit589, %.loopexit509, %.loopexit432, %.loopexit333, %.loopexit228, %268, %263, %262, %261, %260, %259, %258, %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i32 [ 0, %268 ], [ 266, %263 ], [ 265, %262 ], [ 264, %261 ], [ 263, %260 ], [ 270, %259 ], [ 269, %258 ], [ 268, %257 ], [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 258, %.loopexit228 ], [ 259, %.loopexit333 ], [ 260, %.loopexit432 ], [ 261, %.loopexit509 ], [ 262, %.loopexit589 ], [ 267, %150 ]
+  %.0 = phi i32 [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 268, %257 ], [ 269, %258 ], [ 270, %259 ], [ 263, %260 ], [ 264, %261 ], [ 265, %262 ], [ 266, %263 ], [ 0, %268 ], [ 258, %.loopexit228 ], [ 259, %.loopexit333 ], [ 260, %.loopexit432 ], [ 261, %.loopexit509 ], [ 262, %.loopexit589 ], [ 267, %150 ]
   ret i32 %.0
 
 603:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165
-  %.pn155.pn = phi { ptr, i32 } [ %.pn155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ], [ %.pn157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ]
-  resume { ptr, i32 } %.pn155.pn
+  %.pn157.pn = phi { ptr, i32 } [ %.pn157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ %.pn155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ]
+  resume { ptr, i32 } %.pn157.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

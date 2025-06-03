@@ -644,7 +644,7 @@ getfuncname.exit.thread.i:                        ; preds = %getfuncname.exit.i,
   br label %147
 
 147:                                              ; preds = %146, %getfuncname.exit.thread.i, %getfuncname.exit.i, %98, %currentline.exit.i, %funcinfo.exit.i, %43, %43
-  %.1.i = phi i32 [ 0, %146 ], [ %.0.i, %getfuncname.exit.thread.i ], [ %.0.i, %getfuncname.exit.i ], [ %.0.i, %98 ], [ %.0.i, %currentline.exit.i ], [ %.0.i, %funcinfo.exit.i ], [ %.0.i, %43 ], [ %.0.i, %43 ]
+  %.1.i = phi i32 [ 0, %146 ], [ %.0.i, %funcinfo.exit.i ], [ %.0.i, %currentline.exit.i ], [ %.0.i, %98 ], [ %.0.i, %getfuncname.exit.thread.i ], [ %.0.i, %getfuncname.exit.i ], [ %.0.i, %43 ], [ %.0.i, %43 ]
   %148 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   br label %43, !llvm.loop !58
 
@@ -1076,8 +1076,8 @@ default.unreachable296:                           ; preds = %checkArgMode.exit, 
   unreachable
 
 .critedge:                                        ; preds = %90, %86, %83, %81, %checkArgMode.exit, %109, %._crit_edge, %99, %92, %96, %56
-  %.0180 = phi i32 [ 0, %56 ], [ 0, %99 ], [ 0, %96 ], [ 0, %92 ], [ 0, %._crit_edge ], [ 0, %109 ], [ %78, %checkArgMode.exit ], [ 0, %81 ], [ %78, %83 ], [ %78, %86 ], [ %78, %90 ]
-  %.0179 = phi i32 [ 0, %56 ], [ %101, %99 ], [ %93, %96 ], [ %93, %92 ], [ %101, %._crit_edge ], [ %101, %109 ], [ %63, %checkArgMode.exit ], [ %63, %81 ], [ %63, %83 ], [ %63, %86 ], [ %63, %90 ]
+  %.0180 = phi i32 [ 0, %96 ], [ 0, %92 ], [ 0, %99 ], [ 0, %56 ], [ 0, %._crit_edge ], [ 0, %109 ], [ %78, %checkArgMode.exit ], [ 0, %81 ], [ %78, %83 ], [ %78, %86 ], [ %78, %90 ]
+  %.0179 = phi i32 [ %93, %96 ], [ %93, %92 ], [ %101, %99 ], [ 0, %56 ], [ %101, %._crit_edge ], [ %101, %109 ], [ %63, %checkArgMode.exit ], [ %63, %81 ], [ %63, %83 ], [ %63, %86 ], [ %63, %90 ]
   %120 = and i8 %59, 64
   %.not197 = icmp ne i8 %120, 0
   %121 = icmp eq i32 %53, %2
@@ -1338,8 +1338,8 @@ luaG_checkopenop.exit241:                         ; preds = %218, %218, %218, %2
   br i1 %.not202.old, label %precheck.exit.thread, label %225
 
 225:                                              ; preds = %luaG_checkopenop.exit241, %._crit_edge280, %140, %183, %161, %152, %130, %223, %193, %195, %184, %186, %154, %143, %141, %131, %136, %165
-  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %223 ], [ %.2170, %._crit_edge280 ], [ %.2170, %195 ], [ %.2170, %193 ], [ %.2170, %186 ], [ %.2170, %184 ], [ %.2170, %165 ], [ %.2170, %154 ], [ %.2170, %143 ], [ %.2170, %141 ], [ %.2170, %136 ], [ %.2170, %131 ], [ %spec.select, %152 ], [ %spec.select225, %161 ], [ %spec.select228, %183 ], [ %spec.select231, %140 ], [ %.2170, %luaG_checkopenop.exit241 ]
-  %.2164 = phi i32 [ %.0162282, %130 ], [ %.0162282, %223 ], [ %spec.select229, %._crit_edge280 ], [ %196, %195 ], [ %.0162282, %193 ], [ %.0162282, %186 ], [ %.0162282, %184 ], [ %.3165, %165 ], [ %.0162282, %154 ], [ %.0162282, %143 ], [ %.0162282, %141 ], [ %.0162282, %136 ], [ %.0162282, %131 ], [ %.0162282, %152 ], [ %.0162282, %161 ], [ %.0162282, %183 ], [ %.0162282, %140 ], [ %.0162282, %luaG_checkopenop.exit241 ]
+  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %136 ], [ %.2170, %131 ], [ %.2170, %141 ], [ %.2170, %143 ], [ %.2170, %154 ], [ %.2170, %165 ], [ %.2170, %186 ], [ %.2170, %184 ], [ %.2170, %195 ], [ %.2170, %193 ], [ %.2170, %._crit_edge280 ], [ %.2170, %223 ], [ %spec.select, %152 ], [ %spec.select225, %161 ], [ %spec.select228, %183 ], [ %spec.select231, %140 ], [ %.2170, %luaG_checkopenop.exit241 ]
+  %.2164 = phi i32 [ %.0162282, %130 ], [ %.0162282, %136 ], [ %.0162282, %131 ], [ %.0162282, %141 ], [ %.0162282, %143 ], [ %.0162282, %154 ], [ %.3165, %165 ], [ %.0162282, %186 ], [ %.0162282, %184 ], [ %196, %195 ], [ %.0162282, %193 ], [ %spec.select229, %._crit_edge280 ], [ %.0162282, %223 ], [ %.0162282, %152 ], [ %.0162282, %161 ], [ %.0162282, %183 ], [ %.0162282, %140 ], [ %.0162282, %luaG_checkopenop.exit241 ]
   %226 = add nsw i32 %.2164, 1
   %227 = icmp slt i32 %226, %1
   br i1 %227, label %47, label %._crit_edge285, !llvm.loop !76
@@ -1556,9 +1556,9 @@ currentpc.exit:                                   ; preds = %._crit_edge.i, %21
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %86, %76, %74, %68, %65, %62, %52, %50, %38
-  %.sink = phi ptr [ %45, %38 ], [ %64, %62 ], [ @.str.17, %52 ], [ @.str.17, %50 ], [ %73, %68 ], [ @.str.17, %65 ], [ %88, %86 ], [ @.str.17, %76 ], [ @.str.17, %74 ]
+  %.0.i51.sink = phi ptr [ %45, %38 ], [ %64, %62 ], [ @.str.17, %52 ], [ @.str.17, %50 ], [ %73, %68 ], [ @.str.17, %65 ], [ %88, %86 ], [ @.str.17, %76 ], [ @.str.17, %74 ]
   %.3.ph = phi ptr [ @.str.15, %38 ], [ @.str.16, %62 ], [ @.str.16, %52 ], [ @.str.16, %50 ], [ @.str.18, %68 ], [ @.str.18, %65 ], [ @.str.19, %86 ], [ @.str.19, %76 ], [ @.str.19, %74 ]
-  store ptr %.sink, ptr %3, align 8, !tbaa !77
+  store ptr %.0.i51.sink, ptr %3, align 8, !tbaa !77
   br label %.thread
 
 .thread:                                          ; preds = %currentpc.exit, %tailrecurse, %12, %46, %35, %.thread.sink.split

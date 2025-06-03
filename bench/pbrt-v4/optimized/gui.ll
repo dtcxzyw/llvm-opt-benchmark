@@ -260,7 +260,7 @@ define dso_local noundef nonnull ptr @_ZN4pbrt16getGLErrorStringEj(i32 noundef %
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.6, %6 ], [ @.str.5, %5 ], [ @.str.4, %4 ], [ @.str.3, %3 ], [ @.str.2, %2 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.6, %6 ], [ @.str.2, %2 ], [ @.str.3, %3 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str, %1 ]
   ret ptr %.0
 }
 

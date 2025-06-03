@@ -4096,7 +4096,7 @@ define dso_local i32 @acct_storage_p_get_usage(ptr noundef %0, i32 noundef %1, p
   br label %64
 
 64:                                               ; preds = %62, %58, %54, %50
-  %.1 = phi i32 [ -1, %62 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ]
+  %.1 = phi i32 [ -1, %62 ], [ 0, %50 ], [ 0, %54 ], [ 0, %58 ]
   %65 = load i16, ptr %24, align 8
   %66 = zext i16 %65 to i32
   call void @slurm_slurmdbd_free_usage_msg(ptr noundef %49, i32 noundef %66) #11
@@ -6013,7 +6013,7 @@ define dso_local range(i32 -1, 1) i32 @acct_storage_p_get_data(ptr noundef readn
   br label %11
 
 11:                                               ; preds = %9, %7, %4
-  %.0 = phi i32 [ -1, %9 ], [ 0, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

@@ -2167,7 +2167,7 @@ vp56_decode_4mv.exit.i.i:                         ; preds = %991
   br label %vp56_decode_mv.exit.i
 
 1013:                                             ; preds = %vp56_get_vectors_predictors.exit85.i.i, %886, %vp56_get_vectors_predictors.exit72.i.i, %vp56_get_vectors_predictors.exit59.i.i, %779, %778, %vp56_parse_mb_type.exit.i.i
-  %.046.i.i = phi ptr [ %11, %vp56_get_vectors_predictors.exit85.i.i ], [ %11, %886 ], [ %509, %vp56_get_vectors_predictors.exit72.i.i ], [ %508, %vp56_get_vectors_predictors.exit59.i.i ], [ %509, %779 ], [ %508, %778 ], [ %11, %vp56_parse_mb_type.exit.i.i ]
+  %.046.i.i = phi ptr [ %508, %778 ], [ %509, %779 ], [ %508, %vp56_get_vectors_predictors.exit59.i.i ], [ %509, %vp56_get_vectors_predictors.exit72.i.i ], [ %11, %886 ], [ %11, %vp56_get_vectors_predictors.exit85.i.i ], [ %11, %vp56_parse_mb_type.exit.i.i ]
   %1014 = load ptr, ptr %505, align 16, !tbaa !76
   %1015 = load i32, ptr %449, align 16, !tbaa !71
   %1016 = mul nsw i32 %1015, %.0135238

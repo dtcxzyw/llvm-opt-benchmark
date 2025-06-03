@@ -1731,7 +1731,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47: ; preds = %270, %274, %280
   br label %285
 
 285:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47, %284
-  %.115 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47 ], [ false, %284 ]
+  %.115 = phi i1 [ false, %284 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47 ]
   ret i1 %.115
 }
 

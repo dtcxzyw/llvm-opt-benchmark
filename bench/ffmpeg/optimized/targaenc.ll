@@ -231,7 +231,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   br label %181
 
 119:                                              ; preds = %112, %107, %102, %97, %.split103.us
-  %.088 = phi ptr [ %35, %112 ], [ %35, %107 ], [ %35, %102 ], [ %35, %97 ], [ %96, %.split103.us ]
+  %.088 = phi ptr [ %96, %.split103.us ], [ %35, %97 ], [ %35, %102 ], [ %35, %107 ], [ %35, %112 ]
   %120 = load ptr, ptr %19, align 8, !tbaa !30
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i8, ptr %121, align 1, !tbaa !32

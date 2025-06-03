@@ -220,8 +220,8 @@ bytestream2_get_be16.exit80:                      ; preds = %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %82, ptr noundef nonnull align 8 dereferenceable(1024) %78, i64 1024, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %75, %74, %73, %72, %bytestream2_get_be16.exit80, %35, %bytestream2_init.exit, %77
-  %.not77 = phi i1 [ true, %77 ], [ false, %bytestream2_init.exit ], [ false, %35 ], [ false, %bytestream2_get_be16.exit80 ], [ true, %72 ], [ true, %73 ], [ true, %74 ], [ true, %75 ]
+.critedge:                                        ; preds = %75, %72, %73, %74, %bytestream2_get_be16.exit80, %35, %bytestream2_init.exit, %77
+  %.not77 = phi i1 [ true, %77 ], [ false, %bytestream2_init.exit ], [ false, %35 ], [ false, %bytestream2_get_be16.exit80 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %75 ]
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !34
   %85 = load ptr, ptr %84, align 8, !tbaa !41

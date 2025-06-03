@@ -210,8 +210,8 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit34:        ; preds = %2
   %98 = icmp eq i32 %87, 32
   br i1 %98, label %select.unfold, label %277
 
-select.unfold:                                    ; preds = %91, %93, %95, %97
-  %.027 = phi i32 [ 5, %97 ], [ 4, %95 ], [ 3, %93 ], [ 2, %91 ]
+select.unfold:                                    ; preds = %97, %95, %93, %91
+  %.027 = phi i32 [ 2, %91 ], [ 3, %93 ], [ 4, %95 ], [ 5, %97 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #15, !noalias !32
   store ptr %17, ptr %32, align 8, !tbaa !3, !noalias !32
@@ -659,7 +659,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit63.i.i:    ; preds = %265, %263
   %.pre204 = add nsw i32 %.025202, 2
   br label %452
 
-277:                                              ; preds = %97, %95, %93, %91, %86
+277:                                              ; preds = %91, %93, %95, %97, %86
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15, !noalias !40
   store ptr %9, ptr %49, align 8, !tbaa !3, !noalias !40

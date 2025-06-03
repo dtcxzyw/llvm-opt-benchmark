@@ -765,7 +765,7 @@ define range(i32 -1, 2) i32 @IDASpilsDQJtimes(double noundef %0, ptr noundef %1,
   br label %34
 
 34:                                               ; preds = %27, %20, %14, %10
-  %.043 = phi double [ 0.000000e+00, %10 ], [ %33, %27 ], [ %26, %20 ], [ %19, %14 ]
+  %.043 = phi double [ 0.000000e+00, %10 ], [ %19, %14 ], [ %26, %20 ], [ %33, %27 ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 80

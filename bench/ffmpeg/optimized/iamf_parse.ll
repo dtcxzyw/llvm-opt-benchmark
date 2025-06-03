@@ -367,7 +367,7 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
   br label %68
 
 68:                                               ; preds = %67, %66, %65, %60
-  %.071.i = phi i32 [ 0, %67 ], [ 86028, %66 ], [ 86018, %65 ], [ 86076, %60 ]
+  %.071.i = phi i32 [ 0, %67 ], [ 86018, %65 ], [ 86028, %66 ], [ 86076, %60 ]
   %69 = load i32, ptr %27, align 8, !tbaa !11
   %70 = icmp sgt i32 %69, 0
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !19
@@ -437,7 +437,7 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
   br label %95
 
 95:                                               ; preds = %93, %91, %89, %87, %82
-  %.2.i = phi i32 [ %58, %82 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ]
+  %.2.i = phi i32 [ %58, %82 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ]
   %96 = icmp slt i32 %.2.i, 0
   br i1 %96, label %114, label %97
 
@@ -835,7 +835,7 @@ ff_iamf_get_codec_config.exit.thread.i:           ; preds = %ff_iamf_get_codec_c
   br label %audio_element_obu.exit
 
 .thread199.i:                                     ; preds = %200, %182, %250, %242, %238, %236, %257, %252, %233, %227, %170, %163, %161, %155, %ff_iamf_get_codec_config.exit.thread.i, %135, %120
-  %.0132201.i = phi i32 [ -12, %170 ], [ -12, %163 ], [ -12, %161 ], [ -12, %155 ], [ -1094995529, %ff_iamf_get_codec_config.exit.thread.i ], [ %258, %257 ], [ %253, %252 ], [ -1094995529, %233 ], [ -1094995529, %227 ], [ -1094995529, %135 ], [ %121, %120 ], [ %.7.i, %250 ], [ -1094995529, %236 ], [ -1094995529, %238 ], [ -1094995529, %242 ], [ -12, %182 ], [ -12, %200 ]
+  %.0132201.i = phi i32 [ -12, %170 ], [ -12, %163 ], [ -12, %161 ], [ -12, %155 ], [ -1094995529, %135 ], [ -1094995529, %ff_iamf_get_codec_config.exit.thread.i ], [ %258, %257 ], [ %253, %252 ], [ -1094995529, %233 ], [ -1094995529, %227 ], [ %121, %120 ], [ %.7.i, %250 ], [ -1094995529, %236 ], [ -1094995529, %238 ], [ -1094995529, %242 ], [ -12, %182 ], [ -12, %200 ]
   call void @av_free(ptr noundef nonnull %119) #10
   call void @ff_iamf_free_audio_element(ptr noundef nonnull %10) #10
   br label %audio_element_obu.exit
@@ -1353,7 +1353,7 @@ label_string.exit251.i:                           ; preds = %364
   br label %mix_presentation_obu.exit
 
 .thread365.i:                                     ; preds = %label_string.exit.i, %334, %label_string.exit245.i, %._crit_edge414.i, %.lr.ph423.i, %._crit_edge410.i, %.lr.ph413.i, %410, %.lr.ph420.i, %372, %label_string.exit251.i, %407, %label_string.exit251.thread.i, %.critedge.i, %label_string.exit245.thread.i, %label_string.exit.thread.i, %306, %295, %293, %._crit_edge.i65, %289, %274
-  %.0172367.i = phi i32 [ -12, %295 ], [ -12, %293 ], [ -12, %._crit_edge.i65 ], [ -12, %306 ], [ -1094995529, %289 ], [ %275, %274 ], [ %.0.i.ph.i, %label_string.exit.thread.i ], [ %.0.i241.ph.i, %label_string.exit245.thread.i ], [ -1094995529, %407 ], [ %.0.i247.ph.i, %label_string.exit251.thread.i ], [ -1094995529, %.critedge.i ], [ %376, %372 ], [ %366, %label_string.exit251.i ], [ -1094995529, %410 ], [ -12, %.lr.ph420.i ], [ %385, %._crit_edge410.i ], [ -12, %.lr.ph413.i ], [ -12, %.lr.ph423.i ], [ %393, %._crit_edge414.i ], [ %338, %334 ], [ %328, %label_string.exit245.i ], [ %312, %label_string.exit.i ]
+  %.0172367.i = phi i32 [ -12, %295 ], [ -12, %293 ], [ -12, %._crit_edge.i65 ], [ -1094995529, %289 ], [ -12, %306 ], [ %275, %274 ], [ %.0.i.ph.i, %label_string.exit.thread.i ], [ %.0.i241.ph.i, %label_string.exit245.thread.i ], [ -1094995529, %407 ], [ %.0.i247.ph.i, %label_string.exit251.thread.i ], [ -1094995529, %.critedge.i ], [ %376, %372 ], [ %366, %label_string.exit251.i ], [ -1094995529, %410 ], [ -12, %.lr.ph420.i ], [ %385, %._crit_edge410.i ], [ -12, %.lr.ph413.i ], [ -12, %.lr.ph423.i ], [ %393, %._crit_edge414.i ], [ %338, %334 ], [ %328, %label_string.exit245.i ], [ %312, %label_string.exit.i ]
   call void @av_free(ptr noundef nonnull %273) #10
   call void @ff_iamf_free_mix_presentation(ptr noundef nonnull %8) #10
   br label %mix_presentation_obu.exit
@@ -1372,7 +1372,7 @@ mix_presentation_obu.exit:                        ; preds = %271, %.thread369.i,
   br i1 %475, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %472, %mix_presentation_obu.exit, %audio_element_obu.exit, %codec_config_obu.exit
-  %.044 = phi i32 [ %.0.i66, %mix_presentation_obu.exit ], [ %.0.i, %audio_element_obu.exit ], [ %.069.i, %codec_config_obu.exit ], [ %476, %472 ]
+  %.044 = phi i32 [ %.069.i, %codec_config_obu.exit ], [ %.0.i, %audio_element_obu.exit ], [ %.0.i66, %mix_presentation_obu.exit ], [ %476, %472 ]
   %477 = icmp slt i32 %.044, 0
   br i1 %477, label %478, label %select.unfold..thread_crit_edge
 

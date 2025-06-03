@@ -383,7 +383,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver20UpdateAnimRangeSetupEv(ptr nou
   br label %71
 
 71:                                               ; preds = %69, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %70, %69 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %70, %69 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %72 = load double, ptr %.sroa.032.1.i.i.i, align 8
   %73 = fcmp ogt double %37, %72
   br i1 %73, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEEZNS3_12AnimResolver20UpdateAnimRangeSetupEvE3$_0ET_SC_SC_T0_.exit", label %74
@@ -393,7 +393,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver20UpdateAnimRangeSetupEv(ptr nou
   br label %76
 
 76:                                               ; preds = %74, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %75, %74 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %75, %74 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %77 = load double, ptr %.sroa.032.2.i.i.i, align 8
   %78 = fcmp ogt double %37, %77
   br i1 %78, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEEZNS3_12AnimResolver20UpdateAnimRangeSetupEvE3$_0ET_SC_SC_T0_.exit", label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit

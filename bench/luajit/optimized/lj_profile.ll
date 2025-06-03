@@ -114,8 +114,8 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   br label %27
 
 27:                                               ; preds = %9, %21, %.critedge
-  %.227 = phi i32 [ %.02537, %9 ], [ %.02537, %21 ], [ %spec.store.select, %.critedge ]
-  %.2 = phi ptr [ %11, %9 ], [ %11, %21 ], [ %.1.lcssa, %.critedge ]
+  %.227 = phi i32 [ %.02537, %9 ], [ %spec.store.select, %.critedge ], [ %.02537, %21 ]
+  %.2 = phi ptr [ %11, %9 ], [ %.1.lcssa, %.critedge ], [ %11, %21 ]
   %28 = load i8, ptr %.2, align 1, !tbaa !33
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !51

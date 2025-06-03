@@ -1534,8 +1534,8 @@ _ZL21yyensure_buffer_stackPv.exit:                ; preds = %52, %.critedge, %63
   br label %416
 
 416:                                              ; preds = %413, %410, %.lr.ph.i
-  %.115.i = phi ptr [ %408, %.lr.ph.i ], [ %415, %413 ], [ %408, %410 ]
-  %.1.i = phi i64 [ %.018.i, %.lr.ph.i ], [ %414, %413 ], [ %.018.i, %410 ]
+  %.115.i = phi ptr [ %415, %413 ], [ %408, %410 ], [ %408, %.lr.ph.i ]
+  %.1.i = phi i64 [ %414, %413 ], [ %.018.i, %410 ], [ %.018.i, %.lr.ph.i ]
   %417 = add nsw i32 %406, 1
   store i32 %417, ptr %400, align 4
   br label %420
@@ -1723,8 +1723,8 @@ _ZN3nixL11unescapeStrERNS_11SymbolTableEPcm.exit: ; preds = %425
   br label %501
 
 501:                                              ; preds = %498, %495, %.lr.ph.i546
-  %.115.i549 = phi ptr [ %493, %.lr.ph.i546 ], [ %500, %498 ], [ %493, %495 ]
-  %.1.i550 = phi i64 [ %.018.i547, %.lr.ph.i546 ], [ %499, %498 ], [ %.018.i547, %495 ]
+  %.115.i549 = phi ptr [ %500, %498 ], [ %493, %495 ], [ %493, %.lr.ph.i546 ]
+  %.1.i550 = phi i64 [ %499, %498 ], [ %.018.i547, %495 ], [ %.018.i547, %.lr.ph.i546 ]
   %502 = add nsw i32 %491, 1
   store i32 %502, ptr %485, align 4
   br label %505
@@ -1859,8 +1859,8 @@ _ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm.exit554: ; preds = %505, %475
   br label %566
 
 566:                                              ; preds = %563, %560, %.lr.ph.i556
-  %.115.i559 = phi ptr [ %558, %.lr.ph.i556 ], [ %565, %563 ], [ %558, %560 ]
-  %.1.i560 = phi i64 [ %.018.i557, %.lr.ph.i556 ], [ %564, %563 ], [ %.018.i557, %560 ]
+  %.115.i559 = phi ptr [ %565, %563 ], [ %558, %560 ], [ %558, %.lr.ph.i556 ]
+  %.1.i560 = phi i64 [ %564, %563 ], [ %.018.i557, %560 ], [ %.018.i557, %.lr.ph.i556 ]
   %567 = add nsw i32 %556, 1
   store i32 %567, ptr %550, align 4
   br label %570
@@ -2835,7 +2835,7 @@ default.unreachable1537:                          ; preds = %_ZL18yy_get_next_bu
   unreachable
 
 .loopexit622:                                     ; preds = %157, %157, %157, %157, %157, %367, %373, %320, %778, %754, %745, %_ZL12yy_pop_statePv.exit, %664, %659, %643, %627, %618, %609, %534, %529, %524, %516, %510, %_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm.exit554, %466, %461, %456, %451, %446, %_ZN3nixL11unescapeStrERNS_11SymbolTableEPcm.exit, %379, %374, %362, %277, %261, %256, %251, %246, %241, %236, %231, %226, %221, %216, %211, %206, %201, %196, %191, %186, %181, %176, %171, %166, %161
-  %.0 = phi i32 [ %785, %778 ], [ 267, %754 ], [ 265, %745 ], [ 266, %_ZL12yy_pop_statePv.exit ], [ 259, %664 ], [ 283, %659 ], [ 264, %643 ], [ 263, %627 ], [ 264, %618 ], [ 263, %609 ], [ 260, %534 ], [ 285, %529 ], [ 283, %524 ], [ 260, %516 ], [ 260, %510 ], [ 260, %_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm.exit554 ], [ 260, %466 ], [ 284, %461 ], [ -1, %456 ], [ 34, %451 ], [ 283, %446 ], [ 259, %_ZN3nixL11unescapeStrERNS_11SymbolTableEPcm.exit ], [ 34, %379 ], [ 123, %374 ], [ 283, %362 ], [ 261, %277 ], [ 258, %261 ], [ 291, %256 ], [ 289, %251 ], [ 281, %246 ], [ 280, %241 ], [ 279, %236 ], [ 288, %231 ], [ 287, %226 ], [ 278, %221 ], [ 277, %216 ], [ 286, %211 ], [ 282, %206 ], [ 276, %201 ], [ 275, %196 ], [ 274, %191 ], [ 273, %186 ], [ 272, %181 ], [ 271, %176 ], [ 270, %171 ], [ 269, %166 ], [ 268, %161 ], [ 262, %320 ], [ 125, %373 ], [ 125, %367 ], [ 0, %157 ], [ 0, %157 ], [ 0, %157 ], [ 0, %157 ], [ 0, %157 ]
+  %.0 = phi i32 [ 268, %161 ], [ 269, %166 ], [ 270, %171 ], [ 271, %176 ], [ 272, %181 ], [ 273, %186 ], [ 274, %191 ], [ 275, %196 ], [ 276, %201 ], [ 282, %206 ], [ 286, %211 ], [ 277, %216 ], [ 278, %221 ], [ 287, %226 ], [ 288, %231 ], [ 279, %236 ], [ 280, %241 ], [ 281, %246 ], [ 289, %251 ], [ 291, %256 ], [ 258, %261 ], [ 261, %277 ], [ 283, %362 ], [ 123, %374 ], [ 34, %379 ], [ 259, %_ZN3nixL11unescapeStrERNS_11SymbolTableEPcm.exit ], [ 283, %446 ], [ 34, %451 ], [ -1, %456 ], [ 284, %461 ], [ 260, %466 ], [ 260, %_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm.exit554 ], [ 260, %510 ], [ 260, %516 ], [ 283, %524 ], [ 285, %529 ], [ 260, %534 ], [ 263, %609 ], [ 264, %618 ], [ 263, %627 ], [ 264, %643 ], [ 283, %659 ], [ 259, %664 ], [ 266, %_ZL12yy_pop_statePv.exit ], [ 265, %745 ], [ 267, %754 ], [ %785, %778 ], [ 262, %320 ], [ 125, %373 ], [ 125, %367 ], [ 0, %157 ], [ 0, %157 ], [ 0, %157 ], [ 0, %157 ], [ 0, %157 ]
   ret i32 %.0
 
 .sink.split.sink.split:                           ; preds = %.thread599, %.thread613
@@ -2852,7 +2852,7 @@ default.unreachable1537:                          ; preds = %_ZL18yy_get_next_bu
   br label %1058
 
 1058:                                             ; preds = %.sink.split, %744, %361, %319, %279
-  %.merged = phi { ptr, i32 } [ %.pn.pn.pn, %744 ], [ %.pn533.pn.pn, %361 ], [ %.pn538.pn.pn.pn587, %319 ], [ %280, %279 ], [ %.merged.ph, %.sink.split ]
+  %.merged = phi { ptr, i32 } [ %.pn538.pn.pn.pn587, %319 ], [ %280, %279 ], [ %.pn533.pn.pn, %361 ], [ %.pn.pn.pn, %744 ], [ %.merged.ph, %.sink.split ]
   resume { ptr, i32 } %.merged
 
 1059:                                             ; preds = %319
@@ -3017,8 +3017,8 @@ define internal fastcc void @_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm(ptr no
   br label %25
 
 25:                                               ; preds = %19, %22, %.lr.ph
-  %.115 = phi ptr [ %17, %.lr.ph ], [ %24, %22 ], [ %17, %19 ]
-  %.1 = phi i64 [ %.018, %.lr.ph ], [ %23, %22 ], [ %.018, %19 ]
+  %.115 = phi ptr [ %24, %22 ], [ %17, %19 ], [ %17, %.lr.ph ]
+  %.1 = phi i64 [ %23, %22 ], [ %.018, %19 ], [ %.018, %.lr.ph ]
   %26 = add nsw i32 %15, 1
   store i32 %26, ptr %9, align 4
   br label %29
@@ -10275,7 +10275,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
   br label %524
 
 362:                                              ; preds = %356, %350, %344, %338, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %337
-  %.1 = phi i8 [ 73, %337 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ 51, %338 ], [ 0, %344 ], [ 54, %350 ], [ 0, %356 ]
+  %.1 = phi i8 [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ 73, %337 ], [ 51, %338 ], [ 0, %344 ], [ 54, %350 ], [ 0, %356 ]
   %363 = load ptr, ptr %0, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 1
   store ptr %364, ptr %0, align 8
@@ -10641,7 +10641,7 @@ _ZNKSt5ctypeIcE5widenEc.exit265:                  ; preds = %508, %511
   br label %524
 
 524:                                              ; preds = %499, %519, %124, %128, %517, %461, %395, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252, %357, %351, %345, %339, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit
-  %.0 = phi i1 [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252 ], [ true, %395 ], [ true, %517 ], [ false, %461 ], [ true, %357 ], [ true, %351 ], [ true, %345 ], [ true, %339 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227 ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219 ], [ true, %128 ], [ true, %124 ], [ true, %519 ], [ true, %499 ]
+  %.0 = phi i1 [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252 ], [ true, %395 ], [ true, %517 ], [ false, %461 ], [ true, %339 ], [ true, %345 ], [ true, %351 ], [ true, %357 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227 ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219 ], [ true, %128 ], [ true, %124 ], [ true, %519 ], [ true, %499 ]
   ret i1 %.0
 }
 

@@ -1802,8 +1802,8 @@ _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_17MachineBasicBlockEEESaIS5_EE9push_backEOS5
   br label %102
 
 102:                                              ; preds = %100, %._crit_edge._crit_edge.i.i.i.i
-  %103 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %98, %100 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %101, %100 ]
+  %103 = phi ptr [ %98, %100 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %101, %100 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %104 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !40
   %105 = icmp eq ptr %104, %103
   br i1 %105, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit, label %106
@@ -1813,8 +1813,8 @@ _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_17MachineBasicBlockEEESaIS5_EE9push_backEOS5
   br label %108
 
 108:                                              ; preds = %106, %._crit_edge._crit_edge52.i.i.i.i
-  %109 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %103, %106 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %107, %106 ]
+  %109 = phi ptr [ %103, %106 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %107, %106 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %110 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !40
   %111 = icmp eq ptr %110, %109
   br i1 %111, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEES3_EEbOT_RKT0_.exit.thread

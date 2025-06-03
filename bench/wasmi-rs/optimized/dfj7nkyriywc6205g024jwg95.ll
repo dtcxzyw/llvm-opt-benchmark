@@ -148,7 +148,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN72_$LT$wasmi..engine..code_map..FuncEntity$u20$as$u20$core..fmt..Debug$GT$3fmt17h21e02d94b07eb522E.exit"
 
 "_ZN72_$LT$wasmi..engine..code_map..FuncEntity$u20$as$u20$core..fmt..Debug$GT$3fmt17h21e02d94b07eb522E.exit": ; preds = %11, %13, %15, %17, %19
-  %.sroa.0.0.in.i = phi i1 [ %21, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %21, %19 ]
   ret i1 %.sroa.0.0.in.i
 }
 

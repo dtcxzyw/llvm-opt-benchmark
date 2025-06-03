@@ -2076,7 +2076,7 @@ define internal fastcc noalias noundef ptr @quote_makefile(ptr noundef readonly 
   br label %39
 
 39:                                               ; preds = %10, %15, %.critedge, %35
-  %.2 = phi i32 [ %36, %35 ], [ %30, %.critedge ], [ %18, %15 ], [ %13, %10 ]
+  %.2 = phi i32 [ %36, %35 ], [ %13, %10 ], [ %18, %15 ], [ %30, %.critedge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %6, !llvm.loop !63
 }

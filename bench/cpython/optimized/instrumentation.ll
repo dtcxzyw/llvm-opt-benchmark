@@ -3824,7 +3824,7 @@ _PyInstruction_GetLength.exit153.i.i:             ; preds = %_Py_GetBaseCodeUnit
   br label %595
 
 595:                                              ; preds = %593, %590, %588
-  %.0106.i.i = phi i32 [ %594, %593 ], [ %592, %590 ], [ %589, %588 ]
+  %.0106.i.i = phi i32 [ %589, %588 ], [ %592, %590 ], [ %594, %593 ]
   %596 = load i8, ptr %237, align 1, !tbaa !31
   %597 = zext i8 %596 to i32
   %598 = mul i32 %.0106.i.i, %597
@@ -9199,8 +9199,8 @@ _Py_GetBaseCodeUnit.exit:                         ; preds = %18, %24, %58, %62
   %96 = icmp sgt i64 %.val, %95
   br i1 %96, label %12, label %.thread, !llvm.loop !196
 
-.thread:                                          ; preds = %94, %1, %74, %84
-  %.2 = phi ptr [ %83, %74 ], [ %93, %84 ], [ null, %1 ], [ null, %94 ]
+.thread:                                          ; preds = %94, %1, %84, %74
+  %.2 = phi ptr [ %93, %84 ], [ %83, %74 ], [ null, %1 ], [ null, %94 ]
   ret ptr %.2
 }
 

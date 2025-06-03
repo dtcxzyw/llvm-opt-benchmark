@@ -1640,7 +1640,7 @@ php_json_scanner_copy_string.exit1513:            ; preds = %720, %726
   br label %.thread1605
 
 select.unfold1613:                                ; preds = %php_json_scanner_copy_string.exit1513, %736, %735, %734, %733, %732
-  %.01298 = phi i8 [ %731, %736 ], [ 9, %735 ], [ 13, %734 ], [ 10, %733 ], [ 12, %732 ], [ 8, %php_json_scanner_copy_string.exit1513 ]
+  %.01298 = phi i8 [ 12, %732 ], [ 10, %733 ], [ 13, %734 ], [ 9, %735 ], [ %731, %736 ], [ 8, %php_json_scanner_copy_string.exit1513 ]
   %738 = load ptr, ptr %1166, align 8, !tbaa !31
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 1
   store ptr %739, ptr %1166, align 8, !tbaa !31
@@ -2541,7 +2541,7 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1139, %1145
   br label %.thread1605
 
 select.unfold1619:                                ; preds = %php_json_scanner_copy_string.exit1551, %1155, %1154, %1153, %1152, %1151
-  %.01299 = phi i8 [ %1150, %1155 ], [ 9, %1154 ], [ 13, %1153 ], [ 10, %1152 ], [ 12, %1151 ], [ 8, %php_json_scanner_copy_string.exit1551 ]
+  %.01299 = phi i8 [ 12, %1151 ], [ 10, %1152 ], [ 13, %1153 ], [ 9, %1154 ], [ %1150, %1155 ], [ 8, %php_json_scanner_copy_string.exit1551 ]
   %1157 = load ptr, ptr %1121, align 8, !tbaa !31
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 1
   store ptr %1158, ptr %1121, align 8, !tbaa !31

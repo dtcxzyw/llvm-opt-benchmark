@@ -319,8 +319,8 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   br label %68
 
 68:                                               ; preds = %64, %54
-  %.151 = phi ptr [ %55, %54 ], [ %65, %64 ]
-  %.0 = phi i32 [ %57, %54 ], [ %67, %64 ]
+  %.151 = phi ptr [ %65, %64 ], [ %55, %54 ]
+  %.0 = phi i32 [ %67, %64 ], [ %57, %54 ]
   %.not76104 = icmp eq i32 %.0, 0
   br i1 %.not76104, label %._crit_edge, label %.lr.ph107
 

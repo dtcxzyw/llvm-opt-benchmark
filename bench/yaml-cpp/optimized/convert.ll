@@ -285,7 +285,7 @@ _ZNK4YAML4Node6ScalarB5cxx11Ev.exit:              ; preds = %62, %66
   br label %106
 
 106:                                              ; preds = %104, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %105, %104 ]
+  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %105, %104 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %107 = load i8, ptr %.sroa.032.1.i.i.i.i.i.i, align 1, !tbaa !53
   %108 = add i8 %107, -97
   %109 = icmp ult i8 %108, 26
@@ -296,7 +296,7 @@ _ZNK4YAML4Node6ScalarB5cxx11Ev.exit:              ; preds = %62, %66
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %111, %110 ]
+  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %111, %110 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %113 = load i8, ptr %.sroa.032.2.i.i.i.i.i.i, align 1, !tbaa !53
   %114 = add i8 %113, -97
   %115 = icmp ult i8 %114, 26
@@ -438,7 +438,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i: ; preds
   br label %172
 
 172:                                              ; preds = %170, %._crit_edge.i.i.i.i.i12.i
-  %.sroa.032.1.i.i.i.i.i18.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i12.i ], [ %171, %170 ]
+  %.sroa.032.1.i.i.i.i.i18.i = phi ptr [ %171, %170 ], [ %.sroa.032.0.lcssa.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i12.i ]
   %173 = load i8, ptr %.sroa.032.1.i.i.i.i.i18.i, align 1, !tbaa !53
   %174 = add i8 %173, -97
   %175 = icmp ult i8 %174, 26
@@ -449,7 +449,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i: ; preds
   br label %178
 
 178:                                              ; preds = %176, %._crit_edge.i.i.i.i.i12.i
-  %.sroa.032.2.i.i.i.i.i15.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i12.i ], [ %177, %176 ]
+  %.sroa.032.2.i.i.i.i.i15.i = phi ptr [ %177, %176 ], [ %.sroa.032.0.lcssa.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i12.i ]
   %179 = load i8, ptr %.sroa.032.2.i.i.i.i.i15.i, align 1, !tbaa !53
   %180 = add i8 %179, -97
   %181 = icmp ult i8 %180, 26
@@ -537,7 +537,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i: ; preds
   br label %217
 
 217:                                              ; preds = %215, %._crit_edge.i.i.i.i.i26.i
-  %.sroa.032.1.i.i.i.i.i32.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i27.i, %._crit_edge.i.i.i.i.i26.i ], [ %216, %215 ]
+  %.sroa.032.1.i.i.i.i.i32.i = phi ptr [ %216, %215 ], [ %.sroa.032.0.lcssa.i.i.i.i.i27.i, %._crit_edge.i.i.i.i.i26.i ]
   %218 = load i8, ptr %.sroa.032.1.i.i.i.i.i32.i, align 1, !tbaa !53
   %219 = add i8 %218, -65
   %220 = icmp ult i8 %219, 26
@@ -548,7 +548,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i: ; preds
   br label %223
 
 223:                                              ; preds = %221, %._crit_edge.i.i.i.i.i26.i
-  %.sroa.032.2.i.i.i.i.i29.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i27.i, %._crit_edge.i.i.i.i.i26.i ], [ %222, %221 ]
+  %.sroa.032.2.i.i.i.i.i29.i = phi ptr [ %222, %221 ], [ %.sroa.032.0.lcssa.i.i.i.i.i27.i, %._crit_edge.i.i.i.i.i26.i ]
   %224 = load i8, ptr %.sroa.032.2.i.i.i.i.i29.i, align 1, !tbaa !53
   %225 = add i8 %224, -65
   %226 = icmp ult i8 %225, 26

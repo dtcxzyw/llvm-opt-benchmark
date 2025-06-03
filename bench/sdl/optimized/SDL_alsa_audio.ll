@@ -2050,7 +2050,7 @@ define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr no
   br label %51
 
 51:                                               ; preds = %.backedge, %50, %49, %48, %47, %46, %45, %44
-  %.071 = phi i32 [ 15, %50 ], [ 14, %49 ], [ 11, %48 ], [ 10, %47 ], [ 3, %46 ], [ 2, %45 ], [ 0, %44 ], [ 1, %.backedge ]
+  %.071 = phi i32 [ 0, %44 ], [ 2, %45 ], [ 3, %46 ], [ 10, %47 ], [ 11, %48 ], [ 14, %49 ], [ 15, %50 ], [ 1, %.backedge ]
   %52 = load ptr, ptr @ALSA_snd_pcm_hw_params_set_format, align 8
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 200

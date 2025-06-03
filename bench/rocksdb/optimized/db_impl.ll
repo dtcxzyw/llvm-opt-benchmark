@@ -66366,13 +66366,13 @@ _ZN7rocksdb6StatusaSEOS0_.exit182:                ; preds = %257
   br label %287
 
 270:                                              ; preds = %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit, %_ZN7rocksdb6StatusaSEOS0_.exit182, %_ZN7rocksdb6StatusaSEOS0_.exit176
-  %.sroa.8.2 = phi i8 [ %262, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %249, %_ZN7rocksdb6StatusaSEOS0_.exit176 ], [ %228, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ]
-  %.sroa.12.2 = phi i8 [ %263, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %250, %_ZN7rocksdb6StatusaSEOS0_.exit176 ], [ %229, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ]
-  %.sroa.16.2 = phi i8 [ %264, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %251, %_ZN7rocksdb6StatusaSEOS0_.exit176 ], [ %230, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ]
-  %.sroa.20.2 = phi i8 [ %265, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %252, %_ZN7rocksdb6StatusaSEOS0_.exit176 ], [ %231, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ]
-  %.sroa.28695.2 = phi ptr [ %267, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %254, %_ZN7rocksdb6StatusaSEOS0_.exit176 ], [ %233, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ]
-  %.sroa.0.2 = phi i8 [ %261, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %248, %_ZN7rocksdb6StatusaSEOS0_.exit176 ], [ %227, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ]
-  %.sroa.24.2 = phi i8 [ %266, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %253, %_ZN7rocksdb6StatusaSEOS0_.exit176 ], [ %232, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ]
+  %.sroa.8.2 = phi i8 [ %262, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %228, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ], [ %249, %_ZN7rocksdb6StatusaSEOS0_.exit176 ]
+  %.sroa.12.2 = phi i8 [ %263, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %229, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ], [ %250, %_ZN7rocksdb6StatusaSEOS0_.exit176 ]
+  %.sroa.16.2 = phi i8 [ %264, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %230, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ], [ %251, %_ZN7rocksdb6StatusaSEOS0_.exit176 ]
+  %.sroa.20.2 = phi i8 [ %265, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %231, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ], [ %252, %_ZN7rocksdb6StatusaSEOS0_.exit176 ]
+  %.sroa.28695.2 = phi ptr [ %267, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %233, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ], [ %254, %_ZN7rocksdb6StatusaSEOS0_.exit176 ]
+  %.sroa.0.2 = phi i8 [ %261, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %227, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ], [ %248, %_ZN7rocksdb6StatusaSEOS0_.exit176 ]
+  %.sroa.24.2 = phi i8 [ %266, %_ZN7rocksdb6StatusaSEOS0_.exit182 ], [ %232, %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit ], [ %253, %_ZN7rocksdb6StatusaSEOS0_.exit176 ]
   %271 = icmp eq i8 %.sroa.0.2, 0
   %272 = load i8, ptr %0, align 8
   %273 = icmp ne i8 %272, 0
@@ -66452,8 +66452,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit198
 
 287:                                              ; preds = %279, %268, %255, %245
-  %.sroa.28695.1 = phi ptr [ %.sroa.28695.2, %279 ], [ null, %268 ], [ null, %255 ], [ null, %245 ]
-  %.pn150 = phi { ptr, i32 } [ %280, %279 ], [ %269, %268 ], [ %256, %255 ], [ %246, %245 ]
+  %.sroa.28695.1 = phi ptr [ %.sroa.28695.2, %279 ], [ null, %268 ], [ null, %245 ], [ null, %255 ]
+  %.pn150 = phi { ptr, i32 } [ %280, %279 ], [ %269, %268 ], [ %246, %245 ], [ %256, %255 ]
   %288 = load ptr, ptr %23, align 8, !tbaa !11
   %289 = icmp eq ptr %288, %134
   br i1 %289, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i200, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i199

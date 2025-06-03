@@ -2825,8 +2825,8 @@ define internal fastcc range(i32 0, 22) i32 @subexpr(ptr noundef nonnull %0, ptr
 11:                                               ; preds = %3
   br label %12
 
-12:                                               ; preds = %3, %11, %10, %9
-  %.0.i.ph = phi i32 [ 2, %3 ], [ 0, %9 ], [ 1, %10 ], [ 3, %11 ]
+12:                                               ; preds = %3, %9, %10, %11
+  %.0.i.ph = phi i32 [ 2, %3 ], [ 3, %11 ], [ 1, %10 ], [ 0, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !113
   tail call void @luaX_next(ptr noundef nonnull %0) #12
@@ -3034,8 +3034,8 @@ simpleexp.exit:                                   ; preds = %66, %65, %62, %61, 
 87:                                               ; preds = %simpleexp.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %simpleexp.exit
-  %.0.i32.ph = phi i32 [ 0, %simpleexp.exit ], [ 1, %68 ], [ 2, %69 ], [ 3, %70 ], [ 4, %71 ], [ 5, %72 ], [ 6, %73 ], [ 7, %74 ], [ 8, %75 ], [ 9, %76 ], [ 10, %77 ], [ 11, %78 ], [ 12, %79 ], [ 16, %80 ], [ 13, %81 ], [ 14, %82 ], [ 15, %83 ], [ 17, %84 ], [ 18, %85 ], [ 19, %86 ], [ 20, %87 ]
+.lr.ph:                                           ; preds = %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %simpleexp.exit
+  %.0.i32.ph = phi i32 [ 0, %simpleexp.exit ], [ 20, %87 ], [ 19, %86 ], [ 18, %85 ], [ 17, %84 ], [ 15, %83 ], [ 14, %82 ], [ 13, %81 ], [ 16, %80 ], [ 12, %79 ], [ 11, %78 ], [ 10, %77 ], [ 9, %76 ], [ 8, %75 ], [ 7, %74 ], [ 6, %73 ], [ 5, %72 ], [ 4, %71 ], [ 3, %70 ], [ 2, %69 ], [ 1, %68 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %90 = trunc nuw i32 %2 to i8

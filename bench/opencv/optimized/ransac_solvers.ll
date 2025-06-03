@@ -22575,7 +22575,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit849: ; preds = %_Z
   br label %common.resume
 
 3172:                                             ; preds = %2968, %_ZNSt12__shared_ptrIN2cv4usac13ProsacSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv4usac13NapsacSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv4usac17ProgressiveNapsacELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv4usac14UniformSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.2 = phi i32 [ %3098, %_ZNSt12__shared_ptrIN2cv4usac13NapsacSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %3036, %_ZNSt12__shared_ptrIN2cv4usac17ProgressiveNapsacELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.0, %2968 ], [ %2970, %_ZNSt12__shared_ptrIN2cv4usac13ProsacSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %2908, %_ZNSt12__shared_ptrIN2cv4usac14UniformSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.2 = phi i32 [ %2908, %_ZNSt12__shared_ptrIN2cv4usac14UniformSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.0, %2968 ], [ %2970, %_ZNSt12__shared_ptrIN2cv4usac13ProsacSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %3036, %_ZNSt12__shared_ptrIN2cv4usac17ProgressiveNapsacELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %3098, %_ZNSt12__shared_ptrIN2cv4usac13NapsacSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %3173 = load ptr, ptr %0, align 8, !tbaa !161
   %3174 = load ptr, ptr %3173, align 8, !tbaa !35
   %3175 = getelementptr inbounds nuw i8, ptr %3174, i64 176
@@ -25480,7 +25480,7 @@ _ZNSt12__shared_ptrIN2cv4usac27StandardTerminationCriteriaELN9__gnu_cxx12_Lock_p
   br label %4497
 
 4496:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1093, %4458, %4344, %4255, %4119
-  %.pn183.pn = phi { ptr, i32 } [ %.pn183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1093 ], [ %.pn181, %4458 ], [ %4345, %4344 ], [ %4256, %4255 ], [ %4120, %4119 ]
+  %.pn183.pn = phi { ptr, i32 } [ %.pn183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1093 ], [ %4256, %4255 ], [ %4345, %4344 ], [ %.pn181, %4458 ], [ %4120, %4119 ]
   call void @_ZNSt12__shared_ptrIN2cv4usac27StandardTerminationCriteriaELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #27
   br label %common.resume

@@ -1088,8 +1088,8 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN74_$LT$$RF$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hf1f5cb1ccd391997E.exit"
 
 "_ZN74_$LT$$RF$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hf1f5cb1ccd391997E.exit": ; preds = %11, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i", %22
-  %.pn2.i = phi ptr [ %25, %22 ], [ %.sroa.3.0.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i" ], [ %13, %11 ]
-  %.sroa.0.0.i = phi i64 [ 1, %22 ], [ %.sroa.0.0.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i" ], [ 0, %11 ]
+  %.pn2.i = phi ptr [ %13, %11 ], [ %.sroa.3.0.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i" ], [ %25, %22 ]
+  %.sroa.0.0.i = phi i64 [ 0, %11 ], [ %.sroa.0.0.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i" ], [ 1, %22 ]
   %26 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   br label %29
 
@@ -1170,8 +1170,8 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN74_$LT$$RF$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8f2a9647b78eceafE.llvm.9953363128220797170.exit"
 
 "_ZN74_$LT$$RF$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8f2a9647b78eceafE.llvm.9953363128220797170.exit": ; preds = %11, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit.i", %22
-  %.pn2.i = phi ptr [ %25, %22 ], [ %.sroa.3.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit.i" ], [ %13, %11 ]
-  %.sroa.0.0.i = phi i64 [ 1, %22 ], [ %.sroa.0.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit.i" ], [ 0, %11 ]
+  %.pn2.i = phi ptr [ %13, %11 ], [ %.sroa.3.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit.i" ], [ %25, %22 ]
+  %.sroa.0.0.i = phi i64 [ 0, %11 ], [ %.sroa.0.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit.i" ], [ 1, %22 ]
   %26 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   br label %29
 
@@ -8597,7 +8597,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4f77c1b8b98d679bE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4f77c1b8b98d679bE.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -8627,7 +8627,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN70_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf6cff66c9bbdfe8fE.exit"
 
 "_ZN70_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf6cff66c9bbdfe8fE.exit": ; preds = %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -8653,7 +8653,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h61267eb86bbd64deE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h61267eb86bbd64deE.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -8720,7 +8720,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1f7d42a0283e88d5E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1f7d42a0283e88d5E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -13421,8 +13421,8 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN74_$LT$$RF$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hf1f5cb1ccd391997E.exit.i"
 
 "_ZN74_$LT$$RF$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hf1f5cb1ccd391997E.exit.i": ; preds = %22, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i.i", %11
-  %.pn2.i.i = phi ptr [ %25, %22 ], [ %.sroa.3.0.i.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i.i" ], [ %13, %11 ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %22 ], [ %.sroa.0.0.i.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i.i" ], [ 0, %11 ]
+  %.pn2.i.i = phi ptr [ %13, %11 ], [ %.sroa.3.0.i.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i.i" ], [ %25, %22 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %11 ], [ %.sroa.0.0.i.i.i, %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h0f285169a0f8d1eeE.exit.i.i" ], [ 1, %22 ]
   %26 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
   br label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_u6417h4facf98cf4b6af47E.llvm.9953363128220797170.exit"
 
@@ -14162,7 +14162,7 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h892cf78e582413e4E.llvm.9953363128220797170.exit"
 
 37:                                               ; preds = %35, %28
-  %.sroa.0.0.i.ph.i = phi ptr [ %29, %28 ], [ %36, %35 ]
+  %.sroa.0.0.i.ph.i = phi ptr [ %36, %35 ], [ %29, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph.i, ptr %38, align 8, !alias.scope !2965, !noalias !2968
   store i64 2, ptr %0, align 8, !alias.scope !2965, !noalias !2968
@@ -24215,8 +24215,8 @@ default.unreachable3:                             ; preds = %1
   br label %22
 
 22:                                               ; preds = %18, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit", %7
-  %.pn2 = phi ptr [ %21, %18 ], [ %.sroa.3.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit" ], [ %9, %7 ]
-  %.sroa.0.0 = phi i64 [ 1, %18 ], [ %.sroa.0.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit" ], [ 0, %7 ]
+  %.pn2 = phi ptr [ %9, %7 ], [ %.sroa.3.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit" ], [ %21, %18 ]
+  %.sroa.0.0 = phi i64 [ 0, %7 ], [ %.sroa.0.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h162944b8f27db8d0E.llvm.9953363128220797170.exit" ], [ 1, %18 ]
   %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.pn2, 1
   ret { i64, ptr } %24
@@ -26633,7 +26633,7 @@ default.unreachable:                              ; preds = %2
   br label %50
 
 50:                                               ; preds = %48, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit4", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit2", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit"
-  %.sroa.0.0 = phi ptr [ %49, %48 ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit4" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit2" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit2" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.llvm.9953363128220797170.exit4" ], [ %49, %48 ]
   ret ptr %.sroa.0.0
 }
 
@@ -26919,7 +26919,7 @@ default.unreachable185:                           ; preds = %2
   br label %66
 
 66:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit159.thread", %136, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit153.thread", %110, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit148.thread", %88, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit.thread", %65
-  %.sroa.0.1 = phi ptr [ %.sroa.0.4, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit159.thread" ], [ null, %136 ], [ %.sroa.0.3, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit153.thread" ], [ null, %110 ], [ %.sroa.0.2, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit148.thread" ], [ null, %88 ], [ %.sroa.0.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit.thread" ], [ null, %65 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit.thread" ], [ null, %65 ], [ %.sroa.0.2, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit148.thread" ], [ null, %88 ], [ %.sroa.0.3, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit153.thread" ], [ null, %110 ], [ %.sroa.0.4, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit159.thread" ], [ null, %136 ]
   ret ptr %.sroa.0.1
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit.thread": ; preds = %54, %57, %40, %62, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf6d7d25259940810E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h33ae880ff84a5c3cE.exit"
@@ -54417,8 +54417,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %237, label %232
 
-130:                                              ; preds = %76, %69
-  %.sroa.0.0.i.ph = phi ptr [ %70, %69 ], [ %77, %76 ]
+130:                                              ; preds = %69, %76
+  %.sroa.0.0.i.ph = phi ptr [ %77, %76 ], [ %70, %69 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %131, align 8
   store i8 4, ptr %0, align 8
@@ -54448,8 +54448,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.63)
   br label %136
 
-138:                                              ; preds = %92, %85
-  %.sroa.0.0.i98.ph = phi ptr [ %86, %85 ], [ %93, %92 ]
+138:                                              ; preds = %85, %92
+  %.sroa.0.0.i98.ph = phi ptr [ %93, %92 ], [ %86, %85 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i98.ph, ptr %139, align 8
   store i8 4, ptr %0, align 8
@@ -54473,8 +54473,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.63)
   br label %136
 
-145:                                              ; preds = %108, %101
-  %.sroa.0.0.i103.ph = phi ptr [ %102, %101 ], [ %109, %108 ]
+145:                                              ; preds = %101, %108
+  %.sroa.0.0.i103.ph = phi ptr [ %109, %108 ], [ %102, %101 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i103.ph, ptr %146, align 8
   store i8 4, ptr %0, align 8
@@ -54756,7 +54756,7 @@ common.resume.sink.split:                         ; preds = %229, %275
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %250, %202
-  %common.resume.op = phi { ptr, i32 } [ %251, %250 ], [ %203, %202 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %203, %202 ], [ %251, %250 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 229:                                              ; preds = %227, %223, %221
@@ -54769,8 +54769,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.thread
 
 231:                                              ; preds = %.thread242, %.thread
-  %.sroa.0115.3 = phi i8 [ %.sroa.0115.5247, %.thread242 ], [ %.sroa.0115.1235, %.thread ]
-  %.sroa.45141.4 = phi ptr [ %.sroa.45141.6248, %.thread242 ], [ %.sroa.45141.2236, %.thread ]
+  %.sroa.0115.3 = phi i8 [ %.sroa.0115.1235, %.thread ], [ %.sroa.0115.5247, %.thread242 ]
+  %.sroa.45141.4 = phi ptr [ %.sroa.45141.2236, %.thread ], [ %.sroa.45141.6248, %.thread242 ]
   %.not250 = icmp eq i8 %.sroa.0115.3, 4
   br i1 %.not250, label %180, label %282
 
@@ -55112,8 +55112,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13429
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -55233,8 +55233,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13477
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -55354,8 +55354,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13525
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -55481,8 +55481,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i8 0, ptr %0, align 8, !alias.scope !13573
   br label %46
 
-44:                                               ; preds = %34, %41
-  %.sroa.0.0.i.ph = phi ptr [ %35, %34 ], [ %42, %41 ]
+44:                                               ; preds = %41, %34
+  %.sroa.0.0.i.ph = phi ptr [ %42, %41 ], [ %35, %34 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %45, align 8
   store i8 1, ptr %0, align 8
@@ -55602,8 +55602,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13621
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -55723,8 +55723,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13669
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -55831,8 +55831,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %0, align 8, !alias.scope !13716
   br label %39
 
-37:                                               ; preds = %28, %35
-  %.sroa.0.0.i.ph = phi ptr [ %29, %28 ], [ %36, %35 ]
+37:                                               ; preds = %35, %28
+  %.sroa.0.0.i.ph = phi ptr [ %36, %35 ], [ %29, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %38, align 8
   store i64 2, ptr %0, align 8
@@ -55952,8 +55952,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13764
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -56073,8 +56073,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13812
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -56197,8 +56197,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i32 0, ptr %0, align 8, !alias.scope !13860
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i32 2, ptr %0, align 8
@@ -56437,9 +56437,9 @@ default.unreachable:                              ; preds = %74
   br label %"_ZN140_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd9017672372a1e75E.exit.i.i.i"
 
 "_ZN140_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd9017672372a1e75E.exit.i.i.i": ; preds = %85, %84, %83, %82, %81, %80, %79, %78, %71, %69, %.loopexit.i.i.i.i.i.i.i
-  %.sroa.8.0.i.i.i = phi i8 [ undef, %85 ], [ undef, %84 ], [ undef, %83 ], [ undef, %82 ], [ undef, %71 ], [ undef, %69 ], [ undef, %.loopexit.i.i.i.i.i.i.i ], [ 0, %78 ], [ 1, %79 ], [ 2, %80 ], [ 3, %81 ]
-  %.sroa.135.0.i.i.i = phi ptr [ %76, %85 ], [ %76, %84 ], [ %76, %83 ], [ %76, %82 ], [ %73, %71 ], [ %70, %69 ], [ %68, %.loopexit.i.i.i.i.i.i.i ], [ undef, %78 ], [ undef, %79 ], [ undef, %80 ], [ undef, %81 ]
-  %.sink.i26.i.i.i = phi i1 [ true, %85 ], [ true, %84 ], [ true, %83 ], [ true, %82 ], [ true, %71 ], [ true, %69 ], [ true, %.loopexit.i.i.i.i.i.i.i ], [ false, %78 ], [ false, %79 ], [ false, %80 ], [ false, %81 ]
+  %.sroa.8.0.i.i.i = phi i8 [ undef, %82 ], [ undef, %83 ], [ undef, %84 ], [ undef, %85 ], [ undef, %71 ], [ undef, %69 ], [ undef, %.loopexit.i.i.i.i.i.i.i ], [ 0, %78 ], [ 1, %79 ], [ 2, %80 ], [ 3, %81 ]
+  %.sroa.135.0.i.i.i = phi ptr [ %76, %82 ], [ %76, %83 ], [ %76, %84 ], [ %76, %85 ], [ %73, %71 ], [ %70, %69 ], [ %68, %.loopexit.i.i.i.i.i.i.i ], [ undef, %78 ], [ undef, %79 ], [ undef, %80 ], [ undef, %81 ]
+  %.sink.i26.i.i.i = phi i1 [ true, %82 ], [ true, %83 ], [ true, %84 ], [ true, %85 ], [ true, %71 ], [ true, %69 ], [ true, %.loopexit.i.i.i.i.i.i.i ], [ false, %78 ], [ false, %79 ], [ false, %80 ], [ false, %81 ]
   %86 = load i8, ptr %39, align 8, !range !98, !alias.scope !13916, !noalias !13915, !noundef !7
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %94, label %90
@@ -56528,7 +56528,7 @@ switch.lookup:                                    ; preds = %42, %110
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h9d788438f26f8eedE.exit"
 
 115:                                              ; preds = %112, %.loopexit.i.i.i, %107, %105, %88, %42, %36, %.loopexit16.i.i.i
-  %.sroa.101.0.ph.i = phi ptr [ %45, %42 ], [ %35, %.loopexit16.i.i.i ], [ %89, %88 ], [ %.sroa.135.0.i.i.i, %105 ], [ %109, %.loopexit.i.i.i ], [ %113, %112 ], [ %.sroa.135.0.i.i.i, %107 ], [ %37, %36 ]
+  %.sroa.101.0.ph.i = phi ptr [ %45, %42 ], [ %89, %88 ], [ %.sroa.135.0.i.i.i, %105 ], [ %109, %.loopexit.i.i.i ], [ %113, %112 ], [ %.sroa.135.0.i.i.i, %107 ], [ %35, %.loopexit16.i.i.i ], [ %37, %36 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.101.0.ph.i, ptr %116, align 8, !alias.scope !13882, !noalias !13885
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h9d788438f26f8eedE.exit"
@@ -56582,8 +56582,8 @@ switch.lookup:                                    ; preds = %42, %110
   store i8 4, ptr %133, align 1, !alias.scope !14016
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h9d788438f26f8eedE.exit"
 
-134:                                              ; preds = %124, %131
-  %.sroa.0.0.i.ph = phi ptr [ %125, %124 ], [ %132, %131 ]
+134:                                              ; preds = %131, %124
+  %.sroa.0.0.i.ph = phi ptr [ %132, %131 ], [ %125, %124 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %135, align 8
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h9d788438f26f8eedE.exit"
@@ -56704,8 +56704,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !14064
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775806, ptr %0, align 8
@@ -56825,8 +56825,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !14112
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8

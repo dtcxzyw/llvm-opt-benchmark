@@ -24835,7 +24835,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit396:
   ret void
 
 1301:                                             ; preds = %1249, %_ZNSt6vectorIlSaIlEED2Ev.exit380, %836, %576, %316, %.body, %63
-  %.pn116 = phi { ptr, i32 } [ %1250, %1249 ], [ %.pn96.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit380 ], [ %.pn103.pn.pn, %836 ], [ %.pn109.pn.pn, %576 ], [ %.pn113.pn, %316 ], [ %eh.lpad-body, %.body ], [ %64, %63 ]
+  %.pn116 = phi { ptr, i32 } [ %1250, %1249 ], [ %.pn113.pn, %316 ], [ %.pn109.pn.pn, %576 ], [ %.pn103.pn.pn, %836 ], [ %.pn96.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit380 ], [ %eh.lpad-body, %.body ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #36
@@ -30975,7 +30975,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   br label %444
 
 437:                                              ; preds = %406, %_ZNSt6vectorIlSaIlEED2Ev.exit147, %_ZNSt6vectorIlSaIlEED2Ev.exit110, %165, %163
-  %.pn63 = phi { ptr, i32 } [ %166, %165 ], [ %407, %406 ], [ %.pn54.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit147 ], [ %.pn60.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit110 ], [ %164, %163 ]
+  %.pn63 = phi { ptr, i32 } [ %166, %165 ], [ %407, %406 ], [ %.pn60.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit110 ], [ %.pn54.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit147 ], [ %164, %163 ]
   %438 = load ptr, ptr %15, align 8, !tbaa !772
   %.not.i.i.i157 = icmp eq ptr %438, null
   br i1 %.not.i.i.i157, label %_ZNSt6vectorIlSaIlEED2Ev.exit158, label %439
@@ -91113,7 +91113,7 @@ _ZNSt10unique_ptrIN5arrow3ipc7MessageESt14default_deleteIS2_EED2Ev.exit32: ; pre
   ret void
 
 38:                                               ; preds = %34, %27, %20
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %28, %27 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %28, %27 ], [ %35, %34 ]
   resume { ptr, i32 } %.pn
 }
 

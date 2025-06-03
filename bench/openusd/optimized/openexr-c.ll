@@ -5011,7 +5011,7 @@ check_populate_version.exit.i.i.i:                ; preds = %902, %899, %893, %8
   br label %check_req_attr.exit.i.i
 
 check_req_attr.exit.i.i:                          ; preds = %check_populate_version.exit.i.i.i, %check_populate_type.exit.i.i.i, %check_populate_tiles.exit.i.i.i, %check_populate_screenWindowWidth.exit.i.i.i, %check_populate_screenWindowCenter.exit.i.i.i, %check_populate_pixelAspectRatio.exit.i.i.i, %check_populate_name.exit.i.i.i, %check_populate_lineOrder.exit.i.i.i, %check_populate_displayWindow.exit.i.i.i, %check_populate_dataWindow.exit.i.i.i, %452, %check_populate_compression.exit.i.i.i, %check_populate_channels.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %.0.i137.i.i.i, %check_populate_version.exit.i.i.i ], [ %.0.i128.i.i.i, %check_populate_tiles.exit.i.i.i ], [ %.064.i.i.i.i, %check_populate_type.exit.i.i.i ], [ %.0.i116.i.i.i, %check_populate_screenWindowCenter.exit.i.i.i ], [ %.0.i122.i.i.i, %check_populate_screenWindowWidth.exit.i.i.i ], [ %.0.i114.i.i.i, %check_populate_pixelAspectRatio.exit.i.i.i ], [ %.0.i111.i.i.i, %check_populate_name.exit.i.i.i ], [ %.0.i101.i.i.i, %check_populate_lineOrder.exit.i.i.i ], [ %.0.i83.i.i.i, %check_populate_dataWindow.exit.i.i.i ], [ %.0.i91.i.i.i, %check_populate_displayWindow.exit.i.i.i ], [ %.0.i.i.i.i, %check_populate_channels.exit.i.i.i ], [ %.0.i80.i.i.i, %check_populate_compression.exit.i.i.i ], [ %453, %452 ]
+  %.0.i.i.i = phi i32 [ %.0.i.i.i.i, %check_populate_channels.exit.i.i.i ], [ %.0.i80.i.i.i, %check_populate_compression.exit.i.i.i ], [ %453, %452 ], [ %.0.i83.i.i.i, %check_populate_dataWindow.exit.i.i.i ], [ %.0.i91.i.i.i, %check_populate_displayWindow.exit.i.i.i ], [ %.0.i101.i.i.i, %check_populate_lineOrder.exit.i.i.i ], [ %.0.i111.i.i.i, %check_populate_name.exit.i.i.i ], [ %.0.i114.i.i.i, %check_populate_pixelAspectRatio.exit.i.i.i ], [ %.0.i116.i.i.i, %check_populate_screenWindowCenter.exit.i.i.i ], [ %.0.i122.i.i.i, %check_populate_screenWindowWidth.exit.i.i.i ], [ %.0.i128.i.i.i, %check_populate_tiles.exit.i.i.i ], [ %.064.i.i.i.i, %check_populate_type.exit.i.i.i ], [ %.0.i137.i.i.i, %check_populate_version.exit.i.i.i ]
   %.not111.i.i = icmp eq i32 %.0.i.i.i, 32
   br i1 %.not111.i.i, label %check_req_attr.exit.thread.i.i, label %1071
 
@@ -5288,7 +5288,7 @@ check_req_attr.exit.thread.i.i:                   ; preds = %check_req_attr.exit
   br label %1068
 
 1068:                                             ; preds = %1065, %1060, %1055, %1050, %1045, %1040, %1035, %1030, %1025, %1020, %1015, %1009, %1004, %999, %994, %989, %984, %979, %974, %970, %965, %961, %957, %953, %949, %945, %940, %935, %930, %925
-  %.1.i.i = phi i32 [ %1067, %1065 ], [ %1064, %1060 ], [ %1059, %1055 ], [ %1054, %1050 ], [ %1049, %1045 ], [ %1044, %1040 ], [ %1039, %1035 ], [ %1034, %1030 ], [ %1029, %1025 ], [ %1024, %1020 ], [ %1019, %1015 ], [ %1014, %1009 ], [ %1008, %1004 ], [ %1003, %999 ], [ %998, %994 ], [ %993, %989 ], [ %988, %984 ], [ %983, %979 ], [ %978, %974 ], [ %973, %970 ], [ %969, %965 ], [ %964, %961 ], [ %960, %957 ], [ %956, %953 ], [ %952, %949 ], [ %948, %945 ], [ %944, %940 ], [ %939, %935 ], [ %934, %930 ], [ %929, %925 ]
+  %.1.i.i = phi i32 [ %1067, %1065 ], [ %929, %925 ], [ %934, %930 ], [ %939, %935 ], [ %944, %940 ], [ %948, %945 ], [ %952, %949 ], [ %956, %953 ], [ %960, %957 ], [ %964, %961 ], [ %969, %965 ], [ %973, %970 ], [ %978, %974 ], [ %983, %979 ], [ %988, %984 ], [ %993, %989 ], [ %998, %994 ], [ %1003, %999 ], [ %1008, %1004 ], [ %1014, %1009 ], [ %1019, %1015 ], [ %1024, %1020 ], [ %1029, %1025 ], [ %1034, %1030 ], [ %1039, %1035 ], [ %1044, %1040 ], [ %1049, %1045 ], [ %1054, %1050 ], [ %1059, %1055 ], [ %1064, %1060 ]
   %.not115.i.i = icmp eq i32 %.1.i.i, 0
   br i1 %.not115.i.i, label %.thread142.i, label %1069
 
@@ -20053,8 +20053,8 @@ define internal fastcc i32 @internal_exr_compute_chunk_offset_size(ptr noundef c
   br label %98
 
 98:                                               ; preds = %92, %92, %92, %97, %96, %95
-  %.not110 = phi i1 [ false, %97 ], [ false, %96 ], [ false, %95 ], [ true, %92 ], [ true, %92 ], [ true, %92 ]
-  %.092 = phi i64 [ 256, %97 ], [ 32, %96 ], [ 16, %95 ], [ 1, %92 ], [ 1, %92 ], [ 1, %92 ]
+  %.not110 = phi i1 [ false, %95 ], [ false, %96 ], [ false, %97 ], [ true, %92 ], [ true, %92 ], [ true, %92 ]
+  %.092 = phi i64 [ 16, %95 ], [ 32, %96 ], [ 256, %97 ], [ 1, %92 ], [ 1, %92 ], [ 1, %92 ]
   %99 = load i32, ptr %6, align 8
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %.lr.ph135, label %._crit_edge136
@@ -20839,7 +20839,7 @@ define internal fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %1) un
   br label %save_attr_uint8.exit
 
 save_attr_uint8.exit:                             ; preds = %72, %68, %53, %49, %42, %38, %27, %30, %33, %35, %46, %57, %60, %62, %65, %76, %79, %82, %85, %88, %90, %93, %96, %98, %100, %103, %106, %109, %112, %115, %118, %121, %124, %15, %2
-  %.076 = phi i32 [ %14, %2 ], [ %23, %15 ], [ %127, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %67, %65 ], [ %64, %62 ], [ %61, %60 ], [ %59, %57 ], [ %48, %46 ], [ %37, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %45, %42 ], [ %40, %38 ], [ %56, %53 ], [ %51, %49 ], [ %75, %72 ], [ %70, %68 ]
+  %.076 = phi i32 [ %14, %2 ], [ %23, %15 ], [ %127, %124 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %37, %35 ], [ %48, %46 ], [ %59, %57 ], [ %61, %60 ], [ %64, %62 ], [ %67, %65 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %89, %88 ], [ %92, %90 ], [ %95, %93 ], [ %97, %96 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %45, %42 ], [ %40, %38 ], [ %56, %53 ], [ %51, %49 ], [ %75, %72 ], [ %70, %68 ]
   ret i32 %.076
 }
 
@@ -22564,7 +22564,7 @@ exr_compress_max_buffer_size.exit46:              ; preds = %libdeflate_zlib_com
   br label %93
 
 93:                                               ; preds = %73, %75, %77, %79, %81, %83, %85, %87, %1, %89, %69, %exr_compress_max_buffer_size.exit46, %17
-  %.0 = phi i32 [ %21, %17 ], [ %65, %exr_compress_max_buffer_size.exit46 ], [ %92, %89 ], [ %72, %69 ], [ 2, %1 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ]
+  %.0 = phi i32 [ %21, %17 ], [ %65, %exr_compress_max_buffer_size.exit46 ], [ %92, %89 ], [ %72, %69 ], [ 2, %1 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ]
   ret i32 %.0
 }
 
@@ -38545,8 +38545,8 @@ LossyDctEncoderCsc_construct.exit:                ; preds = %307
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge418, %.preheader382, %366, %._crit_edge410
-  %.4268 = phi ptr [ %.2266423, %._crit_edge410 ], [ %387, %366 ], [ %.2266423, %.preheader382 ], [ %.2266423, %._crit_edge418 ]
-  %.4263 = phi ptr [ %.2261424, %._crit_edge410 ], [ %385, %366 ], [ %.2261424, %.preheader382 ], [ %.2261424, %._crit_edge418 ]
+  %.4268 = phi ptr [ %387, %366 ], [ %.2266423, %._crit_edge410 ], [ %.2266423, %.preheader382 ], [ %.2266423, %._crit_edge418 ]
+  %.4263 = phi ptr [ %385, %366 ], [ %.2261424, %._crit_edge410 ], [ %.2261424, %.preheader382 ], [ %.2261424, %._crit_edge418 ]
   store i32 1, ptr %355, align 32
   %.pre457 = load i32, ptr %114, align 8
   br label %444
@@ -43158,12 +43158,12 @@ libdeflate_zlib_compress_bound.exit.i:            ; preds = %200
   br label %224
 
 224:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i, %210, %217
-  %225 = phi i64 [ %201, %217 ], [ %216, %210 ], [ %201, %libdeflate_zlib_compress_bound.exit.i ]
-  %226 = phi i64 [ %223, %217 ], [ %202, %210 ], [ %202, %libdeflate_zlib_compress_bound.exit.i ]
-  %.1126 = phi i64 [ %222, %217 ], [ %.0125188, %210 ], [ %.0125188, %libdeflate_zlib_compress_bound.exit.i ]
-  %.1124 = phi i64 [ %.0123189, %217 ], [ %215, %210 ], [ %.0123189, %libdeflate_zlib_compress_bound.exit.i ]
-  %.1122 = phi i64 [ %.0121190, %217 ], [ %.0121190, %210 ], [ %209, %libdeflate_zlib_compress_bound.exit.i ]
-  %.2 = phi i64 [ %.1191, %217 ], [ %.1191, %210 ], [ %208, %libdeflate_zlib_compress_bound.exit.i ]
+  %225 = phi i64 [ %201, %libdeflate_zlib_compress_bound.exit.i ], [ %216, %210 ], [ %201, %217 ]
+  %226 = phi i64 [ %202, %libdeflate_zlib_compress_bound.exit.i ], [ %202, %210 ], [ %223, %217 ]
+  %.1126 = phi i64 [ %.0125188, %libdeflate_zlib_compress_bound.exit.i ], [ %.0125188, %210 ], [ %222, %217 ]
+  %.1124 = phi i64 [ %.0123189, %libdeflate_zlib_compress_bound.exit.i ], [ %215, %210 ], [ %.0123189, %217 ]
+  %.1122 = phi i64 [ %209, %libdeflate_zlib_compress_bound.exit.i ], [ %.0121190, %210 ], [ %.0121190, %217 ]
+  %.2 = phi i64 [ %208, %libdeflate_zlib_compress_bound.exit.i ], [ %.1191, %210 ], [ %.1191, %217 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond218.not, label %227, label %200, !llvm.loop !304
@@ -44846,7 +44846,7 @@ define internal fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonn
   br label %128
 
 128:                                              ; preds = %126, %122, %111, %99, %77, %72, %59, %48, %43, %32, %24
-  %.0137 = phi i32 [ %27, %24 ], [ %35, %32 ], [ %114, %111 ], [ %75, %72 ], [ %80, %77 ], [ %102, %99 ], [ %125, %122 ], [ 0, %126 ], [ %46, %43 ], [ %51, %48 ], [ %62, %59 ]
+  %.0137 = phi i32 [ %27, %24 ], [ %35, %32 ], [ %114, %111 ], [ %46, %43 ], [ %51, %48 ], [ %62, %59 ], [ %125, %122 ], [ 0, %126 ], [ %75, %72 ], [ %80, %77 ], [ %102, %99 ]
   ret i32 %.0137
 }
 
@@ -48499,7 +48499,7 @@ internal_exr_undo_dwab.exit:                      ; preds = %662, %672
   br label %internal_exr_undo_rle.exit
 
 internal_exr_undo_rle.exit:                       ; preds = %81, %649, %compute_scratch_buffer_size.exit.i107, %621, %compute_scratch_buffer_size.exit.i, %undo_pxr24_impl.exit.i, %419, %._crit_edge193.i, %222, %217, %reverseLutFromBitmap.exit.i, %182, %178, %173, %169, %165, %undo_zip_impl.exit.i, %83, %._crit_edge.i.i, %internal_rle_decompress.exit.i, %26, %internal_exr_undo_dwaa.exit, %internal_exr_undo_dwab.exit, %19, %20, %7, %673, %22
-  %.060 = phi i32 [ %676, %673 ], [ %25, %22 ], [ 0, %7 ], [ 0, %20 ], [ 0, %19 ], [ %.0.i125, %internal_exr_undo_dwab.exit ], [ %.0.i124, %internal_exr_undo_dwaa.exit ], [ %29, %26 ], [ 23, %internal_rle_decompress.exit.i ], [ 0, %._crit_edge.i.i ], [ %.012.i.i, %undo_zip_impl.exit.i ], [ %86, %83 ], [ %168, %165 ], [ %172, %169 ], [ 23, %173 ], [ 23, %178 ], [ 23, %182 ], [ 23, %reverseLutFromBitmap.exit.i ], [ 23, %217 ], [ %226, %222 ], [ %..i, %._crit_edge193.i ], [ %.0.i.i89, %undo_pxr24_impl.exit.i ], [ %422, %419 ], [ %622, %621 ], [ %620, %compute_scratch_buffer_size.exit.i ], [ %650, %649 ], [ %648, %compute_scratch_buffer_size.exit.i107 ], [ 0, %81 ]
+  %.060 = phi i32 [ %676, %673 ], [ %25, %22 ], [ 0, %7 ], [ 0, %20 ], [ 0, %19 ], [ %.0.i124, %internal_exr_undo_dwaa.exit ], [ %.0.i125, %internal_exr_undo_dwab.exit ], [ %29, %26 ], [ 23, %internal_rle_decompress.exit.i ], [ 0, %._crit_edge.i.i ], [ %.012.i.i, %undo_zip_impl.exit.i ], [ %86, %83 ], [ %168, %165 ], [ %172, %169 ], [ 23, %173 ], [ 23, %178 ], [ 23, %182 ], [ 23, %reverseLutFromBitmap.exit.i ], [ 23, %217 ], [ %226, %222 ], [ %..i, %._crit_edge193.i ], [ %.0.i.i89, %undo_pxr24_impl.exit.i ], [ %422, %419 ], [ %622, %621 ], [ %620, %compute_scratch_buffer_size.exit.i ], [ %650, %649 ], [ %648, %compute_scratch_buffer_size.exit.i107 ], [ 0, %81 ]
   ret i32 %.060
 }
 

@@ -4850,7 +4850,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit95:             ; preds = %274, %_ZN9__gnu_cxx
   br i1 %290, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit, label %112
 
 .body:                                            ; preds = %.loopexit704, %.loopexit.split-lp705.loopexit.split-lp, %.loopexit.split-lp705.loopexit, %167, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i, %155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN3ade6HandleINS_4NodeEED2Ev.exit90, %207
-  %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn69, %_ZN3ade6HandleINS_4NodeEED2Ev.exit90 ], [ %208, %207 ], [ %156, %167 ], [ %156, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ], [ %156, %155 ], [ %lpad.loopexit706, %.loopexit704 ], [ %lpad.loopexit709, %.loopexit.split-lp705.loopexit ], [ %lpad.loopexit.split-lp710, %.loopexit.split-lp705.loopexit.split-lp ]
+  %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %208, %207 ], [ %.pn69, %_ZN3ade6HandleINS_4NodeEED2Ev.exit90 ], [ %156, %167 ], [ %156, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ], [ %156, %155 ], [ %lpad.loopexit706, %.loopexit704 ], [ %lpad.loopexit709, %.loopexit.split-lp705.loopexit ], [ %lpad.loopexit.split-lp710, %.loopexit.split-lp705.loopexit.split-lp ]
   %291 = load ptr, ptr %79, align 8, !tbaa !42
   %.not.i.i.i96 = icmp eq ptr %291, null
   br i1 %.not.i.i.i96, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit100, label %292

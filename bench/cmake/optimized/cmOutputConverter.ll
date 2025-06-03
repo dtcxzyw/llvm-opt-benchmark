@@ -496,10 +496,10 @@ _ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %36
 
 36:                                               ; preds = %31, %26, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27
-  %.024.in = phi i1 [ %19, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %28, %26 ], [ %19, %31 ]
-  %.023.in = phi i1 [ %23, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %30, %26 ], [ %23, %31 ]
-  %.022.in = phi i1 [ %14, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %14, %26 ], [ %35, %31 ]
-  %.0.in = phi i1 [ %10, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %10, %26 ], [ %33, %31 ]
+  %.024.in = phi i1 [ %19, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %19, %31 ], [ %28, %26 ]
+  %.023.in = phi i1 [ %23, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %23, %31 ], [ %30, %26 ]
+  %.022.in = phi i1 [ %14, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %35, %31 ], [ %14, %26 ]
+  %.0.in = phi i1 [ %10, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit27 ], [ %33, %31 ], [ %10, %26 ]
   %37 = and i1 %.022.in, %.0.in
   %38 = and i1 %.024.in, %.023.in
   %or.cond = or i1 %38, %37
@@ -3003,7 +3003,7 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread, %30, %30, %30, %30, %30, %38, %3, %.thread58
-  %.0 = phi i1 [ true, %30 ], [ false, %.thread58 ], [ true, %3 ], [ true, %38 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread ]
+  %.0 = phi i1 [ false, %.thread58 ], [ true, %30 ], [ true, %3 ], [ true, %38 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread ]
   ret i1 %.0
 }
 

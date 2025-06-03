@@ -554,9 +554,9 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %229
 
 229:                                              ; preds = %217, %228, %225, %219
-  %.5290 = phi ptr [ %.0354, %217 ], [ %5, %228 ], [ %224, %225 ], [ %.0354, %219 ]
-  %.0210 = phi ptr [ @.str.2, %217 ], [ @.str.2, %228 ], [ %224, %225 ], [ %.0354, %219 ]
-  %.0209 = phi i1 [ true, %217 ], [ true, %228 ], [ %227, %225 ], [ false, %219 ]
+  %.5290 = phi ptr [ %.0354, %217 ], [ %.0354, %219 ], [ %5, %228 ], [ %224, %225 ]
+  %.0210 = phi ptr [ @.str.2, %217 ], [ %.0354, %219 ], [ @.str.2, %228 ], [ %224, %225 ]
+  %.0209 = phi i1 [ true, %217 ], [ false, %219 ], [ true, %228 ], [ %227, %225 ]
   %230 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
   call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %230, ptr noundef %.0210)
   br i1 %.0209, label %262, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
@@ -866,8 +866,8 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: ; preds = %26, %.critedge.thread.i.i, %1, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %37, %36, %35, %34
-  %.1.i5 = phi i32 [ 4, %36 ], [ 3, %35 ], [ 2, %34 ], [ 5, %37 ], [ %33, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %26 ]
-  %.046 = phi ptr [ @.str.11, %36 ], [ @.str.10, %35 ], [ @.str.9, %34 ], [ @.str.12, %37 ], [ @.str.2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.2, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %26 ]
+  %.1.i5 = phi i32 [ 5, %37 ], [ 2, %34 ], [ 3, %35 ], [ 4, %36 ], [ %33, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %26 ]
+  %.046 = phi ptr [ @.str.12, %37 ], [ @.str.9, %34 ], [ @.str.10, %35 ], [ @.str.11, %36 ], [ @.str.2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.2, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %26 ]
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #11
   %39 = shl nsw i32 %.1.i5, 1
   %40 = sext i32 %39 to i64

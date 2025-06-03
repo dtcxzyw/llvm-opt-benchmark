@@ -5515,7 +5515,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit: ; preds = %47
   resume { ptr, i32 } %59
 
 62:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8in_availEv.exit, %46, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit, %3, %60
-  %.1 = phi i32 [ 1, %60 ], [ 4, %3 ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8in_availEv.exit ], [ 2, %46 ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit ]
+  %.1 = phi i32 [ 1, %60 ], [ 4, %3 ], [ 2, %46 ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8in_availEv.exit ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit ]
   %63 = load ptr, ptr %0, align 8, !tbaa !20
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = load i64, ptr %64, align 8
@@ -13899,7 +13899,7 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit: ; preds = %48
   resume { ptr, i32 } %60
 
 63:                                               ; preds = %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE8in_availEv.exit, %47, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit, %3, %61
-  %.1 = phi i32 [ 1, %61 ], [ 4, %3 ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE8in_availEv.exit ], [ 2, %47 ], [ %spec.select, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit ]
+  %.1 = phi i32 [ 1, %61 ], [ 4, %3 ], [ 2, %47 ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE8in_availEv.exit ], [ %spec.select, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit ]
   %64 = load ptr, ptr %0, align 8, !tbaa !20
   %65 = getelementptr i8, ptr %64, i64 -24
   %66 = load i64, ptr %65, align 8
@@ -19078,7 +19078,7 @@ define weak_odr dso_local { i64, i64 } @_ZNSt3__115basic_stringbufIcNS_11char_tr
   br label %50
 
 50:                                               ; preds = %31, %35, %43, %49
-  %.0 = phi i64 [ %32, %49 ], [ %42, %35 ], [ %48, %43 ], [ 0, %31 ]
+  %.0 = phi i64 [ %42, %35 ], [ %48, %43 ], [ %32, %49 ], [ 0, %31 ]
   %51 = add nsw i64 %.0, %1
   %52 = icmp slt i64 %51, 0
   %53 = icmp slt i64 %32, %51
@@ -20195,7 +20195,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__113basic_filebufIcNS_11char_trai
   br label %19
 
 19:                                               ; preds = %1, %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ null, %18 ], [ @.str.16, %17 ], [ @.str.15, %16 ], [ @.str.14, %15 ], [ @.str.13, %14 ], [ @.str.12, %13 ], [ @.str.11, %12 ], [ @.str.10, %11 ], [ @.str.9, %10 ], [ @.str.8, %9 ], [ @.str.7, %8 ], [ @.str.6, %7 ], [ @.str.5, %6 ], [ @.str.4, %5 ], [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %1 ], [ @.str.1, %1 ]
+  %.0 = phi ptr [ null, %18 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.1, %1 ], [ @.str.1, %1 ]
   ret ptr %.0
 }
 

@@ -362,7 +362,7 @@ Py_DECREF.exit.critedge.i:                        ; preds = %Py_DECREF.exit.thre
   br label %syslog_syslog_impl.exit
 
 syslog_syslog_impl.exit:                          ; preds = %Py_DECREF.exit.critedge.i, %43, %40, %_Py_XNewRef.exit.i, %23, %21, %12, %8, %6, %10
-  %.05 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %6 ], [ null, %21 ], [ null, %12 ], [ null, %23 ], [ @_Py_NoneStruct, %_Py_XNewRef.exit.i ], [ @_Py_NoneStruct, %40 ], [ @_Py_NoneStruct, %43 ], [ @_Py_NoneStruct, %Py_DECREF.exit.critedge.i ]
+  %.05 = phi ptr [ null, %10 ], [ null, %6 ], [ null, %8 ], [ null, %21 ], [ null, %12 ], [ null, %23 ], [ @_Py_NoneStruct, %_Py_XNewRef.exit.i ], [ @_Py_NoneStruct, %40 ], [ @_Py_NoneStruct, %43 ], [ @_Py_NoneStruct, %Py_DECREF.exit.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
   ret ptr %.05

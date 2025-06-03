@@ -3833,7 +3833,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %257, %260
   br label %268
 
 268:                                              ; preds = %267, %42, %40, %29
-  %.pn168.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn168.pn.pn.pn.pn.pn, %267 ], [ %41, %40 ], [ %43, %42 ]
+  %.pn168.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn168.pn.pn.pn.pn.pn, %267 ], [ %43, %42 ], [ %41, %40 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   resume { ptr, i32 } %.pn168.pn.pn.pn.pn.pn.pn.pn.pn

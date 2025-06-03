@@ -2997,8 +2997,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i31.i.i: ; preds = %43
   br label %_ZN12_GLOBAL__N_117InstructionMapper20mapToIllegalUnsignedERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERbRNS1_11SmallVectorIjLj12EEERNS7_IS4_Lj6EEE.exit24.i.i
 
 _ZN12_GLOBAL__N_117InstructionMapper20mapToIllegalUnsignedERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERbRNS1_11SmallVectorIjLj12EEERNS7_IS4_Lj6EEE.exit24.i.i: ; preds = %447, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i31.i.i, %_ZN12_GLOBAL__N_117InstructionMapper18mapToLegalUnsignedERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERbS6_RjRNS1_11SmallVectorIjLj12EEERNS8_IS4_Lj6EEE.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i32.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i22.i.i, %218, %.lr.ph61.i.i
-  %.2102.i = phi i8 [ %.1101.i, %.lr.ph61.i.i ], [ %.1101.i, %447 ], [ 0, %_ZN12_GLOBAL__N_117InstructionMapper18mapToLegalUnsignedERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERbS6_RjRNS1_11SmallVectorIjLj12EEERNS8_IS4_Lj6EEE.exit.i ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i31.i.i ], [ 0, %218 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i22.i.i ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i32.i ]
-  %.298.i = phi i1 [ %.197.i, %.lr.ph61.i.i ], [ %.197.i, %447 ], [ %spec.select129.i, %_ZN12_GLOBAL__N_117InstructionMapper18mapToLegalUnsignedERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERbS6_RjRNS1_11SmallVectorIjLj12EEERNS8_IS4_Lj6EEE.exit.i ], [ %spec.select129.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i31.i.i ], [ %.197.i, %218 ], [ %.197.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i22.i.i ], [ %spec.select.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i32.i ]
+  %.2102.i = phi i8 [ %.1101.i, %.lr.ph61.i.i ], [ 0, %218 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i22.i.i ], [ 0, %_ZN12_GLOBAL__N_117InstructionMapper18mapToLegalUnsignedERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERbS6_RjRNS1_11SmallVectorIjLj12EEERNS8_IS4_Lj6EEE.exit.i ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i31.i.i ], [ %.1101.i, %447 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i32.i ]
+  %.298.i = phi i1 [ %.197.i, %.lr.ph61.i.i ], [ %.197.i, %218 ], [ %.197.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i22.i.i ], [ %spec.select129.i, %_ZN12_GLOBAL__N_117InstructionMapper18mapToLegalUnsignedERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERbS6_RjRNS1_11SmallVectorIjLj12EEERNS8_IS4_Lj6EEE.exit.i ], [ %spec.select129.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i31.i.i ], [ %.197.i, %447 ], [ %spec.select.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i32.i ]
   %.sroa.0.0.copyload.i.i34.i.i = load ptr, ptr %53, align 8, !nonnull !53, !noundef !53
   %.0.copyload.i.i.i.i.i.i.i.i.i35.i.i = load i64, ptr %.sroa.0.0.copyload.i.i34.i.i, align 8
   %448 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i35.i.i, 4
@@ -6672,7 +6672,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %295
 
 295:                                              ; preds = %293, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %294, %293 ]
+  %.1.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %294, %293 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !66
   %296 = icmp eq i32 %.1.val.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   br i1 %296, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit.i.i.i.i.i.i", label %297
@@ -6682,7 +6682,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %299
 
 299:                                              ; preds = %297, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %298, %297 ]
+  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %298, %297 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !66
   %300 = icmp eq i32 %.2.val.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   br i1 %300, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit.thread.i.i.i.i.i.i"
@@ -6783,7 +6783,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %336
 
 336:                                              ; preds = %334, %._crit_edge.i.i.i.i.i.i.i24.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i30.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i26.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i.i.i.i.i ], [ %335, %334 ]
+  %.1.i.i.i.i.i.i.i30.i.i.i.i.i.i = phi ptr [ %335, %334 ], [ %.029.lcssa.i.i.i.i.i.i.i26.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i31.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i30.i.i.i.i.i.i, align 4, !tbaa !66
   %337 = icmp eq i32 %.1.val.i.i.i.i.i.i.i31.i.i.i.i.i.i, -1
   br i1 %337, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit48.i.i.i.i.i.i", label %338
@@ -6793,7 +6793,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %340
 
 340:                                              ; preds = %338, %._crit_edge.i.i.i.i.i.i.i24.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i27.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i26.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i.i.i.i.i ], [ %339, %338 ]
+  %.2.i.i.i.i.i.i.i27.i.i.i.i.i.i = phi ptr [ %339, %338 ], [ %.029.lcssa.i.i.i.i.i.i.i26.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i28.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i27.i.i.i.i.i.i, align 4, !tbaa !66
   %341 = icmp eq i32 %.2.val.i.i.i.i.i.i.i28.i.i.i.i.i.i, -1
   br i1 %341, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit48.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit48.thread.i.i.i.i.i.i"
@@ -6894,7 +6894,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %377
 
 377:                                              ; preds = %375, %._crit_edge.i.i.i.i.i.i.i51.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i57.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i53.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i51.i.i.i.i.i.i ], [ %376, %375 ]
+  %.1.i.i.i.i.i.i.i57.i.i.i.i.i.i = phi ptr [ %376, %375 ], [ %.029.lcssa.i.i.i.i.i.i.i53.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i51.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i58.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i57.i.i.i.i.i.i, align 4, !tbaa !66
   %378 = icmp eq i32 %.1.val.i.i.i.i.i.i.i58.i.i.i.i.i.i, -1
   br i1 %378, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit75.i.i.i.i.i.i", label %379
@@ -6904,7 +6904,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %381
 
 381:                                              ; preds = %379, %._crit_edge.i.i.i.i.i.i.i51.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i54.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i53.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i51.i.i.i.i.i.i ], [ %380, %379 ]
+  %.2.i.i.i.i.i.i.i54.i.i.i.i.i.i = phi ptr [ %380, %379 ], [ %.029.lcssa.i.i.i.i.i.i.i53.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i51.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i55.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i54.i.i.i.i.i.i, align 4, !tbaa !66
   %382 = icmp eq i32 %.2.val.i.i.i.i.i.i.i55.i.i.i.i.i.i, -1
   br i1 %382, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit75.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit75.thread.i.i.i.i.i.i"
@@ -7005,7 +7005,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %418
 
 418:                                              ; preds = %416, %._crit_edge.i.i.i.i.i.i.i78.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i84.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i80.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i78.i.i.i.i.i.i ], [ %417, %416 ]
+  %.1.i.i.i.i.i.i.i84.i.i.i.i.i.i = phi ptr [ %417, %416 ], [ %.029.lcssa.i.i.i.i.i.i.i80.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i78.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i85.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i84.i.i.i.i.i.i, align 4, !tbaa !66
   %419 = icmp eq i32 %.1.val.i.i.i.i.i.i.i85.i.i.i.i.i.i, -1
   br i1 %419, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit102.i.i.i.i.i.i", label %420
@@ -7015,7 +7015,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %422
 
 422:                                              ; preds = %420, %._crit_edge.i.i.i.i.i.i.i78.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i81.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i80.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i78.i.i.i.i.i.i ], [ %421, %420 ]
+  %.2.i.i.i.i.i.i.i81.i.i.i.i.i.i = phi ptr [ %421, %420 ], [ %.029.lcssa.i.i.i.i.i.i.i80.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i78.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i82.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i81.i.i.i.i.i.i, align 4, !tbaa !66
   %423 = icmp eq i32 %.2.val.i.i.i.i.i.i.i82.i.i.i.i.i.i, -1
   br i1 %423, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit102.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit102.thread.i.i.i.i.i.i"
@@ -7136,7 +7136,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %463
 
 463:                                              ; preds = %461, %._crit_edge.i.i.i.i.i.i.i105.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i111.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i107.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i105.i.i.i.i.i.i ], [ %462, %461 ]
+  %.1.i.i.i.i.i.i.i111.i.i.i.i.i.i = phi ptr [ %462, %461 ], [ %.029.lcssa.i.i.i.i.i.i.i107.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i105.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i112.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i111.i.i.i.i.i.i, align 4, !tbaa !66
   %464 = icmp eq i32 %.1.val.i.i.i.i.i.i.i112.i.i.i.i.i.i, -1
   br i1 %464, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit129.i.i.i.i.i.i", label %465
@@ -7146,7 +7146,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %467
 
 467:                                              ; preds = %465, %._crit_edge.i.i.i.i.i.i.i105.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i108.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i107.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i105.i.i.i.i.i.i ], [ %466, %465 ]
+  %.2.i.i.i.i.i.i.i108.i.i.i.i.i.i = phi ptr [ %466, %465 ], [ %.029.lcssa.i.i.i.i.i.i.i107.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i105.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i109.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i108.i.i.i.i.i.i, align 4, !tbaa !66
   %468 = icmp eq i32 %.2.val.i.i.i.i.i.i.i109.i.i.i.i.i.i, -1
   br i1 %468, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit129.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit129.thread.i.i.i.i.i.i"
@@ -7251,7 +7251,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %504
 
 504:                                              ; preds = %502, %._crit_edge.i.i.i.i.i.i.i132.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i138.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i134.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i132.i.i.i.i.i.i ], [ %503, %502 ]
+  %.1.i.i.i.i.i.i.i138.i.i.i.i.i.i = phi ptr [ %503, %502 ], [ %.029.lcssa.i.i.i.i.i.i.i134.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i132.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i139.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i138.i.i.i.i.i.i, align 4, !tbaa !66
   %505 = icmp eq i32 %.1.val.i.i.i.i.i.i.i139.i.i.i.i.i.i, -1
   br i1 %505, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit156.i.i.i.i.i.i", label %506
@@ -7261,7 +7261,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %508
 
 508:                                              ; preds = %506, %._crit_edge.i.i.i.i.i.i.i132.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i135.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i134.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i132.i.i.i.i.i.i ], [ %507, %506 ]
+  %.2.i.i.i.i.i.i.i135.i.i.i.i.i.i = phi ptr [ %507, %506 ], [ %.029.lcssa.i.i.i.i.i.i.i134.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i132.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i136.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i135.i.i.i.i.i.i, align 4, !tbaa !66
   %509 = icmp eq i32 %.2.val.i.i.i.i.i.i.i136.i.i.i.i.i.i, -1
   br i1 %509, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit156.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit156.thread.i.i.i.i.i.i"
@@ -7366,7 +7366,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %545
 
 545:                                              ; preds = %543, %._crit_edge.i.i.i.i.i.i.i159.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i165.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i161.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i159.i.i.i.i.i.i ], [ %544, %543 ]
+  %.1.i.i.i.i.i.i.i165.i.i.i.i.i.i = phi ptr [ %544, %543 ], [ %.029.lcssa.i.i.i.i.i.i.i161.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i159.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i166.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i165.i.i.i.i.i.i, align 4, !tbaa !66
   %546 = icmp eq i32 %.1.val.i.i.i.i.i.i.i166.i.i.i.i.i.i, -1
   br i1 %546, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit183.i.i.i.i.i.i", label %547
@@ -7376,7 +7376,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %549
 
 549:                                              ; preds = %547, %._crit_edge.i.i.i.i.i.i.i159.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i162.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i161.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i159.i.i.i.i.i.i ], [ %548, %547 ]
+  %.2.i.i.i.i.i.i.i162.i.i.i.i.i.i = phi ptr [ %548, %547 ], [ %.029.lcssa.i.i.i.i.i.i.i161.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i159.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i163.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i162.i.i.i.i.i.i, align 4, !tbaa !66
   %550 = icmp eq i32 %.2.val.i.i.i.i.i.i.i163.i.i.i.i.i.i, -1
   br i1 %550, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit183.i.i.i.i.i.i", label %"_ZN4llvm8erase_ifISt6vectorINS_8outliner9CandidateESaIS3_EEZN12_GLOBAL__N_115MachineOutliner7outlineERNS_6ModuleERS1_ISt10unique_ptrINS2_16OutlinedFunctionESt14default_deleteISB_EESaISE_EERNS6_17InstructionMapperERjE3$_1EEvRT_T0_.exit"
@@ -7499,7 +7499,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %589
 
 589:                                              ; preds = %587, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %588, %587 ]
+  %.1.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %588, %587 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !66
   %590 = icmp eq i32 %.1.val.i.i.i.i.i.i.i.i.i.i.i, -1
   br i1 %590, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit.i.i.i.i", label %591
@@ -7509,7 +7509,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_delet
   br label %593
 
 593:                                              ; preds = %591, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %592, %591 ]
+  %.2.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %592, %591 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !66
   %594 = icmp eq i32 %.2.val.i.i.i.i.i.i.i.i.i.i.i, -1
   br i1 %594, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_1EclINS_17__normal_iteratorIPNS9_9CandidateES7_ISO_SaISO_EEEEEEbT_.exit.thread.i.i.i.i"

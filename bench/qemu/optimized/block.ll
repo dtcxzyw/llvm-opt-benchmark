@@ -167,9 +167,9 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   unreachable
 
 14:                                               ; preds = %9, %7
-  %.042 = phi ptr [ %11, %9 ], [ null, %7 ]
-  %.041.shrunk.in = phi i32 [ %10, %9 ], [ %8, %7 ]
-  %.0 = phi i1 [ %12, %9 ], [ false, %7 ]
+  %.042 = phi ptr [ null, %7 ], [ %11, %9 ]
+  %.041.shrunk.in = phi i32 [ %8, %7 ], [ %10, %9 ]
+  %.0 = phi i1 [ false, %7 ], [ %12, %9 ]
   %.041.shrunk = icmp eq i32 %.041.shrunk.in, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
@@ -390,7 +390,7 @@ define dso_local noundef zeroext i1 @blkconf_apply_backend_options(ptr noundef r
   unreachable
 
 19:                                               ; preds = %12, %16, %15
-  %.0 = phi i1 [ %17, %16 ], [ false, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %15 ], [ %17, %16 ], [ true, %12 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4

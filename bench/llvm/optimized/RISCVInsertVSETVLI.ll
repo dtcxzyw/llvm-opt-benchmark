@@ -1402,7 +1402,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %323, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %324, %323 ], [ %354, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %354, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %324, %323 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !406
   %.not66.i = icmp eq ptr %.1.i.i, %.3.i
   br i1 %.not66.i, label %355, label %.thread93.i
@@ -1811,7 +1811,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i.i: ; preds = 
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit.i.i
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit.i.i: ; preds = %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i.i, %507
-  %.1.in.i.i.i.i = phi ptr [ %508, %507 ], [ %534, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i.i ]
+  %.1.in.i.i.i.i = phi ptr [ %534, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i.i ], [ %508, %507 ]
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !406
   %.not42.i.i = icmp eq ptr %.1.i.i.i.i, %.sroa.0138.0190
   br i1 %.not42.i.i, label %535, label %_ZNK12_GLOBAL__N_118RISCVInsertVSETVLI14needVSETVLIPHIERKNS_11VSETVLIInfoERKN4llvm17MachineBasicBlockE.exit.thread.i
@@ -4300,9 +4300,9 @@ _ZN12_GLOBAL__N_111VSETVLIInfo6setAVLERKS0_.exit: ; preds = %197, %197, %199, %2
   br label %_ZN12_GLOBAL__N_111VSETVLIInfo6setAVLERKS0_.exit61
 
 _ZN12_GLOBAL__N_111VSETVLIInfo6setAVLERKS0_.exit61: ; preds = %215, %215, %216, %218
-  %.sroa.0.0 = phi ptr [ %220, %218 ], [ %.val8.i58, %216 ], [ %.sroa.0.0.copyload, %215 ], [ %.sroa.0.0.copyload, %215 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload, %218 ], [ %.val9.i59, %216 ], [ %.sroa.6.0.copyload, %215 ], [ %.sroa.6.0.copyload, %215 ]
-  %.sink.i57 = phi i8 [ 2, %218 ], [ 1, %216 ], [ %.val.i56, %215 ], [ %.val.i56, %215 ]
+  %.sroa.0.0 = phi ptr [ %220, %218 ], [ %.sroa.0.0.copyload, %215 ], [ %.val8.i58, %216 ], [ %.sroa.0.0.copyload, %215 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload, %218 ], [ %.sroa.6.0.copyload, %215 ], [ %.val9.i59, %216 ], [ %.sroa.6.0.copyload, %215 ]
+  %.sink.i57 = phi i8 [ 2, %218 ], [ %.val.i56, %215 ], [ 1, %216 ], [ %.val.i56, %215 ]
   store ptr %.sroa.0.0, ptr %1, align 8
   %.sroa.6.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx63, align 8
@@ -4870,9 +4870,9 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit53: ; preds = %23
 72:                                               ; preds = %65, %65, %65, %65
   br label %_ZN12_GLOBAL__N_118getEEWForLoadStoreERKN4llvm12MachineInstrE.exit
 
-_ZN12_GLOBAL__N_118getEEWForLoadStoreERKN4llvm12MachineInstrE.exit: ; preds = %69, %70, %71, %72, %65
-  %73 = phi i8 [ %.sroa.10.1, %65 ], [ 0, %72 ], [ 0, %71 ], [ 0, %70 ], [ 0, %69 ]
-  %74 = phi i8 [ %.sroa.19.1, %65 ], [ 0, %72 ], [ 0, %71 ], [ 0, %70 ], [ 0, %69 ]
+_ZN12_GLOBAL__N_118getEEWForLoadStoreERKN4llvm12MachineInstrE.exit: ; preds = %72, %71, %70, %69, %65
+  %73 = phi i8 [ %.sroa.10.1, %65 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %72 ]
+  %74 = phi i8 [ %.sroa.19.1, %65 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %72 ]
   br i1 %.not100, label %78, label %75
 
 75:                                               ; preds = %_ZN12_GLOBAL__N_118getEEWForLoadStoreERKN4llvm12MachineInstrE.exit
@@ -6195,7 +6195,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   br label %85
 
 85:                                               ; preds = %55, %81, %74, %42, %39, %25, %15, %6, %84
-  %.026 = phi i1 [ false, %55 ], [ true, %84 ], [ false, %6 ], [ false, %15 ], [ false, %25 ], [ false, %39 ], [ false, %42 ], [ false, %74 ], [ false, %81 ]
+  %.026 = phi i1 [ true, %84 ], [ false, %55 ], [ false, %6 ], [ false, %15 ], [ false, %25 ], [ false, %39 ], [ false, %42 ], [ false, %74 ], [ false, %81 ]
   ret i1 %.026
 }
 
@@ -7865,7 +7865,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %504, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %505, %504 ], [ %532, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %532, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %505, %504 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !406
   %533 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %.1.i.i) #20
   br label %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit

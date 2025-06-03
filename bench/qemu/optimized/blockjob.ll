@@ -1138,7 +1138,7 @@ define dso_local range(i32 0, 3) i32 @block_job_error_action(ptr noundef %0, i32
   unreachable
 
 11:                                               ; preds = %4, %9, %8, %5
-  %.0 = phi i32 [ 0, %9 ], [ 1, %8 ], [ %7, %5 ], [ 2, %4 ]
+  %.0 = phi i32 [ %7, %5 ], [ 1, %8 ], [ 0, %9 ], [ 2, %4 ]
   %12 = load ptr, ptr %0, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14

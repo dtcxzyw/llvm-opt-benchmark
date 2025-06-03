@@ -131,7 +131,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br label %110
 
 45:                                               ; preds = %20, %traverse_string.exit, %29, %24
-  %.093 = phi i32 [ %.2, %traverse_string.exit ], [ %30, %29 ], [ %25, %24 ], [ %.060, %20 ]
+  %.093 = phi i32 [ %25, %24 ], [ %30, %29 ], [ %.2, %traverse_string.exit ], [ %.060, %20 ]
   %46 = icmp sgt i64 %5, 0
   %47 = sext i32 %.093 to i64
   %48 = icmp sgt i64 %5, %47
@@ -285,8 +285,8 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br label %96
 
 96:                                               ; preds = %94, %92, %90, %89, %88
-  %97 = phi i32 [ 0, %88 ], [ %.pre, %94 ], [ %93, %92 ], [ %91, %90 ], [ %.093, %89 ]
-  %.0 = phi ptr [ null, %88 ], [ @cpy_utf8, %94 ], [ @cpy_univ, %92 ], [ @cpy_bmp, %90 ], [ @cpy_asc, %89 ]
+  %97 = phi i32 [ 0, %88 ], [ %.093, %89 ], [ %91, %90 ], [ %93, %92 ], [ %.pre, %94 ]
+  %.0 = phi ptr [ null, %88 ], [ @cpy_asc, %89 ], [ @cpy_bmp, %90 ], [ @cpy_univ, %92 ], [ @cpy_utf8, %94 ]
   %98 = add nsw i32 %97, 1
   %99 = sext i32 %98 to i64
   %100 = call noalias ptr @CRYPTO_malloc(i64 noundef %99, ptr noundef nonnull @.str, i32 noundef 189) #6
@@ -314,7 +314,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br label %110
 
 110:                                              ; preds = %102, %103, %83, %71, %18, %104, %87, %79, %57, %53, %49, %44, %in_utf8.exit.thread, %28, %23
-  %.058 = phi i32 [ -1, %44 ], [ -1, %49 ], [ -1, %53 ], [ -1, %57 ], [ -1, %87 ], [ %.059, %104 ], [ -1, %79 ], [ -1, %in_utf8.exit.thread ], [ -1, %28 ], [ -1, %23 ], [ -1, %18 ], [ %.059, %71 ], [ %.059, %83 ], [ -1, %103 ], [ -1, %102 ]
+  %.058 = phi i32 [ -1, %44 ], [ -1, %23 ], [ -1, %49 ], [ -1, %53 ], [ -1, %57 ], [ -1, %87 ], [ %.059, %104 ], [ -1, %79 ], [ -1, %28 ], [ -1, %in_utf8.exit.thread ], [ -1, %18 ], [ %.059, %71 ], [ %.059, %83 ], [ -1, %103 ], [ -1, %102 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
   ret i32 %.058

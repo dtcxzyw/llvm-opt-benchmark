@@ -29748,7 +29748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %common.resume
 
 77:                                               ; preds = %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit
-  %.117 = phi ptr [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ], [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ]
+  %.117 = phi ptr [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ], [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ]
   ret ptr %.117
 }
 
@@ -74905,7 +74905,7 @@ _ZN8pybind116objectD2Ev.exit60:                   ; preds = %76
   br label %_ZN8pybind116objectD2Ev.exit
 
 79:                                               ; preds = %74, %64, %56, %52, %38
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %65, %64 ], [ %57, %56 ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %57, %56 ], [ %65, %64 ], [ %39, %38 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
   resume { ptr, i32 } %.pn
@@ -83388,7 +83388,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -84259,7 +84259,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKS5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -89072,7 +89072,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -91683,7 +91683,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 

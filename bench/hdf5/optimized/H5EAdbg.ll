@@ -401,8 +401,8 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   br label %125
 
 125:                                              ; preds = %82, %105, %._crit_edge134, %36, %29
-  %.090 = phi ptr [ null, %29 ], [ null, %36 ], [ %34, %82 ], [ %34, %._crit_edge134 ], [ %34, %105 ]
-  %.1 = phi i32 [ -1, %29 ], [ -1, %36 ], [ -1, %82 ], [ 0, %._crit_edge134 ], [ 0, %105 ]
+  %.090 = phi ptr [ null, %29 ], [ null, %36 ], [ %34, %._crit_edge134 ], [ %34, %105 ], [ %34, %82 ]
+  %.1 = phi i32 [ -1, %29 ], [ -1, %36 ], [ 0, %._crit_edge134 ], [ 0, %105 ], [ -1, %82 ]
   %.not105 = icmp eq ptr %.088, null
   br i1 %.not105, label %135, label %126
 

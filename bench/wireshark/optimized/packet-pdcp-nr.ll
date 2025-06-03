@@ -3311,14 +3311,14 @@ look_up_keys_record.exit.thread.i:                ; preds = %1017, %proto_item_s
   br label %.critedge421
 
 .critedge421:                                     ; preds = %899, %598, %look_up_keys_record.exit.thread.i, %584, %.thread513, %587, %580, %578
-  %.sroa.10.0 = phi ptr [ null, %578 ], [ null, %580 ], [ null, %899 ], [ %.sroa.10.4, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %584 ], [ null, %587 ], [ null, %.thread513 ]
-  %.sroa.13.0 = phi ptr [ null, %578 ], [ null, %580 ], [ null, %899 ], [ %.sroa.13.3, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %584 ], [ null, %587 ], [ null, %.thread513 ]
-  %.sroa.15.0 = phi i8 [ 0, %578 ], [ 0, %580 ], [ 0, %899 ], [ %.sroa.15.4, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %587 ], [ 0, %.thread513 ]
-  %.sroa.18.0 = phi i8 [ 0, %578 ], [ 0, %580 ], [ 0, %899 ], [ %.sroa.18.3, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %587 ], [ 0, %.thread513 ]
-  %.sroa.20583.0 = phi i32 [ 0, %578 ], [ 0, %580 ], [ 0, %899 ], [ %934, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %587 ], [ 0, %.thread513 ]
-  %.sroa.23.0 = phi i8 [ 0, %578 ], [ 0, %580 ], [ 0, %899 ], [ %915, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %587 ], [ 0, %.thread513 ]
-  %.sroa.26.0 = phi i8 [ 0, %578 ], [ 0, %580 ], [ 0, %899 ], [ %.sroa.26.2, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %587 ], [ 0, %.thread513 ]
-  %.0498528.ph = phi i32 [ %.0498.ph, %578 ], [ %.0498.ph, %580 ], [ %.0498.ph, %899 ], [ %.0498.ph, %look_up_keys_record.exit.thread.i ], [ %.0498.ph, %598 ], [ %.0498.ph, %584 ], [ %.0498.ph, %587 ], [ %.3, %.thread513 ]
+  %.sroa.10.0 = phi ptr [ null, %578 ], [ null, %899 ], [ %.sroa.10.4, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %587 ], [ null, %580 ], [ null, %584 ], [ null, %.thread513 ]
+  %.sroa.13.0 = phi ptr [ null, %578 ], [ null, %899 ], [ %.sroa.13.3, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %587 ], [ null, %580 ], [ null, %584 ], [ null, %.thread513 ]
+  %.sroa.15.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %.sroa.15.4, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread513 ]
+  %.sroa.18.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %.sroa.18.3, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread513 ]
+  %.sroa.20583.0 = phi i32 [ 0, %578 ], [ 0, %899 ], [ %934, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread513 ]
+  %.sroa.23.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %915, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread513 ]
+  %.sroa.26.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %.sroa.26.2, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread513 ]
+  %.0498528.ph = phi i32 [ %.0498.ph, %578 ], [ %.0498.ph, %899 ], [ %.0498.ph, %look_up_keys_record.exit.thread.i ], [ %.0498.ph, %598 ], [ %.0498.ph, %587 ], [ %.0498.ph, %580 ], [ %.0498.ph, %584 ], [ %.3, %.thread513 ]
   %.pr = load i32, ptr %33, align 4
   %1094 = icmp eq i32 %.pr, 2
   br i1 %1094, label %1095, label %.thread532
@@ -3348,18 +3348,18 @@ look_up_keys_record.exit.thread.i:                ; preds = %1017, %proto_item_s
   br label %.thread532
 
 .thread532:                                       ; preds = %1095, %470, %1097, %1101, %1105, %.critedge421
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %1095 ], [ %.sroa.10.0, %1101 ], [ %.sroa.10.0, %1105 ], [ %.sroa.10.0, %1097 ], [ %.sroa.10.0, %.critedge421 ], [ null, %470 ]
-  %.sroa.13.1 = phi ptr [ %.sroa.13.0, %1095 ], [ %.sroa.13.0, %1101 ], [ %.sroa.13.0, %1105 ], [ %.sroa.13.0, %1097 ], [ %.sroa.13.0, %.critedge421 ], [ null, %470 ]
-  %.sroa.15.1 = phi i8 [ %.sroa.15.0, %1095 ], [ %.sroa.15.0, %1101 ], [ %.sroa.15.0, %1105 ], [ %.sroa.15.0, %1097 ], [ %.sroa.15.0, %.critedge421 ], [ 0, %470 ]
-  %.sroa.18.1 = phi i8 [ %.sroa.18.0, %1095 ], [ %.sroa.18.0, %1101 ], [ %.sroa.18.0, %1105 ], [ %.sroa.18.0, %1097 ], [ %.sroa.18.0, %.critedge421 ], [ 0, %470 ]
-  %.sroa.20583.1 = phi i32 [ %.sroa.20583.0, %1095 ], [ %.sroa.20583.0, %1101 ], [ %.sroa.20583.0, %1105 ], [ %.sroa.20583.0, %1097 ], [ %.sroa.20583.0, %.critedge421 ], [ 0, %470 ]
-  %.sroa.23.1 = phi i8 [ %.sroa.23.0, %1095 ], [ %.sroa.23.0, %1101 ], [ %.sroa.23.0, %1105 ], [ %.sroa.23.0, %1097 ], [ %.sroa.23.0, %.critedge421 ], [ 0, %470 ]
-  %.sroa.26.1 = phi i8 [ %.sroa.26.0, %1095 ], [ %.sroa.26.0, %1101 ], [ %.sroa.26.0, %1105 ], [ %.sroa.26.0, %1097 ], [ %.sroa.26.0, %.critedge421 ], [ 0, %470 ]
-  %1106 = phi i1 [ true, %1095 ], [ true, %1101 ], [ true, %1105 ], [ true, %1097 ], [ false, %.critedge421 ], [ false, %470 ]
-  %.0498528531 = phi i32 [ %.0498528.ph, %1095 ], [ %.0498528.ph, %1101 ], [ %.0498528.ph, %1105 ], [ %.0498528.ph, %1097 ], [ %.0498528.ph, %.critedge421 ], [ 0, %470 ]
-  %1107 = phi i32 [ 2, %1095 ], [ 2, %1101 ], [ 2, %1105 ], [ 2, %1097 ], [ %.pr, %.critedge421 ], [ 1, %470 ]
-  %.not414 = phi i1 [ true, %1095 ], [ true, %1101 ], [ false, %1105 ], [ true, %1097 ], [ true, %.critedge421 ], [ true, %470 ]
-  %.0351 = phi i32 [ 0, %1095 ], [ 0, %1101 ], [ 1, %1105 ], [ 0, %1097 ], [ 0, %.critedge421 ], [ 0, %470 ]
+  %.sroa.10.1 = phi ptr [ null, %470 ], [ %.sroa.10.0, %1095 ], [ %.sroa.10.0, %1097 ], [ %.sroa.10.0, %1105 ], [ %.sroa.10.0, %1101 ], [ %.sroa.10.0, %.critedge421 ]
+  %.sroa.13.1 = phi ptr [ null, %470 ], [ %.sroa.13.0, %1095 ], [ %.sroa.13.0, %1097 ], [ %.sroa.13.0, %1105 ], [ %.sroa.13.0, %1101 ], [ %.sroa.13.0, %.critedge421 ]
+  %.sroa.15.1 = phi i8 [ 0, %470 ], [ %.sroa.15.0, %1095 ], [ %.sroa.15.0, %1097 ], [ %.sroa.15.0, %1105 ], [ %.sroa.15.0, %1101 ], [ %.sroa.15.0, %.critedge421 ]
+  %.sroa.18.1 = phi i8 [ 0, %470 ], [ %.sroa.18.0, %1095 ], [ %.sroa.18.0, %1097 ], [ %.sroa.18.0, %1105 ], [ %.sroa.18.0, %1101 ], [ %.sroa.18.0, %.critedge421 ]
+  %.sroa.20583.1 = phi i32 [ 0, %470 ], [ %.sroa.20583.0, %1095 ], [ %.sroa.20583.0, %1097 ], [ %.sroa.20583.0, %1105 ], [ %.sroa.20583.0, %1101 ], [ %.sroa.20583.0, %.critedge421 ]
+  %.sroa.23.1 = phi i8 [ 0, %470 ], [ %.sroa.23.0, %1095 ], [ %.sroa.23.0, %1097 ], [ %.sroa.23.0, %1105 ], [ %.sroa.23.0, %1101 ], [ %.sroa.23.0, %.critedge421 ]
+  %.sroa.26.1 = phi i8 [ 0, %470 ], [ %.sroa.26.0, %1095 ], [ %.sroa.26.0, %1097 ], [ %.sroa.26.0, %1105 ], [ %.sroa.26.0, %1101 ], [ %.sroa.26.0, %.critedge421 ]
+  %1106 = phi i1 [ false, %470 ], [ true, %1095 ], [ true, %1097 ], [ true, %1105 ], [ true, %1101 ], [ false, %.critedge421 ]
+  %.0498528531 = phi i32 [ 0, %470 ], [ %.0498528.ph, %1095 ], [ %.0498528.ph, %1097 ], [ %.0498528.ph, %1105 ], [ %.0498528.ph, %1101 ], [ %.0498528.ph, %.critedge421 ]
+  %1107 = phi i32 [ 1, %470 ], [ 2, %1095 ], [ 2, %1097 ], [ 2, %1105 ], [ 2, %1101 ], [ %.pr, %.critedge421 ]
+  %.not414 = phi i1 [ true, %470 ], [ true, %1095 ], [ true, %1097 ], [ false, %1105 ], [ true, %1101 ], [ true, %.critedge421 ]
+  %.0351 = phi i32 [ 0, %470 ], [ 0, %1095 ], [ 0, %1097 ], [ 1, %1105 ], [ 0, %1101 ], [ 0, %.critedge421 ]
   br i1 %.not396, label %1121, label %1108
 
 1108:                                             ; preds = %.thread532
@@ -3780,7 +3780,7 @@ calculate_digest.exit:                            ; preds = %1278, %1201, %1198,
   br label %lookup_rrc_dissector_handle.exit
 
 lookup_rrc_dissector_handle.exit:                 ; preds = %1312, %1317, %1319, %1321, %1323, %1328, %1330
-  %.0.i442 = phi ptr [ %1329, %1328 ], [ %1331, %1330 ], [ %1324, %1323 ], [ %1322, %1321 ], [ %1320, %1319 ], [ %1316, %1312 ], [ %1318, %1317 ]
+  %.0.i442 = phi ptr [ %1316, %1312 ], [ %1318, %1317 ], [ %1320, %1319 ], [ %1322, %1321 ], [ %1324, %1323 ], [ %1329, %1328 ], [ %1331, %1330 ]
   %.not417 = icmp eq ptr %.0.i442, null
   br i1 %.not417, label %lookup_rrc_dissector_handle.exit.thread, label %1332
 
@@ -4425,8 +4425,8 @@ define internal noundef zeroext i1 @dissect_pdcp_nr_heur(ptr noundef %0, ptr nou
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.split218.us, %.split213.us, %.split209.us, %.split204.us, %.split200.us, %.split196.us, %.split191.us, %.split187.us, %.split183.us, %.split178.us, %.split174.us, %.split169.us, %.split164.us, %.split159.us, %.split154.us, %.split149.us
-  %.085.ph232.be = phi i8 [ %.085.ph232, %.split218.us ], [ %.085.ph232, %.split213.us ], [ %.085.ph232, %.split209.us ], [ %.085.ph232, %.split204.us ], [ %.085.ph232, %.split200.us ], [ %.085.ph232, %.split196.us ], [ %.085.ph232, %.split191.us ], [ %.085.ph232, %.split187.us ], [ %.085.ph232, %.split183.us ], [ %.085.ph232, %.split178.us ], [ %.085.ph232, %.split174.us ], [ %.085.ph232, %.split169.us ], [ %.085.ph232, %.split164.us ], [ %.085.ph232, %.split159.us ], [ %.085.ph232, %.split154.us ], [ 1, %.split149.us ]
-  %.087.ph231.be = phi i32 [ %38, %.split218.us ], [ %60, %.split213.us ], [ %38, %.split209.us ], [ %57, %.split204.us ], [ %38, %.split200.us ], [ %38, %.split196.us ], [ %55, %.split191.us ], [ %38, %.split187.us ], [ %38, %.split183.us ], [ %52, %.split178.us ], [ %38, %.split174.us ], [ %50, %.split169.us ], [ %48, %.split164.us ], [ %46, %.split159.us ], [ %43, %.split154.us ], [ %41, %.split149.us ]
+  %.085.ph232.be = phi i8 [ 1, %.split149.us ], [ %.085.ph232, %.split154.us ], [ %.085.ph232, %.split159.us ], [ %.085.ph232, %.split164.us ], [ %.085.ph232, %.split169.us ], [ %.085.ph232, %.split174.us ], [ %.085.ph232, %.split178.us ], [ %.085.ph232, %.split183.us ], [ %.085.ph232, %.split187.us ], [ %.085.ph232, %.split191.us ], [ %.085.ph232, %.split196.us ], [ %.085.ph232, %.split200.us ], [ %.085.ph232, %.split204.us ], [ %.085.ph232, %.split209.us ], [ %.085.ph232, %.split213.us ], [ %.085.ph232, %.split218.us ]
+  %.087.ph231.be = phi i32 [ %41, %.split149.us ], [ %43, %.split154.us ], [ %46, %.split159.us ], [ %48, %.split164.us ], [ %50, %.split169.us ], [ %38, %.split174.us ], [ %52, %.split178.us ], [ %38, %.split183.us ], [ %38, %.split187.us ], [ %55, %.split191.us ], [ %38, %.split196.us ], [ %38, %.split200.us ], [ %57, %.split204.us ], [ %38, %.split209.us ], [ %60, %.split213.us ], [ %38, %.split218.us ]
   br label %.lr.ph, !llvm.loop !15
 
 .split.us:                                        ; preds = %.lr.ph

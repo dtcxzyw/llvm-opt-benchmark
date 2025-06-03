@@ -118,7 +118,7 @@ define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$tokio..runtime..ta
           to label %37 unwind label %35
 
 29:                                               ; preds = %35, %24
-  %.pn17.i.i = phi { ptr, i32 } [ %36, %35 ], [ %25, %24 ]
+  %.pn16.i.i = phi { ptr, i32 } [ %36, %35 ], [ %25, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -152,7 +152,7 @@ define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$tokio..runtime..ta
   br label %"_ZN4core3ptr124drop_in_place$LT$pingora_core..connectors..http..v2..handshake..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf02fc73fc7a10ad7E.exit"
 
 common.resume.i:                                  ; preds = %131, %126, %115, %34, %29
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn15.i.i, %115 ], [ %.pn17.i.i, %34 ], [ %.pn17.i.i, %29 ], [ %.pn.i, %126 ], [ %.pn.i, %131 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn14.i.i, %115 ], [ %.pn16.i.i, %34 ], [ %.pn16.i.i, %29 ], [ %.pn.i, %126 ], [ %.pn.i, %131 ]
   resume { ptr, i32 } %common.resume.op.i
 
 43:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i.i", %108, %101, %100, %69, %34, %24
@@ -306,7 +306,7 @@ common.resume.i:                                  ; preds = %131, %126, %115, %3
           to label %85 unwind label %43
 
 103:                                              ; preds = %109, %85
-  %.pn11.i.i = phi { ptr, i32 } [ %110, %109 ], [ %.pn9.i.i, %85 ]
+  %.pn9.pn.i.i = phi { ptr, i32 } [ %.pn9.i.i, %85 ], [ %110, %109 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 2512
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
@@ -326,7 +326,7 @@ common.resume.i:                                  ; preds = %131, %126, %115, %3
   br label %103
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i.i": ; preds = %112, %108, %103
-  %.pn13.i.i = phi { ptr, i32 } [ %113, %112 ], [ %.pn11.i.i, %108 ], [ %.pn11.i.i, %103 ]
+  %.pn12.i.i = phi { ptr, i32 } [ %113, %112 ], [ %.pn9.pn.i.i, %108 ], [ %.pn9.pn.i.i, %103 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 2504
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tokio..sync..watch..Sender$LT$bool$GT$$GT$17h4ae5bfd1c4b498e0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %111) #11
           to label %115 unwind label %43
@@ -342,7 +342,7 @@ common.resume.i:                                  ; preds = %131, %126, %115, %3
           to label %119 unwind label %117
 
 115:                                              ; preds = %117, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i.i"
-  %.pn15.i.i = phi { ptr, i32 } [ %118, %117 ], [ %.pn13.i.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i.i" ]
+  %.pn14.i.i = phi { ptr, i32 } [ %118, %117 ], [ %.pn12.i.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i.i" ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 2548
   store i8 0, ptr %116, align 4
   br label %common.resume.i
@@ -954,7 +954,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr139dro
   br label %"_ZN4core3ptr95drop_in_place$LT$pingora_core..protocols..l4..ext..connect_uds..$u7b$$u7b$closure$u7d$$u7d$$GT$17he744def0c5d24f5cE.exit.i.i.i.i.i"
 
 49:                                               ; preds = %52, %42
-  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %43, %42 ], [ %53, %52 ]
+  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %53, %52 ], [ %43, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1089
   store i8 0, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -1515,7 +1515,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr140dro
   br label %"_ZN4core3ptr95drop_in_place$LT$pingora_core..protocols..l4..ext..connect_uds..$u7b$$u7b$closure$u7d$$u7d$$GT$17he744def0c5d24f5cE.exit.i.i.i.i.i"
 
 49:                                               ; preds = %52, %42
-  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %43, %42 ], [ %53, %52 ]
+  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %53, %52 ], [ %43, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 993
   store i8 0, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 976
@@ -2080,7 +2080,7 @@ define internal fastcc void @"_ZN4core3ptr247drop_in_place$LT$tokio..runtime..ta
           to label %32 unwind label %30
 
 24:                                               ; preds = %30, %19
-  %.pn9.i.i = phi { ptr, i32 } [ %31, %30 ], [ %20, %19 ]
+  %.pn10.i.i = phi { ptr, i32 } [ %31, %30 ], [ %20, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
@@ -2114,10 +2114,10 @@ define internal fastcc void @"_ZN4core3ptr247drop_in_place$LT$tokio..runtime..ta
   br label %"_ZN4core3ptr206drop_in_place$LT$pingora_core..protocols..http..v2..client..drive_connection$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4c50f7d3f0d30934E.exit"
 
 common.resume.i:                                  ; preds = %80, %75, %62, %29, %24
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn7.i.i, %62 ], [ %.pn9.i.i, %29 ], [ %.pn9.i.i, %24 ], [ %.pn.i, %75 ], [ %.pn.i, %80 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn8.i.i, %62 ], [ %.pn10.i.i, %29 ], [ %.pn10.i.i, %24 ], [ %.pn.i, %75 ], [ %.pn.i, %80 ]
   resume { ptr, i32 } %common.resume.op.i
 
-38:                                               ; preds = %62, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i.i", %53, %29, %19
+38:                                               ; preds = %62, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i.i", %53, %29, %19
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #12
@@ -2135,27 +2135,27 @@ common.resume.i:                                  ; preds = %80, %75, %62, %29, 
   %44 = load ptr, ptr %43, align 8, !alias.scope !175, !nonnull !4, !noundef !4
   %45 = atomicrmw sub ptr %44, i64 1 release, align 8, !noalias !175
   %46 = icmp eq i64 %45, 1
-  br i1 %46, label %47, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i.i"
+  br i1 %46, label %47, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i.i"
 
 47:                                               ; preds = %42
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h40997327706b7838E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i.i" unwind label %59
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i.i" unwind label %59
 
 48:                                               ; preds = %56, %54, %40
-  %.pn.pn.i.i = phi { ptr, i32 } [ %41, %40 ], [ %57, %56 ], [ %55, %54 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %41, %40 ], [ %55, %54 ], [ %57, %56 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %50 = load ptr, ptr %49, align 8, !alias.scope !182, !nonnull !4, !noundef !4
   %51 = atomicrmw sub ptr %50, i64 1 release, align 8, !noalias !182
   %52 = icmp eq i64 %51, 1
-  br i1 %52, label %53, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i.i"
+  br i1 %52, label %53, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i.i"
 
 53:                                               ; preds = %48
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h40997327706b7838E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %49)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i.i" unwind label %38
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i.i" unwind label %38
 
 54:                                               ; preds = %15
   %55 = landingpad { ptr, i32 }
@@ -2167,8 +2167,8 @@ common.resume.i:                                  ; preds = %80, %75, %62, %29, 
           cleanup
   br label %48
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i.i": ; preds = %59, %53, %48
-  %.pn5.i.i = phi { ptr, i32 } [ %60, %59 ], [ %.pn.pn.i.i, %53 ], [ %.pn.pn.i.i, %48 ]
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i.i": ; preds = %59, %53, %48
+  %.pn6.i.i = phi { ptr, i32 } [ %60, %59 ], [ %.pn4.i.i, %53 ], [ %.pn4.i.i, %48 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender$LT$$LP$$RP$$GT$$GT$17h666bd08bae24ec61E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %58) #11
           to label %62 unwind label %38
@@ -2176,27 +2176,27 @@ common.resume.i:                                  ; preds = %80, %75, %62, %29, 
 59:                                               ; preds = %47
   %60 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i.i"
+  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i.i"
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i.i": ; preds = %47, %42
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i.i": ; preds = %47, %42
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender$LT$$LP$$RP$$GT$$GT$17h666bd08bae24ec61E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %61)
           to label %67 unwind label %65
 
-62:                                               ; preds = %65, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i.i"
-  %.pn7.i.i = phi { ptr, i32 } [ %66, %65 ], [ %.pn5.i.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i.i" ]
+62:                                               ; preds = %65, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i.i"
+  %.pn8.i.i = phi { ptr, i32 } [ %66, %65 ], [ %.pn6.i.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i.i" ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 177
   store i8 0, ptr %63, align 1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr40drop_in_place$LT$h2..share..PingPong$GT$17h23350501c0a2e56fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64) #11
           to label %common.resume.i unwind label %38
 
-65:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i.i"
+65:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i.i"
   %66 = landingpad { ptr, i32 }
           cleanup
   br label %62
 
-67:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i.i"
+67:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i.i"
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 177
   store i8 0, ptr %68, align 1
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7345,7 +7345,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h6a4038253289f49dE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he6fc178c9f6b5d0eE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he6fc178c9f6b5d0eE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h08cb22424d9acd9bE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he6fc178c9f6b5d0eE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he6fc178c9f6b5d0eE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h08cb22424d9acd9bE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he6fc178c9f6b5d0eE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h31c31d1938ca07a7E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h603624352467b654E.exit"
 
@@ -7667,7 +7667,7 @@ _ZN5tokio7runtime4task7harness11poll_future17hc9be9d208d2bc73dE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h0f11320b570f787fE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h0f11320b570f787fE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h1d2d71664c4e5373E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h0f11320b570f787fE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h0f11320b570f787fE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h1d2d71664c4e5373E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h0f11320b570f787fE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h3738101adc9aa8b1E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h565fd3dc0948f4c3E.exit"
 
@@ -7996,7 +7996,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h4092c949d56bec67E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h892f6d246bb7b61dE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h892f6d246bb7b61dE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h2244d385244d0ba1E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h892f6d246bb7b61dE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h892f6d246bb7b61dE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h2244d385244d0ba1E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h892f6d246bb7b61dE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17hf9c0ac1ae6e024ccE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hacfab3cc51bfec19E.exit"
 
@@ -8325,7 +8325,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h39dbb5663a829c3cE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he3fb108d43d891deE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he3fb108d43d891deE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h09a89dbf6632c268E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he3fb108d43d891deE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he3fb108d43d891deE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h09a89dbf6632c268E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he3fb108d43d891deE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17hb41eb46d96c7f5beE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17he2d87332311a2a62E.exit"
 
@@ -8647,7 +8647,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h87e96480a8679058E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e7e5b64398ee51eE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e7e5b64398ee51eE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17hb56a7caadd30a565E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e7e5b64398ee51eE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e7e5b64398ee51eE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17hb56a7caadd30a565E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e7e5b64398ee51eE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h21d5d5dab73fdf02E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hd9659a67111b60a3E.exit"
 
@@ -8969,7 +8969,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h7a78254fe413401aE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e5555442b3d1259E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e5555442b3d1259E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h5e4002234bdfe8caE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e5555442b3d1259E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e5555442b3d1259E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h5e4002234bdfe8caE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e5555442b3d1259E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h9778a0f964503fffE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h58c004605b192f6cE.exit"
 
@@ -9298,7 +9298,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h19b3c7186a8e9daaE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h2ab8c7df97c27dafE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h2ab8c7df97c27dafE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17ha6aebc308ef8c81cE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h2ab8c7df97c27dafE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h2ab8c7df97c27dafE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17ha6aebc308ef8c81cE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h2ab8c7df97c27dafE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h1ad85150021234beE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17he2896e210c6b4cc6E.exit"
 
@@ -9620,7 +9620,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h0973fde0e562acfbE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h918a18a62babc848E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h918a18a62babc848E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h52489b2d5ef5d309E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h918a18a62babc848E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h918a18a62babc848E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h52489b2d5ef5d309E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h918a18a62babc848E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h2278b186a9888867E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h375b9e678bc8be8eE.exit"
 
@@ -9949,7 +9949,7 @@ _ZN5tokio7runtime4task7harness11poll_future17hadeefaf4b14ffd5eE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h66207a2cc422aaf8E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h66207a2cc422aaf8E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17hea919ce577c4285fE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h66207a2cc422aaf8E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h66207a2cc422aaf8E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17hea919ce577c4285fE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h66207a2cc422aaf8E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h7fb17ec98bdf9cb7E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h9079b7faf84d5602E.exit"
 
@@ -10278,7 +10278,7 @@ _ZN5tokio7runtime4task7harness11poll_future17hef2e7d3a9915e638E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e06f5a3d3712901E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e06f5a3d3712901E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h15a35800f155bb01E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e06f5a3d3712901E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e06f5a3d3712901E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h15a35800f155bb01E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h3e06f5a3d3712901E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h52c409a8b83fcfa7E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hf65ffe19fd4af9a4E.exit"
 
@@ -10600,7 +10600,7 @@ _ZN5tokio7runtime4task7harness11poll_future17hd98c12493de998efE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h00a525cde3787282E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h00a525cde3787282E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h0daf0600d44bae1dE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h00a525cde3787282E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h00a525cde3787282E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h0daf0600d44bae1dE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h00a525cde3787282E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h6b819d3f5ffbe18fE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hf8b239d076d03273E.exit"
 
@@ -10922,7 +10922,7 @@ _ZN5tokio7runtime4task7harness11poll_future17hf44623ea95b8feb4E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf76afd21f1660a1bE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf76afd21f1660a1bE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17he93cc4dd4448df60E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf76afd21f1660a1bE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf76afd21f1660a1bE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17he93cc4dd4448df60E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf76afd21f1660a1bE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h165531e6559877f4E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h0165dd4a363fa05dE.exit"
 
@@ -11244,7 +11244,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h4093ea4ac26f303aE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf83e4df9c5f54e2cE.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf83e4df9c5f54e2cE.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17hd8980619c8f220abE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf83e4df9c5f54e2cE.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf83e4df9c5f54e2cE.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17hd8980619c8f220abE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf83e4df9c5f54e2cE.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h517e98a112515524E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hee87c56285696377E.exit"
 
@@ -11566,7 +11566,7 @@ _ZN5tokio7runtime4task7harness11poll_future17ha14bd9428d8a97d8E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h33697ca1323ee282E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h33697ca1323ee282E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17ha3102a8f601275d9E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h33697ca1323ee282E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h33697ca1323ee282E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17ha3102a8f601275d9E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h33697ca1323ee282E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h018e88ef47d3e7b7E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h8ec1f06289091075E.exit"
 
@@ -11888,7 +11888,7 @@ _ZN5tokio7runtime4task7harness11poll_future17hbeead3f222df4f5dE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbcd3770dae6ca460E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbcd3770dae6ca460E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17hd7d78a66afe793bcE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbcd3770dae6ca460E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbcd3770dae6ca460E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17hd7d78a66afe793bcE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbcd3770dae6ca460E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h2e6fbc9abc03b026E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h23a5ab2b13421fe7E.exit"
 
@@ -12217,7 +12217,7 @@ _ZN5tokio7runtime4task7harness11poll_future17hecaae7f22866e309E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hec08c1dca89ce595E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hec08c1dca89ce595E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17hf1108ec1b771c611E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hec08c1dca89ce595E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hec08c1dca89ce595E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17hf1108ec1b771c611E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hec08c1dca89ce595E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h959f0aaa2b201b30E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hc52e1d471bbfa4f6E.exit"
 
@@ -12539,7 +12539,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h2497ffd225912305E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h991108b021158e72E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h991108b021158e72E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h3b4c2fc89e3c0952E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h991108b021158e72E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h991108b021158e72E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h3b4c2fc89e3c0952E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h991108b021158e72E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h737853c167d256cdE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h5a5c2b811234870bE.exit"
 
@@ -12861,7 +12861,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h2e9d2db8912c5115E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h95fc955db5617d62E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h95fc955db5617d62E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h56891925e531e876E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h95fc955db5617d62E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h95fc955db5617d62E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h56891925e531e876E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h95fc955db5617d62E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17ha04249225c305f07E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h6bc32c6e0b8d52b0E.exit"
 
@@ -13183,7 +13183,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h40e9c082ff8b5388E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h145eeef80bdd8995E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h145eeef80bdd8995E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h2169157296edddfbE.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h145eeef80bdd8995E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h145eeef80bdd8995E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h2169157296edddfbE.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h145eeef80bdd8995E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h7436ee7f3adc3dfaE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hfd59df0423650959E.exit"
 
@@ -13512,7 +13512,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h56f69a450a464545E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he331571e0cb46749E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he331571e0cb46749E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h6dd3f0df95922b88E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he331571e0cb46749E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he331571e0cb46749E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h6dd3f0df95922b88E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17he331571e0cb46749E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17hda9d9410b4c088e1E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h5979196354b368dfE.exit"
 

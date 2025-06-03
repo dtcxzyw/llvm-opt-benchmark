@@ -25251,8 +25251,8 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit.i: ; preds = %316, %43
   br label %common.resume
 
 _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit7.thread.i: ; preds = %.thread29, %437, %435, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit7.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEEC2EOS4_.exit8.i
-  %.sroa.724.0 = phi i64 [ %390, %437 ], [ %390, %435 ], [ %390, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit7.i ], [ undef, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEEC2EOS4_.exit8.i ], [ 5, %.thread29 ]
-  %.sroa.0.0 = phi i8 [ 1, %437 ], [ 1, %435 ], [ 1, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit7.i ], [ 0, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEEC2EOS4_.exit8.i ], [ 1, %.thread29 ]
+  %.sroa.724.0 = phi i64 [ undef, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEEC2EOS4_.exit8.i ], [ %390, %437 ], [ %390, %435 ], [ %390, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit7.i ], [ 5, %.thread29 ]
+  %.sroa.0.0 = phi i8 [ 0, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEEC2EOS4_.exit8.i ], [ 1, %437 ], [ 1, %435 ], [ 1, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit7.i ], [ 1, %.thread29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #42, !noalias !880
   %442 = trunc nuw i8 %.sroa.0.0 to i1
   store i8 %.sroa.0.0, ptr %25, align 8, !tbaa !885

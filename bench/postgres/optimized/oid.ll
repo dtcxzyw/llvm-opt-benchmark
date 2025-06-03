@@ -465,7 +465,7 @@ define dso_local i32 @oidparse(ptr noundef readonly captures(none) %0) local_unn
   unreachable
 
 14:                                               ; preds = %6, %3
-  %.0 = phi i32 [ %9, %6 ], [ %5, %3 ]
+  %.0 = phi i32 [ %5, %3 ], [ %9, %6 ]
   ret i32 %.0
 }
 

@@ -656,9 +656,9 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
   invoke void @"_ZN4core3ptr266drop_in_place$LT$opentelemetry..trace..context..WithContext$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h4aab326d8c834284E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %75)
           to label %83 unwind label %80
 
-"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.sink.split.i.i": ; preds = %.noexc4.i.i, %83, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2bcf4c454e9d8b44E.exit.i.i.i", %50
-  %.sink6.i.i = phi i64 [ 16, %83 ], [ 16, %.noexc4.i.i ], [ 40, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2bcf4c454e9d8b44E.exit.i.i.i" ], [ 40, %50 ]
-  %76 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink6.i.i
+"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.sink.split.i.i": ; preds = %.noexc3.i.i, %83, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2bcf4c454e9d8b44E.exit.i.i.i", %50
+  %.sink5.i.i = phi i64 [ 16, %83 ], [ 16, %.noexc3.i.i ], [ 40, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2bcf4c454e9d8b44E.exit.i.i.i" ], [ 40, %50 ]
+  %76 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink5.i.i
   store i8 0, ptr %76, align 8
   br label %"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.i.i"
 
@@ -668,9 +668,9 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
   br label %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf4077974149bcfeaE.exit"
 
 .body.i.i:                                        ; preds = %95, %80, %70, %.body.i.i.i
-  %.sink7.i.i = phi i64 [ 16, %95 ], [ 16, %80 ], [ 40, %70 ], [ 40, %.body.i.i.i ]
-  %.pn2.i.i = phi { ptr, i32 } [ %96, %95 ], [ %81, %80 ], [ %71, %70 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink7.i.i
+  %.sink6.i.i = phi i64 [ 16, %95 ], [ 16, %80 ], [ 40, %70 ], [ 40, %.body.i.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %96, %95 ], [ %81, %80 ], [ %71, %70 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %78 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink6.i.i
   store i8 0, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 697
   store i8 0, ptr %79, align 1
@@ -702,9 +702,9 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
 .noexc.i.i:                                       ; preds = %88
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !178
   invoke void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h8d5c42770ad2af5dE.llvm.6390491434047147085"(ptr noalias noundef nonnull sret({ ptr, { i64, i64 } }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %84, i64 noundef 48, i64 noundef 16)
-          to label %.noexc4.i.i unwind label %95
+          to label %.noexc3.i.i unwind label %95
 
-.noexc4.i.i:                                      ; preds = %.noexc.i.i
+.noexc3.i.i:                                      ; preds = %.noexc.i.i
   %89 = load ptr, ptr %3, align 8, !noalias !178, !nonnull !15, !noundef !15
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %91 = load i64, ptr %90, align 8, !range !181, !noalias !178, !noundef !15
@@ -715,7 +715,7 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6390491434047147085"(ptr noalias noundef nonnull readonly align 1 %94, ptr noundef nonnull %89, i64 noundef %91, i64 noundef %93)
           to label %"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.sink.split.i.i" unwind label %95
 
-95:                                               ; preds = %.noexc4.i.i, %.noexc.i.i, %88
+95:                                               ; preds = %.noexc3.i.i, %.noexc.i.i, %88
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -840,7 +840,7 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
   unreachable
 
 common.resume:                                    ; preds = %189, %.body, %.body31, %129
-  %common.resume.op = phi { ptr, i32 } [ %130, %129 ], [ %.pn4, %.body31 ], [ %eh.lpad-body, %.body ], [ %190, %189 ]
+  %common.resume.op = phi { ptr, i32 } [ %130, %129 ], [ %eh.lpad-body, %.body ], [ %.pn4, %.body31 ], [ %190, %189 ]
   resume { ptr, i32 } %common.resume.op
 
 137:                                              ; preds = %.body31, %.body14, %.body8, %.body10, %.body
@@ -946,7 +946,7 @@ common.resume:                                    ; preds = %189, %.body, %.body
   unreachable
 
 .body8:                                           ; preds = %146, %139, %19, %.body14, %182, %.body10
-  %.pn2 = phi { ptr, i32 } [ %183, %182 ], [ %.pn, %.body14 ], [ %eh.lpad-body11, %.body10 ], [ %140, %139 ], [ %20, %19 ], [ %147, %146 ]
+  %.pn2 = phi { ptr, i32 } [ %eh.lpad-body11, %.body10 ], [ %183, %182 ], [ %.pn, %.body14 ], [ %140, %139 ], [ %20, %19 ], [ %147, %146 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 600
   invoke void @"_ZN4core3ptr94drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$$GT$17h7a7a06d56da81279E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %167) #25
           to label %.body31 unwind label %137
@@ -984,7 +984,7 @@ common.resume:                                    ; preds = %189, %.body, %.body
   br label %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he65c2f97b772f806E.exit"
 
 .body14:                                          ; preds = %180, %108, %.body.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn2.i.i, %.body.i.i ], [ %181, %180 ], [ %109, %108 ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn.i.i, %.body.i.i ], [ %181, %180 ], [ %109, %108 ]
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 616
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %179) #25
           to label %.body8 unwind label %137
@@ -1441,7 +1441,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 common.resume:                                    ; preds = %209, %140, %175, %181, %201, %221, %226, %231, %236, %241, %246, %148
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %247, %246 ], [ %242, %241 ], [ %237, %236 ], [ %232, %231 ], [ %227, %226 ], [ %222, %221 ], [ %.pn2, %201 ], [ %182, %181 ], [ %.pn4, %175 ], [ %.pn10, %140 ], [ %210, %209 ]
+  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %242, %241 ], [ %210, %209 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17habdef1943310a54eE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6769d16d5ee4264cE.llvm.1797472119934586438.exit.i", %152, %156

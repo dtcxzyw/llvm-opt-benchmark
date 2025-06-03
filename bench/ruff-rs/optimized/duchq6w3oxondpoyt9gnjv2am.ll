@@ -171,7 +171,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationPart$u20$as$u20$core..fmt..Debug$GT$3fmt17hba71c0b5922eb373E.exit"
 
 "_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationPart$u20$as$u20$core..fmt..Debug$GT$3fmt17hba71c0b5922eb373E.exit": ; preds = %7, %9, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -220,7 +220,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN96_$LT$ruff_annotate_snippets..renderer..display_list..DisplayLine$u20$as$u20$core..fmt..Debug$GT$3fmt17h952dc26ba6ee2bf5E.exit"
 
 "_ZN96_$LT$ruff_annotate_snippets..renderer..display_list..DisplayLine$u20$as$u20$core..fmt..Debug$GT$3fmt17h952dc26ba6ee2bf5E.exit": ; preds = %9, %14, %17
-  %.sroa.0.0.in.i = phi i1 [ %19, %17 ], [ %16, %14 ], [ %13, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %9 ], [ %16, %14 ], [ %19, %17 ]
   ret i1 %.sroa.0.0.in.i
 }
 

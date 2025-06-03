@@ -424,7 +424,7 @@ define dso_local ptr @PageOutput(i32 noundef %0, ptr noundef readonly captures(a
   br label %49
 
 49:                                               ; preds = %46, %47
-  %.3 = phi ptr [ %.122.ph, %46 ], [ %48, %47 ]
+  %.3 = phi ptr [ %48, %47 ], [ %.122.ph, %46 ]
   ret ptr %.3
 }
 

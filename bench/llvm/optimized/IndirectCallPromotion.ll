@@ -7018,7 +7018,7 @@ _ZL19createBranchWeightsRN4llvm11LLVMContextEmm.exit.i: ; preds = %1476, %._crit
   br label %_ZN12_GLOBAL__N_117getUserBasicBlockERN4llvm3UseEPNS0_11InstructionE.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_117getUserBasicBlockERN4llvm3UseEPNS0_11InstructionE.exit.i.i.i.i: ; preds = %1513, %1500
-  %.1.in.i.i.i.i.i = phi ptr [ %1512, %1500 ], [ %1514, %1513 ]
+  %.1.in.i.i.i.i.i = phi ptr [ %1514, %1513 ], [ %1512, %1500 ]
   %.1.i.i.i.i.i103 = load ptr, ptr %.1.in.i.i.i.i.i, align 8, !tbaa !545
   %.not.i.i.i.i104 = icmp eq ptr %.1.i.i.i.i.i103, %1486
   br i1 %.not.i.i.i.i104, label %select.unfold.i.i.i.i, label %_ZN12_GLOBAL__N_120tryToSinkInstructionEPN4llvm11InstructionEPNS0_10BasicBlockE.exit.thread.i.i

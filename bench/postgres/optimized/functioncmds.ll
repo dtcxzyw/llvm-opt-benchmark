@@ -3299,7 +3299,7 @@ define dso_local { i64, i32 } @CreateCast(ptr noundef readonly captures(none) %0
   unreachable
 
 210:                                              ; preds = %201, %205, %204
-  %.095 = phi i8 [ 101, %205 ], [ 97, %204 ], [ 105, %201 ]
+  %.095 = phi i8 [ 97, %204 ], [ 101, %205 ], [ 105, %201 ]
   %211 = load i32, ptr %2, align 4
   %212 = load i32, ptr %3, align 4
   %213 = call { i64, i32 } @CastCreate(i32 noundef %12, i32 noundef %15, i32 noundef %.0124, i32 noundef %211, i32 noundef %212, i8 noundef signext %.095, i8 noundef signext %.096116122, i32 noundef 110) #8

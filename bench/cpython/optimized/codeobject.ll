@@ -2972,7 +2972,7 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i, %
   br label %get_line_delta.exit.i.i
 
 get_line_delta.exit.i.i:                          ; preds = %36, %35, %scan_signed_varint.exit.i.i.i, %15
-  %.0.i.i.i = phi i32 [ 0, %36 ], [ 2, %35 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 1, %15 ]
+  %.0.i.i.i = phi i32 [ 0, %36 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 2, %35 ], [ 1, %15 ]
   %37 = load i32, ptr %6, align 8, !tbaa !174
   %38 = add i32 %37, %.0.i.i.i
   store i32 %38, ptr %6, align 8, !tbaa !174
@@ -3072,7 +3072,7 @@ scan_signed_varint.exit.i.i.i20:                  ; preds = %.lr.ph.i.i.i.i.i14,
   br label %get_line_delta.exit.i.i9
 
 get_line_delta.exit.i.i9:                         ; preds = %81, %80, %scan_signed_varint.exit.i.i.i20, %61
-  %.0.i.neg.i.i = phi i32 [ 0, %81 ], [ -2, %80 ], [ %79, %scan_signed_varint.exit.i.i.i20 ], [ -1, %61 ]
+  %.0.i.neg.i.i = phi i32 [ 0, %81 ], [ %79, %scan_signed_varint.exit.i.i.i20 ], [ -2, %80 ], [ -1, %61 ]
   %82 = load i32, ptr %10, align 8, !tbaa !174
   %83 = add i32 %82, %.0.i.neg.i.i
   store i32 %83, ptr %10, align 8, !tbaa !174
@@ -3184,7 +3184,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %.lr.ph.i.i.i.i, %9
   br label %get_line_delta.exit.i
 
 get_line_delta.exit.i:                            ; preds = %26, %25, %scan_signed_varint.exit.i.i, %4
-  %.0.i.i = phi i32 [ 0, %26 ], [ 2, %25 ], [ %.0.i.i.i, %scan_signed_varint.exit.i.i ], [ 1, %4 ]
+  %.0.i.i = phi i32 [ 0, %26 ], [ %.0.i.i.i, %scan_signed_varint.exit.i.i ], [ 2, %25 ], [ 1, %4 ]
   %27 = load i32, ptr %5, align 8, !tbaa !174
   %28 = add i32 %27, %.0.i.i
   store i32 %28, ptr %5, align 8, !tbaa !174
@@ -3291,7 +3291,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %.lr.ph.i.i.i.i, %15
   br label %get_line_delta.exit.i
 
 get_line_delta.exit.i:                            ; preds = %32, %31, %scan_signed_varint.exit.i.i, %11
-  %.0.i.neg.i = phi i32 [ 0, %32 ], [ -2, %31 ], [ %30, %scan_signed_varint.exit.i.i ], [ -1, %11 ]
+  %.0.i.neg.i = phi i32 [ 0, %32 ], [ %30, %scan_signed_varint.exit.i.i ], [ -2, %31 ], [ -1, %11 ]
   %33 = load i32, ptr %12, align 8, !tbaa !174
   %34 = add i32 %33, %.0.i.neg.i
   store i32 %34, ptr %12, align 8, !tbaa !174
@@ -3423,7 +3423,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %.lr.ph.i.i.i.i, %34
   br label %get_line_delta.exit.i
 
 get_line_delta.exit.i:                            ; preds = %51, %50, %scan_signed_varint.exit.i.i, %31
-  %.0.i.neg.i = phi i32 [ 0, %51 ], [ -2, %50 ], [ %49, %scan_signed_varint.exit.i.i ], [ -1, %31 ]
+  %.0.i.neg.i = phi i32 [ 0, %51 ], [ %49, %scan_signed_varint.exit.i.i ], [ -2, %50 ], [ -1, %31 ]
   %52 = load i32, ptr %19, align 8, !tbaa !174
   %53 = add i32 %52, %.0.i.neg.i
   store i32 %53, ptr %19, align 8, !tbaa !174
@@ -3790,7 +3790,7 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i, %
   br label %get_line_delta.exit.i.i
 
 get_line_delta.exit.i.i:                          ; preds = %28, %27, %scan_signed_varint.exit.i.i.i, %6
-  %.0.i.i.i = phi i32 [ 0, %28 ], [ 2, %27 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 1, %6 ]
+  %.0.i.i.i = phi i32 [ 0, %28 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 2, %27 ], [ 1, %6 ]
   %29 = load i32, ptr %7, align 8, !tbaa !174
   %30 = add i32 %29, %.0.i.i.i
   store i32 %30, ptr %7, align 8, !tbaa !174
@@ -3886,7 +3886,7 @@ scan_signed_varint.exit.i.i.i28:                  ; preds = %.lr.ph.i.i.i.i.i22,
   br label %get_line_delta.exit.i.i16
 
 get_line_delta.exit.i.i16:                        ; preds = %73, %72, %scan_signed_varint.exit.i.i.i28, %52
-  %.0.i.i.i17 = phi i32 [ 0, %73 ], [ 2, %72 ], [ %.0.i.i.i.i31, %scan_signed_varint.exit.i.i.i28 ], [ 1, %52 ]
+  %.0.i.i.i17 = phi i32 [ 0, %73 ], [ %.0.i.i.i.i31, %scan_signed_varint.exit.i.i.i28 ], [ 2, %72 ], [ 1, %52 ]
   %74 = add i32 %50, %.0.i.i.i17
   store i32 %74, ptr %7, align 8, !tbaa !174
   %75 = load i8, ptr %51, align 1, !tbaa !97
@@ -3980,7 +3980,7 @@ scan_signed_varint.exit.i.i.i44:                  ; preds = %.lr.ph.i.i.i.i.i38,
   br label %get_line_delta.exit.i.i33
 
 get_line_delta.exit.i.i33:                        ; preds = %115, %114, %scan_signed_varint.exit.i.i.i44, %95
-  %.0.i.neg.i.i = phi i32 [ 0, %115 ], [ -2, %114 ], [ %113, %scan_signed_varint.exit.i.i.i44 ], [ -1, %95 ]
+  %.0.i.neg.i.i = phi i32 [ 0, %115 ], [ %113, %scan_signed_varint.exit.i.i.i44 ], [ -2, %114 ], [ -1, %95 ]
   %116 = add i32 %74, %.0.i.neg.i.i
   store i32 %116, ptr %7, align 8, !tbaa !174
   store i32 %49, ptr %34, align 4, !tbaa !173
@@ -7583,7 +7583,7 @@ scan_signed_varint.exit.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i,
   br label %get_line_delta.exit.i.i.i
 
 get_line_delta.exit.i.i.i:                        ; preds = %39, %38, %scan_signed_varint.exit.i.i.i.i, %.lr.ph.i
-  %.0.i.i.i.i = phi i32 [ 0, %39 ], [ 2, %38 ], [ %.0.i.i.i.i.i, %scan_signed_varint.exit.i.i.i.i ], [ 1, %.lr.ph.i ]
+  %.0.i.i.i.i = phi i32 [ 0, %39 ], [ %.0.i.i.i.i.i, %scan_signed_varint.exit.i.i.i.i ], [ 2, %38 ], [ 1, %.lr.ph.i ]
   %40 = add i32 %.0.i.i.i.i, %.sroa.1130.072.i
   %41 = shl i8 %19, 1
   %narrow.i.i.i.i = and i8 %41, 14

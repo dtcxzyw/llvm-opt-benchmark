@@ -744,7 +744,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit32: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit37
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit37: ; preds = %25, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit32, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit27, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
-  %.sroa.0.0.in = phi i1 [ %24, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit32 ], [ %21, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit27 ], [ %16, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %29, %25 ]
+  %.sroa.0.0.in = phi i1 [ %16, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %21, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit27 ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit32 ], [ %29, %25 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -932,7 +932,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit79: ; preds = %2
   br label %42
 
 42:                                               ; preds = %55, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit79, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit74, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
-  %.sroa.0.0.in = phi i1 [ %41, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit79 ], [ %.sroa.0.1.in, %55 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit74 ], [ %30, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ]
+  %.sroa.0.0.in = phi i1 [ %30, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit74 ], [ %.sroa.0.1.in, %55 ], [ %41, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit79 ]
   ret i1 %.sroa.0.0.in
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit84: ; preds = %34
@@ -1044,7 +1044,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit99: ; preds = %34
   br label %55
 
 55:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit99, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit94, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit89, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit84
-  %.sroa.0.1.in = phi i1 [ %54, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit99 ], [ %52, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit94 ], [ %48, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit89 ], [ %44, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit84 ]
+  %.sroa.0.1.in = phi i1 [ %44, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit84 ], [ %48, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit89 ], [ %52, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit94 ], [ %54, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit99 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   br label %42
 }

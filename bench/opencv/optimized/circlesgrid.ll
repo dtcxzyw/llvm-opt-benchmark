@@ -6525,7 +6525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret i1 %126
 
 127:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit53, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit26
-  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn61, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit53 ], [ %.pn1057, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit26 ]
+  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn1057, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit26 ], [ %.pn61, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit53 ]
   resume { ptr, i32 } %.pn13.pn
 }
 
@@ -13354,8 +13354,8 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder13areCentersNewERKSt6vec
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge._crit_edge.i.i.i.us
-  %58 = phi i64 [ %.pre.i.i.i.us, %._crit_edge._crit_edge.i.i.i.us ], [ %53, %55 ]
-  %.sroa.032.1.i.i.i.us = phi ptr [ %.sroa.032.0.lcssa.i.i.i.us, %._crit_edge._crit_edge.i.i.i.us ], [ %56, %55 ]
+  %58 = phi i64 [ %53, %55 ], [ %.pre.i.i.i.us, %._crit_edge._crit_edge.i.i.i.us ]
+  %.sroa.032.1.i.i.i.us = phi ptr [ %56, %55 ], [ %.sroa.032.0.lcssa.i.i.i.us, %._crit_edge._crit_edge.i.i.i.us ]
   %59 = load i64, ptr %.sroa.032.1.i.i.i.us, align 8, !tbaa !40
   %60 = icmp eq i64 %59, %58
   br i1 %60, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.us, label %61
@@ -13365,8 +13365,8 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder13areCentersNewERKSt6vec
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge._crit_edge57.i.i.i.us
-  %64 = phi i64 [ %.pre58.i.i.i.us, %._crit_edge._crit_edge57.i.i.i.us ], [ %58, %61 ]
-  %.sroa.032.2.i.i.i.us = phi ptr [ %.sroa.032.0.lcssa.i.i.i.us, %._crit_edge._crit_edge57.i.i.i.us ], [ %62, %61 ]
+  %64 = phi i64 [ %58, %61 ], [ %.pre58.i.i.i.us, %._crit_edge._crit_edge57.i.i.i.us ]
+  %.sroa.032.2.i.i.i.us = phi ptr [ %62, %61 ], [ %.sroa.032.0.lcssa.i.i.i.us, %._crit_edge._crit_edge57.i.i.i.us ]
   %65 = load i64, ptr %.sroa.032.2.i.i.i.us, align 8, !tbaa !40
   %66 = icmp eq i64 %65, %64
   %spec.select.i.i.i.us = select i1 %66, ptr %.sroa.032.2.i.i.i.us, ptr %22
@@ -19299,9 +19299,9 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %47
 
 47:                                               ; preds = %._crit_edge._crit_edge, %45
-  %.val3.i35 = phi float [ %.val3.i35.pre, %._crit_edge._crit_edge ], [ %.val3.i31, %45 ]
-  %.val2.i34 = phi float [ %.val2.i34.pre, %._crit_edge._crit_edge ], [ %.val2.i30, %45 ]
-  %.sroa.056.1 = phi ptr [ %.sroa.056.0.lcssa, %._crit_edge._crit_edge ], [ %46, %45 ]
+  %.val3.i35 = phi float [ %.val3.i31, %45 ], [ %.val3.i35.pre, %._crit_edge._crit_edge ]
+  %.val2.i34 = phi float [ %.val2.i30, %45 ], [ %.val2.i34.pre, %._crit_edge._crit_edge ]
+  %.sroa.056.1 = phi ptr [ %46, %45 ], [ %.sroa.056.0.lcssa, %._crit_edge._crit_edge ]
   %.val.i32 = load float, ptr %.sroa.056.1, align 4, !tbaa !41
   %48 = getelementptr i8, ptr %.sroa.056.1, i64 4
   %.val1.i33 = load float, ptr %48, align 4
@@ -19315,9 +19315,9 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %54
 
 54:                                               ; preds = %._crit_edge._crit_edge83, %52
-  %.val3.i39 = phi float [ %.val3.i39.pre, %._crit_edge._crit_edge83 ], [ %.val3.i35, %52 ]
-  %.val2.i38 = phi float [ %.val2.i38.pre, %._crit_edge._crit_edge83 ], [ %.val2.i34, %52 ]
-  %.sroa.056.2 = phi ptr [ %.sroa.056.0.lcssa, %._crit_edge._crit_edge83 ], [ %53, %52 ]
+  %.val3.i39 = phi float [ %.val3.i35, %52 ], [ %.val3.i39.pre, %._crit_edge._crit_edge83 ]
+  %.val2.i38 = phi float [ %.val2.i34, %52 ], [ %.val2.i38.pre, %._crit_edge._crit_edge83 ]
+  %.sroa.056.2 = phi ptr [ %53, %52 ], [ %.sroa.056.0.lcssa, %._crit_edge._crit_edge83 ]
   %.val.i36 = load float, ptr %.sroa.056.2, align 4, !tbaa !41
   %55 = getelementptr i8, ptr %.sroa.056.2, i64 4
   %.val1.i37 = load float, ptr %55, align 4

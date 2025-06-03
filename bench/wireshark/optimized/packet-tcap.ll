@@ -2147,7 +2147,7 @@ tcaphash_ansi_matching.exit:                      ; preds = %proto_item_set_gene
   br label %869
 
 869:                                              ; preds = %tcaphash_begin_matching.exit, %tcaphash_cont_matching.exit, %503, %505, %tcaphash_ansi_matching.exit, %19, %4, %15
-  %.025 = phi ptr [ null, %15 ], [ null, %4 ], [ null, %19 ], [ %.0131.i, %tcaphash_ansi_matching.exit ], [ %506, %505 ], [ %504, %503 ], [ %.066120.i, %tcaphash_cont_matching.exit ], [ %.074.i, %tcaphash_begin_matching.exit ]
+  %.025 = phi ptr [ null, %15 ], [ null, %4 ], [ null, %19 ], [ %.074.i, %tcaphash_begin_matching.exit ], [ %.066120.i, %tcaphash_cont_matching.exit ], [ %504, %503 ], [ %506, %505 ], [ %.0131.i, %tcaphash_ansi_matching.exit ]
   ret ptr %.025
 }
 

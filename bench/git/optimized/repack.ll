@@ -3348,7 +3348,7 @@ remove_redundant_existing_packs.exit:             ; preds = %1413, %remove_redun
   br label %.thread277
 
 .thread277:                                       ; preds = %912, %899, %.thread286, %write_filtered_pack.exit.thread, %1380, %1438, %1440, %write_filtered_pack.exit, %836, %805
-  %.096 = phi i32 [ %806, %805 ], [ %837, %836 ], [ %1002, %write_filtered_pack.exit ], [ %.0.i252, %1380 ], [ 0, %1440 ], [ 0, %1438 ], [ %956, %write_filtered_pack.exit.thread ], [ %1308, %.thread286 ], [ %913, %912 ], [ %906, %899 ]
+  %.096 = phi i32 [ %806, %805 ], [ %837, %836 ], [ %1002, %write_filtered_pack.exit ], [ 0, %1440 ], [ 0, %1438 ], [ %.0.i252, %1380 ], [ %956, %write_filtered_pack.exit.thread ], [ %1308, %.thread286 ], [ %913, %912 ], [ %906, %899 ]
   call void @string_list_clear(ptr noundef nonnull %22, i32 noundef 0) #16
   call void @string_list_clear(ptr noundef nonnull %16, i32 noundef 1) #16
   call void @string_list_clear(ptr noundef nonnull %17, i32 noundef 0) #16

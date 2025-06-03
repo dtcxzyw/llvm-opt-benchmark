@@ -766,7 +766,7 @@ define void @_ZN5arrow6Status12CodeAsStringB5cxx11ENS_10StatusCodeE(ptr dead_on_
   br label %19
 
 19:                                               ; preds = %2, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi ptr [ @.str.18, %18 ], [ @.str.17, %17 ], [ @.str.16, %16 ], [ @.str.15, %15 ], [ @.str.14, %14 ], [ @.str.13, %13 ], [ @.str.12, %12 ], [ @.str.11, %11 ], [ @.str.10, %10 ], [ @.str.9, %9 ], [ @.str.8, %8 ], [ @.str.7, %7 ], [ @.str.6, %6 ], [ @.str.5, %5 ], [ @.str.4, %4 ], [ @.str.3, %2 ]
+  %.0 = phi ptr [ @.str.18, %18 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str.6, %6 ], [ @.str.7, %7 ], [ @.str.8, %8 ], [ @.str.9, %9 ], [ @.str.10, %10 ], [ @.str.11, %11 ], [ @.str.12, %12 ], [ @.str.13, %13 ], [ @.str.14, %14 ], [ @.str.15, %15 ], [ @.str.16, %16 ], [ @.str.17, %17 ], [ @.str.3, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !3
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #19

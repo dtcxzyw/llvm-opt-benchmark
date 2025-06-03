@@ -912,10 +912,10 @@ _ZN6bufferIP4exprLb0ELj128EED2Ev.exit:            ; preds = %._crit_edge, %309
   ret void
 
 313:                                              ; preds = %.loopexit154, %.loopexit.split-lp, %256, %258, %189, %29, %27
-  %.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ], [ %190, %189 ], [ %257, %256 ], [ %259, %258 ], [ %lpad.loopexit, %.loopexit154 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ], [ %190, %189 ], [ %257, %256 ], [ %259, %258 ], [ %lpad.loopexit, %.loopexit154 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6bufferIP4exprLb0ELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %8) #10
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %8) #10
-  resume { ptr, i32 } %.pn.pn.pn
+  resume { ptr, i32 } %.pn21.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

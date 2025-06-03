@@ -809,7 +809,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$ruff_python_ast..nodes..Number$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ff030a1c5ff0da2E.exit"
 
 "_ZN67_$LT$ruff_python_ast..nodes..Number$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ff030a1c5ff0da2E.exit": ; preds = %8, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %17, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %17, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -40399,7 +40399,7 @@ default.unreachable1:                             ; preds = %2
   br label %132
 
 132:                                              ; preds = %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36
-  %.sroa.0.0.in = phi i1 [ %131, %129 ], [ %128, %126 ], [ %125, %123 ], [ %122, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ]
+  %.sroa.0.0.in = phi i1 [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %119, %117 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ %131, %129 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -40541,7 +40541,7 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$ruff_python_ast..nodes..Nu
   ]
 
 "_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit": ; preds = %19, %16, %8, %26, %2, %31, %21
-  %.sroa.0.0.shrunk = phi i1 [ %36, %31 ], [ %25, %21 ], [ false, %2 ], [ false, %26 ], [ %18, %16 ], [ %20, %19 ], [ false, %8 ]
+  %.sroa.0.0.shrunk = phi i1 [ %25, %21 ], [ %36, %31 ], [ false, %2 ], [ false, %26 ], [ %18, %16 ], [ %20, %19 ], [ false, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable5:                             ; preds = %6
@@ -40755,7 +40755,7 @@ define internal noundef zeroext i1 @"_ZN72_$LT$ruff_python_ast..generated..Patte
   br label %39
 
 39:                                               ; preds = %36, %33, %30, %27, %25, %22, %19, %16
-  %.sroa.0.0.in = phi i1 [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ]
+  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %26, %25 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -41741,7 +41741,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated
   ]
 
 "_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit": ; preds = %45, %39, %31, %217, %223, %145, %127, %121, %193, %115, %185, %107, %177, %99, %169, %91, %2, %225, %211, %205, %199, %191, %183, %175, %165, %161, %157, %153, %141, %137, %133, %87, %83, %79, %75, %71, %67, %63, %59, %55, %51, %47, %27, %23, %19, %15, %11, %7
-  %.sroa.0.0.shrunk = phi i1 [ %168, %165 ], [ %164, %161 ], [ %160, %157 ], [ %156, %153 ], [ %230, %225 ], [ %144, %141 ], [ %140, %137 ], [ %136, %133 ], [ %216, %211 ], [ %210, %205 ], [ %204, %199 ], [ %192, %191 ], [ %184, %183 ], [ %176, %175 ], [ %90, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %30, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %7 ], [ false, %2 ], [ false, %91 ], [ false, %169 ], [ false, %99 ], [ false, %177 ], [ false, %107 ], [ false, %185 ], [ false, %115 ], [ false, %193 ], [ false, %121 ], [ false, %127 ], [ false, %145 ], [ false, %223 ], [ false, %217 ], [ %46, %45 ], [ false, %31 ], [ false, %39 ]
+  %.sroa.0.0.shrunk = phi i1 [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ %82, %79 ], [ %86, %83 ], [ %90, %87 ], [ %176, %175 ], [ %184, %183 ], [ %192, %191 ], [ %204, %199 ], [ %210, %205 ], [ %216, %211 ], [ %136, %133 ], [ %140, %137 ], [ %144, %141 ], [ %230, %225 ], [ %156, %153 ], [ %160, %157 ], [ %164, %161 ], [ %168, %165 ], [ false, %2 ], [ false, %91 ], [ false, %169 ], [ false, %99 ], [ false, %177 ], [ false, %107 ], [ false, %185 ], [ false, %115 ], [ false, %193 ], [ false, %121 ], [ false, %127 ], [ false, %145 ], [ false, %223 ], [ false, %217 ], [ %46, %45 ], [ false, %31 ], [ false, %39 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable2:                             ; preds = %6
@@ -42239,7 +42239,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   ]
 
 "_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit": ; preds = %216, %210, %204, %198, %194, %190, %186, %182, %175, %174, %162, %156, %176, %150, %146, %142, %138, %134, %124, %118, %116, %110, %104, %96, %90, %86, %82, %78, %74, %64, %58, %52, %46, %40, %34, %28, %232, %22, %222, %14, %2, %238, %228
-  %.sroa.0.0.shrunk = phi i1 [ %243, %238 ], [ %231, %228 ], [ false, %2 ], [ false, %14 ], [ false, %222 ], [ false, %22 ], [ false, %232 ], [ %45, %40 ], [ false, %28 ], [ false, %34 ], [ %95, %90 ], [ %81, %78 ], [ false, %64 ], [ false, %58 ], [ false, %46 ], [ false, %52 ], [ false, %74 ], [ false, %82 ], [ false, %86 ], [ %117, %116 ], [ false, %96 ], [ false, %110 ], [ false, %104 ], [ %155, %150 ], [ %141, %138 ], [ false, %118 ], [ false, %124 ], [ false, %134 ], [ false, %142 ], [ false, %146 ], [ %203, %198 ], [ %189, %186 ], [ false, %174 ], [ false, %156 ], [ false, %175 ], [ false, %162 ], [ false, %182 ], [ false, %190 ], [ false, %194 ], [ false, %176 ], [ %221, %216 ], [ false, %204 ], [ false, %210 ]
+  %.sroa.0.0.shrunk = phi i1 [ %231, %228 ], [ %243, %238 ], [ false, %2 ], [ false, %14 ], [ false, %222 ], [ false, %22 ], [ false, %232 ], [ %45, %40 ], [ false, %28 ], [ false, %34 ], [ %95, %90 ], [ %81, %78 ], [ false, %64 ], [ false, %58 ], [ false, %46 ], [ false, %52 ], [ false, %74 ], [ false, %82 ], [ false, %86 ], [ %117, %116 ], [ false, %96 ], [ false, %110 ], [ false, %104 ], [ %155, %150 ], [ %141, %138 ], [ false, %118 ], [ false, %124 ], [ false, %134 ], [ false, %142 ], [ false, %146 ], [ %203, %198 ], [ %189, %186 ], [ false, %174 ], [ false, %156 ], [ false, %175 ], [ false, %162 ], [ false, %182 ], [ false, %190 ], [ false, %194 ], [ false, %176 ], [ %221, %216 ], [ false, %204 ], [ false, %210 ]
   ret i1 %.sroa.0.0.shrunk
 
 13:                                               ; preds = %12
@@ -43226,9 +43226,9 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   br label %52
 
 52:                                               ; preds = %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d25c247a9d98466E.exit.i.i", %35, %27
-  %.sroa.013.0.i = phi i64 [ %.sroa.013.0.copyload14.i, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d25c247a9d98466E.exit.i.i" ], [ -9223372036854775807, %35 ], [ -9223372036854775805, %27 ]
-  %.sroa.6.1.i = phi i32 [ %.sroa.6.0.copyload16.i, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d25c247a9d98466E.exit.i.i" ], [ %37, %35 ], [ %.sroa.6.043.i, %27 ]
-  %.sroa.719.1.i = phi i32 [ %40, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d25c247a9d98466E.exit.i.i" ], [ %.sroa.719.045.i, %35 ], [ %.sroa.719.045.i, %27 ]
+  %.sroa.013.0.i = phi i64 [ -9223372036854775807, %35 ], [ %.sroa.013.0.copyload14.i, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d25c247a9d98466E.exit.i.i" ], [ -9223372036854775805, %27 ]
+  %.sroa.6.1.i = phi i32 [ %37, %35 ], [ %.sroa.6.0.copyload16.i, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d25c247a9d98466E.exit.i.i" ], [ %.sroa.6.043.i, %27 ]
+  %.sroa.719.1.i = phi i32 [ %.sroa.719.045.i, %35 ], [ %40, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d25c247a9d98466E.exit.i.i" ], [ %.sroa.719.045.i, %27 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2569
   %53 = getelementptr inbounds nuw { [4 x i64] }, ptr %16, i64 %.sroa.7.041.i
   store i64 %.sroa.013.0.i, ptr %53, align 8, !noalias !2581
@@ -49023,8 +49023,8 @@ define noundef zeroext i1 @"_ZN96_$LT$ty_python_semantic..types..generics..Gener
   br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
 
 _ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit: ; preds = %2, %10, %12, %13
-  %.sroa.02.0.i = phi ptr [ @anon.24707c9813366632d6460d300f68d204.384, %13 ], [ @anon.24707c9813366632d6460d300f68d204.383, %12 ], [ %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i, %10 ], [ @anon.24707c9813366632d6460d300f68d204.382, %2 ]
-  %.sroa.5.0.i = phi i64 [ 19, %13 ], [ 23, %12 ], [ %..i.i, %10 ], [ 9, %2 ]
+  %.sroa.02.0.i = phi ptr [ %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i, %10 ], [ @anon.24707c9813366632d6460d300f68d204.383, %12 ], [ @anon.24707c9813366632d6460d300f68d204.384, %13 ], [ @anon.24707c9813366632d6460d300f68d204.382, %2 ]
+  %.sroa.5.0.i = phi i64 [ %..i.i, %10 ], [ 23, %12 ], [ 19, %13 ], [ 9, %2 ]
   %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.5.0.i)
   ret i1 %14
 }
@@ -49533,8 +49533,8 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types8generics14Specia
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %.loopexit, label %68
 
-.loopexit:                                        ; preds = %.lr.ph, %80, %61, %74, %76, %78, %64, %68, %26, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %26 ], [ true, %.lr.ph ], [ true, %80 ], [ true, %61 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %64 ], [ false, %68 ]
+.loopexit:                                        ; preds = %.lr.ph, %80, %61, %76, %74, %78, %64, %68, %26, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %26 ], [ true, %.lr.ph ], [ true, %80 ], [ true, %61 ], [ false, %76 ], [ false, %74 ], [ false, %78 ], [ false, %64 ], [ false, %68 ]
   ret i1 %.sroa.0.0
 
 68:                                               ; preds = %64
@@ -49546,9 +49546,9 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types8generics14Specia
   %72 = load i32, ptr %59, align 4, !range !70, !noundef !3
   %73 = tail call noundef i8 @"_ZN18ty_python_semantic5types1_60_$LT$impl$u20$ty_python_semantic..types..TypeVarInstance$GT$8variance17h2632617bb1adbf42E"(i32 noundef %72, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   switch i8 %73, label %default.unreachable39 [
-    i8 0, label %78
-    i8 1, label %74
-    i8 2, label %76
+    i8 0, label %74
+    i8 1, label %76
+    i8 2, label %78
     i8 3, label %80
   ]
 
@@ -49556,36 +49556,36 @@ default.unreachable39:                            ; preds = %71
   unreachable
 
 74:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
-  %75 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type13is_subtype_of17h8627b0f0cb2de21aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %75, label %80, label %.loopexit
-
-76:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
-  %77 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type13is_subtype_of17h8627b0f0cb2de21aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %77, label %80, label %.loopexit
-
-78:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
-  %79 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_equivalent_to17hb95e0c74ef69c197E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %75 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_equivalent_to17hb95e0c74ef69c197E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br i1 %75, label %80, label %.loopexit
+
+76:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
+  %77 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type13is_subtype_of17h8627b0f0cb2de21aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  br i1 %77, label %80, label %.loopexit
+
+78:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
+  %79 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type13is_subtype_of17h8627b0f0cb2de21aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %79, label %80, label %.loopexit
 
-80:                                               ; preds = %74, %76, %71, %78
+80:                                               ; preds = %76, %74, %71, %78
   %81 = icmp eq ptr %58, %36
   br i1 %81, label %.loopexit, label %.lr.ph
 }
@@ -49801,7 +49801,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types8generics14Specia
   switch i8 %76, label %default.unreachable35 [
     i8 0, label %77
     i8 1, label %79
-    i8 2, label %81
+    i8 2, label %83
     i8 3, label %.backedge
   ]
 
@@ -49816,7 +49816,7 @@ default.unreachable35:                            ; preds = %74
   %78 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_assignable_to17ha64822cf6ab92665E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %12, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  br i1 %78, label %83, label %.loopexit
+  br i1 %78, label %81, label %.loopexit
 
 79:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -49828,24 +49828,24 @@ default.unreachable35:                            ; preds = %74
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %80, label %.backedge, label %.loopexit
 
-81:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
-  %82 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_assignable_to17ha64822cf6ab92665E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %82, label %.backedge, label %.loopexit
-
-83:                                               ; preds = %77
+81:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
-  %84 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_assignable_to17ha64822cf6ab92665E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %82 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_assignable_to17ha64822cf6ab92665E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br i1 %82, label %.backedge, label %.loopexit
+
+83:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.024, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.023, i64 16, i1 false)
+  %84 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_assignable_to17ha64822cf6ab92665E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %84, label %.backedge, label %.loopexit
 }
 
@@ -53307,7 +53307,7 @@ default.unreachable15:                            ; preds = %2
   br label %"_ZN78_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17h33a63f453155badcE.exit"
 
 common.resume:                                    ; preds = %.body.i.i, %98, %56, %110, %114, %125, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %126, %125 ], [ %115, %114 ], [ %111, %110 ], [ %57, %56 ], [ %99, %98 ], [ %76, %.body.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %57, %56 ], [ %111, %110 ], [ %115, %114 ], [ %126, %125 ], [ %99, %98 ], [ %76, %.body.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %47, %.lr.ph.i
@@ -53374,7 +53374,7 @@ common.resume:                                    ; preds = %.body.i.i, %98, %56
           to label %58 unwind label %56
 
 55:                                               ; preds = %13, %127, %117, %116, %112, %"_ZN78_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17h2491db1408f864eeE.exit", %58, %"_ZN78_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17h33a63f453155badcE.exit"
-  %.sroa.0.0.shrunk = phi i1 [ %123, %117 ], [ true, %127 ], [ true, %116 ], [ %.sroa.0.0.i3, %"_ZN78_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17h2491db1408f864eeE.exit" ], [ true, %112 ], [ %.sroa.0.0.i, %"_ZN78_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17h33a63f453155badcE.exit" ], [ true, %58 ], [ false, %13 ]
+  %.sroa.0.0.shrunk = phi i1 [ %.sroa.0.0.i, %"_ZN78_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17h33a63f453155badcE.exit" ], [ true, %58 ], [ %.sroa.0.0.i3, %"_ZN78_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17h2491db1408f864eeE.exit" ], [ true, %112 ], [ true, %116 ], [ %123, %117 ], [ true, %127 ], [ false, %13 ]
   ret i1 %.sroa.0.0.shrunk
 
 56:                                               ; preds = %54

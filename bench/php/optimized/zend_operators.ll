@@ -120,12 +120,12 @@ define dso_local i64 @zend_atol(ptr noundef readonly captures(none) %0, i64 noun
   br label %14
 
 14:                                               ; preds = %12, %7, %7
-  %.1.i = phi i64 [ %8, %7 ], [ %8, %7 ], [ %13, %12 ]
+  %.1.i = phi i64 [ %13, %12 ], [ %8, %7 ], [ %8, %7 ]
   %15 = shl i64 %.1.i, 10
   br label %16
 
 16:                                               ; preds = %14, %7, %7
-  %.2.i = phi i64 [ %8, %7 ], [ %8, %7 ], [ %15, %14 ]
+  %.2.i = phi i64 [ %15, %14 ], [ %8, %7 ], [ %8, %7 ]
   %17 = shl i64 %.2.i, 10
   br label %zend_atol_internal.exit
 
@@ -169,12 +169,12 @@ define dso_local i32 @zend_atoi(ptr noundef readonly captures(none) %0, i64 noun
   br label %14
 
 14:                                               ; preds = %12, %7, %7
-  %.1.i = phi i64 [ %8, %7 ], [ %8, %7 ], [ %13, %12 ]
+  %.1.i = phi i64 [ %13, %12 ], [ %8, %7 ], [ %8, %7 ]
   %15 = shl i64 %.1.i, 10
   br label %16
 
 16:                                               ; preds = %14, %7, %7
-  %.2.i = phi i64 [ %8, %7 ], [ %8, %7 ], [ %15, %14 ]
+  %.2.i = phi i64 [ %15, %14 ], [ %8, %7 ], [ %8, %7 ]
   %17 = shl i64 %.2.i, 10
   br label %zend_atol_internal.exit
 
@@ -572,7 +572,7 @@ zend_dval_to_lval_cap.exit:                       ; preds = %48, %55, %58
   unreachable
 
 84:                                               ; preds = %zend_dval_to_lval.exit, %28, %26, %2, %2, %82, %81, %67, %9
-  %.0 = phi i64 [ 0, %82 ], [ %.2, %81 ], [ %.1, %67 ], [ 1, %9 ], [ 0, %2 ], [ 0, %2 ], [ %.0.i, %26 ], [ %.0.i, %28 ], [ %.0.i, %zend_dval_to_lval.exit ]
+  %.0 = phi i64 [ 1, %9 ], [ %.1, %67 ], [ %.2, %81 ], [ 0, %82 ], [ 0, %2 ], [ 0, %2 ], [ %.0.i, %26 ], [ %.0.i, %28 ], [ %.0.i, %zend_dval_to_lval.exit ]
   ret i64 %.0
 }
 
@@ -1751,7 +1751,7 @@ zend_double_to_str.exit:                          ; preds = %5
   unreachable
 
 __zval_get_string_func.exit:                      ; preds = %102, %97, %zend_print_long_to_buf.exit.i, %20, %8, %10, %12, %zend_double_to_str.exit, %68, %70, %93
-  %.0.i = phi ptr [ %.1.i, %93 ], [ %62, %zend_double_to_str.exit ], [ %16, %12 ], [ %11, %10 ], [ %9, %8 ], [ %73, %70 ], [ null, %68 ], [ %23, %20 ], [ %48, %zend_print_long_to_buf.exit.i ], [ %98, %97 ], [ %98, %102 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %16, %12 ], [ %62, %zend_double_to_str.exit ], [ %.1.i, %93 ], [ %73, %70 ], [ null, %68 ], [ %23, %20 ], [ %48, %zend_print_long_to_buf.exit.i ], [ %98, %97 ], [ %98, %102 ]
   ret ptr %.0.i
 }
 
@@ -2315,7 +2315,7 @@ is_numeric_string_ex.exit.thread:                 ; preds = %33, %zend_dval_to_l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %.loopexit.loopexit, %zend_dval_to_lval.exit, %32, %29, %83, %61, %is_numeric_string_ex.exit.thread, %13, %9
-  %.0 = phi i64 [ %.2, %83 ], [ %65, %61 ], [ %.1, %is_numeric_string_ex.exit.thread ], [ %14, %13 ], [ %12, %9 ], [ %.0.i, %29 ], [ %.0.i, %32 ], [ %.0.i, %zend_dval_to_lval.exit ], [ 0, %.loopexit.loopexit ], [ 1, %6 ]
+  %.0 = phi i64 [ %12, %9 ], [ %14, %13 ], [ %.1, %is_numeric_string_ex.exit.thread ], [ %65, %61 ], [ %.2, %83 ], [ %.0.i, %29 ], [ %.0.i, %32 ], [ %.0.i, %zend_dval_to_lval.exit ], [ 0, %.loopexit.loopexit ], [ 1, %6 ]
   ret i64 %.0
 }
 
@@ -2415,7 +2415,7 @@ define dso_local double @zval_get_double_func(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %.loopexit.loopexit, %42, %20, %16, %14, %11, %6
-  %.011 = phi double [ %.1, %42 ], [ %24, %20 ], [ %19, %16 ], [ %15, %14 ], [ %13, %11 ], [ %10, %6 ], [ 0.000000e+00, %.loopexit.loopexit ], [ 1.000000e+00, %3 ]
+  %.011 = phi double [ %10, %6 ], [ %13, %11 ], [ %15, %14 ], [ %19, %16 ], [ %24, %20 ], [ %.1, %42 ], [ 0.000000e+00, %.loopexit.loopexit ], [ 1.000000e+00, %3 ]
   ret double %.011
 }
 
@@ -2623,7 +2623,7 @@ zend_double_to_str.exit:                          ; preds = %5
   unreachable
 
 __zval_get_string_func.exit:                      ; preds = %98, %93, %zend_print_long_to_buf.exit.i, %20, %8, %10, %12, %zend_double_to_str.exit, %68, %89
-  %.0.i = phi ptr [ %.1.i, %89 ], [ %62, %zend_double_to_str.exit ], [ %16, %12 ], [ %11, %10 ], [ %9, %8 ], [ %71, %68 ], [ %23, %20 ], [ %48, %zend_print_long_to_buf.exit.i ], [ %94, %93 ], [ %94, %98 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %16, %12 ], [ %62, %zend_double_to_str.exit ], [ %.1.i, %89 ], [ %71, %68 ], [ %23, %20 ], [ %48, %zend_print_long_to_buf.exit.i ], [ %94, %93 ], [ %94, %98 ]
   ret ptr %.0.i
 }
 
@@ -4625,7 +4625,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %2
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %2, %i_zend_is_true.exit.loopexit, %5, %7, %10, %16, %17, %20, %21, %25, %32, %34
-  %.0.i = phi i1 [ %33, %32 ], [ true, %20 ], [ false, %17 ], [ false, %16 ], [ true, %10 ], [ false, %7 ], [ %.not16.i, %5 ], [ %.not13.i, %21 ], [ true, %25 ], [ %.not.i, %34 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %2 ]
+  %.0.i = phi i1 [ true, %10 ], [ false, %7 ], [ true, %20 ], [ false, %17 ], [ false, %16 ], [ %33, %32 ], [ %.not16.i, %5 ], [ %.not13.i, %21 ], [ true, %25 ], [ %.not.i, %34 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -8204,7 +8204,7 @@ zend_compare_arrays.exit.loopexit771:             ; preds = %.outer.split.us, %.
   br label %zend_compare_arrays.exit
 
 zend_compare_arrays.exit:                         ; preds = %153, %.outer.split.us, %.outer.split.us, %23, %23, %zend_compare_arrays.exit.loopexit771, %zend_compare_arrays.exit.loopexit765, %zend_compare_arrays.exit.loopexit618, %zend_compare_arrays.exit.loopexit, %157, %54, %.split198.us, %124, %125, %100, %.split228.us, %.split224.us, %.split206.us, %150, %145, %140, %135, %85, %80, %.split220.us, %.split216.us, %.split213.us, %.split210.us, %59, %.split194.us, %.split190.us, %.split186.us, %.split.us
-  %.0 = phi i32 [ %137, %135 ], [ %142, %140 ], [ %147, %145 ], [ %152, %150 ], [ %88, %85 ], [ %82, %80 ], [ %77, %.split220.us ], [ %73, %.split216.us ], [ %70, %.split213.us ], [ %65, %.split210.us ], [ %60, %59 ], [ %50, %.split194.us ], [ %44, %.split190.us ], [ %37, %.split186.us ], [ %30, %.split.us ], [ 0, %.split206.us ], [ 1, %.split224.us ], [ 1, %.split228.us ], [ %131, %125 ], [ %.2, %124 ], [ 0, %100 ], [ %55, %54 ], [ 0, %.split198.us ], [ %spec.select, %157 ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit618 ], [ -1, %zend_compare_arrays.exit.loopexit765 ], [ -1, %zend_compare_arrays.exit.loopexit771 ], [ 1, %23 ], [ 1, %23 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %153 ]
+  %.0 = phi i32 [ %137, %135 ], [ %142, %140 ], [ %147, %145 ], [ %152, %150 ], [ %30, %.split.us ], [ %37, %.split186.us ], [ %44, %.split190.us ], [ %50, %.split194.us ], [ %60, %59 ], [ %65, %.split210.us ], [ %70, %.split213.us ], [ %73, %.split216.us ], [ %77, %.split220.us ], [ %82, %80 ], [ %88, %85 ], [ 0, %.split206.us ], [ 1, %.split224.us ], [ 1, %.split228.us ], [ %131, %125 ], [ %.2, %124 ], [ 0, %100 ], [ %55, %54 ], [ 0, %.split198.us ], [ %spec.select, %157 ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit618 ], [ -1, %zend_compare_arrays.exit.loopexit765 ], [ -1, %zend_compare_arrays.exit.loopexit771 ], [ 1, %23 ], [ 1, %23 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %153 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #28
   ret i32 %.0
@@ -8746,7 +8746,7 @@ is_numeric_string_ex.exit:                        ; preds = %9
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %2, %50, %is_numeric_string_ex.exit, %21, %23, %7, %5
-  %.0 = phi ptr [ %1, %23 ], [ %1, %7 ], [ %1, %5 ], [ %1, %21 ], [ %1, %is_numeric_string_ex.exit ], [ %1, %50 ], [ %0, %2 ], [ %1, %47 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %7 ], [ %1, %23 ], [ %1, %21 ], [ %1, %is_numeric_string_ex.exit ], [ %1, %50 ], [ %0, %2 ], [ %1, %47 ]
   ret ptr %.0
 }
 
@@ -8829,7 +8829,7 @@ define dso_local zeroext i1 @zend_is_identical(ptr noundef readonly captures(non
   br label %zend_string_equals.exit
 
 zend_string_equals.exit:                          ; preds = %20, %24, %30, %32, %36, %7, %7, %7, %2, %43, %39, %16, %12, %8
-  %.0 = phi i1 [ false, %43 ], [ %42, %39 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ false, %2 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %32 ], [ %38, %36 ], [ true, %20 ], [ false, %24 ], [ %31, %30 ]
+  %.0 = phi i1 [ false, %43 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %42, %39 ], [ false, %2 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %32 ], [ %38, %36 ], [ true, %20 ], [ false, %24 ], [ %31, %30 ]
   ret i1 %.0
 }
 
@@ -9593,7 +9593,7 @@ fast_long_increment_function.exit:                ; preds = %168, %12, %11, %169
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %182, %.thread, %169, %fast_long_increment_function.exit, %.loopexit
-  %.2 = phi i32 [ -1, %.loopexit ], [ 0, %fast_long_increment_function.exit ], [ -1, %169 ], [ -1, %.thread ], [ 0, %182 ]
+  %.2 = phi i32 [ 0, %fast_long_increment_function.exit ], [ -1, %169 ], [ -1, %.loopexit ], [ -1, %.thread ], [ 0, %182 ]
   ret i32 %.2
 }
 
@@ -9912,7 +9912,7 @@ fast_long_decrement_function.exit:                ; preds = %zend_string_release
   br label %zend_string_release.exit.thread
 
 zend_string_release.exit.thread:                  ; preds = %96, %64, %67, %74, %75, %21, %79, %83, %fast_long_decrement_function.exit, %.loopexit
-  %.1 = phi i32 [ -1, %.loopexit ], [ 0, %fast_long_decrement_function.exit ], [ -1, %83 ], [ -1, %79 ], [ -1, %21 ], [ -1, %75 ], [ -1, %74 ], [ -1, %67 ], [ -1, %64 ], [ 0, %96 ]
+  %.1 = phi i32 [ 0, %fast_long_decrement_function.exit ], [ -1, %79 ], [ -1, %83 ], [ -1, %.loopexit ], [ -1, %21 ], [ -1, %75 ], [ -1, %74 ], [ -1, %67 ], [ -1, %64 ], [ 0, %96 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
   ret i32 %.1
@@ -12176,7 +12176,7 @@ is_numeric_string_ex.exit:                        ; preds = %10
   unreachable
 
 40:                                               ; preds = %2, %2, %29, %28, %8, %6
-  %.0 = phi i32 [ %.1, %28 ], [ 0, %8 ], [ 0, %6 ], [ %., %29 ], [ -1, %2 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ %.1, %28 ], [ %., %29 ], [ -1, %2 ], [ -1, %2 ]
   ret i32 %.0
 }
 

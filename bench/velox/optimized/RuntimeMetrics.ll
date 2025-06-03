@@ -261,9 +261,9 @@ sw.epilog:                                        ; preds = %sw.default, %invoke
 
 eh.resume:                                        ; preds = %lpad27, %ehcleanup52, %lpad, %ehcleanup
   %ref.tmp25.sink = phi ptr [ %ref.tmp, %ehcleanup ], [ %ref.tmp, %lpad ], [ %ref.tmp25, %ehcleanup52 ], [ %ref.tmp25, %lpad27 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn5, %ehcleanup ], [ %5, %lpad ], [ %.pn, %ehcleanup52 ], [ %11, %lpad27 ]
+  %.pn5.pn.pn = phi { ptr, i32 } [ %.pn5, %ehcleanup ], [ %5, %lpad ], [ %.pn, %ehcleanup52 ], [ %11, %lpad27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.sink) #8
-  resume { ptr, i32 } %.pn.pn.pn
+  resume { ptr, i32 } %.pn5.pn.pn
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2

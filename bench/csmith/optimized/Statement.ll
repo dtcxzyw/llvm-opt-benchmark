@@ -582,7 +582,7 @@ define dso_local noundef i32 @_ZN9Statement14number_to_typeEj(i32 noundef %0) lo
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.sroa.038.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %43 = load ptr, ptr %.sroa.038.1.i.i.i.i, align 8, !tbaa !41
   %44 = load i32, ptr %43, align 4, !tbaa !43
   %45 = icmp ugt i32 %44, %0
@@ -593,7 +593,7 @@ define dso_local noundef i32 @_ZN9Statement14number_to_typeEj(i32 noundef %0) lo
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i
-  %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %.sroa.038.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %49 = load ptr, ptr %.sroa.038.2.i.i.i.i, align 8, !tbaa !41
   %50 = load i32, ptr %49, align 4, !tbaa !43
   %51 = icmp ugt i32 %50, %0
@@ -1096,7 +1096,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit59:          ; preds = %.body, %119
   br label %common.resume
 
 124:                                              ; preds = %_ZL20StatementProbabilityPK15StatementFilter.exit.thread, %_ZL20StatementProbabilityPK15StatementFilter.exit, %2, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
-  %.035 = phi ptr [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit ], [ %.2, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %2 ], [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit.thread ]
+  %.035 = phi ptr [ %.2, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit ], [ null, %2 ], [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit.thread ]
   ret ptr %.035
 }
 
@@ -4135,8 +4135,8 @@ define dso_local noundef i32 @_ZNK9Statement16find_typed_stmtsERSt6vectorIPKS_Sa
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge.i.i.i
-  %43 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %40 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %41, %40 ]
+  %43 = phi i32 [ %38, %40 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %44 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !128
   %45 = icmp eq i32 %44, %43
   br i1 %45, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEE14eStatementTypeET_S9_S9_RKT0_.exit, label %46
@@ -4146,8 +4146,8 @@ define dso_local noundef i32 @_ZNK9Statement16find_typed_stmtsERSt6vectorIPKS_Sa
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge57.i.i.i
-  %49 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %43, %46 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %47, %46 ]
+  %49 = phi i32 [ %43, %46 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %50 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !128
   %51 = icmp eq i32 %50, %49
   %spec.select.i.i.i = select i1 %51, ptr %.sroa.032.2.i.i.i, ptr %7

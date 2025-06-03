@@ -101,8 +101,8 @@ _parse_expression.exit:                           ; preds = %.lr.ph.i, %30, %41,
   br label %44
 
 44:                                               ; preds = %_parse_expression.exit, %22, %20
-  %45 = phi ptr [ %43, %_parse_expression.exit ], [ %12, %22 ], [ %12, %20 ]
-  %.0 = phi nsz double [ %spec.store.select, %_parse_expression.exit ], [ %23, %22 ], [ %21, %20 ]
+  %45 = phi ptr [ %43, %_parse_expression.exit ], [ %12, %20 ], [ %12, %22 ]
+  %.0 = phi nsz double [ %spec.store.select, %_parse_expression.exit ], [ %21, %20 ], [ %23, %22 ]
   tail call void @free(ptr noundef %45) #5
   tail call void @free(ptr noundef nonnull %9) #5
   tail call void @g_free(ptr noundef %8) #5
@@ -269,7 +269,7 @@ define internal fastcc noalias noundef ptr @_get_token(ptr noundef %0) unnamed_a
   br label %52
 
 52:                                               ; preds = %8, %14, %20, %23, %26, %29, %32, %35, %38, %41, %46, %51, %1
-  %.0 = phi ptr [ null, %1 ], [ %4, %41 ], [ %4, %38 ], [ %4, %35 ], [ %4, %32 ], [ %4, %29 ], [ %4, %26 ], [ %4, %23 ], [ %4, %20 ], [ %4, %14 ], [ %4, %8 ], [ %4, %46 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %1 ], [ %4, %8 ], [ %4, %14 ], [ %4, %20 ], [ %4, %23 ], [ %4, %26 ], [ %4, %29 ], [ %4, %32 ], [ %4, %35 ], [ %4, %38 ], [ %4, %41 ], [ %4, %46 ], [ null, %51 ]
   ret ptr %.0
 }
 

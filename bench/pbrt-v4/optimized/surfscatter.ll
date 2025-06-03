@@ -11400,7 +11400,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 
@@ -15963,7 +15963,7 @@ _ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.sp
   br label %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit
 
 _ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit: ; preds = %3, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.split, %78, %41, %39, %77, %64, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_19CoatedConductorBxDFEEEDaS1_.exit, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit
-  %.0 = phi i32 [ 9, %77 ], [ %76, %64 ], [ %.1.i.i33, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_19CoatedConductorBxDFEEEDaS1_.exit ], [ %18, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit ], [ %14, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit ], [ %40, %39 ], [ %spec.select14.i.i, %41 ], [ 19, %3 ], [ %85, %78 ], [ 5, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.split ]
+  %.0 = phi i32 [ %14, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit ], [ %18, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit ], [ %.1.i.i33, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_19CoatedConductorBxDFEEEDaS1_.exit ], [ %76, %64 ], [ 9, %77 ], [ %40, %39 ], [ %spec.select14.i.i, %41 ], [ 19, %3 ], [ %85, %78 ], [ 5, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.split ]
   ret i32 %.0
 }
 
@@ -33273,7 +33273,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_21Ba
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit: ; preds = %50, %59, %63
-  %.pn = phi { <2 x float>, <2 x float> } [ %65, %63 ], [ %61, %59 ], [ %58, %50 ]
+  %.pn = phi { <2 x float>, <2 x float> } [ %58, %50 ], [ %61, %59 ], [ %65, %63 ]
   %.sroa.0.0.i = extractvalue { <2 x float>, <2 x float> } %.pn, 0
   %.sroa.6.0.i = extractvalue { <2 x float>, <2 x float> } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
@@ -33340,8 +33340,8 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit22: ; preds = %69, %81, %88, %94
-  %.sroa.6.0.i17 = phi <2 x float> [ %93, %88 ], [ %86, %81 ], [ %80, %69 ], [ zeroinitializer, %94 ]
-  %.sroa.0.0.i18 = phi <2 x float> [ %92, %88 ], [ %85, %81 ], [ %79, %69 ], [ zeroinitializer, %94 ]
+  %.sroa.6.0.i17 = phi <2 x float> [ %80, %69 ], [ %86, %81 ], [ %93, %88 ], [ zeroinitializer, %94 ]
+  %.sroa.0.0.i18 = phi <2 x float> [ %79, %69 ], [ %85, %81 ], [ %92, %88 ], [ zeroinitializer, %94 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   br label %_ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit
 
@@ -33411,8 +33411,8 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit29: ; preds = %100, %112, %119, %125
-  %.sroa.6.0.i24 = phi <2 x float> [ %124, %119 ], [ %117, %112 ], [ %111, %100 ], [ zeroinitializer, %125 ]
-  %.sroa.0.0.i25 = phi <2 x float> [ %123, %119 ], [ %116, %112 ], [ %110, %100 ], [ zeroinitializer, %125 ]
+  %.sroa.6.0.i24 = phi <2 x float> [ %111, %100 ], [ %117, %112 ], [ %124, %119 ], [ zeroinitializer, %125 ]
+  %.sroa.0.0.i25 = phi <2 x float> [ %110, %100 ], [ %116, %112 ], [ %123, %119 ], [ zeroinitializer, %125 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   store <2 x float> %.sroa.0.0.i25, ptr %26, align 8
   %128 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -34169,7 +34169,7 @@ _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnbou
   br label %90
 
 90:                                               ; preds = %88, %86, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS4_.exit, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbedoSpectrumEEEDaS4_.exit, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23PiecewiseLinearSpectrumEEEDaS4_.exit, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS4_.exit, %9
-  %.pn = phi { <2 x float>, <2 x float> } [ %89, %88 ], [ %87, %86 ], [ %.fca.1.insert.i.i41, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i30, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbedoSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i22, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23PiecewiseLinearSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS4_.exit ], [ %10, %9 ]
+  %.pn = phi { <2 x float>, <2 x float> } [ %89, %88 ], [ %10, %9 ], [ %.fca.1.insert.i.i, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i22, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23PiecewiseLinearSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i30, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbedoSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i41, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS4_.exit ], [ %87, %86 ]
   ret { <2 x float>, <2 x float> } %.pn
 }
 
@@ -43018,7 +43018,7 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit: ; pred
   br label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit
 
 _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit: ; preds = %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, %72, %42, %39, %18, %14, %6, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit, %23, %4
-  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %26, %23 ], [ %5, %4 ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %6 ], [ %41, %39 ], [ %47, %42 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
+  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %5, %4 ], [ %26, %23 ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %6 ], [ %41, %39 ], [ %47, %42 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
   ret float %.0
 }
 
@@ -47765,8 +47765,8 @@ _ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit: ; preds = %70
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit.i: ; preds = %463, %457, %450, %438
-  %.sroa.6.0.i.i = phi <2 x float> [ %462, %457 ], [ %455, %450 ], [ %449, %438 ], [ zeroinitializer, %463 ]
-  %.sroa.0.0.i.i = phi <2 x float> [ %461, %457 ], [ %454, %450 ], [ %448, %438 ], [ zeroinitializer, %463 ]
+  %.sroa.6.0.i.i = phi <2 x float> [ %449, %438 ], [ %455, %450 ], [ %462, %457 ], [ zeroinitializer, %463 ]
+  %.sroa.0.0.i.i = phi <2 x float> [ %448, %438 ], [ %454, %450 ], [ %461, %457 ], [ zeroinitializer, %463 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   store <2 x float> %.sroa.0.0.i.i, ptr %29, align 8
   %466 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -56547,8 +56547,8 @@ define linkonce_odr dso_local void @_ZNK4pbrt27DiffuseTransmissionMaterial7GetBx
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit: ; preds = %23, %35, %42, %48
-  %.sroa.6.0.i = phi <2 x float> [ %47, %42 ], [ %40, %35 ], [ %34, %23 ], [ zeroinitializer, %48 ]
-  %.sroa.0.0.i = phi <2 x float> [ %46, %42 ], [ %39, %35 ], [ %33, %23 ], [ zeroinitializer, %48 ]
+  %.sroa.6.0.i = phi <2 x float> [ %34, %23 ], [ %40, %35 ], [ %47, %42 ], [ zeroinitializer, %48 ]
+  %.sroa.0.0.i = phi <2 x float> [ %33, %23 ], [ %39, %35 ], [ %46, %42 ], [ zeroinitializer, %48 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store <2 x float> %.sroa.0.0.i, ptr %11, align 8
@@ -56662,8 +56662,8 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %56
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit16: ; preds = %65, %77, %84, %90
-  %.sroa.6.0.i11 = phi <2 x float> [ %89, %84 ], [ %82, %77 ], [ %76, %65 ], [ zeroinitializer, %90 ]
-  %.sroa.0.0.i12 = phi <2 x float> [ %88, %84 ], [ %81, %77 ], [ %75, %65 ], [ zeroinitializer, %90 ]
+  %.sroa.6.0.i11 = phi <2 x float> [ %76, %65 ], [ %82, %77 ], [ %89, %84 ], [ zeroinitializer, %90 ]
+  %.sroa.0.0.i12 = phi <2 x float> [ %75, %65 ], [ %81, %77 ], [ %88, %84 ], [ zeroinitializer, %90 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store <2 x float> %.sroa.0.0.i12, ptr %6, align 8
@@ -63993,7 +63993,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt12HairMaterial7GetBxDFINS_21BasicTe
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit: ; preds = %45, %54, %58
-  %.pn68 = phi { <2 x float>, <2 x float> } [ %60, %58 ], [ %56, %54 ], [ %53, %45 ]
+  %.pn68 = phi { <2 x float>, <2 x float> } [ %53, %45 ], [ %56, %54 ], [ %60, %58 ]
   %.sroa.0.0.i = extractvalue { <2 x float>, <2 x float> } %.pn68, 0
   %.sroa.6.0.i = extractvalue { <2 x float>, <2 x float> } %.pn68, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -64084,7 +64084,7 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %63
   unreachable
 
 _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit26: ; preds = %73, %82, %86
-  %.pn = phi { <2 x float>, <2 x float> } [ %88, %86 ], [ %84, %82 ], [ %81, %73 ]
+  %.pn = phi { <2 x float>, <2 x float> } [ %81, %73 ], [ %84, %82 ], [ %88, %86 ]
   %.sroa.0.0.i22 = extractvalue { <2 x float>, <2 x float> } %.pn, 0
   %.sroa.6.0.i21 = extractvalue { <2 x float>, <2 x float> } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)

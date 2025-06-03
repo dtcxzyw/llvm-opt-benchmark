@@ -183,7 +183,7 @@ define dso_local zeroext i1 @pub_rf_contains_invalid_column(i32 noundef %0, ptr 
   br label %contain_invalid_rfcolumn_walker.exit
 
 contain_invalid_rfcolumn_walker.exit:             ; preds = %31, %50, %54
-  %.014.i = phi i1 [ true, %50 ], [ %55, %54 ], [ false, %31 ]
+  %.014.i = phi i1 [ %55, %54 ], [ true, %50 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
   br label %56
 
@@ -256,7 +256,7 @@ define internal zeroext i1 @contain_invalid_rfcolumn_walker(ptr noundef %0, ptr 
   br label %27
 
 27:                                               ; preds = %20, %2, %25
-  %.014 = phi i1 [ true, %20 ], [ %26, %25 ], [ false, %2 ]
+  %.014 = phi i1 [ %26, %25 ], [ true, %20 ], [ false, %2 ]
   ret i1 %.014
 }
 

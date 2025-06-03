@@ -335,8 +335,8 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
   br label %93
 
 93:                                               ; preds = %91, %88, %86, %74, %58, %tunnel_stream_init.exit.thread.i
-  %.not42 = phi i1 [ false, %58 ], [ false, %74 ], [ false, %86 ], [ false, %91 ], [ true, %88 ], [ false, %tunnel_stream_init.exit.thread.i ]
-  %.034.i = phi i32 [ 27, %58 ], [ 27, %74 ], [ 16, %86 ], [ 16, %91 ], [ 0, %88 ], [ 27, %tunnel_stream_init.exit.thread.i ]
+  %.not42 = phi i1 [ false, %58 ], [ false, %74 ], [ false, %91 ], [ false, %86 ], [ true, %88 ], [ false, %tunnel_stream_init.exit.thread.i ]
+  %.034.i = phi i32 [ 27, %58 ], [ 27, %74 ], [ 16, %91 ], [ 16, %86 ], [ 0, %88 ], [ 27, %tunnel_stream_init.exit.thread.i ]
   %94 = load ptr, ptr %14, align 8, !tbaa !35
   %.not45.i = icmp eq ptr %94, null
   br i1 %.not45.i, label %96, label %95
@@ -3641,7 +3641,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr noundef readonly captures(none
   br label %93
 
 93:                                               ; preds = %85, %81, %74, %60, %52, %48, %46, %33, %26, %17, %6
-  %.0 = phi i32 [ %92, %85 ], [ %84, %81 ], [ %80, %74 ], [ %67, %60 ], [ %59, %52 ], [ %47, %46 ], [ %51, %48 ], [ %41, %33 ], [ %32, %26 ], [ %25, %17 ], [ %16, %6 ]
+  %.0 = phi i32 [ %92, %85 ], [ %16, %6 ], [ %25, %17 ], [ %32, %26 ], [ %41, %33 ], [ %47, %46 ], [ %51, %48 ], [ %59, %52 ], [ %67, %60 ], [ %80, %74 ], [ %84, %81 ]
   ret i32 %.0
 }
 

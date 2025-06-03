@@ -891,7 +891,7 @@ default.unreachable58:                            ; preds = %63, %47, %38, %22, 
   unreachable
 
 15:                                               ; preds = %13, %11, %9
-  %.042 = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.042 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   %16 = icmp eq ptr %.042, null
   br i1 %16, label %76, label %17
 
@@ -927,7 +927,7 @@ default.unreachable58:                            ; preds = %63, %47, %38, %22, 
   br label %29
 
 29:                                               ; preds = %27, %25, %23
-  %.041 = phi ptr [ %28, %27 ], [ %26, %25 ], [ %24, %23 ]
+  %.041 = phi ptr [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   %30 = icmp eq ptr %.041, null
   br i1 %30, label %76, label %31
 
@@ -998,7 +998,7 @@ default.unreachable58:                            ; preds = %63, %47, %38, %22, 
   br label %54
 
 54:                                               ; preds = %52, %50, %48
-  %.1 = phi ptr [ %53, %52 ], [ %51, %50 ], [ %49, %48 ]
+  %.1 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %53, %52 ]
   %55 = icmp eq ptr %.1, null
   br i1 %55, label %76, label %56
 

@@ -527,8 +527,8 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaX8625CheckBuiltinRoundingOrSA
   br label %18
 
 18:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.013 = phi i32 [ 3, %17 ], [ 4, %16 ], [ 3, %15 ], [ 2, %14 ], [ 1, %13 ], [ 5, %12 ], [ 4, %11 ], [ 3, %10 ], [ 2, %9 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %.012 = phi i1 [ false, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ false, %12 ], [ false, %11 ], [ false, %10 ], [ false, %9 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ]
+  %.013 = phi i32 [ 2, %9 ], [ 3, %10 ], [ 4, %11 ], [ 5, %12 ], [ 1, %13 ], [ 2, %14 ], [ 3, %15 ], [ 4, %16 ], [ 3, %17 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %.012 = phi i1 [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ false, %17 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %19, align 8, !tbaa !3
@@ -1370,7 +1370,7 @@ _ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefI
   br label %22
 
 22:                                               ; preds = %3, %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit12, %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit, %.lr.ph.i
-  %.0 = phi i1 [ %21, %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit12 ], [ %16, %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit ], [ %7, %.lr.ph.i ], [ false, %3 ]
+  %.0 = phi i1 [ %7, %.lr.ph.i ], [ %16, %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit ], [ %21, %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit12 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1805,8 +1805,8 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaX8624CheckBuiltinFunctionCall
   br label %41
 
 41:                                               ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26
-  %.017 = phi i32 [ 3, %40 ], [ 4, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %36 ], [ 2, %35 ], [ 1, %34 ], [ 2, %33 ], [ 1, %32 ], [ 2, %31 ], [ 3, %30 ], [ 2, %29 ], [ 1, %28 ], [ 1, %27 ], [ 2, %26 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
-  %.0 = phi i32 [ 15, %40 ], [ 255, %39 ], [ 255, %38 ], [ 255, %37 ], [ 255, %36 ], [ 31, %35 ], [ 31, %34 ], [ 15, %33 ], [ 15, %32 ], [ 7, %31 ], [ 3, %30 ], [ 3, %29 ], [ 7, %28 ], [ 3, %27 ], [ 1, %26 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
+  %.017 = phi i32 [ 2, %26 ], [ 1, %27 ], [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 2, %31 ], [ 1, %32 ], [ 2, %33 ], [ 1, %34 ], [ 2, %35 ], [ 1, %36 ], [ 2, %37 ], [ 3, %38 ], [ 4, %39 ], [ 3, %40 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
+  %.0 = phi i32 [ 1, %26 ], [ 3, %27 ], [ 7, %28 ], [ 3, %29 ], [ 3, %30 ], [ 7, %31 ], [ 15, %32 ], [ 15, %33 ], [ 31, %34 ], [ 31, %35 ], [ 255, %36 ], [ 255, %37 ], [ 255, %38 ], [ 255, %39 ], [ 15, %40 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
   %42 = load ptr, ptr %0, align 8, !tbaa !15
   %43 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %42, ptr noundef %3, i32 noundef %.017, i32 noundef 0, i32 noundef %.0, i1 noundef zeroext false) #15
   br label %44
@@ -2409,9 +2409,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.
 _ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit.thread: ; preds = %_ZN5clang16isInstanceMethodEPKNS_4DeclE.exit.thread, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit
   %297 = tail call noundef ptr @_ZNK5clang4Decl15getFunctionTypeEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #15
   %.not.not.i48 = icmp eq ptr %297, null
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
-  %299 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.0.1.in.i = select i1 %.not.not.i48, ptr %299, ptr %298
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %299 = getelementptr inbounds nuw i8, ptr %297, i64 24
+  %.sroa.0.1.in.i = select i1 %.not.not.i48, ptr %298, ptr %299
   %.sroa.0.1.i = load i64, ptr %.sroa.0.1.in.i, align 8, !tbaa !8
   %300 = and i64 %.sroa.0.1.i, -16
   %301 = inttoptr i64 %300 to ptr
@@ -2582,7 +2582,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit56: ; preds = %360
   br i1 %393, label %394, label %396
 
 394:                                              ; preds = %390
-  %395 = load i32, ptr %299, align 8, !tbaa !1100
+  %395 = load i32, ptr %298, align 8, !tbaa !1100
   br label %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
 
 396:                                              ; preds = %390
@@ -2591,7 +2591,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit56: ; preds = %360
   br label %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
 
 _ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit: ; preds = %384, %394, %396
-  %.1.i58 = phi i32 [ %389, %384 ], [ %395, %394 ], [ %398, %396 ]
+  %.1.i58 = phi i32 [ %398, %396 ], [ %395, %394 ], [ %389, %384 ]
   %399 = add i32 %.1.i58, -3
   %or.cond = icmp ult i32 %399, -2
   br i1 %or.cond, label %400, label %413
@@ -2822,7 +2822,7 @@ define linkonce_odr hidden i64 @_ZN5clang28getFunctionOrMethodParamTypeEPKNS_4De
   br label %26
 
 26:                                               ; preds = %14, %4, %20
-  %.sroa.0.1.in = phi ptr [ %7, %4 ], [ %19, %14 ], [ %25, %20 ]
+  %.sroa.0.1.in = phi ptr [ %25, %20 ], [ %19, %14 ], [ %7, %4 ]
   %.sroa.0.1 = load i64, ptr %.sroa.0.1.in, align 8, !tbaa !8
   ret i64 %.sroa.0.1
 }

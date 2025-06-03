@@ -1540,7 +1540,7 @@ add_interface_id_text_and_name.exit113.i:         ; preds = %149, %ht_interface_
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %add_interface_id_text_and_name.exit113.i, %add_interface_id_text_and_name.exit.i, %._crit_edge.loopexit.i, %106, %105
-  %.2.i = phi i32 [ 32, %105 ], [ 40, %add_interface_id_text_and_name.exit113.i ], [ 37, %add_interface_id_text_and_name.exit.i ], [ 36, %106 ], [ %121, %._crit_edge.loopexit.i ]
+  %.2.i = phi i32 [ 32, %105 ], [ 37, %add_interface_id_text_and_name.exit.i ], [ 40, %add_interface_id_text_and_name.exit113.i ], [ 36, %106 ], [ %121, %._crit_edge.loopexit.i ]
   %162 = add i32 %.2.i, -12
   %.not.i = icmp eq i32 %87, %162
   br i1 %.not.i, label %dissect_tecmp_control_msg.exit, label %163
@@ -2013,7 +2013,7 @@ dissect_tecmp_status_config_vendor_data.exit.i:   ; preds = %.sink.split.i.i, %4
   br label %dissect_tecmp_status_device.exit
 
 dissect_tecmp_status_device.exit:                 ; preds = %403, %198, %dissect_tecmp_status_device_vendor_data.exit.i, %305, %407, %dissect_tecmp_status_config_vendor_data.exit.i, %441, %442
-  %.0.i = phi i32 [ %444, %442 ], [ 40, %441 ], [ %440, %dissect_tecmp_status_config_vendor_data.exit.i ], [ 40, %407 ], [ %304, %dissect_tecmp_status_device_vendor_data.exit.i ], [ 40, %198 ], [ 40, %305 ], [ %.1.i, %403 ]
+  %.0.i = phi i32 [ %444, %442 ], [ 40, %441 ], [ %304, %dissect_tecmp_status_device_vendor_data.exit.i ], [ 40, %198 ], [ %440, %dissect_tecmp_status_config_vendor_data.exit.i ], [ 40, %407 ], [ 40, %305 ], [ %.1.i, %403 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
@@ -3291,7 +3291,7 @@ dissect_tecmp_timesync_event.exit:                ; preds = %1087, %add_interfac
   br label %1128
 
 1128:                                             ; preds = %dissect_tecmp_timesync_event.exit, %dissect_tecmp_counter_event.exit, %dissect_tecmp_log_or_replay_stream.exit, %dissect_tecmp_status_device.exit, %dissect_tecmp_control_msg.exit, %50
-  %.0 = phi i32 [ 12, %50 ], [ %.0.i92, %dissect_tecmp_timesync_event.exit ], [ %.0.i88, %dissect_tecmp_counter_event.exit ], [ %.0410.lcssa.i, %dissect_tecmp_log_or_replay_stream.exit ], [ %.0.i, %dissect_tecmp_status_device.exit ], [ %167, %dissect_tecmp_control_msg.exit ]
+  %.0 = phi i32 [ 12, %50 ], [ %167, %dissect_tecmp_control_msg.exit ], [ %.0.i, %dissect_tecmp_status_device.exit ], [ %.0410.lcssa.i, %dissect_tecmp_log_or_replay_stream.exit ], [ %.0.i88, %dissect_tecmp_counter_event.exit ], [ %.0.i92, %dissect_tecmp_timesync_event.exit ]
   call void @proto_item_set_end(ptr noundef %55, ptr noundef %0, i32 noundef %.0)
   br label %1129
 

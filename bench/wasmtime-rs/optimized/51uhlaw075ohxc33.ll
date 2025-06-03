@@ -170,8 +170,8 @@ default.unreachable:                              ; preds = %1
   br label %_ZN4core5error5Error5cause17h28cce8af1bd34ea6E.exit
 
 _ZN4core5error5Error5cause17h28cce8af1bd34ea6E.exit: ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %4, %6, %8
-  %.sroa.12.0.i.i = phi ptr [ @anon.54a5971469fec889470d4ea1aca8aca2.21.llvm.12709601882666644001, %8 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.19.llvm.12709601882666644001, %6 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.17.llvm.12709601882666644001, %4 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i.i = phi ptr [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.12.0.i.i = phi ptr [ @anon.54a5971469fec889470d4ea1aca8aca2.17.llvm.12709601882666644001, %4 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.19.llvm.12709601882666644001, %6 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.21.llvm.12709601882666644001, %8 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.12.0.i.i, 1
   ret { ptr, ptr } %11
@@ -211,8 +211,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN64_$LT$wiggle..error..GuestError$u20$as$u20$core..error..Error$GT$6source17h2d2f30d51c685b63E.exit"
 
 "_ZN64_$LT$wiggle..error..GuestError$u20$as$u20$core..error..Error$GT$6source17h2d2f30d51c685b63E.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %4, %6, %8
-  %.sroa.12.0.i = phi ptr [ @anon.54a5971469fec889470d4ea1aca8aca2.21.llvm.12709601882666644001, %8 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.19.llvm.12709601882666644001, %6 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.17.llvm.12709601882666644001, %4 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.12.0.i = phi ptr [ @anon.54a5971469fec889470d4ea1aca8aca2.17.llvm.12709601882666644001, %4 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.19.llvm.12709601882666644001, %6 ], [ @anon.54a5971469fec889470d4ea1aca8aca2.21.llvm.12709601882666644001, %8 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.12.0.i, 1
   ret { ptr, ptr } %11
@@ -334,7 +334,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$wiggle..error..GuestError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a50e06c94c169e4E.exit"
 
 "_ZN62_$LT$wiggle..error..GuestError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a50e06c94c169e4E.exit": ; preds = %13, %16, %19, %21, %24, %28, %31, %33, %35, %41, %44
-  %.0.in.i = phi i1 [ %46, %44 ], [ %43, %41 ], [ %40, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %28 ], [ %27, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.0.in.i = phi i1 [ %15, %13 ], [ %18, %16 ], [ %20, %19 ], [ %23, %21 ], [ %27, %24 ], [ %30, %28 ], [ %32, %31 ], [ %34, %33 ], [ %40, %35 ], [ %43, %41 ], [ %46, %44 ]
   ret i1 %.0.in.i
 }
 

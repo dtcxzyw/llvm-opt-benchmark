@@ -179,15 +179,15 @@ default.unreachable:                              ; preds = %15
   %39 = or disjoint i16 %38, %37
   br label %41
 
-.thread:                                          ; preds = %29, %17, %25
-  %.0.i38.ph.ph = phi i64 [ 1, %25 ], [ 1, %17 ], [ 2, %29 ]
+.thread:                                          ; preds = %29, %25, %17
+  %.0.i38.ph.ph = phi i64 [ 1, %17 ], [ 1, %25 ], [ 2, %29 ]
   %40 = getelementptr inbounds nuw i8, ptr %.03288, i64 %.0.i38.ph.ph
   br label %isJvmIdentifier.exit.thread51
 
-41:                                               ; preds = %33, %21
-  %.sink110.in = phi i8 [ %31, %33 ], [ %19, %21 ]
-  %.sink = phi i16 [ %39, %33 ], [ %24, %21 ]
-  %.0.i38.ph = phi i64 [ 3, %33 ], [ 2, %21 ]
+41:                                               ; preds = %21, %33
+  %.sink110.in = phi i8 [ %19, %21 ], [ %31, %33 ]
+  %.sink = phi i16 [ %24, %21 ], [ %39, %33 ]
+  %.0.i38.ph = phi i64 [ 2, %21 ], [ 3, %33 ]
   %.sink110 = and i8 %.sink110.in, 63
   %42 = zext nneg i8 %.sink110 to i16
   %43 = or disjoint i16 %.sink, %42
@@ -313,9 +313,9 @@ next_utf2unicode.exit:                            ; preds = %19, %11, %8, %8, %8
   br label %24
 
 24:                                               ; preds = %6, %next_utf2unicode.exit, %4
-  %.18 = phi ptr [ %23, %next_utf2unicode.exit ], [ %7, %6 ], [ %5, %4 ]
-  %.16 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.0511, %6 ], [ %.0511, %4 ]
-  %.1 = phi i8 [ %.012, %next_utf2unicode.exit ], [ %.012, %6 ], [ 1, %4 ]
+  %.18 = phi ptr [ %23, %next_utf2unicode.exit ], [ %5, %4 ], [ %7, %6 ]
+  %.16 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.0511, %4 ], [ %.0511, %6 ]
+  %.1 = phi i8 [ %.012, %next_utf2unicode.exit ], [ 1, %4 ], [ %.012, %6 ]
   %.not = icmp eq i32 %.16, 0
   br i1 %.not, label %.critedge, label %2, !llvm.loop !9
 

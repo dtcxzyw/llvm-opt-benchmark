@@ -269,7 +269,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit
   br label %91
 
 91:                                               ; preds = %85, %82
-  %.sroa.01.0 = phi ptr [ %88, %85 ], [ %84, %82 ]
+  %.sroa.01.0 = phi ptr [ %84, %82 ], [ %88, %85 ]
   %92 = getelementptr inbounds nuw i8, ptr %74, i64 80
   %93 = load ptr, ptr %92, align 8, !invariant.load !3, !nonnull !3
   invoke void %93(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %80, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
@@ -1021,7 +1021,7 @@ _ZN4core3ops8function6FnOnce9call_once17h559ed13574d9f19aE.exit.i.i: ; preds = %
   br label %73
 
 73:                                               ; preds = %67, %64
-  %.sroa.02.0.i = phi ptr [ %70, %67 ], [ %66, %64 ]
+  %.sroa.02.0.i = phi ptr [ %66, %64 ], [ %70, %67 ]
   %74 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %75 = load ptr, ptr %74, align 8, !invariant.load !3, !noalias !145, !nonnull !3
   %76 = invoke { i32, i32 } %75(ptr noundef align 1 %62, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.02.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, ptr noalias noundef nonnull align 8 %13, i64 noundef %15)
@@ -1383,14 +1383,14 @@ define hidden void @"_ZN17uv_build_frontend5error5Error19from_command_output28_$
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %67)
   %69 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17uv_build_frontend5error21MISSING_HEADER_RE_GCC17h9c9bd8cb808bf700E, i64 32) acquire, align 8
   %70 = icmp eq i32 %69, 3
-  %.sink26.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink26.i.sroa.gep251 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink26.i.sroa.gep253 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink26.i.sroa.gep254 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink26.i.sroa.gep256 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink26.i.sroa.gep257 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink26.i.sroa.gep259 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink26.i.sroa.gep260 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink27.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink27.i.sroa.gep251 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink27.i.sroa.gep253 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink27.i.sroa.gep254 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink27.i.sroa.gep256 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink27.i.sroa.gep257 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink27.i.sroa.gep259 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink27.i.sroa.gep260 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %70, label %_ZN3std4sync6poison4once4Once9call_once17h373ea915725e1c6dE.exit, label %71, !prof !40
 
 71:                                               ; preds = %3
@@ -1884,7 +1884,7 @@ _ZN3std4sync6poison4once4Once9call_once17h373ea915725e1c6dE.exit93: ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %.body, %.loopexit.split-lp, %.loopexit.split-lp276, %220, %229, %166, %175
-  %common.resume.op = phi { ptr, i32 } [ %176, %175 ], [ %167, %166 ], [ %230, %229 ], [ %221, %220 ], [ %.pn.pn.i, %.body ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi278, %.loopexit.split-lp276 ]
+  %common.resume.op = phi { ptr, i32 } [ %176, %175 ], [ %167, %166 ], [ %230, %229 ], [ %221, %220 ], [ %.pn4.i, %.body ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi278, %.loopexit.split-lp276 ]
   resume { ptr, i32 } %common.resume.op
 
 187:                                              ; preds = %166
@@ -2508,19 +2508,19 @@ _ZN14regex_automata4util6search5Input8set_span17h75ab7698ea1b69feE.exit183: ; pr
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %368, %337
-  %.sink26.i.sroa.phi = phi ptr [ %.sink26.i.sroa.gep, %368 ], [ %.sink26.i.sroa.gep251, %337 ]
-  %.sink26.i.sroa.phi252 = phi ptr [ %.sink26.i.sroa.gep253, %368 ], [ %.sink26.i.sroa.gep254, %337 ]
-  %.sink26.i.sroa.phi255 = phi ptr [ %.sink26.i.sroa.gep256, %368 ], [ %.sink26.i.sroa.gep257, %337 ]
-  %.sink26.i.sroa.phi258 = phi ptr [ %.sink26.i.sroa.gep259, %368 ], [ %.sink26.i.sroa.gep260, %337 ]
-  %.sink26.i = phi ptr [ %6, %368 ], [ %5, %337 ]
-  %.sink20.i = phi ptr [ inttoptr (i64 8 to ptr), %368 ], [ %4, %337 ]
+  %.sink27.i.sroa.phi = phi ptr [ %.sink27.i.sroa.gep, %368 ], [ %.sink27.i.sroa.gep251, %337 ]
+  %.sink27.i.sroa.phi252 = phi ptr [ %.sink27.i.sroa.gep253, %368 ], [ %.sink27.i.sroa.gep254, %337 ]
+  %.sink27.i.sroa.phi255 = phi ptr [ %.sink27.i.sroa.gep256, %368 ], [ %.sink27.i.sroa.gep257, %337 ]
+  %.sink27.i.sroa.phi258 = phi ptr [ %.sink27.i.sroa.gep259, %368 ], [ %.sink27.i.sroa.gep260, %337 ]
+  %.sink27.i = phi ptr [ %6, %368 ], [ %5, %337 ]
+  %.sink21.i = phi ptr [ inttoptr (i64 8 to ptr), %368 ], [ %4, %337 ]
   %.sink.i190 = phi i64 [ 0, %368 ], [ 1, %337 ]
   %338 = phi ptr [ @anon.ccb1aa6bfdb48df66f63ba2306db1af5.45, %368 ], [ @anon.ccb1aa6bfdb48df66f63ba2306db1af5.49, %337 ]
-  store i64 1, ptr %.sink26.i.sroa.phi, align 8, !noalias !496
-  store ptr null, ptr %.sink26.i.sroa.phi252, align 8, !noalias !496
-  store ptr %.sink20.i, ptr %.sink26.i.sroa.phi255, align 8, !noalias !496
-  store i64 %.sink.i190, ptr %.sink26.i.sroa.phi258, align 8, !noalias !496
-  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink26.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %338) #15
+  store i64 1, ptr %.sink27.i.sroa.phi, align 8, !noalias !496
+  store ptr null, ptr %.sink27.i.sroa.phi252, align 8, !noalias !496
+  store ptr %.sink21.i, ptr %.sink27.i.sroa.phi255, align 8, !noalias !496
+  store i64 %.sink.i190, ptr %.sink27.i.sroa.phi258, align 8, !noalias !496
+  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink27.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %338) #15
           to label %.cont.i unwind label %320, !noalias !493
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -2559,11 +2559,11 @@ _ZN14regex_automata4util6search5Input8set_span17h75ab7698ea1b69feE.exit183: ; pr
   br label %363
 
 363:                                              ; preds = %354, %347, %342, %339, %330, %328
-  %.sroa.07.0.i.i = phi i64 [ 5, %330 ], [ 4, %354 ], [ 3, %347 ], [ 2, %342 ], [ 1, %339 ], [ 0, %328 ]
-  %.sroa.7.0.i.i = phi i64 [ %336, %330 ], [ %356, %354 ], [ %349, %347 ], [ %344, %342 ], [ %341, %339 ], [ undef, %328 ]
-  %.sroa.12.0.i.i = phi i64 [ %335, %330 ], [ %358, %354 ], [ %351, %347 ], [ %346, %342 ], [ undef, %339 ], [ undef, %328 ]
-  %.sroa.16.0.i.i = phi i64 [ undef, %330 ], [ %360, %354 ], [ %353, %347 ], [ undef, %342 ], [ undef, %339 ], [ undef, %328 ]
-  %.sroa.18.0.i.i = phi i64 [ undef, %330 ], [ %362, %354 ], [ undef, %347 ], [ undef, %342 ], [ undef, %339 ], [ undef, %328 ]
+  %.sroa.07.0.i.i = phi i64 [ 5, %330 ], [ 1, %339 ], [ 2, %342 ], [ 3, %347 ], [ 4, %354 ], [ 0, %328 ]
+  %.sroa.7.0.i.i = phi i64 [ %336, %330 ], [ %341, %339 ], [ %344, %342 ], [ %349, %347 ], [ %356, %354 ], [ undef, %328 ]
+  %.sroa.12.0.i.i = phi i64 [ %335, %330 ], [ undef, %339 ], [ %346, %342 ], [ %351, %347 ], [ %358, %354 ], [ undef, %328 ]
+  %.sroa.16.0.i.i = phi i64 [ undef, %330 ], [ undef, %339 ], [ undef, %342 ], [ %353, %347 ], [ %360, %354 ], [ undef, %328 ]
+  %.sroa.18.0.i.i = phi i64 [ undef, %330 ], [ undef, %339 ], [ undef, %342 ], [ undef, %347 ], [ %362, %354 ], [ undef, %328 ]
   store i64 %.sroa.07.0.i.i, ptr %7, align 8, !alias.scope !498, !noalias !507
   %.sroa.7.0..sroa_idx.i.i189 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i189, align 8, !alias.scope !498, !noalias !507
@@ -2676,7 +2676,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
   unreachable
 
 .body.i:                                          ; preds = %369, %320
-  %.pn.pn.i = phi { ptr, i32 } [ %321, %320 ], [ %370, %369 ]
+  %.pn4.i = phi { ptr, i32 } [ %321, %320 ], [ %370, %369 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !517)
   call void @llvm.experimental.noalias.scope.decl(metadata !520)
   %412 = load i8, ptr %.sroa.543.0..sroa_idx, align 1, !alias.scope !523, !noalias !493, !noundef !3

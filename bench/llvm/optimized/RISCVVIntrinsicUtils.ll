@@ -449,7 +449,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang5RISCV8LMULType8getScal
   br label %16
 
 16:                                               ; preds = %14, %11, %8, %5
-  %.0 = phi i32 [ %15, %14 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ]
+  %.0 = phi i32 [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %15, %14 ]
   %17 = icmp slt i32 %.0, 0
   br i1 %17, label %20, label %.thread
 
@@ -719,7 +719,7 @@ _ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   br label %49
 
 49:                                               ; preds = %47, %44, %41, %38
-  %.0.i = phi i32 [ %48, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.0.i = phi i32 [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %48, %47 ]
   %50 = icmp slt i32 %.0.i, 0
   br i1 %50, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 
@@ -851,7 +851,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit:        ; preds = %49, %.thread.i
   br label %87
 
 87:                                               ; preds = %72, %85, %83, %81
-  %.0.i16 = phi i32 [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %78, %72 ]
+  %.0.i16 = phi i32 [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %78, %72 ]
   %88 = icmp slt i32 %.0.i16, 0
   br i1 %88, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit22, label %.thread.i17
 
@@ -900,7 +900,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit22:      ; preds = %87, %.thread.i17
   br label %107
 
 107:                                              ; preds = %92, %105, %103, %101
-  %.0.i23 = phi i32 [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %98, %92 ]
+  %.0.i23 = phi i32 [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %98, %92 ]
   %108 = icmp slt i32 %.0.i23, 0
   br i1 %108, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit29, label %.thread.i24
 
@@ -949,7 +949,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit29:      ; preds = %107, %.thread.i24
   br label %127
 
 127:                                              ; preds = %112, %125, %123, %121
-  %.0.i30 = phi i32 [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %118, %112 ]
+  %.0.i30 = phi i32 [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %118, %112 ]
   %128 = icmp slt i32 %.0.i30, 0
   br i1 %128, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit36, label %.thread.i31
 
@@ -1002,7 +1002,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit36:      ; preds = %127, %.thread.i31
   br label %150
 
 150:                                              ; preds = %148, %145, %142, %139
-  %.0.i37 = phi i32 [ %149, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ]
+  %.0.i37 = phi i32 [ %141, %139 ], [ %144, %142 ], [ %147, %145 ], [ %149, %148 ]
   %151 = icmp slt i32 %.0.i37, 0
   br i1 %151, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit43, label %.thread.i38
 
@@ -1256,7 +1256,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i76:    ; preds = %238
   br label %266
 
 266:                                              ; preds = %264, %262, %260, %254
-  %.0.i.i = phi i32 [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %255, %254 ]
+  %.0.i.i = phi i32 [ %261, %260 ], [ %263, %262 ], [ %265, %264 ], [ %255, %254 ]
   %267 = icmp slt i32 %.0.i.i, 0
   br i1 %267, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i82, label %.thread.i.i81
 
@@ -1315,7 +1315,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i82:    ; preds = %.thread.i.i81, %266
   br label %288
 
 288:                                              ; preds = %286, %284, %282, %276
-  %.0.i.i87 = phi i32 [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %277, %276 ]
+  %.0.i.i87 = phi i32 [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ %277, %276 ]
   %289 = icmp slt i32 %.0.i.i87, 0
   br i1 %289, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i90, label %.thread.i.i88
 
@@ -1374,7 +1374,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i90:    ; preds = %.thread.i.i88, %288
   br label %310
 
 310:                                              ; preds = %308, %306, %304, %298
-  %.0.i.i96 = phi i32 [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %299, %298 ]
+  %.0.i.i96 = phi i32 [ %305, %304 ], [ %307, %306 ], [ %309, %308 ], [ %299, %298 ]
   %311 = icmp slt i32 %.0.i.i96, 0
   br i1 %311, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i99, label %.thread.i.i97
 
@@ -1433,7 +1433,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i99:    ; preds = %.thread.i.i97, %310
   br label %332
 
 332:                                              ; preds = %330, %328, %326, %320
-  %.0.i.i105 = phi i32 [ %331, %330 ], [ %329, %328 ], [ %327, %326 ], [ %321, %320 ]
+  %.0.i.i105 = phi i32 [ %327, %326 ], [ %329, %328 ], [ %331, %330 ], [ %321, %320 ]
   %333 = icmp slt i32 %.0.i.i105, 0
   br i1 %333, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i108, label %.thread.i.i106
 
@@ -1492,7 +1492,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i108:   ; preds = %.thread.i.i106, %33
   br label %354
 
 354:                                              ; preds = %352, %350, %348, %342
-  %.0.i.i114 = phi i32 [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %343, %342 ]
+  %.0.i.i114 = phi i32 [ %349, %348 ], [ %351, %350 ], [ %353, %352 ], [ %343, %342 ]
   %355 = icmp slt i32 %.0.i.i114, 0
   br i1 %355, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i117, label %.thread.i.i115
 
@@ -1551,7 +1551,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i117:   ; preds = %.thread.i.i115, %35
   br label %376
 
 376:                                              ; preds = %374, %372, %370, %364
-  %.0.i.i123 = phi i32 [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %365, %364 ]
+  %.0.i.i123 = phi i32 [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %365, %364 ]
   %377 = icmp slt i32 %.0.i.i123, 0
   br i1 %377, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i126, label %.thread.i.i124
 
@@ -1610,7 +1610,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i126:   ; preds = %.thread.i.i124, %37
   br label %398
 
 398:                                              ; preds = %396, %394, %392, %386
-  %.0.i.i132 = phi i32 [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %387, %386 ]
+  %.0.i.i132 = phi i32 [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %387, %386 ]
   %399 = icmp slt i32 %.0.i.i132, 0
   br i1 %399, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i135, label %.thread.i.i133
 
@@ -1669,7 +1669,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i135:   ; preds = %.thread.i.i133, %39
   br label %420
 
 420:                                              ; preds = %418, %416, %414, %408
-  %.0.i.i140 = phi i32 [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %409, %408 ]
+  %.0.i.i140 = phi i32 [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %409, %408 ]
   %421 = icmp slt i32 %.0.i.i140, 0
   br i1 %421, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i143, label %.thread.i.i141
 
@@ -1728,7 +1728,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i143:   ; preds = %.thread.i.i141, %42
   br label %442
 
 442:                                              ; preds = %440, %438, %436, %430
-  %.0.i.i149 = phi i32 [ %441, %440 ], [ %439, %438 ], [ %437, %436 ], [ %431, %430 ]
+  %.0.i.i149 = phi i32 [ %437, %436 ], [ %439, %438 ], [ %441, %440 ], [ %431, %430 ]
   %443 = icmp slt i32 %.0.i.i149, 0
   br i1 %443, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i152, label %.thread.i.i150
 
@@ -1787,7 +1787,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i152:   ; preds = %.thread.i.i150, %44
   br label %464
 
 464:                                              ; preds = %462, %460, %458, %452
-  %.0.i.i158 = phi i32 [ %463, %462 ], [ %461, %460 ], [ %459, %458 ], [ %453, %452 ]
+  %.0.i.i158 = phi i32 [ %459, %458 ], [ %461, %460 ], [ %463, %462 ], [ %453, %452 ]
   %465 = icmp slt i32 %.0.i.i158, 0
   br i1 %465, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i161, label %.thread.i.i159
 
@@ -1846,7 +1846,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i161:   ; preds = %.thread.i.i159, %46
   br label %486
 
 486:                                              ; preds = %484, %482, %480, %474
-  %.0.i.i167 = phi i32 [ %485, %484 ], [ %483, %482 ], [ %481, %480 ], [ %475, %474 ]
+  %.0.i.i167 = phi i32 [ %481, %480 ], [ %483, %482 ], [ %485, %484 ], [ %475, %474 ]
   %487 = icmp slt i32 %.0.i.i167, 0
   br i1 %487, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i170, label %.thread.i.i168
 
@@ -1905,7 +1905,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i170:   ; preds = %.thread.i.i168, %48
   br label %508
 
 508:                                              ; preds = %506, %504, %502, %496
-  %.0.i.i176 = phi i32 [ %507, %506 ], [ %505, %504 ], [ %503, %502 ], [ %497, %496 ]
+  %.0.i.i176 = phi i32 [ %503, %502 ], [ %505, %504 ], [ %507, %506 ], [ %497, %496 ]
   %509 = icmp slt i32 %.0.i.i176, 0
   br i1 %509, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i179, label %.thread.i.i177
 
@@ -1964,7 +1964,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i179:   ; preds = %.thread.i.i177, %50
   br label %530
 
 530:                                              ; preds = %528, %526, %524, %518
-  %.0.i.i185 = phi i32 [ %529, %528 ], [ %527, %526 ], [ %525, %524 ], [ %519, %518 ]
+  %.0.i.i185 = phi i32 [ %525, %524 ], [ %527, %526 ], [ %529, %528 ], [ %519, %518 ]
   %531 = icmp slt i32 %.0.i.i185, 0
   br i1 %531, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i188, label %.thread.i.i186
 
@@ -2023,7 +2023,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i188:   ; preds = %.thread.i.i186, %53
   br label %552
 
 552:                                              ; preds = %550, %548, %546, %540
-  %.0.i.i194 = phi i32 [ %551, %550 ], [ %549, %548 ], [ %547, %546 ], [ %541, %540 ]
+  %.0.i.i194 = phi i32 [ %547, %546 ], [ %549, %548 ], [ %551, %550 ], [ %541, %540 ]
   %553 = icmp slt i32 %.0.i.i194, 0
   br i1 %553, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i197, label %.thread.i.i195
 
@@ -2082,7 +2082,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i197:   ; preds = %.thread.i.i195, %55
   br label %575
 
 575:                                              ; preds = %573, %571, %569, %563
-  %.0.i.i202 = phi i32 [ %574, %573 ], [ %572, %571 ], [ %570, %569 ], [ %564, %563 ]
+  %.0.i.i202 = phi i32 [ %570, %569 ], [ %572, %571 ], [ %574, %573 ], [ %564, %563 ]
   %576 = icmp slt i32 %.0.i.i202, 0
   br i1 %576, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i205, label %.thread.i.i203
 
@@ -2141,7 +2141,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i205:   ; preds = %.thread.i.i203, %57
   br label %598
 
 598:                                              ; preds = %596, %594, %592, %586
-  %.0.i.i210 = phi i32 [ %597, %596 ], [ %595, %594 ], [ %593, %592 ], [ %587, %586 ]
+  %.0.i.i210 = phi i32 [ %593, %592 ], [ %595, %594 ], [ %597, %596 ], [ %587, %586 ]
   %599 = icmp slt i32 %.0.i.i210, 0
   br i1 %599, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i213, label %.thread.i.i211
 
@@ -2200,7 +2200,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i213:   ; preds = %.thread.i.i211, %59
   br label %621
 
 621:                                              ; preds = %619, %617, %615, %609
-  %.0.i.i218 = phi i32 [ %620, %619 ], [ %618, %617 ], [ %616, %615 ], [ %610, %609 ]
+  %.0.i.i218 = phi i32 [ %616, %615 ], [ %618, %617 ], [ %620, %619 ], [ %610, %609 ]
   %622 = icmp slt i32 %.0.i.i218, 0
   br i1 %622, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i221, label %.thread.i.i219
 
@@ -2259,7 +2259,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i221:   ; preds = %.thread.i.i219, %62
   br label %644
 
 644:                                              ; preds = %642, %640, %638, %632
-  %.0.i.i226 = phi i32 [ %643, %642 ], [ %641, %640 ], [ %639, %638 ], [ %633, %632 ]
+  %.0.i.i226 = phi i32 [ %639, %638 ], [ %641, %640 ], [ %643, %642 ], [ %633, %632 ]
   %645 = icmp slt i32 %.0.i.i226, 0
   br i1 %645, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i229, label %.thread.i.i227
 
@@ -2318,7 +2318,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i229:   ; preds = %.thread.i.i227, %64
   br label %667
 
 667:                                              ; preds = %665, %663, %661, %655
-  %.0.i.i234 = phi i32 [ %666, %665 ], [ %664, %663 ], [ %662, %661 ], [ %656, %655 ]
+  %.0.i.i234 = phi i32 [ %662, %661 ], [ %664, %663 ], [ %666, %665 ], [ %656, %655 ]
   %668 = icmp slt i32 %.0.i.i234, 0
   br i1 %668, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i237, label %.thread.i.i235
 
@@ -2377,7 +2377,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i237:   ; preds = %.thread.i.i235, %66
   br label %690
 
 690:                                              ; preds = %688, %686, %684, %678
-  %.0.i.i242 = phi i32 [ %689, %688 ], [ %687, %686 ], [ %685, %684 ], [ %679, %678 ]
+  %.0.i.i242 = phi i32 [ %685, %684 ], [ %687, %686 ], [ %689, %688 ], [ %679, %678 ]
   %691 = icmp slt i32 %.0.i.i242, 0
   br i1 %691, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i245, label %.thread.i.i243
 
@@ -2436,7 +2436,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i245:   ; preds = %.thread.i.i243, %69
   br label %713
 
 713:                                              ; preds = %711, %709, %707, %701
-  %.0.i.i250 = phi i32 [ %712, %711 ], [ %710, %709 ], [ %708, %707 ], [ %702, %701 ]
+  %.0.i.i250 = phi i32 [ %708, %707 ], [ %710, %709 ], [ %712, %711 ], [ %702, %701 ]
   %714 = icmp slt i32 %.0.i.i250, 0
   br i1 %714, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i253, label %.thread.i.i251
 
@@ -2559,7 +2559,7 @@ _ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit:    ; preds = %_ZNK5clang5RISCV8LM
   br label %758
 
 758:                                              ; preds = %747, %756, %754, %752
-  %.0.i258 = phi i32 [ %757, %756 ], [ %755, %754 ], [ %753, %752 ], [ %748, %747 ]
+  %.0.i258 = phi i32 [ %753, %752 ], [ %755, %754 ], [ %757, %756 ], [ %748, %747 ]
   %759 = icmp slt i32 %.0.i258, 0
   br i1 %759, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit264, label %.thread.i259
 
@@ -7544,8 +7544,8 @@ define dso_local range(i32 16777216, 33554432) i32 @_ZN5clang5RISCV19PrototypeDe
   unreachable
 
 27:                                               ; preds = %11, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15
-  %.024 = phi i8 [ 0, %25 ], [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 4, %19 ], [ 3, %18 ], [ 2, %17 ], [ 1, %16 ], [ 0, %15 ], [ 0, %11 ]
-  %.0 = phi i32 [ 8, %25 ], [ 7, %24 ], [ 6, %23 ], [ 5, %22 ], [ 4, %21 ], [ 3, %20 ], [ 2, %19 ], [ 2, %18 ], [ 2, %17 ], [ 2, %16 ], [ 2, %15 ], [ 1, %11 ]
+  %.024 = phi i8 [ 0, %15 ], [ 1, %16 ], [ 2, %17 ], [ 3, %18 ], [ 4, %19 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %11 ]
+  %.0 = phi i32 [ 2, %15 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 2, %19 ], [ 3, %20 ], [ 4, %21 ], [ 5, %22 ], [ 6, %23 ], [ 7, %24 ], [ 8, %25 ], [ 1, %11 ]
   %28 = add i64 %1, -1
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %.loopexit, label %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -7839,7 +7839,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType12applyLog2EEWEj(ptr noundef nonnu
   br label %20
 
 20:                                               ; preds = %2, %18, %16, %14
-  %.0.i = phi i32 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %9, %2 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %9, %2 ]
   %21 = icmp slt i32 %.0.i, 0
   br i1 %21, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 
@@ -7902,7 +7902,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType13applyFixedSEWEj(ptr noundef nonn
   br label %23
 
 23:                                               ; preds = %21, %18, %15, %12
-  %.0.i = phi i32 [ %22, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.0.i = phi i32 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ]
   %24 = icmp slt i32 %.0.i, 0
   br i1 %24, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 
@@ -7997,7 +7997,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType18applyFixedLog2LMULEiNS1_13FixedL
   br label %34
 
 34:                                               ; preds = %21, %32, %30, %28
-  %.0.i = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %23, %21 ]
+  %.0.i = phi i32 [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %23, %21 ]
   %35 = icmp slt i32 %.0.i, 0
   br i1 %35, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 

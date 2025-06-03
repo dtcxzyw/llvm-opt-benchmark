@@ -556,7 +556,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZNK4llvm8MCSymbo
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %24
-  %.1.i.i = phi i32 [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %26, %24 ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ %26, %24 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %.thread.i.i ]
   %27 = icmp slt i32 %.1.i.i, 0
   ret i1 %27
 }
@@ -947,7 +947,7 @@ _ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit: ; preds = 
   br label %146
 
 146:                                              ; preds = %24, %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit, %104
-  %.119 = phi i64 [ %26, %24 ], [ %.1, %104 ], [ %145, %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit ]
+  %.119 = phi i64 [ %.1, %104 ], [ %26, %24 ], [ %145, %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit ]
   ret i64 %.119
 }
 

@@ -3783,7 +3783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn
 
 110:                                              ; preds = %61, %38, %21
-  %.082 = phi float [ %93, %61 ], [ %60, %38 ], [ %37, %21 ]
+  %.082 = phi float [ %37, %21 ], [ %60, %38 ], [ %93, %61 ]
   br i1 %1, label %111, label %114
 
 111:                                              ; preds = %110

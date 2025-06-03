@@ -6026,7 +6026,7 @@ _ZN5QListIN11QTextLayout11FormatRangeEElsERKS1_.exit: ; preds = %80, %18
   br label %83
 
 .body:                                            ; preds = %25, %39, %45, %33, %31, %79, %68, %57
-  %.pn20 = phi { ptr, i32 } [ %.pn, %79 ], [ %.pn16, %68 ], [ %.pn18, %57 ], [ %26, %25 ], [ %32, %31 ], [ %40, %39 ], [ %34, %33 ], [ %46, %45 ]
+  %.pn20 = phi { ptr, i32 } [ %.pn18, %57 ], [ %.pn16, %68 ], [ %.pn, %79 ], [ %26, %25 ], [ %32, %31 ], [ %40, %39 ], [ %34, %33 ], [ %46, %45 ]
   call void @_ZN11QTextFormatD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %19) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #27
   resume { ptr, i32 } %.pn20
@@ -6809,7 +6809,7 @@ _Z17qRegisterMetaTypeI15bytes_view_typeEiPKc.exit: ; preds = %27, %_ZN17QArrayDa
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 
@@ -7175,7 +7175,7 @@ _Z17qRegisterMetaTypeI19bytes_encoding_typeEiPKc.exit: ; preds = %27, %_ZN17QArr
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 

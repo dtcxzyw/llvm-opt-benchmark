@@ -955,7 +955,7 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %_ZL10get_compT
   br label %_Z10luai_veceqPKfS0_.exit
 
 _Z10luai_veceqPKfS0_.exit:                        ; preds = %20, %14, %10, %144, %.fold.split, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit, %30, %34, %3, %112, %select.unfold46, %select.unfold, %26, %6
-  %.033.shrunk = phi i1 [ %115, %112 ], [ %111, %select.unfold46 ], [ %75, %select.unfold ], [ %29, %26 ], [ %9, %6 ], [ true, %3 ], [ false, %30 ], [ %39, %34 ], [ false, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit ], [ %146, %144 ], [ true, %.fold.split ], [ false, %14 ], [ false, %10 ], [ %25, %20 ]
+  %.033.shrunk = phi i1 [ %115, %112 ], [ %9, %6 ], [ %29, %26 ], [ %75, %select.unfold ], [ %111, %select.unfold46 ], [ true, %3 ], [ false, %30 ], [ %39, %34 ], [ false, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit ], [ %146, %144 ], [ true, %.fold.split ], [ false, %14 ], [ false, %10 ], [ %25, %20 ]
   %.033 = zext i1 %.033.shrunk to i32
   ret i32 %.033
 }

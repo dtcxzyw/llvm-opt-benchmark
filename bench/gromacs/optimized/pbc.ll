@@ -271,7 +271,7 @@ define noundef range(i32 0, 4) i32 @_Z16numPbcDimensions7PbcType(i32 noundef %0)
   unreachable
 
 6:                                                ; preds = %1, %1, %4, %3
-  %.0 = phi i32 [ 0, %4 ], [ 2, %3 ], [ 3, %1 ], [ 3, %1 ]
+  %.0 = phi i32 [ 2, %3 ], [ 0, %4 ], [ 3, %1 ], [ 3, %1 ]
   ret i32 %.0
 }
 

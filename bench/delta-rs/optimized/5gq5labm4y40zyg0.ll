@@ -317,7 +317,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN68_$LT$arrow_schema..error..ArrowError$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf50a107e877128eE.exit"
 
 "_ZN68_$LT$arrow_schema..error..ArrowError$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf50a107e877128eE.exit": ; preds = %23, %26, %29, %32, %35, %38, %41, %44, %46, %49, %52, %55, %58, %61, %64, %67, %69
-  %.0.in.i = phi i1 [ %70, %69 ], [ %68, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ]
+  %.0.in.i = phi i1 [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %68, %67 ], [ %70, %69 ]
   ret i1 %.0.in.i
 }
 
@@ -397,7 +397,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$object_store..path..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h528f3e206b302802E.exit"
 
 "_ZN62_$LT$object_store..path..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h528f3e206b302802E.exit": ; preds = %11, %14, %18, %22, %25, %29
-  %.0.in.i = phi i1 [ %32, %29 ], [ %28, %25 ], [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %11 ]
+  %.0.in.i = phi i1 [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ %28, %25 ], [ %32, %29 ]
   ret i1 %.0.in.i
 }
 
@@ -550,7 +550,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN76_$LT$deltalake_core..protocol..ProtocolError$u20$as$u20$core..fmt..Debug$GT$3fmt17h57ba63f6da8d1a01E.exit"
 
 "_ZN76_$LT$deltalake_core..protocol..ProtocolError$u20$as$u20$core..fmt..Debug$GT$3fmt17h57ba63f6da8d1a01E.exit": ; preds = %15, %17, %19, %21, %24, %27, %30, %33, %36, %39, %42, %45, %48
-  %.0.in.i = phi i1 [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
+  %.0.in.i = phi i1 [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ]
   ret i1 %.0.in.i
 }
 

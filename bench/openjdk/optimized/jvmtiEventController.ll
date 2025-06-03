@@ -997,7 +997,7 @@ define hidden noundef i64 @_ZN27JvmtiEventControllerPrivate21recompute_env_enabl
   br label %15
 
 15:                                               ; preds = %1, %14, %12, %10
-  %.0 = phi i64 [ %8, %1 ], [ 0, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.0 = phi i64 [ %8, %1 ], [ %11, %10 ], [ %13, %12 ], [ 0, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %17 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
@@ -1312,7 +1312,7 @@ _ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %_ZN16SafeResourceMa
   br label %57
 
 57:                                               ; preds = %56, %54, %52, %.lr.ph
-  %.0.i = phi i64 [ %50, %.lr.ph ], [ 0, %56 ], [ %55, %54 ], [ %53, %52 ]
+  %.0.i = phi i64 [ %50, %.lr.ph ], [ %53, %52 ], [ %55, %54 ], [ 0, %56 ]
   %58 = getelementptr inbounds nuw i8, ptr %.05595, i64 376
   %59 = load volatile ptr, ptr %58, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
@@ -2924,7 +2924,7 @@ define hidden void @_ZN27JvmtiEventControllerPrivate18change_field_watchE10jvmti
   br label %7
 
 7:                                                ; preds = %3, %5
-  %.0 = phi ptr [ %6, %5 ], [ %4, %3 ]
+  %.0 = phi ptr [ %4, %3 ], [ %6, %5 ]
   %8 = load i8, ptr @_ZN10JvmtiTrace23_trace_event_controllerE, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %_ZN16SafeResourceMarkD2Ev.exit

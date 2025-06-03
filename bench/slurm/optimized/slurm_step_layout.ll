@@ -385,7 +385,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr noundef writ
   br label %.thread94
 
 .thread94:                                        ; preds = %52, %44, %38, %69, %20, %16, %66, %._crit_edge, %32, %29, %26, %23, %12, %83, %79
-  %.059 = phi ptr [ null, %12 ], [ %17, %16 ], [ %17, %20 ], [ %17, %23 ], [ %17, %26 ], [ %17, %29 ], [ %17, %32 ], [ %17, %._crit_edge ], [ %17, %66 ], [ %17, %69 ], [ %17, %79 ], [ null, %83 ], [ %17, %38 ], [ %17, %44 ], [ %17, %52 ]
+  %.059 = phi ptr [ null, %12 ], [ %17, %23 ], [ %17, %26 ], [ %17, %29 ], [ %17, %32 ], [ %17, %._crit_edge ], [ %17, %66 ], [ %17, %79 ], [ %17, %69 ], [ %17, %20 ], [ %17, %16 ], [ null, %83 ], [ %17, %38 ], [ %17, %44 ], [ %17, %52 ]
   %86 = call i32 @slurm_step_layout_destroy(ptr noundef %.059)
   store ptr null, ptr %0, align 8
   br label %87

@@ -850,8 +850,8 @@ bytestream2_get_be16.exit203.thread:              ; preds = %.thread225, %bytest
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19) #6
   br label %.thread231
 
-.thread231:                                       ; preds = %bytestream2_get_be16.exit.thread.i, %350, %332, %327, %bytestream2_get_be16.exit191, %246, %161, %.thread, %160, %154, %321, %326, %bytestream2_get_be16.exit187.thread, %bytestream2_get_be16.exit175, %394, %392, %bytestream2_get_be32.exit, %78, %check_header.exit211
-  %.0 = phi i32 [ -1094995529, %check_header.exit211 ], [ -1163346256, %78 ], [ -1163346256, %bytestream2_get_be32.exit ], [ %393, %392 ], [ -1094995529, %394 ], [ %75, %bytestream2_get_be16.exit175 ], [ %.1139, %350 ], [ %333, %332 ], [ -1094995529, %327 ], [ %283, %bytestream2_get_be16.exit191 ], [ %.0138, %246 ], [ %162, %161 ], [ -1094995529, %.thread ], [ -1094995529, %160 ], [ -1094995529, %154 ], [ -1094995529, %321 ], [ -1163346256, %326 ], [ -1163346256, %bytestream2_get_be16.exit187.thread ], [ -1094995529, %bytestream2_get_be16.exit.thread.i ]
+.thread231:                                       ; preds = %bytestream2_get_be16.exit.thread.i, %350, %332, %327, %bytestream2_get_be16.exit191, %246, %161, %321, %326, %bytestream2_get_be16.exit187.thread, %.thread, %160, %154, %bytestream2_get_be16.exit175, %394, %392, %bytestream2_get_be32.exit, %78, %check_header.exit211
+  %.0 = phi i32 [ -1094995529, %check_header.exit211 ], [ -1163346256, %78 ], [ -1163346256, %bytestream2_get_be32.exit ], [ %393, %392 ], [ -1094995529, %394 ], [ %75, %bytestream2_get_be16.exit175 ], [ %.1139, %350 ], [ %333, %332 ], [ -1094995529, %327 ], [ %283, %bytestream2_get_be16.exit191 ], [ %.0138, %246 ], [ %162, %161 ], [ -1094995529, %321 ], [ -1163346256, %326 ], [ -1163346256, %bytestream2_get_be16.exit187.thread ], [ -1094995529, %.thread ], [ -1094995529, %160 ], [ -1094995529, %154 ], [ -1094995529, %bytestream2_get_be16.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
   ret i32 %.0
 }

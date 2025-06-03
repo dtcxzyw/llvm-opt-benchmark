@@ -2161,7 +2161,7 @@ _ZNK4llvm5APInteqEm.exit:                         ; preds = %_ZNK5clang12APIntSt
   br label %.thread77
 
 .thread77:                                        ; preds = %91, %90, %84, %77, %73, %61, %44, %62
-  %.1 = phi i1 [ %45, %44 ], [ %58, %61 ], [ true, %62 ], [ %89, %84 ], [ false, %73 ], [ false, %77 ], [ %94, %91 ], [ false, %90 ]
+  %.1 = phi i1 [ %58, %61 ], [ %45, %44 ], [ true, %62 ], [ %89, %84 ], [ false, %73 ], [ false, %77 ], [ %94, %91 ], [ false, %90 ]
   ret i1 %.1
 }
 
@@ -4162,7 +4162,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %132, %138
   tail call void @_ZN5clang7CodeGen15CodeGenFunction16ErrorUnsupportedEPKNS_4StmtEPKc(ptr noundef nonnull align 8 dereferenceable(6496) %.val524, ptr noundef nonnull %1, ptr noundef nonnull @.str.13) #17
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %70, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %.critedge, %379, %378, %377, %376, %375, %374, %373, %372, %371, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %224, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %191, %190, %189, %188, %182, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %151, %150, %149, %147, %146, %145, %144, %143, %142, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %103, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %88, %87, %84, %83, %82, %81, %80, %79, %78, %77, %76
+.critedge.thread:                                 ; preds = %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %70, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %.critedge, %379, %378, %377, %376, %375, %374, %373, %372, %371, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %224, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %191, %190, %189, %188, %182, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %151, %150, %149, %147, %146, %145, %144, %143, %142, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %103, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %88, %87, %84, %83, %82, %81, %80, %79, %78, %77, %76
   ret void
 }
 
@@ -4706,8 +4706,8 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %72
   tail call void @_ZN5clang7CodeGen15CodeGenFunction16ErrorUnsupportedEPKNS_4StmtEPKc(ptr noundef nonnull align 8 dereferenceable(6496) %84, ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #17
   br label %326
 
-85:                                               ; preds = %83, %83, %83, %64, %56, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %._crit_edge, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %86 = phi ptr [ %.pre, %83 ], [ %.pre, %83 ], [ %.pre, %83 ], [ %46, %64 ], [ %.pre84, %56 ], [ %.pre, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ %.pre, %._crit_edge ], [ %46, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
+85:                                               ; preds = %83, %83, %83, %56, %64, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %._crit_edge, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  %86 = phi ptr [ %.pre, %83 ], [ %.pre, %83 ], [ %.pre, %83 ], [ %.pre84, %56 ], [ %46, %64 ], [ %.pre, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ %.pre, %._crit_edge ], [ %46, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #17
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %.sroa.0.0.copyload.i.i.i.i36 = load i64, ptr %87, align 8, !tbaa !596
@@ -8886,7 +8886,7 @@ _ZN12_GLOBAL__N_114AggExprEmitter10EnsureSlotEN5clang8QualTypeE.exit: ; preds = 
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %51, %_ZN12_GLOBAL__N_114AggExprEmitter10EnsureSlotEN5clang8QualTypeE.exit
-  %.1.i.i = phi ptr [ %47, %_ZN12_GLOBAL__N_114AggExprEmitter10EnsureSlotEN5clang8QualTypeE.exit ], [ %52, %51 ]
+  %.1.i.i = phi ptr [ %52, %51 ], [ %47, %_ZN12_GLOBAL__N_114AggExprEmitter10EnsureSlotEN5clang8QualTypeE.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   %53 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %54 = load i32, ptr %53, align 16, !noalias !1118
@@ -9686,7 +9686,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %29, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %51, %29 ], [ %54, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %54, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %51, %29 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
   br label %70
 
@@ -9968,8 +9968,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %55
   tail call void @llvm.assume(i1 %85)
   br label %86
 
-86:                                               ; preds = %74, %66, %80, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %87 = phi ptr [ %56, %74 ], [ %.pre56, %66 ], [ %81, %80 ], [ %56, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
+86:                                               ; preds = %66, %74, %80, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  %87 = phi ptr [ %.pre56, %66 ], [ %56, %74 ], [ %81, %80 ], [ %56, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
   %88 = tail call noundef zeroext i1 @_ZNK5clang4Type30hasSignedIntegerRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %87) #17
   %89 = select i1 %88, i32 %switch.load85, i32 %switch.offset
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
@@ -10095,7 +10095,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -11338,8 +11338,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -14941,7 +14941,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %34
 
 34:                                               ; preds = %7, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %15, %7 ], [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ], [ %15, %7 ]
   ret ptr %.1
 }
 

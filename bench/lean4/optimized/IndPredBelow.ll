@@ -42336,7 +42336,7 @@ lean_dec.exit:                                    ; preds = %896, %895, %893, %l
   br label %902
 
 902:                                              ; preds = %lean_dec.exit364, %lean_dec.exit367, %lean_dec.exit350, %lean_dec.exit, %lean_dec.exit384, %lean_dec.exit386, %lean_dec.exit371, %lean_dec.exit370, %900, %269, %266, %263, %lean_dec.exit389, %lean_dec.exit393, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %901, %900 ], [ %271, %269 ], [ %268, %266 ], [ %265, %263 ], [ %262, %lean_dec.exit389 ], [ %174, %lean_dec.exit393 ], [ %141, %lean_alloc_ctor.exit ], [ %433, %lean_dec.exit386 ], [ %449, %lean_dec.exit384 ], [ %571, %lean_dec.exit370 ], [ %379, %lean_dec.exit371 ], [ %745, %lean_dec.exit367 ], [ %768, %lean_dec.exit364 ], [ %897, %lean_dec.exit ], [ %691, %lean_dec.exit350 ]
+  %.0 = phi ptr [ %901, %900 ], [ %262, %lean_dec.exit389 ], [ %265, %263 ], [ %268, %266 ], [ %271, %269 ], [ %141, %lean_alloc_ctor.exit ], [ %174, %lean_dec.exit393 ], [ %433, %lean_dec.exit386 ], [ %449, %lean_dec.exit384 ], [ %571, %lean_dec.exit370 ], [ %379, %lean_dec.exit371 ], [ %745, %lean_dec.exit367 ], [ %768, %lean_dec.exit364 ], [ %897, %lean_dec.exit ], [ %691, %lean_dec.exit350 ]
   ret ptr %.0
 }
 
@@ -117605,7 +117605,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %35, %33
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %49, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %49 ], [ %50, %.thread.i ]
+  %.1.i = phi ptr [ %50, %.thread.i ], [ %.0.i.i.i, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = tail call ptr @l_List_appendTR___rarg(ptr noundef %4, ptr noundef %5) #6
@@ -117786,7 +117786,7 @@ lean_ensure_exclusive_array.exit.i.i101:          ; preds = %104, %102
   br label %lean_array_set.exit105
 
 lean_array_set.exit105:                           ; preds = %118, %.thread.i98
-  %.1.i99 = phi ptr [ %.0.i.i.i102, %118 ], [ %119, %.thread.i98 ]
+  %.1.i99 = phi ptr [ %119, %.thread.i98 ], [ %.0.i.i.i102, %118 ]
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !4
   %122 = tail call ptr @l_List_appendTR___rarg(ptr noundef %4, ptr noundef %5) #6

@@ -9216,7 +9216,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx15
   br label %85
 
 85:                                               ; preds = %83, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %84, %83 ]
+  %.sroa.025.1 = phi ptr [ %84, %83 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.025.1, i64 104
   %87 = load float, ptr %86, align 8, !tbaa !50
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.025.1, i64 16
@@ -9237,7 +9237,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx15
   br label %101
 
 101:                                              ; preds = %99, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %100, %99 ]
+  %.sroa.025.2 = phi ptr [ %100, %99 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.025.2, i64 104
   %103 = load float, ptr %102, align 8, !tbaa !50
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.025.2, i64 16

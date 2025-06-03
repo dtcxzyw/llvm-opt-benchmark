@@ -3861,7 +3861,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i35.i: ; preds = %81
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i41.i
 
 _ZN4llvmltENS_9StringRefES0_.exit.i41.i:          ; preds = %92, %.thread.i.i.i43.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i35.i
-  %.1.i.i.i42.i = phi i32 [ %spec.select.i.i.i40.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i35.i ], [ %94, %92 ], [ 0, %.thread.i.i.i43.i ]
+  %.1.i.i.i42.i = phi i32 [ %94, %92 ], [ %spec.select.i.i.i40.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i35.i ], [ 0, %.thread.i.i.i43.i ]
   %95 = icmp slt i32 %.1.i.i.i42.i, 0
   br label %"_ZZL14computeAddrMapN4llvm8ArrayRefINS_3pdb10BulkPublicEEEENK3$_0clERKNS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESB_.exit44.i"
 
@@ -4782,7 +4782,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %31
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i.i
 
 _ZN4llvmltENS_9StringRefES0_.exit.i.i:            ; preds = %42, %.thread.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %.1.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %44, %42 ], [ 0, %.thread.i.i.i.i ]
+  %.1.i.i.i.i = phi i32 [ %44, %42 ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 0, %.thread.i.i.i.i ]
   %45 = icmp slt i32 %.1.i.i.i.i, 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESK_EEbT_T0_.exit"
 
@@ -5863,7 +5863,7 @@ define internal fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %42, %41 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i.i.i, align 1, !tbaa !43
   %44 = icmp slt i8 %.1.val.i.i.i.i.i.i.i, 0
   br i1 %44, label %_ZL13isAsciiStringN4llvm9StringRefE.exit.i, label %45
@@ -5873,7 +5873,7 @@ define internal fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %46, %45 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i.i.i, align 1, !tbaa !43
   %48 = icmp slt i8 %.2.val.i.i.i.i.i.i.i, 0
   br i1 %48, label %_ZL13isAsciiStringN4llvm9StringRefE.exit.i, label %_ZL13isAsciiStringN4llvm9StringRefE.exit.thread.i
@@ -5956,7 +5956,7 @@ _ZL13isAsciiStringN4llvm9StringRefE.exit.thread.i: ; preds = %_ZL13isAsciiString
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i.i.i.i.i.i12.i
-  %.1.i.i.i.i.i.i18.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i.i12.i ], [ %74, %73 ]
+  %.1.i.i.i.i.i.i18.i = phi ptr [ %74, %73 ], [ %.029.lcssa.i.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i.i12.i ]
   %.1.val.i.i.i.i.i.i19.i = load i8, ptr %.1.i.i.i.i.i.i18.i, align 1, !tbaa !43
   %76 = icmp slt i8 %.1.val.i.i.i.i.i.i19.i, 0
   br i1 %76, label %_ZL13isAsciiStringN4llvm9StringRefE.exit33.i, label %77
@@ -5966,7 +5966,7 @@ _ZL13isAsciiStringN4llvm9StringRefE.exit.thread.i: ; preds = %_ZL13isAsciiString
   br label %79
 
 79:                                               ; preds = %77, %._crit_edge.i.i.i.i.i.i12.i
-  %.2.i.i.i.i.i.i15.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i.i12.i ], [ %78, %77 ]
+  %.2.i.i.i.i.i.i15.i = phi ptr [ %78, %77 ], [ %.029.lcssa.i.i.i.i.i.i13.i, %._crit_edge.i.i.i.i.i.i12.i ]
   %.2.val.i.i.i.i.i.i16.i = load i8, ptr %.2.i.i.i.i.i.i15.i, align 1, !tbaa !43
   %80 = icmp slt i8 %.2.val.i.i.i.i.i.i16.i, 0
   br i1 %80, label %_ZL13isAsciiStringN4llvm9StringRefE.exit33.i, label %_ZL13isAsciiStringN4llvm9StringRefE.exit33.thread.i

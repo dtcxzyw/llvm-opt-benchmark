@@ -1203,14 +1203,14 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %209 = tail call ptr @H5MM_xfree(ptr noundef nonnull %121) #15
   br label %.preheader
 
-.thread200:                                       ; preds = %169, %181, %191, %207, %204
-  %.1132.ph = phi ptr [ %28, %204 ], [ %28, %207 ], [ null, %191 ], [ null, %181 ], [ null, %169 ]
+.thread200:                                       ; preds = %181, %191, %169, %207, %204
+  %.1132.ph = phi ptr [ %28, %204 ], [ %28, %207 ], [ null, %169 ], [ null, %191 ], [ null, %181 ]
   %210 = tail call ptr @H5MM_xfree(ptr noundef nonnull %121) #15
   %211 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.1140) #15
   %212 = icmp eq ptr %.1132.ph, null
   br i1 %212, label %.preheader, label %.thread200.thread
 
-.preheader:                                       ; preds = %.thread180, %123, %46, %.thread208, %.thread200.thread230, %.thread200
+.preheader:                                       ; preds = %.thread180, %46, %123, %.thread208, %.thread200.thread230, %.thread200
   %213 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %214 = load i32, ptr %213, align 8, !tbaa !37
   %.not223 = icmp eq i32 %214, 0
@@ -1616,7 +1616,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   br label %92
 
 92:                                               ; preds = %73, %84, %90, %35, %.thread84
-  %.16586 = phi i32 [ -1, %.thread84 ], [ -1, %35 ], [ -1, %73 ], [ -1, %84 ], [ 0, %90 ]
+  %.16586 = phi i32 [ -1, %.thread84 ], [ -1, %73 ], [ -1, %84 ], [ -1, %35 ], [ 0, %90 ]
   %93 = tail call ptr @H5MM_xfree(ptr noundef nonnull %11) #15
   br label %94
 

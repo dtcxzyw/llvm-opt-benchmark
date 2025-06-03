@@ -2418,7 +2418,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h44e89b7cfc4e38a5E(pt
   %13 = invoke { ptr, i64 } @"_ZN75_$LT$pulldown_cmark..strings..CowStr$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7cf77751bf462393E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.split unwind label %.thread118.loopexit.split-lp
 
-.thread118.loopexit:                              ; preds = %293, %177, %130, %140, %145, %98, %76, %78
+.thread118.loopexit:                              ; preds = %293, %177, %130, %78, %76, %140, %145, %98
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -2708,8 +2708,8 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h44e89b7cfc4e38a5E(pt
   br label %138
 
 138:                                              ; preds = %80, %144, %._crit_edge200, %294, %260, %178, %131
-  %.sroa.031.1 = phi i64 [ %300, %294 ], [ %.sroa.031.2, %260 ], [ %84, %131 ], [ %81, %178 ], [ %.sroa.031.0175, %._crit_edge200 ], [ %.sroa.031.0175, %144 ], [ %.sroa.031.0175, %80 ]
-  %.sroa.0.1 = phi i64 [ %300, %294 ], [ %.sroa.0.2, %260 ], [ %137, %131 ], [ %184, %178 ], [ %.pre, %._crit_edge200 ], [ %81, %144 ], [ %81, %80 ]
+  %.sroa.031.1 = phi i64 [ %84, %131 ], [ %81, %178 ], [ %.sroa.031.2, %260 ], [ %300, %294 ], [ %.sroa.031.0175, %._crit_edge200 ], [ %.sroa.031.0175, %144 ], [ %.sroa.031.0175, %80 ]
+  %.sroa.0.1 = phi i64 [ %137, %131 ], [ %184, %178 ], [ %.sroa.0.2, %260 ], [ %300, %294 ], [ %.pre, %._crit_edge200 ], [ %81, %144 ], [ %81, %80 ]
   %139 = icmp ult i64 %.sroa.0.1, %16
   br i1 %139, label %72, label %._crit_edge
 
@@ -2814,7 +2814,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h44e89b7cfc4e38a5E(pt
           to label %200 unwind label %.loopexit
 
 191:                                              ; preds = %185
-  %192 = add i64 %.sroa.0.0176, 1
+  %192 = add nuw i64 %.sroa.0.0176, 1
   br label %260
 
 .loopexit:                                        ; preds = %188, %231, %230, %246
@@ -4384,7 +4384,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h70c0347b0e58caaaE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -4461,7 +4461,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64

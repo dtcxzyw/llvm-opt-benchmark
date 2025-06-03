@@ -1171,7 +1171,7 @@ padded_write.exit47:                              ; preds = %198, %201, %210
   br label %216
 
 216:                                              ; preds = %padded_write.exit.thread, %padded_write.exit, %34, %padded_write.exit47, %1
-  %.042 = phi i32 [ %4, %1 ], [ %32, %padded_write.exit ], [ %spec.store.select, %padded_write.exit47 ], [ -2, %34 ], [ %.1.i.ph, %padded_write.exit.thread ]
+  %.042 = phi i32 [ %4, %1 ], [ %spec.store.select, %padded_write.exit47 ], [ %32, %padded_write.exit ], [ -2, %34 ], [ %.1.i.ph, %padded_write.exit.thread ]
   call fastcc void @writer_release(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #12
   ret i32 %.042

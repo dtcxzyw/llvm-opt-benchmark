@@ -3952,7 +3952,7 @@ _ZNK3smt7context11is_relevantEP4expr.exit84.thread: ; preds = %_ZNK3smt7context1
   br label %241
 
 241:                                              ; preds = %229, %_ZNK3smt7context11is_relevantEP4expr.exit.thread, %44, %46, %65, %72, %121, %_ZNK3app13get_decl_kindEv.exit, %54, %52, %59, %57, %80, %76, %96, %99, %92, %108, %111, %104, %_ZNK3smt7context11is_relevantEP4expr.exit80.thread, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, %.critedge, %233, %240, %27
-  %.1 = phi i1 [ false, %27 ], [ %122, %121 ], [ %68, %65 ], [ %75, %72 ], [ %50, %46 ], [ %45, %44 ], [ %2, %_ZNK3app13get_decl_kindEv.exit ], [ %53, %52 ], [ %55, %54 ], [ %58, %57 ], [ %60, %59 ], [ false, %76 ], [ %83, %80 ], [ true, %92 ], [ false, %96 ], [ %102, %99 ], [ true, %104 ], [ false, %108 ], [ %114, %111 ], [ %174, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread ], [ true, %_ZNK3smt7context11is_relevantEP4expr.exit80.thread ], [ false, %240 ], [ %231, %229 ], [ true, %233 ], [ true, %.critedge ], [ %or.cond, %_ZNK3smt7context11is_relevantEP4expr.exit.thread ]
+  %.1 = phi i1 [ false, %27 ], [ %45, %44 ], [ %50, %46 ], [ %68, %65 ], [ %75, %72 ], [ %122, %121 ], [ %2, %_ZNK3app13get_decl_kindEv.exit ], [ %53, %52 ], [ %55, %54 ], [ %58, %57 ], [ %60, %59 ], [ false, %76 ], [ %83, %80 ], [ true, %92 ], [ false, %96 ], [ %102, %99 ], [ true, %104 ], [ false, %108 ], [ %114, %111 ], [ %174, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread ], [ true, %_ZNK3smt7context11is_relevantEP4expr.exit80.thread ], [ false, %240 ], [ %231, %229 ], [ true, %233 ], [ true, %.critedge ], [ %or.cond, %_ZNK3smt7context11is_relevantEP4expr.exit.thread ]
   ret i1 %.1
 }
 

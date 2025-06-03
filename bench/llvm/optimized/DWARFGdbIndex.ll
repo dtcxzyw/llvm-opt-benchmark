@@ -624,8 +624,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %20, %22
   br label %81
 
 81:                                               ; preds = %79, %._crit_edge._crit_edge.i.i.i.i
-  %.val38.val.i.i.i.i = phi i32 [ %.val38.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.val36.val.i.i.i.i, %79 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %80, %79 ]
+  %.val38.val.i.i.i.i = phi i32 [ %.val36.val.i.i.i.i, %79 ], [ %.val38.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %80, %79 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8, !tbaa !114
   %82 = icmp eq i32 %.1.val.i.i.i.i, %.val38.val.i.i.i.i
   br i1 %82, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorISt4pairIjNS1_IjLj0EEEELj0EEEZNKS_13DWARFGdbIndex15dumpSymbolTableERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit", label %83
@@ -635,8 +635,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %20, %22
   br label %85
 
 85:                                               ; preds = %83, %._crit_edge._crit_edge57.i.i.i.i
-  %.val39.val.i.i.i.i = phi i32 [ %.val39.val.pre.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.val38.val.i.i.i.i, %83 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %84, %83 ]
+  %.val39.val.i.i.i.i = phi i32 [ %.val38.val.i.i.i.i, %83 ], [ %.val39.val.pre.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %84, %83 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8, !tbaa !114
   %86 = icmp eq i32 %.2.val.i.i.i.i, %.val39.val.i.i.i.i
   br i1 %86, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorISt4pairIjNS1_IjLj0EEEELj0EEEZNKS_13DWARFGdbIndex15dumpSymbolTableERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit", label %87

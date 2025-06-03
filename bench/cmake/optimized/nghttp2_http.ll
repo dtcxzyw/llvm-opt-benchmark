@@ -253,7 +253,7 @@ lws.exit:                                         ; preds = %.lr.ph.i64, %.lws.e
   br label %check_scheme.exit
 
 check_scheme.exit:                                ; preds = %124, %126, %59, %79, %77, %44, %36
-  %.054 = phi i32 [ %125, %124 ], [ %127, %126 ], [ %66, %59 ], [ %78, %77 ], [ %80, %79 ], [ %51, %44 ], [ %43, %36 ]
+  %.054 = phi i32 [ %125, %124 ], [ %127, %126 ], [ %43, %36 ], [ %51, %44 ], [ %66, %59 ], [ %78, %77 ], [ %80, %79 ]
   %128 = icmp eq i32 %.054, 0
   br i1 %128, label %check_scheme.exit.thread, label %check_scheme.exit.thread78
 
@@ -1754,8 +1754,8 @@ sf_parse_item_or_inner_list.exit:                 ; preds = %71, %73
   br label %92
 
 92:                                               ; preds = %79, %83, %90, %76
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0118, %79 ], [ %.sroa.5.0118, %90 ], [ %84, %83 ], [ %.sroa.5.0118, %76 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0119, %79 ], [ %91, %90 ], [ %.sroa.0.0119, %83 ], [ %.sroa.0.0119, %76 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0118, %79 ], [ %84, %83 ], [ %.sroa.5.0118, %90 ], [ %.sroa.5.0118, %76 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0119, %79 ], [ %.sroa.0.0119, %83 ], [ %91, %90 ], [ %.sroa.0.0119, %76 ]
   %93 = icmp eq ptr %77, %5
   br i1 %93, label %.loopexit78, label %.lr.ph108
 
@@ -2241,7 +2241,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
   br label %sf_parse_integer_or_decimal.exit
 
 sf_parse_integer_or_decimal.exit:                 ; preds = %111, %79, %75, %61, %58, %24, %16, %125, %138, %.critedge._crit_edge.i59, %123, %122, %119, %116, %106, %96, %91, %.critedge._crit_edge.i, %70, %55, %51, %38, %.loopexit.i, %33, %11, %8
-  %.0 = phi i64 [ %54, %51 ], [ %36, %33 ], [ -1, %8 ], [ -1, %11 ], [ -1, %38 ], [ -1, %.loopexit.i ], [ %74, %70 ], [ -1, %55 ], [ %.pre32.i, %.critedge._crit_edge.i ], [ %94, %91 ], [ %110, %106 ], [ -1, %96 ], [ -1, %116 ], [ -1, %119 ], [ 2, %123 ], [ 2, %122 ], [ %.pre32.i61, %.critedge._crit_edge.i59 ], [ %141, %138 ], [ -1, %125 ], [ -1, %16 ], [ -1, %24 ], [ -1, %58 ], [ -1, %61 ], [ -1, %75 ], [ -1, %79 ], [ -1, %111 ]
+  %.0 = phi i64 [ %36, %33 ], [ %54, %51 ], [ -1, %8 ], [ -1, %11 ], [ -1, %38 ], [ -1, %.loopexit.i ], [ %74, %70 ], [ -1, %55 ], [ %.pre32.i, %.critedge._crit_edge.i ], [ %94, %91 ], [ %110, %106 ], [ -1, %96 ], [ -1, %116 ], [ -1, %119 ], [ 2, %123 ], [ 2, %122 ], [ %.pre32.i61, %.critedge._crit_edge.i59 ], [ %141, %138 ], [ -1, %125 ], [ -1, %16 ], [ -1, %24 ], [ -1, %58 ], [ -1, %61 ], [ -1, %75 ], [ -1, %79 ], [ -1, %111 ]
   ret i64 %.0
 }
 

@@ -5810,7 +5810,7 @@ default.unreachable1:                             ; preds = %2
   br label %46
 
 46:                                               ; preds = %43, %40, %34, %32, %30, %27, %23, %20, %18, %15, %12
-  %.0.in = phi i1 [ %45, %43 ], [ %42, %40 ], [ %39, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %27 ], [ %26, %23 ], [ %22, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %19, %18 ], [ %22, %20 ], [ %26, %23 ], [ %29, %27 ], [ %31, %30 ], [ %33, %32 ], [ %39, %34 ], [ %42, %40 ], [ %45, %43 ]
   ret i1 %.0.in
 }
 
@@ -8199,10 +8199,10 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   call void @_ZN8wasmtime7runtime9component14resource_table13ResourceTable12occupied_mut17h8c759bfa75183f2aE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %9)
   %22 = load i8, ptr %5, align 8, !range !153, !noundef !5
   %trunc33 = trunc nuw i8 %22 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %24 = load i8, ptr %23, align 1, !range !4
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load ptr, ptr %25, align 8, !nonnull !5, !align !47
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = load ptr, ptr %23, align 8, !nonnull !5, !align !47
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %26 = load i8, ptr %25, align 1, !range !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc33, label %31, label %29
 
@@ -8214,7 +8214,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   br label %33
 
 29:                                               ; preds = %21
-  tail call void @_ZN8wasmtime7runtime9component14resource_table10TableEntry9add_child17hfc2f5947f6235a8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %26, i32 noundef %.sroa.629.0.extract.trunc)
+  tail call void @_ZN8wasmtime7runtime9component14resource_table10TableEntry9add_child17hfc2f5947f6235a8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %.sroa.629.0.extract.trunc)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -2, ptr %30, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8223,7 +8223,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %24, ptr %32, align 1
+  store i8 %26, ptr %32, align 1
   br label %33
 
 33:                                               ; preds = %19, %27, %31, %29
@@ -8279,10 +8279,10 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   call void @_ZN8wasmtime7runtime9component14resource_table13ResourceTable12occupied_mut17h8c759bfa75183f2aE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %9)
   %22 = load i8, ptr %5, align 8, !range !153, !noundef !5
   %trunc33 = trunc nuw i8 %22 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %24 = load i8, ptr %23, align 1, !range !4
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load ptr, ptr %25, align 8, !nonnull !5, !align !47
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = load ptr, ptr %23, align 8, !nonnull !5, !align !47
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %26 = load i8, ptr %25, align 1, !range !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc33, label %31, label %29
 
@@ -8294,7 +8294,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   br label %33
 
 29:                                               ; preds = %21
-  tail call void @_ZN8wasmtime7runtime9component14resource_table10TableEntry9add_child17hfc2f5947f6235a8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %26, i32 noundef %.sroa.629.0.extract.trunc)
+  tail call void @_ZN8wasmtime7runtime9component14resource_table10TableEntry9add_child17hfc2f5947f6235a8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %.sroa.629.0.extract.trunc)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -2, ptr %30, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8303,7 +8303,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %24, ptr %32, align 1
+  store i8 %26, ptr %32, align 1
   br label %33
 
 33:                                               ; preds = %19, %27, %31, %29
@@ -8359,10 +8359,10 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   call void @_ZN8wasmtime7runtime9component14resource_table13ResourceTable12occupied_mut17h8c759bfa75183f2aE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %9)
   %22 = load i8, ptr %5, align 8, !range !153, !noundef !5
   %trunc33 = trunc nuw i8 %22 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %24 = load i8, ptr %23, align 1, !range !4
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load ptr, ptr %25, align 8, !nonnull !5, !align !47
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = load ptr, ptr %23, align 8, !nonnull !5, !align !47
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %26 = load i8, ptr %25, align 1, !range !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc33, label %31, label %29
 
@@ -8374,7 +8374,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   br label %33
 
 29:                                               ; preds = %21
-  tail call void @_ZN8wasmtime7runtime9component14resource_table10TableEntry9add_child17hfc2f5947f6235a8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %26, i32 noundef %.sroa.629.0.extract.trunc)
+  tail call void @_ZN8wasmtime7runtime9component14resource_table10TableEntry9add_child17hfc2f5947f6235a8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %.sroa.629.0.extract.trunc)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -2, ptr %30, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8383,7 +8383,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %24, ptr %32, align 1
+  store i8 %26, ptr %32, align 1
   br label %33
 
 33:                                               ; preds = %19, %27, %31, %29

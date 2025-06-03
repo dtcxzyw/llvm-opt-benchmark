@@ -15189,7 +15189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %_Z
   br label %_ZNK12colvarmodule10quaternionixEi.exit
 
 _ZNK12colvarmodule10quaternionixEi.exit:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %51, %48, %45, %42, %75, %_ZNK12colvarmodule7rvectorixEi.exit, %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.07 = phi double [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %40, %_ZNK12colvarmodule7rvectorixEi.exit ], [ %33, %31 ], [ %80, %75 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ]
+  %.07 = phi double [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %80, %75 ], [ %33, %31 ], [ %40, %_ZNK12colvarmodule7rvectorixEi.exit ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ]
   ret double %.07
 }
 

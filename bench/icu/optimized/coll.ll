@@ -1526,7 +1526,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778CFactory14ge
   br label %32
 
 32:                                               ; preds = %30, %31
-  %.1 = phi ptr [ %27, %30 ], [ %3, %31 ]
+  %.1 = phi ptr [ %3, %31 ], [ %27, %30 ]
   ret ptr %.1
 }
 

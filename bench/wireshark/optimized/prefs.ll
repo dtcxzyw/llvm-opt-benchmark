@@ -4968,7 +4968,7 @@ prefs_get_effect_flags.exit.sink.split:           ; preds = %19, %13, %8
   br label %prefs_get_effect_flags.exit
 
 prefs_get_effect_flags.exit:                      ; preds = %prefs_get_effect_flags.exit.sink.split, %19, %13, %8, %15, %10, %5
-  %.0 = phi i32 [ 0, %15 ], [ 0, %10 ], [ 0, %5 ], [ 0, %8 ], [ 0, %13 ], [ 0, %19 ], [ %23, %prefs_get_effect_flags.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %15 ], [ 0, %8 ], [ 0, %13 ], [ 0, %19 ], [ %23, %prefs_get_effect_flags.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -5051,7 +5051,7 @@ define zeroext i1 @prefs_get_bool_value(ptr noundef readonly captures(none) %0, 
   unreachable
 
 11:                                               ; preds = %7, %5, %3
-  %.0.in.in = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0.in.in = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   %.0.in = load i8, ptr %.0.in.in, align 1, !range !6, !noundef !7
   %.0 = trunc nuw i8 %.0.in to i1
   ret i1 %.0
@@ -5177,7 +5177,7 @@ prefs_get_effect_flags.exit.sink.split:           ; preds = %18, %12, %7
   br label %prefs_get_effect_flags.exit
 
 prefs_get_effect_flags.exit:                      ; preds = %prefs_get_effect_flags.exit.sink.split, %18, %12, %7, %14, %9, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %9 ], [ 0, %4 ], [ 0, %7 ], [ 0, %12 ], [ 0, %18 ], [ %22, %prefs_get_effect_flags.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %7 ], [ 0, %12 ], [ 0, %18 ], [ %22, %prefs_get_effect_flags.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -5290,7 +5290,7 @@ prefs_get_effect_flags.exit.sink.split.i:         ; preds = %44, %39, %34
   br label %prefs_set_enum_value.exit
 
 prefs_set_enum_value.exit:                        ; preds = %31, %34, %36, %39, %41, %44, %prefs_get_effect_flags.exit.sink.split.i
-  %.0.i = phi i32 [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ 0, %34 ], [ 0, %39 ], [ 0, %44 ], [ %48, %prefs_get_effect_flags.exit.sink.split.i ]
+  %.0.i = phi i32 [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %34 ], [ 0, %39 ], [ 0, %44 ], [ %48, %prefs_get_effect_flags.exit.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -5378,7 +5378,7 @@ define i32 @prefs_get_enum_value(ptr noundef readonly captures(none) %0, i32 nou
   unreachable
 
 11:                                               ; preds = %7, %5, %3
-  %.0.in = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0.in = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   %.0 = load i32, ptr %.0.in, align 4
   ret i32 %.0
 }
@@ -5537,7 +5537,7 @@ prefs_get_effect_flags.exit44:                    ; preds = %39, %41
   unreachable
 
 51:                                               ; preds = %prefs_get_effect_flags.exit44, %37, %47, %46, %prefs_get_effect_flags.exit42, %22, %31, %30, %prefs_get_effect_flags.exit, %8, %17, %16
-  %.0 = phi i32 [ %.0.i43, %prefs_get_effect_flags.exit44 ], [ 0, %37 ], [ 0, %47 ], [ 0, %46 ], [ %.0.i41, %prefs_get_effect_flags.exit42 ], [ 0, %22 ], [ 0, %31 ], [ 0, %30 ], [ %.0.i, %prefs_get_effect_flags.exit ], [ 0, %8 ], [ 0, %17 ], [ 0, %16 ]
+  %.0 = phi i32 [ %.0.i, %prefs_get_effect_flags.exit ], [ 0, %8 ], [ 0, %17 ], [ 0, %16 ], [ %.0.i41, %prefs_get_effect_flags.exit42 ], [ 0, %22 ], [ 0, %31 ], [ 0, %30 ], [ %.0.i43, %prefs_get_effect_flags.exit44 ], [ 0, %37 ], [ 0, %47 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -5570,7 +5570,7 @@ define ptr @prefs_get_string_value(ptr noundef readonly captures(none) %0, i32 n
   unreachable
 
 11:                                               ; preds = %7, %5, %3
-  %.0.in = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0.in = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -5837,7 +5837,7 @@ define ptr @prefs_get_list_value(ptr noundef readonly captures(none) %0, i32 nou
   unreachable
 
 11:                                               ; preds = %7, %5, %3
-  %.0.in = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0.in = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -5903,7 +5903,7 @@ define noundef zeroext i1 @prefs_set_range_value(ptr noundef captures(none) %0, 
   unreachable
 
 35:                                               ; preds = %22, %27, %13, %17, %4, %8
-  %.0 = phi i1 [ false, %22 ], [ true, %27 ], [ false, %13 ], [ true, %17 ], [ false, %4 ], [ true, %8 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %8 ], [ false, %13 ], [ true, %17 ], [ false, %22 ], [ true, %27 ]
   ret i1 %.0
 }
 
@@ -5936,7 +5936,7 @@ define ptr @prefs_get_range_value_real(ptr noundef readonly captures(none) %0, i
   unreachable
 
 11:                                               ; preds = %7, %5, %3
-  %.0.in = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0.in = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -6165,7 +6165,7 @@ define noundef zeroext i1 @prefs_set_color_value(ptr noundef captures(none) %0, 
   unreachable
 
 42:                                               ; preds = %35, %40, %22, %27, %10, %15
-  %.0 = phi i1 [ true, %40 ], [ false, %35 ], [ true, %27 ], [ false, %22 ], [ true, %15 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %15 ], [ false, %10 ], [ true, %27 ], [ false, %22 ], [ true, %40 ], [ false, %35 ]
   ret i1 %.0
 }
 
@@ -6195,7 +6195,7 @@ define ptr @prefs_get_color_value(ptr noundef readonly captures(ret: address, pr
   unreachable
 
 11:                                               ; preds = %7, %5, %3
-  %.0 = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   ret ptr %.0
 }
 
@@ -8140,9 +8140,9 @@ getc_unlocked.exit96:                             ; preds = %37, %39
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %148, %142, %134, %128, %113, %107, %89, %83, %97, %93, %117, %115, %99, %.loopexit
-  %.079.ph.be = phi i32 [ %.079, %.loopexit ], [ 2, %117 ], [ 2, %115 ], [ 0, %99 ], [ 2, %93 ], [ 4, %97 ], [ 1, %83 ], [ 1, %89 ], [ 1, %107 ], [ 1, %113 ], [ 3, %128 ], [ 3, %134 ], [ 3, %142 ], [ 3, %148 ]
-  %.076.ph.be = phi i8 [ %.076.ph, %.loopexit ], [ %.076.ph, %117 ], [ 1, %115 ], [ %.076.ph, %99 ], [ 1, %93 ], [ %.076.ph, %97 ], [ 0, %83 ], [ 0, %89 ], [ %.076.ph, %107 ], [ %.076.ph, %113 ], [ %.076.ph, %128 ], [ %.076.ph, %134 ], [ %.076.ph, %142 ], [ %.076.ph, %148 ]
-  %.0.ph.be = phi i32 [ %.0.ph, %.loopexit ], [ %.0.ph, %117 ], [ %.0.ph, %115 ], [ %.0.ph, %99 ], [ %.0.ph, %93 ], [ %.0.ph, %97 ], [ %.075, %83 ], [ %.075, %89 ], [ %.0.ph, %107 ], [ %.0.ph, %113 ], [ %.0.ph, %128 ], [ %.0.ph, %134 ], [ %.0.ph, %142 ], [ %.0.ph, %148 ]
+  %.079.ph.be = phi i32 [ %.079, %.loopexit ], [ 0, %99 ], [ 2, %115 ], [ 2, %117 ], [ 2, %93 ], [ 4, %97 ], [ 1, %83 ], [ 1, %89 ], [ 1, %107 ], [ 1, %113 ], [ 3, %128 ], [ 3, %134 ], [ 3, %142 ], [ 3, %148 ]
+  %.076.ph.be = phi i8 [ %.076.ph, %.loopexit ], [ %.076.ph, %99 ], [ 1, %115 ], [ %.076.ph, %117 ], [ 1, %93 ], [ %.076.ph, %97 ], [ 0, %83 ], [ 0, %89 ], [ %.076.ph, %107 ], [ %.076.ph, %113 ], [ %.076.ph, %128 ], [ %.076.ph, %134 ], [ %.076.ph, %142 ], [ %.076.ph, %148 ]
+  %.0.ph.be = phi i32 [ %.0.ph, %.loopexit ], [ %.0.ph, %99 ], [ %.0.ph, %115 ], [ %.0.ph, %117 ], [ %.0.ph, %93 ], [ %.0.ph, %97 ], [ %.075, %83 ], [ %.075, %89 ], [ %.0.ph, %107 ], [ %.0.ph, %113 ], [ %.0.ph, %128 ], [ %.0.ph, %134 ], [ %.0.ph, %142 ], [ %.0.ph, %148 ]
   br label %.outer, !llvm.loop !30
 
 150:                                              ; preds = %getc_unlocked.exit, %getc_unlocked.exit96
@@ -10061,7 +10061,7 @@ define i32 @prefs_get_uint_value(ptr noundef readonly captures(none) %0, i32 nou
   unreachable
 
 11:                                               ; preds = %7, %5, %3
-  %.0.in = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0.in = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   %.0 = load i32, ptr %.0.in, align 4
   ret i32 %.0
 }
@@ -10092,7 +10092,7 @@ define ptr @prefs_get_password_value(ptr noundef readonly captures(none) %0, i32
   unreachable
 
 prefs_get_string_value.exit:                      ; preds = %3, %5, %7
-  %.0.in.i = phi ptr [ %9, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0.in.i = phi ptr [ %4, %3 ], [ %6, %5 ], [ %9, %7 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   ret ptr %.0.i
 }
@@ -10149,7 +10149,7 @@ prefs_get_effect_flags.exit.sink.split:           ; preds = %18, %12, %7
   br label %prefs_get_effect_flags.exit
 
 prefs_get_effect_flags.exit:                      ; preds = %prefs_get_effect_flags.exit.sink.split, %18, %12, %7, %14, %9, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %9 ], [ 0, %4 ], [ 0, %7 ], [ 0, %12 ], [ 0, %18 ], [ %22, %prefs_get_effect_flags.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %7 ], [ 0, %12 ], [ 0, %18 ], [ %22, %prefs_get_effect_flags.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -10463,7 +10463,7 @@ define ptr @prefs_pref_type_name(ptr noundef readonly captures(address_is_null) 
   br label %29
 
 29:                                               ; preds = %2, %12, %13, %14, %15, %16, %17, %18, %24, %25, %26, %27, %28, %11, %10, %9, %6, %19, %1, %22
-  %.011 = phi ptr [ %23, %22 ], [ @.str.31, %1 ], [ %.str.31..str.32, %2 ], [ @.str.48, %28 ], [ @.str.47, %27 ], [ @.str.46, %26 ], [ @.str.45, %25 ], [ @.str.44, %24 ], [ @.str.42, %18 ], [ @.str.41, %17 ], [ @.str.40, %16 ], [ @.str.39, %15 ], [ @.str.38, %14 ], [ @.str.37, %13 ], [ @.str.36, %12 ], [ %.str.31..str.32, %6 ], [ @.str.35, %11 ], [ @.str.34, %10 ], [ @.str.33, %9 ], [ @.str.43, %19 ]
+  %.011 = phi ptr [ %23, %22 ], [ @.str.31, %1 ], [ %.str.31..str.32, %2 ], [ %.str.31..str.32, %6 ], [ @.str.33, %9 ], [ @.str.34, %10 ], [ @.str.35, %11 ], [ @.str.36, %12 ], [ @.str.37, %13 ], [ @.str.38, %14 ], [ @.str.39, %15 ], [ @.str.40, %16 ], [ @.str.41, %17 ], [ @.str.42, %18 ], [ @.str.44, %24 ], [ @.str.45, %25 ], [ @.str.46, %26 ], [ @.str.47, %27 ], [ @.str.48, %28 ], [ @.str.43, %19 ]
   ret ptr %.011
 }
 
@@ -10709,12 +10709,12 @@ define ptr @prefs_pref_type_description(ptr noundef readonly captures(address_is
   br label %55
 
 55:                                               ; preds = %45, %4, %8, %11, %12, %13, %54, %53, %52, %51, %50, %44, %43, %42, %41, %40, %14
-  %.130 = phi ptr [ %.str.51..str.53, %4 ], [ @.str.72, %54 ], [ @.str.71, %53 ], [ @.str.70, %52 ], [ @.str.69, %51 ], [ @.str.68, %50 ], [ @.str.66, %44 ], [ @.str.65, %43 ], [ @.str.64, %42 ], [ @.str.63, %41 ], [ @.str.62, %40 ], [ @.str.57, %14 ], [ %.str.51..str.53, %8 ], [ @.str.56, %13 ], [ @.str.55, %12 ], [ @.str.54, %11 ], [ @.str.67, %45 ]
+  %.130 = phi ptr [ %.str.51..str.53, %4 ], [ %.str.51..str.53, %8 ], [ @.str.54, %11 ], [ @.str.55, %12 ], [ @.str.56, %13 ], [ @.str.57, %14 ], [ @.str.62, %40 ], [ @.str.63, %41 ], [ @.str.64, %42 ], [ @.str.65, %43 ], [ @.str.66, %44 ], [ @.str.68, %50 ], [ @.str.69, %51 ], [ @.str.70, %52 ], [ @.str.71, %53 ], [ @.str.72, %54 ], [ @.str.67, %45 ]
   %56 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.130)
   br label %57
 
 57:                                               ; preds = %55, %48, %.critedge, %2
-  %.028 = phi ptr [ %56, %55 ], [ %49, %48 ], [ %39, %.critedge ], [ %3, %2 ]
+  %.028 = phi ptr [ %56, %55 ], [ %39, %.critedge ], [ %49, %48 ], [ %3, %2 ]
   ret ptr %.028
 }
 
@@ -10872,7 +10872,7 @@ define ptr @prefs_pref_to_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %.thread
 
 15:                                               ; preds = %10, %8, %6
-  %.053 = phi ptr [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.053 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1024
@@ -11015,8 +11015,8 @@ define ptr @prefs_pref_to_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %84 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.151)
   br label %.thread
 
-.thread:                                          ; preds = %23, %25, %27, %82, %45, %.thread70, %72, %56, %52, %49, %29, %13, %3
-  %.0 = phi ptr [ %14, %13 ], [ %84, %.thread70 ], [ %83, %82 ], [ %74, %72 ], [ %68, %56 ], [ %55, %52 ], [ %51, %49 ], [ %48, %45 ], [ %33, %29 ], [ %4, %3 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
+.thread:                                          ; preds = %27, %25, %23, %82, %45, %.thread70, %72, %56, %52, %49, %29, %13, %3
+  %.0 = phi ptr [ %14, %13 ], [ %84, %.thread70 ], [ %33, %29 ], [ %48, %45 ], [ %51, %49 ], [ %55, %52 ], [ %68, %56 ], [ %74, %72 ], [ %83, %82 ], [ %4, %3 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ]
   ret ptr %.0
 }
 

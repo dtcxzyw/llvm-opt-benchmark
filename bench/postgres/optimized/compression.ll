@@ -461,8 +461,8 @@ define ptr @validate_compress_specification(ptr noundef readonly captures(none) 
   br label %.thread39
 
 13:                                               ; preds = %8, %7, %6, %4
-  %.021 = phi i32 [ 1, %4 ], [ 1, %8 ], [ 12, %7 ], [ 9, %6 ]
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %7 ], [ -1, %6 ]
+  %.021 = phi i32 [ 1, %4 ], [ 9, %6 ], [ 12, %7 ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ -1, %6 ], [ 0, %7 ], [ 0, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
@@ -512,7 +512,7 @@ get_compress_algorithm_name.exit:                 ; preds = %18, %switch.lookup
   br label %get_compress_algorithm_name.exit35
 
 get_compress_algorithm_name.exit35:               ; preds = %26, %27, %28, %29
-  %.0.i34 = phi ptr [ @.str.4, %29 ], [ @.str.2, %28 ], [ @.str.1, %27 ], [ @.str, %26 ]
+  %.0.i34 = phi ptr [ @.str.4, %29 ], [ @.str.1, %27 ], [ @.str.2, %28 ], [ @.str, %26 ]
   %30 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef nonnull %.0.i34) #9
   br label %.thread39
 

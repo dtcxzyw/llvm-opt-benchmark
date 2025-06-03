@@ -1641,8 +1641,8 @@ smart_str_0.exit:                                 ; preds = %27
   br label %smart_str_free_ex.exit192
 
 71:                                               ; preds = %66, %66, %68, %67
-  %.not20.i = phi i64 [ 2, %68 ], [ 2, %67 ], [ 0, %66 ], [ 0, %66 ]
-  %.1103 = phi i32 [ 2, %68 ], [ 8, %67 ], [ 16, %66 ], [ 16, %66 ]
+  %.not20.i = phi i64 [ 2, %67 ], [ 2, %68 ], [ 0, %66 ], [ 0, %66 ]
+  %.1103 = phi i32 [ 8, %67 ], [ 2, %68 ], [ 16, %66 ], [ 16, %66 ]
   %72 = getelementptr inbounds nuw i8, ptr %.1110, i64 2
   %73 = icmp eq ptr %72, %.0112.lcssa
   br i1 %73, label %.critedge125, label %74, !prof !52
@@ -1770,8 +1770,8 @@ zend_ini_consume_quantity_prefix.exit:            ; preds = %84, %87, %95, %96, 
   br label %smart_str_free_ex.exit192
 
 117:                                              ; preds = %53, %55, %zend_ini_consume_quantity_prefix.exit, %66, %66, %66, %66, %66, %66
-  %.2111 = phi ptr [ %.1110, %55 ], [ %72, %zend_ini_consume_quantity_prefix.exit ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %53 ]
-  %.0102 = phi i32 [ 0, %55 ], [ %.1103, %zend_ini_consume_quantity_prefix.exit ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ 0, %53 ]
+  %.2111 = phi ptr [ %.1110, %55 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %.1110, %66 ], [ %72, %zend_ini_consume_quantity_prefix.exit ], [ %.1110, %53 ]
+  %.0102 = phi i32 [ 0, %55 ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ 0, %66 ], [ %.1103, %zend_ini_consume_quantity_prefix.exit ], [ 0, %53 ]
   %118 = tail call ptr @__errno_location() #20
   store i32 0, ptr %118, align 4, !tbaa !80
   %119 = call i64 @strtoull(ptr noundef nonnull %.2111, ptr noundef nonnull %5, i32 noundef %.0102) #18
@@ -2039,7 +2039,7 @@ smart_str_free_ex.exit176:                        ; preds = %smart_str_free_ex.e
   br label %smart_str_free_ex.exit192
 
 231:                                              ; preds = %163, %163, %167, %166
-  %.0105 = phi i64 [ 1024, %167 ], [ 1048576, %166 ], [ 1073741824, %163 ], [ 1073741824, %163 ]
+  %.0105 = phi i64 [ 1048576, %166 ], [ 1024, %167 ], [ 1073741824, %163 ], [ 1073741824, %163 ]
   %232 = trunc nuw i8 %.0106 to i1
   br i1 %232, label %248, label %233
 

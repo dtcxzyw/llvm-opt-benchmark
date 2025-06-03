@@ -2980,7 +2980,7 @@ return:                                           ; preds = %_ZN8QuantLib13UnitO
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup209, %ehcleanup170, %lpad131, %lpad97, %ehcleanup68, %ehcleanup40, %ehcleanup
-  %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %ehcleanup209 ], [ %123, %lpad97 ], [ %175, %lpad131 ], [ %.pn.pn.pn.pn, %ehcleanup170 ], [ %.pn23, %ehcleanup ], [ %.pn21, %ehcleanup40 ], [ %.pn16.pn.pn.pn, %ehcleanup68 ]
+  %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %ehcleanup209 ], [ %.pn23, %ehcleanup ], [ %.pn21, %ehcleanup40 ], [ %.pn16.pn.pn.pn, %ehcleanup68 ], [ %123, %lpad97 ], [ %175, %lpad131 ], [ %.pn.pn.pn.pn, %ehcleanup170 ]
   resume { ptr, i32 } %.pn25.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont193, %invoke.cont154, %invoke.cont56

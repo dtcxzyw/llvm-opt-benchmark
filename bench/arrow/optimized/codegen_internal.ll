@@ -3292,8 +3292,8 @@ define noundef zeroext i1 @_ZN5arrow7compute8internal24CommonTemporalResolutionE
   br label %23
 
 23:                                               ; preds = %.lr.ph, %22, %19, %16, %13, %10, %9
-  %24 = phi i32 [ %5, %22 ], [ %.sroa.speculated, %19 ], [ %.sroa.speculated34, %16 ], [ %.sroa.speculated38, %13 ], [ %.sroa.speculated42, %10 ], [ %.sroa.speculated46, %9 ], [ %5, %.lr.ph ]
-  %.1 = phi i1 [ %.051, %22 ], [ true, %19 ], [ true, %16 ], [ true, %13 ], [ true, %10 ], [ true, %9 ], [ true, %.lr.ph ]
+  %24 = phi i32 [ %5, %22 ], [ %.sroa.speculated46, %9 ], [ %.sroa.speculated42, %10 ], [ %.sroa.speculated38, %13 ], [ %.sroa.speculated34, %16 ], [ %.sroa.speculated, %19 ], [ %5, %.lr.ph ]
+  %.1 = phi i1 [ %.051, %22 ], [ true, %9 ], [ true, %10 ], [ true, %13 ], [ true, %16 ], [ true, %19 ], [ true, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %.02750, i64 24
   %.not = icmp eq ptr %25, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
@@ -3392,13 +3392,13 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %.thread115
 
-40:                                               ; preds = %36, %33, %30, %14, %.lr.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100
-  %.299.ph = phi i32 [ %.097136, %.lr.ph ], [ %.sroa.speculated79, %14 ], [ %.sroa.speculated75, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.sroa.speculated71, %30 ], [ %.sroa.speculated67, %33 ], [ %.sroa.speculated, %36 ]
-  %.251.ph = phi i1 [ %.049138, %.lr.ph ], [ %.049138, %14 ], [ %.049138, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ true, %30 ], [ true, %33 ], [ %.049138, %36 ]
-  %.248.ph = phi i1 [ %.046139, %.lr.ph ], [ %.046139, %14 ], [ %.046139, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.046139, %30 ], [ %.046139, %33 ], [ true, %36 ]
-  %.245.ph = phi i1 [ %.043140, %.lr.ph ], [ true, %14 ], [ %.043140, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.043140, %30 ], [ %.043140, %33 ], [ %.043140, %36 ]
-  %.242.ph = phi i1 [ true, %.lr.ph ], [ %.040141, %14 ], [ %.040141, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.040141, %30 ], [ %.040141, %33 ], [ %.040141, %36 ]
-  %.2.ph = phi ptr [ %.0142, %.lr.ph ], [ %.0142, %14 ], [ %27, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.0142, %30 ], [ %.0142, %33 ], [ %.0142, %36 ]
+40:                                               ; preds = %14, %30, %33, %36, %.lr.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100
+  %.299.ph = phi i32 [ %.sroa.speculated, %36 ], [ %.sroa.speculated67, %33 ], [ %.sroa.speculated71, %30 ], [ %.sroa.speculated75, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.sroa.speculated79, %14 ], [ %.097136, %.lr.ph ]
+  %.251.ph = phi i1 [ %.049138, %36 ], [ true, %33 ], [ true, %30 ], [ %.049138, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.049138, %14 ], [ %.049138, %.lr.ph ]
+  %.248.ph = phi i1 [ true, %36 ], [ %.046139, %33 ], [ %.046139, %30 ], [ %.046139, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.046139, %14 ], [ %.046139, %.lr.ph ]
+  %.245.ph = phi i1 [ %.043140, %36 ], [ %.043140, %33 ], [ %.043140, %30 ], [ %.043140, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ true, %14 ], [ %.043140, %.lr.ph ]
+  %.242.ph = phi i1 [ %.040141, %36 ], [ %.040141, %33 ], [ %.040141, %30 ], [ %.040141, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.040141, %14 ], [ true, %.lr.ph ]
+  %.2.ph = phi ptr [ %.0142, %36 ], [ %.0142, %33 ], [ %.0142, %30 ], [ %27, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.0142, %14 ], [ %.0142, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %.052137, i64 24
   %.not = icmp eq ptr %41, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
@@ -3628,10 +3628,10 @@ define void @_ZN5arrow7compute8internal12CommonBinaryEPKNS_10TypeHolderEm(ptr de
 11:                                               ; preds = %.lr.ph
   br label %12
 
-12:                                               ; preds = %11, %10, %9, %8, %.lr.ph
-  %.222.ph = phi i1 [ false, %.lr.ph ], [ false, %8 ], [ %.02076, %9 ], [ false, %10 ], [ false, %11 ]
-  %.219.ph = phi i8 [ %.01777, %.lr.ph ], [ %.01777, %8 ], [ %.01777, %9 ], [ 0, %10 ], [ 0, %11 ]
-  %.2.ph = phi i1 [ %.079, %.lr.ph ], [ false, %8 ], [ false, %9 ], [ %.079, %10 ], [ false, %11 ]
+12:                                               ; preds = %8, %9, %10, %11, %.lr.ph
+  %.222.ph = phi i1 [ false, %.lr.ph ], [ false, %11 ], [ false, %10 ], [ %.02076, %9 ], [ false, %8 ]
+  %.219.ph = phi i8 [ %.01777, %.lr.ph ], [ 0, %11 ], [ 0, %10 ], [ %.01777, %9 ], [ %.01777, %8 ]
+  %.2.ph = phi i1 [ %.079, %.lr.ph ], [ false, %11 ], [ %.079, %10 ], [ false, %9 ], [ false, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %.01678, i64 24
   %.not = icmp eq ptr %13, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
@@ -4260,8 +4260,8 @@ _ZN5arrow6ResultIiED2Ev.exit107:                  ; preds = %_ZN5arrow26MaxDecim
   br label %180
 
 180:                                              ; preds = %170, %174, %171
-  %.053 = phi i32 [ %179, %174 ], [ %172, %171 ], [ 0, %170 ]
-  %.052 = phi i32 [ 0, %174 ], [ %173, %171 ], [ 0, %170 ]
+  %.053 = phi i32 [ %172, %171 ], [ %179, %174 ], [ 0, %170 ]
+  %.052 = phi i32 [ %173, %171 ], [ 0, %174 ], [ 0, %170 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #23
   %181 = add nsw i32 %.053, %.057
   %182 = add nsw i32 %.053, %.0
@@ -5527,7 +5527,7 @@ define void @_ZN5arrow7compute8internal35PromoteIntegerForDurationArithmeticEPSt
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i
-  %.sroa.037.1.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %35, %34 ]
+  %.sroa.037.1.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i24.i.i.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i.i.i, align 8, !tbaa !77
   %37 = getelementptr i8, ptr %.val.i24.i.i.i.i.i, i64 40
   %.val.val.i25.i.i.i.i.i = load i32, ptr %37, align 8, !tbaa !98
@@ -5539,7 +5539,7 @@ define void @_ZN5arrow7compute8internal35PromoteIntegerForDurationArithmeticEPSt
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i.i
-  %.sroa.037.2.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %40, %39 ]
+  %.sroa.037.2.i.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i26.i.i.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i.i.i, align 8, !tbaa !77
   %42 = getelementptr i8, ptr %.val.i26.i.i.i.i.i, i64 40
   %.val.val.i27.i.i.i.i.i = load i32, ptr %42, align 8, !tbaa !98

@@ -400,7 +400,7 @@ default.unreachable36:                            ; preds = %2
   br label %74
 
 .loopexit:                                        ; preds = %74, %60, %48, %40, %32, %20
-  %.0.shrunk = phi i1 [ %59, %48 ], [ %47, %40 ], [ %39, %32 ], [ %31, %20 ], [ false, %60 ], [ false, %74 ]
+  %.0.shrunk = phi i1 [ %31, %20 ], [ %39, %32 ], [ %47, %40 ], [ %59, %48 ], [ false, %60 ], [ false, %74 ]
   ret i1 %.0.shrunk
 
 74:                                               ; preds = %.lr.ph, %74

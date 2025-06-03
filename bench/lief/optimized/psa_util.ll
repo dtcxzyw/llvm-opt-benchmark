@@ -35,7 +35,7 @@ define hidden range(i32 -114, 1) i32 @psa_generic_status_to_mbedtls(i32 noundef 
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %5 ], [ -112, %4 ], [ -110, %3 ], [ -114, %2 ], [ %0, %1 ]
+  %.0 = phi i32 [ -1, %5 ], [ -114, %2 ], [ -110, %3 ], [ -112, %4 ], [ %0, %1 ]
   ret i32 %.0
 }
 
@@ -68,7 +68,7 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
   br label %16
 
 16:                                               ; preds = %11, %._crit_edge
-  %.1 = phi i32 [ %14, %11 ], [ %15, %._crit_edge ]
+  %.1 = phi i32 [ %15, %._crit_edge ], [ %14, %11 ]
   ret i32 %.1
 }
 
@@ -131,7 +131,7 @@ psa_generic_status_to_mbedtls.exit.fold.split:    ; preds = %1
   br label %psa_generic_status_to_mbedtls.exit
 
 psa_generic_status_to_mbedtls.exit:               ; preds = %1, %psa_generic_status_to_mbedtls.exit.fold.split, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -15872, %8 ], [ -16000, %7 ], [ -16256, %6 ], [ -16128, %5 ], [ -14976, %4 ], [ -14720, %3 ], [ -14464, %2 ], [ -15616, %1 ], [ -1, %11 ], [ -112, %10 ], [ -110, %9 ], [ 0, %psa_generic_status_to_mbedtls.exit.fold.split ]
+  %.0 = phi i32 [ -14464, %2 ], [ -14720, %3 ], [ -14976, %4 ], [ -16128, %5 ], [ -16256, %6 ], [ -16000, %7 ], [ -15872, %8 ], [ -15616, %1 ], [ -1, %11 ], [ -110, %9 ], [ -112, %10 ], [ 0, %psa_generic_status_to_mbedtls.exit.fold.split ]
   ret i32 %.0
 }
 
@@ -218,7 +218,7 @@ define hidden range(i32 0, 14) i32 @mbedtls_ecc_group_from_psa(i8 noundef zeroex
   br label %14
 
 14:                                               ; preds = %12, %11, %8, %3, %13, %10, %9, %7, %6, %5, %4
-  %.0 = phi i32 [ 0, %13 ], [ 8, %10 ], [ 7, %9 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 6, %8 ], [ %switch.select7, %11 ], [ %switch.select11, %12 ]
+  %.0 = phi i32 [ 0, %13 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 7, %9 ], [ 8, %10 ], [ 1, %3 ], [ 6, %8 ], [ %switch.select7, %11 ], [ %switch.select11, %12 ]
   ret i32 %.0
 }
 

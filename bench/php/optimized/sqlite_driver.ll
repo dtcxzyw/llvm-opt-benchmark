@@ -1968,7 +1968,7 @@ define internal noundef zeroext i1 @pdo_sqlite_set_attr(ptr noundef readonly cap
   br label %22
 
 22:                                               ; preds = %3, %15, %7, %17, %9
-  %.0 = phi i1 [ true, %17 ], [ true, %9 ], [ false, %7 ], [ false, %15 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %9 ], [ true, %17 ], [ false, %7 ], [ false, %15 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret i1 %.0
 }

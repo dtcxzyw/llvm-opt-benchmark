@@ -40463,7 +40463,7 @@ _ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2
   br label %299
 
 299:                                              ; preds = %_ZN4Luau28TypeFunctionReductionGuesserD2Ev.exit, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit.thread
-  %.1 = phi i1 [ true, %_ZN4Luau28TypeFunctionReductionGuesserD2Ev.exit ], [ false, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit.thread ]
+  %.1 = phi i1 [ false, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit.thread ], [ true, %_ZN4Luau28TypeFunctionReductionGuesserD2Ev.exit ]
   ret i1 %.1
 
 300:                                              ; preds = %298, %113
@@ -51011,7 +51011,7 @@ _ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2
   br label %299
 
 299:                                              ; preds = %_ZN4Luau28TypeFunctionReductionGuesserD2Ev.exit, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit.thread
-  %.1 = phi i1 [ true, %_ZN4Luau28TypeFunctionReductionGuesserD2Ev.exit ], [ false, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit.thread ]
+  %.1 = phi i1 [ false, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit.thread ], [ true, %_ZN4Luau28TypeFunctionReductionGuesserD2Ev.exit ]
   ret i1 %.1
 
 300:                                              ; preds = %298, %113

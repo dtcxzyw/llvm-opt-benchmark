@@ -1075,7 +1075,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm2gi11PatternTypeeqERKS1_(ptr nound
   unreachable
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %17, %15, %12, %5, %2, %19, %6
-  %.0 = phi i1 [ %30, %19 ], [ %11, %6 ], [ false, %2 ], [ true, %5 ], [ %18, %17 ], [ false, %12 ], [ true, %15 ]
+  %.0 = phi i1 [ %11, %6 ], [ %30, %19 ], [ false, %2 ], [ true, %5 ], [ %18, %17 ], [ false, %12 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -4786,7 +4786,7 @@ _ZNK4llvm2gi11PatternTypeneERKS1_.exit:           ; preds = %80
   %92 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %92, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %_ZN4llvmplERKNS_5TwineES2_.exit101
 
-_ZN4llvmplERKNS_5TwineES2_.exit101:               ; preds = %75, %82, %79, %71, %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
+_ZN4llvmplERKNS_5TwineES2_.exit101:               ; preds = %82, %75, %79, %71, %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
   %93 = getelementptr inbounds nuw i8, ptr %.030135, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %.030135, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %0, align 8, !tbaa !241
@@ -4916,7 +4916,7 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
   br label %.loopexit
 
-_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111: ; preds = %75, %82, %44, %80, %52, %"_ZNSt8functionIFvvEEaSIZN4llvm2gi18OperandTypeChecker5checkERNS4_18InstructionPatternES_IFbRKNS4_11PatternTypeEEEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSF_.exit", %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
+_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111: ; preds = %82, %75, %44, %80, %52, %"_ZNSt8functionIFvvEEaSIZN4llvm2gi18OperandTypeChecker5checkERNS4_18InstructionPatternES_IFbRKNS4_11PatternTypeEEEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSF_.exit", %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
   %136 = getelementptr inbounds nuw i8, ptr %.030135, i64 64
   %.not = icmp eq ptr %136, %35
@@ -6311,8 +6311,8 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit: ; preds = %318, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #25
   br label %select.unfold
 
-select.unfold:                                    ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %54, %56, %_ZN4llvmplERKNS_5TwineES2_.exit211, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit
-  %.5 = phi i1 [ %.12, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit211 ], [ false, %56 ], [ false, %54 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+select.unfold:                                    ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %_ZN4llvmplERKNS_5TwineES2_.exit211, %56, %54, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit
+  %.5 = phi i1 [ %.12, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit ], [ false, %54 ], [ false, %56 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit211 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   ret i1 %.5
 }
 
@@ -8917,8 +8917,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215: ; preds = %_Z
   %.not = icmp eq ptr %420, %30
   br i1 %.not, label %.critedge, label %35
 
-.critedge:                                        ; preds = %418, %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ true, %24 ], [ true, %418 ]
+.critedge:                                        ; preds = %418, %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215 ], [ true, %24 ], [ true, %418 ]
   ret i1 %.0
 }
 

@@ -1330,8 +1330,8 @@ define internal fastcc i32 @getFromUBytesValue(ptr noundef captures(none) %0, pt
   br label %27
 
 27:                                               ; preds = %22, %20
-  %.048 = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %.047 = phi i32 [ 0, %20 ], [ %26, %22 ]
+  %.048 = phi ptr [ %23, %22 ], [ %21, %20 ]
+  %.047 = phi i32 [ %26, %22 ], [ 0, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %.048, i64 1
   %29 = load i8, ptr %.048, align 1, !tbaa !55
   %30 = zext i8 %29 to i32
@@ -1340,8 +1340,8 @@ define internal fastcc i32 @getFromUBytesValue(ptr noundef captures(none) %0, pt
   br label %33
 
 33:                                               ; preds = %27, %20
-  %.149 = phi ptr [ %21, %20 ], [ %28, %27 ]
-  %.1 = phi i32 [ 0, %20 ], [ %32, %27 ]
+  %.149 = phi ptr [ %28, %27 ], [ %21, %20 ]
+  %.1 = phi i32 [ %32, %27 ], [ 0, %20 ]
   %34 = load i8, ptr %.149, align 1, !tbaa !55
   %35 = zext i8 %34 to i32
   %36 = or i32 %.1, %35

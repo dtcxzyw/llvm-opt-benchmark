@@ -169,7 +169,7 @@ _ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %42, %28, %37, %_ZN1
   br label %80
 
 80:                                               ; preds = %75, %71, %69, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24
-  %.0 = phi ptr [ %79, %75 ], [ %72, %71 ], [ %70, %69 ], [ %60, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24 ]
+  %.0 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %79, %75 ], [ %60, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24 ]
   ret ptr %.0
 }
 

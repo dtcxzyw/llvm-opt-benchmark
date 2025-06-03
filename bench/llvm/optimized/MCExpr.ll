@@ -3404,7 +3404,7 @@ _ZL9canExpandRKN4llvm8MCSymbolEb.exit.thread229:  ; preds = %_ZL9canExpandRKN4ll
   ]
 
 .thread:                                          ; preds = %213, %205, %207, %209, %226, %231, %235, %243, %248, %250, %253, %255, %257, %259
-  %.0149238 = phi i64 [ %.0149, %259 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %230, %226 ], [ %234, %231 ], [ %236, %235 ], [ %244, %243 ], [ %249, %248 ], [ %252, %250 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %215, %213 ]
+  %.0149238 = phi i64 [ %.0149, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %250 ], [ %249, %248 ], [ %244, %243 ], [ %236, %235 ], [ %234, %231 ], [ %230, %226 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %215, %213 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.4185.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.0149238, ptr %.sroa.4185.0..sroa_idx, align 8, !tbaa !34
@@ -3413,7 +3413,7 @@ _ZL9canExpandRKN4llvm8MCSymbolEb.exit.thread229:  ; preds = %_ZL9canExpandRKN4ll
   br label %.critedge172
 
 .thread241:                                       ; preds = %217, %220, %223, %237, %240, %245, %259, %259, %259, %259, %259, %259
-  %.0149243 = phi i64 [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %219, %217 ], [ %222, %220 ], [ %225, %223 ], [ %239, %237 ], [ %242, %240 ], [ %247, %245 ]
+  %.0149243 = phi i64 [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %.0149, %259 ], [ %247, %245 ], [ %242, %240 ], [ %239, %237 ], [ %225, %223 ], [ %222, %220 ], [ %219, %217 ]
   %.not159 = icmp ne i64 %.0149243, 0
   %260 = sext i1 %.not159 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
@@ -3423,8 +3423,8 @@ _ZL9canExpandRKN4llvm8MCSymbolEb.exit.thread229:  ; preds = %_ZL9canExpandRKN4ll
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !245
   br label %.critedge172
 
-.critedge172:                                     ; preds = %152, %146, %142, %138, %134, %211, %.thread241, %.thread, %168, %185, %172
-  %.9 = phi i1 [ %196, %185 ], [ %184, %172 ], [ false, %168 ], [ false, %211 ], [ true, %.thread241 ], [ true, %.thread ], [ true, %152 ], [ true, %146 ], [ false, %142 ], [ false, %138 ], [ false, %134 ]
+.critedge172:                                     ; preds = %146, %152, %142, %138, %134, %211, %.thread241, %.thread, %168, %185, %172
+  %.9 = phi i1 [ %184, %172 ], [ %196, %185 ], [ false, %168 ], [ false, %211 ], [ true, %.thread241 ], [ true, %.thread ], [ true, %146 ], [ true, %152 ], [ false, %142 ], [ false, %138 ], [ false, %134 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
   br label %.critedge.thread
@@ -3433,7 +3433,7 @@ _ZL9canExpandRKN4llvm8MCSymbolEb.exit.thread229:  ; preds = %_ZL9canExpandRKN4ll
   unreachable
 
 .critedge.thread:                                 ; preds = %70, %81, %80, %69, %_ZL9canExpandRKN4llvm8MCSymbolEb.exit.thread229, %.critedge, %.critedge172, %125, %19, %13
-  %.0 = phi i1 [ %.9, %.critedge172 ], [ %.5, %125 ], [ true, %19 ], [ %18, %13 ], [ true, %_ZL9canExpandRKN4llvm8MCSymbolEb.exit.thread229 ], [ true, %.critedge ], [ true, %81 ], [ true, %80 ], [ false, %70 ], [ true, %69 ]
+  %.0 = phi i1 [ %18, %13 ], [ true, %19 ], [ %.5, %125 ], [ %.9, %.critedge172 ], [ true, %_ZL9canExpandRKN4llvm8MCSymbolEb.exit.thread229 ], [ true, %.critedge ], [ true, %81 ], [ true, %80 ], [ false, %70 ], [ true, %69 ]
   ret i1 %.0
 }
 
@@ -3582,7 +3582,7 @@ tailrecurse:                                      ; preds = %24, %1
   br i1 %or.cond.not, label %19, label %common.ret42
 
 common.ret42:                                     ; preds = %38, %15, %11, %43, %27, %36, %9, %3, %19
-  %common.ret42.op = phi ptr [ %23, %19 ], [ %10, %9 ], [ %8, %3 ], [ %44, %43 ], [ %33, %27 ], [ %30, %36 ], [ null, %15 ], [ %14, %11 ], [ %34, %38 ]
+  %common.ret42.op = phi ptr [ %23, %19 ], [ %8, %3 ], [ %10, %9 ], [ %44, %43 ], [ %33, %27 ], [ %30, %36 ], [ null, %15 ], [ %14, %11 ], [ %34, %38 ]
   ret ptr %common.ret42.op
 
 19:                                               ; preds = %15

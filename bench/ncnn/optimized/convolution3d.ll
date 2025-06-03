@@ -1903,7 +1903,7 @@ define internal void @_ZNK4ncnn13Convolution3D7forwardERKNS_3MatERS1_RKNS_6Optio
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us: ; preds = %126, %120, %119, %112, %105, %99, %95, %91, %83, %._crit_edge.us.us.us.us.us
-  %.1120.us.us.us.us.us = phi nsz float [ %.154.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %.154.lcssa.us.us.us.us.us, %91 ], [ %98, %95 ], [ %104, %99 ], [ %111, %105 ], [ %116, %119 ], [ %.0119.us.us.us.us.us, %112 ], [ %125, %120 ], [ %127, %126 ], [ 0.000000e+00, %83 ]
+  %.1120.us.us.us.us.us = phi nsz float [ %.154.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %127, %126 ], [ %125, %120 ], [ %116, %119 ], [ %.0119.us.us.us.us.us, %112 ], [ %111, %105 ], [ %104, %99 ], [ %.154.lcssa.us.us.us.us.us, %91 ], [ %98, %95 ], [ 0.000000e+00, %83 ]
   %128 = getelementptr inbounds nuw float, ptr %.1136.us.us.us.us.us, i64 %indvars.iv181
   store float %.1120.us.us.us.us.us, ptr %128, align 4, !tbaa !82
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1

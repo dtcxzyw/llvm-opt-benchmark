@@ -11405,7 +11405,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_13b
   br label %_ZNK12_GLOBAL__N_113bu_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
 _ZNK12_GLOBAL__N_113bu_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i: ; preds = %33, %.lr.ph.i.i
-  %.1.i.i.i = phi i1 [ %32, %.lr.ph.i.i ], [ %34, %33 ]
+  %.1.i.i.i = phi i1 [ %34, %33 ], [ %32, %.lr.ph.i.i ]
   %spec.select.i.i = select i1 %.1.i.i.i, i32 %.01824.i.i, i32 %.025.i.i
   %35 = add i32 %.01824.i.i, 1
   %.not.i.i = icmp eq i32 %35, %13
@@ -15065,7 +15065,7 @@ _ZNK4llvm5SUnit9getHeightEv.exit112.i.i.i:        ; preds = %198, %195
   br label %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
 _ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i: ; preds = %.thread127.i.i.i, %38, %.lr.ph.i.i
-  %.1.i.i.i = phi i1 [ %34, %.lr.ph.i.i ], [ %40, %38 ], [ %.2.i.i.i, %.thread127.i.i.i ]
+  %.1.i.i.i = phi i1 [ %40, %38 ], [ %.2.i.i.i, %.thread127.i.i.i ], [ %34, %.lr.ph.i.i ]
   %spec.select.i.i = select i1 %.1.i.i.i, i32 %.01824.i.i, i32 %.025.i.i
   %208 = add i32 %.01824.i.i, 1
   %.not.i.i = icmp eq i32 %208, %15

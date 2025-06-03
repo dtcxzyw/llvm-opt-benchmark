@@ -1641,7 +1641,7 @@ define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr nou
   %22 = load i8, ptr @global_mbtcp_big_endian, align 1, !range !6
   %23 = trunc nuw i8 %22 to i1
   %or.cond275 = select i1 %3, i1 %23, i1 false
-  br i1 %or.cond275, label %24, label %.lr.ph332
+  br i1 %or.cond275, label %24, label %.lr.ph337
 
 24:                                               ; preds = %20
   %25 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %5, i32 noundef 0, i32 noundef %13)
@@ -1656,7 +1656,7 @@ define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr nou
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv347 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next348, %.lr.ph ]
+  %indvars.iv352 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next353, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %31 = shl nuw nsw i64 %indvars.iv, 1
   %32 = getelementptr i8, ptr %29, i64 %31
@@ -1665,17 +1665,17 @@ define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr nou
   %35 = load i8, ptr %34, align 1
   store i8 %35, ptr %32, align 1
   store i8 %33, ptr %34, align 1
-  %indvars.iv.next348 = add i32 %indvars.iv347, 1
-  %36 = and i32 %indvars.iv.next348, 255
+  %indvars.iv.next353 = add i32 %indvars.iv352, 1
+  %36 = and i32 %indvars.iv.next353, 255
   %37 = icmp samesign ugt i32 %30, %36
   %indvars.iv.next = add i64 %indvars.iv, 1
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %38 = tail call ptr @tvb_new_real_data(ptr noundef %29, i32 noundef %13, i32 noundef %21)
-  br label %.lr.ph332
+  br label %.lr.ph337
 
-.lr.ph332:                                        ; preds = %._crit_edge, %20
+.lr.ph337:                                        ; preds = %._crit_edge, %20
   %.0226 = phi ptr [ %38, %._crit_edge ], [ %5, %20 ]
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
@@ -1688,36 +1688,36 @@ define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr nou
   %.not272 = icmp eq ptr %7, null
   br label %44
 
-44:                                               ; preds = %.lr.ph332, %.backedge
-  %45 = phi i32 [ 0, %.lr.ph332 ], [ %92, %.backedge ]
-  %.0231330 = phi i8 [ 0, %.lr.ph332 ], [ %.0231.be, %.backedge ]
-  %.0233329 = phi i32 [ 0, %.lr.ph332 ], [ %.0233.be, %.backedge ]
-  %.0236328 = phi i8 [ 0, %.lr.ph332 ], [ %.0236.be, %.backedge ]
-  %.0240326 = phi i1 [ false, %.lr.ph332 ], [ %.0240.be, %.backedge ]
-  %.0246325 = phi i1 [ false, %.lr.ph332 ], [ %.0246.be, %.backedge ]
-  %.0250324 = phi i8 [ 0, %.lr.ph332 ], [ %.0250.be, %.backedge ]
+44:                                               ; preds = %.lr.ph337, %.backedge
+  %45 = phi i32 [ 0, %.lr.ph337 ], [ %92, %.backedge ]
+  %.0231334 = phi i8 [ 0, %.lr.ph337 ], [ %.0231.be, %.backedge ]
+  %.0233332 = phi i32 [ 0, %.lr.ph337 ], [ %.0233.be, %.backedge ]
+  %.0236330 = phi i8 [ 0, %.lr.ph337 ], [ %.0236.be, %.backedge ]
+  %.0240328 = phi i1 [ false, %.lr.ph337 ], [ %.0240.be, %.backedge ]
+  %.0246326 = phi i1 [ false, %.lr.ph337 ], [ %.0246.be, %.backedge ]
+  %.0250324 = phi i8 [ 0, %.lr.ph337 ], [ %.0250.be, %.backedge ]
   %46 = call i32 @tvb_captured_length_remaining(ptr noundef %.0226, i32 noundef %45)
   %47 = icmp slt i32 %46, 10
-  br i1 %47, label %._crit_edge333, label %48
+  br i1 %47, label %._crit_edge338, label %48
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %39, align 8
   %50 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %49, i64 noundef 64) #13
   %51 = call fastcc zeroext i1 @findSafetyFrame(ptr noundef %6, ptr noundef %.0226, i32 noundef %45, i1 noundef zeroext %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %50)
-  br i1 %51, label %52, label %._crit_edge333
+  br i1 %51, label %52, label %._crit_edge338
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 33
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %._crit_edge333, label %56
+  br i1 %55, label %._crit_edge338, label %56
 
 56:                                               ; preds = %52
   %57 = load i32, ptr %10, align 4
   %58 = load i32, ptr %11, align 4
   %59 = add i32 %58, %57
   %60 = icmp ugt i32 %59, %21
-  br i1 %60, label %._crit_edge333, label %61
+  br i1 %60, label %._crit_edge338, label %61
 
 61:                                               ; preds = %56
   br i1 %2, label %62, label %findFrame1Position.exit
@@ -1770,15 +1770,15 @@ findFrame1Position.exit.thread291:                ; preds = %76
   br label %.backedge
 
 .backedge:                                        ; preds = %291, %298, %findFrame1Position.exit.thread291, %167, %169, %178, %223, %197, %287
-  %92 = phi i32 [ %59, %findFrame1Position.exit.thread291 ], [ %179, %178 ], [ %storemerge, %197 ], [ %224, %223 ], [ %290, %287 ], [ %168, %167 ], [ %170, %169 ], [ %299, %298 ], [ %295, %291 ]
-  %.0250.be = phi i8 [ %.0250324, %findFrame1Position.exit.thread291 ], [ %.0250324, %178 ], [ %.0250324, %197 ], [ %.0250324, %223 ], [ %.0250324, %287 ], [ %.0250324, %167 ], [ %.0250324, %169 ], [ 1, %298 ], [ 1, %291 ]
-  %.0246.be = phi i1 [ %.0246325, %findFrame1Position.exit.thread291 ], [ %.0246325, %178 ], [ %.0246325, %197 ], [ %.0246325, %223 ], [ %.0246325, %287 ], [ %.0246325, %167 ], [ %.0246325, %169 ], [ true, %298 ], [ true, %291 ]
-  %.0240.be = phi i1 [ %.0240326, %findFrame1Position.exit.thread291 ], [ %.0240326, %178 ], [ %.0240326, %197 ], [ %spec.select277, %223 ], [ %.1241, %287 ], [ %.0240326, %167 ], [ %.0240326, %169 ], [ %.1241, %298 ], [ %.1241, %291 ]
-  %.0236.be = phi i8 [ %.0236328, %findFrame1Position.exit.thread291 ], [ %.0236328, %178 ], [ %.0236328, %197 ], [ %.0236328, %223 ], [ %.0236328, %287 ], [ %.0236328, %167 ], [ %.0236328, %169 ], [ %.6304, %298 ], [ %.6304, %291 ]
-  %.0233.be = phi i32 [ %.0233329, %findFrame1Position.exit.thread291 ], [ %.0233329, %178 ], [ %.0233329, %197 ], [ %.0233329, %223 ], [ %.0233329, %287 ], [ %.0233329, %167 ], [ %.0233329, %169 ], [ %59, %298 ], [ %59, %291 ]
-  %.0231.be = phi i8 [ %.0231330, %findFrame1Position.exit.thread291 ], [ %.0231330, %178 ], [ %.0231330, %197 ], [ %.0231330, %223 ], [ %.0231330, %287 ], [ %.0231330, %167 ], [ %.0231330, %169 ], [ %283, %298 ], [ %283, %291 ]
+  %92 = phi i32 [ %59, %findFrame1Position.exit.thread291 ], [ %179, %178 ], [ %224, %223 ], [ %290, %287 ], [ %storemerge, %197 ], [ %168, %167 ], [ %170, %169 ], [ %299, %298 ], [ %295, %291 ]
+  %.0250.be = phi i8 [ %.0250324, %findFrame1Position.exit.thread291 ], [ %.0250324, %178 ], [ %.0250324, %223 ], [ %.0250324, %287 ], [ %.0250324, %197 ], [ %.0250324, %167 ], [ %.0250324, %169 ], [ 1, %298 ], [ 1, %291 ]
+  %.0246.be = phi i1 [ %.0246326, %findFrame1Position.exit.thread291 ], [ %.0246326, %178 ], [ %.0246326, %223 ], [ %.0246326, %287 ], [ %.0246326, %197 ], [ %.0246326, %167 ], [ %.0246326, %169 ], [ true, %298 ], [ true, %291 ]
+  %.0240.be = phi i1 [ %.0240328, %findFrame1Position.exit.thread291 ], [ %.0240328, %178 ], [ %spec.select277, %223 ], [ %.1241, %287 ], [ %.0240328, %197 ], [ %.0240328, %167 ], [ %.0240328, %169 ], [ %.1241, %298 ], [ %.1241, %291 ]
+  %.0236.be = phi i8 [ %.0236330, %findFrame1Position.exit.thread291 ], [ %.0236330, %178 ], [ %.0236330, %223 ], [ %.0236330, %287 ], [ %.0236330, %197 ], [ %.0236330, %167 ], [ %.0236330, %169 ], [ %.6304, %298 ], [ %.6304, %291 ]
+  %.0233.be = phi i32 [ %.0233332, %findFrame1Position.exit.thread291 ], [ %.0233332, %178 ], [ %.0233332, %223 ], [ %.0233332, %287 ], [ %.0233332, %197 ], [ %.0233332, %167 ], [ %.0233332, %169 ], [ %59, %298 ], [ %59, %291 ]
+  %.0231.be = phi i8 [ %.0231334, %findFrame1Position.exit.thread291 ], [ %.0231334, %178 ], [ %.0231334, %223 ], [ %.0231334, %287 ], [ %.0231334, %197 ], [ %.0231334, %167 ], [ %.0231334, %169 ], [ %283, %298 ], [ %283, %291 ]
   %93 = icmp ult i32 %92, %13
-  br i1 %93, label %44, label %._crit_edge333, !llvm.loop !13
+  br i1 %93, label %44, label %._crit_edge338, !llvm.loop !13
 
 findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.exit, %76, %76, %62
   %.0227290 = phi i16 [ %91, %findFrame1Position.exit ], [ 0, %62 ], [ 0, %76 ], [ 0, %76 ]
@@ -1954,7 +1954,7 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   br i1 %189, label %197, label %190, !llvm.loop !13
 
 190:                                              ; preds = %181
-  br i1 %174, label %191, label %.thread362
+  br i1 %174, label %191, label %.thread367
 
 191:                                              ; preds = %190
   %192 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %183)
@@ -1963,7 +1963,7 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   %195 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %194)
   %196 = xor i8 %195, %192
   %.not267 = icmp ult i8 %196, 4
-  br i1 %.not267, label %.thread362, label %197, !llvm.loop !13
+  br i1 %.not267, label %.thread367, label %197, !llvm.loop !13
 
 197:                                              ; preds = %191, %181
   %storemerge = add i32 %57, 2
@@ -1972,16 +1972,16 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   br label %.backedge
 
 198:                                              ; preds = %180
-  %.pre357 = zext nneg i16 %.1230 to i32
+  %.pre362 = zext nneg i16 %.1230 to i32
   %199 = zext nneg i16 %.1228 to i32
   %200 = icmp samesign ugt i16 %.1228, %.1230
-  %201 = sub i32 %58, %.pre357
+  %201 = sub i32 %58, %.pre362
   %202 = select i1 %200, i32 %199, i32 %201
   %203 = sub i32 %58, %202
   %204 = icmp slt i32 %203, 0
   br i1 %204, label %.loopexit, label %211
 
-.thread362:                                       ; preds = %191, %190
+.thread367:                                       ; preds = %191, %190
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
   %205 = zext nneg i16 %.1228 to i32
   %206 = icmp samesign ugt i16 %.1228, %.1230
@@ -1989,23 +1989,23 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   %208 = select i1 %206, i32 %205, i32 %207
   %209 = sub i32 %58, %208
   %210 = icmp slt i32 %209, 0
-  br i1 %210, label %.loopexit, label %._crit_edge355
+  br i1 %210, label %.loopexit, label %._crit_edge360
 
-._crit_edge355:                                   ; preds = %.thread362
-  %.pre358 = add nuw nsw i32 %96, %182
-  %.pre360 = add nuw nsw i32 %.pre358, 1
+._crit_edge360:                                   ; preds = %.thread367
+  %.pre363 = add nuw nsw i32 %96, %182
+  %.pre365 = add nuw nsw i32 %.pre363, 1
   br label %225
 
 211:                                              ; preds = %198
-  %212 = add nuw nsw i32 %96, %.pre357
+  %212 = add nuw nsw i32 %96, %.pre362
   %213 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %212)
   %214 = add nuw nsw i32 %212, 1
   %215 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %214)
   %216 = shl i8 %215, 6
   %217 = or i8 %216, %213
   %218 = icmp eq i8 %217, 0
-  %spec.select277 = select i1 %218, i1 true, i1 %.0240326
-  %219 = add nuw nsw i32 %97, %.pre357
+  %spec.select277 = select i1 %218, i1 true, i1 %.0240328
+  %219 = add nuw nsw i32 %97, %.pre362
   %220 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %219)
   %221 = and i8 %220, -4
   %222 = icmp eq i8 %221, -40
@@ -2016,13 +2016,13 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   store i32 %224, ptr %10, align 4
   br label %.backedge
 
-225:                                              ; preds = %._crit_edge355, %211
-  %.pre-phi361 = phi i32 [ %.pre360, %._crit_edge355 ], [ %214, %211 ]
-  %.pre-phi359 = phi i32 [ %.pre358, %._crit_edge355 ], [ %212, %211 ]
-  %.1241 = phi i1 [ %.0240326, %._crit_edge355 ], [ %spec.select277, %211 ]
-  %226 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi359)
+225:                                              ; preds = %._crit_edge360, %211
+  %.pre-phi366 = phi i32 [ %.pre365, %._crit_edge360 ], [ %214, %211 ]
+  %.pre-phi364 = phi i32 [ %.pre363, %._crit_edge360 ], [ %212, %211 ]
+  %.1241 = phi i1 [ %.0240328, %._crit_edge360 ], [ %spec.select277, %211 ]
+  %226 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi364)
   %227 = zext i8 %226 to i32
-  %228 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi361)
+  %228 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi366)
   %229 = shl i8 %228, 6
   %230 = zext i8 %229 to i32
   %231 = shl nuw nsw i32 %230, 2
@@ -2050,13 +2050,13 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
 .thread297:                                       ; preds = %236, %234, %225
   %244 = load i8, ptr @global_display_intergap_data, align 1, !range !6, !noundef !7
   %245 = trunc nuw i8 %244 to i1
-  %.not270 = icmp ne i32 %.0233329, %57
-  %or.cond368.not = select i1 %245, i1 %.not270, i1 false
-  br i1 %or.cond368.not, label %246, label %251
+  %.not270 = icmp ne i32 %.0233332, %57
+  %or.cond373.not = select i1 %245, i1 %.not270, i1 false
+  br i1 %or.cond373.not, label %246, label %251
 
 246:                                              ; preds = %.thread297
-  %247 = sub i32 %57, %.0233329
-  %248 = call ptr @tvb_new_subset_length_caplen(ptr noundef %.0226, i32 noundef %.0233329, i32 noundef %247, i32 noundef %21)
+  %247 = sub i32 %57, %.0233332
+  %248 = call ptr @tvb_new_subset_length_caplen(ptr noundef %.0226, i32 noundef %.0233332, i32 noundef %247, i32 noundef %21)
   %249 = load ptr, ptr @data_dissector, align 8
   %250 = call i32 @call_dissector(ptr noundef %249, ptr noundef %248, ptr noundef %6, ptr noundef %7)
   br label %251
@@ -2072,7 +2072,7 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   br label %261
 
 254:                                              ; preds = %251
-  br i1 %.0246325, label %261, label %255
+  br i1 %.0246326, label %261, label %255
 
 255:                                              ; preds = %254
   br i1 %.not265.not, label %258, label %256
@@ -2080,11 +2080,11 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
 256:                                              ; preds = %255
   %257 = call i32 @call_dissector(ptr noundef %.0225, ptr noundef %.0226, ptr noundef %6, ptr noundef %7)
   %.pre.pre.pre = load i32, ptr %10, align 4
-  %.pre350.pre.pre = load i32, ptr %11, align 4
+  %.pre355.pre.pre = load i32, ptr %11, align 4
   br label %258
 
 258:                                              ; preds = %256, %255
-  %.pre350.pre = phi i32 [ %.pre350.pre.pre, %256 ], [ %58, %255 ]
+  %.pre355.pre = phi i32 [ %.pre355.pre.pre, %256 ], [ %58, %255 ]
   %.pre.pre = phi i32 [ %.pre.pre.pre, %256 ], [ %57, %255 ]
   %259 = load ptr, ptr %43, align 8
   call void @col_set_str(ptr noundef %259, i32 noundef 35, ptr noundef %0)
@@ -2093,15 +2093,15 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   br label %261
 
 261:                                              ; preds = %.thread301, %258, %254
-  %.pre350 = phi i32 [ %58, %254 ], [ %.pre350.pre, %258 ], [ %58, %.thread301 ]
+  %.pre355 = phi i32 [ %58, %254 ], [ %.pre355.pre, %258 ], [ %58, %.thread301 ]
   %.pre = phi i32 [ %57, %254 ], [ %.pre.pre, %258 ], [ %57, %.thread301 ]
-  %.6304.in = phi i8 [ %.0236328, %254 ], [ %.0236328, %258 ], [ %4, %.thread301 ]
+  %.6304.in = phi i8 [ %.0236330, %254 ], [ %.0236330, %258 ], [ %4, %.thread301 ]
   %.6304 = add i8 %.6304.in, 1
   br i1 %.not272, label %267, label %262
 
 262:                                              ; preds = %261
   %263 = load i32, ptr @proto_opensafety, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %263, ptr noundef %.0226, i32 noundef %.pre, i32 noundef %.pre350, i32 noundef 0)
+  %264 = call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %263, ptr noundef %.0226, i32 noundef %.pre, i32 noundef %.pre355, i32 noundef 0)
   %265 = load i32, ptr @ett_opensafety, align 4
   %266 = call ptr @proto_item_add_subtree(ptr noundef %264, i32 noundef %265)
   br label %267
@@ -2123,7 +2123,7 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   %275 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i16 %.1228, ptr %275, align 4
   %276 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 %.pre350, ptr %276, align 8
+  store i32 %.pre355, ptr %276, align 8
   store i8 0, ptr %50, align 8
   %277 = load i8, ptr %268, align 2
   %278 = icmp eq i8 %277, -64
@@ -2136,14 +2136,14 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   br label %282
 
 282:                                              ; preds = %279, %267
-  call fastcc void @dissect_opensafety_message(ptr noundef %50, ptr noundef %252, ptr noundef %6, ptr noundef %.0224, ptr noundef %.0223, i8 noundef zeroext %.6304, i8 noundef zeroext %.0231330)
+  call fastcc void @dissect_opensafety_message(ptr noundef %50, ptr noundef %252, ptr noundef %6, ptr noundef %.0224, ptr noundef %.0223, i8 noundef zeroext %.6304, i8 noundef zeroext %.0231334)
   %283 = load i8, ptr %53, align 1
   br i1 %.1241, label %284, label %291
 
 284:                                              ; preds = %282
   store i8 1, ptr %50, align 8
-  %285 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi359)
-  %286 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi361)
+  %285 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi364)
+  %286 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %.pre-phi366)
   br label %291
 
 287:                                              ; preds = %236
@@ -2170,13 +2170,13 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   store i32 %299, ptr %10, align 4
   br label %.backedge
 
-._crit_edge333:                                   ; preds = %.backedge, %44, %56, %52, %48
+._crit_edge338:                                   ; preds = %.backedge, %44, %56, %52, %48
   %.0250.lcssa.ph = phi i8 [ %.0250.be, %.backedge ], [ %.0250324, %44 ], [ %.0250324, %56 ], [ %.0250324, %52 ], [ %.0250324, %48 ]
-  %.0233.lcssa.ph = phi i32 [ %.0233.be, %.backedge ], [ %.0233329, %44 ], [ %.0233329, %56 ], [ %.0233329, %52 ], [ %.0233329, %48 ]
+  %.0233.lcssa.ph = phi i32 [ %.0233.be, %.backedge ], [ %.0233332, %44 ], [ %.0233332, %56 ], [ %.0233332, %52 ], [ %.0233332, %48 ]
   %300 = trunc nuw i8 %.0250.lcssa.ph to i1
   br i1 %300, label %301, label %311
 
-301:                                              ; preds = %._crit_edge333
+301:                                              ; preds = %._crit_edge338
   %302 = load i32, ptr %10, align 4
   %303 = icmp ult i32 %302, %13
   %304 = load i8, ptr @global_display_intergap_data, align 1, !range !6
@@ -2193,12 +2193,12 @@ findFrame1Position.exit286:                       ; preds = %143, %144, %150
   %310 = call i32 @call_dissector(ptr noundef %309, ptr noundef %308, ptr noundef %6, ptr noundef %7)
   br label %311
 
-311:                                              ; preds = %301, %306, %._crit_edge333
+311:                                              ; preds = %301, %306, %._crit_edge338
   %312 = zext nneg i8 %.0250.lcssa.ph to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %198, %.thread362, %24, %9, %311
-  %.0 = phi i32 [ %312, %311 ], [ 0, %9 ], [ 0, %24 ], [ 0, %.thread362 ], [ 0, %198 ]
+.loopexit:                                        ; preds = %198, %.thread367, %24, %9, %311
+  %.0 = phi i32 [ %312, %311 ], [ 0, %9 ], [ 0, %24 ], [ 0, %.thread367 ], [ 0, %198 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   ret i32 %.0

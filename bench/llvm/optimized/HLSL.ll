@@ -415,8 +415,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !32
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -857,9 +857,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %66
 
 66:                                               ; preds = %65, %64, %63, %62, %61, %60, %59, %58, %54, %.thread.i
-  %67 = phi ptr [ %56, %64 ], [ %56, %63 ], [ %56, %62 ], [ %56, %61 ], [ %56, %60 ], [ %56, %59 ], [ %56, %58 ], [ %56, %54 ], [ %49, %.thread.i ], [ %56, %65 ]
-  %68 = phi ptr [ %55, %64 ], [ %55, %63 ], [ %55, %62 ], [ %55, %61 ], [ %55, %60 ], [ %55, %59 ], [ %55, %58 ], [ %55, %54 ], [ %48, %.thread.i ], [ %55, %65 ]
-  %.0.i = phi i32 [ 56, %64 ], [ 55, %63 ], [ 54, %62 ], [ 53, %61 ], [ 52, %60 ], [ 51, %59 ], [ 50, %58 ], [ 49, %54 ], [ 57, %.thread.i ], [ 57, %65 ]
+  %67 = phi ptr [ %56, %58 ], [ %56, %59 ], [ %56, %60 ], [ %56, %61 ], [ %56, %62 ], [ %56, %63 ], [ %56, %64 ], [ %56, %54 ], [ %49, %.thread.i ], [ %56, %65 ]
+  %68 = phi ptr [ %55, %58 ], [ %55, %59 ], [ %55, %60 ], [ %55, %61 ], [ %55, %62 ], [ %55, %63 ], [ %55, %64 ], [ %55, %54 ], [ %48, %.thread.i ], [ %55, %65 ]
+  %.0.i = phi i32 [ 50, %58 ], [ 51, %59 ], [ 52, %60 ], [ 53, %61 ], [ 54, %62 ], [ 55, %63 ], [ 56, %64 ], [ 49, %54 ], [ 57, %.thread.i ], [ 57, %65 ]
   call void @_ZN4llvm6Triple7setArchENS0_8ArchTypeENS0_11SubArchTypeE(ptr noundef nonnull align 8 dereferenceable(56) %12, i32 noundef 11, i32 noundef %.0.i) #15, !noalias !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #15, !noalias !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #15, !noalias !51

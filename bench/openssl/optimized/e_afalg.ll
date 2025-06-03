@@ -468,8 +468,8 @@ define internal fastcc ptr @afalg_aes_cbc(i32 noundef %0) unnamed_addr #1 {
 3:                                                ; preds = %1
   br label %4
 
-4:                                                ; preds = %3, %2, %1
-  %.0.i.ph = phi ptr [ @cbc_handle, %1 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 16), %2 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 32), %3 ]
+4:                                                ; preds = %2, %3, %1
+  %.0.i.ph = phi ptr [ @cbc_handle, %1 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 32), %3 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 16), %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = icmp eq ptr %6, null

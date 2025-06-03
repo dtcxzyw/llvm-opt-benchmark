@@ -37,7 +37,7 @@ sw.bb4:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb4, %sw.bb2, %sw.bb1, %sw.bb
-  %retval.0 = phi i1 [ %cmp5, %sw.bb4 ], [ %cmp3, %sw.bb2 ], [ %tobool, %sw.bb1 ], [ %cmp, %sw.bb ], [ false, %entry ]
+  %retval.0 = phi i1 [ %cmp, %sw.bb ], [ %tobool, %sw.bb1 ], [ %cmp3, %sw.bb2 ], [ %cmp5, %sw.bb4 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -154,7 +154,7 @@ sw.bb4.i:                                         ; preds = %if.then
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit: ; preds = %if.then, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb4.i
-  %retval.0.i = phi i1 [ %cmp5.i, %sw.bb4.i ], [ %cmp3.i, %sw.bb2.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp.i69, %sw.bb.i ], [ false, %if.then ]
+  %retval.0.i = phi i1 [ %cmp.i69, %sw.bb.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp3.i, %sw.bb2.i ], [ %cmp5.i, %sw.bb4.i ], [ false, %if.then ]
   %frombool = zext i1 %retval.0.i to i8
   %inc = add nsw i32 %ai.0150, 1
   %cmp27 = icmp slt i32 %inc, %conv18
@@ -204,7 +204,7 @@ sw.bb4.i82:                                       ; preds = %if.then42
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92: ; preds = %if.then42, %sw.bb.i90, %sw.bb1.i87, %sw.bb2.i85, %sw.bb4.i82
-  %retval.0.i84 = phi i1 [ %cmp5.i83, %sw.bb4.i82 ], [ %cmp3.i86, %sw.bb2.i85 ], [ %tobool.i89, %sw.bb1.i87 ], [ %cmp.i91, %sw.bb.i90 ], [ false, %if.then42 ]
+  %retval.0.i84 = phi i1 [ %cmp.i91, %sw.bb.i90 ], [ %tobool.i89, %sw.bb1.i87 ], [ %cmp3.i86, %sw.bb2.i85 ], [ %cmp5.i83, %sw.bb4.i82 ], [ false, %if.then42 ]
   %frombool48 = zext i1 %retval.0.i84 to i8
   %inc49 = add nsw i32 %bi.0151, 1
   %cmp53 = icmp slt i32 %inc49, %conv40
@@ -276,7 +276,7 @@ sw.bb4.i107:                                      ; preds = %if.then84
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117: ; preds = %if.then84, %sw.bb.i115, %sw.bb1.i112, %sw.bb2.i110, %sw.bb4.i107
-  %retval.0.i109 = phi i1 [ %cmp5.i108, %sw.bb4.i107 ], [ %cmp3.i111, %sw.bb2.i110 ], [ %tobool.i114, %sw.bb1.i112 ], [ %cmp.i116, %sw.bb.i115 ], [ false, %if.then84 ]
+  %retval.0.i109 = phi i1 [ %cmp.i116, %sw.bb.i115 ], [ %tobool.i114, %sw.bb1.i112 ], [ %cmp3.i111, %sw.bb2.i110 ], [ %cmp5.i108, %sw.bb4.i107 ], [ false, %if.then84 ]
   %frombool90 = zext i1 %retval.0.i109 to i8
   %inc91 = add nsw i32 %ai.2163, 1
   %cmp95 = icmp slt i32 %inc91, %conv82
@@ -326,7 +326,7 @@ sw.bb4.i130:                                      ; preds = %if.then111
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140: ; preds = %if.then111, %sw.bb.i138, %sw.bb1.i135, %sw.bb2.i133, %sw.bb4.i130
-  %retval.0.i132 = phi i1 [ %cmp5.i131, %sw.bb4.i130 ], [ %cmp3.i134, %sw.bb2.i133 ], [ %tobool.i137, %sw.bb1.i135 ], [ %cmp.i139, %sw.bb.i138 ], [ false, %if.then111 ]
+  %retval.0.i132 = phi i1 [ %cmp.i139, %sw.bb.i138 ], [ %tobool.i137, %sw.bb1.i135 ], [ %cmp3.i134, %sw.bb2.i133 ], [ %cmp5.i131, %sw.bb4.i130 ], [ false, %if.then111 ]
   %frombool117 = zext i1 %retval.0.i132 to i8
   %inc118 = add nsw i32 %bi.2164, 1
   %cmp122 = icmp slt i32 %inc118, %conv109
@@ -961,7 +961,7 @@ sw.bb4.i:                                         ; preds = %_ZNK7msdfgen8Scanli
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit: ; preds = %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb4.i
-  %retval.0.i1 = phi i1 [ %cmp5.i, %sw.bb4.i ], [ %cmp3.i, %sw.bb2.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp.i2, %sw.bb.i ], [ false, %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit ]
+  %retval.0.i1 = phi i1 [ %cmp.i2, %sw.bb.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp3.i, %sw.bb2.i ], [ %cmp5.i, %sw.bb4.i ], [ false, %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit ]
   ret i1 %retval.0.i1
 }
 

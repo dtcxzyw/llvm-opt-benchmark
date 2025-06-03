@@ -1490,8 +1490,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %89
 
 89:                                               ; preds = %87, %85, %80
-  %.0256.i = phi i32 [ %76, %80 ], [ %76, %87 ], [ %86, %85 ]
-  %.0255.i = phi i32 [ %74, %80 ], [ %88, %87 ], [ %74, %85 ]
+  %.0256.i = phi i32 [ %76, %80 ], [ %86, %85 ], [ %76, %87 ]
+  %.0255.i = phi i32 [ %74, %80 ], [ %74, %85 ], [ %88, %87 ]
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 8512
   %91 = load i32, ptr %90, align 8, !tbaa !76
   switch i32 %91, label %.preheader291.i [
@@ -1631,8 +1631,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %154
 
 154:                                              ; preds = %153, %152, %151, %150, %149, %148
-  %.7277.us.i = phi i32 [ %121, %149 ], [ %122, %150 ], [ %110, %151 ], [ %121, %152 ], [ %122, %153 ], [ %110, %148 ]
-  %.7.us.i = phi i32 [ %118, %149 ], [ %118, %150 ], [ %118, %151 ], [ %112, %152 ], [ %112, %153 ], [ %112, %148 ]
+  %.7277.us.i = phi i32 [ %122, %153 ], [ %121, %152 ], [ %110, %151 ], [ %122, %150 ], [ %121, %149 ], [ %110, %148 ]
+  %.7.us.i = phi i32 [ %112, %153 ], [ %112, %152 ], [ %118, %151 ], [ %118, %150 ], [ %118, %149 ], [ %112, %148 ]
   %155 = add i32 %.7277.us.i, %133
   %156 = mul nsw i32 %155, %.0255.i
   %157 = add nsw i32 %156, %.7.us.i
@@ -1740,8 +1740,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %214
 
 214:                                              ; preds = %213, %212, %211, %210, %209, %208
-  %.3273.us.i = phi i32 [ %183, %209 ], [ %183, %210 ], [ %183, %211 ], [ %175, %212 ], [ %175, %213 ], [ %175, %208 ]
-  %.3.us.i = phi i32 [ %186, %209 ], [ %187, %210 ], [ %177, %211 ], [ %186, %212 ], [ %187, %213 ], [ %177, %208 ]
+  %.3273.us.i = phi i32 [ %175, %213 ], [ %175, %212 ], [ %183, %211 ], [ %183, %210 ], [ %183, %209 ], [ %175, %208 ]
+  %.3.us.i = phi i32 [ %187, %213 ], [ %186, %212 ], [ %177, %211 ], [ %187, %210 ], [ %186, %209 ], [ %177, %208 ]
   %215 = add i32 %.3273.us.i, %193
   %216 = mul nsw i32 %215, %.0255.i
   %217 = add nsw i32 %216, %.3.us.i
@@ -2281,7 +2281,7 @@ define internal i32 @do_ssim360(ptr noundef %0) #0 {
   br label %get_tape_angular_resolution.exit.i.i
 
 get_tape_angular_resolution.exit.i.i:             ; preds = %154, %148, %147, %145, %127
-  %.0.i.i.i = phi nsz float [ %.27.i.i.i, %154 ], [ %.26.i.i.i, %148 ], [ %..i.i.i, %147 ], [ %146, %145 ], [ %121, %127 ]
+  %.0.i.i.i = phi nsz float [ %.27.i.i.i, %154 ], [ %146, %145 ], [ %..i.i.i, %147 ], [ %.26.i.i.i, %148 ], [ %121, %127 ]
   %155 = fmul nsz float %.0.i.i.i, %.0.i.i.i
   %156 = fdiv nsz float 0x3FF921FB60000000, %155
   %157 = call nsz float @llvm.fmuladd.f32(float %.0.i.i.i, float 4.000000e+00, float 0xBFF921FB60000000)
@@ -3668,8 +3668,8 @@ get_cubemap32_map.exit:                           ; preds = %90, %106, %.thread6
   br label %get_barrel_map.exit
 
 get_barrel_map.exit:                              ; preds = %199, %168, %142, %136, %205, %get_cubemap32_map.exit, %get_rotated_cubemap_map.exit
-  %.024 = phi nsz float [ %207, %205 ], [ %126, %get_cubemap32_map.exit ], [ %67, %get_rotated_cubemap_map.exit ], [ %154, %142 ], [ %139, %136 ], [ %201, %199 ], [ %174, %168 ]
-  %.0 = phi nsz float [ %209, %205 ], [ %130, %get_cubemap32_map.exit ], [ %71, %get_rotated_cubemap_map.exit ], [ %155, %142 ], [ %141, %136 ], [ %204, %199 ], [ %178, %168 ]
+  %.024 = phi nsz float [ %207, %205 ], [ %67, %get_rotated_cubemap_map.exit ], [ %126, %get_cubemap32_map.exit ], [ %154, %142 ], [ %139, %136 ], [ %201, %199 ], [ %174, %168 ]
+  %.0 = phi nsz float [ %209, %205 ], [ %71, %get_rotated_cubemap_map.exit ], [ %130, %get_cubemap32_map.exit ], [ %155, %142 ], [ %141, %136 ], [ %204, %199 ], [ %178, %168 ]
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %211 = load i32, ptr %210, align 4, !tbaa !141
   %212 = sitofp i32 %211 to float

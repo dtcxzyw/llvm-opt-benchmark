@@ -3082,7 +3082,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN98_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ff84d01fa631c5bE.exit"
 
 "_ZN98_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ff84d01fa631c5bE.exit": ; preds = %9, %11, %13, %17, %19, %23, %27, %30, %32, %34, %36, %38
-  %.sroa.0.0.in.i = phi i1 [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %17 ], [ %16, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %16, %13 ], [ %18, %17 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -5759,7 +5759,7 @@ define void @_ZN14polars_parquet7parquet11compression8compress17h08c80d0cd82c045
   unreachable
 
 73:                                               ; preds = %79, %59
-  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %60, %59 ]
+  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn
 
 74:                                               ; preds = %35
@@ -6367,7 +6367,7 @@ _ZN14polars_parquet7parquet11compression24lz4_decompress_to_buffer17h7cd37422018
   unreachable
 
 common.resume:                                    ; preds = %191, %168, %177, %205
-  %common.resume.op = phi { ptr, i32 } [ %206, %205 ], [ %178, %177 ], [ %169, %168 ], [ %192, %191 ]
+  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %178, %177 ], [ %206, %205 ], [ %192, %191 ]
   resume { ptr, i32 } %common.resume.op
 
 177:                                              ; preds = %180, %47
@@ -12910,7 +12910,7 @@ default.unreachable:                              ; preds = %9, %3
   ]
 
 _ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit: ; preds = %switch.lookup, %3, %3, %3, %3, %3, %3, %9, %9, %9, %9, %9, %9, %9, %9, %14, %13, %12, %11, %8, %6, %5
-  %.sroa.0.0 = phi i8 [ 2, %8 ], [ 0, %5 ], [ %..i, %6 ], [ 2, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ 0, %5 ], [ 2, %8 ], [ %..i, %6 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 2, %14 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.sroa.0.0
 
 11:                                               ; preds = %9, %9
@@ -23202,7 +23202,7 @@ default.unreachable1:                             ; preds = %2
   br label %26
 
 26:                                               ; preds = %24, %21, %19, %16, %14, %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %25, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %13, %11 ], [ %15, %14 ], [ %18, %16 ], [ %20, %19 ], [ %23, %21 ], [ %25, %24 ]
   ret i1 %.sroa.0.0.in
 }
 

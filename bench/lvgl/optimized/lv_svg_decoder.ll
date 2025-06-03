@@ -316,8 +316,8 @@ define internal range(i32 0, 2) i32 @svg_decoder_open(ptr noundef %0, ptr nounde
   br label %47
 
 47:                                               ; preds = %38, %40
-  %.149 = phi i32 [ %46, %40 ], [ %33, %38 ]
-  %.142 = phi ptr [ %44, %40 ], [ %26, %38 ]
+  %.149 = phi i32 [ %33, %38 ], [ %46, %40 ]
+  %.142 = phi ptr [ %26, %38 ], [ %44, %40 ]
   %48 = call ptr @lv_svg_load_data(ptr noundef %.142, i32 noundef %.149) #4
   %49 = call ptr @lv_svg_render_create(ptr noundef %48) #4
   %50 = load i32, ptr %7, align 8, !tbaa !9

@@ -3477,8 +3477,8 @@ heap_getattr.exit:                                ; preds = %80
   %135 = trunc nuw i8 %.pre to i1
   br i1 %135, label %146, label %heap_getattr.exit.thread
 
-heap_getattr.exit.thread:                         ; preds = %125, %110, %113, %116, %119, %127, %132, %heap_getattr.exit
-  %.0.i40 = phi i64 [ %134, %heap_getattr.exit ], [ %126, %125 ], [ %112, %110 ], [ %115, %113 ], [ %118, %116 ], [ %120, %119 ], [ %128, %127 ], [ %133, %132 ]
+heap_getattr.exit.thread:                         ; preds = %125, %119, %116, %113, %110, %127, %132, %heap_getattr.exit
+  %.0.i40 = phi i64 [ %134, %heap_getattr.exit ], [ %126, %125 ], [ %120, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %128, %127 ], [ %133, %132 ]
   %136 = inttoptr i64 %.0.i40 to ptr
   %137 = call ptr @text_to_cstring(ptr noundef %136) #11
   %138 = call i32 @get_password_type(ptr noundef %137) #11

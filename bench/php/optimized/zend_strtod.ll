@@ -410,7 +410,7 @@ define dso_local double @zend_strtod(ptr noundef %0, ptr noundef writeonly captu
   br label %120
 
 120:                                              ; preds = %119, %116
-  %121 = phi i1 [ true, %116 ], [ false, %119 ]
+  %121 = phi i1 [ false, %119 ], [ true, %116 ]
   %122 = getelementptr inbounds nuw i8, ptr %.8427704, i64 2
   %123 = load i8, ptr %122, align 1, !tbaa !45
   br label %124
@@ -3906,7 +3906,7 @@ select.unfold:                                    ; preds = %131
   br label %160
 
 160:                                              ; preds = %159, %156
-  %.1435 = phi i32 [ 1, %156 ], [ 0, %159 ]
+  %.1435 = phi i32 [ 0, %159 ], [ 1, %156 ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   br label %165
 
@@ -3914,7 +3914,7 @@ select.unfold:                                    ; preds = %131
   br label %162
 
 162:                                              ; preds = %161, %156
-  %.2436 = phi i32 [ 1, %156 ], [ 0, %161 ]
+  %.2436 = phi i32 [ 0, %161 ], [ 1, %156 ]
   %163 = add nsw i32 %.1442, %2
   %164 = add nsw i32 %163, 1
   %spec.store.select4 = tail call i32 @llvm.smax.i32(i32 %164, i32 1)
@@ -3924,11 +3924,11 @@ default.unreachable:                              ; preds = %156
   unreachable
 
 165:                                              ; preds = %162, %160
-  %.0468 = phi i32 [ %164, %162 ], [ %spec.store.select, %160 ]
-  %.1459 = phi i32 [ %spec.store.select4, %162 ], [ %spec.store.select, %160 ]
-  %.0457 = phi i32 [ %163, %162 ], [ %spec.store.select, %160 ]
-  %.0434 = phi i32 [ %.2436, %162 ], [ %.1435, %160 ]
-  %.0403 = phi i32 [ %2, %162 ], [ %spec.store.select, %160 ]
+  %.0468 = phi i32 [ %spec.store.select, %160 ], [ %164, %162 ]
+  %.1459 = phi i32 [ %spec.store.select, %160 ], [ %spec.store.select4, %162 ]
+  %.0457 = phi i32 [ %spec.store.select, %160 ], [ %163, %162 ]
+  %.0434 = phi i32 [ %.1435, %160 ], [ %.2436, %162 ]
+  %.0403 = phi i32 [ %spec.store.select, %160 ], [ %2, %162 ]
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.1459, i32 536870935)
   %166 = zext nneg i32 %spec.select.i to i64
   %.not13.i = icmp samesign ult i32 %.1459, 28

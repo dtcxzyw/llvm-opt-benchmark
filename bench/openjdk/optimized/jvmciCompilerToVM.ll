@@ -7572,8 +7572,8 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %145
   br label %196
 
 190:                                              ; preds = %184, %181, %178, %175, %172, %169, %167, %165
-  %.054 = phi i16 [ 90, %184 ], [ 67, %181 ], [ 66, %178 ], [ 83, %175 ], [ 73, %172 ], [ 70, %169 ], [ 68, %167 ], [ 74, %165 ]
-  %.053 = phi i64 [ %186, %184 ], [ %183, %181 ], [ %180, %178 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ], [ %168, %167 ], [ %166, %165 ]
+  %.054 = phi i16 [ 74, %165 ], [ 68, %167 ], [ 70, %169 ], [ 73, %172 ], [ 83, %175 ], [ 66, %178 ], [ 67, %181 ], [ 90, %184 ]
+  %.053 = phi i64 [ %166, %165 ], [ %168, %167 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ]
   %191 = call { ptr, i8 } @_ZN8JVMCIEnv30call_JavaConstant_forPrimitiveEtlPS_(ptr noundef nonnull align 8 dereferenceable(64) %11, i16 noundef zeroext %.054, i64 noundef %.053, ptr noundef nonnull %11) #16
   %192 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %11) #16
   %.not = icmp eq i8 %192, 0
@@ -24005,8 +24005,8 @@ _ZN14JVMCITraceMarkC2EPKc.exit:                   ; preds = %_ZN20ThreadInVMfrom
   unreachable
 
 97:                                               ; preds = %92, %88, %85, %82, %78, %75, %73, %70
-  %.0110.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6728), %92 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6720), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6712), %85 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6704), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6696), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6688), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6680), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6672), %70 ]
-  %.0109.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), %92 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), %85 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), %70 ]
+  %.0110.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6672), %70 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6680), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6688), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6696), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6704), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6712), %85 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6720), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6728), %92 ]
+  %.0109.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), %70 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), %85 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), %92 ]
   %.0109 = load ptr, ptr %.0109.in, align 8
   %.0110 = load ptr, ptr %.0110.in, align 8
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
@@ -25874,7 +25874,7 @@ _ZNK7oopDesc5klassEv.exit126:                     ; preds = %317, %327
   unreachable
 
 336:                                              ; preds = %263, %256, %249, %242, %235, %228
-  %.077 = phi i64 [ %268, %263 ], [ %262, %256 ], [ %255, %249 ], [ %248, %242 ], [ %241, %235 ], [ %234, %228 ]
+  %.077 = phi i64 [ %234, %228 ], [ %241, %235 ], [ %248, %242 ], [ %255, %249 ], [ %262, %256 ], [ %268, %263 ]
   %337 = tail call { ptr, i8 } @_ZN8JVMCIEnv30call_JavaConstant_forPrimitiveEtlPS_(ptr noundef nonnull align 8 dereferenceable(64) %4, i16 noundef zeroext %2, i64 noundef %.077, ptr noundef nonnull %4) #16
   %338 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %4) #16
   %.not83 = icmp eq i8 %338, 0
@@ -30691,7 +30691,7 @@ _ZN17HandleMarkCleanerD2Ev.exit106:               ; preds = %_ZN12ResourceMarkD2
   br label %243
 
 243:                                              ; preds = %230, %236, %241, %157, %163, %168, %141, %147, %152, %_ZN17HandleMarkCleanerD2Ev.exit, %15, %21, %26, %242
-  %.0 = phi i8 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 0, %242 ], [ 0, %26 ], [ 0, %21 ], [ 0, %15 ], [ 0, %152 ], [ 0, %147 ], [ 0, %141 ], [ 0, %168 ], [ 0, %163 ], [ 0, %157 ], [ 0, %241 ], [ 0, %236 ], [ 0, %230 ]
+  %.0 = phi i8 [ 0, %242 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 0, %26 ], [ 0, %21 ], [ 0, %15 ], [ 0, %152 ], [ 0, %147 ], [ 0, %141 ], [ 0, %168 ], [ 0, %163 ], [ 0, %157 ], [ 0, %241 ], [ 0, %236 ], [ 0, %230 ]
   ret i8 %.0
 }
 

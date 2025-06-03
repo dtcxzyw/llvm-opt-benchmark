@@ -421,10 +421,10 @@ parse_optional_module_params.exit.thread.sink.split.loopexit246: ; preds = %34
   br label %parse_optional_module_params.exit.thread.sink.split
 
 parse_optional_module_params.exit.thread.sink.split: ; preds = %34, %34, %parse_optional_module_params.exit.thread.sink.split.loopexit246, %parse_optional_module_params.exit.thread.sink.split.loopexit, %31, %36
-  %.str.71.sink = phi ptr [ @.str.74, %36 ], [ @.str.70, %31 ], [ @.str.71, %parse_optional_module_params.exit.thread.sink.split.loopexit ], [ @.str.72, %parse_optional_module_params.exit.thread.sink.split.loopexit246 ], [ @.str.73, %34 ], [ @.str.73, %34 ]
+  %.str.73.sink = phi ptr [ @.str.74, %36 ], [ @.str.70, %31 ], [ @.str.71, %parse_optional_module_params.exit.thread.sink.split.loopexit ], [ @.str.72, %parse_optional_module_params.exit.thread.sink.split.loopexit246 ], [ @.str.73, %34 ], [ @.str.73, %34 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i64, ptr %70, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %71, ptr noundef nonnull %.str.71.sink) #8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %71, ptr noundef nonnull %.str.73.sink) #8
   br label %parse_optional_module_params.exit.thread
 
 parse_optional_module_params.exit.thread:         ; preds = %parse_optional_module_params.exit.thread.sink.split, %parse_optional_module_params.exit
@@ -800,7 +800,7 @@ expand_.exit:                                     ; preds = %142, %146
   br label %253
 
 253:                                              ; preds = %.loopexit, %parse_optional_module_params.exit.thread160, %73, %parse_optional_module_params.exit.thread, %252, %249, %237, %231, %.critedge, %.critedge155.thread, %200, %192, %179, %.critedge153, %120, %105, %74, %24, %21, %20, %14, %8
-  %.0125 = phi i1 [ false, %8 ], [ false, %105 ], [ false, %120 ], [ false, %237 ], [ false, %.critedge155.thread ], [ false, %231 ], [ false, %.critedge ], [ false, %192 ], [ false, %200 ], [ false, %179 ], [ false, %.critedge153 ], [ true, %252 ], [ false, %249 ], [ false, %74 ], [ false, %24 ], [ false, %14 ], [ false, %20 ], [ false, %21 ], [ false, %parse_optional_module_params.exit.thread ], [ true, %73 ], [ false, %parse_optional_module_params.exit.thread160 ], [ false, %.loopexit ]
+  %.0125 = phi i1 [ false, %8 ], [ false, %105 ], [ false, %120 ], [ false, %237 ], [ false, %.critedge153 ], [ false, %179 ], [ false, %192 ], [ false, %200 ], [ false, %.critedge155.thread ], [ false, %231 ], [ false, %.critedge ], [ true, %252 ], [ false, %249 ], [ false, %74 ], [ false, %24 ], [ false, %14 ], [ false, %20 ], [ false, %21 ], [ false, %parse_optional_module_params.exit.thread ], [ true, %73 ], [ false, %parse_optional_module_params.exit.thread160 ], [ false, %.loopexit ]
   ret i1 %.0125
 }
 
@@ -2437,8 +2437,8 @@ extend_span_with_token.exit290:                   ; preds = %210, %211
   store ptr %248, ptr %256, align 8
   br label %.thread
 
-.thread:                                          ; preds = %223, %233, %249, %247
-  %.1 = phi ptr [ %251, %249 ], [ null, %247 ], [ %225, %223 ], [ %235, %233 ]
+.thread:                                          ; preds = %233, %223, %249, %247
+  %.1 = phi ptr [ %251, %249 ], [ null, %247 ], [ %235, %233 ], [ %225, %223 ]
   tail call void @advance(ptr noundef nonnull %0) #8
   %257 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2993,7 +2993,7 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br label %66
 
 66:                                               ; preds = %.critedge, %.critedge2, %28, %.critedge4, %45, %62, %59, %42, %25, %16, %4
-  %.0 = phi ptr [ %65, %62 ], [ %60, %59 ], [ %43, %42 ], [ %26, %25 ], [ null, %16 ], [ %7, %4 ], [ %50, %.critedge4 ], [ %50, %45 ], [ %33, %.critedge2 ], [ %33, %28 ], [ %13, %.critedge ]
+  %.0 = phi ptr [ %65, %62 ], [ %7, %4 ], [ %26, %25 ], [ null, %16 ], [ %43, %42 ], [ %60, %59 ], [ %13, %.critedge ], [ %33, %.critedge2 ], [ %33, %28 ], [ %50, %.critedge4 ], [ %50, %45 ]
   ret ptr %.0
 }
 
@@ -3465,7 +3465,7 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
   br i1 %.not114, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %extend_span_with_token.exit, %extend_span_with_token.exit132, %110, %113
-  %.0103 = phi ptr [ null, %110 ], [ %111, %113 ], [ %84, %extend_span_with_token.exit132 ], [ %53, %extend_span_with_token.exit ]
+  %.0103 = phi ptr [ null, %110 ], [ %111, %113 ], [ %53, %extend_span_with_token.exit ], [ %84, %extend_span_with_token.exit132 ]
   %.not.i133 = icmp eq ptr %.1, null
   br i1 %.not.i133, label %117, label %120
 
@@ -3687,7 +3687,7 @@ expand_.exit:                                     ; preds = %expand_.exit.sink.s
 
 62:                                               ; preds = %15
   switch i32 %17, label %parse_next_is_typed_parameter.exit.thread239 [
-    i32 64, label %parse_next_is_typed_parameter.exit
+    i32 64, label %63
     i32 83, label %parse_next_is_typed_parameter.exit.thread
     i32 84, label %parse_next_is_typed_parameter.exit.thread
     i32 85, label %parse_next_is_typed_parameter.exit.thread
@@ -3715,21 +3715,21 @@ expand_.exit:                                     ; preds = %expand_.exit.sink.s
     i32 160, label %parse_next_is_typed_parameter.exit.thread
     i32 178, label %parse_next_is_typed_parameter.exit.thread
     i32 177, label %parse_next_is_typed_parameter.exit.thread
-    i32 69, label %63
-    i32 180, label %63
+    i32 69, label %parse_next_is_typed_parameter.exit
+    i32 180, label %parse_next_is_typed_parameter.exit
   ]
 
-63:                                               ; preds = %62, %62
-  br i1 %9, label %parse_next_is_typed_parameter.exit.thread, label %thread-pre-split
-
-parse_next_is_typed_parameter.exit:               ; preds = %62
+63:                                               ; preds = %62
   %64 = load i32, ptr %10, align 8
   %65 = icmp eq i32 %64, 58
   br i1 %65, label %parse_next_is_typed_parameter.exit.thread, label %.thread
 
-.thread:                                          ; preds = %parse_next_is_typed_parameter.exit
+.thread:                                          ; preds = %63
   %.sroa.012.0.copyload243 = load i64, ptr %11, align 8
   br label %93
+
+parse_next_is_typed_parameter.exit:               ; preds = %62, %62
+  br i1 %9, label %parse_next_is_typed_parameter.exit.thread, label %thread-pre-split
 
 parse_next_is_typed_parameter.exit.thread:        ; preds = %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %63, %parse_next_is_typed_parameter.exit
   %66 = tail call ptr @parse_optional_type(ptr noundef nonnull %0)
@@ -3794,9 +3794,9 @@ extend_span_with_token.exit:                      ; preds = %80, %81
   store i32 1, ptr %3, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %90, %.critedge2, %63
-  %.0181.shrunk.ph = phi i1 [ false, %63 ], [ false, %.critedge2 ], [ true, %90 ]
-  %.0178.ph = phi ptr [ null, %63 ], [ %66, %.critedge2 ], [ %66, %90 ]
+thread-pre-split:                                 ; preds = %parse_next_is_typed_parameter.exit, %90, %.critedge2
+  %.0181.shrunk.ph = phi i1 [ false, %parse_next_is_typed_parameter.exit ], [ false, %.critedge2 ], [ true, %90 ]
+  %.0178.ph = phi ptr [ null, %parse_next_is_typed_parameter.exit ], [ %66, %.critedge2 ], [ %66, %90 ]
   %.pr = load i32, ptr %7, align 8
   br label %parse_next_is_typed_parameter.exit.thread239
 
@@ -4011,12 +4011,12 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   br label %.loopexit
 
 169:                                              ; preds = %165, %161, %155, %125, %93, %extend_span_with_token.exit230
-  %.1182.shrunk = phi i1 [ false, %extend_span_with_token.exit230 ], [ %.0181.shrunk244, %93 ], [ false, %125 ], [ false, %155 ], [ false, %161 ], [ %.0181.shrunk, %165 ]
-  %.1 = phi ptr [ %.0178, %extend_span_with_token.exit230 ], [ %.0178245, %93 ], [ %.0178, %125 ], [ %.0178, %155 ], [ %.0178, %161 ], [ %.0178, %165 ]
-  %.0175 = phi i32 [ 6, %extend_span_with_token.exit230 ], [ 3, %93 ], [ 11, %125 ], [ 7, %155 ], [ 12, %161 ], [ 3, %165 ]
-  %.0174 = phi ptr [ %131, %extend_span_with_token.exit230 ], [ %94, %93 ], [ %124, %125 ], [ %154, %155 ], [ %160, %161 ], [ null, %165 ]
-  %.sroa.012.0 = phi i64 [ %.sroa.010.0.insert.insert.i228, %extend_span_with_token.exit230 ], [ %.sroa.012.0.copyload246, %93 ], [ %.sroa.012.0.copyload, %125 ], [ %.sroa.012.0.copyload, %155 ], [ %.sroa.012.0.copyload, %161 ], [ %.sroa.012.0.copyload14, %165 ]
-  %.0173 = phi i1 [ false, %extend_span_with_token.exit230 ], [ false, %93 ], [ false, %125 ], [ false, %155 ], [ false, %161 ], [ true, %165 ]
+  %.1182.shrunk = phi i1 [ %.0181.shrunk244, %93 ], [ false, %extend_span_with_token.exit230 ], [ false, %125 ], [ false, %155 ], [ false, %161 ], [ %.0181.shrunk, %165 ]
+  %.1 = phi ptr [ %.0178245, %93 ], [ %.0178, %extend_span_with_token.exit230 ], [ %.0178, %125 ], [ %.0178, %155 ], [ %.0178, %161 ], [ %.0178, %165 ]
+  %.0175 = phi i32 [ 3, %93 ], [ 6, %extend_span_with_token.exit230 ], [ 11, %125 ], [ 7, %155 ], [ 12, %161 ], [ 3, %165 ]
+  %.0174 = phi ptr [ %94, %93 ], [ %131, %extend_span_with_token.exit230 ], [ %124, %125 ], [ %154, %155 ], [ %160, %161 ], [ null, %165 ]
+  %.sroa.012.0 = phi i64 [ %.sroa.012.0.copyload246, %93 ], [ %.sroa.010.0.insert.insert.i228, %extend_span_with_token.exit230 ], [ %.sroa.012.0.copyload, %125 ], [ %.sroa.012.0.copyload, %155 ], [ %.sroa.012.0.copyload, %161 ], [ %.sroa.012.0.copyload14, %165 ]
+  %.0173 = phi i1 [ false, %93 ], [ false, %extend_span_with_token.exit230 ], [ false, %125 ], [ false, %155 ], [ false, %161 ], [ true, %165 ]
   %.not198 = icmp eq ptr %.1, null
   br i1 %.not198, label %.thread269, label %._crit_edge
 
@@ -4179,7 +4179,7 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   br label %.loopexit
 
 .loopexit:                                        ; preds = %185, %67, %245, %203, %174, %168, %167, %163, %157, %152, %138, %133, %128, %113, %extend_span_with_token.exit221, %97, %92, %extend_span_with_token.exit, %72, %25, %21, %19
-  %.0177 = phi i1 [ false, %25 ], [ true, %245 ], [ false, %21 ], [ false, %19 ], [ false, %extend_span_with_token.exit ], [ false, %168 ], [ false, %174 ], [ %205, %203 ], [ false, %167 ], [ false, %163 ], [ false, %157 ], [ false, %152 ], [ false, %138 ], [ false, %133 ], [ false, %128 ], [ false, %97 ], [ false, %113 ], [ false, %extend_span_with_token.exit221 ], [ false, %92 ], [ false, %72 ], [ false, %67 ], [ false, %185 ]
+  %.0177 = phi i1 [ false, %25 ], [ true, %245 ], [ false, %21 ], [ false, %19 ], [ false, %extend_span_with_token.exit ], [ false, %168 ], [ false, %92 ], [ false, %97 ], [ false, %113 ], [ false, %174 ], [ %205, %203 ], [ false, %extend_span_with_token.exit221 ], [ false, %128 ], [ false, %138 ], [ false, %133 ], [ false, %152 ], [ false, %157 ], [ false, %163 ], [ false, %167 ], [ false, %72 ], [ false, %67 ], [ false, %185 ]
   ret i1 %.0177
 }
 
@@ -5037,7 +5037,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 36:                                               ; preds = %30, %26, %21
-  %.096 = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ]
+  %.096 = phi ptr [ %23, %21 ], [ %27, %26 ], [ %31, %30 ]
   %.not126 = icmp eq ptr %.096, null
   br i1 %.not126, label %..critedge_crit_edge, label %37
 
@@ -5380,7 +5380,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge, %69, %71, %.critedge6, %129, %133, %137, %141, %145, %149, %153, %155, %160, %164, %168, %187, %124, %59, %37, %197, %193, %189, %178, %174, %170, %120, %112, %.critedge4, %99, %.critedge2, %86, %63, %44, %32, %16, %5
-  %.0 = phi ptr [ %196, %193 ], [ %192, %189 ], [ %203, %197 ], [ %184, %178 ], [ %177, %174 ], [ %173, %170 ], [ %123, %120 ], [ %113, %112 ], [ %102, %.critedge4 ], [ %100, %99 ], [ %89, %.critedge2 ], [ %87, %86 ], [ %66, %63 ], [ %47, %44 ], [ %35, %32 ], [ %17, %16 ], [ %6, %5 ], [ %.096, %37 ], [ %spec.select, %59 ], [ %spec.select130, %124 ], [ %188, %187 ], [ %169, %168 ], [ %165, %164 ], [ %161, %160 ], [ %157, %155 ], [ %154, %153 ], [ %150, %149 ], [ %146, %145 ], [ %142, %141 ], [ %138, %137 ], [ %134, %133 ], [ %130, %129 ], [ %115, %.critedge6 ], [ %77, %71 ], [ %70, %69 ], [ %.096, %.critedge ]
+  %.0 = phi ptr [ %196, %193 ], [ %35, %32 ], [ %203, %197 ], [ %47, %44 ], [ %66, %63 ], [ %89, %.critedge2 ], [ %87, %86 ], [ %102, %.critedge4 ], [ %100, %99 ], [ %113, %112 ], [ %123, %120 ], [ %173, %170 ], [ %177, %174 ], [ %184, %178 ], [ %192, %189 ], [ %17, %16 ], [ %6, %5 ], [ %.096, %37 ], [ %spec.select, %59 ], [ %spec.select130, %124 ], [ %.096, %.critedge ], [ %70, %69 ], [ %77, %71 ], [ %115, %.critedge6 ], [ %130, %129 ], [ %134, %133 ], [ %138, %137 ], [ %142, %141 ], [ %146, %145 ], [ %150, %149 ], [ %154, %153 ], [ %157, %155 ], [ %161, %160 ], [ %165, %164 ], [ %169, %168 ], [ %188, %187 ]
   ret ptr %.0
 }
 

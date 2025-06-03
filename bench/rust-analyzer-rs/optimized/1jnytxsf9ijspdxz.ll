@@ -2057,7 +2057,7 @@ define void @_ZN6syntax4algo19ancestors_at_offset17h910477c327de205bE(ptr noalia
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   %11 = load i64, ptr %8, align 8, !range !82, !alias.scope !355, !noalias !352, !noundef !4
-  %.sink12.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink13.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %9, i64 8
   switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN5rowan13utility_types22TokenAtOffset$LT$T$GT$3map17hebfbe595039f289dE.exit"
     i64 1, label %12
@@ -2073,18 +2073,18 @@ default.unreachable:                              ; preds = %3
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %15, %12
-  %.sink12.i.sroa.phi = phi ptr [ %.sink12.i.sroa.gep, %15 ], [ %.sink12.i.sroa.gep1, %12 ]
-  %.sink10.i = phi ptr [ %19, %15 ], [ %14, %12 ]
-  store ptr %.sink10.i, ptr %.sink12.i.sroa.phi, align 8, !alias.scope !352, !noalias !355
+  %.sink13.i.sroa.phi = phi ptr [ %.sink13.i.sroa.gep, %15 ], [ %.sink13.i.sroa.gep1, %12 ]
+  %.sink11.i = phi ptr [ %19, %15 ], [ %14, %12 ]
+  store ptr %.sink11.i, ptr %.sink13.i.sroa.phi, align 8, !alias.scope !352, !noalias !355
   br label %"_ZN5rowan13utility_types22TokenAtOffset$LT$T$GT$3map17hebfbe595039f289dE.exit"
 
 15:                                               ; preds = %3
-  %.sink12.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink13.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !355, !noalias !352, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !355, !noalias !352, !nonnull !4, !noundef !4
-  store ptr %17, ptr %.sink12.i.sroa.gep1, align 8, !alias.scope !352, !noalias !355
+  store ptr %17, ptr %.sink13.i.sroa.gep1, align 8, !alias.scope !352, !noalias !355
   br label %.sink.split.i
 
 "_ZN5rowan13utility_types22TokenAtOffset$LT$T$GT$3map17hebfbe595039f289dE.exit": ; preds = %3, %.sink.split.i
@@ -3035,8 +3035,8 @@ define { i64, ptr } @_ZN6syntax4algo18non_trivia_sibling17h16d4cc0418490edeE(i64
   unreachable
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit": ; preds = %79, %83, %20, %24
-  %.pn.pn = phi { ptr, i32 } [ %.pn5, %24 ], [ %.pn5, %20 ], [ %.pn, %83 ], [ %.pn, %79 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn5.pn = phi { ptr, i32 } [ %.pn5, %24 ], [ %.pn5, %20 ], [ %.pn, %83 ], [ %.pn, %79 ]
+  resume { ptr, i32 } %.pn5.pn
 
 79:                                               ; preds = %.body54, %84
   %.pn = phi { ptr, i32 } [ %85, %84 ], [ %eh.lpad-body55, %.body54 ]
@@ -6962,8 +6962,8 @@ define internal fastcc { i64, ptr } @"_ZN6syntax3ast13edit_in_place65_$LT$impl$u
   br label %41
 
 41:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit33", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit32", %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit30", %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit29", %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit27", %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit26"
-  %.sroa.7.0 = phi ptr [ undef, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit32" ], [ %93, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit33" ], [ undef, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit29" ], [ %56, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit30" ], [ undef, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit26" ], [ %33, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit27" ]
-  %.sroa.03.0 = phi i64 [ 4, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit32" ], [ 3, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit33" ], [ 4, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit29" ], [ 2, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit30" ], [ 4, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit26" ], [ 3, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit27" ]
+  %.sroa.7.0 = phi ptr [ undef, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit26" ], [ %33, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit27" ], [ undef, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit29" ], [ %56, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit30" ], [ undef, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit32" ], [ %93, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit33" ]
+  %.sroa.03.0 = phi i64 [ 4, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit26" ], [ 3, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17hdff4fabde78f51f5E.exit27" ], [ 4, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit29" ], [ 2, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..LifetimeParam$GT$17h7c743dae6651e4d6E.exit30" ], [ 4, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit32" ], [ 3, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h52475cdb9fe62f0dE.exit33" ]
   %42 = insertvalue { i64, ptr } poison, i64 %.sroa.03.0, 0
   %43 = insertvalue { i64, ptr } %42, ptr %.sroa.7.0, 1
   ret { i64, ptr } %43

@@ -1605,7 +1605,7 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %for.inc.i, %if.end.i, %if.then.i, %sw.bb14, %sw.bb12, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
-  %retval.0 = phi i32 [ %call15, %sw.bb14 ], [ %call13, %sw.bb12 ], [ %call9, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %mul.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit ], [ %add3.i, %if.then.i ], [ %add5.i, %if.end.i ], [ %rowSize.1.i, %for.inc.i ]
+  %retval.0 = phi i32 [ %mul.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit ], [ %call9, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %call13, %sw.bb12 ], [ %call15, %sw.bb14 ], [ %add3.i, %if.then.i ], [ %add5.i, %if.end.i ], [ %rowSize.1.i, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -2794,7 +2794,7 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %sw.bb16, %_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit, %_ZNK8facebook5velox13DecodedVector5indexEi.exit, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
-  %retval.0 = phi i32 [ %call17, %sw.bb16 ], [ %add20.i, %_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit ], [ %call10.i, %_ZNK8facebook5velox13DecodedVector5indexEi.exit ], [ %call11, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %8, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit ]
+  %retval.0 = phi i32 [ %8, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit ], [ %call11, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %call10.i, %_ZNK8facebook5velox13DecodedVector5indexEi.exit ], [ %add20.i, %_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit ], [ %call17, %sw.bb16 ]
   ret i32 %retval.0
 }
 

@@ -603,7 +603,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hf609fb17369f52d9E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hf609fb17369f52d9E.exit: ; preds = %switch.lookup, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %48, %45
-  %.sroa.0.0 = phi i8 [ %52, %48 ], [ %47, %45 ], [ 41, %43 ], [ 13, %44 ], [ 1, %42 ], [ 39, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ %47, %45 ], [ %52, %48 ], [ 41, %43 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 39, %41 ], [ 1, %42 ], [ 13, %44 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -686,8 +686,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN3zip5write87_$LT$impl$u20$std..io..Write$u20$for$u20$zip..write..zip_writer..ZipWriter$LT$W$GT$$GT$5flush17h88156f06ccc3072cE.exit"
 
 15:                                               ; preds = %11, %9, %7, %1
-  %.sroa.9.0.ph.i = phi ptr [ @anon.a36afcc231f82cf69f483f7961fbb938.85.llvm.18114576096980994613, %7 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.86.llvm.18114576096980994613, %9 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.87.llvm.18114576096980994613, %11 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.88.llvm.18114576096980994613, %1 ]
-  %.sroa.01.0.ph.i = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %3, %1 ]
+  %.sroa.9.0.ph.i = phi ptr [ @anon.a36afcc231f82cf69f483f7961fbb938.87.llvm.18114576096980994613, %11 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.86.llvm.18114576096980994613, %9 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.85.llvm.18114576096980994613, %7 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.88.llvm.18114576096980994613, %1 ]
+  %.sroa.01.0.ph.i = phi ptr [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %3, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.ph.i, i64 48
   %17 = load ptr, ptr %16, align 8, !invariant.load !10, !noalias !28, !nonnull !10
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 1 %.sroa.01.0.ph.i)
@@ -2248,8 +2248,8 @@ define hidden { i64, ptr } @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$L
   br label %81
 
 81:                                               ; preds = %11, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit19"
-  %.sroa.5.0 = phi i64 [ %15, %11 ], [ %.sroa.5.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit19" ], [ %59, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit" ]
-  %.sroa.0.0 = phi i64 [ %13, %11 ], [ 1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit19" ], [ 0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit" ]
+  %.sroa.5.0 = phi i64 [ %15, %11 ], [ %59, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit" ], [ %.sroa.5.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit19" ]
+  %.sroa.0.0 = phi i64 [ %13, %11 ], [ 0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit" ], [ 1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h366fd1b87990200eE.exit19" ]
   %82 = inttoptr i64 %.sroa.5.0 to ptr
   %83 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %84 = insertvalue { i64, ptr } %83, ptr %82, 1

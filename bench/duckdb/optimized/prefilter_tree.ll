@@ -652,7 +652,7 @@ _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE6resizeEm.exit: ; preds = %51, %53
   br i1 %95, label %82, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %82, %.preheader, %5, %5, %2, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE6resizeEm.exit, %36, %_ZN10LogMessageD2Ev.exit
-  %.030 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %58, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE6resizeEm.exit ], [ %42, %36 ], [ false, %2 ], [ false, %5 ], [ false, %5 ], [ true, %.preheader ], [ %95, %82 ], [ %95, %.lr.ph ]
+  %.030 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %42, %36 ], [ %58, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE6resizeEm.exit ], [ false, %2 ], [ false, %5 ], [ false, %5 ], [ true, %.preheader ], [ %95, %82 ], [ %95, %.lr.ph ]
   ret i1 %.030
 }
 

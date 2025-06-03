@@ -2205,7 +2205,7 @@ cff_charset_cid_to_gindex.exit.i:                 ; preds = %38
   br i1 %265, label %247, label %cff_fd_select_get.exit.i, !llvm.loop !307
 
 cff_fd_select_get.exit.i:                         ; preds = %263, %247, %259, %231, %220, %217, %214
-  %.0.i356.i = phi i8 [ 0, %217 ], [ %233, %231 ], [ %223, %220 ], [ 0, %214 ], [ %260, %259 ], [ 0, %247 ], [ 0, %263 ]
+  %.0.i356.i = phi i8 [ 0, %217 ], [ %223, %220 ], [ %233, %231 ], [ 0, %214 ], [ %260, %259 ], [ 0, %247 ], [ 0, %263 ]
   %266 = zext i8 %.0.i356.i to i32
   %.not329.i = icmp ugt i32 %213, %266
   %267 = trunc i32 %213 to i8
@@ -4581,7 +4581,7 @@ define internal zeroext i8 @cff_fd_select_get(ptr noundef captures(none) %0, i32
   br i1 %52, label %34, label %.loopexit, !llvm.loop !307
 
 .loopexit:                                        ; preds = %50, %34, %46, %7, %18, %5, %2
-  %.0 = phi i8 [ 0, %5 ], [ %20, %18 ], [ %10, %7 ], [ 0, %2 ], [ %47, %46 ], [ 0, %34 ], [ 0, %50 ]
+  %.0 = phi i8 [ 0, %5 ], [ %10, %7 ], [ %20, %18 ], [ 0, %2 ], [ %47, %46 ], [ 0, %34 ], [ 0, %50 ]
   ret i8 %.0
 }
 
@@ -5033,7 +5033,7 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   br label %78
 
 78:                                               ; preds = %76, %74, %72
-  %.0141 = phi i64 [ %77, %76 ], [ %75, %74 ], [ %73, %72 ]
+  %.0141 = phi i64 [ %73, %72 ], [ %75, %74 ], [ %77, %76 ]
   %79 = getelementptr inbounds nuw i8, ptr %.0144205.lcssa, i64 12
   %80 = load i8, ptr %79, align 4, !tbaa !502
   switch i8 %80, label %87 [

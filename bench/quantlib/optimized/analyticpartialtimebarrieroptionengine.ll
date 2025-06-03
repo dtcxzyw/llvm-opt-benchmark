@@ -3728,7 +3728,7 @@ _ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEED2Ev.exit: ; preds = %sw.e
   ret void
 
 ehcleanup551:                                     ; preds = %lpad76, %ehcleanup120, %ehcleanup544, %ehcleanup503, %ehcleanup461, %ehcleanup419, %ehcleanup378, %ehcleanup330, %ehcleanup272, %ehcleanup231, %ehcleanup184, %lpad128, %ehcleanup72, %ehcleanup28
-  %.pn71.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn71.pn.pn.pn.pn, %ehcleanup28 ], [ %.pn.pn.pn.pn.pn, %ehcleanup72 ], [ %.pn9.pn.pn.pn.pn, %ehcleanup120 ], [ %53, %lpad76 ], [ %.pn63.pn.pn.pn.pn, %ehcleanup544 ], [ %.pn15.pn.pn.pn.pn, %ehcleanup503 ], [ %.pn57.pn.pn.pn.pn, %ehcleanup461 ], [ %.pn27.pn.pn.pn.pn, %ehcleanup419 ], [ %.pn21.pn.pn.pn.pn, %ehcleanup378 ], [ %77, %lpad128 ], [ %.pn33.pn.pn.pn.pn, %ehcleanup330 ], [ %.pn45.pn.pn.pn.pn, %ehcleanup272 ], [ %.pn39.pn.pn.pn.pn, %ehcleanup231 ], [ %.pn51.pn.pn.pn.pn, %ehcleanup184 ]
+  %.pn71.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn71.pn.pn.pn.pn, %ehcleanup28 ], [ %.pn.pn.pn.pn.pn, %ehcleanup72 ], [ %.pn9.pn.pn.pn.pn, %ehcleanup120 ], [ %53, %lpad76 ], [ %.pn63.pn.pn.pn.pn, %ehcleanup544 ], [ %.pn57.pn.pn.pn.pn, %ehcleanup461 ], [ %.pn51.pn.pn.pn.pn, %ehcleanup184 ], [ %77, %lpad128 ], [ %.pn45.pn.pn.pn.pn, %ehcleanup272 ], [ %.pn39.pn.pn.pn.pn, %ehcleanup231 ], [ %.pn33.pn.pn.pn.pn, %ehcleanup330 ], [ %.pn27.pn.pn.pn.pn, %ehcleanup419 ], [ %.pn21.pn.pn.pn.pn, %ehcleanup378 ], [ %.pn15.pn.pn.pn.pn, %ehcleanup503 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %payoff) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %payoff) #30
   resume { ptr, i32 } %.pn71.pn.pn.pn.pn.pn
@@ -5833,7 +5833,7 @@ ehcleanup224:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %ehcleanup228
 
 cleanup:                                          ; preds = %_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine2e4Ev.exit373, %_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine2e4Ev.exit
-  %retval.0 = phi double [ %118, %_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine2e4Ev.exit373 ], [ %39, %_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine2e4Ev.exit ]
+  %retval.0 = phi double [ %39, %_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine2e4Ev.exit ], [ %118, %_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine2e4Ev.exit373 ]
   ret double %retval.0
 
 ehcleanup228:                                     ; preds = %ehcleanup224, %ehcleanup188

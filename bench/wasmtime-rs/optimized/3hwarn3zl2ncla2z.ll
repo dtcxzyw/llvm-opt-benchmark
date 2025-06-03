@@ -2039,11 +2039,11 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h12301eafe4d7df49E.llvm.17575819821291883266.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h12301eafe4d7df49E.llvm.17575819821291883266.exit.thread": ; preds = %13, %4
-  %.sroa.6.0.copyload.pn = phi ptr [ %1, %4 ], [ %16, %13 ]
-  %.sroa.10.0.copyload.pn = phi ptr [ %2, %4 ], [ %18, %13 ]
+  %.sroa.6.012.pn = phi ptr [ %1, %4 ], [ %16, %13 ]
+  %.sroa.10.011.pn = phi ptr [ %2, %4 ], [ %18, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.6.0.copyload.pn, 0
-  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.10.0.copyload.pn, 1
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.6.012.pn, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.10.011.pn, 1
   ret { ptr, ptr } %.merged
 }
 
@@ -2222,11 +2222,11 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd2bd5b093df5cbcbE.llvm.17575819821291883266.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd2bd5b093df5cbcbE.llvm.17575819821291883266.exit.thread": ; preds = %13, %4
-  %.sroa.6.0.copyload.pn = phi ptr [ %1, %4 ], [ %16, %13 ]
-  %.sroa.10.0.copyload.pn = phi ptr [ %2, %4 ], [ %18, %13 ]
+  %.sroa.6.012.pn = phi ptr [ %1, %4 ], [ %16, %13 ]
+  %.sroa.10.011.pn = phi ptr [ %2, %4 ], [ %18, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.6.0.copyload.pn, 0
-  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.10.0.copyload.pn, 1
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.6.012.pn, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.10.011.pn, 1
   ret { ptr, ptr } %.merged
 }
 
@@ -5032,7 +5032,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hef73df521933e3c9E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i32 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i32 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i32 %.0
 }
 
@@ -5109,7 +5109,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -7224,8 +7224,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %97
 
 97:                                               ; preds = %100, %91
-  %.sroa.3.0 = phi ptr [ undef, %100 ], [ %96, %91 ]
-  %.sroa.0.0 = phi ptr [ null, %100 ], [ %94, %91 ]
+  %.sroa.3.0 = phi ptr [ %96, %91 ], [ undef, %100 ]
+  %.sroa.0.0 = phi ptr [ %94, %91 ], [ null, %100 ]
   %98 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %99 = insertvalue { ptr, ptr } %98, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %99

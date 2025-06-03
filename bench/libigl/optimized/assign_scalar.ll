@@ -25211,8 +25211,8 @@ _ZN4CORE7extLong10getNaNLongEv.exit:              ; preds = %24, %27, %29
   br label %_ZN4CORE7extLongC2El.exit
 
 _ZN4CORE7extLongC2El.exit:                        ; preds = %7, %4, %_ZN4CORE7extLong10getNaNLongEv.exit, %_ZN4CORE7extLong11getPosInftyEv.exit, %_ZN4CORE7extLong11getNegInftyEv.exit
-  %.sroa.5.0 = phi i32 [ %.sroa.5.0.copyload6, %_ZN4CORE7extLong10getNaNLongEv.exit ], [ %.sroa.5.0.copyload5, %_ZN4CORE7extLong11getPosInftyEv.exit ], [ %.sroa.5.0.copyload, %_ZN4CORE7extLong11getNegInftyEv.exit ], [ 1, %4 ], [ %spec.select, %7 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload4, %_ZN4CORE7extLong10getNaNLongEv.exit ], [ %.sroa.0.0.copyload3, %_ZN4CORE7extLong11getPosInftyEv.exit ], [ %.sroa.0.0.copyload, %_ZN4CORE7extLong11getNegInftyEv.exit ], [ 9223372036854775807, %4 ], [ %8, %7 ]
+  %.sroa.5.0 = phi i32 [ %.sroa.5.0.copyload6, %_ZN4CORE7extLong10getNaNLongEv.exit ], [ %.sroa.5.0.copyload, %_ZN4CORE7extLong11getNegInftyEv.exit ], [ %.sroa.5.0.copyload5, %_ZN4CORE7extLong11getPosInftyEv.exit ], [ 1, %4 ], [ %spec.select, %7 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload4, %_ZN4CORE7extLong10getNaNLongEv.exit ], [ %.sroa.0.0.copyload, %_ZN4CORE7extLong11getNegInftyEv.exit ], [ %.sroa.0.0.copyload3, %_ZN4CORE7extLong11getPosInftyEv.exit ], [ 9223372036854775807, %4 ], [ %8, %7 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { i64, i32 } %.fca.1.insert

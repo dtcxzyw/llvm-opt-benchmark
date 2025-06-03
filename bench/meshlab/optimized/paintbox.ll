@@ -13860,7 +13860,7 @@ define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable
   br label %_Z5brush5Brushffff.exit.us
 
 _Z5brush5Brushffff.exit.us:                       ; preds = %66, %52, %33
-  %.1.i.us = phi float [ 0.000000e+00, %33 ], [ %53, %52 ], [ %67, %66 ]
+  %.1.i.us = phi float [ 0.000000e+00, %33 ], [ %67, %66 ], [ %53, %52 ]
   %68 = fsub float 1.000000e+00, %.1.i.us
   %69 = fmul float %68, 2.550000e+02
   %70 = fptosi float %69 to i32

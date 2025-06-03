@@ -1750,7 +1750,7 @@ define internal i32 @buffered_traverse(ptr noundef readonly captures(none) %0, p
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -7963,7 +7963,7 @@ define internal i32 @bufferedrwpair_traverse(ptr noundef readonly captures(none)
   br label %23
 
 23:                                               ; preds = %20, %15, %10, %5, %22
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ 0, %22 ]
+  %.1 = phi i32 [ 0, %22 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

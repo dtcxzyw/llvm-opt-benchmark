@@ -815,7 +815,7 @@ do.body22:                                        ; preds = %do.end5
   unreachable
 
 return:                                           ; preds = %sw.bb14, %sw.bb6, %do.end5, %if.end19, %if.end11
-  %retval.0 = phi i32 [ %call21, %if.end19 ], [ %call13, %if.end11 ], [ 2, %do.end5 ], [ 1, %sw.bb6 ], [ 1, %sw.bb14 ]
+  %retval.0 = phi i32 [ %call13, %if.end11 ], [ %call21, %if.end19 ], [ 2, %do.end5 ], [ 1, %sw.bb6 ], [ 1, %sw.bb14 ]
   ret i32 %retval.0
 }
 

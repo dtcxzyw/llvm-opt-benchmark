@@ -725,8 +725,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser21par
   br label %154
 
 154:                                              ; preds = %152, %150, %146, %144, %140, %133, %131, %128, %124, %114, %.lr.ph.i
-  %.368.ph.i = phi i32 [ %spec.select87.i, %146 ], [ %spec.select86.i, %133 ], [ %spec.select82.i, %140 ], [ %spec.select.i, %124 ], [ %.065106.i, %.lr.ph.i ], [ %116, %114 ], [ %130, %128 ], [ %132, %131 ], [ %145, %144 ], [ %151, %150 ], [ %153, %152 ]
-  %.264.ph.i = phi i1 [ %.062107.i, %146 ], [ false, %133 ], [ %.062107.i, %140 ], [ %.062107.i, %124 ], [ %.062107.i, %.lr.ph.i ], [ %.062107.i, %114 ], [ %.062107.i, %128 ], [ %.062107.i, %131 ], [ true, %144 ], [ %.062107.i, %150 ], [ %.062107.i, %152 ]
+  %.368.ph.i = phi i32 [ %spec.select87.i, %146 ], [ %spec.select86.i, %133 ], [ %spec.select82.i, %140 ], [ %spec.select.i, %124 ], [ %153, %152 ], [ %151, %150 ], [ %145, %144 ], [ %132, %131 ], [ %130, %128 ], [ %116, %114 ], [ %.065106.i, %.lr.ph.i ]
+  %.264.ph.i = phi i1 [ %.062107.i, %146 ], [ false, %133 ], [ %.062107.i, %140 ], [ %.062107.i, %124 ], [ %.062107.i, %152 ], [ %.062107.i, %150 ], [ true, %144 ], [ %.062107.i, %131 ], [ %.062107.i, %128 ], [ %.062107.i, %114 ], [ %.062107.i, %.lr.ph.i ]
   %.368.ph.fr.i = freeze i32 %.368.ph.i
   %155 = getelementptr inbounds nuw i8, ptr %.071105.i, i64 1
   %.not.i = icmp eq ptr %155, %104
@@ -798,8 +798,8 @@ _ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit:
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
   br i1 %182, label %307, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread
 
-_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread: ; preds = %173, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i, %119, %109, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %55
-  %.2 = phi i32 [ -1073741760, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ -1073741760, %55 ], [ -1073741760, %109 ], [ -1073741760, %119 ], [ %spec.select112.i, %173 ], [ %.05, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i ]
+_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread: ; preds = %173, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i, %109, %119, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %55
+  %.2 = phi i32 [ -1073741760, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ -1073741760, %55 ], [ -1073741760, %119 ], [ -1073741760, %109 ], [ %spec.select112.i, %173 ], [ %.05, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #12
   store i8 0, ptr %8, align 1, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
@@ -1004,8 +1004,8 @@ _ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4C
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #12
   br label %307
 
-307:                                              ; preds = %84, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %109, %119, %50
-  %.0 = phi i1 [ %54, %50 ], [ %88, %84 ], [ %.3, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit ], [ true, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ true, %109 ], [ true, %119 ]
+307:                                              ; preds = %84, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %119, %109, %50
+  %.0 = phi i1 [ %54, %50 ], [ %88, %84 ], [ %.3, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit ], [ true, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ true, %119 ], [ true, %109 ]
   ret i1 %.0
 }
 

@@ -1261,7 +1261,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %3
   br label %33
 
 33:                                               ; preds = %_ZN7OptoReg8as_VMRegEi.exit, %31, %29, %27, %25, %3
-  %.0 = phi i32 [ -1, %3 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %2, %_ZN7OptoReg8as_VMRegEi.exit ]
+  %.0 = phi i32 [ -1, %3 ], [ %32, %31 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %2, %_ZN7OptoReg8as_VMRegEi.exit ]
   ret i32 %.0
 }
 

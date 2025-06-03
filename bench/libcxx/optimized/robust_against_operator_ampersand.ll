@@ -3405,8 +3405,8 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit20:    ; preds = %36
   br label %45
 
 45:                                               ; preds = %4, %29, %36, %14, %21, %._crit_edge, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit20, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit, %44, %13, %12, %11, %10, %9, %8
-  %.sroa.0.0 = phi i64 [ 13, %44 ], [ %43, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit20 ], [ %28, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ 9, %13 ], [ 8, %12 ], [ 5, %11 ], [ 4, %10 ], [ 7, %9 ], [ 6, %8 ], [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %14 ], [ 0, %36 ], [ 0, %29 ], [ 0, %4 ]
-  %.sroa.10.0 = phi i64 [ 4294967296, %44 ], [ 4294967296, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit20 ], [ 4294967296, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ 4294967296, %13 ], [ 4294967296, %12 ], [ 4294967296, %11 ], [ 4294967296, %10 ], [ 4294967296, %9 ], [ 4294967296, %8 ], [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %14 ], [ 0, %36 ], [ 0, %29 ], [ 0, %4 ]
+  %.sroa.0.0 = phi i64 [ 6, %8 ], [ 7, %9 ], [ 4, %10 ], [ 5, %11 ], [ 8, %12 ], [ 9, %13 ], [ %28, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ %43, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit20 ], [ 13, %44 ], [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %14 ], [ 0, %36 ], [ 0, %29 ], [ 0, %4 ]
+  %.sroa.10.0 = phi i64 [ 4294967296, %8 ], [ 4294967296, %9 ], [ 4294967296, %10 ], [ 4294967296, %11 ], [ 4294967296, %12 ], [ 4294967296, %13 ], [ 4294967296, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ 4294967296, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit20 ], [ 4294967296, %44 ], [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %14 ], [ 0, %36 ], [ 0, %29 ], [ 0, %4 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.10.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }

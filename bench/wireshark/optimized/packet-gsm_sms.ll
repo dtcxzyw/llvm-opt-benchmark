@@ -1206,8 +1206,8 @@ define hidden void @dis_field_udh(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %47
 
 47:                                               ; preds = %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %.lr.ph.i
-  %48 = phi i1 [ true, %.lr.ph.i ], [ false, %46 ], [ false, %45 ], [ false, %44 ], [ false, %43 ], [ false, %42 ], [ false, %41 ], [ false, %40 ], [ false, %39 ], [ false, %38 ], [ false, %37 ], [ false, %36 ], [ false, %35 ], [ false, %34 ], [ false, %33 ], [ false, %32 ], [ false, %31 ], [ false, %30 ], [ false, %29 ], [ false, %28 ]
-  %.037.i = phi ptr [ null, %.lr.ph.i ], [ @dis_iei_lang_ls, %46 ], [ @dis_iei_lang_ss, %45 ], [ @dis_iei_upi, %44 ], [ @dis_iei_vp, %43 ], [ @dis_iei_sp, %42 ], [ @dis_iei_lp, %41 ], [ @dis_iei_sa, %40 ], [ @dis_iei_la, %39 ], [ @dis_iei_pa, %38 ], [ @dis_iei_uds, %37 ], [ @dis_iei_ps, %36 ], [ @dis_iei_tf, %35 ], [ @dis_iei_csm16, %34 ], [ @dis_iei_udh_si, %33 ], [ @dis_iei_scp, %32 ], [ @dis_iei_apa_16bit, %31 ], [ @dis_iei_apa_8bit, %30 ], [ @dis_iei_spe_sms_msg_ind, %29 ], [ @dis_iei_csm8, %28 ]
+  %48 = phi i1 [ true, %.lr.ph.i ], [ false, %28 ], [ false, %29 ], [ false, %30 ], [ false, %31 ], [ false, %32 ], [ false, %33 ], [ false, %34 ], [ false, %35 ], [ false, %36 ], [ false, %37 ], [ false, %38 ], [ false, %39 ], [ false, %40 ], [ false, %41 ], [ false, %42 ], [ false, %43 ], [ false, %44 ], [ false, %45 ], [ false, %46 ]
+  %.037.i = phi ptr [ null, %.lr.ph.i ], [ @dis_iei_csm8, %28 ], [ @dis_iei_spe_sms_msg_ind, %29 ], [ @dis_iei_apa_8bit, %30 ], [ @dis_iei_apa_16bit, %31 ], [ @dis_iei_scp, %32 ], [ @dis_iei_udh_si, %33 ], [ @dis_iei_csm16, %34 ], [ @dis_iei_tf, %35 ], [ @dis_iei_ps, %36 ], [ @dis_iei_uds, %37 ], [ @dis_iei_pa, %38 ], [ @dis_iei_la, %39 ], [ @dis_iei_sa, %40 ], [ @dis_iei_lp, %41 ], [ @dis_iei_sp, %42 ], [ @dis_iei_vp, %43 ], [ @dis_iei_upi, %44 ], [ @dis_iei_lang_ss, %45 ], [ @dis_iei_lang_ls, %46 ]
   %49 = add i32 %.041.i, 1
   %50 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %49)
   %51 = zext i8 %50 to i32
@@ -2571,7 +2571,7 @@ default.unreachable:                              ; preds = %.preheader
   unreachable
 
 .sink.split.i:                                    ; preds = %55, %139, %137, %131, %128, %117, %112, %107, %71, %65, %51, %43
-  %.sink226.sink.i = phi i32 [ %135, %137 ], [ 7, %51 ], [ %41, %43 ], [ 1, %117 ], [ 1, %131 ], [ 1, %128 ], [ 1, %107 ], [ 1, %112 ], [ 7, %65 ], [ 7, %71 ], [ 7, %139 ], [ 7, %55 ]
+  %.sink226.sink.i = phi i32 [ %135, %137 ], [ 7, %51 ], [ %41, %43 ], [ 1, %117 ], [ 1, %131 ], [ 1, %128 ], [ 1, %107 ], [ 1, %112 ], [ 7, %139 ], [ 7, %71 ], [ 7, %65 ], [ 7, %55 ]
   %186 = add i32 %38, %.sink226.sink.i
   br label %dis_field_vp.exit
 

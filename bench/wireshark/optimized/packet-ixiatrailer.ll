@@ -226,7 +226,7 @@ define internal zeroext i1 @dissect_ixiatrailer_heur(ptr noundef %0, ptr noundef
   br label %64
 
 64:                                               ; preds = %61, %57, %55, %51, %49
-  %.1.i = phi ptr [ %63, %61 ], [ %.0693.i, %55 ], [ %59, %57 ], [ %.0693.i, %49 ], [ %53, %51 ]
+  %.1.i = phi ptr [ %63, %61 ], [ %.0693.i, %49 ], [ %53, %51 ], [ %.0693.i, %55 ], [ %59, %57 ]
   %65 = add i32 %44, %46
   %66 = icmp ult i32 %65, %41
   br i1 %66, label %.lr.ph.i, label %dissect_ixiatrailer.exit.loopexit, !llvm.loop !8

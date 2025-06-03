@@ -20917,8 +20917,8 @@ define hidden void @_ZN7bincode6varint15decode_unsigned17varint_decode_u6417h4a6
   br label %29
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h019bc4bbe74dab30E.exit51": ; preds = %24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit53", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit52", %17
-  %.sroa.025.0 = phi i64 [ %18, %17 ], [ %23, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit53" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit52" ], [ %spec.select, %24 ]
-  %.sroa.026.0 = phi i64 [ 1, %17 ], [ 5, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit53" ], [ 3, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit52" ], [ 9, %24 ]
+  %.sroa.025.0 = phi i64 [ %18, %17 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit52" ], [ %23, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit53" ], [ %spec.select, %24 ]
+  %.sroa.026.0 = phi i64 [ 1, %17 ], [ 3, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit52" ], [ 5, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit53" ], [ 9, %24 ]
   %27 = add i64 %.sroa.026.0, %5
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %27)
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !alias.scope !3988
@@ -21002,8 +21002,8 @@ define hidden void @_ZN7bincode6varint15decode_unsigned19varint_decode_usize17hc
   br label %29
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h019bc4bbe74dab30E.exit52": ; preds = %24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit54", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit53", %17
-  %.sroa.026.0 = phi i64 [ %18, %17 ], [ %23, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit54" ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit53" ], [ %spec.select, %24 ]
-  %.sroa.027.0 = phi i64 [ 1, %17 ], [ 5, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit54" ], [ 3, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit53" ], [ 9, %24 ]
+  %.sroa.026.0 = phi i64 [ %18, %17 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit53" ], [ %23, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit54" ], [ %spec.select, %24 ]
+  %.sroa.027.0 = phi i64 [ 1, %17 ], [ 3, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5bba030405c70058E.exit53" ], [ 5, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda80414a57162f72E.exit54" ], [ 9, %24 ]
   %27 = add i64 %.sroa.027.0, %5
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %27)
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !alias.scope !4000

@@ -14302,7 +14302,7 @@ define noundef nonnull ptr @l_Lean_ConstantKind_toCtorIdx(i8 noundef zeroext %0)
   br label %9
 
 9:                                                ; preds = %1, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -14366,7 +14366,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_ConstantKind_toCtorIdx.exit
 
 l_Lean_ConstantKind_toCtorIdx.exit:               ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19
-  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -14565,7 +14565,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_beqConstantKind____x40_Lean_Environment
   br label %l_Lean_ConstantKind_toCtorIdx.exit
 
 l_Lean_ConstantKind_toCtorIdx.exit:               ; preds = %2, %3, %4, %5, %6, %7, %8, %9
-  %.0.i9 = phi ptr [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %16 [
     i8 0, label %lean_dec.exit
     i8 1, label %10
@@ -14598,7 +14598,7 @@ l_Lean_ConstantKind_toCtorIdx.exit:               ; preds = %2, %3, %4, %5, %6, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %16, %15, %14, %13, %12, %11, %10, %l_Lean_ConstantKind_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 15 to ptr), %16 ], [ inttoptr (i64 13 to ptr), %15 ], [ inttoptr (i64 11 to ptr), %14 ], [ inttoptr (i64 9 to ptr), %13 ], [ inttoptr (i64 7 to ptr), %12 ], [ inttoptr (i64 5 to ptr), %11 ], [ inttoptr (i64 3 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 15 to ptr), %16 ], [ inttoptr (i64 3 to ptr), %10 ], [ inttoptr (i64 5 to ptr), %11 ], [ inttoptr (i64 7 to ptr), %12 ], [ inttoptr (i64 9 to ptr), %13 ], [ inttoptr (i64 11 to ptr), %14 ], [ inttoptr (i64 13 to ptr), %15 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit ]
   %17 = icmp eq ptr %.0.i9, %.0.i10
   %18 = zext i1 %17 to i8
   ret i8 %18
@@ -14690,7 +14690,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lean_ConstantKind_toCtorIdx.exit.i
 
 l_Lean_ConstantKind_toCtorIdx.exit.i:             ; preds = %31, %30, %29, %28, %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %38 [
     i8 0, label %l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit
     i8 1, label %32
@@ -14723,7 +14723,7 @@ l_Lean_ConstantKind_toCtorIdx.exit.i:             ; preds = %31, %30, %29, %28, 
   br label %l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit
 
 l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit: ; preds = %l_Lean_ConstantKind_toCtorIdx.exit.i, %32, %33, %34, %35, %36, %37, %38
-  %.0.i10.i = phi ptr [ inttoptr (i64 15 to ptr), %38 ], [ inttoptr (i64 13 to ptr), %37 ], [ inttoptr (i64 11 to ptr), %36 ], [ inttoptr (i64 9 to ptr), %35 ], [ inttoptr (i64 7 to ptr), %34 ], [ inttoptr (i64 5 to ptr), %33 ], [ inttoptr (i64 3 to ptr), %32 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 15 to ptr), %38 ], [ inttoptr (i64 3 to ptr), %32 ], [ inttoptr (i64 5 to ptr), %33 ], [ inttoptr (i64 7 to ptr), %34 ], [ inttoptr (i64 9 to ptr), %35 ], [ inttoptr (i64 11 to ptr), %36 ], [ inttoptr (i64 13 to ptr), %37 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit.i ]
   %39 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %40 = select i1 %39, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %40
@@ -47152,7 +47152,7 @@ lean_dec.exit:                                    ; preds = %120, %119, %117, %l
   br label %123
 
 123:                                              ; preds = %lean_dec.exit, %lean_alloc_ctor.exit95, %lean_alloc_ctor.exit92, %lean_alloc_ctor.exit89
-  %.0 = phi ptr [ %122, %lean_dec.exit ], [ %75, %lean_alloc_ctor.exit95 ], [ %56, %lean_alloc_ctor.exit92 ], [ %36, %lean_alloc_ctor.exit89 ]
+  %.0 = phi ptr [ %122, %lean_dec.exit ], [ %36, %lean_alloc_ctor.exit89 ], [ %56, %lean_alloc_ctor.exit92 ], [ %75, %lean_alloc_ctor.exit95 ]
   ret ptr %.0
 }
 
@@ -56725,7 +56725,7 @@ lean_obj_tag.exit.i:                              ; preds = %54, %51
   br label %l_Lean_ConstantKind_toCtorIdx.exit.i
 
 l_Lean_ConstantKind_toCtorIdx.exit.i:             ; preds = %66, %65, %64, %63, %62, %61, %60, %lean_obj_tag.exit.i
-  %.0.i9.i = phi ptr [ inttoptr (i64 15 to ptr), %66 ], [ inttoptr (i64 13 to ptr), %65 ], [ inttoptr (i64 11 to ptr), %64 ], [ inttoptr (i64 9 to ptr), %63 ], [ inttoptr (i64 7 to ptr), %62 ], [ inttoptr (i64 5 to ptr), %61 ], [ inttoptr (i64 3 to ptr), %60 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 15 to ptr), %66 ], [ inttoptr (i64 3 to ptr), %60 ], [ inttoptr (i64 5 to ptr), %61 ], [ inttoptr (i64 7 to ptr), %62 ], [ inttoptr (i64 9 to ptr), %63 ], [ inttoptr (i64 11 to ptr), %64 ], [ inttoptr (i64 13 to ptr), %65 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
   switch i8 %.0.i197, label %default.unreachable [
     i8 0, label %l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit
     i8 1, label %67
@@ -56762,7 +56762,7 @@ default.unreachable:                              ; preds = %l_Lean_ConstantKind
   br label %l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit
 
 l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit: ; preds = %l_Lean_ConstantKind_toCtorIdx.exit.i, %67, %68, %69, %70, %71, %72, %73
-  %.0.i10.i = phi ptr [ inttoptr (i64 15 to ptr), %73 ], [ inttoptr (i64 13 to ptr), %72 ], [ inttoptr (i64 11 to ptr), %71 ], [ inttoptr (i64 9 to ptr), %70 ], [ inttoptr (i64 7 to ptr), %69 ], [ inttoptr (i64 5 to ptr), %68 ], [ inttoptr (i64 3 to ptr), %67 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 15 to ptr), %73 ], [ inttoptr (i64 3 to ptr), %67 ], [ inttoptr (i64 5 to ptr), %68 ], [ inttoptr (i64 7 to ptr), %69 ], [ inttoptr (i64 9 to ptr), %70 ], [ inttoptr (i64 11 to ptr), %71 ], [ inttoptr (i64 13 to ptr), %72 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit.i ]
   %.not240 = icmp eq ptr %.0.i9.i, %.0.i10.i
   br i1 %.not240, label %149, label %74
 
@@ -57082,7 +57082,7 @@ lean_obj_tag.exit.i204:                           ; preds = %181, %178
   br label %l_Lean_ConstantKind_toCtorIdx.exit.i209
 
 l_Lean_ConstantKind_toCtorIdx.exit.i209:          ; preds = %193, %192, %191, %190, %189, %188, %187, %lean_obj_tag.exit.i204
-  %.0.i9.i210 = phi ptr [ inttoptr (i64 15 to ptr), %193 ], [ inttoptr (i64 13 to ptr), %192 ], [ inttoptr (i64 11 to ptr), %191 ], [ inttoptr (i64 9 to ptr), %190 ], [ inttoptr (i64 7 to ptr), %189 ], [ inttoptr (i64 5 to ptr), %188 ], [ inttoptr (i64 3 to ptr), %187 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i204 ]
+  %.0.i9.i210 = phi ptr [ inttoptr (i64 15 to ptr), %193 ], [ inttoptr (i64 3 to ptr), %187 ], [ inttoptr (i64 5 to ptr), %188 ], [ inttoptr (i64 7 to ptr), %189 ], [ inttoptr (i64 9 to ptr), %190 ], [ inttoptr (i64 11 to ptr), %191 ], [ inttoptr (i64 13 to ptr), %192 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i204 ]
   switch i8 %.0.i206, label %default.unreachable [
     i8 0, label %l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit212
     i8 1, label %194
@@ -57116,7 +57116,7 @@ l_Lean_ConstantKind_toCtorIdx.exit.i209:          ; preds = %193, %192, %191, %1
   br label %l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit212
 
 l_Lean_beqConstantKind____x40_Lean_Environment___hyg_1230_.exit212: ; preds = %l_Lean_ConstantKind_toCtorIdx.exit.i209, %194, %195, %196, %197, %198, %199, %200
-  %.0.i10.i211 = phi ptr [ inttoptr (i64 15 to ptr), %200 ], [ inttoptr (i64 13 to ptr), %199 ], [ inttoptr (i64 11 to ptr), %198 ], [ inttoptr (i64 9 to ptr), %197 ], [ inttoptr (i64 7 to ptr), %196 ], [ inttoptr (i64 5 to ptr), %195 ], [ inttoptr (i64 3 to ptr), %194 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit.i209 ]
+  %.0.i10.i211 = phi ptr [ inttoptr (i64 15 to ptr), %200 ], [ inttoptr (i64 3 to ptr), %194 ], [ inttoptr (i64 5 to ptr), %195 ], [ inttoptr (i64 7 to ptr), %196 ], [ inttoptr (i64 9 to ptr), %197 ], [ inttoptr (i64 11 to ptr), %198 ], [ inttoptr (i64 13 to ptr), %199 ], [ inttoptr (i64 1 to ptr), %l_Lean_ConstantKind_toCtorIdx.exit.i209 ]
   %.not234 = icmp eq ptr %.0.i9.i210, %.0.i10.i211
   br i1 %.not234, label %278, label %201
 
@@ -64443,7 +64443,7 @@ define noundef nonnull ptr @l_Lean_EnvExtension_AsyncMode_toCtorIdx(i8 noundef z
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -64491,7 +64491,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_EnvExtension_AsyncMode_toCtorIdx.exit
 
 l_Lean_EnvExtension_AsyncMode_toCtorIdx.exit:     ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -95969,7 +95969,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %16, %14
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %30, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %30 ], [ %31, %.thread.i ]
+  %.1.i = phi ptr [ %31, %.thread.i ], [ %.0.i.i.i, %30 ]
   store ptr %.1.i, ptr %5, align 8, !tbaa !9
   br label %90
 
@@ -96106,7 +96106,7 @@ lean_ensure_exclusive_array.exit.i.i34:           ; preds = %68, %66
   br label %lean_array_set.exit38
 
 lean_array_set.exit38:                            ; preds = %82, %.thread.i31
-  %.1.i32 = phi ptr [ %.0.i.i.i35, %82 ], [ %83, %.thread.i31 ]
+  %.1.i32 = phi ptr [ %83, %.thread.i31 ], [ %.0.i.i.i35, %82 ]
   tail call void @lean_inc_heartbeat() #10
   %84 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #10
   %85 = icmp eq ptr %84, null

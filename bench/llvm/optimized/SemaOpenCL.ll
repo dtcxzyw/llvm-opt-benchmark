@@ -5610,7 +5610,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL14checkBlockArgsERNS_4SemaE
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %2, %18
-  %.1.i = phi ptr [ %15, %2 ], [ %19, %18 ]
+  %.1.i = phi ptr [ %19, %18 ], [ %15, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %21 = load i64, ptr %20, align 16
   %22 = lshr i64 %21, 38
@@ -8101,7 +8101,7 @@ _ZN5clanglsIA12_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds =
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %1007, %1019
-  %.1.i117 = phi ptr [ %1016, %1007 ], [ %1020, %1019 ]
+  %.1.i117 = phi ptr [ %1020, %1019 ], [ %1016, %1007 ]
   %1021 = getelementptr inbounds nuw i8, ptr %.1.i117, i64 16
   %1022 = load i64, ptr %1021, align 16
   %1023 = and i64 %1022, 18014123631575040
@@ -8462,7 +8462,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadi
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %19
-  %.1.i = phi ptr [ %16, %3 ], [ %20, %19 ]
+  %.1.i = phi ptr [ %20, %19 ], [ %16, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %22 = load i64, ptr %21, align 16
   %23 = lshr i64 %22, 38
@@ -9978,7 +9978,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit78
   br label %642
 
 642:                                              ; preds = %.thread, %517, %30, %27, %24, %641, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit78, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
-  %.0 = phi i1 [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit78 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ true, %517 ], [ false, %641 ], [ true, %24 ], [ true, %27 ], [ true, %30 ], [ true, %.thread ]
+  %.0 = phi i1 [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit78 ], [ false, %641 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ true, %517 ], [ true, %24 ], [ true, %27 ], [ true, %30 ], [ true, %.thread ]
   ret i1 %.0
 }
 
@@ -10894,7 +10894,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit54
   br label %_ZNK5clang16OpenCLAccessAttr10isReadOnlyEv.exit.thread
 
 _ZNK5clang16OpenCLAccessAttr10isReadOnlyEv.exit.thread: ; preds = %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i43, %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit41, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit54, %_ZN5clangL18getOpenCLArgAccessEPKNS_4DeclE.exit, %_ZNK5clang16OpenCLAccessAttr11isWriteOnlyEv.exit, %199, %_ZNK5clang16OpenCLAccessAttr10isReadOnlyEv.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
-  %.0 = phi i1 [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit54 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit41 ], [ false, %_ZN5clangL18getOpenCLArgAccessEPKNS_4DeclE.exit ], [ false, %_ZNK5clang16OpenCLAccessAttr11isWriteOnlyEv.exit ], [ false, %199 ], [ false, %_ZNK5clang16OpenCLAccessAttr10isReadOnlyEv.exit ], [ false, %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i ], [ false, %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i43 ]
+  %.0 = phi i1 [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit41 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit54 ], [ false, %_ZN5clangL18getOpenCLArgAccessEPKNS_4DeclE.exit ], [ false, %_ZNK5clang16OpenCLAccessAttr11isWriteOnlyEv.exit ], [ false, %199 ], [ false, %_ZNK5clang16OpenCLAccessAttr10isReadOnlyEv.exit ], [ false, %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i ], [ false, %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i43 ]
   ret i1 %.0
 }
 

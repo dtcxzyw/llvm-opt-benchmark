@@ -49098,7 +49098,7 @@ _ZN7QStringD2Ev.exit46:                           ; preds = %71, %_ZN17QArrayDat
   br label %82
 
 82:                                               ; preds = %78, %.thread56
-  %.122 = phi i1 [ true, %78 ], [ %81, %.thread56 ]
+  %.122 = phi i1 [ %81, %.thread56 ], [ true, %78 ]
   ret i1 %.122
 }
 
@@ -53984,7 +53984,7 @@ define noundef zeroext i1 @_ZN19WiresharkMainWindow17saveAsCaptureFileEP13_captu
   br label %30
 
 30:                                               ; preds = %29, %28, %25
-  %.129 = phi i1 [ %.028, %25 ], [ true, %29 ], [ false, %28 ]
+  %.129 = phi i1 [ %.028, %25 ], [ false, %28 ], [ true, %29 ]
   %31 = invoke noundef i32 @_ZN17CaptureFileDialog16selectedFileTypeEv(ptr noundef nonnull align 8 dereferenceable_or_null(580) %7)
           to label %32 unwind label %.loopexit
 
@@ -54811,7 +54811,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109:   ; preds = %126
   br label %134
 
 134:                                              ; preds = %133, %132, %_ZN7QStringD2Ev.exit103
-  %.1 = phi i1 [ %.0, %_ZN7QStringD2Ev.exit103 ], [ true, %133 ], [ false, %132 ]
+  %.1 = phi i1 [ %.0, %_ZN7QStringD2Ev.exit103 ], [ false, %132 ], [ true, %133 ]
   %135 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %33)
           to label %.noexc112 unwind label %.loopexit272
 
@@ -85833,7 +85833,7 @@ _ZN10QByteArrayD2Ev.exit27:                       ; preds = %35, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 40:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %25, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %25, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 
@@ -86137,7 +86137,7 @@ _ZN10QByteArrayD2Ev.exit27:                       ; preds = %35, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 40:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %25, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %25, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 
@@ -89972,7 +89972,7 @@ _ZN10QByteArrayD2Ev.exit19:                       ; preds = %31, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %21, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %21, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 
@@ -94631,7 +94631,7 @@ _ZN10QByteArrayD2Ev.exit19:                       ; preds = %31, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %21, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %21, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 
@@ -95671,7 +95671,7 @@ _Z17qRegisterMetaTypeI7ts_typeEiPKc.exit:         ; preds = %27, %_ZN17QArrayDat
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 
@@ -96207,7 +96207,7 @@ _Z17qRegisterMetaTypeI12ts_precisionEiPKc.exit:   ; preds = %27, %_ZN17QArrayDat
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 

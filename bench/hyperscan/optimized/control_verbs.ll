@@ -208,7 +208,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   br label %96
 
 96:                                               ; preds = %55, %.loopexit, %._crit_edge265
-  %.2163 = phi i32 [ %.1162, %55 ], [ %.3164, %.loopexit ], [ %.1162225, %._crit_edge265 ]
+  %.2163 = phi i32 [ %.3164, %.loopexit ], [ %.1162225, %._crit_edge265 ], [ %.1162, %55 ]
   %97 = zext i32 %.2163 to i64
   %98 = getelementptr inbounds nuw [238 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE22_ControlVerbs_indicies, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
@@ -563,7 +563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %20
   br label %.loopexit236
 
 215:                                              ; preds = %122, %121, %120, %117
-  %.5150 = phi ptr [ %.4149245, %117 ], [ %114, %122 ], [ %114, %121 ], [ %114, %120 ]
+  %.5150 = phi ptr [ %.4149245, %117 ], [ %114, %120 ], [ %114, %121 ], [ %114, %122 ]
   %.not180 = icmp eq i32 %118, 0
   br i1 %.not180, label %.loopexit235, label %117, !llvm.loop !9
 
@@ -619,18 +619,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %20
   br label %101
 
 .loopexit236:                                     ; preds = %117, %226, %213, %211
-  %.3 = phi ptr [ %214, %213 ], [ %212, %211 ], [ %.0, %226 ], [ %.2, %117 ]
+  %.3 = phi ptr [ %212, %211 ], [ %214, %213 ], [ %.0, %226 ], [ %.2, %117 ]
   ret ptr %.3
 
 234:                                              ; preds = %210, %166
-  %.pn183.pn.pn.pn = phi { ptr, i32 } [ %.pn183.pn.pn, %210 ], [ %.pn189.pn.pn, %166 ]
-  %.4 = extractvalue { ptr, i32 } %.pn183.pn.pn.pn, 1
+  %.pn189.pn.pn.pn = phi { ptr, i32 } [ %.pn189.pn.pn, %166 ], [ %.pn183.pn.pn, %210 ]
+  %.4 = extractvalue { ptr, i32 } %.pn189.pn.pn.pn, 1
   %235 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3ue217LocatedParseErrorE) #12
   %236 = icmp eq i32 %.4, %235
   br i1 %236, label %.invoke, label %246
 
 .invoke:                                          ; preds = %234
-  %.4125 = extractvalue { ptr, i32 } %.pn183.pn.pn.pn, 0
+  %.4125 = extractvalue { ptr, i32 } %.pn189.pn.pn.pn, 0
   %237 = call ptr @__cxa_begin_catch(ptr %.4125) #12
   %.not194 = icmp ult ptr %.4137, %0
   %.not195 = icmp ugt ptr %.4137, %1
@@ -654,7 +654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %20
           to label %250 unwind label %243
 
 246:                                              ; preds = %243, %234
-  %.merged = phi { ptr, i32 } [ %.pn183.pn.pn.pn, %234 ], [ %244, %243 ]
+  %.merged = phi { ptr, i32 } [ %.pn189.pn.pn.pn, %234 ], [ %244, %243 ]
   resume { ptr, i32 } %.merged
 
 247:                                              ; preds = %243

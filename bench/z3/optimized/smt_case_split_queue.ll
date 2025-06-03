@@ -963,7 +963,7 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i.i99: ; preds = %_ZNK6vectorIiLb
   br label %common.resume
 
 _ZN12_GLOBAL__N_121dact_case_split_queueC2ERN3smt7contextER10smt_params.exit: ; preds = %288, %282, %65, %59, %_ZN12_GLOBAL__N_128theory_aware_branching_queueC2ERN3smt7contextER10smt_params.exit, %_ZN12_GLOBAL__N_125rel_goal_case_split_queueC2ERN3smt7contextER10smt_params.exit, %_ZN12_GLOBAL__N_124rel_act_case_split_queueC2ERN3smt7contextER10smt_params.exit, %120, %_ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit
-  %.0 = phi ptr [ %202, %_ZN12_GLOBAL__N_128theory_aware_branching_queueC2ERN3smt7contextER10smt_params.exit ], [ %174, %_ZN12_GLOBAL__N_125rel_goal_case_split_queueC2ERN3smt7contextER10smt_params.exit ], [ %134, %_ZN12_GLOBAL__N_124rel_act_case_split_queueC2ERN3smt7contextER10smt_params.exit ], [ %121, %120 ], [ %76, %_ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit ], [ %16, %59 ], [ %16, %65 ], [ %266, %282 ], [ %266, %288 ]
+  %.0 = phi ptr [ %76, %_ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit ], [ %121, %120 ], [ %134, %_ZN12_GLOBAL__N_124rel_act_case_split_queueC2ERN3smt7contextER10smt_params.exit ], [ %174, %_ZN12_GLOBAL__N_125rel_goal_case_split_queueC2ERN3smt7contextER10smt_params.exit ], [ %202, %_ZN12_GLOBAL__N_128theory_aware_branching_queueC2ERN3smt7contextER10smt_params.exit ], [ %16, %59 ], [ %16, %65 ], [ %266, %282 ], [ %266, %288 ]
   ret ptr %.0
 }
 
@@ -9369,7 +9369,7 @@ _ZN12_GLOBAL__N_125rel_goal_case_split_queue17set_generation_fnclEP4expr.exit132
   unreachable
 
 247:                                              ; preds = %223, %202, %200, %147, %133, %104, %71, %41
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %42, %41 ], [ %148, %147 ], [ %201, %200 ], [ %72, %71 ], [ %134, %133 ], [ %105, %104 ], [ %224, %223 ], [ %203, %202 ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %42, %41 ], [ %148, %147 ], [ %201, %200 ], [ %72, %71 ], [ %105, %104 ], [ %134, %133 ], [ %224, %223 ], [ %203, %202 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #26
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %3) #26
   br label %.body.i

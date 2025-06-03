@@ -129,7 +129,7 @@ define i16 @f16_roundToInt(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %58
 
 58:                                               ; preds = %51, %54, %14, %23, %24, %16, %21, %20, %30
-  %.0 = phi i64 [ %15, %14 ], [ %spec.store.select1, %24 ], [ %spec.store.select, %23 ], [ %22, %21 ], [ %15, %20 ], [ %15, %16 ], [ %31, %30 ], [ %53, %54 ], [ %53, %51 ]
+  %.0 = phi i64 [ %15, %14 ], [ %22, %21 ], [ %15, %16 ], [ %15, %20 ], [ %spec.store.select, %23 ], [ %spec.store.select1, %24 ], [ %31, %30 ], [ %53, %54 ], [ %53, %51 ]
   %59 = trunc i64 %.0 to i16
   br label %60
 

@@ -6911,8 +6911,8 @@ parse_persistent_pdu_payload.exit:                ; preds = %293
   %.not = icmp eq i32 %650, 12
   br i1 %.not, label %parse_persistent_pdu_payload.exit.thread63, label %parse_persistent_pdu_payload.exit.thread
 
-parse_persistent_pdu_payload.exit.thread:         ; preds = %648, %646, %645, %644, %643, %636, %144, %175, %206, %223, %246, %255, %274, %parse_persistent_pdu_payload.exit
-  %.05262 = phi i32 [ %650, %parse_persistent_pdu_payload.exit ], [ 60, %648 ], [ 60, %646 ], [ 60, %645 ], [ 60, %644 ], [ 60, %643 ], [ 60, %636 ], [ 118, %144 ], [ 44, %175 ], [ 31, %206 ], [ 35, %223 ], [ 25, %246 ], [ 38, %255 ], [ 32, %274 ]
+parse_persistent_pdu_payload.exit.thread:         ; preds = %648, %646, %645, %644, %643, %636, %274, %255, %246, %223, %206, %175, %144, %parse_persistent_pdu_payload.exit
+  %.05262 = phi i32 [ %650, %parse_persistent_pdu_payload.exit ], [ 60, %648 ], [ 60, %646 ], [ 60, %645 ], [ 60, %644 ], [ 60, %643 ], [ 60, %636 ], [ 32, %274 ], [ 38, %255 ], [ 25, %246 ], [ 35, %223 ], [ 31, %206 ], [ 44, %175 ], [ 118, %144 ]
   %651 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %651, ptr noundef %0, i32 noundef %.05262)
   br label %parse_persistent_pdu_payload.exit.thread63
@@ -9286,7 +9286,7 @@ dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1661
   br label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i
 
 dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i:        ; preds = %.lr.ph.i.i.i.i, %1771, %1769, %1756, %1740, %1721
-  %.0.i.i188 = phi i32 [ %1755, %1740 ], [ %1739, %1721 ], [ %1776, %1771 ], [ %1720, %1769 ], [ %1761, %1756 ], [ %1767, %.lr.ph.i.i.i.i ]
+  %.0.i.i188 = phi i32 [ %1739, %1721 ], [ %1755, %1740 ], [ %1776, %1771 ], [ %1720, %1769 ], [ %1761, %1756 ], [ %1767, %.lr.ph.i.i.i.i ]
   %1777 = and i16 %1717, 7
   %.not.i.i189 = icmp eq i16 %1777, 0
   br i1 %.not.i.i189, label %parseField_VariableRecord.exit.i, label %1778
@@ -9527,7 +9527,7 @@ dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit:      ; preds = %.lr.ph170.i, %._cri
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit:  ; preds = %.lr.ph.i.i.i175, %.lr.ph.i.i.i, %483, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, %873, %parse_Link16_Message_Data.exit.i, %708, %695, %674, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i, %.preheader.i, %.preheader193.i, %4, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit, %1785, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, %1561, %1559, %1483, %1481, %1448, %1446, %1401, %1342, %1323, %1321, %1251, %1222, %1220, %1191, %1189, %1146, %1091, %dissect_DIS_PARSER_DETONATION_PDU.exit, %952, %913, %878, %516, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit, %201, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit
-  %.0 = phi i32 [ %1966, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit ], [ %1818, %1785 ], [ %.0.lcssa.i193, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit ], [ %.0.lcssa.i184, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit ], [ 32, %1561 ], [ %1560, %1559 ], [ %1513, %1483 ], [ %1482, %1481 ], [ %1480, %1448 ], [ %1447, %1446 ], [ 40, %1401 ], [ 48, %1342 ], [ 28, %1323 ], [ %1322, %1321 ], [ %1279, %1251 ], [ %1250, %1222 ], [ %1221, %1220 ], [ %1219, %1191 ], [ %1190, %1189 ], [ 40, %1146 ], [ 44, %1091 ], [ %.092.lcssa.i, %dissect_DIS_PARSER_DETONATION_PDU.exit ], [ %1009, %952 ], [ 36, %913 ], [ 36, %878 ], [ 88, %516 ], [ %.0.lcssa.i, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit ], [ 60, %201 ], [ %.0173.lcssa.i, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit ], [ 12, %4 ], [ %482, %.preheader.i ], [ %.1.lcssa.i144, %.preheader193.i ], [ %711, %708 ], [ 112, %695 ], [ 120, %674 ], [ 104, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i ], [ %.0.i.i149, %parse_Link16_Message_Data.exit.i ], [ %877, %873 ], [ %.012.lcssa.i.i, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i ], [ %.012.lcssa.i.i173, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172 ], [ %515, %483 ], [ %1319, %.lr.ph.i.i.i ], [ %1557, %.lr.ph.i.i.i175 ]
+  %.0 = phi i32 [ %.0173.lcssa.i, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit ], [ 60, %201 ], [ %.0.lcssa.i, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit ], [ 88, %516 ], [ 36, %878 ], [ 36, %913 ], [ %1009, %952 ], [ %.092.lcssa.i, %dissect_DIS_PARSER_DETONATION_PDU.exit ], [ 44, %1091 ], [ 40, %1146 ], [ %1190, %1189 ], [ %1219, %1191 ], [ %1221, %1220 ], [ %1250, %1222 ], [ %1279, %1251 ], [ %1322, %1321 ], [ 28, %1323 ], [ 48, %1342 ], [ 40, %1401 ], [ %1447, %1446 ], [ %1480, %1448 ], [ %1482, %1481 ], [ %1513, %1483 ], [ %1560, %1559 ], [ 32, %1561 ], [ %.0.lcssa.i184, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit ], [ %.0.lcssa.i193, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit ], [ %1818, %1785 ], [ %1966, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit ], [ 12, %4 ], [ %482, %.preheader.i ], [ %.1.lcssa.i144, %.preheader193.i ], [ %711, %708 ], [ 120, %674 ], [ 112, %695 ], [ 104, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i ], [ %.0.i.i149, %parse_Link16_Message_Data.exit.i ], [ %877, %873 ], [ %.012.lcssa.i.i, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i ], [ %.012.lcssa.i.i173, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172 ], [ %515, %483 ], [ %1319, %.lr.ph.i.i.i ], [ %1557, %.lr.ph.i.i.i175 ]
   ret i32 %.0
 }
 
@@ -9775,7 +9775,7 @@ define internal fastcc noundef i32 @parseField_VariableParameter(ptr noundef %0,
   br label %95
 
 95:                                               ; preds = %91, %58, %40, %21, %5
-  %.0 = phi i32 [ %94, %91 ], [ %90, %58 ], [ %57, %40 ], [ %39, %21 ], [ %20, %5 ]
+  %.0 = phi i32 [ %94, %91 ], [ %20, %5 ], [ %39, %21 ], [ %57, %40 ], [ %90, %58 ]
   ret i32 %.0
 }
 
@@ -9857,7 +9857,7 @@ define internal fastcc noundef i32 @dissect_DIS_FIELDS_ENTITY_TYPE_RECORD(ptr no
   br label %57
 
 57:                                               ; preds = %46, %47, %49, %51, %53, %55, %21
-  %.0 = phi i32 [ %8, %46 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %8, %21 ]
+  %.0 = phi i32 [ %8, %46 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %8, %21 ]
   %58 = tail call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %.0, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef %35)
   %59 = tail call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %9, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef %36)
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %10, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %37)

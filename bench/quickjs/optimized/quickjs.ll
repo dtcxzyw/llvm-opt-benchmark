@@ -1821,9 +1821,9 @@ define internal { i64, i64 } @js_call_c_function(ptr noundef %0, i64 %1, i64 %2,
   br label %194
 
 59:                                               ; preds = %55, %53, %50
-  %.sroa.0171.0 = phi i64 [ %3, %50 ], [ %3, %53 ], [ 0, %55 ]
-  %.sroa.10.0 = phi i64 [ %.sroa.10.0.extract.shift, %50 ], [ %.sroa.10.0.extract.shift, %53 ], [ 0, %55 ]
-  %.sroa.12.0 = phi i64 [ %4, %50 ], [ %4, %53 ], [ 3, %55 ]
+  %.sroa.0171.0 = phi i64 [ %3, %53 ], [ %3, %50 ], [ 0, %55 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.0.extract.shift, %53 ], [ %.sroa.10.0.extract.shift, %50 ], [ 0, %55 ]
+  %.sroa.12.0 = phi i64 [ %4, %53 ], [ %4, %50 ], [ 3, %55 ]
   %.sroa.10.0.insert.shift = shl nuw i64 %.sroa.10.0, 32
   %.sroa.0171.0.insert.ext = and i64 %.sroa.0171.0, 4294967295
   %.sroa.0171.0.insert.insert = or disjoint i64 %.sroa.10.0.insert.shift, %.sroa.0171.0.insert.ext
@@ -1842,9 +1842,9 @@ define internal { i64, i64 } @js_call_c_function(ptr noundef %0, i64 %1, i64 %2,
   br i1 %66, label %57, label %67
 
 67:                                               ; preds = %65, %63, %50
-  %.sroa.0171.1 = phi i64 [ %3, %50 ], [ %3, %63 ], [ 0, %65 ]
-  %.sroa.10.1 = phi i64 [ %.sroa.10.0.extract.shift, %50 ], [ %.sroa.10.0.extract.shift, %63 ], [ 0, %65 ]
-  %.sroa.12.1 = phi i64 [ %4, %50 ], [ %4, %63 ], [ 3, %65 ]
+  %.sroa.0171.1 = phi i64 [ %3, %63 ], [ %3, %50 ], [ 0, %65 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.0.extract.shift, %63 ], [ %.sroa.10.0.extract.shift, %50 ], [ 0, %65 ]
+  %.sroa.12.1 = phi i64 [ %4, %63 ], [ %4, %50 ], [ 3, %65 ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0232.0..sroa.0232.0..sroa.0232.0..cast, i64 66
   %69 = load i16, ptr %68, align 2, !tbaa !46
   %70 = sext i16 %69 to i32
@@ -2132,9 +2132,9 @@ JS_NewFloat64.exit257:                            ; preds = %169, %175
   unreachable
 
 194:                                              ; preds = %176, %130, %192, %92, %85, %78, %74, %67, %59, %57
-  %.sroa.22.0 = phi i64 [ %.sroa.22.3, %192 ], [ %.sroa.22.2, %176 ], [ %.sroa.22.1, %130 ], [ %101, %92 ], [ %91, %85 ], [ %84, %78 ], [ %77, %74 ], [ %73, %67 ], [ 6, %57 ], [ %62, %59 ]
-  %.sroa.062.sroa.0.0 = phi i64 [ %.sroa.062.sroa.0.3.in, %192 ], [ %.sroa.062.sroa.0.2, %176 ], [ %.sroa.062.sroa.0.1, %130 ], [ %100, %92 ], [ %90, %85 ], [ %83, %78 ], [ %76, %74 ], [ %72, %67 ], [ 0, %57 ], [ %61, %59 ]
-  %.sroa.062.sroa.19.0 = phi i64 [ %.sroa.062.sroa.0.3.in, %192 ], [ %.sroa.062.sroa.19.2, %176 ], [ %.sroa.062.sroa.19.1, %130 ], [ %100, %92 ], [ %90, %85 ], [ %83, %78 ], [ %76, %74 ], [ %72, %67 ], [ 0, %57 ], [ %61, %59 ]
+  %.sroa.22.0 = phi i64 [ %62, %59 ], [ 6, %57 ], [ %73, %67 ], [ %77, %74 ], [ %84, %78 ], [ %91, %85 ], [ %101, %92 ], [ %.sroa.22.1, %130 ], [ %.sroa.22.2, %176 ], [ %.sroa.22.3, %192 ]
+  %.sroa.062.sroa.0.0 = phi i64 [ %61, %59 ], [ 0, %57 ], [ %72, %67 ], [ %76, %74 ], [ %83, %78 ], [ %90, %85 ], [ %100, %92 ], [ %.sroa.062.sroa.0.1, %130 ], [ %.sroa.062.sroa.0.2, %176 ], [ %.sroa.062.sroa.0.3.in, %192 ]
+  %.sroa.062.sroa.19.0 = phi i64 [ %61, %59 ], [ 0, %57 ], [ %72, %67 ], [ %76, %74 ], [ %83, %78 ], [ %90, %85 ], [ %100, %92 ], [ %.sroa.062.sroa.19.1, %130 ], [ %.sroa.062.sroa.19.2, %176 ], [ %.sroa.062.sroa.0.3.in, %192 ]
   %195 = load ptr, ptr %9, align 8, !tbaa !101
   store ptr %195, ptr %31, align 8, !tbaa !100
   %.sroa.062.sroa.19.0.insert.ext107 = and i64 %.sroa.062.sroa.19.0, -4294967296
@@ -17332,26 +17332,26 @@ compute_value_size.exit320:                       ; preds = %663, %669, %672
   br label %compute_value_size.exit299
 
 compute_value_size.exit299:                       ; preds = %compute_value_size.exit303, %compute_value_size.exit295, %483, %410, %643, %compute_jsstring_size.exit, %461, %458, %451, %478, %._crit_edge430, %406, %401, %707, %704, %480, %._crit_edge421, %579, %compute_value_size.exit320, %660, %694, %699, %691, %221, %compute_bytecode_size.exit
-  %709 = phi i64 [ %222, %221 ], [ %222, %704 ], [ %222, %707 ], [ %222, %691 ], [ %222, %694 ], [ %222, %699 ], [ %222, %660 ], [ %222, %compute_value_size.exit320 ], [ %222, %579 ], [ %222, %._crit_edge421 ], [ %222, %._crit_edge430 ], [ %222, %480 ], [ %222, %478 ], [ %222, %401 ], [ %222, %406 ], [ %222, %compute_bytecode_size.exit ], [ %222, %451 ], [ %222, %458 ], [ %222, %461 ], [ %222, %compute_jsstring_size.exit ], [ %222, %643 ], [ %419, %410 ], [ %222, %483 ], [ %419, %compute_value_size.exit295 ], [ %222, %compute_value_size.exit303 ]
-  %710 = phi i64 [ %223, %221 ], [ %223, %704 ], [ %223, %707 ], [ %223, %691 ], [ %223, %694 ], [ %223, %699 ], [ %223, %660 ], [ %223, %compute_value_size.exit320 ], [ %223, %579 ], [ %223, %._crit_edge421 ], [ %223, %._crit_edge430 ], [ %223, %480 ], [ %223, %478 ], [ %223, %401 ], [ %407, %406 ], [ %223, %compute_bytecode_size.exit ], [ %223, %451 ], [ %223, %458 ], [ %223, %461 ], [ %223, %compute_jsstring_size.exit ], [ %223, %643 ], [ %407, %410 ], [ %223, %483 ], [ %407, %compute_value_size.exit295 ], [ %223, %compute_value_size.exit303 ]
-  %711 = phi i64 [ %224, %221 ], [ %224, %704 ], [ %224, %707 ], [ %224, %691 ], [ %224, %694 ], [ %224, %699 ], [ %224, %660 ], [ %224, %compute_value_size.exit320 ], [ %224, %579 ], [ %224, %._crit_edge421 ], [ %224, %._crit_edge430 ], [ %224, %480 ], [ %224, %478 ], [ %402, %401 ], [ %402, %406 ], [ %224, %compute_bytecode_size.exit ], [ %224, %451 ], [ %224, %458 ], [ %224, %461 ], [ %224, %compute_jsstring_size.exit ], [ %224, %643 ], [ %402, %410 ], [ %224, %483 ], [ %402, %compute_value_size.exit295 ], [ %224, %compute_value_size.exit303 ]
-  %712 = phi i64 [ %225, %221 ], [ %225, %704 ], [ %225, %707 ], [ %225, %691 ], [ %225, %694 ], [ %225, %699 ], [ %225, %660 ], [ %225, %compute_value_size.exit320 ], [ %225, %579 ], [ %225, %._crit_edge421 ], [ %225, %._crit_edge430 ], [ %225, %480 ], [ %479, %478 ], [ %225, %401 ], [ %225, %406 ], [ %225, %compute_bytecode_size.exit ], [ %225, %451 ], [ %225, %458 ], [ %225, %461 ], [ %225, %compute_jsstring_size.exit ], [ %225, %643 ], [ %225, %410 ], [ %225, %483 ], [ %225, %compute_value_size.exit295 ], [ %225, %compute_value_size.exit303 ]
-  %713 = phi i64 [ %226, %221 ], [ %226, %704 ], [ %226, %707 ], [ %226, %691 ], [ %226, %694 ], [ %226, %699 ], [ %226, %660 ], [ %226, %compute_value_size.exit320 ], [ %226, %579 ], [ %226, %._crit_edge421 ], [ %226, %._crit_edge430 ], [ %226, %480 ], [ %226, %478 ], [ %226, %401 ], [ %226, %406 ], [ %226, %compute_bytecode_size.exit ], [ %226, %451 ], [ %226, %458 ], [ %226, %461 ], [ %226, %compute_jsstring_size.exit ], [ %226, %643 ], [ %226, %410 ], [ %491, %483 ], [ %226, %compute_value_size.exit295 ], [ %538, %compute_value_size.exit303 ]
-  %714 = phi i64 [ %227, %221 ], [ %227, %704 ], [ %227, %707 ], [ %227, %691 ], [ %696, %694 ], [ %703, %699 ], [ %227, %660 ], [ %690, %compute_value_size.exit320 ], [ %227, %579 ], [ %616, %._crit_edge421 ], [ %578, %._crit_edge430 ], [ %227, %480 ], [ %227, %478 ], [ %227, %401 ], [ %227, %406 ], [ %227, %compute_bytecode_size.exit ], [ %227, %451 ], [ %227, %458 ], [ %227, %461 ], [ %227, %compute_jsstring_size.exit ], [ %227, %643 ], [ %416, %410 ], [ %227, %483 ], [ %416, %compute_value_size.exit295 ], [ %227, %compute_value_size.exit303 ]
-  %715 = phi i64 [ %228, %221 ], [ %397, %704 ], [ %397, %707 ], [ %397, %691 ], [ %397, %694 ], [ %397, %699 ], [ %397, %660 ], [ %397, %compute_value_size.exit320 ], [ %397, %579 ], [ %397, %._crit_edge421 ], [ %397, %._crit_edge430 ], [ %397, %480 ], [ %397, %478 ], [ %397, %401 ], [ %397, %406 ], [ %228, %compute_bytecode_size.exit ], [ %397, %451 ], [ %397, %458 ], [ %397, %461 ], [ %397, %compute_jsstring_size.exit ], [ %397, %643 ], [ %397, %410 ], [ %397, %483 ], [ %397, %compute_value_size.exit295 ], [ %397, %compute_value_size.exit303 ]
-  %716 = phi i64 [ %229, %221 ], [ %398, %704 ], [ %398, %707 ], [ %398, %691 ], [ %398, %694 ], [ %398, %699 ], [ %398, %660 ], [ %398, %compute_value_size.exit320 ], [ %398, %579 ], [ %398, %._crit_edge421 ], [ %398, %._crit_edge430 ], [ %398, %480 ], [ %398, %478 ], [ %398, %401 ], [ %398, %406 ], [ %229, %compute_bytecode_size.exit ], [ %398, %451 ], [ %398, %458 ], [ %398, %461 ], [ %398, %compute_jsstring_size.exit ], [ %398, %643 ], [ %398, %410 ], [ %398, %483 ], [ %398, %compute_value_size.exit295 ], [ %398, %compute_value_size.exit303 ]
-  %717 = phi i64 [ %230, %221 ], [ %377, %704 ], [ %377, %707 ], [ %377, %691 ], [ %377, %694 ], [ %377, %699 ], [ %377, %660 ], [ %377, %compute_value_size.exit320 ], [ %377, %579 ], [ %377, %._crit_edge421 ], [ %377, %._crit_edge430 ], [ %377, %480 ], [ %377, %478 ], [ %377, %401 ], [ %377, %406 ], [ %230, %compute_bytecode_size.exit ], [ %377, %451 ], [ %377, %458 ], [ %377, %461 ], [ %377, %compute_jsstring_size.exit ], [ %377, %643 ], [ %377, %410 ], [ %377, %483 ], [ %377, %compute_value_size.exit295 ], [ %377, %compute_value_size.exit303 ]
-  %718 = phi i64 [ %231, %221 ], [ %378, %704 ], [ %378, %707 ], [ %378, %691 ], [ %378, %694 ], [ %378, %699 ], [ %378, %660 ], [ %378, %compute_value_size.exit320 ], [ %378, %579 ], [ %378, %._crit_edge421 ], [ %378, %._crit_edge430 ], [ %378, %480 ], [ %378, %478 ], [ %378, %401 ], [ %378, %406 ], [ %231, %compute_bytecode_size.exit ], [ %378, %451 ], [ %378, %458 ], [ %378, %461 ], [ %378, %compute_jsstring_size.exit ], [ %378, %643 ], [ %378, %410 ], [ %378, %483 ], [ %378, %compute_value_size.exit295 ], [ %378, %compute_value_size.exit303 ]
-  %719 = phi i64 [ %232, %221 ], [ %379, %704 ], [ %708, %707 ], [ %379, %691 ], [ %695, %694 ], [ %700, %699 ], [ %379, %660 ], [ %689, %compute_value_size.exit320 ], [ %379, %579 ], [ %612, %._crit_edge421 ], [ %574, %._crit_edge430 ], [ %379, %480 ], [ %379, %478 ], [ %379, %401 ], [ %379, %406 ], [ %232, %compute_bytecode_size.exit ], [ %379, %451 ], [ %379, %458 ], [ %379, %461 ], [ %379, %compute_jsstring_size.exit ], [ %379, %643 ], [ %411, %410 ], [ %486, %483 ], [ %411, %compute_value_size.exit295 ], [ %539, %compute_value_size.exit303 ]
-  %720 = phi i64 [ %233, %221 ], [ %329, %704 ], [ %329, %707 ], [ %329, %691 ], [ %329, %694 ], [ %329, %699 ], [ %329, %660 ], [ %329, %compute_value_size.exit320 ], [ %329, %579 ], [ %329, %._crit_edge421 ], [ %329, %._crit_edge430 ], [ %329, %480 ], [ %329, %478 ], [ %329, %401 ], [ %329, %406 ], [ %233, %compute_bytecode_size.exit ], [ %329, %451 ], [ %329, %458 ], [ %329, %461 ], [ %329, %compute_jsstring_size.exit ], [ %329, %643 ], [ %329, %410 ], [ %329, %483 ], [ %329, %compute_value_size.exit295 ], [ %329, %compute_value_size.exit303 ]
-  %.sroa.0.1 = phi double [ %.sroa.0.0450, %221 ], [ %.sroa.0.0450, %704 ], [ %.sroa.0.0450, %707 ], [ %.sroa.0.0450, %691 ], [ %.sroa.0.0450, %694 ], [ %.sroa.0.0450, %699 ], [ %.sroa.0.0450, %660 ], [ %.sroa.0.0450, %compute_value_size.exit320 ], [ %.sroa.0.0450, %579 ], [ %.sroa.0.0450, %._crit_edge421 ], [ %.sroa.0.0450, %._crit_edge430 ], [ %.sroa.0.0450, %480 ], [ %.sroa.0.0450, %478 ], [ %.sroa.0.0450, %401 ], [ %.sroa.0.0450, %406 ], [ %325, %compute_bytecode_size.exit ], [ %.sroa.0.0450, %451 ], [ %.sroa.0.0450, %458 ], [ %.sroa.0.0450, %461 ], [ %.sroa.0.0450, %compute_jsstring_size.exit ], [ %.sroa.0.0450, %643 ], [ %.sroa.0.0450, %410 ], [ %.sroa.0.0450, %483 ], [ %.sroa.0.0450, %compute_value_size.exit295 ], [ %.sroa.0.0450, %compute_value_size.exit303 ]
-  %.sroa.6.6 = phi double [ %.sroa.6.5451, %221 ], [ %.sroa.6.7, %704 ], [ %.sroa.6.7, %707 ], [ %.sroa.6.7, %691 ], [ %.sroa.6.7, %694 ], [ %.sroa.6.7, %699 ], [ %.sroa.6.7, %660 ], [ %.sroa.6.29, %compute_value_size.exit320 ], [ %.sroa.6.7, %579 ], [ %.sroa.6.14.lcssa, %._crit_edge421 ], [ %.sroa.6.13.lcssa, %._crit_edge430 ], [ %.sroa.6.7, %480 ], [ %.sroa.6.7, %478 ], [ %.sroa.6.7, %401 ], [ %.sroa.6.7, %406 ], [ %.sroa.6.18, %compute_bytecode_size.exit ], [ %.sroa.6.7, %451 ], [ %.sroa.6.7, %458 ], [ %465, %461 ], [ %.sroa.6.27, %compute_jsstring_size.exit ], [ %647, %643 ], [ %.sroa.6.7, %410 ], [ %.sroa.6.7, %483 ], [ %.sroa.6.22, %compute_value_size.exit295 ], [ %.sroa.6.12, %compute_value_size.exit303 ]
-  %.sroa.33.6 = phi double [ %.sroa.33.5452, %221 ], [ %.sroa.33.7, %704 ], [ %.sroa.33.7, %707 ], [ %.sroa.33.7, %691 ], [ %.sroa.33.7, %694 ], [ %.sroa.33.7, %699 ], [ %.sroa.33.7, %660 ], [ %.sroa.33.29, %compute_value_size.exit320 ], [ %.sroa.33.7, %579 ], [ %.sroa.33.14.lcssa, %._crit_edge421 ], [ %.sroa.33.13.lcssa, %._crit_edge430 ], [ %.sroa.33.7, %480 ], [ %.sroa.33.7, %478 ], [ %.sroa.33.7, %401 ], [ %.sroa.33.7, %406 ], [ %.sroa.33.18, %compute_bytecode_size.exit ], [ %.sroa.33.7, %451 ], [ %.sroa.33.7, %458 ], [ %477, %461 ], [ %.sroa.33.27, %compute_jsstring_size.exit ], [ %659, %643 ], [ %.sroa.33.7, %410 ], [ %.sroa.33.7, %483 ], [ %.sroa.33.22, %compute_value_size.exit295 ], [ %.sroa.33.12, %compute_value_size.exit303 ]
-  %.sroa.60.1 = phi i64 [ %.sroa.60.0453, %221 ], [ %.sroa.60.0453, %704 ], [ %.sroa.60.0453, %707 ], [ %.sroa.60.0453, %691 ], [ %.sroa.60.0453, %694 ], [ %.sroa.60.0453, %699 ], [ %.sroa.60.0453, %660 ], [ %.sroa.60.0453, %compute_value_size.exit320 ], [ %.sroa.60.0453, %579 ], [ %.sroa.60.0453, %._crit_edge421 ], [ %.sroa.60.0453, %._crit_edge430 ], [ %.sroa.60.0453, %480 ], [ %.sroa.60.0453, %478 ], [ %.sroa.60.0453, %401 ], [ %.sroa.60.0453, %406 ], [ %323, %compute_bytecode_size.exit ], [ %.sroa.60.0453, %451 ], [ %.sroa.60.0453, %458 ], [ %.sroa.60.0453, %461 ], [ %.sroa.60.0453, %compute_jsstring_size.exit ], [ %.sroa.60.0453, %643 ], [ %.sroa.60.0453, %410 ], [ %.sroa.60.0453, %483 ], [ %.sroa.60.0453, %compute_value_size.exit295 ], [ %.sroa.60.0453, %compute_value_size.exit303 ]
-  %.sroa.63.1 = phi double [ %.sroa.63.0454, %221 ], [ %.sroa.63.0454, %704 ], [ %.sroa.63.0454, %707 ], [ %.sroa.63.0454, %691 ], [ %.sroa.63.0454, %694 ], [ %.sroa.63.0454, %699 ], [ %.sroa.63.0454, %660 ], [ %.sroa.63.0454, %compute_value_size.exit320 ], [ %.sroa.63.0454, %579 ], [ %.sroa.63.0454, %._crit_edge421 ], [ %.sroa.63.0454, %._crit_edge430 ], [ %.sroa.63.0454, %480 ], [ %.sroa.63.0454, %478 ], [ %.sroa.63.0454, %401 ], [ %.sroa.63.0454, %406 ], [ %322, %compute_bytecode_size.exit ], [ %.sroa.63.0454, %451 ], [ %.sroa.63.0454, %458 ], [ %.sroa.63.0454, %461 ], [ %.sroa.63.0454, %compute_jsstring_size.exit ], [ %.sroa.63.0454, %643 ], [ %.sroa.63.0454, %410 ], [ %.sroa.63.0454, %483 ], [ %.sroa.63.0454, %compute_value_size.exit295 ], [ %.sroa.63.0454, %compute_value_size.exit303 ]
-  %.sroa.66.1 = phi i64 [ %.sroa.66.0455, %221 ], [ %.sroa.66.0455, %704 ], [ %.sroa.66.0455, %707 ], [ %.sroa.66.0455, %691 ], [ %.sroa.66.0455, %694 ], [ %.sroa.66.0455, %699 ], [ %.sroa.66.0455, %660 ], [ %.sroa.66.0455, %compute_value_size.exit320 ], [ %.sroa.66.0455, %579 ], [ %.sroa.66.0455, %._crit_edge421 ], [ %.sroa.66.0455, %._crit_edge430 ], [ %.sroa.66.0455, %480 ], [ %.sroa.66.0455, %478 ], [ %.sroa.66.0455, %401 ], [ %.sroa.66.0455, %406 ], [ %.sroa.66.2, %compute_bytecode_size.exit ], [ %.sroa.66.0455, %451 ], [ %.sroa.66.0455, %458 ], [ %.sroa.66.0455, %461 ], [ %.sroa.66.0455, %compute_jsstring_size.exit ], [ %.sroa.66.0455, %643 ], [ %.sroa.66.0455, %410 ], [ %.sroa.66.0455, %483 ], [ %.sroa.66.0455, %compute_value_size.exit295 ], [ %.sroa.66.0455, %compute_value_size.exit303 ]
-  %.sroa.69.1 = phi i64 [ %.sroa.69.0456, %221 ], [ %.sroa.69.0456, %704 ], [ %.sroa.69.0456, %707 ], [ %.sroa.69.0456, %691 ], [ %.sroa.69.0456, %694 ], [ %.sroa.69.0456, %699 ], [ %.sroa.69.0456, %660 ], [ %.sroa.69.0456, %compute_value_size.exit320 ], [ %.sroa.69.0456, %579 ], [ %.sroa.69.0456, %._crit_edge421 ], [ %.sroa.69.0456, %._crit_edge430 ], [ %.sroa.69.0456, %480 ], [ %.sroa.69.0456, %478 ], [ %.sroa.69.0456, %401 ], [ %.sroa.69.0456, %406 ], [ %.sroa.69.2, %compute_bytecode_size.exit ], [ %.sroa.69.0456, %451 ], [ %.sroa.69.0456, %458 ], [ %.sroa.69.0456, %461 ], [ %.sroa.69.0456, %compute_jsstring_size.exit ], [ %.sroa.69.0456, %643 ], [ %.sroa.69.0456, %410 ], [ %.sroa.69.0456, %483 ], [ %.sroa.69.0456, %compute_value_size.exit295 ], [ %.sroa.69.0456, %compute_value_size.exit303 ]
-  %.sroa.72.1 = phi i64 [ %.sroa.72.0457, %221 ], [ %.sroa.72.0457, %704 ], [ %.sroa.72.0457, %707 ], [ %.sroa.72.0457, %691 ], [ %.sroa.72.0457, %694 ], [ %.sroa.72.0457, %699 ], [ %.sroa.72.0457, %660 ], [ %.sroa.72.0457, %compute_value_size.exit320 ], [ %.sroa.72.0457, %579 ], [ %.sroa.72.0457, %._crit_edge421 ], [ %.sroa.72.0457, %._crit_edge430 ], [ %.sroa.72.0457, %480 ], [ %.sroa.72.0457, %478 ], [ %.sroa.72.0457, %401 ], [ %.sroa.72.0457, %406 ], [ %.sroa.72.2, %compute_bytecode_size.exit ], [ %.sroa.72.0457, %451 ], [ %.sroa.72.0457, %458 ], [ %.sroa.72.0457, %461 ], [ %.sroa.72.0457, %compute_jsstring_size.exit ], [ %.sroa.72.0457, %643 ], [ %.sroa.72.0457, %410 ], [ %.sroa.72.0457, %483 ], [ %.sroa.72.0457, %compute_value_size.exit295 ], [ %.sroa.72.0457, %compute_value_size.exit303 ]
+  %709 = phi i64 [ %222, %221 ], [ %222, %compute_bytecode_size.exit ], [ %222, %704 ], [ %222, %707 ], [ %222, %401 ], [ %222, %406 ], [ %222, %478 ], [ %222, %480 ], [ %222, %._crit_edge430 ], [ %222, %579 ], [ %222, %._crit_edge421 ], [ %222, %660 ], [ %222, %compute_value_size.exit320 ], [ %222, %691 ], [ %222, %694 ], [ %222, %699 ], [ %222, %451 ], [ %222, %458 ], [ %222, %461 ], [ %222, %compute_jsstring_size.exit ], [ %222, %643 ], [ %419, %410 ], [ %222, %483 ], [ %419, %compute_value_size.exit295 ], [ %222, %compute_value_size.exit303 ]
+  %710 = phi i64 [ %223, %221 ], [ %223, %compute_bytecode_size.exit ], [ %223, %704 ], [ %223, %707 ], [ %223, %401 ], [ %407, %406 ], [ %223, %478 ], [ %223, %480 ], [ %223, %._crit_edge430 ], [ %223, %579 ], [ %223, %._crit_edge421 ], [ %223, %660 ], [ %223, %compute_value_size.exit320 ], [ %223, %691 ], [ %223, %694 ], [ %223, %699 ], [ %223, %451 ], [ %223, %458 ], [ %223, %461 ], [ %223, %compute_jsstring_size.exit ], [ %223, %643 ], [ %407, %410 ], [ %223, %483 ], [ %407, %compute_value_size.exit295 ], [ %223, %compute_value_size.exit303 ]
+  %711 = phi i64 [ %224, %221 ], [ %224, %compute_bytecode_size.exit ], [ %224, %704 ], [ %224, %707 ], [ %402, %401 ], [ %402, %406 ], [ %224, %478 ], [ %224, %480 ], [ %224, %._crit_edge430 ], [ %224, %579 ], [ %224, %._crit_edge421 ], [ %224, %660 ], [ %224, %compute_value_size.exit320 ], [ %224, %691 ], [ %224, %694 ], [ %224, %699 ], [ %224, %451 ], [ %224, %458 ], [ %224, %461 ], [ %224, %compute_jsstring_size.exit ], [ %224, %643 ], [ %402, %410 ], [ %224, %483 ], [ %402, %compute_value_size.exit295 ], [ %224, %compute_value_size.exit303 ]
+  %712 = phi i64 [ %225, %221 ], [ %225, %compute_bytecode_size.exit ], [ %225, %704 ], [ %225, %707 ], [ %225, %401 ], [ %225, %406 ], [ %479, %478 ], [ %225, %480 ], [ %225, %._crit_edge430 ], [ %225, %579 ], [ %225, %._crit_edge421 ], [ %225, %660 ], [ %225, %compute_value_size.exit320 ], [ %225, %691 ], [ %225, %694 ], [ %225, %699 ], [ %225, %451 ], [ %225, %458 ], [ %225, %461 ], [ %225, %compute_jsstring_size.exit ], [ %225, %643 ], [ %225, %410 ], [ %225, %483 ], [ %225, %compute_value_size.exit295 ], [ %225, %compute_value_size.exit303 ]
+  %713 = phi i64 [ %226, %221 ], [ %226, %compute_bytecode_size.exit ], [ %226, %704 ], [ %226, %707 ], [ %226, %401 ], [ %226, %406 ], [ %226, %478 ], [ %226, %480 ], [ %226, %._crit_edge430 ], [ %226, %579 ], [ %226, %._crit_edge421 ], [ %226, %660 ], [ %226, %compute_value_size.exit320 ], [ %226, %691 ], [ %226, %694 ], [ %226, %699 ], [ %226, %451 ], [ %226, %458 ], [ %226, %461 ], [ %226, %compute_jsstring_size.exit ], [ %226, %643 ], [ %226, %410 ], [ %491, %483 ], [ %226, %compute_value_size.exit295 ], [ %538, %compute_value_size.exit303 ]
+  %714 = phi i64 [ %227, %221 ], [ %227, %compute_bytecode_size.exit ], [ %227, %704 ], [ %227, %707 ], [ %227, %401 ], [ %227, %406 ], [ %227, %478 ], [ %227, %480 ], [ %578, %._crit_edge430 ], [ %227, %579 ], [ %616, %._crit_edge421 ], [ %227, %660 ], [ %690, %compute_value_size.exit320 ], [ %227, %691 ], [ %696, %694 ], [ %703, %699 ], [ %227, %451 ], [ %227, %458 ], [ %227, %461 ], [ %227, %compute_jsstring_size.exit ], [ %227, %643 ], [ %416, %410 ], [ %227, %483 ], [ %416, %compute_value_size.exit295 ], [ %227, %compute_value_size.exit303 ]
+  %715 = phi i64 [ %228, %221 ], [ %228, %compute_bytecode_size.exit ], [ %397, %704 ], [ %397, %707 ], [ %397, %401 ], [ %397, %406 ], [ %397, %478 ], [ %397, %480 ], [ %397, %._crit_edge430 ], [ %397, %579 ], [ %397, %._crit_edge421 ], [ %397, %660 ], [ %397, %compute_value_size.exit320 ], [ %397, %691 ], [ %397, %694 ], [ %397, %699 ], [ %397, %451 ], [ %397, %458 ], [ %397, %461 ], [ %397, %compute_jsstring_size.exit ], [ %397, %643 ], [ %397, %410 ], [ %397, %483 ], [ %397, %compute_value_size.exit295 ], [ %397, %compute_value_size.exit303 ]
+  %716 = phi i64 [ %229, %221 ], [ %229, %compute_bytecode_size.exit ], [ %398, %704 ], [ %398, %707 ], [ %398, %401 ], [ %398, %406 ], [ %398, %478 ], [ %398, %480 ], [ %398, %._crit_edge430 ], [ %398, %579 ], [ %398, %._crit_edge421 ], [ %398, %660 ], [ %398, %compute_value_size.exit320 ], [ %398, %691 ], [ %398, %694 ], [ %398, %699 ], [ %398, %451 ], [ %398, %458 ], [ %398, %461 ], [ %398, %compute_jsstring_size.exit ], [ %398, %643 ], [ %398, %410 ], [ %398, %483 ], [ %398, %compute_value_size.exit295 ], [ %398, %compute_value_size.exit303 ]
+  %717 = phi i64 [ %230, %221 ], [ %230, %compute_bytecode_size.exit ], [ %377, %704 ], [ %377, %707 ], [ %377, %401 ], [ %377, %406 ], [ %377, %478 ], [ %377, %480 ], [ %377, %._crit_edge430 ], [ %377, %579 ], [ %377, %._crit_edge421 ], [ %377, %660 ], [ %377, %compute_value_size.exit320 ], [ %377, %691 ], [ %377, %694 ], [ %377, %699 ], [ %377, %451 ], [ %377, %458 ], [ %377, %461 ], [ %377, %compute_jsstring_size.exit ], [ %377, %643 ], [ %377, %410 ], [ %377, %483 ], [ %377, %compute_value_size.exit295 ], [ %377, %compute_value_size.exit303 ]
+  %718 = phi i64 [ %231, %221 ], [ %231, %compute_bytecode_size.exit ], [ %378, %704 ], [ %378, %707 ], [ %378, %401 ], [ %378, %406 ], [ %378, %478 ], [ %378, %480 ], [ %378, %._crit_edge430 ], [ %378, %579 ], [ %378, %._crit_edge421 ], [ %378, %660 ], [ %378, %compute_value_size.exit320 ], [ %378, %691 ], [ %378, %694 ], [ %378, %699 ], [ %378, %451 ], [ %378, %458 ], [ %378, %461 ], [ %378, %compute_jsstring_size.exit ], [ %378, %643 ], [ %378, %410 ], [ %378, %483 ], [ %378, %compute_value_size.exit295 ], [ %378, %compute_value_size.exit303 ]
+  %719 = phi i64 [ %232, %221 ], [ %232, %compute_bytecode_size.exit ], [ %379, %704 ], [ %708, %707 ], [ %379, %401 ], [ %379, %406 ], [ %379, %478 ], [ %379, %480 ], [ %574, %._crit_edge430 ], [ %379, %579 ], [ %612, %._crit_edge421 ], [ %379, %660 ], [ %689, %compute_value_size.exit320 ], [ %379, %691 ], [ %695, %694 ], [ %700, %699 ], [ %379, %451 ], [ %379, %458 ], [ %379, %461 ], [ %379, %compute_jsstring_size.exit ], [ %379, %643 ], [ %411, %410 ], [ %486, %483 ], [ %411, %compute_value_size.exit295 ], [ %539, %compute_value_size.exit303 ]
+  %720 = phi i64 [ %233, %221 ], [ %233, %compute_bytecode_size.exit ], [ %329, %704 ], [ %329, %707 ], [ %329, %401 ], [ %329, %406 ], [ %329, %478 ], [ %329, %480 ], [ %329, %._crit_edge430 ], [ %329, %579 ], [ %329, %._crit_edge421 ], [ %329, %660 ], [ %329, %compute_value_size.exit320 ], [ %329, %691 ], [ %329, %694 ], [ %329, %699 ], [ %329, %451 ], [ %329, %458 ], [ %329, %461 ], [ %329, %compute_jsstring_size.exit ], [ %329, %643 ], [ %329, %410 ], [ %329, %483 ], [ %329, %compute_value_size.exit295 ], [ %329, %compute_value_size.exit303 ]
+  %.sroa.0.1 = phi double [ %.sroa.0.0450, %221 ], [ %325, %compute_bytecode_size.exit ], [ %.sroa.0.0450, %704 ], [ %.sroa.0.0450, %707 ], [ %.sroa.0.0450, %401 ], [ %.sroa.0.0450, %406 ], [ %.sroa.0.0450, %478 ], [ %.sroa.0.0450, %480 ], [ %.sroa.0.0450, %._crit_edge430 ], [ %.sroa.0.0450, %579 ], [ %.sroa.0.0450, %._crit_edge421 ], [ %.sroa.0.0450, %660 ], [ %.sroa.0.0450, %compute_value_size.exit320 ], [ %.sroa.0.0450, %691 ], [ %.sroa.0.0450, %694 ], [ %.sroa.0.0450, %699 ], [ %.sroa.0.0450, %451 ], [ %.sroa.0.0450, %458 ], [ %.sroa.0.0450, %461 ], [ %.sroa.0.0450, %compute_jsstring_size.exit ], [ %.sroa.0.0450, %643 ], [ %.sroa.0.0450, %410 ], [ %.sroa.0.0450, %483 ], [ %.sroa.0.0450, %compute_value_size.exit295 ], [ %.sroa.0.0450, %compute_value_size.exit303 ]
+  %.sroa.6.6 = phi double [ %.sroa.6.5451, %221 ], [ %.sroa.6.18, %compute_bytecode_size.exit ], [ %.sroa.6.7, %704 ], [ %.sroa.6.7, %707 ], [ %.sroa.6.7, %401 ], [ %.sroa.6.7, %406 ], [ %.sroa.6.7, %478 ], [ %.sroa.6.7, %480 ], [ %.sroa.6.13.lcssa, %._crit_edge430 ], [ %.sroa.6.7, %579 ], [ %.sroa.6.14.lcssa, %._crit_edge421 ], [ %.sroa.6.7, %660 ], [ %.sroa.6.29, %compute_value_size.exit320 ], [ %.sroa.6.7, %691 ], [ %.sroa.6.7, %694 ], [ %.sroa.6.7, %699 ], [ %.sroa.6.7, %451 ], [ %.sroa.6.7, %458 ], [ %465, %461 ], [ %.sroa.6.27, %compute_jsstring_size.exit ], [ %647, %643 ], [ %.sroa.6.7, %410 ], [ %.sroa.6.7, %483 ], [ %.sroa.6.22, %compute_value_size.exit295 ], [ %.sroa.6.12, %compute_value_size.exit303 ]
+  %.sroa.33.6 = phi double [ %.sroa.33.5452, %221 ], [ %.sroa.33.18, %compute_bytecode_size.exit ], [ %.sroa.33.7, %704 ], [ %.sroa.33.7, %707 ], [ %.sroa.33.7, %401 ], [ %.sroa.33.7, %406 ], [ %.sroa.33.7, %478 ], [ %.sroa.33.7, %480 ], [ %.sroa.33.13.lcssa, %._crit_edge430 ], [ %.sroa.33.7, %579 ], [ %.sroa.33.14.lcssa, %._crit_edge421 ], [ %.sroa.33.7, %660 ], [ %.sroa.33.29, %compute_value_size.exit320 ], [ %.sroa.33.7, %691 ], [ %.sroa.33.7, %694 ], [ %.sroa.33.7, %699 ], [ %.sroa.33.7, %451 ], [ %.sroa.33.7, %458 ], [ %477, %461 ], [ %.sroa.33.27, %compute_jsstring_size.exit ], [ %659, %643 ], [ %.sroa.33.7, %410 ], [ %.sroa.33.7, %483 ], [ %.sroa.33.22, %compute_value_size.exit295 ], [ %.sroa.33.12, %compute_value_size.exit303 ]
+  %.sroa.60.1 = phi i64 [ %.sroa.60.0453, %221 ], [ %323, %compute_bytecode_size.exit ], [ %.sroa.60.0453, %704 ], [ %.sroa.60.0453, %707 ], [ %.sroa.60.0453, %401 ], [ %.sroa.60.0453, %406 ], [ %.sroa.60.0453, %478 ], [ %.sroa.60.0453, %480 ], [ %.sroa.60.0453, %._crit_edge430 ], [ %.sroa.60.0453, %579 ], [ %.sroa.60.0453, %._crit_edge421 ], [ %.sroa.60.0453, %660 ], [ %.sroa.60.0453, %compute_value_size.exit320 ], [ %.sroa.60.0453, %691 ], [ %.sroa.60.0453, %694 ], [ %.sroa.60.0453, %699 ], [ %.sroa.60.0453, %451 ], [ %.sroa.60.0453, %458 ], [ %.sroa.60.0453, %461 ], [ %.sroa.60.0453, %compute_jsstring_size.exit ], [ %.sroa.60.0453, %643 ], [ %.sroa.60.0453, %410 ], [ %.sroa.60.0453, %483 ], [ %.sroa.60.0453, %compute_value_size.exit295 ], [ %.sroa.60.0453, %compute_value_size.exit303 ]
+  %.sroa.63.1 = phi double [ %.sroa.63.0454, %221 ], [ %322, %compute_bytecode_size.exit ], [ %.sroa.63.0454, %704 ], [ %.sroa.63.0454, %707 ], [ %.sroa.63.0454, %401 ], [ %.sroa.63.0454, %406 ], [ %.sroa.63.0454, %478 ], [ %.sroa.63.0454, %480 ], [ %.sroa.63.0454, %._crit_edge430 ], [ %.sroa.63.0454, %579 ], [ %.sroa.63.0454, %._crit_edge421 ], [ %.sroa.63.0454, %660 ], [ %.sroa.63.0454, %compute_value_size.exit320 ], [ %.sroa.63.0454, %691 ], [ %.sroa.63.0454, %694 ], [ %.sroa.63.0454, %699 ], [ %.sroa.63.0454, %451 ], [ %.sroa.63.0454, %458 ], [ %.sroa.63.0454, %461 ], [ %.sroa.63.0454, %compute_jsstring_size.exit ], [ %.sroa.63.0454, %643 ], [ %.sroa.63.0454, %410 ], [ %.sroa.63.0454, %483 ], [ %.sroa.63.0454, %compute_value_size.exit295 ], [ %.sroa.63.0454, %compute_value_size.exit303 ]
+  %.sroa.66.1 = phi i64 [ %.sroa.66.0455, %221 ], [ %.sroa.66.2, %compute_bytecode_size.exit ], [ %.sroa.66.0455, %704 ], [ %.sroa.66.0455, %707 ], [ %.sroa.66.0455, %401 ], [ %.sroa.66.0455, %406 ], [ %.sroa.66.0455, %478 ], [ %.sroa.66.0455, %480 ], [ %.sroa.66.0455, %._crit_edge430 ], [ %.sroa.66.0455, %579 ], [ %.sroa.66.0455, %._crit_edge421 ], [ %.sroa.66.0455, %660 ], [ %.sroa.66.0455, %compute_value_size.exit320 ], [ %.sroa.66.0455, %691 ], [ %.sroa.66.0455, %694 ], [ %.sroa.66.0455, %699 ], [ %.sroa.66.0455, %451 ], [ %.sroa.66.0455, %458 ], [ %.sroa.66.0455, %461 ], [ %.sroa.66.0455, %compute_jsstring_size.exit ], [ %.sroa.66.0455, %643 ], [ %.sroa.66.0455, %410 ], [ %.sroa.66.0455, %483 ], [ %.sroa.66.0455, %compute_value_size.exit295 ], [ %.sroa.66.0455, %compute_value_size.exit303 ]
+  %.sroa.69.1 = phi i64 [ %.sroa.69.0456, %221 ], [ %.sroa.69.2, %compute_bytecode_size.exit ], [ %.sroa.69.0456, %704 ], [ %.sroa.69.0456, %707 ], [ %.sroa.69.0456, %401 ], [ %.sroa.69.0456, %406 ], [ %.sroa.69.0456, %478 ], [ %.sroa.69.0456, %480 ], [ %.sroa.69.0456, %._crit_edge430 ], [ %.sroa.69.0456, %579 ], [ %.sroa.69.0456, %._crit_edge421 ], [ %.sroa.69.0456, %660 ], [ %.sroa.69.0456, %compute_value_size.exit320 ], [ %.sroa.69.0456, %691 ], [ %.sroa.69.0456, %694 ], [ %.sroa.69.0456, %699 ], [ %.sroa.69.0456, %451 ], [ %.sroa.69.0456, %458 ], [ %.sroa.69.0456, %461 ], [ %.sroa.69.0456, %compute_jsstring_size.exit ], [ %.sroa.69.0456, %643 ], [ %.sroa.69.0456, %410 ], [ %.sroa.69.0456, %483 ], [ %.sroa.69.0456, %compute_value_size.exit295 ], [ %.sroa.69.0456, %compute_value_size.exit303 ]
+  %.sroa.72.1 = phi i64 [ %.sroa.72.0457, %221 ], [ %.sroa.72.2, %compute_bytecode_size.exit ], [ %.sroa.72.0457, %704 ], [ %.sroa.72.0457, %707 ], [ %.sroa.72.0457, %401 ], [ %.sroa.72.0457, %406 ], [ %.sroa.72.0457, %478 ], [ %.sroa.72.0457, %480 ], [ %.sroa.72.0457, %._crit_edge430 ], [ %.sroa.72.0457, %579 ], [ %.sroa.72.0457, %._crit_edge421 ], [ %.sroa.72.0457, %660 ], [ %.sroa.72.0457, %compute_value_size.exit320 ], [ %.sroa.72.0457, %691 ], [ %.sroa.72.0457, %694 ], [ %.sroa.72.0457, %699 ], [ %.sroa.72.0457, %451 ], [ %.sroa.72.0457, %458 ], [ %.sroa.72.0457, %461 ], [ %.sroa.72.0457, %compute_jsstring_size.exit ], [ %.sroa.72.0457, %643 ], [ %.sroa.72.0457, %410 ], [ %.sroa.72.0457, %483 ], [ %.sroa.72.0457, %compute_value_size.exit295 ], [ %.sroa.72.0457, %compute_value_size.exit303 ]
   %721 = getelementptr inbounds nuw i8, ptr %.1458, i64 8
   %.1 = load ptr, ptr %721, align 8, !tbaa !61
   %.not254 = icmp eq ptr %.1, %209
@@ -19207,7 +19207,7 @@ define internal fastcc i32 @JS_ToBoolFree(ptr noundef readonly captures(none) %0
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %65, %61, %59, %52, %45, %42, %34, %31, %23, %20, %11, %3, %55, %10, %7
-  %.0 = phi i32 [ %58, %55 ], [ %6, %10 ], [ %9, %7 ], [ -1, %3 ], [ %16, %11 ], [ %16, %20 ], [ %27, %23 ], [ %27, %31 ], [ %38, %34 ], [ %38, %42 ], [ %48, %45 ], [ %48, %52 ], [ 1, %59 ], [ 1, %61 ], [ 1, %65 ]
+  %.0 = phi i32 [ %58, %55 ], [ %9, %7 ], [ %6, %10 ], [ -1, %3 ], [ %16, %11 ], [ %16, %20 ], [ %27, %23 ], [ %27, %31 ], [ %38, %34 ], [ %38, %42 ], [ %48, %45 ], [ %48, %52 ], [ 1, %59 ], [ 1, %61 ], [ 1, %65 ]
   ret i32 %.0
 }
 
@@ -19843,9 +19843,9 @@ JS_FreeValue.exit.thread:                         ; preds = %126, %149, %JS_Free
   br label %.thread251
 
 .thread251:                                       ; preds = %116, %90, %.thread251.loopexit.loopexit272.split.loop.exit310, %147, %138, %112, %JS_FreeValue.exit.thread267, %36, %.thread238, %191, %82, %JS_DupValue.exit, %69, %.thread243, %7, %192, %JS_DupValue.exit222, %71, %12, %11
-  %.sroa.32.0 = phi i64 [ %76, %71 ], [ 6, %192 ], [ %95, %JS_DupValue.exit222 ], [ %39, %36 ], [ 6, %12 ], [ 6, %11 ], [ 6, %7 ], [ 3, %.thread243 ], [ 3, %69 ], [ 6, %82 ], [ %.sroa.533.0.copyload, %JS_DupValue.exit ], [ 3, %191 ], [ 0, %.thread238 ], [ %.sroa.32.13.ph, %JS_FreeValue.exit.thread267 ], [ %115, %112 ], [ %143, %138 ], [ %143, %147 ], [ %..le, %.thread251.loopexit.loopexit272.split.loop.exit310 ], [ 6, %90 ], [ 3, %116 ]
-  %.sroa.0130.sroa.0.0 = phi i64 [ %75, %71 ], [ 0, %192 ], [ %93, %JS_DupValue.exit222 ], [ %38, %36 ], [ 0, %12 ], [ 0, %11 ], [ 0, %7 ], [ 0, %.thread243 ], [ 0, %69 ], [ 0, %82 ], [ %.sroa.031.0.copyload, %JS_DupValue.exit ], [ 0, %191 ], [ %35, %.thread238 ], [ %.sroa.0130.sroa.0.13.ph, %JS_FreeValue.exit.thread267 ], [ %114, %112 ], [ %142, %138 ], [ %142, %147 ], [ 0, %.thread251.loopexit.loopexit272.split.loop.exit310 ], [ 0, %90 ], [ 0, %116 ]
-  %.sroa.0130.sroa.23.0 = phi i64 [ %.sroa.0130.sroa.23.0.extract.shift157, %71 ], [ 0, %192 ], [ %.sroa.0130.sroa.23.0.extract.shift163, %JS_DupValue.exit222 ], [ %.sroa.0130.sroa.23.0.extract.shift153, %36 ], [ 0, %12 ], [ 0, %11 ], [ 0, %7 ], [ 0, %.thread243 ], [ 0, %69 ], [ 0, %82 ], [ %.sroa.0130.sroa.23.0.extract.shift161, %JS_DupValue.exit ], [ 0, %191 ], [ 0, %.thread238 ], [ %.sroa.0130.sroa.23.13.ph, %JS_FreeValue.exit.thread267 ], [ %.sroa.0130.sroa.23.0.extract.shift165, %112 ], [ %.sroa.0130.sroa.23.0.extract.shift171, %138 ], [ %.sroa.0130.sroa.23.0.extract.shift171, %147 ], [ 0, %.thread251.loopexit.loopexit272.split.loop.exit310 ], [ 0, %90 ], [ 0, %116 ]
+  %.sroa.32.0 = phi i64 [ %76, %71 ], [ 6, %192 ], [ %95, %JS_DupValue.exit222 ], [ 6, %11 ], [ 6, %12 ], [ %39, %36 ], [ 6, %7 ], [ 3, %.thread243 ], [ 3, %69 ], [ 6, %82 ], [ %.sroa.533.0.copyload, %JS_DupValue.exit ], [ 3, %191 ], [ 0, %.thread238 ], [ %.sroa.32.13.ph, %JS_FreeValue.exit.thread267 ], [ %115, %112 ], [ %143, %138 ], [ %143, %147 ], [ %..le, %.thread251.loopexit.loopexit272.split.loop.exit310 ], [ 6, %90 ], [ 3, %116 ]
+  %.sroa.0130.sroa.0.0 = phi i64 [ %75, %71 ], [ 0, %192 ], [ %93, %JS_DupValue.exit222 ], [ 0, %11 ], [ 0, %12 ], [ %38, %36 ], [ 0, %7 ], [ 0, %.thread243 ], [ 0, %69 ], [ 0, %82 ], [ %.sroa.031.0.copyload, %JS_DupValue.exit ], [ 0, %191 ], [ %35, %.thread238 ], [ %.sroa.0130.sroa.0.13.ph, %JS_FreeValue.exit.thread267 ], [ %114, %112 ], [ %142, %138 ], [ %142, %147 ], [ 0, %.thread251.loopexit.loopexit272.split.loop.exit310 ], [ 0, %90 ], [ 0, %116 ]
+  %.sroa.0130.sroa.23.0 = phi i64 [ %.sroa.0130.sroa.23.0.extract.shift157, %71 ], [ 0, %192 ], [ %.sroa.0130.sroa.23.0.extract.shift163, %JS_DupValue.exit222 ], [ 0, %11 ], [ 0, %12 ], [ %.sroa.0130.sroa.23.0.extract.shift153, %36 ], [ 0, %7 ], [ 0, %.thread243 ], [ 0, %69 ], [ 0, %82 ], [ %.sroa.0130.sroa.23.0.extract.shift161, %JS_DupValue.exit ], [ 0, %191 ], [ 0, %.thread238 ], [ %.sroa.0130.sroa.23.13.ph, %JS_FreeValue.exit.thread267 ], [ %.sroa.0130.sroa.23.0.extract.shift165, %112 ], [ %.sroa.0130.sroa.23.0.extract.shift171, %138 ], [ %.sroa.0130.sroa.23.0.extract.shift171, %147 ], [ 0, %.thread251.loopexit.loopexit272.split.loop.exit310 ], [ 0, %90 ], [ 0, %116 ]
   %.sroa.0130.sroa.23.0.insert.shift = shl nuw i64 %.sroa.0130.sroa.23.0, 32
   %.sroa.0130.sroa.0.0.insert.ext = and i64 %.sroa.0130.sroa.0.0, 4294967295
   %.sroa.0130.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0130.sroa.23.0.insert.shift, %.sroa.0130.sroa.0.0.insert.ext
@@ -20260,8 +20260,8 @@ default.unreachable:                              ; preds = %182, %426, %569
   unreachable
 
 JS_AtomGetKind.exit:                              ; preds = %23, %27, %37, %38, %42
-  %45 = phi i1 [ false, %42 ], [ false, %37 ], [ true, %23 ], [ true, %27 ], [ false, %38 ]
-  %.0.i = phi i32 [ 2, %42 ], [ 1, %37 ], [ 0, %23 ], [ 0, %27 ], [ 1, %38 ]
+  %45 = phi i1 [ false, %37 ], [ false, %42 ], [ true, %23 ], [ true, %27 ], [ false, %38 ]
+  %.0.i = phi i32 [ 1, %37 ], [ 2, %42 ], [ 0, %23 ], [ 0, %27 ], [ 1, %38 ]
   %or.cond = select i1 %17, i1 true, i1 %26
   br i1 %or.cond, label %46, label %121
 
@@ -20585,7 +20585,7 @@ js_string_obj_get_length.exit:                    ; preds = %140, %145
   unreachable
 
 JS_AtomGetKind.exit263:                           ; preds = %176, %182, %192, %193, %197
-  %.0.i261 = phi i32 [ 2, %197 ], [ 1, %192 ], [ 0, %176 ], [ 0, %182 ], [ 1, %193 ]
+  %.0.i261 = phi i32 [ 1, %192 ], [ 2, %197 ], [ 0, %176 ], [ 0, %182 ], [ 1, %193 ]
   %200 = shl nuw nsw i32 1, %.0.i261
   %201 = and i32 %200, %4
   %.not232 = icmp eq i32 %201, 0
@@ -21060,8 +21060,8 @@ js_malloc.exit:                                   ; preds = %.loopexit341
   unreachable
 
 JS_AtomGetKind.exit289:                           ; preds = %422, %426, %436, %437, %441
-  %444 = phi i1 [ false, %441 ], [ false, %436 ], [ true, %422 ], [ true, %426 ], [ false, %437 ]
-  %.0.i287 = phi i32 [ 2, %441 ], [ 1, %436 ], [ 0, %422 ], [ 0, %426 ], [ 1, %437 ]
+  %444 = phi i1 [ false, %436 ], [ false, %441 ], [ true, %422 ], [ true, %426 ], [ false, %437 ]
+  %.0.i287 = phi i32 [ 1, %436 ], [ 2, %441 ], [ 0, %422 ], [ 0, %426 ], [ 1, %437 ]
   %or.cond8 = select i1 %418, i1 true, i1 %425
   br i1 %or.cond8, label %445, label %521
 
@@ -21375,7 +21375,7 @@ js_string_obj_get_length.exit319:                 ; preds = %548, %531
   unreachable
 
 JS_AtomGetKind.exit323:                           ; preds = %562, %569, %579, %580, %584
-  %.0.i321 = phi i32 [ 2, %584 ], [ 1, %579 ], [ 0, %562 ], [ 0, %569 ], [ 1, %580 ]
+  %.0.i321 = phi i32 [ 1, %579 ], [ 2, %584 ], [ 0, %562 ], [ 0, %569 ], [ 1, %580 ]
   %587 = icmp ne i32 %568, 0
   %or.cond10 = select i1 %540, i1 true, i1 %587
   br i1 %or.cond10, label %588, label %596
@@ -22930,9 +22930,9 @@ JS_FreeAtom.exit:                                 ; preds = %158, %163, %JS_Free
   br label %222
 
 222:                                              ; preds = %JS_DupValue.exit, %35, %45, %54, %64, %73, %JS_NewUint32.exit, %JS_NewBigInt64.exit, %117, %129, %140, %JS_FreeValue.exit, %JS_FreeAtom.exit
-  %.sroa.088.1 = phi i64 [ %160, %JS_FreeAtom.exit ], [ 0, %JS_FreeValue.exit ], [ %145, %140 ], [ %136, %129 ], [ %124, %117 ], [ %112, %JS_NewBigInt64.exit ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewUint32.exit ], [ %.sroa.0.0.insert.ext.i, %73 ], [ %.sroa.0.0.insert.ext.i134, %64 ], [ %60, %54 ], [ %.sroa.0.0.insert.ext.i140, %45 ], [ %41, %35 ], [ %23, %JS_DupValue.exit ]
-  %.sroa.14.1 = phi i64 [ %.sroa.14.0.extract.shift120, %JS_FreeAtom.exit ], [ 0, %JS_FreeValue.exit ], [ %.sroa.14.0.extract.shift118, %140 ], [ %.sroa.14.0.extract.shift116, %129 ], [ %.sroa.14.0.extract.shift114, %117 ], [ %.sroa.14.0.extract.shift112, %JS_NewBigInt64.exit ], [ %.sroa.14.0.extract.shift110, %JS_NewUint32.exit ], [ 0, %73 ], [ 0, %64 ], [ 0, %54 ], [ 0, %45 ], [ 0, %35 ], [ %.sroa.14.0.extract.shift, %JS_DupValue.exit ]
-  %.sroa.15.1 = phi i64 [ %161, %JS_FreeAtom.exit ], [ 6, %JS_FreeValue.exit ], [ 7, %140 ], [ 7, %129 ], [ %125, %117 ], [ %113, %JS_NewBigInt64.exit ], [ %.sroa.3.0.i, %JS_NewUint32.exit ], [ 0, %73 ], [ 0, %64 ], [ 0, %54 ], [ 0, %45 ], [ 0, %35 ], [ %25, %JS_DupValue.exit ]
+  %.sroa.088.1 = phi i64 [ %160, %JS_FreeAtom.exit ], [ 0, %JS_FreeValue.exit ], [ %23, %JS_DupValue.exit ], [ %41, %35 ], [ %.sroa.0.0.insert.ext.i140, %45 ], [ %60, %54 ], [ %.sroa.0.0.insert.ext.i134, %64 ], [ %.sroa.0.0.insert.ext.i, %73 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewUint32.exit ], [ %112, %JS_NewBigInt64.exit ], [ %124, %117 ], [ %136, %129 ], [ %145, %140 ]
+  %.sroa.14.1 = phi i64 [ %.sroa.14.0.extract.shift120, %JS_FreeAtom.exit ], [ 0, %JS_FreeValue.exit ], [ %.sroa.14.0.extract.shift, %JS_DupValue.exit ], [ 0, %35 ], [ 0, %45 ], [ 0, %54 ], [ 0, %64 ], [ 0, %73 ], [ %.sroa.14.0.extract.shift110, %JS_NewUint32.exit ], [ %.sroa.14.0.extract.shift112, %JS_NewBigInt64.exit ], [ %.sroa.14.0.extract.shift114, %117 ], [ %.sroa.14.0.extract.shift116, %129 ], [ %.sroa.14.0.extract.shift118, %140 ]
+  %.sroa.15.1 = phi i64 [ %161, %JS_FreeAtom.exit ], [ 6, %JS_FreeValue.exit ], [ %25, %JS_DupValue.exit ], [ 0, %35 ], [ 0, %45 ], [ 0, %54 ], [ 0, %64 ], [ 0, %73 ], [ %.sroa.3.0.i, %JS_NewUint32.exit ], [ %113, %JS_NewBigInt64.exit ], [ %125, %117 ], [ 7, %129 ], [ 7, %140 ]
   %.sroa.088.0.insert.ext = and i64 %.sroa.088.1, 4294967295
   %.sroa.088.0.insert.insert = or disjoint i64 %.sroa.14.1, %.sroa.088.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.088.0.insert.insert, 0
@@ -24061,7 +24061,7 @@ JS_FreeValue.exit298:                             ; preds = %JS_FreeValue.exit27
   br label %set_value.exit
 
 set_value.exit:                                   ; preds = %342, %JS_FreeValue.exit278, %204, %209, %223, %226, %231, %JS_FreeValue.exit284, %263, %268, %288, %298, %303, %537, %532, %523, %520, %515, %505, %426, %421, %418, %411, %406, %403, %.thread391, %156, %151, %148, %.thread, %117, %112, %109, %87, %82, %79, %JS_FreeValue.exit275, %162, %JS_FreeValue.exit298, %JS_FreeValue.exit296, %414, %JS_FreeValue.exit290, %JS_FreeValue.exit289, %JS_FreeValue.exit288, %336, %179, %103, %95, %92, %JS_FreeValue.exit272, %JS_FreeValue.exit
-  %.1 = phi i32 [ %341, %336 ], [ 1, %179 ], [ -1, %162 ], [ -1, %JS_FreeValue.exit288 ], [ %370, %JS_FreeValue.exit289 ], [ %386, %JS_FreeValue.exit290 ], [ 1, %414 ], [ %472, %JS_FreeValue.exit296 ], [ %504, %JS_FreeValue.exit298 ], [ -1, %JS_FreeValue.exit272 ], [ -1, %JS_FreeValue.exit ], [ %93, %92 ], [ %98, %95 ], [ 1, %103 ], [ -1, %JS_FreeValue.exit275 ], [ 1, %79 ], [ 1, %82 ], [ 1, %87 ], [ -1, %109 ], [ -1, %112 ], [ -1, %117 ], [ %135, %.thread ], [ -1, %148 ], [ -1, %151 ], [ -1, %156 ], [ %400, %.thread391 ], [ -1, %403 ], [ -1, %406 ], [ -1, %411 ], [ %416, %418 ], [ %416, %421 ], [ %416, %426 ], [ %512, %505 ], [ %512, %515 ], [ %512, %520 ], [ %529, %523 ], [ %529, %532 ], [ %529, %537 ], [ %196, %JS_FreeValue.exit278 ], [ %196, %204 ], [ %196, %209 ], [ %216, %223 ], [ %216, %226 ], [ %216, %231 ], [ %245, %JS_FreeValue.exit284 ], [ %245, %263 ], [ %245, %268 ], [ %295, %288 ], [ %295, %298 ], [ %295, %303 ], [ -1, %342 ]
+  %.1 = phi i32 [ %341, %336 ], [ -1, %JS_FreeValue.exit288 ], [ %370, %JS_FreeValue.exit289 ], [ %386, %JS_FreeValue.exit290 ], [ 1, %414 ], [ %472, %JS_FreeValue.exit296 ], [ %504, %JS_FreeValue.exit298 ], [ 1, %179 ], [ -1, %162 ], [ -1, %JS_FreeValue.exit ], [ -1, %JS_FreeValue.exit272 ], [ %93, %92 ], [ %98, %95 ], [ 1, %103 ], [ -1, %JS_FreeValue.exit275 ], [ 1, %79 ], [ 1, %82 ], [ 1, %87 ], [ -1, %109 ], [ -1, %112 ], [ -1, %117 ], [ %135, %.thread ], [ -1, %148 ], [ -1, %151 ], [ -1, %156 ], [ %400, %.thread391 ], [ -1, %403 ], [ -1, %406 ], [ -1, %411 ], [ %416, %418 ], [ %416, %421 ], [ %416, %426 ], [ %512, %505 ], [ %512, %515 ], [ %512, %520 ], [ %529, %523 ], [ %529, %532 ], [ %529, %537 ], [ %196, %JS_FreeValue.exit278 ], [ %196, %204 ], [ %196, %209 ], [ %216, %223 ], [ %216, %226 ], [ %216, %231 ], [ %245, %JS_FreeValue.exit284 ], [ %245, %263 ], [ %245, %268 ], [ %295, %288 ], [ %295, %298 ], [ %295, %303 ], [ -1, %342 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #41
   ret i32 %.1
 }
@@ -27815,7 +27815,7 @@ JS_ToInt32.exit.thread:                           ; preds = %53
   br label %JS_FreeValue.exit66
 
 JS_FreeValue.exit66:                              ; preds = %JS_ToInt32.exit.thread, %63, %59, %70, %66, %50, %46, %77, %.thread68
-  %.0 = phi i32 [ -1, %.thread68 ], [ 0, %77 ], [ -1, %46 ], [ -1, %50 ], [ -1, %66 ], [ -1, %70 ], [ -1, %59 ], [ -1, %63 ], [ -1, %JS_ToInt32.exit.thread ]
+  %.0 = phi i32 [ 0, %77 ], [ -1, %.thread68 ], [ -1, %46 ], [ -1, %50 ], [ -1, %66 ], [ -1, %70 ], [ -1, %59 ], [ -1, %63 ], [ -1, %JS_ToInt32.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #41
   ret i32 %.0
 }
@@ -28718,7 +28718,7 @@ define internal fastcc i32 @JS_NumberIsNegativeOrMinusZero(i64 %0, i64 %1) unnam
   br label %23
 
 23:                                               ; preds = %2, %10, %13, %20, %17, %7, %5
-  %.0 = phi i32 [ %22, %20 ], [ %19, %17 ], [ %9, %7 ], [ %.sroa.05.0..sroa.05.0.9.lobit, %5 ], [ 0, %10 ], [ %16, %13 ], [ 0, %2 ]
+  %.0 = phi i32 [ %.sroa.05.0..sroa.05.0.9.lobit, %5 ], [ %9, %7 ], [ %19, %17 ], [ %22, %20 ], [ 0, %10 ], [ %16, %13 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -31435,7 +31435,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, p
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %28, %22, %13, %19, %20, %16, %36, %10, %8
-  %.0 = phi i32 [ -1, %36 ], [ -1, %10 ], [ 0, %8 ], [ 0, %16 ], [ 0, %20 ], [ 0, %19 ], [ 0, %13 ], [ 0, %22 ], [ 0, %28 ]
+  %.0 = phi i32 [ -1, %36 ], [ 0, %8 ], [ -1, %10 ], [ 0, %16 ], [ 0, %20 ], [ 0, %19 ], [ 0, %13 ], [ 0, %22 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -32094,9 +32094,9 @@ JS_DupValue.exit85:                               ; preds = %84
   br label %126
 
 126:                                              ; preds = %4, %121, %112, %104, %96, %90, %88, %JS_DupValue.exit85, %JS_FreeValue.exit, %__JS_AtomToValue.exit101, %__JS_AtomToValue.exit93, %__JS_AtomToValue.exit, %JS_DupValue.exit
-  %.sroa.044.0 = phi i64 [ %124, %121 ], [ %118, %112 ], [ %110, %104 ], [ %102, %96 ], [ %94, %90 ], [ %1, %JS_DupValue.exit85 ], [ 0, %88 ], [ %.sroa.044.1.in, %JS_FreeValue.exit ], [ %.sroa.01.0..sroa.01.0.20.cast.i98, %__JS_AtomToValue.exit101 ], [ %.sroa.01.0..sroa.01.0.20.cast.i90, %__JS_AtomToValue.exit93 ], [ %.sroa.01.0..sroa.01.0.20.cast.i, %__JS_AtomToValue.exit ], [ %1, %JS_DupValue.exit ], [ 0, %4 ]
-  %.sroa.15.0 = phi i64 [ %.sroa.15.0.extract.shift75, %121 ], [ %.sroa.15.0.extract.shift73, %112 ], [ %.sroa.15.0.extract.shift71, %104 ], [ %.sroa.15.0.extract.shift69, %96 ], [ %.sroa.15.0.extract.shift67, %90 ], [ %.sroa.15.0.extract.shift63, %JS_DupValue.exit85 ], [ 0, %88 ], [ %.sroa.15.1.in, %JS_FreeValue.exit ], [ %.sroa.15.0.extract.shift61, %__JS_AtomToValue.exit101 ], [ %.sroa.15.0.extract.shift59, %__JS_AtomToValue.exit93 ], [ %.sroa.15.0.extract.shift57, %__JS_AtomToValue.exit ], [ %.sroa.15.0.extract.shift, %JS_DupValue.exit ], [ 0, %4 ]
-  %.sroa.16.0 = phi i64 [ %125, %121 ], [ %119, %112 ], [ %111, %104 ], [ %103, %96 ], [ %95, %90 ], [ %2, %JS_DupValue.exit85 ], [ 6, %88 ], [ %.sroa.16.1, %JS_FreeValue.exit ], [ -7, %__JS_AtomToValue.exit101 ], [ -7, %__JS_AtomToValue.exit93 ], [ -7, %__JS_AtomToValue.exit ], [ %2, %JS_DupValue.exit ], [ 6, %4 ]
+  %.sroa.044.0 = phi i64 [ %124, %121 ], [ %1, %JS_DupValue.exit ], [ %.sroa.01.0..sroa.01.0.20.cast.i, %__JS_AtomToValue.exit ], [ %.sroa.01.0..sroa.01.0.20.cast.i90, %__JS_AtomToValue.exit93 ], [ %.sroa.01.0..sroa.01.0.20.cast.i98, %__JS_AtomToValue.exit101 ], [ %.sroa.044.1.in, %JS_FreeValue.exit ], [ %1, %JS_DupValue.exit85 ], [ 0, %88 ], [ %94, %90 ], [ %102, %96 ], [ %110, %104 ], [ %118, %112 ], [ 0, %4 ]
+  %.sroa.15.0 = phi i64 [ %.sroa.15.0.extract.shift75, %121 ], [ %.sroa.15.0.extract.shift, %JS_DupValue.exit ], [ %.sroa.15.0.extract.shift57, %__JS_AtomToValue.exit ], [ %.sroa.15.0.extract.shift59, %__JS_AtomToValue.exit93 ], [ %.sroa.15.0.extract.shift61, %__JS_AtomToValue.exit101 ], [ %.sroa.15.1.in, %JS_FreeValue.exit ], [ %.sroa.15.0.extract.shift63, %JS_DupValue.exit85 ], [ 0, %88 ], [ %.sroa.15.0.extract.shift67, %90 ], [ %.sroa.15.0.extract.shift69, %96 ], [ %.sroa.15.0.extract.shift71, %104 ], [ %.sroa.15.0.extract.shift73, %112 ], [ 0, %4 ]
+  %.sroa.16.0 = phi i64 [ %125, %121 ], [ %2, %JS_DupValue.exit ], [ -7, %__JS_AtomToValue.exit ], [ -7, %__JS_AtomToValue.exit93 ], [ -7, %__JS_AtomToValue.exit101 ], [ %.sroa.16.1, %JS_FreeValue.exit ], [ %2, %JS_DupValue.exit85 ], [ 6, %88 ], [ %95, %90 ], [ %103, %96 ], [ %111, %104 ], [ %119, %112 ], [ 6, %4 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #41
   %.sroa.044.0.insert.ext = and i64 %.sroa.044.0, 4294967295
   %.sroa.044.0.insert.insert = or disjoint i64 %.sroa.15.0, %.sroa.044.0.insert.ext
@@ -34383,7 +34383,7 @@ js_import_meta.exit:                              ; preds = %929, %932
   br label %938
 
 938:                                              ; preds = %.sink.split4411, %js_import_meta.exit, %JS_NewObjectProtoClass.exit2009
-  %.33040 = phi ptr [ %798, %js_import_meta.exit ], [ %769, %JS_NewObjectProtoClass.exit2009 ], [ %.33040.ph4412, %.sink.split4411 ]
+  %.33040 = phi ptr [ %769, %JS_NewObjectProtoClass.exit2009 ], [ %798, %js_import_meta.exit ], [ %.33040.ph4412, %.sink.split4411 ]
   %939 = getelementptr inbounds nuw i8, ptr %.23015, i64 2
   br label %.backedge479.backedge
 
@@ -34955,8 +34955,8 @@ JS_DupValue.exit3527:                             ; preds = %1207, %1216
   br label %1233
 
 1233:                                             ; preds = %1230, %1228
-  %.03051 = phi i32 [ %1229, %1228 ], [ %1231, %1230 ]
-  %.33016 = phi ptr [ %.23015, %1228 ], [ %1232, %1230 ]
+  %.03051 = phi i32 [ %1231, %1230 ], [ %1229, %1228 ]
+  %.33016 = phi ptr [ %1232, %1230 ], [ %.23015, %1228 ]
   %narrow = sub nsw i32 0, %.03051
   %1234 = sext i32 %narrow to i64
   %1235 = getelementptr inbounds %struct.JSValue, ptr %.23039, i64 %1234
@@ -47003,7 +47003,7 @@ js_operator_typeof.exit:                          ; preds = %7210
   br i1 %7240, label %js_operator_typeof.exit.thread, label %JS_FreeValue.exit4177
 
 js_operator_typeof.exit.thread:                   ; preds = %js_operator_typeof.exit.thread303, %7239, %JS_IsFunction.exit.i, %7227, %7224, %7219, %7218, %7215, %7214, %7210, %js_operator_typeof.exit
-  %.07.i280 = phi i32 [ 77, %js_operator_typeof.exit ], [ 27, %7227 ], [ 27, %7224 ], [ 70, %7219 ], [ 27, %JS_IsFunction.exit.i ], [ 141, %7210 ], [ 142, %7214 ], [ 143, %7215 ], [ 73, %7218 ], [ 75, %7239 ], [ 74, %js_operator_typeof.exit.thread303 ]
+  %.07.i280 = phi i32 [ 77, %js_operator_typeof.exit ], [ 27, %7227 ], [ 27, %7224 ], [ 70, %7219 ], [ 27, %JS_IsFunction.exit.i ], [ 141, %7210 ], [ 75, %7239 ], [ 73, %7218 ], [ 143, %7215 ], [ 142, %7214 ], [ 74, %js_operator_typeof.exit.thread303 ]
   %7241 = load i32, ptr %7213, align 4, !tbaa !107
   %7242 = add i32 %7241, -1
   store i32 %7242, ptr %7213, align 4, !tbaa !107
@@ -47016,7 +47016,7 @@ js_operator_typeof.exit.thread:                   ; preds = %js_operator_typeof.
   br label %JS_FreeValue.exit4177
 
 JS_FreeValue.exit4177:                            ; preds = %js_operator_typeof.exit.thread305, %7210, %7210, %7217, %7216, %js_operator_typeof.exit, %js_operator_typeof.exit.thread, %7244
-  %.07.i279 = phi i32 [ 77, %js_operator_typeof.exit ], [ %.07.i280, %js_operator_typeof.exit.thread ], [ %.07.i280, %7244 ], [ 70, %7216 ], [ 72, %7217 ], [ 71, %7210 ], [ 71, %7210 ], [ 74, %js_operator_typeof.exit.thread305 ]
+  %.07.i279 = phi i32 [ 77, %js_operator_typeof.exit ], [ %.07.i280, %js_operator_typeof.exit.thread ], [ %.07.i280, %7244 ], [ 72, %7217 ], [ 70, %7216 ], [ 71, %7210 ], [ 71, %7210 ], [ 74, %js_operator_typeof.exit.thread305 ]
   %7246 = load ptr, ptr %209, align 8, !tbaa !36
   %7247 = getelementptr inbounds nuw i8, ptr %7246, i64 96
   %7248 = load ptr, ptr %7247, align 8, !tbaa !68
@@ -47681,7 +47681,7 @@ JS_FreeValue.exit4197:                            ; preds = %7576, %7582, %7587
   br label %7590
 
 7590:                                             ; preds = %JS_FreeValue.exit4195, %JS_FreeValue.exit4197, %7566, %7555, %JS_FreeValue.exit4196, %7513, %.thread1469
-  %.24 = phi ptr [ %.23039, %.thread1469 ], [ %7589, %JS_FreeValue.exit4197 ], [ %7568, %7566 ], [ %7556, %7555 ], [ %.23039, %JS_FreeValue.exit4196 ], [ %7516, %JS_FreeValue.exit4195 ], [ %.23039, %7513 ]
+  %.24 = phi ptr [ %.23039, %.thread1469 ], [ %.23039, %7513 ], [ %7516, %JS_FreeValue.exit4195 ], [ %.23039, %JS_FreeValue.exit4196 ], [ %7556, %7555 ], [ %7568, %7566 ], [ %7589, %JS_FreeValue.exit4197 ]
   %7591 = add i32 %.val, -5
   %7592 = sext i32 %7591 to i64
   %7593 = getelementptr inbounds i8, ptr %7478, i64 %7592
@@ -47889,22 +47889,22 @@ JS_FreeValue.exit4218:                            ; preds = %js_operator_typeof.
   br label %JS_FreeValue.exit3531
 
 JS_FreeValue.exit3531.loopexit:                   ; preds = %JS_DupValue.exit3473, %411, %473, %JS_NewObjectProtoClass.exit, %JS_NewObjectProtoClass.exit2009, %js_import_meta.exit, %js_build_rest.exit, %JS_DupValue.exit3527, %1233, %1264, %1302, %1342, %1385, %1451, %1919, %1941, %free_arg_list.exit, %JS_GetPrototype.exit, %JS_GetGlobalVar.exit, %2434, %2450, %JS_DefineGlobalFunction.exit, %JS_NewObjectProtoClass.exit4346, %3730, %JS_GetGlobalVarRef.exit, %js_poll_interrupts.exit3921, %js_poll_interrupts.exit3923, %js_poll_interrupts.exit3925, %js_poll_interrupts.exit3927, %js_poll_interrupts.exit3929, %js_poll_interrupts.exit3931, %js_poll_interrupts.exit3933, %4536, %4586, %JS_CallFree.exit, %4680, %4703, %JS_FreeValue.exit3974, %JS_FreeValue.exit3989, %JS_FreeValue.exit4003, %JS_FreeValue.exit4015, %JS_DefinePropertyValue.exit4017, %5152, %5167, %5221, %JS_FreeValue.exit4033, %JS_FreeValue.exit4044, %5759, %JS_DupValue.exit4047, %5802, %JS_FreeAtom.exit4056, %JS_FreeValue.exit4060, %JS_FreeValue.exit4067, %6002, %JS_FreeValue.exit4079, %JS_DefinePropertyValueValue.exit, %6407, %6457, %6464, %6496, %JS_DupValue.exit4111, %JS_DupValue.exit4114, %6640, %6647, %6662, %6673, %6684, %js_post_inc_slow.exit, %JS_DupValue.exit4129, %JS_DupValue.exit4137, %6782, %6804, %6819, %6838, %6850, %6862, %6874, %6886, %6898, %6910, %6922, %6934, %6946, %6972, %7399, %7424, %7454, %7474, %js_has_unscopable.exit, %7507, %JS_FreeValue.exit4195, %7536, %7560, %7569, %find_own_property1.exit.i.thread, %2553, %7183, %._crit_edge840, %4385, %JS_FreeValue.exit4403, %4459, %JS_FreeValue.exit4406, %4488, %4492, %JS_DefinePropertyValue.exit2100, %6229, %JS_FreeValue.exit4556, %6984, %JS_FreeAtom.exit4573, %7262, %JS_FreeAtom.exit4599, %4614, %7486, %JS_FreeValue.exit4600, %js_build_arguments.exit.thread3284, %js_build_mapped_arguments.exit.thread3286, %js_import_meta.exit.thread, %JS_NewObjectProtoClass.exit2009.thread, %js_build_mapped_arguments.exit.thread, %js_build_arguments.exit.thread, %4753, %4757, %build_for_in_iterator.exit.thread, %JS_NewObjectProtoClass.exit4346.thread, %js_dynamic_import.exit.thread, %js_build_rest.exit.thread, %JS_NewObjectProtoClass.exit.thread
-  %.03037.ph = phi ptr [ %490, %JS_NewObjectProtoClass.exit.thread ], [ %942, %js_build_rest.exit.thread ], [ %.23039, %js_dynamic_import.exit.thread ], [ %3694, %JS_NewObjectProtoClass.exit4346.thread ], [ %.23039, %build_for_in_iterator.exit.thread ], [ %.23039, %4757 ], [ %.23039, %4753 ], [ %538, %js_build_arguments.exit.thread ], [ %632, %js_build_mapped_arguments.exit.thread ], [ %769, %JS_NewObjectProtoClass.exit2009.thread ], [ %798, %js_import_meta.exit.thread ], [ %538, %js_build_arguments.exit.thread3284 ], [ %632, %js_build_mapped_arguments.exit.thread3286 ], [ %.23039, %JS_FreeValue.exit4600 ], [ %.23039, %7486 ], [ %.23039, %JS_FreeAtom.exit4599 ], [ %.23039, %7262 ], [ %.23039, %JS_FreeAtom.exit4573 ], [ %.23039, %6984 ], [ %.23039, %JS_FreeValue.exit4556 ], [ %.23039, %6229 ], [ %.23039, %JS_DefinePropertyValue.exit2100 ], [ %.23039, %4492 ], [ %.23039, %4488 ], [ %.23039, %JS_FreeValue.exit4406 ], [ %.23039, %4459 ], [ %.23039, %JS_FreeValue.exit4403 ], [ %.23039, %4385 ], [ %.23039, %._crit_edge840 ], [ %.23039, %7183 ], [ %.23039, %2553 ], [ %.23039, %find_own_property1.exit.i.thread ], [ %1221, %JS_DupValue.exit3527 ], [ %.23039, %473 ], [ %490, %JS_NewObjectProtoClass.exit ], [ %769, %JS_NewObjectProtoClass.exit2009 ], [ %798, %js_import_meta.exit ], [ %942, %js_build_rest.exit ], [ %.23039, %1264 ], [ %.23039, %1302 ], [ %.23039, %1342 ], [ %.23039, %1385 ], [ %.23039, %1451 ], [ %.23039, %1919 ], [ %.23039, %1941 ], [ %.23039, %free_arg_list.exit ], [ %.23039, %JS_GetPrototype.exit ], [ %.23039, %JS_GetGlobalVar.exit ], [ %2436, %2434 ], [ %2447, %2450 ], [ %.23039, %JS_DupValue.exit4047 ], [ %5943, %JS_FreeValue.exit4067 ], [ %.23039, %JS_DefineGlobalFunction.exit ], [ %.23039, %4680 ], [ %.23039, %4703 ], [ %4718, %JS_FreeValue.exit3974 ], [ %4769, %JS_FreeValue.exit3989 ], [ %4865, %JS_FreeValue.exit4003 ], [ %4973, %JS_FreeValue.exit4015 ], [ %5735, %JS_FreeValue.exit4044 ], [ %.23039, %5759 ], [ %5917, %JS_FreeValue.exit4060 ], [ %.23039, %JS_FreeAtom.exit4056 ], [ %.23039, %5802 ], [ %6011, %JS_FreeValue.exit4079 ], [ %.23039, %6002 ], [ %5060, %JS_DefinePropertyValue.exit4017 ], [ %.23039, %5152 ], [ %.23039, %5167 ], [ %6126, %JS_DefinePropertyValueValue.exit ], [ %.23039, %6407 ], [ %5416, %JS_FreeValue.exit4033 ], [ %.23039, %5221 ], [ %.23039, %1233 ], [ %.23039, %js_poll_interrupts.exit3923 ], [ %3888, %js_poll_interrupts.exit3929 ], [ %3869, %js_poll_interrupts.exit3927 ], [ %.23039, %js_poll_interrupts.exit3921 ], [ %.23039, %7399 ], [ %.23039, %7424 ], [ %.23039, %7454 ], [ %.23039, %7507 ], [ %7516, %JS_FreeValue.exit4195 ], [ %.23039, %7536 ], [ %.23039, %7560 ], [ %.23039, %7569 ], [ %.23039, %js_has_unscopable.exit ], [ %.23039, %7474 ], [ %.23039, %js_poll_interrupts.exit3925 ], [ %3907, %js_poll_interrupts.exit3931 ], [ %3926, %js_poll_interrupts.exit3933 ], [ %.23039, %411 ], [ %3694, %3730 ], [ %3694, %JS_NewObjectProtoClass.exit4346 ], [ %.23039, %JS_GetGlobalVarRef.exit ], [ %4519, %4536 ], [ %.23039, %4586 ], [ %.23039, %JS_CallFree.exit ], [ %.23039, %4614 ], [ %.23039, %6662 ], [ %.23039, %6647 ], [ %.23039, %6684 ], [ %.23039, %6673 ], [ %.23039, %js_post_inc_slow.exit ], [ %.23039, %JS_DupValue.exit4137 ], [ %.23039, %JS_DupValue.exit4129 ], [ %6471, %JS_DupValue.exit4111 ], [ %6471, %6496 ], [ %6471, %JS_DupValue.exit4114 ], [ %.23039, %6782 ], [ %6435, %6457 ], [ %.23039, %6464 ], [ %.23039, %6640 ], [ %.23039, %6804 ], [ %.23039, %6838 ], [ %.23039, %6819 ], [ %.23039, %6886 ], [ %.23039, %6898 ], [ %.23039, %6910 ], [ %.23039, %6922 ], [ %.23039, %6934 ], [ %.23039, %6946 ], [ %.23039, %6850 ], [ %.23039, %6874 ], [ %.23039, %6862 ], [ %.23039, %6972 ], [ %381, %JS_DupValue.exit3473 ]
-  %.03013.ph = phi ptr [ %.23015, %JS_NewObjectProtoClass.exit.thread ], [ %941, %js_build_rest.exit.thread ], [ %.23015, %js_dynamic_import.exit.thread ], [ %3693, %JS_NewObjectProtoClass.exit4346.thread ], [ %.23015, %build_for_in_iterator.exit.thread ], [ %4742, %4757 ], [ %4742, %4753 ], [ %535, %js_build_arguments.exit.thread ], [ %535, %js_build_mapped_arguments.exit.thread ], [ %535, %JS_NewObjectProtoClass.exit2009.thread ], [ %535, %js_import_meta.exit.thread ], [ %535, %js_build_arguments.exit.thread3284 ], [ %535, %js_build_mapped_arguments.exit.thread3286 ], [ %7373, %JS_FreeValue.exit4600 ], [ %7478, %7486 ], [ %.23015, %JS_FreeAtom.exit4599 ], [ %.23015, %7262 ], [ %.23015, %JS_FreeAtom.exit4573 ], [ %.23015, %6984 ], [ %.23015, %JS_FreeValue.exit4556 ], [ %.23015, %6229 ], [ %5081, %JS_DefinePropertyValue.exit2100 ], [ %.23015, %4492 ], [ %.23015, %4488 ], [ %.23015, %JS_FreeValue.exit4406 ], [ %.23015, %4459 ], [ %.23015, %JS_FreeValue.exit4403 ], [ %.23015, %4385 ], [ %3763, %._crit_edge840 ], [ %.23015, %7183 ], [ %2527, %2553 ], [ %2361, %find_own_property1.exit.i.thread ], [ %1220, %JS_DupValue.exit3527 ], [ %.23015, %473 ], [ %.23015, %JS_NewObjectProtoClass.exit ], [ %535, %JS_NewObjectProtoClass.exit2009 ], [ %535, %js_import_meta.exit ], [ %941, %js_build_rest.exit ], [ %1266, %1264 ], [ %1304, %1302 ], [ %1343, %1342 ], [ %1387, %1385 ], [ %.23015, %1451 ], [ %1810, %1919 ], [ %1944, %1941 ], [ %1944, %free_arg_list.exit ], [ %.23015, %JS_GetPrototype.exit ], [ %2390, %JS_GetGlobalVar.exit ], [ %2435, %2434 ], [ %2446, %2450 ], [ %.23015, %JS_DupValue.exit4047 ], [ %.23015, %JS_FreeValue.exit4067 ], [ %2562, %JS_DefineGlobalFunction.exit ], [ %4681, %4680 ], [ %4704, %4703 ], [ %4717, %JS_FreeValue.exit3974 ], [ %.23015, %JS_FreeValue.exit3989 ], [ %.23015, %JS_FreeValue.exit4003 ], [ %.23015, %JS_FreeValue.exit4015 ], [ %.23015, %JS_FreeValue.exit4044 ], [ %.23015, %5759 ], [ %.23015, %JS_FreeValue.exit4060 ], [ %.23015, %JS_FreeAtom.exit4056 ], [ %.23015, %5802 ], [ %.23015, %JS_FreeValue.exit4079 ], [ %.23015, %6002 ], [ %5058, %JS_DefinePropertyValue.exit4017 ], [ %.23015, %5152 ], [ %.23015, %5167 ], [ %.23015, %JS_DefinePropertyValueValue.exit ], [ %6408, %6407 ], [ %5232, %JS_FreeValue.exit4033 ], [ %.23015, %5221 ], [ %.33016, %1233 ], [ %3853, %js_poll_interrupts.exit3923 ], [ %.5, %js_poll_interrupts.exit3929 ], [ %.43017, %js_poll_interrupts.exit3927 ], [ %3845, %js_poll_interrupts.exit3921 ], [ %.23015, %7399 ], [ %.23015, %7424 ], [ %.23015, %7454 ], [ %7478, %7507 ], [ %7478, %JS_FreeValue.exit4195 ], [ %7478, %7536 ], [ %7478, %7560 ], [ %7478, %7569 ], [ %7478, %js_has_unscopable.exit ], [ %7478, %7474 ], [ %3862, %js_poll_interrupts.exit3925 ], [ %.6, %js_poll_interrupts.exit3931 ], [ %.7, %js_poll_interrupts.exit3933 ], [ %.23015, %411 ], [ %3693, %3730 ], [ %3693, %JS_NewObjectProtoClass.exit4346 ], [ %3763, %JS_GetGlobalVarRef.exit ], [ %.23015, %4536 ], [ %.23015, %4586 ], [ %4615, %JS_CallFree.exit ], [ %4615, %4614 ], [ %.23015, %6662 ], [ %.23015, %6647 ], [ %.23015, %6684 ], [ %.23015, %6673 ], [ %.23015, %js_post_inc_slow.exit ], [ %6743, %JS_DupValue.exit4137 ], [ %6708, %JS_DupValue.exit4129 ], [ %6470, %JS_DupValue.exit4111 ], [ %6470, %6496 ], [ %6470, %JS_DupValue.exit4114 ], [ %.23015, %6782 ], [ %.23015, %6457 ], [ %.23015, %6464 ], [ %.23015, %6640 ], [ %.23015, %6804 ], [ %.23015, %6838 ], [ %.23015, %6819 ], [ %.23015, %6886 ], [ %.23015, %6898 ], [ %.23015, %6910 ], [ %.23015, %6922 ], [ %.23015, %6934 ], [ %.23015, %6946 ], [ %.23015, %6850 ], [ %.23015, %6874 ], [ %.23015, %6862 ], [ %.23015, %6972 ], [ %383, %JS_DupValue.exit3473 ]
+  %.03037.ph = phi ptr [ %490, %JS_NewObjectProtoClass.exit.thread ], [ %942, %js_build_rest.exit.thread ], [ %.23039, %js_dynamic_import.exit.thread ], [ %3694, %JS_NewObjectProtoClass.exit4346.thread ], [ %.23039, %build_for_in_iterator.exit.thread ], [ %.23039, %4757 ], [ %.23039, %4753 ], [ %538, %js_build_arguments.exit.thread ], [ %632, %js_build_mapped_arguments.exit.thread ], [ %769, %JS_NewObjectProtoClass.exit2009.thread ], [ %798, %js_import_meta.exit.thread ], [ %538, %js_build_arguments.exit.thread3284 ], [ %632, %js_build_mapped_arguments.exit.thread3286 ], [ %.23039, %JS_FreeValue.exit4600 ], [ %.23039, %7486 ], [ %.23039, %JS_FreeAtom.exit4599 ], [ %.23039, %7262 ], [ %.23039, %JS_FreeAtom.exit4573 ], [ %.23039, %6984 ], [ %.23039, %JS_FreeValue.exit4556 ], [ %.23039, %6229 ], [ %.23039, %JS_DefinePropertyValue.exit2100 ], [ %.23039, %4492 ], [ %.23039, %4488 ], [ %.23039, %JS_FreeValue.exit4406 ], [ %.23039, %4459 ], [ %.23039, %JS_FreeValue.exit4403 ], [ %.23039, %4385 ], [ %.23039, %._crit_edge840 ], [ %.23039, %7183 ], [ %.23039, %2553 ], [ %.23039, %find_own_property1.exit.i.thread ], [ %381, %JS_DupValue.exit3473 ], [ %.23039, %6972 ], [ %.23039, %6862 ], [ %.23039, %6874 ], [ %.23039, %6850 ], [ %.23039, %6946 ], [ %.23039, %6934 ], [ %.23039, %6922 ], [ %.23039, %6910 ], [ %.23039, %6898 ], [ %.23039, %6886 ], [ %.23039, %6819 ], [ %.23039, %6838 ], [ %.23039, %6804 ], [ %6435, %6457 ], [ %.23039, %6464 ], [ %.23039, %6640 ], [ %.23039, %6782 ], [ %6471, %JS_DupValue.exit4111 ], [ %6471, %6496 ], [ %6471, %JS_DupValue.exit4114 ], [ %.23039, %JS_DupValue.exit4129 ], [ %.23039, %JS_DupValue.exit4137 ], [ %.23039, %js_post_inc_slow.exit ], [ %.23039, %6673 ], [ %.23039, %6684 ], [ %.23039, %6647 ], [ %.23039, %6662 ], [ %.23039, %JS_CallFree.exit ], [ %.23039, %4614 ], [ %.23039, %4586 ], [ %4519, %4536 ], [ %.23039, %JS_GetGlobalVarRef.exit ], [ %3694, %3730 ], [ %3694, %JS_NewObjectProtoClass.exit4346 ], [ %.23039, %411 ], [ %3926, %js_poll_interrupts.exit3933 ], [ %3907, %js_poll_interrupts.exit3931 ], [ %.23039, %js_poll_interrupts.exit3925 ], [ %.23039, %7569 ], [ %.23039, %7560 ], [ %.23039, %7536 ], [ %7516, %JS_FreeValue.exit4195 ], [ %.23039, %7507 ], [ %.23039, %js_has_unscopable.exit ], [ %.23039, %7474 ], [ %.23039, %7454 ], [ %.23039, %7424 ], [ %.23039, %7399 ], [ %.23039, %js_poll_interrupts.exit3921 ], [ %3869, %js_poll_interrupts.exit3927 ], [ %3888, %js_poll_interrupts.exit3929 ], [ %.23039, %js_poll_interrupts.exit3923 ], [ %5416, %JS_FreeValue.exit4033 ], [ %.23039, %5221 ], [ %.23039, %6407 ], [ %6126, %JS_DefinePropertyValueValue.exit ], [ %.23039, %5167 ], [ %.23039, %5152 ], [ %5060, %JS_DefinePropertyValue.exit4017 ], [ %6011, %JS_FreeValue.exit4079 ], [ %.23039, %6002 ], [ %.23039, %JS_FreeAtom.exit4056 ], [ %.23039, %5802 ], [ %5917, %JS_FreeValue.exit4060 ], [ %.23039, %5759 ], [ %5735, %JS_FreeValue.exit4044 ], [ %4973, %JS_FreeValue.exit4015 ], [ %4865, %JS_FreeValue.exit4003 ], [ %4769, %JS_FreeValue.exit3989 ], [ %4718, %JS_FreeValue.exit3974 ], [ %.23039, %4703 ], [ %.23039, %4680 ], [ %.23039, %JS_DefineGlobalFunction.exit ], [ %5943, %JS_FreeValue.exit4067 ], [ %.23039, %JS_DupValue.exit4047 ], [ %2447, %2450 ], [ %2436, %2434 ], [ %.23039, %JS_GetGlobalVar.exit ], [ %.23039, %JS_GetPrototype.exit ], [ %.23039, %1941 ], [ %.23039, %free_arg_list.exit ], [ %.23039, %1919 ], [ %.23039, %1451 ], [ %.23039, %1385 ], [ %.23039, %1342 ], [ %.23039, %1302 ], [ %.23039, %1233 ], [ %.23039, %1264 ], [ %942, %js_build_rest.exit ], [ %798, %js_import_meta.exit ], [ %769, %JS_NewObjectProtoClass.exit2009 ], [ %490, %JS_NewObjectProtoClass.exit ], [ %.23039, %473 ], [ %1221, %JS_DupValue.exit3527 ]
+  %.03013.ph = phi ptr [ %.23015, %JS_NewObjectProtoClass.exit.thread ], [ %941, %js_build_rest.exit.thread ], [ %.23015, %js_dynamic_import.exit.thread ], [ %3693, %JS_NewObjectProtoClass.exit4346.thread ], [ %.23015, %build_for_in_iterator.exit.thread ], [ %4742, %4757 ], [ %4742, %4753 ], [ %535, %js_build_arguments.exit.thread ], [ %535, %js_build_mapped_arguments.exit.thread ], [ %535, %JS_NewObjectProtoClass.exit2009.thread ], [ %535, %js_import_meta.exit.thread ], [ %535, %js_build_arguments.exit.thread3284 ], [ %535, %js_build_mapped_arguments.exit.thread3286 ], [ %7373, %JS_FreeValue.exit4600 ], [ %7478, %7486 ], [ %.23015, %JS_FreeAtom.exit4599 ], [ %.23015, %7262 ], [ %.23015, %JS_FreeAtom.exit4573 ], [ %.23015, %6984 ], [ %.23015, %JS_FreeValue.exit4556 ], [ %.23015, %6229 ], [ %5081, %JS_DefinePropertyValue.exit2100 ], [ %.23015, %4492 ], [ %.23015, %4488 ], [ %.23015, %JS_FreeValue.exit4406 ], [ %.23015, %4459 ], [ %.23015, %JS_FreeValue.exit4403 ], [ %.23015, %4385 ], [ %3763, %._crit_edge840 ], [ %.23015, %7183 ], [ %2527, %2553 ], [ %2361, %find_own_property1.exit.i.thread ], [ %383, %JS_DupValue.exit3473 ], [ %.23015, %6972 ], [ %.23015, %6862 ], [ %.23015, %6874 ], [ %.23015, %6850 ], [ %.23015, %6946 ], [ %.23015, %6934 ], [ %.23015, %6922 ], [ %.23015, %6910 ], [ %.23015, %6898 ], [ %.23015, %6886 ], [ %.23015, %6819 ], [ %.23015, %6838 ], [ %.23015, %6804 ], [ %.23015, %6457 ], [ %.23015, %6464 ], [ %.23015, %6640 ], [ %.23015, %6782 ], [ %6470, %JS_DupValue.exit4111 ], [ %6470, %6496 ], [ %6470, %JS_DupValue.exit4114 ], [ %6708, %JS_DupValue.exit4129 ], [ %6743, %JS_DupValue.exit4137 ], [ %.23015, %js_post_inc_slow.exit ], [ %.23015, %6673 ], [ %.23015, %6684 ], [ %.23015, %6647 ], [ %.23015, %6662 ], [ %4615, %JS_CallFree.exit ], [ %4615, %4614 ], [ %.23015, %4586 ], [ %.23015, %4536 ], [ %3763, %JS_GetGlobalVarRef.exit ], [ %3693, %3730 ], [ %3693, %JS_NewObjectProtoClass.exit4346 ], [ %.23015, %411 ], [ %.7, %js_poll_interrupts.exit3933 ], [ %.6, %js_poll_interrupts.exit3931 ], [ %3862, %js_poll_interrupts.exit3925 ], [ %7478, %7569 ], [ %7478, %7560 ], [ %7478, %7536 ], [ %7478, %JS_FreeValue.exit4195 ], [ %7478, %7507 ], [ %7478, %js_has_unscopable.exit ], [ %7478, %7474 ], [ %.23015, %7454 ], [ %.23015, %7424 ], [ %.23015, %7399 ], [ %3845, %js_poll_interrupts.exit3921 ], [ %.43017, %js_poll_interrupts.exit3927 ], [ %.5, %js_poll_interrupts.exit3929 ], [ %3853, %js_poll_interrupts.exit3923 ], [ %5232, %JS_FreeValue.exit4033 ], [ %.23015, %5221 ], [ %6408, %6407 ], [ %.23015, %JS_DefinePropertyValueValue.exit ], [ %.23015, %5167 ], [ %.23015, %5152 ], [ %5058, %JS_DefinePropertyValue.exit4017 ], [ %.23015, %JS_FreeValue.exit4079 ], [ %.23015, %6002 ], [ %.23015, %JS_FreeAtom.exit4056 ], [ %.23015, %5802 ], [ %.23015, %JS_FreeValue.exit4060 ], [ %.23015, %5759 ], [ %.23015, %JS_FreeValue.exit4044 ], [ %.23015, %JS_FreeValue.exit4015 ], [ %.23015, %JS_FreeValue.exit4003 ], [ %.23015, %JS_FreeValue.exit3989 ], [ %4717, %JS_FreeValue.exit3974 ], [ %4704, %4703 ], [ %4681, %4680 ], [ %2562, %JS_DefineGlobalFunction.exit ], [ %.23015, %JS_FreeValue.exit4067 ], [ %.23015, %JS_DupValue.exit4047 ], [ %2446, %2450 ], [ %2435, %2434 ], [ %2390, %JS_GetGlobalVar.exit ], [ %.23015, %JS_GetPrototype.exit ], [ %1944, %1941 ], [ %1944, %free_arg_list.exit ], [ %1810, %1919 ], [ %.23015, %1451 ], [ %1387, %1385 ], [ %1343, %1342 ], [ %1304, %1302 ], [ %.33016, %1233 ], [ %1266, %1264 ], [ %941, %js_build_rest.exit ], [ %535, %js_import_meta.exit ], [ %535, %JS_NewObjectProtoClass.exit2009 ], [ %.23015, %JS_NewObjectProtoClass.exit ], [ %.23015, %473 ], [ %1220, %JS_DupValue.exit3527 ]
   br label %JS_FreeValue.exit3531
 
 JS_FreeValue.exit3531:                            ; preds = %7372, %JS_FreeValue.exit3531.loopexit, %6982, %6393, %6388, %JS_FreeValue.exit4545, %6280, %6275, %6272, %6227, %6147, %6142, %6139, %4486, %3790, %js_operator_private_in.exit.thread, %js_post_inc_slow.exit.thread, %js_op_define_class.exit.thread, %4581, %4576, %4572, %js_for_of_next.exit, %js_for_in_next.exit.thread, %2519, %2499, %JS_GetGlobalVar.exit.thread, %JS_AddBrand.exit.thread, %1381, %1376, %1373, %5952, %5958, %5783, %5785, %1795, %1797, %1800, %1802, %1798, %1796, %90, %7690, %.critedge3298, %6000, %4514, %3969, %3737, %3623, %JS_ThrowReferenceErrorUninitialized2.exit3892, %JS_ThrowReferenceErrorUninitialized2.exit3886, %JS_ThrowReferenceErrorUninitialized2.exit, %3509, %3479, %3455, %2449, %1785, %1463, %1447, %1440
-  %.03049 = phi ptr [ %99, %90 ], [ %.13050, %7690 ], [ %.13050, %4514 ], [ %.13050, %js_for_of_next.exit ], [ %.13050, %3737 ], [ %.13050, %.critedge3298 ], [ %.13050, %3969 ], [ %.13050, %3509 ], [ %.13050, %3479 ], [ %.13050, %3455 ], [ %.13050, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13050, %3623 ], [ %.13050, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13050, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13050, %6000 ], [ %.13050, %2449 ], [ %.13050, %1785 ], [ %.13050, %1463 ], [ %.13050, %1447 ], [ %.13050, %1440 ], [ %.13050, %1796 ], [ %.13050, %1798 ], [ %.13050, %1802 ], [ %.13050, %1800 ], [ %.13050, %1797 ], [ %.13050, %1795 ], [ %.13050, %5785 ], [ %.13050, %5783 ], [ %.13050, %5958 ], [ %.13050, %5952 ], [ %.13050, %1373 ], [ %.13050, %1376 ], [ %.13050, %1381 ], [ %.13050, %JS_AddBrand.exit.thread ], [ %.13050, %JS_GetGlobalVar.exit.thread ], [ %.13050, %2499 ], [ %.13050, %2519 ], [ %.13050, %js_for_in_next.exit.thread ], [ %.13050, %4572 ], [ %.13050, %4576 ], [ %.13050, %4581 ], [ %.13050, %js_op_define_class.exit.thread ], [ %.13050, %js_post_inc_slow.exit.thread ], [ %.13050, %js_operator_private_in.exit.thread ], [ %.13050, %3790 ], [ %.13050, %4486 ], [ %.13050, %6139 ], [ %.13050, %6142 ], [ %.13050, %6147 ], [ %.13050, %6227 ], [ %.13050, %6272 ], [ %.13050, %6275 ], [ %.13050, %6280 ], [ %.13050, %JS_FreeValue.exit4545 ], [ %.13050, %6388 ], [ %.13050, %6393 ], [ %.13050, %6982 ], [ %.13050, %JS_FreeValue.exit3531.loopexit ], [ %.13050, %7372 ]
-  %.03037 = phi ptr [ %109, %90 ], [ %.23039, %7690 ], [ %.23039, %4514 ], [ %.23039, %js_for_of_next.exit ], [ %3694, %3737 ], [ %.23039, %.critedge3298 ], [ %.23039, %3969 ], [ %.23039, %3509 ], [ %.23039, %3479 ], [ %.23039, %3455 ], [ %.23039, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.23039, %3623 ], [ %.23039, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.23039, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23039, %6000 ], [ %.23039, %2449 ], [ %1786, %1785 ], [ %.23039, %1463 ], [ %.23039, %1447 ], [ %.23039, %1440 ], [ %.23039, %1796 ], [ %.23039, %1798 ], [ %.23039, %1802 ], [ %.23039, %1800 ], [ %.23039, %1797 ], [ %.23039, %1795 ], [ %.23039, %5785 ], [ %.23039, %5783 ], [ %.23039, %5958 ], [ %.23039, %5952 ], [ %.23039, %1373 ], [ %.23039, %1376 ], [ %.23039, %1381 ], [ %.23039, %JS_AddBrand.exit.thread ], [ %.23039, %JS_GetGlobalVar.exit.thread ], [ %.23039, %2499 ], [ %.23039, %2519 ], [ %.23039, %js_for_in_next.exit.thread ], [ %.53042.lcssa, %4572 ], [ %.53042.lcssa, %4576 ], [ %.53042.lcssa, %4581 ], [ %.23039, %js_op_define_class.exit.thread ], [ %.23039, %js_post_inc_slow.exit.thread ], [ %.23039, %js_operator_private_in.exit.thread ], [ %.23039, %3790 ], [ %.23039, %4486 ], [ %6126, %6139 ], [ %6126, %6142 ], [ %6126, %6147 ], [ %.23039, %6227 ], [ %.23039, %6272 ], [ %.23039, %6275 ], [ %.23039, %6280 ], [ %.23039, %JS_FreeValue.exit4545 ], [ %.23039, %6388 ], [ %.23039, %6393 ], [ %.23039, %6982 ], [ %.03037.ph, %JS_FreeValue.exit3531.loopexit ], [ %.23039, %7372 ]
-  %.03034 = phi ptr [ %101, %90 ], [ %.23036, %7690 ], [ %.23036, %4514 ], [ %.23036, %js_for_of_next.exit ], [ %.23036, %3737 ], [ %.23036, %.critedge3298 ], [ %.23036, %3969 ], [ %.23036, %3509 ], [ %.23036, %3479 ], [ %.23036, %3455 ], [ %.23036, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.23036, %3623 ], [ %.23036, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.23036, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23036, %6000 ], [ %.23036, %2449 ], [ %.23036, %1785 ], [ %.23036, %1463 ], [ %.23036, %1447 ], [ %.23036, %1440 ], [ %.23036, %1796 ], [ %.23036, %1798 ], [ %.23036, %1802 ], [ %.23036, %1800 ], [ %.23036, %1797 ], [ %.23036, %1795 ], [ %.23036, %5785 ], [ %.23036, %5783 ], [ %.23036, %5958 ], [ %.23036, %5952 ], [ %.23036, %1373 ], [ %.23036, %1376 ], [ %.23036, %1381 ], [ %.23036, %JS_AddBrand.exit.thread ], [ %.23036, %JS_GetGlobalVar.exit.thread ], [ %.23036, %2499 ], [ %.23036, %2519 ], [ %.23036, %js_for_in_next.exit.thread ], [ %.23036, %4572 ], [ %.23036, %4576 ], [ %.23036, %4581 ], [ %.23036, %js_op_define_class.exit.thread ], [ %.23036, %js_post_inc_slow.exit.thread ], [ %.23036, %js_operator_private_in.exit.thread ], [ %.23036, %3790 ], [ %.23036, %4486 ], [ %.23036, %6139 ], [ %.23036, %6142 ], [ %.23036, %6147 ], [ %.23036, %6227 ], [ %.23036, %6272 ], [ %.23036, %6275 ], [ %.23036, %6280 ], [ %.23036, %JS_FreeValue.exit4545 ], [ %.23036, %6388 ], [ %.23036, %6393 ], [ %.23036, %6982 ], [ %.23036, %JS_FreeValue.exit3531.loopexit ], [ %.23036, %7372 ]
-  %.03032 = phi ptr [ %103, %90 ], [ %.13033, %7690 ], [ %.13033, %4514 ], [ %.13033, %js_for_of_next.exit ], [ %.13033, %3737 ], [ %.13033, %.critedge3298 ], [ %.13033, %3969 ], [ %.13033, %3509 ], [ %.13033, %3479 ], [ %.13033, %3455 ], [ %.13033, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13033, %3623 ], [ %.13033, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13033, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13033, %6000 ], [ %.13033, %2449 ], [ %.13033, %1785 ], [ %.13033, %1463 ], [ %.13033, %1447 ], [ %.13033, %1440 ], [ %.13033, %1796 ], [ %.13033, %1798 ], [ %.13033, %1802 ], [ %.13033, %1800 ], [ %.13033, %1797 ], [ %.13033, %1795 ], [ %.13033, %5785 ], [ %.13033, %5783 ], [ %.13033, %5958 ], [ %.13033, %5952 ], [ %.13033, %1373 ], [ %.13033, %1376 ], [ %.13033, %1381 ], [ %.13033, %JS_AddBrand.exit.thread ], [ %.13033, %JS_GetGlobalVar.exit.thread ], [ %.13033, %2499 ], [ %.13033, %2519 ], [ %.13033, %js_for_in_next.exit.thread ], [ %.13033, %4572 ], [ %.13033, %4576 ], [ %.13033, %4581 ], [ %.13033, %js_op_define_class.exit.thread ], [ %.13033, %js_post_inc_slow.exit.thread ], [ %.13033, %js_operator_private_in.exit.thread ], [ %.13033, %3790 ], [ %.13033, %4486 ], [ %.13033, %6139 ], [ %.13033, %6142 ], [ %.13033, %6147 ], [ %.13033, %6227 ], [ %.13033, %6272 ], [ %.13033, %6275 ], [ %.13033, %6280 ], [ %.13033, %JS_FreeValue.exit4545 ], [ %.13033, %6388 ], [ %.13033, %6393 ], [ %.13033, %6982 ], [ %.13033, %JS_FreeValue.exit3531.loopexit ], [ %.13033, %7372 ]
-  %.03030 = phi ptr [ %107, %90 ], [ %.13031, %7690 ], [ %.13031, %4514 ], [ %.13031, %js_for_of_next.exit ], [ %.13031, %3737 ], [ %.13031, %.critedge3298 ], [ %.13031, %3969 ], [ %.13031, %3509 ], [ %.13031, %3479 ], [ %.13031, %3455 ], [ %.13031, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13031, %3623 ], [ %.13031, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13031, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13031, %6000 ], [ %.13031, %2449 ], [ %.13031, %1785 ], [ %.13031, %1463 ], [ %.13031, %1447 ], [ %.13031, %1440 ], [ %.13031, %1796 ], [ %.13031, %1798 ], [ %.13031, %1802 ], [ %.13031, %1800 ], [ %.13031, %1797 ], [ %.13031, %1795 ], [ %.13031, %5785 ], [ %.13031, %5783 ], [ %.13031, %5958 ], [ %.13031, %5952 ], [ %.13031, %1373 ], [ %.13031, %1376 ], [ %.13031, %1381 ], [ %.13031, %JS_AddBrand.exit.thread ], [ %.13031, %JS_GetGlobalVar.exit.thread ], [ %.13031, %2499 ], [ %.13031, %2519 ], [ %.13031, %js_for_in_next.exit.thread ], [ %.13031, %4572 ], [ %.13031, %4576 ], [ %.13031, %4581 ], [ %.13031, %js_op_define_class.exit.thread ], [ %.13031, %js_post_inc_slow.exit.thread ], [ %.13031, %js_operator_private_in.exit.thread ], [ %.13031, %3790 ], [ %.13031, %4486 ], [ %.13031, %6139 ], [ %.13031, %6142 ], [ %.13031, %6147 ], [ %.13031, %6227 ], [ %.13031, %6272 ], [ %.13031, %6275 ], [ %.13031, %6280 ], [ %.13031, %JS_FreeValue.exit4545 ], [ %.13031, %6388 ], [ %.13031, %6393 ], [ %.13031, %6982 ], [ %.13031, %JS_FreeValue.exit3531.loopexit ], [ %.13031, %7372 ]
-  %.03027 = phi ptr [ %101, %90 ], [ %.13028, %7690 ], [ %.13028, %4514 ], [ %.13028, %js_for_of_next.exit ], [ %.13028, %3737 ], [ %.13028, %.critedge3298 ], [ %.13028, %3969 ], [ %.13028, %3509 ], [ %.13028, %3479 ], [ %.13028, %3455 ], [ %.13028, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13028, %3623 ], [ %.13028, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13028, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13028, %6000 ], [ %.13028, %2449 ], [ %.13028, %1785 ], [ %.13028, %1463 ], [ %.13028, %1447 ], [ %.13028, %1440 ], [ %.13028, %1796 ], [ %.13028, %1798 ], [ %.13028, %1802 ], [ %.13028, %1800 ], [ %.13028, %1797 ], [ %.13028, %1795 ], [ %.13028, %5785 ], [ %.13028, %5783 ], [ %.13028, %5958 ], [ %.13028, %5952 ], [ %.13028, %1373 ], [ %.13028, %1376 ], [ %.13028, %1381 ], [ %.13028, %JS_AddBrand.exit.thread ], [ %.13028, %JS_GetGlobalVar.exit.thread ], [ %.13028, %2499 ], [ %.13028, %2519 ], [ %.13028, %js_for_in_next.exit.thread ], [ %.13028, %4572 ], [ %.13028, %4576 ], [ %.13028, %4581 ], [ %.13028, %js_op_define_class.exit.thread ], [ %.13028, %js_post_inc_slow.exit.thread ], [ %.13028, %js_operator_private_in.exit.thread ], [ %.13028, %3790 ], [ %.13028, %4486 ], [ %.13028, %6139 ], [ %.13028, %6142 ], [ %.13028, %6147 ], [ %.13028, %6227 ], [ %.13028, %6272 ], [ %.13028, %6275 ], [ %.13028, %6280 ], [ %.13028, %JS_FreeValue.exit4545 ], [ %.13028, %6388 ], [ %.13028, %6393 ], [ %.13028, %6982 ], [ %.13028, %JS_FreeValue.exit3531.loopexit ], [ %.13028, %7372 ]
-  %.03013 = phi ptr [ %111, %90 ], [ %.23015, %7690 ], [ %.23015, %4514 ], [ %4413, %js_for_of_next.exit ], [ %3693, %3737 ], [ %.23015, %.critedge3298 ], [ %.23015, %3969 ], [ %3500, %3509 ], [ %3470, %3479 ], [ %3448, %3455 ], [ %3561, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %3617, %3623 ], [ %3587, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %3535, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23015, %6000 ], [ %2446, %2449 ], [ %.23015, %1785 ], [ %.23015, %1463 ], [ %.23015, %1447 ], [ %.23015, %1440 ], [ %1794, %1796 ], [ %1794, %1798 ], [ %1794, %1802 ], [ %1794, %1800 ], [ %1794, %1797 ], [ %1794, %1795 ], [ %.23015, %5785 ], [ %.23015, %5783 ], [ %.23015, %5958 ], [ %.23015, %5952 ], [ %1343, %1373 ], [ %1343, %1376 ], [ %1343, %1381 ], [ %.23015, %JS_AddBrand.exit.thread ], [ %2390, %JS_GetGlobalVar.exit.thread ], [ %2462, %2499 ], [ %2462, %2519 ], [ %.23015, %js_for_in_next.exit.thread ], [ %.23015, %4572 ], [ %.23015, %4576 ], [ %.23015, %4581 ], [ %5422, %js_op_define_class.exit.thread ], [ %.23015, %js_post_inc_slow.exit.thread ], [ %.23015, %js_operator_private_in.exit.thread ], [ %3763, %3790 ], [ %.23015, %4486 ], [ %.23015, %6139 ], [ %.23015, %6142 ], [ %.23015, %6147 ], [ %.23015, %6227 ], [ %.23015, %6272 ], [ %.23015, %6275 ], [ %.23015, %6280 ], [ %.23015, %JS_FreeValue.exit4545 ], [ %.23015, %6388 ], [ %.23015, %6393 ], [ %.23015, %6982 ], [ %.03013.ph, %JS_FreeValue.exit3531.loopexit ], [ %7373, %7372 ]
-  %.03010 = phi ptr [ %91, %90 ], [ %.13011, %7690 ], [ %.13011, %4514 ], [ %.13011, %js_for_of_next.exit ], [ %.13011, %3737 ], [ %.13011, %.critedge3298 ], [ %.13011, %3969 ], [ %.13011, %3509 ], [ %.13011, %3479 ], [ %.13011, %3455 ], [ %.13011, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13011, %3623 ], [ %.13011, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13011, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13011, %6000 ], [ %.13011, %2449 ], [ %.13011, %1785 ], [ %.13011, %1463 ], [ %.13011, %1447 ], [ %.13011, %1440 ], [ %.13011, %1796 ], [ %.13011, %1798 ], [ %.13011, %1802 ], [ %.13011, %1800 ], [ %.13011, %1797 ], [ %.13011, %1795 ], [ %.13011, %5785 ], [ %.13011, %5783 ], [ %.13011, %5958 ], [ %.13011, %5952 ], [ %.13011, %1373 ], [ %.13011, %1376 ], [ %.13011, %1381 ], [ %.13011, %JS_AddBrand.exit.thread ], [ %.13011, %JS_GetGlobalVar.exit.thread ], [ %.13011, %2499 ], [ %.13011, %2519 ], [ %.13011, %js_for_in_next.exit.thread ], [ %.13011, %4572 ], [ %.13011, %4576 ], [ %.13011, %4581 ], [ %.13011, %js_op_define_class.exit.thread ], [ %.13011, %js_post_inc_slow.exit.thread ], [ %.13011, %js_operator_private_in.exit.thread ], [ %.13011, %3790 ], [ %.13011, %4486 ], [ %.13011, %6139 ], [ %.13011, %6142 ], [ %.13011, %6147 ], [ %.13011, %6227 ], [ %.13011, %6272 ], [ %.13011, %6275 ], [ %.13011, %6280 ], [ %.13011, %JS_FreeValue.exit4545 ], [ %.13011, %6388 ], [ %.13011, %6393 ], [ %.13011, %6982 ], [ %.13011, %JS_FreeValue.exit3531.loopexit ], [ %.13011, %7372 ]
-  %.03008 = phi ptr [ %95, %90 ], [ %.13009, %7690 ], [ %.13009, %4514 ], [ %.13009, %js_for_of_next.exit ], [ %.13009, %3737 ], [ %.13009, %.critedge3298 ], [ %.13009, %3969 ], [ %.13009, %3509 ], [ %.13009, %3479 ], [ %.13009, %3455 ], [ %.13009, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13009, %3623 ], [ %.13009, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13009, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13009, %6000 ], [ %.13009, %2449 ], [ %.13009, %1785 ], [ %.13009, %1463 ], [ %.13009, %1447 ], [ %.13009, %1440 ], [ %.13009, %1796 ], [ %.13009, %1798 ], [ %.13009, %1802 ], [ %.13009, %1800 ], [ %.13009, %1797 ], [ %.13009, %1795 ], [ %.13009, %5785 ], [ %.13009, %5783 ], [ %.13009, %5958 ], [ %.13009, %5952 ], [ %.13009, %1373 ], [ %.13009, %1376 ], [ %.13009, %1381 ], [ %.13009, %JS_AddBrand.exit.thread ], [ %.13009, %JS_GetGlobalVar.exit.thread ], [ %.13009, %2499 ], [ %.13009, %2519 ], [ %.13009, %js_for_in_next.exit.thread ], [ %.13009, %4572 ], [ %.13009, %4576 ], [ %.13009, %4581 ], [ %.13009, %js_op_define_class.exit.thread ], [ %.13009, %js_post_inc_slow.exit.thread ], [ %.13009, %js_operator_private_in.exit.thread ], [ %.13009, %3790 ], [ %.13009, %4486 ], [ %.13009, %6139 ], [ %.13009, %6142 ], [ %.13009, %6147 ], [ %.13009, %6227 ], [ %.13009, %6272 ], [ %.13009, %6275 ], [ %.13009, %6280 ], [ %.13009, %JS_FreeValue.exit4545 ], [ %.13009, %6388 ], [ %.13009, %6393 ], [ %.13009, %6982 ], [ %.13009, %JS_FreeValue.exit3531.loopexit ], [ %.13009, %7372 ]
-  %.03006 = phi ptr [ %93, %90 ], [ %.13007, %7690 ], [ %.13007, %4514 ], [ %.13007, %js_for_of_next.exit ], [ %.13007, %3737 ], [ %.13007, %.critedge3298 ], [ %.13007, %3969 ], [ %.13007, %3509 ], [ %.13007, %3479 ], [ %.13007, %3455 ], [ %.13007, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13007, %3623 ], [ %.13007, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13007, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13007, %6000 ], [ %.13007, %2449 ], [ %.13007, %1785 ], [ %.13007, %1463 ], [ %.13007, %1447 ], [ %.13007, %1440 ], [ %.13007, %1796 ], [ %.13007, %1798 ], [ %.13007, %1802 ], [ %.13007, %1800 ], [ %.13007, %1797 ], [ %.13007, %1795 ], [ %.13007, %5785 ], [ %.13007, %5783 ], [ %.13007, %5958 ], [ %.13007, %5952 ], [ %.13007, %1373 ], [ %.13007, %1376 ], [ %.13007, %1381 ], [ %.13007, %JS_AddBrand.exit.thread ], [ %.13007, %JS_GetGlobalVar.exit.thread ], [ %.13007, %2499 ], [ %.13007, %2519 ], [ %.13007, %js_for_in_next.exit.thread ], [ %.13007, %4572 ], [ %.13007, %4576 ], [ %.13007, %4581 ], [ %.13007, %js_op_define_class.exit.thread ], [ %.13007, %js_post_inc_slow.exit.thread ], [ %.13007, %js_operator_private_in.exit.thread ], [ %.13007, %3790 ], [ %.13007, %4486 ], [ %.13007, %6139 ], [ %.13007, %6142 ], [ %.13007, %6147 ], [ %.13007, %6227 ], [ %.13007, %6272 ], [ %.13007, %6275 ], [ %.13007, %6280 ], [ %.13007, %JS_FreeValue.exit4545 ], [ %.13007, %6388 ], [ %.13007, %6393 ], [ %.13007, %6982 ], [ %.13007, %JS_FreeValue.exit3531.loopexit ], [ %.13007, %7372 ]
-  %.0 = phi ptr [ %97, %90 ], [ %.1, %7690 ], [ %.1, %4514 ], [ %.1, %js_for_of_next.exit ], [ %.1, %3737 ], [ %.1, %.critedge3298 ], [ %.1, %3969 ], [ %.1, %3509 ], [ %.1, %3479 ], [ %.1, %3455 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.1, %3623 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.1, %6000 ], [ %.1, %2449 ], [ %.1, %1785 ], [ %.1, %1463 ], [ %.1, %1447 ], [ %.1, %1440 ], [ %.1, %1796 ], [ %.1, %1798 ], [ %.1, %1802 ], [ %.1, %1800 ], [ %.1, %1797 ], [ %.1, %1795 ], [ %.1, %5785 ], [ %.1, %5783 ], [ %.1, %5958 ], [ %.1, %5952 ], [ %.1, %1373 ], [ %.1, %1376 ], [ %.1, %1381 ], [ %.1, %JS_AddBrand.exit.thread ], [ %.1, %JS_GetGlobalVar.exit.thread ], [ %.1, %2499 ], [ %.1, %2519 ], [ %.1, %js_for_in_next.exit.thread ], [ %.1, %4572 ], [ %.1, %4576 ], [ %.1, %4581 ], [ %.1, %js_op_define_class.exit.thread ], [ %.1, %js_post_inc_slow.exit.thread ], [ %.1, %js_operator_private_in.exit.thread ], [ %.1, %3790 ], [ %.1, %4486 ], [ %.1, %6139 ], [ %.1, %6142 ], [ %.1, %6147 ], [ %.1, %6227 ], [ %.1, %6272 ], [ %.1, %6275 ], [ %.1, %6280 ], [ %.1, %JS_FreeValue.exit4545 ], [ %.1, %6388 ], [ %.1, %6393 ], [ %.1, %6982 ], [ %.1, %JS_FreeValue.exit3531.loopexit ], [ %.1, %7372 ]
+  %.03049 = phi ptr [ %99, %90 ], [ %.13050, %7690 ], [ %.13050, %1440 ], [ %.13050, %1447 ], [ %.13050, %1463 ], [ %.13050, %1785 ], [ %.13050, %2449 ], [ %.13050, %6000 ], [ %.13050, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13050, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13050, %3623 ], [ %.13050, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13050, %3455 ], [ %.13050, %3479 ], [ %.13050, %3509 ], [ %.13050, %3969 ], [ %.13050, %.critedge3298 ], [ %.13050, %3737 ], [ %.13050, %js_for_of_next.exit ], [ %.13050, %4514 ], [ %.13050, %1796 ], [ %.13050, %1798 ], [ %.13050, %1802 ], [ %.13050, %1800 ], [ %.13050, %1797 ], [ %.13050, %1795 ], [ %.13050, %5785 ], [ %.13050, %5783 ], [ %.13050, %5958 ], [ %.13050, %5952 ], [ %.13050, %1373 ], [ %.13050, %1376 ], [ %.13050, %1381 ], [ %.13050, %JS_AddBrand.exit.thread ], [ %.13050, %JS_GetGlobalVar.exit.thread ], [ %.13050, %2499 ], [ %.13050, %2519 ], [ %.13050, %js_for_in_next.exit.thread ], [ %.13050, %4572 ], [ %.13050, %4576 ], [ %.13050, %4581 ], [ %.13050, %js_op_define_class.exit.thread ], [ %.13050, %js_post_inc_slow.exit.thread ], [ %.13050, %js_operator_private_in.exit.thread ], [ %.13050, %3790 ], [ %.13050, %4486 ], [ %.13050, %6139 ], [ %.13050, %6142 ], [ %.13050, %6147 ], [ %.13050, %6227 ], [ %.13050, %6272 ], [ %.13050, %6275 ], [ %.13050, %6280 ], [ %.13050, %JS_FreeValue.exit4545 ], [ %.13050, %6388 ], [ %.13050, %6393 ], [ %.13050, %6982 ], [ %.13050, %JS_FreeValue.exit3531.loopexit ], [ %.13050, %7372 ]
+  %.03037 = phi ptr [ %109, %90 ], [ %.23039, %7690 ], [ %.23039, %1440 ], [ %.23039, %1447 ], [ %.23039, %1463 ], [ %1786, %1785 ], [ %.23039, %2449 ], [ %.23039, %6000 ], [ %.23039, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23039, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.23039, %3623 ], [ %.23039, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.23039, %3455 ], [ %.23039, %3479 ], [ %.23039, %3509 ], [ %.23039, %3969 ], [ %.23039, %.critedge3298 ], [ %3694, %3737 ], [ %.23039, %js_for_of_next.exit ], [ %.23039, %4514 ], [ %.23039, %1796 ], [ %.23039, %1798 ], [ %.23039, %1802 ], [ %.23039, %1800 ], [ %.23039, %1797 ], [ %.23039, %1795 ], [ %.23039, %5785 ], [ %.23039, %5783 ], [ %.23039, %5958 ], [ %.23039, %5952 ], [ %.23039, %1373 ], [ %.23039, %1376 ], [ %.23039, %1381 ], [ %.23039, %JS_AddBrand.exit.thread ], [ %.23039, %JS_GetGlobalVar.exit.thread ], [ %.23039, %2499 ], [ %.23039, %2519 ], [ %.23039, %js_for_in_next.exit.thread ], [ %.53042.lcssa, %4572 ], [ %.53042.lcssa, %4576 ], [ %.53042.lcssa, %4581 ], [ %.23039, %js_op_define_class.exit.thread ], [ %.23039, %js_post_inc_slow.exit.thread ], [ %.23039, %js_operator_private_in.exit.thread ], [ %.23039, %3790 ], [ %.23039, %4486 ], [ %6126, %6139 ], [ %6126, %6142 ], [ %6126, %6147 ], [ %.23039, %6227 ], [ %.23039, %6272 ], [ %.23039, %6275 ], [ %.23039, %6280 ], [ %.23039, %JS_FreeValue.exit4545 ], [ %.23039, %6388 ], [ %.23039, %6393 ], [ %.23039, %6982 ], [ %.03037.ph, %JS_FreeValue.exit3531.loopexit ], [ %.23039, %7372 ]
+  %.03034 = phi ptr [ %101, %90 ], [ %.23036, %7690 ], [ %.23036, %1440 ], [ %.23036, %1447 ], [ %.23036, %1463 ], [ %.23036, %1785 ], [ %.23036, %2449 ], [ %.23036, %6000 ], [ %.23036, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23036, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.23036, %3623 ], [ %.23036, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.23036, %3455 ], [ %.23036, %3479 ], [ %.23036, %3509 ], [ %.23036, %3969 ], [ %.23036, %.critedge3298 ], [ %.23036, %3737 ], [ %.23036, %js_for_of_next.exit ], [ %.23036, %4514 ], [ %.23036, %1796 ], [ %.23036, %1798 ], [ %.23036, %1802 ], [ %.23036, %1800 ], [ %.23036, %1797 ], [ %.23036, %1795 ], [ %.23036, %5785 ], [ %.23036, %5783 ], [ %.23036, %5958 ], [ %.23036, %5952 ], [ %.23036, %1373 ], [ %.23036, %1376 ], [ %.23036, %1381 ], [ %.23036, %JS_AddBrand.exit.thread ], [ %.23036, %JS_GetGlobalVar.exit.thread ], [ %.23036, %2499 ], [ %.23036, %2519 ], [ %.23036, %js_for_in_next.exit.thread ], [ %.23036, %4572 ], [ %.23036, %4576 ], [ %.23036, %4581 ], [ %.23036, %js_op_define_class.exit.thread ], [ %.23036, %js_post_inc_slow.exit.thread ], [ %.23036, %js_operator_private_in.exit.thread ], [ %.23036, %3790 ], [ %.23036, %4486 ], [ %.23036, %6139 ], [ %.23036, %6142 ], [ %.23036, %6147 ], [ %.23036, %6227 ], [ %.23036, %6272 ], [ %.23036, %6275 ], [ %.23036, %6280 ], [ %.23036, %JS_FreeValue.exit4545 ], [ %.23036, %6388 ], [ %.23036, %6393 ], [ %.23036, %6982 ], [ %.23036, %JS_FreeValue.exit3531.loopexit ], [ %.23036, %7372 ]
+  %.03032 = phi ptr [ %103, %90 ], [ %.13033, %7690 ], [ %.13033, %1440 ], [ %.13033, %1447 ], [ %.13033, %1463 ], [ %.13033, %1785 ], [ %.13033, %2449 ], [ %.13033, %6000 ], [ %.13033, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13033, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13033, %3623 ], [ %.13033, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13033, %3455 ], [ %.13033, %3479 ], [ %.13033, %3509 ], [ %.13033, %3969 ], [ %.13033, %.critedge3298 ], [ %.13033, %3737 ], [ %.13033, %js_for_of_next.exit ], [ %.13033, %4514 ], [ %.13033, %1796 ], [ %.13033, %1798 ], [ %.13033, %1802 ], [ %.13033, %1800 ], [ %.13033, %1797 ], [ %.13033, %1795 ], [ %.13033, %5785 ], [ %.13033, %5783 ], [ %.13033, %5958 ], [ %.13033, %5952 ], [ %.13033, %1373 ], [ %.13033, %1376 ], [ %.13033, %1381 ], [ %.13033, %JS_AddBrand.exit.thread ], [ %.13033, %JS_GetGlobalVar.exit.thread ], [ %.13033, %2499 ], [ %.13033, %2519 ], [ %.13033, %js_for_in_next.exit.thread ], [ %.13033, %4572 ], [ %.13033, %4576 ], [ %.13033, %4581 ], [ %.13033, %js_op_define_class.exit.thread ], [ %.13033, %js_post_inc_slow.exit.thread ], [ %.13033, %js_operator_private_in.exit.thread ], [ %.13033, %3790 ], [ %.13033, %4486 ], [ %.13033, %6139 ], [ %.13033, %6142 ], [ %.13033, %6147 ], [ %.13033, %6227 ], [ %.13033, %6272 ], [ %.13033, %6275 ], [ %.13033, %6280 ], [ %.13033, %JS_FreeValue.exit4545 ], [ %.13033, %6388 ], [ %.13033, %6393 ], [ %.13033, %6982 ], [ %.13033, %JS_FreeValue.exit3531.loopexit ], [ %.13033, %7372 ]
+  %.03030 = phi ptr [ %107, %90 ], [ %.13031, %7690 ], [ %.13031, %1440 ], [ %.13031, %1447 ], [ %.13031, %1463 ], [ %.13031, %1785 ], [ %.13031, %2449 ], [ %.13031, %6000 ], [ %.13031, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13031, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13031, %3623 ], [ %.13031, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13031, %3455 ], [ %.13031, %3479 ], [ %.13031, %3509 ], [ %.13031, %3969 ], [ %.13031, %.critedge3298 ], [ %.13031, %3737 ], [ %.13031, %js_for_of_next.exit ], [ %.13031, %4514 ], [ %.13031, %1796 ], [ %.13031, %1798 ], [ %.13031, %1802 ], [ %.13031, %1800 ], [ %.13031, %1797 ], [ %.13031, %1795 ], [ %.13031, %5785 ], [ %.13031, %5783 ], [ %.13031, %5958 ], [ %.13031, %5952 ], [ %.13031, %1373 ], [ %.13031, %1376 ], [ %.13031, %1381 ], [ %.13031, %JS_AddBrand.exit.thread ], [ %.13031, %JS_GetGlobalVar.exit.thread ], [ %.13031, %2499 ], [ %.13031, %2519 ], [ %.13031, %js_for_in_next.exit.thread ], [ %.13031, %4572 ], [ %.13031, %4576 ], [ %.13031, %4581 ], [ %.13031, %js_op_define_class.exit.thread ], [ %.13031, %js_post_inc_slow.exit.thread ], [ %.13031, %js_operator_private_in.exit.thread ], [ %.13031, %3790 ], [ %.13031, %4486 ], [ %.13031, %6139 ], [ %.13031, %6142 ], [ %.13031, %6147 ], [ %.13031, %6227 ], [ %.13031, %6272 ], [ %.13031, %6275 ], [ %.13031, %6280 ], [ %.13031, %JS_FreeValue.exit4545 ], [ %.13031, %6388 ], [ %.13031, %6393 ], [ %.13031, %6982 ], [ %.13031, %JS_FreeValue.exit3531.loopexit ], [ %.13031, %7372 ]
+  %.03027 = phi ptr [ %101, %90 ], [ %.13028, %7690 ], [ %.13028, %1440 ], [ %.13028, %1447 ], [ %.13028, %1463 ], [ %.13028, %1785 ], [ %.13028, %2449 ], [ %.13028, %6000 ], [ %.13028, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13028, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13028, %3623 ], [ %.13028, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13028, %3455 ], [ %.13028, %3479 ], [ %.13028, %3509 ], [ %.13028, %3969 ], [ %.13028, %.critedge3298 ], [ %.13028, %3737 ], [ %.13028, %js_for_of_next.exit ], [ %.13028, %4514 ], [ %.13028, %1796 ], [ %.13028, %1798 ], [ %.13028, %1802 ], [ %.13028, %1800 ], [ %.13028, %1797 ], [ %.13028, %1795 ], [ %.13028, %5785 ], [ %.13028, %5783 ], [ %.13028, %5958 ], [ %.13028, %5952 ], [ %.13028, %1373 ], [ %.13028, %1376 ], [ %.13028, %1381 ], [ %.13028, %JS_AddBrand.exit.thread ], [ %.13028, %JS_GetGlobalVar.exit.thread ], [ %.13028, %2499 ], [ %.13028, %2519 ], [ %.13028, %js_for_in_next.exit.thread ], [ %.13028, %4572 ], [ %.13028, %4576 ], [ %.13028, %4581 ], [ %.13028, %js_op_define_class.exit.thread ], [ %.13028, %js_post_inc_slow.exit.thread ], [ %.13028, %js_operator_private_in.exit.thread ], [ %.13028, %3790 ], [ %.13028, %4486 ], [ %.13028, %6139 ], [ %.13028, %6142 ], [ %.13028, %6147 ], [ %.13028, %6227 ], [ %.13028, %6272 ], [ %.13028, %6275 ], [ %.13028, %6280 ], [ %.13028, %JS_FreeValue.exit4545 ], [ %.13028, %6388 ], [ %.13028, %6393 ], [ %.13028, %6982 ], [ %.13028, %JS_FreeValue.exit3531.loopexit ], [ %.13028, %7372 ]
+  %.03013 = phi ptr [ %111, %90 ], [ %.23015, %7690 ], [ %.23015, %1440 ], [ %.23015, %1447 ], [ %.23015, %1463 ], [ %.23015, %1785 ], [ %2446, %2449 ], [ %.23015, %6000 ], [ %3535, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %3587, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %3617, %3623 ], [ %3561, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %3448, %3455 ], [ %3470, %3479 ], [ %3500, %3509 ], [ %.23015, %3969 ], [ %.23015, %.critedge3298 ], [ %3693, %3737 ], [ %4413, %js_for_of_next.exit ], [ %.23015, %4514 ], [ %1794, %1796 ], [ %1794, %1798 ], [ %1794, %1802 ], [ %1794, %1800 ], [ %1794, %1797 ], [ %1794, %1795 ], [ %.23015, %5785 ], [ %.23015, %5783 ], [ %.23015, %5958 ], [ %.23015, %5952 ], [ %1343, %1373 ], [ %1343, %1376 ], [ %1343, %1381 ], [ %.23015, %JS_AddBrand.exit.thread ], [ %2390, %JS_GetGlobalVar.exit.thread ], [ %2462, %2499 ], [ %2462, %2519 ], [ %.23015, %js_for_in_next.exit.thread ], [ %.23015, %4572 ], [ %.23015, %4576 ], [ %.23015, %4581 ], [ %5422, %js_op_define_class.exit.thread ], [ %.23015, %js_post_inc_slow.exit.thread ], [ %.23015, %js_operator_private_in.exit.thread ], [ %3763, %3790 ], [ %.23015, %4486 ], [ %.23015, %6139 ], [ %.23015, %6142 ], [ %.23015, %6147 ], [ %.23015, %6227 ], [ %.23015, %6272 ], [ %.23015, %6275 ], [ %.23015, %6280 ], [ %.23015, %JS_FreeValue.exit4545 ], [ %.23015, %6388 ], [ %.23015, %6393 ], [ %.23015, %6982 ], [ %.03013.ph, %JS_FreeValue.exit3531.loopexit ], [ %7373, %7372 ]
+  %.03010 = phi ptr [ %91, %90 ], [ %.13011, %7690 ], [ %.13011, %1440 ], [ %.13011, %1447 ], [ %.13011, %1463 ], [ %.13011, %1785 ], [ %.13011, %2449 ], [ %.13011, %6000 ], [ %.13011, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13011, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13011, %3623 ], [ %.13011, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13011, %3455 ], [ %.13011, %3479 ], [ %.13011, %3509 ], [ %.13011, %3969 ], [ %.13011, %.critedge3298 ], [ %.13011, %3737 ], [ %.13011, %js_for_of_next.exit ], [ %.13011, %4514 ], [ %.13011, %1796 ], [ %.13011, %1798 ], [ %.13011, %1802 ], [ %.13011, %1800 ], [ %.13011, %1797 ], [ %.13011, %1795 ], [ %.13011, %5785 ], [ %.13011, %5783 ], [ %.13011, %5958 ], [ %.13011, %5952 ], [ %.13011, %1373 ], [ %.13011, %1376 ], [ %.13011, %1381 ], [ %.13011, %JS_AddBrand.exit.thread ], [ %.13011, %JS_GetGlobalVar.exit.thread ], [ %.13011, %2499 ], [ %.13011, %2519 ], [ %.13011, %js_for_in_next.exit.thread ], [ %.13011, %4572 ], [ %.13011, %4576 ], [ %.13011, %4581 ], [ %.13011, %js_op_define_class.exit.thread ], [ %.13011, %js_post_inc_slow.exit.thread ], [ %.13011, %js_operator_private_in.exit.thread ], [ %.13011, %3790 ], [ %.13011, %4486 ], [ %.13011, %6139 ], [ %.13011, %6142 ], [ %.13011, %6147 ], [ %.13011, %6227 ], [ %.13011, %6272 ], [ %.13011, %6275 ], [ %.13011, %6280 ], [ %.13011, %JS_FreeValue.exit4545 ], [ %.13011, %6388 ], [ %.13011, %6393 ], [ %.13011, %6982 ], [ %.13011, %JS_FreeValue.exit3531.loopexit ], [ %.13011, %7372 ]
+  %.03008 = phi ptr [ %95, %90 ], [ %.13009, %7690 ], [ %.13009, %1440 ], [ %.13009, %1447 ], [ %.13009, %1463 ], [ %.13009, %1785 ], [ %.13009, %2449 ], [ %.13009, %6000 ], [ %.13009, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13009, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13009, %3623 ], [ %.13009, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13009, %3455 ], [ %.13009, %3479 ], [ %.13009, %3509 ], [ %.13009, %3969 ], [ %.13009, %.critedge3298 ], [ %.13009, %3737 ], [ %.13009, %js_for_of_next.exit ], [ %.13009, %4514 ], [ %.13009, %1796 ], [ %.13009, %1798 ], [ %.13009, %1802 ], [ %.13009, %1800 ], [ %.13009, %1797 ], [ %.13009, %1795 ], [ %.13009, %5785 ], [ %.13009, %5783 ], [ %.13009, %5958 ], [ %.13009, %5952 ], [ %.13009, %1373 ], [ %.13009, %1376 ], [ %.13009, %1381 ], [ %.13009, %JS_AddBrand.exit.thread ], [ %.13009, %JS_GetGlobalVar.exit.thread ], [ %.13009, %2499 ], [ %.13009, %2519 ], [ %.13009, %js_for_in_next.exit.thread ], [ %.13009, %4572 ], [ %.13009, %4576 ], [ %.13009, %4581 ], [ %.13009, %js_op_define_class.exit.thread ], [ %.13009, %js_post_inc_slow.exit.thread ], [ %.13009, %js_operator_private_in.exit.thread ], [ %.13009, %3790 ], [ %.13009, %4486 ], [ %.13009, %6139 ], [ %.13009, %6142 ], [ %.13009, %6147 ], [ %.13009, %6227 ], [ %.13009, %6272 ], [ %.13009, %6275 ], [ %.13009, %6280 ], [ %.13009, %JS_FreeValue.exit4545 ], [ %.13009, %6388 ], [ %.13009, %6393 ], [ %.13009, %6982 ], [ %.13009, %JS_FreeValue.exit3531.loopexit ], [ %.13009, %7372 ]
+  %.03006 = phi ptr [ %93, %90 ], [ %.13007, %7690 ], [ %.13007, %1440 ], [ %.13007, %1447 ], [ %.13007, %1463 ], [ %.13007, %1785 ], [ %.13007, %2449 ], [ %.13007, %6000 ], [ %.13007, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13007, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.13007, %3623 ], [ %.13007, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.13007, %3455 ], [ %.13007, %3479 ], [ %.13007, %3509 ], [ %.13007, %3969 ], [ %.13007, %.critedge3298 ], [ %.13007, %3737 ], [ %.13007, %js_for_of_next.exit ], [ %.13007, %4514 ], [ %.13007, %1796 ], [ %.13007, %1798 ], [ %.13007, %1802 ], [ %.13007, %1800 ], [ %.13007, %1797 ], [ %.13007, %1795 ], [ %.13007, %5785 ], [ %.13007, %5783 ], [ %.13007, %5958 ], [ %.13007, %5952 ], [ %.13007, %1373 ], [ %.13007, %1376 ], [ %.13007, %1381 ], [ %.13007, %JS_AddBrand.exit.thread ], [ %.13007, %JS_GetGlobalVar.exit.thread ], [ %.13007, %2499 ], [ %.13007, %2519 ], [ %.13007, %js_for_in_next.exit.thread ], [ %.13007, %4572 ], [ %.13007, %4576 ], [ %.13007, %4581 ], [ %.13007, %js_op_define_class.exit.thread ], [ %.13007, %js_post_inc_slow.exit.thread ], [ %.13007, %js_operator_private_in.exit.thread ], [ %.13007, %3790 ], [ %.13007, %4486 ], [ %.13007, %6139 ], [ %.13007, %6142 ], [ %.13007, %6147 ], [ %.13007, %6227 ], [ %.13007, %6272 ], [ %.13007, %6275 ], [ %.13007, %6280 ], [ %.13007, %JS_FreeValue.exit4545 ], [ %.13007, %6388 ], [ %.13007, %6393 ], [ %.13007, %6982 ], [ %.13007, %JS_FreeValue.exit3531.loopexit ], [ %.13007, %7372 ]
+  %.0 = phi ptr [ %97, %90 ], [ %.1, %7690 ], [ %.1, %1440 ], [ %.1, %1447 ], [ %.1, %1463 ], [ %.1, %1785 ], [ %.1, %2449 ], [ %.1, %6000 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit3892 ], [ %.1, %3623 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit3886 ], [ %.1, %3455 ], [ %.1, %3479 ], [ %.1, %3509 ], [ %.1, %3969 ], [ %.1, %.critedge3298 ], [ %.1, %3737 ], [ %.1, %js_for_of_next.exit ], [ %.1, %4514 ], [ %.1, %1796 ], [ %.1, %1798 ], [ %.1, %1802 ], [ %.1, %1800 ], [ %.1, %1797 ], [ %.1, %1795 ], [ %.1, %5785 ], [ %.1, %5783 ], [ %.1, %5958 ], [ %.1, %5952 ], [ %.1, %1373 ], [ %.1, %1376 ], [ %.1, %1381 ], [ %.1, %JS_AddBrand.exit.thread ], [ %.1, %JS_GetGlobalVar.exit.thread ], [ %.1, %2499 ], [ %.1, %2519 ], [ %.1, %js_for_in_next.exit.thread ], [ %.1, %4572 ], [ %.1, %4576 ], [ %.1, %4581 ], [ %.1, %js_op_define_class.exit.thread ], [ %.1, %js_post_inc_slow.exit.thread ], [ %.1, %js_operator_private_in.exit.thread ], [ %.1, %3790 ], [ %.1, %4486 ], [ %.1, %6139 ], [ %.1, %6142 ], [ %.1, %6147 ], [ %.1, %6227 ], [ %.1, %6272 ], [ %.1, %6275 ], [ %.1, %6280 ], [ %.1, %JS_FreeValue.exit4545 ], [ %.1, %6388 ], [ %.1, %6393 ], [ %.1, %6982 ], [ %.1, %JS_FreeValue.exit3531.loopexit ], [ %.1, %7372 ]
   %7698 = getelementptr inbounds nuw i8, ptr %81, i64 224
   %7699 = load i64, ptr %7698, align 8
   %7700 = getelementptr inbounds nuw i8, ptr %81, i64 232
@@ -48085,11 +48085,11 @@ JS_FreeValue.exit4228:                            ; preds = %7757, %7764, %7769
   br i1 %.not3289, label %7789, label %7786
 
 7786:                                             ; preds = %.backedge479, %.loopexit460, %7611, %7610, %7609, %7608
-  %.sroa.46.3 = phi i64 [ 6, %.loopexit460 ], [ 0, %7608 ], [ 0, %7610 ], [ 0, %7609 ], [ 0, %7611 ], [ 3, %.backedge479 ]
-  %.sroa.01073.sroa.0.3 = phi i64 [ 0, %.loopexit460 ], [ 0, %7608 ], [ 2, %7610 ], [ 1, %7609 ], [ 3, %7611 ], [ 0, %.backedge479 ]
-  %.26 = phi ptr [ %.27, %.loopexit460 ], [ %.23039, %7608 ], [ %.23039, %7610 ], [ %.23039, %7609 ], [ %.23039, %7611 ], [ %.23039, %.backedge479 ]
-  %.10 = phi ptr [ %.03013, %.loopexit460 ], [ %.23015, %7608 ], [ %.23015, %7610 ], [ %.23015, %7609 ], [ %.23015, %7611 ], [ %.23015, %.backedge479 ]
-  %.3 = phi ptr [ %.03010, %.loopexit460 ], [ %.13011, %7608 ], [ %.13011, %7610 ], [ %.13011, %7609 ], [ %.13011, %7611 ], [ %.13011, %.backedge479 ]
+  %.sroa.46.3 = phi i64 [ 6, %.loopexit460 ], [ 0, %7611 ], [ 0, %7609 ], [ 0, %7610 ], [ 0, %7608 ], [ 3, %.backedge479 ]
+  %.sroa.01073.sroa.0.3 = phi i64 [ 0, %.loopexit460 ], [ 3, %7611 ], [ 1, %7609 ], [ 2, %7610 ], [ 0, %7608 ], [ 0, %.backedge479 ]
+  %.26 = phi ptr [ %.27, %.loopexit460 ], [ %.23039, %7611 ], [ %.23039, %7609 ], [ %.23039, %7610 ], [ %.23039, %7608 ], [ %.23039, %.backedge479 ]
+  %.10 = phi ptr [ %.03013, %.loopexit460 ], [ %.23015, %7611 ], [ %.23015, %7609 ], [ %.23015, %7610 ], [ %.23015, %7608 ], [ %.23015, %.backedge479 ]
+  %.3 = phi ptr [ %.03010, %.loopexit460 ], [ %.13011, %7611 ], [ %.13011, %7609 ], [ %.13011, %7610 ], [ %.13011, %7608 ], [ %.13011, %.backedge479 ]
   %7787 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store ptr %.10, ptr %7787, align 8, !tbaa !415
   %7788 = getelementptr inbounds nuw i8, ptr %.3, i64 72
@@ -48097,12 +48097,12 @@ JS_FreeValue.exit4228:                            ; preds = %7757, %7764, %7769
   br label %.loopexit
 
 7789:                                             ; preds = %.backedge479, %.loopexit460, %1320, %1244, %1435
-  %.sroa.46.0 = phi i64 [ 6, %.loopexit460 ], [ %1242, %1244 ], [ %.sroa.46.0.copyload1107, %1435 ], [ %1318, %1320 ], [ 3, %.backedge479 ]
-  %.sroa.01073.sroa.43.0 = phi i64 [ 0, %.loopexit460 ], [ %1241, %1244 ], [ %.sroa.01073.0.copyload1089, %1435 ], [ %1317, %1320 ], [ 0, %.backedge479 ]
-  %.43041 = phi ptr [ %.27, %.loopexit460 ], [ %.23039, %1244 ], [ %1436, %1435 ], [ %.23039, %1320 ], [ %.23039, %.backedge479 ]
-  %.23029 = phi ptr [ %.03027, %.loopexit460 ], [ %.13028, %1244 ], [ %.13028, %1435 ], [ %.13028, %1320 ], [ %.13028, %.backedge479 ]
-  %.23012 = phi ptr [ %.03010, %.loopexit460 ], [ %.13011, %1244 ], [ %.13011, %1435 ], [ %.13011, %1320 ], [ %.13011, %.backedge479 ]
-  %.2 = phi ptr [ %.0, %.loopexit460 ], [ %.1, %1244 ], [ %.1, %1435 ], [ %.1, %1320 ], [ %.1, %.backedge479 ]
+  %.sroa.46.0 = phi i64 [ 6, %.loopexit460 ], [ %1242, %1244 ], [ %1318, %1320 ], [ %.sroa.46.0.copyload1107, %1435 ], [ 3, %.backedge479 ]
+  %.sroa.01073.sroa.43.0 = phi i64 [ 0, %.loopexit460 ], [ %1241, %1244 ], [ %1317, %1320 ], [ %.sroa.01073.0.copyload1089, %1435 ], [ 0, %.backedge479 ]
+  %.43041 = phi ptr [ %.27, %.loopexit460 ], [ %.23039, %1244 ], [ %.23039, %1320 ], [ %1436, %1435 ], [ %.23039, %.backedge479 ]
+  %.23029 = phi ptr [ %.03027, %.loopexit460 ], [ %.13028, %1244 ], [ %.13028, %1320 ], [ %.13028, %1435 ], [ %.13028, %.backedge479 ]
+  %.23012 = phi ptr [ %.03010, %.loopexit460 ], [ %.13011, %1244 ], [ %.13011, %1320 ], [ %.13011, %1435 ], [ %.13011, %.backedge479 ]
+  %.2 = phi ptr [ %.0, %.loopexit460 ], [ %.1, %1244 ], [ %.1, %1320 ], [ %.1, %1435 ], [ %.1, %.backedge479 ]
   %7790 = getelementptr inbounds nuw i8, ptr %.23012, i64 40
   %7791 = getelementptr inbounds nuw i8, ptr %.23012, i64 48
   %7792 = load ptr, ptr %7791, align 8, !tbaa !61
@@ -50010,7 +50010,7 @@ lre_js_is_ident_first.exit89:                     ; preds = %203, %209
   br i1 %.not38, label %.loopexit134, label %.loopexit133
 
 .loopexit134:                                     ; preds = %15, %lre_js_is_ident_first.exit89, %172, %lre_js_is_ident_first.exit, %37
-  %.0 = phi i32 [ %.1130, %lre_js_is_ident_first.exit89 ], [ 92, %lre_js_is_ident_first.exit ], [ 92, %172 ], [ 61, %37 ], [ 47, %15 ]
+  %.0 = phi i32 [ %.1130, %lre_js_is_ident_first.exit89 ], [ 61, %37 ], [ 92, %lre_js_is_ident_first.exit ], [ 92, %172 ], [ 47, %15 ]
   br label %.loopexit133
 
 .loopexit133:                                     ; preds = %189, %24, %14, %.preheader132.split.split, %.preheader132.split.split, %171, %match_identifier.exit85, %145, %match_identifier.exit74, %119, %match_identifier.exit63, %match_identifier.exit52.thread98, %match_identifier.exit52.thread, %lre_js_is_ident_first.exit89, %lre_js_is_ident_first.exit, %match_identifier.exit52, %match_identifier.exit, %37, %.loopexit134, %91
@@ -53004,7 +53004,7 @@ bc_put_sleb128.exit:                              ; preds = %.lr.ph.i.i.i, %29
   br label %JS_WriteBigNum.exit
 
 117:                                              ; preds = %110, %100, %92, %90, %85, %83, %81
-  %.083 = phi i32 [ %111, %110 ], [ %107, %100 ], [ %99, %92 ], [ %91, %90 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ]
+  %.083 = phi i32 [ %111, %110 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %91, %90 ], [ %99, %92 ], [ %107, %100 ]
   %118 = getelementptr inbounds nuw i8, ptr %12, i64 5
   %119 = load i8, ptr %118, align 1
   %120 = and i8 %119, -65
@@ -53020,7 +53020,7 @@ bc_put_sleb128.exit:                              ; preds = %.lr.ph.i.i.i, %29
   br label %123
 
 123:                                              ; preds = %16, %122, %121
-  %.096.i = phi i8 [ 21, %122 ], [ 20, %121 ], [ 10, %16 ]
+  %.096.i = phi i8 [ 20, %121 ], [ 21, %122 ], [ 10, %16 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %125 = tail call i32 @dbuf_putc(ptr noundef nonnull %124, i8 noundef zeroext %.096.i) #41
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -53978,13 +53978,13 @@ bc_get_u8.exit:                                   ; preds = %22, %25
   br label %.thread144
 
 131:                                              ; preds = %114, %44, %.thread142, %.thread, %96, %92, %88, %84, %74, %70, %65, %61, %57, %49, %32, %31, %30
-  %.sroa.23.0 = phi i64 [ -1, %114 ], [ %100, %96 ], [ %95, %92 ], [ %91, %88 ], [ %87, %84 ], [ %77, %74 ], [ %73, %70 ], [ %69, %65 ], [ %64, %61 ], [ %60, %57 ], [ %52, %49 ], [ -7, %44 ], [ 1, %32 ], [ 3, %31 ], [ 2, %30 ], [ 0, %.thread ], [ 7, %.thread142 ]
+  %.sroa.23.0 = phi i64 [ 2, %30 ], [ 3, %31 ], [ 1, %32 ], [ -7, %44 ], [ %52, %49 ], [ %60, %57 ], [ %64, %61 ], [ %69, %65 ], [ %73, %70 ], [ %77, %74 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %100, %96 ], [ -1, %114 ], [ 0, %.thread ], [ 7, %.thread142 ]
   %.sroa.042.0..sroa.042.0..sroa.042.0..sroa.042.0..sroa.042.0.copyload43124149152154 = load i64, ptr %.sroa.042, align 8, !tbaa !46
   br label %.thread144
 
 .thread144:                                       ; preds = %42, %.thread146, %41, %37, %bc_get_u8.exit, %131, %122, %11
-  %132 = phi i64 [ 0, %11 ], [ 0, %122 ], [ %.sroa.042.0..sroa.042.0..sroa.042.0..sroa.042.0..sroa.042.0.copyload43124149152154, %131 ], [ 0, %41 ], [ 0, %37 ], [ 0, %bc_get_u8.exit ], [ 0, %.thread146 ], [ 0, %42 ]
-  %.sroa.16.0 = phi i64 [ 6, %11 ], [ 6, %122 ], [ %.sroa.23.0, %131 ], [ 6, %41 ], [ 6, %37 ], [ 6, %bc_get_u8.exit ], [ 6, %.thread146 ], [ 6, %42 ]
+  %132 = phi i64 [ 0, %11 ], [ 0, %122 ], [ %.sroa.042.0..sroa.042.0..sroa.042.0..sroa.042.0..sroa.042.0.copyload43124149152154, %131 ], [ 0, %37 ], [ 0, %41 ], [ 0, %bc_get_u8.exit ], [ 0, %.thread146 ], [ 0, %42 ]
+  %.sroa.16.0 = phi i64 [ 6, %11 ], [ 6, %122 ], [ %.sroa.23.0, %131 ], [ 6, %37 ], [ 6, %41 ], [ 6, %bc_get_u8.exit ], [ 6, %.thread146 ], [ 6, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.042)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %132, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.16.0, 1
@@ -54184,7 +54184,7 @@ find_atom.exit.i:                                 ; preds = %.loopexit.loopexit.
   unreachable
 
 109:                                              ; preds = %101, %97, %95
-  %.pn.i = phi { i64, i64 } [ %107, %101 ], [ %100, %97 ], [ %96, %95 ]
+  %.pn.i = phi { i64, i64 } [ %96, %95 ], [ %100, %97 ], [ %107, %101 ]
   %.sroa.11.0.i = extractvalue { i64, i64 } %.pn.i, 1
   %.sroa.030.0.i = extractvalue { i64, i64 } %.pn.i, 0
   %110 = icmp sgt i32 %.2.i.i, 226
@@ -54541,9 +54541,9 @@ JS_NewInt64.exit.i:                               ; preds = %find_atom.exit
   unreachable
 
 292:                                              ; preds = %261, %JS_NewInt64.exit.i, %252, %.fold.split.i, %169, %JS_FreeAtom.exit.i, %find_atom.exit
-  %.1.i = phi i32 [ %60, %261 ], [ %60, %JS_NewInt64.exit.i ], [ %60, %252 ], [ 0, %169 ], [ 1, %JS_FreeAtom.exit.i ], [ %60, %.fold.split.i ], [ %60, %find_atom.exit ]
-  %.sroa.030.1.i = phi i64 [ %263, %261 ], [ %.sroa.0.0.insert.ext.i.i.pn.i, %JS_NewInt64.exit.i ], [ %.sroa.0.0.insert.ext.i.i, %252 ], [ %.sroa.030.0.i, %169 ], [ %.sroa.030.0.i, %JS_FreeAtom.exit.i ], [ %.sroa.030.0.i, %.fold.split.i ], [ 0, %find_atom.exit ]
-  %.sroa.11.1.i = phi i64 [ 7, %261 ], [ %.sroa.3.0.i.i, %JS_NewInt64.exit.i ], [ 0, %252 ], [ %.sroa.11.0.i, %169 ], [ %.sroa.11.0.i, %JS_FreeAtom.exit.i ], [ %.sroa.11.0.i, %.fold.split.i ], [ 3, %find_atom.exit ]
+  %.1.i = phi i32 [ %60, %252 ], [ %60, %JS_NewInt64.exit.i ], [ %60, %261 ], [ 0, %169 ], [ 1, %JS_FreeAtom.exit.i ], [ %60, %.fold.split.i ], [ %60, %find_atom.exit ]
+  %.sroa.030.1.i = phi i64 [ %.sroa.0.0.insert.ext.i.i, %252 ], [ %.sroa.0.0.insert.ext.i.i.pn.i, %JS_NewInt64.exit.i ], [ %263, %261 ], [ %.sroa.030.0.i, %169 ], [ %.sroa.030.0.i, %JS_FreeAtom.exit.i ], [ %.sroa.030.0.i, %.fold.split.i ], [ 0, %find_atom.exit ]
+  %.sroa.11.1.i = phi i64 [ 0, %252 ], [ %.sroa.3.0.i.i, %JS_NewInt64.exit.i ], [ 7, %261 ], [ %.sroa.11.0.i, %169 ], [ %.sroa.11.0.i, %JS_FreeAtom.exit.i ], [ %.sroa.11.0.i, %.fold.split.i ], [ 3, %find_atom.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 0, ptr %6, align 8, !tbaa !46
@@ -54803,8 +54803,8 @@ JS_NewInt64.exit:                                 ; preds = %9
   unreachable
 
 57:                                               ; preds = %48, %45, %JS_NewInt64.exit, %36, %29, %13
-  %.sroa.023.0 = phi i64 [ %50, %48 ], [ %47, %45 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ %.sroa.0.0.insert.ext.i, %36 ], [ %34, %29 ], [ %27, %13 ]
-  %.sroa.10.0 = phi i64 [ %51, %48 ], [ 7, %45 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 0, %36 ], [ %35, %29 ], [ %28, %13 ]
+  %.sroa.023.0 = phi i64 [ %27, %13 ], [ %34, %29 ], [ %.sroa.0.0.insert.ext.i, %36 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ %47, %45 ], [ %50, %48 ]
+  %.sroa.10.0 = phi i64 [ %28, %13 ], [ %35, %29 ], [ 0, %36 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 7, %45 ], [ %51, %48 ]
   %58 = load ptr, ptr %10, align 8, !tbaa !574
   %59 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef %58, i64 %.sroa.023.0, i64 %.sroa.10.0)
   %.not = icmp eq i32 %59, 0
@@ -55426,7 +55426,7 @@ define internal { i64, i64 } @js_compile_regexp(ptr noundef %0, i64 %1, i64 %2, 
   br label %21
 
 21:                                               ; preds = %.lr.ph, %20, %19, %18, %17, %16, %15
-  %.039 = phi i32 [ 32, %20 ], [ 16, %19 ], [ 8, %18 ], [ 4, %17 ], [ 2, %16 ], [ 1, %15 ], [ 64, %.lr.ph ]
+  %.039 = phi i32 [ 1, %15 ], [ 2, %16 ], [ 4, %17 ], [ 8, %18 ], [ 16, %19 ], [ 32, %20 ], [ 64, %.lr.ph ]
   %22 = and i32 %.039, %.189
   %.not45 = icmp eq i32 %22, 0
   br i1 %.not45, label %87, label %23
@@ -57178,17 +57178,17 @@ switch.lookup:                                    ; preds = %191
   br label %JS_FreeValue.exit
 
 209:                                              ; preds = %.loopexit212, %.loopexit209, %switch.lookup, %188, %JS_DupValue.exit
-  %.sroa.16.2 = phi i64 [ %switch.load, %switch.lookup ], [ %.sroa.16.0.copyload35, %188 ], [ %180, %JS_DupValue.exit ], [ %12, %.loopexit209 ], [ %147, %.loopexit212 ]
-  %.sroa.028.sroa.0.2 = phi i32 [ %switch.load244, %switch.lookup ], [ %.sroa.028.sroa.0.0.extract.trunc58, %188 ], [ %.sroa.028.sroa.0.0.extract.trunc54, %JS_DupValue.exit ], [ %.sroa.028.sroa.0.0.extract.trunc56, %.loopexit209 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %.loopexit212 ]
-  %.sroa.028.sroa.15.2 = phi i64 [ 0, %switch.lookup ], [ %.sroa.028.sroa.15.0.extract.shift86, %188 ], [ %.sroa.028.sroa.15.0.extract.shift78, %JS_DupValue.exit ], [ %.sroa.028.sroa.15.0.extract.shift82, %.loopexit209 ], [ %.sroa.028.sroa.15.0.extract.shift80, %.loopexit212 ]
+  %.sroa.16.2 = phi i64 [ %180, %JS_DupValue.exit ], [ %.sroa.16.0.copyload35, %188 ], [ %switch.load, %switch.lookup ], [ %12, %.loopexit209 ], [ %147, %.loopexit212 ]
+  %.sroa.028.sroa.0.2 = phi i32 [ %.sroa.028.sroa.0.0.extract.trunc54, %JS_DupValue.exit ], [ %.sroa.028.sroa.0.0.extract.trunc58, %188 ], [ %switch.load244, %switch.lookup ], [ %.sroa.028.sroa.0.0.extract.trunc56, %.loopexit209 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %.loopexit212 ]
+  %.sroa.028.sroa.15.2 = phi i64 [ %.sroa.028.sroa.15.0.extract.shift78, %JS_DupValue.exit ], [ %.sroa.028.sroa.15.0.extract.shift86, %188 ], [ 0, %switch.lookup ], [ %.sroa.028.sroa.15.0.extract.shift82, %.loopexit209 ], [ %.sroa.028.sroa.15.0.extract.shift80, %.loopexit212 ]
   %210 = shl nuw i64 %.sroa.028.sroa.15.2, 32
   %211 = zext i32 %.sroa.028.sroa.0.2 to i64
   br label %JS_FreeValue.exit
 
 .thread:                                          ; preds = %171, %155, %163, %132, %JS_FreeAtom.exit, %27, %.preheader210, %.loopexit212, %140, %.loopexit209, %9, %47, %.loopexit, %switch.lookup, %188, %JS_DupValue.exit
-  %.sroa.16.1 = phi i64 [ %switch.load, %switch.lookup ], [ %.sroa.16.0.copyload35, %188 ], [ %180, %JS_DupValue.exit ], [ %12, %.loopexit209 ], [ %12, %9 ], [ %12, %47 ], [ %12, %.loopexit ], [ %147, %.loopexit212 ], [ %147, %140 ], [ %147, %.preheader210 ], [ %12, %27 ], [ %12, %JS_FreeAtom.exit ], [ %12, %132 ], [ %147, %163 ], [ %147, %155 ], [ %147, %171 ]
-  %.sroa.028.sroa.0.1 = phi i32 [ %switch.load244, %switch.lookup ], [ %.sroa.028.sroa.0.0.extract.trunc58, %188 ], [ %.sroa.028.sroa.0.0.extract.trunc54, %JS_DupValue.exit ], [ %.sroa.028.sroa.0.0.extract.trunc56, %.loopexit209 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %9 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %47 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %.loopexit ], [ %.sroa.028.sroa.0.0.extract.trunc55, %.loopexit212 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %140 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %.preheader210 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %27 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %JS_FreeAtom.exit ], [ %.sroa.028.sroa.0.0.extract.trunc56, %132 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %163 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %155 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %171 ]
-  %.sroa.028.sroa.15.1 = phi i64 [ 0, %switch.lookup ], [ %.sroa.028.sroa.15.0.extract.shift86, %188 ], [ %.sroa.028.sroa.15.0.extract.shift78, %JS_DupValue.exit ], [ %.sroa.028.sroa.15.0.extract.shift82, %.loopexit209 ], [ %.sroa.028.sroa.15.0.extract.shift82, %9 ], [ %.sroa.028.sroa.15.0.extract.shift82, %47 ], [ %.sroa.028.sroa.15.0.extract.shift82, %.loopexit ], [ %.sroa.028.sroa.15.0.extract.shift80, %.loopexit212 ], [ %.sroa.028.sroa.15.0.extract.shift80, %140 ], [ %.sroa.028.sroa.15.0.extract.shift80, %.preheader210 ], [ %.sroa.028.sroa.15.0.extract.shift82, %27 ], [ %.sroa.028.sroa.15.0.extract.shift82, %JS_FreeAtom.exit ], [ %.sroa.028.sroa.15.0.extract.shift82, %132 ], [ %.sroa.028.sroa.15.0.extract.shift80, %163 ], [ %.sroa.028.sroa.15.0.extract.shift80, %155 ], [ %.sroa.028.sroa.15.0.extract.shift80, %171 ]
+  %.sroa.16.1 = phi i64 [ %180, %JS_DupValue.exit ], [ %.sroa.16.0.copyload35, %188 ], [ %switch.load, %switch.lookup ], [ %12, %.loopexit209 ], [ %12, %9 ], [ %12, %47 ], [ %12, %.loopexit ], [ %147, %.loopexit212 ], [ %147, %140 ], [ %147, %.preheader210 ], [ %12, %27 ], [ %12, %JS_FreeAtom.exit ], [ %12, %132 ], [ %147, %163 ], [ %147, %155 ], [ %147, %171 ]
+  %.sroa.028.sroa.0.1 = phi i32 [ %.sroa.028.sroa.0.0.extract.trunc54, %JS_DupValue.exit ], [ %.sroa.028.sroa.0.0.extract.trunc58, %188 ], [ %switch.load244, %switch.lookup ], [ %.sroa.028.sroa.0.0.extract.trunc56, %.loopexit209 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %9 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %47 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %.loopexit ], [ %.sroa.028.sroa.0.0.extract.trunc55, %.loopexit212 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %140 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %.preheader210 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %27 ], [ %.sroa.028.sroa.0.0.extract.trunc56, %JS_FreeAtom.exit ], [ %.sroa.028.sroa.0.0.extract.trunc56, %132 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %163 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %155 ], [ %.sroa.028.sroa.0.0.extract.trunc55, %171 ]
+  %.sroa.028.sroa.15.1 = phi i64 [ %.sroa.028.sroa.15.0.extract.shift78, %JS_DupValue.exit ], [ %.sroa.028.sroa.15.0.extract.shift86, %188 ], [ 0, %switch.lookup ], [ %.sroa.028.sroa.15.0.extract.shift82, %.loopexit209 ], [ %.sroa.028.sroa.15.0.extract.shift82, %9 ], [ %.sroa.028.sroa.15.0.extract.shift82, %47 ], [ %.sroa.028.sroa.15.0.extract.shift82, %.loopexit ], [ %.sroa.028.sroa.15.0.extract.shift80, %.loopexit212 ], [ %.sroa.028.sroa.15.0.extract.shift80, %140 ], [ %.sroa.028.sroa.15.0.extract.shift80, %.preheader210 ], [ %.sroa.028.sroa.15.0.extract.shift82, %27 ], [ %.sroa.028.sroa.15.0.extract.shift82, %JS_FreeAtom.exit ], [ %.sroa.028.sroa.15.0.extract.shift82, %132 ], [ %.sroa.028.sroa.15.0.extract.shift80, %163 ], [ %.sroa.028.sroa.15.0.extract.shift80, %155 ], [ %.sroa.028.sroa.15.0.extract.shift80, %171 ]
   %.sroa.028.sroa.15.0.insert.shift75 = shl nuw i64 %.sroa.028.sroa.15.1, 32
   %.sroa.028.sroa.0.0.insert.ext51 = zext i32 %.sroa.028.sroa.0.1 to i64
   %.sroa.028.sroa.0.0.insert.insert53 = or disjoint i64 %.sroa.028.sroa.15.0.insert.shift75, %.sroa.028.sroa.0.0.insert.ext51
@@ -58177,9 +58177,9 @@ JS_IsArray.exit.thread.fold.split:                ; preds = %JS_DupValue.exit250
   br label %JS_IsArray.exit.thread
 
 JS_IsArray.exit.thread:                           ; preds = %JS_FreeValue.exit, %142, %123, %JS_DupValue.exit247.thread, %JS_DupValue.exit250, %JS_IsArray.exit.thread.fold.split, %221, %171, %166, %163, %77, %70, %JS_ToInt32Clamp.exit, %js_get_length64.exit.thread, %string_buffer_init.exit, %87, %js_get_length64.exit, %JS_FreeValue.exit244, %258, %JS_DupValue.exit247, %279
-  %.sroa.074.1 = phi i64 [ 0, %string_buffer_init.exit ], [ 0, %JS_ToInt32Clamp.exit ], [ 0, %JS_FreeValue.exit244 ], [ %260, %258 ], [ %260, %JS_DupValue.exit247 ], [ %260, %JS_DupValue.exit250 ], [ %260, %279 ], [ 0, %87 ], [ 0, %js_get_length64.exit ], [ 0, %js_get_length64.exit.thread ], [ 0, %70 ], [ 0, %77 ], [ 0, %163 ], [ 0, %166 ], [ 0, %171 ], [ 0, %221 ], [ %260, %JS_IsArray.exit.thread.fold.split ], [ %260, %JS_DupValue.exit247.thread ], [ 0, %123 ], [ 0, %142 ], [ 0, %JS_FreeValue.exit ]
-  %.sroa.10.1 = phi i64 [ 3, %string_buffer_init.exit ], [ 3, %JS_ToInt32Clamp.exit ], [ 3, %JS_FreeValue.exit244 ], [ %261, %258 ], [ %261, %JS_DupValue.exit247 ], [ %261, %JS_DupValue.exit250 ], [ %261, %279 ], [ 3, %87 ], [ 3, %js_get_length64.exit ], [ 3, %js_get_length64.exit.thread ], [ 3, %70 ], [ 3, %77 ], [ 3, %163 ], [ 3, %166 ], [ 3, %171 ], [ 3, %221 ], [ %261, %JS_IsArray.exit.thread.fold.split ], [ %261, %JS_DupValue.exit247.thread ], [ 3, %123 ], [ 3, %142 ], [ 3, %JS_FreeValue.exit ]
-  %.sroa.8188.1 = phi i64 [ 6, %string_buffer_init.exit ], [ 6, %JS_ToInt32Clamp.exit ], [ 6, %JS_FreeValue.exit244 ], [ 6, %258 ], [ 6, %JS_DupValue.exit247 ], [ 6, %JS_DupValue.exit250 ], [ 6, %279 ], [ 6, %87 ], [ 6, %js_get_length64.exit ], [ 6, %js_get_length64.exit.thread ], [ 6, %70 ], [ 6, %77 ], [ 6, %163 ], [ 6, %166 ], [ 6, %171 ], [ 6, %221 ], [ 3, %JS_IsArray.exit.thread.fold.split ], [ 6, %JS_DupValue.exit247.thread ], [ 6, %123 ], [ 6, %142 ], [ 6, %JS_FreeValue.exit ]
+  %.sroa.074.1 = phi i64 [ 0, %string_buffer_init.exit ], [ 0, %JS_FreeValue.exit244 ], [ %260, %258 ], [ %260, %JS_DupValue.exit247 ], [ %260, %JS_DupValue.exit250 ], [ %260, %279 ], [ 0, %JS_ToInt32Clamp.exit ], [ 0, %87 ], [ 0, %js_get_length64.exit ], [ 0, %js_get_length64.exit.thread ], [ 0, %70 ], [ 0, %77 ], [ 0, %163 ], [ 0, %166 ], [ 0, %171 ], [ 0, %221 ], [ %260, %JS_IsArray.exit.thread.fold.split ], [ %260, %JS_DupValue.exit247.thread ], [ 0, %123 ], [ 0, %142 ], [ 0, %JS_FreeValue.exit ]
+  %.sroa.10.1 = phi i64 [ 3, %string_buffer_init.exit ], [ 3, %JS_FreeValue.exit244 ], [ %261, %258 ], [ %261, %JS_DupValue.exit247 ], [ %261, %JS_DupValue.exit250 ], [ %261, %279 ], [ 3, %JS_ToInt32Clamp.exit ], [ 3, %87 ], [ 3, %js_get_length64.exit ], [ 3, %js_get_length64.exit.thread ], [ 3, %70 ], [ 3, %77 ], [ 3, %163 ], [ 3, %166 ], [ 3, %171 ], [ 3, %221 ], [ %261, %JS_IsArray.exit.thread.fold.split ], [ %261, %JS_DupValue.exit247.thread ], [ 3, %123 ], [ 3, %142 ], [ 3, %JS_FreeValue.exit ]
+  %.sroa.8188.1 = phi i64 [ 6, %string_buffer_init.exit ], [ 6, %JS_FreeValue.exit244 ], [ 6, %258 ], [ 6, %JS_DupValue.exit247 ], [ 6, %JS_DupValue.exit250 ], [ 6, %279 ], [ 6, %JS_ToInt32Clamp.exit ], [ 6, %87 ], [ 6, %js_get_length64.exit ], [ 6, %js_get_length64.exit.thread ], [ 6, %70 ], [ 6, %77 ], [ 6, %163 ], [ 6, %166 ], [ 6, %171 ], [ 6, %221 ], [ 3, %JS_IsArray.exit.thread.fold.split ], [ 6, %JS_DupValue.exit247.thread ], [ 6, %123 ], [ 6, %142 ], [ 6, %JS_FreeValue.exit ]
   %288 = load ptr, ptr %14, align 8, !tbaa !597
   %289 = load ptr, ptr %288, align 8, !tbaa !238
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -60091,17 +60091,17 @@ JS_ToQuotedStringFree.exit:                       ; preds = %370, %376
   br label %JS_FreeValue.exit314
 
 JS_FreeValue.exit307:                             ; preds = %175, %JS_FreeValue.exit, %JS_NewInt64.exit, %147, %269, %246, %JS_DupValue.exit306, %JS_FreeValue.exit303, %267, %262, %260, %JS_ToQuotedStringFree.exit, %301, %210, %208, %130, %126, %JS_DupValue.exit296, %100, %JS_DupValue.exit290, %JS_DupValue.exit287, %47, %25, %JS_ToStringFree.exit, %393, %58
-  %405 = phi i64 [ %367, %393 ], [ %379, %JS_ToQuotedStringFree.exit ], [ %2, %126 ], [ %2, %301 ], [ %2, %210 ], [ %2, %208 ], [ %2, %130 ], [ %2, %JS_DupValue.exit296 ], [ %2, %100 ], [ %2, %JS_DupValue.exit290 ], [ %2, %JS_DupValue.exit287 ], [ %2, %58 ], [ %2, %47 ], [ %27, %25 ], [ %22, %JS_ToStringFree.exit ], [ %2, %260 ], [ %2, %262 ], [ %2, %267 ], [ %2, %JS_FreeValue.exit303 ], [ %2, %JS_DupValue.exit306 ], [ %2, %246 ], [ %2, %269 ], [ %2, %147 ], [ %2, %JS_NewInt64.exit ], [ %2, %JS_FreeValue.exit ], [ %2, %175 ]
-  %.sroa.0.0 = phi i64 [ 0, %393 ], [ 0, %JS_ToQuotedStringFree.exit ], [ %78, %126 ], [ %78, %301 ], [ %78, %210 ], [ %78, %208 ], [ %78, %130 ], [ %78, %JS_DupValue.exit296 ], [ %78, %100 ], [ %78, %JS_DupValue.exit290 ], [ %78, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %25 ], [ 0, %JS_ToStringFree.exit ], [ %78, %260 ], [ %78, %262 ], [ %78, %267 ], [ %78, %JS_FreeValue.exit303 ], [ %78, %JS_DupValue.exit306 ], [ %78, %246 ], [ %78, %269 ], [ %78, %147 ], [ %78, %JS_NewInt64.exit ], [ %78, %JS_FreeValue.exit ], [ %78, %175 ]
-  %406 = phi i64 [ %368, %393 ], [ %380, %JS_ToQuotedStringFree.exit ], [ %3, %126 ], [ %3, %301 ], [ %3, %210 ], [ %3, %208 ], [ %3, %130 ], [ %3, %JS_DupValue.exit296 ], [ %3, %100 ], [ %3, %JS_DupValue.exit290 ], [ %3, %JS_DupValue.exit287 ], [ %3, %58 ], [ %3, %47 ], [ %28, %25 ], [ %23, %JS_ToStringFree.exit ], [ %3, %260 ], [ %3, %262 ], [ %3, %267 ], [ %3, %JS_FreeValue.exit303 ], [ %3, %JS_DupValue.exit306 ], [ %3, %246 ], [ %3, %269 ], [ %3, %147 ], [ %3, %JS_NewInt64.exit ], [ %3, %JS_FreeValue.exit ], [ %3, %175 ]
-  %.sroa.0129.0 = phi i64 [ 0, %393 ], [ 0, %JS_ToQuotedStringFree.exit ], [ 0, %126 ], [ %.sroa.0129.1, %301 ], [ %.sroa.0129.2, %210 ], [ %.sroa.0129.2, %208 ], [ 0, %130 ], [ 0, %JS_DupValue.exit296 ], [ 0, %100 ], [ 0, %JS_DupValue.exit290 ], [ 0, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %25 ], [ 0, %JS_ToStringFree.exit ], [ %.sroa.0129.2, %260 ], [ %.sroa.0129.2, %262 ], [ %.sroa.0129.2, %267 ], [ %.sroa.0129.2, %JS_FreeValue.exit303 ], [ %.sroa.0129.2, %JS_DupValue.exit306 ], [ %.sroa.0129.2, %246 ], [ %.sroa.0129.2, %269 ], [ 0, %147 ], [ 0, %JS_NewInt64.exit ], [ 0, %JS_FreeValue.exit ], [ 0, %175 ]
-  %.sroa.11.0 = phi i64 [ 3, %393 ], [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %126 ], [ %.sroa.11.1, %301 ], [ %.sroa.11.2, %210 ], [ %.sroa.11.2, %208 ], [ 3, %130 ], [ 3, %JS_DupValue.exit296 ], [ 3, %100 ], [ 3, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %25 ], [ 3, %JS_ToStringFree.exit ], [ %.sroa.11.2, %260 ], [ %.sroa.11.2, %262 ], [ %.sroa.11.2, %267 ], [ %.sroa.11.2, %JS_FreeValue.exit303 ], [ %.sroa.11.2, %JS_DupValue.exit306 ], [ %.sroa.11.2, %246 ], [ %.sroa.11.2, %269 ], [ 3, %147 ], [ 3, %JS_NewInt64.exit ], [ 3, %JS_FreeValue.exit ], [ 3, %175 ]
-  %.sroa.0138.0 = phi i64 [ 0, %393 ], [ 0, %JS_ToQuotedStringFree.exit ], [ %.sroa.0138.1, %126 ], [ %.sroa.0138.1, %301 ], [ %.sroa.0138.1, %210 ], [ %.sroa.0138.1, %208 ], [ %.sroa.0138.1, %130 ], [ %.sroa.0138.1, %JS_DupValue.exit296 ], [ %102, %100 ], [ 0, %JS_DupValue.exit290 ], [ 0, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %25 ], [ 0, %JS_ToStringFree.exit ], [ %.sroa.0138.1, %260 ], [ %.sroa.0138.1, %262 ], [ %.sroa.0138.1, %267 ], [ %.sroa.0138.1, %JS_FreeValue.exit303 ], [ %.sroa.0138.1, %JS_DupValue.exit306 ], [ %.sroa.0138.1, %246 ], [ %.sroa.0138.1, %269 ], [ %.sroa.0138.1, %147 ], [ %.sroa.0138.1, %JS_NewInt64.exit ], [ %.sroa.0138.1, %JS_FreeValue.exit ], [ %.sroa.0138.1, %175 ]
-  %.sroa.10.0 = phi i64 [ 3, %393 ], [ 3, %JS_ToQuotedStringFree.exit ], [ %.sroa.10.1, %126 ], [ %.sroa.10.1, %301 ], [ %.sroa.10.1, %210 ], [ %.sroa.10.1, %208 ], [ %.sroa.10.1, %130 ], [ %.sroa.10.1, %JS_DupValue.exit296 ], [ %103, %100 ], [ 3, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %25 ], [ 3, %JS_ToStringFree.exit ], [ %.sroa.10.1, %260 ], [ %.sroa.10.1, %262 ], [ %.sroa.10.1, %267 ], [ %.sroa.10.1, %JS_FreeValue.exit303 ], [ %.sroa.10.1, %JS_DupValue.exit306 ], [ %.sroa.10.1, %246 ], [ %.sroa.10.1, %269 ], [ %.sroa.10.1, %147 ], [ %.sroa.10.1, %JS_NewInt64.exit ], [ %.sroa.10.1, %JS_FreeValue.exit ], [ %.sroa.10.1, %175 ]
-  %.sroa.0145.0 = phi i64 [ 0, %393 ], [ 0, %JS_ToQuotedStringFree.exit ], [ %.sroa.0145.1, %126 ], [ %.sroa.0145.1, %301 ], [ %.sroa.0145.1, %210 ], [ %.sroa.0145.1, %208 ], [ %.sroa.0145.1, %130 ], [ %.sroa.0145.1, %JS_DupValue.exit296 ], [ %97, %100 ], [ %97, %JS_DupValue.exit290 ], [ 0, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %25 ], [ 0, %JS_ToStringFree.exit ], [ %.sroa.0145.1, %260 ], [ %.sroa.0145.1, %262 ], [ %.sroa.0145.1, %267 ], [ %.sroa.0145.1, %JS_FreeValue.exit303 ], [ %.sroa.0145.1, %JS_DupValue.exit306 ], [ %.sroa.0145.1, %246 ], [ %.sroa.0145.1, %269 ], [ %.sroa.0145.1, %147 ], [ %.sroa.0145.1, %JS_NewInt64.exit ], [ %.sroa.0145.1, %JS_FreeValue.exit ], [ %.sroa.0145.1, %175 ]
-  %.sroa.11150.0 = phi i64 [ 3, %393 ], [ 3, %JS_ToQuotedStringFree.exit ], [ %.sroa.11150.1, %126 ], [ %.sroa.11150.1, %301 ], [ %.sroa.11150.1, %210 ], [ %.sroa.11150.1, %208 ], [ %.sroa.11150.1, %130 ], [ %.sroa.11150.1, %JS_DupValue.exit296 ], [ %98, %100 ], [ %98, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %25 ], [ 3, %JS_ToStringFree.exit ], [ %.sroa.11150.1, %260 ], [ %.sroa.11150.1, %262 ], [ %.sroa.11150.1, %267 ], [ %.sroa.11150.1, %JS_FreeValue.exit303 ], [ %.sroa.11150.1, %JS_DupValue.exit306 ], [ %.sroa.11150.1, %246 ], [ %.sroa.11150.1, %269 ], [ %.sroa.11150.1, %147 ], [ %.sroa.11150.1, %JS_NewInt64.exit ], [ %.sroa.11150.1, %JS_FreeValue.exit ], [ %.sroa.11150.1, %175 ]
-  %407 = phi i64 [ 3, %393 ], [ 3, %JS_ToQuotedStringFree.exit ], [ %79, %126 ], [ %79, %301 ], [ %79, %210 ], [ %79, %208 ], [ %79, %130 ], [ %79, %JS_DupValue.exit296 ], [ %79, %100 ], [ %79, %JS_DupValue.exit290 ], [ %79, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %25 ], [ 3, %JS_ToStringFree.exit ], [ %79, %260 ], [ %79, %262 ], [ %79, %267 ], [ %79, %JS_FreeValue.exit303 ], [ %79, %JS_DupValue.exit306 ], [ %79, %246 ], [ %79, %269 ], [ %79, %147 ], [ %79, %JS_NewInt64.exit ], [ %79, %JS_FreeValue.exit ], [ %79, %175 ]
-  %408 = phi i64 [ 3, %393 ], [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %126 ], [ %302, %301 ], [ 3, %210 ], [ 3, %208 ], [ 3, %130 ], [ 3, %JS_DupValue.exit296 ], [ 3, %100 ], [ 3, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %25 ], [ 3, %JS_ToStringFree.exit ], [ %258, %260 ], [ %258, %262 ], [ %258, %267 ], [ %234, %JS_FreeValue.exit303 ], [ %234, %JS_DupValue.exit306 ], [ %234, %246 ], [ %258, %269 ], [ 3, %175 ], [ 3, %JS_FreeValue.exit ], [ %159, %JS_NewInt64.exit ], [ 3, %147 ]
+  %405 = phi i64 [ %379, %JS_ToQuotedStringFree.exit ], [ %367, %393 ], [ %2, %126 ], [ %2, %301 ], [ %2, %210 ], [ %2, %208 ], [ %2, %130 ], [ %2, %JS_DupValue.exit296 ], [ %2, %100 ], [ %2, %JS_DupValue.exit290 ], [ %2, %JS_DupValue.exit287 ], [ %2, %58 ], [ %2, %47 ], [ %22, %JS_ToStringFree.exit ], [ %27, %25 ], [ %2, %260 ], [ %2, %262 ], [ %2, %267 ], [ %2, %JS_FreeValue.exit303 ], [ %2, %JS_DupValue.exit306 ], [ %2, %246 ], [ %2, %269 ], [ %2, %147 ], [ %2, %JS_NewInt64.exit ], [ %2, %JS_FreeValue.exit ], [ %2, %175 ]
+  %.sroa.0.0 = phi i64 [ 0, %JS_ToQuotedStringFree.exit ], [ 0, %393 ], [ %78, %126 ], [ %78, %301 ], [ %78, %210 ], [ %78, %208 ], [ %78, %130 ], [ %78, %JS_DupValue.exit296 ], [ %78, %100 ], [ %78, %JS_DupValue.exit290 ], [ %78, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %JS_ToStringFree.exit ], [ 0, %25 ], [ %78, %260 ], [ %78, %262 ], [ %78, %267 ], [ %78, %JS_FreeValue.exit303 ], [ %78, %JS_DupValue.exit306 ], [ %78, %246 ], [ %78, %269 ], [ %78, %147 ], [ %78, %JS_NewInt64.exit ], [ %78, %JS_FreeValue.exit ], [ %78, %175 ]
+  %406 = phi i64 [ %380, %JS_ToQuotedStringFree.exit ], [ %368, %393 ], [ %3, %126 ], [ %3, %301 ], [ %3, %210 ], [ %3, %208 ], [ %3, %130 ], [ %3, %JS_DupValue.exit296 ], [ %3, %100 ], [ %3, %JS_DupValue.exit290 ], [ %3, %JS_DupValue.exit287 ], [ %3, %58 ], [ %3, %47 ], [ %23, %JS_ToStringFree.exit ], [ %28, %25 ], [ %3, %260 ], [ %3, %262 ], [ %3, %267 ], [ %3, %JS_FreeValue.exit303 ], [ %3, %JS_DupValue.exit306 ], [ %3, %246 ], [ %3, %269 ], [ %3, %147 ], [ %3, %JS_NewInt64.exit ], [ %3, %JS_FreeValue.exit ], [ %3, %175 ]
+  %.sroa.0129.0 = phi i64 [ 0, %JS_ToQuotedStringFree.exit ], [ 0, %393 ], [ 0, %126 ], [ %.sroa.0129.1, %301 ], [ %.sroa.0129.2, %210 ], [ %.sroa.0129.2, %208 ], [ 0, %130 ], [ 0, %JS_DupValue.exit296 ], [ 0, %100 ], [ 0, %JS_DupValue.exit290 ], [ 0, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %JS_ToStringFree.exit ], [ 0, %25 ], [ %.sroa.0129.2, %260 ], [ %.sroa.0129.2, %262 ], [ %.sroa.0129.2, %267 ], [ %.sroa.0129.2, %JS_FreeValue.exit303 ], [ %.sroa.0129.2, %JS_DupValue.exit306 ], [ %.sroa.0129.2, %246 ], [ %.sroa.0129.2, %269 ], [ 0, %147 ], [ 0, %JS_NewInt64.exit ], [ 0, %JS_FreeValue.exit ], [ 0, %175 ]
+  %.sroa.11.0 = phi i64 [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %393 ], [ 3, %126 ], [ %.sroa.11.1, %301 ], [ %.sroa.11.2, %210 ], [ %.sroa.11.2, %208 ], [ 3, %130 ], [ 3, %JS_DupValue.exit296 ], [ 3, %100 ], [ 3, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %JS_ToStringFree.exit ], [ 3, %25 ], [ %.sroa.11.2, %260 ], [ %.sroa.11.2, %262 ], [ %.sroa.11.2, %267 ], [ %.sroa.11.2, %JS_FreeValue.exit303 ], [ %.sroa.11.2, %JS_DupValue.exit306 ], [ %.sroa.11.2, %246 ], [ %.sroa.11.2, %269 ], [ 3, %147 ], [ 3, %JS_NewInt64.exit ], [ 3, %JS_FreeValue.exit ], [ 3, %175 ]
+  %.sroa.0138.0 = phi i64 [ 0, %JS_ToQuotedStringFree.exit ], [ 0, %393 ], [ %.sroa.0138.1, %126 ], [ %.sroa.0138.1, %301 ], [ %.sroa.0138.1, %210 ], [ %.sroa.0138.1, %208 ], [ %.sroa.0138.1, %130 ], [ %.sroa.0138.1, %JS_DupValue.exit296 ], [ %102, %100 ], [ 0, %JS_DupValue.exit290 ], [ 0, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %JS_ToStringFree.exit ], [ 0, %25 ], [ %.sroa.0138.1, %260 ], [ %.sroa.0138.1, %262 ], [ %.sroa.0138.1, %267 ], [ %.sroa.0138.1, %JS_FreeValue.exit303 ], [ %.sroa.0138.1, %JS_DupValue.exit306 ], [ %.sroa.0138.1, %246 ], [ %.sroa.0138.1, %269 ], [ %.sroa.0138.1, %147 ], [ %.sroa.0138.1, %JS_NewInt64.exit ], [ %.sroa.0138.1, %JS_FreeValue.exit ], [ %.sroa.0138.1, %175 ]
+  %.sroa.10.0 = phi i64 [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %393 ], [ %.sroa.10.1, %126 ], [ %.sroa.10.1, %301 ], [ %.sroa.10.1, %210 ], [ %.sroa.10.1, %208 ], [ %.sroa.10.1, %130 ], [ %.sroa.10.1, %JS_DupValue.exit296 ], [ %103, %100 ], [ 3, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %JS_ToStringFree.exit ], [ 3, %25 ], [ %.sroa.10.1, %260 ], [ %.sroa.10.1, %262 ], [ %.sroa.10.1, %267 ], [ %.sroa.10.1, %JS_FreeValue.exit303 ], [ %.sroa.10.1, %JS_DupValue.exit306 ], [ %.sroa.10.1, %246 ], [ %.sroa.10.1, %269 ], [ %.sroa.10.1, %147 ], [ %.sroa.10.1, %JS_NewInt64.exit ], [ %.sroa.10.1, %JS_FreeValue.exit ], [ %.sroa.10.1, %175 ]
+  %.sroa.0145.0 = phi i64 [ 0, %JS_ToQuotedStringFree.exit ], [ 0, %393 ], [ %.sroa.0145.1, %126 ], [ %.sroa.0145.1, %301 ], [ %.sroa.0145.1, %210 ], [ %.sroa.0145.1, %208 ], [ %.sroa.0145.1, %130 ], [ %.sroa.0145.1, %JS_DupValue.exit296 ], [ %97, %100 ], [ %97, %JS_DupValue.exit290 ], [ 0, %JS_DupValue.exit287 ], [ 0, %58 ], [ 0, %47 ], [ 0, %JS_ToStringFree.exit ], [ 0, %25 ], [ %.sroa.0145.1, %260 ], [ %.sroa.0145.1, %262 ], [ %.sroa.0145.1, %267 ], [ %.sroa.0145.1, %JS_FreeValue.exit303 ], [ %.sroa.0145.1, %JS_DupValue.exit306 ], [ %.sroa.0145.1, %246 ], [ %.sroa.0145.1, %269 ], [ %.sroa.0145.1, %147 ], [ %.sroa.0145.1, %JS_NewInt64.exit ], [ %.sroa.0145.1, %JS_FreeValue.exit ], [ %.sroa.0145.1, %175 ]
+  %.sroa.11150.0 = phi i64 [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %393 ], [ %.sroa.11150.1, %126 ], [ %.sroa.11150.1, %301 ], [ %.sroa.11150.1, %210 ], [ %.sroa.11150.1, %208 ], [ %.sroa.11150.1, %130 ], [ %.sroa.11150.1, %JS_DupValue.exit296 ], [ %98, %100 ], [ %98, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %JS_ToStringFree.exit ], [ 3, %25 ], [ %.sroa.11150.1, %260 ], [ %.sroa.11150.1, %262 ], [ %.sroa.11150.1, %267 ], [ %.sroa.11150.1, %JS_FreeValue.exit303 ], [ %.sroa.11150.1, %JS_DupValue.exit306 ], [ %.sroa.11150.1, %246 ], [ %.sroa.11150.1, %269 ], [ %.sroa.11150.1, %147 ], [ %.sroa.11150.1, %JS_NewInt64.exit ], [ %.sroa.11150.1, %JS_FreeValue.exit ], [ %.sroa.11150.1, %175 ]
+  %407 = phi i64 [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %393 ], [ %79, %126 ], [ %79, %301 ], [ %79, %210 ], [ %79, %208 ], [ %79, %130 ], [ %79, %JS_DupValue.exit296 ], [ %79, %100 ], [ %79, %JS_DupValue.exit290 ], [ %79, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %JS_ToStringFree.exit ], [ 3, %25 ], [ %79, %260 ], [ %79, %262 ], [ %79, %267 ], [ %79, %JS_FreeValue.exit303 ], [ %79, %JS_DupValue.exit306 ], [ %79, %246 ], [ %79, %269 ], [ %79, %147 ], [ %79, %JS_NewInt64.exit ], [ %79, %JS_FreeValue.exit ], [ %79, %175 ]
+  %408 = phi i64 [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %393 ], [ 3, %126 ], [ %302, %301 ], [ 3, %210 ], [ 3, %208 ], [ 3, %130 ], [ 3, %JS_DupValue.exit296 ], [ 3, %100 ], [ 3, %JS_DupValue.exit290 ], [ 3, %JS_DupValue.exit287 ], [ 3, %58 ], [ 3, %47 ], [ 3, %JS_ToStringFree.exit ], [ 3, %25 ], [ %258, %260 ], [ %258, %262 ], [ %258, %267 ], [ %234, %JS_FreeValue.exit303 ], [ %234, %JS_DupValue.exit306 ], [ %234, %246 ], [ %258, %269 ], [ 3, %175 ], [ 3, %JS_FreeValue.exit ], [ %159, %JS_NewInt64.exit ], [ 3, %147 ]
   %409 = trunc i64 %406 to i32
   %410 = icmp ugt i32 %409, -12
   br i1 %410, label %411, label %JS_FreeValue.exit316
@@ -65860,7 +65860,7 @@ JS_FreeValue.exit61:                              ; preds = %56, %60
   unreachable
 
 88:                                               ; preds = %82, %77, %75, %70
-  %.055 = phi i32 [ %83, %82 ], [ %78, %77 ], [ %76, %75 ], [ %74, %70 ]
+  %.055 = phi i32 [ %74, %70 ], [ %76, %75 ], [ %78, %77 ], [ %83, %82 ]
   %89 = icmp eq ptr %55, %6
   br i1 %89, label %90, label %98
 
@@ -66416,7 +66416,7 @@ JS_FreeValue.exit153:                             ; preds = %172, %175, %179
   unreachable
 
 is_math_mode.exit147.thread:                      ; preds = %105, %is_math_mode.exit147, %182, %207, %205, %203, %202, %99, %96, %bf_delete.exit, %79, %77, %75
-  %.0126 = phi i32 [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %.2, %202 ], [ %183, %182 ], [ %101, %99 ], [ %98, %96 ], [ %88, %bf_delete.exit ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ 1, %is_math_mode.exit147 ], [ 1, %105 ]
+  %.0126 = phi i32 [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %88, %bf_delete.exit ], [ %98, %96 ], [ %101, %99 ], [ %183, %182 ], [ %.2, %202 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ 1, %is_math_mode.exit147 ], [ 1, %105 ]
   %210 = icmp eq ptr %34, %7
   br i1 %210, label %211, label %219
 
@@ -66770,7 +66770,7 @@ bf_delete.exit:                                   ; preds = %30, %27, %25, %23
   unreachable
 
 61:                                               ; preds = %56, %52, %50, %46, %44
-  %.0 = phi i32 [ %59, %56 ], [ %55, %52 ], [ %.lobit.i41, %50 ], [ %49, %46 ], [ %.lobit.i, %44 ]
+  %.0 = phi i32 [ %.lobit.i, %44 ], [ %49, %46 ], [ %.lobit.i41, %50 ], [ %55, %52 ], [ %59, %56 ]
   %62 = icmp eq ptr %9, %7
   br i1 %62, label %63, label %bf_delete.exit46
 
@@ -67260,9 +67260,9 @@ JS_StringToBigIntErr.exit.i:                      ; preds = %159, %153
   br i1 %.not.i, label %.loopexit.i, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %161, %JS_ToStringFree.exit.i
-  %.sroa.22.0.i.be = phi i64 [ %164, %161 ], [ %151, %JS_ToStringFree.exit.i ]
-  %.sroa.054.sroa.0.0.i.be = phi i32 [ %.sroa.054.sroa.0.0.extract.trunc107.i, %161 ], [ %.sroa.054.sroa.0.0.extract.trunc109.i, %JS_ToStringFree.exit.i ]
-  %.sroa.054.sroa.22.0.i.be = phi i32 [ %.sroa.054.sroa.22.0.extract.trunc159.i, %161 ], [ %.sroa.054.sroa.22.0.extract.trunc163.i, %JS_ToStringFree.exit.i ]
+  %.sroa.22.0.i.be = phi i64 [ %151, %JS_ToStringFree.exit.i ], [ %164, %161 ]
+  %.sroa.054.sroa.0.0.i.be = phi i32 [ %.sroa.054.sroa.0.0.extract.trunc109.i, %JS_ToStringFree.exit.i ], [ %.sroa.054.sroa.0.0.extract.trunc107.i, %161 ]
+  %.sroa.054.sroa.22.0.i.be = phi i32 [ %.sroa.054.sroa.22.0.extract.trunc163.i, %JS_ToStringFree.exit.i ], [ %.sroa.054.sroa.22.0.extract.trunc159.i, %161 ]
   br label %.backedge.i
 
 166:                                              ; preds = %.backedge.i
@@ -67291,9 +67291,9 @@ JS_FreeValue.exit200.i:                           ; preds = %173, %168, %166
   br label %JS_ToBigIntCtorFree.exit
 
 .loopexit.i:                                      ; preds = %161, %JS_ToStringFree.exit.i, %.backedge.i, %JS_StringToBigIntErr.exit.i, %JS_FreeValue.exit.i, %JS_NewBigInt64.exit.i
-  %.sroa.22.1.i = phi i64 [ %.sroa.3.0.i.i, %JS_StringToBigIntErr.exit.i ], [ %.sroa.22.3.i, %JS_FreeValue.exit.i ], [ %30, %JS_NewBigInt64.exit.i ], [ %164, %161 ], [ %151, %JS_ToStringFree.exit.i ], [ %.sroa.22.0.i, %.backedge.i ]
-  %.sroa.054.sroa.0.1.i = phi i32 [ %.sroa.054.sroa.0.0.extract.trunc108.i, %JS_StringToBigIntErr.exit.i ], [ %.sroa.054.sroa.0.3.i, %JS_FreeValue.exit.i ], [ %.sroa.054.sroa.0.0.extract.trunc114.i, %JS_NewBigInt64.exit.i ], [ %.sroa.054.sroa.0.0.extract.trunc107.i, %161 ], [ %.sroa.054.sroa.0.0.extract.trunc109.i, %JS_ToStringFree.exit.i ], [ %.sroa.054.sroa.0.0.i, %.backedge.i ]
-  %.sroa.054.sroa.22.1.i = phi i32 [ %.sroa.054.sroa.22.0.extract.trunc161.i, %JS_StringToBigIntErr.exit.i ], [ %.sroa.054.sroa.22.3.i, %JS_FreeValue.exit.i ], [ %.sroa.054.sroa.22.0.extract.trunc173.i, %JS_NewBigInt64.exit.i ], [ %.sroa.054.sroa.22.0.extract.trunc159.i, %161 ], [ %.sroa.054.sroa.22.0.extract.trunc163.i, %JS_ToStringFree.exit.i ], [ %.sroa.054.sroa.22.0.i, %.backedge.i ]
+  %.sroa.22.1.i = phi i64 [ %30, %JS_NewBigInt64.exit.i ], [ %.sroa.22.3.i, %JS_FreeValue.exit.i ], [ %.sroa.3.0.i.i, %JS_StringToBigIntErr.exit.i ], [ %.sroa.22.0.i, %.backedge.i ], [ %151, %JS_ToStringFree.exit.i ], [ %164, %161 ]
+  %.sroa.054.sroa.0.1.i = phi i32 [ %.sroa.054.sroa.0.0.extract.trunc114.i, %JS_NewBigInt64.exit.i ], [ %.sroa.054.sroa.0.3.i, %JS_FreeValue.exit.i ], [ %.sroa.054.sroa.0.0.extract.trunc108.i, %JS_StringToBigIntErr.exit.i ], [ %.sroa.054.sroa.0.0.i, %.backedge.i ], [ %.sroa.054.sroa.0.0.extract.trunc109.i, %JS_ToStringFree.exit.i ], [ %.sroa.054.sroa.0.0.extract.trunc107.i, %161 ]
+  %.sroa.054.sroa.22.1.i = phi i32 [ %.sroa.054.sroa.22.0.extract.trunc173.i, %JS_NewBigInt64.exit.i ], [ %.sroa.054.sroa.22.3.i, %JS_FreeValue.exit.i ], [ %.sroa.054.sroa.22.0.extract.trunc161.i, %JS_StringToBigIntErr.exit.i ], [ %.sroa.054.sroa.22.0.i, %.backedge.i ], [ %.sroa.054.sroa.22.0.extract.trunc163.i, %JS_ToStringFree.exit.i ], [ %.sroa.054.sroa.22.0.extract.trunc159.i, %161 ]
   %176 = zext i32 %.sroa.054.sroa.22.1.i to i64
   %177 = shl nuw i64 %176, 32
   %178 = zext i32 %.sroa.054.sroa.0.1.i to i64
@@ -67638,7 +67638,7 @@ JS_FreeValue.exit55:                              ; preds = %50, %54
   unreachable
 
 83:                                               ; preds = %77, %75, %66
-  %.049 = phi i32 [ %78, %77 ], [ %76, %75 ], [ %74, %66 ]
+  %.049 = phi i32 [ %74, %66 ], [ %76, %75 ], [ %78, %77 ]
   %84 = icmp eq ptr %49, %6
   br i1 %84, label %85, label %bf_delete.exit
 
@@ -67878,7 +67878,7 @@ define internal range(i32 -1, 1) i32 @js_binary_arith_bigfloat(ptr noundef %0, i
   unreachable
 
 99:                                               ; preds = %91, %85, %79, %73, %67, %61, %55
-  %.076 = phi i32 [ %97, %91 ], [ %90, %85 ], [ %84, %79 ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ %60, %55 ]
+  %.076 = phi i32 [ %60, %55 ], [ %66, %61 ], [ %72, %67 ], [ %78, %73 ], [ %84, %79 ], [ %90, %85 ], [ %97, %91 ]
   %100 = icmp eq ptr %25, %7
   br i1 %100, label %101, label %bf_delete.exit87
 
@@ -68458,8 +68458,8 @@ JS_ToStringFree.exit:                             ; preds = %85, %92
   br i1 %.not200, label %.thread180, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %JS_ToStringFree.exit, %168
-  %.sroa.034.1.be = phi double [ %173, %168 ], [ %96, %JS_ToStringFree.exit ]
-  %.sroa.34.1.be = phi i64 [ %172, %168 ], [ %95, %JS_ToStringFree.exit ]
+  %.sroa.034.1.be = phi double [ %96, %JS_ToStringFree.exit ], [ %173, %168 ]
+  %.sroa.34.1.be = phi i64 [ %95, %JS_ToStringFree.exit ], [ %172, %168 ]
   br label %.backedge
 
 98:                                               ; preds = %.backedge
@@ -68663,8 +68663,8 @@ JS_FreeValue.exit166:                             ; preds = %175, %178, %183
   br label %.thread180
 
 .thread180:                                       ; preds = %JS_ToStringFree.exit, %168, %.backedge, %.thread180.loopexit, %69, %73, %50, %54, %75, %56, %167, %.thread
-  %.sroa.034.0 = phi double [ %.sroa.034.3, %167 ], [ %30, %.thread ], [ %61, %56 ], [ %81, %75 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %73 ], [ 0.000000e+00, %69 ], [ %.sroa.034.1, %.backedge ], [ %96, %JS_ToStringFree.exit ], [ %173, %168 ], [ %.sroa.034.1, %.thread180.loopexit ]
-  %.sroa.34.0 = phi i64 [ %.sroa.34.3, %167 ], [ -9, %.thread ], [ -9, %56 ], [ -9, %75 ], [ 6, %54 ], [ 6, %50 ], [ 6, %73 ], [ 6, %69 ], [ -9, %.backedge ], [ %95, %JS_ToStringFree.exit ], [ %172, %168 ], [ %.sroa.34.1, %.thread180.loopexit ]
+  %.sroa.034.0 = phi double [ %.sroa.034.3, %167 ], [ %30, %.thread ], [ %61, %56 ], [ %81, %75 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %73 ], [ 0.000000e+00, %69 ], [ %.sroa.034.1, %.backedge ], [ %173, %168 ], [ %96, %JS_ToStringFree.exit ], [ %.sroa.034.1, %.thread180.loopexit ]
+  %.sroa.34.0 = phi i64 [ %.sroa.34.3, %167 ], [ -9, %.thread ], [ -9, %56 ], [ -9, %75 ], [ 6, %54 ], [ 6, %50 ], [ 6, %73 ], [ 6, %69 ], [ -9, %.backedge ], [ %172, %168 ], [ %95, %JS_ToStringFree.exit ], [ %.sroa.34.1, %.thread180.loopexit ]
   %186 = bitcast double %.sroa.034.0 to i64
   br label %JS_FreeValue.exit167
 
@@ -69181,7 +69181,7 @@ JS_FreeValue.exit51:                              ; preds = %49, %54
   unreachable
 
 81:                                               ; preds = %68, %73, %75
-  %.045 = phi i32 [ %76, %75 ], [ %74, %73 ], [ %72, %68 ]
+  %.045 = phi i32 [ %72, %68 ], [ %74, %73 ], [ %76, %75 ]
   %82 = load i32, ptr %66, align 4, !tbaa !107
   %83 = add i32 %82, -1
   store i32 %83, ptr %66, align 4, !tbaa !107
@@ -69401,7 +69401,7 @@ js_bfdec_pow.exit:                                ; preds = %51, %53, %56, %61, 
   unreachable
 
 85:                                               ; preds = %36, %38, %40, %42, %44, %46, %js_bfdec_pow.exit
-  %.051 = phi i32 [ %.0.i61, %js_bfdec_pow.exit ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ]
+  %.051 = phi i32 [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %.0.i61, %js_bfdec_pow.exit ]
   %86 = load i32, ptr %27, align 4, !tbaa !107
   %87 = add i32 %86, -1
   store i32 %87, ptr %27, align 4, !tbaa !107
@@ -69633,7 +69633,7 @@ JS_ToBigDecimal.exit46:                           ; preds = %44, %47
   unreachable
 
 66:                                               ; preds = %61, %57, %55, %51, %49
-  %.041 = phi i32 [ %64, %61 ], [ %60, %57 ], [ %.lobit.i47, %55 ], [ %54, %51 ], [ %.lobit.i, %49 ]
+  %.041 = phi i32 [ %.lobit.i, %49 ], [ %54, %51 ], [ %.lobit.i47, %55 ], [ %60, %57 ], [ %64, %61 ]
   %67 = trunc i64 %9 to i32
   %68 = icmp ugt i32 %67, -12
   br i1 %68, label %69, label %JS_FreeValue.exit48
@@ -71005,8 +71005,8 @@ JS_ToStringFree.exit:                             ; preds = %35, %40
   br i1 %.not65, label %JS_SetObjectData.exit, label %51
 
 51:                                               ; preds = %5, %JS_FreeValue.exit, %45, %23
-  %52 = phi i64 [ %19, %23 ], [ %48, %45 ], [ %34, %JS_FreeValue.exit ], [ 0, %5 ]
-  %.sroa.19.0 = phi i64 [ %20, %23 ], [ %49, %45 ], [ 7, %JS_FreeValue.exit ], [ 0, %5 ]
+  %52 = phi i64 [ %19, %23 ], [ %34, %JS_FreeValue.exit ], [ %48, %45 ], [ 0, %5 ]
+  %.sroa.19.0 = phi i64 [ %20, %23 ], [ 7, %JS_FreeValue.exit ], [ %49, %45 ], [ 0, %5 ]
   %53 = and i64 %2, 4294967295
   %.not66 = icmp eq i64 %53, 3
   br i1 %.not66, label %92, label %54
@@ -78931,7 +78931,7 @@ define internal { i64, i64 } @JS_InstantiateFunctionListItem2(ptr noundef %0, pt
   unreachable
 
 36:                                               ; preds = %27, %23, %7
-  %.fca.1.insert.merged = phi { i64, i64 } [ %28, %27 ], [ %26, %23 ], [ %22, %7 ]
+  %.fca.1.insert.merged = phi { i64, i64 } [ %22, %7 ], [ %26, %23 ], [ %28, %27 ]
   ret { i64, i64 } %.fca.1.insert.merged
 }
 
@@ -80562,8 +80562,8 @@ JS_FreeValue.exit96.loopexit:                     ; preds = %8, %8, %8
   br label %JS_FreeValue.exit96
 
 JS_FreeValue.exit96:                              ; preds = %41, %8, %JS_FreeValue.exit96.loopexit, %187, %182, %180, %JS_FreeCString.exit, %40, %10, %20, %30, %JS_FreeValue.exit95, %JS_FreeValue.exit91, %JS_FreeValue.exit90, %JS_FreeValue.exit
-  %190 = phi i64 [ 0, %JS_FreeValue.exit95 ], [ 0, %JS_FreeValue.exit91 ], [ 0, %JS_FreeValue.exit90 ], [ 0, %JS_FreeValue.exit ], [ %.sroa.0.0.insert.ext.i, %40 ], [ %.sroa.053.0.in, %10 ], [ %.sroa.053.0.in, %20 ], [ %.sroa.053.0.in, %30 ], [ %spec.select, %JS_FreeCString.exit ], [ 9221120237041090560, %180 ], [ 9221120237041090560, %182 ], [ 9221120237041090560, %187 ], [ %.sroa.053.0.in, %JS_FreeValue.exit96.loopexit ], [ 9221120237041090560, %8 ], [ 0, %41 ]
-  %.sroa.10.0 = phi i64 [ 6, %JS_FreeValue.exit95 ], [ 6, %JS_FreeValue.exit91 ], [ 6, %JS_FreeValue.exit90 ], [ 6, %JS_FreeValue.exit ], [ 0, %40 ], [ %.sroa.16.0, %10 ], [ %.sroa.16.0, %20 ], [ %.sroa.16.0, %30 ], [ %spec.select89, %JS_FreeCString.exit ], [ 7, %180 ], [ 7, %182 ], [ 7, %187 ], [ %.sroa.16.0, %JS_FreeValue.exit96.loopexit ], [ 7, %8 ], [ 6, %41 ]
+  %190 = phi i64 [ 0, %JS_FreeValue.exit ], [ 0, %JS_FreeValue.exit90 ], [ 0, %JS_FreeValue.exit91 ], [ 0, %JS_FreeValue.exit95 ], [ %.sroa.0.0.insert.ext.i, %40 ], [ %.sroa.053.0.in, %10 ], [ %.sroa.053.0.in, %20 ], [ %.sroa.053.0.in, %30 ], [ %spec.select, %JS_FreeCString.exit ], [ 9221120237041090560, %180 ], [ 9221120237041090560, %182 ], [ 9221120237041090560, %187 ], [ %.sroa.053.0.in, %JS_FreeValue.exit96.loopexit ], [ 9221120237041090560, %8 ], [ 0, %41 ]
+  %.sroa.10.0 = phi i64 [ 6, %JS_FreeValue.exit ], [ 6, %JS_FreeValue.exit90 ], [ 6, %JS_FreeValue.exit91 ], [ 6, %JS_FreeValue.exit95 ], [ 0, %40 ], [ %.sroa.16.0, %10 ], [ %.sroa.16.0, %20 ], [ %.sroa.16.0, %30 ], [ %spec.select89, %JS_FreeCString.exit ], [ 7, %180 ], [ 7, %182 ], [ 7, %187 ], [ %.sroa.16.0, %JS_FreeValue.exit96.loopexit ], [ 7, %8 ], [ 6, %41 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %190, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.10.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -81756,7 +81756,7 @@ to_digit.exit._crit_edge.thread.i:                ; preds = %272, %.thread70.i, 
   br label %js_strtod.exit
 
 js_strtod.exit:                                   ; preds = %to_digit.exit._crit_edge.thread.i, %.thread.i
-  %.040.i = phi double [ %319, %.thread.i ], [ %.243.i, %to_digit.exit._crit_edge.thread.i ]
+  %.040.i = phi double [ %.243.i, %to_digit.exit._crit_edge.thread.i ], [ %319, %.thread.i ]
   %320 = fcmp oge double %.040.i, 0xC1E0000000000000
   %321 = fcmp ole double %.040.i, 0x41DFFFFFFFC00000
   %or.cond.i = and i1 %320, %321
@@ -81835,8 +81835,8 @@ JS_NewFloat64.exit:                               ; preds = %322, %328
   unreachable
 
 358:                                              ; preds = %246, %247, %254, %255, %329, %339, %348, %JS_NewFloat64.exit, %331, %340, %349
-  %359 = phi i64 [ %355, %349 ], [ %346, %340 ], [ %337, %331 ], [ %.sroa.09.0.insert.insert.i279, %JS_NewFloat64.exit ], [ 9221120237041090560, %348 ], [ 9221120237041090560, %339 ], [ 9221120237041090560, %329 ], [ 9221120237041090560, %255 ], [ 9221120237041090560, %254 ], [ 9221120237041090560, %247 ], [ 9221120237041090560, %246 ]
-  %.sroa.11.1 = phi i64 [ %356, %349 ], [ %347, %340 ], [ %338, %331 ], [ %.sroa.4.0.i, %JS_NewFloat64.exit ], [ 7, %348 ], [ 7, %339 ], [ 7, %329 ], [ 7, %255 ], [ 7, %254 ], [ 7, %247 ], [ 7, %246 ]
+  %359 = phi i64 [ %.sroa.09.0.insert.insert.i279, %JS_NewFloat64.exit ], [ %337, %331 ], [ %346, %340 ], [ %355, %349 ], [ 9221120237041090560, %348 ], [ 9221120237041090560, %339 ], [ 9221120237041090560, %329 ], [ 9221120237041090560, %255 ], [ 9221120237041090560, %254 ], [ 9221120237041090560, %247 ], [ 9221120237041090560, %246 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.4.0.i, %JS_NewFloat64.exit ], [ %338, %331 ], [ %347, %340 ], [ %356, %349 ], [ 7, %348 ], [ 7, %339 ], [ 7, %329 ], [ 7, %255 ], [ 7, %254 ], [ 7, %247 ], [ 7, %246 ]
   br i1 %219, label %.thread356, label %360
 
 360:                                              ; preds = %358
@@ -82653,8 +82653,8 @@ JS_StringToBigIntErr.exit:                        ; preds = %53
   br i1 %.not89, label %JS_FreeValue.exit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %JS_StringToBigIntErr.exit, %61
-  %.sroa.05.0.i106.be = phi i64 [ %63, %61 ], [ %55, %JS_StringToBigIntErr.exit ]
-  %.sroa.13.0.be = phi i64 [ %64, %61 ], [ %56, %JS_StringToBigIntErr.exit ]
+  %.sroa.05.0.i106.be = phi i64 [ %55, %JS_StringToBigIntErr.exit ], [ %63, %61 ]
+  %.sroa.13.0.be = phi i64 [ %56, %JS_StringToBigIntErr.exit ], [ %64, %61 ]
   br label %.backedge
 
 61:                                               ; preds = %.backedge
@@ -82692,7 +82692,7 @@ JS_FreeValue.exit72:                              ; preds = %16, %is_math_mode.e
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %61, %JS_StringToBigIntErr.exit, %JS_StringToBigIntErr.exit.thread, %51, %42, %25, %.loopexit, %30, %JS_FreeValue.exit72
-  %.0 = phi ptr [ null, %JS_FreeValue.exit72 ], [ %31, %30 ], [ %1, %25 ], [ %1, %.loopexit ], [ %1, %42 ], [ %1, %51 ], [ null, %JS_StringToBigIntErr.exit.thread ], [ null, %JS_StringToBigIntErr.exit ], [ null, %61 ]
+  %.0 = phi ptr [ null, %JS_FreeValue.exit72 ], [ %1, %.loopexit ], [ %1, %25 ], [ %31, %30 ], [ %1, %42 ], [ %1, %51 ], [ null, %JS_StringToBigIntErr.exit.thread ], [ null, %JS_StringToBigIntErr.exit ], [ null, %61 ]
   ret ptr %.0
 }
 
@@ -83314,8 +83314,8 @@ js_string_memcmp.exit.thread.i:                   ; preds = %66, %59, %js_string
   br label %86
 
 86:                                               ; preds = %83, %79, %84, %81
-  %.090 = phi double [ %85, %84 ], [ %82, %81 ], [ %10, %79 ], [ %10, %83 ]
-  %.089 = phi double [ %9, %84 ], [ %80, %81 ], [ %80, %79 ], [ %9, %83 ]
+  %.090 = phi double [ %82, %81 ], [ %85, %84 ], [ %10, %79 ], [ %10, %83 ]
+  %.089 = phi double [ %80, %81 ], [ %9, %84 ], [ %80, %79 ], [ %9, %83 ]
   %.not109 = icmp eq i32 %5, 0
   br i1 %.not109, label %102, label %87, !prof !246
 
@@ -83469,7 +83469,7 @@ js_string_compare.exit:                           ; preds = %.lr.ph.i29.i.i, %.l
   br i1 %156, label %.thread, label %JS_FreeValue.exit
 
 .thread:                                          ; preds = %73, %76, %bf_delete.exit121, %24, %75, %145, %141, %137, %129, %149, %150, %js_string_compare.exit
-  %.1125 = phi i32 [ %.1, %js_string_compare.exit ], [ 0, %149 ], [ %155, %150 ], [ 1, %137 ], [ %148, %145 ], [ %144, %141 ], [ 0, %129 ], [ 0, %75 ], [ 0, %24 ], [ %.3, %73 ], [ %78, %76 ], [ %.5, %bf_delete.exit121 ]
+  %.1125 = phi i32 [ %.1, %js_string_compare.exit ], [ 0, %149 ], [ %155, %150 ], [ 1, %137 ], [ %148, %145 ], [ %144, %141 ], [ 0, %129 ], [ 0, %75 ], [ 0, %24 ], [ %.5, %bf_delete.exit121 ], [ %78, %76 ], [ %.3, %73 ]
   %157 = load i32, ptr %13, align 4, !tbaa !107
   %158 = add i32 %157, -1
   store i32 %158, ptr %13, align 4, !tbaa !107
@@ -83501,7 +83501,7 @@ JS_FreeValue.exit:                                ; preds = %21, %17, %79, %83, 
   br label %JS_FreeValue.exit122
 
 JS_FreeValue.exit122:                             ; preds = %168, %164, %JS_FreeValue.exit, %101, %102, %18
-  %.0 = phi i32 [ %.4, %101 ], [ %104, %102 ], [ %20, %18 ], [ %.1124, %JS_FreeValue.exit ], [ %.1124, %164 ], [ %.1124, %168 ]
+  %.0 = phi i32 [ %20, %18 ], [ %.4, %101 ], [ %104, %102 ], [ %.1124, %JS_FreeValue.exit ], [ %.1124, %164 ], [ %.1124, %168 ]
   ret i32 %.0
 }
 
@@ -83567,7 +83567,7 @@ define internal fastcc ptr @JS_ToBigFloat(ptr noundef readonly captures(none) %0
   br label %bf_delete.exit
 
 bf_delete.exit:                                   ; preds = %21, %18, %16, %24, %27, %6, %11
-  %.0 = phi ptr [ %1, %27 ], [ %26, %24 ], [ %1, %11 ], [ %1, %6 ], [ null, %16 ], [ null, %18 ], [ null, %21 ]
+  %.0 = phi ptr [ %1, %27 ], [ %1, %6 ], [ %1, %11 ], [ %26, %24 ], [ null, %16 ], [ null, %18 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -87518,7 +87518,7 @@ JS_NewFloat64.exit:                               ; preds = %159, %165
   unreachable
 
 167:                                              ; preds = %119, %128, %126, %is_math_mode.exit.thread, %146, %89
-  %.0162 = phi i64 [ %.zext, %146 ], [ %127, %126 ], [ %129, %128 ], [ %122, %119 ], [ %96, %is_math_mode.exit.thread ], [ %92, %89 ]
+  %.0162 = phi i64 [ %92, %89 ], [ %96, %is_math_mode.exit.thread ], [ %127, %126 ], [ %129, %128 ], [ %122, %119 ], [ %.zext, %146 ]
   %168 = add nsw i64 %.0162, 2147483648
   %169 = icmp ult i64 %168, 4294967296
   br i1 %169, label %.thread243, label %170
@@ -87765,7 +87765,7 @@ is_math_mode.exit228.thread:                      ; preds = %JS_ToFloat64Free.ex
   unreachable
 
 js_pow.exit:                                      ; preds = %277, %274, %261, %267, %257, %253, %249, %245
-  %.0163 = phi double [ %268, %267 ], [ %265, %261 ], [ %260, %257 ], [ %256, %253 ], [ %252, %249 ], [ %248, %245 ], [ %278, %277 ], [ 0x7FF8000000000000, %274 ]
+  %.0163 = phi double [ %248, %245 ], [ %252, %249 ], [ %256, %253 ], [ %260, %257 ], [ %268, %267 ], [ %265, %261 ], [ %278, %277 ], [ 0x7FF8000000000000, %274 ]
   store double %.0163, ptr %8, align 8, !tbaa !46
   store i64 7, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !45
   br label %.thread246
@@ -87782,8 +87782,8 @@ JS_FreeValue.exit206:                             ; preds = %216, %211, %209, %1
   store i64 3, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !45
   br label %.thread246
 
-.thread246:                                       ; preds = %107, %is_math_mode.exit210.thread, %JS_NewInt64.exit, %JS_NewFloat64.exit201, %JS_NewFloat64.exit, %.thread, %187, %.thread249, %js_pow.exit, %178, %JS_FreeValue.exit206
-  %.2 = phi i32 [ -1, %JS_FreeValue.exit206 ], [ 0, %178 ], [ 0, %js_pow.exit ], [ 0, %.thread249 ], [ 0, %187 ], [ 0, %.thread ], [ 0, %JS_NewFloat64.exit ], [ 0, %JS_NewFloat64.exit201 ], [ 0, %JS_NewInt64.exit ], [ 0, %is_math_mode.exit210.thread ], [ 0, %107 ]
+.thread246:                                       ; preds = %JS_NewFloat64.exit, %JS_NewFloat64.exit201, %is_math_mode.exit210.thread, %107, %JS_NewInt64.exit, %.thread, %187, %.thread249, %js_pow.exit, %178, %JS_FreeValue.exit206
+  %.2 = phi i32 [ -1, %JS_FreeValue.exit206 ], [ 0, %178 ], [ 0, %js_pow.exit ], [ 0, %.thread249 ], [ 0, %187 ], [ 0, %.thread ], [ 0, %JS_NewInt64.exit ], [ 0, %107 ], [ 0, %is_math_mode.exit210.thread ], [ 0, %JS_NewFloat64.exit201 ], [ 0, %JS_NewFloat64.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #41
@@ -87896,7 +87896,7 @@ JS_FreeValue.exit:                                ; preds = %14, %19
   unreachable
 
 .thread91:                                        ; preds = %40, %33, %31
-  %.076 = phi i64 [ %41, %40 ], [ %32, %31 ], [ %37, %33 ]
+  %.076 = phi i64 [ %37, %33 ], [ %32, %31 ], [ %41, %40 ]
   %43 = add nsw i64 %.076, 2147483648
   %44 = icmp ult i64 %43, 4294967296
   %.sroa.0.0.insert.ext.i.i = and i64 %.076, 4294967295
@@ -87983,7 +87983,7 @@ is_math_mode.exit.thread:                         ; preds = %66, %is_math_mode.e
   unreachable
 
 .thread98:                                        ; preds = %is_math_mode.exit.thread, %72, %77
-  %.075 = phi double [ %78, %77 ], [ %.sroa.022.0, %is_math_mode.exit.thread ], [ %76, %72 ]
+  %.075 = phi double [ %76, %72 ], [ %.sroa.022.0, %is_math_mode.exit.thread ], [ %78, %77 ]
   store double %.075, ptr %5, align 8, !tbaa !46
   store i64 7, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !45
   br label %81
@@ -88408,7 +88408,7 @@ JS_FreeValue.exit89:                              ; preds = %JS_FreeValue.exit88
   unreachable
 
 146:                                              ; preds = %141, %137, %133, %128, %123
-  %.076 = phi i32 [ %144, %141 ], [ %140, %137 ], [ %136, %133 ], [ %132, %128 ], [ %127, %123 ]
+  %.076 = phi i32 [ %127, %123 ], [ %132, %128 ], [ %136, %133 ], [ %140, %137 ], [ %144, %141 ]
   %.sroa.0.0.insert.ext.i = zext i32 %.076 to i64
   store i64 %.sroa.0.0.insert.ext.i, ptr %8, align 8, !tbaa !46
   store i64 0, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !45
@@ -88906,7 +88906,7 @@ js_string_compare.exit:                           ; preds = %js_string_memcmp.ex
   br label %147
 
 147:                                              ; preds = %144, %141, %138, %137
-  %.0193 = phi i32 [ %146, %144 ], [ %143, %141 ], [ %140, %138 ], [ %.lobit, %137 ]
+  %.0193 = phi i32 [ %146, %144 ], [ %.lobit, %137 ], [ %140, %138 ], [ %143, %141 ]
   %148 = load i32, ptr %48, align 4, !tbaa !107
   %149 = add i32 %148, -1
   store i32 %149, ptr %48, align 4, !tbaa !107
@@ -89196,7 +89196,7 @@ JS_FreeValue.exit242:                             ; preds = %186, %191, %196
   br label %JS_FreeValue.exit240
 
 JS_FreeValue.exit240:                             ; preds = %205, %200, %JS_FreeValue.exit242, %157, %JS_FreeValue.exit239, %246, %270, %293, %290, %287, %284, %258
-  %.1194 = phi i32 [ %295, %293 ], [ %292, %290 ], [ %289, %287 ], [ %286, %284 ], [ %253, %246 ], [ %265, %258 ], [ %277, %270 ], [ %.0193, %JS_FreeValue.exit239 ], [ %.0193, %157 ], [ 0, %JS_FreeValue.exit242 ], [ 0, %200 ], [ 0, %205 ]
+  %.1194 = phi i32 [ %295, %293 ], [ %286, %284 ], [ %289, %287 ], [ %292, %290 ], [ %253, %246 ], [ %265, %258 ], [ %277, %270 ], [ %.0193, %JS_FreeValue.exit239 ], [ %.0193, %157 ], [ 0, %JS_FreeValue.exit242 ], [ 0, %200 ], [ 0, %205 ]
   %296 = icmp ne i32 %.1194, 0
   %.sroa.0.0.insert.ext.i = zext i1 %296 to i64
   store i64 %.sroa.0.0.insert.ext.i, ptr %5, align 8, !tbaa !46
@@ -102995,7 +102995,7 @@ define internal fastcc { i64, i64 } @JS_ReadBigNum(ptr noundef nonnull captures(
   unreachable
 
 22:                                               ; preds = %15, %20, %19
-  %.sroa.8.1 = phi i64 [ -11, %20 ], [ -9, %19 ], [ -10, %15 ]
+  %.sroa.8.1 = phi i64 [ -9, %19 ], [ -11, %20 ], [ -10, %15 ]
   %.sroa.050.0..sroa.050.0..sroa.050.0..sroa.050.0.copyload5193165.in = ptrtoint ptr %8 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !564
@@ -105210,10 +105210,10 @@ string_get.exit66.thread:                         ; preds = %110
   br label %string_get.exit64
 
 string_get.exit64:                                ; preds = %string_get.exit66.thread, %string_get.exit66, %103, %99, %121, %122, %108, %94, %120, %119, %107, %string_get.exit
-  %.148 = phi i32 [ %81, %string_get.exit ], [ %81, %121 ], [ %81, %122 ], [ %81, %120 ], [ %81, %119 ], [ %81, %108 ], [ %81, %107 ], [ %81, %94 ], [ %97, %99 ], [ %97, %103 ], [ %spec.select86, %string_get.exit66.thread ], [ %spec.select84, %string_get.exit66 ]
-  %.046 = phi i32 [ %93, %string_get.exit ], [ 47, %121 ], [ 92, %122 ], [ 92, %120 ], [ 92, %119 ], [ 91, %108 ], [ 93, %107 ], [ 92, %94 ], [ 92, %99 ], [ 92, %103 ], [ 91, %string_get.exit66.thread ], [ 91, %string_get.exit66 ]
-  %.044 = phi i32 [ -1, %string_get.exit ], [ -1, %121 ], [ 47, %122 ], [ 114, %120 ], [ 110, %119 ], [ -1, %108 ], [ -1, %107 ], [ -1, %94 ], [ %102, %99 ], [ %106, %103 ], [ %spec.select87, %string_get.exit66.thread ], [ %spec.select85, %string_get.exit66 ]
-  %.1 = phi i32 [ %.080, %string_get.exit ], [ 1, %121 ], [ 0, %122 ], [ %.080, %120 ], [ %.080, %119 ], [ 1, %108 ], [ 0, %107 ], [ %.080, %94 ], [ %.080, %99 ], [ %.080, %103 ], [ 1, %string_get.exit66.thread ], [ 1, %string_get.exit66 ]
+  %.148 = phi i32 [ %81, %string_get.exit ], [ %81, %94 ], [ %81, %107 ], [ %81, %108 ], [ %81, %119 ], [ %81, %120 ], [ %81, %121 ], [ %81, %122 ], [ %97, %99 ], [ %97, %103 ], [ %spec.select86, %string_get.exit66.thread ], [ %spec.select84, %string_get.exit66 ]
+  %.046 = phi i32 [ %93, %string_get.exit ], [ 92, %94 ], [ 93, %107 ], [ 91, %108 ], [ 92, %119 ], [ 92, %120 ], [ 47, %121 ], [ 92, %122 ], [ 92, %99 ], [ 92, %103 ], [ 91, %string_get.exit66.thread ], [ 91, %string_get.exit66 ]
+  %.044 = phi i32 [ -1, %string_get.exit ], [ -1, %94 ], [ -1, %107 ], [ -1, %108 ], [ 110, %119 ], [ 114, %120 ], [ -1, %121 ], [ 47, %122 ], [ %102, %99 ], [ %106, %103 ], [ %spec.select87, %string_get.exit66.thread ], [ %spec.select85, %string_get.exit66 ]
+  %.1 = phi i32 [ %.080, %string_get.exit ], [ %.080, %94 ], [ 0, %107 ], [ 1, %108 ], [ %.080, %119 ], [ %.080, %120 ], [ 1, %121 ], [ 0, %122 ], [ %.080, %99 ], [ %.080, %103 ], [ 1, %string_get.exit66.thread ], [ 1, %string_get.exit66 ]
   %123 = load i32, ptr %50, align 8, !tbaa !241
   %124 = load i32, ptr %49, align 4, !tbaa !240
   %125 = icmp slt i32 %123, %124
@@ -107100,10 +107100,10 @@ JS_IsFunction.exit.thread:                        ; preds = %58, %52, %JS_IsFunc
   br label %JS_IsFunction.exit.thread512
 
 JS_IsFunction.exit.thread512:                     ; preds = %58, %55, %74, %JS_IsFunction.exit
-  %76 = phi i64 [ %71, %74 ], [ 0, %58 ], [ 0, %JS_IsFunction.exit ], [ 0, %55 ]
-  %.not424510 = phi i1 [ true, %74 ], [ false, %58 ], [ false, %JS_IsFunction.exit ], [ false, %55 ]
-  %.0 = phi ptr [ %75, %74 ], [ null, %58 ], [ null, %JS_IsFunction.exit ], [ null, %55 ]
-  %.sroa.9302.1 = phi i64 [ %72, %74 ], [ 3, %58 ], [ 3, %JS_IsFunction.exit ], [ 3, %55 ]
+  %76 = phi i64 [ %71, %74 ], [ 0, %58 ], [ 0, %55 ], [ 0, %JS_IsFunction.exit ]
+  %.not424510 = phi i1 [ true, %74 ], [ false, %58 ], [ false, %55 ], [ false, %JS_IsFunction.exit ]
+  %.0 = phi ptr [ %75, %74 ], [ null, %58 ], [ null, %55 ], [ null, %JS_IsFunction.exit ]
+  %.sroa.9302.1 = phi i64 [ %72, %74 ], [ 3, %58 ], [ 3, %55 ], [ 3, %JS_IsFunction.exit ]
   %77 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 110, i64 %1, i64 %2, i32 noundef 0)
   %78 = extractvalue { i64, i64 } %77, 0
   %79 = extractvalue { i64, i64 } %77, 1
@@ -108024,8 +108024,8 @@ JS_FreeValue.exit495.thread548:                   ; preds = %453, %456
   %.sroa.0315.sroa.0.0 = phi i64 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ %78, %JS_IsFunction.exit.thread512 ], [ %92, %JS_ToStringFree.exit ], [ %92, %.thread ], [ %92, %js_get_length32.exit.thread ], [ %92, %.thread523.loopexit781 ], [ %92, %.thread523.loopexit ], [ %92, %JS_FreeValue.exit.i ], [ %92, %130 ], [ %92, %112 ], [ %92, %118 ], [ %92, %260 ], [ %92, %139 ], [ %92, %JS_IsEmptyString.exit.thread ], [ %92, %JS_FreeValue.exit ]
   %.sroa.0315.sroa.6.0 = phi i64 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ %.sroa.0315.sroa.6.0.extract.shift, %JS_IsFunction.exit.thread512 ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %JS_ToStringFree.exit ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %.thread ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %js_get_length32.exit.thread ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %.thread523.loopexit781 ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %.thread523.loopexit ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %JS_FreeValue.exit.i ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %130 ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %112 ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %118 ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %260 ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %139 ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %JS_IsEmptyString.exit.thread ], [ %.sroa.0315.sroa.6.0.extract.shift1033, %JS_FreeValue.exit ]
   %478 = phi i64 [ 0, %string_buffer_init.exit ], [ %71, %JS_IsFunction.exit.thread ], [ %76, %JS_IsFunction.exit.thread512 ], [ %76, %JS_ToStringFree.exit ], [ %76, %.thread ], [ %76, %js_get_length32.exit.thread ], [ %76, %.thread523.loopexit781 ], [ %76, %.thread523.loopexit ], [ %76, %JS_FreeValue.exit.i ], [ %76, %130 ], [ %76, %112 ], [ %76, %118 ], [ %76, %260 ], [ %76, %139 ], [ %76, %JS_IsEmptyString.exit.thread ], [ %76, %JS_FreeValue.exit ]
-  %.sroa.0283.sroa.11.0 = phi i32 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ %.sroa.0283.sroa.11.0.extract.trunc, %.thread ], [ %.sroa.0283.sroa.11.0.extract.trunc1023, %js_get_length32.exit.thread ], [ %.sroa.0283.sroa.11.0.extract.trunc1025, %.thread523.loopexit781 ], [ %.sroa.0283.sroa.11.0.extract.trunc1027, %.thread523.loopexit ], [ %.sroa.0283.sroa.11.1, %JS_FreeValue.exit.i ], [ 0, %130 ], [ 0, %112 ], [ 0, %118 ], [ %.sroa.0283.sroa.11.0.extract.trunc, %260 ], [ %.sroa.0283.sroa.11.0.extract.trunc, %JS_FreeValue.exit ], [ %.sroa.0283.sroa.11.1, %139 ], [ %.sroa.0283.sroa.11.1, %JS_IsEmptyString.exit.thread ]
-  %.sroa.0283.sroa.0.0 = phi i32 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ %.sroa.0283.sroa.0.0.extract.trunc, %.thread ], [ %.sroa.0283.sroa.0.0.extract.trunc1010, %js_get_length32.exit.thread ], [ %.sroa.0283.sroa.0.0.extract.trunc1011, %.thread523.loopexit781 ], [ %.sroa.0283.sroa.0.0.extract.trunc1012, %.thread523.loopexit ], [ %.sroa.0283.sroa.0.1, %JS_FreeValue.exit.i ], [ 0, %130 ], [ 0, %112 ], [ 0, %118 ], [ %.sroa.0283.sroa.0.0.extract.trunc, %260 ], [ %.sroa.0283.sroa.0.0.extract.trunc, %JS_FreeValue.exit ], [ %.sroa.0283.sroa.0.1, %139 ], [ %.sroa.0283.sroa.0.1, %JS_IsEmptyString.exit.thread ]
+  %.sroa.0283.sroa.11.0 = phi i32 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ %.sroa.0283.sroa.11.0.extract.trunc, %.thread ], [ %.sroa.0283.sroa.11.0.extract.trunc1023, %js_get_length32.exit.thread ], [ %.sroa.0283.sroa.11.0.extract.trunc1025, %.thread523.loopexit781 ], [ %.sroa.0283.sroa.11.0.extract.trunc1027, %.thread523.loopexit ], [ %.sroa.0283.sroa.11.1, %JS_FreeValue.exit.i ], [ 0, %130 ], [ 0, %112 ], [ 0, %118 ], [ %.sroa.0283.sroa.11.0.extract.trunc, %JS_FreeValue.exit ], [ %.sroa.0283.sroa.11.0.extract.trunc, %260 ], [ %.sroa.0283.sroa.11.1, %139 ], [ %.sroa.0283.sroa.11.1, %JS_IsEmptyString.exit.thread ]
+  %.sroa.0283.sroa.0.0 = phi i32 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ %.sroa.0283.sroa.0.0.extract.trunc, %.thread ], [ %.sroa.0283.sroa.0.0.extract.trunc1010, %js_get_length32.exit.thread ], [ %.sroa.0283.sroa.0.0.extract.trunc1011, %.thread523.loopexit781 ], [ %.sroa.0283.sroa.0.0.extract.trunc1012, %.thread523.loopexit ], [ %.sroa.0283.sroa.0.1, %JS_FreeValue.exit.i ], [ 0, %130 ], [ 0, %112 ], [ 0, %118 ], [ %.sroa.0283.sroa.0.0.extract.trunc, %JS_FreeValue.exit ], [ %.sroa.0283.sroa.0.0.extract.trunc, %260 ], [ %.sroa.0283.sroa.0.1, %139 ], [ %.sroa.0283.sroa.0.1, %JS_IsEmptyString.exit.thread ]
   %.sroa.7176.0 = phi i64 [ 6, %string_buffer_init.exit ], [ 6, %JS_IsFunction.exit.thread ], [ 6, %JS_IsFunction.exit.thread512 ], [ 6, %JS_ToStringFree.exit ], [ 6, %.thread ], [ 6, %js_get_length32.exit.thread ], [ 6, %.thread523.loopexit781 ], [ 6, %.thread523.loopexit ], [ 6, %JS_FreeValue.exit.i ], [ %133, %130 ], [ 6, %112 ], [ 6, %118 ], [ 6, %260 ], [ 6, %139 ], [ 6, %JS_IsEmptyString.exit.thread ], [ 6, %JS_FreeValue.exit ]
   %.sroa.0175.sroa.0.0 = phi i64 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ 0, %.thread ], [ 0, %js_get_length32.exit.thread ], [ 0, %.thread523.loopexit781 ], [ 0, %.thread523.loopexit ], [ 0, %JS_FreeValue.exit.i ], [ %132, %130 ], [ 0, %112 ], [ 0, %118 ], [ 0, %260 ], [ 0, %139 ], [ 0, %JS_IsEmptyString.exit.thread ], [ 0, %JS_FreeValue.exit ]
   %.sroa.0175.sroa.6.0 = phi i64 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ 0, %.thread ], [ 0, %js_get_length32.exit.thread ], [ 0, %.thread523.loopexit781 ], [ 0, %.thread523.loopexit ], [ 0, %JS_FreeValue.exit.i ], [ %.sroa.0175.sroa.6.0.extract.shift178, %130 ], [ 0, %112 ], [ 0, %118 ], [ 0, %260 ], [ 0, %139 ], [ 0, %JS_IsEmptyString.exit.thread ], [ 0, %JS_FreeValue.exit ]
@@ -108036,7 +108036,7 @@ JS_FreeValue.exit495.thread548:                   ; preds = %453, %456
   %.sroa.15.1 = phi i64 [ 3, %string_buffer_init.exit ], [ 3, %JS_IsFunction.exit.thread ], [ 3, %JS_IsFunction.exit.thread512 ], [ 3, %JS_ToStringFree.exit ], [ 3, %.thread ], [ %.sroa.15.2677, %js_get_length32.exit.thread ], [ %.sroa.15.1.ph, %.thread523.loopexit781 ], [ %346, %.thread523.loopexit ], [ 3, %JS_FreeValue.exit.i ], [ 3, %130 ], [ 3, %112 ], [ 3, %118 ], [ 3, %260 ], [ 3, %139 ], [ 3, %JS_IsEmptyString.exit.thread ], [ 3, %JS_FreeValue.exit ]
   %.sroa.0202.sroa.0.1 = phi i32 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ 0, %.thread ], [ %.sroa.0202.sroa.0.2678, %js_get_length32.exit.thread ], [ %.sroa.0202.sroa.0.1.ph, %.thread523.loopexit781 ], [ %.sroa.0202.sroa.0.0.extract.trunc, %.thread523.loopexit ], [ 0, %JS_FreeValue.exit.i ], [ 0, %130 ], [ 0, %112 ], [ 0, %118 ], [ 0, %260 ], [ 0, %139 ], [ 0, %JS_IsEmptyString.exit.thread ], [ 0, %JS_FreeValue.exit ]
   %.sroa.0202.sroa.14.1 = phi i32 [ 0, %string_buffer_init.exit ], [ 0, %JS_IsFunction.exit.thread ], [ 0, %JS_IsFunction.exit.thread512 ], [ 0, %JS_ToStringFree.exit ], [ 0, %.thread ], [ %.sroa.0202.sroa.14.2679, %js_get_length32.exit.thread ], [ %.sroa.0202.sroa.14.1.ph, %.thread523.loopexit781 ], [ %.sroa.0202.sroa.14.0.extract.trunc, %.thread523.loopexit ], [ 0, %JS_FreeValue.exit.i ], [ 0, %130 ], [ 0, %112 ], [ 0, %118 ], [ 0, %260 ], [ 0, %139 ], [ 0, %JS_IsEmptyString.exit.thread ], [ 0, %JS_FreeValue.exit ]
-  %.sroa.15291.1 = phi i64 [ 3, %string_buffer_init.exit ], [ 3, %JS_IsFunction.exit.thread ], [ 3, %JS_IsFunction.exit.thread512 ], [ 3, %JS_ToStringFree.exit ], [ %249, %.thread ], [ %.sroa.15291.4680, %js_get_length32.exit.thread ], [ %.sroa.15291.1.ph, %.thread523.loopexit781 ], [ %316, %.thread523.loopexit ], [ %.sroa.15291.2, %JS_FreeValue.exit.i ], [ 3, %130 ], [ 3, %112 ], [ 3, %118 ], [ %249, %260 ], [ %249, %JS_FreeValue.exit ], [ %.sroa.15291.2, %139 ], [ %.sroa.15291.2, %JS_IsEmptyString.exit.thread ]
+  %.sroa.15291.1 = phi i64 [ 3, %string_buffer_init.exit ], [ 3, %JS_IsFunction.exit.thread ], [ 3, %JS_IsFunction.exit.thread512 ], [ 3, %JS_ToStringFree.exit ], [ %249, %.thread ], [ %.sroa.15291.4680, %js_get_length32.exit.thread ], [ %.sroa.15291.1.ph, %.thread523.loopexit781 ], [ %316, %.thread523.loopexit ], [ %.sroa.15291.2, %JS_FreeValue.exit.i ], [ 3, %130 ], [ 3, %112 ], [ 3, %118 ], [ %249, %JS_FreeValue.exit ], [ %249, %260 ], [ %.sroa.15291.2, %139 ], [ %.sroa.15291.2, %JS_IsEmptyString.exit.thread ]
   %.sroa.9302.2 = phi i64 [ 3, %string_buffer_init.exit ], [ %72, %JS_IsFunction.exit.thread ], [ %.sroa.9302.1, %JS_IsFunction.exit.thread512 ], [ %.sroa.9302.1, %JS_ToStringFree.exit ], [ %.sroa.9302.1, %.thread ], [ %.sroa.9302.1, %js_get_length32.exit.thread ], [ %.sroa.9302.1, %.thread523.loopexit781 ], [ %.sroa.9302.1, %.thread523.loopexit ], [ %.sroa.9302.1, %JS_FreeValue.exit.i ], [ %.sroa.9302.1, %130 ], [ %.sroa.9302.1, %112 ], [ %.sroa.9302.1, %118 ], [ %.sroa.9302.1, %260 ], [ %.sroa.9302.1, %139 ], [ %.sroa.9302.1, %JS_IsEmptyString.exit.thread ], [ %.sroa.9302.1, %JS_FreeValue.exit ]
   %.sroa.11320.1 = phi i64 [ 3, %string_buffer_init.exit ], [ 3, %JS_IsFunction.exit.thread ], [ %79, %JS_IsFunction.exit.thread512 ], [ %93, %JS_ToStringFree.exit ], [ %93, %.thread ], [ %93, %js_get_length32.exit.thread ], [ %93, %.thread523.loopexit781 ], [ %93, %.thread523.loopexit ], [ %93, %JS_FreeValue.exit.i ], [ %93, %130 ], [ %93, %112 ], [ %93, %118 ], [ %93, %260 ], [ %93, %139 ], [ %93, %JS_IsEmptyString.exit.thread ], [ %93, %JS_FreeValue.exit ]
   %479 = load ptr, ptr %10, align 8, !tbaa !238
@@ -112110,8 +112110,8 @@ string_buffer_init.exit:                          ; preds = %6
   %139 = or disjoint i32 %138, 56320
   br label %.thread101
 
-.thread101:                                       ; preds = %60, %125, %69, %71, %101, %122, %137, %.thread
-  %.0.i = phi i32 [ %139, %137 ], [ %.1, %.thread ], [ %.067, %125 ], [ 0, %69 ], [ %67, %71 ], [ 0, %101 ], [ %67, %122 ], [ 36, %60 ]
+.thread101:                                       ; preds = %60, %125, %71, %69, %101, %122, %137, %.thread
+  %.0.i = phi i32 [ %139, %137 ], [ %.1, %.thread ], [ %.067, %125 ], [ %67, %71 ], [ 0, %69 ], [ 0, %101 ], [ %67, %122 ], [ 36, %60 ]
   %140 = load i32, ptr %13, align 8, !tbaa !241
   %141 = load i32, ptr %12, align 4, !tbaa !240
   %142 = icmp slt i32 %140, %141
@@ -113528,8 +113528,8 @@ JS_AtomToValue.exit139:                           ; preds = %124, %141, %142
   br i1 %156, label %.thread145, label %157
 
 157:                                              ; preds = %153, %110, %JS_AtomToValue.exit
-  %.sroa.040.2 = phi i64 [ %107, %JS_AtomToValue.exit ], [ %112, %110 ], [ %120, %153 ]
-  %.sroa.14.2 = phi i64 [ %108, %JS_AtomToValue.exit ], [ %113, %110 ], [ %121, %153 ]
+  %.sroa.040.2 = phi i64 [ %107, %JS_AtomToValue.exit ], [ %120, %153 ], [ %112, %110 ]
+  %.sroa.14.2 = phi i64 [ %108, %JS_AtomToValue.exit ], [ %121, %153 ], [ %113, %110 ]
   %158 = add i32 %.0113190, 1
   %159 = zext i32 %.0113190 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -113964,7 +113964,7 @@ string_getc.exit:                                 ; preds = %68, %74, %79, %84
   br label %93
 
 93:                                               ; preds = %string_getc.exit, %string_getc.exit, %92, %91, %90, %89, %88
-  %.0 = phi i32 [ %.017.i, %string_getc.exit ], [ %.017.i, %string_getc.exit ], [ 102, %92 ], [ 98, %91 ], [ 110, %90 ], [ 114, %89 ], [ 116, %88 ]
+  %.0 = phi i32 [ 116, %88 ], [ 114, %89 ], [ 110, %90 ], [ 98, %91 ], [ 102, %92 ], [ %.017.i, %string_getc.exit ], [ %.017.i, %string_getc.exit ]
   %94 = load i32, ptr %20, align 8, !tbaa !241
   %95 = load i32, ptr %19, align 4, !tbaa !240
   %.not.i44 = icmp slt i32 %94, %95
@@ -118936,7 +118936,7 @@ JS_DupValue.exit.i:                               ; preds = %83, %80, %76
   br label %115
 
 115:                                              ; preds = %113, %111
-  %.012.i.i = phi double [ %spec.store.select.i.i, %113 ], [ %112, %111 ]
+  %.012.i.i = phi double [ %112, %111 ], [ %spec.store.select.i.i, %113 ]
   %116 = bitcast double %.012.i.i to i64
   %.sroa.0.4.extract.shift.i.i = lshr i64 %116, 32
   %117 = xor i64 %.sroa.0.4.extract.shift.i.i, %116
@@ -118946,7 +118946,7 @@ JS_DupValue.exit.i:                               ; preds = %83, %80, %76
   br label %map_hash_key.exit.i
 
 hash_string.exit.i.i:                             ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i8.i.i.i, %109, %102, %95, %88, %JS_DupValue.exit.i
-  %.013.i.i = phi i32 [ %110, %109 ], [ %87, %88 ], [ 0, %JS_DupValue.exit.i ], [ 0, %95 ], [ 0, %102 ], [ %107, %.lr.ph.i8.i.i.i ], [ %100, %.lr.ph.i.i.i.i ]
+  %.013.i.i = phi i32 [ %87, %88 ], [ %110, %109 ], [ 0, %JS_DupValue.exit.i ], [ 0, %95 ], [ 0, %102 ], [ %107, %.lr.ph.i8.i.i.i ], [ %100, %.lr.ph.i.i.i.i ]
   %121 = xor i32 %.013.i.i, %.pre-phi.i
   br label %map_hash_key.exit.i
 
@@ -119142,7 +119142,7 @@ map_add_record.exit.thread55:                     ; preds = %._crit_edge.i.i
   br label %213
 
 213:                                              ; preds = %210, %208
-  %.012.i.i.i = phi double [ %spec.store.select.i.i.i, %210 ], [ %209, %208 ]
+  %.012.i.i.i = phi double [ %209, %208 ], [ %spec.store.select.i.i.i, %210 ]
   %214 = bitcast double %.012.i.i.i to i64
   %.sroa.0.4.extract.shift.i.i.i = lshr i64 %214, 32
   %215 = xor i64 %.sroa.0.4.extract.shift.i.i.i, %214
@@ -119152,7 +119152,7 @@ map_add_record.exit.thread55:                     ; preds = %._crit_edge.i.i
   br label %map_hash_key.exit.i.i
 
 hash_string.exit.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i8.i.i.i.i, %206, %199, %192, %184, %177
-  %.013.i.i.i = phi i32 [ %207, %206 ], [ %183, %184 ], [ 0, %177 ], [ 0, %192 ], [ 0, %199 ], [ %204, %.lr.ph.i8.i.i.i.i ], [ %197, %.lr.ph.i.i.i.i.i ]
+  %.013.i.i.i = phi i32 [ %183, %184 ], [ %207, %206 ], [ 0, %177 ], [ 0, %192 ], [ 0, %199 ], [ %204, %.lr.ph.i8.i.i.i.i ], [ %197, %.lr.ph.i.i.i.i.i ]
   %219 = xor i32 %.013.i.i.i, %182
   br label %map_hash_key.exit.i.i
 
@@ -120028,7 +120028,7 @@ define internal fastcc ptr @map_find_record(ptr noundef readonly captures(none) 
   br label %36
 
 36:                                               ; preds = %33, %31
-  %.012.i = phi double [ %spec.store.select.i, %33 ], [ %32, %31 ]
+  %.012.i = phi double [ %32, %31 ], [ %spec.store.select.i, %33 ]
   %37 = bitcast double %.012.i to i64
   %.sroa.0.4.extract.shift.i = lshr i64 %37, 32
   %38 = xor i64 %.sroa.0.4.extract.shift.i, %37
@@ -120038,7 +120038,7 @@ define internal fastcc ptr @map_find_record(ptr noundef readonly captures(none) 
   br label %map_hash_key.exit
 
 hash_string.exit.i:                               ; preds = %.lr.ph.i.i.i, %.lr.ph.i8.i.i, %29, %22, %15, %7, %4
-  %.013.i = phi i32 [ %30, %29 ], [ %6, %7 ], [ 0, %4 ], [ 0, %15 ], [ 0, %22 ], [ %27, %.lr.ph.i8.i.i ], [ %20, %.lr.ph.i.i.i ]
+  %.013.i = phi i32 [ %6, %7 ], [ %30, %29 ], [ 0, %4 ], [ 0, %15 ], [ 0, %22 ], [ %27, %.lr.ph.i8.i.i ], [ %20, %.lr.ph.i.i.i ]
   %42 = xor i32 %.013.i, %5
   br label %map_hash_key.exit
 
@@ -125838,7 +125838,7 @@ tailrecurse.backedge:                             ; preds = %18, %24
   br label %tailrecurse.backedge
 
 .thread:                                          ; preds = %tailrecurse.backedge, %.lr.ph, %15, %3, %21, %7, %10
-  %.0 = phi ptr [ %14, %10 ], [ %9, %7 ], [ null, %21 ], [ %0, %3 ], [ %0, %15 ], [ %0, %.lr.ph ], [ %0, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %9, %7 ], [ %14, %10 ], [ null, %21 ], [ %0, %3 ], [ %0, %15 ], [ %0, %.lr.ph ], [ %0, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -128311,7 +128311,7 @@ define internal { i64, i64 } @get_date_string(ptr noundef %0, i64 %1, i64 %2, i3
   br label %96
 
 96:                                               ; preds = %52, %53, %76, %72, %62, %89, %84, %24
-  %.0100 = phi i32 [ 0, %52 ], [ %93, %89 ], [ %87, %84 ], [ %83, %76 ], [ %73, %72 ], [ %70, %62 ], [ %61, %53 ], [ 0, %24 ]
+  %.0100 = phi i32 [ 0, %52 ], [ %61, %53 ], [ %73, %72 ], [ %70, %62 ], [ %83, %76 ], [ %93, %89 ], [ %87, %84 ], [ 0, %24 ]
   %97 = and i32 %5, 2
   %.not108 = icmp eq i32 %97, 0
   br i1 %.not108, label %142, label %98
@@ -128386,7 +128386,7 @@ define internal { i64, i64 } @get_date_string(ptr noundef %0, i64 %1, i64 %2, i3
   br label %142
 
 142:                                              ; preds = %98, %99, %117, %125, %131, %96
-  %.2 = phi i32 [ %.0100, %98 ], [ %141, %131 ], [ %130, %125 ], [ %124, %117 ], [ %104, %99 ], [ %.0100, %96 ]
+  %.2 = phi i32 [ %.0100, %98 ], [ %104, %99 ], [ %124, %117 ], [ %130, %125 ], [ %141, %131 ], [ %.0100, %96 ]
   %143 = sext i32 %.2 to i64
   %144 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %143)
   %145 = extractvalue { i64, i64 } %144, 0
@@ -128893,8 +128893,8 @@ JS_FreeValue.exit._crit_edge.i:                   ; preds = %JS_FreeValue.exit.i
   br label %JS_SetThisTimeValue.exit
 
 JS_SetThisTimeValue.exit:                         ; preds = %.thread.i9, %72, %JS_ThisTimeValue.exit.thread12, %JS_ThisTimeValue.exit, %JS_ToFloat64.exit
-  %.sroa.4.0 = phi i64 [ 6, %JS_ToFloat64.exit ], [ 6, %JS_ThisTimeValue.exit ], [ 6, %JS_ThisTimeValue.exit.thread12 ], [ %.sroa.4.0.i.i, %72 ], [ 6, %.thread.i9 ]
-  %.sroa.06.0.insert.insert = phi i64 [ 0, %JS_ToFloat64.exit ], [ 0, %JS_ThisTimeValue.exit ], [ 0, %JS_ThisTimeValue.exit.thread12 ], [ %.sroa.09.0.insert.insert.i.i, %72 ], [ 0, %.thread.i9 ]
+  %.sroa.4.0 = phi i64 [ 6, %JS_ToFloat64.exit ], [ 6, %JS_ThisTimeValue.exit ], [ 6, %JS_ThisTimeValue.exit.thread12 ], [ 6, %.thread.i9 ], [ %.sroa.4.0.i.i, %72 ]
+  %.sroa.06.0.insert.insert = phi i64 [ 0, %JS_ToFloat64.exit ], [ 0, %JS_ThisTimeValue.exit ], [ 0, %JS_ThisTimeValue.exit.thread12 ], [ 0, %.thread.i9 ], [ %.sroa.09.0.insert.insert.i.i, %72 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #41
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.06.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
@@ -129074,8 +129074,8 @@ JS_FreeValue.exit._crit_edge.i:                   ; preds = %JS_FreeValue.exit.i
   br label %JS_SetThisTimeValue.exit
 
 JS_SetThisTimeValue.exit:                         ; preds = %81, %.thread.i29
-  %.sroa.010.1.i = phi i64 [ %.sroa.09.0.insert.insert.i.i, %81 ], [ 0, %.thread.i29 ]
-  %.sroa.3.1.i = phi i64 [ %.sroa.4.0.i.i, %81 ], [ 6, %.thread.i29 ]
+  %.sroa.010.1.i = phi i64 [ 0, %.thread.i29 ], [ %.sroa.09.0.insert.insert.i.i, %81 ]
+  %.sroa.3.1.i = phi i64 [ 6, %.thread.i29 ], [ %.sroa.4.0.i.i, %81 ]
   %.sroa.4.0.extract.shift = and i64 %.sroa.010.1.i, -4294967296
   %83 = and i64 %.sroa.010.1.i, 4294967295
   br label %.loopexit
@@ -131323,8 +131323,8 @@ string_get_digits.exit45:                         ; preds = %40, %62, %._crit_ed
   br label %71
 
 71:                                               ; preds = %67, %4
-  %.255 = phi i32 [ %6, %4 ], [ %.154, %67 ]
-  %.2 = phi i32 [ 0, %4 ], [ %spec.select, %67 ]
+  %.255 = phi i32 [ %.154, %67 ], [ %6, %4 ]
+  %.2 = phi i32 [ %spec.select, %67 ], [ 0, %4 ]
   store i32 %.255, ptr %1, align 4, !tbaa !67
   store i32 %.2, ptr %2, align 4, !tbaa !67
   br label %.thread
@@ -136038,14 +136038,14 @@ get_label_pos.exit.i:                             ; preds = %1684, %1678
   br label %JS_FreeAtom.exit.i
 
 .thread342.i:                                     ; preds = %1689, %1664, %1661, %1658, %1315, %1286, %1273, %870, %861
-  %.1227.i = phi i32 [ %.0226412.i, %861 ], [ %.0226412.i, %1664 ], [ %.0226412.i, %1661 ], [ %.0226412.i, %1658 ], [ %.0226412.i, %1315 ], [ %.0226412.i, %1286 ], [ %.val284.i, %870 ], [ %.0226412.i, %1689 ], [ %.0226412.i, %1273 ]
+  %.1227.i = phi i32 [ %.0226412.i, %861 ], [ %.val284.i, %870 ], [ %.0226412.i, %1286 ], [ %.0226412.i, %1315 ], [ %.0226412.i, %1658 ], [ %.0226412.i, %1661 ], [ %.0226412.i, %1664 ], [ %.0226412.i, %1689 ], [ %.0226412.i, %1273 ]
   %1717 = zext i8 %867 to i64
   %1718 = call i32 @dbuf_put(ptr noundef nonnull %45, ptr noundef nonnull %863, i64 noundef %1717) #41
   br label %JS_FreeAtom.exit.i
 
 JS_FreeAtom.exit.i:                               ; preds = %1655, %.lr.ph405.i, %1631, %.lr.ph410.i, %.thread342.i, %1715, %1711, %1706, %1691, %1658, %1634, %1601, %1314, %1294, %1288, %1283, %JS_FreeAtomStruct.exit.i.i316.i, %1214, %1212, %JS_FreeAtomStruct.exit.i.i306.i, %995, %983, %JS_FreeAtomStruct.exit.i.i.i, %925, %918, %mark_eval_captured_variables.exit302.i, %mark_eval_captured_variables.exit.i, %861, %861
-  %.5.i = phi i32 [ %.1227.i, %.thread342.i ], [ %.0226412.i, %1711 ], [ %.0226412.i, %861 ], [ %.0226412.i, %861 ], [ %.0226412.i, %1658 ], [ %.2228.i, %1314 ], [ %1293, %1294 ], [ %.0226412.i, %1288 ], [ %.0226412.i, %1715 ], [ %.0226412.i, %1283 ], [ %.0226412.i, %mark_eval_captured_variables.exit302.i ], [ %.0226412.i, %mark_eval_captured_variables.exit.i ], [ %.0226412.i, %918 ], [ %.0226412.i, %925 ], [ %.0226412.i, %JS_FreeAtomStruct.exit.i.i.i ], [ %.0226412.i, %983 ], [ %.0226412.i, %995 ], [ %.0226412.i, %JS_FreeAtomStruct.exit.i.i306.i ], [ %.0226412.i, %1212 ], [ %.0226412.i, %1214 ], [ %.0226412.i, %JS_FreeAtomStruct.exit.i.i316.i ], [ %.0226412.i, %1691 ], [ %1670, %1706 ], [ %.0226412.i, %1601 ], [ %.0226412.i, %1634 ], [ %.0226412.i, %.lr.ph410.i ], [ %.0226412.i, %1631 ], [ %.0226412.i, %.lr.ph405.i ], [ %.0226412.i, %1655 ]
-  %.2.i = phi i32 [ %869, %.thread342.i ], [ %869, %1711 ], [ %869, %861 ], [ %869, %861 ], [ %869, %1658 ], [ %1305, %1314 ], [ %1292, %1294 ], [ %1292, %1288 ], [ %869, %1715 ], [ %869, %1283 ], [ %869, %mark_eval_captured_variables.exit302.i ], [ %869, %mark_eval_captured_variables.exit.i ], [ %923, %918 ], [ %923, %925 ], [ %923, %JS_FreeAtomStruct.exit.i.i.i ], [ %993, %983 ], [ %993, %995 ], [ %993, %JS_FreeAtomStruct.exit.i.i306.i ], [ %869, %1212 ], [ %869, %1214 ], [ %869, %JS_FreeAtomStruct.exit.i.i316.i ], [ %1669, %1691 ], [ %1669, %1706 ], [ %869, %1601 ], [ %869, %1634 ], [ %869, %.lr.ph410.i ], [ %869, %1631 ], [ %869, %.lr.ph405.i ], [ %869, %1655 ]
+  %.5.i = phi i32 [ %.1227.i, %.thread342.i ], [ %.0226412.i, %mark_eval_captured_variables.exit.i ], [ %.0226412.i, %mark_eval_captured_variables.exit302.i ], [ %.0226412.i, %1283 ], [ %.0226412.i, %1715 ], [ %1293, %1294 ], [ %.0226412.i, %1288 ], [ %.2228.i, %1314 ], [ %.0226412.i, %1658 ], [ %.0226412.i, %861 ], [ %.0226412.i, %861 ], [ %.0226412.i, %1711 ], [ %.0226412.i, %918 ], [ %.0226412.i, %925 ], [ %.0226412.i, %JS_FreeAtomStruct.exit.i.i.i ], [ %.0226412.i, %983 ], [ %.0226412.i, %995 ], [ %.0226412.i, %JS_FreeAtomStruct.exit.i.i306.i ], [ %.0226412.i, %1212 ], [ %.0226412.i, %1214 ], [ %.0226412.i, %JS_FreeAtomStruct.exit.i.i316.i ], [ %.0226412.i, %1691 ], [ %1670, %1706 ], [ %.0226412.i, %1601 ], [ %.0226412.i, %1634 ], [ %.0226412.i, %.lr.ph410.i ], [ %.0226412.i, %1631 ], [ %.0226412.i, %.lr.ph405.i ], [ %.0226412.i, %1655 ]
+  %.2.i = phi i32 [ %869, %.thread342.i ], [ %869, %mark_eval_captured_variables.exit.i ], [ %869, %mark_eval_captured_variables.exit302.i ], [ %869, %1283 ], [ %869, %1715 ], [ %1292, %1294 ], [ %1292, %1288 ], [ %1305, %1314 ], [ %869, %1658 ], [ %869, %861 ], [ %869, %861 ], [ %869, %1711 ], [ %923, %918 ], [ %923, %925 ], [ %923, %JS_FreeAtomStruct.exit.i.i.i ], [ %993, %983 ], [ %993, %995 ], [ %993, %JS_FreeAtomStruct.exit.i.i306.i ], [ %869, %1212 ], [ %869, %1214 ], [ %869, %JS_FreeAtomStruct.exit.i.i316.i ], [ %1669, %1691 ], [ %1669, %1706 ], [ %869, %1601 ], [ %869, %1634 ], [ %869, %.lr.ph410.i ], [ %869, %1631 ], [ %869, %.lr.ph405.i ], [ %869, %1655 ]
   %1719 = icmp slt i32 %.2.i, %767
   br i1 %1719, label %861, label %._crit_edge415.i, !llvm.loop !1065
 
@@ -136428,7 +136428,7 @@ js_malloc.exit244.thread.i:                       ; preds = %1767, %1763
   br label %1906
 
 1906:                                             ; preds = %1904, %1902, %1900, %1840
-  %.0211.i = phi i32 [ %1905, %1904 ], [ %1903, %1902 ], [ %1901, %1900 ], [ %1833, %1840 ]
+  %.0211.i = phi i32 [ %1901, %1900 ], [ %1903, %1902 ], [ %1905, %1904 ], [ %1833, %1840 ]
   %1907 = icmp sgt i32 %1791, -1
   br i1 %1907, label %1908, label %1935
 
@@ -136474,9 +136474,9 @@ js_malloc.exit244.thread.i:                       ; preds = %1767, %1763
   br label %1935
 
 1935:                                             ; preds = %1924, %1917, %1908, %1906, %1899, %1894, %1888, %1882, %1876, %1870, %1865, %1857, %1850, %1845, %1841, %1840
-  %.0209.i = phi i32 [ %1791, %1840 ], [ %1934, %1924 ], [ %1791, %1906 ], [ %1783, %1899 ], [ %1791, %1888 ], [ %1791, %1882 ], [ %1791, %1876 ], [ %1791, %1870 ], [ %1791, %1865 ], [ %1791, %1857 ], [ %1791, %1850 ], [ %1791, %1845 ], [ %1791, %1841 ], [ %1783, %1894 ], [ %1919, %1917 ], [ %1791, %1908 ]
-  %.0208.i = phi i32 [ %1833, %1840 ], [ %1932, %1924 ], [ %1833, %1906 ], [ %1833, %1899 ], [ %1833, %1888 ], [ %1833, %1882 ], [ %1833, %1876 ], [ %1833, %1870 ], [ %1833, %1865 ], [ %1833, %1857 ], [ %1833, %1850 ], [ %1833, %1845 ], [ %1833, %1841 ], [ %1833, %1894 ], [ %1833, %1917 ], [ %1833, %1908 ]
-  %.0207.i = phi i32 [ %1806, %1840 ], [ %1806, %1924 ], [ %1806, %1906 ], [ %1806, %1899 ], [ %1806, %1888 ], [ %1806, %1882 ], [ %1806, %1876 ], [ %1806, %1870 ], [ %1806, %1865 ], [ %1806, %1857 ], [ %1856, %1850 ], [ %1849, %1845 ], [ %1844, %1841 ], [ %1806, %1894 ], [ %1806, %1917 ], [ %1806, %1908 ]
+  %.0209.i = phi i32 [ %1791, %1840 ], [ %1791, %1841 ], [ %1791, %1845 ], [ %1791, %1850 ], [ %1791, %1857 ], [ %1791, %1865 ], [ %1791, %1870 ], [ %1791, %1876 ], [ %1791, %1882 ], [ %1791, %1888 ], [ %1783, %1899 ], [ %1791, %1906 ], [ %1934, %1924 ], [ %1783, %1894 ], [ %1919, %1917 ], [ %1791, %1908 ]
+  %.0208.i = phi i32 [ %1833, %1840 ], [ %1833, %1841 ], [ %1833, %1845 ], [ %1833, %1850 ], [ %1833, %1857 ], [ %1833, %1865 ], [ %1833, %1870 ], [ %1833, %1876 ], [ %1833, %1882 ], [ %1833, %1888 ], [ %1833, %1899 ], [ %1833, %1906 ], [ %1932, %1924 ], [ %1833, %1894 ], [ %1833, %1917 ], [ %1833, %1908 ]
+  %.0207.i = phi i32 [ %1806, %1840 ], [ %1844, %1841 ], [ %1849, %1845 ], [ %1856, %1850 ], [ %1806, %1857 ], [ %1806, %1865 ], [ %1806, %1870 ], [ %1806, %1876 ], [ %1806, %1882 ], [ %1806, %1888 ], [ %1806, %1899 ], [ %1806, %1906 ], [ %1806, %1924 ], [ %1806, %1894 ], [ %1806, %1917 ], [ %1806, %1908 ]
   %1936 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.0207.i, i32 noundef %1794, i32 noundef %.0208.i, i32 noundef %.0209.i)
   %.not232.i = icmp eq i32 %1936, 0
   br i1 %.not232.i, label %._crit_edge30.i, label %.loopexit.i303
@@ -137761,7 +137761,7 @@ lre_js_is_ident_first.exit:                       ; preds = %119, %125
   br label %132
 
 132:                                              ; preds = %127, %425, %129
-  %.2 = phi i32 [ %403, %425 ], [ %130, %129 ], [ %115, %127 ]
+  %.2 = phi i32 [ %403, %425 ], [ %115, %127 ], [ %130, %129 ]
   %133 = call fastcc i32 @parse_ident(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %.2, i32 noundef 0)
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %434, label %135
@@ -138938,7 +138938,7 @@ JS_DupAtom.exit37:                                ; preds = %104, %107
   br label %117
 
 117:                                              ; preds = %194, %191, %JS_DupAtom.exit, %.loopexit
-  %.1.i = phi i32 [ %178, %JS_DupAtom.exit ], [ %178, %191 ], [ %178, %194 ], [ %.0123.i, %.loopexit ]
+  %.1.i = phi i32 [ %.0123.i, %.loopexit ], [ %178, %JS_DupAtom.exit ], [ %178, %191 ], [ %178, %194 ]
   tail call void @JS_FreeAtom(ptr noundef %34, i32 noundef %.1.i)
   br label %js_parse_export.exit.thread
 
@@ -139211,7 +139211,7 @@ token_is_pseudo_keyword.exit35.thread:            ; preds = %152, %.preheader, %
   br label %js_parse_export.exit
 
 js_parse_export.exit:                             ; preds = %41, %53, %211, %223, %241, %token_is_pseudo_keyword.exit35.thread
-  %.0.i = phi i32 [ %42, %41 ], [ %58, %53 ], [ %242, %241 ], [ %212, %211 ], [ %228, %223 ], [ %245, %token_is_pseudo_keyword.exit35.thread ]
+  %.0.i = phi i32 [ %42, %41 ], [ %58, %53 ], [ %245, %token_is_pseudo_keyword.exit35.thread ], [ %212, %211 ], [ %228, %223 ], [ %242, %241 ]
   %.not21 = icmp eq i32 %.0.i, 0
   br i1 %.not21, label %js_parse_import.exit.thread56, label %js_parse_export.exit.thread
 
@@ -140250,8 +140250,8 @@ js_parse_import.exit:                             ; preds = %._crit_edge.i
 js_parse_import.exit.thread56:                    ; preds = %817, %._crit_edge.i, %._crit_edge.i, %js_parse_export.exit, %.thread, %js_parse_import.exit, %23
   br label %js_parse_export.exit.thread
 
-js_parse_export.exit.thread:                      ; preds = %707, %131, %JS_DupAtom.exit36, %820, %JS_FreeAtomStruct.exit.i.i142.i, %519, %JS_FreeAtom.exit138.i, %JS_FreeAtomStruct.exit.i.i.i, %273, %271, %JS_FreeAtom.exit176.i, %711, %709, %403, %377, %365, %361, %262, %252, %414, %token_is_pseudo_keyword.exit.thread.i, %384, %335, %234, %230, %token_is_pseudo_keyword.exit31.thread, %206, %203, %token_is_pseudo_keyword.exit33.thread, %197, %168, %145, %142, %133, %token_is_pseudo_keyword.exit44.thread, %33, %73, %175, %117, %243, %.thread, %js_parse_import.exit, %js_parse_export.exit, %23, %js_parse_import.exit.thread56
-  %.0 = phi i32 [ 0, %js_parse_import.exit.thread56 ], [ -1, %23 ], [ -1, %js_parse_export.exit ], [ -1, %js_parse_import.exit ], [ -1, %.thread ], [ -1, %243 ], [ -1, %117 ], [ -1, %175 ], [ -1, %73 ], [ -1, %33 ], [ -1, %token_is_pseudo_keyword.exit44.thread ], [ -1, %133 ], [ -1, %142 ], [ -1, %145 ], [ -1, %168 ], [ -1, %197 ], [ -1, %token_is_pseudo_keyword.exit33.thread ], [ -1, %203 ], [ -1, %206 ], [ -1, %token_is_pseudo_keyword.exit31.thread ], [ -1, %230 ], [ -1, %234 ], [ -1, %335 ], [ -1, %384 ], [ -1, %token_is_pseudo_keyword.exit.thread.i ], [ -1, %414 ], [ -1, %252 ], [ -1, %262 ], [ -1, %361 ], [ -1, %365 ], [ -1, %377 ], [ -1, %403 ], [ -1, %709 ], [ -1, %711 ], [ -1, %JS_FreeAtom.exit176.i ], [ -1, %271 ], [ -1, %273 ], [ -1, %JS_FreeAtomStruct.exit.i.i.i ], [ -1, %JS_FreeAtom.exit138.i ], [ -1, %519 ], [ -1, %JS_FreeAtomStruct.exit.i.i142.i ], [ -1, %820 ], [ -1, %JS_DupAtom.exit36 ], [ -1, %131 ], [ -1, %707 ]
+js_parse_export.exit.thread:                      ; preds = %707, %131, %JS_DupAtom.exit36, %820, %JS_FreeAtomStruct.exit.i.i142.i, %519, %JS_FreeAtom.exit138.i, %JS_FreeAtomStruct.exit.i.i.i, %273, %271, %JS_FreeAtom.exit176.i, %711, %709, %403, %377, %365, %361, %262, %252, %414, %token_is_pseudo_keyword.exit.thread.i, %384, %335, %234, %230, %token_is_pseudo_keyword.exit31.thread, %206, %203, %token_is_pseudo_keyword.exit33.thread, %197, %168, %145, %142, %133, %token_is_pseudo_keyword.exit44.thread, %33, %175, %73, %117, %243, %.thread, %js_parse_import.exit, %js_parse_export.exit, %23, %js_parse_import.exit.thread56
+  %.0 = phi i32 [ 0, %js_parse_import.exit.thread56 ], [ -1, %23 ], [ -1, %js_parse_export.exit ], [ -1, %js_parse_import.exit ], [ -1, %.thread ], [ -1, %243 ], [ -1, %117 ], [ -1, %73 ], [ -1, %175 ], [ -1, %33 ], [ -1, %token_is_pseudo_keyword.exit44.thread ], [ -1, %133 ], [ -1, %142 ], [ -1, %145 ], [ -1, %168 ], [ -1, %197 ], [ -1, %token_is_pseudo_keyword.exit33.thread ], [ -1, %203 ], [ -1, %206 ], [ -1, %token_is_pseudo_keyword.exit31.thread ], [ -1, %230 ], [ -1, %234 ], [ -1, %335 ], [ -1, %384 ], [ -1, %token_is_pseudo_keyword.exit.thread.i ], [ -1, %414 ], [ -1, %252 ], [ -1, %262 ], [ -1, %361 ], [ -1, %365 ], [ -1, %377 ], [ -1, %403 ], [ -1, %709 ], [ -1, %711 ], [ -1, %JS_FreeAtom.exit176.i ], [ -1, %271 ], [ -1, %273 ], [ -1, %JS_FreeAtomStruct.exit.i.i.i ], [ -1, %JS_FreeAtom.exit138.i ], [ -1, %519 ], [ -1, %JS_FreeAtomStruct.exit.i.i142.i ], [ -1, %820 ], [ -1, %JS_DupAtom.exit36 ], [ -1, %131 ], [ -1, %707 ]
   ret i32 %.0
 }
 
@@ -143713,7 +143713,7 @@ js_parse_expect_semi.exit:                        ; preds = %821
   br i1 %.not598, label %js_parse_block.exit, label %.thread
 
 js_parse_block.exit:                              ; preds = %823, %821, %821, %751, %725, %569, %489, %select.unfold714, %323, %240, %185, %117, %.thread698, %141, %152, %161, %726, %784, %793, %797, %js_parse_expect_semi.exit
-  %.1 = phi i32 [ %.0451, %js_parse_expect_semi.exit ], [ %.0451, %797 ], [ %.0451, %793 ], [ %.0451, %784 ], [ %.0451, %161 ], [ %.0451, %751 ], [ %.0451, %726 ], [ %.0451, %725 ], [ %.0451, %569 ], [ %.0451, %select.unfold714 ], [ %.0451, %323 ], [ %.0451, %240 ], [ %.0451, %185 ], [ %.0451, %152 ], [ %.0451, %141 ], [ %35, %.thread698 ], [ %.0451, %117 ], [ %.0451, %489 ], [ %.0451, %821 ], [ %.0451, %821 ], [ %.0451, %823 ]
+  %.1 = phi i32 [ %.0451, %js_parse_expect_semi.exit ], [ %.0451, %141 ], [ %.0451, %152 ], [ %.0451, %161 ], [ %.0451, %185 ], [ %.0451, %240 ], [ %.0451, %323 ], [ %.0451, %select.unfold714 ], [ %.0451, %569 ], [ %.0451, %725 ], [ %.0451, %726 ], [ %.0451, %751 ], [ %.0451, %784 ], [ %.0451, %793 ], [ %.0451, %797 ], [ %35, %.thread698 ], [ %.0451, %117 ], [ %.0451, %489 ], [ %.0451, %821 ], [ %.0451, %821 ], [ %.0451, %823 ]
   %828 = icmp sgt i32 %.1, 226
   br i1 %828, label %829, label %JS_FreeAtom.exit
 
@@ -143800,7 +143800,7 @@ JS_FreeAtomStruct.exit.i.i:                       ; preds = %871, %862, %._crit_
   br label %JS_FreeAtom.exit.sink.split
 
 .thread:                                          ; preds = %111, %js_parse_expect_semi.exit.thread823, %746, %740, %738, %736, %489, %487, %484, %469, %183, %180, %168, %165, %163, %117, %js_parse_expect.exit691, %js_parse_expect.exit.thread, %js_parse_expect.exit, %57, %55, %.thread731, %.thread723, %.thread716, %.thread709, %.thread706, %104, %js_parse_expect_semi.exit, %token_is_pseudo_keyword.exit.thread, %797, %795, %784, %766, %726, %161, %159, %157, %152, %150, %143, %141, %139, %132, %799, %791, %782, %.thread696.thread.thread, %734, %155, %148, %130, %124
-  %.2 = phi i32 [ %35, %104 ], [ %.0451, %token_is_pseudo_keyword.exit.thread ], [ %.0451, %js_parse_expect_semi.exit ], [ %.0451, %799 ], [ %.0451, %795 ], [ %.0451, %797 ], [ %.0451, %791 ], [ %.0451779857, %.thread696.thread.thread ], [ %.0451, %766 ], [ %.0451, %784 ], [ %.0451, %782 ], [ %.0451, %157 ], [ %.0451, %159 ], [ %.0451, %161 ], [ %.0451, %155 ], [ %.0451, %734 ], [ %.0451, %726 ], [ %.0451, %143 ], [ %.0451, %148 ], [ %.0451, %150 ], [ %.0451, %152 ], [ %.0451, %124 ], [ %.0451, %130 ], [ %.0451, %132 ], [ %.0451, %141 ], [ %.0451, %139 ], [ %.0451, %.thread706 ], [ %.0451, %.thread709 ], [ %.0451, %.thread716 ], [ %.0451, %.thread723 ], [ %.0451, %.thread731 ], [ %35, %55 ], [ %35, %57 ], [ %35, %js_parse_expect.exit ], [ %35, %js_parse_expect.exit.thread ], [ %.0451, %js_parse_expect.exit691 ], [ %.0451, %117 ], [ %.0451, %163 ], [ %.0451, %165 ], [ %.0451, %168 ], [ %.0451, %180 ], [ %.0451, %183 ], [ %.0451, %469 ], [ %.0451, %484 ], [ %.0451, %487 ], [ %.0451, %489 ], [ %.0451, %736 ], [ %.0451, %738 ], [ %.0451, %740 ], [ %.0451, %746 ], [ %.0451, %js_parse_expect_semi.exit.thread823 ], [ %.0451, %111 ]
+  %.2 = phi i32 [ %.0451, %token_is_pseudo_keyword.exit.thread ], [ %.0451, %js_parse_expect_semi.exit ], [ %.0451, %124 ], [ %.0451, %130 ], [ %.0451, %132 ], [ %.0451, %141 ], [ %.0451, %139 ], [ %.0451, %143 ], [ %.0451, %148 ], [ %.0451, %150 ], [ %.0451, %152 ], [ %.0451, %157 ], [ %.0451, %159 ], [ %.0451, %161 ], [ %.0451, %155 ], [ %.0451, %726 ], [ %.0451, %734 ], [ %.0451, %784 ], [ %.0451, %782 ], [ %.0451779857, %.thread696.thread.thread ], [ %.0451, %766 ], [ %.0451, %791 ], [ %.0451, %795 ], [ %.0451, %797 ], [ %.0451, %799 ], [ %35, %104 ], [ %.0451, %.thread706 ], [ %.0451, %.thread709 ], [ %.0451, %.thread716 ], [ %.0451, %.thread723 ], [ %.0451, %.thread731 ], [ %35, %55 ], [ %35, %57 ], [ %35, %js_parse_expect.exit ], [ %35, %js_parse_expect.exit.thread ], [ %.0451, %js_parse_expect.exit691 ], [ %.0451, %117 ], [ %.0451, %163 ], [ %.0451, %165 ], [ %.0451, %168 ], [ %.0451, %180 ], [ %.0451, %183 ], [ %.0451, %469 ], [ %.0451, %484 ], [ %.0451, %487 ], [ %.0451, %489 ], [ %.0451, %736 ], [ %.0451, %738 ], [ %.0451, %740 ], [ %.0451, %746 ], [ %.0451, %js_parse_expect_semi.exit.thread823 ], [ %.0451, %111 ]
   %882 = icmp sgt i32 %.2, 226
   br i1 %882, label %883, label %JS_FreeAtom.exit
 
@@ -146948,7 +146948,7 @@ default.unreachable239:                           ; preds = %4
   unreachable
 
 .thread203:                                       ; preds = %js_resize_array.exit.i, %159, %6, %182, %find_var.exit, %find_var.exit.thread, %321, %171, %168, %161, %.thread210, %.critedge, %find_lexical_decl.exit173, %find_var_in_child_scope.exit, %95, %70
-  %.0115 = phi i32 [ -1, %find_lexical_decl.exit173 ], [ -1, %95 ], [ -1, %find_var_in_child_scope.exit ], [ -1, %70 ], [ -1, %.critedge ], [ %.011.i, %find_var.exit ], [ %312, %321 ], [ %312, %find_var.exit.thread ], [ %183, %182 ], [ 1073741824, %161 ], [ %7, %6 ], [ %169, %171 ], [ %169, %168 ], [ 1073741824, %.thread210 ], [ -1, %159 ], [ -1, %js_resize_array.exit.i ]
+  %.0115 = phi i32 [ -1, %95 ], [ -1, %find_var_in_child_scope.exit ], [ -1, %70 ], [ -1, %find_lexical_decl.exit173 ], [ -1, %.critedge ], [ %7, %6 ], [ 1073741824, %161 ], [ %183, %182 ], [ %.011.i, %find_var.exit ], [ %312, %321 ], [ %312, %find_var.exit.thread ], [ %169, %171 ], [ %169, %168 ], [ 1073741824, %.thread210 ], [ -1, %159 ], [ -1, %js_resize_array.exit.i ]
   ret i32 %.0115
 }
 
@@ -147293,7 +147293,7 @@ define internal fastcc i32 @js_parse_skip_parens_token(ptr noundef nonnull %0, p
   br i1 %.not59, label %40, label %.loopexit
 
 40:                                               ; preds = %18, %36
-  %.254 = phi i64 [ %.052, %18 ], [ %33, %36 ]
+  %.254 = phi i64 [ %33, %36 ], [ %.052, %18 ]
   %41 = load i32, ptr %15, align 8, !tbaa !46
   %.not60 = icmp eq i32 %41, 96
   br i1 %.not60, label %thread-pre-split, label %42
@@ -147356,7 +147356,7 @@ thread-pre-split.sink.split:                      ; preds = %42, %22
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %24, %28, %40, %is_regexp_allowed.exit
-  %.153.ph = phi i64 [ %25, %24 ], [ %29, %28 ], [ %.254, %40 ], [ %.052, %is_regexp_allowed.exit ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %57, %thread-pre-split.sink.split ]
+  %.153.ph = phi i64 [ %.052, %is_regexp_allowed.exit ], [ %.254, %40 ], [ %29, %28 ], [ %25, %24 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %.052, %53 ], [ %57, %thread-pre-split.sink.split ]
   %.pr = load i32, ptr %13, align 8, !tbaa !590
   br label %59
 
@@ -151682,9 +151682,9 @@ get_prev_opcode.exit.thread:                      ; preds = %8, %42, %42, %get_p
   br label %372
 
 70:                                               ; preds = %45, %42, %get_prev_opcode.exit, %56, %53, %51
-  %.090.shrunk = phi i16 [ 0, %56 ], [ %.val103, %53 ], [ 0, %51 ], [ 0, %get_prev_opcode.exit ], [ %.val104, %42 ], [ %.val104, %45 ]
-  %.088 = phi i32 [ 3, %56 ], [ 1, %53 ], [ 1, %51 ], [ 2, %get_prev_opcode.exit ], [ 2, %42 ], [ 2, %45 ]
-  %.0 = phi i32 [ 0, %56 ], [ %.val, %53 ], [ %.val101, %51 ], [ 0, %get_prev_opcode.exit ], [ %.val102, %42 ], [ %.val102, %45 ]
+  %.090.shrunk = phi i16 [ 0, %51 ], [ %.val103, %53 ], [ 0, %56 ], [ 0, %get_prev_opcode.exit ], [ %.val104, %42 ], [ %.val104, %45 ]
+  %.088 = phi i32 [ 1, %51 ], [ 1, %53 ], [ 3, %56 ], [ 2, %get_prev_opcode.exit ], [ 2, %42 ], [ 2, %45 ]
+  %.0 = phi i32 [ %.val101, %51 ], [ %.val, %53 ], [ 0, %56 ], [ 0, %get_prev_opcode.exit ], [ %.val102, %42 ], [ %.val102, %45 ]
   %.090 = zext i16 %.090.shrunk to i32
   %71 = getelementptr inbounds nuw i8, ptr %32, i64 312
   store i64 %38, ptr %71, align 8, !tbaa !992
@@ -152283,8 +152283,8 @@ emit_op.exit152:                                  ; preds = %357, %362
   br label %370
 
 370:                                              ; preds = %287, %emit_atom.exit148, %emit_op.exit150, %emit_op.exit152, %emit_op.exit115, %emit_atom.exit119, %emit_atom.exit123, %emit_op.exit129, %emit_op.exit135
-  %.091 = phi i32 [ 74, %emit_op.exit135 ], [ 71, %emit_op.exit129 ], [ 193, %emit_atom.exit123 ], [ 65, %emit_atom.exit119 ], [ 60, %emit_op.exit115 ], [ %41, %287 ], [ 74, %emit_op.exit152 ], [ 71, %emit_op.exit150 ], [ 60, %emit_atom.exit148 ]
-  %.089 = phi i32 [ -1, %emit_op.exit135 ], [ -1, %emit_op.exit129 ], [ -1, %emit_atom.exit123 ], [ -1, %emit_atom.exit119 ], [ %.0.i.i, %emit_op.exit115 ], [ -1, %287 ], [ -1, %emit_op.exit152 ], [ -1, %emit_op.exit150 ], [ %.0.i.i138, %emit_atom.exit148 ]
+  %.091 = phi i32 [ 60, %emit_op.exit115 ], [ 65, %emit_atom.exit119 ], [ 193, %emit_atom.exit123 ], [ 71, %emit_op.exit129 ], [ 74, %emit_op.exit135 ], [ %41, %287 ], [ 60, %emit_atom.exit148 ], [ 71, %emit_op.exit150 ], [ 74, %emit_op.exit152 ]
+  %.089 = phi i32 [ %.0.i.i, %emit_op.exit115 ], [ -1, %emit_atom.exit119 ], [ -1, %emit_atom.exit123 ], [ -1, %emit_op.exit129 ], [ -1, %emit_op.exit135 ], [ -1, %287 ], [ %.0.i.i138, %emit_atom.exit148 ], [ -1, %emit_op.exit150 ], [ -1, %emit_op.exit152 ]
   store i32 %.091, ptr %1, align 4, !tbaa !67
   store i32 %.090, ptr %2, align 4, !tbaa !67
   store i32 %.0, ptr %3, align 4, !tbaa !67
@@ -152919,7 +152919,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_define_var(ptr noundef nonnull r
   unreachable
 
 28:                                               ; preds = %23, %26, %25, %24
-  %.0 = phi i32 [ 5, %26 ], [ 6, %25 ], [ 2, %24 ], [ 1, %23 ]
+  %.0 = phi i32 [ 2, %24 ], [ 6, %25 ], [ 5, %26 ], [ 1, %23 ]
   %29 = tail call fastcc i32 @define_var(ptr noundef %0, ptr noundef %5, i32 noundef %1, i32 noundef %.0)
   %.lobit = ashr i32 %29, 31
   br label %30
@@ -155631,8 +155631,8 @@ token_is_pseudo_keyword.exit595.thread:           ; preds = %741, %744, %token_i
   br label %.critedge528
 
 js_parse_expr_paren.exit:                         ; preds = %265, %293, %211, %709, %699, %.critedge531, %758, %771, %723, %692, %701, %219, %213, %206, %142, %134, %.critedge526, %237, %234, %226, %223
-  %.0420.shrunk = phi i1 [ %87, %758 ], [ true, %771 ], [ %87, %723 ], [ %87, %692 ], [ true, %701 ], [ %87, %237 ], [ %87, %234 ], [ %87, %226 ], [ %87, %223 ], [ %87, %219 ], [ %87, %213 ], [ %87, %206 ], [ %87, %142 ], [ %87, %134 ], [ %87, %.critedge526 ], [ %87, %.critedge531 ], [ true, %699 ], [ %87, %709 ], [ %87, %211 ], [ %87, %293 ], [ %87, %265 ]
-  %.0414 = phi i32 [ 0, %758 ], [ 0, %771 ], [ 0, %723 ], [ 0, %692 ], [ 0, %701 ], [ 0, %237 ], [ 0, %234 ], [ 0, %226 ], [ 0, %223 ], [ 0, %219 ], [ 0, %213 ], [ 0, %206 ], [ 0, %142 ], [ 0, %134 ], [ 0, %.critedge526 ], [ 0, %.critedge531 ], [ 1, %699 ], [ 2, %709 ], [ 0, %211 ], [ 0, %293 ], [ 0, %265 ]
+  %.0420.shrunk = phi i1 [ %87, %.critedge526 ], [ %87, %134 ], [ %87, %142 ], [ %87, %206 ], [ %87, %213 ], [ %87, %219 ], [ %87, %223 ], [ %87, %226 ], [ %87, %234 ], [ %87, %237 ], [ %87, %692 ], [ true, %701 ], [ %87, %723 ], [ %87, %758 ], [ true, %771 ], [ %87, %.critedge531 ], [ true, %699 ], [ %87, %709 ], [ %87, %211 ], [ %87, %293 ], [ %87, %265 ]
+  %.0414 = phi i32 [ 0, %.critedge526 ], [ 0, %134 ], [ 0, %142 ], [ 0, %206 ], [ 0, %213 ], [ 0, %219 ], [ 0, %223 ], [ 0, %226 ], [ 0, %234 ], [ 0, %237 ], [ 0, %692 ], [ 0, %701 ], [ 0, %723 ], [ 0, %758 ], [ 0, %771 ], [ 0, %.critedge531 ], [ 1, %699 ], [ 2, %709 ], [ 0, %211 ], [ 0, %293 ], [ 0, %265 ]
   store i32 -1, ptr %84, align 4, !tbaa !67
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %783 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -156052,8 +156052,8 @@ has_with_scope.exit:                              ; preds = %986
   br label %emit_label.exit604
 
 emit_label.exit604:                               ; preds = %._crit_edge.i, %808, %emit_op.exit.i614, %emit_op.exit611, %emit_op.exit.i602, %emit_op.exit, %get_prev_opcode.exit, %has_with_scope.exit, %994, %894, %893, %817
-  %.0439 = phi i32 [ 2, %994 ], [ 2, %894 ], [ 2, %893 ], [ 2, %817 ], [ 1, %has_with_scope.exit ], [ 1, %get_prev_opcode.exit ], [ 2, %emit_op.exit ], [ 2, %emit_op.exit.i602 ], [ 2, %emit_op.exit611 ], [ 2, %emit_op.exit.i614 ], [ 1, %808 ], [ 1, %._crit_edge.i ]
-  %.0436 = phi i32 [ 71, %994 ], [ 71, %894 ], [ 193, %893 ], [ 65, %817 ], [ 190, %has_with_scope.exit ], [ 0, %get_prev_opcode.exit ], [ 65, %emit_op.exit ], [ 65, %emit_op.exit.i602 ], [ 71, %emit_op.exit611 ], [ 71, %emit_op.exit.i614 ], [ 0, %808 ], [ 186, %._crit_edge.i ]
+  %.0439 = phi i32 [ 2, %817 ], [ 2, %893 ], [ 2, %894 ], [ 2, %994 ], [ 1, %has_with_scope.exit ], [ 1, %get_prev_opcode.exit ], [ 2, %emit_op.exit ], [ 2, %emit_op.exit.i602 ], [ 2, %emit_op.exit611 ], [ 2, %emit_op.exit.i614 ], [ 1, %808 ], [ 1, %._crit_edge.i ]
+  %.0436 = phi i32 [ 65, %817 ], [ 193, %893 ], [ 71, %894 ], [ 71, %994 ], [ 190, %has_with_scope.exit ], [ 0, %get_prev_opcode.exit ], [ 65, %emit_op.exit ], [ 65, %emit_op.exit.i602 ], [ 71, %emit_op.exit611 ], [ 71, %emit_op.exit.i614 ], [ 0, %808 ], [ 186, %._crit_edge.i ]
   %.not513 = icmp eq i32 %.3435, 0
   br i1 %.not513, label %emit_label.exit604.thread, label %995
 
@@ -157161,7 +157161,7 @@ get_prev_opcode.exit670.thread:                   ; preds = %1493, %get_prev_opc
   br label %.critedge528
 
 .critedge528:                                     ; preds = %1440, %JS_FreeValue.exit658, %js_parse_expect.exit667, %1456, %1454, %1284, %.thread738, %1183, %997, %804, %787, %js_parse_expect.exit, %1081, %js_parse_expect.exit643, %1146, %1128, %1126, %js_parse_expect.exit667.thread, %js_parse_expect.exit643.thread, %js_parse_expect.exit.thread, %800, %1343, %1299, %1077, %265, %256, %274, %291, %242, %211, %209, %js_parse_expect.exit673, %181, %152, %154, %JS_FreeValue.exit567, %1490, %get_prev_opcode.exit670.thread, %1514, %769, %767, %762, %756, %739, %734, %705, %697, %690, %671, %666, %js_parse_array_literal.exit.thread, %235, %232, %224, %221, %219, %213, %142, %136, %134, %.critedge526, %JS_FreeValue.exit, %110, %97, %130, %206, %772, %765, %754, %token_is_pseudo_keyword.exit595.thread, %732, %721, %714, %688, %token_is_pseudo_keyword.exit590.thread
-  %.3 = phi i32 [ -1, %772 ], [ -1, %754 ], [ -1, %token_is_pseudo_keyword.exit595.thread ], [ -1, %765 ], [ -1, %714 ], [ -1, %721 ], [ -1, %732 ], [ -1, %688 ], [ -1, %token_is_pseudo_keyword.exit590.thread ], [ -1, %js_parse_array_literal.exit.thread ], [ -1, %206 ], [ -1, %130 ], [ -1, %97 ], [ -1, %110 ], [ -1, %JS_FreeValue.exit ], [ -1, %.critedge526 ], [ -1, %134 ], [ -1, %136 ], [ -1, %142 ], [ -1, %213 ], [ -1, %219 ], [ -1, %221 ], [ -1, %224 ], [ -1, %232 ], [ -1, %235 ], [ -1, %666 ], [ -1, %671 ], [ -1, %690 ], [ -1, %697 ], [ -1, %705 ], [ -1, %734 ], [ -1, %739 ], [ -1, %756 ], [ -1, %762 ], [ -1, %767 ], [ -1, %769 ], [ 0, %1514 ], [ 0, %get_prev_opcode.exit670.thread ], [ 0, %1490 ], [ -1, %JS_FreeValue.exit567 ], [ -1, %154 ], [ -1, %152 ], [ -1, %181 ], [ -1, %js_parse_expect.exit673 ], [ -1, %209 ], [ -1, %211 ], [ -1, %242 ], [ -1, %291 ], [ -1, %274 ], [ -1, %256 ], [ -1, %265 ], [ -1, %1077 ], [ -1, %1299 ], [ -1, %1343 ], [ -1, %800 ], [ -1, %js_parse_expect.exit.thread ], [ -1, %js_parse_expect.exit643.thread ], [ -1, %js_parse_expect.exit667.thread ], [ -1, %1126 ], [ -1, %1128 ], [ -1, %1146 ], [ -1, %js_parse_expect.exit643 ], [ -1, %1081 ], [ -1, %js_parse_expect.exit ], [ -1, %787 ], [ -1, %804 ], [ -1, %997 ], [ -1, %1183 ], [ -1, %.thread738 ], [ -1, %1284 ], [ -1, %1454 ], [ -1, %1456 ], [ -1, %js_parse_expect.exit667 ], [ -1, %JS_FreeValue.exit658 ], [ -1, %1440 ]
+  %.3 = phi i32 [ -1, %772 ], [ -1, %206 ], [ -1, %js_parse_array_literal.exit.thread ], [ -1, %688 ], [ -1, %token_is_pseudo_keyword.exit590.thread ], [ -1, %714 ], [ -1, %721 ], [ -1, %732 ], [ -1, %754 ], [ -1, %token_is_pseudo_keyword.exit595.thread ], [ -1, %765 ], [ -1, %130 ], [ -1, %97 ], [ -1, %110 ], [ -1, %JS_FreeValue.exit ], [ -1, %.critedge526 ], [ -1, %134 ], [ -1, %136 ], [ -1, %142 ], [ -1, %213 ], [ -1, %219 ], [ -1, %221 ], [ -1, %224 ], [ -1, %232 ], [ -1, %235 ], [ -1, %666 ], [ -1, %671 ], [ -1, %690 ], [ -1, %697 ], [ -1, %705 ], [ -1, %734 ], [ -1, %739 ], [ -1, %756 ], [ -1, %762 ], [ -1, %767 ], [ -1, %769 ], [ 0, %1514 ], [ 0, %get_prev_opcode.exit670.thread ], [ 0, %1490 ], [ -1, %JS_FreeValue.exit567 ], [ -1, %154 ], [ -1, %152 ], [ -1, %181 ], [ -1, %js_parse_expect.exit673 ], [ -1, %209 ], [ -1, %211 ], [ -1, %242 ], [ -1, %291 ], [ -1, %274 ], [ -1, %256 ], [ -1, %265 ], [ -1, %1077 ], [ -1, %1299 ], [ -1, %1343 ], [ -1, %800 ], [ -1, %js_parse_expect.exit.thread ], [ -1, %js_parse_expect.exit643.thread ], [ -1, %js_parse_expect.exit667.thread ], [ -1, %1126 ], [ -1, %1128 ], [ -1, %1146 ], [ -1, %js_parse_expect.exit643 ], [ -1, %1081 ], [ -1, %js_parse_expect.exit ], [ -1, %787 ], [ -1, %804 ], [ -1, %997 ], [ -1, %1183 ], [ -1, %.thread738 ], [ -1, %1284 ], [ -1, %1454 ], [ -1, %1456 ], [ -1, %js_parse_expect.exit667 ], [ -1, %JS_FreeValue.exit658 ], [ -1, %1440 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %84) #41
   ret i32 %.3
 }
@@ -159276,7 +159276,7 @@ JS_FreeAtom.exit:                                 ; preds = %458, %460, %JS_Free
   br label %.loopexit591
 
 .thread579:                                       ; preds = %372, %370, %322, %find_private_class_field.exit505.thread, %find_private_class_field.exit515.thread, %398, %.thread560, %380, %.thread564, %.thread564.thread589, %.thread574, %.loopexit, %390
-  %620 = phi i32 [ %205, %.thread564 ], [ %205, %.loopexit ], [ %205, %390 ], [ %205, %.thread574 ], [ %205, %.thread564.thread589 ], [ %205, %372 ], [ %205, %370 ], [ %205, %322 ], [ %205, %find_private_class_field.exit505.thread ], [ %205, %380 ], [ %205, %find_private_class_field.exit515.thread ], [ %205, %398 ], [ %.pre630.pre, %.thread560 ]
+  %620 = phi i32 [ %205, %.loopexit ], [ %205, %.thread564 ], [ %205, %390 ], [ %205, %.thread574 ], [ %205, %.thread564.thread589 ], [ %205, %372 ], [ %205, %370 ], [ %205, %322 ], [ %205, %find_private_class_field.exit505.thread ], [ %205, %380 ], [ %205, %find_private_class_field.exit515.thread ], [ %205, %398 ], [ %.pre630.pre, %.thread560 ]
   %621 = icmp sgt i32 %620, 226
   br i1 %621, label %622, label %JS_FreeAtom.exit527
 
@@ -163543,7 +163543,7 @@ switch.lookup68:                                  ; preds = %137
   br label %142
 
 142:                                              ; preds = %switch.lookup68, %switch.lookup, %141, %140, %139, %136, %131, %127, %122, %120, %132, %133, %134, %135, %128, %121
-  %.047 = phi i8 [ -88, %135 ], [ -89, %134 ], [ -91, %133 ], [ -90, %132 ], [ -97, %128 ], [ -100, %121 ], [ -101, %120 ], [ %., %122 ], [ -98, %127 ], [ -92, %131 ], [ -87, %136 ], [ -82, %139 ], [ -81, %140 ], [ -80, %141 ], [ %switch.offset, %switch.lookup ], [ %switch.masked, %switch.lookup68 ]
+  %.047 = phi i8 [ -100, %121 ], [ -97, %128 ], [ -90, %132 ], [ -91, %133 ], [ -89, %134 ], [ -88, %135 ], [ -101, %120 ], [ %., %122 ], [ -98, %127 ], [ -92, %131 ], [ -87, %136 ], [ -82, %139 ], [ -81, %140 ], [ -80, %141 ], [ %switch.offset, %switch.lookup ], [ %switch.masked, %switch.lookup68 ]
   %143 = call fastcc i32 @next_token(ptr noundef %0)
   %.not51 = icmp eq i32 %143, 0
   br i1 %.not51, label %144, label %JS_FreeAtom.exit
@@ -164025,8 +164025,8 @@ get_prev_opcode.exit94.thread:                    ; preds = %get_prev_opcode.exi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #41
   br label %js_parse_delete.exit
 
-js_parse_delete.exit:                             ; preds = %97, %99, %111, %114, %get_prev_opcode.exit94.thread, %96, %19, %20, %21, %22, %23, %get_prev_opcode.exit.thread, %137, %40, %38, %112, %109, %JS_FreeValue.exit, %59, %55, %158, %157, %174, %172, %170, %.critedge88, %140, %135, %133, %37, %16, %14, %149, %167, %131, %126
-  %.0 = phi i32 [ -1, %167 ], [ -1, %149 ], [ -1, %131 ], [ -1, %126 ], [ -1, %37 ], [ -1, %14 ], [ -1, %16 ], [ -1, %133 ], [ -1, %135 ], [ -1, %140 ], [ -1, %.critedge88 ], [ -1, %170 ], [ -1, %172 ], [ 0, %158 ], [ 0, %174 ], [ 0, %157 ], [ -1, %55 ], [ -1, %59 ], [ -1, %JS_FreeValue.exit ], [ -1, %109 ], [ -1, %112 ], [ -1, %38 ], [ -1, %40 ], [ 0, %137 ], [ 0, %get_prev_opcode.exit.thread ], [ 0, %23 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %96 ], [ 0, %get_prev_opcode.exit94.thread ], [ 0, %114 ], [ 0, %111 ], [ 0, %99 ], [ 0, %97 ]
+js_parse_delete.exit:                             ; preds = %97, %99, %111, %114, %get_prev_opcode.exit94.thread, %96, %19, %20, %21, %22, %23, %137, %get_prev_opcode.exit.thread, %40, %38, %112, %109, %JS_FreeValue.exit, %59, %55, %158, %157, %174, %172, %170, %.critedge88, %140, %135, %133, %37, %16, %14, %149, %167, %131, %126
+  %.0 = phi i32 [ -1, %167 ], [ -1, %149 ], [ -1, %37 ], [ -1, %131 ], [ -1, %126 ], [ -1, %14 ], [ -1, %16 ], [ -1, %133 ], [ -1, %135 ], [ -1, %140 ], [ -1, %.critedge88 ], [ -1, %170 ], [ -1, %172 ], [ 0, %158 ], [ 0, %174 ], [ 0, %157 ], [ -1, %55 ], [ -1, %59 ], [ -1, %JS_FreeValue.exit ], [ -1, %109 ], [ -1, %112 ], [ -1, %38 ], [ -1, %40 ], [ 0, %get_prev_opcode.exit.thread ], [ 0, %137 ], [ 0, %23 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %96 ], [ 0, %get_prev_opcode.exit94.thread ], [ 0, %114 ], [ 0, %111 ], [ 0, %99 ], [ 0, %97 ]
   ret i32 %.0
 }
 
@@ -167970,9 +167970,9 @@ code_has_label.exit720:                           ; preds = %510, %513
   br label %code_has_label.exit720.thread
 
 code_has_label.exit720.thread:                    ; preds = %515, %503, %..thread3.loopexit_crit_edge8.i719, %513, %1502, %.loopexit921, %519, %.loopexit924, %1059, %add_pc2line_info.exit766, %460, %458
-  %.4495 = phi i32 [ %1509, %1502 ], [ %1065, %1059 ], [ %803, %add_pc2line_info.exit766 ], [ %.02748.i696, %.loopexit924 ], [ %.val638, %460 ], [ %.val639, %458 ], [ %523, %519 ], [ %.02748.i, %.loopexit921 ], [ %.02748.i696, %513 ], [ %.02748.i696, %..thread3.loopexit_crit_edge8.i719 ], [ %.02748.i696, %503 ], [ %.02748.i696, %515 ]
-  %.1476 = phi i32 [ 107, %1502 ], [ %1067, %1059 ], [ %805, %add_pc2line_info.exit766 ], [ %306, %.loopexit924 ], [ 109, %460 ], [ 110, %458 ], [ %524, %519 ], [ 108, %.loopexit921 ], [ %306, %513 ], [ %306, %..thread3.loopexit_crit_edge8.i719 ], [ %306, %503 ], [ %306, %515 ]
-  %.5 = phi i32 [ %1508, %1502 ], [ %1064, %1059 ], [ %802, %add_pc2line_info.exit766 ], [ %311, %.loopexit924 ], [ %311, %460 ], [ %311, %458 ], [ %504, %519 ], [ %.3, %.loopexit921 ], [ %311, %513 ], [ %311, %..thread3.loopexit_crit_edge8.i719 ], [ %311, %503 ], [ %311, %515 ]
+  %.4495 = phi i32 [ %.val639, %458 ], [ %.val638, %460 ], [ %.02748.i696, %.loopexit924 ], [ %803, %add_pc2line_info.exit766 ], [ %1065, %1059 ], [ %1509, %1502 ], [ %523, %519 ], [ %.02748.i, %.loopexit921 ], [ %.02748.i696, %513 ], [ %.02748.i696, %..thread3.loopexit_crit_edge8.i719 ], [ %.02748.i696, %503 ], [ %.02748.i696, %515 ]
+  %.1476 = phi i32 [ 110, %458 ], [ 109, %460 ], [ %306, %.loopexit924 ], [ %805, %add_pc2line_info.exit766 ], [ %1067, %1059 ], [ 107, %1502 ], [ %524, %519 ], [ 108, %.loopexit921 ], [ %306, %513 ], [ %306, %..thread3.loopexit_crit_edge8.i719 ], [ %306, %503 ], [ %306, %515 ]
+  %.5 = phi i32 [ %311, %458 ], [ %311, %460 ], [ %311, %.loopexit924 ], [ %802, %add_pc2line_info.exit766 ], [ %1064, %1059 ], [ %1508, %1502 ], [ %504, %519 ], [ %.3, %.loopexit921 ], [ %311, %513 ], [ %311, %..thread3.loopexit_crit_edge8.i719 ], [ %311, %503 ], [ %311, %515 ]
   %525 = load i64, ptr %287, align 8, !tbaa !538
   %526 = trunc i64 %525 to i32
   %527 = load i32, ptr %21, align 4, !tbaa !67
@@ -169977,7 +169977,7 @@ JS_FreeAtomStruct.exit.i.i827:                    ; preds = %1477, %1468, %._cri
   br label %code_has_label.exit720.thread
 
 .thread868:                                       ; preds = %1410, %1495, %887, %861, %1376, %1142, %1098, %978, %302, %1404, %1068, %1053, %1003, %806, %745, %396
-  %.2 = phi i32 [ %311, %302 ], [ %311, %1404 ], [ %311, %1068 ], [ %311, %1053 ], [ %311, %1003 ], [ %311, %806 ], [ %311, %745 ], [ %397, %396 ], [ %311, %978 ], [ %311, %1098 ], [ %311, %1142 ], [ %311, %1376 ], [ %311, %861 ], [ %311, %887 ], [ %311, %1495 ], [ %311, %1410 ]
+  %.2 = phi i32 [ %311, %302 ], [ %397, %396 ], [ %311, %745 ], [ %311, %806 ], [ %311, %1003 ], [ %311, %1053 ], [ %311, %1068 ], [ %311, %1404 ], [ %311, %978 ], [ %311, %1098 ], [ %311, %1142 ], [ %311, %1376 ], [ %311, %861 ], [ %311, %887 ], [ %311, %1495 ], [ %311, %1410 ]
   %1510 = load i64, ptr %287, align 8, !tbaa !538
   %1511 = trunc i64 %1510 to i32
   %1512 = load i32, ptr %21, align 4, !tbaa !67
@@ -170019,7 +170019,7 @@ add_pc2line_info.exit836:                         ; preds = %.thread868, %1514, 
   br label %.thread
 
 .thread:                                          ; preds = %add_pc2line_info.exit819, %add_pc2line_info.exit815, %add_pc2line_info.exit811, %1234, %1224, %1209, %1198, %add_pc2line_info.exit795, %add_pc2line_info.exit791, %1141, %add_pc2line_info.exit779, %976, %624, %615, %add_reloc.exit729, %add_reloc.exit, %add_pc2line_info.exit692, %code_has_label.exit, %312, %._crit_edge, %code_has_label.exit710, %add_pc2line_info.exit762, %819, %845, %853, %857, %1011, %add_pc2line_info.exit783, %1047, %add_pc2line_info.exit787, %add_pc2line_info.exit799, %add_pc2line_info.exit836, %628, %750, %747, %1003, %1001, %999, %add_pc2line_info.exit684, %add_pc2line_info.exit, %add_pc2line_info.exit807, %add_pc2line_info.exit803, %add_reloc.exit733, %.thread865, %882, %908, %.thread903
-  %.8 = phi i32 [ %.2, %add_pc2line_info.exit836 ], [ %.7, %add_reloc.exit733 ], [ %.7, %628 ], [ %311, %add_pc2line_info.exit799 ], [ %1097, %add_pc2line_info.exit787 ], [ %1012, %1011 ], [ %1038, %add_pc2line_info.exit783 ], [ %817, %819 ], [ %1052, %1047 ], [ %311, %999 ], [ %311, %1001 ], [ %311, %1003 ], [ %311, %908 ], [ %311, %882 ], [ %846, %845 ], [ %854, %853 ], [ %311, %857 ], [ %776, %add_pc2line_info.exit762 ], [ %311, %750 ], [ %311, %747 ], [ %311, %code_has_label.exit710 ], [ %311, %._crit_edge ], [ %311, %312 ], [ %377, %add_pc2line_info.exit ], [ %311, %add_pc2line_info.exit684 ], [ %1286, %add_pc2line_info.exit803 ], [ %311, %add_pc2line_info.exit807 ], [ %311, %.thread865 ], [ %1494, %.thread903 ], [ %457, %add_pc2line_info.exit692 ], [ %.3, %code_has_label.exit ], [ %.7, %add_reloc.exit ], [ %.7, %add_reloc.exit729 ], [ %.7, %615 ], [ %.7, %624 ], [ %311, %add_pc2line_info.exit779 ], [ %977, %976 ], [ %.10, %1141 ], [ %.10, %add_pc2line_info.exit791 ], [ %311, %1234 ], [ %1233, %1224 ], [ %1217, %1209 ], [ %1202, %1198 ], [ %1179, %add_pc2line_info.exit795 ], [ %1403, %add_pc2line_info.exit819 ], [ %1375, %add_pc2line_info.exit815 ], [ %.14, %add_pc2line_info.exit811 ]
+  %.8 = phi i32 [ %.2, %add_pc2line_info.exit836 ], [ %311, %312 ], [ %311, %._crit_edge ], [ %.7, %add_reloc.exit733 ], [ %.7, %628 ], [ %311, %code_has_label.exit710 ], [ %311, %750 ], [ %311, %747 ], [ %776, %add_pc2line_info.exit762 ], [ %817, %819 ], [ %846, %845 ], [ %854, %853 ], [ %311, %857 ], [ %311, %882 ], [ %311, %908 ], [ %311, %999 ], [ %311, %1001 ], [ %311, %1003 ], [ %1012, %1011 ], [ %1038, %add_pc2line_info.exit783 ], [ %1052, %1047 ], [ %1097, %add_pc2line_info.exit787 ], [ %311, %add_pc2line_info.exit799 ], [ %377, %add_pc2line_info.exit ], [ %311, %add_pc2line_info.exit684 ], [ %1286, %add_pc2line_info.exit803 ], [ %311, %add_pc2line_info.exit807 ], [ %311, %.thread865 ], [ %1494, %.thread903 ], [ %457, %add_pc2line_info.exit692 ], [ %.3, %code_has_label.exit ], [ %.7, %add_reloc.exit ], [ %.7, %add_reloc.exit729 ], [ %.7, %615 ], [ %.7, %624 ], [ %311, %add_pc2line_info.exit779 ], [ %977, %976 ], [ %.10, %1141 ], [ %.10, %add_pc2line_info.exit791 ], [ %311, %1234 ], [ %1233, %1224 ], [ %1217, %1209 ], [ %1202, %1198 ], [ %1179, %add_pc2line_info.exit795 ], [ %1403, %add_pc2line_info.exit819 ], [ %1375, %add_pc2line_info.exit815 ], [ %.14, %add_pc2line_info.exit811 ]
   %1529 = icmp slt i32 %.8, %32
   br i1 %1529, label %302, label %.preheader920
 
@@ -170046,7 +170046,7 @@ add_pc2line_info.exit836:                         ; preds = %.thread868, %1514, 
   br label %1537
 
 1537:                                             ; preds = %1536, %1533, %1533, %1533
-  %.0473 = phi i32 [ 3, %1533 ], [ 3, %1533 ], [ 3, %1533 ], [ 1, %1536 ]
+  %.0473 = phi i32 [ 1, %1536 ], [ 3, %1533 ], [ 3, %1533 ], [ 3, %1533 ]
   %1538 = getelementptr inbounds nuw i8, ptr %.0499993, i64 8
   %1539 = load i32, ptr %1538, align 4, !tbaa !1172
   %1540 = load ptr, ptr %24, align 8, !tbaa !995
@@ -172317,7 +172317,7 @@ JS_DupAtom.exit565:                               ; preds = %792, %795
   br label %806
 
 806:                                              ; preds = %.thread614, %.thread574, %.split475, %.split, %.thread623, %JS_DupAtom.exit562, %JS_DupAtom.exit563, %JS_DupAtom.exit564, %JS_DupAtom.exit565, %JS_DupAtom.exit561, %can_opt_put_global_ref_value.exit.thread630, %625, %712, %716, %JS_DupAtom.exit560, %JS_DupAtom.exit558, %195, %324, %258, %JS_DupAtom.exit538, %JS_DupAtom.exit537, %JS_DupAtom.exit536, %320, %296, %JS_DupAtom.exit556, %JS_DupAtom.exit539, %JS_DupAtom.exit534, %JS_DupAtom.exit
-  %.0457 = phi i32 [ %8, %JS_DupAtom.exit ], [ %8, %195 ], [ %8, %324 ], [ %8, %296 ], [ %8, %320 ], [ %259, %258 ], [ %8, %JS_DupAtom.exit537 ], [ %8, %JS_DupAtom.exit538 ], [ %8, %JS_DupAtom.exit536 ], [ %8, %JS_DupAtom.exit534 ], [ %8, %JS_DupAtom.exit539 ], [ %8, %JS_DupAtom.exit556 ], [ %8, %625 ], [ %8, %716 ], [ %8, %712 ], [ %8, %JS_DupAtom.exit558 ], [ %8, %JS_DupAtom.exit560 ], [ %8, %.thread623 ], [ %8, %JS_DupAtom.exit565 ], [ %8, %JS_DupAtom.exit564 ], [ %8, %JS_DupAtom.exit563 ], [ %8, %JS_DupAtom.exit562 ], [ %734, %can_opt_put_global_ref_value.exit.thread630 ], [ %8, %JS_DupAtom.exit561 ], [ %678, %.split ], [ %677, %.split475 ], [ %8, %.thread574 ], [ %8, %.thread614 ]
+  %.0457 = phi i32 [ %8, %JS_DupAtom.exit ], [ %8, %195 ], [ %259, %258 ], [ %8, %JS_DupAtom.exit537 ], [ %8, %JS_DupAtom.exit538 ], [ %8, %JS_DupAtom.exit536 ], [ %8, %296 ], [ %8, %320 ], [ %8, %324 ], [ %8, %JS_DupAtom.exit534 ], [ %8, %JS_DupAtom.exit539 ], [ %8, %JS_DupAtom.exit556 ], [ %8, %625 ], [ %8, %JS_DupAtom.exit558 ], [ %8, %JS_DupAtom.exit560 ], [ %8, %712 ], [ %8, %716 ], [ %8, %.thread623 ], [ %734, %can_opt_put_global_ref_value.exit.thread630 ], [ %8, %JS_DupAtom.exit561 ], [ %8, %JS_DupAtom.exit562 ], [ %8, %JS_DupAtom.exit563 ], [ %8, %JS_DupAtom.exit564 ], [ %8, %JS_DupAtom.exit565 ], [ %678, %.split ], [ %677, %.split475 ], [ %8, %.thread574 ], [ %8, %.thread614 ]
   %807 = load i32, ptr %42, align 4, !tbaa !67
   %808 = icmp sgt i32 %807, -1
   br i1 %808, label %809, label %819
@@ -173322,8 +173322,8 @@ JS_DupAtom.exit45:                                ; preds = %29, %32
   br i1 %57, label %.sink.split, label %61
 
 .sink.split:                                      ; preds = %56, %53, %54, %52
-  %.sink8 = phi i8 [ 27, %54 ], [ 24, %53 ], [ 21, %52 ], [ 17, %56 ]
-  %.sink.ph = phi i8 [ 59, %54 ], [ 59, %53 ], [ 59, %52 ], [ 57, %56 ]
+  %.sink8 = phi i8 [ 24, %53 ], [ 27, %54 ], [ 21, %52 ], [ 17, %56 ]
+  %.sink.ph = phi i8 [ 59, %53 ], [ 59, %54 ], [ 59, %52 ], [ 57, %56 ]
   %58 = add i32 %46, -4
   %59 = sext i32 %47 to i64
   %60 = getelementptr inbounds i8, ptr %2, i64 %59
@@ -175256,8 +175256,8 @@ JS_DupValue.exit.i:                               ; preds = %5
   br label %js_thisBigIntValue.exit
 
 js_thisBigIntValue.exit:                          ; preds = %JS_DupValue.exit.i, %17, %.thread.i
-  %.sroa.012.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ %19, %17 ], [ 0, %.thread.i ]
-  %.sroa.413.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ %15, %17 ], [ 6, %.thread.i ]
+  %.sroa.012.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ 0, %.thread.i ], [ %19, %17 ]
+  %.sroa.413.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ 6, %.thread.i ], [ %15, %17 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.012.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.413.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -176715,8 +176715,8 @@ JS_DupValue.exit.i:                               ; preds = %5
   br label %js_thisBigFloatValue.exit
 
 js_thisBigFloatValue.exit:                        ; preds = %JS_DupValue.exit.i, %17, %.thread.i
-  %.sroa.010.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ %19, %17 ], [ 0, %.thread.i ]
-  %.sroa.411.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ %15, %17 ], [ 6, %.thread.i ]
+  %.sroa.010.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ 0, %.thread.i ], [ %19, %17 ]
+  %.sroa.411.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ 6, %.thread.i ], [ %15, %17 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.010.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.411.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -178077,7 +178077,7 @@ bf_delete.exit:                                   ; preds = %76, %73, %71, %JS_N
   br label %100
 
 100:                                              ; preds = %89, %99, %98, %97
-  %.0101 = phi i32 [ 1, %99 ], [ 4, %98 ], [ 3, %97 ], [ 2, %89 ]
+  %.0101 = phi i32 [ 3, %97 ], [ 4, %98 ], [ 1, %99 ], [ 2, %89 ]
   %101 = call i32 @bf_set(ptr noundef nonnull %92, ptr noundef nonnull %24) #41
   %102 = call i32 @bf_rint(ptr noundef nonnull %92, i32 noundef %.0101) #41
   %103 = getelementptr inbounds nuw i8, ptr %.0, i64 12
@@ -178805,9 +178805,9 @@ JS_NewInt64.exit:                                 ; preds = %JS_GetOpaque2.exit
   br label %46
 
 46:                                               ; preds = %JS_GetOpaque2.exit.thread, %41, %37, %33, %26, %JS_NewInt64.exit
-  %.sroa.013.0 = phi i64 [ %.sroa.0.0.insert.ext.i30, %41 ], [ %.sroa.0.0.insert.ext.i33, %37 ], [ %.sroa.0.0.insert.ext.i, %33 ], [ %.sroa.0.0.insert.ext.i26, %26 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %JS_GetOpaque2.exit.thread ]
-  %.sroa.7.0 = phi i64 [ 0, %41 ], [ 0, %37 ], [ 0, %33 ], [ 0, %26 ], [ %.sroa.7.0.extract.shift, %JS_NewInt64.exit ], [ 0, %JS_GetOpaque2.exit.thread ]
-  %.sroa.8.0 = phi i64 [ 1, %41 ], [ 1, %37 ], [ 0, %33 ], [ 0, %26 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %JS_GetOpaque2.exit.thread ]
+  %.sroa.013.0 = phi i64 [ %.sroa.0.0.insert.ext.i30, %41 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ %.sroa.0.0.insert.ext.i26, %26 ], [ %.sroa.0.0.insert.ext.i, %33 ], [ %.sroa.0.0.insert.ext.i33, %37 ], [ 0, %JS_GetOpaque2.exit.thread ]
+  %.sroa.7.0 = phi i64 [ 0, %41 ], [ %.sroa.7.0.extract.shift, %JS_NewInt64.exit ], [ 0, %26 ], [ 0, %33 ], [ 0, %37 ], [ 0, %JS_GetOpaque2.exit.thread ]
+  %.sroa.8.0 = phi i64 [ 1, %41 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 0, %26 ], [ 0, %33 ], [ 1, %37 ], [ 6, %JS_GetOpaque2.exit.thread ]
   %.sroa.013.0.insert.ext = and i64 %.sroa.013.0, 4294967295
   %.sroa.013.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.013.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.013.0.insert.insert, 0
@@ -179011,7 +179011,7 @@ JS_ToBool.exit43:                                 ; preds = %89, %92
   br label %98
 
 98:                                               ; preds = %bigfloat_get_rnd_mode.exit.thread, %JS_GetOpaque2.exit.thread, %39, %53, %71, %JS_ToBool.exit, %JS_ToBool.exit43, %JS_ToInt32Sat.exit, %JS_ToInt64Sat.exit, %51, %37
-  %.sroa.13.0 = phi i64 [ 6, %51 ], [ 6, %37 ], [ 6, %JS_ToInt64Sat.exit ], [ 6, %JS_ToInt32Sat.exit ], [ 3, %JS_ToBool.exit43 ], [ 3, %JS_ToBool.exit ], [ 3, %71 ], [ 3, %53 ], [ 3, %39 ], [ 6, %JS_GetOpaque2.exit.thread ], [ 6, %bigfloat_get_rnd_mode.exit.thread ]
+  %.sroa.13.0 = phi i64 [ 6, %37 ], [ 6, %51 ], [ 6, %JS_ToInt64Sat.exit ], [ 6, %JS_ToInt32Sat.exit ], [ 3, %JS_ToBool.exit43 ], [ 3, %JS_ToBool.exit ], [ 3, %71 ], [ 3, %53 ], [ 3, %39 ], [ 6, %JS_GetOpaque2.exit.thread ], [ 6, %bigfloat_get_rnd_mode.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #41
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %.sroa.13.0, 1
@@ -179421,9 +179421,9 @@ JS_ToStringFree.exit:                             ; preds = %35, %38, %43
   br i1 %.not274, label %JS_FreeValue.exit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %JS_ToStringFree.exit, %188
-  %.sroa.27.0.be = phi i64 [ %191, %188 ], [ %46, %JS_ToStringFree.exit ]
-  %.sroa.041.sroa.0.0.be = phi i32 [ %.sroa.041.sroa.0.0.extract.trunc120, %188 ], [ %.sroa.041.sroa.0.0.extract.trunc123, %JS_ToStringFree.exit ]
-  %.sroa.041.sroa.26.0.be = phi i32 [ %.sroa.041.sroa.26.0.extract.trunc191, %188 ], [ %.sroa.041.sroa.26.0.extract.trunc197, %JS_ToStringFree.exit ]
+  %.sroa.27.0.be = phi i64 [ %46, %JS_ToStringFree.exit ], [ %191, %188 ]
+  %.sroa.041.sroa.0.0.be = phi i32 [ %.sroa.041.sroa.0.0.extract.trunc123, %JS_ToStringFree.exit ], [ %.sroa.041.sroa.0.0.extract.trunc120, %188 ]
+  %.sroa.041.sroa.26.0.be = phi i32 [ %.sroa.041.sroa.26.0.extract.trunc197, %JS_ToStringFree.exit ], [ %.sroa.041.sroa.26.0.extract.trunc191, %188 ]
   br label %.backedge
 
 48:                                               ; preds = %.backedge
@@ -179800,9 +179800,9 @@ JS_FreeValue.exit253:                             ; preds = %10, %193, %.loopexi
   br label %223
 
 JS_FreeValue.exit:                                ; preds = %188, %JS_ToStringFree.exit, %.backedge, %199, %203, %15, %19, %21, %205, %JS_NewBigDecimal.exit237.thread, %33, %29
-  %.sroa.27.1 = phi i64 [ %.sroa.27.4, %JS_NewBigDecimal.exit237.thread ], [ %.sroa.4.0.i.mux, %21 ], [ 6, %29 ], [ 6, %33 ], [ -11, %205 ], [ 6, %19 ], [ 6, %15 ], [ 6, %203 ], [ 6, %199 ], [ %.sroa.27.0, %.backedge ], [ %46, %JS_ToStringFree.exit ], [ %191, %188 ]
-  %.sroa.041.sroa.0.1 = phi i32 [ %.sroa.041.sroa.0.4, %JS_NewBigDecimal.exit237.thread ], [ %.sroa.041.sroa.0.0.extract.trunc124.mux, %21 ], [ 0, %29 ], [ 0, %33 ], [ %.sroa.041.sroa.0.0.extract.trunc119, %205 ], [ 0, %19 ], [ 0, %15 ], [ 0, %203 ], [ 0, %199 ], [ %.sroa.041.sroa.0.0, %.backedge ], [ %.sroa.041.sroa.0.0.extract.trunc123, %JS_ToStringFree.exit ], [ %.sroa.041.sroa.0.0.extract.trunc120, %188 ]
-  %.sroa.041.sroa.26.1 = phi i32 [ %.sroa.041.sroa.26.4, %JS_NewBigDecimal.exit237.thread ], [ %.sroa.041.sroa.26.0.extract.trunc199.mux, %21 ], [ 0, %29 ], [ 0, %33 ], [ %.sroa.041.sroa.26.0.extract.trunc189, %205 ], [ 0, %19 ], [ 0, %15 ], [ 0, %203 ], [ 0, %199 ], [ %.sroa.041.sroa.26.0, %.backedge ], [ %.sroa.041.sroa.26.0.extract.trunc197, %JS_ToStringFree.exit ], [ %.sroa.041.sroa.26.0.extract.trunc191, %188 ]
+  %.sroa.27.1 = phi i64 [ %.sroa.27.4, %JS_NewBigDecimal.exit237.thread ], [ %.sroa.4.0.i.mux, %21 ], [ 6, %29 ], [ 6, %33 ], [ -11, %205 ], [ 6, %19 ], [ 6, %15 ], [ 6, %203 ], [ 6, %199 ], [ %191, %188 ], [ %46, %JS_ToStringFree.exit ], [ %.sroa.27.0, %.backedge ]
+  %.sroa.041.sroa.0.1 = phi i32 [ %.sroa.041.sroa.0.4, %JS_NewBigDecimal.exit237.thread ], [ %.sroa.041.sroa.0.0.extract.trunc124.mux, %21 ], [ 0, %29 ], [ 0, %33 ], [ %.sroa.041.sroa.0.0.extract.trunc119, %205 ], [ 0, %19 ], [ 0, %15 ], [ 0, %203 ], [ 0, %199 ], [ %.sroa.041.sroa.0.0.extract.trunc120, %188 ], [ %.sroa.041.sroa.0.0.extract.trunc123, %JS_ToStringFree.exit ], [ %.sroa.041.sroa.0.0, %.backedge ]
+  %.sroa.041.sroa.26.1 = phi i32 [ %.sroa.041.sroa.26.4, %JS_NewBigDecimal.exit237.thread ], [ %.sroa.041.sroa.26.0.extract.trunc199.mux, %21 ], [ 0, %29 ], [ 0, %33 ], [ %.sroa.041.sroa.26.0.extract.trunc189, %205 ], [ 0, %19 ], [ 0, %15 ], [ 0, %203 ], [ 0, %199 ], [ %.sroa.041.sroa.26.0.extract.trunc191, %188 ], [ %.sroa.041.sroa.26.0.extract.trunc197, %JS_ToStringFree.exit ], [ %.sroa.041.sroa.26.0, %.backedge ]
   %220 = zext i32 %.sroa.041.sroa.26.1 to i64
   %221 = shl nuw i64 %220, 32
   %222 = zext i32 %.sroa.041.sroa.0.1 to i64
@@ -179932,8 +179932,8 @@ JS_DupValue.exit.i:                               ; preds = %5
   br label %js_thisBigDecimalValue.exit
 
 js_thisBigDecimalValue.exit:                      ; preds = %JS_DupValue.exit.i, %17, %.thread.i
-  %.sroa.010.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ %19, %17 ], [ 0, %.thread.i ]
-  %.sroa.411.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ %15, %17 ], [ 6, %.thread.i ]
+  %.sroa.010.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ 0, %.thread.i ], [ %19, %17 ]
+  %.sroa.411.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ 6, %.thread.i ], [ %15, %17 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.010.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.411.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -181114,7 +181114,7 @@ JS_FreeValue.exit156:                             ; preds = %JS_NewBigDecimal.ex
   unreachable
 
 181:                                              ; preds = %163, %165, %167, %169, %171, %173, %178, %175
-  %.0137 = phi i32 [ %176, %175 ], [ %179, %178 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ]
+  %.0137 = phi i32 [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %179, %178 ]
   %182 = load i32, ptr %35, align 4, !tbaa !107
   %183 = add i32 %182, -1
   store i32 %183, ptr %35, align 4, !tbaa !107
@@ -187994,9 +187994,9 @@ JS_NewInt64.exit295:                              ; preds = %91
   br i1 %.not352, label %.thread333, label %124
 
 124:                                              ; preds = %115, %108, %103, %JS_NewInt64.exit295, %93, %92, %91
-  %.sroa.28.1 = phi i64 [ 3, %91 ], [ %122, %115 ], [ %113, %108 ], [ %106, %103 ], [ %101, %JS_NewInt64.exit295 ], [ 1, %93 ], [ 1, %92 ]
-  %.sroa.080.sroa.0.1 = phi i32 [ 0, %91 ], [ %.sroa.080.sroa.0.0.extract.trunc128, %115 ], [ %.sroa.080.sroa.0.0.extract.trunc129, %108 ], [ %.sroa.080.sroa.0.0.extract.trunc130, %103 ], [ %.sroa.080.sroa.0.0.extract.trunc131, %JS_NewInt64.exit295 ], [ 0, %93 ], [ 1, %92 ]
-  %.sroa.080.sroa.23.1 = phi i32 [ 0, %91 ], [ %.sroa.080.sroa.23.0.extract.trunc171, %115 ], [ %.sroa.080.sroa.23.0.extract.trunc173, %108 ], [ %.sroa.080.sroa.23.0.extract.trunc175, %103 ], [ %.sroa.080.sroa.23.0.extract.trunc177, %JS_NewInt64.exit295 ], [ 0, %93 ], [ 0, %92 ]
+  %.sroa.28.1 = phi i64 [ 3, %91 ], [ 1, %92 ], [ 1, %93 ], [ %101, %JS_NewInt64.exit295 ], [ %106, %103 ], [ %113, %108 ], [ %122, %115 ]
+  %.sroa.080.sroa.0.1 = phi i32 [ 0, %91 ], [ 1, %92 ], [ 0, %93 ], [ %.sroa.080.sroa.0.0.extract.trunc131, %JS_NewInt64.exit295 ], [ %.sroa.080.sroa.0.0.extract.trunc130, %103 ], [ %.sroa.080.sroa.0.0.extract.trunc129, %108 ], [ %.sroa.080.sroa.0.0.extract.trunc128, %115 ]
+  %.sroa.080.sroa.23.1 = phi i32 [ 0, %91 ], [ 0, %92 ], [ 0, %93 ], [ %.sroa.080.sroa.23.0.extract.trunc177, %JS_NewInt64.exit295 ], [ %.sroa.080.sroa.23.0.extract.trunc175, %103 ], [ %.sroa.080.sroa.23.0.extract.trunc173, %108 ], [ %.sroa.080.sroa.23.0.extract.trunc171, %115 ]
   %125 = load i64, ptr %11, align 8, !tbaa !45
   %126 = icmp sgt i64 %125, 0
   br i1 %126, label %.lr.ph, label %._crit_edge
@@ -188150,7 +188150,7 @@ JS_DupValue.exit309:                              ; preds = %162, %168
   br label %JS_FreeValue.exit313
 
 JS_FreeValue.exit313:                             ; preds = %186, %181, %178, %160, %JS_DupValue.exit309, %157, %154, %152, %150
-  %.1 = phi i64 [ %163, %JS_DupValue.exit309 ], [ %.0263363, %160 ], [ %.0263363, %157 ], [ %.0263363, %154 ], [ %.0263363, %152 ], [ %.0263363, %150 ], [ %.0263363, %178 ], [ %.0263363, %181 ], [ %.0263363, %186 ]
+  %.1 = phi i64 [ %.0263363, %150 ], [ %.0263363, %152 ], [ %.0263363, %154 ], [ %.0263363, %157 ], [ %163, %JS_DupValue.exit309 ], [ %.0263363, %160 ], [ %.0263363, %178 ], [ %.0263363, %181 ], [ %.0263363, %186 ]
   %188 = load i64, ptr %9, align 8
   %189 = load i64, ptr %.sroa.360.0..sroa_idx, align 8
   %190 = trunc i64 %189 to i32
@@ -188296,9 +188296,9 @@ JS_FreeValue.exit317:                             ; preds = %JS_FreeValue.exit31
   br label %JS_FreeValue.exit320
 
 .thread333:                                       ; preds = %JS_DupValue.exit309, %157, %154, %.thread, %138, %133, %211, %205, %115, %108, %103, %JS_NewInt64.exit295
-  %.sroa.28.0 = phi i64 [ %122, %115 ], [ %113, %108 ], [ %106, %103 ], [ %101, %JS_NewInt64.exit295 ], [ %.sroa.28.1, %205 ], [ %.sroa.28.1, %211 ], [ %.sroa.28.1, %133 ], [ %.sroa.28.1, %138 ], [ %.sroa.28.1, %.thread ], [ %.sroa.28.1, %154 ], [ %.sroa.28.1, %157 ], [ %.sroa.28.1, %JS_DupValue.exit309 ]
-  %.sroa.080.sroa.0.0 = phi i32 [ %.sroa.080.sroa.0.0.extract.trunc128, %115 ], [ %.sroa.080.sroa.0.0.extract.trunc129, %108 ], [ %.sroa.080.sroa.0.0.extract.trunc130, %103 ], [ %.sroa.080.sroa.0.0.extract.trunc131, %JS_NewInt64.exit295 ], [ %.sroa.080.sroa.0.1, %205 ], [ %.sroa.080.sroa.0.1, %211 ], [ %.sroa.080.sroa.0.1, %133 ], [ %.sroa.080.sroa.0.1, %138 ], [ %.sroa.080.sroa.0.1, %.thread ], [ %.sroa.080.sroa.0.1, %154 ], [ %.sroa.080.sroa.0.1, %157 ], [ %.sroa.080.sroa.0.1, %JS_DupValue.exit309 ]
-  %.sroa.080.sroa.23.0 = phi i32 [ %.sroa.080.sroa.23.0.extract.trunc171, %115 ], [ %.sroa.080.sroa.23.0.extract.trunc173, %108 ], [ %.sroa.080.sroa.23.0.extract.trunc175, %103 ], [ %.sroa.080.sroa.23.0.extract.trunc177, %JS_NewInt64.exit295 ], [ %.sroa.080.sroa.23.1, %205 ], [ %.sroa.080.sroa.23.1, %211 ], [ %.sroa.080.sroa.23.1, %133 ], [ %.sroa.080.sroa.23.1, %138 ], [ %.sroa.080.sroa.23.1, %.thread ], [ %.sroa.080.sroa.23.1, %154 ], [ %.sroa.080.sroa.23.1, %157 ], [ %.sroa.080.sroa.23.1, %JS_DupValue.exit309 ]
+  %.sroa.28.0 = phi i64 [ %101, %JS_NewInt64.exit295 ], [ %106, %103 ], [ %113, %108 ], [ %122, %115 ], [ %.sroa.28.1, %205 ], [ %.sroa.28.1, %211 ], [ %.sroa.28.1, %133 ], [ %.sroa.28.1, %138 ], [ %.sroa.28.1, %.thread ], [ %.sroa.28.1, %154 ], [ %.sroa.28.1, %157 ], [ %.sroa.28.1, %JS_DupValue.exit309 ]
+  %.sroa.080.sroa.0.0 = phi i32 [ %.sroa.080.sroa.0.0.extract.trunc131, %JS_NewInt64.exit295 ], [ %.sroa.080.sroa.0.0.extract.trunc130, %103 ], [ %.sroa.080.sroa.0.0.extract.trunc129, %108 ], [ %.sroa.080.sroa.0.0.extract.trunc128, %115 ], [ %.sroa.080.sroa.0.1, %205 ], [ %.sroa.080.sroa.0.1, %211 ], [ %.sroa.080.sroa.0.1, %133 ], [ %.sroa.080.sroa.0.1, %138 ], [ %.sroa.080.sroa.0.1, %.thread ], [ %.sroa.080.sroa.0.1, %154 ], [ %.sroa.080.sroa.0.1, %157 ], [ %.sroa.080.sroa.0.1, %JS_DupValue.exit309 ]
+  %.sroa.080.sroa.23.0 = phi i32 [ %.sroa.080.sroa.23.0.extract.trunc177, %JS_NewInt64.exit295 ], [ %.sroa.080.sroa.23.0.extract.trunc175, %103 ], [ %.sroa.080.sroa.23.0.extract.trunc173, %108 ], [ %.sroa.080.sroa.23.0.extract.trunc171, %115 ], [ %.sroa.080.sroa.23.1, %205 ], [ %.sroa.080.sroa.23.1, %211 ], [ %.sroa.080.sroa.23.1, %133 ], [ %.sroa.080.sroa.23.1, %138 ], [ %.sroa.080.sroa.23.1, %.thread ], [ %.sroa.080.sroa.23.1, %154 ], [ %.sroa.080.sroa.23.1, %157 ], [ %.sroa.080.sroa.23.1, %JS_DupValue.exit309 ]
   %.sroa.080.sroa.23.0.insert.ext166 = zext i32 %.sroa.080.sroa.23.0 to i64
   %.sroa.080.sroa.23.0.insert.shift167 = shl nuw i64 %.sroa.080.sroa.23.0.insert.ext166, 32
   %.sroa.080.sroa.0.0.insert.ext125 = zext i32 %.sroa.080.sroa.0.0 to i64
@@ -199945,8 +199945,8 @@ define internal { i64, i64 } @js_boolean_valueOf(ptr noundef %0, i64 %1, i64 %2,
   br label %js_thisBooleanValue.exit
 
 js_thisBooleanValue.exit:                         ; preds = %5, %17, %.thread.i
-  %.sroa.08.0.i = phi i64 [ %.sroa.08.0.copyload.i, %17 ], [ 0, %.thread.i ], [ %1, %5 ]
-  %.sroa.4.0.i = phi i64 [ %14, %17 ], [ 6, %.thread.i ], [ %2, %5 ]
+  %.sroa.08.0.i = phi i64 [ 0, %.thread.i ], [ %.sroa.08.0.copyload.i, %17 ], [ %1, %5 ]
+  %.sroa.4.0.i = phi i64 [ 6, %.thread.i ], [ %14, %17 ], [ %2, %5 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.08.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -204680,8 +204680,8 @@ JS_DupValue.exit.i:                               ; preds = %5
   br label %js_thisStringValue.exit
 
 js_thisStringValue.exit:                          ; preds = %JS_DupValue.exit.i, %19, %.thread.i
-  %.sroa.09.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ %21, %19 ], [ 0, %.thread.i ]
-  %.sroa.4.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ %16, %19 ], [ 6, %.thread.i ]
+  %.sroa.09.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ 0, %.thread.i ], [ %21, %19 ]
+  %.sroa.4.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ 6, %.thread.i ], [ %16, %19 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.09.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -208467,8 +208467,8 @@ JS_DupValue.exit.i:                               ; preds = %5
   br label %js_thisSymbolValue.exit
 
 js_thisSymbolValue.exit:                          ; preds = %JS_DupValue.exit.i, %19, %.thread.i
-  %.sroa.09.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ %21, %19 ], [ 0, %.thread.i ]
-  %.sroa.4.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ %16, %19 ], [ 6, %.thread.i ]
+  %.sroa.09.0.i = phi i64 [ %1, %JS_DupValue.exit.i ], [ 0, %.thread.i ], [ %21, %19 ]
+  %.sroa.4.0.i = phi i64 [ %2, %JS_DupValue.exit.i ], [ 6, %.thread.i ], [ %16, %19 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.09.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -209088,9 +209088,9 @@ JS_Throw.exit111:                                 ; preds = %JS_DupValue.exit110
   br label %166
 
 166:                                              ; preds = %129, %JS_DupValue.exit107, %JS_Throw.exit111, %128, %127, %164
-  %.sroa.12.0 = phi i64 [ %.sroa.12.0.copyload23, %127 ], [ %.sroa.12.0.copyload23, %128 ], [ %133, %JS_DupValue.exit107 ], [ 6, %JS_Throw.exit111 ], [ 6, %164 ], [ 3, %129 ]
-  %.sroa.019.sroa.0.0 = phi i64 [ %.sroa.019.0.copyload20, %127 ], [ %.sroa.019.0.copyload20, %128 ], [ %131, %JS_DupValue.exit107 ], [ 0, %JS_Throw.exit111 ], [ 0, %164 ], [ 0, %129 ]
-  %.sroa.019.sroa.11.0 = phi i64 [ %.sroa.019.sroa.11.0.extract.shift46, %127 ], [ %.sroa.019.sroa.11.0.extract.shift46, %128 ], [ %.sroa.019.sroa.11.0.extract.shift38, %JS_DupValue.exit107 ], [ 0, %JS_Throw.exit111 ], [ 0, %164 ], [ 0, %129 ]
+  %.sroa.12.0 = phi i64 [ %.sroa.12.0.copyload23, %127 ], [ %.sroa.12.0.copyload23, %128 ], [ 6, %JS_Throw.exit111 ], [ %133, %JS_DupValue.exit107 ], [ 6, %164 ], [ 3, %129 ]
+  %.sroa.019.sroa.0.0 = phi i64 [ %.sroa.019.0.copyload20, %127 ], [ %.sroa.019.0.copyload20, %128 ], [ 0, %JS_Throw.exit111 ], [ %131, %JS_DupValue.exit107 ], [ 0, %164 ], [ 0, %129 ]
+  %.sroa.019.sroa.11.0 = phi i64 [ %.sroa.019.sroa.11.0.extract.shift46, %127 ], [ %.sroa.019.sroa.11.0.extract.shift46, %128 ], [ 0, %JS_Throw.exit111 ], [ %.sroa.019.sroa.11.0.extract.shift38, %JS_DupValue.exit107 ], [ 0, %164 ], [ 0, %129 ]
   %.sroa.019.sroa.11.0.insert.shift49 = shl nuw i64 %.sroa.019.sroa.11.0, 32
   %.sroa.019.sroa.0.0.insert.ext33 = and i64 %.sroa.019.sroa.0.0, 4294967295
   %.sroa.019.sroa.0.0.insert.insert35 = or disjoint i64 %.sroa.019.sroa.11.0.insert.shift49, %.sroa.019.sroa.0.0.insert.ext33
@@ -209977,7 +209977,7 @@ JS_ToUint32.exit198:                              ; preds = %52, %59
   unreachable
 
 194:                                              ; preds = %190, %184, %178, %172, %170, %167, %164, %161, %159, %155, %151, %147, %145, %141, %137, %133, %131, %127, %123, %119, %117, %113, %109, %105, %103, %99, %95, %91, %89, %85, %81, %77
-  %.0171 = phi i64 [ %192, %190 ], [ %189, %184 ], [ %183, %178 ], [ %177, %172 ], [ %171, %170 ], [ %169, %167 ], [ %166, %164 ], [ %163, %161 ], [ %160, %159 ], [ %158, %155 ], [ %154, %151 ], [ %150, %147 ], [ %146, %145 ], [ %144, %141 ], [ %140, %137 ], [ %136, %133 ], [ %132, %131 ], [ %130, %127 ], [ %126, %123 ], [ %122, %119 ], [ %118, %117 ], [ %116, %113 ], [ %112, %109 ], [ %108, %105 ], [ %104, %103 ], [ %102, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %89 ], [ %88, %85 ], [ %84, %81 ], [ %80, %77 ]
+  %.0171 = phi i64 [ %80, %77 ], [ %84, %81 ], [ %88, %85 ], [ %90, %89 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ], [ %104, %103 ], [ %108, %105 ], [ %112, %109 ], [ %116, %113 ], [ %118, %117 ], [ %122, %119 ], [ %126, %123 ], [ %130, %127 ], [ %132, %131 ], [ %136, %133 ], [ %140, %137 ], [ %144, %141 ], [ %146, %145 ], [ %150, %147 ], [ %154, %151 ], [ %158, %155 ], [ %160, %159 ], [ %163, %161 ], [ %166, %164 ], [ %169, %167 ], [ %171, %170 ], [ %177, %172 ], [ %183, %178 ], [ %189, %184 ], [ %192, %190 ]
   %195 = load i32, ptr %8, align 4, !tbaa !67
   switch i32 %195, label %227 [
     i32 22, label %196
@@ -210009,7 +210009,7 @@ JS_ToUint32.exit198:                              ; preds = %52, %59
   br label %204
 
 204:                                              ; preds = %194, %202, %200, %198, %196
-  %.1172 = phi i64 [ %.0171, %194 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ]
+  %.1172 = phi i64 [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %.0171, %194 ]
   %.sroa.0.0.insert.ext.i = and i64 %.1172, 4294967295
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.insert.ext.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 0, 1
@@ -210076,8 +210076,8 @@ JS_NewBigInt64.exit:                              ; preds = %JS_NewInt64.exit.i,
   unreachable
 
 228:                                              ; preds = %224, %JS_NewBigInt64.exit, %JS_NewUint32.exit, %204
-  %.pn = phi { i64, i64 } [ %225, %224 ], [ %.pn.i201, %JS_NewBigInt64.exit ], [ %.fca.1.insert.i196, %JS_NewUint32.exit ], [ %.fca.1.insert.i, %204 ]
-  %.sroa.7.0 = phi i64 [ %226, %224 ], [ %223, %JS_NewBigInt64.exit ], [ %.sroa.3.0.i, %JS_NewUint32.exit ], [ 0, %204 ]
+  %.pn = phi { i64, i64 } [ %.fca.1.insert.i, %204 ], [ %.fca.1.insert.i196, %JS_NewUint32.exit ], [ %.pn.i201, %JS_NewBigInt64.exit ], [ %225, %224 ]
+  %.sroa.7.0 = phi i64 [ 0, %204 ], [ %.sroa.3.0.i, %JS_NewUint32.exit ], [ %223, %JS_NewBigInt64.exit ], [ %226, %224 ]
   %.sroa.073.0 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.8.0.extract.shift169 = and i64 %.sroa.073.0, -4294967296
   %229 = and i64 %.sroa.073.0, 4294967295
@@ -210691,7 +210691,7 @@ JS_FreeValue.exit.i76:                            ; preds = %JS_FreeValue.exit.s
   br i1 %.not.i, label %JS_ToIntegerFree.exit, label %JS_DupValue.exit74
 
 JS_ToIntegerFree.exit:                            ; preds = %263, %190, %207, %JS_FreeValue.exit.i76
-  %.fca.1.insert.merged.i = phi { i64, i64 } [ %209, %207 ], [ %192, %190 ], [ %262, %JS_FreeValue.exit.i76 ], [ %264, %263 ]
+  %.fca.1.insert.merged.i = phi { i64, i64 } [ %192, %190 ], [ %209, %207 ], [ %262, %JS_FreeValue.exit.i76 ], [ %264, %263 ]
   %268 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 0
   %269 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 1
   %270 = and i64 %269, 4294967295
@@ -215539,7 +215539,7 @@ is_math_mode.exit177:                             ; preds = %258
   br i1 %.not150, label %.thread, label %.lr.ph, !llvm.loop !1326
 
 .thread:                                          ; preds = %276, %.lr.ph, %.lr.ph218, %244, %236, %.lr.ph227, %.lr.ph236, %223, %209, %.lr.ph245, %196, %.lr.ph254, %176, %170, %155, %148, %267, %238, %.preheader203, %215, %.preheader198, %186, %165, %.preheader, %258, %247, %109, %115, %112, %93, %118, %122, %121, %143, %135, %126, %158, %157, %162, %179, %178, %183, %198, %211, %225, %is_math_mode.exit, %is_math_mode.exit177, %26
-  %.0122 = phi i32 [ -1, %26 ], [ -1, %118 ], [ -1, %is_math_mode.exit177 ], [ -1, %is_math_mode.exit ], [ -1, %225 ], [ -1, %198 ], [ -1, %211 ], [ -1, %183 ], [ -1, %179 ], [ -1, %178 ], [ -1, %162 ], [ -1, %158 ], [ -1, %157 ], [ %147, %143 ], [ -1, %135 ], [ -1, %126 ], [ -1, %122 ], [ -1, %121 ], [ -1, %93 ], [ -1, %112 ], [ -1, %115 ], [ -1, %109 ], [ -1, %247 ], [ -1, %258 ], [ -1, %.preheader ], [ -1, %165 ], [ -1, %186 ], [ -1, %.preheader198 ], [ -1, %215 ], [ -1, %.preheader203 ], [ -1, %238 ], [ -1, %267 ], [ -1, %155 ], [ %149, %148 ], [ -1, %176 ], [ %171, %170 ], [ -1, %196 ], [ %191, %.lr.ph254 ], [ -1, %209 ], [ %204, %.lr.ph245 ], [ %218, %.lr.ph236 ], [ -1, %223 ], [ -1, %236 ], [ %231, %.lr.ph227 ], [ %239, %.lr.ph218 ], [ -1, %244 ], [ -1, %276 ], [ %271, %.lr.ph ]
+  %.0122 = phi i32 [ -1, %26 ], [ -1, %118 ], [ %147, %143 ], [ -1, %135 ], [ -1, %122 ], [ -1, %121 ], [ -1, %126 ], [ -1, %158 ], [ -1, %157 ], [ -1, %162 ], [ -1, %179 ], [ -1, %178 ], [ -1, %183 ], [ -1, %198 ], [ -1, %211 ], [ -1, %225 ], [ -1, %is_math_mode.exit ], [ -1, %is_math_mode.exit177 ], [ -1, %93 ], [ -1, %112 ], [ -1, %115 ], [ -1, %109 ], [ -1, %247 ], [ -1, %258 ], [ -1, %.preheader ], [ -1, %165 ], [ -1, %186 ], [ -1, %.preheader198 ], [ -1, %215 ], [ -1, %.preheader203 ], [ -1, %238 ], [ -1, %267 ], [ -1, %155 ], [ %149, %148 ], [ -1, %176 ], [ %171, %170 ], [ -1, %196 ], [ %191, %.lr.ph254 ], [ -1, %209 ], [ %204, %.lr.ph245 ], [ %218, %.lr.ph236 ], [ -1, %223 ], [ -1, %236 ], [ %231, %.lr.ph227 ], [ %239, %.lr.ph218 ], [ -1, %244 ], [ -1, %276 ], [ %271, %.lr.ph ]
   %278 = icmp eq i32 %5, -1
   br i1 %278, label %279, label %.thread188
 
@@ -216910,9 +216910,9 @@ JS_NewUint32.exit:                                ; preds = %77
   unreachable
 
 119:                                              ; preds = %JS_ToIndex.exit.thread, %JS_GetOpaque2.exit.thread, %116, %111, %106, %101, %JS_NewUint32.exit, %95, %93, %90, %88, %85, %75, %66
-  %.sroa.061.0 = phi i64 [ 0, %66 ], [ 0, %75 ], [ %spec.select145, %116 ], [ %115, %111 ], [ %109, %106 ], [ %104, %101 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewUint32.exit ], [ %.sroa.0.0.insert.ext.i, %95 ], [ %.sroa.0.0.insert.ext.i108, %93 ], [ %92, %90 ], [ %.sroa.0.0.insert.ext.i114, %88 ], [ %87, %85 ], [ 0, %JS_GetOpaque2.exit.thread ], [ 0, %JS_ToIndex.exit.thread ]
-  %.sroa.15.0 = phi i64 [ 0, %66 ], [ 0, %75 ], [ %.sroa.15.0.extract.shift93, %116 ], [ %.sroa.15.0.extract.shift91, %111 ], [ %.sroa.15.0.extract.shift89, %106 ], [ %.sroa.15.0.extract.shift87, %101 ], [ %.sroa.15.0.extract.shift85, %JS_NewUint32.exit ], [ 0, %95 ], [ 0, %93 ], [ 0, %90 ], [ 0, %88 ], [ 0, %85 ], [ 0, %JS_GetOpaque2.exit.thread ], [ 0, %JS_ToIndex.exit.thread ]
-  %.sroa.17.0 = phi i64 [ 6, %66 ], [ 6, %75 ], [ 7, %116 ], [ 7, %111 ], [ %110, %106 ], [ %105, %101 ], [ %.sroa.3.0.i, %JS_NewUint32.exit ], [ 0, %95 ], [ 0, %93 ], [ 0, %90 ], [ 0, %88 ], [ 0, %85 ], [ 6, %JS_GetOpaque2.exit.thread ], [ 6, %JS_ToIndex.exit.thread ]
+  %.sroa.061.0 = phi i64 [ 0, %66 ], [ 0, %75 ], [ %87, %85 ], [ %.sroa.0.0.insert.ext.i114, %88 ], [ %92, %90 ], [ %.sroa.0.0.insert.ext.i108, %93 ], [ %.sroa.0.0.insert.ext.i, %95 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewUint32.exit ], [ %104, %101 ], [ %109, %106 ], [ %115, %111 ], [ %spec.select145, %116 ], [ 0, %JS_GetOpaque2.exit.thread ], [ 0, %JS_ToIndex.exit.thread ]
+  %.sroa.15.0 = phi i64 [ 0, %66 ], [ 0, %75 ], [ 0, %85 ], [ 0, %88 ], [ 0, %90 ], [ 0, %93 ], [ 0, %95 ], [ %.sroa.15.0.extract.shift85, %JS_NewUint32.exit ], [ %.sroa.15.0.extract.shift87, %101 ], [ %.sroa.15.0.extract.shift89, %106 ], [ %.sroa.15.0.extract.shift91, %111 ], [ %.sroa.15.0.extract.shift93, %116 ], [ 0, %JS_GetOpaque2.exit.thread ], [ 0, %JS_ToIndex.exit.thread ]
+  %.sroa.17.0 = phi i64 [ 6, %66 ], [ 6, %75 ], [ 0, %85 ], [ 0, %88 ], [ 0, %90 ], [ 0, %93 ], [ 0, %95 ], [ %.sroa.3.0.i, %JS_NewUint32.exit ], [ %105, %101 ], [ %110, %106 ], [ 7, %111 ], [ 7, %116 ], [ 6, %JS_GetOpaque2.exit.thread ], [ 6, %JS_ToIndex.exit.thread ]
   %.sroa.061.0.insert.ext = and i64 %.sroa.061.0, 4294967295
   %.sroa.061.0.insert.insert = or disjoint i64 %.sroa.15.0, %.sroa.061.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.061.0.insert.insert, 0

@@ -1611,7 +1611,7 @@ if.end263:                                        ; preds = %_ZNK2v820FunctionCa
   br label %return
 
 return:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit429, %if.end263, %_ZN4node9Utf8ValueD2Ev.exit136, %_ZN4node9Utf8ValueD2Ev.exit, %if.then260
-  %retval.sroa.0.2 = phi i16 [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit136 ], [ 0, %if.then260 ], [ 257, %if.end263 ], [ 257, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit429 ]
+  %retval.sroa.0.2 = phi i16 [ 0, %if.then260 ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit136 ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 257, %if.end263 ], [ 257, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit429 ]
   ret i16 %retval.sroa.0.2
 }
 
@@ -1742,7 +1742,7 @@ do.body25:                                        ; preds = %do.end5
   unreachable
 
 return:                                           ; preds = %do.end5, %sw.bb17, %sw.bb9, %do.end5, %if.end22, %if.end14
-  %retval.0 = phi i32 [ %call24, %if.end22 ], [ %call16, %if.end14 ], [ 2, %do.end5 ], [ 1, %sw.bb9 ], [ 1, %sw.bb17 ], [ 2, %do.end5 ]
+  %retval.0 = phi i32 [ %call16, %if.end14 ], [ %call24, %if.end22 ], [ 2, %do.end5 ], [ 1, %sw.bb9 ], [ 1, %sw.bb17 ], [ 2, %do.end5 ]
   ret i32 %retval.0
 }
 
@@ -2770,7 +2770,7 @@ _ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z1
   br label %return
 
 return:                                           ; preds = %entry, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z16EVP_PKEY_decryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_encrypt_initEEXadL_Z16EVP_PKEY_encryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit
-  %retval.0 = phi i32 [ %retval.07.i41, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z16EVP_PKEY_decryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ %retval.07.i, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_encrypt_initEEXadL_Z16EVP_PKEY_encryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ 2, %entry ]
+  %retval.0 = phi i32 [ %retval.07.i, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_encrypt_initEEXadL_Z16EVP_PKEY_encryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ %retval.07.i41, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z16EVP_PKEY_decryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ 2, %entry ]
   ret i32 %retval.0
 }
 

@@ -1960,7 +1960,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %62
   br label %_ZN19TrafficTypesRowDataD2Ev.exit
 
 65:                                               ; preds = %49, %_ZN7QStringD2Ev.exit17
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %44, %_ZN7QStringD2Ev.exit17 ]
+  %.pn = phi { ptr, i32 } [ %44, %_ZN7QStringD2Ev.exit17 ], [ %50, %49 ]
   br i1 %.not.i.i.i.i, label %_ZN19TrafficTypesRowDataD2Ev.exit23, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21:  ; preds = %65
@@ -3019,7 +3019,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %40, %_ZN17QArrayDat
   br label %51
 
 51:                                               ; preds = %48, %49
-  %.2 = phi i1 [ %43, %48 ], [ %50, %49 ]
+  %.2 = phi i1 [ %50, %49 ], [ %43, %48 ]
   ret i1 %.2
 }
 

@@ -661,7 +661,7 @@ define dso_local i64 @tsvector_setweight(ptr noundef readonly captures(none) %0)
   unreachable
 
 16:                                               ; preds = %1, %1, %11, %10, %9
-  %.0 = phi i16 [ 0, %11 ], [ 16384, %10 ], [ -32768, %9 ], [ -16384, %1 ], [ -16384, %1 ]
+  %.0 = phi i16 [ -32768, %9 ], [ 16384, %10 ], [ 0, %11 ], [ -16384, %1 ], [ -16384, %1 ]
   %17 = load i32, ptr %5, align 4
   %18 = lshr i32 %17, 2
   %19 = zext nneg i32 %18 to i64
@@ -794,7 +794,7 @@ define dso_local i64 @tsvector_setweight_by_filter(ptr noundef readonly captures
   unreachable
 
 23:                                               ; preds = %1, %1, %18, %17, %16
-  %.047 = phi i16 [ 0, %18 ], [ 16384, %17 ], [ -32768, %16 ], [ -16384, %1 ], [ -16384, %1 ]
+  %.047 = phi i16 [ -32768, %16 ], [ 16384, %17 ], [ 0, %18 ], [ -16384, %1 ], [ -16384, %1 ]
   %24 = load i32, ptr %8, align 4
   %25 = lshr i32 %24, 2
   %26 = zext nneg i32 %25 to i64
@@ -3473,7 +3473,7 @@ switch.lookup:                                    ; preds = %17
   br label %54
 
 54:                                               ; preds = %43, %28, %switch.lookup, %43, %39, %32, %28, %21, %15, %52, %45, %42, %31, %10
-  %.0 = phi i32 [ %11, %10 ], [ 0, %52 ], [ %46, %45 ], [ %41, %42 ], [ %26, %31 ], [ 1, %15 ], [ 0, %21 ], [ %30, %28 ], [ 1, %32 ], [ %37, %39 ], [ %44, %43 ], [ %switch.load, %switch.lookup ], [ %30, %28 ], [ %44, %43 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %52 ], [ %26, %31 ], [ %41, %42 ], [ %46, %45 ], [ 1, %15 ], [ 0, %21 ], [ %30, %28 ], [ 1, %32 ], [ %37, %39 ], [ %44, %43 ], [ %switch.load, %switch.lookup ], [ %30, %28 ], [ %44, %43 ]
   ret i32 %.0
 }
 
@@ -3691,7 +3691,7 @@ define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, 
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph89, %.preheader, %93, %97, %38, %50, %60, %31, %25, %22, %99, %34, %18, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %18 ], [ false, %99 ], [ true, %34 ], [ %not., %22 ], [ false, %25 ], [ false, %31 ], [ true, %60 ], [ true, %50 ], [ false, %38 ], [ true, %97 ], [ true, %93 ], [ true, %.preheader ], [ true, %.lr.ph89 ], [ true, %._crit_edge ]
+  %.0 = phi i1 [ true, %16 ], [ false, %18 ], [ true, %34 ], [ false, %99 ], [ %not., %22 ], [ false, %25 ], [ false, %31 ], [ true, %60 ], [ true, %50 ], [ false, %38 ], [ true, %97 ], [ true, %93 ], [ true, %.preheader ], [ true, %.lr.ph89 ], [ true, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   ret i1 %.0
@@ -5518,7 +5518,7 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
   br label %160
 
 160:                                              ; preds = %110, %100, %81, %86, %48, %44, %37, %22, %159, %149, %145, %140, %133, %96, %94, %89, %36, %32, %25, %20, %13
-  %.0103 = phi i32 [ %14, %13 ], [ 1, %133 ], [ 1, %140 ], [ 1, %145 ], [ %153, %149 ], [ %91, %89 ], [ %95, %94 ], [ %99, %96 ], [ 1, %20 ], [ 0, %159 ], [ 1, %32 ], [ 0, %36 ], [ 1, %25 ], [ %24, %22 ], [ 0, %37 ], [ 0, %44 ], [ 2, %48 ], [ 1, %86 ], [ 1, %81 ], [ 0, %100 ], [ 2, %110 ]
+  %.0103 = phi i32 [ %14, %13 ], [ 1, %20 ], [ 0, %159 ], [ 1, %25 ], [ 1, %32 ], [ 0, %36 ], [ %91, %89 ], [ %95, %94 ], [ %99, %96 ], [ 1, %133 ], [ 1, %140 ], [ 1, %145 ], [ %153, %149 ], [ %24, %22 ], [ 0, %37 ], [ 0, %44 ], [ 2, %48 ], [ 1, %86 ], [ 1, %81 ], [ 0, %100 ], [ 2, %110 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
   ret i32 %.0103

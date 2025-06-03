@@ -3813,7 +3813,7 @@ define noundef zeroext i1 @_ZN14SyntaxLineEdit5eventEP6QEvent(ptr noundef align 
   br label %12
 
 12:                                               ; preds = %9, %.thread
-  %.1 = phi i1 [ true, %9 ], [ %11, %.thread ]
+  %.1 = phi i1 [ %11, %.thread ], [ true, %9 ]
   ret i1 %.1
 }
 
@@ -4939,9 +4939,9 @@ _ZN7QStringaSEPKc.exit45:                         ; preds = %102
   br label %108
 
 108:                                              ; preds = %_ZN7QStringaSEPKc.exit45, %_ZN7QStringaSEPKc.exit
-  %.sroa.18.0 = phi i64 [ %107, %_ZN7QStringaSEPKc.exit45 ], [ %100, %_ZN7QStringaSEPKc.exit ]
-  %.sroa.13.0 = phi ptr [ %105, %_ZN7QStringaSEPKc.exit45 ], [ %98, %_ZN7QStringaSEPKc.exit ]
-  %.sroa.070.0 = phi ptr [ %103, %_ZN7QStringaSEPKc.exit45 ], [ %96, %_ZN7QStringaSEPKc.exit ]
+  %.sroa.18.0 = phi i64 [ %100, %_ZN7QStringaSEPKc.exit ], [ %107, %_ZN7QStringaSEPKc.exit45 ]
+  %.sroa.13.0 = phi ptr [ %98, %_ZN7QStringaSEPKc.exit ], [ %105, %_ZN7QStringaSEPKc.exit45 ]
+  %.sroa.070.0 = phi ptr [ %96, %_ZN7QStringaSEPKc.exit ], [ %103, %_ZN7QStringaSEPKc.exit45 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #19
   store i32 0, ptr %15, align 4
   %109 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -5214,7 +5214,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66:    ; preds = %196
   br label %_ZN7QStringD2Ev.exit68
 
 _ZN7QStringD2Ev.exit68:                           ; preds = %198, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66, %196, %.thread105, %89, %82, %74, %66
-  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %83, %82 ], [ %75, %74 ], [ %67, %66 ], [ %101, %.thread105 ], [ %.pn30.pn.pn, %196 ], [ %.pn30.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66 ], [ %.pn30.pn.pn, %198 ]
+  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %101, %.thread105 ], [ %.pn30.pn.pn, %196 ], [ %.pn30.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66 ], [ %.pn30.pn.pn, %198 ]
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %8) #19
   br label %199
 

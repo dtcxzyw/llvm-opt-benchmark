@@ -2146,7 +2146,7 @@ define linkonce_odr hidden i64 @_ZNK5clang16ConceptReference14getSourceRangeEv(p
   br label %_ZNK5clang16ConceptReference11getBeginLocEv.exit
 
 _ZNK5clang16ConceptReference11getBeginLocEv.exit: ; preds = %4, %6
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %4 ], [ %.sroa.0.0.copyload.i.i, %6 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload.i.i, %6 ], [ %.sroa.0.0.extract.trunc.i.i, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !55
   %.not.i2 = icmp eq ptr %9, null

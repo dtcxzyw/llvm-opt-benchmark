@@ -605,7 +605,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %47, %49
   br label %59
 
 59:                                               ; preds = %dt_Lab_2_LCH.exit, %56, %53
-  %.0 = phi nsz float [ %58, %56 ], [ %55, %53 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
+  %.0 = phi nsz float [ %55, %53 ], [ %58, %56 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
   %60 = fcmp reassoc nsz arcp contract afn ogt float %.0, 1.000000e+00
   %61 = fcmp reassoc nsz arcp contract afn olt float %.0, 0.000000e+00
   %62 = select reassoc nsz arcp contract afn i1 %61, float 0.000000e+00, float %.0
@@ -726,7 +726,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %34, %36
   br label %46
 
 46:                                               ; preds = %dt_Lab_2_LCH.exit, %44, %42
-  %.0 = phi nsz float [ %45, %44 ], [ %43, %42 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
+  %.0 = phi nsz float [ %43, %42 ], [ %45, %44 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
   %47 = fcmp reassoc nsz arcp contract afn ogt float %.0, 1.000000e+00
   %48 = fcmp reassoc nsz arcp contract afn olt float %.0, 0.000000e+00
   %49 = select reassoc nsz arcp contract afn i1 %48, float 0.000000e+00, float %.0
@@ -859,8 +859,8 @@ define hidden void @process_v3(ptr readnone captures(none) %0, ptr noundef reado
   br label %50
 
 50:                                               ; preds = %47, %44, %40
-  %.053 = phi nsz float [ %square, %47 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %40 ]
-  %.052 = phi nsz float [ %35, %47 ], [ %46, %44 ], [ %43, %40 ]
+  %.053 = phi nsz float [ %square, %47 ], [ 0.000000e+00, %40 ], [ 0.000000e+00, %44 ]
+  %.052 = phi nsz float [ %35, %47 ], [ %43, %40 ], [ %46, %44 ]
   %51 = fmul reassoc nsz arcp contract afn float %.053, 5.000000e-01
   %52 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.053
   %53 = fmul reassoc nsz arcp contract afn float %.052, 6.553600e+04
@@ -2600,7 +2600,7 @@ _delete_node.exit:                                ; preds = %._crit_edge.i60, %8
   br label %93
 
 93:                                               ; preds = %91, %63
-  %.1 = phi nsz float [ %3, %63 ], [ %92, %91 ]
+  %.1 = phi nsz float [ %92, %91 ], [ %3, %63 ]
   br i1 %.not93, label %_add_node.exit, label %94
 
 94:                                               ; preds = %93
@@ -2725,7 +2725,7 @@ _add_node.exit:                                   ; preds = %.thread85, %._crit_
   br label %142
 
 142:                                              ; preds = %141, %64, %_delete_node.exit, %_add_node.exit
-  %.154 = phi nsz float [ %61, %141 ], [ %140, %_add_node.exit ], [ %61, %_delete_node.exit ], [ %61, %64 ]
+  %.154 = phi nsz float [ %61, %141 ], [ %61, %_delete_node.exit ], [ %61, %64 ], [ %140, %_add_node.exit ]
   %143 = sext i32 %1 to i64
   %144 = getelementptr inbounds [9 x %struct.dt_action_element_def_t], ptr @_action_elements_zones, i64 0, i64 %143
   %145 = load ptr, ptr %144, align 16, !tbaa !173
@@ -3981,9 +3981,9 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %253, %244
   br label %355
 
 355:                                              ; preds = %352, %350, %348
-  %.sroa.18.2.i = phi nsz float [ %354, %352 ], [ %.val559, %350 ], [ %.val559, %348 ]
-  %.sroa.11.2.i = phi nsz float [ %318, %352 ], [ %351, %350 ], [ %318, %348 ]
-  %.sroa.05.2.i = phi nsz float [ 5.000000e+01, %352 ], [ 5.000000e+01, %350 ], [ %349, %348 ]
+  %.sroa.18.2.i = phi nsz float [ %354, %352 ], [ %.val559, %348 ], [ %.val559, %350 ]
+  %.sroa.11.2.i = phi nsz float [ %318, %352 ], [ %318, %348 ], [ %351, %350 ]
+  %.sroa.05.2.i = phi nsz float [ 5.000000e+01, %352 ], [ %349, %348 ], [ 5.000000e+01, %350 ]
   %356 = load i32, ptr %259, align 8, !tbaa !61
   switch i32 %356, label %368 [
     i32 0, label %357
@@ -4016,9 +4016,9 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %253, %244
   br label %372
 
 372:                                              ; preds = %368, %365, %361, %359
-  %.sroa.18.3.i = phi nsz float [ %371, %368 ], [ %.sroa.18.2.i, %365 ], [ %.sroa.18.2.i, %359 ], [ %.sroa.18.2.i, %361 ]
-  %.sroa.11.3.i = phi nsz float [ %.sroa.11.2.i, %368 ], [ %367, %365 ], [ %.sroa.11.2.i, %359 ], [ %.sroa.11.2.i, %361 ]
-  %.sroa.05.3.i = phi nsz float [ %.sroa.05.2.i, %368 ], [ %.sroa.05.2.i, %365 ], [ %360, %359 ], [ %364, %361 ]
+  %.sroa.18.3.i = phi nsz float [ %371, %368 ], [ %.sroa.18.2.i, %359 ], [ %.sroa.18.2.i, %361 ], [ %.sroa.18.2.i, %365 ]
+  %.sroa.11.3.i = phi nsz float [ %.sroa.11.2.i, %368 ], [ %.sroa.11.2.i, %359 ], [ %.sroa.11.2.i, %361 ], [ %367, %365 ]
+  %.sroa.05.3.i = phi nsz float [ %.sroa.05.2.i, %368 ], [ %360, %359 ], [ %364, %361 ], [ %.sroa.05.2.i, %365 ]
   %373 = fmul reassoc nsz arcp contract afn float %.sroa.18.3.i, 0x401921FB60000000
   %374 = call reassoc nsz arcp contract afn float @llvm.cos.f32(float %373)
   %375 = call reassoc nsz arcp contract afn float @llvm.sin.f32(float %373)
@@ -6646,9 +6646,9 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   br label %93
 
 93:                                               ; preds = %80, %92, %90
-  %.sroa.078.0 = phi nsz float [ 5.000000e+01, %92 ], [ %91, %90 ], [ 5.000000e+01, %80 ]
-  %.sroa.679.0 = phi nsz float [ %.reass, %92 ], [ 0x4056A09E60000000, %90 ], [ 0x4056A09E60000000, %80 ]
-  %.sroa.11.0 = phi nsz float [ %71, %92 ], [ %71, %90 ], [ %89, %80 ]
+  %.sroa.078.0 = phi nsz float [ %91, %90 ], [ 5.000000e+01, %92 ], [ 5.000000e+01, %80 ]
+  %.sroa.679.0 = phi nsz float [ 0x4056A09E60000000, %90 ], [ %.reass, %92 ], [ 0x4056A09E60000000, %80 ]
+  %.sroa.11.0 = phi nsz float [ %71, %90 ], [ %71, %92 ], [ %89, %80 ]
   %94 = fmul reassoc nsz arcp contract afn float %.sroa.11.0, 0x401921FB60000000
   %95 = call reassoc nsz arcp contract afn float @llvm.cos.f32(float %94)
   %96 = call reassoc nsz arcp contract afn float @llvm.sin.f32(float %94)
@@ -8755,9 +8755,9 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   br label %117
 
 117:                                              ; preds = %dt_Lab_2_LCH.exit126, %113, %109
-  %.0113 = phi nsz float [ %114, %113 ], [ %110, %109 ], [ %.0.i, %dt_Lab_2_LCH.exit126 ]
-  %.0112 = phi nsz float [ %115, %113 ], [ %111, %109 ], [ %.0.i123, %dt_Lab_2_LCH.exit126 ]
-  %.0111 = phi nsz float [ %116, %113 ], [ %112, %109 ], [ %.0.i125, %dt_Lab_2_LCH.exit126 ]
+  %.0113 = phi nsz float [ %110, %109 ], [ %114, %113 ], [ %.0.i, %dt_Lab_2_LCH.exit126 ]
+  %.0112 = phi nsz float [ %111, %109 ], [ %115, %113 ], [ %.0.i123, %dt_Lab_2_LCH.exit126 ]
+  %.0111 = phi nsz float [ %112, %109 ], [ %116, %113 ], [ %.0.i125, %dt_Lab_2_LCH.exit126 ]
   %118 = load float, ptr %51, align 4, !tbaa !176
   %119 = load float, ptr %52, align 8, !tbaa !178
   %120 = fsub reassoc nsz arcp contract afn float %.0113, %119
@@ -8851,9 +8851,9 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   br label %173
 
 173:                                              ; preds = %166, %156, %149
-  %.0109 = phi nsz float [ %168, %166 ], [ %159, %156 ], [ %151, %149 ]
-  %.0108 = phi nsz float [ %170, %166 ], [ %162, %156 ], [ %153, %149 ]
-  %.0 = phi nsz float [ %172, %166 ], [ %165, %156 ], [ %155, %149 ]
+  %.0109 = phi nsz float [ %168, %166 ], [ %151, %149 ], [ %159, %156 ]
+  %.0108 = phi nsz float [ %170, %166 ], [ %153, %149 ], [ %162, %156 ]
+  %.0 = phi nsz float [ %172, %166 ], [ %155, %149 ], [ %165, %156 ]
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 5300
   %175 = load float, ptr %174, align 4, !tbaa !176
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 5304

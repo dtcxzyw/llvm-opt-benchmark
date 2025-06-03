@@ -10851,9 +10851,9 @@ default.unreachable:                              ; preds = %11
   br label %29
 
 29:                                               ; preds = %27, %22, %16
-  %.sroa.02.0.i = phi i8 [ %14, %27 ], [ 25, %22 ], [ 24, %16 ]
-  %.sroa.74.0.i = phi ptr [ %.sroa.74.1.copyload.i, %27 ], [ %24, %22 ], [ %.val.i.i, %16 ]
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.1.copyload.i, %27 ], [ %26, %22 ], [ %.val1.i.i, %16 ]
+  %.sroa.02.0.i = phi i8 [ 25, %22 ], [ %14, %27 ], [ 24, %16 ]
+  %.sroa.74.0.i = phi ptr [ %24, %22 ], [ %.sroa.74.1.copyload.i, %27 ], [ %.val.i.i, %16 ]
+  %.sroa.9.0.i = phi i64 [ %26, %22 ], [ %.sroa.9.1.copyload.i, %27 ], [ %.val1.i.i, %16 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.013.033, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.013.033, i64 28
   %32 = load i32, ptr %31, align 4, !alias.scope !3285, !noalias !3288, !noundef !16
@@ -17667,9 +17667,9 @@ default.unreachable:                              ; preds = %14
   br label %32
 
 32:                                               ; preds = %30, %25, %19
-  %.sroa.02.0.i.i = phi i8 [ %17, %30 ], [ 25, %25 ], [ 24, %19 ]
-  %.sroa.74.0.i.i = phi ptr [ %.sroa.74.1.copyload.i.i, %30 ], [ %27, %25 ], [ %.val.i.i.i, %19 ]
-  %.sroa.9.0.i.i = phi i64 [ %.sroa.9.1.copyload.i.i, %30 ], [ %29, %25 ], [ %.val1.i.i.i, %19 ]
+  %.sroa.02.0.i.i = phi i8 [ 25, %25 ], [ %17, %30 ], [ 24, %19 ]
+  %.sroa.74.0.i.i = phi ptr [ %27, %25 ], [ %.sroa.74.1.copyload.i.i, %30 ], [ %.val.i.i.i, %19 ]
+  %.sroa.9.0.i.i = phi i64 [ %29, %25 ], [ %.sroa.9.1.copyload.i.i, %30 ], [ %.val1.i.i.i, %19 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.033.i, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.013.033.i, i64 28
   %35 = load i32, ptr %34, align 4, !alias.scope !4472, !noalias !4475, !noundef !16

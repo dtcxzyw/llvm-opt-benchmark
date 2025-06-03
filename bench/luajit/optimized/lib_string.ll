@@ -1672,7 +1672,7 @@ check_capture.exit.i:                             ; preds = %246
   br label %classend.exit134
 
 classend.exit134:                                 ; preds = %268, %273, %278, %298
-  %.015.i131 = phi ptr [ %299, %298 ], [ %279, %278 ], [ %274, %273 ], [ %269, %268 ]
+  %.015.i131 = phi ptr [ %279, %278 ], [ %299, %298 ], [ %274, %273 ], [ %269, %268 ]
   %300 = load ptr, ptr %8, align 8, !tbaa !47
   %301 = icmp ult ptr %.0.ph.ph, %300
   br i1 %301, label %302, label %307

@@ -6750,7 +6750,7 @@ _ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfac
   br i1 %.not406, label %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit344, label %604
 
 863:                                              ; preds = %776, %_ZN4Luau16TypePackMismatchD2Ev.exit329, %_ZN4Luau16TypePackMismatchD2Ev.exit318, %_ZN4Luau16TypePackMismatchD2Ev.exit307, %778, %655, %659, %661, %760, %719, %677, %657
-  %.pn159.pn.pn = phi { ptr, i32 } [ %656, %655 ], [ %.pn151, %760 ], [ %.pn153, %719 ], [ %678, %677 ], [ %658, %657 ], [ %662, %661 ], [ %660, %659 ], [ %777, %776 ], [ %847, %_ZN4Luau16TypePackMismatchD2Ev.exit329 ], [ %826, %_ZN4Luau16TypePackMismatchD2Ev.exit318 ], [ %805, %_ZN4Luau16TypePackMismatchD2Ev.exit307 ], [ %779, %778 ]
+  %.pn159.pn.pn = phi { ptr, i32 } [ %656, %655 ], [ %.pn153, %719 ], [ %.pn151, %760 ], [ %678, %677 ], [ %658, %657 ], [ %662, %661 ], [ %660, %659 ], [ %777, %776 ], [ %805, %_ZN4Luau16TypePackMismatchD2Ev.exit307 ], [ %826, %_ZN4Luau16TypePackMismatchD2Ev.exit318 ], [ %847, %_ZN4Luau16TypePackMismatchD2Ev.exit329 ], [ %779, %778 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #27
   br label %872
 

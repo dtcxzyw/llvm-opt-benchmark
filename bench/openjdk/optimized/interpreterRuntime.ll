@@ -4067,7 +4067,7 @@ _ZN23JvmtiHideSingleSteppingD2Ev.exit:            ; preds = %_ZN23JvmtiHideSingl
   unreachable
 
 _ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %29, %32
-  %.pn.in.i = phi i8 [ %34, %32 ], [ %31, %29 ]
+  %.pn.in.i = phi i8 [ %31, %29 ], [ %34, %32 ]
   %.pn.i = zext i8 %.pn.in.i to i32
   %.0.i = icmp eq i32 %0, %.pn.i
   br i1 %.0.i, label %107, label %37
@@ -5301,33 +5301,33 @@ define hidden void @_ZN18InterpreterRuntime28update_invoke_cp_cache_entryER8Call
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = sext i32 %4 to i64
   %13 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %11, i64 %12
-  switch i32 %1, label %18 [
-    i32 185, label %_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit
-    i32 233, label %_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit
-    i32 183, label %_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit
-    i32 184, label %_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit
-    i32 182, label %14
+  switch i32 %1, label %19 [
+    i32 185, label %14
+    i32 233, label %14
+    i32 183, label %14
+    i32 184, label %14
+    i32 182, label %_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit
   ]
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 23
+14:                                               ; preds = %5, %5, %5, %5
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %16 = load volatile i8, ptr %15, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %17 = icmp eq i8 %16, -74
-  br i1 %17, label %44, label %24
+  %17 = zext i8 %16 to i32
+  %18 = icmp eq i32 %1, %17
+  br i1 %18, label %44, label %24
 
-18:                                               ; preds = %5
-  %19 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %19, align 1
+19:                                               ; preds = %5
+  %20 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %20, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.36, i32 noundef 178) #15
   unreachable
 
-_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %5, %5, %5, %5
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 22
-  %21 = load volatile i8, ptr %20, align 1
+_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %5
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 23
+  %22 = load volatile i8, ptr %21, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %22 = zext i8 %21 to i32
-  %23 = icmp eq i32 %1, %22
+  %23 = icmp eq i8 %22, -74
   br i1 %23, label %44, label %24
 
 24:                                               ; preds = %14, %_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit

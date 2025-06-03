@@ -1801,7 +1801,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117: ; preds = %_ZSt
   br label %748
 
 422:                                              ; preds = %411, %167
-  %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn, %411 ], [ %.pn61, %167 ]
+  %.pn61.pn = phi { ptr, i32 } [ %.pn61, %167 ], [ %.pn53.pn.pn.pn, %411 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
   br label %749
 
@@ -2515,8 +2515,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit184: ; preds =
   ret void
 
 749:                                              ; preds = %747, %.body119, %422
-  %.pn53.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn.pn, %422 ], [ %.pn46.pn.pn, %.body119 ], [ %.pn42.pn.pn, %747 ]
-  resume { ptr, i32 } %.pn53.pn.pn.pn.pn.pn
+  %.pn61.pn.pn = phi { ptr, i32 } [ %.pn61.pn, %422 ], [ %.pn46.pn.pn, %.body119 ], [ %.pn42.pn.pn, %747 ]
+  resume { ptr, i32 } %.pn61.pn.pn
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode10isAbstractEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

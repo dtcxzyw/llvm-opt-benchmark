@@ -947,7 +947,7 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430: ; pr
   br label %227
 
 227:                                              ; preds = %213, %215, %217, %219, %221, %223, %.thread453, %212, %209
-  %.sroa.0.1 = phi i32 [ 0, %212 ], [ %226, %.thread453 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %.sroa.0.0, %209 ]
+  %.sroa.0.1 = phi i32 [ 0, %212 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %.thread453 ], [ %.sroa.0.0, %209 ]
   %228 = trunc nuw i32 %1 to i8
   %229 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %228)
   %230 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 15, i32 %229, i32 %.sroa.0.1)

@@ -362,7 +362,7 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
   br label %142
 
 22:                                               ; preds = %9, %10, %11, %12, %13, %18, %19, %1
-  %.016 = phi ptr [ @.str.24, %19 ], [ @.str.23, %18 ], [ @.str.20, %13 ], [ @.str.19, %12 ], [ @.str.18, %11 ], [ @.str.17, %10 ], [ @.str.16, %9 ], [ @.str.15, %1 ]
+  %.016 = phi ptr [ @.str.16, %9 ], [ @.str.17, %10 ], [ @.str.18, %11 ], [ @.str.19, %12 ], [ @.str.20, %13 ], [ @.str.23, %18 ], [ @.str.24, %19 ], [ @.str.15, %1 ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #7
   %23 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.7) #7
   %.not.i.i = icmp eq ptr %23, null
@@ -635,7 +635,7 @@ xdg_user_dir_lookup.exit:                         ; preds = %.outer._crit_edge.t
   br label %142
 
 133:                                              ; preds = %xdg_user_dir_lookup.exit, %xdg_user_dir_lookup.exit.thread24, %7
-  %.015 = phi ptr [ %.086.i.ph.i, %xdg_user_dir_lookup.exit ], [ %8, %7 ], [ %128, %xdg_user_dir_lookup.exit.thread24 ]
+  %.015 = phi ptr [ %8, %7 ], [ %.086.i.ph.i, %xdg_user_dir_lookup.exit ], [ %128, %xdg_user_dir_lookup.exit.thread24 ]
   %134 = call i64 @SDL_strlen_REAL(ptr noundef %.015) #7
   %135 = add i64 %134, 2
   %136 = call ptr @SDL_realloc_REAL(ptr noundef %.015, i64 noundef %135) #8
@@ -653,7 +653,7 @@ xdg_user_dir_lookup.exit:                         ; preds = %.outer._crit_edge.t
   br label %142
 
 142:                                              ; preds = %138, %137, %131, %20, %16, %14, %5
-  %.0 = phi ptr [ null, %20 ], [ %136, %138 ], [ null, %137 ], [ null, %131 ], [ null, %16 ], [ null, %14 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %20 ], [ %136, %138 ], [ null, %137 ], [ null, %5 ], [ null, %131 ], [ null, %14 ], [ null, %16 ]
   ret ptr %.0
 }
 

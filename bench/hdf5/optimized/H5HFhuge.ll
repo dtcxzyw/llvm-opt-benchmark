@@ -872,7 +872,7 @@ H5HF__huge_new_id.exit.thread:                    ; preds = %301, %312, %H5HF__h
   br label %375
 
 375:                                              ; preds = %.thread153, %297, %247, %.thread, %4, %362, %371, %124, %114, %83, %70
-  %.0102 = phi i32 [ -1, %83 ], [ -1, %114 ], [ -1, %124 ], [ -1, %247 ], [ -1, %371 ], [ 0, %362 ], [ -1, %297 ], [ -1, %70 ], [ 0, %4 ], [ -1, %.thread ], [ -1, %.thread153 ]
+  %.0102 = phi i32 [ -1, %83 ], [ -1, %114 ], [ -1, %124 ], [ -1, %371 ], [ 0, %362 ], [ -1, %247 ], [ -1, %297 ], [ -1, %70 ], [ 0, %4 ], [ -1, %.thread ], [ -1, %.thread153 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
@@ -1242,7 +1242,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_get_obj_len(ptr noundef captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %97, %191, %3, %77, %105, %72, %36, %64, %26
-  %.0105 = phi i32 [ 0, %26 ], [ 0, %64 ], [ 0, %36 ], [ 0, %72 ], [ 0, %105 ], [ 0, %77 ], [ %.1103, %191 ], [ 0, %3 ], [ 0, %97 ], [ 0, %56 ]
+  %.0105 = phi i32 [ 0, %26 ], [ 0, %36 ], [ 0, %64 ], [ 0, %72 ], [ 0, %77 ], [ 0, %105 ], [ %.1103, %191 ], [ 0, %3 ], [ 0, %97 ], [ 0, %56 ]
   ret i32 %.0105
 }
 
@@ -1676,7 +1676,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_write(ptr noundef captures(none) %0, ptr
   br label %124
 
 124:                                              ; preds = %120, %32, %63, %65, %27
-  %.136 = phi i64 [ 0, %27 ], [ %73, %65 ], [ %61, %63 ], [ %50, %32 ], [ %123, %120 ]
+  %.136 = phi i64 [ 0, %27 ], [ %50, %32 ], [ %61, %63 ], [ %73, %65 ], [ %123, %120 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %126 = load ptr, ptr %125, align 8, !tbaa !51
   %127 = load i64, ptr %5, align 8, !tbaa !52
@@ -2151,7 +2151,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   br label %237
 
 237:                                              ; preds = %218, %.thread97, %225, %223, %227, %231, %207, %194
-  %.676 = phi i32 [ -1, %207 ], [ -1, %218 ], [ 0, %225 ], [ 0, %223 ], [ -1, %231 ], [ 0, %227 ], [ -1, %194 ], [ -1, %.thread97 ]
+  %.676 = phi i32 [ -1, %207 ], [ 0, %225 ], [ 0, %223 ], [ -1, %231 ], [ 0, %227 ], [ -1, %218 ], [ -1, %194 ], [ -1, %.thread97 ]
   %238 = load ptr, ptr %7, align 8, !tbaa !53
   %.not83 = icmp eq ptr %238, null
   %.not84 = icmp eq ptr %238, %4
@@ -2582,7 +2582,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_remove(ptr noundef %0, ptr noundef %1) l
   br label %217
 
 217:                                              ; preds = %198, %177, %154, %95, %2, %202, %213, %26
-  %.053 = phi i32 [ -1, %26 ], [ -1, %95 ], [ -1, %213 ], [ 0, %202 ], [ -1, %154 ], [ -1, %177 ], [ -1, %198 ], [ 0, %2 ]
+  %.053 = phi i32 [ -1, %26 ], [ -1, %213 ], [ 0, %202 ], [ -1, %95 ], [ -1, %154 ], [ -1, %177 ], [ -1, %198 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   ret i32 %.053
 }

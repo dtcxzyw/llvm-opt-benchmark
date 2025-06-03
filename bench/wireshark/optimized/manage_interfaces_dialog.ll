@@ -2942,7 +2942,7 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %80, %_ZN17QArrayDat
   ret void
 
 .body:                                            ; preds = %_ZN7QStringD2Ev.exit5.i, %_ZN7QStringD2Ev.exit5.i13, %13, %45, %29
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %30, %29 ], [ %58, %_ZN7QStringD2Ev.exit5.i ], [ %14, %13 ], [ %71, %_ZN7QStringD2Ev.exit5.i13 ]
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %46, %45 ], [ %58, %_ZN7QStringD2Ev.exit5.i ], [ %14, %13 ], [ %71, %_ZN7QStringD2Ev.exit5.i13 ]
   %85 = load ptr, ptr %4, align 8
   %.not.i.i.i24 = icmp eq ptr %85, null
   br i1 %.not.i.i.i24, label %_ZN7QStringD2Ev.exit27, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25

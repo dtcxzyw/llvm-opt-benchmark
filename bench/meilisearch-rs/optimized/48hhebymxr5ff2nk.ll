@@ -42477,7 +42477,7 @@ default.unreachable:                              ; preds = %193
   unreachable
 
 common.resume:                                    ; preds = %330, %566, %610, %155, %150, %272, %267, %518, %337, %233
-  %common.resume.op = phi { ptr, i32 } [ %234, %233 ], [ %338, %337 ], [ %519, %518 ], [ %.pn359, %566 ], [ %.pn361, %610 ], [ %.pn357, %330 ], [ %151, %155 ], [ %151, %150 ], [ %268, %272 ], [ %268, %267 ]
+  %common.resume.op = phi { ptr, i32 } [ %234, %233 ], [ %338, %337 ], [ %519, %518 ], [ %.pn361, %610 ], [ %.pn359, %566 ], [ %.pn357, %330 ], [ %151, %155 ], [ %151, %150 ], [ %268, %272 ], [ %268, %267 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$11event_scope17hfcc5b17d63e4eb06E.exit": ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$10event_span17hac6fd7ed06c88ca7E.exit.i", %214, %208, %201, %193
@@ -45870,7 +45870,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17hb3a3f762b567a3e8E.exit.thread.i: 
   br label %341
 
 341:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit24", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit"
-  %.sroa.0.1 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit24" ], [ %329, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit" ]
+  %.sroa.0.1 = phi i1 [ %329, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit" ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit24" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   ret i1 %.sroa.0.1
 
@@ -46725,7 +46725,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN73_$LT$aho_corasick..util..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f5486aeadff57d4E.exit"
 
 "_ZN73_$LT$aho_corasick..util..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f5486aeadff57d4E.exit": ; preds = %8, %12, %16
-  %.sroa.0.0.in.i = phi i1 [ %19, %16 ], [ %15, %12 ], [ %11, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -53292,7 +53292,7 @@ define internal void @"_ZN4core3ptr260drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -53349,9 +53349,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -53366,36 +53366,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9677)
   %31 = load ptr, ptr %30, align 8, !alias.scope !9677, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !9680
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9687)
   %39 = load ptr, ptr %38, align 8, !alias.scope !9687, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !9690
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -53406,9 +53406,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -53425,7 +53425,7 @@ define internal void @"_ZN4core3ptr260drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -53482,9 +53482,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -53499,36 +53499,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9727)
   %31 = load ptr, ptr %30, align 8, !alias.scope !9727, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !9730
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9737)
   %39 = load ptr, ptr %38, align 8, !alias.scope !9737, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !9740
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -53539,9 +53539,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -53558,7 +53558,7 @@ define internal void @"_ZN4core3ptr260drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -53615,9 +53615,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -53632,36 +53632,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9777)
   %31 = load ptr, ptr %30, align 8, !alias.scope !9777, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !9780
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9787)
   %39 = load ptr, ptr %38, align 8, !alias.scope !9787, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !9790
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -53672,9 +53672,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -53691,7 +53691,7 @@ define internal void @"_ZN4core3ptr260drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -53748,9 +53748,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -53765,36 +53765,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9827)
   %31 = load ptr, ptr %30, align 8, !alias.scope !9827, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !9830
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9837)
   %39 = load ptr, ptr %38, align 8, !alias.scope !9837, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !9840
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -53805,9 +53805,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -53824,7 +53824,7 @@ define internal void @"_ZN4core3ptr260drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -53881,9 +53881,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -53898,36 +53898,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9877)
   %31 = load ptr, ptr %30, align 8, !alias.scope !9877, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !9880
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9887)
   %39 = load ptr, ptr %38, align 8, !alias.scope !9887, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !9890
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -53938,9 +53938,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -53957,7 +53957,7 @@ define internal void @"_ZN4core3ptr260drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54014,9 +54014,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54031,36 +54031,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9927)
   %31 = load ptr, ptr %30, align 8, !alias.scope !9927, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !9930
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9937)
   %39 = load ptr, ptr %38, align 8, !alias.scope !9937, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !9940
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -54071,9 +54071,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -54090,7 +54090,7 @@ define internal void @"_ZN4core3ptr260drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54147,9 +54147,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54164,36 +54164,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9977)
   %31 = load ptr, ptr %30, align 8, !alias.scope !9977, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !9980
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9987)
   %39 = load ptr, ptr %38, align 8, !alias.scope !9987, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !9990
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -54204,9 +54204,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -54223,7 +54223,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54280,9 +54280,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54297,36 +54297,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10027)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10027, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10030
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10037)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10037, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10040
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -54337,9 +54337,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -54356,7 +54356,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54413,9 +54413,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54430,36 +54430,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10077)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10077, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10080
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10087)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10087, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10090
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -54470,9 +54470,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -54489,7 +54489,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54546,9 +54546,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54563,36 +54563,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10127)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10127, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10130
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10137)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10137, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10140
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -54603,9 +54603,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -54622,7 +54622,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54679,9 +54679,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54696,36 +54696,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10177)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10177, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10180
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10187)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10187, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10190
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -54736,9 +54736,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -54755,7 +54755,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54812,9 +54812,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54829,36 +54829,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10227)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10227, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10230
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10237)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10237, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10240
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -54869,9 +54869,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -54888,7 +54888,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -54945,9 +54945,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -54962,36 +54962,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10277)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10277, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10280
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10287)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10287, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10290
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -55002,9 +55002,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -55021,7 +55021,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -55078,9 +55078,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -55095,36 +55095,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10327)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10327, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10330
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10337)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10337, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10340
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -55135,9 +55135,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -55156,7 +55156,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -55188,15 +55188,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !10357
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !10357, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !10357, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -55218,7 +55218,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !10357
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10366)
@@ -55229,15 +55229,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !10369
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !10369, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !10369, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -55248,7 +55248,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !10369
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -55292,9 +55292,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -55309,36 +55309,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10398)
   %65 = load ptr, ptr %64, align 8, !alias.scope !10398, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !10401
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10408)
   %73 = load ptr, ptr %72, align 8, !alias.scope !10408, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !10411
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -55347,9 +55347,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -55364,7 +55364,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -55421,9 +55421,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -55438,36 +55438,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10448)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10448, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10451
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10458)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10458, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10461
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -55478,9 +55478,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -55497,7 +55497,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -55554,9 +55554,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -55571,36 +55571,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10498)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10498, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10501
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10508)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10508, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10511
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -55611,9 +55611,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -55630,7 +55630,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -55687,9 +55687,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -55704,36 +55704,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10548)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10548, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10551
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10558)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10558, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10561
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -55744,9 +55744,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -55763,7 +55763,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -55820,9 +55820,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -55837,36 +55837,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10598)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10598, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10601
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10608)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10608, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10611
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -55877,9 +55877,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -55896,7 +55896,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -55953,9 +55953,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -55970,36 +55970,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10648)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10648, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10651
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10658)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10658, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10661
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -56010,9 +56010,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -56029,7 +56029,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -56086,9 +56086,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -56103,36 +56103,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10698)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10698, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10701
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10708)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10708, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10711
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -56143,9 +56143,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -56162,7 +56162,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -56219,9 +56219,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -56236,36 +56236,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10748)
   %31 = load ptr, ptr %30, align 8, !alias.scope !10748, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !10751
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10758)
   %39 = load ptr, ptr %38, align 8, !alias.scope !10758, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !10761
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -56276,9 +56276,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -56297,7 +56297,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -56329,15 +56329,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !10778
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !10778, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !10778, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -56359,7 +56359,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !10778
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10787)
@@ -56370,15 +56370,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !10790
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !10790, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !10790, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -56389,7 +56389,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !10790
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -56433,9 +56433,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -56450,36 +56450,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10819)
   %65 = load ptr, ptr %64, align 8, !alias.scope !10819, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !10822
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10829)
   %73 = load ptr, ptr %72, align 8, !alias.scope !10829, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !10832
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -56488,9 +56488,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -56507,7 +56507,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -56539,15 +56539,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !10849
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !10849, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !10849, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -56569,7 +56569,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !10849
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10858)
@@ -56580,15 +56580,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !10861
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !10861, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !10861, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -56599,7 +56599,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !10861
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -56643,9 +56643,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -56660,36 +56660,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10890)
   %65 = load ptr, ptr %64, align 8, !alias.scope !10890, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !10893
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10900)
   %73 = load ptr, ptr %72, align 8, !alias.scope !10900, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !10903
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -56698,9 +56698,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -56717,7 +56717,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -56749,15 +56749,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !10920
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !10920, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !10920, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -56779,7 +56779,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !10920
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10929)
@@ -56790,15 +56790,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !10932
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !10932, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !10932, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -56809,7 +56809,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !10932
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -56853,9 +56853,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -56870,36 +56870,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10961)
   %65 = load ptr, ptr %64, align 8, !alias.scope !10961, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !10964
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10971)
   %73 = load ptr, ptr %72, align 8, !alias.scope !10971, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !10974
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -56908,9 +56908,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -56927,7 +56927,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -56959,15 +56959,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !10991
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !10991, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !10991, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -56989,7 +56989,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !10991
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11000)
@@ -57000,15 +57000,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11003
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11003, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11003, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -57019,7 +57019,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11003
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -57063,9 +57063,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -57080,36 +57080,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11032)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11032, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11035
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11042)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11042, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11045
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -57118,9 +57118,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -57137,7 +57137,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -57169,15 +57169,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11062
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11062, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11062, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -57199,7 +57199,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11062
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11071)
@@ -57210,15 +57210,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11074
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11074, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11074, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -57229,7 +57229,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11074
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -57273,9 +57273,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -57290,36 +57290,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11103)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11103, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11106
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11113)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11113, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11116
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -57328,9 +57328,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -57347,7 +57347,7 @@ define internal void @"_ZN4core3ptr261drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -57379,15 +57379,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11133
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11133, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11133, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -57409,7 +57409,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11133
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11142)
@@ -57420,15 +57420,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11145
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11145, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11145, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -57439,7 +57439,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11145
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -57483,9 +57483,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -57500,36 +57500,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11174)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11174, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11177
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11184)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11184, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11187
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -57538,9 +57538,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -57557,7 +57557,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -57589,15 +57589,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11204
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11204, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11204, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -57619,7 +57619,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11204
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11213)
@@ -57630,15 +57630,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11216
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11216, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11216, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -57649,7 +57649,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11216
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -57693,9 +57693,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -57710,36 +57710,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11245)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11245, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11248
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11255)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11255, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11258
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -57748,9 +57748,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -57767,7 +57767,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -57799,15 +57799,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11275
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11275, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11275, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -57829,7 +57829,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11275
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11284)
@@ -57840,15 +57840,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11287
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11287, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11287, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -57859,7 +57859,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11287
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -57903,9 +57903,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -57920,36 +57920,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11316)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11316, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11319
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11326)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11326, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11329
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -57958,9 +57958,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -57977,7 +57977,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -58009,15 +58009,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11346
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11346, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11346, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -58039,7 +58039,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11346
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11355)
@@ -58050,15 +58050,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11358
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11358, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11358, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -58069,7 +58069,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11358
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -58113,9 +58113,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -58130,36 +58130,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11387)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11387, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11390
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11397)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11397, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11400
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -58168,9 +58168,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -58187,7 +58187,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -58219,15 +58219,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11417
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11417, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11417, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -58249,7 +58249,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11417
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11426)
@@ -58260,15 +58260,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11429
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11429, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11429, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -58279,7 +58279,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11429
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -58323,9 +58323,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -58340,36 +58340,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11458)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11458, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11461
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11468)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11468, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11471
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -58378,9 +58378,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -58397,7 +58397,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -58429,15 +58429,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11488
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11488, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11488, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -58459,7 +58459,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11488
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11497)
@@ -58470,15 +58470,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11500
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11500, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11500, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -58489,7 +58489,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11500
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -58533,9 +58533,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -58550,36 +58550,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11529)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11529, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11532
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11539)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11539, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11542
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -58588,9 +58588,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -58607,7 +58607,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -58639,15 +58639,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11559
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11559, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11559, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -58669,7 +58669,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11559
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11568)
@@ -58680,15 +58680,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11571
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11571, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11571, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -58699,7 +58699,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11571
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -58743,9 +58743,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -58760,36 +58760,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11600)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11600, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11603
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11610)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11610, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11613
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -58798,9 +58798,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -58817,7 +58817,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -58849,15 +58849,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11630
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11630, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11630, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -58879,7 +58879,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11630
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11639)
@@ -58890,15 +58890,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11642
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11642, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11642, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -58909,7 +58909,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11642
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -58953,9 +58953,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -58970,36 +58970,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11671)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11671, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11674
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11681)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11681, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11684
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -59008,9 +59008,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -59148,7 +59148,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -59180,15 +59180,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11739
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11739, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11739, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -59210,7 +59210,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11739
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11748)
@@ -59221,15 +59221,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11751
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11751, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11751, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -59240,7 +59240,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11751
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -59284,9 +59284,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -59301,36 +59301,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11780)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11780, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11783
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11790)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11790, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11793
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -59339,9 +59339,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -59356,7 +59356,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -59413,9 +59413,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -59430,36 +59430,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11830)
   %31 = load ptr, ptr %30, align 8, !alias.scope !11830, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !11833
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11840)
   %39 = load ptr, ptr %38, align 8, !alias.scope !11840, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !11843
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -59470,9 +59470,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -59491,7 +59491,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -59523,15 +59523,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11860
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11860, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11860, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -59553,7 +59553,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11860
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11869)
@@ -59564,15 +59564,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11872
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11872, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11872, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -59583,7 +59583,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11872
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -59627,9 +59627,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -59644,36 +59644,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11901)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11901, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11904
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11911)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11911, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11914
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -59682,9 +59682,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -59701,7 +59701,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -59733,15 +59733,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11931
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !11931, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !11931, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -59763,7 +59763,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !11931
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11940)
@@ -59774,15 +59774,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !11943
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !11943, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !11943, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -59793,7 +59793,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !11943
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -59837,9 +59837,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -59854,36 +59854,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11972)
   %65 = load ptr, ptr %64, align 8, !alias.scope !11972, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !11975
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11982)
   %73 = load ptr, ptr %72, align 8, !alias.scope !11982, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !11985
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -59892,9 +59892,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -59909,7 +59909,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -59966,9 +59966,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -59983,36 +59983,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12022)
   %31 = load ptr, ptr %30, align 8, !alias.scope !12022, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !12025
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12032)
   %39 = load ptr, ptr %38, align 8, !alias.scope !12032, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !12035
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -60023,9 +60023,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -60044,7 +60044,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -60076,15 +60076,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !12052
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !12052, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !12052, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -60106,7 +60106,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12052
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12061)
@@ -60117,15 +60117,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !12064
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !12064, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !12064, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -60136,7 +60136,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !12064
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -60180,9 +60180,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -60197,36 +60197,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12093)
   %65 = load ptr, ptr %64, align 8, !alias.scope !12093, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !12096
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12103)
   %73 = load ptr, ptr %72, align 8, !alias.scope !12103, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !12106
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -60235,9 +60235,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -60254,7 +60254,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -60286,15 +60286,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !12123
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !12123, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !12123, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -60316,7 +60316,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12123
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12132)
@@ -60327,15 +60327,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !12135
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !12135, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !12135, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -60346,7 +60346,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !12135
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -60390,9 +60390,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -60407,36 +60407,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12164)
   %65 = load ptr, ptr %64, align 8, !alias.scope !12164, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !12167
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12174)
   %73 = load ptr, ptr %72, align 8, !alias.scope !12174, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !12177
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -60445,9 +60445,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -60462,7 +60462,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -60519,9 +60519,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -60536,36 +60536,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12214)
   %31 = load ptr, ptr %30, align 8, !alias.scope !12214, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !12217
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12224)
   %39 = load ptr, ptr %38, align 8, !alias.scope !12224, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !12227
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -60576,9 +60576,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -60595,7 +60595,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -60652,9 +60652,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -60669,36 +60669,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12264)
   %31 = load ptr, ptr %30, align 8, !alias.scope !12264, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !12267
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12274)
   %39 = load ptr, ptr %38, align 8, !alias.scope !12274, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !12277
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -60709,9 +60709,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -60728,7 +60728,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -60785,9 +60785,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -60802,36 +60802,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12314)
   %31 = load ptr, ptr %30, align 8, !alias.scope !12314, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !12317
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12324)
   %39 = load ptr, ptr %38, align 8, !alias.scope !12324, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !12327
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -60842,9 +60842,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -60861,7 +60861,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+common.ret:                                       ; preds = %25, %22, %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
   ret void
 
 4:                                                ; preds = %1
@@ -60918,9 +60918,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %16, %12, %19, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
+  %.pn6 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" ], [ %13, %19 ], [ %13, %12 ], [ %13, %16 ]
+  resume { ptr, i32 } %.pn6
 
 26:                                               ; preds = %36, %19
   %27 = landingpad { ptr, i32 }
@@ -60935,36 +60935,36 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12364)
   %31 = load ptr, ptr %30, align 8, !alias.scope !12364, !noundef !4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10", label %33
+  br i1 %32, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11", label %33
 
 33:                                               ; preds = %28
   %34 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !12367
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br i1 %35, label %36, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10" unwind label %26
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11" unwind label %26
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12374)
   %39 = load ptr, ptr %38, align 8, !alias.scope !12374, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12", label %41
+  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13", label %41
 
 41:                                               ; preds = %37
   %42 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !12377
   %43 = icmp eq i64 %42, 1
-  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12"
+  br i1 %43, label %44, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13"
 
 44:                                               ; preds = %41
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12" unwind label %47
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13" unwind label %47
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10": ; preds = %33, %28, %36, %47
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11": ; preds = %33, %28, %36, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %29, %36 ], [ %29, %28 ], [ %29, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %45, align 1
@@ -60975,9 +60975,9 @@ common.ret:                                       ; preds = %25, %22, %"_ZN4core
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit10"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit11"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit12": ; preds = %41, %37, %44
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit13": ; preds = %41, %37, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -60996,7 +60996,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -61028,15 +61028,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !12394
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !12394, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !12394, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -61058,7 +61058,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12394
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12403)
@@ -61069,15 +61069,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !12406
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !12406, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !12406, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -61088,7 +61088,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !12406
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -61132,9 +61132,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -61149,36 +61149,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12435)
   %65 = load ptr, ptr %64, align 8, !alias.scope !12435, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !12438
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12445)
   %73 = load ptr, ptr %72, align 8, !alias.scope !12445, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !12448
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -61187,9 +61187,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -61206,7 +61206,7 @@ define internal void @"_ZN4core3ptr262drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -61238,15 +61238,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !12465
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !12465, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !12465, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -61268,7 +61268,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12465
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12474)
@@ -61279,15 +61279,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !12477
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !12477, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !12477, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -61298,7 +61298,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !12477
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -61342,9 +61342,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -61359,36 +61359,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12506)
   %65 = load ptr, ptr %64, align 8, !alias.scope !12506, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !12509
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12516)
   %73 = load ptr, ptr %72, align 8, !alias.scope !12516, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !12519
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48ab9ae470bc4942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -61397,9 +61397,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$$GT$17hba255fda085e1a9fE.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -63110,7 +63110,7 @@ define internal void @"_ZN4core3ptr263drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -63142,15 +63142,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13068
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !13068, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !13068, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -63172,7 +63172,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13068
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13077)
@@ -63183,15 +63183,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !13080
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !13080, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !13080, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -63202,7 +63202,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !13080
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -63246,9 +63246,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -63263,36 +63263,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13109)
   %65 = load ptr, ptr %64, align 8, !alias.scope !13109, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !13112
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13119)
   %73 = load ptr, ptr %72, align 8, !alias.scope !13119, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !13122
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -63301,9 +63301,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -63562,7 +63562,7 @@ define internal void @"_ZN4core3ptr263drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -63594,15 +63594,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13215
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !13215, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !13215, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -63624,7 +63624,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13215
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13224)
@@ -63635,15 +63635,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !13227
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !13227, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !13227, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -63654,7 +63654,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !13227
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -63698,9 +63698,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -63715,36 +63715,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13256)
   %65 = load ptr, ptr %64, align 8, !alias.scope !13256, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !13259
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13266)
   %73 = load ptr, ptr %72, align 8, !alias.scope !13266, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !13269
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -63753,9 +63753,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -64014,7 +64014,7 @@ define internal void @"_ZN4core3ptr263drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -64046,15 +64046,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13362
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !13362, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !13362, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -64076,7 +64076,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13362
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13371)
@@ -64087,15 +64087,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !13374
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !13374, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !13374, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -64106,7 +64106,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !13374
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -64150,9 +64150,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -64167,36 +64167,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13403)
   %65 = load ptr, ptr %64, align 8, !alias.scope !13403, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !13406
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13413)
   %73 = load ptr, ptr %72, align 8, !alias.scope !13413, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !13416
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -64205,9 +64205,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -64224,7 +64224,7 @@ define internal void @"_ZN4core3ptr263drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -64256,15 +64256,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13433
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !13433, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !13433, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -64286,7 +64286,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13433
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13442)
@@ -64297,15 +64297,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !13445
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !13445, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !13445, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -64316,7 +64316,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !13445
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -64360,9 +64360,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -64377,36 +64377,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13474)
   %65 = load ptr, ptr %64, align 8, !alias.scope !13474, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !13477
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13484)
   %73 = load ptr, ptr %72, align 8, !alias.scope !13484, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !13487
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -64415,9 +64415,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -64434,7 +64434,7 @@ define internal void @"_ZN4core3ptr263drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -64466,15 +64466,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13504
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !13504, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !13504, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -64496,7 +64496,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13504
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13513)
@@ -64507,15 +64507,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !13516
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !13516, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !13516, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -64526,7 +64526,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !13516
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -64570,9 +64570,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -64587,36 +64587,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13545)
   %65 = load ptr, ptr %64, align 8, !alias.scope !13545, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !13548
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13555)
   %73 = load ptr, ptr %72, align 8, !alias.scope !13555, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !13558
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -64625,9 +64625,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -64644,7 +64644,7 @@ define internal void @"_ZN4core3ptr263drop_in_place$LT$meilisearch..extractors..
     i8 3, label %12
   ]
 
-common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+common.ret:                                       ; preds = %59, %56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit", %1, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
   ret void
 
 6:                                                ; preds = %1
@@ -64676,15 +64676,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 "_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit": ; preds = %6, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13575
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %.noexc11 unwind label %27
+          to label %.noexc12 unwind label %27
 
-.noexc11:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
+.noexc12:                                         ; preds = %"_ZN4core3ptr82drop_in_place$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$17h374e3fe755bf1460E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !214, !noalias !13575, !noundef !4
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %29, label %19
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc12
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !13575, !noundef !4
   %22 = icmp eq i64 %21, 0
@@ -64706,7 +64706,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
           cleanup
   br label %25
 
-29:                                               ; preds = %23, %19, %.noexc11
+29:                                               ; preds = %23, %19, %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13575
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13584)
@@ -64717,15 +64717,15 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !13587
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %33
+.noexc13:                                         ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !range !214, !noalias !13587, !noundef !4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", label %37
 
-37:                                               ; preds = %.noexc12
+37:                                               ; preds = %.noexc13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !13587, !noundef !4
   %40 = icmp eq i64 %39, 0
@@ -64736,7 +64736,7 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %39, i64 noundef %35) #43
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc12
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i": ; preds = %41, %37, %.noexc13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !13587
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
 
@@ -64780,9 +64780,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %common.ret
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
-  resume { ptr, i32 } %.pn.pn
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit": ; preds = %47, %43, %50, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
+  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" ], [ %.pn8, %50 ], [ %.pn8, %43 ], [ %.pn8, %47 ]
+  resume { ptr, i32 } %.pn10
 
 60:                                               ; preds = %70, %50, %25, %14
   %61 = landingpad { ptr, i32 }
@@ -64797,36 +64797,36 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13616)
   %65 = load ptr, ptr %64, align 8, !alias.scope !13616, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16", label %67
+  br i1 %66, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17", label %67
 
 67:                                               ; preds = %62
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !13619
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br i1 %69, label %70, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16" unwind label %60
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17" unwind label %60
 
 71:                                               ; preds = %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13626)
   %73 = load ptr, ptr %72, align 8, !alias.scope !13626, !noundef !4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18", label %75
+  br i1 %74, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19", label %75
 
 75:                                               ; preds = %71
   %76 = atomicrmw sub ptr %73, i64 1 release, align 8, !noalias !13629
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18"
+  br i1 %77, label %78, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19"
 
 78:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h65ea9e75315d3ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18" unwind label %80
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19" unwind label %80
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16": ; preds = %67, %62, %70, %80
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17": ; preds = %67, %62, %70, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %63, %70 ], [ %63, %62 ], [ %63, %67 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %79, align 2
@@ -64835,9 +64835,9 @@ common.ret:                                       ; preds = %59, %56, %"_ZN4core
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit16"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit17"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit18": ; preds = %75, %71, %78
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$$GT$17he380d1836c1cbfb3E.llvm.18177661807337663391.exit19": ; preds = %75, %71, %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i32 0, ptr %82, align 2
   br label %common.ret
@@ -83059,7 +83059,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -87959,7 +87959,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17h0c3a1572fbace2d
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88010,7 +88010,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17h592dafe1412e82b
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88061,7 +88061,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17h64c6470a921d752
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88112,7 +88112,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17h6550517876098f4
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88163,7 +88163,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17h76855c9a9017fec
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88214,7 +88214,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17ha93a5e6b362457c
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88265,7 +88265,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17hb888363495b4636
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88316,7 +88316,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17hcb9e84d68d09a53
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -88367,7 +88367,7 @@ define hidden noundef ptr @_ZN6grenad11compression10decompress17hd3611f138ec2a91
   br label %22
 
 22:                                               ; preds = %8, %20, %18, %16, %14, %12
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %spec.select, %8 ]
+  %.sroa.01.0 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %spec.select, %8 ]
   ret ptr %.sroa.01.0
 }
 
@@ -92334,8 +92334,8 @@ common.resume.i:                                  ; preds = %73, %49
   br label %76
 
 76:                                               ; preds = %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h771a11e04a8948b2E.exit", %28, %26
-  %.sroa.4.0 = phi ptr [ %27, %26 ], [ %30, %28 ], [ %74, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h771a11e04a8948b2E.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %26 ], [ 0, %28 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h771a11e04a8948b2E.exit" ]
+  %.sroa.4.0 = phi ptr [ %30, %28 ], [ %74, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h771a11e04a8948b2E.exit" ], [ %27, %26 ]
+  %.sroa.0.0 = phi i64 [ 0, %28 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h771a11e04a8948b2E.exit" ], [ 1, %26 ]
   %77 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %78 = insertvalue { i64, ptr } %77, ptr %.sroa.4.0, 1
   ret { i64, ptr } %78
@@ -93080,8 +93080,8 @@ common.resume.i:                                  ; preds = %74, %50
   br label %77
 
 77:                                               ; preds = %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he58f3ddc639ac0fdE.exit", %26, %24
-  %.sroa.4.0 = phi ptr [ %25, %24 ], [ %75, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he58f3ddc639ac0fdE.exit" ], [ %29, %26 ]
-  %.sroa.0.0 = phi i64 [ 1, %24 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he58f3ddc639ac0fdE.exit" ], [ 0, %26 ]
+  %.sroa.4.0 = phi ptr [ %29, %26 ], [ %75, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he58f3ddc639ac0fdE.exit" ], [ %25, %24 ]
+  %.sroa.0.0 = phi i64 [ 0, %26 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he58f3ddc639ac0fdE.exit" ], [ 1, %24 ]
   %78 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %79 = insertvalue { i64, ptr } %78, ptr %.sroa.4.0, 1
   ret { i64, ptr } %79
@@ -93583,8 +93583,8 @@ common.resume.i:                                  ; preds = %74, %50
   br label %77
 
 77:                                               ; preds = %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he17d49a313e9bb00E.exit", %26, %24
-  %.sroa.4.0 = phi ptr [ %25, %24 ], [ %75, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he17d49a313e9bb00E.exit" ], [ %29, %26 ]
-  %.sroa.0.0 = phi i64 [ 1, %24 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he17d49a313e9bb00E.exit" ], [ 0, %26 ]
+  %.sroa.4.0 = phi ptr [ %29, %26 ], [ %75, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he17d49a313e9bb00E.exit" ], [ %25, %24 ]
+  %.sroa.0.0 = phi i64 [ 0, %26 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he17d49a313e9bb00E.exit" ], [ 1, %24 ]
   %78 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %79 = insertvalue { i64, ptr } %78, ptr %.sroa.4.0, 1
   ret { i64, ptr } %79
@@ -96537,8 +96537,8 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.i.i: ; preds = %57,
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h4629c9e5886940f9E.exit"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h4629c9e5886940f9E.exit": ; preds = %._crit_edge.i, %85, %81, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread12.i", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread.i", %3, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ undef, %3 ], [ %79, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread12.i" ], [ %.sroa.3.0.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread.i" ], [ %91, %._crit_edge.i ], [ undef, %81 ], [ undef, %85 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread12.i" ], [ %.sroa.0.0.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread.i" ], [ %92, %._crit_edge.i ], [ null, %81 ], [ null, %85 ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ undef, %3 ], [ %.sroa.3.0.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread.i" ], [ %79, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread12.i" ], [ %91, %._crit_edge.i ], [ undef, %81 ], [ undef, %85 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %.sroa.0.0.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread.i" ], [ %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread12.i" ], [ %92, %._crit_edge.i ], [ null, %81 ], [ null, %85 ]
   %93 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %94 = insertvalue { ptr, i64 } %93, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %94
@@ -159178,7 +159178,7 @@ define hidden void @"_ZN213_$LT$meilisearch..routes..indexes..documents.._..$LT$
   br label %25
 
 .loopexit.split-lp:                               ; preds = %36, %60, %83, %99
-  %.sroa.088.1.ph = phi i8 [ 0, %99 ], [ 1, %83 ], [ 1, %36 ], [ 1, %60 ]
+  %.sroa.088.1.ph = phi i8 [ 0, %99 ], [ 1, %83 ], [ 1, %60 ], [ 1, %36 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %25

@@ -1294,7 +1294,7 @@ define noundef zeroext i1 @_ZN3gmx15constrain_shakeEP8_IO_FILEPNS_9shakedataENS_
   resume { ptr, i32 } %69
 
 70:                                               ; preds = %31, %52, %19
-  %.0 = phi i1 [ true, %19 ], [ %65, %52 ], [ %51, %31 ]
+  %.0 = phi i1 [ true, %19 ], [ %51, %31 ], [ %65, %52 ]
   ret i1 %.0
 }
 

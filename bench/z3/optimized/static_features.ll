@@ -4552,9 +4552,9 @@ _ZNK3app13get_decl_kindEv.exit.i:                 ; preds = %_ZNK15static_featur
   br label %_ZN15static_features7new_ctxEP4expr.exit
 
 _ZN15static_features7new_ctxEP4expr.exit:         ; preds = %17, %40, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8.i, %_ZNK3app13get_decl_kindEv.exit.i, %52, %56, %57
-  %.07.i = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit.i ], [ 1, %57 ], [ 1, %56 ], [ %55, %52 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8.i ], [ 0, %40 ], [ 0, %17 ]
-  %.06.i = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit.i ], [ 0, %57 ], [ 1, %56 ], [ 0, %52 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8.i ], [ 0, %40 ], [ 0, %17 ]
-  %.0.i = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit.i ], [ 0, %57 ], [ 0, %56 ], [ 1, %52 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8.i ], [ 0, %40 ], [ 0, %17 ]
+  %.07.i = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit.i ], [ %55, %52 ], [ 1, %56 ], [ 1, %57 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8.i ], [ 0, %40 ], [ 0, %17 ]
+  %.06.i = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit.i ], [ 0, %52 ], [ 1, %56 ], [ 0, %57 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8.i ], [ 0, %40 ], [ 0, %17 ]
+  %.0.i = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit.i ], [ 1, %52 ], [ 0, %56 ], [ 0, %57 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8.i ], [ 0, %40 ], [ 0, %17 ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load i32, ptr %58, align 8, !tbaa !137
   %60 = zext i32 %59 to i64
@@ -4713,9 +4713,9 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK15static_featur
   br label %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread
 
 _ZNK15static_features13is_basic_exprEPK4expr.exit.thread: ; preds = %8, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8, %3, %_ZNK3app13get_decl_kindEv.exit, %20, %24, %25
-  %.07 = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 1, %25 ], [ 1, %24 ], [ %23, %20 ], [ 0, %3 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8 ], [ 0, %8 ]
-  %.06 = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %25 ], [ 1, %24 ], [ 0, %20 ], [ 0, %3 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8 ], [ 0, %8 ]
-  %.0 = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %25 ], [ 0, %24 ], [ 1, %20 ], [ 0, %3 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8 ], [ 0, %8 ]
+  %.07 = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ %23, %20 ], [ 1, %24 ], [ 1, %25 ], [ 0, %3 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8 ], [ 0, %8 ]
+  %.06 = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %20 ], [ 1, %24 ], [ 0, %25 ], [ 0, %3 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8 ], [ 0, %8 ]
+  %.0 = phi i8 [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 1, %20 ], [ 0, %24 ], [ 0, %25 ], [ 0, %3 ], [ 0, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread8 ], [ 0, %8 ]
   store i8 %.0, ptr %0, align 1, !tbaa !219
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.06, ptr %26, align 1, !tbaa !221

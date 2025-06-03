@@ -1653,7 +1653,7 @@ _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %82, %74
   br label %92
 
 92:                                               ; preds = %89, %85, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
-  %.0.i = phi i32 [ 0, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i ], [ %91, %89 ], [ %88, %85 ]
+  %.0.i = phi i32 [ 0, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i ], [ %88, %85 ], [ %91, %89 ]
   %93 = add nsw i32 %.0.i, %1
   br label %_ZL23counter_overflow_helperP10JavaThreadiP6Method.exit
 
@@ -3858,9 +3858,9 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211: ; preds = %461, %459
   unreachable
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211, %447, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %_ZNK5Klass11java_mirrorEv.exit, %206, %427, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit199, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit190, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit181, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
-  %.sroa.0260.1 = phi ptr [ null, %427 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit199 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit190 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit181 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %206 ], [ %.0.i.i.i.i212, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211 ], [ null, %447 ]
-  %.0151 = phi ptr [ %431, %427 ], [ %384, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit199 ], [ %344, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit190 ], [ %304, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit181 ], [ %264, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %206 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211 ], [ null, %447 ]
-  %.1146 = phi ptr [ null, %427 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit199 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit190 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit181 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.0.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ %.0.i, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i, %206 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211 ], [ null, %447 ]
+  %.sroa.0260.1 = phi ptr [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit181 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit190 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit199 ], [ null, %427 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %206 ], [ %.0.i.i.i.i212, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211 ], [ null, %447 ]
+  %.0151 = phi ptr [ %264, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %304, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit181 ], [ %344, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit190 ], [ %384, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit199 ], [ %431, %427 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %206 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211 ], [ null, %447 ]
+  %.1146 = phi ptr [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit181 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit190 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit199 ], [ null, %427 ], [ %.0.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ %.0.i, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i, %206 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i211 ], [ null, %447 ]
   %465 = ptrtoint ptr %.0151 to i64
   br label %568
 

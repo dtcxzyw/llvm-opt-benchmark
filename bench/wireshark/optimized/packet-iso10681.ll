@@ -496,8 +496,8 @@ iso10681_seqnum.exit182.i:                        ; preds = %138, %132
   br label %dissect_iso10681.exit
 
 170:                                              ; preds = %164, %147, %118, %89
-  %.0153.i = phi i1 [ false, %164 ], [ true, %147 ], [ true, %118 ], [ true, %89 ]
-  %.0150.i = phi i32 [ 4, %164 ], [ 8, %147 ], [ 6, %118 ], [ 8, %89 ]
+  %.0153.i = phi i1 [ true, %89 ], [ true, %118 ], [ true, %147 ], [ false, %164 ]
+  %.0150.i = phi i32 [ 8, %89 ], [ 6, %118 ], [ 8, %147 ], [ 4, %164 ]
   %171 = load i32, ptr %7, align 4
   %.not168.i = icmp eq i32 %171, 0
   br i1 %.not168.i, label %177, label %172

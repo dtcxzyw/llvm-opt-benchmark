@@ -402,7 +402,7 @@ define internal fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spe
   unreachable
 
 common.resume:                                    ; preds = %104, %_ZN4cvc58internal7IntegerD2Ev.exit148, %292, %_ZNSt14_Optional_baseIN4cvc58internal6theory2ff5parse12_GLOBAL__N_18SpectrumELb0ELb0EED2Ev.exit204, %681, %429, %433, %822, %826, %53
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %.pn99, %104 ], [ %.pn86.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit148 ], [ %682, %681 ], [ %.pn77.pn.pn, %_ZNSt14_Optional_baseIN4cvc58internal6theory2ff5parse12_GLOBAL__N_18SpectrumELb0ELb0EED2Ev.exit204 ], [ %293, %292 ], [ %.pn81.pn.pn.pn, %429 ], [ %.pn81.pn.pn.pn, %433 ], [ %.pn.pn.pn.pn, %822 ], [ %.pn.pn.pn.pn, %826 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %.pn99, %104 ], [ %.pn86.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit148 ], [ %293, %292 ], [ %.pn77.pn.pn, %_ZNSt14_Optional_baseIN4cvc58internal6theory2ff5parse12_GLOBAL__N_18SpectrumELb0ELb0EED2Ev.exit204 ], [ %682, %681 ], [ %.pn81.pn.pn.pn, %429 ], [ %.pn81.pn.pn.pn, %433 ], [ %.pn.pn.pn.pn, %822 ], [ %.pn.pn.pn.pn, %826 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit: ; preds = %48

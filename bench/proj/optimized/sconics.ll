@@ -629,7 +629,7 @@ define internal { double, double } @_ZL17sconics_s_inverse5PJ_XYP8PJconsts(doubl
   br label %41
 
 41:                                               ; preds = %37, %29, %18
-  %.sroa.3.0 = phi double [ %40, %37 ], [ %36, %29 ], [ %28, %18 ]
+  %.sroa.3.0 = phi double [ %40, %37 ], [ %28, %18 ], [ %36, %29 ]
   %42 = fdiv double %15, %10
   %.fca.0.insert = insertvalue { double, double } poison, double %42, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
@@ -677,7 +677,7 @@ define internal { double, double } @_ZL17sconics_s_forward5PJ_LPP8PJconsts(doubl
   br label %31
 
 31:                                               ; preds = %27, %16, %8
-  %.0 = phi double [ %30, %27 ], [ %26, %16 ], [ %15, %8 ]
+  %.0 = phi double [ %30, %27 ], [ %15, %8 ], [ %26, %16 ]
   %32 = load double, ptr %5, align 8, !tbaa !48
   %33 = fmul double %0, %32
   %34 = tail call double @sin(double noundef %33) #7, !tbaa !47

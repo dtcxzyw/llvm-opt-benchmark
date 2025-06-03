@@ -4336,7 +4336,7 @@ expand_.exit367.i:                                ; preds = %1757, %1753
   unreachable
 
 1780:                                             ; preds = %1778, %1777, %1776, %1775, %expand_.exit367.i
-  %.0.i368.i = phi ptr [ @.str.117, %1778 ], [ @.str.116, %1777 ], [ @.str.115, %1776 ], [ @.str.114, %1775 ], [ @.str.113, %expand_.exit367.i ]
+  %.0.i368.i = phi ptr [ @.str.114, %1775 ], [ @.str.115, %1776 ], [ @.str.116, %1777 ], [ @.str.117, %1778 ], [ @.str.113, %expand_.exit367.i ]
   %1781 = load i32, ptr %.1.i365.i, align 4
   %1782 = add i32 %1781, -1
   %1783 = zext i32 %1782 to i64
@@ -7138,81 +7138,81 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
   %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   switch i32 %73, label %100 [
     i32 1, label %74
-    i32 3, label %79
-    i32 4, label %86
-    i32 5, label %93
+    i32 3, label %81
+    i32 4, label %88
+    i32 5, label %95
   ]
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %4, align 8
   %.not43 = icmp eq ptr %75, null
-  br i1 %.not43, label %101, label %76
+  br i1 %.not43, label %79, label %76
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %75, i64 -8
   %78 = load i32, ptr %77, align 4
+  br label %79
+
+79:                                               ; preds = %74, %76
+  %.030 = phi i32 [ %78, %76 ], [ 0, %74 ]
+  %80 = call zeroext i1 @llvm_link_coff(ptr noundef %75, i32 noundef %.030, ptr noundef nonnull %5) #11
+  br i1 %80, label %105, label %103
+
+81:                                               ; preds = %72
+  %82 = load ptr, ptr %4, align 8
+  %.not42 = icmp eq ptr %82, null
+  br i1 %.not42, label %86, label %83
+
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds i8, ptr %82, i64 -8
+  %85 = load i32, ptr %84, align 4
+  br label %86
+
+86:                                               ; preds = %81, %83
+  %.031 = phi i32 [ %85, %83 ], [ 0, %81 ]
+  %87 = call zeroext i1 @llvm_link_elf(ptr noundef %82, i32 noundef %.031, ptr noundef nonnull %5) #11
+  br i1 %87, label %105, label %103
+
+88:                                               ; preds = %72
+  %89 = load ptr, ptr %4, align 8
+  %.not41 = icmp eq ptr %89, null
+  br i1 %.not41, label %93, label %90
+
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds i8, ptr %89, i64 -8
+  %92 = load i32, ptr %91, align 4
+  br label %93
+
+93:                                               ; preds = %88, %90
+  %.032 = phi i32 [ %92, %90 ], [ 0, %88 ]
+  %94 = call zeroext i1 @llvm_link_macho(ptr noundef %89, i32 noundef %.032, ptr noundef nonnull %5) #11
+  br i1 %94, label %105, label %103
+
+95:                                               ; preds = %72
+  %96 = load ptr, ptr %4, align 8
+  %.not40 = icmp eq ptr %96, null
+  br i1 %.not40, label %101, label %97
+
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds i8, ptr %96, i64 -8
+  %99 = load i32, ptr %98, align 4
   br label %101
-
-79:                                               ; preds = %72
-  %80 = load ptr, ptr %4, align 8
-  %.not42 = icmp eq ptr %80, null
-  br i1 %.not42, label %84, label %81
-
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %80, i64 -8
-  %83 = load i32, ptr %82, align 4
-  br label %84
-
-84:                                               ; preds = %79, %81
-  %.031 = phi i32 [ %83, %81 ], [ 0, %79 ]
-  %85 = call zeroext i1 @llvm_link_elf(ptr noundef %80, i32 noundef %.031, ptr noundef nonnull %5) #11
-  br i1 %85, label %105, label %103
-
-86:                                               ; preds = %72
-  %87 = load ptr, ptr %4, align 8
-  %.not41 = icmp eq ptr %87, null
-  br i1 %.not41, label %91, label %88
-
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %87, i64 -8
-  %90 = load i32, ptr %89, align 4
-  br label %91
-
-91:                                               ; preds = %86, %88
-  %.032 = phi i32 [ %90, %88 ], [ 0, %86 ]
-  %92 = call zeroext i1 @llvm_link_macho(ptr noundef %87, i32 noundef %.032, ptr noundef nonnull %5) #11
-  br i1 %92, label %105, label %103
-
-93:                                               ; preds = %72
-  %94 = load ptr, ptr %4, align 8
-  %.not40 = icmp eq ptr %94, null
-  br i1 %.not40, label %98, label %95
-
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %94, i64 -8
-  %97 = load i32, ptr %96, align 4
-  br label %98
-
-98:                                               ; preds = %93, %95
-  %.033 = phi i32 [ %97, %95 ], [ 0, %93 ]
-  %99 = call zeroext i1 @llvm_link_wasm(ptr noundef %94, i32 noundef %.033, ptr noundef nonnull %5) #11
-  br i1 %99, label %105, label %103
 
 100:                                              ; preds = %72
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.dynamic_lib_linker, ptr noundef nonnull @.str.2, i32 noundef 847) #12
   unreachable
 
-101:                                              ; preds = %76, %74
-  %.030 = phi i32 [ %78, %76 ], [ 0, %74 ]
-  %102 = call zeroext i1 @llvm_link_coff(ptr noundef %75, i32 noundef %.030, ptr noundef nonnull %5) #11
+101:                                              ; preds = %97, %95
+  %.033 = phi i32 [ %99, %97 ], [ 0, %95 ]
+  %102 = call zeroext i1 @llvm_link_wasm(ptr noundef %96, i32 noundef %.033, ptr noundef nonnull %5) #11
   br i1 %102, label %105, label %103
 
-103:                                              ; preds = %84, %91, %98, %101
+103:                                              ; preds = %93, %86, %79, %101
   %104 = load ptr, ptr %5, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.26, ptr noundef %104) #12
   unreachable
 
-105:                                              ; preds = %84, %91, %98, %101
+105:                                              ; preds = %93, %86, %79, %101
   %106 = load i8, ptr @debug_log, align 1
   %107 = trunc i8 %106 to i1
   br i1 %107, label %108, label %111
@@ -7259,7 +7259,7 @@ define dso_local zeroext i1 @static_lib_linker(ptr noundef %0, ptr noundef %1, i
   br label %8
 
 8:                                                ; preds = %3, %3, %3, %3, %7, %6, %5
-  %.0 = phi i32 [ 0, %7 ], [ 3, %6 ], [ 5, %5 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %7 ], [ 5, %5 ], [ 3, %6 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
   %9 = zext i32 %2 to i64
   %10 = tail call zeroext i1 @llvm_ar(ptr noundef %0, ptr noundef %1, i64 noundef %9, i32 noundef %.0) #11
   ret i1 %10
@@ -7340,81 +7340,81 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr noundef readonly
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   switch i32 %34, label %61 [
     i32 1, label %35
-    i32 3, label %40
-    i32 4, label %47
-    i32 5, label %54
+    i32 3, label %42
+    i32 4, label %49
+    i32 5, label %56
   ]
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %4, align 8
   %.not48.i = icmp eq ptr %36, null
-  br i1 %.not48.i, label %62, label %37
+  br i1 %.not48.i, label %40, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %36, i64 -8
   %39 = load i32, ptr %38, align 4
+  br label %40
+
+40:                                               ; preds = %37, %35
+  %.035.i = phi i32 [ %39, %37 ], [ 0, %35 ]
+  %41 = call zeroext i1 @llvm_link_coff(ptr noundef %36, i32 noundef %.035.i, ptr noundef nonnull %5) #11
+  br i1 %41, label %66, label %64
+
+42:                                               ; preds = %33
+  %43 = load ptr, ptr %4, align 8
+  %.not47.i = icmp eq ptr %43, null
+  br i1 %.not47.i, label %47, label %44
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %43, i64 -8
+  %46 = load i32, ptr %45, align 4
+  br label %47
+
+47:                                               ; preds = %44, %42
+  %.036.i = phi i32 [ %46, %44 ], [ 0, %42 ]
+  %48 = call zeroext i1 @llvm_link_elf(ptr noundef %43, i32 noundef %.036.i, ptr noundef nonnull %5) #11
+  br i1 %48, label %66, label %64
+
+49:                                               ; preds = %33
+  %50 = load ptr, ptr %4, align 8
+  %.not46.i = icmp eq ptr %50, null
+  br i1 %.not46.i, label %54, label %51
+
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %50, i64 -8
+  %53 = load i32, ptr %52, align 4
+  br label %54
+
+54:                                               ; preds = %51, %49
+  %.037.i = phi i32 [ %53, %51 ], [ 0, %49 ]
+  %55 = call zeroext i1 @llvm_link_macho(ptr noundef %50, i32 noundef %.037.i, ptr noundef nonnull %5) #11
+  br i1 %55, label %66, label %64
+
+56:                                               ; preds = %33
+  %57 = load ptr, ptr %4, align 8
+  %.not45.i = icmp eq ptr %57, null
+  br i1 %.not45.i, label %62, label %58
+
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds i8, ptr %57, i64 -8
+  %60 = load i32, ptr %59, align 4
   br label %62
-
-40:                                               ; preds = %33
-  %41 = load ptr, ptr %4, align 8
-  %.not47.i = icmp eq ptr %41, null
-  br i1 %.not47.i, label %45, label %42
-
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %41, i64 -8
-  %44 = load i32, ptr %43, align 4
-  br label %45
-
-45:                                               ; preds = %42, %40
-  %.036.i = phi i32 [ %44, %42 ], [ 0, %40 ]
-  %46 = call zeroext i1 @llvm_link_elf(ptr noundef %41, i32 noundef %.036.i, ptr noundef nonnull %5) #11
-  br i1 %46, label %66, label %64
-
-47:                                               ; preds = %33
-  %48 = load ptr, ptr %4, align 8
-  %.not46.i = icmp eq ptr %48, null
-  br i1 %.not46.i, label %52, label %49
-
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %48, i64 -8
-  %51 = load i32, ptr %50, align 4
-  br label %52
-
-52:                                               ; preds = %49, %47
-  %.037.i = phi i32 [ %51, %49 ], [ 0, %47 ]
-  %53 = call zeroext i1 @llvm_link_macho(ptr noundef %48, i32 noundef %.037.i, ptr noundef nonnull %5) #11
-  br i1 %53, label %66, label %64
-
-54:                                               ; preds = %33
-  %55 = load ptr, ptr %4, align 8
-  %.not45.i = icmp eq ptr %55, null
-  br i1 %.not45.i, label %59, label %56
-
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %55, i64 -8
-  %58 = load i32, ptr %57, align 4
-  br label %59
-
-59:                                               ; preds = %56, %54
-  %.038.i = phi i32 [ %58, %56 ], [ 0, %54 ]
-  %60 = call zeroext i1 @llvm_link_wasm(ptr noundef %55, i32 noundef %.038.i, ptr noundef nonnull %5) #11
-  br i1 %60, label %66, label %64
 
 61:                                               ; preds = %33
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.link_exe, ptr noundef nonnull @.str.2, i32 noundef 651) #12
   unreachable
 
-62:                                               ; preds = %37, %35
-  %.035.i = phi i32 [ %39, %37 ], [ 0, %35 ]
-  %63 = call zeroext i1 @llvm_link_coff(ptr noundef %36, i32 noundef %.035.i, ptr noundef nonnull %5) #11
+62:                                               ; preds = %58, %56
+  %.038.i = phi i32 [ %60, %58 ], [ 0, %56 ]
+  %63 = call zeroext i1 @llvm_link_wasm(ptr noundef %57, i32 noundef %.038.i, ptr noundef nonnull %5) #11
   br i1 %63, label %66, label %64
 
-64:                                               ; preds = %62, %59, %52, %45
+64:                                               ; preds = %62, %54, %47, %40
   %65 = load ptr, ptr %5, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.141, ptr noundef %65) #12
   unreachable
 
-66:                                               ; preds = %62, %59, %52, %45
+66:                                               ; preds = %62, %54, %47, %40
   %67 = load i8, ptr @debug_log, align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %69, label %link_exe.exit

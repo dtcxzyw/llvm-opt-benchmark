@@ -3965,7 +3965,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967: ; preds = %1523,
   br label %1535
 
 1535:                                             ; preds = %1532, %1529, %1528, %.thread.i970
-  %.0.i.i.i = phi i1 [ %1534, %1532 ], [ %1531, %1529 ], [ false, %.thread.i970 ], [ true, %1528 ]
+  %.0.i.i.i = phi i1 [ %1531, %1529 ], [ %1534, %1532 ], [ false, %.thread.i970 ], [ true, %1528 ]
   %.not.i.i.i973 = icmp eq ptr %.sroa.164607.1, null
   br i1 %.not.i.i.i973, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %1536
 
@@ -5282,7 +5282,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086: ; preds = %2026
   br label %2038
 
 2038:                                             ; preds = %2035, %2032, %2031, %.thread.i1089
-  %.0.i.i.i1093 = phi i1 [ %2037, %2035 ], [ %2034, %2032 ], [ false, %.thread.i1089 ], [ true, %2031 ]
+  %.0.i.i.i1093 = phi i1 [ %2034, %2032 ], [ %2037, %2035 ], [ false, %.thread.i1089 ], [ true, %2031 ]
   %.not.i.i.i1095 = icmp eq ptr %.sroa.164577.3, null
   br i1 %.not.i.i.i1095, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1100, label %2039
 
@@ -8405,7 +8405,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356: ; preds = %3204
   br label %3216
 
 3216:                                             ; preds = %3213, %3210, %3209, %.thread.i1359
-  %.0.i.i.i1363 = phi i1 [ %3215, %3213 ], [ %3212, %3210 ], [ false, %.thread.i1359 ], [ true, %3209 ]
+  %.0.i.i.i1363 = phi i1 [ %3212, %3210 ], [ %3215, %3213 ], [ false, %.thread.i1359 ], [ true, %3209 ]
   %.not.i.i.i1365 = icmp eq ptr %.sroa.164547.3, null
   br i1 %.not.i.i.i1365, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1370, label %3217
 
@@ -9844,7 +9844,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i: ; preds = %369
   br label %3710
 
 3710:                                             ; preds = %3707, %3704, %3703, %.thread.i159.i
-  %.0.i.i.i.i1487 = phi i1 [ %3709, %3707 ], [ %3706, %3704 ], [ false, %.thread.i159.i ], [ true, %3703 ]
+  %.0.i.i.i.i1487 = phi i1 [ %3706, %3704 ], [ %3709, %3707 ], [ false, %.thread.i159.i ], [ true, %3703 ]
   %.not.i.i.i161.i = icmp eq ptr %.sroa.16.1.i, null
   br i1 %.not.i.i.i161.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i, label %3711
 
@@ -13335,7 +13335,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i: ; preds = %496
   br label %4980
 
 4980:                                             ; preds = %4977, %4974, %4973, %.thread.i116.i
-  %.0.i.i.i.i1602 = phi i1 [ %4979, %4977 ], [ %4976, %4974 ], [ false, %.thread.i116.i ], [ true, %4973 ]
+  %.0.i.i.i.i1602 = phi i1 [ %4976, %4974 ], [ %4979, %4977 ], [ false, %.thread.i116.i ], [ true, %4973 ]
   %.not.i.i.i118.i = icmp eq ptr %.sroa.16.1.i1599, null
   br i1 %.not.i.i.i118.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i1603, label %4981
 
@@ -16695,7 +16695,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776: ; preds = %6186
   br label %6198
 
 6198:                                             ; preds = %6195, %6192, %6191, %.thread.i1779
-  %.0.i.i.i1783 = phi i1 [ %6197, %6195 ], [ %6194, %6192 ], [ false, %.thread.i1779 ], [ true, %6191 ]
+  %.0.i.i.i1783 = phi i1 [ %6194, %6192 ], [ %6197, %6195 ], [ false, %.thread.i1779 ], [ true, %6191 ]
   %.not.i.i.i1785 = icmp eq ptr %.sroa.16.3, null
   br i1 %.not.i.i.i1785, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1790, label %6199
 
@@ -33566,7 +33566,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36: ; preds = %121, %
   br label %133
 
 133:                                              ; preds = %130, %127, %126, %.thread.i39
-  %.0.i.i.i = phi i1 [ %132, %130 ], [ %129, %127 ], [ false, %.thread.i39 ], [ true, %126 ]
+  %.0.i.i.i = phi i1 [ %129, %127 ], [ %132, %130 ], [ false, %.thread.i39 ], [ true, %126 ]
   %.not.i.i.i41 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i41, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %134
 
@@ -36499,7 +36499,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109: ; preds = %216, 
   br label %228
 
 228:                                              ; preds = %225, %222, %221, %.thread.i112
-  %.0.i.i.i = phi i1 [ %227, %225 ], [ %224, %222 ], [ false, %.thread.i112 ], [ true, %221 ]
+  %.0.i.i.i = phi i1 [ %224, %222 ], [ %227, %225 ], [ false, %.thread.i112 ], [ true, %221 ]
   %.not.i.i.i113 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i113, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %229
 
@@ -39105,7 +39105,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181: ; preds = %321, 
   br label %333
 
 333:                                              ; preds = %330, %327, %326, %.thread.i184
-  %.0.i.i.i = phi i1 [ %332, %330 ], [ %329, %327 ], [ false, %.thread.i184 ], [ true, %326 ]
+  %.0.i.i.i = phi i1 [ %329, %327 ], [ %332, %330 ], [ false, %.thread.i184 ], [ true, %326 ]
   %.not.i.i.i186 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i186, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %334
 
@@ -42155,7 +42155,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79: ; preds = %204, %
   br label %216
 
 216:                                              ; preds = %213, %210, %209, %.thread.i82
-  %.0.i.i.i = phi i1 [ %215, %213 ], [ %212, %210 ], [ false, %.thread.i82 ], [ true, %209 ]
+  %.0.i.i.i = phi i1 [ %212, %210 ], [ %215, %213 ], [ false, %.thread.i82 ], [ true, %209 ]
   %.not.i.i.i83 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i83, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %217
 
@@ -44330,7 +44330,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69: ; preds = %155, %
   br label %167
 
 167:                                              ; preds = %164, %161, %160, %.thread.i72
-  %.0.i.i.i = phi i1 [ %166, %164 ], [ %163, %161 ], [ false, %.thread.i72 ], [ true, %160 ]
+  %.0.i.i.i = phi i1 [ %163, %161 ], [ %166, %164 ], [ false, %.thread.i72 ], [ true, %160 ]
   %.not.i.i.i74 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i74, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %168
 
@@ -45637,7 +45637,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117: ; preds = %296, 
   br label %308
 
 308:                                              ; preds = %305, %302, %301, %.thread.i120
-  %.0.i.i.i = phi i1 [ %307, %305 ], [ %304, %302 ], [ false, %.thread.i120 ], [ true, %301 ]
+  %.0.i.i.i = phi i1 [ %304, %302 ], [ %307, %305 ], [ false, %.thread.i120 ], [ true, %301 ]
   %.not.i.i.i121 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i121, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %309
 
@@ -48750,7 +48750,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108: ; preds = %285, 
   br label %297
 
 297:                                              ; preds = %294, %291, %290, %.thread.i111
-  %.0.i.i.i = phi i1 [ %296, %294 ], [ %293, %291 ], [ false, %.thread.i111 ], [ true, %290 ]
+  %.0.i.i.i = phi i1 [ %293, %291 ], [ %296, %294 ], [ false, %.thread.i111 ], [ true, %290 ]
   %.not.i.i.i113 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i113, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %298
 
@@ -53066,7 +53066,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %30, %29 ]
+  %.sroa.025.1 = phi ptr [ %30, %29 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %32 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZNK4YAML6detail9node_data3getIA21_cEEPNS3_4nodeERKT_St10shared_ptrINS3_13memory_holderEEEUlSt4pairIS8_S8_EE_EclINS_17__normal_iteratorIPKSG_St6vectorISG_SaISG_EEEEEEbS9_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.025.1)
   br i1 %32, label %.loopexit, label %33
 
@@ -53075,7 +53075,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %34, %33 ]
+  %.sroa.025.2 = phi ptr [ %34, %33 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %36 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZNK4YAML6detail9node_data3getIA21_cEEPNS3_4nodeERKT_St10shared_ptrINS3_13memory_holderEEEUlSt4pairIS8_S8_EE_EclINS_17__normal_iteratorIPKSG_St6vectorISG_SaISG_EEEEEEbS9_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.025.2)
   %spec.select = select i1 %36, ptr %.sroa.025.2, ptr %1
   br label %.loopexit
@@ -57152,19 +57152,19 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 160:                                              ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit
   switch i32 %158, label %.thread50 [
-    i32 2, label %161
-    i32 1, label %165
+    i32 2, label %165
+    i32 1, label %161
   ]
 
 161:                                              ; preds = %160
-  %162 = load ptr, ptr %147, align 8, !tbaa !116
-  %163 = load ptr, ptr %148, align 8, !tbaa !116
+  %162 = load ptr, ptr %145, align 8, !tbaa !115
+  %163 = load ptr, ptr %146, align 8, !tbaa !115
   %164 = icmp eq ptr %162, %163
   br i1 %164, label %.thread50, label %.thread
 
 165:                                              ; preds = %160
-  %166 = load ptr, ptr %145, align 8, !tbaa !115
-  %167 = load ptr, ptr %146, align 8, !tbaa !115
+  %166 = load ptr, ptr %147, align 8, !tbaa !116
+  %167 = load ptr, ptr %148, align 8, !tbaa !116
   %168 = icmp eq ptr %166, %167
   br i1 %168, label %.thread50, label %.thread
 
@@ -58208,19 +58208,19 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 139:                                              ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit
   switch i32 %137, label %.thread47 [
-    i32 2, label %140
-    i32 1, label %144
+    i32 2, label %144
+    i32 1, label %140
   ]
 
 140:                                              ; preds = %139
-  %141 = load ptr, ptr %128, align 8, !tbaa !116
-  %142 = load ptr, ptr %129, align 8, !tbaa !116
+  %141 = load ptr, ptr %126, align 8, !tbaa !115
+  %142 = load ptr, ptr %127, align 8, !tbaa !115
   %143 = icmp eq ptr %141, %142
   br i1 %143, label %.thread47, label %.thread
 
 144:                                              ; preds = %139
-  %145 = load ptr, ptr %126, align 8, !tbaa !115
-  %146 = load ptr, ptr %127, align 8, !tbaa !115
+  %145 = load ptr, ptr %128, align 8, !tbaa !116
+  %146 = load ptr, ptr %129, align 8, !tbaa !116
   %147 = icmp eq ptr %145, %146
   br i1 %147, label %.thread47, label %.thread
 
@@ -59574,7 +59574,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %30, %29 ]
+  %.sroa.025.1 = phi ptr [ %30, %29 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %32 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZNK4YAML6detail9node_data3getImEEPNS3_4nodeERKT_St10shared_ptrINS3_13memory_holderEEEUlSt4pairIS7_S7_EE_EclINS_17__normal_iteratorIPKSF_St6vectorISF_SaISF_EEEEEEbS8_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.025.1)
   br i1 %32, label %.loopexit, label %33
 
@@ -59583,7 +59583,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %34, %33 ]
+  %.sroa.025.2 = phi ptr [ %34, %33 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %36 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZNK4YAML6detail9node_data3getImEEPNS3_4nodeERKT_St10shared_ptrINS3_13memory_holderEEEUlSt4pairIS7_S7_EE_EclINS_17__normal_iteratorIPKSF_St6vectorISF_SaISF_EEEEEEbS8_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.025.2)
   %spec.select = select i1 %36, ptr %.sroa.025.2, ptr %1
   br label %.loopexit
@@ -60516,7 +60516,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35: ; preds = %136, %
   br label %148
 
 148:                                              ; preds = %145, %142, %141, %.thread.i38
-  %.0.i.i.i = phi i1 [ %147, %145 ], [ %144, %142 ], [ false, %.thread.i38 ], [ true, %141 ]
+  %.0.i.i.i = phi i1 [ %144, %142 ], [ %147, %145 ], [ false, %.thread.i38 ], [ true, %141 ]
   %.not.i.i.i39 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i39, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %149
 
@@ -63554,7 +63554,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i: ; preds = %373,
   br label %385
 
 385:                                              ; preds = %382, %379, %378, %.thread.i65.i
-  %.0.i.i.i.i = phi i1 [ %384, %382 ], [ %381, %379 ], [ false, %.thread.i65.i ], [ true, %378 ]
+  %.0.i.i.i.i = phi i1 [ %381, %379 ], [ %384, %382 ], [ false, %.thread.i65.i ], [ true, %378 ]
   %.not.i.i.i67.i = icmp eq ptr %.sroa.16.1.i, null
   br i1 %.not.i.i.i67.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i, label %386
 
@@ -65178,7 +65178,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i: ; preds = %1022
   br label %1034
 
 1034:                                             ; preds = %1031, %1028, %1027, %.thread.i58.i
-  %.0.i.i.i.i103 = phi i1 [ %1033, %1031 ], [ %1030, %1028 ], [ false, %.thread.i58.i ], [ true, %1027 ]
+  %.0.i.i.i.i103 = phi i1 [ %1030, %1028 ], [ %1033, %1031 ], [ false, %.thread.i58.i ], [ true, %1027 ]
   %.not.i.i.i61.i = icmp eq ptr %.sroa.16.1.i101, null
   br i1 %.not.i.i.i61.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i104, label %1035
 
@@ -66730,7 +66730,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i: ; preds = %166
   br label %1680
 
 1680:                                             ; preds = %1677, %1674, %1673, %.thread.i127.i
-  %.0.i.i.i.i195 = phi i1 [ %1679, %1677 ], [ %1676, %1674 ], [ false, %.thread.i127.i ], [ true, %1673 ]
+  %.0.i.i.i.i195 = phi i1 [ %1676, %1674 ], [ %1679, %1677 ], [ false, %.thread.i127.i ], [ true, %1673 ]
   %.not.i.i.i129.i = icmp eq ptr %.sroa.16.1.i192, null
   br i1 %.not.i.i.i129.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i196, label %1681
 
@@ -69516,7 +69516,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323: ; preds = %2
   br label %2778
 
 2778:                                             ; preds = %2775, %2772, %2771, %.thread.i70.i
-  %.0.i.i.i.i280 = phi i1 [ %2777, %2775 ], [ %2774, %2772 ], [ false, %.thread.i70.i ], [ true, %2771 ]
+  %.0.i.i.i.i280 = phi i1 [ %2774, %2772 ], [ %2777, %2775 ], [ false, %.thread.i70.i ], [ true, %2771 ]
   %.not.i.i.i72.i = icmp eq ptr %.sroa.16.1.i277, null
   br i1 %.not.i.i.i72.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i281, label %2779
 
@@ -71270,7 +71270,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i: ; preds = %3482
   br label %3494
 
 3494:                                             ; preds = %3491, %3488, %3487, %.thread.i85.i
-  %.0.i.i.i.i366 = phi i1 [ %3493, %3491 ], [ %3490, %3488 ], [ false, %.thread.i85.i ], [ true, %3487 ]
+  %.0.i.i.i.i366 = phi i1 [ %3490, %3488 ], [ %3493, %3491 ], [ false, %.thread.i85.i ], [ true, %3487 ]
   %.not.i.i.i87.i = icmp eq ptr %.sroa.16.1.i364, null
   br i1 %.not.i.i.i87.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i367, label %3495
 
@@ -73964,19 +73964,19 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 139:                                              ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit
   switch i32 %137, label %.thread47 [
-    i32 2, label %140
-    i32 1, label %144
+    i32 2, label %144
+    i32 1, label %140
   ]
 
 140:                                              ; preds = %139
-  %141 = load ptr, ptr %128, align 8, !tbaa !116
-  %142 = load ptr, ptr %129, align 8, !tbaa !116
+  %141 = load ptr, ptr %126, align 8, !tbaa !115
+  %142 = load ptr, ptr %127, align 8, !tbaa !115
   %143 = icmp eq ptr %141, %142
   br i1 %143, label %.thread47, label %.thread
 
 144:                                              ; preds = %139
-  %145 = load ptr, ptr %126, align 8, !tbaa !115
-  %146 = load ptr, ptr %127, align 8, !tbaa !115
+  %145 = load ptr, ptr %128, align 8, !tbaa !116
+  %146 = load ptr, ptr %129, align 8, !tbaa !116
   %147 = icmp eq ptr %145, %146
   br i1 %147, label %.thread47, label %.thread
 
@@ -75512,7 +75512,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85: ; preds = %246, %
   br label %258
 
 258:                                              ; preds = %255, %252, %251, %.thread.i88
-  %.0.i.i.i = phi i1 [ %257, %255 ], [ %254, %252 ], [ false, %.thread.i88 ], [ true, %251 ]
+  %.0.i.i.i = phi i1 [ %254, %252 ], [ %257, %255 ], [ false, %.thread.i88 ], [ true, %251 ]
   %.not.i.i.i90 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i90, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %259
 
@@ -77972,7 +77972,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128: ; preds = %287, 
   br label %299
 
 299:                                              ; preds = %296, %293, %292, %.thread.i131
-  %.0.i.i.i = phi i1 [ %298, %296 ], [ %295, %293 ], [ false, %.thread.i131 ], [ true, %292 ]
+  %.0.i.i.i = phi i1 [ %295, %293 ], [ %298, %296 ], [ false, %.thread.i131 ], [ true, %292 ]
   %.not.i.i.i133 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i133, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %300
 
@@ -80978,7 +80978,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122: ; preds = %261, 
   br label %273
 
 273:                                              ; preds = %270, %267, %266, %.thread.i125
-  %.0.i.i.i = phi i1 [ %272, %270 ], [ %269, %267 ], [ false, %.thread.i125 ], [ true, %266 ]
+  %.0.i.i.i = phi i1 [ %269, %267 ], [ %272, %270 ], [ false, %.thread.i125 ], [ true, %266 ]
   %.not.i.i.i127 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i127, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %274
 
@@ -83505,7 +83505,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %227, %
   br label %239
 
 239:                                              ; preds = %236, %233, %232, %.thread.i75
-  %.0.i.i.i = phi i1 [ %238, %236 ], [ %235, %233 ], [ false, %.thread.i75 ], [ true, %232 ]
+  %.0.i.i.i = phi i1 [ %235, %233 ], [ %238, %236 ], [ false, %.thread.i75 ], [ true, %232 ]
   %.not.i.i.i78 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i78, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %240
 
@@ -85477,7 +85477,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95: ; preds = %241, %
   br label %253
 
 253:                                              ; preds = %250, %247, %246, %.thread.i98
-  %.0.i.i.i = phi i1 [ %252, %250 ], [ %249, %247 ], [ false, %.thread.i98 ], [ true, %246 ]
+  %.0.i.i.i = phi i1 [ %249, %247 ], [ %252, %250 ], [ false, %.thread.i98 ], [ true, %246 ]
   %.not.i.i.i100 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i100, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %254
 
@@ -87825,7 +87825,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151: ; preds = %335, 
   br label %347
 
 347:                                              ; preds = %344, %341, %340, %.thread.i154
-  %.0.i.i.i = phi i1 [ %346, %344 ], [ %343, %341 ], [ false, %.thread.i154 ], [ true, %340 ]
+  %.0.i.i.i = phi i1 [ %343, %341 ], [ %346, %344 ], [ false, %.thread.i154 ], [ true, %340 ]
   %.not.i.i.i156 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i156, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %348
 
@@ -91154,7 +91154,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106: ; preds = %299, 
   br label %311
 
 311:                                              ; preds = %308, %305, %304, %.thread.i109
-  %.0.i.i.i = phi i1 [ %310, %308 ], [ %307, %305 ], [ false, %.thread.i109 ], [ true, %304 ]
+  %.0.i.i.i = phi i1 [ %307, %305 ], [ %310, %308 ], [ false, %.thread.i109 ], [ true, %304 ]
   %.not.i.i.i112 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i112, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %312
 
@@ -95611,7 +95611,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115: ; preds = %317, 
   br label %329
 
 329:                                              ; preds = %326, %323, %322, %.thread.i118
-  %.0.i.i.i = phi i1 [ %328, %326 ], [ %325, %323 ], [ false, %.thread.i118 ], [ true, %322 ]
+  %.0.i.i.i = phi i1 [ %325, %323 ], [ %328, %326 ], [ false, %.thread.i118 ], [ true, %322 ]
   %.not.i.i.i120 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i120, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %330
 
@@ -98733,7 +98733,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %310, %
   br label %322
 
 322:                                              ; preds = %319, %316, %315, %.thread.i75
-  %.0.i.i.i = phi i1 [ %321, %319 ], [ %318, %316 ], [ false, %.thread.i75 ], [ true, %315 ]
+  %.0.i.i.i = phi i1 [ %318, %316 ], [ %321, %319 ], [ false, %.thread.i75 ], [ true, %315 ]
   %.not.i.i.i77 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i77, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %323
 
@@ -102570,7 +102570,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98: ; preds = %253, %
   br label %265
 
 265:                                              ; preds = %262, %259, %258, %.thread.i101
-  %.0.i.i.i = phi i1 [ %264, %262 ], [ %261, %259 ], [ false, %.thread.i101 ], [ true, %258 ]
+  %.0.i.i.i = phi i1 [ %261, %259 ], [ %264, %262 ], [ false, %.thread.i101 ], [ true, %258 ]
   %.not.i.i.i103 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i103, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %266
 
@@ -104990,7 +104990,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120: ; preds = %269, 
   br label %281
 
 281:                                              ; preds = %278, %275, %274, %.thread.i123
-  %.0.i.i.i = phi i1 [ %280, %278 ], [ %277, %275 ], [ false, %.thread.i123 ], [ true, %274 ]
+  %.0.i.i.i = phi i1 [ %277, %275 ], [ %280, %278 ], [ false, %.thread.i123 ], [ true, %274 ]
   %.not.i.i.i125 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i125, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %282
 
@@ -107592,7 +107592,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74: ; preds = %221, %
   br label %233
 
 233:                                              ; preds = %230, %227, %226, %.thread.i77
-  %.0.i.i.i = phi i1 [ %232, %230 ], [ %229, %227 ], [ false, %.thread.i77 ], [ true, %226 ]
+  %.0.i.i.i = phi i1 [ %229, %227 ], [ %232, %230 ], [ false, %.thread.i77 ], [ true, %226 ]
   %.not.i.i.i79 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i79, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %234
 
@@ -109574,7 +109574,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70: ; preds = %223, %
   br label %235
 
 235:                                              ; preds = %232, %229, %228, %.thread.i73
-  %.0.i.i.i = phi i1 [ %234, %232 ], [ %231, %229 ], [ false, %.thread.i73 ], [ true, %228 ]
+  %.0.i.i.i = phi i1 [ %231, %229 ], [ %234, %232 ], [ false, %.thread.i73 ], [ true, %228 ]
   %.not.i.i.i75 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i75, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %236
 
@@ -111482,7 +111482,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88: ; preds = %229, %
   br label %241
 
 241:                                              ; preds = %238, %235, %234, %.thread.i91
-  %.0.i.i.i = phi i1 [ %240, %238 ], [ %237, %235 ], [ false, %.thread.i91 ], [ true, %234 ]
+  %.0.i.i.i = phi i1 [ %237, %235 ], [ %240, %238 ], [ false, %.thread.i91 ], [ true, %234 ]
   %.not.i.i.i93 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i93, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %242
 
@@ -113758,7 +113758,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81: ; preds = %242, %
   br label %254
 
 254:                                              ; preds = %251, %248, %247, %.thread.i84
-  %.0.i.i.i = phi i1 [ %253, %251 ], [ %250, %248 ], [ false, %.thread.i84 ], [ true, %247 ]
+  %.0.i.i.i = phi i1 [ %250, %248 ], [ %253, %251 ], [ false, %.thread.i84 ], [ true, %247 ]
   %.not.i.i.i86 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i86, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %255
 
@@ -116289,7 +116289,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78: ; preds = %169, %
   br label %181
 
 181:                                              ; preds = %178, %175, %174, %.thread.i81
-  %.0.i.i.i = phi i1 [ %180, %178 ], [ %177, %175 ], [ false, %.thread.i81 ], [ true, %174 ]
+  %.0.i.i.i = phi i1 [ %177, %175 ], [ %180, %178 ], [ false, %.thread.i81 ], [ true, %174 ]
   %.not.i.i.i82 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i82, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %182
 
@@ -117750,7 +117750,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %172, %
   br label %184
 
 184:                                              ; preds = %181, %178, %177, %.thread.i75
-  %.0.i.i.i = phi i1 [ %183, %181 ], [ %180, %178 ], [ false, %.thread.i75 ], [ true, %177 ]
+  %.0.i.i.i = phi i1 [ %180, %178 ], [ %183, %181 ], [ false, %.thread.i75 ], [ true, %177 ]
   %.not.i.i.i76 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i76, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %185
 
@@ -119198,7 +119198,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63: ; preds = %163, %
   br label %175
 
 175:                                              ; preds = %172, %169, %168, %.thread.i66
-  %.0.i.i.i = phi i1 [ %174, %172 ], [ %171, %169 ], [ false, %.thread.i66 ], [ true, %168 ]
+  %.0.i.i.i = phi i1 [ %171, %169 ], [ %174, %172 ], [ false, %.thread.i66 ], [ true, %168 ]
   %.not.i.i.i67 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i67, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %176
 
@@ -120845,7 +120845,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111: ; preds = %172, 
   br label %184
 
 184:                                              ; preds = %181, %178, %177, %.thread.i114
-  %.0.i.i.i = phi i1 [ %183, %181 ], [ %180, %178 ], [ false, %.thread.i114 ], [ true, %177 ]
+  %.0.i.i.i = phi i1 [ %180, %178 ], [ %183, %181 ], [ false, %.thread.i114 ], [ true, %177 ]
   %.not.i.i.i115 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i115, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %185
 
@@ -122791,7 +122791,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107: ; preds = %188, 
   br label %200
 
 200:                                              ; preds = %197, %194, %193, %.thread.i110
-  %.0.i.i.i = phi i1 [ %199, %197 ], [ %196, %194 ], [ false, %.thread.i110 ], [ true, %193 ]
+  %.0.i.i.i = phi i1 [ %196, %194 ], [ %199, %197 ], [ false, %.thread.i110 ], [ true, %193 ]
   %.not.i.i.i111 = icmp eq ptr %.sroa.16.1, null
   br i1 %.not.i.i.i111, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %201
 

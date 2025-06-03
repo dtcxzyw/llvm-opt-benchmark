@@ -775,7 +775,7 @@ _ZN6LibRaw4get4Ev.exit26:                         ; preds = %249, %251
   br label %297
 
 297:                                              ; preds = %289, %287, %_ZN6LibRaw4get4Ev.exit26, %_ZN6LibRaw4get4Ev.exit24, %_ZN6LibRaw4get4Ev.exit20, %_ZN6LibRaw4get2Ev.exit18, %_ZN6LibRaw4get4Ev.exit16, %_ZN6LibRaw4get4Ev.exit, %_ZN6LibRaw4get2Ev.exit
-  %.0 = phi nsz double [ %296, %289 ], [ %288, %287 ], [ %270, %_ZN6LibRaw4get4Ev.exit26 ], [ %238, %_ZN6LibRaw4get4Ev.exit24 ], [ %177, %_ZN6LibRaw4get4Ev.exit20 ], [ %146, %_ZN6LibRaw4get2Ev.exit18 ], [ %125, %_ZN6LibRaw4get4Ev.exit16 ], [ %64, %_ZN6LibRaw4get4Ev.exit ], [ %33, %_ZN6LibRaw4get2Ev.exit ]
+  %.0 = phi nsz double [ %296, %289 ], [ %33, %_ZN6LibRaw4get2Ev.exit ], [ %64, %_ZN6LibRaw4get4Ev.exit ], [ %125, %_ZN6LibRaw4get4Ev.exit16 ], [ %146, %_ZN6LibRaw4get2Ev.exit18 ], [ %177, %_ZN6LibRaw4get4Ev.exit20 ], [ %238, %_ZN6LibRaw4get4Ev.exit24 ], [ %270, %_ZN6LibRaw4get4Ev.exit26 ], [ %288, %287 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
   ret double %.0
 }
@@ -1093,7 +1093,7 @@ _Z19libraw_sget4_staticsPh.exit46:                ; preds = %169, %171
   br label %206
 
 206:                                              ; preds = %202, %200, %_Z19libraw_sget4_staticsPh.exit46, %_Z19libraw_sget4_staticsPh.exit44, %_Z19libraw_sget4_staticsPh.exit40, %_Z19libraw_sget2_staticsPh.exit38, %_Z19libraw_sget4_staticsPh.exit36, %_Z19libraw_sget4_staticsPh.exit, %_Z19libraw_sget2_staticsPh.exit
-  %.0 = phi nsz double [ %205, %202 ], [ %201, %200 ], [ %190, %_Z19libraw_sget4_staticsPh.exit46 ], [ %166, %_Z19libraw_sget4_staticsPh.exit44 ], [ %121, %_Z19libraw_sget4_staticsPh.exit40 ], [ %98, %_Z19libraw_sget2_staticsPh.exit38 ], [ %85, %_Z19libraw_sget4_staticsPh.exit36 ], [ %40, %_Z19libraw_sget4_staticsPh.exit ], [ %17, %_Z19libraw_sget2_staticsPh.exit ]
+  %.0 = phi nsz double [ %205, %202 ], [ %17, %_Z19libraw_sget2_staticsPh.exit ], [ %40, %_Z19libraw_sget4_staticsPh.exit ], [ %85, %_Z19libraw_sget4_staticsPh.exit36 ], [ %98, %_Z19libraw_sget2_staticsPh.exit38 ], [ %121, %_Z19libraw_sget4_staticsPh.exit40 ], [ %166, %_Z19libraw_sget4_staticsPh.exit44 ], [ %190, %_Z19libraw_sget4_staticsPh.exit46 ], [ %201, %200 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret double %.0
 }

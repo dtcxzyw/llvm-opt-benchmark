@@ -2713,7 +2713,7 @@ define dso_local noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_a
   br i1 %.not30.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader, %30, %25, %.thread, %8, %14
-  %.121 = phi i1 [ true, %8 ], [ false, %14 ], [ false, %.thread ], [ false, %30 ], [ true, %25 ], [ true, %.preheader ]
+  %.121 = phi i1 [ false, %14 ], [ true, %8 ], [ false, %.thread ], [ false, %30 ], [ true, %25 ], [ true, %.preheader ]
   ret i1 %.121
 }
 

@@ -7351,7 +7351,7 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_p
   tail call void @_ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE(ptr noundef nonnull readonly align 8 dereferenceable(1168) %0, i64 %.sroa.0.0.copyload.i.i)
   br label %_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE.exit
 
-_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE.exit: ; preds = %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %238, %236, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %105, %102, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
+_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE.exit: ; preds = %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %238, %236, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %105, %102, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
   ret void
 }
 
@@ -13077,7 +13077,7 @@ _ZN5clang14TextNodeDumper11dumpPointerEPKv.exit:  ; preds = %_ZN4llvm11raw_ostre
   br label %_ZNK5clang16ConceptReference11getBeginLocEv.exit.i
 
 _ZNK5clang16ConceptReference11getBeginLocEv.exit.i: ; preds = %75, %73
-  %.sroa.0.1.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i, %73 ], [ %.sroa.0.0.copyload.i.i.i, %75 ]
+  %.sroa.0.1.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %75 ], [ %.sroa.0.0.extract.trunc.i.i.i, %73 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %78 = load ptr, ptr %77, align 8, !tbaa !549
   %.not.i2.i11 = icmp eq ptr %78, null
@@ -16273,9 +16273,9 @@ define dso_local void @_ZN5clang14TextNodeDumper19dumpAccessSpecifierENS_15Acces
 5:                                                ; preds = %2
   unreachable
 
-6:                                                ; preds = %2, %4, %3
-  %.sroa.0.0.i.ph = phi ptr [ @.str.890, %3 ], [ @.str.850, %4 ], [ @.str.889, %2 ]
-  %.sroa.6.0.i.ph = phi i64 [ 9, %3 ], [ 7, %4 ], [ 6, %2 ]
+6:                                                ; preds = %2, %3, %4
+  %.sroa.0.0.i.ph = phi ptr [ @.str.850, %4 ], [ @.str.890, %3 ], [ @.str.889, %2 ]
+  %.sroa.6.0.i.ph = phi i64 [ 7, %4 ], [ 9, %3 ], [ 6, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %8 = load ptr, ptr %7, align 8, !tbaa !414
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -28311,7 +28311,7 @@ _ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit: ; preds = %2
   %spec.select.i.i = icmp ult i32 %33, 20
   br i1 %spec.select.i.i, label %34, label %50
 
-34:                                               ; preds = %28, %20, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit
+34:                                               ; preds = %20, %28, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %36 = load ptr, ptr %35, align 8, !tbaa !414
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -28335,7 +28335,7 @@ _ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit: ; preds = %2
   store ptr %49, ptr %39, align 8, !tbaa !423
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-50:                                               ; preds = %28, %20, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit
+50:                                               ; preds = %20, %28, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %52 = load ptr, ptr %51, align 8, !tbaa !414
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -28448,7 +28448,7 @@ _ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit24: ; preds = %_
   %spec.select.i.i19 = icmp ult i32 %115, 20
   br i1 %spec.select.i.i19, label %116, label %132
 
-116:                                              ; preds = %110, %102, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit24
+116:                                              ; preds = %102, %110, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit24
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %118 = load ptr, ptr %117, align 8, !tbaa !414
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
@@ -28472,7 +28472,7 @@ _ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit24: ; preds = %_
   store ptr %131, ptr %121, align 8, !tbaa !423
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit27
 
-132:                                              ; preds = %110, %102, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit24
+132:                                              ; preds = %102, %110, %_ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit24
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %134 = load ptr, ptr %133, align 8, !tbaa !414
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
@@ -40027,8 +40027,8 @@ default.unreachable:                              ; preds = %_ZN4llvm11raw_ostre
   unreachable
 
 19:                                               ; preds = %18, %17, %_ZN4llvm11raw_ostreamlsEc.exit
-  %.sroa.0.0.i.ph.i = phi ptr [ @.str.890, %17 ], [ @.str.850, %18 ], [ @.str.889, %_ZN4llvm11raw_ostreamlsEc.exit ]
-  %.sroa.6.0.i.ph.i = phi i64 [ 9, %17 ], [ 7, %18 ], [ 6, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  %.sroa.0.0.i.ph.i = phi ptr [ @.str.850, %18 ], [ @.str.890, %17 ], [ @.str.889, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  %.sroa.6.0.i.ph.i = phi i64 [ 7, %18 ], [ 9, %17 ], [ 6, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %20 = load ptr, ptr %3, align 8, !tbaa !414
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !419
@@ -84389,8 +84389,8 @@ default.unreachable:                              ; preds = %_ZN4llvm11raw_ostre
   unreachable
 
 30:                                               ; preds = %29, %28, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %.sroa.0.0.i.ph.i = phi ptr [ @.str.890, %28 ], [ @.str.850, %29 ], [ @.str.889, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %.sroa.6.0.i.ph.i = phi i64 [ 9, %28 ], [ 7, %29 ], [ 6, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.sroa.0.0.i.ph.i = phi ptr [ @.str.850, %29 ], [ @.str.890, %28 ], [ @.str.889, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.sroa.6.0.i.ph.i = phi i64 [ 7, %29 ], [ 9, %28 ], [ 6, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   %32 = load ptr, ptr %31, align 8, !tbaa !414
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24

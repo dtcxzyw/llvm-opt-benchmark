@@ -798,7 +798,7 @@ ehcleanup31:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb
-  %nStates.0 = phi i64 [ %call, %sw.bb3 ], [ %add, %sw.bb ]
+  %nStates.0 = phi i64 [ %add, %sw.bb ], [ %call, %sw.bb3 ]
   %call33 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22
   invoke void @_ZN8QuantLib11Fdm1dMesherC2Em(ptr noundef nonnull align 8 dereferenceable(80) %call33, i64 noundef %nStates.0)
           to label %.noexc unwind label %lpad34

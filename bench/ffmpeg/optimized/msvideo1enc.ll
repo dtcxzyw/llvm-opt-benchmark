@@ -791,7 +791,7 @@ default.unreachable:                              ; preds = %252
   br label %.loopexit
 
 .loopexit:                                        ; preds = %375, %.loopexit.loopexit, %252, %305
-  %.2418.ph = phi ptr [ %325, %305 ], [ %.3419, %252 ], [ %391, %.loopexit.loopexit ], [ %389, %375 ]
+  %.2418.ph = phi ptr [ %.3419, %252 ], [ %325, %305 ], [ %391, %.loopexit.loopexit ], [ %389, %375 ]
   %indvars.iv.next669 = add nuw nsw i64 %indvars.iv668, 4
   %392 = load i32, ptr %7, align 8, !tbaa !32
   %393 = sext i32 %392 to i64

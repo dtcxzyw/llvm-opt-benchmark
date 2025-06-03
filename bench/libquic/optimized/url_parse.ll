@@ -1443,8 +1443,8 @@ _ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; pre
   br label %64
 
 64:                                               ; preds = %62, %60, %.lr.ph.i36
-  %.128.i = phi i32 [ %.02735.i, %.lr.ph.i36 ], [ %63, %62 ], [ %.02735.i, %60 ]
-  %.1.i = phi i32 [ %.036.i, %.lr.ph.i36 ], [ %.036.i, %62 ], [ %61, %60 ]
+  %.128.i = phi i32 [ %.02735.i, %.lr.ph.i36 ], [ %.02735.i, %60 ], [ %63, %62 ]
+  %.1.i = phi i32 [ %.036.i, %.lr.ph.i36 ], [ %61, %60 ], [ %.036.i, %62 ]
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, 1
   %65 = icmp slt i64 %indvars.iv.next.i38, %56
   br i1 %65, label %.lr.ph.i36, label %._crit_edge.i, !llvm.loop !37
@@ -1546,8 +1546,8 @@ _ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; pre
   br label %100
 
 100:                                              ; preds = %98, %96, %.lr.ph.i53
-  %.128.i57 = phi i32 [ %.02735.i56, %.lr.ph.i53 ], [ %99, %98 ], [ %.02735.i56, %96 ]
-  %.1.i58 = phi i32 [ %.036.i55, %.lr.ph.i53 ], [ %.036.i55, %98 ], [ %97, %96 ]
+  %.128.i57 = phi i32 [ %.02735.i56, %.lr.ph.i53 ], [ %.02735.i56, %96 ], [ %99, %98 ]
+  %.1.i58 = phi i32 [ %.036.i55, %.lr.ph.i53 ], [ %97, %96 ], [ %.036.i55, %98 ]
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i54, 1
   %101 = icmp slt i64 %indvars.iv.next.i59, %92
   br i1 %101, label %.lr.ph.i53, label %._crit_edge.i40, !llvm.loop !37
@@ -1761,8 +1761,8 @@ _ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; pre
   br label %64
 
 64:                                               ; preds = %62, %60, %.lr.ph.i36
-  %.128.i = phi i32 [ %.02735.i, %.lr.ph.i36 ], [ %63, %62 ], [ %.02735.i, %60 ]
-  %.1.i = phi i32 [ %.036.i, %.lr.ph.i36 ], [ %.036.i, %62 ], [ %61, %60 ]
+  %.128.i = phi i32 [ %.02735.i, %.lr.ph.i36 ], [ %.02735.i, %60 ], [ %63, %62 ]
+  %.1.i = phi i32 [ %.036.i, %.lr.ph.i36 ], [ %61, %60 ], [ %.036.i, %62 ]
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, 1
   %65 = icmp slt i64 %indvars.iv.next.i38, %56
   br i1 %65, label %.lr.ph.i36, label %._crit_edge.i, !llvm.loop !40
@@ -1864,8 +1864,8 @@ _ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; pre
   br label %100
 
 100:                                              ; preds = %98, %96, %.lr.ph.i53
-  %.128.i57 = phi i32 [ %.02735.i56, %.lr.ph.i53 ], [ %99, %98 ], [ %.02735.i56, %96 ]
-  %.1.i58 = phi i32 [ %.036.i55, %.lr.ph.i53 ], [ %.036.i55, %98 ], [ %97, %96 ]
+  %.128.i57 = phi i32 [ %.02735.i56, %.lr.ph.i53 ], [ %.02735.i56, %96 ], [ %99, %98 ]
+  %.1.i58 = phi i32 [ %.036.i55, %.lr.ph.i53 ], [ %97, %96 ], [ %.036.i55, %98 ]
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i54, 1
   %101 = icmp slt i64 %indvars.iv.next.i59, %92
   br i1 %101, label %.lr.ph.i53, label %._crit_edge.i40, !llvm.loop !40

@@ -1004,7 +1004,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   unreachable
 
 53:                                               ; preds = %72, %48
-  %.0 = phi i64 [ %35, %72 ], [ 0, %48 ]
+  %.0 = phi i64 [ 0, %48 ], [ %35, %72 ]
   ret i64 %.0
 
 54:                                               ; preds = %30
@@ -1155,7 +1155,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   unreachable
 
 55:                                               ; preds = %108, %50
-  %.0 = phi i64 [ %37, %108 ], [ 0, %50 ]
+  %.0 = phi i64 [ 0, %50 ], [ %37, %108 ]
   ret i64 %.0
 
 56:                                               ; preds = %32

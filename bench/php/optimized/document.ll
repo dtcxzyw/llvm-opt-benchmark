@@ -4831,7 +4831,7 @@ define internal fastcc void @dom_document_schema_validate(ptr noundef readonly c
   br label %73
 
 73:                                               ; preds = %70, %68
-  %.055 = phi ptr [ %72, %70 ], [ %69, %68 ]
+  %.055 = phi ptr [ %69, %68 ], [ %72, %70 ]
   call void @xmlSchemaSetParserErrors(ptr noundef %.055, ptr noundef nonnull @php_libxml_error_handler, ptr noundef nonnull @php_libxml_error_handler, ptr noundef %.055) #10
   %74 = call ptr @xmlSchemaParse(ptr noundef %.055) #10
   call void @xmlSchemaFreeParserCtxt(ptr noundef %.055) #10
@@ -5027,7 +5027,7 @@ define internal fastcc void @dom_document_relaxNG_validate(ptr noundef readonly 
   br label %49
 
 49:                                               ; preds = %46, %44
-  %.0 = phi ptr [ %48, %46 ], [ %45, %44 ]
+  %.0 = phi ptr [ %45, %44 ], [ %48, %46 ]
   %50 = call ptr @__xmlLoadExtDtdDefaultValue() #10
   %51 = load i32, ptr %50, align 4, !tbaa !111
   %52 = call ptr @__xmlLoadExtDtdDefaultValue() #10

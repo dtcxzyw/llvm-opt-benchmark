@@ -120,8 +120,8 @@ define hidden range(i32 3, 9) i32 @lj_err_unwind_dwarf(i32 noundef %0, i32 nound
   br label %58
 
 58:                                               ; preds = %48, %42, %37
-  %.193.us.i = phi ptr [ %.092155.us.i, %37 ], [ %44, %42 ], [ %.092155.us.i, %48 ]
-  %.188.us.i = phi ptr [ %40, %37 ], [ %47, %42 ], [ %57, %48 ]
+  %.193.us.i = phi ptr [ %.092155.us.i, %48 ], [ %44, %42 ], [ %.092155.us.i, %37 ]
+  %.188.us.i = phi ptr [ %57, %48 ], [ %47, %42 ], [ %40, %37 ]
   %.not.us.i = icmp eq ptr %.193.us.i, null
   br i1 %.not.us.i, label %err_unwind.exit, label %.lr.ph.split.us.i
 
@@ -268,8 +268,8 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %125
 
 125:                                              ; preds = %115, %109, %104
-  %.193.us.i56 = phi ptr [ %.092155.us.i52, %104 ], [ %111, %109 ], [ %.092155.us.i52, %115 ]
-  %.188.us.i57 = phi ptr [ %107, %104 ], [ %114, %109 ], [ %124, %115 ]
+  %.193.us.i56 = phi ptr [ %.092155.us.i52, %115 ], [ %111, %109 ], [ %.092155.us.i52, %104 ]
+  %.188.us.i57 = phi ptr [ %124, %115 ], [ %114, %109 ], [ %107, %104 ]
   %.not.us.i58 = icmp eq ptr %.193.us.i56, null
   br i1 %.not.us.i58, label %.thread122.i42, label %.lr.ph.split.us.i50
 
@@ -351,7 +351,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %165
 
 165:                                              ; preds = %155, %151, %143
-  %.188.us195.i = phi ptr [ %146, %143 ], [ %154, %151 ], [ %164, %155 ]
+  %.188.us195.i = phi ptr [ %164, %155 ], [ %154, %151 ], [ %146, %143 ]
   %.not101.us193.i = icmp ult ptr %.188.us195.i, %136
   br i1 %.not101.us193.i, label %.split.us.i47, label %138
 
@@ -408,7 +408,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %189
 
 189:                                              ; preds = %179, %175
-  %.188.us226.i = phi ptr [ %178, %175 ], [ %188, %179 ]
+  %.188.us226.i = phi ptr [ %188, %179 ], [ %178, %175 ]
   %.not102.us227.i = icmp ugt ptr %.188.us226.i, %168
   br i1 %.not102.us227.i, label %.lr.ph225.split.us.i, label %.thread122.i42
 
@@ -458,7 +458,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %214
 
 214:                                              ; preds = %204, %200, %192
-  %.188.us246.i = phi ptr [ %195, %192 ], [ %203, %200 ], [ %213, %204 ]
+  %.188.us246.i = phi ptr [ %213, %204 ], [ %203, %200 ], [ %195, %192 ]
   %.not102.us247.i = icmp ugt ptr %.188.us246.i, %168
   br i1 %.not102.us247.i, label %.lr.ph225.split.us244.i, label %.thread122.i42
 
@@ -612,7 +612,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %err_unwind.exit62
 
 283:                                              ; preds = %260, %220
-  %.188.i = phi ptr [ %263, %260 ], [ %229, %220 ]
+  %.188.i = phi ptr [ %229, %220 ], [ %263, %260 ]
   %.not102.i = icmp ugt ptr %.188.i, %168
   br i1 %.not102.i, label %.lr.ph225.split.i, label %.thread122.i42
 
@@ -1016,7 +1016,7 @@ define hidden void @lj_err_run(ptr noundef %0) local_unnamed_addr #5 {
   br label %59
 
 59:                                               ; preds = %56, %43
-  %.2.i = phi ptr [ %.1.i, %43 ], [ %58, %56 ]
+  %.2.i = phi ptr [ %58, %56 ], [ %.1.i, %43 ]
   %60 = and i64 %44, -8
   %61 = sub i64 0, %60
   %62 = getelementptr inbounds i8, ptr %.03658.i, i64 %61
@@ -1086,15 +1086,15 @@ default.unreachable:                              ; preds = %43
   unreachable
 
 103:                                              ; preds = %82, %70, %59, %46
-  %.137.i = phi ptr [ %87, %82 ], [ %73, %70 ], [ %62, %59 ], [ %55, %46 ]
-  %.3.i = phi ptr [ %84, %82 ], [ %.4.i, %70 ], [ %.2.i, %59 ], [ %.1.i, %46 ]
+  %.137.i = phi ptr [ %55, %46 ], [ %62, %59 ], [ %73, %70 ], [ %87, %82 ]
+  %.3.i = phi ptr [ %.1.i, %46 ], [ %.2.i, %59 ], [ %.4.i, %70 ], [ %84, %82 ]
   %104 = icmp ugt ptr %.137.i, %14
   %105 = icmp ne ptr %.3.i, null
   %106 = select i1 %104, i1 %105, i1 false
   br i1 %106, label %.preheader.i, label %finderrfunc.exit.thread, !llvm.loop !66
 
 finderrfunc.exit:                                 ; preds = %99, %80, %37
-  %107 = phi i64 [ %102, %99 ], [ %81, %80 ], [ %38, %37 ]
+  %107 = phi i64 [ %81, %80 ], [ %102, %99 ], [ %38, %37 ]
   %.not26 = icmp eq i64 %107, 0
   br i1 %.not26, label %finderrfunc.exit.thread, label %108
 

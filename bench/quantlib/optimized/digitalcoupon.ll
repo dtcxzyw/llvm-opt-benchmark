@@ -3151,7 +3151,7 @@ lpad629:                                          ; preds = %lor.end.i.i, %_ZNSt
   br label %ehcleanup634
 
 ehcleanup634:                                     ; preds = %lpad629, %ehcleanup619, %ehcleanup576, %ehcleanup516, %ehcleanup455, %ehcleanup395, %ehcleanup324, %ehcleanup261, %ehcleanup208, %ehcleanup151, %ehcleanup90, %lpad54, %lpad50
-  %.pn82.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn.pn.pn, %ehcleanup151 ], [ %.pn76.pn.pn.pn.pn, %ehcleanup208 ], [ %.pn70.pn.pn.pn.pn, %ehcleanup261 ], [ %.pn64.pn.pn.pn.pn, %ehcleanup324 ], [ %.pn58.pn.pn.pn.pn, %ehcleanup619 ], [ %.pn40.pn.pn.pn.pn, %ehcleanup516 ], [ %.pn34.pn.pn.pn.pn, %ehcleanup576 ], [ %308, %lpad629 ], [ %54, %lpad54 ], [ %.pn52.pn.pn.pn.pn, %ehcleanup395 ], [ %.pn46.pn.pn.pn.pn, %ehcleanup455 ], [ %.pn27.pn.pn.pn.pn, %ehcleanup90 ], [ %51, %lpad50 ]
+  %.pn82.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn.pn.pn, %ehcleanup151 ], [ %.pn76.pn.pn.pn.pn, %ehcleanup208 ], [ %.pn70.pn.pn.pn.pn, %ehcleanup261 ], [ %.pn64.pn.pn.pn.pn, %ehcleanup324 ], [ %.pn58.pn.pn.pn.pn, %ehcleanup619 ], [ %308, %lpad629 ], [ %.pn52.pn.pn.pn.pn, %ehcleanup395 ], [ %.pn46.pn.pn.pn.pn, %ehcleanup455 ], [ %54, %lpad54 ], [ %.pn40.pn.pn.pn.pn, %ehcleanup516 ], [ %.pn34.pn.pn.pn.pn, %ehcleanup576 ], [ %.pn27.pn.pn.pn.pn, %ehcleanup90 ], [ %51, %lpad50 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib18FloatingRateCouponEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %underlying_) #27
   call void @_ZN8QuantLib18FloatingRateCouponD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %14) #27
   br label %eh.resume
@@ -6121,7 +6121,7 @@ lpad645:                                          ; preds = %lor.end.i.i, %_ZNSt
   br label %ehcleanup650
 
 ehcleanup650:                                     ; preds = %lpad645, %ehcleanup637, %ehcleanup594, %ehcleanup534, %ehcleanup473, %ehcleanup413, %ehcleanup342, %ehcleanup279, %ehcleanup226, %ehcleanup169, %ehcleanup108, %lpad72, %lpad68
-  %.pn83.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn83.pn.pn.pn.pn, %ehcleanup169 ], [ %.pn77.pn.pn.pn.pn, %ehcleanup226 ], [ %.pn71.pn.pn.pn.pn, %ehcleanup279 ], [ %.pn65.pn.pn.pn.pn, %ehcleanup342 ], [ %.pn59.pn.pn.pn.pn, %ehcleanup637 ], [ %.pn41.pn.pn.pn.pn, %ehcleanup534 ], [ %.pn35.pn.pn.pn.pn, %ehcleanup594 ], [ %305, %lpad645 ], [ %51, %lpad72 ], [ %.pn53.pn.pn.pn.pn, %ehcleanup413 ], [ %.pn47.pn.pn.pn.pn, %ehcleanup473 ], [ %.pn28.pn.pn.pn.pn, %ehcleanup108 ], [ %48, %lpad68 ]
+  %.pn83.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn83.pn.pn.pn.pn, %ehcleanup169 ], [ %.pn77.pn.pn.pn.pn, %ehcleanup226 ], [ %.pn71.pn.pn.pn.pn, %ehcleanup279 ], [ %.pn65.pn.pn.pn.pn, %ehcleanup342 ], [ %.pn59.pn.pn.pn.pn, %ehcleanup637 ], [ %305, %lpad645 ], [ %.pn53.pn.pn.pn.pn, %ehcleanup413 ], [ %.pn47.pn.pn.pn.pn, %ehcleanup473 ], [ %51, %lpad72 ], [ %.pn41.pn.pn.pn.pn, %ehcleanup534 ], [ %.pn35.pn.pn.pn.pn, %ehcleanup594 ], [ %.pn28.pn.pn.pn.pn, %ehcleanup108 ], [ %48, %lpad68 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib18FloatingRateCouponEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %underlying_) #27
   call void @_ZN8QuantLib18FloatingRateCouponD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib13DigitalCouponE, i64 8)) #27
   br label %ehcleanup652

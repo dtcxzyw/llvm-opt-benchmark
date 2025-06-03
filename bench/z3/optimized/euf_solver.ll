@@ -10224,8 +10224,8 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %32, %_ZNK3app13get_
   ret void
 
 332:                                              ; preds = %232, %164
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %232 ], [ %.pn177, %164 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn177.pn = phi { ptr, i32 } [ %.pn177, %164 ], [ %.pn, %232 ]
+  resume { ptr, i32 } %.pn177.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11381,7 +11381,7 @@ _ZN3euflsERSoRKNS_6egraph4b_ppE.exit:             ; preds = %27, %29
   br label %51
 
 51:                                               ; preds = %10, %12, %_ZN3euflsERSoRKNS_6egraph4b_ppE.exit, %45, %46
-  %.1 = phi ptr [ %50, %46 ], [ %1, %45 ], [ %41, %_ZN3euflsERSoRKNS_6egraph4b_ppE.exit ], [ %1, %12 ], [ %1, %10 ]
+  %.1 = phi ptr [ %50, %46 ], [ %1, %45 ], [ %1, %10 ], [ %1, %12 ], [ %41, %_ZN3euflsERSoRKNS_6egraph4b_ppE.exit ]
   ret ptr %.1
 }
 

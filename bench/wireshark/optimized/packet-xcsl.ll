@@ -264,8 +264,8 @@ define internal noundef zeroext i1 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr no
   br label %.outer.i
 
 .outer.i:                                         ; preds = %91, %77, %75, %68, %48, %45
-  %.176.i = phi i8 [ %92, %91 ], [ %.075.ph85.i, %77 ], [ %.075.ph85.i, %48 ], [ %.075.ph85.i, %45 ], [ %.075.ph85.i, %75 ], [ %.075.ph85.i, %68 ]
-  %.1.i = phi i1 [ %.074.ph86.i, %91 ], [ true, %77 ], [ %.074.ph86.i, %48 ], [ %.074.ph86.i, %45 ], [ false, %75 ], [ false, %68 ]
+  %.176.i = phi i8 [ %92, %91 ], [ %.075.ph85.i, %45 ], [ %.075.ph85.i, %48 ], [ %.075.ph85.i, %77 ], [ %.075.ph85.i, %75 ], [ %.075.ph85.i, %68 ]
+  %.1.i = phi i1 [ %.074.ph86.i, %91 ], [ %.074.ph86.i, %45 ], [ %.074.ph86.i, %48 ], [ true, %77 ], [ false, %75 ], [ false, %68 ]
   %93 = add i32 %.072.i, 1
   %94 = add i8 %.070.ph87.i, 1
   %95 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %93)

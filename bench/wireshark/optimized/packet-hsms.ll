@@ -495,7 +495,7 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 29:                                               ; preds = %24, %19, %15
-  %.0143 = phi i32 [ %28, %24 ], [ %23, %19 ], [ %18, %15 ]
+  %.0143 = phi i32 [ %18, %15 ], [ %23, %19 ], [ %28, %24 ]
   %.not = icmp ult i8 %8, 4
   br i1 %.not, label %39, label %30
 

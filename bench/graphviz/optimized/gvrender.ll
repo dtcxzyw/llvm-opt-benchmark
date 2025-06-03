@@ -1982,8 +1982,8 @@ get_imagescale.exit.thread118:                    ; preds = %51
   br label %get_imagescale.exit.thread
 
 get_imagescale.exit.thread:                       ; preds = %get_imagescale.exit, %34, %70, %73, %get_imagescale.exit.thread118, %get_imagescale.exit.thread116, %get_imagescale.exit.thread114
-  %.083 = phi double [ %41, %get_imagescale.exit ], [ %79, %get_imagescale.exit.thread118 ], [ %77, %get_imagescale.exit.thread116 ], [ %41, %get_imagescale.exit.thread114 ], [ %72, %70 ], [ %75, %73 ], [ %41, %34 ]
-  %.0 = phi double [ %42, %get_imagescale.exit ], [ %78, %get_imagescale.exit.thread118 ], [ %42, %get_imagescale.exit.thread116 ], [ %76, %get_imagescale.exit.thread114 ], [ %71, %70 ], [ %74, %73 ], [ %42, %34 ]
+  %.083 = phi double [ %41, %get_imagescale.exit ], [ %72, %70 ], [ %75, %73 ], [ %41, %get_imagescale.exit.thread114 ], [ %77, %get_imagescale.exit.thread116 ], [ %79, %get_imagescale.exit.thread118 ], [ %41, %34 ]
+  %.0 = phi double [ %42, %get_imagescale.exit ], [ %71, %70 ], [ %74, %73 ], [ %76, %get_imagescale.exit.thread114 ], [ %42, %get_imagescale.exit.thread116 ], [ %78, %get_imagescale.exit.thread118 ], [ %42, %34 ]
   %80 = load i8, ptr %6, align 1, !tbaa !106
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %get_imagepos.exit, label %82

@@ -3102,7 +3102,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE9push_backERKS2_.exit34: ; pre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #32
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit39
 
-108:                                              ; preds = %99, %60, %25, %20
+108:                                              ; preds = %25, %20, %60, %99
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 260) #35
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit
 
@@ -3120,8 +3120,8 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit: ; preds = %57, %96,
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit39
 
 .body.loopexit.split-lp.loopexit.split-lp:        ; preds = %43, %81
-  %.sroa.25.0.ph.ph = phi ptr [ %.sroa.13.2109, %81 ], [ %.sroa.13.0115, %43 ]
-  %.sroa.048.0.ph.ph = phi ptr [ %.sroa.048.5111, %81 ], [ %.sroa.048.3116, %43 ]
+  %.sroa.25.0.ph.ph = phi ptr [ %.sroa.13.0115, %43 ], [ %.sroa.13.2109, %81 ]
+  %.sroa.048.0.ph.ph = phi ptr [ %.sroa.048.3116, %43 ], [ %.sroa.048.5111, %81 ]
   %lpad.loopexit.split-lp93 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit39
@@ -3386,9 +3386,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN10open_spiel9solitaire4CardESt6vector
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit28
 
 .loopexit:                                        ; preds = %106, %75, %77, %103, %24, %6, %19
-  %.sroa.26.1 = phi ptr [ null, %77 ], [ %94, %103 ], [ null, %24 ], [ %21, %19 ], [ null, %6 ], [ %.sroa.26.3, %75 ], [ null, %106 ]
-  %.sroa.11.0 = phi ptr [ null, %77 ], [ %94, %103 ], [ null, %24 ], [ %21, %19 ], [ null, %6 ], [ %.sroa.11.2, %75 ], [ null, %106 ]
-  %.sroa.048.1 = phi ptr [ null, %77 ], [ %93, %103 ], [ null, %24 ], [ %20, %19 ], [ null, %6 ], [ %.sroa.048.3, %75 ], [ null, %106 ]
+  %.sroa.26.1 = phi ptr [ %21, %19 ], [ null, %6 ], [ null, %24 ], [ null, %77 ], [ %94, %103 ], [ %.sroa.26.3, %75 ], [ null, %106 ]
+  %.sroa.11.0 = phi ptr [ %21, %19 ], [ null, %6 ], [ null, %24 ], [ null, %77 ], [ %94, %103 ], [ %.sroa.11.2, %75 ], [ null, %106 ]
+  %.sroa.048.1 = phi ptr [ %20, %19 ], [ null, %6 ], [ null, %24 ], [ null, %77 ], [ %93, %103 ], [ %.sroa.048.3, %75 ], [ null, %106 ]
   store ptr %.sroa.048.1, ptr %0, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.11.0, ptr %109, align 8
@@ -4638,7 +4638,7 @@ define noundef range(i64 -2147483596, 2147483648) i64 @_ZNK10open_spiel9solitair
   br label %27
 
 27:                                               ; preds = %19, %14, %12, %7
-  %.019.in = phi i32 [ %26, %19 ], [ %18, %14 ], [ %13, %12 ], [ %11, %7 ]
+  %.019.in = phi i32 [ %26, %19 ], [ %11, %7 ], [ %13, %12 ], [ %18, %14 ]
   %.019 = sext i32 %.019.in to i64
   ret i64 %.019
 }
@@ -9371,7 +9371,7 @@ _ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit19: ; preds = %_ZNK10open_spiel9s
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i
-  %.sroa.031.1.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %55, %54 ]
+  %.sroa.031.1.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = getelementptr i8, ptr %.sroa.031.1.i.i.i, i64 12
   %.val.i20.i.i.i = load i8, ptr %57, align 4
   %58 = trunc i8 %.val.i20.i.i.i to i1
@@ -9382,7 +9382,7 @@ _ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit19: ; preds = %_ZNK10open_spiel9s
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i
-  %.sroa.031.2.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %60, %59 ]
+  %.sroa.031.2.i.i.i = phi ptr [ %60, %59 ], [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %62 = getelementptr i8, ptr %.sroa.031.2.i.i.i, i64 12
   %.val.i21.i.i.i = load i8, ptr %62, align 4
   %63 = trunc i8 %.val.i21.i.i.i to i1
@@ -10141,7 +10141,7 @@ define void @_ZNK10open_spiel9solitaire14SolitaireState12LegalActionsEv(ptr dead
   br label %_ZNK10open_spiel9solitaire4Move8ActionIdEv.exit
 
 _ZNK10open_spiel9solitaire4Move8ActionIdEv.exit:  ; preds = %53, %57, %59, %64
-  %.019.in.i = phi i32 [ %71, %64 ], [ %63, %59 ], [ %58, %57 ], [ %56, %53 ]
+  %.019.in.i = phi i32 [ %71, %64 ], [ %56, %53 ], [ %58, %57 ], [ %63, %59 ]
   %.019.i = sext i32 %.019.in.i to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %72 = load ptr, ptr %1, align 8, !noalias !118
@@ -10466,7 +10466,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit36: ; pre
   br label %_ZNK10open_spiel9solitaire4Move8ActionIdEv.exit46
 
 _ZNK10open_spiel9solitaire4Move8ActionIdEv.exit46: ; preds = %173, %177, %179, %184
-  %.019.in.i38 = phi i32 [ %191, %184 ], [ %183, %179 ], [ %178, %177 ], [ %176, %173 ]
+  %.019.in.i38 = phi i32 [ %191, %184 ], [ %176, %173 ], [ %178, %177 ], [ %183, %179 ]
   %.019.i39 = sext i32 %.019.in.i38 to i64
   %192 = load ptr, ptr %33, align 8
   %.not.i.i47 = icmp eq ptr %41, %192
@@ -10630,7 +10630,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   br label %_ZNK10open_spiel9solitaire4Move8ActionIdEv.exit63
 
 _ZNK10open_spiel9solitaire4Move8ActionIdEv.exit63: ; preds = %241, %246, %248, %253
-  %.019.in.i55 = phi i32 [ %260, %253 ], [ %252, %248 ], [ %247, %246 ], [ %245, %241 ]
+  %.019.in.i55 = phi i32 [ %260, %253 ], [ %245, %241 ], [ %247, %246 ], [ %252, %248 ]
   %.019.i56 = sext i32 %.019.in.i55 to i64
   %261 = load ptr, ptr %231, align 8
   %.not.i.i64 = icmp eq ptr %235, %261
@@ -11017,9 +11017,9 @@ define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr de
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge._crit_edge.i
-  %113 = phi i32 [ %.pre57.i, %._crit_edge._crit_edge.i ], [ %107, %110 ]
-  %114 = phi i32 [ %.pre.i64, %._crit_edge._crit_edge.i ], [ %102, %110 ]
-  %.sroa.032.1.i = phi ptr [ %.sroa.032.0.lcssa.i, %._crit_edge._crit_edge.i ], [ %111, %110 ]
+  %113 = phi i32 [ %107, %110 ], [ %.pre57.i, %._crit_edge._crit_edge.i ]
+  %114 = phi i32 [ %102, %110 ], [ %.pre.i64, %._crit_edge._crit_edge.i ]
+  %.sroa.032.1.i = phi ptr [ %111, %110 ], [ %.sroa.032.0.lcssa.i, %._crit_edge._crit_edge.i ]
   %115 = load i32, ptr %.sroa.032.1.i, align 4
   %116 = icmp eq i32 %115, %114
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i, i64 4
@@ -11033,9 +11033,9 @@ define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr de
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge._crit_edge58.i
-  %124 = phi i32 [ %.pre61.i, %._crit_edge._crit_edge58.i ], [ %113, %121 ]
-  %125 = phi i32 [ %.pre59.i, %._crit_edge._crit_edge58.i ], [ %114, %121 ]
-  %.sroa.032.2.i = phi ptr [ %.sroa.032.0.lcssa.i, %._crit_edge._crit_edge58.i ], [ %122, %121 ]
+  %124 = phi i32 [ %113, %121 ], [ %.pre61.i, %._crit_edge._crit_edge58.i ]
+  %125 = phi i32 [ %114, %121 ], [ %.pre59.i, %._crit_edge._crit_edge58.i ]
+  %.sroa.032.2.i = phi ptr [ %122, %121 ], [ %.sroa.032.0.lcssa.i, %._crit_edge._crit_edge58.i ]
   %126 = load i32, ptr %.sroa.032.2.i, align 4
   %127 = icmp eq i32 %126, %125
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i, i64 4

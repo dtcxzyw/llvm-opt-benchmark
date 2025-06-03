@@ -194,7 +194,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   br label %8
 
 8:                                                ; preds = %7, %2
-  %.071 = phi i1 [ false, %2 ], [ true, %7 ]
+  %.071 = phi i1 [ true, %7 ], [ false, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %9, ptr %0, align 8, !tbaa !7
   br label %10
@@ -416,7 +416,7 @@ define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 n
   br label %7
 
 7:                                                ; preds = %6, %2
-  %.019 = phi i1 [ false, %2 ], [ true, %6 ]
+  %.019 = phi i1 [ true, %6 ], [ false, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %9
 

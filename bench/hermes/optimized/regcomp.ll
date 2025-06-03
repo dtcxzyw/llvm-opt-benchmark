@@ -619,11 +619,11 @@ if.then26.i:                                      ; preds = %sw.default.i
   br label %do.cond30.i
 
 do.cond30.i:                                      ; preds = %if.then26.i, %sw.default.i, %sw.bb.i, %do.body.i, %do.body.i, %do.body.i
-  %scan.3.i = phi ptr [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %sw.bb.i ], [ %scan.1.i, %if.then26.i ], [ %scan.1.i, %sw.default.i ]
-  %start.2.i = phi ptr [ %start.0.i, %do.body.i ], [ %start.0.i, %do.body.i ], [ %start.0.i, %do.body.i ], [ %start.0.i, %sw.bb.i ], [ %newstart.0.i, %if.then26.i ], [ %start.0.i, %sw.default.i ]
-  %newstart.2.i = phi ptr [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %do.body.i ], [ %spec.select.i, %sw.bb.i ], [ %newstart.0.i, %if.then26.i ], [ %newstart.0.i, %sw.default.i ]
-  %newlen.1.i = phi i64 [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ %inc.i127, %sw.bb.i ], [ 0, %if.then26.i ], [ 0, %sw.default.i ]
-  %s.2.i = phi i64 [ %34, %do.body.i ], [ %34, %do.body.i ], [ %34, %do.body.i ], [ %34, %sw.bb.i ], [ %s.0.i, %if.then26.i ], [ %s.0.i, %sw.default.i ]
+  %scan.3.i = phi ptr [ %incdec.ptr.i123, %sw.bb.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %scan.1.i, %if.then26.i ], [ %scan.1.i, %sw.default.i ]
+  %start.2.i = phi ptr [ %start.0.i, %sw.bb.i ], [ %start.0.i, %do.body.i ], [ %start.0.i, %do.body.i ], [ %start.0.i, %do.body.i ], [ %newstart.0.i, %if.then26.i ], [ %start.0.i, %sw.default.i ]
+  %newstart.2.i = phi ptr [ %spec.select.i, %sw.bb.i ], [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %if.then26.i ], [ %newstart.0.i, %sw.default.i ]
+  %newlen.1.i = phi i64 [ %inc.i127, %sw.bb.i ], [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ 0, %if.then26.i ], [ 0, %sw.default.i ]
+  %s.2.i = phi i64 [ %34, %sw.bb.i ], [ %34, %do.body.i ], [ %34, %do.body.i ], [ %34, %do.body.i ], [ %s.0.i, %if.then26.i ], [ %s.0.i, %sw.default.i ]
   %and31.i = and i64 %s.2.i, 4160749568
   %cmp32.not.i = icmp eq i64 %and31.i, 134217728
   br i1 %cmp32.not.i, label %do.end34.i, label %do.body.i, !llvm.loop !10
@@ -702,8 +702,8 @@ sw.bb1.i:                                         ; preds = %do.body.i131
   br label %do.cond.i
 
 do.cond.i:                                        ; preds = %sw.bb1.i, %sw.bb.i139, %do.body.i131
-  %plusnest.1.i = phi i64 [ %plusnest.0.i, %do.body.i131 ], [ %dec.i136, %sw.bb1.i ], [ %inc.i140, %sw.bb.i139 ]
-  %maxnest.2.i = phi i64 [ %maxnest.0.i, %do.body.i131 ], [ %spec.select.i135, %sw.bb1.i ], [ %maxnest.0.i, %sw.bb.i139 ]
+  %plusnest.1.i = phi i64 [ %plusnest.0.i, %do.body.i131 ], [ %inc.i140, %sw.bb.i139 ], [ %dec.i136, %sw.bb1.i ]
+  %maxnest.2.i = phi i64 [ %maxnest.0.i, %do.body.i131 ], [ %maxnest.0.i, %sw.bb.i139 ], [ %spec.select.i135, %sw.bb1.i ]
   %cmp6.not.i = icmp eq i64 %and.i133, 134217728
   br i1 %cmp6.not.i, label %do.end.i, label %do.body.i131, !llvm.loop !13
 
@@ -1622,7 +1622,7 @@ sw.default.i:                                     ; preds = %seterr.exit416, %lo
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end4.i529, %if.else.i, %sw.default.i, %if.else99.i, %doemit.exit448, %seterr.exit511, %sw.bb60.i, %if.then58.i, %seterr.exit556, %seterr.exit562, %doemit.exit593, %doemit.exit624, %seterr.exit630, %seterr.exit636, %land.lhs.true28.i
-  %tobool162.not.i = phi i1 [ true, %sw.default.i ], [ true, %seterr.exit511 ], [ true, %doemit.exit448 ], [ true, %if.else99.i ], [ true, %sw.bb60.i ], [ true, %if.then58.i ], [ true, %seterr.exit556 ], [ true, %seterr.exit562 ], [ true, %doemit.exit593 ], [ false, %doemit.exit624 ], [ true, %seterr.exit630 ], [ true, %land.lhs.true28.i ], [ true, %seterr.exit636 ], [ true, %if.else.i ], [ true, %if.end4.i529 ]
+  %tobool162.not.i = phi i1 [ true, %sw.default.i ], [ true, %land.lhs.true28.i ], [ true, %seterr.exit636 ], [ true, %seterr.exit630 ], [ false, %doemit.exit624 ], [ true, %doemit.exit593 ], [ true, %seterr.exit562 ], [ true, %seterr.exit556 ], [ true, %if.then58.i ], [ true, %sw.bb60.i ], [ true, %seterr.exit511 ], [ true, %doemit.exit448 ], [ true, %if.else99.i ], [ true, %if.else.i ], [ true, %if.end4.i529 ]
   %102 = load ptr, ptr %p, align 8
   %103 = load ptr, ptr %end, align 8
   %cmp123.i = icmp ult ptr %102, %103

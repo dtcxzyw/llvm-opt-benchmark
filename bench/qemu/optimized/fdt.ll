@@ -640,7 +640,7 @@ define dso_local noundef i32 @fdt_next_tag(ptr noundef readonly captures(address
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %38, %5, %5, %5, %14
-  %.1 = phi i32 [ %7, %5 ], [ %7, %5 ], [ %7, %5 ], [ %17, %14 ], [ %spec.select, %38 ], [ %10, %9 ]
+  %.1 = phi i32 [ %17, %14 ], [ %7, %5 ], [ %7, %5 ], [ %7, %5 ], [ %spec.select, %38 ], [ %10, %9 ]
   %41 = sub i32 %.1, %1
   %42 = tail call ptr @fdt_offset_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %41)
   %.not42 = icmp eq ptr %42, null
@@ -1081,7 +1081,7 @@ fdt_offset_ptr.exit:                              ; preds = %120, %119
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %145, %139, %fdt_offset_ptr.exit13._crit_edge, %fdt_offset_ptr.exit13._crit_edge, %fdt_offset_ptr.exit13._crit_edge
-  %.1.i = phi i32 [ %93, %fdt_offset_ptr.exit13._crit_edge ], [ %93, %fdt_offset_ptr.exit13._crit_edge ], [ %93, %fdt_offset_ptr.exit13._crit_edge ], [ %142, %139 ], [ %spec.select.i, %145 ], [ %148, %.critedge.i.loopexit ]
+  %.1.i = phi i32 [ %142, %139 ], [ %93, %fdt_offset_ptr.exit13._crit_edge ], [ %93, %fdt_offset_ptr.exit13._crit_edge ], [ %93, %fdt_offset_ptr.exit13._crit_edge ], [ %spec.select.i, %145 ], [ %148, %.critedge.i.loopexit ]
   %149 = sub i32 %.1.i, %74
   %150 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %74, i32 noundef %149)
   %.not42.i = icmp eq ptr %150, null
@@ -1195,7 +1195,7 @@ define dso_local range(i32 -19, 1) i32 @fdt_move(ptr noundef readonly %0, ptr no
   br label %30
 
 30:                                               ; preds = %5, %8, %3, %28
-  %.010 = phi i32 [ %6, %5 ], [ 0, %28 ], [ -3, %3 ], [ -3, %8 ]
+  %.010 = phi i32 [ 0, %28 ], [ %6, %5 ], [ -3, %3 ], [ -3, %8 ]
   ret i32 %.010
 }
 

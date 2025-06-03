@@ -3217,7 +3217,7 @@ define noundef nonnull ptr @_ZN6casadi10ConstantMX6createERKNS_8SparsityEx(ptr n
   br label %_ZN6casadi10ZeroByZero11getInstanceEv.exit
 
 common.resume:                                    ; preds = %.body, %.body13, %.body16, %.body19, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %eh.lpad-body20, %.body19 ], [ %eh.lpad-body17, %.body16 ], [ %eh.lpad-body14, %.body13 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %eh.lpad-body20, %.body19 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body14, %.body13 ], [ %eh.lpad-body17, %.body16 ]
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %9
@@ -6316,12 +6316,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   br label %208
 
 _ZN6casadi10ZeroByZero11getInstanceEv.exit:       ; preds = %59, %56, %53, %49, %45, %41, %127, %122, %117, %111, %85
-  %.037 = phi ptr [ %126, %127 ], [ %121, %122 ], [ %116, %117 ], [ %90, %111 ], [ %64, %85 ], [ %42, %41 ], [ %46, %45 ], [ %50, %49 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %53 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %56 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %59 ]
+  %.037 = phi ptr [ %64, %85 ], [ %90, %111 ], [ %116, %117 ], [ %121, %122 ], [ %126, %127 ], [ %42, %41 ], [ %46, %45 ], [ %50, %49 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %53 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %56 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %59 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #31
   ret ptr %.037
 
 208:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %207, %128, %123, %118, %.body56, %.body, %51, %47, %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49
-  %.pn39.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.pn87, %207 ], [ %.pn39.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %129, %128 ], [ %124, %123 ], [ %119, %118 ], [ %eh.lpad-body57, %.body56 ], [ %eh.lpad-body, %.body ], [ %52, %51 ], [ %48, %47 ], [ %44, %43 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %.pn39.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78 ]
+  %.pn39.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.pn87, %207 ], [ %.pn39.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %44, %43 ], [ %48, %47 ], [ %52, %51 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body57, %.body56 ], [ %119, %118 ], [ %124, %123 ], [ %129, %128 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %.pn39.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #31
   br label %common.resume
 
@@ -26671,7 +26671,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   ret void
 
 .critedge118:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138, %269, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %127, %295, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit143, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit140
-  %.pn111 = phi { ptr, i32 } [ %296, %295 ], [ %lpad.thr_comm, %269 ], [ %.pn107.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit143 ], [ %.pn101.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit140 ], [ %.pn.pn.pn.pn.pn.pn.pn146, %127 ], [ %.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138 ]
+  %.pn111 = phi { ptr, i32 } [ %lpad.thr_comm, %269 ], [ %296, %295 ], [ %.pn107.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit143 ], [ %.pn101.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit140 ], [ %.pn.pn.pn.pn.pn.pn.pn146, %127 ], [ %.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138 ]
   resume { ptr, i32 } %.pn111
 
 345:                                              ; preds = %48
@@ -29669,7 +29669,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   ret void
 
 .critedge118:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138, %269, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %127, %303, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit143, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit140
-  %.pn111 = phi { ptr, i32 } [ %304, %303 ], [ %lpad.thr_comm, %269 ], [ %.pn107.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit143 ], [ %.pn101.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit140 ], [ %.pn.pn.pn.pn.pn.pn.pn146, %127 ], [ %.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138 ]
+  %.pn111 = phi { ptr, i32 } [ %lpad.thr_comm, %269 ], [ %304, %303 ], [ %.pn107.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit143 ], [ %.pn101.pn.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit140 ], [ %.pn.pn.pn.pn.pn.pn.pn146, %127 ], [ %.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138 ]
   resume { ptr, i32 } %.pn111
 
 363:                                              ; preds = %48

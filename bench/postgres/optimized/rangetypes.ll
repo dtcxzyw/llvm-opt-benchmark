@@ -177,7 +177,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %52, label %.critedge2.thread.sink.split.i, label %89
 
 53:                                               ; preds = %50, %48
-  %.034 = phi i8 [ 0, %48 ], [ 2, %50 ]
+  %.034 = phi i8 [ 2, %50 ], [ 0, %48 ]
   %.2.i = getelementptr inbounds nuw i8, ptr %.067.lcssa.i, i64 1
   %54 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef nonnull %.2.i, ptr noundef nonnull %3, ptr noundef %2, ptr noundef %17)
   %55 = icmp eq ptr %54, null
@@ -220,7 +220,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %74, label %.critedge2.thread.sink.split.i, label %89
 
 75:                                               ; preds = %71, %67
-  %.4 = phi i8 [ %spec.select44, %67 ], [ %72, %71 ]
+  %.4 = phi i8 [ %72, %71 ], [ %spec.select44, %67 ]
   br label %76
 
 76:                                               ; preds = %78, %75
@@ -706,7 +706,7 @@ fetch_att.exit:                                   ; preds = %23
   br i1 %41, label %fetch_att.exit.thread, label %44
 
 fetch_att.exit.thread:                            ; preds = %35, %32, %29, %26, %fetch_att.exit
-  %.0.i83 = phi i64 [ %40, %fetch_att.exit ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
+  %.0.i83 = phi i64 [ %40, %fetch_att.exit ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ]
   %42 = zext nneg i32 %24 to i64
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 %42
   br label %73
@@ -1341,7 +1341,7 @@ range_get_typcache.exit:                          ; preds = %14, %24
   unreachable
 
 61:                                               ; preds = %55, %54
-  %.0.i17 = phi i8 [ 0, %54 ], [ 2, %55 ]
+  %.0.i17 = phi i8 [ 2, %55 ], [ 0, %54 ]
   switch i8 %44, label %64 [
     i8 93, label %62
     i8 41, label %range_parse_flags.exit
@@ -1361,7 +1361,7 @@ range_get_typcache.exit:                          ; preds = %14, %24
   unreachable
 
 range_parse_flags.exit:                           ; preds = %61, %62
-  %.1.i = phi i8 [ %.0.i17, %61 ], [ %63, %62 ]
+  %.1.i = phi i8 [ %63, %62 ], [ %.0.i17, %61 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load i8, ptr %69, align 8, !range !7, !noundef !8
   %71 = trunc nuw i8 %70 to i1

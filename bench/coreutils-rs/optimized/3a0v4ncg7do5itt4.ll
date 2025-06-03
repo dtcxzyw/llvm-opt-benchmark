@@ -1408,7 +1408,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hcf292193297ae9d5E.exit178.
   br i1 %363, label %368, label %366
 
 .thread341:                                       ; preds = %.noexc221, %.noexc219, %368, %374, %375, %376
-  %.0149 = phi i8 [ 3, %376 ], [ 2, %375 ], [ 1, %374 ], [ 0, %368 ], [ 2, %.noexc219 ], [ 2, %.noexc221 ]
+  %.0149 = phi i8 [ 1, %374 ], [ 2, %375 ], [ 3, %376 ], [ 0, %368 ], [ 2, %.noexc219 ], [ 2, %.noexc221 ]
   %364 = load i64, ptr %52, align 8, !noundef !5
   %365 = zext i1 %279 to i8
   store i64 %.sroa.067.0, ptr %0, align 8
@@ -6998,7 +6998,7 @@ default.unreachable210:                           ; preds = %183
           to label %175 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %274, %245, %214, %141
-  %.pn = phi { ptr, i32 } [ %275, %274 ], [ %246, %245 ], [ %215, %214 ], [ %lpad.phi140, %141 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit134, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %215, %214 ], [ %246, %245 ], [ %275, %274 ], [ %lpad.phi140, %141 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit134, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !2039
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdd7cadad0dfdb839E.llvm.8092952956822545444"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
           to label %.noexc97 unwind label %173

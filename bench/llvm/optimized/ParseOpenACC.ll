@@ -3391,7 +3391,7 @@ _ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit:  ; preds = %369, %374
   br label %.thread165
 
 .thread165:                                       ; preds = %136, %126, %.thread190, %.thread189, %.thread181, %.thread180, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110, %.thread168, %.thread167, %.thread161, %.thread, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit113, %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj3EED2Ev.exit115, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit116, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit, %379, %53
-  %.sroa.0102.0 = phi i64 [ 4, %53 ], [ %386, %379 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit116 ], [ 4, %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj3EED2Ev.exit115 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit113 ], [ 4, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit ], [ 4, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit ], [ 4, %.thread ], [ 4, %.thread161 ], [ 4, %.thread167 ], [ 4, %.thread168 ], [ 0, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110 ], [ 4, %.thread180 ], [ 4, %.thread181 ], [ 4, %.thread189 ], [ 0, %.thread190 ], [ 4, %126 ], [ 4, %136 ]
+  %.sroa.0102.0 = phi i64 [ 4, %53 ], [ %386, %379 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit113 ], [ 4, %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj3EED2Ev.exit115 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit116 ], [ 4, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit ], [ 4, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit ], [ 4, %.thread ], [ 4, %.thread161 ], [ 4, %.thread167 ], [ 4, %.thread168 ], [ 0, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110 ], [ 4, %.thread180 ], [ 4, %.thread181 ], [ 4, %.thread189 ], [ 0, %.thread190 ], [ 4, %126 ], [ 4, %136 ]
   %387 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %388 = load i8, ptr %49, align 8, !tbaa !1024
   switch i8 %388, label %420 [
@@ -4516,7 +4516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i15: ; preds = %_
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit19
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit19:          ; preds = %96, %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i15, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit12, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit, %47, %61, %60, %59, %58, %57, %56
-  %.1 = phi i8 [ 8, %61 ], [ 7, %60 ], [ 6, %59 ], [ 5, %58 ], [ 4, %57 ], [ 1, %56 ], [ 0, %47 ], [ 2, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit ], [ 3, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit12 ], [ 9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i15 ], [ 9, %93 ], [ 9, %96 ]
+  %.1 = phi i8 [ 1, %56 ], [ 4, %57 ], [ 5, %58 ], [ 6, %59 ], [ 7, %60 ], [ 8, %61 ], [ 0, %47 ], [ 2, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit ], [ 3, %_ZNK5clang14IdentifierInfo5isStrILm4EEEbRAT__Kc.exit12 ], [ 9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i15 ], [ 9, %93 ], [ 9, %96 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
@@ -8074,7 +8074,7 @@ _ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5Tok
   br label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
 
 _ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %54, %_ZN5clang17DiagnosticBuilderD2Ev.exit32.i, %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i, %459, %463, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i, %471, %472, %475, %478
-  %.0.i = phi i8 [ 20, %54 ], [ 20, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ], [ %.0.i33.i, %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i ], [ 20, %_ZN5clang17DiagnosticBuilderD2Ev.exit32.i ], [ 11, %478 ], [ 10, %475 ], [ 9, %472 ], [ %460, %471 ], [ %460, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i ], [ %460, %459 ], [ %460, %463 ]
+  %.0.i = phi i8 [ 20, %54 ], [ 20, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ], [ 20, %_ZN5clang17DiagnosticBuilderD2Ev.exit32.i ], [ %.0.i33.i, %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i ], [ 9, %472 ], [ 10, %475 ], [ 11, %478 ], [ %460, %471 ], [ %460, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i ], [ %460, %459 ], [ %460, %463 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %11) #18

@@ -2578,7 +2578,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTo
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit4
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit4: ; preds = %33, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_29SdfPathTokens_StaticTokenTypeEE3NewEv.exit.i.i.i3, %25, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit7, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit10, %57, %55, %53, %51, %49, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  %.0 = phi ptr [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %73, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit10 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit7 ], [ %24, %25 ], [ %35, %33 ], [ %27, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_29SdfPathTokens_StaticTokenTypeEE3NewEv.exit.i.i.i3 ]
+  %.0 = phi ptr [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %73, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit10 ], [ %48, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_29SdfPathTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit7 ], [ %24, %25 ], [ %35, %33 ], [ %27, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_29SdfPathTokens_StaticTokenTypeEE3NewEv.exit.i.i.i3 ]
   ret ptr %.0
 }
 
@@ -4103,7 +4103,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetNextTargetNodeEPKNS_12Sdf_PathNodeE.
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode13GetTargetPathEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode13GetTargetPathEv.exit: ; preds = %27, %30, %32, %34, %36
-  %.0.i = phi ptr [ %37, %36 ], [ %35, %34 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__7SdfPath9EmptyPathEvE12theEmptyPath, %27 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__7SdfPath9EmptyPathEvE12theEmptyPath, %30 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__7SdfPath9EmptyPathEvE12theEmptyPath, %32 ]
+  %.0.i = phi ptr [ %35, %34 ], [ %37, %36 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__7SdfPath9EmptyPathEvE12theEmptyPath, %27 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__7SdfPath9EmptyPathEvE12theEmptyPath, %30 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__7SdfPath9EmptyPathEvE12theEmptyPath, %32 ]
   %38 = load ptr, ptr %23, align 8
   %39 = load ptr, ptr %24, align 8
   %.not.i8 = icmp eq ptr %38, %39
@@ -8957,7 +8957,7 @@ _ZNKSt14default_deleteIA_PKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeEEcl
   br label %_ZNSt10unique_ptrIA_PKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESt14default_deleteIS4_EED2Ev.exit
 
 286:                                              ; preds = %109, %.body, %.body53
-  %.pn = phi { ptr, i32 } [ %110, %109 ], [ %208, %.body53 ], [ %143, %.body ]
+  %.pn = phi { ptr, i32 } [ %110, %109 ], [ %143, %.body ], [ %208, %.body53 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) #20
   %.not.i66 = icmp eq ptr %.sroa.074.0, null
   br i1 %.not.i66, label %_ZNSt10unique_ptrIA_PKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESt14default_deleteIS4_EED2Ev.exit68, label %_ZNKSt14default_deleteIA_PKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i67
@@ -10004,7 +10004,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit79: ; preds = %_ZN32pxrInt
   br i1 %.not64, label %.loopexit, label %119, !llvm.loop !112
 
 384:                                              ; preds = %.body92, %.body, %125
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %266, %.body92 ], [ %160, %.body ]
+  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %160, %.body ], [ %266, %.body92 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) #20
   br label %385
 
@@ -10959,7 +10959,7 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
   br label %70
 
 70:                                               ; preds = %8, %2, %65, %59, %45, %41, %37, %30, %23, %16, %9
-  %.0 = phi i1 [ false, %65 ], [ %64, %59 ], [ %58, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %30 ], [ %29, %23 ], [ %22, %16 ], [ %15, %9 ], [ false, %2 ], [ true, %8 ]
+  %.0 = phi i1 [ false, %65 ], [ %15, %9 ], [ %22, %16 ], [ %29, %23 ], [ %36, %30 ], [ %40, %37 ], [ %44, %41 ], [ %58, %45 ], [ %64, %59 ], [ false, %2 ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -14380,7 +14380,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath14JoinIdentifierERKSt6
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %30, %29 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %32 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i.i) #20
   br i1 %32, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN32pxrInternal_v0_24__pxrReserved__7SdfPath14JoinIdentifierERKSC_E3$_0EbT_SJ_T0_.exit", label %33
 
@@ -14389,7 +14389,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath14JoinIdentifierERKSt6
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %34, %33 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %36 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i.i) #20
   %spec.select.i.i.i.i.i = select i1 %36, ptr %.sroa.025.2.i.i.i.i.i, ptr %6
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN32pxrInternal_v0_24__pxrReserved__7SdfPath14JoinIdentifierERKSC_E3$_0EbT_SJ_T0_.exit"
@@ -20570,7 +20570,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19Sdf_PathNodeCompareILi1ENS_12Sdf_PathNode8LessThanEEclERKS1_S5_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19Sdf_PathNodeCompareILi1ENS_12Sdf_PathNode8LessThanEEclERKS1_S5_.exit: ; preds = %162, %150, %10, %165, %163, %155, %153, %151, %143, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i24, %133, %123, %121, %119, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i20, %100, %90, %88, %86, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i16, %67, %57, %55, %53, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i, %34, %24, %22, %20, %183, %173, %167, %8
-  %.0 = phi i1 [ %9, %8 ], [ false, %183 ], [ %182, %173 ], [ %172, %167 ], [ %21, %20 ], [ false, %22 ], [ true, %24 ], [ false, %34 ], [ %43, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i ], [ %54, %53 ], [ false, %55 ], [ true, %57 ], [ false, %67 ], [ %76, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i16 ], [ %87, %86 ], [ false, %88 ], [ true, %90 ], [ false, %100 ], [ %109, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i20 ], [ %120, %119 ], [ false, %121 ], [ true, %123 ], [ false, %133 ], [ %142, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i24 ], [ %154, %153 ], [ false, %143 ], [ %152, %151 ], [ %166, %165 ], [ false, %155 ], [ %164, %163 ], [ false, %10 ], [ false, %150 ], [ false, %162 ]
+  %.0 = phi i1 [ %9, %8 ], [ false, %183 ], [ %172, %167 ], [ %182, %173 ], [ %21, %20 ], [ false, %22 ], [ true, %24 ], [ false, %34 ], [ %43, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i ], [ %54, %53 ], [ false, %55 ], [ true, %57 ], [ false, %67 ], [ %76, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i16 ], [ %87, %86 ], [ false, %88 ], [ true, %90 ], [ false, %100 ], [ %109, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i20 ], [ %120, %119 ], [ false, %121 ], [ true, %123 ], [ false, %133 ], [ %142, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i24 ], [ %154, %153 ], [ false, %143 ], [ %152, %151 ], [ %166, %165 ], [ false, %155 ], [ %164, %163 ], [ false, %10 ], [ false, %150 ], [ false, %162 ]
   ret i1 %.0
 }
 

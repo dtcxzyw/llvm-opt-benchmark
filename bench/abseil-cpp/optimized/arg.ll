@@ -277,7 +277,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
-  %.0 = phi i1 [ %51, %49 ], [ true, %84 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
+  %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -1169,7 +1169,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
-  %.0 = phi i1 [ %51, %49 ], [ true, %84 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
+  %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -1350,7 +1350,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
-  %.0 = phi i1 [ %51, %49 ], [ true, %84 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
+  %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -1531,7 +1531,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %78, %69, %57, %81, %46, %8
-  %.0 = phi i1 [ %48, %46 ], [ true, %81 ], [ %9, %8 ], [ true, %57 ], [ true, %69 ], [ true, %78 ]
+  %.0 = phi i1 [ %9, %8 ], [ true, %81 ], [ %48, %46 ], [ true, %57 ], [ true, %69 ], [ true, %78 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -1725,7 +1725,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperItEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %86, %77, %65, %11, %14, %89, %54
-  %.0 = phi i1 [ %56, %54 ], [ true, %89 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
+  %.0 = phi i1 [ true, %89 ], [ %56, %54 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -1919,7 +1919,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperItEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %86, %77, %65, %11, %14, %89, %54
-  %.0 = phi i1 [ %56, %54 ], [ true, %89 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
+  %.0 = phi i1 [ true, %89 ], [ %56, %54 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -2110,7 +2110,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83, %74, %62, %11, %13, %86, %51
-  %.0 = phi i1 [ %53, %51 ], [ true, %86 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
+  %.0 = phi i1 [ true, %86 ], [ %53, %51 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -2301,7 +2301,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83, %74, %62, %11, %13, %86, %51
-  %.0 = phi i1 [ %53, %51 ], [ true, %86 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
+  %.0 = phi i1 [ true, %86 ], [ %53, %51 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -2491,7 +2491,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperImEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %85 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -2681,7 +2681,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperImEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %85 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -2871,7 +2871,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIyEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %85 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -3061,7 +3061,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIyEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %85 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   ret i1 %.0
 }
@@ -5624,7 +5624,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %126, %117, %105, %12, %15, %129, %98
-  %.0 = phi i1 [ %100, %98 ], [ true, %129 ], [ %14, %12 ], [ true, %15 ], [ true, %105 ], [ true, %117 ], [ true, %126 ]
+  %.0 = phi i1 [ true, %129 ], [ %100, %98 ], [ %14, %12 ], [ true, %15 ], [ true, %105 ], [ true, %117 ], [ true, %126 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   ret i1 %.0
 }
@@ -5921,7 +5921,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %125, %116, %104, %12, %15, %128, %95
-  %.0 = phi i1 [ %99, %95 ], [ true, %128 ], [ %14, %12 ], [ true, %15 ], [ true, %104 ], [ true, %116 ], [ true, %125 ]
+  %.0 = phi i1 [ true, %128 ], [ %99, %95 ], [ %14, %12 ], [ true, %15 ], [ true, %104 ], [ true, %116 ], [ true, %125 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   ret i1 %.0
 }

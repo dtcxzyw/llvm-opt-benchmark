@@ -23959,9 +23959,9 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br label %83
 
 83:                                               ; preds = %89, %93, %75, %80, %49
-  %.sroa.15.0 = phi i64 [ %20, %93 ], [ %20, %89 ], [ %82, %80 ], [ %76, %75 ], [ %20, %49 ]
-  %.sroa.9109.0 = phi i64 [ %.sroa.3.0.i94, %93 ], [ %33, %89 ], [ %.sroa.3.0.i, %80 ], [ %33, %75 ], [ %33, %49 ]
-  %.sroa.0108.0 = phi ptr [ %.sroa.06.0.i93, %93 ], [ %15, %89 ], [ %.sroa.06.0.i, %80 ], [ %15, %75 ], [ %15, %49 ]
+  %.sroa.15.0 = phi i64 [ %20, %49 ], [ %82, %80 ], [ %76, %75 ], [ %20, %93 ], [ %20, %89 ]
+  %.sroa.9109.0 = phi i64 [ %33, %49 ], [ %.sroa.3.0.i, %80 ], [ %33, %75 ], [ %.sroa.3.0.i94, %93 ], [ %33, %89 ]
+  %.sroa.0108.0 = phi ptr [ %15, %49 ], [ %.sroa.06.0.i, %80 ], [ %15, %75 ], [ %.sroa.06.0.i93, %93 ], [ %15, %89 ]
   %84 = icmp ne ptr %.sroa.0108.0, null
   tail call void @llvm.assume(i1 %84)
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0, i64 176
@@ -24482,9 +24482,9 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br label %85
 
 85:                                               ; preds = %91, %95, %77, %82, %51
-  %.sroa.15.0 = phi i64 [ %22, %95 ], [ %22, %91 ], [ %84, %82 ], [ %78, %77 ], [ %22, %51 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.3.0.i94, %95 ], [ %35, %91 ], [ %.sroa.3.0.i, %82 ], [ %35, %77 ], [ %35, %51 ]
-  %.sroa.0106.0 = phi ptr [ %.sroa.06.0.i93, %95 ], [ %17, %91 ], [ %.sroa.06.0.i, %82 ], [ %17, %77 ], [ %17, %51 ]
+  %.sroa.15.0 = phi i64 [ %22, %51 ], [ %84, %82 ], [ %78, %77 ], [ %22, %95 ], [ %22, %91 ]
+  %.sroa.9.0 = phi i64 [ %35, %51 ], [ %.sroa.3.0.i, %82 ], [ %35, %77 ], [ %.sroa.3.0.i94, %95 ], [ %35, %91 ]
+  %.sroa.0106.0 = phi ptr [ %17, %51 ], [ %.sroa.06.0.i, %82 ], [ %17, %77 ], [ %.sroa.06.0.i93, %95 ], [ %17, %91 ]
   %86 = icmp ne ptr %.sroa.0106.0, null
   tail call void @llvm.assume(i1 %86)
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0, i64 176
@@ -24992,9 +24992,9 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br label %77
 
 77:                                               ; preds = %80, %84, %69, %74
-  %.sroa.15.0.ph = phi i64 [ %70, %69 ], [ %76, %74 ], [ %20, %80 ], [ %20, %84 ]
-  %.sroa.9.0.ph = phi i64 [ %29, %69 ], [ %.sroa.3.0.i, %74 ], [ %29, %80 ], [ %.sroa.3.0.i97, %84 ]
-  %.sroa.0115.0.ph = phi ptr [ %14, %69 ], [ %.sroa.06.0.i, %74 ], [ %14, %80 ], [ %.sroa.06.0.i96, %84 ]
+  %.sroa.15.0.ph = phi i64 [ %20, %80 ], [ %20, %84 ], [ %70, %69 ], [ %76, %74 ]
+  %.sroa.9.0.ph = phi i64 [ %29, %80 ], [ %.sroa.3.0.i97, %84 ], [ %29, %69 ], [ %.sroa.3.0.i, %74 ]
+  %.sroa.0115.0.ph = phi ptr [ %14, %80 ], [ %.sroa.06.0.i96, %84 ], [ %14, %69 ], [ %.sroa.06.0.i, %74 ]
   %.pr = load ptr, ptr %.sroa.0115.0.ph, align 8, !noalias !3938
   %78 = icmp eq ptr %.pr, null
   br i1 %78, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h4db9f043ce2917f9E.exit.thread185", label %85
@@ -36454,7 +36454,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN63_$LT$uv_resolver..lock.
   br i1 %trunc, label %37, label %36
 
 "_ZN60_$LT$uv_resolver..lock..Source$u20$as$u20$core..cmp..Ord$GT$3cmp17h527204c36ed54f1fE.exit": ; preds = %213, %211, %209, %196, %.sink.split.i.i.i, %186, %183, %182, %181, %172, %149, %139, %129, %119, %102, %85, %79, %64, %53, %38, %37, %36, %234, %2
-  %.sroa.0.0 = phi i8 [ %.sroa.0.1, %234 ], [ %31, %2 ], [ -1, %36 ], [ 1, %37 ], [ %158, %149 ], [ %148, %139 ], [ %138, %129 ], [ %128, %119 ], [ %218, %213 ], [ %117, %102 ], [ %100, %85 ], [ %49, %38 ], [ %..i11, %209 ], [ 1, %211 ], [ %78, %64 ], [ %84, %79 ], [ %61, %53 ], [ %201, %196 ], [ %.sroa.0.0.i8.i, %172 ], [ -1, %181 ], [ 1, %182 ], [ %184, %183 ], [ 0, %186 ], [ %195, %.sink.split.i.i.i ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.1, %234 ], [ %31, %2 ], [ -1, %36 ], [ 1, %37 ], [ %100, %85 ], [ %218, %213 ], [ %117, %102 ], [ %128, %119 ], [ %138, %129 ], [ %148, %139 ], [ %158, %149 ], [ %49, %38 ], [ %..i11, %209 ], [ 1, %211 ], [ %78, %64 ], [ %84, %79 ], [ %61, %53 ], [ %201, %196 ], [ %.sroa.0.0.i8.i, %172 ], [ -1, %181 ], [ 1, %182 ], [ %184, %183 ], [ 0, %186 ], [ %195, %.sink.split.i.i.i ]
   ret i8 %.sroa.0.0
 
 36:                                               ; preds = %33

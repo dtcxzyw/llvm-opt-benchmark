@@ -409,7 +409,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %107, %109
   ret void
 
 .body:                                            ; preds = %37, %40
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %38, %37 ]
+  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %38, %37 ]
   %114 = load ptr, ptr %27, align 8, !tbaa !36
   %.not.i269 = icmp eq ptr %114, null
   br i1 %.not.i269, label %_ZNSt14_Function_baseD2Ev.exit270, label %115
@@ -429,7 +429,7 @@ _ZNSt14_Function_baseD2Ev.exit270:                ; preds = %.body, %115
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -692,7 +692,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %100, %102
   ret void
 
 .body:                                            ; preds = %30, %33
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %31, %30 ]
+  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %31, %30 ]
   %107 = load ptr, ptr %20, align 8, !tbaa !36
   %.not.i269 = icmp eq ptr %107, null
   br i1 %.not.i269, label %_ZNSt14_Function_baseD2Ev.exit270, label %108
@@ -712,7 +712,7 @@ _ZNSt14_Function_baseD2Ev.exit270:                ; preds = %.body, %108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -969,7 +969,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %100, %102
   ret void
 
 .body:                                            ; preds = %30, %33
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %31, %30 ]
+  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %31, %30 ]
   %107 = load ptr, ptr %20, align 8, !tbaa !36
   %.not.i269 = icmp eq ptr %107, null
   br i1 %.not.i269, label %_ZNSt14_Function_baseD2Ev.exit270, label %108
@@ -989,7 +989,7 @@ _ZNSt14_Function_baseD2Ev.exit270:                ; preds = %.body, %108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1283,7 +1283,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %77
   ret void
 
 .body:                                            ; preds = %27, %30
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %28, %27 ]
+  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %28, %27 ]
   %82 = load ptr, ptr %19, align 8, !tbaa !36
   %.not.i271 = icmp eq ptr %82, null
   br i1 %.not.i271, label %_ZNSt14_Function_baseD2Ev.exit272, label %83
@@ -1303,7 +1303,7 @@ _ZNSt14_Function_baseD2Ev.exit272:                ; preds = %.body, %83
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1582,7 +1582,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %107, %109
   ret void
 
 .body:                                            ; preds = %37, %40
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %38, %37 ]
+  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %38, %37 ]
   %114 = load ptr, ptr %27, align 8, !tbaa !36
   %.not.i269 = icmp eq ptr %114, null
   br i1 %.not.i269, label %_ZNSt14_Function_baseD2Ev.exit270, label %115
@@ -1602,7 +1602,7 @@ _ZNSt14_Function_baseD2Ev.exit270:                ; preds = %.body, %115
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable

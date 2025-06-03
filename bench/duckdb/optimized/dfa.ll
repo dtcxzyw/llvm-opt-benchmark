@@ -2051,7 +2051,7 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
 
 .outer:                                           ; preds = %.outer.backedge, %25
   %.142.ph = phi i32 [ %26, %25 ], [ %.142.ph.be, %.outer.backedge ]
-  %.040.ph = phi i32 [ %29, %25 ], [ %130, %.outer.backedge ]
+  %.040.ph = phi i32 [ %29, %25 ], [ %114, %.outer.backedge ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 120
   br label %.backedge65
@@ -2094,8 +2094,8 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
   store i32 %48, ptr %1, align 8, !tbaa !81
   br label %.backedge
 
-.backedge:                                        ; preds = %124, %select.unfold, %.backedge65, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %40, %35, %32
-  %.041.be = phi i32 [ %.142.ph, %32 ], [ %.142.ph, %35 ], [ %.142.ph, %40 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge65 ], [ %.142.ph, %select.unfold ], [ %.6, %124 ]
+.backedge:                                        ; preds = %125, %select.unfold, %.backedge65, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %40, %35, %32
+  %.041.be = phi i32 [ %.142.ph, %32 ], [ %.142.ph, %35 ], [ %.142.ph, %40 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge65 ], [ %.142.ph, %select.unfold ], [ %.6, %125 ]
   %49 = icmp sgt i32 %.041.be, 0
   br i1 %49, label %25, label %133, !llvm.loop !133
 
@@ -2150,8 +2150,8 @@ _ZN10duckdb_re23DFA5Workq10insert_newEi.exit:     ; preds = %64, %.thread52
     i32 5, label %select.unfold
     i32 3, label %88
     i32 6, label %88
-    i32 1, label %114
-    i32 4, label %116
+    i32 1, label %115
+    i32 4, label %117
   ]
 
 73:                                               ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
@@ -2249,41 +2249,41 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %.pre61 = load i32, ptr %89, align 4, !tbaa !114
   br label %.outer.backedge
 
-114:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
-  %115 = add nuw nsw i32 %.040, 1
+.outer.backedge:                                  ; preds = %96, %100, %103, %107, %110, %129
+  %.sink = phi i32 [ %130, %129 ], [ %.pre61, %110 ], [ %97, %107 ], [ %97, %103 ], [ %97, %100 ], [ %97, %96 ]
+  %.142.ph.be = phi i32 [ %.6, %129 ], [ %111, %110 ], [ %.4, %107 ], [ %.4, %103 ], [ %.4, %100 ], [ %.4, %96 ]
+  %114 = lshr i32 %.sink, 4
+  br label %.outer
+
+115:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
+  %116 = add nuw nsw i32 %.040, 1
   br label %.backedge65.backedge
 
-116:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
-  %117 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %69, i64 %.pre-phi
-  %118 = and i32 %71, 8
-  %.not = icmp eq i32 %118, 0
-  br i1 %.not, label %119, label %124
+117:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
+  %118 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %69, i64 %.pre-phi
+  %119 = and i32 %71, 8
+  %.not = icmp eq i32 %119, 0
+  br i1 %.not, label %120, label %125
 
-119:                                              ; preds = %116
-  %120 = add nuw nsw i32 %.040, 1
-  %121 = add nsw i32 %.142.ph, 1
-  %122 = sext i32 %.142.ph to i64
-  %123 = getelementptr inbounds i32, ptr %7, i64 %122
-  store i32 %120, ptr %123, align 4, !tbaa !77
-  br label %124
+120:                                              ; preds = %117
+  %121 = add nuw nsw i32 %.040, 1
+  %122 = add nsw i32 %.142.ph, 1
+  %123 = sext i32 %.142.ph to i64
+  %124 = getelementptr inbounds i32, ptr %7, i64 %123
+  store i32 %121, ptr %124, align 4, !tbaa !77
+  br label %125
 
-124:                                              ; preds = %119, %116
-  %.6 = phi i32 [ %.142.ph, %116 ], [ %121, %119 ]
-  %125 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %126 = load i32, ptr %125, align 4, !tbaa !104
-  %127 = and i32 %126, %12
-  %.not43 = icmp eq i32 %127, 0
-  br i1 %.not43, label %128, label %.backedge
+125:                                              ; preds = %120, %117
+  %.6 = phi i32 [ %.142.ph, %117 ], [ %122, %120 ]
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  %127 = load i32, ptr %126, align 4, !tbaa !104
+  %128 = and i32 %127, %12
+  %.not43 = icmp eq i32 %128, 0
+  br i1 %.not43, label %129, label %.backedge
 
-128:                                              ; preds = %124
-  %129 = load i32, ptr %117, align 4, !tbaa !114
+129:                                              ; preds = %125
+  %130 = load i32, ptr %118, align 4, !tbaa !114
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %96, %100, %103, %107, %110, %128
-  %.sink = phi i32 [ %129, %128 ], [ %.pre61, %110 ], [ %97, %107 ], [ %97, %103 ], [ %97, %100 ], [ %97, %96 ]
-  %.142.ph.be = phi i32 [ %.6, %128 ], [ %111, %110 ], [ %.4, %107 ], [ %.4, %103 ], [ %.4, %100 ], [ %.4, %96 ]
-  %130 = lshr i32 %.sink, 4
-  br label %.outer
 
 select.unfold:                                    ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit, %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
   %131 = and i32 %71, 8
@@ -2293,8 +2293,8 @@ select.unfold:                                    ; preds = %_ZN10duckdb_re23DFA
   %.not86 = icmp eq i32 %131, 0
   br i1 %.not86, label %.backedge65.backedge, label %.backedge
 
-.backedge65.backedge:                             ; preds = %select.unfold, %114
-  %.040.be = phi i32 [ %spec.select53, %select.unfold ], [ %115, %114 ]
+.backedge65.backedge:                             ; preds = %select.unfold, %115
+  %.040.be = phi i32 [ %spec.select53, %select.unfold ], [ %116, %115 ]
   br label %.backedge65
 
 133:                                              ; preds = %.backedge
@@ -2590,7 +2590,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not43, label %._crit_edge, label %_ZN10duckdb_re23DFA5Workq4markEv.exit
 
 _ZN10duckdb_re23DFA5Workq4markEv.exit:            ; preds = %57, %57, %57, %57, %57, %_ZN10LogMessageD2Ev.exit, %79, %103, %95, %109, %48, %43, %40, %114
-  %.1 = phi ptr [ %.045, %114 ], [ %.045, %40 ], [ %.045, %43 ], [ %.045, %48 ], [ %.045, %109 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %79 ], [ %108, %103 ], [ %99, %95 ], [ %.045, %_ZN10LogMessageD2Ev.exit ]
+  %.1 = phi ptr [ %.045, %114 ], [ %.045, %40 ], [ %.045, %43 ], [ %.045, %48 ], [ %.045, %109 ], [ %.045, %79 ], [ %108, %103 ], [ %99, %95 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %_ZN10LogMessageD2Ev.exit ]
   %115 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %116 = load ptr, ptr %11, align 8, !tbaa !85
   %117 = load i32, ptr %1, align 8, !tbaa !81

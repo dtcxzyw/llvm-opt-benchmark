@@ -584,7 +584,7 @@ mxpeg_decode_com.exit.thread:                     ; preds = %.loopexit, %225, %7
   br label %.thread132
 
 .thread132:                                       ; preds = %225, %.thread, %231, %167, %mxpeg_decode_com.exit, %.thread137, %4, %.thread140, %152, %149, %145, %77, %73
-  %.0 = phi i32 [ %263, %.thread140 ], [ -1094995529, %145 ], [ %147, %149 ], [ -22, %152 ], [ %75, %77 ], [ %71, %73 ], [ -1163346256, %4 ], [ %243, %.thread137 ], [ %219, %.thread ], [ %223, %225 ], [ %229, %231 ], [ %170, %167 ], [ %.0.i126, %mxpeg_decode_com.exit ]
+  %.0 = phi i32 [ %263, %.thread140 ], [ %71, %73 ], [ %75, %77 ], [ -1094995529, %145 ], [ %147, %149 ], [ -22, %152 ], [ -1163346256, %4 ], [ %243, %.thread137 ], [ %219, %.thread ], [ %223, %225 ], [ %229, %231 ], [ %170, %167 ], [ %.0.i126, %mxpeg_decode_com.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6

@@ -2089,8 +2089,8 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   unreachable
 
 85:                                               ; preds = %73, %71, %58, %59, %38, %23, %22, %11, %1
-  %.029 = phi ptr [ %2, %1 ], [ %45, %58 ], [ %45, %59 ], [ %24, %38 ], [ %2, %23 ], [ %2, %22 ], [ %2, %11 ], [ %2, %71 ], [ %2, %73 ]
-  %.0 = phi i1 [ false, %1 ], [ false, %58 ], [ false, %59 ], [ true, %38 ], [ false, %23 ], [ true, %22 ], [ true, %11 ], [ true, %71 ], [ true, %73 ]
+  %.029 = phi ptr [ %2, %1 ], [ %2, %11 ], [ %2, %22 ], [ %2, %23 ], [ %24, %38 ], [ %45, %58 ], [ %45, %59 ], [ %2, %71 ], [ %2, %73 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %11 ], [ true, %22 ], [ false, %23 ], [ true, %38 ], [ false, %58 ], [ false, %59 ], [ true, %71 ], [ true, %73 ]
   %86 = zext i1 %0 to i8
   %87 = getelementptr inbounds nuw i8, ptr %.029, i64 105
   store i8 %86, ptr %87, align 1
@@ -2245,7 +2245,7 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
   unreachable
 
 51:                                               ; preds = %24, %25, %41, %6, %5, %1
-  %.0 = phi ptr [ %2, %1 ], [ %2, %41 ], [ %.1.lcssa, %24 ], [ %.1.lcssa, %25 ], [ %2, %6 ], [ %2, %5 ]
+  %.0 = phi ptr [ %2, %1 ], [ %2, %5 ], [ %2, %6 ], [ %.1.lcssa, %24 ], [ %.1.lcssa, %25 ], [ %2, %41 ]
   %52 = zext i1 %0 to i8
   %53 = getelementptr inbounds nuw i8, ptr %.0, i64 105
   store i8 %52, ptr %53, align 1
@@ -3630,7 +3630,7 @@ define dso_local void @AbortOutOfAnyTransaction() local_unnamed_addr #2 {
   br label %30
 
 30:                                               ; preds = %7, %4, %12, %13, %14, %28, %11
-  %.1 = phi ptr [ %.0, %4 ], [ %29, %28 ], [ %15, %14 ], [ %.0, %13 ], [ %.0, %12 ], [ %.0, %7 ], [ %.0, %11 ]
+  %.1 = phi ptr [ %.0, %4 ], [ %.0, %7 ], [ %.0, %11 ], [ %.0, %12 ], [ %.0, %13 ], [ %15, %14 ], [ %29, %28 ]
   %31 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not14 = icmp eq i32 %32, 0

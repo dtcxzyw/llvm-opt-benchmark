@@ -642,7 +642,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter12set_cutparamEPK
   br label %23
 
 23:                                               ; preds = %13, %.thread26, %20, %10
-  %.2 = phi i32 [ -1, %10 ], [ -1, %20 ], [ 0, %.thread26 ], [ 0, %13 ]
+  %.2 = phi i32 [ -1, %20 ], [ -1, %10 ], [ 0, %.thread26 ], [ 0, %13 ]
   ret i32 %.2
 }
 

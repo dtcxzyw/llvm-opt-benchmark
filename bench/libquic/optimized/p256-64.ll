@@ -3471,9 +3471,9 @@ smallfelem_to_BN.exit176:                         ; preds = %1186
   br label %.loopexit245
 
 .loopexit245:                                     ; preds = %flip_endian.exit, %138, %140, %flip_endian.exit171, %127, %40, %43, %46, %49, %1196, %1195, %58
-  %.0141 = phi i32 [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %58 ], [ 0, %flip_endian.exit171 ], [ %1197, %1196 ], [ 0, %1195 ], [ 0, %127 ], [ 0, %140 ], [ 0, %138 ], [ 0, %flip_endian.exit ]
-  %.0138 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %54, %58 ], [ %.1139, %flip_endian.exit171 ], [ %.1139, %1196 ], [ %.1139, %1195 ], [ %54, %127 ], [ %54, %140 ], [ %54, %138 ], [ %54, %flip_endian.exit ]
-  %.0136 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %55, %58 ], [ %.1137, %flip_endian.exit171 ], [ %.1137, %1196 ], [ %.1137, %1195 ], [ %55, %127 ], [ %55, %140 ], [ %55, %138 ], [ %55, %flip_endian.exit ]
+  %.0141 = phi i32 [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %58 ], [ %1197, %1196 ], [ 0, %1195 ], [ 0, %flip_endian.exit171 ], [ 0, %127 ], [ 0, %140 ], [ 0, %138 ], [ 0, %flip_endian.exit ]
+  %.0138 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %54, %58 ], [ %.1139, %1196 ], [ %.1139, %1195 ], [ %.1139, %flip_endian.exit171 ], [ %54, %127 ], [ %54, %140 ], [ %54, %138 ], [ %54, %flip_endian.exit ]
+  %.0136 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %55, %58 ], [ %.1137, %1196 ], [ %.1137, %1195 ], [ %.1137, %flip_endian.exit171 ], [ %55, %127 ], [ %55, %140 ], [ %55, %138 ], [ %55, %flip_endian.exit ]
   call void @BN_CTX_end(ptr noundef nonnull %.0140) #9
   call void @BN_CTX_free(ptr noundef %.0142) #9
   call void @free(ptr noundef %.0138) #9

@@ -1339,7 +1339,7 @@ checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSp
   br label %fetch_att.exit.i
 
 fetch_att.exit.i:                                 ; preds = %615, %609, %606, %603, %600, %593
-  %617 = phi i64 [ 0, %593 ], [ %610, %609 ], [ %608, %606 ], [ %605, %603 ], [ %602, %600 ], [ %616, %615 ]
+  %617 = phi i64 [ 0, %593 ], [ %602, %600 ], [ %605, %603 ], [ %608, %606 ], [ %610, %609 ], [ %616, %615 ]
   %618 = load ptr, ptr %99, align 8
   %619 = getelementptr inbounds nuw i64, ptr %618, i64 %indvars.iv.i201
   store i64 %617, ptr %619, align 8
@@ -1442,7 +1442,7 @@ fetch_att.exit.i:                                 ; preds = %615, %609, %606, %6
   br label %fetch_att.exit508.i
 
 fetch_att.exit508.i:                              ; preds = %664, %658, %655, %652, %649, %642
-  %666 = phi i64 [ 0, %642 ], [ %659, %658 ], [ %657, %655 ], [ %654, %652 ], [ %651, %649 ], [ %665, %664 ]
+  %666 = phi i64 [ 0, %642 ], [ %651, %649 ], [ %654, %652 ], [ %657, %655 ], [ %659, %658 ], [ %665, %664 ]
   %667 = load ptr, ptr %99, align 8
   %668 = sext i32 %.2445589.i to i64
   %669 = getelementptr inbounds i64, ptr %667, i64 %668
@@ -1538,7 +1538,7 @@ fetch_att.exit508.i:                              ; preds = %664, %658, %655, %6
   br label %fetch_att.exit510.i
 
 fetch_att.exit510.i:                              ; preds = %711, %705, %702, %699, %696, %.loopexit564.i
-  %713 = phi i64 [ 0, %.loopexit564.i ], [ %706, %705 ], [ %704, %702 ], [ %701, %699 ], [ %698, %696 ], [ %712, %711 ]
+  %713 = phi i64 [ 0, %.loopexit564.i ], [ %698, %696 ], [ %701, %699 ], [ %704, %702 ], [ %706, %705 ], [ %712, %711 ]
   %714 = load ptr, ptr %99, align 8
   %715 = sext i32 %.1444.i to i64
   %716 = getelementptr inbounds i64, ptr %714, i64 %715

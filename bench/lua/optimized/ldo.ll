@@ -1531,7 +1531,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i
   br label %10
 
 192:                                              ; preds = %._crit_edge93, %precallC.exit73, %precallC.exit
-  %.0 = phi i32 [ -1, %._crit_edge93 ], [ %96, %precallC.exit73 ], [ %55, %precallC.exit ]
+  %.0 = phi i32 [ %55, %precallC.exit ], [ %96, %precallC.exit73 ], [ -1, %._crit_edge93 ]
   ret i32 %.0
 }
 

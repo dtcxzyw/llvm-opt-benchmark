@@ -2948,7 +2948,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit312: ; preds = %._crit_edge.
   br label %629
 
 627:                                              ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit307, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit281, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit255, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit228, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit201, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit164, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit151, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit
-  %.070 = phi double [ %560, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit307 ], [ %489, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit281 ], [ %413, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit255 ], [ %335, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit228 ], [ %234, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit201 ], [ %194, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit164 ], [ %126, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit151 ], [ %48, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit ]
+  %.070 = phi double [ %48, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit ], [ %126, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit151 ], [ %194, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit164 ], [ %234, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit201 ], [ %335, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit228 ], [ %413, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit255 ], [ %489, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit281 ], [ %560, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit307 ]
   %.0..0..0..0.40 = load volatile i32, ptr %5, align 4, !tbaa !4
   %628 = fdiv double %.070, 1.000000e+03
   br label %629
@@ -2959,9 +2959,9 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit312: ; preds = %._crit_edge.
   ret double %.0
 
 630:                                              ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit312, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit286, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit260, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit233, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit206, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit169, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit156, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit133
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit312 ], [ %.pn100.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit286 ], [ %.pn104.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit260 ], [ %.pn108.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit233 ], [ %.pn112, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit206 ], [ %.pn114.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit169 ], [ %.pn122, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit156 ], [ %.pn125, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit133 ]
+  %.pn125.pn = phi { ptr, i32 } [ %.pn125, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit133 ], [ %.pn122, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit156 ], [ %.pn114.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit169 ], [ %.pn112, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit206 ], [ %.pn108.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit233 ], [ %.pn104.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit260 ], [ %.pn100.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit286 ], [ %.pn.pn.pn, %_ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit312 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn125.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4394,7 +4394,7 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit218: ; preds = %_
   br label %561
 
 559:                                              ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit218, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit206, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit194, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit181, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit168, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit151, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit141, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit
-  %.070 = phi double [ %505, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit218 ], [ %447, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit206 ], [ %384, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit194 ], [ %319, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit181 ], [ %236, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit168 ], [ %195, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit151 ], [ %146, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit141 ], [ %50, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit ]
+  %.070 = phi double [ %50, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit ], [ %146, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit141 ], [ %195, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit151 ], [ %236, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit168 ], [ %319, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit181 ], [ %384, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit194 ], [ %447, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit206 ], [ %505, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit218 ]
   %.0..0..0..0.40 = load volatile i32, ptr %5, align 4, !tbaa !4
   %560 = fdiv double %.070, 1.000000e+03
   br label %561
@@ -4405,9 +4405,9 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit218: ; preds = %_
   ret double %.0
 
 562:                                              ; preds = %557, %495, %436, %371, %305, %220, %184, %109
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %557 ], [ %.pn100.pn.pn, %495 ], [ %.pn104.pn.pn, %436 ], [ %.pn108.pn.pn, %371 ], [ %.pn112, %305 ], [ %.pn114.pn.pn, %220 ], [ %.pn122, %184 ], [ %.pn125, %109 ]
+  %.pn125.pn = phi { ptr, i32 } [ %.pn125, %109 ], [ %.pn122, %184 ], [ %.pn114.pn.pn, %220 ], [ %.pn112, %305 ], [ %.pn108.pn.pn, %371 ], [ %.pn104.pn.pn, %436 ], [ %.pn100.pn.pn, %495 ], [ %.pn.pn.pn, %557 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn125.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6144,7 +6144,7 @@ _ZN10spsc_queueIiED2Ev.exit322:                   ; preds = %496
   br label %501
 
 499:                                              ; preds = %_ZN10spsc_queueIiED2Ev.exit319, %_ZN10spsc_queueIiED2Ev.exit294, %_ZN10spsc_queueIiED2Ev.exit269, %_ZN10spsc_queueIiED2Ev.exit243, %_ZN10spsc_queueIiED2Ev.exit217, %_ZN10spsc_queueIiED2Ev.exit188, %_ZN10spsc_queueIiED2Ev.exit165, %_ZN10spsc_queueIiED2Ev.exit
-  %.076 = phi double [ %467, %_ZN10spsc_queueIiED2Ev.exit319 ], [ %407, %_ZN10spsc_queueIiED2Ev.exit294 ], [ %342, %_ZN10spsc_queueIiED2Ev.exit269 ], [ %275, %_ZN10spsc_queueIiED2Ev.exit243 ], [ %205, %_ZN10spsc_queueIiED2Ev.exit217 ], [ %162, %_ZN10spsc_queueIiED2Ev.exit188 ], [ %110, %_ZN10spsc_queueIiED2Ev.exit165 ], [ %56, %_ZN10spsc_queueIiED2Ev.exit ]
+  %.076 = phi double [ %56, %_ZN10spsc_queueIiED2Ev.exit ], [ %110, %_ZN10spsc_queueIiED2Ev.exit165 ], [ %162, %_ZN10spsc_queueIiED2Ev.exit188 ], [ %205, %_ZN10spsc_queueIiED2Ev.exit217 ], [ %275, %_ZN10spsc_queueIiED2Ev.exit243 ], [ %342, %_ZN10spsc_queueIiED2Ev.exit269 ], [ %407, %_ZN10spsc_queueIiED2Ev.exit294 ], [ %467, %_ZN10spsc_queueIiED2Ev.exit319 ]
   %.0..0..0..0.46 = load volatile i32, ptr %5, align 4, !tbaa !4
   %500 = fdiv double %.076, 1.000000e+03
   br label %501
@@ -6155,9 +6155,9 @@ _ZN10spsc_queueIiED2Ev.exit322:                   ; preds = %496
   ret double %.0
 
 502:                                              ; preds = %_ZN10spsc_queueIiED2Ev.exit322, %_ZN10spsc_queueIiED2Ev.exit297, %_ZN10spsc_queueIiED2Ev.exit272, %_ZN10spsc_queueIiED2Ev.exit246, %_ZN10spsc_queueIiED2Ev.exit220, %_ZN10spsc_queueIiED2Ev.exit191, %_ZN10spsc_queueIiED2Ev.exit168, %_ZN10spsc_queueIiED2Ev.exit142
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN10spsc_queueIiED2Ev.exit322 ], [ %.pn110.pn.pn, %_ZN10spsc_queueIiED2Ev.exit297 ], [ %.pn114.pn.pn, %_ZN10spsc_queueIiED2Ev.exit272 ], [ %.pn118.pn.pn, %_ZN10spsc_queueIiED2Ev.exit246 ], [ %.pn122, %_ZN10spsc_queueIiED2Ev.exit220 ], [ %.pn124.pn.pn, %_ZN10spsc_queueIiED2Ev.exit191 ], [ %.pn132, %_ZN10spsc_queueIiED2Ev.exit168 ], [ %.pn135, %_ZN10spsc_queueIiED2Ev.exit142 ]
+  %.pn135.pn = phi { ptr, i32 } [ %.pn135, %_ZN10spsc_queueIiED2Ev.exit142 ], [ %.pn132, %_ZN10spsc_queueIiED2Ev.exit168 ], [ %.pn124.pn.pn, %_ZN10spsc_queueIiED2Ev.exit191 ], [ %.pn122, %_ZN10spsc_queueIiED2Ev.exit220 ], [ %.pn118.pn.pn, %_ZN10spsc_queueIiED2Ev.exit246 ], [ %.pn114.pn.pn, %_ZN10spsc_queueIiED2Ev.exit272 ], [ %.pn110.pn.pn, %_ZN10spsc_queueIiED2Ev.exit297 ], [ %.pn.pn.pn, %_ZN10spsc_queueIiED2Ev.exit322 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn135.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7197,7 +7197,7 @@ _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit182: ; preds = %307, %31
   br label %340
 
 338:                                              ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit182, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit174, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit166, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit157, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit148, %106, %85, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit
-  %.070 = phi double [ %306, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit182 ], [ %264, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit174 ], [ %217, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit166 ], [ %168, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit157 ], [ %129, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit148 ], [ %105, %106 ], [ %74, %85 ], [ %44, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit ]
+  %.070 = phi double [ %44, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit ], [ %74, %85 ], [ %105, %106 ], [ %129, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit148 ], [ %168, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit157 ], [ %217, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit166 ], [ %264, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit174 ], [ %306, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit182 ]
   %.0..0..0..0.40 = load volatile i32, ptr %5, align 4, !tbaa !4
   %339 = fdiv double %.070, 1.000000e+03
   br label %340
@@ -7208,9 +7208,9 @@ _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit182: ; preds = %307, %31
   ret double %.0
 
 341:                                              ; preds = %335, %289, %246, %197, %148, %119, %88, %58
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %335 ], [ %.pn99.pn.pn, %289 ], [ %.pn103.pn.pn, %246 ], [ %.pn107.pn.pn, %197 ], [ %.pn111, %148 ], [ %.pn113.pn.pn, %119 ], [ %.pn119, %88 ], [ %.pn122, %58 ]
+  %.pn122.pn = phi { ptr, i32 } [ %.pn122, %58 ], [ %.pn119, %88 ], [ %.pn113.pn.pn, %119 ], [ %.pn111, %148 ], [ %.pn107.pn.pn, %197 ], [ %.pn103.pn.pn, %246 ], [ %.pn99.pn.pn, %289 ], [ %.pn.pn.pn, %335 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn122.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

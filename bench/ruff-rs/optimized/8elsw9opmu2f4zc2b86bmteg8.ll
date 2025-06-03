@@ -1458,9 +1458,9 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   br label %154
 
 154:                                              ; preds = %152, %151, %150, %149, %142
-  %.sroa.031.0.i = phi i8 [ 9, %152 ], [ 8, %151 ], [ 7, %150 ], [ %141, %149 ], [ 6, %142 ]
-  %.sroa.9.2.i = phi ptr [ %.sroa.523.0.copyload.i, %152 ], [ %.sroa.9.0.i, %151 ], [ %.sroa.9.0.i, %150 ], [ %.sroa.523.0.copyload.i, %149 ], [ %.sroa.9.0.i, %142 ]
-  %.sroa.10.2.i = phi i64 [ %.sroa.626.0.copyload.i, %152 ], [ %.sroa.10.0.i, %151 ], [ %.sroa.10.0.i, %150 ], [ %.sroa.626.0.copyload.i, %149 ], [ %.sroa.10.0.i, %142 ]
+  %.sroa.031.0.i = phi i8 [ %141, %149 ], [ 7, %150 ], [ 8, %151 ], [ 9, %152 ], [ 6, %142 ]
+  %.sroa.9.2.i = phi ptr [ %.sroa.523.0.copyload.i, %149 ], [ %.sroa.9.0.i, %150 ], [ %.sroa.9.0.i, %151 ], [ %.sroa.523.0.copyload.i, %152 ], [ %.sroa.9.0.i, %142 ]
+  %.sroa.10.2.i = phi i64 [ %.sroa.626.0.copyload.i, %149 ], [ %.sroa.10.0.i, %150 ], [ %.sroa.10.0.i, %151 ], [ %.sroa.626.0.copyload.i, %152 ], [ %.sroa.10.0.i, %142 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14), !noalias !146
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.79.0..sroa_idx10.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i, i64 7, i1 false), !noalias !146
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.79.sroa.7.0..sroa.79.0..sroa_idx10.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11.i, i64 32, i1 false), !noalias !146
@@ -2965,9 +2965,9 @@ define hidden void @"_ZN90_$LT$camino..Utf8PathBuf$u20$as$u20$core..iter..traits
   br label %.split46.us.i.i.i.i
 
 .split46.us.i.i.i.i:                              ; preds = %21, %20, %19, %17, %.lr.ph.split.us.i.i.i.i
-  %.sroa.09.0.i.us.i.i.i.i = phi i8 [ 9, %17 ], [ 8, %19 ], [ 7, %20 ], [ %9, %21 ], [ 6, %.lr.ph.split.us.i.i.i.i ]
-  %.sroa.812.0.i.us.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.us.i.i.i.i, %17 ], [ undef, %19 ], [ undef, %20 ], [ %.sroa.33.0.copyload.i.us.i.i.i.i, %21 ], [ undef, %.lr.ph.split.us.i.i.i.i ]
-  %.sroa.9.0.i.us.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.us.i.i.i.i, %17 ], [ undef, %19 ], [ undef, %20 ], [ %.sroa.4.0.copyload.i.us.i.i.i.i, %21 ], [ undef, %.lr.ph.split.us.i.i.i.i ]
+  %.sroa.09.0.i.us.i.i.i.i = phi i8 [ %9, %21 ], [ 7, %20 ], [ 8, %19 ], [ 9, %17 ], [ 6, %.lr.ph.split.us.i.i.i.i ]
+  %.sroa.812.0.i.us.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.us.i.i.i.i, %21 ], [ undef, %20 ], [ undef, %19 ], [ %.sroa.33.0.copyload.i.us.i.i.i.i, %17 ], [ undef, %.lr.ph.split.us.i.i.i.i ]
+  %.sroa.9.0.i.us.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.us.i.i.i.i, %21 ], [ undef, %20 ], [ undef, %19 ], [ %.sroa.4.0.copyload.i.us.i.i.i.i, %17 ], [ undef, %.lr.ph.split.us.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i.i.i.i.i, i64 7, i1 false), !noalias !395
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i.i.i.i, i64 32, i1 false), !noalias !395
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8.i.i.i.i.i)
@@ -3018,9 +3018,9 @@ define hidden void @"_ZN90_$LT$camino..Utf8PathBuf$u20$as$u20$core..iter..traits
   br label %33
 
 33:                                               ; preds = %31, %30, %29, %28, %.lr.ph.split.i.i.i.i
-  %.sroa.09.0.i.i.i.i.i = phi i8 [ 9, %31 ], [ 8, %30 ], [ 7, %29 ], [ %22, %28 ], [ 6, %.lr.ph.split.i.i.i.i ]
-  %.sroa.812.0.i.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.i.i.i.i, %31 ], [ undef, %30 ], [ undef, %29 ], [ %.sroa.33.0.copyload.i.i.i.i.i, %28 ], [ undef, %.lr.ph.split.i.i.i.i ]
-  %.sroa.9.0.i.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.i.i.i.i, %31 ], [ undef, %30 ], [ undef, %29 ], [ %.sroa.4.0.copyload.i.i.i.i.i, %28 ], [ undef, %.lr.ph.split.i.i.i.i ]
+  %.sroa.09.0.i.i.i.i.i = phi i8 [ %22, %28 ], [ 7, %29 ], [ 8, %30 ], [ 9, %31 ], [ 6, %.lr.ph.split.i.i.i.i ]
+  %.sroa.812.0.i.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.i.i.i.i, %28 ], [ undef, %29 ], [ undef, %30 ], [ %.sroa.33.0.copyload.i.i.i.i.i, %31 ], [ undef, %.lr.ph.split.i.i.i.i ]
+  %.sroa.9.0.i.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.i.i.i.i, %28 ], [ undef, %29 ], [ undef, %30 ], [ %.sroa.4.0.copyload.i.i.i.i.i, %31 ], [ undef, %.lr.ph.split.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i.i.i.i.i, i64 7, i1 false), !noalias !395
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i.i.i.i, i64 32, i1 false), !noalias !395
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8.i.i.i.i.i)

@@ -1130,7 +1130,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAdd
   br label %29
 
 29:                                               ; preds = %23, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %23 ]
+  %.2.i.i.i = phi i64 [ %28, %23 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !65
   %32 = zext i8 %31 to i64
@@ -1139,7 +1139,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAdd
   br label %35
 
 35:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.3.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %29 ]
+  %.3.i.i.i = phi i64 [ %34, %29 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
   %37 = load i8, ptr %36, align 1, !tbaa !65
   %38 = zext i8 %37 to i64
@@ -1148,7 +1148,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAdd
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.4.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %40, %35 ]
+  %.4.i.i.i = phi i64 [ %40, %35 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !65
   %44 = zext i8 %43 to i64
@@ -1157,7 +1157,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAdd
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.5.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %41 ]
+  %.5.i.i.i = phi i64 [ %46, %41 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !65
   %50 = zext i8 %49 to i64
@@ -1166,7 +1166,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAdd
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i.i.i
-  %.6.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %47 ]
+  %.6.i.i.i = phi i64 [ %52, %47 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !65
   %56 = zext i8 %55 to i64
@@ -1175,7 +1175,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAdd
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i.i.i
-  %.7.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %53 ]
+  %.7.i.i.i = phi i64 [ %58, %53 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %60 = load i8, ptr %.0.lcssa.i.i.i, align 1, !tbaa !65
   %61 = zext i8 %60 to i64
   %62 = xor i64 %.7.i.i.i, %61
@@ -1186,7 +1186,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i30
   unreachable
 
 _ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit:      ; preds = %._crit_edge.i.i.i, %59
-  %.1.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %59 ]
+  %.1.i.i.i = phi i64 [ %63, %59 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %64 = lshr i64 %.1.i.i.i, 47
   %65 = xor i64 %64, %.1.i.i.i
   %66 = mul i64 %65, -4132994306676758123
@@ -1340,7 +1340,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   br label %135
 
 135:                                              ; preds = %129, %._crit_edge.i.i.i30
-  %.2.i.i.i39 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %134, %129 ]
+  %.2.i.i.i39 = phi i64 [ %134, %129 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %136 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 5
   %137 = load i8, ptr %136, align 1, !tbaa !65
   %138 = zext i8 %137 to i64
@@ -1349,7 +1349,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   br label %141
 
 141:                                              ; preds = %135, %._crit_edge.i.i.i30
-  %.3.i.i.i38 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %140, %135 ]
+  %.3.i.i.i38 = phi i64 [ %140, %135 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %142 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 4
   %143 = load i8, ptr %142, align 1, !tbaa !65
   %144 = zext i8 %143 to i64
@@ -1358,7 +1358,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   br label %147
 
 147:                                              ; preds = %141, %._crit_edge.i.i.i30
-  %.4.i.i.i37 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %146, %141 ]
+  %.4.i.i.i37 = phi i64 [ %146, %141 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 3
   %149 = load i8, ptr %148, align 1, !tbaa !65
   %150 = zext i8 %149 to i64
@@ -1367,7 +1367,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   br label %153
 
 153:                                              ; preds = %147, %._crit_edge.i.i.i30
-  %.5.i.i.i36 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %152, %147 ]
+  %.5.i.i.i36 = phi i64 [ %152, %147 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %154 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 2
   %155 = load i8, ptr %154, align 1, !tbaa !65
   %156 = zext i8 %155 to i64
@@ -1376,7 +1376,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   br label %159
 
 159:                                              ; preds = %153, %._crit_edge.i.i.i30
-  %.6.i.i.i35 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %158, %153 ]
+  %.6.i.i.i35 = phi i64 [ %158, %153 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %160 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !65
   %162 = zext i8 %161 to i64
@@ -1385,7 +1385,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   br label %165
 
 165:                                              ; preds = %159, %._crit_edge.i.i.i30
-  %.7.i.i.i34 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %164, %159 ]
+  %.7.i.i.i34 = phi i64 [ %164, %159 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %166 = load i8, ptr %.0.lcssa.i.i.i32, align 1, !tbaa !65
   %167 = zext i8 %166 to i64
   %168 = xor i64 %.7.i.i.i34, %167
@@ -1393,7 +1393,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   br label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit41
 
 _ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit41:    ; preds = %._crit_edge.i.i.i30, %165
-  %.1.i.i.i33 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %169, %165 ]
+  %.1.i.i.i33 = phi i64 [ %169, %165 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %170 = lshr i64 %.1.i.i.i33, 47
   %171 = xor i64 %170, %.1.i.i.i33
   %172 = mul i64 %171, -4132994306676758123
@@ -1475,7 +1475,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE
   br label %29
 
 29:                                               ; preds = %23, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %23 ]
+  %.2.i.i.i = phi i64 [ %28, %23 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !65
   %32 = zext i8 %31 to i64
@@ -1484,7 +1484,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE
   br label %35
 
 35:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.3.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %29 ]
+  %.3.i.i.i = phi i64 [ %34, %29 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
   %37 = load i8, ptr %36, align 1, !tbaa !65
   %38 = zext i8 %37 to i64
@@ -1493,7 +1493,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.4.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %40, %35 ]
+  %.4.i.i.i = phi i64 [ %40, %35 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !65
   %44 = zext i8 %43 to i64
@@ -1502,7 +1502,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.5.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %41 ]
+  %.5.i.i.i = phi i64 [ %46, %41 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !65
   %50 = zext i8 %49 to i64
@@ -1511,7 +1511,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i.i.i
-  %.6.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %47 ]
+  %.6.i.i.i = phi i64 [ %52, %47 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !65
   %56 = zext i8 %55 to i64
@@ -1520,7 +1520,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i.i.i
-  %.7.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %53 ]
+  %.7.i.i.i = phi i64 [ %58, %53 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %60 = load i8, ptr %.0.lcssa.i.i.i, align 1, !tbaa !65
   %61 = zext i8 %60 to i64
   %62 = xor i64 %.7.i.i.i, %61
@@ -1531,7 +1531,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i30
   unreachable
 
 _ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_edge.i.i.i, %59
-  %.1.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %59 ]
+  %.1.i.i.i = phi i64 [ %63, %59 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %64 = lshr i64 %.1.i.i.i, 47
   %65 = xor i64 %64, %.1.i.i.i
   %66 = mul i64 %65, -4132994306676758123
@@ -1685,7 +1685,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %135
 
 135:                                              ; preds = %129, %._crit_edge.i.i.i30
-  %.2.i.i.i39 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %134, %129 ]
+  %.2.i.i.i39 = phi i64 [ %134, %129 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %136 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 5
   %137 = load i8, ptr %136, align 1, !tbaa !65
   %138 = zext i8 %137 to i64
@@ -1694,7 +1694,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %141
 
 141:                                              ; preds = %135, %._crit_edge.i.i.i30
-  %.3.i.i.i38 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %140, %135 ]
+  %.3.i.i.i38 = phi i64 [ %140, %135 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %142 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 4
   %143 = load i8, ptr %142, align 1, !tbaa !65
   %144 = zext i8 %143 to i64
@@ -1703,7 +1703,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %147
 
 147:                                              ; preds = %141, %._crit_edge.i.i.i30
-  %.4.i.i.i37 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %146, %141 ]
+  %.4.i.i.i37 = phi i64 [ %146, %141 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 3
   %149 = load i8, ptr %148, align 1, !tbaa !65
   %150 = zext i8 %149 to i64
@@ -1712,7 +1712,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %153
 
 153:                                              ; preds = %147, %._crit_edge.i.i.i30
-  %.5.i.i.i36 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %152, %147 ]
+  %.5.i.i.i36 = phi i64 [ %152, %147 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %154 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 2
   %155 = load i8, ptr %154, align 1, !tbaa !65
   %156 = zext i8 %155 to i64
@@ -1721,7 +1721,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %159
 
 159:                                              ; preds = %153, %._crit_edge.i.i.i30
-  %.6.i.i.i35 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %158, %153 ]
+  %.6.i.i.i35 = phi i64 [ %158, %153 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %160 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !65
   %162 = zext i8 %161 to i64
@@ -1730,7 +1730,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %165
 
 165:                                              ; preds = %159, %._crit_edge.i.i.i30
-  %.7.i.i.i34 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %164, %159 ]
+  %.7.i.i.i34 = phi i64 [ %164, %159 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %166 = load i8, ptr %.0.lcssa.i.i.i32, align 1, !tbaa !65
   %167 = zext i8 %166 to i64
   %168 = xor i64 %.7.i.i.i34, %167
@@ -1738,7 +1738,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit41
 
 _ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit41: ; preds = %._crit_edge.i.i.i30, %165
-  %.1.i.i.i33 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %169, %165 ]
+  %.1.i.i.i33 = phi i64 [ %169, %165 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %170 = lshr i64 %.1.i.i.i33, 47
   %171 = xor i64 %170, %.1.i.i.i33
   %172 = mul i64 %171, -4132994306676758123
@@ -1886,7 +1886,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE
   br label %29
 
 29:                                               ; preds = %23, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %23 ]
+  %.2.i.i.i = phi i64 [ %28, %23 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !65
   %32 = zext i8 %31 to i64
@@ -1895,7 +1895,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE
   br label %35
 
 35:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.3.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %29 ]
+  %.3.i.i.i = phi i64 [ %34, %29 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
   %37 = load i8, ptr %36, align 1, !tbaa !65
   %38 = zext i8 %37 to i64
@@ -1904,7 +1904,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.4.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %40, %35 ]
+  %.4.i.i.i = phi i64 [ %40, %35 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !65
   %44 = zext i8 %43 to i64
@@ -1913,7 +1913,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.5.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %41 ]
+  %.5.i.i.i = phi i64 [ %46, %41 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !65
   %50 = zext i8 %49 to i64
@@ -1922,7 +1922,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i.i.i
-  %.6.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %47 ]
+  %.6.i.i.i = phi i64 [ %52, %47 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !65
   %56 = zext i8 %55 to i64
@@ -1931,7 +1931,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i.i.i
-  %.7.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %53 ]
+  %.7.i.i.i = phi i64 [ %58, %53 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %60 = load i8, ptr %.0.lcssa.i.i.i, align 1, !tbaa !65
   %61 = zext i8 %60 to i64
   %62 = xor i64 %.7.i.i.i, %61
@@ -1942,7 +1942,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i30
   unreachable
 
 _ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_edge.i.i.i, %59
-  %.1.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %59 ]
+  %.1.i.i.i = phi i64 [ %63, %59 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %64 = lshr i64 %.1.i.i.i, 47
   %65 = xor i64 %64, %.1.i.i.i
   %66 = mul i64 %65, -4132994306676758123
@@ -2096,7 +2096,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %135
 
 135:                                              ; preds = %129, %._crit_edge.i.i.i30
-  %.2.i.i.i39 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %134, %129 ]
+  %.2.i.i.i39 = phi i64 [ %134, %129 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %136 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 5
   %137 = load i8, ptr %136, align 1, !tbaa !65
   %138 = zext i8 %137 to i64
@@ -2105,7 +2105,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %141
 
 141:                                              ; preds = %135, %._crit_edge.i.i.i30
-  %.3.i.i.i38 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %140, %135 ]
+  %.3.i.i.i38 = phi i64 [ %140, %135 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %142 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 4
   %143 = load i8, ptr %142, align 1, !tbaa !65
   %144 = zext i8 %143 to i64
@@ -2114,7 +2114,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %147
 
 147:                                              ; preds = %141, %._crit_edge.i.i.i30
-  %.4.i.i.i37 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %146, %141 ]
+  %.4.i.i.i37 = phi i64 [ %146, %141 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 3
   %149 = load i8, ptr %148, align 1, !tbaa !65
   %150 = zext i8 %149 to i64
@@ -2123,7 +2123,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %153
 
 153:                                              ; preds = %147, %._crit_edge.i.i.i30
-  %.5.i.i.i36 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %152, %147 ]
+  %.5.i.i.i36 = phi i64 [ %152, %147 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %154 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 2
   %155 = load i8, ptr %154, align 1, !tbaa !65
   %156 = zext i8 %155 to i64
@@ -2132,7 +2132,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %159
 
 159:                                              ; preds = %153, %._crit_edge.i.i.i30
-  %.6.i.i.i35 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %158, %153 ]
+  %.6.i.i.i35 = phi i64 [ %158, %153 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %160 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !65
   %162 = zext i8 %161 to i64
@@ -2141,7 +2141,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %165
 
 165:                                              ; preds = %159, %._crit_edge.i.i.i30
-  %.7.i.i.i34 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %164, %159 ]
+  %.7.i.i.i34 = phi i64 [ %164, %159 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %166 = load i8, ptr %.0.lcssa.i.i.i32, align 1, !tbaa !65
   %167 = zext i8 %166 to i64
   %168 = xor i64 %.7.i.i.i34, %167
@@ -2149,7 +2149,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   br label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit41
 
 _ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit41: ; preds = %._crit_edge.i.i.i30, %165
-  %.1.i.i.i33 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %169, %165 ]
+  %.1.i.i.i33 = phi i64 [ %169, %165 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %170 = lshr i64 %.1.i.i.i33, 47
   %171 = xor i64 %170, %.1.i.i.i33
   %172 = mul i64 %171, -4132994306676758123
@@ -2295,7 +2295,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEE
   br label %29
 
 29:                                               ; preds = %23, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %23 ]
+  %.2.i.i.i = phi i64 [ %28, %23 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !65
   %32 = zext i8 %31 to i64
@@ -2304,7 +2304,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEE
   br label %35
 
 35:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.3.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %29 ]
+  %.3.i.i.i = phi i64 [ %34, %29 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
   %37 = load i8, ptr %36, align 1, !tbaa !65
   %38 = zext i8 %37 to i64
@@ -2313,7 +2313,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEE
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.4.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %40, %35 ]
+  %.4.i.i.i = phi i64 [ %40, %35 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !65
   %44 = zext i8 %43 to i64
@@ -2322,7 +2322,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEE
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.5.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %41 ]
+  %.5.i.i.i = phi i64 [ %46, %41 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !65
   %50 = zext i8 %49 to i64
@@ -2331,7 +2331,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEE
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i.i.i
-  %.6.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %47 ]
+  %.6.i.i.i = phi i64 [ %52, %47 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !65
   %56 = zext i8 %55 to i64
@@ -2340,7 +2340,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEE
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i.i.i
-  %.7.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %53 ]
+  %.7.i.i.i = phi i64 [ %58, %53 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %60 = load i8, ptr %.0.lcssa.i.i.i, align 1, !tbaa !65
   %61 = zext i8 %60 to i64
   %62 = xor i64 %.7.i.i.i, %61
@@ -2351,7 +2351,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i30
   unreachable
 
 _ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_edge.i.i.i, %59
-  %.1.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %59 ]
+  %.1.i.i.i = phi i64 [ %63, %59 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %64 = lshr i64 %.1.i.i.i, 47
   %65 = xor i64 %64, %.1.i.i.i
   %66 = mul i64 %65, -4132994306676758123
@@ -2505,7 +2505,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %135
 
 135:                                              ; preds = %129, %._crit_edge.i.i.i30
-  %.2.i.i.i39 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %134, %129 ]
+  %.2.i.i.i39 = phi i64 [ %134, %129 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %136 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 5
   %137 = load i8, ptr %136, align 1, !tbaa !65
   %138 = zext i8 %137 to i64
@@ -2514,7 +2514,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %141
 
 141:                                              ; preds = %135, %._crit_edge.i.i.i30
-  %.3.i.i.i38 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %140, %135 ]
+  %.3.i.i.i38 = phi i64 [ %140, %135 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %142 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 4
   %143 = load i8, ptr %142, align 1, !tbaa !65
   %144 = zext i8 %143 to i64
@@ -2523,7 +2523,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %147
 
 147:                                              ; preds = %141, %._crit_edge.i.i.i30
-  %.4.i.i.i37 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %146, %141 ]
+  %.4.i.i.i37 = phi i64 [ %146, %141 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 3
   %149 = load i8, ptr %148, align 1, !tbaa !65
   %150 = zext i8 %149 to i64
@@ -2532,7 +2532,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %153
 
 153:                                              ; preds = %147, %._crit_edge.i.i.i30
-  %.5.i.i.i36 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %152, %147 ]
+  %.5.i.i.i36 = phi i64 [ %152, %147 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %154 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 2
   %155 = load i8, ptr %154, align 1, !tbaa !65
   %156 = zext i8 %155 to i64
@@ -2541,7 +2541,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %159
 
 159:                                              ; preds = %153, %._crit_edge.i.i.i30
-  %.6.i.i.i35 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %158, %153 ]
+  %.6.i.i.i35 = phi i64 [ %158, %153 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %160 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !65
   %162 = zext i8 %161 to i64
@@ -2550,7 +2550,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %165
 
 165:                                              ; preds = %159, %._crit_edge.i.i.i30
-  %.7.i.i.i34 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %164, %159 ]
+  %.7.i.i.i34 = phi i64 [ %164, %159 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %166 = load i8, ptr %.0.lcssa.i.i.i32, align 1, !tbaa !65
   %167 = zext i8 %166 to i64
   %168 = xor i64 %.7.i.i.i34, %167
@@ -2558,7 +2558,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit41
 
 _ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit41: ; preds = %._crit_edge.i.i.i30, %165
-  %.1.i.i.i33 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %169, %165 ]
+  %.1.i.i.i33 = phi i64 [ %169, %165 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %170 = lshr i64 %.1.i.i.i33, 47
   %171 = xor i64 %170, %.1.i.i.i33
   %172 = mul i64 %171, -4132994306676758123
@@ -2637,7 +2637,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEE
   br label %29
 
 29:                                               ; preds = %23, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %23 ]
+  %.2.i.i.i = phi i64 [ %28, %23 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !65
   %32 = zext i8 %31 to i64
@@ -2646,7 +2646,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEE
   br label %35
 
 35:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.3.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %29 ]
+  %.3.i.i.i = phi i64 [ %34, %29 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
   %37 = load i8, ptr %36, align 1, !tbaa !65
   %38 = zext i8 %37 to i64
@@ -2655,7 +2655,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEE
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.4.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %40, %35 ]
+  %.4.i.i.i = phi i64 [ %40, %35 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !65
   %44 = zext i8 %43 to i64
@@ -2664,7 +2664,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEE
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.5.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %41 ]
+  %.5.i.i.i = phi i64 [ %46, %41 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !65
   %50 = zext i8 %49 to i64
@@ -2673,7 +2673,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEE
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i.i.i
-  %.6.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %47 ]
+  %.6.i.i.i = phi i64 [ %52, %47 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !65
   %56 = zext i8 %55 to i64
@@ -2682,7 +2682,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEE
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i.i.i
-  %.7.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %53 ]
+  %.7.i.i.i = phi i64 [ %58, %53 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %60 = load i8, ptr %.0.lcssa.i.i.i, align 1, !tbaa !65
   %61 = zext i8 %60 to i64
   %62 = xor i64 %.7.i.i.i, %61
@@ -2693,7 +2693,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i30
   unreachable
 
 _ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_edge.i.i.i, %59
-  %.1.i.i.i = phi i64 [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %59 ]
+  %.1.i.i.i = phi i64 [ %63, %59 ], [ %.036.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %64 = lshr i64 %.1.i.i.i, 47
   %65 = xor i64 %64, %.1.i.i.i
   %66 = mul i64 %65, -4132994306676758123
@@ -2847,7 +2847,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %135
 
 135:                                              ; preds = %129, %._crit_edge.i.i.i30
-  %.2.i.i.i39 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %134, %129 ]
+  %.2.i.i.i39 = phi i64 [ %134, %129 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %136 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 5
   %137 = load i8, ptr %136, align 1, !tbaa !65
   %138 = zext i8 %137 to i64
@@ -2856,7 +2856,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %141
 
 141:                                              ; preds = %135, %._crit_edge.i.i.i30
-  %.3.i.i.i38 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %140, %135 ]
+  %.3.i.i.i38 = phi i64 [ %140, %135 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %142 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 4
   %143 = load i8, ptr %142, align 1, !tbaa !65
   %144 = zext i8 %143 to i64
@@ -2865,7 +2865,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %147
 
 147:                                              ; preds = %141, %._crit_edge.i.i.i30
-  %.4.i.i.i37 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %146, %141 ]
+  %.4.i.i.i37 = phi i64 [ %146, %141 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 3
   %149 = load i8, ptr %148, align 1, !tbaa !65
   %150 = zext i8 %149 to i64
@@ -2874,7 +2874,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %153
 
 153:                                              ; preds = %147, %._crit_edge.i.i.i30
-  %.5.i.i.i36 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %152, %147 ]
+  %.5.i.i.i36 = phi i64 [ %152, %147 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %154 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 2
   %155 = load i8, ptr %154, align 1, !tbaa !65
   %156 = zext i8 %155 to i64
@@ -2883,7 +2883,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %159
 
 159:                                              ; preds = %153, %._crit_edge.i.i.i30
-  %.6.i.i.i35 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %158, %153 ]
+  %.6.i.i.i35 = phi i64 [ %158, %153 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %160 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i32, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !65
   %162 = zext i8 %161 to i64
@@ -2892,7 +2892,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %165
 
 165:                                              ; preds = %159, %._crit_edge.i.i.i30
-  %.7.i.i.i34 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %164, %159 ]
+  %.7.i.i.i34 = phi i64 [ %164, %159 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %166 = load i8, ptr %.0.lcssa.i.i.i32, align 1, !tbaa !65
   %167 = zext i8 %166 to i64
   %168 = xor i64 %.7.i.i.i34, %167
@@ -2900,7 +2900,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   br label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit41
 
 _ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit41: ; preds = %._crit_edge.i.i.i30, %165
-  %.1.i.i.i33 = phi i64 [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ], [ %169, %165 ]
+  %.1.i.i.i33 = phi i64 [ %169, %165 ], [ %.036.lcssa.i.i.i31, %._crit_edge.i.i.i30 ]
   %170 = lshr i64 %.1.i.i.i33, 47
   %171 = xor i64 %170, %.1.i.i.i33
   %172 = mul i64 %171, -4132994306676758123

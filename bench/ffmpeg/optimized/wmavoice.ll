@@ -2303,8 +2303,8 @@ aw_parse_coords.exit.i:                           ; preds = %..loopexit_crit_edg
   br label %.thread.i
 
 .thread.i:                                        ; preds = %795, %792
-  %.1155.ph.i = phi i32 [ %.0.i172.i, %792 ], [ %.0154197.i, %795 ]
-  %.1153.ph.i = phi i32 [ %.0152.i, %792 ], [ %798, %795 ]
+  %.1155.ph.i = phi i32 [ %.0154197.i, %795 ], [ %.0.i172.i, %792 ]
+  %.1153.ph.i = phi i32 [ %798, %795 ], [ %.0152.i, %792 ]
   %799 = mul nuw nsw i64 %indvars.iv213.i, %wide.trip.count.i39.i.i
   %800 = getelementptr inbounds nuw float, ptr %464, i64 %799
   %801 = getelementptr inbounds nuw float, ptr %467, i64 %799

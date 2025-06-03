@@ -4634,7 +4634,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %232, %226, %_ZN4cvc
   ret void
 
 238:                                              ; preds = %192, %160, %236, %129, %60
-  %.pn14 = phi { ptr, i32 } [ %237, %236 ], [ %.pn11.pn, %129 ], [ %61, %60 ], [ %161, %160 ], [ %193, %192 ]
+  %.pn14 = phi { ptr, i32 } [ %237, %236 ], [ %61, %60 ], [ %.pn11.pn, %129 ], [ %161, %160 ], [ %193, %192 ]
   resume { ptr, i32 } %.pn14
 }
 
@@ -5640,7 +5640,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr9algorithm1
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i
-  %.sroa.034.1.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %69, %68 ]
+  %.sroa.034.1.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %71 = load ptr, ptr %.sroa.034.1.i.i.i.i.i, align 8, !tbaa !46, !noalias !163
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8
@@ -5654,7 +5654,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr9algorithm1
   br label %79
 
 79:                                               ; preds = %77, %._crit_edge.i.i.i.i.i
-  %.sroa.034.2.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %78, %77 ]
+  %.sroa.034.2.i.i.i.i.i = phi ptr [ %78, %77 ], [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %80 = load ptr, ptr %.sroa.034.2.i.i.i.i.i, align 8, !tbaa !46, !noalias !166
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8

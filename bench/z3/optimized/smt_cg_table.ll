@@ -213,7 +213,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %2
   br label %87
 
 87:                                               ; preds = %78, %._crit_edge
-  %.2 = phi i32 [ %.0128.lcssa, %._crit_edge ], [ %86, %78 ]
+  %.2 = phi i32 [ %86, %78 ], [ %.0128.lcssa, %._crit_edge ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %89 = load ptr, ptr %88, align 8, !tbaa !29
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -985,7 +985,7 @@ _ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.e
   br label %101
 
 101:                                              ; preds = %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit27, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit
-  %.0 = phi ptr [ %100, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit27 ], [ %43, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %65, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ], [ %82, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %6, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ]
+  %.0 = phi ptr [ %100, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit27 ], [ %6, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ], [ %43, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %65, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ], [ %82, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ]
   ret ptr %.0
 }
 
@@ -1658,8 +1658,8 @@ _ZN3smt8cg_table9get_tableEPNS_5enodeE.exit:      ; preds = %2, %7
   br label %35
 
 35:                                               ; preds = %31, %25, %21, %17
-  %.sroa.0.0.in = phi ptr [ %34, %31 ], [ %29, %25 ], [ %24, %21 ], [ %20, %17 ]
-  %.sroa.5.0 = phi i8 [ 0, %31 ], [ %30, %25 ], [ 0, %21 ], [ 0, %17 ]
+  %.sroa.0.0.in = phi ptr [ %34, %31 ], [ %20, %17 ], [ %24, %21 ], [ %29, %25 ]
+  %.sroa.5.0 = phi i8 [ 0, %31 ], [ 0, %17 ], [ 0, %21 ], [ %30, %25 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !tbaa !29
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1

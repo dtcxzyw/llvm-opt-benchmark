@@ -14216,8 +14216,8 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %389, %386
   br label %426
 
 426:                                              ; preds = %424, %._crit_edge._crit_edge.i.i.i.i.i
-  %427 = phi ptr [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %422, %424 ]
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %425, %424 ]
+  %427 = phi ptr [ %422, %424 ], [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %425, %424 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %428 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !171
   %429 = icmp eq ptr %428, %427
   br i1 %429, label %_ZN4llvm4findINS_14iterator_rangeIPNS_3UseEEEPNS_5ValueEEEDaOT_RKT0_.exit.i, label %430
@@ -14227,8 +14227,8 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %389, %386
   br label %432
 
 432:                                              ; preds = %430, %._crit_edge._crit_edge52.i.i.i.i.i
-  %433 = phi ptr [ %.pre53.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %427, %430 ]
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %431, %430 ]
+  %433 = phi ptr [ %427, %430 ], [ %.pre53.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ]
+  %.2.i.i.i.i.i = phi ptr [ %431, %430 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ]
   %434 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !171
   %435 = icmp eq ptr %434, %433
   br i1 %435, label %_ZN4llvm4findINS_14iterator_rangeIPNS_3UseEEEPNS_5ValueEEEDaOT_RKT0_.exit.i, label %436
@@ -16189,7 +16189,7 @@ _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8Ki
 _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit: ; preds = %777
   br i1 %.not7.i62.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread111.i
 
-_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread111.i: ; preds = %702, %729, %728, %764, %762, %760, %765, %753, %750, %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.i.thread, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit360, %745, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit.i, %768, %775, %778, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit360.thread
+_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread111.i: ; preds = %702, %729, %728, %764, %762, %765, %760, %753, %750, %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.i.thread, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit360, %745, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit.i, %768, %778, %775, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit360.thread
   %781 = load i32, ptr %474, align 8, !tbaa !864
   %782 = icmp eq i32 %781, 0
   br i1 %782, label %783, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit86.thread.i
@@ -16286,7 +16286,7 @@ _ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6L
   store i32 1, ptr %474, align 8, !tbaa !864
   br label %820
 
-_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i: ; preds = %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit.i, %768, %775, %778, %723, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit.i346, %733, %742, %745, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit360
+_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread.i: ; preds = %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit.i, %768, %778, %775, %723, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit.i346, %733, %745, %742, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl.exit360
   %.pr.i = load i32, ptr %474, align 8, !tbaa !864
   %815 = icmp ne i32 %.pr.i, 3
   %816 = load i8, ptr %141, align 8, !range !50
@@ -20669,7 +20669,7 @@ _ZNK12_GLOBAL__N_17Formula7getTypeEv.exit.i257:   ; preds = %_ZN12_GLOBAL__N_17F
   br label %2557
 
 2557:                                             ; preds = %2555, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %2556, %2555 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %2556, %2555 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !549
   %2558 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %.1.val.i.i.i.i.i.i.i) #24
   %2559 = getelementptr inbounds nuw i8, ptr %2558, i64 8
@@ -20683,7 +20683,7 @@ _ZNK12_GLOBAL__N_17Formula7getTypeEv.exit.i257:   ; preds = %_ZN12_GLOBAL__N_17F
   br label %2565
 
 2565:                                             ; preds = %2563, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %2564, %2563 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %2564, %2563 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !549
   %2566 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %.2.val.i.i.i.i.i.i.i) #24
   %2567 = getelementptr inbounds nuw i8, ptr %2566, i64 8
@@ -30114,7 +30114,7 @@ _ZN4llvm15SmallVectorImplIPKN12_GLOBAL__N_17FormulaEE7reserveEm.exit: ; preds = 
   unreachable
 
 "_ZZNK12_GLOBAL__N_111LSRInstance5SolveERN4llvm15SmallVectorImplIPKNS_7FormulaEEEENK3$_0clEv.exit": ; preds = %39, %41, %42
-  %.0.i = phi i1 [ %44, %42 ], [ false, %41 ], [ true, %39 ]
+  %.0.i = phi i1 [ false, %41 ], [ %44, %42 ], [ true, %39 ]
   %46 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL9InsnsCost, i64 8), align 8, !tbaa !6
   %47 = icmp ne i16 %46, 0
   %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL9InsnsCost, i64 120), align 8, !range !50
@@ -32634,7 +32634,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %993
   br label %1038
 
 1038:                                             ; preds = %1036, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %1037, %1036 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %1037, %1036 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %1039 = load i32, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !1183
   %1040 = icmp eq i32 %1039, 0
   br i1 %1040, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i, label %1041
@@ -32644,7 +32644,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %993
   br label %1043
 
 1043:                                             ; preds = %1041, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %1042, %1041 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %1042, %1041 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %1044 = load i32, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !1183
   %1045 = icmp eq i32 %1044, 0
   br i1 %1045, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread
@@ -34569,8 +34569,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit68:  ; preds = %158, %165
   br label %172
 
 172:                                              ; preds = %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit, %_ZNK4llvm17AtomicCmpXchgInst22getPointerAddressSpaceEv.exit, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit56, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit60, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit64, %171, %69, %_ZNK4llvm13AtomicRMWInst22getPointerAddressSpaceEv.exit, %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit
-  %.sroa.029.1 = phi ptr [ %spec.select, %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %_ZNK4llvm13AtomicRMWInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %_ZNK4llvm17AtomicCmpXchgInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %171 ], [ %spec.select, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit64 ], [ %spec.select, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit60 ], [ %102, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit56 ], [ %99, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %spec.select, %69 ]
-  %.sroa.5.0 = phi i32 [ %23, %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit ], [ %38, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit ], [ %53, %_ZNK4llvm13AtomicRMWInst22getPointerAddressSpaceEv.exit ], [ %68, %_ZNK4llvm17AtomicCmpXchgInst22getPointerAddressSpaceEv.exit ], [ %.sroa.5.5, %171 ], [ %153, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit64 ], [ %132, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit60 ], [ %112, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit56 ], [ %97, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ -1, %69 ]
+  %.sroa.029.1 = phi ptr [ %spec.select, %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %_ZNK4llvm13AtomicRMWInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %_ZNK4llvm17AtomicCmpXchgInst22getPointerAddressSpaceEv.exit ], [ %spec.select, %171 ], [ %99, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %102, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit56 ], [ %spec.select, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit60 ], [ %spec.select, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit64 ], [ %spec.select, %69 ]
+  %.sroa.5.0 = phi i32 [ %23, %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit ], [ %38, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit ], [ %53, %_ZNK4llvm13AtomicRMWInst22getPointerAddressSpaceEv.exit ], [ %68, %_ZNK4llvm17AtomicCmpXchgInst22getPointerAddressSpaceEv.exit ], [ %.sroa.5.5, %171 ], [ %97, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %112, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit56 ], [ %132, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit60 ], [ %153, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit64 ], [ -1, %69 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.029.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -36461,8 +36461,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_4TypeENS_1
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !652
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_4TypeELj4EEES3_EEbOT_RKT0_.exit, label %50
@@ -36472,8 +36472,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_4TypeENS_1
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !652
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_4TypeELj4EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_4TypeELj4EEES3_EEbOT_RKT0_.exit.thread
@@ -36687,8 +36687,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_4SCEVENS_
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !549
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_4SCEVELj4EEES4_EEbOT_RKT0_.exit, label %50
@@ -36698,8 +36698,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_4SCEVENS_
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !549
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_4SCEVELj4EEES4_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_4SCEVELj4EEES4_EEbOT_RKT0_.exit.thread
@@ -38015,40 +38015,40 @@ define internal fastcc void @_ZN12_GLOBAL__N_111LSRInstance6getUseERPKN4llvm4SCE
 25:                                               ; preds = %22, %20, %17
   %.1.i = phi i64 [ %spec.select.i, %20 ], [ %spec.select.i, %17 ], [ %not., %22 ]
   switch i32 %3, label %default.unreachable [
-    i32 2, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
-    i32 3, label %26
+    i32 2, label %26
+    i32 3, label %29
     i32 0, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
     i32 1, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
   ]
 
 26:                                               ; preds = %25
-  %.not.i = icmp ne i64 %.1.i, 0
   %27 = trunc nuw i8 %.fca.1.extract17 to i1
-  %or.cond = select i1 %.not.i, i1 true, i1 %27
-  br i1 %or.cond, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, label %28
+  %spec.select.i.i = select i1 %27, i64 0, i64 %.fca.0.extract16
+  %spec.select2.i.i = select i1 %27, i64 %.fca.0.extract16, i64 0
+  %28 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo21isLegalAddressingModeEPNS_4TypeEPNS_11GlobalValueElbljPNS_11InstructionEl(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %4, ptr noundef null, i64 noundef %spec.select.i.i, i1 noundef zeroext true, i64 noundef %.1.i, i32 noundef %5, ptr noundef null, i64 noundef %spec.select2.i.i) #24
+  br i1 %28, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread74, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
 
-28:                                               ; preds = %26
-  %29 = sub i64 0, %.fca.0.extract16
-  %30 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isLegalICmpImmediateEl(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %29) #24
-  br i1 %30, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread74, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
+29:                                               ; preds = %25
+  %.not.i = icmp ne i64 %.1.i, 0
+  %30 = trunc nuw i8 %.fca.1.extract17 to i1
+  %or.cond = select i1 %.not.i, i1 true, i1 %30
+  br i1 %or.cond, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
 
 default.unreachable:                              ; preds = %25
   unreachable
 
-_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit: ; preds = %25
-  %31 = trunc nuw i8 %.fca.1.extract17 to i1
-  %spec.select.i.i = select i1 %31, i64 0, i64 %.fca.0.extract16
-  %spec.select2.i.i = select i1 %31, i64 %.fca.0.extract16, i64 0
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo21isLegalAddressingModeEPNS_4TypeEPNS_11GlobalValueElbljPNS_11InstructionEl(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %4, ptr noundef null, i64 noundef %spec.select.i.i, i1 noundef zeroext true, i64 noundef %.1.i, i32 noundef %5, ptr noundef null, i64 noundef %spec.select2.i.i) #24
+_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit: ; preds = %29
+  %31 = sub i64 0, %.fca.0.extract16
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isLegalICmpImmediateEl(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %31) #24
   br i1 %32, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread74, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
 
-_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread: ; preds = %25, %25, %26, %28, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
+_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread: ; preds = %25, %25, %29, %26, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
   store ptr %10, ptr %2, align 8, !tbaa !549
   br label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread74
 
-_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread74: ; preds = %6, %28, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
-  %.sroa.053.0 = phi i64 [ %.fca.0.extract16, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ 0, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread ], [ %.fca.0.extract16, %28 ], [ 0, %6 ]
-  %.sroa.10.0 = phi i8 [ %.fca.1.extract17, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ 0, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread ], [ 0, %28 ], [ %.fca.1.extract17, %6 ]
+_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread74: ; preds = %6, %26, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
+  %.sroa.053.0 = phi i64 [ %.fca.0.extract16, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ 0, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread ], [ %.fca.0.extract16, %26 ], [ 0, %6 ]
+  %.sroa.10.0 = phi i8 [ 0, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ 0, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread ], [ %.fca.1.extract17, %26 ], [ %.fca.1.extract17, %6 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 35704
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #24
   %34 = load ptr, ptr %2, align 8, !tbaa !549
@@ -39632,40 +39632,40 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111LSRInstance18recon
 
 38:                                               ; preds = %35, %33, %31
   %.1.i = phi i64 [ %spec.select.i58, %33 ], [ %spec.select.i58, %31 ], [ %spec.select26.i, %35 ]
-  switch i32 %5, label %45 [
-    i32 2, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
-    i32 3, label %39
+  switch i32 %5, label %44 [
+    i32 2, label %39
+    i32 3, label %42
     i32 0, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
     i32 1, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
   ]
 
 39:                                               ; preds = %38
+  %40 = trunc nuw i8 %spec.select.i55 to i1
+  %spec.select.i.i = select i1 %40, i64 0, i64 %25
+  %spec.select2.i.i = select i1 %40, i64 %25, i64 0
+  %41 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo21isLegalAddressingModeEPNS_4TypeEPNS_11GlobalValueElbljPNS_11InstructionEl(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %.sroa.015.0, ptr noundef null, i64 noundef %spec.select.i.i, i1 noundef zeroext true, i64 noundef %.1.i, i32 noundef %.8.val, ptr noundef null, i64 noundef %spec.select2.i.i) #24
+  br i1 %41, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
+
+42:                                               ; preds = %38
   %.not.i60 = icmp eq i64 %.1.i, 0
   br i1 %.not.i60, label %.thread6.i, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
 
-.thread6.i:                                       ; preds = %28, %39
-  %.1411.i = phi i64 [ 0, %39 ], [ %spec.select.i58, %28 ]
+.thread6.i:                                       ; preds = %28, %42
+  %.1411.i = phi i64 [ 0, %42 ], [ %spec.select.i58, %28 ]
   %.old.i.i = add nsw i64 %.1411.i, -1
   %or.cond3.old.i.i = icmp ult i64 %.old.i.i, -2
-  %40 = trunc nuw i8 %spec.select.i55 to i1
-  %or.cond.i59 = select i1 %or.cond3.old.i.i, i1 true, i1 %40
-  br i1 %or.cond.i59, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, label %41
+  %43 = trunc nuw i8 %spec.select.i55 to i1
+  %or.cond.i59 = select i1 %or.cond3.old.i.i, i1 true, i1 %43
+  br i1 %or.cond.i59, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit
 
-41:                                               ; preds = %.thread6.i
-  %42 = icmp eq i64 %.1411.i, 0
-  %43 = sub i64 0, %25
-  %spec.select4.i.i = select i1 %42, i64 %43, i64 %25
-  %44 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isLegalICmpImmediateEl(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %spec.select4.i.i) #24
-  br i1 %44, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
-
-45:                                               ; preds = %38
+44:                                               ; preds = %38
   unreachable
 
-_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit: ; preds = %38
-  %46 = trunc nuw i8 %spec.select.i55 to i1
-  %spec.select.i.i = select i1 %46, i64 0, i64 %25
-  %spec.select2.i.i = select i1 %46, i64 %25, i64 0
-  %47 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo21isLegalAddressingModeEPNS_4TypeEPNS_11GlobalValueElbljPNS_11InstructionEl(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %.sroa.015.0, ptr noundef null, i64 noundef %spec.select.i.i, i1 noundef zeroext true, i64 noundef %.1.i, i32 noundef %.8.val, ptr noundef null, i64 noundef %spec.select2.i.i) #24
+_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit: ; preds = %.thread6.i
+  %45 = icmp eq i64 %.1411.i, 0
+  %46 = sub i64 0, %25
+  %spec.select4.i.i = select i1 %45, i64 %46, i64 %25
+  %47 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isLegalICmpImmediateEl(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %spec.select4.i.i) #24
   br i1 %47, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
 
 48:                                               ; preds = %18
@@ -39711,47 +39711,47 @@ _ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTy
 
 67:                                               ; preds = %64, %62, %60
   %.1.i82 = phi i64 [ %spec.select.i69, %62 ], [ %spec.select.i69, %60 ], [ %spec.select26.i88, %64 ]
-  switch i32 %5, label %74 [
-    i32 2, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89
-    i32 3, label %68
+  switch i32 %5, label %73 [
+    i32 2, label %68
+    i32 3, label %71
     i32 0, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
     i32 1, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
   ]
 
 68:                                               ; preds = %67
+  %69 = trunc nuw i8 %spec.select.i65 to i1
+  %spec.select.i.i86 = select i1 %69, i64 0, i64 %54
+  %spec.select2.i.i87 = select i1 %69, i64 %54, i64 0
+  %70 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo21isLegalAddressingModeEPNS_4TypeEPNS_11GlobalValueElbljPNS_11InstructionEl(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef %.sroa.015.0, ptr noundef null, i64 noundef %spec.select.i.i86, i1 noundef zeroext true, i64 noundef %.1.i82, i32 noundef %.8.val, ptr noundef null, i64 noundef %spec.select2.i.i87) #24
+  br i1 %70, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
+
+71:                                               ; preds = %67
   %.not.i85 = icmp eq i64 %.1.i82, 0
   br i1 %.not.i85, label %.thread6.i71, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
 
-.thread6.i71:                                     ; preds = %57, %68
-  %.1411.i74 = phi i64 [ 0, %68 ], [ %spec.select.i69, %57 ]
+.thread6.i71:                                     ; preds = %57, %71
+  %.1411.i74 = phi i64 [ 0, %71 ], [ %spec.select.i69, %57 ]
   %.old.i.i76 = add nsw i64 %.1411.i74, -1
   %or.cond3.old.i.i77 = icmp ult i64 %.old.i.i76, -2
-  %69 = trunc nuw i8 %spec.select.i65 to i1
-  %or.cond.i78 = select i1 %or.cond3.old.i.i77, i1 true, i1 %69
-  br i1 %or.cond.i78, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, label %70
+  %72 = trunc nuw i8 %spec.select.i65 to i1
+  %or.cond.i78 = select i1 %or.cond3.old.i.i77, i1 true, i1 %72
+  br i1 %or.cond.i78, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89
 
-70:                                               ; preds = %.thread6.i71
-  %71 = icmp eq i64 %.1411.i74, 0
-  %72 = sub i64 0, %54
-  %spec.select4.i.i79 = select i1 %71, i64 %72, i64 %54
-  %73 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isLegalICmpImmediateEl(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef %spec.select4.i.i79) #24
-  br i1 %73, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
-
-74:                                               ; preds = %67
+73:                                               ; preds = %67
   unreachable
 
-_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89: ; preds = %67
-  %75 = trunc nuw i8 %spec.select.i65 to i1
-  %spec.select.i.i86 = select i1 %75, i64 0, i64 %54
-  %spec.select2.i.i87 = select i1 %75, i64 %54, i64 0
-  %76 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo21isLegalAddressingModeEPNS_4TypeEPNS_11GlobalValueElbljPNS_11InstructionEl(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef %.sroa.015.0, ptr noundef null, i64 noundef %spec.select.i.i86, i1 noundef zeroext true, i64 noundef %.1.i82, i32 noundef %.8.val, ptr noundef null, i64 noundef %spec.select2.i.i87) #24
+_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89: ; preds = %.thread6.i71
+  %74 = icmp eq i64 %.1411.i74, 0
+  %75 = sub i64 0, %54
+  %spec.select4.i.i79 = select i1 %74, i64 %75, i64 %54
+  %76 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isLegalICmpImmediateEl(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef %spec.select4.i.i79) #24
   br i1 %76, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40, label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
 
-_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40: ; preds = %51, %22, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89, %70, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit, %41, %48
-  %.sroa.05.0 = phi i64 [ %.sroa.05.0.copyload, %48 ], [ %.sroa.05.0.copyload, %41 ], [ %.sroa.05.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %2, %70 ], [ %2, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %.sroa.05.0.copyload, %22 ], [ %2, %51 ]
-  %.sroa.5.0 = phi i8 [ %.sroa.5.0.copyload, %48 ], [ %.sroa.5.0.copyload, %41 ], [ %.sroa.5.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %3, %70 ], [ %3, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %.sroa.5.0.copyload, %22 ], [ %3, %51 ]
-  %.sroa.012.0 = phi i64 [ %.sroa.012.0.copyload, %48 ], [ %2, %41 ], [ %2, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %.sroa.012.0.copyload, %70 ], [ %.sroa.012.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %2, %22 ], [ %.sroa.012.0.copyload, %51 ]
-  %.sroa.515.0 = phi i8 [ %.sroa.515.0.copyload, %48 ], [ %3, %41 ], [ %3, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %.sroa.515.0.copyload, %70 ], [ %.sroa.515.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %3, %22 ], [ %.sroa.515.0.copyload, %51 ]
+_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread40: ; preds = %51, %22, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89, %68, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit, %39, %48
+  %.sroa.05.0 = phi i64 [ %.sroa.05.0.copyload, %48 ], [ %.sroa.05.0.copyload, %39 ], [ %.sroa.05.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %2, %68 ], [ %2, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %.sroa.05.0.copyload, %22 ], [ %2, %51 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.5.0.copyload, %48 ], [ %.sroa.5.0.copyload, %39 ], [ %.sroa.5.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %3, %68 ], [ %3, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %.sroa.5.0.copyload, %22 ], [ %3, %51 ]
+  %.sroa.012.0 = phi i64 [ %.sroa.012.0.copyload, %48 ], [ %2, %39 ], [ %2, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %.sroa.012.0.copyload, %68 ], [ %.sroa.012.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %2, %22 ], [ %.sroa.012.0.copyload, %51 ]
+  %.sroa.515.0 = phi i8 [ %.sroa.515.0.copyload, %48 ], [ %3, %39 ], [ %3, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ %.sroa.515.0.copyload, %68 ], [ %.sroa.515.0.copyload, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ %3, %22 ], [ %.sroa.515.0.copyload, %51 ]
   %.not40 = icmp eq ptr %.sroa.015.0, null
   br i1 %.not40, label %84, label %77
 
@@ -39776,8 +39776,8 @@ _ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTy
   store i32 %.8.val, ptr %.sroa.9.0..sroa_idx18, align 8, !tbaa !87
   br label %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread
 
-_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread: ; preds = %67, %67, %68, %.thread6.i71, %38, %38, %39, %.thread6.i, %77, %70, %41, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit, %6, %84
-  %.0 = phi i1 [ true, %84 ], [ false, %6 ], [ false, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ false, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ false, %41 ], [ false, %70 ], [ false, %77 ], [ false, %.thread6.i ], [ false, %39 ], [ false, %38 ], [ false, %38 ], [ false, %.thread6.i71 ], [ false, %68 ], [ false, %67 ], [ false, %67 ]
+_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit.thread: ; preds = %67, %67, %71, %.thread6.i71, %38, %38, %42, %.thread6.i, %77, %68, %39, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit, %6, %84
+  %.0 = phi i1 [ true, %84 ], [ false, %6 ], [ false, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit ], [ false, %_ZL16isAlwaysFoldableRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEb.exit89 ], [ false, %39 ], [ false, %68 ], [ false, %77 ], [ false, %.thread6.i ], [ false, %42 ], [ false, %38 ], [ false, %38 ], [ false, %.thread6.i71 ], [ false, %71 ], [ false, %67 ], [ false, %67 ]
   ret i1 %.0
 }
 
@@ -41700,7 +41700,7 @@ _ZNK12_GLOBAL__N_17Formula11isCanonicalERKN4llvm4LoopE.exit.thread11.thread: ; p
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %39, %38 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !549
   %41 = tail call fastcc noundef zeroext i1 @_ZL29containsAddRecDependentOnLoopPKN4llvm4SCEVERKNS_4LoopE(ptr noundef %.1.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %1)
   br i1 %41, label %"_ZN4llvm7none_ofIRKNS_11SmallVectorIPKNS_4SCEVELj4EEEZNK12_GLOBAL__N_17Formula11isCanonicalERKNS_4LoopEE3$_0EEbOT_T0_.exit.i", label %42
@@ -41710,7 +41710,7 @@ _ZNK12_GLOBAL__N_17Formula11isCanonicalERKN4llvm4LoopE.exit.thread11.thread: ; p
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %43, %42 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !549
   %45 = tail call fastcc noundef zeroext i1 @_ZL29containsAddRecDependentOnLoopPKN4llvm4SCEVERKNS_4LoopE(ptr noundef %.2.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %1)
   br i1 %45, label %"_ZN4llvm7none_ofIRKNS_11SmallVectorIPKNS_4SCEVELj4EEEZNK12_GLOBAL__N_17Formula11isCanonicalERKNS_4LoopEE3$_0EEbOT_T0_.exit.i", label %_ZNK12_GLOBAL__N_17Formula11isCanonicalERKN4llvm4LoopE.exit.thread
@@ -41875,7 +41875,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %113
 
 113:                                              ; preds = %111, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %112, %111 ]
+  %.1.i.i.i.i = phi ptr [ %112, %111 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !549
   %114 = tail call fastcc noundef zeroext i1 @_ZL29containsAddRecDependentOnLoopPKN4llvm4SCEVERKNS_4LoopE(ptr noundef %.1.val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %1)
   br i1 %114, label %"_ZN4llvm7find_ifIRNS_11SmallVectorIPKNS_4SCEVELj4EEEZN12_GLOBAL__N_17Formula12canonicalizeERKNS_4LoopEE3$_0EEDaOT_T0_.exit", label %115
@@ -41885,7 +41885,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %117
 
 117:                                              ; preds = %115, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %116, %115 ]
+  %.2.i.i.i.i = phi ptr [ %116, %115 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !549
   %118 = tail call fastcc noundef zeroext i1 @_ZL29containsAddRecDependentOnLoopPKN4llvm4SCEVERKNS_4LoopE(ptr noundef %.2.val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %1)
   br i1 %118, label %"_ZN4llvm7find_ifIRNS_11SmallVectorIPKNS_4SCEVELj4EEEZN12_GLOBAL__N_17Formula12canonicalizeERKNS_4LoopEE3$_0EEDaOT_T0_.exit", label %119
@@ -42867,8 +42867,8 @@ _ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8Ki
   %56 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isLegalICmpImmediateEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %spec.select4.i63) #24
   br label %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit68
 
-_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit68: ; preds = %31, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit, %41, %52, %36, %34, %28, %53, %50, %26, %37, %15, %19, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %15 ], [ false, %19 ], [ false, %37 ], [ false, %26 ], [ %56, %53 ], [ %51, %50 ], [ %.not7.i62, %52 ], [ false, %28 ], [ false, %34 ], [ false, %36 ], [ %spec.select, %41 ], [ %spec.select25, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit ], [ %spec.select26, %31 ]
+_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit68: ; preds = %31, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit, %41, %52, %36, %34, %28, %53, %50, %37, %26, %15, %19, %10
+  %.0 = phi i1 [ false, %10 ], [ false, %15 ], [ false, %19 ], [ false, %26 ], [ false, %37 ], [ %51, %50 ], [ %56, %53 ], [ %.not7.i62, %52 ], [ false, %28 ], [ false, %34 ], [ false, %36 ], [ %spec.select, %41 ], [ %spec.select25, %_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_16LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueENS3_9ImmediateEblPNS_11InstructionE.exit ], [ %spec.select26, %31 ]
   ret i1 %.0
 }
 
@@ -53532,8 +53532,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !530
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit, label %50
@@ -53543,8 +53543,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !530
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.thread
@@ -54249,7 +54249,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !1183
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -54259,7 +54259,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !1183
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
@@ -56457,8 +56457,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder15appendToVec
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge._crit_edge.i.i.i.i
-  %59 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %54, %56 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %57, %56 ]
+  %59 = phi ptr [ %54, %56 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %60 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !571
   %61 = icmp eq ptr %60, %59
   br i1 %61, label %_ZN4llvm4findIRNS_15SmallVectorImplIPNS_5ValueEEES3_EEDaOT_RKT0_.exit, label %62
@@ -56468,8 +56468,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder15appendToVec
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge._crit_edge52.i.i.i.i
-  %65 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %59, %62 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %63, %62 ]
+  %65 = phi ptr [ %59, %62 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %63, %62 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %66 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !571
   %67 = icmp eq ptr %66, %65
   %spec.select = select i1 %67, ptr %.2.i.i.i.i, ptr %28

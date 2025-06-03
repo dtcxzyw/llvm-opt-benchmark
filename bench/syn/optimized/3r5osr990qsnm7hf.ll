@@ -8166,7 +8166,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread282: ; pre
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %71, %67, %56, %53, %47
-  %.0.i.i = phi i64 [ %..i.i, %71 ], [ %55, %53 ], [ 1, %47 ], [ 1, %67 ], [ 1, %56 ]
+  %.0.i.i = phi i64 [ %55, %53 ], [ %..i.i, %71 ], [ 1, %47 ], [ 1, %67 ], [ 1, %56 ]
   %61 = getelementptr inbounds { i32, [9 x i32] }, ptr %49, i64 %.0.i.i
   br label %62
 
@@ -8219,7 +8219,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread282: ; pre
   br i1 %85, label %93, label %86
 
 86:                                               ; preds = %97, %93, %82, %79, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
-  %.0.i2.i = phi i64 [ %..i6.i, %97 ], [ %81, %79 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %93 ], [ 1, %82 ]
+  %.0.i2.i = phi i64 [ %81, %79 ], [ %..i6.i, %97 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %93 ], [ 1, %82 ]
   %87 = getelementptr inbounds { i32, [9 x i32] }, ptr %76, i64 %.0.i2.i
   br label %88
 
@@ -9154,7 +9154,7 @@ define void @"_ZN3syn8generics8printing80_$LT$impl$u20$quote..to_tokens..ToToken
   ret void
 
 51:                                               ; preds = %49, %55
-  %.2 = phi i1 [ true, %55 ], [ %.1, %49 ]
+  %.2 = phi i1 [ %.1, %49 ], [ true, %55 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %34
 

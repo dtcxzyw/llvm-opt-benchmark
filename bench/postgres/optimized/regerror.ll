@@ -136,7 +136,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(
   br label %42
 
 42:                                               ; preds = %37, %40, %26, %29, %.preheader37._crit_edge
-  %.032 = phi ptr [ %39, %37 ], [ %5, %40 ], [ %28, %26 ], [ %5, %29 ], [ %5, %.preheader37._crit_edge ]
+  %.032 = phi ptr [ %39, %37 ], [ %5, %40 ], [ %5, %.preheader37._crit_edge ], [ %28, %26 ], [ %5, %29 ]
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.032) #8
   %44 = add i64 %43, 1
   %.not = icmp eq i64 %3, 0

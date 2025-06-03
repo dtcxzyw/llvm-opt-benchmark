@@ -8319,7 +8319,7 @@ define internal fastcc ptr @get_ls_tile_buffers(ptr noundef %0, ptr noundef %1, 
   br label %mem_get_varsize.exit.i.us.us
 
 mem_get_varsize.exit.i.us.us:                     ; preds = %90, %88, %80, %77, %76
-  %.0.i.i.us.us = phi i64 [ %79, %77 ], [ %87, %80 ], [ %89, %88 ], [ %92, %90 ], [ -1, %76 ]
+  %.0.i.i.us.us = phi i64 [ %92, %90 ], [ %89, %88 ], [ %87, %80 ], [ %79, %77 ], [ -1, %76 ]
   %93 = add nsw i64 %.0.i.i.us.us, 1
   %94 = getelementptr inbounds i8, ptr %.5126.us.us, i64 %50
   %95 = ptrtoint ptr %94 to i64
@@ -8389,7 +8389,7 @@ get_ls_tile_buffer.exit.us.us:                    ; preds = %98, %99
   br label %mem_get_varsize.exit
 
 mem_get_varsize.exit:                             ; preds = %105, %106, %109, %111, %119
-  %.0.i = phi i64 [ %121, %119 ], [ %118, %111 ], [ %110, %109 ], [ %108, %106 ], [ -1, %105 ]
+  %.0.i = phi i64 [ %108, %106 ], [ %110, %109 ], [ %118, %111 ], [ %121, %119 ], [ -1, %105 ]
   %122 = getelementptr inbounds i8, ptr %.0123124, i64 %43
   %123 = getelementptr inbounds i8, ptr %122, i64 %.0.i
   %124 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv
@@ -8485,7 +8485,7 @@ mem_get_varsize.exit:                             ; preds = %105, %106, %109, %1
   br label %mem_get_varsize.exit.i
 
 mem_get_varsize.exit.i:                           ; preds = %161, %153, %151, %148, %147
-  %.0.i.i = phi i64 [ %163, %161 ], [ %160, %153 ], [ %152, %151 ], [ %150, %148 ], [ -1, %147 ]
+  %.0.i.i = phi i64 [ %150, %148 ], [ %152, %151 ], [ %160, %153 ], [ %163, %161 ], [ -1, %147 ]
   %164 = lshr i64 %.0.i.i, %54
   %165 = icmp eq i64 %164, 1
   br i1 %165, label %.thread54.i, label %174
@@ -8618,7 +8618,7 @@ get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thre
   br label %mem_get_varsize.exit.i96
 
 mem_get_varsize.exit.i96:                         ; preds = %222, %214, %212, %209, %208
-  %.0.i.i97 = phi i64 [ %224, %222 ], [ %221, %214 ], [ %213, %212 ], [ %211, %209 ], [ -1, %208 ]
+  %.0.i.i97 = phi i64 [ %211, %209 ], [ %213, %212 ], [ %221, %214 ], [ %224, %222 ], [ -1, %208 ]
   %225 = lshr i64 %.0.i.i97, %201
   %226 = icmp eq i64 %225, 1
   %or.cond = select i1 %40, i1 %226, i1 false
@@ -8770,7 +8770,7 @@ define internal fastcc void @get_tile_buffers(ptr noundef %0, ptr noundef %1, pt
   br label %mem_get_varsize.exit.i.us
 
 mem_get_varsize.exit.i.us:                        ; preds = %44, %42, %34, %31, %30
-  %.0.i.i.us = phi i64 [ %33, %31 ], [ %41, %34 ], [ %43, %42 ], [ %46, %44 ], [ -1, %30 ]
+  %.0.i.i.us = phi i64 [ %46, %44 ], [ %43, %42 ], [ %41, %34 ], [ %33, %31 ], [ -1, %30 ]
   %47 = add nsw i64 %.0.i.i.us, 1
   %48 = getelementptr inbounds i8, ptr %.13032.us, i64 %25
   %49 = ptrtoint ptr %48 to i64
@@ -11907,7 +11907,7 @@ define internal fastcc void @decode_partition(ptr noundef %0, ptr noundef %1, i3
   br label %26
 
 26:                                               ; preds = %25, %24, %23, %22, %21, %7
-  %.0.i.ph.i = phi i64 [ 0, %7 ], [ 1, %21 ], [ 2, %22 ], [ 3, %23 ], [ 4, %24 ], [ 5, %25 ]
+  %.0.i.ph.i = phi i64 [ 0, %7 ], [ 5, %25 ], [ 4, %24 ], [ 3, %23 ], [ 2, %22 ], [ 1, %21 ]
   %27 = getelementptr inbounds nuw [10 x [6 x i8]], ptr @subsize_lookup, i64 0, i64 3, i64 %.0.i.ph.i
   %28 = load i8, ptr %27, align 1
   br label %get_partition_subsize.exit
@@ -12861,7 +12861,7 @@ get_partition.exit.thread:                        ; preds = %572, %566, %563, %5
   br label %get_partition_subsize.exit320
 
 get_partition_subsize.exit320:                    ; preds = %get_partition.exit.thread, %587, %588, %589, %590, %591
-  %.0.i.ph.i318 = phi i64 [ 0, %get_partition.exit.thread ], [ 1, %587 ], [ 2, %588 ], [ 3, %589 ], [ 4, %590 ], [ 5, %591 ]
+  %.0.i.ph.i318 = phi i64 [ 0, %get_partition.exit.thread ], [ 5, %591 ], [ 4, %590 ], [ 3, %589 ], [ 2, %588 ], [ 1, %587 ]
   %592 = zext i8 %.0335 to i64
   %593 = getelementptr inbounds nuw [10 x [6 x i8]], ptr @subsize_lookup, i64 0, i64 %592, i64 %.0.i.ph.i318
   %594 = load i8, ptr %593, align 1
@@ -13071,7 +13071,7 @@ get_partition_subsize.exit320.thread:             ; preds = %get_partition.exit.
   br label %684
 
 684:                                              ; preds = %683, %682, %681, %680, %677
-  %.0.i.ph.i.i = phi i64 [ 2, %680 ], [ 3, %681 ], [ 4, %682 ], [ 5, %683 ], [ 1, %677 ]
+  %.0.i.ph.i.i = phi i64 [ 5, %683 ], [ 4, %682 ], [ 3, %681 ], [ 2, %680 ], [ 1, %677 ]
   %685 = getelementptr inbounds nuw [10 x [6 x i8]], ptr @subsize_lookup, i64 0, i64 3, i64 %.0.i.ph.i.i
   %686 = load i8, ptr %685, align 1
   %687 = zext i8 %686 to i64
@@ -14280,8 +14280,8 @@ set_inter_tx_size.exit:                           ; preds = %._crit_edge.us.i
   br label %129
 
 129:                                              ; preds = %128, %127, %126, %125, %125
-  %130 = phi i1 [ true, %125 ], [ true, %125 ], [ true, %126 ], [ true, %127 ], [ false, %128 ]
-  %.0.i.ph.i = phi i8 [ 4, %125 ], [ 4, %125 ], [ 3, %126 ], [ 2, %127 ], [ 1, %128 ]
+  %130 = phi i1 [ true, %125 ], [ true, %125 ], [ false, %128 ], [ true, %127 ], [ true, %126 ]
+  %.0.i.ph.i = phi i8 [ 4, %125 ], [ 4, %125 ], [ 1, %128 ], [ 2, %127 ], [ 3, %126 ]
   %131 = getelementptr inbounds nuw [19 x i8], ptr @txsize_sqr_up_map, i64 0, i64 %111
   %132 = load i8, ptr %131, align 1
   %133 = icmp ne i8 %132, %.0.i.ph.i
@@ -14896,7 +14896,7 @@ max_block_high.exit201:                           ; preds = %max_block_wide.exit
   br label %get_vartx_max_txsize.exit.us
 
 get_vartx_max_txsize.exit.us:                     ; preds = %218, %217, %216, %215, %215, %215, %211, %193
-  %.0.shrunk.i.us = phi i8 [ 0, %193 ], [ %214, %211 ], [ %214, %218 ], [ 9, %216 ], [ 10, %217 ], [ 3, %215 ], [ 3, %215 ], [ 3, %215 ]
+  %.0.shrunk.i.us = phi i8 [ 0, %193 ], [ %214, %211 ], [ %214, %218 ], [ 10, %217 ], [ 9, %216 ], [ 3, %215 ], [ 3, %215 ], [ 3, %215 ]
   %219 = zext i8 %.0.shrunk.i.us to i64
   %220 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %219
   %221 = load i32, ptr %220, align 4
@@ -15229,7 +15229,7 @@ define internal fastcc void @decode_reconstruct_tx(ptr noundef %0, ptr noundef %
   br label %av1_get_max_uv_txsize.exit
 
 av1_get_max_uv_txsize.exit:                       ; preds = %.split, %.split, %.split, %29, %30, %31
-  %.0.i.i = phi i8 [ %28, %31 ], [ 9, %30 ], [ 10, %29 ], [ 3, %.split ], [ 3, %.split ], [ 3, %.split ]
+  %.0.i.i = phi i8 [ %28, %31 ], [ 10, %29 ], [ 9, %30 ], [ 3, %.split ], [ 3, %.split ], [ 3, %.split ]
   %32 = zext i8 %5 to i64
   %33 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1

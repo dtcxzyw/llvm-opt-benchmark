@@ -535,7 +535,7 @@ define noundef zeroext i1 @_ZN16EditorFileDialog11eventFilterEP7QObjectP6QEvent(
   br label %18
 
 18:                                               ; preds = %15, %.thread
-  %.1 = phi i1 [ true, %15 ], [ %17, %.thread ]
+  %.1 = phi i1 [ %17, %.thread ], [ true, %15 ]
   ret i1 %.1
 }
 

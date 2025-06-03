@@ -1310,7 +1310,7 @@ define internal noundef zeroext i1 @parseFieldMsgType(ptr readnone captures(none
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7
-  %.0 = phi i1 [ false, %15 ], [ true, %13 ], [ true, %11 ], [ true, %9 ], [ true, %7 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %7 ], [ true, %9 ], [ true, %11 ], [ true, %13 ]
   ret i1 %.0
 }
 

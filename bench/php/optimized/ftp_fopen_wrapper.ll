@@ -501,8 +501,8 @@ get_ftp_result.exit185:                           ; preds = %85, %.backedge.i183
   br label %zend_string_release.exit
 
 195:                                              ; preds = %.thread193.thread, %._crit_edge, %.thread193, %106, %124, %get_ftp_result.exit, %141, %122
-  %196 = phi ptr [ %.pre208, %get_ftp_result.exit ], [ %.pre208, %106 ], [ %.pre208, %141 ], [ %.pre208, %124 ], [ %.pre208, %122 ], [ %.pre, %._crit_edge ], [ %.pre208, %.thread193 ], [ %.pre208, %.thread193.thread ]
-  %.0129 = phi i32 [ %61, %get_ftp_result.exit ], [ %94, %106 ], [ %139, %141 ], [ %.1130, %124 ], [ %94, %122 ], [ 0, %._crit_edge ], [ %94, %.thread193 ], [ %94, %.thread193.thread ]
+  %196 = phi ptr [ %.pre208, %get_ftp_result.exit ], [ %.pre208, %141 ], [ %.pre208, %124 ], [ %.pre208, %106 ], [ %.pre208, %122 ], [ %.pre, %._crit_edge ], [ %.pre208, %.thread193 ], [ %.pre208, %.thread193.thread ]
+  %.0129 = phi i32 [ %61, %get_ftp_result.exit ], [ %139, %141 ], [ %.1130, %124 ], [ %94, %106 ], [ %94, %122 ], [ 0, %._crit_edge ], [ %94, %.thread193 ], [ %94, %.thread193.thread ]
   %.not170 = icmp eq ptr %196, null
   br i1 %.not170, label %198, label %.thread214
 

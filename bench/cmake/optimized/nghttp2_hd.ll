@@ -2688,8 +2688,8 @@ hd_inflate_read_len.exit326:                      ; preds = %decode_length.exit.
   br label %448
 
 430:                                              ; preds = %.thread352, %360, %300, %280, %259, %hd_context_shrink_table_size.exit, %62, %40
-  %.1211 = phi ptr [ %.0210453, %40 ], [ %349, %360 ], [ %299, %300 ], [ %279, %280 ], [ %248, %259 ], [ %105, %hd_context_shrink_table_size.exit ], [ %.2212, %62 ], [ %182, %.thread352 ]
-  %431 = phi i1 [ false, %40 ], [ true, %360 ], [ false, %300 ], [ false, %280 ], [ false, %259 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %62 ], [ false, %.thread352 ]
+  %.1211 = phi ptr [ %.0210453, %40 ], [ %.2212, %62 ], [ %105, %hd_context_shrink_table_size.exit ], [ %248, %259 ], [ %279, %280 ], [ %299, %300 ], [ %349, %360 ], [ %182, %.thread352 ]
+  %431 = phi i1 [ false, %40 ], [ false, %62 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %259 ], [ false, %280 ], [ false, %300 ], [ true, %360 ], [ false, %.thread352 ]
   %432 = icmp ne ptr %.1211, %7
   %433 = or i1 %432, %431
   br i1 %433, label %40, label %._crit_edge, !llvm.loop !116
@@ -2719,7 +2719,7 @@ hd_inflate_read_len.exit326:                      ; preds = %decode_length.exit.
   br label %448
 
 .loopexit:                                        ; preds = %181, %347, %298, %276, %246, %104, %406, %369
-  %.3213 = phi ptr [ %407, %406 ], [ %370, %369 ], [ %182, %181 ], [ %105, %104 ], [ %248, %246 ], [ %279, %276 ], [ %299, %298 ], [ %349, %347 ]
+  %.3213 = phi ptr [ %370, %369 ], [ %407, %406 ], [ %182, %181 ], [ %349, %347 ], [ %299, %298 ], [ %279, %276 ], [ %248, %246 ], [ %105, %104 ]
   %.not258 = icmp eq i32 %5, 0
   br i1 %.not258, label %444, label %hd_inflate_read_len.exit.thread
 
@@ -2738,12 +2738,12 @@ hd_inflate_read_len.exit.thread.loopexit367.split.loop.exit419: ; preds = %257
   br label %hd_inflate_read_len.exit.thread
 
 hd_inflate_read_len.exit.thread:                  ; preds = %hd_inflate_read_len.exit326, %289, %hd_inflate_read_len.exit304, %hd_inflate_read_len.exit, %42, %49, %decode_length.exit.i, %decode_length.exit.thread18.i, %hd_inflate_read_len.exit283, %183, %decode_length.exit.i274, %decode_length.exit.thread18.i278, %decode_length.exit.i295, %265, %274, %decode_length.exit.i317, %329, %325, %.lr.ph.i.i309, %228, %224, %.lr.ph.i.i287, %163, %159, %.lr.ph.i.i266, %86, %82, %.lr.ph.i.i, %hd_inflate_read_len.exit.thread.loopexit367.split.loop.exit, %hd_inflate_read_len.exit.thread.loopexit367.split.loop.exit419, %434, %.loopexit, %366, %389, %396, %423
-  %.5 = phi i64 [ %..i327, %396 ], [ %.4218, %423 ], [ %367, %366 ], [ %.3217, %389 ], [ -523, %434 ], [ -523, %.loopexit ], [ %.2216.le, %hd_inflate_read_len.exit.thread.loopexit367.split.loop.exit ], [ %.1215.le, %hd_inflate_read_len.exit.thread.loopexit367.split.loop.exit419 ], [ -523, %.lr.ph.i.i ], [ -523, %82 ], [ -523, %86 ], [ -523, %.lr.ph.i.i266 ], [ -523, %159 ], [ -523, %163 ], [ -523, %.lr.ph.i.i287 ], [ -523, %224 ], [ -523, %228 ], [ -523, %.lr.ph.i.i309 ], [ -523, %325 ], [ -523, %329 ], [ %342, %hd_inflate_read_len.exit326 ], [ %..i, %289 ], [ %241, %hd_inflate_read_len.exit304 ], [ %.049.i22.i, %hd_inflate_read_len.exit ], [ -523, %42 ], [ -523, %49 ], [ -523, %decode_length.exit.i ], [ -523, %decode_length.exit.thread18.i ], [ %.049.i22.i279, %hd_inflate_read_len.exit283 ], [ -523, %183 ], [ -523, %decode_length.exit.i274 ], [ -523, %decode_length.exit.thread18.i278 ], [ -523, %decode_length.exit.i295 ], [ %272, %265 ], [ -523, %274 ], [ -523, %decode_length.exit.i317 ]
+  %.5 = phi i64 [ %367, %366 ], [ %.3217, %389 ], [ %..i327, %396 ], [ %.4218, %423 ], [ -523, %434 ], [ -523, %.loopexit ], [ %.2216.le, %hd_inflate_read_len.exit.thread.loopexit367.split.loop.exit ], [ %.1215.le, %hd_inflate_read_len.exit.thread.loopexit367.split.loop.exit419 ], [ -523, %.lr.ph.i.i ], [ -523, %82 ], [ -523, %86 ], [ -523, %.lr.ph.i.i266 ], [ -523, %159 ], [ -523, %163 ], [ -523, %.lr.ph.i.i287 ], [ -523, %224 ], [ -523, %228 ], [ -523, %.lr.ph.i.i309 ], [ -523, %325 ], [ -523, %329 ], [ %342, %hd_inflate_read_len.exit326 ], [ %..i, %289 ], [ %241, %hd_inflate_read_len.exit304 ], [ %.049.i22.i, %hd_inflate_read_len.exit ], [ -523, %42 ], [ -523, %49 ], [ -523, %decode_length.exit.i ], [ -523, %decode_length.exit.thread18.i ], [ %.049.i22.i279, %hd_inflate_read_len.exit283 ], [ -523, %183 ], [ -523, %decode_length.exit.i274 ], [ -523, %decode_length.exit.thread18.i278 ], [ -523, %decode_length.exit.i295 ], [ %272, %265 ], [ -523, %274 ], [ -523, %decode_length.exit.i317 ]
   store i8 1, ptr %10, align 4, !tbaa !103
   br label %448
 
 448:                                              ; preds = %.thread347, %6, %hd_inflate_read_len.exit.thread, %444, %440, %424, %390
-  %.0207 = phi i64 [ %.5, %hd_inflate_read_len.exit.thread ], [ %447, %444 ], [ %429, %424 ], [ %395, %390 ], [ %443, %440 ], [ -523, %6 ], [ %206, %.thread347 ]
+  %.0207 = phi i64 [ %.5, %hd_inflate_read_len.exit.thread ], [ %447, %444 ], [ %395, %390 ], [ %429, %424 ], [ %443, %440 ], [ -523, %6 ], [ %206, %.thread347 ]
   ret i64 %.0207
 }
 

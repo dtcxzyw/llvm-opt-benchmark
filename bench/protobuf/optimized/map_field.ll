@@ -317,8 +317,8 @@ sw.default:                                       ; preds = %_ZNK6google8protobu
   unreachable
 
 return:                                           ; preds = %sw.bb, %sw.bb13, %sw.bb10, %sw.bb8, %sw.bb6, %sw.bb4
-  %retval.sroa.8.0 = phi i64 [ %conv15, %sw.bb13 ], [ %conv12, %sw.bb10 ], [ %call9, %sw.bb8 ], [ %conv, %sw.bb6 ], [ %call5, %sw.bb4 ], [ %2, %sw.bb ]
-  %retval.sroa.0.0 = phi ptr [ null, %sw.bb13 ], [ null, %sw.bb10 ], [ null, %sw.bb8 ], [ null, %sw.bb6 ], [ null, %sw.bb4 ], [ %spec.select, %sw.bb ]
+  %retval.sroa.8.0 = phi i64 [ %call5, %sw.bb4 ], [ %conv, %sw.bb6 ], [ %call9, %sw.bb8 ], [ %conv12, %sw.bb10 ], [ %conv15, %sw.bb13 ], [ %2, %sw.bb ]
+  %retval.sroa.0.0 = phi ptr [ null, %sw.bb4 ], [ null, %sw.bb6 ], [ null, %sw.bb8 ], [ null, %sw.bb10 ], [ null, %sw.bb13 ], [ %spec.select, %sw.bb ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -6213,7 +6213,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit
   br i1 %cmp.i.i42.not, label %if.end51, label %while.body, !llvm.loop !41
 
 if.end51:                                         ; preds = %if.then.i.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit, %for.inc.i.i.i, %_ZNK6google8protobuf16MapValueConstRef4typeEv.exit, %sw.bb, %sw.bb18, %sw.bb21, %sw.bb24, %sw.bb27, %sw.bb30, %sw.bb33, %sw.bb36, %sw.bb39, %if.end
-  %size.1 = phi i64 [ %size.2, %_ZNK6google8protobuf16MapValueConstRef4typeEv.exit ], [ %add41, %sw.bb39 ], [ %add38, %sw.bb36 ], [ %add35, %sw.bb33 ], [ %add32, %sw.bb30 ], [ %add29, %sw.bb27 ], [ %add26, %sw.bb24 ], [ %add23, %sw.bb21 ], [ %add20, %sw.bb18 ], [ %add17, %sw.bb ], [ %size.0, %if.end ], [ %add49, %for.inc.i.i.i ], [ %add49, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit ], [ %add49, %if.then.i.i ]
+  %size.1 = phi i64 [ %size.2, %_ZNK6google8protobuf16MapValueConstRef4typeEv.exit ], [ %add17, %sw.bb ], [ %add20, %sw.bb18 ], [ %add23, %sw.bb21 ], [ %add26, %sw.bb24 ], [ %add29, %sw.bb27 ], [ %add32, %sw.bb30 ], [ %add35, %sw.bb33 ], [ %add38, %sw.bb36 ], [ %add41, %sw.bb39 ], [ %size.0, %if.end ], [ %add49, %for.inc.i.i.i ], [ %add49, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit ], [ %add49, %if.then.i.i ]
   ret i64 %size.1
 }
 
@@ -8073,7 +8073,7 @@ lpad42:                                           ; preds = %sw.epilog
   unreachable
 
 return:                                           ; preds = %if.end.i.i, %land.rhs.i, %sw.bb12, %sw.bb33, %sw.bb29, %sw.bb25, %sw.bb21, %sw.bb17
-  %retval.0 = phi i1 [ %cmp38, %sw.bb33 ], [ %cmp32, %sw.bb29 ], [ %cmp28, %sw.bb25 ], [ %cmp24, %sw.bb21 ], [ %cmp20, %sw.bb17 ], [ false, %sw.bb12 ], [ %5, %if.end.i.i ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp20, %sw.bb17 ], [ %cmp24, %sw.bb21 ], [ %cmp28, %sw.bb25 ], [ %cmp32, %sw.bb29 ], [ %cmp38, %sw.bb33 ], [ false, %sw.bb12 ], [ %5, %if.end.i.i ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 

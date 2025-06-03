@@ -117,7 +117,7 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
   br label %49
 
 49:                                               ; preds = %40, %43
-  %.0.i.i = phi ptr [ %46, %43 ], [ %42, %40 ]
+  %.0.i.i = phi ptr [ %42, %40 ], [ %46, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %51 = load ptr, ptr %50, align 8, !alias.scope !16, !noalias !20, !nonnull !4, !align !21, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -389,7 +389,7 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
   br label %47
 
 47:                                               ; preds = %38, %41
-  %.0.i.i = phi ptr [ %44, %41 ], [ %40, %38 ]
+  %.0.i.i = phi ptr [ %40, %38 ], [ %44, %41 ]
   %.val.i = load ptr, ptr %3, align 8, !noalias !78, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)

@@ -38749,7 +38749,7 @@ invoke.cont101:                                   ; preds = %invoke.cont97
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %invoke.cont47, %invoke.cont92, %invoke.cont70, %invoke.cont101, %invoke.cont40, %invoke.cont30, %invoke.cont20
-  %success.0 = phi i1 [ false, %invoke.cont101 ], [ false, %invoke.cont70 ], [ false, %invoke.cont92 ], [ false, %invoke.cont40 ], [ false, %invoke.cont30 ], [ false, %invoke.cont20 ], [ true, %invoke.cont47 ]
+  %success.0 = phi i1 [ false, %invoke.cont101 ], [ false, %invoke.cont20 ], [ false, %invoke.cont30 ], [ false, %invoke.cont40 ], [ false, %invoke.cont70 ], [ false, %invoke.cont92 ], [ true, %invoke.cont47 ]
   %77 = load ptr, ptr %buffer, align 8, !noalias !524
   invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp104, ptr noundef %77)
           to label %invoke.cont105 unwind label %lpad2
@@ -38789,7 +38789,7 @@ lpad106:                                          ; preds = %invoke.cont105
   br label %ehcleanup110
 
 ehcleanup110:                                     ; preds = %lpad.body.i, %if.then2.i.i.i.i, %lpad.i.i, %lpad.i.i28, %lpad.i.i54, %lpad.i.i90, %lpad.i.i128, %lpad.i.i170, %lpad.i.i205, %lpad.i.i244, %lpad2, %lpad.i.i257, %lpad.i.i219, %lpad.i.i186, %lpad.i.i156, %lpad.i.i115, %lpad.i.i77, %lpad.i.i41, %lpad.i.i14, %lpad106, %lpad98, %ehcleanup, %lpad.i.i231, %lpad.i.i140, %lpad.i.i102, %lpad.i.i65
-  %.pn2 = phi { ptr, i32 } [ %81, %lpad106 ], [ %80, %lpad98 ], [ %46, %lpad.i.i231 ], [ %.pn, %ehcleanup ], [ %30, %lpad.i.i140 ], [ %24, %lpad.i.i102 ], [ %18, %lpad.i.i65 ], [ %4, %lpad.i.i ], [ %7, %lpad.i.i14 ], [ %9, %lpad.i.i28 ], [ %14, %lpad.i.i41 ], [ %16, %lpad.i.i54 ], [ %20, %lpad.i.i77 ], [ %22, %lpad.i.i90 ], [ %26, %lpad.i.i115 ], [ %28, %lpad.i.i128 ], [ %34, %lpad.i.i156 ], [ %36, %lpad.i.i170 ], [ %40, %lpad.i.i186 ], [ %42, %lpad.i.i205 ], [ %44, %lpad.i.i219 ], [ %48, %lpad.i.i244 ], [ %50, %lpad.i.i257 ], [ %12, %lpad2 ], [ %eh.lpad-body.i, %if.then2.i.i.i.i ], [ %eh.lpad-body.i, %lpad.body.i ]
+  %.pn2 = phi { ptr, i32 } [ %81, %lpad106 ], [ %80, %lpad98 ], [ %18, %lpad.i.i65 ], [ %24, %lpad.i.i102 ], [ %30, %lpad.i.i140 ], [ %46, %lpad.i.i231 ], [ %.pn, %ehcleanup ], [ %4, %lpad.i.i ], [ %7, %lpad.i.i14 ], [ %9, %lpad.i.i28 ], [ %14, %lpad.i.i41 ], [ %16, %lpad.i.i54 ], [ %20, %lpad.i.i77 ], [ %22, %lpad.i.i90 ], [ %26, %lpad.i.i115 ], [ %28, %lpad.i.i128 ], [ %34, %lpad.i.i156 ], [ %36, %lpad.i.i170 ], [ %40, %lpad.i.i186 ], [ %42, %lpad.i.i205 ], [ %44, %lpad.i.i219 ], [ %48, %lpad.i.i244 ], [ %50, %lpad.i.i257 ], [ %12, %lpad2 ], [ %eh.lpad-body.i, %if.then2.i.i.i.i ], [ %eh.lpad-body.i, %lpad.body.i ]
   %82 = load ptr, ptr %buffer, align 8
   %cmp.not.i.i.i319 = icmp eq ptr %82, null
   br i1 %cmp.not.i.i.i319, label %ehcleanup111, label %if.then2.i.i.i320
@@ -47007,7 +47007,7 @@ sw.default.i.i:                                   ; preds = %if.end
   br label %_ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit
 
 _ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit: ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.default.i.i
-  %retval.0.i.i = phi i1 [ %1, %sw.default.i.i ], [ false, %sw.bb1.i.i ], [ false, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %1, %sw.default.i.i ], [ false, %sw.bb.i.i ], [ false, %sw.bb1.i.i ]
   %inc = add nuw i64 %index.09, 1
   %exitcond.not = icmp eq i64 %inc, %len
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !752
@@ -47084,7 +47084,7 @@ sw.default.i:                                     ; preds = %if.end
   br label %_ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit
 
 _ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit: ; preds = %sw.bb.i, %sw.bb1.i, %sw.default.i
-  %retval.0.i = phi i1 [ %1, %sw.default.i ], [ false, %sw.bb1.i ], [ false, %sw.bb.i ]
+  %retval.0.i = phi i1 [ %1, %sw.default.i ], [ false, %sw.bb.i ], [ false, %sw.bb1.i ]
   %inc = add nuw i64 %index.09, 1
   %exitcond.not = icmp eq i64 %inc, %len
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !753
@@ -53196,7 +53196,7 @@ if.end28:                                         ; preds = %sw.bb
   br label %sw.bb30
 
 sw.bb30:                                          ; preds = %if.end28, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i28, %if.end28 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i28, %if.end28 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i.i29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.1) #52
   %call.i1.i.i30 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i29) #52
   %cmp.i.i.i31 = icmp eq i32 %call.i1.i.i30, 0
@@ -53207,7 +53207,7 @@ if.end35:                                         ; preds = %sw.bb30
   br label %sw.bb37
 
 sw.bb37:                                          ; preds = %if.end35, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i32, %if.end35 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i32, %if.end35 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i.i33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.2) #52
   %call.i1.i.i34 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i33) #52
   %cmp.i.i.i35 = icmp eq i32 %call.i1.i.i34, 0
@@ -53492,7 +53492,7 @@ if.end29:                                         ; preds = %sw.bb, %_ZN9__gnu_c
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i60, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i60, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i61 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1) #52
   %call1.i.i62 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__pred.coerce) #52
   %cmp.i.i63 = icmp eq i64 %call.i.i61, %call1.i.i62
@@ -53515,7 +53515,7 @@ if.end36:                                         ; preds = %sw.bb31, %_ZN9__gnu
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i72, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i72, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2) #52
   %call1.i.i74 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__pred.coerce) #52
   %cmp.i.i75 = icmp eq i64 %call.i.i73, %call1.i.i74
@@ -54247,7 +54247,7 @@ if.end28:                                         ; preds = %sw.bb, %_ZN9__gnu_c
   br label %sw.bb30
 
 sw.bb30:                                          ; preds = %if.end28, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i48, %if.end28 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i48, %if.end28 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %5 = load ptr, ptr %__first.sroa.0.1, align 8
   %cmp.not.i.i49 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i49, label %if.end35, label %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit56
@@ -54265,7 +54265,7 @@ if.end35:                                         ; preds = %sw.bb30, %_ZN9__gnu
   br label %sw.bb37
 
 sw.bb37:                                          ; preds = %if.end35, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i57, %if.end35 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i57, %if.end35 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %6 = load ptr, ptr %__first.sroa.0.2, align 8
   %cmp.not.i.i58 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i58, label %if.end42, label %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit65

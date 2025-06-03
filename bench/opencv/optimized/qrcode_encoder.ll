@@ -523,7 +523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %common.resume
 
 _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit: ; preds = %27, %32, %34, %36
-  %.0.in.i = phi ptr [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %27 ]
+  %.0.in.i = phi ptr [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %31, %27 ]
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !24
   %48 = icmp sle i32 %1, %.0.i
   br i1 %48, label %.preheader, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
@@ -2567,7 +2567,7 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit50: ; preds = %_ZN2cvL8decToBin
   br label %_ZN2cvL9mapSymbolEc.exit
 
 _ZN2cvL9mapSymbolEc.exit:                         ; preds = %51, %55, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66
-  %.0.i = phi i32 [ %52, %51 ], [ %56, %55 ], [ -1, %66 ], [ 44, %65 ], [ 43, %64 ], [ 42, %63 ], [ 41, %62 ], [ 40, %61 ], [ 39, %60 ], [ 38, %59 ], [ 37, %58 ], [ 36, %57 ]
+  %.0.i = phi i32 [ %52, %51 ], [ %56, %55 ], [ -1, %66 ], [ 37, %58 ], [ 38, %59 ], [ 39, %60 ], [ 40, %61 ], [ 41, %62 ], [ 42, %63 ], [ 43, %64 ], [ 44, %65 ], [ 36, %57 ]
   %67 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %69 = load i8, ptr %68, align 1, !tbaa !57
@@ -2627,7 +2627,7 @@ _ZN2cvL9mapSymbolEc.exit:                         ; preds = %51, %55, %57, %58, 
   br label %_ZN2cvL9mapSymbolEc.exit54
 
 _ZN2cvL9mapSymbolEc.exit54:                       ; preds = %72, %76, %78, %79, %80, %81, %82, %83, %84, %85, %86
-  %.0.i53 = phi i32 [ %73, %72 ], [ %77, %76 ], [ 44, %86 ], [ 43, %85 ], [ 42, %84 ], [ 41, %83 ], [ 40, %82 ], [ 39, %81 ], [ 38, %80 ], [ 37, %79 ], [ 36, %78 ]
+  %.0.i53 = phi i32 [ %73, %72 ], [ %77, %76 ], [ 37, %79 ], [ 38, %80 ], [ 39, %81 ], [ 40, %82 ], [ 41, %83 ], [ 42, %84 ], [ 43, %85 ], [ 44, %86 ], [ 36, %78 ]
   %87 = icmp eq i32 %.0.i, -1
   br i1 %87, label %.critedge44, label %.critedge
 
@@ -2741,8 +2741,8 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit60: ; preds = %_ZN2cvL8decToBin
 130:                                              ; preds = %122
   br label %_ZN2cvL9mapSymbolEc.exit64.thread
 
-_ZN2cvL9mapSymbolEc.exit64.thread:                ; preds = %120, %116, %122, %123, %124, %125, %126, %127, %128, %129, %130
-  %.0.i6373 = phi i32 [ 36, %122 ], [ 37, %123 ], [ 38, %124 ], [ 39, %125 ], [ 40, %126 ], [ 41, %127 ], [ 42, %128 ], [ 43, %129 ], [ 44, %130 ], [ %117, %116 ], [ %121, %120 ]
+_ZN2cvL9mapSymbolEc.exit64.thread:                ; preds = %120, %116, %122, %130, %129, %128, %127, %126, %125, %124, %123
+  %.0.i6373 = phi i32 [ 36, %122 ], [ 44, %130 ], [ 43, %129 ], [ 42, %128 ], [ 41, %127 ], [ 40, %126 ], [ 39, %125 ], [ 38, %124 ], [ 37, %123 ], [ %117, %116 ], [ %121, %120 ]
   %131 = tail call noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #31
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %131, i8 0, i64 6, i1 false)
@@ -4078,7 +4078,7 @@ _ZNK2cv17QRCodeEncoderImpl14autoEncodeModeERKNSt7__cxx1112basic_stringIcSt11char
   br label %_ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit
 
 _ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit: ; preds = %_ZNK2cv17QRCodeEncoderImpl14autoEncodeModeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %36, %.loopexit.i, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %10 ], [ %9, %8 ], [ %7, %6 ], [ true, %.loopexit.i ], [ true, %36 ], [ true, %_ZNK2cv17QRCodeEncoderImpl14autoEncodeModeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
+  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ true, %10 ], [ true, %12 ], [ true, %14 ], [ true, %16 ], [ true, %.loopexit.i ], [ true, %36 ], [ true, %_ZNK2cv17QRCodeEncoderImpl14autoEncodeModeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
   ret i1 %.0
 }
 

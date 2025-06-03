@@ -424,7 +424,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %3, %54, %53, %51
-  %.0 = phi i32 [ -1, %54 ], [ 0, %53 ], [ 0, %51 ], [ 0, %3 ], [ 0, %39 ]
+  %.0 = phi i32 [ -1, %54 ], [ 0, %51 ], [ 0, %53 ], [ 0, %3 ], [ 0, %39 ]
   ret i32 %.0
 }
 

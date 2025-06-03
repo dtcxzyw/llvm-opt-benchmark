@@ -4348,7 +4348,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %.preheader
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit, %23, %25, %28, %34, %35, %38, %39, %43, %50, %52
-  %.0.i17 = phi i1 [ %51, %50 ], [ true, %38 ], [ false, %35 ], [ false, %34 ], [ true, %28 ], [ false, %25 ], [ %.not16.i, %23 ], [ %.not13.i, %39 ], [ true, %43 ], [ %.not.i16, %52 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %.preheader ]
+  %.0.i17 = phi i1 [ true, %28 ], [ false, %25 ], [ true, %38 ], [ false, %35 ], [ false, %34 ], [ %51, %50 ], [ %.not16.i, %23 ], [ %.not13.i, %39 ], [ true, %43 ], [ %.not.i16, %52 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %.preheader ]
   %56 = zext i1 %.0.i17 to i32
   br label %zend_hash_index_find_ptr.exit.thread
 

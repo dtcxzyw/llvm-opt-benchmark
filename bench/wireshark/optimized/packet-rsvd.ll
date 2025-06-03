@@ -959,7 +959,7 @@ dissect_RSVD_GET_DISK_INFO.exit:                  ; preds = %310, %314
   br label %dissect_RSVD2_META_OPERATION_START.exit
 
 dissect_RSVD2_META_OPERATION_START.exit:          ; preds = %342, %343, %355, %366, %388, %392, %395
-  %.0.i125 = phi i32 [ 56, %343 ], [ 60, %392 ], [ 60, %388 ], [ 76, %395 ], [ 108, %366 ], [ 68, %355 ], [ 32, %342 ]
+  %.0.i125 = phi i32 [ 56, %343 ], [ 68, %355 ], [ 108, %366 ], [ 76, %395 ], [ 60, %392 ], [ 60, %388 ], [ 32, %342 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   br label %480
 
@@ -1052,7 +1052,7 @@ dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit: ; preds = %403, %409, %411
   br label %dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit
 
 dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit:      ; preds = %422, %432, %434, %440
-  %.0.i128 = phi i32 [ 56, %422 ], [ 32, %432 ], [ 104, %440 ], [ 36, %434 ]
+  %.0.i128 = phi i32 [ 56, %422 ], [ 32, %432 ], [ 36, %434 ], [ 104, %440 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   br label %480
 
@@ -1099,7 +1099,7 @@ dissect_RSVD2_QUERY_SAFE_SIZE.exit:               ; preds = %472, %473
   br label %480
 
 480:                                              ; preds = %4, %dissect_RSVD2_QUERY_SAFE_SIZE.exit, %dissect_RSVD2_DELETE_SNAPSHOT.exit, %dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit, %dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit, %dissect_RSVD2_META_OPERATION_START.exit, %334, %dissect_RSVD_GET_DISK_INFO.exit, %dissect_RSVD_SRB_STATUS.exit, %dissect_RSVD_TUNNEL_SCSI.exit, %dissect_RSVD_GET_INITIAL_INFO.exit
-  %.0 = phi i32 [ 16, %4 ], [ %.0.i129, %dissect_RSVD2_DELETE_SNAPSHOT.exit ], [ %.0.i128, %dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit ], [ %.0.i127, %dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit ], [ %.0.i125, %dissect_RSVD2_META_OPERATION_START.exit ], [ %341, %334 ], [ 88, %dissect_RSVD_GET_DISK_INFO.exit ], [ %.0.i124, %dissect_RSVD_SRB_STATUS.exit ], [ %.0.i130, %dissect_RSVD2_QUERY_SAFE_SIZE.exit ], [ %278, %dissect_RSVD_TUNNEL_SCSI.exit ], [ %.0.i, %dissect_RSVD_GET_INITIAL_INFO.exit ]
+  %.0 = phi i32 [ 16, %4 ], [ %.0.i, %dissect_RSVD_GET_INITIAL_INFO.exit ], [ %278, %dissect_RSVD_TUNNEL_SCSI.exit ], [ %.0.i130, %dissect_RSVD2_QUERY_SAFE_SIZE.exit ], [ %.0.i124, %dissect_RSVD_SRB_STATUS.exit ], [ 88, %dissect_RSVD_GET_DISK_INFO.exit ], [ %341, %334 ], [ %.0.i125, %dissect_RSVD2_META_OPERATION_START.exit ], [ %.0.i127, %dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit ], [ %.0.i128, %dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit ], [ %.0.i129, %dissect_RSVD2_DELETE_SNAPSHOT.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
   ret i32 %.0
 }

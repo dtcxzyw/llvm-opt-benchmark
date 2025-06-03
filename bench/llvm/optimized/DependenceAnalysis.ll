@@ -2767,7 +2767,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DependenceInfo16isKnownPredicate
   unreachable
 
 49:                                               ; preds = %31, %33, %36, %39, %42, %45, %.thread
-  %.0 = phi i1 [ true, %.thread ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %31 ]
+  %.0 = phi i1 [ true, %.thread ], [ %32, %31 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ]
   ret i1 %.0
 }
 
@@ -20447,7 +20447,7 @@ _ZN4llvm14SmallBitVectorC2ERKS0_.exit:            ; preds = %.lr.ph764, %_ZN4llv
   br label %517
 
 517:                                              ; preds = %515, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %516, %515 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %516, %515 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %518 = load i64, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !55
   %.not30.i.i.i.i.i.i.i.i = icmp eq i64 %518, 0
   br i1 %.not30.i.i.i.i.i.i.i.i, label %519, label %_ZNK4llvm14SmallBitVector3anyEv.exit
@@ -20457,7 +20457,7 @@ _ZN4llvm14SmallBitVectorC2ERKS0_.exit:            ; preds = %.lr.ph764, %_ZN4llv
   br label %521
 
 521:                                              ; preds = %519, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %520, %519 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %520, %519 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %522 = load i64, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !55
   %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %522, 0
   br i1 %.not31.i.i.i.i.i.i.i.i, label %_ZNK4llvm14SmallBitVector3anyEv.exit.thread, label %_ZNK4llvm14SmallBitVector3anyEv.exit
@@ -20765,7 +20765,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit: ; preds =
   %.not698 = icmp eq i32 %.1.i.i.i, %.sroa.2.0.copyload.i307
   br i1 %.not698, label %._crit_edge774, label %575
 
-.critedge263:                                     ; preds = %594, %_ZNK4llvm14DependenceInfo7testMIVEPKNS_4SCEVES3_RKNS_14SmallBitVectorERNS_14FullDependenceE.exit.thread, %600, %_ZNK4llvm14DependenceInfo7testZIVEPKNS_4SCEVES3_RNS_14FullDependenceE.exit
+.critedge263:                                     ; preds = %594, %_ZNK4llvm14DependenceInfo7testZIVEPKNS_4SCEVES3_RNS_14FullDependenceE.exit, %600, %_ZNK4llvm14DependenceInfo7testMIVEPKNS_4SCEVES3_RKNS_14SmallBitVectorERNS_14FullDependenceE.exit.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #26
   br label %1590
 
@@ -21151,7 +21151,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit388: ; pred
   br label %855
 
 855:                                              ; preds = %853, %._crit_edge.i.i.i.i.i.i.i.i408
-  %.1.i.i.i.i.i.i.i.i413 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i410, %._crit_edge.i.i.i.i.i.i.i.i408 ], [ %854, %853 ]
+  %.1.i.i.i.i.i.i.i.i413 = phi ptr [ %854, %853 ], [ %.029.lcssa.i.i.i.i.i.i.i.i410, %._crit_edge.i.i.i.i.i.i.i.i408 ]
   %856 = load i64, ptr %.1.i.i.i.i.i.i.i.i413, align 8, !tbaa !55
   %.not30.i.i.i.i.i.i.i.i414 = icmp eq i64 %856, 0
   br i1 %.not30.i.i.i.i.i.i.i.i414, label %857, label %_ZNK4llvm14SmallBitVector3anyEv.exit417
@@ -21161,7 +21161,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit388: ; pred
   br label %859
 
 859:                                              ; preds = %857, %._crit_edge.i.i.i.i.i.i.i.i408
-  %.2.i.i.i.i.i.i.i.i411 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i410, %._crit_edge.i.i.i.i.i.i.i.i408 ], [ %858, %857 ]
+  %.2.i.i.i.i.i.i.i.i411 = phi ptr [ %858, %857 ], [ %.029.lcssa.i.i.i.i.i.i.i.i410, %._crit_edge.i.i.i.i.i.i.i.i408 ]
   %860 = load i64, ptr %.2.i.i.i.i.i.i.i.i411, align 8, !tbaa !55
   %.not31.i.i.i.i.i.i.i.i412 = icmp eq i64 %860, 0
   br i1 %.not31.i.i.i.i.i.i.i.i412, label %_ZNK4llvm14SmallBitVector3anyEv.exit417.thread, label %_ZNK4llvm14SmallBitVector3anyEv.exit417
@@ -24347,7 +24347,7 @@ _ZN4llvm14SmallBitVectorC2ERKS0_.exit:            ; preds = %.lr.ph699, %_ZN4llv
   br label %486
 
 486:                                              ; preds = %484, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %485, %484 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %485, %484 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %487 = load i64, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !55
   %.not30.i.i.i.i.i.i.i.i = icmp eq i64 %487, 0
   br i1 %.not30.i.i.i.i.i.i.i.i, label %488, label %_ZNK4llvm14SmallBitVector3anyEv.exit
@@ -24357,7 +24357,7 @@ _ZN4llvm14SmallBitVectorC2ERKS0_.exit:            ; preds = %.lr.ph699, %_ZN4llv
   br label %490
 
 490:                                              ; preds = %488, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %489, %488 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %489, %488 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %491 = load i64, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !55
   %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %491, 0
   br i1 %.not31.i.i.i.i.i.i.i.i, label %_ZNK4llvm14SmallBitVector3anyEv.exit.thread, label %_ZNK4llvm14SmallBitVector3anyEv.exit
@@ -24537,10 +24537,10 @@ _ZNK4llvm14SmallBitVector5countEv.exit.thread:    ; preds = %525, %_ZNK4llvm14Sm
   br label %_ZN4llvm14SmallBitVector3setEj.exit246
 
 _ZN4llvm14SmallBitVector3setEj.exit246:           ; preds = %574, %563, %552, %541, %413, %402, %._crit_edge700, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244
-  %.sroa.0847.2 = phi i64 [ %.sroa.0847.0, %574 ], [ %.sroa.0847.0, %563 ], [ %.sroa.0847.0, %552 ], [ %551, %541 ], [ %.sroa.0847.0, %._crit_edge700 ], [ %.sroa.0847.0, %413 ], [ %412, %402 ], [ %.sroa.0847.0, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ]
-  %.sroa.0842.2 = phi i64 [ %.sroa.0842.0, %574 ], [ %573, %563 ], [ %.sroa.0842.0, %552 ], [ %.sroa.0842.0, %541 ], [ %.sroa.0842.0, %._crit_edge700 ], [ %.sroa.0842.0, %413 ], [ %.sroa.0842.0, %402 ], [ %.sroa.0842.0, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ]
-  %584 = phi i64 [ %263, %574 ], [ %573, %563 ], [ %263, %552 ], [ %263, %541 ], [ %263, %._crit_edge700 ], [ %263, %413 ], [ %263, %402 ], [ %263, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ]
-  %585 = phi i64 [ %262, %574 ], [ %262, %563 ], [ %262, %552 ], [ %551, %541 ], [ %262, %._crit_edge700 ], [ %262, %413 ], [ %412, %402 ], [ %262, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ]
+  %.sroa.0847.2 = phi i64 [ %.sroa.0847.0, %574 ], [ %.sroa.0847.0, %563 ], [ %.sroa.0847.0, %552 ], [ %551, %541 ], [ %.sroa.0847.0, %._crit_edge700 ], [ %.sroa.0847.0, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ], [ %.sroa.0847.0, %413 ], [ %412, %402 ]
+  %.sroa.0842.2 = phi i64 [ %.sroa.0842.0, %574 ], [ %573, %563 ], [ %.sroa.0842.0, %552 ], [ %.sroa.0842.0, %541 ], [ %.sroa.0842.0, %._crit_edge700 ], [ %.sroa.0842.0, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ], [ %.sroa.0842.0, %413 ], [ %.sroa.0842.0, %402 ]
+  %584 = phi i64 [ %263, %574 ], [ %573, %563 ], [ %263, %552 ], [ %263, %541 ], [ %263, %._crit_edge700 ], [ %263, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ], [ %263, %413 ], [ %263, %402 ]
+  %585 = phi i64 [ %262, %574 ], [ %262, %563 ], [ %262, %552 ], [ %551, %541 ], [ %262, %._crit_edge700 ], [ %262, %_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE.exit244 ], [ %262, %413 ], [ %412, %402 ]
   %indvars.iv.next819 = add nuw nsw i64 %indvars.iv818, 1
   %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
   %exitcond823.not = icmp eq i64 %indvars.iv.next819, %84
@@ -25351,7 +25351,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit380: ; pred
   br label %980
 
 980:                                              ; preds = %978, %._crit_edge.i.i.i.i.i.i.i.i400
-  %.1.i.i.i.i.i.i.i.i405 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i402, %._crit_edge.i.i.i.i.i.i.i.i400 ], [ %979, %978 ]
+  %.1.i.i.i.i.i.i.i.i405 = phi ptr [ %979, %978 ], [ %.029.lcssa.i.i.i.i.i.i.i.i402, %._crit_edge.i.i.i.i.i.i.i.i400 ]
   %981 = load i64, ptr %.1.i.i.i.i.i.i.i.i405, align 8, !tbaa !55
   %.not30.i.i.i.i.i.i.i.i406 = icmp eq i64 %981, 0
   br i1 %.not30.i.i.i.i.i.i.i.i406, label %982, label %_ZNK4llvm14SmallBitVector3anyEv.exit409
@@ -25361,7 +25361,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit380: ; pred
   br label %984
 
 984:                                              ; preds = %982, %._crit_edge.i.i.i.i.i.i.i.i400
-  %.2.i.i.i.i.i.i.i.i403 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i402, %._crit_edge.i.i.i.i.i.i.i.i400 ], [ %983, %982 ]
+  %.2.i.i.i.i.i.i.i.i403 = phi ptr [ %983, %982 ], [ %.029.lcssa.i.i.i.i.i.i.i.i402, %._crit_edge.i.i.i.i.i.i.i.i400 ]
   %985 = load i64, ptr %.2.i.i.i.i.i.i.i.i403, align 8, !tbaa !55
   %.not31.i.i.i.i.i.i.i.i404 = icmp eq i64 %985, 0
   br i1 %.not31.i.i.i.i.i.i.i.i404, label %.critedge, label %_ZNK4llvm14SmallBitVector3anyEv.exit409
@@ -25925,8 +25925,8 @@ _ZN4llvm14SmallBitVector3setEj.exit486:           ; preds = %1270, %1281
   unreachable
 
 _ZN4llvm14SmallBitVector5resetEj.exit484:         ; preds = %1303, %1293, %1256, %1246, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482, %.lr.ph745
-  %.sroa.0834.3 = phi i64 [ %.sroa.0834.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0834.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0834.6, %1303 ], [ %.sroa.0834.6, %1293 ], [ %.sroa.0834.2, %1256 ], [ %.sroa.0834.2, %1246 ], [ %.sroa.0834.2, %.lr.ph745 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0.2, %1303 ], [ %1302, %1293 ], [ %.sroa.0.2, %1256 ], [ %1255, %1246 ], [ %.sroa.0.2, %.lr.ph745 ]
+  %.sroa.0834.3 = phi i64 [ %.sroa.0834.2, %1256 ], [ %.sroa.0834.2, %1246 ], [ %.sroa.0834.6, %1303 ], [ %.sroa.0834.6, %1293 ], [ %.sroa.0834.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0834.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0834.2, %.lr.ph745 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.2, %1256 ], [ %1255, %1246 ], [ %.sroa.0.2, %1303 ], [ %1302, %1293 ], [ %.sroa.0.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0.2, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit482 ], [ %.sroa.0.2, %.lr.ph745 ]
   %1316 = and i64 %.sroa.0.3, 1
   %.not8.i.i.i489 = icmp eq i64 %1316, 0
   br i1 %.not8.i.i.i489, label %1331, label %1317

@@ -486,7 +486,7 @@ define internal noundef i32 @dissect_h224_cme_client_data(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3, %33, %62, %64, %26
-  %.1 = phi i32 [ %2, %3 ], [ %74, %64 ], [ %63, %62 ], [ %43, %33 ], [ %32, %26 ], [ %18, %8 ], [ %24, %.lr.ph ]
+  %.1 = phi i32 [ %2, %3 ], [ %32, %26 ], [ %63, %62 ], [ %43, %33 ], [ %74, %64 ], [ %18, %8 ], [ %24, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -541,7 +541,7 @@ define internal noundef i32 @dissect_h224_fecc_client_data(ptr noundef %0, ptr n
   br label %29
 
 29:                                               ; preds = %3, %27, %25, %23, %11
-  %.0 = phi i32 [ %10, %3 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %11 ]
+  %.0 = phi i32 [ %10, %3 ], [ %22, %11 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   ret i32 %.0
 }
 

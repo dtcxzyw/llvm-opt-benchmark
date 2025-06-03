@@ -670,7 +670,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i: ; preds = %215, %212
   br label %_Z13for_each_exprIN12_GLOBAL__N_14procEEvRT_R8obj_markI4expr10bit_vector14default_t2uintIS5_EEPS5_.exit
 
 219:                                              ; preds = %204, %183, %121, %91, %.loopexit.split-lp.i.i, %.loopexit.i.i, %67, %40
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %41, %40 ], [ %68, %67 ], [ %122, %121 ], [ %92, %91 ], [ %205, %204 ], [ %184, %183 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %41, %40 ], [ %68, %67 ], [ %92, %91 ], [ %122, %121 ], [ %205, %204 ], [ %184, %183 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #15
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #15
   br label %.body

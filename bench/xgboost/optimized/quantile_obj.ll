@@ -12791,7 +12791,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %_ZStl
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge.i.i.i.i
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %66, %65 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %68 = load float, ptr %.sroa.031.1.i.i.i.i, align 4, !tbaa !147
   %69 = fcmp ult float %68, 0.000000e+00
   %70 = fcmp ugt float %68, 1.000000e+00
@@ -12803,7 +12803,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %_ZStl
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %72, %71 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %74 = load float, ptr %.sroa.031.2.i.i.i.i, align 4, !tbaa !147
   %75 = fcmp ult float %74, 0.000000e+00
   %76 = fcmp ugt float %74, 1.000000e+00
@@ -14319,7 +14319,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %164
   ret void
 
 .body:                                            ; preds = %169, %166, %162, %157, %152, %145, %140, %133
-  %.pn64 = phi { ptr, i32 } [ %163, %162 ], [ %153, %152 ], [ %158, %157 ], [ %141, %140 ], [ %146, %145 ], [ %134, %133 ], [ %167, %169 ], [ %167, %166 ]
+  %.pn64 = phi { ptr, i32 } [ %134, %133 ], [ %141, %140 ], [ %146, %145 ], [ %153, %152 ], [ %158, %157 ], [ %163, %162 ], [ %167, %169 ], [ %167, %166 ]
   %170 = load ptr, ptr %11, align 8, !tbaa !422
   %.not.i.i79 = icmp eq ptr %170, null
   br i1 %.not.i.i79, label %_ZN4dmlc12OMPExceptionD2Ev.exit81, label %171
@@ -15212,7 +15212,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %103
   ret void
 
 .body:                                            ; preds = %108, %105, %101, %96, %91, %84, %79, %72
-  %.pn64 = phi { ptr, i32 } [ %102, %101 ], [ %92, %91 ], [ %97, %96 ], [ %80, %79 ], [ %85, %84 ], [ %73, %72 ], [ %106, %108 ], [ %106, %105 ]
+  %.pn64 = phi { ptr, i32 } [ %73, %72 ], [ %80, %79 ], [ %85, %84 ], [ %92, %91 ], [ %97, %96 ], [ %102, %101 ], [ %106, %108 ], [ %106, %105 ]
   %109 = load ptr, ptr %11, align 8, !tbaa !422
   %.not.i.i78 = icmp eq ptr %109, null
   br i1 %.not.i.i78, label %_ZN4dmlc12OMPExceptionD2Ev.exit80, label %110
@@ -21523,7 +21523,7 @@ _ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
   br label %39
 
 39:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %25, %33, %35, %37, %._crit_edge
-  %.sroa.023.0 = phi ptr [ %2, %._crit_edge ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %25 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.023.0 = phi ptr [ %2, %._crit_edge ], [ %38, %37 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %32, %25 ], [ %34, %33 ], [ %36, %35 ]
   ret ptr %.sroa.023.0
 }
 
@@ -31225,7 +31225,7 @@ _ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
   br label %39
 
 39:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %25, %33, %35, %37, %._crit_edge
-  %.sroa.023.0 = phi ptr [ %2, %._crit_edge ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %25 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.023.0 = phi ptr [ %2, %._crit_edge ], [ %38, %37 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %32, %25 ], [ %34, %33 ], [ %36, %35 ]
   ret ptr %.sroa.023.0
 }
 

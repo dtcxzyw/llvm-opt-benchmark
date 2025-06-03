@@ -12503,7 +12503,7 @@ tailrecurse.backedge:                             ; preds = %26, %29, %77, %81
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9VectorSet8test_setEj.exit, %63, %.preheader, %57, %54, %42, %89, %85, %73, %59, %38, %33
-  %.0 = phi ptr [ %92, %89 ], [ %88, %85 ], [ %76, %73 ], [ %62, %59 ], [ %41, %38 ], [ %37, %33 ], [ %47, %42 ], [ %51, %54 ], [ %47, %57 ], [ null, %.preheader ], [ %spec.select, %63 ], [ null, %_ZN9VectorSet8test_setEj.exit ]
+  %.0 = phi ptr [ %92, %89 ], [ %37, %33 ], [ %41, %38 ], [ %62, %59 ], [ %76, %73 ], [ %88, %85 ], [ %47, %42 ], [ %51, %54 ], [ %47, %57 ], [ null, %.preheader ], [ %spec.select, %63 ], [ null, %_ZN9VectorSet8test_setEj.exit ]
   ret ptr %.0
 }
 

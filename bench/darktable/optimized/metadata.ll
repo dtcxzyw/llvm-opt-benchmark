@@ -1328,7 +1328,7 @@ define internal i32 @_key_pressed(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %36
 
 36:                                               ; preds = %32, %27, %15
-  %.0 = phi i32 [ %35, %32 ], [ 1, %27 ], [ 1, %15 ]
+  %.0 = phi i32 [ %35, %32 ], [ 1, %15 ], [ 1, %27 ]
   ret i32 %.0
 }
 

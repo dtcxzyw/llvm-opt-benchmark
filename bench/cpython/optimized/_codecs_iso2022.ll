@@ -1024,7 +1024,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br label %230
 
 230:                                              ; preds = %218, %223, %139, %164, %178, %148
-  %.5143 = phi i64 [ %.6, %218 ], [ %229, %223 ], [ %159, %148 ], [ %175, %164 ], [ %191, %178 ], [ %.4142, %139 ]
+  %.5143 = phi i64 [ %159, %148 ], [ %175, %164 ], [ %191, %178 ], [ %.4142, %139 ], [ %.6, %218 ], [ %229, %223 ]
   %231 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 2
   %232 = load i8, ptr %231, align 2, !tbaa !62
   %233 = icmp eq i8 %232, 1
@@ -1338,8 +1338,8 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %.not70.i, label %iso2022processesc.exit.thread150, label %.thread77.i
 
 .thread77.i:                                      ; preds = %97, %93, %80, %74, %65
-  %.05583.i = phi i64 [ %.055.i, %97 ], [ 0, %93 ], [ 0, %74 ], [ 0, %65 ], [ 1, %80 ]
-  %.05681.i = phi i8 [ %64, %97 ], [ -62, %93 ], [ %77, %74 ], [ %66, %65 ], [ %77, %80 ]
+  %.05583.i = phi i64 [ %.055.i, %97 ], [ 0, %93 ], [ 0, %74 ], [ 1, %80 ], [ 0, %65 ]
+  %.05681.i = phi i8 [ %64, %97 ], [ -62, %93 ], [ %77, %74 ], [ %77, %80 ], [ %66, %65 ]
   %98 = load ptr, ptr %8, align 8, !tbaa !47
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !48
@@ -1747,8 +1747,8 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   br label %307
 
 307:                                              ; preds = %iso2022processesc.exit, %193, %202, %211, %225, %301, %183, %iso2022processesc.exit.thread150, %iso2022processg2.exit, %30, %25
-  %.1143 = phi i64 [ %28, %30 ], [ %28, %25 ], [ %228, %225 ], [ %306, %301 ], [ %214, %211 ], [ %206, %202 ], [ %197, %193 ], [ %179, %iso2022processg2.exit ], [ %188, %183 ], [ %107, %iso2022processesc.exit.thread150 ], [ %.0142167, %iso2022processesc.exit ]
-  %.1104 = phi ptr [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %211 ], [ %.0103168, %202 ], [ %.0103168, %193 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %183 ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %iso2022processesc.exit ]
+  %.1143 = phi i64 [ %28, %30 ], [ %28, %25 ], [ %228, %225 ], [ %306, %301 ], [ %179, %iso2022processg2.exit ], [ %188, %183 ], [ %197, %193 ], [ %206, %202 ], [ %214, %211 ], [ %107, %iso2022processesc.exit.thread150 ], [ %.0142167, %iso2022processesc.exit ]
+  %.1104 = phi ptr [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %183 ], [ %.0103168, %193 ], [ %.0103168, %202 ], [ %.0103168, %211 ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %iso2022processesc.exit ]
   %308 = icmp sgt i64 %.1143, 0
   br i1 %308, label %15, label %.thread159
 

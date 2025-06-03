@@ -775,7 +775,7 @@ define dso_local range(i32 -1, 1) i32 @getBitOffsetFromArgument(ptr noundef %0, 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %5, %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ], [ 0, %5 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %5 ]
   %31 = load i8, ptr %8, align 1, !tbaa !5
   %32 = icmp eq i8 %31, 35
   %33 = icmp ne i32 %3, 0
@@ -991,8 +991,8 @@ define dso_local ptr @getObjectReadOnlyString(ptr noundef readonly captures(addr
   br i1 %.not21, label %43, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge25, %40, %36, %32, %28, %25, %20, %12
-  %.0.i.sink = phi i64 [ %17, %12 ], [ %42, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %25 ], [ 0, %20 ], [ 0, %.critedge25 ]
-  %.0.ph = phi ptr [ %2, %12 ], [ %19, %40 ], [ %19, %36 ], [ %19, %32 ], [ %19, %28 ], [ %19, %25 ], [ %19, %20 ], [ null, %.critedge25 ]
+  %.0.i.sink = phi i64 [ %17, %12 ], [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ 0, %20 ], [ 0, %.critedge25 ]
+  %.0.ph = phi ptr [ %2, %12 ], [ %19, %25 ], [ %19, %28 ], [ %19, %32 ], [ %19, %36 ], [ %19, %40 ], [ %19, %20 ], [ null, %.critedge25 ]
   store i64 %.0.i.sink, ptr %1, align 8, !tbaa !11
   br label %43
 
@@ -1213,7 +1213,7 @@ define internal fastcc ptr @lookupStringForBitCommand(ptr noundef %0, i64 nounde
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %25, %37, %40, %44, %48, %52
-  %.0.i = phi i64 [ %54, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ 0, %25 ]
+  %.0.i = phi i64 [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %54, %52 ], [ 0, %25 ]
   store i64 %.0.i, ptr %2, align 8, !tbaa !11
   %55 = add nuw nsw i64 %5, 1
   %56 = tail call ptr @sdsgrowzero(ptr noundef nonnull %32, i64 noundef %55) #18
@@ -1259,7 +1259,7 @@ sdslen.exit:                                      ; preds = %25, %37, %40, %44, 
   br label %sdslen.exit28
 
 sdslen.exit28:                                    ; preds = %sdslen.exit, %61, %64, %68, %72, %76
-  %.0.i27 = phi i64 [ %78, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %61 ], [ 0, %sdslen.exit ]
+  %.0.i27 = phi i64 [ %63, %61 ], [ %67, %64 ], [ %71, %68 ], [ %75, %72 ], [ %78, %76 ], [ 0, %sdslen.exit ]
   %79 = load i64, ptr %2, align 8, !tbaa !11
   %80 = sub i64 %.0.i27, %79
   store i64 %80, ptr %3, align 8, !tbaa !11
@@ -1363,7 +1363,7 @@ define dso_local void @getbitCommand(ptr noundef %0) local_unnamed_addr #4 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %31, %34, %38, %42, %46
-  %.0.i = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ]
+  %.0.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ]
   %49 = icmp ult i64 %20, %.0.i
   br i1 %49, label %50, label %.thread
 
@@ -1617,7 +1617,7 @@ define dso_local void @bitopCommand(ptr noundef %0) local_unnamed_addr #4 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %61, %71, %74, %78, %82, %86
-  %.0.i = phi i64 [ %88, %86 ], [ %85, %82 ], [ %81, %78 ], [ %77, %74 ], [ %73, %71 ], [ 0, %61 ]
+  %.0.i = phi i64 [ %73, %71 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ %88, %86 ], [ 0, %61 ]
   %89 = getelementptr inbounds nuw i64, ptr %39, i64 %.0226278
   store i64 %.0.i, ptr %89, align 8, !tbaa !11
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.0.i, i64 %.0222279)
@@ -1872,8 +1872,8 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %umax394 = tail call i64 @llvm.umax.i64(i64 %36, i64 2)
   br label %204
 
-204:                                              ; preds = %.lr.ph356, %._crit_edge319.split.us
-  %.7351 = phi i64 [ %.1227, %.lr.ph356 ], [ %247, %._crit_edge319.split.us ]
+204:                                              ; preds = %.lr.ph356, %._crit_edge317.split.us
+  %.7351 = phi i64 [ %.1227, %.lr.ph356 ], [ %247, %._crit_edge317.split.us ]
   %205 = load i64, ptr %39, align 8, !tbaa !11
   %.not248 = icmp ugt i64 %205, %.7351
   br i1 %.not248, label %206, label %210
@@ -1887,14 +1887,14 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 210:                                              ; preds = %204, %206
   %211 = phi i8 [ %209, %206 ], [ 0, %204 ]
   %spec.select252 = xor i8 %211, %203
-  br i1 %.not429, label %._crit_edge319.split.us, label %.lr.ph316
+  br i1 %.not429, label %._crit_edge317.split.us, label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %210
   switch i64 %.0225256, label %default.unreachable [
     i64 0, label %.lr.ph316.split.us
     i64 1, label %.lr.ph316.split.us325
     i64 2, label %.lr.ph316.split.us334
-    i64 3, label %._crit_edge319.split.us
+    i64 3, label %._crit_edge317.split.us
   ]
 
 .lr.ph316.split.us:                               ; preds = %.lr.ph316, %.thread258.us
@@ -1916,12 +1916,12 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %220 = phi i8 [ %218, %214 ], [ 0, %.lr.ph316.split.us ]
   %221 = and i8 %220, %.1212313.us
   %222 = icmp eq i8 %221, 0
-  br i1 %222, label %._crit_edge319.split.us, label %.thread258.us
+  br i1 %222, label %._crit_edge317.split.us, label %.thread258.us
 
 .thread258.us:                                    ; preds = %219
   %223 = add nuw i64 %.3210314.us, 1
   %exitcond399.not = icmp eq i64 %223, %umax394
-  br i1 %exitcond399.not, label %._crit_edge319.split.us, label %.lr.ph316.split.us, !llvm.loop !92
+  br i1 %exitcond399.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us, !llvm.loop !92
 
 .lr.ph316.split.us325:                            ; preds = %.lr.ph316, %.thread258.us329
   %.3210314.us326 = phi i64 [ %235, %.thread258.us329 ], [ %.0225256, %.lr.ph316 ]
@@ -1942,12 +1942,12 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %232 = phi i8 [ %230, %226 ], [ 0, %.lr.ph316.split.us325 ]
   %233 = or i8 %232, %.1212313.us327
   %234 = icmp eq i8 %233, -1
-  br i1 %234, label %._crit_edge319.split.us, label %.thread258.us329
+  br i1 %234, label %._crit_edge317.split.us, label %.thread258.us329
 
 .thread258.us329:                                 ; preds = %231
   %235 = add nuw i64 %.3210314.us326, 1
   %exitcond397.not = icmp eq i64 %235, %umax394
-  br i1 %exitcond397.not, label %._crit_edge319.split.us, label %.lr.ph316.split.us325, !llvm.loop !92
+  br i1 %exitcond397.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us325, !llvm.loop !92
 
 .lr.ph316.split.us334:                            ; preds = %.lr.ph316, %.thread258.us338
   %.3210314.us335 = phi i64 [ %245, %.thread258.us338 ], [ 1, %.lr.ph316 ]
@@ -1969,12 +1969,12 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %244 = xor i8 %243, %.1212313.us336
   %245 = add nuw i64 %.3210314.us335, 1
   %exitcond395.not = icmp eq i64 %245, %umax394
-  br i1 %exitcond395.not, label %._crit_edge319.split.us, label %.lr.ph316.split.us334, !llvm.loop !92
+  br i1 %exitcond395.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us334, !llvm.loop !92
 
 default.unreachable:                              ; preds = %.lr.ph316
   unreachable
 
-._crit_edge319.split.us:                          ; preds = %.thread258.us338, %.thread258.us329, %231, %.thread258.us, %219, %.lr.ph316, %210
+._crit_edge317.split.us:                          ; preds = %.thread258.us338, %.thread258.us329, %231, %.thread258.us, %219, %.lr.ph316, %210
   %.2213 = phi i8 [ %spec.select252, %210 ], [ %spec.select252, %.lr.ph316 ], [ 0, %219 ], [ %221, %.thread258.us ], [ -1, %231 ], [ %233, %.thread258.us329 ], [ %244, %.thread258.us338 ]
   %246 = getelementptr inbounds nuw i8, ptr %95, i64 %.7351
   store i8 %.2213, ptr %246, align 1, !tbaa !5
@@ -1982,9 +1982,9 @@ default.unreachable:                              ; preds = %.lr.ph316
   %exitcond400.not = icmp eq i64 %247, %.1223
   br i1 %exitcond400.not, label %.loopexit, label %204, !llvm.loop !93
 
-.loopexit:                                        ; preds = %._crit_edge319.split.us, %201, %._crit_edge
-  %.0222.lcssa406 = phi i64 [ 0, %._crit_edge ], [ %.1223, %201 ], [ %.1223, %._crit_edge319.split.us ]
-  %.0217 = phi ptr [ null, %._crit_edge ], [ %95, %201 ], [ %95, %._crit_edge319.split.us ]
+.loopexit:                                        ; preds = %._crit_edge317.split.us, %201, %._crit_edge
+  %.0222.lcssa406 = phi i64 [ 0, %._crit_edge ], [ %.1223, %201 ], [ %.1223, %._crit_edge317.split.us ]
+  %.0217 = phi ptr [ null, %._crit_edge ], [ %95, %201 ], [ %95, %._crit_edge317.split.us ]
   br label %.lr.ph359
 
 .lr.ph359:                                        ; preds = %.loopexit, %251
@@ -2228,9 +2228,9 @@ getObjectReadOnlyString.exit:                     ; preds = %.critedge24.i
   call void @abort() #19
   unreachable
 
-getObjectReadOnlyString.exit.thread:              ; preds = %39, %.critedge24.i, %57, %60, %64, %68, %49, %getObjectReadOnlyString.exit
-  %.0.ph.i93 = phi ptr [ %48, %getObjectReadOnlyString.exit ], [ null, %39 ], [ %48, %.critedge24.i ], [ %48, %57 ], [ %48, %60 ], [ %48, %64 ], [ %48, %68 ], [ %4, %49 ]
-  %.0.i.sink.i92 = phi i64 [ %73, %getObjectReadOnlyString.exit ], [ 0, %39 ], [ 0, %.critedge24.i ], [ %59, %57 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %52, %49 ]
+getObjectReadOnlyString.exit.thread:              ; preds = %39, %.critedge24.i, %68, %64, %60, %57, %49, %getObjectReadOnlyString.exit
+  %.0.ph.i93 = phi ptr [ %48, %getObjectReadOnlyString.exit ], [ null, %39 ], [ %48, %.critedge24.i ], [ %48, %68 ], [ %48, %64 ], [ %48, %60 ], [ %48, %57 ], [ %4, %49 ]
+  %.0.i.sink.i92 = phi i64 [ %73, %getObjectReadOnlyString.exit ], [ 0, %39 ], [ 0, %.critedge24.i ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %57 ], [ %52, %49 ]
   %76 = load i64, ptr %2, align 8, !tbaa !31
   %77 = icmp slt i64 %76, 0
   %78 = load i64, ptr %3, align 8
@@ -2390,8 +2390,8 @@ getObjectReadOnlyString.exit.thread:              ; preds = %39, %.critedge24.i,
   br label %getObjectReadOnlyString.exit88
 
 getObjectReadOnlyString.exit88:                   ; preds = %125, %135, %.critedge24.i84, %143, %146, %150, %154, %158
-  %.0.i.sink.i85 = phi i64 [ %138, %135 ], [ %160, %158 ], [ %157, %154 ], [ %153, %150 ], [ %149, %146 ], [ %145, %143 ], [ 0, %.critedge24.i84 ], [ 0, %125 ]
-  %.0.ph.i86 = phi ptr [ %4, %135 ], [ %134, %158 ], [ %134, %154 ], [ %134, %150 ], [ %134, %146 ], [ %134, %143 ], [ %134, %.critedge24.i84 ], [ null, %125 ]
+  %.0.i.sink.i85 = phi i64 [ %138, %135 ], [ %145, %143 ], [ %149, %146 ], [ %153, %150 ], [ %157, %154 ], [ %160, %158 ], [ 0, %.critedge24.i84 ], [ 0, %125 ]
+  %.0.ph.i86 = phi ptr [ %4, %135 ], [ %134, %143 ], [ %134, %146 ], [ %134, %150 ], [ %134, %154 ], [ %134, %158 ], [ %134, %.critedge24.i84 ], [ null, %125 ]
   store i64 0, ptr %2, align 8, !tbaa !31
   %161 = add nsw i64 %.0.i.sink.i85, -1
   br label %.thread.sink.split
@@ -3624,9 +3624,9 @@ getObjectReadOnlyString.exit:                     ; preds = %322
   %357 = load i64, ptr %134, align 8, !tbaa !96
   br label %._crit_edge431
 
-.lr.ph430.split.preheader:                        ; preds = %331, %354, %350, %346, %342, %339, %.critedge24.i
-  %.0328.ph = phi i64 [ 0, %.critedge24.i ], [ %341, %339 ], [ %345, %342 ], [ %349, %346 ], [ %353, %350 ], [ %356, %354 ], [ %334, %331 ]
-  %.0189.ph = phi ptr [ %330, %.critedge24.i ], [ %330, %339 ], [ %330, %342 ], [ %330, %346 ], [ %330, %350 ], [ %330, %354 ], [ %9, %331 ]
+.lr.ph430.split.preheader:                        ; preds = %331, %339, %342, %346, %350, %354, %.critedge24.i
+  %.0328.ph = phi i64 [ 0, %.critedge24.i ], [ %356, %354 ], [ %353, %350 ], [ %349, %346 ], [ %345, %342 ], [ %341, %339 ], [ %334, %331 ]
+  %.0189.ph = phi ptr [ %330, %.critedge24.i ], [ %330, %354 ], [ %330, %350 ], [ %330, %346 ], [ %330, %342 ], [ %330, %339 ], [ %9, %331 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
   %358 = load i64, ptr %134, align 8, !tbaa !96
   %359 = lshr i64 %358, 3

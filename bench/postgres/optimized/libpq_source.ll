@@ -1063,7 +1063,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
   br label %186
 
 186:                                              ; preds = %184, %112
-  %.1 = phi i32 [ %.0149, %112 ], [ %185, %184 ]
+  %.1 = phi i32 [ %185, %184 ], [ %.0149, %112 ]
   %187 = load ptr, ptr %24, align 8
   %188 = call ptr @PQgetResult(ptr noundef %187) #10
   %.not100 = icmp eq ptr %188, null

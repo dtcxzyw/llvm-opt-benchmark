@@ -226,7 +226,7 @@ detect_SELinux.exit.i:                            ; preds = %75
   br label %83
 
 83:                                               ; preds = %81, %detect_SELinux.exit.i, %detect_SELinux.exit.thread33.i, %detect_SELinux.exit.thread28.i
-  %.2.i = phi i8 [ %53, %detect_SELinux.exit.i ], [ %82, %81 ], [ %53, %detect_SELinux.exit.thread28.i ], [ %53, %detect_SELinux.exit.thread33.i ]
+  %.2.i = phi i8 [ %82, %81 ], [ %53, %detect_SELinux.exit.i ], [ %53, %detect_SELinux.exit.thread28.i ], [ %53, %detect_SELinux.exit.thread33.i ]
   %84 = or i8 %.2.i, 2
   br label %detect_os_features.exit
 

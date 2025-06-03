@@ -685,7 +685,7 @@ bytestream2_get_byte.exit117:                     ; preds = %278, %279
   unreachable
 
 .loopexit134:                                     ; preds = %bytestream2_get_byte.exit117, %296, %293, %290, %288, %rescale.exit
-  %.096 = phi i32 [ %298, %296 ], [ %295, %293 ], [ %292, %290 ], [ %37, %rescale.exit ], [ %289, %288 ], [ %37, %bytestream2_get_byte.exit117 ]
+  %.096 = phi i32 [ %289, %288 ], [ %37, %rescale.exit ], [ %292, %290 ], [ %295, %293 ], [ %298, %296 ], [ %37, %bytestream2_get_byte.exit117 ]
   %300 = icmp slt i32 %.096, 0
   br i1 %300, label %387, label %301
 

@@ -3384,9 +3384,9 @@ default.unreachable:                              ; preds = %29
   br label %"_ZN72_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..clone..Clone$GT$5clone17h6853b7146eabc91dE.exit.i"
 
 "_ZN72_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..clone..Clone$GT$5clone17h6853b7146eabc91dE.exit.i": ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he7ffc9d425f08224E.exit.i.i", %35, %29
-  %.sroa.013.0.i = phi i64 [ %43, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he7ffc9d425f08224E.exit.i.i" ], [ -9223372036854775807, %35 ], [ -9223372036854775808, %29 ]
-  %.sroa.6.1.i = phi ptr [ %46, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he7ffc9d425f08224E.exit.i.i" ], [ %.sroa.6.035.i, %35 ], [ %.sroa.6.035.i, %29 ]
-  %.sroa.714.1.i = phi i64 [ %40, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he7ffc9d425f08224E.exit.i.i" ], [ %.sroa.714.037.i, %35 ], [ %.sroa.714.037.i, %29 ]
+  %.sroa.013.0.i = phi i64 [ -9223372036854775807, %35 ], [ %43, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he7ffc9d425f08224E.exit.i.i" ], [ -9223372036854775808, %29 ]
+  %.sroa.6.1.i = phi ptr [ %.sroa.6.035.i, %35 ], [ %46, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he7ffc9d425f08224E.exit.i.i" ], [ %.sroa.6.035.i, %29 ]
+  %.sroa.714.1.i = phi i64 [ %.sroa.714.037.i, %35 ], [ %40, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he7ffc9d425f08224E.exit.i.i" ], [ %.sroa.714.037.i, %29 ]
   %49 = getelementptr inbounds nuw { [3 x i64] }, ptr %18, i64 %.sroa.7.034.i
   store i64 %.sroa.013.0.i, ptr %49, align 8, !noalias !448
   %.sroa.419.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8

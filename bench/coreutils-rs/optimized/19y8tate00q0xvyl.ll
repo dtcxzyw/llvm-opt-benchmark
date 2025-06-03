@@ -36,8 +36,8 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %10
 
 10:                                               ; preds = %.lr.ph, %18
@@ -47,8 +47,8 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   call void @_ZN3nix6unistd4read17h949cd14f2df1350eE(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %0, ptr noalias noundef nonnull align 1 %7, i64 noundef 16384)
   %11 = load i32, ptr %5, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i32 %11 to i1
-  %12 = load i32, ptr %8, align 4, !range !6
-  %13 = load i64, ptr %9, align 8
+  %12 = load i64, ptr %8, align 8
+  %13 = load i32, ptr %9, align 4, !range !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %.loopexit, label %14
 
@@ -58,12 +58,12 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   ret i32 %.018
 
 14:                                               ; preds = %10
-  store i64 %13, ptr %6, align 8
-  %15 = icmp eq i64 %13, 0
+  store i64 %12, ptr %6, align 8
+  %15 = icmp eq i64 %12, 0
   br i1 %15, label %17, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %14
-  %16 = icmp ugt i64 %13, 16384
+  %16 = icmp ugt i64 %12, 16384
   br label %.preheader
 
 17:                                               ; preds = %14
@@ -79,7 +79,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   unreachable
 
 18:                                               ; preds = %26
-  %19 = sub i64 %.052, %13
+  %19 = sub i64 %.052, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %._crit_edge, label %10
@@ -89,11 +89,11 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   br i1 %16, label %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
 
 20:                                               ; preds = %.preheader
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %13, i64 noundef 16384, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.7) #6, !noalias !7
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %12, i64 noundef 16384, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.7) #6, !noalias !7
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit": ; preds = %.preheader
-  %21 = sub nuw nsw i64 %13, %.01948
+  %21 = sub nuw nsw i64 %12, %.01948
   %22 = getelementptr inbounds i8, ptr %7, i64 %.01948
   %23 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly align 1 %22, i64 noundef %21), !noalias !10
   switch i64 %23, label %26 [
@@ -111,11 +111,11 @@ _ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..o
 
 26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
   %27 = add i64 %23, %.01948
-  %28 = icmp ult i64 %27, %13
+  %28 = icmp ult i64 %27, %12
   br i1 %28, label %.preheader, label %18
 
 .loopexit:                                        ; preds = %10, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
-  %.1 = phi i32 [ %24, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit ], [ %12, %10 ]
+  %.1 = phi i32 [ %24, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit ], [ %13, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %._crit_edge
 }

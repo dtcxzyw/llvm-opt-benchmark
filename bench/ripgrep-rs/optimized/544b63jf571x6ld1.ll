@@ -175,16 +175,16 @@ default.unreachable100:                           ; preds = %16
   %.pre99 = load i8, ptr %.phi.trans.insert98, align 8, !range !4
   br label %22
 
-.body.thread90:                                   ; preds = %42, %40
+.body.thread90:                                   ; preds = %40, %42
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
 22:                                               ; preds = %80, %61, %44, %21
-  %23 = phi i8 [ %.pre99, %21 ], [ 2, %80 ], [ 1, %61 ], [ 0, %44 ]
-  %24 = phi ptr [ %.pre97, %21 ], [ @anon.e316c324bdc0d28376b7586f951427b3.10, %80 ], [ @anon.e316c324bdc0d28376b7586f951427b3.7, %61 ], [ @anon.e316c324bdc0d28376b7586f951427b3.4, %44 ]
-  %25 = phi ptr [ %.pre, %21 ], [ %72, %80 ], [ %53, %61 ], [ %33, %44 ]
-  %.1 = phi i1 [ false, %21 ], [ true, %80 ], [ true, %61 ], [ false, %44 ]
+  %23 = phi i8 [ %.pre99, %21 ], [ 0, %44 ], [ 1, %61 ], [ 2, %80 ]
+  %24 = phi ptr [ %.pre97, %21 ], [ @anon.e316c324bdc0d28376b7586f951427b3.4, %44 ], [ @anon.e316c324bdc0d28376b7586f951427b3.7, %61 ], [ @anon.e316c324bdc0d28376b7586f951427b3.10, %80 ]
+  %25 = phi ptr [ %.pre, %21 ], [ %33, %44 ], [ %53, %61 ], [ %72, %80 ]
+  %.1 = phi i1 [ false, %21 ], [ false, %44 ], [ true, %61 ], [ true, %80 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %27 = load i8, ptr %26, align 8, !range !4, !noundef !5

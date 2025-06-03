@@ -1161,7 +1161,7 @@ switch.lookup:                                    ; preds = %1
   br label %88
 
 88:                                               ; preds = %52, %87, %86, %85, %84
-  %.0228 = phi ptr [ @.str.88, %87 ], [ @.str.87, %86 ], [ @.str.86, %85 ], [ @.str.85, %84 ], [ @.str.84, %52 ]
+  %.0228 = phi ptr [ @.str.85, %84 ], [ @.str.86, %85 ], [ @.str.87, %86 ], [ @.str.88, %87 ], [ @.str.84, %52 ]
   %89 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.89, ptr noundef nonnull %.0228, ptr noundef nonnull %.0228, ptr noundef nonnull %.0228, ptr noundef %66) #16
   store ptr %89, ptr %6, align 8, !tbaa !98
   br label %90

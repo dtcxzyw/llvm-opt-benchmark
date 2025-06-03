@@ -2925,7 +2925,7 @@ define hidden void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1
           to label %54 unwind label %43
 
 46:                                               ; preds = %43, %57, %49
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm.split-lp, %43 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm.split-lp, %43 ]
   %47 = load i32, ptr %11, align 8
   %48 = icmp eq i32 %47, 0
   %or.cond6 = select i1 %29, i1 true, i1 %48

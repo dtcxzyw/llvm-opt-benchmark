@@ -724,7 +724,7 @@ _ZN4lean4exprC2ERKS0_.exit21:                     ; preds = %37, %42, %44, %45
           to label %_ZN4lean16elim_dead_let_fn10visit_projERKNS_4exprE.exit unwind label %64
 
 common.resume:                                    ; preds = %35, %60, %94, %64
-  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %95, %94 ], [ %61, %60 ], [ %36, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %95, %94 ], [ %36, %35 ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op
 
 64:                                               ; preds = %62

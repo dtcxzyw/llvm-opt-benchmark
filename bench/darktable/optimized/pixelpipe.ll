@@ -1249,7 +1249,7 @@ define void @dt_print_pipe_ext(ptr noundef %0, ptr noundef readonly captures(add
   br label %dt_dev_pixelpipe_type_to_str.exit
 
 dt_dev_pixelpipe_type_to_str.exit:                ; preds = %79, %83, %87, %91, %95, %99
-  %.0.i = phi ptr [ %102, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %83 ], [ %82, %79 ]
+  %.0.i = phi ptr [ %102, %99 ], [ %82, %79 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ]
   %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str.49, ptr noundef %.0.i) #27
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 604
   %105 = load i32, ptr %104, align 4, !tbaa !121
@@ -1943,7 +1943,7 @@ define noundef nonnull ptr @dt_dev_pixelpipe_type_to_str(i32 noundef %0) local_u
   br label %29
 
 29:                                               ; preds = %25, %21, %17, %13, %9, %5
-  %.0 = phi ptr [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %5 ]
+  %.0 = phi ptr [ %28, %25 ], [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ]
   ret ptr %.0
 }
 

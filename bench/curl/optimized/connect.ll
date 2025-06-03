@@ -447,7 +447,7 @@ define hidden noundef zeroext i1 @Curl_addr2string(ptr noundef %0, i32 noundef %
   br label %29
 
 29:                                               ; preds = %27, %26, %16, %9
-  %.0 = phi i1 [ false, %27 ], [ true, %26 ], [ true, %16 ], [ true, %9 ]
+  %.0 = phi i1 [ false, %27 ], [ true, %9 ], [ true, %16 ], [ true, %26 ]
   ret i1 %.0
 }
 
@@ -1968,7 +1968,7 @@ cf_he_ctx_clear.exit:                             ; preds = %579, %baller_close.
   br label %is_connected.exit
 
 is_connected.exit:                                ; preds = %.loopexit, %146, %95, %addr_first_match.exit.i, %47, %552, %402, %16, %641, %637, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %16 ], [ 0, %641 ], [ 0, %637 ], [ 0, %.loopexit ], [ 28, %402 ], [ %spec.select.i68, %552 ], [ 27, %146 ], [ 27, %95 ], [ 7, %addr_first_match.exit.i ], [ 28, %47 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %16 ], [ 0, %637 ], [ 0, %.loopexit ], [ 0, %641 ], [ 28, %402 ], [ %spec.select.i68, %552 ], [ 27, %146 ], [ 27, %95 ], [ 7, %addr_first_match.exit.i ], [ 28, %47 ]
   ret i32 %.0
 }
 
@@ -2641,7 +2641,7 @@ get_max_baller_time.exit78:                       ; preds = %104
   br label %113
 
 113:                                              ; preds = %108, %105, %35, %36, %43, %48, %49, %54, %get_max_baller_time.exit78, %get_max_baller_time.exit
-  %.0 = phi i32 [ 0, %get_max_baller_time.exit78 ], [ 0, %get_max_baller_time.exit ], [ 0, %54 ], [ 0, %49 ], [ 0, %48 ], [ 0, %43 ], [ 0, %36 ], [ 0, %35 ], [ %112, %108 ], [ 48, %105 ]
+  %.0 = phi i32 [ 0, %get_max_baller_time.exit ], [ 0, %get_max_baller_time.exit78 ], [ 0, %54 ], [ 0, %49 ], [ 0, %48 ], [ 0, %43 ], [ 0, %36 ], [ 0, %35 ], [ %112, %108 ], [ 48, %105 ]
   ret i32 %.0
 }
 

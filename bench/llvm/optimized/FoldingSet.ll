@@ -252,7 +252,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit36: ; preds = %56, %85
   br label %104
 
 104:                                              ; preds = %97, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ %103, %97 ]
+  %.0 = phi i32 [ %103, %97 ], [ 0, %.loopexit ]
   %105 = add i64 %2, 4294967294
   %106 = and i64 %105, 4294967295
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 %106
@@ -263,7 +263,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit36: ; preds = %56, %85
   br label %112
 
 112:                                              ; preds = %104, %.loopexit
-  %.1 = phi i32 [ 0, %.loopexit ], [ %111, %104 ]
+  %.1 = phi i32 [ %111, %104 ], [ 0, %.loopexit ]
   %113 = add i64 %2, 4294967295
   %114 = and i64 %113, 4294967295
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 %114

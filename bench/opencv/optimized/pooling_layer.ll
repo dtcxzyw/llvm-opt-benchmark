@@ -4142,7 +4142,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %212, %215
   ret void
 
 219:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %39
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ %40, %39 ], [ %.pn19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %.pn21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %.pn29, %98 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ %.pn29, %98 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %40, %39 ], [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %.pn21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %.pn19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #25
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #25
@@ -9950,15 +9950,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.fr, i32 0)
   br label %.thread600
 
-.thread600:                                       ; preds = %291, %208, %250
-  %.pre-phi803 = phi i64 [ %308, %291 ], [ %245, %208 ], [ %.pre802, %250 ]
-  %.pre-phi = phi i64 [ %303, %291 ], [ %187, %208 ], [ %254, %250 ]
-  %314 = phi i32 [ %313, %291 ], [ 1, %208 ], [ 1, %250 ]
-  %.0272610 = phi ptr [ %312, %291 ], [ %249, %208 ], [ null, %250 ]
-  %.0583609 = phi i32 [ %300, %291 ], [ %237, %208 ], [ %281, %250 ]
-  %.0584608 = phi i32 [ %.sroa.speculated465, %291 ], [ %234, %208 ], [ %286, %250 ]
-  %.0586607 = phi i32 [ %.sroa.speculated473, %291 ], [ 1, %208 ], [ 1, %250 ]
-  %315 = phi i32 [ %spec.select, %291 ], [ 0, %208 ], [ 0, %250 ]
+.thread600:                                       ; preds = %291, %250, %208
+  %.pre-phi803 = phi i64 [ %308, %291 ], [ %.pre802, %250 ], [ %245, %208 ]
+  %.pre-phi = phi i64 [ %303, %291 ], [ %254, %250 ], [ %187, %208 ]
+  %314 = phi i32 [ %313, %291 ], [ 1, %250 ], [ 1, %208 ]
+  %.0272610 = phi ptr [ %312, %291 ], [ null, %250 ], [ %249, %208 ]
+  %.0583609 = phi i32 [ %300, %291 ], [ %281, %250 ], [ %237, %208 ]
+  %.0584608 = phi i32 [ %.sroa.speculated465, %291 ], [ %286, %250 ], [ %234, %208 ]
+  %.0586607 = phi i32 [ %.sroa.speculated473, %291 ], [ 1, %250 ], [ 1, %208 ]
+  %315 = phi i32 [ %spec.select, %291 ], [ 0, %250 ], [ 0, %208 ]
   %.sroa.speculated499 = tail call i32 @llvm.smin.i32(i32 %44, i32 %.0586607)
   %316 = sub nsw i32 %.0584608, %.0583609
   %.sroa.speculated453 = tail call i32 @llvm.smax.i32(i32 %.0583609, i32 0)

@@ -402,7 +402,7 @@ _ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit: ; preds = %10, %11
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; preds = %15, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit, %27, %23, %20
-  %.0 = phi ptr [ %30, %27 ], [ %26, %23 ], [ %22, %20 ], [ null, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit ], [ null, %15 ]
+  %.0 = phi ptr [ %30, %27 ], [ %22, %20 ], [ %26, %23 ], [ null, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
   ret ptr %.0
 }

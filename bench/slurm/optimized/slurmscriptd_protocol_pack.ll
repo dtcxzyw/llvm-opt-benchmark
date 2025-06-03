@@ -356,7 +356,7 @@ _pack_script_complete.exit:                       ; preds = %148, %151
   br label %177
 
 177:                                              ; preds = %175, %168, %165, %_pack_script_complete.exit, %_pack_run_script.exit, %88, %_pack_bb_script_info.exit, %8, %8
-  %.019 = phi i32 [ -1, %175 ], [ 0, %168 ], [ 0, %165 ], [ 0, %_pack_script_complete.exit ], [ 0, %_pack_run_script.exit ], [ 0, %88 ], [ 0, %8 ], [ 0, %8 ], [ 0, %_pack_bb_script_info.exit ]
+  %.019 = phi i32 [ -1, %175 ], [ 0, %_pack_bb_script_info.exit ], [ 0, %88 ], [ 0, %_pack_run_script.exit ], [ 0, %_pack_script_complete.exit ], [ 0, %165 ], [ 0, %168 ], [ 0, %8 ], [ 0, %8 ]
   ret i32 %.019
 }
 
@@ -760,7 +760,7 @@ _unpack_log_msg.exit:                             ; preds = %154, %157
   br label %_unpack_bb_script_info.exit
 
 _unpack_bb_script_info.exit:                      ; preds = %74, %71, %27, %27, %_unpack_flush_job.exit, %_unpack_script_complete.exit, %_unpack_run_script.exit, %_unpack_debug_flags.exit, %_unpack_log_msg.exit, %159, %161
-  %.020 = phi i32 [ -1, %161 ], [ -1, %159 ], [ %.0.i27, %_unpack_log_msg.exit ], [ %.0.i25, %_unpack_debug_flags.exit ], [ %.033.i, %_unpack_run_script.exit ], [ %.020.i, %_unpack_script_complete.exit ], [ %.0.i, %_unpack_flush_job.exit ], [ 0, %27 ], [ 0, %27 ], [ -1, %74 ], [ 0, %71 ]
+  %.020 = phi i32 [ -1, %161 ], [ -1, %159 ], [ %.0.i, %_unpack_flush_job.exit ], [ %.020.i, %_unpack_script_complete.exit ], [ %.033.i, %_unpack_run_script.exit ], [ %.0.i25, %_unpack_debug_flags.exit ], [ %.0.i27, %_unpack_log_msg.exit ], [ 0, %27 ], [ 0, %27 ], [ -1, %74 ], [ 0, %71 ]
   ret i32 %.020
 }
 

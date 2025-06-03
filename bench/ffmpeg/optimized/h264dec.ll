@@ -1755,7 +1755,7 @@ idr.exit.i:                                       ; preds = %338, %336
   br label %340
 
 340:                                              ; preds = %idr.exit.i, %._crit_edge298.i
-  %.2.i = phi i32 [ %.0197294.i, %._crit_edge298.i ], [ 1, %idr.exit.i ]
+  %.2.i = phi i32 [ 1, %idr.exit.i ], [ %.0197294.i, %._crit_edge298.i ]
   store i32 1, ptr %143, align 4, !tbaa !213
   %341 = call i32 @ff_h264_queue_decode_slice(ptr noundef nonnull %13, ptr noundef nonnull %317) #11
   %.not249.i = icmp eq i32 %341, 0
@@ -2104,7 +2104,7 @@ debug_green_metadata.exit.i:                      ; preds = %442, %437, %420, %4
   br label %.thread285.i
 
 .thread280.i:                                     ; preds = %522, %515, %512, %507, %501, %.thread276.i, %448, %debug_green_metadata.exit.i, %394, %391, %386, %384, %366, %._crit_edge298.i, %._crit_edge298.i, %._crit_edge298.i, %._crit_edge298.i, %._crit_edge298.i, %._crit_edge298.i, %325
-  %.1.i = phi i32 [ %.0197294.i, %325 ], [ %.2.i, %522 ], [ %.2.i, %515 ], [ %.0197294.i, %.thread276.i ], [ %.2.i, %366 ], [ %.2.i, %384 ], [ %.2.i, %386 ], [ %.0197294.i, %391 ], [ %.0197294.i, %debug_green_metadata.exit.i ], [ %.0197294.i, %448 ], [ %.0197294.i, %394 ], [ %.0197294.i, %501 ], [ %.0197294.i, %507 ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %512 ]
+  %.1.i = phi i32 [ %.0197294.i, %325 ], [ %.2.i, %522 ], [ %.2.i, %515 ], [ %.0197294.i, %.thread276.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %._crit_edge298.i ], [ %.0197294.i, %501 ], [ %.0197294.i, %507 ], [ %.0197294.i, %debug_green_metadata.exit.i ], [ %.0197294.i, %448 ], [ %.0197294.i, %394 ], [ %.0197294.i, %391 ], [ %.2.i, %366 ], [ %.2.i, %384 ], [ %.2.i, %386 ], [ %.0197294.i, %512 ]
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
   %528 = load i32, ptr %283, align 8, !tbaa !218
   %529 = sext i32 %528 to i64
@@ -2155,7 +2155,7 @@ debug_green_metadata.exit.i:                      ; preds = %442, %437, %420, %4
   br label %.thread285.i
 
 .thread285.i:                                     ; preds = %507, %494, %448, %386, %357, %548, %546, %540, %.critedge.i99, %533, %527, %488, %333
-  %.7.i = phi i32 [ %531, %533 ], [ 0, %546 ], [ 0, %548 ], [ 0, %540 ], [ 0, %.critedge.i99 ], [ -1, %333 ], [ %465, %488 ], [ %341, %527 ], [ %505, %507 ], [ %499, %494 ], [ %397, %448 ], [ %.4.i, %386 ], [ %360, %357 ]
+  %.7.i = phi i32 [ %531, %533 ], [ 0, %546 ], [ 0, %548 ], [ 0, %540 ], [ 0, %.critedge.i99 ], [ %465, %488 ], [ -1, %333 ], [ %341, %527 ], [ %505, %507 ], [ %499, %494 ], [ %397, %448 ], [ %.4.i, %386 ], [ %360, %357 ]
   %553 = getelementptr inbounds nuw i8, ptr %13, i64 731772
   %554 = load i32, ptr %553, align 4, !tbaa !82
   %.not259.i = icmp eq i32 %554, 3

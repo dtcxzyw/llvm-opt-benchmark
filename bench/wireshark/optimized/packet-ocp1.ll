@@ -727,7 +727,7 @@ default.unreachable:                              ; preds = %14
   br label %48
 
 45:                                               ; preds = %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %11
-  %.0 = phi ptr [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %13, %11 ]
+  %.0 = phi ptr [ %13, %11 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ]
   %46 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @OcaFixedONo, ptr noundef nonnull @.str.174)
   %47 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.175, ptr noundef %46, ptr noundef %.0)
   br label %48
@@ -899,13 +899,13 @@ define internal i32 @dissect_ocp1(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %49
 
 49:                                               ; preds = %47, %45, %43, %41, %39, %37
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %47 ], [ %.sroa.0.0, %45 ], [ %.sroa.0.0, %43 ], [ %.sroa.0.0, %41 ], [ %.sroa.0.0, %39 ], [ %38, %37 ]
-  %.sroa.6.1 = phi i32 [ %.sroa.6.0, %47 ], [ %.sroa.6.0, %45 ], [ %.sroa.6.0, %43 ], [ %.sroa.6.0, %41 ], [ %40, %39 ], [ %.sroa.6.0, %37 ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %47 ], [ %.sroa.9.0, %45 ], [ %.sroa.9.0, %43 ], [ %42, %41 ], [ %.sroa.9.0, %39 ], [ %.sroa.9.0, %37 ]
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %47 ], [ %.sroa.12.0, %45 ], [ %44, %43 ], [ %.sroa.12.0, %41 ], [ %.sroa.12.0, %39 ], [ %.sroa.12.0, %37 ]
-  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %47 ], [ %46, %45 ], [ %.sroa.15.0, %43 ], [ %.sroa.15.0, %41 ], [ %.sroa.15.0, %39 ], [ %.sroa.15.0, %37 ]
-  %.sroa.18.1 = phi i32 [ %48, %47 ], [ %.sroa.18.0, %45 ], [ %.sroa.18.0, %43 ], [ %.sroa.18.0, %41 ], [ %.sroa.18.0, %39 ], [ %.sroa.18.0, %37 ]
-  %.str.355.sink.i = phi ptr [ @.str.355, %47 ], [ @.str.354, %45 ], [ @.str.353, %43 ], [ @.str.352, %41 ], [ @.str.351, %39 ], [ @.str.350, %37 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %47 ], [ %38, %37 ], [ %.sroa.0.0, %39 ], [ %.sroa.0.0, %41 ], [ %.sroa.0.0, %43 ], [ %.sroa.0.0, %45 ]
+  %.sroa.6.1 = phi i32 [ %.sroa.6.0, %47 ], [ %.sroa.6.0, %37 ], [ %40, %39 ], [ %.sroa.6.0, %41 ], [ %.sroa.6.0, %43 ], [ %.sroa.6.0, %45 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %47 ], [ %.sroa.9.0, %37 ], [ %.sroa.9.0, %39 ], [ %42, %41 ], [ %.sroa.9.0, %43 ], [ %.sroa.9.0, %45 ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %47 ], [ %.sroa.12.0, %37 ], [ %.sroa.12.0, %39 ], [ %.sroa.12.0, %41 ], [ %44, %43 ], [ %.sroa.12.0, %45 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %47 ], [ %.sroa.15.0, %37 ], [ %.sroa.15.0, %39 ], [ %.sroa.15.0, %41 ], [ %.sroa.15.0, %43 ], [ %46, %45 ]
+  %.sroa.18.1 = phi i32 [ %48, %47 ], [ %.sroa.18.0, %37 ], [ %.sroa.18.0, %39 ], [ %.sroa.18.0, %41 ], [ %.sroa.18.0, %43 ], [ %.sroa.18.0, %45 ]
+  %.str.355.sink.i = phi ptr [ @.str.355, %47 ], [ @.str.350, %37 ], [ @.str.351, %39 ], [ @.str.352, %41 ], [ @.str.353, %43 ], [ @.str.354, %45 ]
   %50 = add i32 %34, 1
   %51 = load i32, ptr @ett_ocp1_pdu, align 4
   %52 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.023, i32 noundef %50, i32 noundef %51, ptr noundef nonnull %12, ptr noundef nonnull %.str.355.sink.i)
@@ -1352,7 +1352,7 @@ dissect_ocp1_msg_keepalive.exit:                  ; preds = %298, %303
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %dissect_ocp1_msg_response.exit.i, %dissect_ocp1_msg_notification.exit.i, %dissect_ocp1_msg_command.exit.i, %.preheader151.i, %.preheader149.i, %.preheader.i, %dissect_ocp1_msg_keepalive.exit, %306, %297, %295, %242, %159, %73
-  %.2134.i = phi i32 [ 0, %242 ], [ 0, %159 ], [ 0, %73 ], [ 0, %295 ], [ 0, %297 ], [ %50, %306 ], [ %50, %dissect_ocp1_msg_keepalive.exit ], [ %50, %.preheader.i ], [ %50, %.preheader149.i ], [ %50, %.preheader151.i ], [ %50, %dissect_ocp1_msg_command.exit.i ], [ %50, %dissect_ocp1_msg_notification.exit.i ], [ %50, %dissect_ocp1_msg_response.exit.i ]
+  %.2134.i = phi i32 [ 0, %73 ], [ 0, %159 ], [ 0, %242 ], [ 0, %295 ], [ 0, %297 ], [ %50, %306 ], [ %50, %dissect_ocp1_msg_keepalive.exit ], [ %50, %.preheader.i ], [ %50, %.preheader149.i ], [ %50, %.preheader151.i ], [ %50, %dissect_ocp1_msg_command.exit.i ], [ %50, %dissect_ocp1_msg_notification.exit.i ], [ %50, %dissect_ocp1_msg_response.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   br label %dissect_ocp1_pdu.exit
 

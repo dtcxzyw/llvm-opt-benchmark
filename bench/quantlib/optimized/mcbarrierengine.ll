@@ -2698,7 +2698,7 @@ sw.bb130:                                         ; preds = %if.else
   br label %cleanup
 
 cleanup:                                          ; preds = %sw.bb130, %sw.bb126, %if.then122
-  %retval.0 = phi double [ %mul, %if.then122 ], [ %mul134, %sw.bb130 ], [ %mul129, %sw.bb126 ]
+  %retval.0 = phi double [ %mul, %if.then122 ], [ %mul129, %sw.bb126 ], [ %mul134, %sw.bb130 ]
   ret double %retval.0
 
 ehcleanup184:                                     ; preds = %ehcleanup118, %ehcleanup28

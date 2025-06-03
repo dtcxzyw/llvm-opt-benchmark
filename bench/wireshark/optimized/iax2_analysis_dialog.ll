@@ -10639,7 +10639,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %629, %_ZN17QArrayDa
   br label %649
 
 642:                                              ; preds = %591, %_ZN10QByteArrayD2Ev.exit, %577, %420, %378, %_ZN7QStringD2Ev.exit279, %_ZN7QStringD2Ev.exit275, %_ZN7QStringD2Ev.exit245, %263
-  %.pn125.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn125.pn.pn.pn, %_ZN7QStringD2Ev.exit245 ], [ %264, %263 ], [ %.pn123, %577 ], [ %421, %420 ], [ %379, %378 ], [ %.pn109, %_ZN7QStringD2Ev.exit279 ], [ %.pn105.pn.pn, %_ZN7QStringD2Ev.exit275 ], [ %.pn112, %_ZN10QByteArrayD2Ev.exit ], [ %592, %591 ]
+  %.pn125.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn125.pn.pn.pn, %_ZN7QStringD2Ev.exit245 ], [ %264, %263 ], [ %379, %378 ], [ %421, %420 ], [ %.pn123, %577 ], [ %.pn109, %_ZN7QStringD2Ev.exit279 ], [ %.pn105.pn.pn, %_ZN7QStringD2Ev.exit275 ], [ %.pn112, %_ZN10QByteArrayD2Ev.exit ], [ %592, %591 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #22
   call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %21) #22
@@ -10776,7 +10776,7 @@ _ZN7QStringD2Ev.exit313:                          ; preds = %673, %_ZN17QArrayDa
   br label %675
 
 675:                                              ; preds = %_ZN7QStringD2Ev.exit313, %91, %75, %59
-  %.pn132.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit313 ], [ %92, %91 ], [ %76, %75 ], [ %60, %59 ]
+  %.pn132.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit313 ], [ %92, %91 ], [ %60, %59 ], [ %76, %75 ]
   %676 = load ptr, ptr %6, align 8
   %.not.i.i.i314 = icmp eq ptr %676, null
   br i1 %.not.i.i.i314, label %_ZN7QStringD2Ev.exit317, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i315
@@ -12665,7 +12665,7 @@ _ZN7QStringD2Ev.exit372:                          ; preds = %595, %_ZN17QArrayDa
   br label %597
 
 597:                                              ; preds = %_ZN7QStringD2Ev.exit372, %89, %73, %57
-  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit372 ], [ %90, %89 ], [ %74, %73 ], [ %58, %57 ]
+  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit372 ], [ %90, %89 ], [ %58, %57 ], [ %74, %73 ]
   %598 = load ptr, ptr %12, align 8
   %.not.i.i.i373 = icmp eq ptr %598, null
   br i1 %.not.i.i.i373, label %_ZN7QStringD2Ev.exit376, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i374
@@ -15760,7 +15760,7 @@ define noundef zeroext i1 @_ZN18Iax2AnalysisDialog11eventFilterEP7QObjectP6QEven
   br label %11
 
 11:                                               ; preds = %9, %10, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %10 ], [ true, %9 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %9 ], [ true, %10 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -19017,7 +19017,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK26Iax2AnalysisTreeWidgetItemltERK15Q
   br label %43
 
 43:                                               ; preds = %11, %17, %23, %29, %35, %41, %5
-  %.0 = phi i1 [ %6, %5 ], [ %42, %41 ], [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0 = phi i1 [ %6, %5 ], [ %42, %41 ], [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ]
   ret i1 %.0
 }
 

@@ -600,7 +600,7 @@ bytestream2_get_byte.exit54.thread.i84:           ; preds = %bytestream2_get_byt
   br label %mm_decode_raw.exit
 
 mm_decode_raw.exit:                               ; preds = %319, %317, %315
-  %.0 = phi i32 [ %320, %319 ], [ %318, %317 ], [ %316, %315 ]
+  %.0 = phi i32 [ %316, %315 ], [ %318, %317 ], [ %320, %319 ]
   %321 = icmp slt i32 %.0, 0
   br i1 %321, label %mm_decode_raw.exit.thread89, label %mm_decode_raw.exit.thread
 

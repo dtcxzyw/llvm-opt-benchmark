@@ -1683,12 +1683,12 @@ _ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12Den
   store i32 %486, ptr %413, align 8, !tbaa !26
   %487 = load i8, ptr %457, align 8, !tbaa !127
   %488 = icmp ugt i8 %487, 28
-  %489 = zext i8 %487 to i32
-  %490 = add nsw i32 %489, -29
-  %491 = getelementptr inbounds nuw i8, ptr %457, i64 2
-  %492 = load i16, ptr %491, align 2
-  %493 = zext i16 %492 to i32
-  %.1.i.i.i = select i1 %488, i32 %490, i32 %493
+  %489 = getelementptr inbounds nuw i8, ptr %457, i64 2
+  %490 = load i16, ptr %489, align 2
+  %491 = zext i16 %490 to i32
+  %492 = zext i8 %487 to i32
+  %493 = add nsw i32 %492, -29
+  %.1.i.i.i = select i1 %488, i32 %493, i32 %491
   %494 = icmp eq i32 %.1.i.i.i, 57
   br i1 %494, label %495, label %609
 
@@ -3169,7 +3169,7 @@ _ZNK4llvm4User10getOperandEj.exit114.i.i.i:       ; preds = %1218, %1215
   unreachable
 
 .loopexit.i.i.i52:                                ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i.i, %1228, %_ZNK4llvm4User10getOperandEj.exit114.i.i.i, %_ZN4llvm10SelectInst6CreateEPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionEPNS_11InstructionE.exit.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit.i.i.i, %1085, %1081
-  %.5.i.i.i = phi ptr [ %1198, %_ZN4llvm10SelectInst6CreateEPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionEPNS_11InstructionE.exit.i.i ], [ %1175, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit.i.i.i ], [ %1082, %1081 ], [ %1229, %1228 ], [ %1224, %_ZNK4llvm4User10getOperandEj.exit114.i.i.i ], [ %1088, %1085 ], [ %1088, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i.i ]
+  %.5.i.i.i = phi ptr [ %1082, %1081 ], [ %1175, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit.i.i.i ], [ %1198, %_ZN4llvm10SelectInst6CreateEPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionEPNS_11InstructionE.exit.i.i ], [ %1229, %1228 ], [ %1224, %_ZNK4llvm4User10getOperandEj.exit114.i.i.i ], [ %1088, %1085 ], [ %1088, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i.i ]
   %1231 = load ptr, ptr %14, align 8, !tbaa !25
   %1232 = icmp eq ptr %1231, %876
   br i1 %1232, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit115.i.i.i, label %1233
@@ -6165,12 +6165,12 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %7, %10
 
 20:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
   %21 = icmp ugt i8 %17, 28
-  %22 = zext i8 %17 to i32
-  %23 = add nsw i32 %22, -29
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %25 = load i16, ptr %24, align 2
-  %26 = zext i16 %25 to i32
-  %.1.i = select i1 %21, i32 %23, i32 %26
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %23 = load i16, ptr %22, align 2
+  %24 = zext i16 %23 to i32
+  %25 = zext i8 %17 to i32
+  %26 = add nsw i32 %25, -29
+  %.1.i = select i1 %21, i32 %26, i32 %24
   %.not21 = icmp eq i32 %.1.i, 47
   br i1 %.not21, label %27, label %113
 
@@ -6238,12 +6238,12 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit27:  ; preds = %_ZNK4llvm4Type22get
   %64 = lshr i32 %63, 8
   %65 = load i8, ptr %0, align 8, !tbaa !127
   %66 = icmp ugt i8 %65, 28
-  %67 = zext i8 %65 to i32
-  %68 = add nsw i32 %67, -29
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i32
-  %.1.i28 = select i1 %66, i32 %68, i32 %71
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %68 = load i16, ptr %67, align 2
+  %69 = zext i16 %68 to i32
+  %70 = zext i8 %65 to i32
+  %71 = add nsw i32 %70, -29
+  %.1.i28 = select i1 %66, i32 %71, i32 %69
   br i1 %.not.i.i, label %75, label %72
 
 72:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit27
@@ -6269,11 +6269,11 @@ _ZNK4llvm4User10getOperandEj.exit30:              ; preds = %72, %75
 85:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit30
   %86 = load i8, ptr %16, align 8, !tbaa !127
   %87 = icmp ugt i8 %86, 28
-  %88 = zext i8 %86 to i32
-  %89 = add nsw i32 %88, -29
-  %90 = load i16, ptr %24, align 2
-  %91 = zext i16 %90 to i32
-  %.1.i31 = select i1 %87, i32 %89, i32 %91
+  %88 = load i16, ptr %22, align 2
+  %89 = zext i16 %88 to i32
+  %90 = zext i8 %86 to i32
+  %91 = add nsw i32 %90, -29
+  %.1.i31 = select i1 %87, i32 %91, i32 %89
   %92 = load i32, ptr %28, align 4
   %93 = and i32 %92, 1073741824
   %.not.i.i32 = icmp eq i32 %93, 0
@@ -6320,12 +6320,12 @@ declare noundef i32 @_ZNK4llvm19TargetTransformInfo19getAssumedAddrSpaceEPKNS_5V
 define internal fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLayoutEPKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = load i8, ptr %1, align 8, !tbaa !127
   %4 = icmp ugt i8 %3, 28
-  %5 = zext i8 %3 to i32
-  %6 = add nsw i32 %5, -29
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %.1.i = select i1 %4, i32 %6, i32 %9
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %6 = load i16, ptr %5, align 2
+  %7 = zext i16 %6 to i32
+  %8 = zext i8 %3 to i32
+  %9 = add nsw i32 %8, -29
+  %.1.i = select i1 %4, i32 %9, i32 %7
   switch i32 %.1.i, label %113 [
     i32 55, label %10
     i32 49, label %37
@@ -7004,12 +7004,12 @@ define internal fastcc noundef zeroext i1 @_ZL19isAddressExpressionRKN4llvm5Valu
 
 7:                                                ; preds = %3
   %8 = icmp ugt i8 %4, 28
-  %9 = zext i8 %4 to i32
-  %10 = add nsw i32 %9, -29
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i32
-  %.1.i = select i1 %8, i32 %10, i32 %13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %10 = load i16, ptr %9, align 2
+  %11 = zext i16 %10 to i32
+  %12 = zext i8 %4 to i32
+  %13 = add nsw i32 %12, -29
+  %.1.i = select i1 %8, i32 %13, i32 %11
   switch i32 %.1.i, label %47 [
     i32 55, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit.thread
     i32 49, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit.thread
@@ -7090,7 +7090,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4ll
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_5ValueEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %28, %31, %26, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit, %7, %7, %7, %7, %3, %47, %45, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit
-  %.0 = phi i1 [ %49, %47 ], [ %46, %45 ], [ %25, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ false, %3 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ %44, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit ], [ false, %26 ], [ false, %31 ], [ false, %28 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_5ValueEvE10isPossibleERKS4_.exit.i.i ]
+  %.0 = phi i1 [ %49, %47 ], [ %25, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ %46, %45 ], [ false, %3 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ %44, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_5ValueEEEDcPT0_.exit ], [ false, %26 ], [ false, %31 ], [ false, %28 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_5ValueEvE10isPossibleERKS4_.exit.i.i ]
   ret i1 %.0
 }
 
@@ -8004,12 +8004,12 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.us: ; preds = %9, %tailrecurse.us
 
 21:                                               ; preds = %18
   %22 = icmp ugt i8 %17, 28
-  %23 = zext i8 %17 to i32
-  %24 = add nsw i32 %23, -29
-  %25 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 2
-  %26 = load i16, ptr %25, align 2
-  %27 = zext i16 %26 to i32
-  %.1.i.us = select i1 %22, i32 %24, i32 %27
+  %23 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 2
+  %24 = load i16, ptr %23, align 2
+  %25 = zext i16 %24 to i32
+  %26 = zext i8 %17 to i32
+  %27 = add nsw i32 %26, -29
+  %.1.i.us = select i1 %22, i32 %27, i32 %25
   switch i32 %.1.i.us, label %.thread [
     i32 50, label %28
     i32 48, label %.split11.us
@@ -8086,12 +8086,12 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %tailrecurse, %48
 
 64:                                               ; preds = %61
   %65 = icmp ugt i8 %56, 28
-  %66 = zext i8 %56 to i32
-  %67 = add nsw i32 %66, -29
-  %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
-  %69 = load i16, ptr %68, align 2
-  %70 = zext i16 %69 to i32
-  %.1.i = select i1 %65, i32 %67, i32 %70
+  %66 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
+  %67 = load i16, ptr %66, align 2
+  %68 = zext i16 %67 to i32
+  %69 = zext i8 %56 to i32
+  %70 = add nsw i32 %69, -29
+  %.1.i = select i1 %65, i32 %70, i32 %68
   switch i32 %.1.i, label %.thread [
     i32 50, label %71
     i32 48, label %.split11.us
@@ -11764,7 +11764,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !437
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -11774,7 +11774,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !437
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit

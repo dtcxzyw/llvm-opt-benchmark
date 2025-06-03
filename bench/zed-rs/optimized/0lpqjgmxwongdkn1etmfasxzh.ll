@@ -214,7 +214,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1cfaf0f0d96c26a2E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1cfaf0f0d96c26a2E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -14435,8 +14435,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i8 0, ptr %0, align 8, !alias.scope !2141
   br label %46
 
-44:                                               ; preds = %34, %41
-  %.sroa.0.0.i.ph = phi ptr [ %35, %34 ], [ %42, %41 ]
+44:                                               ; preds = %41, %34
+  %.sroa.0.0.i.ph = phi ptr [ %42, %41 ], [ %35, %34 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %45, align 8
   store i8 1, ptr %0, align 8
@@ -14554,8 +14554,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !2181
   br label %43
 
-41:                                               ; preds = %32, %39
-  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
+41:                                               ; preds = %39, %32
+  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %42, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -22518,7 +22518,7 @@ define noundef float @"_ZN5theme6schema119_$LT$impl$u20$core..convert..From$LT$t
   br label %11
 
 11:                                               ; preds = %1, %10, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.01.0 = phi float [ 9.000000e+02, %10 ], [ 8.000000e+02, %9 ], [ 7.000000e+02, %8 ], [ 6.000000e+02, %7 ], [ 5.000000e+02, %6 ], [ 4.000000e+02, %5 ], [ 3.000000e+02, %4 ], [ 2.000000e+02, %3 ], [ 1.000000e+02, %1 ]
+  %.sroa.01.0 = phi float [ 2.000000e+02, %3 ], [ 3.000000e+02, %4 ], [ 4.000000e+02, %5 ], [ 5.000000e+02, %6 ], [ 6.000000e+02, %7 ], [ 7.000000e+02, %8 ], [ 8.000000e+02, %9 ], [ 9.000000e+02, %10 ], [ 1.000000e+02, %1 ]
   ret float %.sroa.01.0
 }
 

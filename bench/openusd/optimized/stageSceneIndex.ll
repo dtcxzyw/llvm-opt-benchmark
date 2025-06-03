@@ -5822,7 +5822,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit48: ; preds = %.noexc, %11
   ret void
 
 .loopexit90:                                      ; preds = %266, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit52, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42
-  %.pn34.pn.pn = phi { ptr, i32 } [ %.pn34, %266 ], [ %141, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit52 ], [ %57, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %.pn34, %266 ], [ %57, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42 ], [ %141, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit52 ]
   resume { ptr, i32 } %.pn34.pn.pn
 }
 

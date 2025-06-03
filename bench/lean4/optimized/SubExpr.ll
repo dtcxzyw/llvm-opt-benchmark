@@ -16466,7 +16466,7 @@ l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit: ; preds = %lean_de
   br label %379
 
 379:                                              ; preds = %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit, %lean_dec.exit91, %lean_dec.exit94, %lean_dec.exit97, %lean_dec.exit100, %lean_dec.exit103, %lean_dec.exit106, %lean_dec.exit109, %lean_dec.exit112, %lean_dec.exit115, %lean_dec.exit118, %lean_dec.exit121
-  %.0 = phi ptr [ %378, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit ], [ %332, %lean_dec.exit91 ], [ %303, %lean_dec.exit94 ], [ %274, %lean_dec.exit97 ], [ %245, %lean_dec.exit100 ], [ %216, %lean_dec.exit103 ], [ %187, %lean_dec.exit106 ], [ %158, %lean_dec.exit109 ], [ %129, %lean_dec.exit112 ], [ %100, %lean_dec.exit115 ], [ %71, %lean_dec.exit118 ], [ %42, %lean_dec.exit121 ]
+  %.0 = phi ptr [ %378, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit ], [ %42, %lean_dec.exit121 ], [ %71, %lean_dec.exit118 ], [ %100, %lean_dec.exit115 ], [ %129, %lean_dec.exit112 ], [ %158, %lean_dec.exit109 ], [ %187, %lean_dec.exit106 ], [ %216, %lean_dec.exit103 ], [ %245, %lean_dec.exit100 ], [ %274, %lean_dec.exit97 ], [ %303, %lean_dec.exit94 ], [ %332, %lean_dec.exit91 ]
   ret ptr %.0
 }
 
@@ -17993,7 +17993,7 @@ lean_dec.exit:                                    ; preds = %374, %373, %371, %l
   br label %378
 
 378:                                              ; preds = %lean_dec.exit, %lean_alloc_closure.exit, %lean_dec.exit95, %lean_dec.exit98, %lean_dec.exit101, %lean_dec.exit104, %lean_dec.exit107, %lean_dec.exit110, %lean_dec.exit113, %lean_dec.exit116, %lean_dec.exit119, %lean_dec.exit122
-  %.0 = phi ptr [ %377, %lean_dec.exit ], [ %348, %lean_alloc_closure.exit ], [ %303, %lean_dec.exit95 ], [ %274, %lean_dec.exit98 ], [ %245, %lean_dec.exit101 ], [ %216, %lean_dec.exit104 ], [ %187, %lean_dec.exit107 ], [ %158, %lean_dec.exit110 ], [ %129, %lean_dec.exit113 ], [ %100, %lean_dec.exit116 ], [ %71, %lean_dec.exit119 ], [ %42, %lean_dec.exit122 ]
+  %.0 = phi ptr [ %377, %lean_dec.exit ], [ %42, %lean_dec.exit122 ], [ %71, %lean_dec.exit119 ], [ %100, %lean_dec.exit116 ], [ %129, %lean_dec.exit113 ], [ %158, %lean_dec.exit110 ], [ %187, %lean_dec.exit107 ], [ %216, %lean_dec.exit104 ], [ %245, %lean_dec.exit101 ], [ %274, %lean_dec.exit98 ], [ %303, %lean_dec.exit95 ], [ %348, %lean_alloc_closure.exit ]
   ret ptr %.0
 }
 
@@ -19546,7 +19546,7 @@ lean_dec.exit:                                    ; preds = %375, %374, %372, %l
   br label %379
 
 379:                                              ; preds = %lean_dec.exit, %lean_dec.exit91, %lean_dec.exit94, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit, %lean_dec.exit100, %lean_dec.exit103, %lean_dec.exit106, %lean_dec.exit109, %lean_dec.exit112, %lean_dec.exit115, %lean_dec.exit118, %lean_dec.exit121
-  %.0 = phi ptr [ %378, %lean_dec.exit ], [ %349, %lean_dec.exit91 ], [ %320, %lean_dec.exit94 ], [ %291, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit ], [ %245, %lean_dec.exit100 ], [ %216, %lean_dec.exit103 ], [ %187, %lean_dec.exit106 ], [ %158, %lean_dec.exit109 ], [ %129, %lean_dec.exit112 ], [ %100, %lean_dec.exit115 ], [ %71, %lean_dec.exit118 ], [ %42, %lean_dec.exit121 ]
+  %.0 = phi ptr [ %378, %lean_dec.exit ], [ %42, %lean_dec.exit121 ], [ %71, %lean_dec.exit118 ], [ %100, %lean_dec.exit115 ], [ %129, %lean_dec.exit112 ], [ %158, %lean_dec.exit109 ], [ %187, %lean_dec.exit106 ], [ %216, %lean_dec.exit103 ], [ %245, %lean_dec.exit100 ], [ %291, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit ], [ %320, %lean_dec.exit94 ], [ %349, %lean_dec.exit91 ]
   ret ptr %.0
 }
 
@@ -21027,7 +21027,7 @@ lean_dec.exit:                                    ; preds = %375, %374, %372, %l
   br label %379
 
 379:                                              ; preds = %lean_dec.exit, %lean_dec.exit91, %lean_dec.exit94, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit, %lean_dec.exit100, %lean_dec.exit103, %lean_dec.exit106, %lean_dec.exit109, %lean_dec.exit112, %lean_dec.exit115, %lean_dec.exit118, %lean_dec.exit121
-  %.0 = phi ptr [ %378, %lean_dec.exit ], [ %349, %lean_dec.exit91 ], [ %320, %lean_dec.exit94 ], [ %291, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit ], [ %245, %lean_dec.exit100 ], [ %216, %lean_dec.exit103 ], [ %187, %lean_dec.exit106 ], [ %158, %lean_dec.exit109 ], [ %129, %lean_dec.exit112 ], [ %100, %lean_dec.exit115 ], [ %71, %lean_dec.exit118 ], [ %42, %lean_dec.exit121 ]
+  %.0 = phi ptr [ %378, %lean_dec.exit ], [ %42, %lean_dec.exit121 ], [ %71, %lean_dec.exit118 ], [ %100, %lean_dec.exit115 ], [ %129, %lean_dec.exit112 ], [ %158, %lean_dec.exit109 ], [ %187, %lean_dec.exit106 ], [ %216, %lean_dec.exit103 ], [ %245, %lean_dec.exit100 ], [ %291, %l_Lean_PrettyPrinter_Delaborator_SubExpr_descend___rarg.exit ], [ %320, %lean_dec.exit94 ], [ %349, %lean_dec.exit91 ]
   ret ptr %.0
 }
 
@@ -23167,7 +23167,7 @@ lean_dec.exit:                                    ; preds = %497, %496, %494, %l
   br label %501
 
 501:                                              ; preds = %lean_dec.exit, %lean_dec.exit119, %lean_dec.exit123, %lean_alloc_closure.exit, %lean_dec.exit129, %lean_dec.exit133, %lean_dec.exit137, %lean_dec.exit141, %lean_dec.exit145, %lean_dec.exit149, %lean_dec.exit153, %lean_dec.exit157
-  %.0 = phi ptr [ %500, %lean_dec.exit ], [ %462, %lean_dec.exit119 ], [ %424, %lean_dec.exit123 ], [ %386, %lean_alloc_closure.exit ], [ %318, %lean_dec.exit129 ], [ %280, %lean_dec.exit133 ], [ %242, %lean_dec.exit137 ], [ %204, %lean_dec.exit141 ], [ %166, %lean_dec.exit145 ], [ %128, %lean_dec.exit149 ], [ %90, %lean_dec.exit153 ], [ %52, %lean_dec.exit157 ]
+  %.0 = phi ptr [ %500, %lean_dec.exit ], [ %52, %lean_dec.exit157 ], [ %90, %lean_dec.exit153 ], [ %128, %lean_dec.exit149 ], [ %166, %lean_dec.exit145 ], [ %204, %lean_dec.exit141 ], [ %242, %lean_dec.exit137 ], [ %280, %lean_dec.exit133 ], [ %318, %lean_dec.exit129 ], [ %386, %lean_alloc_closure.exit ], [ %424, %lean_dec.exit123 ], [ %462, %lean_dec.exit119 ]
   ret ptr %.0
 }
 

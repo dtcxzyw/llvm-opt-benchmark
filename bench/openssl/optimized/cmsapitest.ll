@@ -363,8 +363,8 @@ read_all.exit:                                    ; preds = %21, %24
   br i1 %.not11, label %33, label %29
 
 29:                                               ; preds = %26, %7, %6
-  %.19 = phi ptr [ null, %6 ], [ %27, %26 ], [ %8, %7 ]
-  %.1 = phi ptr [ null, %6 ], [ %.0.i, %26 ], [ null, %7 ]
+  %.19 = phi ptr [ null, %6 ], [ %8, %7 ], [ %27, %26 ]
+  %.1 = phi ptr [ null, %6 ], [ null, %7 ], [ %.0.i, %26 ]
   %30 = call i64 @ERR_peek_error() #5
   %31 = trunc i64 %30 to i32
   %32 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 376, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.36, i32 noundef %31, i32 noundef 0) #5
@@ -373,9 +373,9 @@ read_all.exit:                                    ; preds = %21, %24
   br label %33
 
 33:                                               ; preds = %29, %26, %read_all.exit, %7, %1
-  %.08 = phi ptr [ %27, %26 ], [ null, %read_all.exit ], [ %8, %7 ], [ null, %1 ], [ %.19, %29 ]
-  %.07 = phi ptr [ %.0.i, %26 ], [ %.0.i, %read_all.exit ], [ null, %7 ], [ null, %1 ], [ %.1, %29 ]
-  %.0 = phi i32 [ 0, %26 ], [ 0, %read_all.exit ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %29 ]
+  %.08 = phi ptr [ %8, %7 ], [ %27, %26 ], [ null, %read_all.exit ], [ null, %1 ], [ %.19, %29 ]
+  %.07 = phi ptr [ null, %7 ], [ %.0.i, %26 ], [ %.0.i, %read_all.exit ], [ null, %1 ], [ %.1, %29 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %26 ], [ 0, %read_all.exit ], [ 0, %1 ], [ %spec.select, %29 ]
   call void @CMS_ContentInfo_free(ptr noundef %.08) #5
   %34 = call i32 @BIO_free(ptr noundef %4) #5
   call void @CRYPTO_free(ptr noundef %.07, ptr noundef nonnull @.str.14, i32 noundef 383) #5

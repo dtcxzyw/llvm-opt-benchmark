@@ -586,7 +586,7 @@ parse_attr.exit:                                  ; preds = %157
   %204 = ashr exact i64 %sext, 32
   %205 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %.4.ptr, i64 noundef %204, ptr noundef nonnull @.str.16, i32 noundef %.sroa.8162.0.lcssa) #15
   %206 = sext i32 %205 to i64
-  %.4.add200 = add nsw i64 %.4.idx, %206
+  %.4.add = add nsw i64 %.4.idx, %206
   br label %color_output.exit
 
 207:                                              ; preds = %202
@@ -602,12 +602,12 @@ parse_attr.exit:                                  ; preds = %157
   %212 = ashr exact i64 %sext198, 32
   %213 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %.4.ptr, i64 noundef %212, ptr noundef nonnull @.str.47, i32 noundef 38, i32 noundef %.sroa.10164.0.lcssa, i32 noundef %.sroa.11165.0.lcssa, i32 noundef %.sroa.12166.0.lcssa) #15
   %214 = sext i32 %213 to i64
-  %.4.add = add nsw i64 %.4.idx, %214
+  %.4.add200 = add nsw i64 %.4.idx, %214
   br label %color_output.exit
 
 color_output.exit:                                ; preds = %211, %207, %203, %202, %._crit_edge296
-  %.391.idx = phi i64 [ %.088.idx.lcssa, %._crit_edge296 ], [ %.4.idx, %202 ], [ %.4.add200, %203 ], [ %.4.add199, %207 ], [ %.4.add, %211 ]
-  %.3 = phi i32 [ %.1.lcssa, %._crit_edge296 ], [ %197, %202 ], [ %197, %203 ], [ %197, %207 ], [ %197, %211 ]
+  %.391.idx = phi i64 [ %.088.idx.lcssa, %._crit_edge296 ], [ %.4.idx, %202 ], [ %.4.add200, %211 ], [ %.4.add199, %207 ], [ %.4.add, %203 ]
+  %.3 = phi i32 [ %.1.lcssa, %._crit_edge296 ], [ %197, %202 ], [ %197, %211 ], [ %197, %207 ], [ %197, %203 ]
   %.391.ptr.ptr = getelementptr inbounds i8, ptr %2, i64 %.391.idx
   br i1 %178, label %215, label %color_output.exit130
 
@@ -644,7 +644,7 @@ color_output.exit:                                ; preds = %211, %207, %203, %2
   %223 = add nuw nsw i32 %.sroa.8.0.lcssa, 10
   %224 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %.5.ptr, i64 noundef %222, ptr noundef nonnull @.str.16, i32 noundef %223) #15
   %225 = sext i32 %224 to i64
-  %.5.add208 = add nsw i64 %.5.idx, %225
+  %.5.add = add nsw i64 %.5.idx, %225
   br label %color_output.exit130
 
 226:                                              ; preds = %220
@@ -660,11 +660,11 @@ color_output.exit:                                ; preds = %211, %207, %203, %2
   %231 = ashr exact i64 %sext206, 32
   %232 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %.5.ptr, i64 noundef %231, ptr noundef nonnull @.str.47, i32 noundef 48, i32 noundef %.sroa.10.0.lcssa, i32 noundef %.sroa.11.0.lcssa, i32 noundef %.sroa.12.0.lcssa) #15
   %233 = sext i32 %232 to i64
-  %.5.add = add nsw i64 %.5.idx, %233
+  %.5.add208 = add nsw i64 %.5.idx, %233
   br label %color_output.exit130
 
 color_output.exit130:                             ; preds = %230, %226, %221, %220, %color_output.exit
-  %.6.idx = phi i64 [ %.391.idx, %color_output.exit ], [ %.5.idx, %220 ], [ %.5.add208, %221 ], [ %.5.add207, %226 ], [ %.5.add, %230 ]
+  %.6.idx = phi i64 [ %.391.idx, %color_output.exit ], [ %.5.idx, %220 ], [ %.5.add208, %230 ], [ %.5.add207, %226 ], [ %.5.add, %221 ]
   %234 = icmp eq i64 %.6.idx, 75
   br i1 %234, label %235, label %236
 

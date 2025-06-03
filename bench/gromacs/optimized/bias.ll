@@ -382,7 +382,7 @@ define { ptr, ptr } @_ZN3gmx4Bias22calcForceAndUpdateBiasEPKdNS_8ArrayRefIS1_EES
   br label %80
 
 80:                                               ; preds = %78, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %79, %78 ]
+  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i.i, i64 40
   %82 = load i8, ptr %81, align 8, !tbaa !90, !range !78, !noundef !79
   %83 = trunc nuw i8 %82 to i1
@@ -393,7 +393,7 @@ define { ptr, ptr } @_ZN3gmx4Bias22calcForceAndUpdateBiasEPKdNS_8ArrayRefIS1_EES
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %85, %84 ]
+  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %85, %84 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i.i.i.i, i64 40
   %88 = load i8, ptr %87, align 8, !tbaa !90, !range !78, !noundef !79
   %89 = trunc nuw i8 %88 to i1
@@ -785,7 +785,7 @@ _ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit.thread: ; preds = %252, %_ZN
   br label %328
 
 328:                                              ; preds = %326, %._crit_edge.i.i.i.i.i.i62
-  %.sroa.025.1.i.i.i.i.i.i68 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i64, %._crit_edge.i.i.i.i.i.i62 ], [ %327, %326 ]
+  %.sroa.025.1.i.i.i.i.i.i68 = phi ptr [ %327, %326 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i64, %._crit_edge.i.i.i.i.i.i62 ]
   %329 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i.i68, i64 40
   %330 = load i8, ptr %329, align 8, !tbaa !90, !range !78, !noundef !79
   %331 = trunc nuw i8 %330 to i1
@@ -796,7 +796,7 @@ _ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit.thread: ; preds = %252, %_ZN
   br label %334
 
 334:                                              ; preds = %332, %._crit_edge.i.i.i.i.i.i62
-  %.sroa.025.2.i.i.i.i.i.i65 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i64, %._crit_edge.i.i.i.i.i.i62 ], [ %333, %332 ]
+  %.sroa.025.2.i.i.i.i.i.i65 = phi ptr [ %333, %332 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i64, %._crit_edge.i.i.i.i.i.i62 ]
   %335 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i.i.i.i65, i64 40
   %336 = load i8, ptr %335, align 8, !tbaa !90, !range !78, !noundef !79
   %337 = trunc nuw i8 %336 to i1

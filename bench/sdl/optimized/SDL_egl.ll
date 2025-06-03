@@ -221,7 +221,7 @@ define hidden noundef zeroext i1 @SDL_EGL_HasExtension(ptr noundef readonly capt
   br label %36
 
 36:                                               ; preds = %30, %22
-  %.040 = phi ptr [ %35, %30 ], [ %29, %22 ]
+  %.040 = phi ptr [ %29, %22 ], [ %35, %30 ]
   %.not48 = icmp eq ptr %.040, null
   br i1 %.not48, label %.critedge54, label %.preheader
 
@@ -1223,7 +1223,7 @@ SDL_EGL_GetVersion.exit63:                        ; preds = %139, %143, %158
   br label %161
 
 161:                                              ; preds = %68, %4, %SDL_EGL_GetVersion.exit63, %135, %127, %51
-  %.047 = phi i1 [ %71, %68 ], [ %130, %127 ], [ %138, %135 ], [ true, %SDL_EGL_GetVersion.exit63 ], [ %52, %51 ], [ false, %4 ]
+  %.047 = phi i1 [ %130, %127 ], [ %138, %135 ], [ true, %SDL_EGL_GetVersion.exit63 ], [ %71, %68 ], [ %52, %51 ], [ false, %4 ]
   ret i1 %.047
 }
 

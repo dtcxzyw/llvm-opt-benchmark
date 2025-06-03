@@ -322,8 +322,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17heaa513b416dd9262E(ptr no
   %11 = ptrtoint ptr %10 to i64
   br i1 %switch, label %12, label %14
 
-.loopexit:                                        ; preds = %12, %16, %18, %22, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1367127031335185400.exit, %35, %3
-  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1367127031335185400.exit ], [ %10, %22 ], [ %10, %18 ], [ %10, %16 ], [ @anon.10d545227188ea20dacd5b0e1aac4323.4.llvm.1367127031335185400, %12 ], [ null, %35 ]
+.loopexit:                                        ; preds = %12, %22, %18, %16, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1367127031335185400.exit, %35, %3
+  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1367127031335185400.exit ], [ %10, %16 ], [ %10, %18 ], [ %10, %22 ], [ @anon.10d545227188ea20dacd5b0e1aac4323.4.llvm.1367127031335185400, %12 ], [ null, %35 ]
   ret ptr %.sroa.04.0
 
 12:                                               ; preds = %7
@@ -380,7 +380,7 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1367127031335185
   %switch.i = icmp eq i64 %.mask21.i, 150323855360
   br i1 %switch.i, label %32, label %.loopexit
 
-32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1367127031335185400.exit, %22, %18, %16
+32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1367127031335185400.exit, %16, %18, %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !61
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h9f50939f6b58eb51E.llvm.853492669094159605(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %10), !noalias !61
   %33 = load i8, ptr %4, align 8, !range !68, !alias.scope !69, !noalias !61, !noundef !3
@@ -728,7 +728,7 @@ default.unreachable:                              ; preds = %1
   br label %18
 
 18:                                               ; preds = %5, %12, %8, %6
-  %.sroa.0.0.in = phi i1 [ %17, %12 ], [ %11, %8 ], [ %7, %6 ], [ %switch, %5 ]
+  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %11, %8 ], [ %17, %12 ], [ %switch, %5 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -862,7 +862,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9dc84af67080901cE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9dc84af67080901cE.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1312,12 +1312,15 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i16, ptr %33, align 8, !range !308, !alias.scope !297, !noalias !294, !noundef !3
   %trunc2.i = trunc nuw i16 %34 to i1
-  br i1 %trunc.i, label %35, label %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit"
+  br i1 %trunc.i, label %36, label %35
 
 35:                                               ; preds = %.thread.i
-  br i1 %trunc2.i, label %36, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit"
+  br i1 %trunc2.i, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit", label %42
 
-36:                                               ; preds = %35
+36:                                               ; preds = %.thread.i
+  br i1 %trunc2.i, label %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit", label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit"
+
+"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit": ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %38 = load i16, ptr %37, align 2, !alias.scope !294, !noalias !297, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 18
@@ -1325,10 +1328,7 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   %41 = icmp eq i16 %38, %40
   br i1 %41, label %42, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit"
 
-"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit": ; preds = %.thread.i
-  br i1 %trunc2.i, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit", label %42
-
-42:                                               ; preds = %36, %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit"
+42:                                               ; preds = %35, %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit"
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
@@ -1364,8 +1364,8 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   %59 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit"
 
-"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit": ; preds = %4, %26, %18, %35, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i", %20, %19, %54, %49, %42, %36, %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit" ], [ false, %36 ], [ %59, %54 ], [ false, %49 ], [ %.mux.i.i, %42 ], [ false, %19 ], [ false, %20 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i" ], [ false, %35 ], [ false, %18 ], [ false, %26 ], [ false, %4 ]
+"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.llvm.1367127031335185400.exit": ; preds = %4, %26, %18, %36, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i", %20, %19, %54, %49, %42, %35, %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit"
+  %.sroa.0.0 = phi i1 [ false, %"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$core..cmp..PartialEq$GT$2eq17h536ebbac095b10e1E.llvm.1367127031335185400.exit" ], [ false, %35 ], [ %59, %54 ], [ false, %49 ], [ %.mux.i.i, %42 ], [ false, %19 ], [ false, %20 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i" ], [ false, %36 ], [ false, %18 ], [ false, %26 ], [ false, %4 ]
   ret i1 %.sroa.0.0
 }
 
@@ -1671,8 +1671,8 @@ define internal fastcc { i64, ptr } @"_ZN6base644read7decoder26DecoderReader$LT$
   br label %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$13decode_to_buf28_$u7b$$u7b$closure$u7d$$u7d$17h2d20187e1dcf1129E.exit"
 
 "_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$13decode_to_buf28_$u7b$$u7b$closure$u7d$$u7d$17h2d20187e1dcf1129E.exit": ; preds = %40, %33, %45, %49, %53
-  %.sroa.046.0 = phi i64 [ %.sroa.046.1.insert.shift, %49 ], [ 0, %45 ], [ %.sroa.046.1.insert.shift49, %53 ], [ 0, %33 ], [ 15616, %40 ]
-  %.sroa.7.0 = phi i64 [ %52, %49 ], [ %48, %45 ], [ %56, %53 ], [ undef, %33 ], [ %42, %40 ]
+  %.sroa.046.0 = phi i64 [ %.sroa.046.1.insert.shift49, %53 ], [ 0, %45 ], [ %.sroa.046.1.insert.shift, %49 ], [ 0, %33 ], [ 15616, %40 ]
+  %.sroa.7.0 = phi i64 [ %56, %53 ], [ %48, %45 ], [ %52, %49 ], [ undef, %33 ], [ %42, %40 ]
   %.sroa.046.0.insert.ext = zext nneg i8 %.sroa.057.0.copyload to i64
   %.sroa.046.0.insert.insert = or disjoint i64 %.sroa.046.0, %.sroa.046.0.insert.ext
   %57 = inttoptr i64 %.sroa.046.0.insert.insert to ptr
@@ -1720,8 +1720,8 @@ define internal fastcc { i64, ptr } @"_ZN6base644read7decoder26DecoderReader$LT$
   br label %77
 
 77:                                               ; preds = %59, %71, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$13decode_to_buf28_$u7b$$u7b$closure$u7d$$u7d$17h2d20187e1dcf1129E.exit"
-  %.sroa.4.0 = phi ptr [ %58, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$13decode_to_buf28_$u7b$$u7b$closure$u7d$$u7d$17h2d20187e1dcf1129E.exit" ], [ %70, %59 ], [ %76, %71 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$13decode_to_buf28_$u7b$$u7b$closure$u7d$$u7d$17h2d20187e1dcf1129E.exit" ], [ 0, %59 ], [ 1, %71 ]
+  %.sroa.4.0 = phi ptr [ %58, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$13decode_to_buf28_$u7b$$u7b$closure$u7d$$u7d$17h2d20187e1dcf1129E.exit" ], [ %76, %71 ], [ %70, %59 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$13decode_to_buf28_$u7b$$u7b$closure$u7d$$u7d$17h2d20187e1dcf1129E.exit" ], [ 1, %71 ], [ 0, %59 ]
   %78 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %79 = insertvalue { i64, ptr } %78, ptr %.sroa.4.0, 1
   ret { i64, ptr } %79
@@ -2157,8 +2157,8 @@ define hidden { i64, ptr } @"_ZN83_$LT$base64..read..decoder..DecoderReader$LT$E
   br label %29
 
 13:                                               ; preds = %57, %3, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit", %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit19", %69, %83
-  %.sroa.8.0 = phi ptr [ %28, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit" ], [ %66, %83 ], [ %82, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit19" ], [ %75, %69 ], [ null, %3 ], [ null, %57 ]
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit" ], [ 1, %83 ], [ 0, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit19" ], [ %74, %69 ], [ 0, %3 ], [ 0, %57 ]
+  %.sroa.8.0 = phi ptr [ %28, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit" ], [ %82, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit19" ], [ %66, %83 ], [ %75, %69 ], [ null, %3 ], [ null, %57 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit" ], [ 0, %"_ZN6base644read7decoder26DecoderReader$LT$E$C$R$GT$17flush_decoded_buf17h22ccbb92ecf6c455E.exit19" ], [ 1, %83 ], [ %74, %69 ], [ 0, %3 ], [ 0, %57 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.8.0, 1
   ret { i64, ptr } %15
@@ -2693,7 +2693,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$uv_auth..realm..Realm$u20$as$u20$co
   br i1 %trunc, label %37, label %35
 
 .thread16:                                        ; preds = %4, %26, %18, %37, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", %20, %19, %35, %38
-  %.sroa.0.0 = phi i1 [ %43, %38 ], [ %36, %35 ], [ false, %19 ], [ false, %20 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit" ], [ false, %37 ], [ false, %18 ], [ false, %26 ], [ false, %4 ]
+  %.sroa.0.0 = phi i1 [ %36, %35 ], [ %43, %38 ], [ false, %19 ], [ false, %20 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit" ], [ false, %37 ], [ false, %18 ], [ false, %26 ], [ false, %4 ]
   ret i1 %.sroa.0.0
 
 35:                                               ; preds = %.thread

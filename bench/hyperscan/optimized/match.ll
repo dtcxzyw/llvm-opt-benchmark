@@ -601,7 +601,7 @@ roseCatchUpMPV.exit:                              ; preds = %276, %canSkipCatchU
   br label %mmbit_any.exit
 
 mmbit_any.exit:                                   ; preds = %317, %309, %306, %303, %.critedge.i, %332
-  %.0.i149.in.in = phi i64 [ %333, %332 ], [ %331, %.critedge.i ], [ %323, %317 ], [ %316, %309 ], [ %308, %306 ], [ %305, %303 ]
+  %.0.i149.in.in = phi i64 [ %333, %332 ], [ %331, %.critedge.i ], [ %323, %317 ], [ %305, %303 ], [ %308, %306 ], [ %316, %309 ]
   %.0.i149.in.not = icmp eq i64 %.0.i149.in.in, 0
   br i1 %.0.i149.in.not, label %334, label %roseCatchUpTo.exit
 
@@ -2403,7 +2403,7 @@ roseFlushLastByteHistory.exit.i:                  ; preds = %mmbit_sparse_iter_u
   br label %mmbit_get_flat_block.exit84.i50.i278
 
 mmbit_get_flat_block.exit84.i50.i278:             ; preds = %378, %370, %367, %364
-  %.0.i82.i51.i279 = phi i64 [ %384, %378 ], [ %377, %370 ], [ %369, %367 ], [ %366, %364 ]
+  %.0.i82.i51.i279 = phi i64 [ %384, %378 ], [ %366, %364 ], [ %369, %367 ], [ %377, %370 ]
   %.not74.i53.i280 = icmp eq i64 %.0.i82.i51.i279, 0
   br i1 %.not74.i53.i280, label %bf64_iterate.exit109, label %385
 
@@ -2490,7 +2490,7 @@ mmbit_get_flat_block.exit84.i50.i278:             ; preds = %378, %370, %367, %3
   br label %mmbit_get_flat_block.exit.i41.i199
 
 mmbit_get_flat_block.exit.i41.i199:               ; preds = %422, %414, %411, %408
-  %.0.i.i42.i200 = phi i64 [ %428, %422 ], [ %421, %414 ], [ %413, %411 ], [ %410, %408 ]
+  %.0.i.i42.i200 = phi i64 [ %428, %422 ], [ %410, %408 ], [ %413, %411 ], [ %421, %414 ]
   %.not71.i43.i201 = icmp eq i64 %.0.i.i42.i200, 0
   br i1 %.not71.i43.i201, label %bf64_iterate.exit109, label %429
 
@@ -2642,7 +2642,7 @@ mmbit_iterate.exit.i205:                          ; preds = %453, %392
   br label %mmbit_get_flat_block.exit84.i.i244
 
 mmbit_get_flat_block.exit84.i.i244:               ; preds = %494, %497, %500, %503
-  %.0.i82.i.i245 = phi i64 [ %504, %503 ], [ %502, %500 ], [ %499, %497 ], [ %496, %494 ]
+  %.0.i82.i.i245 = phi i64 [ %504, %503 ], [ %496, %494 ], [ %499, %497 ], [ %502, %500 ]
   %505 = add nuw i32 %.026.i207516, 1
   %506 = icmp eq i32 %505, 64
   %507 = zext nneg i32 %505 to i64
@@ -2710,7 +2710,7 @@ mmbit_get_flat_block.exit84.i.i244:               ; preds = %494, %497, %500, %5
   br label %mmbit_get_flat_block.exit80.i.i215
 
 mmbit_get_flat_block.exit80.i.i215:               ; preds = %541, %533, %530, %527
-  %.0.i78.i.i216 = phi i64 [ %547, %541 ], [ %540, %533 ], [ %532, %530 ], [ %529, %527 ]
+  %.0.i78.i.i216 = phi i64 [ %547, %541 ], [ %529, %527 ], [ %532, %530 ], [ %540, %533 ]
   %548 = sub i32 %514, %520
   %549 = icmp eq i32 %548, 64
   %550 = zext nneg i32 %548 to i64
@@ -2809,7 +2809,7 @@ mmbit_get_flat_block.exit80.i.i215:               ; preds = %541, %533, %530, %5
   br label %mmbit_get_flat_block.exit.i.i233
 
 mmbit_get_flat_block.exit.i.i233:                 ; preds = %593, %585, %582, %579
-  %.0.i.i.i234 = phi i64 [ %599, %593 ], [ %592, %585 ], [ %584, %582 ], [ %581, %579 ]
+  %.0.i.i.i234 = phi i64 [ %599, %593 ], [ %581, %579 ], [ %584, %582 ], [ %592, %585 ]
   %.not71.i.i235 = icmp eq i64 %.0.i.i.i234, 0
   br i1 %.not71.i.i235, label %bf64_iterate.exit109, label %600
 
@@ -3427,7 +3427,7 @@ roseFlushLastByteHistory.exit.i119:               ; preds = %mmbit_sparse_iter_u
   br label %mmbit_get_flat_block.exit84.i151
 
 mmbit_get_flat_block.exit84.i151:                 ; preds = %939, %931, %928, %925
-  %.0.i82.i152 = phi i64 [ %945, %939 ], [ %938, %931 ], [ %930, %928 ], [ %927, %925 ]
+  %.0.i82.i152 = phi i64 [ %945, %939 ], [ %927, %925 ], [ %930, %928 ], [ %938, %931 ]
   %.not74.i154 = icmp eq i64 %.0.i82.i152, 0
   br i1 %.not74.i154, label %.critedge.backedge, label %946
 
@@ -3514,7 +3514,7 @@ mmbit_get_flat_block.exit84.i151:                 ; preds = %939, %931, %928, %9
   br label %mmbit_get_flat_block.exit.i142
 
 mmbit_get_flat_block.exit.i142:                   ; preds = %983, %975, %972, %969
-  %.0.i.i143 = phi i64 [ %989, %983 ], [ %982, %975 ], [ %974, %972 ], [ %971, %969 ]
+  %.0.i.i143 = phi i64 [ %989, %983 ], [ %971, %969 ], [ %974, %972 ], [ %982, %975 ]
   %.not71.i144 = icmp eq i64 %.0.i.i143, 0
   br i1 %.not71.i144, label %.critedge.backedge, label %990
 
@@ -3661,7 +3661,7 @@ mmbit_iterate.exit:                               ; preds = %1014, %953
   br label %mmbit_get_flat_block.exit84.i
 
 mmbit_get_flat_block.exit84.i:                    ; preds = %1052, %1055, %1058, %1061
-  %.0.i82.i = phi i64 [ %1062, %1061 ], [ %1060, %1058 ], [ %1057, %1055 ], [ %1054, %1052 ]
+  %.0.i82.i = phi i64 [ %1062, %1061 ], [ %1054, %1052 ], [ %1057, %1055 ], [ %1060, %1058 ]
   %1063 = add nuw i32 %.031.i541, 1
   %1064 = icmp eq i32 %1063, 64
   %1065 = zext nneg i32 %1063 to i64
@@ -3729,7 +3729,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %1052, %1055, %1058,
   br label %mmbit_get_flat_block.exit80.i
 
 mmbit_get_flat_block.exit80.i:                    ; preds = %1099, %1091, %1088, %1085
-  %.0.i78.i = phi i64 [ %1105, %1099 ], [ %1098, %1091 ], [ %1090, %1088 ], [ %1087, %1085 ]
+  %.0.i78.i = phi i64 [ %1105, %1099 ], [ %1087, %1085 ], [ %1090, %1088 ], [ %1098, %1091 ]
   %1106 = sub i32 %1072, %1078
   %1107 = icmp eq i32 %1106, 64
   %1108 = zext nneg i32 %1106 to i64
@@ -3828,7 +3828,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %1099, %1091, %1088,
   br label %mmbit_get_flat_block.exit.i132
 
 mmbit_get_flat_block.exit.i132:                   ; preds = %1151, %1143, %1140, %1137
-  %.0.i.i133 = phi i64 [ %1157, %1151 ], [ %1150, %1143 ], [ %1142, %1140 ], [ %1139, %1137 ]
+  %.0.i.i133 = phi i64 [ %1157, %1151 ], [ %1139, %1137 ], [ %1142, %1140 ], [ %1150, %1143 ]
   %.not71.i134 = icmp eq i64 %.0.i.i133, 0
   br i1 %.not71.i134, label %.critedge.backedge, label %1158
 
@@ -4452,7 +4452,7 @@ roseFlushLastByteHistory.exit.i61:                ; preds = %mmbit_sparse_iter_u
   br label %mmbit_get_flat_block.exit84.i50.i
 
 mmbit_get_flat_block.exit84.i50.i:                ; preds = %1502, %1494, %1491, %1488
-  %.0.i82.i51.i = phi i64 [ %1508, %1502 ], [ %1501, %1494 ], [ %1493, %1491 ], [ %1490, %1488 ]
+  %.0.i82.i51.i = phi i64 [ %1508, %1502 ], [ %1490, %1488 ], [ %1493, %1491 ], [ %1501, %1494 ]
   %.not74.i53.i = icmp eq i64 %.0.i82.i51.i, 0
   br i1 %.not74.i53.i, label %bf64_iterate.exit, label %1509
 
@@ -4539,7 +4539,7 @@ mmbit_get_flat_block.exit84.i50.i:                ; preds = %1502, %1494, %1491,
   br label %mmbit_get_flat_block.exit.i41.i
 
 mmbit_get_flat_block.exit.i41.i:                  ; preds = %1546, %1538, %1535, %1532
-  %.0.i.i42.i = phi i64 [ %1552, %1546 ], [ %1545, %1538 ], [ %1537, %1535 ], [ %1534, %1532 ]
+  %.0.i.i42.i = phi i64 [ %1552, %1546 ], [ %1534, %1532 ], [ %1537, %1535 ], [ %1545, %1538 ]
   %.not71.i43.i = icmp eq i64 %.0.i.i42.i, 0
   br i1 %.not71.i43.i, label %bf64_iterate.exit, label %1553
 
@@ -4691,7 +4691,7 @@ mmbit_iterate.exit.i:                             ; preds = %1577, %1516
   br label %mmbit_get_flat_block.exit84.i.i
 
 mmbit_get_flat_block.exit84.i.i:                  ; preds = %1618, %1621, %1624, %1627
-  %.0.i82.i.i = phi i64 [ %1628, %1627 ], [ %1626, %1624 ], [ %1623, %1621 ], [ %1620, %1618 ]
+  %.0.i82.i.i = phi i64 [ %1628, %1627 ], [ %1620, %1618 ], [ %1623, %1621 ], [ %1626, %1624 ]
   %1629 = add nuw i32 %.026.i180569, 1
   %1630 = icmp eq i32 %1629, 64
   %1631 = zext nneg i32 %1629 to i64
@@ -4759,7 +4759,7 @@ mmbit_get_flat_block.exit84.i.i:                  ; preds = %1618, %1621, %1624,
   br label %mmbit_get_flat_block.exit80.i.i
 
 mmbit_get_flat_block.exit80.i.i:                  ; preds = %1665, %1657, %1654, %1651
-  %.0.i78.i.i = phi i64 [ %1671, %1665 ], [ %1664, %1657 ], [ %1656, %1654 ], [ %1653, %1651 ]
+  %.0.i78.i.i = phi i64 [ %1671, %1665 ], [ %1653, %1651 ], [ %1656, %1654 ], [ %1664, %1657 ]
   %1672 = sub i32 %1638, %1644
   %1673 = icmp eq i32 %1672, 64
   %1674 = zext nneg i32 %1672 to i64
@@ -4858,7 +4858,7 @@ mmbit_get_flat_block.exit80.i.i:                  ; preds = %1665, %1657, %1654,
   br label %mmbit_get_flat_block.exit.i.i186
 
 mmbit_get_flat_block.exit.i.i186:                 ; preds = %1717, %1709, %1706, %1703
-  %.0.i.i.i187 = phi i64 [ %1723, %1717 ], [ %1716, %1709 ], [ %1708, %1706 ], [ %1705, %1703 ]
+  %.0.i.i.i187 = phi i64 [ %1723, %1717 ], [ %1705, %1703 ], [ %1708, %1706 ], [ %1716, %1709 ]
   %.not71.i.i188 = icmp eq i64 %.0.i.i.i187, 0
   br i1 %.not71.i.i188, label %bf64_iterate.exit, label %1724
 

@@ -710,7 +710,7 @@ define noundef i32 @_ZN3zmq5req_t11xsetsockoptEiPKvm(ptr noundef nonnull align 8
   br label %22
 
 22:                                               ; preds = %20, %16, %10
-  %.017 = phi i32 [ %21, %20 ], [ 0, %16 ], [ 0, %10 ]
+  %.017 = phi i32 [ %21, %20 ], [ 0, %10 ], [ 0, %16 ]
   ret i32 %.017
 }
 
@@ -878,7 +878,7 @@ define noundef i32 @_ZN3zmq13req_session_t8push_msgEPNS_5msg_tE(ptr noundef nonn
   br label %41
 
 41:                                               ; preds = %2, %39, %37, %32, %27, %19, %14
-  %.0 = phi i32 [ -1, %39 ], [ %33, %32 ], [ %38, %37 ], [ %28, %27 ], [ %15, %14 ], [ %20, %19 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %39 ], [ %15, %14 ], [ %20, %19 ], [ %28, %27 ], [ %33, %32 ], [ %38, %37 ], [ 0, %2 ]
   ret i32 %.0
 }
 

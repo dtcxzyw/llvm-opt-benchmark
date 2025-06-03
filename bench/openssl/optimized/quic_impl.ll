@@ -563,10 +563,10 @@ expect_quic_as.exit:                              ; preds = %4
   tail call void @SSL_free(ptr noundef nonnull %24) #12
   br label %quic_free_listener.exit
 
-31:                                               ; preds = %6, %9
-  %.sroa.26.0.ph.ph = phi ptr [ %11, %9 ], [ %0, %6 ]
-  %.sroa.41.0.ph.ph = phi ptr [ %0, %9 ], [ %8, %6 ]
-  %.not8 = phi i1 [ false, %9 ], [ true, %6 ]
+31:                                               ; preds = %9, %6
+  %.sroa.26.0.ph.ph = phi ptr [ %0, %6 ], [ %11, %9 ]
+  %.sroa.41.0.ph.ph = phi ptr [ %8, %6 ], [ %0, %9 ]
+  %.not8 = phi i1 [ true, %6 ], [ false, %9 ]
   %32 = getelementptr i8, ptr %0, i64 88
   %.val.val = load ptr, ptr %32, align 8, !tbaa !143
   %33 = tail call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val.val) #12
@@ -2360,7 +2360,7 @@ expect_quic_as.exit:                              ; preds = %28, %21, %18
   br label %expect_quic_as.exit.thread
 
 expect_quic_as.exit.thread:                       ; preds = %17, %35, %14, %expect_quic_as.exit, %expect_quic_as.exit, %expect_quic_as.exit, %expect_quic_as.exit, %expect_quic_as.exit, %98, %97, %93, %90, %84, %83, %78, %71, %62, %57, %47, %39
-  %.0 = phi i64 [ 0, %97 ], [ %99, %98 ], [ %95, %93 ], [ %.1, %90 ], [ 0, %83 ], [ %89, %84 ], [ 0, %62 ], [ %77, %71 ], [ %81, %78 ], [ 0, %39 ], [ %56, %47 ], [ %60, %57 ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %14 ], [ 0, %35 ], [ 0, %17 ]
+  %.0 = phi i64 [ 0, %97 ], [ %99, %98 ], [ 0, %39 ], [ %56, %47 ], [ %60, %57 ], [ 0, %62 ], [ %77, %71 ], [ %81, %78 ], [ 0, %83 ], [ %89, %84 ], [ %.1, %90 ], [ %95, %93 ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %expect_quic_as.exit ], [ 0, %14 ], [ 0, %35 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #12
   ret i64 %.0
 }
@@ -4786,7 +4786,7 @@ define ptr @ossl_quic_get0_listener(ptr noundef readonly captures(address_is_nul
   br label %expect_quic_as.exit
 
 expect_quic_as.exit:                              ; preds = %4, %6, %15, %3, %10, %7
-  %16 = phi ptr [ %14, %10 ], [ %9, %7 ], [ null, %3 ], [ null, %15 ], [ null, %6 ], [ %0, %4 ]
+  %16 = phi ptr [ %9, %7 ], [ %14, %10 ], [ null, %3 ], [ null, %15 ], [ null, %6 ], [ %0, %4 ]
   ret ptr %16
 }
 
@@ -4830,7 +4830,7 @@ define ptr @ossl_quic_get0_domain(ptr noundef readonly captures(address_is_null,
   br label %expect_quic_as.exit
 
 expect_quic_as.exit:                              ; preds = %17, %3, %4, %12, %9, %6
-  %18 = phi ptr [ %16, %12 ], [ %11, %9 ], [ %8, %6 ], [ %0, %4 ], [ null, %3 ], [ null, %17 ]
+  %18 = phi ptr [ %8, %6 ], [ %11, %9 ], [ %16, %12 ], [ %0, %4 ], [ null, %3 ], [ null, %17 ]
   ret ptr %18
 }
 
@@ -5690,7 +5690,7 @@ qc_get_stream_write_buf_stat.exit75:              ; preds = %127, %132, %138, %1
   br label %qc_get_stream_avail.exit
 
 qc_get_stream_avail.exit:                         ; preds = %75, %72, %51, %50, %39, %38, %27, %26, %15, %14, %4, %148, %qc_get_stream_write_buf_stat.exit75, %qc_get_stream_write_buf_stat.exit63, %qc_get_stream_write_buf_stat.exit, %11, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %148 ], [ %.013.i67, %qc_get_stream_write_buf_stat.exit75 ], [ %.013.i55, %qc_get_stream_write_buf_stat.exit63 ], [ %.013.i, %qc_get_stream_write_buf_stat.exit ], [ %12, %11 ], [ 0, %4 ], [ 0, %14 ], [ 1, %15 ], [ 0, %26 ], [ 1, %27 ], [ 0, %38 ], [ 1, %39 ], [ 0, %50 ], [ 1, %51 ], [ %.016.i, %72 ], [ %.016.i, %75 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %148 ], [ %12, %11 ], [ %.013.i, %qc_get_stream_write_buf_stat.exit ], [ %.013.i55, %qc_get_stream_write_buf_stat.exit63 ], [ %.013.i67, %qc_get_stream_write_buf_stat.exit75 ], [ 0, %4 ], [ 0, %14 ], [ 1, %15 ], [ 0, %26 ], [ 1, %27 ], [ 0, %38 ], [ 1, %39 ], [ 0, %50 ], [ 1, %51 ], [ %.016.i, %72 ], [ %.016.i, %75 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #12
   ret i32 %.0
 }
@@ -5786,9 +5786,9 @@ define internal fastcc range(i32 0, 2) i32 @qc_getset_idle_timeout(ptr noundef n
   br label %46
 
 46:                                               ; preds = %23, %7, %43, %41, %45, %35, %28, %22, %16
-  %.025 = phi i64 [ 0, %45 ], [ 0, %28 ], [ 0, %35 ], [ %12, %16 ], [ %12, %22 ], [ %12, %23 ], [ %12, %7 ], [ %42, %41 ], [ %44, %43 ]
-  %47 = phi i1 [ false, %45 ], [ false, %28 ], [ false, %35 ], [ false, %16 ], [ false, %22 ], [ true, %23 ], [ true, %7 ], [ true, %41 ], [ true, %43 ]
-  %.0 = phi i32 [ 0, %45 ], [ 0, %28 ], [ 0, %35 ], [ 0, %16 ], [ 0, %22 ], [ 1, %23 ], [ 1, %7 ], [ 1, %41 ], [ 1, %43 ]
+  %.025 = phi i64 [ 0, %45 ], [ %12, %16 ], [ %12, %22 ], [ 0, %28 ], [ 0, %35 ], [ %12, %23 ], [ %12, %7 ], [ %42, %41 ], [ %44, %43 ]
+  %47 = phi i1 [ false, %45 ], [ false, %16 ], [ false, %22 ], [ false, %28 ], [ false, %35 ], [ true, %23 ], [ true, %7 ], [ true, %41 ], [ true, %43 ]
+  %.0 = phi i32 [ 0, %45 ], [ 0, %16 ], [ 0, %22 ], [ 0, %28 ], [ 0, %35 ], [ 1, %23 ], [ 1, %7 ], [ 1, %41 ], [ 1, %43 ]
   %.val32 = load ptr, ptr %0, align 8, !tbaa !157
   %48 = getelementptr i8, ptr %.val32, i64 88
   %.val32.val = load ptr, ptr %48, align 8, !tbaa !143
@@ -5881,7 +5881,7 @@ qc_getset_event_handling.exit:                    ; preds = %14, %16, %17
   br label %28
 
 28:                                               ; preds = %4, %27, %qc_getset_event_handling.exit, %9
-  %.0 = phi i32 [ 0, %27 ], [ %.016.i, %qc_getset_event_handling.exit ], [ %10, %9 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %27 ], [ %10, %9 ], [ %.016.i, %qc_getset_event_handling.exit ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
   ret i32 %.0
 }
@@ -8225,11 +8225,11 @@ define range(i32 0, 2) i32 @ossl_quic_conn_poll_events(ptr noundef readonly capt
   br label %expect_quic_as.exit.thread
 
 expect_quic_as.exit:                              ; preds = %9, %17, %12
-  %.sroa.13.0 = phi ptr [ %21, %17 ], [ %14, %12 ], [ %0, %9 ]
-  %.sroa.18.0 = phi ptr [ %19, %17 ], [ %0, %12 ], [ null, %9 ]
-  %.sroa.27.0 = phi ptr [ %0, %17 ], [ %16, %12 ], [ null, %9 ]
-  %23 = phi i1 [ true, %17 ], [ false, %12 ], [ false, %9 ]
-  %.not61 = phi i1 [ true, %17 ], [ true, %12 ], [ false, %9 ]
+  %.sroa.13.0 = phi ptr [ %14, %12 ], [ %21, %17 ], [ %0, %9 ]
+  %.sroa.18.0 = phi ptr [ %0, %12 ], [ %19, %17 ], [ null, %9 ]
+  %.sroa.27.0 = phi ptr [ %16, %12 ], [ %0, %17 ], [ null, %9 ]
+  %23 = phi i1 [ false, %12 ], [ true, %17 ], [ false, %9 ]
+  %.not61 = phi i1 [ true, %12 ], [ true, %17 ], [ false, %9 ]
   %24 = getelementptr i8, ptr %0, i64 88
   %.val.val = load ptr, ptr %24, align 8, !tbaa !143
   %25 = tail call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val.val) #12
@@ -9120,7 +9120,7 @@ wrong_type.exit118:                               ; preds = %93, %95, %96, %.fol
   br label %qctx_lock_for_io.exit124.thread
 
 105:                                              ; preds = %97, %qctx_lock_for_io.exit._crit_edge, %35, %27
-  %.1 = phi i32 [ 0, %97 ], [ %.2127, %qctx_lock_for_io.exit._crit_edge ], [ 0, %35 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %27 ], [ 0, %35 ], [ %.2127, %qctx_lock_for_io.exit._crit_edge ], [ 0, %97 ]
   %106 = icmp eq i32 %4, 0
   %107 = icmp ne i32 %.1, 0
   %or.cond = or i1 %106, %107
@@ -9177,8 +9177,8 @@ qctx_lock_for_io.exit124:                         ; preds = %108, %119, %117, %1
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %124) #12
   br label %qctx_lock_for_io.exit124.thread
 
-qctx_lock_for_io.exit124.thread:                  ; preds = %wrong_type.exit, %wrong_type.exit109, %wrong_type.exit118, %104, %18, %122, %qctx_lock_for_io.exit124
-  %.090135 = phi i32 [ %.090, %122 ], [ %.090, %qctx_lock_for_io.exit124 ], [ 0, %18 ], [ 0, %104 ], [ 0, %wrong_type.exit118 ], [ 0, %wrong_type.exit109 ], [ 0, %wrong_type.exit ]
+qctx_lock_for_io.exit124.thread:                  ; preds = %wrong_type.exit118, %wrong_type.exit109, %wrong_type.exit, %104, %18, %122, %qctx_lock_for_io.exit124
+  %.090135 = phi i32 [ %.090, %122 ], [ %.090, %qctx_lock_for_io.exit124 ], [ 0, %18 ], [ 0, %104 ], [ 0, %wrong_type.exit ], [ 0, %wrong_type.exit109 ], [ 0, %wrong_type.exit118 ]
   ret i32 %.090135
 }
 

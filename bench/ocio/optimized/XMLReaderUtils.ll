@@ -142,7 +142,7 @@ _ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit7.i:   ; preds = %22, %22, %22, %22, 
   br label %25
 
 25:                                               ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit7.i, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %24, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit7.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %24, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit7.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %26 = load i8, ptr %.sroa.032.1.i.i.i.i, align 1, !tbaa !15
   switch i8 %26, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i [
     i8 32, label %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit6.i
@@ -158,7 +158,7 @@ _ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit6.i:   ; preds = %25, %25, %25, %25, 
   br label %28
 
 28:                                               ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit6.i, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %27, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit6.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %27, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit6.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %29 = load i8, ptr %.sroa.032.2.i.i.i.i, align 1, !tbaa !15
   switch i8 %29, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i [
     i8 32, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.thread.i

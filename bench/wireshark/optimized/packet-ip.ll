@@ -3359,7 +3359,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .backedge:                                        ; preds = %164, %177, %32, %._crit_edge275, %87, %._crit_edge, %121, %77, %75, %23
-  %.0217.be = phi i32 [ %18, %23 ], [ %172, %177 ], [ %159, %164 ], [ %.3.lcssa, %._crit_edge ], [ %125, %121 ], [ %.2.lcssa, %._crit_edge275 ], [ %91, %87 ], [ %36, %32 ], [ %27, %77 ], [ %27, %75 ]
+  %.0217.be = phi i32 [ %18, %23 ], [ %36, %32 ], [ %.2.lcssa, %._crit_edge275 ], [ %91, %87 ], [ %.3.lcssa, %._crit_edge ], [ %125, %121 ], [ %159, %164 ], [ %172, %177 ], [ %27, %77 ], [ %27, %75 ]
   %185 = icmp slt i32 %.0217.be, %6
   br i1 %185, label %14, label %.loopexit, !llvm.loop !20
 

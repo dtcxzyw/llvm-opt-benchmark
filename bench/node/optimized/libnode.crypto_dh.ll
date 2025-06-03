@@ -4815,7 +4815,7 @@ if.end104:                                        ; preds = %_ZN4node9Utf8ValueD
   br label %return
 
 return:                                           ; preds = %_ZN4node9Utf8ValueD2Ev.exit, %if.end104, %if.then61, %if.then43
-  %retval.sroa.0.1 = phi i16 [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 257, %if.end104 ], [ 0, %if.then43 ], [ 0, %if.then61 ]
+  %retval.sroa.0.1 = phi i16 [ 257, %if.end104 ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 0, %if.then43 ], [ 0, %if.then61 ]
   ret i16 %retval.sroa.0.1
 }
 
@@ -5045,7 +5045,7 @@ do.body21:                                        ; preds = %do.end5
   unreachable
 
 return:                                           ; preds = %sw.bb13, %sw.bb, %if.end18, %if.end10
-  %retval.0 = phi i32 [ %call20, %if.end18 ], [ %call12, %if.end10 ], [ 1, %sw.bb ], [ 1, %sw.bb13 ]
+  %retval.0 = phi i32 [ %call12, %if.end10 ], [ %call20, %if.end18 ], [ 1, %sw.bb ], [ 1, %sw.bb13 ]
   ret i32 %retval.0
 }
 

@@ -909,8 +909,8 @@ switch.lookup:                                    ; preds = %78
   br label %_ZNK12_GLOBAL__N_113ScalarDocNode10getYAMLTagEv.exit.i.i
 
 _ZNK12_GLOBAL__N_113ScalarDocNode10getYAMLTagEv.exit.i.i: ; preds = %switch.lookup, %84, %83, %82, %81, %80, %79
-  %.sroa.05.1.i.i.i = phi ptr [ @.str.8, %84 ], [ @.str.7, %83 ], [ @.str.5, %82 ], [ @.str.5, %81 ], [ @.str.10, %80 ], [ @.str.10, %79 ], [ %switch.load, %switch.lookup ]
-  %.sroa.10.1.i.i.i = phi i64 [ 6, %84 ], [ 5, %83 ], [ 4, %82 ], [ 4, %81 ], [ 4, %80 ], [ 4, %79 ], [ %switch.load18, %switch.lookup ]
+  %.sroa.05.1.i.i.i = phi ptr [ @.str.5, %81 ], [ @.str.5, %82 ], [ @.str.7, %83 ], [ @.str.8, %84 ], [ @.str.10, %80 ], [ @.str.10, %79 ], [ %switch.load, %switch.lookup ]
+  %.sroa.10.1.i.i.i = phi i64 [ 4, %81 ], [ 4, %82 ], [ 5, %83 ], [ 6, %84 ], [ 4, %80 ], [ 4, %79 ], [ %switch.load18, %switch.lookup ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !33

@@ -499,8 +499,8 @@ sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
   br label %displaytext_str2tag.exit.i.i
 
 displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i, %165, %162, %159, %.tail.i.i.i, %150, %147, %137
-  %.not76.i.i = phi i64 [ 0, %137 ], [ 0, %.tail.thread.i.i.i ], [ 14, %165 ], [ 8, %162 ], [ 10, %159 ], [ 4, %.tail.i.i.i ], [ 11, %150 ], [ 5, %147 ]
-  %.0.i.i.i = phi i32 [ 26, %137 ], [ 26, %.tail.thread.i.i.i ], [ 26, %165 ], [ 26, %162 ], [ 30, %159 ], [ 30, %.tail.i.i.i ], [ 12, %150 ], [ 12, %147 ]
+  %.not76.i.i = phi i64 [ 0, %137 ], [ 0, %.tail.thread.i.i.i ], [ 5, %147 ], [ 11, %150 ], [ 4, %.tail.i.i.i ], [ 10, %159 ], [ 8, %162 ], [ 14, %165 ]
+  %.0.i.i.i = phi i32 [ 26, %137 ], [ 26, %.tail.thread.i.i.i ], [ 12, %147 ], [ 12, %150 ], [ 30, %.tail.i.i.i ], [ 30, %159 ], [ 26, %162 ], [ 26, %165 ]
   %168 = tail call ptr @ASN1_STRING_type_new(i32 noundef %.0.i.i.i) #4
   store ptr %168, ptr %128, align 8, !tbaa !21
   %169 = icmp eq ptr %168, null

@@ -2230,7 +2230,7 @@ _Py_NewRef.exit.thread:                           ; preds = %313
   br i1 %320, label %_Py_NewRef.exit, label %321
 
 321:                                              ; preds = %317, %120, %.thread, %292
-  %.1150 = phi ptr [ %.2, %.thread ], [ %.2, %317 ], [ %.2, %292 ], [ null, %120 ]
+  %.1150 = phi ptr [ %.2, %317 ], [ %.2, %.thread ], [ %.2, %292 ], [ null, %120 ]
   %322 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !15
   %323 = icmp slt i32 %322, 0
   br i1 %323, label %_Py_NewRef.exit, label %324

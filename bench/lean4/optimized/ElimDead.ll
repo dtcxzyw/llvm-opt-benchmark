@@ -1621,7 +1621,7 @@ lean_dec.exit:                                    ; preds = %383, %382, %380, %3
   br label %lean_dec.exit173
 
 lean_dec.exit173:                                 ; preds = %lean_obj_tag.exit, %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_collectLocalDeclsType_go___spec__1.exit, %156, %158, %159, %150, %152, %314, %lean_alloc_ctor.exit270, %lean_alloc_ctor.exit271, %lean_dec.exit, %lean_dec.exit164, %lean_dec.exit165
-  %.5 = phi ptr [ %386, %lean_dec.exit ], [ %373, %lean_dec.exit164 ], [ %360, %lean_dec.exit165 ], [ %.0152.ph, %150 ], [ %.0152.ph, %152 ], [ %333, %lean_alloc_ctor.exit271 ], [ %316, %314 ], [ %320, %lean_alloc_ctor.exit270 ], [ %.0152.ph, %159 ], [ %.0152.ph, %158 ], [ %.0152.ph, %156 ], [ %.0152.ph, %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_collectLocalDeclsType_go___spec__1.exit ], [ %.0152.ph, %lean_obj_tag.exit ]
+  %.5 = phi ptr [ %360, %lean_dec.exit165 ], [ %373, %lean_dec.exit164 ], [ %386, %lean_dec.exit ], [ %.0152.ph, %150 ], [ %.0152.ph, %152 ], [ %333, %lean_alloc_ctor.exit271 ], [ %316, %314 ], [ %320, %lean_alloc_ctor.exit270 ], [ %.0152.ph, %159 ], [ %.0152.ph, %158 ], [ %.0152.ph, %156 ], [ %.0152.ph, %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_collectLocalDeclsType_go___spec__1.exit ], [ %.0152.ph, %lean_obj_tag.exit ]
   ret ptr %.5
 }
 

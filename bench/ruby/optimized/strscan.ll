@@ -1905,7 +1905,7 @@ rb_type.exit.thread41:                            ; preds = %19, %rb_type.exit
   br label %26
 
 26:                                               ; preds = %rb_type.exit.thread41, %rb_type.exit
-  %.030 = phi i64 [ %1, %rb_type.exit ], [ %25, %rb_type.exit.thread41 ]
+  %.030 = phi i64 [ %25, %rb_type.exit.thread41 ], [ %1, %rb_type.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = load i64, ptr %27, align 8, !tbaa !24
   %29 = and i64 %28, -5

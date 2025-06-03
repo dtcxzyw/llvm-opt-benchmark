@@ -320,7 +320,7 @@ define dso_local void @lua_remove(ptr noundef captures(address) %0, i32 noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %53 = load ptr, ptr %51, align 8, !tbaa !4
@@ -426,7 +426,7 @@ define dso_local void @lua_insert(ptr noundef captures(address) %0, i32 noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = icmp ugt ptr %52, %.1.i
@@ -567,7 +567,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %114
 
 .thread37:                                        ; preds = %13, %23, %29, %33
-  %.1.i.ph.ph = phi ptr [ %.luaO_nilobject_.i, %13 ], [ %27, %23 ], [ %34, %33 ], [ %32, %29 ]
+  %.1.i.ph.ph = phi ptr [ %.luaO_nilobject_.i, %13 ], [ %27, %23 ], [ %32, %29 ], [ %34, %33 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !4
   %68 = getelementptr inbounds i8, ptr %67, i64 -16
@@ -724,7 +724,7 @@ define dso_local void @lua_pushvalue(ptr noundef captures(none) %0, i32 noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = load i64, ptr %.1.i, align 8, !tbaa !19
@@ -815,7 +815,7 @@ define dso_local i32 @lua_type(ptr noundef captures(address) %0, i32 noundef %1)
   br i1 %.not.i, label %index2adr.exit.thread, label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %36, %14, %20, %24, %34
-  %.1.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ], [ %9, %4 ]
+  %.1.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ], [ %9, %4 ]
   %50 = icmp eq ptr %.1.i, @luaO_nilobject_
   br i1 %50, label %index2adr.exit.thread, label %51
 
@@ -923,7 +923,7 @@ define dso_local range(i32 0, 2) i32 @lua_iscfunction(ptr noundef captures(none)
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   %53 = icmp eq i32 %52, 6
@@ -1022,7 +1022,7 @@ define dso_local range(i32 0, 2) i32 @lua_isnumber(ptr noundef %0, i32 noundef %
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !20
   %54 = icmp eq i32 %53, 3
@@ -1118,7 +1118,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef captures(address)
   br i1 %.not.i.i, label %lua_type.exit, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %36, %34, %24, %20, %14, %4
-  %.1.i.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ], [ %9, %4 ]
+  %.1.i.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ], [ %9, %4 ]
   %50 = icmp eq ptr %.1.i.i, @luaO_nilobject_
   br i1 %50, label %lua_type.exit, label %51
 
@@ -1213,7 +1213,7 @@ define dso_local range(i32 0, 2) i32 @lua_isuserdata(ptr noundef captures(none) 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   %53 = icmp eq i32 %52, 7
@@ -1301,7 +1301,7 @@ define dso_local i32 @lua_rawequal(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = icmp sgt i32 %2, 0
   br i1 %52, label %53, label %61
 
@@ -1378,7 +1378,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %index2adr.exit13
 
 index2adr.exit13:                                 ; preds = %53, %63, %69, %73, %83, %85
-  %.1.i9 = phi ptr [ %.luaO_nilobject_.i12, %53 ], [ %67, %63 ], [ %99, %85 ], [ %84, %83 ], [ %79, %73 ], [ %72, %69 ]
+  %.1.i9 = phi ptr [ %.luaO_nilobject_.i12, %53 ], [ %67, %63 ], [ %99, %85 ], [ %72, %69 ], [ %79, %73 ], [ %84, %83 ]
   %100 = icmp eq ptr %.1.i, @luaO_nilobject_
   %101 = icmp eq ptr %.1.i9, @luaO_nilobject_
   %or.cond = select i1 %100, i1 true, i1 %101
@@ -1473,7 +1473,7 @@ define dso_local range(i32 0, 2) i32 @lua_equal(ptr noundef %0, i32 noundef %1, 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = icmp sgt i32 %2, 0
   br i1 %52, label %53, label %61
 
@@ -1550,7 +1550,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %index2adr.exit17
 
 index2adr.exit17:                                 ; preds = %53, %63, %69, %73, %83, %85
-  %.1.i13 = phi ptr [ %.luaO_nilobject_.i16, %53 ], [ %67, %63 ], [ %99, %85 ], [ %84, %83 ], [ %79, %73 ], [ %72, %69 ]
+  %.1.i13 = phi ptr [ %.luaO_nilobject_.i16, %53 ], [ %67, %63 ], [ %99, %85 ], [ %72, %69 ], [ %79, %73 ], [ %84, %83 ]
   %100 = icmp eq ptr %.1.i, @luaO_nilobject_
   %101 = icmp eq ptr %.1.i13, @luaO_nilobject_
   %or.cond = select i1 %100, i1 true, i1 %101
@@ -1655,7 +1655,7 @@ define dso_local i32 @lua_lessthan(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = icmp sgt i32 %2, 0
   br i1 %52, label %53, label %61
 
@@ -1732,7 +1732,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %index2adr.exit15
 
 index2adr.exit15:                                 ; preds = %53, %63, %69, %73, %83, %85
-  %.1.i11 = phi ptr [ %.luaO_nilobject_.i14, %53 ], [ %67, %63 ], [ %99, %85 ], [ %84, %83 ], [ %79, %73 ], [ %72, %69 ]
+  %.1.i11 = phi ptr [ %.luaO_nilobject_.i14, %53 ], [ %67, %63 ], [ %99, %85 ], [ %72, %69 ], [ %79, %73 ], [ %84, %83 ]
   %100 = icmp eq ptr %.1.i, @luaO_nilobject_
   %101 = icmp eq ptr %.1.i11, @luaO_nilobject_
   %or.cond = select i1 %100, i1 true, i1 %101
@@ -1829,7 +1829,7 @@ define dso_local double @lua_tonumber(ptr noundef %0, i32 noundef %1) local_unna
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !20
   %54 = icmp eq i32 %53, 3
@@ -1931,7 +1931,7 @@ define dso_local i64 @lua_tointeger(ptr noundef %0, i32 noundef %1) local_unname
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !20
   %54 = icmp eq i32 %53, 3
@@ -2032,7 +2032,7 @@ define dso_local range(i32 0, 2) i32 @lua_toboolean(ptr noundef captures(none) %
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   switch i32 %52, label %.fold.split [
@@ -2132,7 +2132,7 @@ define dso_local ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !20
   %54 = icmp eq i32 %53, 4
@@ -2240,7 +2240,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %index2adr.exit25
 
 index2adr.exit25:                                 ; preds = %99, %97, %87, %84, %78, %68, %index2adr.exit
-  %.0 = phi ptr [ %.1.i, %index2adr.exit ], [ %.luaO_nilobject_.i24, %68 ], [ %82, %78 ], [ %113, %99 ], [ %98, %97 ], [ %93, %87 ], [ %86, %84 ]
+  %.0 = phi ptr [ %.1.i, %index2adr.exit ], [ %.luaO_nilobject_.i24, %68 ], [ %82, %78 ], [ %113, %99 ], [ %86, %84 ], [ %93, %87 ], [ %98, %97 ]
   %.not20 = icmp eq ptr %2, null
   %.pre26 = load ptr, ptr %.0, align 8, !tbaa !19
   br i1 %.not20, label %117, label %114
@@ -2342,7 +2342,7 @@ define dso_local i64 @lua_objlen(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   switch i32 %52, label %71 [
@@ -2382,7 +2382,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   br label %71
 
 71:                                               ; preds = %index2adr.exit, %67, %65, %61, %57, %53
-  %.0 = phi i64 [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %70, %67 ], [ 0, %65 ], [ 0, %index2adr.exit ]
+  %.0 = phi i64 [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %70, %67 ], [ 0, %65 ], [ 0, %index2adr.exit ]
   ret i64 %.0
 }
 
@@ -2466,7 +2466,7 @@ define dso_local ptr @lua_tocfunction(ptr noundef captures(none) %0, i32 noundef
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   %53 = icmp eq i32 %52, 6
@@ -2567,7 +2567,7 @@ define dso_local ptr @lua_touserdata(ptr noundef captures(none) %0, i32 noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   switch i32 %52, label %58 [
@@ -2585,7 +2585,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   br label %58
 
 58:                                               ; preds = %index2adr.exit, %56, %53
-  %.0 = phi ptr [ %57, %56 ], [ %55, %53 ], [ null, %index2adr.exit ]
+  %.0 = phi ptr [ %55, %53 ], [ %57, %56 ], [ null, %index2adr.exit ]
   ret ptr %.0
 }
 
@@ -2667,7 +2667,7 @@ define dso_local ptr @lua_tothread(ptr noundef captures(none) %0, i32 noundef %1
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   %53 = icmp eq i32 %52, 8
@@ -2760,7 +2760,7 @@ define dso_local ptr @lua_topointer(ptr noundef captures(none) %0, i32 noundef %
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   switch i32 %52, label %lua_touserdata.exit [
@@ -2859,7 +2859,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   br label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %92, %90, %80, %76, %70, %60
-  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %60 ], [ %74, %70 ], [ %106, %92 ], [ %91, %90 ], [ %86, %80 ], [ %79, %76 ]
+  %.1.i.i = phi ptr [ %.luaO_nilobject_.i.i, %60 ], [ %74, %70 ], [ %106, %92 ], [ %79, %76 ], [ %86, %80 ], [ %91, %90 ]
   %107 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %108 = load i32, ptr %107, align 8, !tbaa !20
   switch i32 %108, label %lua_touserdata.exit [
@@ -2877,7 +2877,7 @@ index2adr.exit.i:                                 ; preds = %92, %90, %80, %76, 
   br label %lua_touserdata.exit
 
 lua_touserdata.exit:                              ; preds = %112, %109, %index2adr.exit.i, %index2adr.exit, %57, %55, %53
-  %.0 = phi ptr [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ null, %index2adr.exit ], [ %113, %112 ], [ %111, %109 ], [ null, %index2adr.exit.i ]
+  %.0 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ null, %index2adr.exit ], [ %111, %109 ], [ %113, %112 ], [ null, %index2adr.exit.i ]
   ret ptr %.0
 }
 
@@ -3260,7 +3260,7 @@ define dso_local void @lua_gettable(ptr noundef %0, i32 noundef %1) local_unname
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = getelementptr inbounds i8, ptr %52, i64 -16
@@ -3350,7 +3350,7 @@ define dso_local void @lua_getfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %6, %16, %22, %26, %36, %38
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %52, %38 ], [ %37, %36 ], [ %32, %26 ], [ %25, %22 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %52, %38 ], [ %25, %22 ], [ %32, %26 ], [ %37, %36 ]
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %54 = tail call ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %53) #14
   store ptr %54, ptr %4, align 8, !tbaa !19
@@ -3444,7 +3444,7 @@ define dso_local void @lua_rawget(ptr noundef captures(none) %0, i32 noundef %1)
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !4
@@ -3541,7 +3541,7 @@ define dso_local void @lua_rawgeti(ptr noundef captures(none) %0, i32 noundef %1
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %53 = tail call ptr @luaH_getnum(ptr noundef %52, i32 noundef %2) #14
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3668,7 +3668,7 @@ define dso_local range(i32 0, 2) i32 @lua_getmetatable(ptr noundef captures(none
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   switch i32 %52, label %59 [
@@ -3695,7 +3695,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   br label %65
 
 65:                                               ; preds = %59, %56, %53
-  %.0.in = phi ptr [ %64, %59 ], [ %58, %56 ], [ %55, %53 ]
+  %.0.in = phi ptr [ %64, %59 ], [ %55, %53 ], [ %58, %56 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !19
   %66 = icmp eq ptr %.0, null
   br i1 %66, label %73, label %67
@@ -3794,7 +3794,7 @@ define dso_local void @lua_getfenv(ptr noundef captures(none) %0, i32 noundef %1
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   switch i32 %52, label %73 [
@@ -3927,7 +3927,7 @@ define dso_local void @lua_settable(ptr noundef %0, i32 noundef %1) local_unname
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = getelementptr inbounds i8, ptr %52, i64 -32
@@ -4021,7 +4021,7 @@ define dso_local void @lua_setfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %6, %16, %22, %26, %36, %38
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %52, %38 ], [ %37, %36 ], [ %32, %26 ], [ %25, %22 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %6 ], [ %20, %16 ], [ %52, %38 ], [ %25, %22 ], [ %32, %26 ], [ %37, %36 ]
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %54 = tail call ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %53) #14
   store ptr %54, ptr %4, align 8, !tbaa !19
@@ -4116,7 +4116,7 @@ define dso_local void @lua_rawset(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !19
@@ -4258,7 +4258,7 @@ define dso_local void @lua_rawseti(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %54 = load i32, ptr %53, align 4, !tbaa !19
@@ -4397,7 +4397,7 @@ define dso_local noundef i32 @lua_setmetatable(ptr noundef %0, i32 noundef %1) l
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = getelementptr inbounds i8, ptr %52, i64 -8
@@ -4577,7 +4577,7 @@ define dso_local range(i32 0, 2) i32 @lua_setfenv(ptr noundef %0, i32 noundef %1
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !20
   switch i32 %52, label %89 [
@@ -4618,7 +4618,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   store i32 5, ptr %74, align 8, !tbaa !20
   br label %75
 
-75:                                               ; preds = %67, %60, %53
+75:                                               ; preds = %53, %60, %67
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !4
   %78 = getelementptr inbounds i8, ptr %77, i64 -16
@@ -4770,7 +4770,7 @@ define dso_local i32 @lua_pcall(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %9, %19, %25, %29, %39, %41
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %9 ], [ %23, %19 ], [ %55, %41 ], [ %40, %39 ], [ %35, %29 ], [ %28, %25 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %9 ], [ %23, %19 ], [ %55, %41 ], [ %28, %25 ], [ %35, %29 ], [ %40, %39 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %57 = load ptr, ptr %56, align 8, !tbaa !51
   %58 = ptrtoint ptr %.1.i to i64
@@ -5026,7 +5026,7 @@ define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %33, %3, %39, %36, %18, %13, %12, %8, %6
-  %.0 = phi i32 [ %41, %39 ], [ %38, %36 ], [ %22, %18 ], [ %17, %13 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ -1, %3 ], [ 1, %33 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %38, %36 ], [ %41, %39 ], [ -1, %3 ], [ 1, %33 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -5118,7 +5118,7 @@ define dso_local i32 @lua_next(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !4
@@ -5357,7 +5357,7 @@ define dso_local ptr @lua_getupvalue(ptr noundef captures(none) %0, i32 noundef 
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !20
   %54 = icmp eq i32 %53, 6
@@ -5514,7 +5514,7 @@ define dso_local ptr @lua_setupvalue(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !20
   %54 = icmp eq i32 %53, 6
@@ -5694,7 +5694,7 @@ define dso_local void @lua_enablereadonlytable(ptr noundef captures(none) %0, i3
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %5, %15, %21, %25, %35, %37
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %36, %35 ], [ %31, %25 ], [ %24, %21 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 %2, ptr %53, align 4, !tbaa !75
@@ -5779,7 +5779,7 @@ define dso_local i32 @lua_isreadonlytable(ptr noundef captures(none) %0, i32 nou
   br label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %14, %20, %24, %34, %36
-  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %35, %34 ], [ %30, %24 ], [ %23, %20 ]
+  %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !75

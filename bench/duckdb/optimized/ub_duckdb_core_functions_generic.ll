@@ -21781,7 +21781,7 @@ _ZN6duckdb11LogicalTypeaSERKS0_.exit97:           ; preds = %_ZN6duckdb11Logical
   ret void
 
 379:                                              ; preds = %132, %117, %102, %100, %96
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %96 ], [ %103, %102 ], [ %133, %132 ], [ %118, %117 ], [ %101, %100 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %96 ], [ %103, %102 ], [ %101, %100 ], [ %118, %117 ], [ %133, %132 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #27
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
@@ -27827,7 +27827,7 @@ _ZN6duckdb11LogicalTypeaSERKS0_.exit97:           ; preds = %_ZN6duckdb11Logical
   ret void
 
 379:                                              ; preds = %132, %117, %102, %100, %96
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %96 ], [ %103, %102 ], [ %133, %132 ], [ %118, %117 ], [ %101, %100 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %96 ], [ %103, %102 ], [ %101, %100 ], [ %118, %117 ], [ %133, %132 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #27
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn

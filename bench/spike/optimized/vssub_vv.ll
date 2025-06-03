@@ -390,7 +390,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssub_vvP1
   br label %189
 
 189:                                              ; preds = %176, %163, %151, %139
-  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %spec.select.i111, %163 ], [ %spec.select.i, %151 ], [ %.lobit.i, %139 ]
+  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %.lobit.i, %139 ], [ %spec.select.i, %151 ], [ %spec.select.i111, %163 ]
   %190 = trunc nuw i8 %.0 to i1
   br i1 %190, label %191, label %193
 
@@ -849,7 +849,7 @@ define noundef i64 @_Z19fast_rv64i_vssub_vvP11processor_t6insn_tm(ptr noundef %0
   br label %187
 
 187:                                              ; preds = %174, %161, %149, %137
-  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %spec.select.i111, %161 ], [ %spec.select.i, %149 ], [ %.lobit.i, %137 ]
+  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %.lobit.i, %137 ], [ %spec.select.i, %149 ], [ %spec.select.i111, %161 ]
   %188 = trunc nuw i8 %.0 to i1
   br i1 %188, label %189, label %191
 
@@ -1186,7 +1186,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssub_vv
   br label %189
 
 189:                                              ; preds = %176, %163, %151, %139
-  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %spec.select.i111, %163 ], [ %spec.select.i, %151 ], [ %.lobit.i, %139 ]
+  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %.lobit.i, %139 ], [ %spec.select.i, %151 ], [ %spec.select.i111, %163 ]
   %190 = trunc nuw i8 %.0 to i1
   br i1 %190, label %191, label %193
 
@@ -1521,7 +1521,7 @@ define noundef i64 @_Z21logged_rv64i_vssub_vvP11processor_t6insn_tm(ptr noundef 
   br label %187
 
 187:                                              ; preds = %174, %161, %149, %137
-  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %spec.select.i111, %161 ], [ %spec.select.i, %149 ], [ %.lobit.i, %137 ]
+  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %.lobit.i, %137 ], [ %spec.select.i, %149 ], [ %spec.select.i111, %161 ]
   %188 = trunc nuw i8 %.0 to i1
   br i1 %188, label %189, label %191
 
@@ -1858,7 +1858,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssub_vvP1
   br label %189
 
 189:                                              ; preds = %176, %163, %151, %139
-  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %spec.select.i111, %163 ], [ %spec.select.i, %151 ], [ %.lobit.i, %139 ]
+  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %.lobit.i, %139 ], [ %spec.select.i, %151 ], [ %spec.select.i111, %163 ]
   %190 = trunc nuw i8 %.0 to i1
   br i1 %190, label %191, label %193
 
@@ -2193,7 +2193,7 @@ define noundef i64 @_Z19fast_rv64e_vssub_vvP11processor_t6insn_tm(ptr noundef %0
   br label %187
 
 187:                                              ; preds = %174, %161, %149, %137
-  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %spec.select.i111, %161 ], [ %spec.select.i, %149 ], [ %.lobit.i, %137 ]
+  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %.lobit.i, %137 ], [ %spec.select.i, %149 ], [ %spec.select.i111, %161 ]
   %188 = trunc nuw i8 %.0 to i1
   br i1 %188, label %189, label %191
 
@@ -2530,7 +2530,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssub_vv
   br label %189
 
 189:                                              ; preds = %176, %163, %151, %139
-  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %spec.select.i111, %163 ], [ %spec.select.i, %151 ], [ %.lobit.i, %139 ]
+  %.0 = phi i8 [ %spec.select.i114, %176 ], [ %.lobit.i, %139 ], [ %spec.select.i, %151 ], [ %spec.select.i111, %163 ]
   %190 = trunc nuw i8 %.0 to i1
   br i1 %190, label %191, label %193
 
@@ -2865,7 +2865,7 @@ define noundef i64 @_Z21logged_rv64e_vssub_vvP11processor_t6insn_tm(ptr noundef 
   br label %187
 
 187:                                              ; preds = %174, %161, %149, %137
-  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %spec.select.i111, %161 ], [ %spec.select.i, %149 ], [ %.lobit.i, %137 ]
+  %.0 = phi i8 [ %spec.select.i114, %174 ], [ %.lobit.i, %137 ], [ %spec.select.i, %149 ], [ %spec.select.i111, %161 ]
   %188 = trunc nuw i8 %.0 to i1
   br i1 %188, label %189, label %191
 

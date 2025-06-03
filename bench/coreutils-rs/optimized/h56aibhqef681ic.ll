@@ -320,7 +320,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h714a6558da9e8d23E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h714a6558da9e8d23E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -364,7 +364,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN58_$LT$anstyle..color..Color$u20$as$u20$core..fmt..Debug$GT$3fmt17h86d3a77d13e41425E.exit"
 
 "_ZN58_$LT$anstyle..color..Color$u20$as$u20$core..fmt..Debug$GT$3fmt17h86d3a77d13e41425E.exit": ; preds = %9, %11, %13
-  %.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.0.in.i
 }
 
@@ -421,7 +421,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd513021968358134E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd513021968358134E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -491,7 +491,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h49952d8052a17fe5E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h49952d8052a17fe5E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1179,7 +1179,7 @@ default.unreachable1:                             ; preds = %2
   br label %19
 
 19:                                               ; preds = %17, %14, %11, %7
-  %.0.in = phi i1 [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %7 ]
+  %.0.in = phi i1 [ %10, %7 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
   ret i1 %.0.in
 }
 
@@ -1388,7 +1388,7 @@ define void @_ZN6uucore8features8encoding6encode17hdaf6cb6467d20e47E(ptr noalias
   unreachable
 
 29:                                               ; preds = %40, %38, %36, %34, %32, %30, %24
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %25, %24 ]
+  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ]
   resume { ptr, i32 } %.pn
 
 30:                                               ; preds = %15
@@ -1580,9 +1580,9 @@ define void @_ZN6uucore8features8encoding6decode17hd21a93650067afa4E(ptr noalias
   br label %39
 
 39:                                               ; preds = %111, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit192", %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit186", %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit180", %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit174", %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit168", %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit162", %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit"
-  %.sroa.085.0 = phi i64 [ %106, %111 ], [ %99, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit192" ], [ %89, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit186" ], [ %79, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit180" ], [ %69, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit174" ], [ %59, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit168" ], [ %49, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit162" ], [ %33, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit" ]
-  %.sroa.986.0 = phi i64 [ %.sroa.0144.0.copyload, %111 ], [ %102, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit192" ], [ %92, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit186" ], [ %82, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit180" ], [ %72, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit174" ], [ %62, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit168" ], [ %52, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit162" ], [ %36, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit" ]
-  %.sroa.17.0 = phi i8 [ %.sroa.4145.0.copyload, %111 ], [ %104, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit192" ], [ %94, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit186" ], [ %84, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit180" ], [ %74, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit174" ], [ %64, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit168" ], [ %54, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit162" ], [ %38, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit" ]
+  %.sroa.085.0 = phi i64 [ %33, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit" ], [ %49, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit162" ], [ %59, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit168" ], [ %69, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit174" ], [ %79, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit180" ], [ %89, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit186" ], [ %99, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit192" ], [ %106, %111 ]
+  %.sroa.986.0 = phi i64 [ %36, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit" ], [ %52, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit162" ], [ %62, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit168" ], [ %72, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit174" ], [ %82, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit180" ], [ %92, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit186" ], [ %102, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit192" ], [ %.sroa.0144.0.copyload, %111 ]
+  %.sroa.17.0 = phi i8 [ %38, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit" ], [ %54, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit162" ], [ %64, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit168" ], [ %74, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit174" ], [ %84, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit180" ], [ %94, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit186" ], [ %104, %"_ZN4core3ptr44drop_in_place$LT$data_encoding..Encoding$GT$17h69745889c5ae2a64E.exit192" ], [ %.sroa.4145.0.copyload, %111 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.085.0, ptr %40, align 8
   %.sroa.986.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1616,7 +1616,7 @@ define void @_ZN6uucore8features8encoding6decode17hd21a93650067afa4E(ptr noalias
   unreachable
 
 45:                                               ; preds = %96, %86, %76, %66, %56, %46, %30
-  %.pn = phi { ptr, i32 } [ %97, %96 ], [ %87, %86 ], [ %77, %76 ], [ %67, %66 ], [ %57, %56 ], [ %47, %46 ], [ %31, %30 ]
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %47, %46 ], [ %57, %56 ], [ %67, %66 ], [ %77, %76 ], [ %87, %86 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn
 
 46:                                               ; preds = %22
@@ -2035,7 +2035,7 @@ define noundef zeroext i1 @"_ZN76_$LT$uucore..features..format..FormatError$u20$
   br label %72
 
 72:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit24", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit21", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit", %41, %35, %29, %23
-  %.0.in = phi i1 [ %46, %41 ], [ %113, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit24" ], [ %88, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit21" ], [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %59, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit" ]
+  %.0.in = phi i1 [ %59, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit" ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ], [ %88, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit21" ], [ %113, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit24" ], [ %46, %41 ]
   ret i1 %.0.in
 
 73:                                               ; preds = %101, %76, %47
@@ -2045,7 +2045,7 @@ define noundef zeroext i1 @"_ZN76_$LT$uucore..features..format..FormatError$u20$
   unreachable
 
 75:                                               ; preds = %101, %76, %47
-  %.pn = phi { ptr, i32 } [ %102, %101 ], [ %77, %76 ], [ %48, %47 ]
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %77, %76 ], [ %102, %101 ]
   resume { ptr, i32 } %.pn
 
 76:                                               ; preds = %78
@@ -2420,8 +2420,8 @@ thread-pre-split:                                 ; preds = %14
   br label %.invoke
 
 .invoke:                                          ; preds = %28, %33, %35, %36, %37, %41
-  %43 = phi ptr [ %.sroa.344.0.copyload, %41 ], [ %.sroa.344.0.copyload, %37 ], [ @anon.27aa217f45c270b761c4ad406800e76c.3, %36 ], [ @anon.27aa217f45c270b761c4ad406800e76c.2, %35 ], [ %.sroa.748.0.copyload, %33 ], [ @anon.27aa217f45c270b761c4ad406800e76c.1, %28 ]
-  %44 = phi i64 [ %.sroa.546.0.copyload, %41 ], [ %.sroa.546.0.copyload, %37 ], [ 2, %36 ], [ 1, %35 ], [ %.sroa.8.0.copyload, %33 ], [ %31, %28 ]
+  %43 = phi ptr [ %.sroa.344.0.copyload, %41 ], [ %.sroa.748.0.copyload, %33 ], [ @anon.27aa217f45c270b761c4ad406800e76c.2, %35 ], [ @anon.27aa217f45c270b761c4ad406800e76c.3, %36 ], [ %.sroa.344.0.copyload, %37 ], [ @anon.27aa217f45c270b761c4ad406800e76c.1, %28 ]
+  %44 = phi i64 [ %.sroa.546.0.copyload, %41 ], [ %.sroa.8.0.copyload, %33 ], [ 1, %35 ], [ 2, %36 ], [ %.sroa.546.0.copyload, %37 ], [ %31, %28 ]
   invoke void @_ZN3std4path7PathBuf5_push17h98f2c6a7c69395cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %44)
           to label %_ZN3std4path7PathBuf4push17hde9f6a71c8e18b33E.exit.backedge unwind label %.loopexit
 
@@ -2480,7 +2480,7 @@ _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21: ; preds = %1
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit
 
 _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %1, %10, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14, %3
-  %.merged = phi { ptr, i64 } [ %16, %10 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.3, i64 2 }, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.2, i64 1 }, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14 ], [ %9, %3 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.1, i64 1 }, %1 ]
+  %.merged = phi { ptr, i64 } [ %9, %3 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.2, i64 1 }, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.3, i64 2 }, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21 ], [ %16, %10 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.1, i64 1 }, %1 ]
   ret { ptr, i64 } %.merged
 }
 
@@ -6647,7 +6647,7 @@ default.unreachable5:                             ; preds = %2
   br label %35
 
 35:                                               ; preds = %28, %21, %14
-  %.0.in = phi i1 [ %34, %28 ], [ %27, %21 ], [ %20, %14 ]
+  %.0.in = phi i1 [ %20, %14 ], [ %27, %21 ], [ %34, %28 ]
   ret i1 %.0.in
 }
 

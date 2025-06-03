@@ -1122,8 +1122,8 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   br label %198
 
 198:                                              ; preds = %34, %170, %162, %186, %174, %tipc_v1_set_col_msgtype.exit.thread, %66, %58
-  %.0261 = phi i1 [ false, %34 ], [ true, %162 ], [ true, %170 ], [ false, %174 ], [ false, %186 ], [ true, %58 ], [ true, %66 ], [ false, %tipc_v1_set_col_msgtype.exit.thread ]
-  %.0260 = phi i8 [ 0, %34 ], [ %79, %162 ], [ %79, %170 ], [ %79, %174 ], [ %79, %186 ], [ %39, %58 ], [ %39, %66 ], [ %39, %tipc_v1_set_col_msgtype.exit.thread ]
+  %.0261 = phi i1 [ false, %34 ], [ true, %58 ], [ true, %66 ], [ false, %tipc_v1_set_col_msgtype.exit.thread ], [ true, %162 ], [ true, %170 ], [ false, %174 ], [ false, %186 ]
+  %.0260 = phi i8 [ 0, %34 ], [ %39, %58 ], [ %39, %66 ], [ %39, %tipc_v1_set_col_msgtype.exit.thread ], [ %79, %162 ], [ %79, %170 ], [ %79, %174 ], [ %79, %186 ]
   %199 = load i32, ptr @proto_tipc, align 4
   %200 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %199, ptr noundef %.0262, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %201 = load i32, ptr @ett_tipc, align 4

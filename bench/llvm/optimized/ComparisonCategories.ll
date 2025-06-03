@@ -162,9 +162,9 @@ _ZNK5clang4Type19isObjectPointerTypeEv.exit:      ; preds = %31, %_ZNK5clang4Typ
 _ZNK5clang4Type19isObjectPointerTypeEv.exit.thread: ; preds = %35, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type19isObjectPointerTypeEv.exit
   br label %55
 
-55:                                               ; preds = %_ZNK5clang4Type19isObjectPointerTypeEv.exit, %28, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %14, %22, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread
-  %.sroa.07.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 2, %22 ], [ 2, %14 ], [ 2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 0, %28 ], [ 2, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
-  %.sroa.4.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 256, %22 ], [ 256, %14 ], [ 256, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 256, %28 ], [ 256, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
+55:                                               ; preds = %_ZNK5clang4Type19isObjectPointerTypeEv.exit, %28, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %22, %14, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread
+  %.sroa.07.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 2, %14 ], [ 2, %22 ], [ 2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 0, %28 ], [ 2, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
+  %.sroa.4.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 256, %14 ], [ 256, %22 ], [ 256, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 256, %28 ], [ 256, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
   %.sroa.07.0.insert.insert = or disjoint i16 %.sroa.4.0, %.sroa.07.0
   ret i16 %.sroa.07.0.insert.insert
 }
@@ -283,7 +283,7 @@ _ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt
   br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %6, %_ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit, %55, %47, %40, %1
-  %.0 = phi i1 [ false, %1 ], [ %54, %47 ], [ %56, %55 ], [ %spec.select.i, %40 ], [ false, %_ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit ], [ false, %6 ]
+  %.0 = phi i1 [ false, %1 ], [ %56, %55 ], [ %54, %47 ], [ %spec.select.i, %40 ], [ false, %_ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit ], [ false, %6 ]
   ret i1 %.0
 }
 

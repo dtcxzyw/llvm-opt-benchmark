@@ -4531,8 +4531,8 @@ define hidden void @_ZN17C2_MacroAssembler20load_constant_vectorE9BasicType11XMM
   unreachable
 
 _ZN17C2_MacroAssembler22vector_length_encodingEi.exit: ; preds = %5, %5, %5, %14, %15
-  %.not = phi i1 [ false, %15 ], [ false, %14 ], [ true, %5 ], [ true, %5 ], [ true, %5 ]
-  %.0.i = phi i32 [ 2, %15 ], [ 1, %14 ], [ 0, %5 ], [ 0, %5 ], [ 0, %5 ]
+  %.not = phi i1 [ false, %14 ], [ false, %15 ], [ true, %5 ], [ true, %5 ], [ true, %5 ]
+  %.0.i = phi i32 [ 1, %14 ], [ 2, %15 ], [ 0, %5 ], [ 0, %5 ], [ 0, %5 ]
   %18 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %19 = and i64 %18, 262144
   %.not40 = icmp eq i64 %19, 0
@@ -14578,7 +14578,7 @@ define hidden void @_ZN17C2_MacroAssembler9masked_opEii9KRegisterS0_S0_(ptr noun
   unreachable
 
 12:                                               ; preds = %6, %6, %6, %9, %8, %7
-  %.0 = phi i8 [ 11, %9 ], [ 10, %8 ], [ 9, %7 ], [ 8, %6 ], [ 8, %6 ], [ 8, %6 ]
+  %.0 = phi i8 [ 9, %7 ], [ 10, %8 ], [ 11, %9 ], [ 8, %6 ], [ 8, %6 ], [ 8, %6 ]
   switch i32 %1, label %16 [
     i32 497, label %13
     i32 498, label %14
@@ -15611,8 +15611,8 @@ define hidden void @_ZN17C2_MacroAssembler16vector_mask_castE11XMMRegisterS0_9Ba
   unreachable
 
 _ZN17C2_MacroAssembler22vector_length_encodingEi.exit: ; preds = %6, %6, %6, %15, %16
-  %19 = phi i1 [ false, %16 ], [ false, %15 ], [ true, %6 ], [ true, %6 ], [ true, %6 ]
-  %.0.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ]
+  %19 = phi i1 [ false, %15 ], [ false, %16 ], [ true, %6 ], [ true, %6 ], [ true, %6 ]
+  %.0.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ]
   %20 = icmp sgt i32 %12, %9
   br i1 %20, label %21, label %28
 

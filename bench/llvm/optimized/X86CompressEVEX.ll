@@ -433,106 +433,106 @@ _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT
   %121 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 2
   %122 = load i16, ptr %121, align 2, !tbaa !310
   switch i16 %122, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i [
-    i16 17417, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 17418, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 17388, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 17389, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 17448, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 17449, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 17419, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 17420, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
-    i16 6404, label %123
-    i16 6405, label %123
-    i16 6375, label %123
-    i16 6376, label %123
-    i16 16201, label %126
-    i16 16202, label %126
-    i16 16172, label %126
-    i16 16173, label %126
-    i16 16232, label %126
-    i16 16233, label %126
-    i16 16203, label %126
-    i16 16204, label %126
-    i16 16325, label %126
-    i16 16326, label %126
-    i16 16296, label %126
-    i16 16297, label %126
-    i16 16356, label %126
-    i16 16357, label %126
-    i16 16327, label %126
-    i16 16328, label %126
-    i16 16387, label %129
-    i16 16388, label %129
-    i16 16358, label %129
-    i16 16359, label %129
-    i16 16418, label %129
-    i16 16419, label %129
-    i16 16389, label %129
-    i16 16390, label %129
-    i16 16449, label %129
-    i16 16450, label %129
-    i16 16420, label %129
-    i16 16421, label %129
-    i16 16480, label %129
-    i16 16481, label %129
-    i16 16451, label %129
-    i16 16452, label %129
-    i16 16511, label %129
-    i16 16512, label %129
-    i16 16482, label %129
-    i16 16483, label %129
-    i16 16542, label %129
-    i16 16543, label %129
-    i16 16513, label %129
-    i16 16514, label %129
-    i16 16077, label %132
-    i16 16078, label %132
-    i16 16048, label %132
-    i16 16049, label %132
-    i16 16108, label %132
-    i16 16109, label %132
-    i16 16079, label %132
-    i16 16080, label %132
-    i16 16139, label %132
-    i16 16140, label %132
-    i16 16110, label %132
-    i16 16111, label %132
-    i16 16170, label %132
-    i16 16171, label %132
-    i16 16141, label %132
-    i16 16142, label %132
-    i16 16263, label %132
-    i16 16264, label %132
-    i16 16234, label %132
-    i16 16235, label %132
-    i16 16294, label %132
-    i16 16295, label %132
-    i16 16265, label %132
-    i16 16266, label %132
+    i16 17417, label %123
+    i16 17418, label %123
+    i16 17388, label %123
+    i16 17389, label %123
+    i16 17448, label %123
+    i16 17449, label %123
+    i16 17419, label %123
+    i16 17420, label %123
+    i16 6404, label %126
+    i16 6405, label %126
+    i16 6375, label %126
+    i16 6376, label %126
+    i16 16201, label %129
+    i16 16202, label %129
+    i16 16172, label %129
+    i16 16173, label %129
+    i16 16232, label %129
+    i16 16233, label %129
+    i16 16203, label %129
+    i16 16204, label %129
+    i16 16325, label %129
+    i16 16326, label %129
+    i16 16296, label %129
+    i16 16297, label %129
+    i16 16356, label %129
+    i16 16357, label %129
+    i16 16327, label %129
+    i16 16328, label %129
+    i16 16387, label %132
+    i16 16388, label %132
+    i16 16358, label %132
+    i16 16359, label %132
+    i16 16418, label %132
+    i16 16419, label %132
+    i16 16389, label %132
+    i16 16390, label %132
+    i16 16449, label %132
+    i16 16450, label %132
+    i16 16420, label %132
+    i16 16421, label %132
+    i16 16480, label %132
+    i16 16481, label %132
+    i16 16451, label %132
+    i16 16452, label %132
+    i16 16511, label %132
+    i16 16512, label %132
+    i16 16482, label %132
+    i16 16483, label %132
+    i16 16542, label %132
+    i16 16543, label %132
+    i16 16513, label %132
+    i16 16514, label %132
+    i16 16077, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16078, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16048, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16049, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16108, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16109, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16079, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16080, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16139, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16140, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16110, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16111, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16170, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16171, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16141, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16142, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16263, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16264, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16234, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16235, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16294, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16295, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16265, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
+    i16 16266, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i
   ]
 
-123:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
-  %124 = load i8, ptr %24, align 1, !tbaa !311, !range !274, !noundef !275
+123:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
+  %124 = load i8, ptr %25, align 2, !tbaa !311, !range !274, !noundef !275
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
-126:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
-  %127 = load i8, ptr %23, align 4, !tbaa !312, !range !274, !noundef !275
+126:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
+  %127 = load i8, ptr %24, align 1, !tbaa !312, !range !274, !noundef !275
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
-129:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
-  %130 = load i8, ptr %22, align 1, !tbaa !313, !range !274, !noundef !275
+129:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
+  %130 = load i8, ptr %23, align 4, !tbaa !313, !range !274, !noundef !275
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
 132:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
-  %133 = load i8, ptr %21, align 2, !tbaa !314, !range !274, !noundef !275
+  %133 = load i8, ptr %22, align 1, !tbaa !314, !range !274, !noundef !275
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
-_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i: ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
-  %135 = load i8, ptr %25, align 2, !tbaa !315, !range !274, !noundef !275
+_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i: ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
+  %135 = load i8, ptr %21, align 2, !tbaa !315, !range !274, !noundef !275
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
@@ -644,7 +644,7 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   unreachable
 
 184:                                              ; preds = %182, %181, %173
-  %.0.i = phi i32 [ 268435456, %182 ], [ 134217728, %181 ], [ 67108864, %173 ]
+  %.0.i = phi i32 [ 134217728, %181 ], [ 268435456, %182 ], [ 67108864, %173 ]
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.016.028, i64 44
   %186 = load i32, ptr %185, align 4
   %187 = or i32 %186, %.0.i
@@ -656,7 +656,7 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   br label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
 _ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit: ; preds = %114, %.lr.ph, %36, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i, %103, %123, %126, %129, %132, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i, %162, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i", %184, %188
-  %.030.i = phi i1 [ false, %.lr.ph ], [ false, %36 ], [ true, %184 ], [ true, %188 ], [ false, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i" ], [ false, %103 ], [ false, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i ], [ false, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i ], [ false, %132 ], [ false, %129 ], [ false, %126 ], [ false, %123 ], [ false, %162 ], [ false, %114 ]
+  %.030.i = phi i1 [ false, %.lr.ph ], [ false, %36 ], [ true, %184 ], [ true, %188 ], [ false, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i" ], [ false, %103 ], [ false, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i ], [ false, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i ], [ false, %123 ], [ false, %126 ], [ false, %129 ], [ false, %132 ], [ false, %162 ], [ false, %114 ]
   %189 = or i1 %.127, %.030.i
   %190 = icmp ne ptr %.sroa.016.028, null
   tail call void @llvm.assume(i1 %190)
@@ -1088,11 +1088,11 @@ attributes #15 = { builtin nounwind }
 !308 = distinct !{!308, !309}
 !309 = !{!"llvm.loop.mustprogress"}
 !310 = !{!307, !297, i64 2}
-!311 = !{!145, !16, i64 347}
-!312 = !{!145, !16, i64 348}
-!313 = !{!145, !16, i64 349}
-!314 = !{!145, !16, i64 350}
-!315 = !{!145, !16, i64 346}
+!311 = !{!145, !16, i64 346}
+!312 = !{!145, !16, i64 347}
+!313 = !{!145, !16, i64 348}
+!314 = !{!145, !16, i64 349}
+!315 = !{!145, !16, i64 350}
 !316 = !{!211, !212, i64 0}
 !317 = distinct !{!317, !309}
 !318 = !{!319, !4, i64 0}

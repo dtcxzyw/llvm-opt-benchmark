@@ -119,9 +119,9 @@ default.unreachable:                              ; preds = %11
   br label %30
 
 30:                                               ; preds = %28, %23, %17
-  %.sroa.9.0.i.i.i = phi i64 [ %.sroa.9.1.copyload.i.i.i, %28 ], [ %27, %23 ], [ %.val1.i.i.i.i, %17 ]
-  %.sroa.7.0.i.i.i = phi ptr [ %.sroa.7.1.copyload.i.i.i, %28 ], [ %25, %23 ], [ %.val.i.i.i.i, %17 ]
-  %.sroa.0.0.i.i.i = phi i8 [ %15, %28 ], [ 25, %23 ], [ 24, %17 ]
+  %.sroa.9.0.i.i.i = phi i64 [ %27, %23 ], [ %.sroa.9.1.copyload.i.i.i, %28 ], [ %.val1.i.i.i.i, %17 ]
+  %.sroa.7.0.i.i.i = phi ptr [ %25, %23 ], [ %.sroa.7.1.copyload.i.i.i, %28 ], [ %.val.i.i.i.i, %17 ]
+  %.sroa.0.0.i.i.i = phi i8 [ 25, %23 ], [ %15, %28 ], [ 24, %17 ]
   %31 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %.sroa.8.0.copyload, i64 %12
   store i8 %.sroa.0.0.i.i.i, ptr %31, align 8, !noalias !35
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 1
@@ -741,7 +741,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7cca4a04192a1956E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7cca4a04192a1956E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -2940,9 +2940,9 @@ default.unreachable:                              ; preds = %16
   br label %35
 
 35:                                               ; preds = %33, %28, %22
-  %.sroa.9.0.i.i = phi i64 [ %.sroa.9.1.copyload.i.i, %33 ], [ %32, %28 ], [ %.val1.i.i.i, %22 ]
-  %.sroa.7.0.i.i = phi ptr [ %.sroa.7.1.copyload.i.i, %33 ], [ %30, %28 ], [ %.val.i.i.i, %22 ]
-  %.sroa.0.0.i.i = phi i8 [ %20, %33 ], [ 25, %28 ], [ 24, %22 ]
+  %.sroa.9.0.i.i = phi i64 [ %32, %28 ], [ %.sroa.9.1.copyload.i.i, %33 ], [ %.val1.i.i.i, %22 ]
+  %.sroa.7.0.i.i = phi ptr [ %30, %28 ], [ %.sroa.7.1.copyload.i.i, %33 ], [ %.val.i.i.i, %22 ]
+  %.sroa.0.0.i.i = phi i8 [ 25, %28 ], [ %20, %33 ], [ 24, %22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !945)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !948)
   %36 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %12, i64 %17

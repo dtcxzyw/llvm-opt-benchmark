@@ -1016,7 +1016,7 @@ latm_context2profilelevel.exit.i:                 ; preds = %343, %341, %339, %3
   br label %sdp_write_media_attributes.exit
 
 424:                                              ; preds = %422, %421, %418
-  %.0228.i = phi ptr [ @.str.47, %422 ], [ @.str.46, %421 ], [ @.str.45, %418 ]
+  %.0228.i = phi ptr [ @.str.46, %421 ], [ @.str.47, %422 ], [ @.str.45, %418 ]
   %425 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %426 = load i32, ptr %425, align 8, !tbaa !25
   %.not252.i = icmp eq i32 %426, 0
@@ -1068,8 +1068,8 @@ latm_context2profilelevel.exit.i:                 ; preds = %343, %341, %339, %3
   br label %sdp_write_media_attributes.exit
 
 444:                                              ; preds = %443, %442, %441, %440, %437
-  %.0227.i = phi ptr [ @.str.52, %443 ], [ @.str.51, %442 ], [ @.str.45, %441 ], [ @.str.46, %440 ], [ @.str.46, %437 ]
-  %.0.i = phi i32 [ 8, %443 ], [ 8, %442 ], [ 8, %441 ], [ 10, %440 ], [ 8, %437 ]
+  %.0227.i = phi ptr [ @.str.46, %440 ], [ @.str.45, %441 ], [ @.str.51, %442 ], [ @.str.52, %443 ], [ @.str.46, %437 ]
+  %.0.i = phi i32 [ 10, %440 ], [ 8, %441 ], [ 8, %442 ], [ 8, %443 ], [ 8, %437 ]
   %445 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %446 = load i32, ptr %445, align 8, !tbaa !52
   %447 = getelementptr inbounds nuw i8, ptr %.val, i64 76
@@ -1173,7 +1173,7 @@ latm_context2profilelevel.exit.i:                 ; preds = %343, %341, %339, %3
   br label %sdp_write_media_attributes.exit
 
 sdp_write_media_attributes.exit:                  ; preds = %extradata2psets_av1.exit.thread.i, %150, %extradata2psets_hevc.exit.thread.i, %301, %307, %328, %350, %353, %.thread10.i, %408, %423, %.thread12.i, %427, %.critedge.i, %507
-  %.0234.i = phi i32 [ 0, %507 ], [ -38, %353 ], [ %.0.i278.ph.i, %150 ], [ %329, %328 ], [ %351, %350 ], [ %409, %408 ], [ -38, %.critedge.i ], [ %.0.i.ph.i, %extradata2psets_av1.exit.thread.i ], [ %.2.i.ph.i, %extradata2psets_hevc.exit.thread.i ], [ -1094995529, %.thread10.i ], [ -12, %307 ], [ -1094995529, %301 ], [ -1094995529, %.thread12.i ], [ %428, %427 ], [ -38, %423 ]
+  %.0234.i = phi i32 [ 0, %507 ], [ %.0.i278.ph.i, %150 ], [ -38, %353 ], [ %329, %328 ], [ %351, %350 ], [ %409, %408 ], [ -38, %.critedge.i ], [ %.0.i.ph.i, %extradata2psets_av1.exit.thread.i ], [ %.2.i.ph.i, %extradata2psets_hevc.exit.thread.i ], [ -1094995529, %.thread10.i ], [ -12, %307 ], [ -1094995529, %301 ], [ -1094995529, %.thread12.i ], [ %428, %427 ], [ -38, %423 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
   ret i32 %.0234.i
 }

@@ -1698,7 +1698,7 @@ _ZN4llvm15SmallVectorImplIcE6resizeEm.exit:       ; preds = %.sink.split.i.i, %1
   br label %174
 
 174:                                              ; preds = %172, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %173, %172 ]
+  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %173, %172 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %175 = load ptr, ptr %.sroa.031.1.i.i.i.i.i.i.i, align 8, !tbaa !205
   %176 = getelementptr i8, ptr %175, i64 904
   %.val.i20.i.i.i.i.i.i.i = load i16, ptr %176, align 8
@@ -1711,7 +1711,7 @@ _ZN4llvm15SmallVectorImplIcE6resizeEm.exit:       ; preds = %.sink.split.i.i, %1
   br label %180
 
 180:                                              ; preds = %178, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %179, %178 ]
+  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %179, %178 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %181 = load ptr, ptr %.sroa.031.2.i.i.i.i.i.i.i, align 8, !tbaa !205
   %182 = getelementptr i8, ptr %181, i64 904
   %.val.i21.i.i.i.i.i.i.i = load i16, ptr %182, align 8
@@ -1940,7 +1940,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZL20hasPrivateSubm
   br label %268
 
 268:                                              ; preds = %266, %._crit_edge.i.i.i.i.i.i.i59
-  %.sroa.031.1.i.i.i.i.i.i.i67 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i61, %._crit_edge.i.i.i.i.i.i.i59 ], [ %267, %266 ]
+  %.sroa.031.1.i.i.i.i.i.i.i67 = phi ptr [ %267, %266 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i61, %._crit_edge.i.i.i.i.i.i.i59 ]
   %269 = load ptr, ptr %.sroa.031.1.i.i.i.i.i.i.i67, align 8, !tbaa !205
   %270 = getelementptr i8, ptr %269, i64 904
   %.val.i20.i.i.i.i.i.i.i68 = load i16, ptr %270, align 8
@@ -1953,7 +1953,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZL20hasPrivateSubm
   br label %274
 
 274:                                              ; preds = %272, %._crit_edge.i.i.i.i.i.i.i59
-  %.sroa.031.2.i.i.i.i.i.i.i62 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i61, %._crit_edge.i.i.i.i.i.i.i59 ], [ %273, %272 ]
+  %.sroa.031.2.i.i.i.i.i.i.i62 = phi ptr [ %273, %272 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i61, %._crit_edge.i.i.i.i.i.i.i59 ]
   %275 = load ptr, ptr %.sroa.031.2.i.i.i.i.i.i.i62, align 8, !tbaa !205
   %276 = getelementptr i8, ptr %275, i64 904
   %.val.i21.i.i.i.i.i.i.i63 = load i16, ptr %276, align 8

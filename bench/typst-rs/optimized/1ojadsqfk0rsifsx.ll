@@ -2104,16 +2104,16 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   %71 = landingpad { ptr, i32 }
           cleanup
   store ptr %94, ptr %0, align 8, !alias.scope !371
-  store i64 %93, ptr %86, align 8, !alias.scope !371
+  store i64 %93, ptr %87, align 8, !alias.scope !371
   br label %common.resume.i.i
 
 72:                                               ; preds = %82
   %73 = load ptr, ptr %4, align 8, !noalias !371, !nonnull !37, !noundef !37
   %74 = load i64, ptr %85, align 8, !noalias !371, !noundef !37
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %86, i1 false)
   %76 = load i64, ptr %85, align 8, !noalias !371, !noundef !37
-  %77 = add i64 %76, %87
+  %77 = add i64 %76, %86
   store i64 %77, ptr %85, align 8, !noalias !371
   %.val.i19.pre.i.i = load ptr, ptr %4, align 8, !alias.scope !379, !noalias !371
   call void @llvm.experimental.noalias.scope.decl(metadata !379)
@@ -2139,9 +2139,9 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   store ptr %83, ptr %4, align 8, !noalias !371
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %84, ptr %85, align 8, !noalias !371
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = zext nneg i8 %45 to i64
-  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h49b2bc288d04b2b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %87)
+  %86 = zext nneg i8 %45 to i64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h49b2bc288d04b2b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %86)
           to label %72 unwind label %98, !noalias !371
 
 88:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i.i.i"
@@ -2163,7 +2163,7 @@ common.resume.i.i:                                ; preds = %98, %70, %66
 
 "_ZN4core3ptr46drop_in_place$LT$ecow..dynamic..DynamicVec$GT$17hf3f101a52a679bd4E.exit.i.i": ; preds = %97, %88
   store ptr %94, ptr %0, align 8, !alias.scope !371
-  store i64 %93, ptr %86, align 8, !alias.scope !371
+  store i64 %93, ptr %87, align 8, !alias.scope !371
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !371
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
@@ -7982,10 +7982,10 @@ default.unreachable164.i:                         ; preds = %.noexc56
   br label %780
 
 780:                                              ; preds = %777, %773, %770, %768
-  %.045.i = phi double [ 0.000000e+00, %777 ], [ 1.000000e+00, %773 ], [ 1.000000e+00, %770 ], [ 0.000000e+00, %768 ]
-  %.044.i = phi double [ 1.000000e+00, %777 ], [ 1.000000e+00, %773 ], [ 0.000000e+00, %770 ], [ 0.000000e+00, %768 ]
-  %.043.i = phi double [ %721, %777 ], [ %774, %773 ], [ %771, %770 ], [ %721, %768 ]
-  %.042.i = phi double [ %779, %777 ], [ %776, %773 ], [ %772, %770 ], [ %769, %768 ]
+  %.045.i = phi double [ 0.000000e+00, %768 ], [ 1.000000e+00, %770 ], [ 1.000000e+00, %773 ], [ 0.000000e+00, %777 ]
+  %.044.i = phi double [ 0.000000e+00, %768 ], [ 0.000000e+00, %770 ], [ 1.000000e+00, %773 ], [ 1.000000e+00, %777 ]
+  %.043.i = phi double [ %721, %768 ], [ %771, %770 ], [ %774, %773 ], [ %721, %777 ]
+  %.042.i = phi double [ %769, %768 ], [ %772, %770 ], [ %776, %773 ], [ %779, %777 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %272), !noalias !1467
   store double %.045.i, ptr %272, align 8, !noalias !1467
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %271), !noalias !1467

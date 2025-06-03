@@ -3588,7 +3588,7 @@ lean_dec.exit:                                    ; preds = %337, %336, %334, %l
   br label %lean_inc.exit80
 
 lean_inc.exit80:                                  ; preds = %lean_dec.exit97, %57, %59, %60, %lean_dec.exit92, %lean_dec.exit88, %lean_dec.exit84, %lean_dec.exit
-  %.0 = phi ptr [ %338, %lean_dec.exit ], [ %292, %lean_dec.exit84 ], [ %206, %lean_dec.exit88 ], [ %140, %lean_dec.exit92 ], [ %1, %60 ], [ %1, %59 ], [ %1, %57 ], [ %1, %lean_dec.exit97 ]
+  %.0 = phi ptr [ %338, %lean_dec.exit ], [ %140, %lean_dec.exit92 ], [ %206, %lean_dec.exit88 ], [ %292, %lean_dec.exit84 ], [ %1, %60 ], [ %1, %59 ], [ %1, %57 ], [ %1, %lean_dec.exit97 ]
   ret ptr %.0
 }
 

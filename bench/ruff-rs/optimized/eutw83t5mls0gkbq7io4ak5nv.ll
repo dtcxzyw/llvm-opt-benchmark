@@ -5247,7 +5247,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter10expressio
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd4caecd3d5f02fd9E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd4caecd3d5f02fd9E.exit": ; preds = %"_ZN21ruff_python_formatter10expression11binary_like7Operand36has_unparenthesized_leading_comments28_$u7b$$u7b$closure$u7d$$u7d$17h8d22283b79c364acE.exit.backedge.i", %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i.i, %36, %34, %12
-  %.sroa.0.0.in = phi i1 [ %35, %34 ], [ %15, %12 ], [ false, %36 ], [ false, %"_ZN21ruff_python_formatter10expression11binary_like7Operand36has_unparenthesized_leading_comments28_$u7b$$u7b$closure$u7d$$u7d$17h8d22283b79c364acE.exit.backedge.i" ], [ true, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i.i ]
+  %.sroa.0.0.in = phi i1 [ %15, %12 ], [ %35, %34 ], [ false, %36 ], [ false, %"_ZN21ruff_python_formatter10expression11binary_like7Operand36has_unparenthesized_leading_comments28_$u7b$$u7b$closure$u7d$$u7d$17h8d22283b79c364acE.exit.backedge.i" ], [ true, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i.i ]
   ret i1 %.sroa.0.0.in
 
 16:                                               ; preds = %4
@@ -7959,7 +7959,7 @@ _ZN21ruff_python_formatter10expression22is_expression_huggable17hb52b5df56e7a73c
   unreachable
 
 217:                                              ; preds = %218, %.loopexit.split-lp
-  %.pn = phi { ptr, i32 } [ %219, %218 ], [ %lpad.phi, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %219, %218 ]
   resume { ptr, i32 } %.pn
 
 218:                                              ; preds = %.lr.ph.i
@@ -10000,7 +10000,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter10expression1
   br label %28
 
 28:                                               ; preds = %52, %34, %49, %41, %13, %20, %10, %2, %16, %48, %27, %9
-  %.sroa.0.0 = phi i8 [ 1, %48 ], [ 1, %9 ], [ 1, %27 ], [ 2, %16 ], [ 2, %2 ], [ %., %10 ], [ 0, %20 ], [ 1, %13 ], [ %spec.select, %34 ], [ 0, %41 ], [ 1, %49 ], [ %spec.select6, %52 ]
+  %.sroa.0.0 = phi i8 [ 1, %27 ], [ 1, %48 ], [ 1, %9 ], [ 2, %16 ], [ 2, %2 ], [ %., %10 ], [ 0, %20 ], [ 1, %13 ], [ %spec.select, %34 ], [ 0, %41 ], [ 1, %49 ], [ %spec.select6, %52 ]
   ret i8 %.sroa.0.0
 
 29:                                               ; preds = %2, %2
@@ -10231,7 +10231,7 @@ tailrecurse.backedge:                             ; preds = %39, %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit, %18, %50, %35, %31, %27, %24, %21, %14, %10, %6
-  %.sroa.0.0.shrunk = phi i1 [ %38, %35 ], [ %34, %31 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %61, %50 ], [ %17, %14 ], [ %13, %10 ], [ %9, %6 ], [ true, %18 ], [ true, %.loopexit.loopexit ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
+  %.sroa.0.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ %17, %14 ], [ %61, %50 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %34, %31 ], [ %38, %35 ], [ true, %18 ], [ true, %.loopexit.loopexit ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   ret i1 %.sroa.0.0.shrunk
 
 39:                                               ; preds = %tailrecurse, %tailrecurse, %30
@@ -11753,7 +11753,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter7pattern37c
   br label %26
 
 26:                                               ; preds = %27, %22, %18
-  %.sroa.01.0.in.in = phi i64 [ %20, %18 ], [ %30, %27 ], [ %25, %22 ]
+  %.sroa.01.0.in.in = phi i64 [ %25, %22 ], [ %30, %27 ], [ %20, %18 ]
   %.sroa.01.0.in.not = icmp eq i64 %.sroa.01.0.in.in, 0
   br i1 %.sroa.01.0.in.not, label %31, label %38
 

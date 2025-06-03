@@ -7875,7 +7875,7 @@ _ZN11ast_manager13mk_const_declERK6symbolP4sortRK14func_decl_info.exit: ; preds 
           to label %50 unwind label %28
 
 50:                                               ; preds = %49, %_ZN11ast_manager13mk_const_declERK6symbolP4sortRK14func_decl_info.exit, %_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_RK14func_decl_info.exit
-  %.010 = phi ptr [ %45, %_ZN11ast_manager13mk_const_declERK6symbolP4sortRK14func_decl_info.exit ], [ %27, %_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_RK14func_decl_info.exit ], [ null, %49 ]
+  %.010 = phi ptr [ %27, %_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_RK14func_decl_info.exit ], [ %45, %_ZN11ast_manager13mk_const_declERK6symbolP4sortRK14func_decl_info.exit ], [ null, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !115
   %.not.i.i.i = icmp eq ptr %52, null
@@ -7918,7 +7918,7 @@ _ZN9decl_infoD2Ev.exit:                           ; preds = %50, %_ZN6vectorI9pa
   ret ptr %.010
 
 62:                                               ; preds = %46, %30, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %47, %46 ], [ %31, %30 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ], [ %47, %46 ]
   call void @_ZN9decl_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %8) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23
   resume { ptr, i32 } %.pn

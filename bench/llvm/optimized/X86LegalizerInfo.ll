@@ -7551,7 +7551,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo14legalizeCustom
   br label %16
 
 16:                                               ; preds = %4, %14, %12, %7
-  %.0 = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %7 ], [ false, %4 ]
+  %.0 = phi i1 [ %11, %7 ], [ %13, %12 ], [ %15, %14 ], [ false, %4 ]
   ret i1 %.0
 }
 

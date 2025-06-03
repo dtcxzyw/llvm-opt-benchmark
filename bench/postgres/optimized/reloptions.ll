@@ -1519,8 +1519,8 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
   %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef %1) #13
   br label %47
 
-47:                                               ; preds = %33, %30, %27, %24, %39, %41, %45
-  %.1.i.ph = phi i64 [ %40, %39 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %42, %41 ], [ %46, %45 ]
+47:                                               ; preds = %24, %27, %30, %33, %39, %41, %45
+  %.1.i.ph = phi i64 [ %40, %39 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %42, %41 ], [ %46, %45 ]
   %.val = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %49 = load i8, ptr %48, align 2
@@ -1997,7 +1997,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread98.us
 
 .thread98.us:                                     ; preds = %83, %76, %69, %62, %.thread96.us, %54, %51, %48, %._crit_edge.us
-  %.1101.us = phi i32 [ %.081110.us, %._crit_edge.us ], [ %.081110.us, %51 ], [ %50, %48 ], [ %.081110.us, %83 ], [ %.081110.us, %76 ], [ %.081110.us, %69 ], [ %.081110.us, %62 ], [ %61, %54 ], [ %.081110.us, %.thread96.us ]
+  %.1101.us = phi i32 [ %.081110.us, %._crit_edge.us ], [ %.081110.us, %51 ], [ %50, %48 ], [ %61, %54 ], [ %.081110.us, %.thread96.us ], [ %.081110.us, %62 ], [ %.081110.us, %69 ], [ %.081110.us, %76 ], [ %.081110.us, %83 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
   br i1 %exitcond133.not, label %._crit_edge112, label %.preheader.us, !llvm.loop !16

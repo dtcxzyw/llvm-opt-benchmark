@@ -2848,7 +2848,7 @@ return:                                           ; preds = %if.end119, %do.end,
   ret i64 %125
 
 eh.resume:                                        ; preds = %ehcleanup157, %ehcleanup108, %ehcleanup46
-  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %ehcleanup157 ], [ %.pn.pn.pn.pn, %ehcleanup108 ], [ %.pn36.pn.pn.pn, %ehcleanup46 ]
+  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %ehcleanup157 ], [ %.pn36.pn.pn.pn, %ehcleanup46 ], [ %.pn.pn.pn.pn, %ehcleanup108 ]
   resume { ptr, i32 } %.pn41.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont141, %invoke.cont92, %invoke.cont36

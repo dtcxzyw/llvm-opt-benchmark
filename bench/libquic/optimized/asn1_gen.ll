@@ -1080,7 +1080,7 @@ sub_1:                                            ; preds = %sub_0
   br label %137
 
 137:                                              ; preds = %append_exp.exit82.thread, %append_exp.exit78.thread, %append_exp.exit74.thread, %append_exp.exit.thread, %59, %57, %54, %42, %45, %3, %136, %132, %120, %53, %49, %asn1_str2tag.exit.thread
-  %.050 = phi i32 [ -1, %asn1_str2tag.exit.thread ], [ 1, %136 ], [ -1, %132 ], [ -1, %120 ], [ -1, %53 ], [ -1, %49 ], [ 0, %3 ], [ 0, %45 ], [ 0, %42 ], [ -1, %54 ], [ -1, %57 ], [ -1, %59 ], [ -1, %append_exp.exit.thread ], [ -1, %append_exp.exit74.thread ], [ -1, %append_exp.exit78.thread ], [ -1, %append_exp.exit82.thread ]
+  %.050 = phi i32 [ -1, %asn1_str2tag.exit.thread ], [ 1, %136 ], [ -1, %53 ], [ -1, %132 ], [ -1, %120 ], [ -1, %49 ], [ 0, %3 ], [ 0, %45 ], [ 0, %42 ], [ -1, %54 ], [ -1, %57 ], [ -1, %59 ], [ -1, %append_exp.exit.thread ], [ -1, %append_exp.exit74.thread ], [ -1, %append_exp.exit78.thread ], [ -1, %append_exp.exit82.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   ret i32 %.050

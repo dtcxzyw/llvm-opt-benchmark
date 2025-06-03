@@ -5413,12 +5413,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h06974ec4697f2f4fE.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %56, %68, %69, %.thread
-  %.0.i15 = phi i8 [ 0, %.thread ], [ 3, %69 ], [ 1, %68 ], [ 2, %56 ]
+  %.0.i15 = phi i8 [ 1, %68 ], [ 3, %69 ], [ 0, %.thread ], [ 2, %56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %70
 
 70:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h06974ec4697f2f4fE.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %58
-  %.1 = phi i8 [ 0, %58 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h06974ec4697f2f4fE.llvm.4698933542364062918.exit ], [ %.0.i15, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %58 ], [ %.0.i15, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h06974ec4697f2f4fE.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -5662,12 +5662,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h260336ba39b599bbE.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i17 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h260336ba39b599bbE.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h260336ba39b599bbE.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h260336ba39b599bbE.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -5911,12 +5911,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17hbfd7074c3d76a374E.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i17 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hbfd7074c3d76a374E.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hbfd7074c3d76a374E.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hbfd7074c3d76a374E.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -6160,12 +6160,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h3ac5a9473e6e85fcE.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i17 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h3ac5a9473e6e85fcE.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h3ac5a9473e6e85fcE.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h3ac5a9473e6e85fcE.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -6409,12 +6409,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17hf7f892d90501bcfcE.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i17 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hf7f892d90501bcfcE.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hf7f892d90501bcfcE.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hf7f892d90501bcfcE.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -6651,12 +6651,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17hbb707af238b58236E.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %56, %68, %69, %.thread
-  %.0.i15 = phi i8 [ 0, %.thread ], [ 3, %69 ], [ 1, %68 ], [ 2, %56 ]
+  %.0.i15 = phi i8 [ 1, %68 ], [ 3, %69 ], [ 0, %.thread ], [ 2, %56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %70
 
 70:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hbb707af238b58236E.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %58
-  %.1 = phi i8 [ 0, %58 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hbb707af238b58236E.llvm.4698933542364062918.exit ], [ %.0.i15, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %58 ], [ %.0.i15, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hbb707af238b58236E.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -6900,12 +6900,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h860e7923070757bcE.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i17 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h860e7923070757bcE.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h860e7923070757bcE.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h860e7923070757bcE.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -7153,12 +7153,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17hfac85b161a7af106E.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %58, %71, %72, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %72 ], [ 1, %71 ], [ 2, %58 ]
+  %.0.i17 = phi i8 [ 1, %71 ], [ 3, %72 ], [ 0, %.thread ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %73
 
 73:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hfac85b161a7af106E.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %60
-  %.1 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hfac85b161a7af106E.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %60 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hfac85b161a7af106E.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -7372,12 +7372,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17had0f2103c201905aE.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i15 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i15 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17had0f2103c201905aE.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17had0f2103c201905aE.llvm.4698933542364062918.exit ], [ %.0.i15, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i15, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17had0f2103c201905aE.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -7625,12 +7625,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h6a2ec16c0e5e2789E.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %58, %71, %72, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %72 ], [ 1, %71 ], [ 2, %58 ]
+  %.0.i17 = phi i8 [ 1, %71 ], [ 3, %72 ], [ 0, %.thread ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %73
 
 73:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h6a2ec16c0e5e2789E.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %60
-  %.1 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6a2ec16c0e5e2789E.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %60 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6a2ec16c0e5e2789E.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -7874,12 +7874,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h6fd4e19f4b712c33E.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i17 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h6fd4e19f4b712c33E.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6fd4e19f4b712c33E.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6fd4e19f4b712c33E.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -8123,12 +8123,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h8ab5750281941d2aE.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %57, %69, %70, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %70 ], [ 1, %69 ], [ 2, %57 ]
+  %.0.i17 = phi i8 [ 1, %69 ], [ 3, %70 ], [ 0, %.thread ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h8ab5750281941d2aE.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %59
-  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h8ab5750281941d2aE.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %59 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h8ab5750281941d2aE.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -8376,12 +8376,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h77d4567c2570fe73E.llvm.46989335423
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit": ; preds = %58, %71, %72, %.thread
-  %.0.i17 = phi i8 [ 0, %.thread ], [ 3, %72 ], [ 1, %71 ], [ 2, %58 ]
+  %.0.i17 = phi i8 [ 1, %71 ], [ 3, %72 ], [ 0, %.thread ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %73
 
 73:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h77d4567c2570fe73E.llvm.4698933542364062918.exit, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit", %1, %60
-  %.1 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h77d4567c2570fe73E.llvm.4698933542364062918.exit ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %60 ], [ %.0.i17, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit" ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h77d4567c2570fe73E.llvm.4698933542364062918.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 

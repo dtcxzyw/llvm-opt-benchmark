@@ -462,7 +462,7 @@ default.unreachable1:                             ; preds = %2
   br label %20
 
 20:                                               ; preds = %18, %16, %13, %10, %7
-  %.sroa.0.0.in = phi i1 [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -619,7 +619,7 @@ default.unreachable1:                             ; preds = %2
   br label %58
 
 58:                                               ; preds = %56, %54, %50, %48, %46, %43, %41, %37, %35, %33, %31, %29, %27, %25, %22, %20, %17, %14, %11
-  %.sroa.0.0.in = phi i1 [ %57, %56 ], [ %55, %54 ], [ %53, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %43 ], [ %42, %41 ], [ %40, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %21, %20 ], [ %24, %22 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %40, %37 ], [ %42, %41 ], [ %45, %43 ], [ %47, %46 ], [ %49, %48 ], [ %53, %50 ], [ %55, %54 ], [ %57, %56 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1011,8 +1011,8 @@ define { ptr, ptr } @"_ZN57_$LT$uv_metadata..Error$u20$as$u20$core..error..Error
   br label %18
 
 18:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %13, %11, %9, %7
-  %.sroa.12.0 = phi ptr [ %17, %13 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.70, %11 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.68, %9 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.66, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %16, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.12.0 = phi ptr [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.66, %7 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.68, %9 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.70, %11 ], [ %17, %13 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %16, %13 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %19 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %20
@@ -1292,7 +1292,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit82: ; preds = %2
   br label %67
 
 67:                                               ; preds = %64, %62, %60, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit82, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit77, %44, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit67, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %29, %27
-  %.sroa.0.0.in = phi i1 [ %66, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit82 ], [ %49, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit77 ], [ %45, %44 ], [ %43, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit72 ], [ %38, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit67 ], [ %34, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %30, %29 ], [ %28, %27 ]
+  %.sroa.0.0.in = phi i1 [ %28, %27 ], [ %30, %29 ], [ %34, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %38, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit67 ], [ %43, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit72 ], [ %45, %44 ], [ %49, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit77 ], [ %59, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit82 ], [ %61, %60 ], [ %63, %62 ], [ %66, %64 ]
   ret i1 %.sroa.0.0.in
 }
 

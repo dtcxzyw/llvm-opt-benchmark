@@ -304,8 +304,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15Smal
   br label %_ZNK4llvm5Twine18getSingleStringRefEv.exit
 
 _ZNK4llvm5Twine18getSingleStringRefEv.exit:       ; preds = %6, %18, %13, %11, %9, %22
-  %.sroa.3.0 = phi i64 [ %34, %22 ], [ %21, %18 ], [ %17, %13 ], [ 0, %9 ], [ %12, %11 ], [ 0, %6 ]
-  %.sroa.0.0 = phi ptr [ %32, %22 ], [ %19, %18 ], [ %15, %13 ], [ null, %9 ], [ %10, %11 ], [ null, %6 ]
+  %.sroa.3.0 = phi i64 [ %34, %22 ], [ %17, %13 ], [ %21, %18 ], [ 0, %9 ], [ %12, %11 ], [ 0, %6 ]
+  %.sroa.0.0 = phi ptr [ %32, %22 ], [ %15, %13 ], [ %19, %18 ], [ null, %9 ], [ %10, %11 ], [ null, %6 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -461,8 +461,8 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %24, %38
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %13, %11, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit, %20, %15
-  %.sroa.5.0 = phi i64 [ %43, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %23, %20 ], [ %19, %15 ], [ %14, %13 ], [ 0, %11 ]
-  %.sroa.0.0 = phi ptr [ %44, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %21, %20 ], [ %17, %15 ], [ %12, %13 ], [ null, %11 ]
+  %.sroa.5.0 = phi i64 [ %43, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %19, %15 ], [ %23, %20 ], [ %14, %13 ], [ 0, %11 ]
+  %.sroa.0.0 = phi ptr [ %44, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %17, %15 ], [ %21, %20 ], [ %12, %13 ], [ null, %11 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert

@@ -3090,8 +3090,8 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit197: ; preds = %368, %370
 
 .loopexit250:                                     ; preds = %395, %390
   %.pre-phi350 = phi i64 [ %.pre349, %390 ], [ %400, %395 ]
-  %.1150243 = phi i64 [ %spec.select, %390 ], [ %396, %395 ]
-  %402 = icmp ult i64 %.1150243, %.pre-phi350
+  %.1150244 = phi i64 [ %spec.select, %390 ], [ %396, %395 ]
+  %402 = icmp ult i64 %.1150244, %.pre-phi350
   br i1 %402, label %.sink.split, label %403
 
 403:                                              ; preds = %.loopexit250
@@ -3278,7 +3278,7 @@ _ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit205: ; preds = %468, %_ZNSt6
   br label %.thread237
 
 .thread237:                                       ; preds = %.split287.us, %265, %.split.us, %select.unfold, %126, %4, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit205, %._crit_edge298, %187, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit, %125, %103, %_ZNK7glslang14TParseVersions13getCurrentLocEv.exit177, %46
-  %.0155 = phi i32 [ 0, %125 ], [ 3, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit ], [ 0, %187 ], [ 2, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit205 ], [ 1, %._crit_edge298 ], [ 2, %103 ], [ 2, %_ZNK7glslang14TParseVersions13getCurrentLocEv.exit177 ], [ 2, %46 ], [ 0, %4 ], [ 0, %126 ], [ 0, %select.unfold ], [ 1, %.split.us ], [ 1, %265 ], [ 1, %.split287.us ]
+  %.0155 = phi i32 [ 0, %125 ], [ 3, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit ], [ 0, %187 ], [ 2, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit205 ], [ 1, %._crit_edge298 ], [ 2, %46 ], [ 2, %_ZNK7glslang14TParseVersions13getCurrentLocEv.exit177 ], [ 2, %103 ], [ 0, %4 ], [ 0, %126 ], [ 0, %select.unfold ], [ 1, %.split.us ], [ 1, %265 ], [ 1, %.split287.us ]
   ret i32 %.0155
 }
 
@@ -5472,7 +5472,7 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %2, %128, %9, %36, %66, %88, %91, %93, %95, %97, %110, %112, %114, %116, %118, %120, %122
-  %.2.ph = phi i32 [ %4, %2 ], [ %4, %2 ], [ %4, %128 ], [ %10, %9 ], [ %39, %36 ], [ %67, %66 ], [ %90, %88 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ 10, %116 ], [ %119, %118 ], [ %121, %120 ], [ 162, %122 ]
+  %.2.ph = phi i32 [ %4, %2 ], [ %4, %2 ], [ %4, %128 ], [ %121, %120 ], [ %119, %118 ], [ 10, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %88 ], [ %67, %66 ], [ %39, %36 ], [ %10, %9 ], [ 162, %122 ]
   br label %134
 
 134:                                              ; preds = %.preheader, %135

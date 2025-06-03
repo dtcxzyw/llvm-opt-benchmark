@@ -10481,8 +10481,8 @@ lean_dec.exit451:                                 ; preds = %lean_dec.exit442, %
   %966 = icmp eq i8 %965, 0
   br i1 %966, label %.lr.ph, label %._crit_edge
 
-967:                                              ; preds = %lean_alloc_ctor.exit692, %lean_alloc_ctor.exit691, %lean_alloc_ctor.exit674, %lean_alloc_ctor.exit673, %lean_alloc_ctor.exit630, %lean_alloc_ctor.exit, %lean_dec.exit460, %lean_alloc_ctor.exit678, %lean_dec.exit425, %lean_alloc_ctor.exit682, %lean_dec.exit418, %lean_alloc_ctor.exit686, %lean_dec.exit411, %lean_alloc_ctor.exit690, %lean_dec.exit404
-  %.8.ph = phi ptr [ %888, %lean_alloc_ctor.exit690 ], [ %9, %lean_dec.exit404 ], [ %797, %lean_alloc_ctor.exit686 ], [ %9, %lean_dec.exit411 ], [ %706, %lean_alloc_ctor.exit682 ], [ %9, %lean_dec.exit418 ], [ %615, %lean_alloc_ctor.exit678 ], [ %41, %lean_dec.exit425 ], [ %129, %lean_alloc_ctor.exit ], [ %41, %lean_dec.exit460 ], [ %173, %lean_alloc_ctor.exit630 ], [ %472, %lean_alloc_ctor.exit673 ], [ %516, %lean_alloc_ctor.exit674 ], [ %925, %lean_alloc_ctor.exit691 ], [ %959, %lean_alloc_ctor.exit692 ]
+967:                                              ; preds = %lean_alloc_ctor.exit692, %lean_alloc_ctor.exit691, %lean_alloc_ctor.exit630, %lean_alloc_ctor.exit673, %lean_alloc_ctor.exit674, %lean_alloc_ctor.exit, %lean_dec.exit460, %lean_alloc_ctor.exit678, %lean_dec.exit425, %lean_alloc_ctor.exit682, %lean_dec.exit418, %lean_alloc_ctor.exit686, %lean_dec.exit411, %lean_alloc_ctor.exit690, %lean_dec.exit404
+  %.8.ph = phi ptr [ %888, %lean_alloc_ctor.exit690 ], [ %9, %lean_dec.exit404 ], [ %797, %lean_alloc_ctor.exit686 ], [ %9, %lean_dec.exit411 ], [ %706, %lean_alloc_ctor.exit682 ], [ %9, %lean_dec.exit418 ], [ %615, %lean_alloc_ctor.exit678 ], [ %41, %lean_dec.exit425 ], [ %129, %lean_alloc_ctor.exit ], [ %41, %lean_dec.exit460 ], [ %516, %lean_alloc_ctor.exit674 ], [ %472, %lean_alloc_ctor.exit673 ], [ %173, %lean_alloc_ctor.exit630 ], [ %925, %lean_alloc_ctor.exit691 ], [ %959, %lean_alloc_ctor.exit692 ]
   ret ptr %.8.ph
 }
 

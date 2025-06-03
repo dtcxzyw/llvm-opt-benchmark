@@ -382,8 +382,8 @@ define dso_local void @_ZN5clang8comments4Sema18checkContainerDeclEPKNS0_19Block
 30:                                               ; preds = %17
   br label %31
 
-31:                                               ; preds = %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %17
-  %.0.ph = phi i64 [ 0, %17 ], [ 1, %21 ], [ 2, %22 ], [ 3, %23 ], [ 4, %24 ], [ 5, %25 ], [ 6, %26 ], [ 7, %27 ], [ 8, %28 ], [ 9, %29 ], [ 10, %30 ]
+31:                                               ; preds = %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %17
+  %.0.ph = phi i64 [ 0, %17 ], [ 10, %30 ], [ 9, %29 ], [ 8, %28 ], [ 7, %27 ], [ 6, %26 ], [ 5, %25 ], [ 4, %24 ], [ 3, %23 ], [ 2, %22 ], [ 1, %21 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #19
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4083,8 +4083,8 @@ _ZN5clang8comments4Sema11isUnionDeclEv.exit:      ; preds = %98
   %105 = icmp eq i16 %.mask.i.i, 16384
   br i1 %105, label %.thread, label %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread
 
-_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread: ; preds = %21, %94, %98, %86, %76, %68, %60, %52, %44, %84, %.thread71, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23, %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit, %_ZN5clang8comments4Sema11isUnionDeclEv.exit
-  %.0.ph = phi i64 [ 4, %_ZN5clang8comments4Sema11isUnionDeclEv.exit ], [ 2, %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit ], [ 1, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23 ], [ 0, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit ], [ 0, %.thread71 ], [ 3, %84 ], [ 0, %44 ], [ 1, %52 ], [ 1, %60 ], [ 2, %68 ], [ 2, %76 ], [ 4, %86 ], [ 4, %98 ], [ 4, %94 ], [ 0, %21 ]
+_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread: ; preds = %21, %94, %98, %86, %76, %68, %60, %52, %44, %.thread71, %84, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23, %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit, %_ZN5clang8comments4Sema11isUnionDeclEv.exit
+  %.0.ph = phi i64 [ 4, %_ZN5clang8comments4Sema11isUnionDeclEv.exit ], [ 2, %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit ], [ 1, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23 ], [ 0, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit ], [ 3, %84 ], [ 0, %.thread71 ], [ 0, %44 ], [ 1, %52 ], [ 1, %60 ], [ 2, %68 ], [ 2, %76 ], [ 4, %86 ], [ 4, %98 ], [ 4, %94 ], [ 0, %21 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #19
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !60
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4853,7 +4853,7 @@ _ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit.thread: ; pred
   br label %74
 
 74:                                               ; preds = %72, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %73, %72 ]
+  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %73, %72 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %75 = load i8, ptr %.sroa.032.1.i.i.i.i.i.i, align 1, !tbaa !94
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %76
@@ -4867,7 +4867,7 @@ _ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit.thread: ; pred
   br label %82
 
 82:                                               ; preds = %80, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %81, %80 ]
+  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %81, %80 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %83 = load i8, ptr %.sroa.032.2.i.i.i.i.i.i, align 1, !tbaa !94
   %84 = zext i8 %83 to i64
   %85 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %84

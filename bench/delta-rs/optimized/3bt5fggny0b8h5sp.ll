@@ -1335,8 +1335,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit164: ; preds = %138
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit
 
 _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %165, %172, %174, %175, %176
-  %.sroa.8.0.i = phi i64 [ %.sroa.8340.0.copyload, %176 ], [ 2, %175 ], [ 1, %174 ], [ %.sroa.11342.0.copyload, %172 ], [ %170, %165 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.7339.0.copyload, %176 ], [ @anon.e1640b88eed09c5ac12e32b92c6f0187.2, %175 ], [ @anon.e1640b88eed09c5ac12e32b92c6f0187.1, %174 ], [ %.sroa.10341.0.copyload, %172 ], [ @anon.e1640b88eed09c5ac12e32b92c6f0187.0, %165 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.11342.0.copyload, %172 ], [ 1, %174 ], [ 2, %175 ], [ %.sroa.8340.0.copyload, %176 ], [ %170, %165 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.10341.0.copyload, %172 ], [ @anon.e1640b88eed09c5ac12e32b92c6f0187.1, %174 ], [ @anon.e1640b88eed09c5ac12e32b92c6f0187.2, %175 ], [ %.sroa.7339.0.copyload, %176 ], [ @anon.e1640b88eed09c5ac12e32b92c6f0187.0, %165 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84)
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i = load ptr, ptr %178, align 8, !nonnull !5, !noundef !5

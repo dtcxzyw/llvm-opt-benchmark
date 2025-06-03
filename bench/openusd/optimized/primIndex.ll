@@ -15673,7 +15673,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__10PcpArcInfoES1_EvT_S3_RSaIT0_
   br label %3518
 
 3517:                                             ; preds = %3467, %3439, %3430
-  %.pn.i.i253 = phi { ptr, i32 } [ %3431, %3430 ], [ %3468, %3467 ], [ %3440, %3439 ]
+  %.pn.i.i253 = phi { ptr, i32 } [ %3431, %3430 ], [ %3440, %3439 ], [ %3468, %3467 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10PcpArcInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #22, !noalias !167
   br label %.body.i248
 
@@ -16051,7 +16051,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L28_EvalUnresolvedPrimPathErrorERKNS_10PcpN
   br label %3675
 
 3675:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L24_EvalNodeFallbackVariantERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerERKNS_7SdfPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib.exit, %.invoke902, %.invoke901, %_ZN32pxrInternal_v0_24__pxrReserved__L28_EvalUnresolvedPrimPathErrorERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L20_EvalNodeVariantSetsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L29_EvalNodeAncestralVariantSetsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit598, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit577, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit566, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit547, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit538, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit482, %_ZN32pxrInternal_v0_24__pxrReserved__L23_EvalImpliedRelocationsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit, %3674, %_ZN32pxrInternal_v0_24__pxrReserved__15Pcp_PrimIndexer7PopTaskEv.exit
-  %.147 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__15Pcp_PrimIndexer7PopTaskEv.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L28_EvalUnresolvedPrimPathErrorERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ false, %3674 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L20_EvalNodeVariantSetsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L29_EvalNodeAncestralVariantSetsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit598 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit577 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit566 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit547 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit538 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit482 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L23_EvalImpliedRelocationsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L24_EvalNodeFallbackVariantERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerERKNS_7SdfPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib.exit ], [ true, %.invoke901 ], [ true, %.invoke902 ]
+  %.147 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__15Pcp_PrimIndexer7PopTaskEv.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L23_EvalImpliedRelocationsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit482 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit538 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit547 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit566 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit577 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_IndexingPhaseScopeD2Ev.exit598 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L29_EvalNodeAncestralVariantSetsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L20_EvalNodeVariantSetsERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ false, %3674 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L28_EvalUnresolvedPrimPathErrorERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L24_EvalNodeFallbackVariantERKNS_10PcpNodeRefEPNS_15Pcp_PrimIndexerERKNS_7SdfPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib.exit ], [ true, %.invoke901 ], [ true, %.invoke902 ]
   %3676 = load i32, ptr %1126, align 8
   %.not.i.i.i266 = icmp eq i32 %3676, 0
   br i1 %.not.i.i.i266, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14TaskD2Ev.exit, label %3677
@@ -16606,9 +16606,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_setINS_7TfTokenENS2_11HashFu
   br label %178
 
 178:                                              ; preds = %176, %._crit_edge._crit_edge.i.i.i.i
-  %179 = phi ptr [ %.pre167.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %155, %176 ]
-  %180 = phi i64 [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %153, %176 ]
-  %.sroa.0109.1.i.i.i.i = phi ptr [ %.sroa.0109.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %177, %176 ]
+  %179 = phi ptr [ %155, %176 ], [ %.pre167.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %180 = phi i64 [ %153, %176 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.0109.1.i.i.i.i = phi ptr [ %177, %176 ], [ %.sroa.0109.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.val1.i78.i.i.i.i = load ptr, ptr %.sroa.0109.1.i.i.i.i, align 8
   %181 = ptrtoint ptr %.val1.i78.i.i.i.i to i64
   %182 = and i64 %181, -8
@@ -16665,9 +16665,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_setINS_7TfTokenENS2_11HashFu
   br label %207
 
 207:                                              ; preds = %205, %._crit_edge._crit_edge168.i.i.i.i
-  %208 = phi ptr [ %.pre171.i.i.i.i, %._crit_edge._crit_edge168.i.i.i.i ], [ %179, %205 ]
-  %209 = phi i64 [ %.pre169.i.i.i.i, %._crit_edge._crit_edge168.i.i.i.i ], [ %180, %205 ]
-  %.sroa.0109.2.i.i.i.i = phi ptr [ %.sroa.0109.0.lcssa.i.i.i.i, %._crit_edge._crit_edge168.i.i.i.i ], [ %206, %205 ]
+  %208 = phi ptr [ %179, %205 ], [ %.pre171.i.i.i.i, %._crit_edge._crit_edge168.i.i.i.i ]
+  %209 = phi i64 [ %180, %205 ], [ %.pre169.i.i.i.i, %._crit_edge._crit_edge168.i.i.i.i ]
+  %.sroa.0109.2.i.i.i.i = phi ptr [ %206, %205 ], [ %.sroa.0109.0.lcssa.i.i.i.i, %._crit_edge._crit_edge168.i.i.i.i ]
   %.val1.i92.i.i.i.i = load ptr, ptr %.sroa.0109.2.i.i.i.i, align 8
   %210 = ptrtoint ptr %.val1.i92.i.i.i.i to i64
   %211 = and i64 %210, -8
@@ -26731,7 +26731,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i: ; pr
   br label %_ZStgtIJRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKiEJS3_S5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit
 
 _ZStgtIJRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKiEJS3_S5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i, %39, %67, %63, %51, %26, %10, %7
-  %.0 = phi i1 [ %8, %7 ], [ %70, %67 ], [ %66, %63 ], [ %62, %51 ], [ %28, %26 ], [ %14, %10 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i ], [ %50, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i ], [ true, %39 ], [ false, %46 ]
+  %.0 = phi i1 [ %8, %7 ], [ %70, %67 ], [ %14, %10 ], [ %28, %26 ], [ %62, %51 ], [ %66, %63 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i ], [ %50, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i.i.i ], [ true, %39 ], [ false, %46 ]
   ret i1 %.0
 }
 

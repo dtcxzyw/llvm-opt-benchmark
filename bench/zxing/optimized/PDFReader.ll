@@ -1134,8 +1134,8 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %170
   br label %200
 
 200:                                              ; preds = %196, %188, %183, %176
-  %.sroa.040.0.i = phi i32 [ %182, %196 ], [ %191, %188 ], [ %187, %183 ], [ %179, %176 ]
-  %.sroa.6.0.i = phi i32 [ %199, %196 ], [ %195, %188 ], [ %179, %183 ], [ %182, %176 ]
+  %.sroa.040.0.i = phi i32 [ %187, %183 ], [ %191, %188 ], [ %182, %196 ], [ %179, %176 ]
+  %.sroa.6.0.i = phi i32 [ %179, %183 ], [ %195, %188 ], [ %199, %196 ], [ %182, %176 ]
   %.sroa.6.0.insert.ext.i = zext i32 %.sroa.6.0.i to i64
   %.sroa.6.0.insert.shift.i = shl nuw i64 %.sroa.6.0.insert.ext.i, 32
   %.sroa.040.0.insert.ext.i = zext i32 %.sroa.040.0.i to i64
@@ -1178,8 +1178,8 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %170
   br label %226
 
 226:                                              ; preds = %222, %214, %209, %200
-  %.sroa.040.0.i67 = phi i32 [ %208, %222 ], [ %217, %214 ], [ %213, %209 ], [ %205, %200 ]
-  %.sroa.6.0.i68 = phi i32 [ %225, %222 ], [ %221, %214 ], [ %205, %209 ], [ %208, %200 ]
+  %.sroa.040.0.i67 = phi i32 [ %213, %209 ], [ %217, %214 ], [ %208, %222 ], [ %205, %200 ]
+  %.sroa.6.0.i68 = phi i32 [ %205, %209 ], [ %221, %214 ], [ %225, %222 ], [ %208, %200 ]
   %.sroa.6.0.insert.ext.i69 = zext i32 %.sroa.6.0.i68 to i64
   %.sroa.6.0.insert.shift.i70 = shl nuw i64 %.sroa.6.0.insert.ext.i69, 32
   %.sroa.040.0.insert.ext.i71 = zext i32 %.sroa.040.0.i67 to i64
@@ -3139,10 +3139,10 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
   br label %83
 
 83:                                               ; preds = %80, %76, %74
-  %.sext96 = phi i32 [ %.sext98103, %80 ], [ %.sext, %76 ], [ %.sext98103, %74 ]
-  %84 = phi i32 [ %82, %80 ], [ %32, %76 ], [ %32, %74 ]
-  %.422 = phi i32 [ %.018106, %80 ], [ %77, %76 ], [ %.018106, %74 ]
-  %.4 = phi i32 [ %.014107, %80 ], [ %.014107, %76 ], [ %75, %74 ]
+  %.sext96 = phi i32 [ %.sext98103, %74 ], [ %.sext, %76 ], [ %.sext98103, %80 ]
+  %84 = phi i32 [ %32, %74 ], [ %32, %76 ], [ %82, %80 ]
+  %.422 = phi i32 [ %.018106, %74 ], [ %77, %76 ], [ %.018106, %80 ]
+  %.4 = phi i32 [ %75, %74 ], [ %.014107, %76 ], [ %.014107, %80 ]
   %.lhs.trunc = trunc i64 %64 to i8
   %85 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %85 to i32
@@ -3825,8 +3825,8 @@ define internal fastcc i64 @"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb
   br label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24"
 
 "_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24": ; preds = %46, %59, %64, %72
-  %.sroa.5.0.i18 = phi i32 [ %75, %72 ], [ %71, %64 ], [ %57, %59 ], [ %54, %46 ]
-  %.sroa.0.0.i19 = phi i32 [ %54, %72 ], [ %67, %64 ], [ %63, %59 ], [ %57, %46 ]
+  %.sroa.5.0.i18 = phi i32 [ %57, %59 ], [ %71, %64 ], [ %75, %72 ], [ %54, %46 ]
+  %.sroa.0.0.i19 = phi i32 [ %63, %59 ], [ %67, %64 ], [ %54, %72 ], [ %57, %46 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !185
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 36
@@ -3844,8 +3844,8 @@ define internal fastcc i64 @"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb
   br label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit"
 
 "_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit": ; preds = %42, %34, %29, %21, %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24"
-  %.sroa.040.0 = phi i32 [ %.sroa.speculated30, %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24" ], [ %27, %42 ], [ %37, %34 ], [ %33, %29 ], [ %24, %21 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.speculated, %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24" ], [ %45, %42 ], [ %41, %34 ], [ %24, %29 ], [ %27, %21 ]
+  %.sroa.040.0 = phi i32 [ %.sroa.speculated30, %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24" ], [ %33, %29 ], [ %37, %34 ], [ %27, %42 ], [ %24, %21 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.speculated, %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24" ], [ %24, %29 ], [ %41, %34 ], [ %45, %42 ], [ %27, %21 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.040.0.insert.ext = zext i32 %.sroa.040.0 to i64

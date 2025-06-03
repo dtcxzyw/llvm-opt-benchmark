@@ -1649,8 +1649,8 @@ define weak_odr dso_local { i64, ptr } @_ZN4mold16get_machine_typeINS_6X86_64EEE
   br label %_ZN4moldL12get_elf_typeEPh.exit53
 
 _ZN4moldL12get_elf_typeEPh.exit53:                ; preds = %70, %71, %72, %73, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84
-  %.sroa.15.0.i42 = phi ptr [ @.str.6, %84 ], [ %.sroa.15.0.copyload36.i41, %83 ], [ %.sroa.15.0.copyload35.i47, %82 ], [ @.str.23, %81 ], [ @.str.22, %80 ], [ @.str.21, %79 ], [ %.sroa.15.0.copyload31.i48, %78 ], [ @.str.18, %77 ], [ %.sroa.15.0.copyload28.i50, %75 ], [ %.sroa.15.0.copyload29.i49, %76 ], [ %.sroa.15.0.copyload27.i52, %73 ], [ @.str.11, %72 ], [ @.str.10, %71 ], [ @.str.9, %70 ]
-  %.sroa.0.0.i43 = phi i64 [ 0, %84 ], [ 11, %83 ], [ %.sroa.0.0.copyload23.i46, %82 ], [ 4, %81 ], [ 7, %80 ], [ 5, %79 ], [ 7, %78 ], [ 5, %77 ], [ 7, %75 ], [ 9, %76 ], [ %.sroa.0.0.copyload15.i51, %73 ], [ 5, %72 ], [ 6, %71 ], [ 4, %70 ]
+  %.sroa.15.0.i42 = phi ptr [ @.str.6, %84 ], [ @.str.10, %71 ], [ @.str.11, %72 ], [ %.sroa.15.0.copyload27.i52, %73 ], [ %.sroa.15.0.copyload28.i50, %75 ], [ %.sroa.15.0.copyload29.i49, %76 ], [ @.str.18, %77 ], [ %.sroa.15.0.copyload31.i48, %78 ], [ @.str.21, %79 ], [ @.str.22, %80 ], [ @.str.23, %81 ], [ %.sroa.15.0.copyload35.i47, %82 ], [ %.sroa.15.0.copyload36.i41, %83 ], [ @.str.9, %70 ]
+  %.sroa.0.0.i43 = phi i64 [ 0, %84 ], [ 6, %71 ], [ 5, %72 ], [ %.sroa.0.0.copyload15.i51, %73 ], [ 7, %75 ], [ 9, %76 ], [ 5, %77 ], [ 7, %78 ], [ 5, %79 ], [ 7, %80 ], [ 4, %81 ], [ %.sroa.0.0.copyload23.i46, %82 ], [ 11, %83 ], [ 4, %70 ]
   switch i32 %49, label %85 [
     i32 7, label %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit
     i32 2, label %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit
@@ -1807,8 +1807,8 @@ _ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit: ; preds = %_ZN4moldL12get_el
   br label %_ZN4moldL12get_elf_typeEPh.exit67
 
 _ZN4moldL12get_elf_typeEPh.exit67:                ; preds = %122, %123, %124, %125, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136
-  %.sroa.15.0.i56 = phi ptr [ @.str.6, %136 ], [ %.sroa.15.0.copyload36.i55, %135 ], [ %.sroa.15.0.copyload35.i61, %134 ], [ @.str.23, %133 ], [ @.str.22, %132 ], [ @.str.21, %131 ], [ %.sroa.15.0.copyload31.i62, %130 ], [ @.str.18, %129 ], [ %.sroa.15.0.copyload28.i64, %127 ], [ %.sroa.15.0.copyload29.i63, %128 ], [ %.sroa.15.0.copyload27.i66, %125 ], [ @.str.11, %124 ], [ @.str.10, %123 ], [ @.str.9, %122 ]
-  %.sroa.0.0.i57 = phi i64 [ 0, %136 ], [ 11, %135 ], [ %.sroa.0.0.copyload23.i60, %134 ], [ 4, %133 ], [ 7, %132 ], [ 5, %131 ], [ 7, %130 ], [ 5, %129 ], [ 7, %127 ], [ 9, %128 ], [ %.sroa.0.0.copyload15.i65, %125 ], [ 5, %124 ], [ 6, %123 ], [ 4, %122 ]
+  %.sroa.15.0.i56 = phi ptr [ @.str.6, %136 ], [ @.str.10, %123 ], [ @.str.11, %124 ], [ %.sroa.15.0.copyload27.i66, %125 ], [ %.sroa.15.0.copyload28.i64, %127 ], [ %.sroa.15.0.copyload29.i63, %128 ], [ @.str.18, %129 ], [ %.sroa.15.0.copyload31.i62, %130 ], [ @.str.21, %131 ], [ @.str.22, %132 ], [ @.str.23, %133 ], [ %.sroa.15.0.copyload35.i61, %134 ], [ %.sroa.15.0.copyload36.i55, %135 ], [ @.str.9, %122 ]
+  %.sroa.0.0.i57 = phi i64 [ 0, %136 ], [ 6, %123 ], [ 5, %124 ], [ %.sroa.0.0.copyload15.i65, %125 ], [ 7, %127 ], [ 9, %128 ], [ 5, %129 ], [ 7, %130 ], [ 5, %131 ], [ 7, %132 ], [ 4, %133 ], [ %.sroa.0.0.copyload23.i60, %134 ], [ 11, %135 ], [ 4, %122 ]
   switch i32 %101, label %137 [
     i32 7, label %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit
     i32 2, label %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit
@@ -1883,8 +1883,8 @@ _ZN4mold6ScriptINS_6X86_64EED2Ev.exit:            ; preds = %147, %156
   br label %_ZN4moldL12get_elf_typeEPh.exit
 
 _ZN4moldL12get_elf_typeEPh.exit:                  ; preds = %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit, %3, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %31, %30, %29, %28, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit
-  %.sroa.077.0 = phi i64 [ %153, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ 0, %42 ], [ 11, %41 ], [ %.sroa.0.0.copyload23.i, %40 ], [ 4, %39 ], [ 7, %38 ], [ 5, %37 ], [ 7, %36 ], [ 5, %35 ], [ 7, %33 ], [ 9, %34 ], [ %.sroa.0.0.copyload15.i, %31 ], [ 5, %30 ], [ 6, %29 ], [ 4, %28 ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select79, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69 ], [ 0, %3 ]
-  %.sroa.8.0 = phi ptr [ %154, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ @.str.6, %42 ], [ %.sroa.15.0.copyload36.i, %41 ], [ %.sroa.15.0.copyload35.i, %40 ], [ @.str.23, %39 ], [ @.str.22, %38 ], [ @.str.21, %37 ], [ %.sroa.15.0.copyload31.i, %36 ], [ @.str.18, %35 ], [ %.sroa.15.0.copyload28.i, %33 ], [ %.sroa.15.0.copyload29.i, %34 ], [ %.sroa.15.0.copyload27.i, %31 ], [ @.str.11, %30 ], [ @.str.10, %29 ], [ @.str.9, %28 ], [ %spec.select78, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select80, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69 ], [ @.str.6, %3 ]
+  %.sroa.077.0 = phi i64 [ %153, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ 0, %42 ], [ 6, %29 ], [ 5, %30 ], [ %.sroa.0.0.copyload15.i, %31 ], [ 7, %33 ], [ 9, %34 ], [ 5, %35 ], [ 7, %36 ], [ 5, %37 ], [ 7, %38 ], [ 4, %39 ], [ %.sroa.0.0.copyload23.i, %40 ], [ 11, %41 ], [ 4, %28 ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select79, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69 ], [ 0, %3 ]
+  %.sroa.8.0 = phi ptr [ %154, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ @.str.6, %42 ], [ @.str.10, %29 ], [ @.str.11, %30 ], [ %.sroa.15.0.copyload27.i, %31 ], [ %.sroa.15.0.copyload28.i, %33 ], [ %.sroa.15.0.copyload29.i, %34 ], [ @.str.18, %35 ], [ %.sroa.15.0.copyload31.i, %36 ], [ @.str.21, %37 ], [ @.str.22, %38 ], [ @.str.23, %39 ], [ %.sroa.15.0.copyload35.i, %40 ], [ %.sroa.15.0.copyload36.i, %41 ], [ @.str.9, %28 ], [ %spec.select78, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select80, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69 ], [ @.str.6, %3 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.8.0, 1
   ret { i64, ptr } %.fca.1.insert

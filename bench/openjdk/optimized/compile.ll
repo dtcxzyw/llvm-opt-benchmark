@@ -14825,7 +14825,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %228
   br i1 %exitcond.not.i, label %_ZN7Compile19eval_macro_logic_opEjjjj.exit, label %238, !llvm.loop !71
 
 _ZN7Compile19eval_macro_logic_opEjjjj.exit:       ; preds = %238, %_ZL13eval_operandsP4NodeRjS1_S1_R17ResourceHashtableIS0_jLj256ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE.exit, %223, %226, %219, %217
-  %.1 = phi i32 [ %.04361, %_ZL13eval_operandsP4NodeRjS1_S1_R17ResourceHashtableIS0_jLj256ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE.exit ], [ %225, %223 ], [ %227, %226 ], [ %220, %219 ], [ %218, %217 ], [ %252, %238 ]
+  %.1 = phi i32 [ %.04361, %_ZL13eval_operandsP4NodeRjS1_S1_R17ResourceHashtableIS0_jLj256ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE.exit ], [ %218, %217 ], [ %220, %219 ], [ %225, %223 ], [ %227, %226 ], [ %252, %238 ]
   %254 = ptrtoint ptr %68 to i64
   %255 = trunc i64 %254 to i32
   %256 = lshr i32 %255, 3

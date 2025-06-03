@@ -118,7 +118,7 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
   br label %73
 
 73:                                               ; preds = %68, %64, %59
-  %.054 = phi i32 [ %72, %68 ], [ %67, %64 ], [ %63, %59 ]
+  %.054 = phi i32 [ %72, %68 ], [ %63, %59 ], [ %67, %64 ]
   store i32 %.054, ptr %0, align 4, !tbaa !19
   br label %74
 

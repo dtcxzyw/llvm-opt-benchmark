@@ -1834,7 +1834,7 @@ _ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit32: ; preds = %41, %53
   unreachable
 
 67:                                               ; preds = %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit32, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit, %9, %7
-  %.0 = phi i1 [ %.3, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit32 ], [ %.2, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit ], [ %.1, %9 ], [ %8, %7 ]
+  %.0 = phi i1 [ %8, %7 ], [ %.1, %9 ], [ %.2, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit ], [ %.3, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit32 ]
   ret i1 %.0
 }
 

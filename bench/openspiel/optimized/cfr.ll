@@ -5951,7 +5951,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6vect
   br label %74
 
 74:                                               ; preds = %72, %._crit_edge.i.i.i
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %73, %72 ]
+  %.sroa.044.1.i.i.i = phi ptr [ %73, %72 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i26.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 8
   %75 = icmp eq i64 %.val1.i26.i.i.i, %46
   br i1 %75, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIldESt6vectorIS3_SaIS3_EEEEZNK10open_spiel10algorithms13CFRSolverBase28GetInfoStatePolicyFromPolicyEPS5_IdSaIdEERKS5_IlSaIlEEPKNS9_6PolicyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SV_SV_T0_.exit", label %76
@@ -5961,7 +5961,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6vect
   br label %78
 
 78:                                               ; preds = %76, %._crit_edge.i.i.i
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %77, %76 ]
+  %.sroa.044.2.i.i.i = phi ptr [ %77, %76 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i27.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 8
   %79 = icmp eq i64 %.val1.i27.i.i.i, %46
   %spec.select.i.i.i = select i1 %79, ptr %.sroa.044.2.i.i.i, ptr %48

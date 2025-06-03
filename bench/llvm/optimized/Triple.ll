@@ -478,8 +478,8 @@ switch.lookup:                                    ; preds = %13
   br label %29
 
 29:                                               ; preds = %switch.lookup, %15, %15, %11, %9, %7, %5, %3, %24, %23, %22, %21, %20, %19, %18, %17, %16, %12
-  %.sroa.24.0 = phi i64 [ %27, %24 ], [ 8, %23 ], [ 8, %22 ], [ 8, %21 ], [ 8, %20 ], [ 8, %19 ], [ 8, %18 ], [ 8, %17 ], [ 8, %16 ], [ 6, %12 ], [ 11, %3 ], [ 13, %5 ], [ 11, %7 ], [ 13, %9 ], [ 7, %11 ], [ 8, %15 ], [ 8, %15 ], [ 8, %switch.lookup ]
-  %.sroa.0.0 = phi ptr [ %26, %24 ], [ @.str.81, %23 ], [ @.str.80, %22 ], [ @.str.79, %21 ], [ @.str.78, %20 ], [ @.str.77, %19 ], [ @.str.76, %18 ], [ @.str.75, %17 ], [ @.str.74, %16 ], [ @.str.65, %12 ], [ @.str.60, %3 ], [ @.str.61, %5 ], [ @.str.62, %7 ], [ @.str.63, %9 ], [ @.str.64, %11 ], [ @.str.73, %15 ], [ @.str.73, %15 ], [ %switch.load, %switch.lookup ]
+  %.sroa.24.0 = phi i64 [ %27, %24 ], [ 6, %12 ], [ 8, %16 ], [ 8, %17 ], [ 8, %18 ], [ 8, %19 ], [ 8, %20 ], [ 8, %21 ], [ 8, %22 ], [ 8, %23 ], [ 11, %3 ], [ 13, %5 ], [ 11, %7 ], [ 13, %9 ], [ 7, %11 ], [ 8, %15 ], [ 8, %15 ], [ 8, %switch.lookup ]
+  %.sroa.0.0 = phi ptr [ %26, %24 ], [ @.str.65, %12 ], [ @.str.74, %16 ], [ @.str.75, %17 ], [ @.str.76, %18 ], [ @.str.77, %19 ], [ @.str.78, %20 ], [ @.str.79, %21 ], [ @.str.80, %22 ], [ @.str.81, %23 ], [ @.str.60, %3 ], [ @.str.61, %5 ], [ @.str.62, %7 ], [ @.str.63, %9 ], [ @.str.64, %11 ], [ @.str.73, %15 ], [ @.str.73, %15 ], [ %switch.load, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.24.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2441,7 +2441,7 @@ switch.lookup1240:                                ; preds = %186
   br label %190
 
 190:                                              ; preds = %switch.lookup1240, %186, %switch.lookup, %184, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
-  %.019.i = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 0, %186 ], [ 0, %184 ], [ %switch.load, %switch.lookup ], [ %switch.load1243, %switch.lookup1240 ]
+  %.019.i = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 0, %184 ], [ 0, %186 ], [ %switch.load, %switch.lookup ], [ %switch.load1243, %switch.lookup1240 ]
   %191 = call { ptr, i64 } @_ZN4llvm3ARM20getCanonicalArchNameENS_9StringRefE(ptr nonnull %0, i64 %1) #16
   %192 = extractvalue { ptr, i64 } %191, 0
   %193 = extractvalue { ptr, i64 } %191, 1
@@ -3979,7 +3979,7 @@ define internal fastcc noundef range(i32 1, 9) i32 @_ZL16getDefaultFormatRKN4llv
   unreachable
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %13, %12, %5, %4, %14, %8, %6, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %1, %18, %17, %16
-  %.0 = phi i32 [ 2, %18 ], [ 6, %17 ], [ 7, %16 ], [ 1, %1 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ %., %6 ], [ 8, %8 ], [ %.8, %14 ], [ 5, %5 ], [ 3, %4 ], [ 5, %13 ], [ 3, %12 ]
+  %.0 = phi i32 [ 7, %16 ], [ 6, %17 ], [ 2, %18 ], [ 1, %1 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ %., %6 ], [ 8, %8 ], [ %.8, %14 ], [ 5, %5 ], [ 3, %4 ], [ 5, %13 ], [ 3, %12 ]
   ret i32 %.0
 }
 
@@ -4962,78 +4962,78 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %26
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 8
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !21
   switch i32 %68, label %79 [
-    i32 0, label %99
-    i32 1, label %80
-    i32 2, label %82
-    i32 3, label %95
+    i32 0, label %80
+    i32 1, label %82
+    i32 2, label %84
+    i32 3, label %97
   ]
 
 79:                                               ; preds = %76
   unreachable
 
 80:                                               ; preds = %76
-  %81 = call fastcc noundef i32 @_ZL11parseVendorN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
-  %.not405 = icmp eq i32 %81, 0
-  br i1 %.not405, label %.thread372, label %.thread346
-
-82:                                               ; preds = %76
-  %83 = call fastcc noundef i32 @_ZL7parseOSN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
-  %.not.i195 = icmp ult i64 %.sroa.10.0.copyload, 6
-  br i1 %.not.i195, label %_ZNK4llvm9StringRef11starts_withES0_.exit197, label %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread
-
-_ZNK4llvm9StringRef11starts_withES0_.exit197.thread: ; preds = %82
-  %bcmp.i196 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0305.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.217, i64 6)
-  %84 = icmp eq i32 %bcmp.i196, 0
-  %85 = zext i1 %84 to i8
-  br label %86
-
-_ZNK4llvm9StringRef11starts_withES0_.exit197:     ; preds = %82
-  %.not.i198.not = icmp eq i64 %.sroa.10.0.copyload, 5
-  br i1 %.not.i198.not, label %86, label %_ZNK4llvm9StringRef11starts_withES0_.exit200
-
-86:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit197
-  %87 = phi i8 [ %85, %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ]
-  %88 = phi i1 [ %84, %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ]
-  %bcmp.i199 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0305.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.218, i64 5)
-  %89 = icmp eq i32 %bcmp.i199, 0
-  br label %_ZNK4llvm9StringRef11starts_withES0_.exit200
-
-_ZNK4llvm9StringRef11starts_withES0_.exit200:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit197, %86
-  %90 = phi i8 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ], [ %87, %86 ]
-  %91 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ], [ %88, %86 ]
-  %92 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ], [ %89, %86 ]
-  %93 = zext i1 %92 to i8
-  %94 = icmp ne i32 %83, 0
-  %or.cond = or i1 %94, %91
-  %spec.select = select i1 %or.cond, i1 true, i1 %92
-  br i1 %spec.select, label %.thread346, label %.thread372
-
-95:                                               ; preds = %76
-  %96 = call fastcc noundef i32 @_ZL16parseEnvironmentN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
-  %.not403 = icmp eq i32 %96, 0
-  br i1 %.not403, label %97, label %.thread346
-
-97:                                               ; preds = %95
-  %98 = call fastcc noundef i32 @_ZL11parseFormatN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
-  %.not404 = icmp eq i32 %98, 0
-  br i1 %.not404, label %.thread372, label %.thread346
-
-99:                                               ; preds = %76
-  %100 = call fastcc noundef i32 @_ZL9parseArchN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
-  %.not406 = icmp eq i32 %100, 0
+  %81 = call fastcc noundef i32 @_ZL9parseArchN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
+  %.not406 = icmp eq i32 %81, 0
   br i1 %.not406, label %..thread372_crit_edge, label %.thread346
 
-..thread372_crit_edge:                            ; preds = %99
+..thread372_crit_edge:                            ; preds = %80
   %.pre502 = load i32, ptr %14, align 8, !tbaa !9
   br label %.thread372
 
-.thread346:                                       ; preds = %95, %80, %_ZNK4llvm9StringRef11starts_withES0_.exit200, %97, %99
-  %.6367 = phi i8 [ %.3449, %99 ], [ %.3449, %97 ], [ %93, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3449, %80 ], [ %.3449, %95 ]
-  %.6132365 = phi i8 [ %.3129448, %99 ], [ %.3129448, %97 ], [ %90, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3129448, %80 ], [ %.3129448, %95 ]
-  %.6140363 = phi i32 [ %.3137447, %99 ], [ %.3137447, %97 ], [ %.3137447, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %81, %80 ], [ %.3137447, %95 ]
-  %.6147361 = phi i32 [ %.3144446, %99 ], [ %.3144446, %97 ], [ %83, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3144446, %80 ], [ %.3144446, %95 ]
-  %.6154359 = phi i32 [ %.3151445, %99 ], [ 0, %97 ], [ %.3151445, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3151445, %80 ], [ %96, %95 ]
-  %.6161357 = phi i32 [ %.3158444, %99 ], [ %98, %97 ], [ %.3158444, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3158444, %80 ], [ %.3158444, %95 ]
+82:                                               ; preds = %76
+  %83 = call fastcc noundef i32 @_ZL11parseVendorN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
+  %.not405 = icmp eq i32 %83, 0
+  br i1 %.not405, label %.thread372, label %.thread346
+
+84:                                               ; preds = %76
+  %85 = call fastcc noundef i32 @_ZL7parseOSN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
+  %.not.i195 = icmp ult i64 %.sroa.10.0.copyload, 6
+  br i1 %.not.i195, label %_ZNK4llvm9StringRef11starts_withES0_.exit197, label %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread
+
+_ZNK4llvm9StringRef11starts_withES0_.exit197.thread: ; preds = %84
+  %bcmp.i196 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0305.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.217, i64 6)
+  %86 = icmp eq i32 %bcmp.i196, 0
+  %87 = zext i1 %86 to i8
+  br label %88
+
+_ZNK4llvm9StringRef11starts_withES0_.exit197:     ; preds = %84
+  %.not.i198.not = icmp eq i64 %.sroa.10.0.copyload, 5
+  br i1 %.not.i198.not, label %88, label %_ZNK4llvm9StringRef11starts_withES0_.exit200
+
+88:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit197
+  %89 = phi i8 [ %87, %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ]
+  %90 = phi i1 [ %86, %_ZNK4llvm9StringRef11starts_withES0_.exit197.thread ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ]
+  %bcmp.i199 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0305.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.218, i64 5)
+  %91 = icmp eq i32 %bcmp.i199, 0
+  br label %_ZNK4llvm9StringRef11starts_withES0_.exit200
+
+_ZNK4llvm9StringRef11starts_withES0_.exit200:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit197, %88
+  %92 = phi i8 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ], [ %89, %88 ]
+  %93 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ], [ %90, %88 ]
+  %94 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit197 ], [ %91, %88 ]
+  %95 = zext i1 %94 to i8
+  %96 = icmp ne i32 %85, 0
+  %or.cond = or i1 %96, %93
+  %spec.select = select i1 %or.cond, i1 true, i1 %94
+  br i1 %spec.select, label %.thread346, label %.thread372
+
+97:                                               ; preds = %76
+  %98 = call fastcc noundef i32 @_ZL16parseEnvironmentN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
+  %.not403 = icmp eq i32 %98, 0
+  br i1 %.not403, label %99, label %.thread346
+
+99:                                               ; preds = %97
+  %100 = call fastcc noundef i32 @_ZL11parseFormatN4llvm9StringRefE(ptr %.sroa.0305.0.copyload, i64 %.sroa.10.0.copyload)
+  %.not404 = icmp eq i32 %100, 0
+  br i1 %.not404, label %.thread372, label %.thread346
+
+.thread346:                                       ; preds = %97, %_ZNK4llvm9StringRef11starts_withES0_.exit200, %82, %80, %99
+  %.6367 = phi i8 [ %.3449, %99 ], [ %.3449, %80 ], [ %.3449, %82 ], [ %95, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3449, %97 ]
+  %.6132365 = phi i8 [ %.3129448, %99 ], [ %.3129448, %80 ], [ %.3129448, %82 ], [ %92, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3129448, %97 ]
+  %.6140363 = phi i32 [ %.3137447, %99 ], [ %.3137447, %80 ], [ %83, %82 ], [ %.3137447, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3137447, %97 ]
+  %.6147361 = phi i32 [ %.3144446, %99 ], [ %.3144446, %80 ], [ %.3144446, %82 ], [ %85, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3144446, %97 ]
+  %.6154359 = phi i32 [ 0, %99 ], [ %.3151445, %80 ], [ %.3151445, %82 ], [ %.3151445, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %98, %97 ]
+  %.6161357 = phi i32 [ %100, %99 ], [ %.3158444, %80 ], [ %.3158444, %82 ], [ %.3158444, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3158444, %97 ]
   %101 = zext i32 %.0164443 to i64
   %102 = icmp samesign ult i64 %indvars.iv500, %101
   br i1 %102, label %103, label %121
@@ -5198,14 +5198,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %155 = icmp samesign ult i64 %.pre-phi511, %indvars.iv500
   br i1 %155, label %.preheader408, label %.loopexit411.sink.split, !llvm.loop !126
 
-.thread372:                                       ; preds = %..thread372_crit_edge, %80, %_ZNK4llvm9StringRef11starts_withES0_.exit200, %97, %72
-  %156 = phi i32 [ %69, %72 ], [ %69, %80 ], [ %69, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %69, %97 ], [ %.pre502, %..thread372_crit_edge ]
-  %.5160 = phi i32 [ %.3158444, %72 ], [ %.3158444, %80 ], [ %.3158444, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ 0, %97 ], [ %.3158444, %..thread372_crit_edge ]
-  %.5153 = phi i32 [ %.3151445, %72 ], [ %.3151445, %80 ], [ %.3151445, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ 0, %97 ], [ %.3151445, %..thread372_crit_edge ]
-  %.5146 = phi i32 [ %.3144446, %72 ], [ %.3144446, %80 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3144446, %97 ], [ %.3144446, %..thread372_crit_edge ]
-  %.5139 = phi i32 [ %.3137447, %72 ], [ 0, %80 ], [ %.3137447, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3137447, %97 ], [ %.3137447, %..thread372_crit_edge ]
-  %.5131 = phi i8 [ %.3129448, %72 ], [ %.3129448, %80 ], [ %90, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3129448, %97 ], [ %.3129448, %..thread372_crit_edge ]
-  %.5 = phi i8 [ %.3449, %72 ], [ %.3449, %80 ], [ %93, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3449, %97 ], [ %.3449, %..thread372_crit_edge ]
+.thread372:                                       ; preds = %..thread372_crit_edge, %_ZNK4llvm9StringRef11starts_withES0_.exit200, %82, %99, %72
+  %156 = phi i32 [ %69, %72 ], [ %69, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %69, %82 ], [ %.pre502, %..thread372_crit_edge ], [ %69, %99 ]
+  %.5160 = phi i32 [ %.3158444, %72 ], [ %.3158444, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3158444, %82 ], [ %.3158444, %..thread372_crit_edge ], [ 0, %99 ]
+  %.5153 = phi i32 [ %.3151445, %72 ], [ %.3151445, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3151445, %82 ], [ %.3151445, %..thread372_crit_edge ], [ 0, %99 ]
+  %.5146 = phi i32 [ %.3144446, %72 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3144446, %82 ], [ %.3144446, %..thread372_crit_edge ], [ %.3144446, %99 ]
+  %.5139 = phi i32 [ %.3137447, %72 ], [ %.3137447, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ 0, %82 ], [ %.3137447, %..thread372_crit_edge ], [ %.3137447, %99 ]
+  %.5131 = phi i8 [ %.3129448, %72 ], [ %92, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3129448, %82 ], [ %.3129448, %..thread372_crit_edge ], [ %.3129448, %99 ]
+  %.5 = phi i8 [ %.3449, %72 ], [ %95, %_ZNK4llvm9StringRef11starts_withES0_.exit200 ], [ %.3449, %82 ], [ %.3449, %..thread372_crit_edge ], [ %.3449, %99 ]
   %157 = add i32 %.0164443, 1
   %158 = zext i32 %157 to i64
   %.not189 = icmp eq i32 %156, %157
@@ -6320,8 +6320,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %_ZN4llvmeqENS_9Stri
   unreachable
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %18, %27, %26, %25, %24, %23, %22, %21
-  %.sroa.10.0.i = phi i64 [ 5, %27 ], [ 11, %26 ], [ 5, %25 ], [ 4, %24 ], [ 5, %23 ], [ 4, %22 ], [ 3, %21 ], [ 4, %18 ]
-  %.sroa.0.0.i4 = phi ptr [ @.str.45, %27 ], [ @.str.202, %26 ], [ @.str.201, %25 ], [ @.str.88, %24 ], [ @.str.200, %23 ], [ @.str.199, %22 ], [ @.str.198, %21 ], [ @.str.197, %18 ]
+  %.sroa.10.0.i = phi i64 [ 3, %21 ], [ 4, %22 ], [ 5, %23 ], [ 4, %24 ], [ 5, %25 ], [ 11, %26 ], [ 5, %27 ], [ 4, %18 ]
+  %.sroa.0.0.i4 = phi ptr [ @.str.198, %21 ], [ @.str.199, %22 ], [ @.str.200, %23 ], [ @.str.88, %24 ], [ @.str.201, %25 ], [ @.str.202, %26 ], [ @.str.45, %27 ], [ @.str.197, %18 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
   store ptr @.str.221, ptr %4, align 8, !alias.scope !202

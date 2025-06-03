@@ -768,7 +768,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std11collecti
   br label %46
 
 46:                                               ; preds = %"_ZN9typst_pdf17Remapper$LT$T$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h1f6cb83d141bc419E.exit", %5
-  %.0 = phi ptr [ %.sroa.52.0..sroa_idx.i, %"_ZN9typst_pdf17Remapper$LT$T$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h1f6cb83d141bc419E.exit" ], [ %6, %5 ]
+  %.0 = phi ptr [ %6, %5 ], [ %.sroa.52.0..sroa_idx.i, %"_ZN9typst_pdf17Remapper$LT$T$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h1f6cb83d141bc419E.exit" ]
   ret ptr %.0
 }
 
@@ -1186,7 +1186,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN68_$LT$image..color..ExtendedColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd0f515195a8640fE.exit"
 
 "_ZN68_$LT$image..color..ExtendedColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd0f515195a8640fE.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58
-  %.0.in.i = phi i1 [ %60, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %60, %58 ]
   ret i1 %.0.in.i
 }
 
@@ -1949,7 +1949,7 @@ define internal noundef zeroext i1 @"_ZN61_$LT$image..error..ImageError$u20$as$u
   br label %30
 
 30:                                               ; preds = %27, %25, %22, %19, %16, %13
-  %.0.in = phi i1 [ %29, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.0.in = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %26, %25 ], [ %29, %27 ]
   ret i1 %.0.in
 }
 
@@ -4053,10 +4053,10 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   br label %129
 
 129:                                              ; preds = %121, %127, %124, %122
-  %.036 = phi float [ 0.000000e+00, %127 ], [ 1.000000e+00, %124 ], [ 1.000000e+00, %122 ], [ 0.000000e+00, %121 ]
-  %.035 = phi float [ 1.000000e+00, %127 ], [ 1.000000e+00, %124 ], [ 0.000000e+00, %122 ], [ 0.000000e+00, %121 ]
-  %.034 = phi double [ %119, %127 ], [ %125, %124 ], [ %123, %122 ], [ %119, %121 ]
-  %.0 = phi double [ %128, %127 ], [ %126, %124 ], [ %118, %122 ], [ %118, %121 ]
+  %.036 = phi float [ 1.000000e+00, %122 ], [ 1.000000e+00, %124 ], [ 0.000000e+00, %127 ], [ 0.000000e+00, %121 ]
+  %.035 = phi float [ 0.000000e+00, %122 ], [ 1.000000e+00, %124 ], [ 1.000000e+00, %127 ], [ 0.000000e+00, %121 ]
+  %.034 = phi double [ %123, %122 ], [ %125, %124 ], [ %119, %127 ], [ %119, %121 ]
+  %.0 = phi double [ %118, %122 ], [ %126, %124 ], [ %128, %127 ], [ %118, %121 ]
   %130 = invoke noundef zeroext i1 @_ZN5typst9visualize8gradient8Gradient10anti_alias17h7cf6f9b6392ce241E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %24)
           to label %131 unwind label %153
 
@@ -5293,7 +5293,7 @@ define hidden noundef i64 @_ZN9typst_pdf8gradient17register_gradient17h1fd4d8fd4
   br label %71
 
 71:                                               ; preds = %69, %67
-  %.019 = phi double [ %70, %69 ], [ %68, %67 ]
+  %.019 = phi double [ %68, %67 ], [ %70, %69 ]
   %72 = call noundef zeroext i1 @_ZN5typst9visualize8gradient8Gradient15unwrap_relative17hccb4479cf3964c40E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2)
   %.sink.idx = select i1 %72, i64 48, i64 0
   %.sink = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.idx
@@ -6873,7 +6873,7 @@ define hidden noundef i64 @"_ZN9typst_pdf17Remapper$LT$T$GT$6insert17h1f7f6bab0b
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd3a78aea056d16abE.llvm.14982894775678554951.exit"
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd3a78aea056d16abE.llvm.14982894775678554951.exit": ; preds = %8, %"_ZN9typst_pdf17Remapper$LT$T$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h1f6cb83d141bc419E.exit.i"
-  %.0.i = phi ptr [ %.sroa.52.0..sroa_idx.i.i, %"_ZN9typst_pdf17Remapper$LT$T$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h1f6cb83d141bc419E.exit.i" ], [ %9, %8 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %.sroa.52.0..sroa_idx.i.i, %"_ZN9typst_pdf17Remapper$LT$T$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h1f6cb83d141bc419E.exit.i" ]
   %49 = load i64, ptr %.0.i, align 8, !noundef !4
   ret i64 %49
 }

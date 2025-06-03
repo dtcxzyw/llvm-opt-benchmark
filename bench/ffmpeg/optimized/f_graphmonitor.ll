@@ -1242,7 +1242,7 @@ filter_have_eof.exit.i:                           ; preds = %filter_have_eof.exi
   br label %create_frame.exit
 
 create_frame.exit:                                ; preds = %61, %567, %.loopexit.i
-  %.0.i = phi i32 [ %.1.ph.i, %.loopexit.i ], [ %568, %567 ], [ -12, %61 ]
+  %.0.i = phi i32 [ %568, %567 ], [ %.1.ph.i, %.loopexit.i ], [ -12, %61 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #11
   br label %578

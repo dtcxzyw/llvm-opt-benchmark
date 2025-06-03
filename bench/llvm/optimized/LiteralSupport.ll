@@ -1079,7 +1079,7 @@ _ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit: ; preds = %.lr.ph.i, %73
   store ptr %242, ptr %21, align 8, !tbaa !53
   br label %.thread139
 
-243:                                              ; preds = %227, %231, %235, %224, %220, %112, %112
+243:                                              ; preds = %235, %231, %227, %224, %220, %112, %112
   %244 = load i16, ptr %26, align 8
   %245 = and i16 %244, 128
   %.not97 = icmp eq i16 %245, 0
@@ -1210,10 +1210,10 @@ _ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit: ; preds = %.lr.ph.i, %73
   br label %309
 
 309:                                              ; preds = %209, %212, %306, %286, %246, %217, %200, %193, %188, %185, %154, %140, %127
-  %310 = phi ptr [ %113, %306 ], [ %113, %286 ], [ %113, %246 ], [ %113, %217 ], [ %113, %209 ], [ %113, %212 ], [ %113, %200 ], [ %113, %193 ], [ %176, %185 ], [ %.pre222, %188 ], [ %113, %154 ], [ %113, %140 ], [ %113, %127 ]
-  %311 = phi ptr [ %297, %306 ], [ %287, %286 ], [ %114, %246 ], [ %114, %217 ], [ %205, %209 ], [ %114, %212 ], [ %114, %200 ], [ %114, %193 ], [ %175, %185 ], [ %.pre221, %188 ], [ %114, %154 ], [ %114, %140 ], [ %114, %127 ]
-  %.180 = phi i1 [ %.079153, %306 ], [ true, %286 ], [ %.079153, %246 ], [ %.079153, %217 ], [ %.079153, %209 ], [ %.079153, %212 ], [ %.079153, %200 ], [ %.079153, %193 ], [ %.079153, %185 ], [ %.079153, %188 ], [ %.079153, %154 ], [ %.079153, %140 ], [ %.079153, %127 ]
-  %.2 = phi i8 [ 1, %306 ], [ 1, %286 ], [ %.078154, %246 ], [ 1, %217 ], [ 1, %209 ], [ 1, %212 ], [ %.078154, %200 ], [ 1, %193 ], [ 1, %185 ], [ 1, %188 ], [ 1, %154 ], [ %.078154, %140 ], [ %.078154, %127 ]
+  %310 = phi ptr [ %113, %127 ], [ %113, %140 ], [ %113, %154 ], [ %176, %185 ], [ %.pre222, %188 ], [ %113, %193 ], [ %113, %200 ], [ %113, %209 ], [ %113, %212 ], [ %113, %217 ], [ %113, %246 ], [ %113, %286 ], [ %113, %306 ]
+  %311 = phi ptr [ %114, %127 ], [ %114, %140 ], [ %114, %154 ], [ %175, %185 ], [ %.pre221, %188 ], [ %114, %193 ], [ %114, %200 ], [ %205, %209 ], [ %114, %212 ], [ %114, %217 ], [ %114, %246 ], [ %287, %286 ], [ %297, %306 ]
+  %.180 = phi i1 [ %.079153, %127 ], [ %.079153, %140 ], [ %.079153, %154 ], [ %.079153, %185 ], [ %.079153, %188 ], [ %.079153, %193 ], [ %.079153, %200 ], [ %.079153, %209 ], [ %.079153, %212 ], [ %.079153, %217 ], [ %.079153, %246 ], [ true, %286 ], [ %.079153, %306 ]
+  %.2 = phi i8 [ %.078154, %127 ], [ %.078154, %140 ], [ 1, %154 ], [ 1, %185 ], [ 1, %188 ], [ 1, %193 ], [ %.078154, %200 ], [ 1, %209 ], [ 1, %212 ], [ 1, %217 ], [ %.078154, %246 ], [ 1, %286 ], [ 1, %306 ]
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 1
   store ptr %312, ptr %21, align 8, !tbaa !53
   %.not94 = icmp eq ptr %312, %310
@@ -5974,7 +5974,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %70, %67, %_ZNSt7__c
   br label %118
 
 118:                                              ; preds = %116, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %117, %116 ]
+  %.1.i.i.i.i = phi ptr [ %117, %116 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !3
   %119 = icmp eq i8 %.1.val.i.i.i.i, 125
   br i1 %119, label %"_ZSt7find_ifIPKcZL21ProcessNamedUCNEscapeS1_RS1_S1_RjRtN5clang13FullSourceLocEPNS5_17DiagnosticsEngineERKNS5_11LangOptionsEE3$_0ET_SD_SD_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21ProcessNamedUCNEscapePKcRS3_S3_RjRtN5clang13FullSourceLocEPNS7_17DiagnosticsEngineERKNS7_11LangOptionsEE3$_0EclIS3_EEbT_.exit37.i.i.i.i"
@@ -5992,7 +5992,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %70, %67, %_ZNSt7__c
   br label %126
 
 126:                                              ; preds = %124, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %125, %124 ]
+  %.2.i.i.i.i = phi ptr [ %125, %124 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !3
   %127 = icmp eq i8 %.2.val.i.i.i.i, 125
   br i1 %127, label %"_ZSt7find_ifIPKcZL21ProcessNamedUCNEscapeS1_RS1_S1_RjRtN5clang13FullSourceLocEPNS5_17DiagnosticsEngineERKNS5_11LangOptionsEE3$_0ET_SD_SD_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21ProcessNamedUCNEscapePKcRS3_S3_RjRtN5clang13FullSourceLocEPNS7_17DiagnosticsEngineERKNS7_11LangOptionsEE3$_0EclIS3_EEbT_.exit38.i.i.i.i"
@@ -9448,8 +9448,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit419:         ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %30) #19
   br label %.thread537
 
-.thread537:                                       ; preds = %.thread665, %390, %.critedge, %381, %_ZN5clang17DiagnosticBuilderD2Ev.exit365, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %10, %10, %10, %10, %37, %38, %201, %202, %203, %204, %205, %_ZN5clang17DiagnosticBuilderD2Ev.exit396, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399, %464, %500, %39, %120, %282, %389, %_ZN5clang17DiagnosticBuilderD2Ev.exit412, %_ZN5clang17DiagnosticBuilderD2Ev.exit419, %621, %537
-  %.0288542 = phi i32 [ %.0288670675, %_ZN5clang17DiagnosticBuilderD2Ev.exit412 ], [ %.0288, %_ZN5clang17DiagnosticBuilderD2Ev.exit419 ], [ %.0288, %621 ], [ %.0288, %537 ], [ 111, %389 ], [ 111, %390 ], [ %292, %.critedge ], [ %384, %381 ], [ %.4, %282 ], [ 27, %120 ], [ 27, %_ZN5clang17DiagnosticBuilderD2Ev.exit365 ], [ 27, %39 ], [ 27, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %36, %10 ], [ %36, %10 ], [ %36, %10 ], [ %36, %10 ], [ 7, %37 ], [ 8, %38 ], [ 12, %201 ], [ 10, %202 ], [ 13, %203 ], [ 9, %204 ], [ 11, %205 ], [ %36, %464 ], [ %36, %_ZN5clang17DiagnosticBuilderD2Ev.exit396 ], [ %36, %500 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ 0, %.thread665 ]
+.thread537:                                       ; preds = %.thread665, %390, %.critedge, %381, %_ZN5clang17DiagnosticBuilderD2Ev.exit365, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %_ZN5clang17DiagnosticBuilderD2Ev.exit396, %205, %204, %203, %202, %201, %38, %37, %10, %10, %10, %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399, %464, %500, %39, %120, %282, %389, %_ZN5clang17DiagnosticBuilderD2Ev.exit412, %_ZN5clang17DiagnosticBuilderD2Ev.exit419, %621, %537
+  %.0288542 = phi i32 [ %.0288670675, %_ZN5clang17DiagnosticBuilderD2Ev.exit412 ], [ %.0288, %_ZN5clang17DiagnosticBuilderD2Ev.exit419 ], [ %.0288, %621 ], [ %.0288, %537 ], [ 111, %389 ], [ 111, %390 ], [ %292, %.critedge ], [ %384, %381 ], [ %.4, %282 ], [ 27, %120 ], [ 27, %_ZN5clang17DiagnosticBuilderD2Ev.exit365 ], [ 27, %39 ], [ 27, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %36, %464 ], [ %36, %_ZN5clang17DiagnosticBuilderD2Ev.exit396 ], [ 11, %205 ], [ 9, %204 ], [ 13, %203 ], [ 10, %202 ], [ 12, %201 ], [ 8, %38 ], [ 7, %37 ], [ %36, %10 ], [ %36, %10 ], [ %36, %10 ], [ %36, %10 ], [ %36, %500 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ 0, %.thread665 ]
   %720 = icmp eq i32 %9, 1
   br i1 %720, label %721, label %_ZL39IsEscapeValidInUnevaluatedStringLiteralc.exit.thread
 

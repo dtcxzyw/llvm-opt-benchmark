@@ -182,8 +182,8 @@ default.unreachable:                              ; preds = %11
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit.i
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit.i: ; preds = %25, %20, %14
-  %.pn5.i.i = phi ptr [ %28, %25 ], [ %22, %20 ], [ %19, %14 ]
-  %.pn3.i.i = phi i64 [ %27, %25 ], [ %24, %20 ], [ %18, %14 ]
+  %.pn5.i.i = phi ptr [ %19, %14 ], [ %22, %20 ], [ %28, %25 ]
+  %.pn3.i.i = phi i64 [ %18, %14 ], [ %24, %20 ], [ %27, %25 ]
   %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.pn3.i.i, i1 noundef zeroext false), !noalias !25
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
@@ -387,8 +387,8 @@ default.unreachable:                              ; preds = %1
   br label %19
 
 19:                                               ; preds = %15, %10, %4
-  %.pn5 = phi ptr [ %18, %15 ], [ %12, %10 ], [ %9, %4 ]
-  %.pn3 = phi i64 [ %17, %15 ], [ %14, %10 ], [ %8, %4 ]
+  %.pn5 = phi ptr [ %9, %4 ], [ %12, %10 ], [ %18, %15 ]
+  %.pn3 = phi i64 [ %8, %4 ], [ %14, %10 ], [ %17, %15 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.pn5, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn3, 1
   ret { ptr, i64 } %.merged
@@ -431,8 +431,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit: ; preds = %5, %11, %16
-  %.pn5.i = phi ptr [ %19, %16 ], [ %13, %11 ], [ %10, %5 ]
-  %.pn3.i = phi i64 [ %18, %16 ], [ %15, %11 ], [ %9, %5 ]
+  %.pn5.i = phi ptr [ %10, %5 ], [ %13, %11 ], [ %19, %16 ]
+  %.pn3.i = phi i64 [ %9, %5 ], [ %15, %11 ], [ %18, %16 ]
   %20 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.pn3.i, i1 noundef zeroext false)
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
@@ -531,8 +531,8 @@ default.unreachable:                              ; preds = %11
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit: ; preds = %14, %20, %25
-  %.pn5.i = phi ptr [ %28, %25 ], [ %22, %20 ], [ %19, %14 ]
-  %.pn3.i = phi i64 [ %27, %25 ], [ %24, %20 ], [ %18, %14 ]
+  %.pn5.i = phi ptr [ %19, %14 ], [ %22, %20 ], [ %28, %25 ]
+  %.pn3.i = phi i64 [ %18, %14 ], [ %24, %20 ], [ %27, %25 ]
   %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.pn3.i, i1 noundef zeroext false), !noalias !86
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1

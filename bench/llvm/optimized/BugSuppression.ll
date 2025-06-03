@@ -2600,7 +2600,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14Attr
   br label %104
 
 104:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14AttributedStmtEEUlPKNS3_4AttrEE_EclIPKS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %103, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14AttributedStmtEEUlPKNS3_4AttrEE_EclIPKS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %103, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14AttributedStmtEEUlPKNS3_4AttrEE_EclIPKS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !440
   %105 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i.i.i, i64 32
   %106 = load i16, ptr %105, align 8
@@ -2641,7 +2641,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14Attr
   br label %123
 
 123:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14AttributedStmtEEUlPKNS3_4AttrEE_EclIPKS9_EEbT_.exit57.thread.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %122, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14AttributedStmtEEUlPKNS3_4AttrEE_EclIPKS9_EEbT_.exit57.thread.i.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %122, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114hasSuppressionEPKN5clang14AttributedStmtEEUlPKNS3_4AttrEE_EclIPKS9_EEbT_.exit57.thread.i.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !440
   %124 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i.i.i, i64 32
   %125 = load i16, ptr %124, align 8

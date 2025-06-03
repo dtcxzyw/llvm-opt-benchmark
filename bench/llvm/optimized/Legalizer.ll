@@ -1953,7 +1953,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstr
   br label %5
 
 5:                                                ; preds = %0, %2, %1
-  %.0 = phi i1 [ %4, %2 ], [ true, %1 ], [ false, %0 ]
+  %.0 = phi i1 [ true, %1 ], [ %4, %2 ], [ false, %0 ]
   ret i1 %.0
 }
 
@@ -2206,7 +2206,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit52: ; pre
   br label %95
 
 thread-pre-split:                                 ; preds = %32, %34, %36, %38, %.loopexit98, %75, %77
-  %.046.in.ph = phi i1 [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %40, %38 ], [ %74, %.loopexit98 ], [ %76, %75 ], [ true, %77 ]
+  %.046.in.ph = phi i1 [ true, %77 ], [ %76, %75 ], [ %74, %.loopexit98 ], [ %40, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
   %.pr = load i32, ptr %28, align 8, !tbaa !26
   br label %95
 
@@ -9237,7 +9237,7 @@ define linkonce_odr hidden void @_ZN4llvm28LegalizationArtifactCombiner11markDef
   br label %_ZN4llvm28LegalizationArtifactCombiner17getArtifactSrcRegERKNS_12MachineInstrE.exit
 
 _ZN4llvm28LegalizationArtifactCombiner17getArtifactSrcRegERKNS_12MachineInstrE.exit: ; preds = %13, %17
-  %.sroa.0.0.in.i = phi ptr [ %25, %17 ], [ %16, %13 ]
+  %.sroa.0.0.in.i = phi ptr [ %16, %13 ], [ %25, %17 ]
   %.sroa.0.0.i = load i32, ptr %.sroa.0.0.in.i, align 4, !tbaa !276
   %26 = load ptr, ptr %6, align 8, !tbaa !270
   %27 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %26, i32 %.sroa.0.0.i) #26
@@ -10981,7 +10981,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit48.thread: ; preds = %7
   br label %_ZN4llvm28LegalizationArtifactCombiner19ArtifactValueFinder18findValueFromTruncERNS_12MachineInstrEjj.exit
 
 _ZN4llvm28LegalizationArtifactCombiner19ArtifactValueFinder18findValueFromTruncERNS_12MachineInstrEjj.exit: ; preds = %94, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit48.thread, %98, %96, %73, %71, %._crit_edge, %13
-  %.sroa.039.0 = phi i32 [ %.sroa.039.0.copyload42, %98 ], [ %97, %96 ], [ %74, %73 ], [ %72, %71 ], [ %.sroa.039.1.sroa.speculated, %._crit_edge ], [ %14, %13 ], [ %95, %94 ], [ %.sroa.06.0.copyload.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit48.thread ]
+  %.sroa.039.0 = phi i32 [ %.sroa.039.0.copyload42, %98 ], [ %14, %13 ], [ %.sroa.039.1.sroa.speculated, %._crit_edge ], [ %72, %71 ], [ %74, %73 ], [ %97, %96 ], [ %95, %94 ], [ %.sroa.06.0.copyload.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit48.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
   ret i32 %.sroa.039.0
 }

@@ -7039,7 +7039,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format11Logical
           to label %71 unwind label %69
 
 68:                                               ; preds = %438, %412, %386, %360, %334, %308, %282, %256, %230, %204, %178, %152, %126, %97, %69
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %439, %438 ], [ %413, %412 ], [ %387, %386 ], [ %361, %360 ], [ %335, %334 ], [ %309, %308 ], [ %283, %282 ], [ %257, %256 ], [ %231, %230 ], [ %205, %204 ], [ %179, %178 ], [ %153, %152 ], [ %127, %126 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %98, %97 ], [ %127, %126 ], [ %153, %152 ], [ %179, %178 ], [ %205, %204 ], [ %231, %230 ], [ %257, %256 ], [ %283, %282 ], [ %309, %308 ], [ %335, %334 ], [ %361, %360 ], [ %387, %386 ], [ %413, %412 ], [ %439, %438 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$17hd11fc0a6edee433aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %63) #25
           to label %479 unwind label %123
 
@@ -7263,7 +7263,7 @@ default.unreachable1213:                          ; preds = %76
   br label %121
 
 121:                                              ; preds = %460, %434, %408, %382, %356, %330, %304, %278, %252, %226, %200, %174, %148, %119
-  %.sroa.0446.0 = phi i64 [ %461, %460 ], [ %435, %434 ], [ %409, %408 ], [ %383, %382 ], [ %357, %356 ], [ %331, %330 ], [ %305, %304 ], [ %279, %278 ], [ %253, %252 ], [ %227, %226 ], [ %201, %200 ], [ %175, %174 ], [ %149, %148 ], [ %120, %119 ]
+  %.sroa.0446.0 = phi i64 [ %120, %119 ], [ %149, %148 ], [ %175, %174 ], [ %201, %200 ], [ %227, %226 ], [ %253, %252 ], [ %279, %278 ], [ %305, %304 ], [ %331, %330 ], [ %357, %356 ], [ %383, %382 ], [ %409, %408 ], [ %435, %434 ], [ %461, %460 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   invoke void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact_write..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$polars_parquet_format..thrift..protocol..TOutputProtocol$GT$16write_field_stop17hc5bfe55427fb0667E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
           to label %462 unwind label %69
@@ -27049,7 +27049,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format8TimeUnit
           to label %35 unwind label %33
 
 .body:                                            ; preds = %165, %113, %59, %33, %151, %100, %46
-  %.pn = phi { ptr, i32 } [ %152, %151 ], [ %101, %100 ], [ %47, %46 ], [ %34, %33 ], [ %60, %59 ], [ %114, %113 ], [ %166, %165 ]
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %101, %100 ], [ %152, %151 ], [ %34, %33 ], [ %60, %59 ], [ %114, %113 ], [ %166, %165 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$17hd11fc0a6edee433aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #25
           to label %218 unwind label %97
 
@@ -27278,7 +27278,7 @@ default.unreachable341:                           ; preds = %40
   br label %95
 
 95:                                               ; preds = %199, %147, %93
-  %.sroa.0114.0 = phi i64 [ %200, %199 ], [ %148, %147 ], [ %94, %93 ]
+  %.sroa.0114.0 = phi i64 [ %94, %93 ], [ %148, %147 ], [ %200, %199 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   invoke void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact_write..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$polars_parquet_format..thrift..protocol..TOutputProtocol$GT$16write_field_stop17hc5bfe55427fb0667E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %17, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
           to label %201 unwind label %33
@@ -32385,7 +32385,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i.i: ; preds = %14
           to label %205 unwind label %203, !noalias !950
 
 .thread627.i.i:                                   ; preds = %693, %.thread637.i.i, %.body449.i.i, %471, %.thread132.i.i.i.i, %.thread648.i.i, %375, %370, %.thread129.i.i.i.i, %314, %313, %304, %.thread95.i.i.i.i, %203
-  %.pn332.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn332.pn.pn.ph.i.i, %693 ], [ %204, %203 ], [ %.pn325.i.i, %313 ], [ %.pn332640.i.i, %.thread637.i.i ], [ %lpad.thr_comm.split-lp.i.i, %375 ], [ %.pn329651.i.i, %.thread648.i.i ], [ %.pn322.i.i, %.body449.i.i ], [ %.pn5698.i.i.i.i, %.thread95.i.i.i.i ], [ %.pn77132.i.i.i.i, %.thread129.i.i.i.i ], [ %.pn77135.i.i.i.i, %.thread132.i.i.i.i ], [ %472, %471 ], [ %371, %370 ], [ %315, %314 ], [ %305, %304 ]
+  %.pn332.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn332.pn.pn.ph.i.i, %693 ], [ %204, %203 ], [ %.pn325.i.i, %313 ], [ %.pn332640.i.i, %.thread637.i.i ], [ %.pn322.i.i, %.body449.i.i ], [ %lpad.thr_comm.split-lp.i.i, %375 ], [ %.pn329651.i.i, %.thread648.i.i ], [ %.pn5698.i.i.i.i, %.thread95.i.i.i.i ], [ %.pn77132.i.i.i.i, %.thread129.i.i.i.i ], [ %.pn77135.i.i.i.i, %.thread132.i.i.i.i ], [ %472, %471 ], [ %371, %370 ], [ %315, %314 ], [ %305, %304 ]
   call void @Py_DecRef(ptr noundef nonnull %195) #23, !noalias !950
   br label %.body348.i.i
 
@@ -34426,7 +34426,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i483.i.i: ; preds = 
   br label %687
 
 .thread637.i.i:                                   ; preds = %473, %313, %306
-  %.pn332640.i.i = phi { ptr, i32 } [ %.pn325.i.i, %313 ], [ %307, %306 ], [ %474, %473 ]
+  %.pn332640.i.i = phi { ptr, i32 } [ %.pn325.i.i, %313 ], [ %474, %473 ], [ %307, %306 ]
   call void @Py_DecRef(ptr noundef nonnull %.sroa.0511.0.i.i) #23, !noalias !950
   br label %.thread627.i.i
 

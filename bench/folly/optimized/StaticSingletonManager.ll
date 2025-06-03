@@ -477,7 +477,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit18.i:        ; preds = %179, %_ZNSt11unique
   br label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5Entry6createERFPvvERS4_.exit
 
 _ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5Entry6createERFPvvERS4_.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl12create_entryERKSt9type_info.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit18.i
-  %.1.i = phi ptr [ %.0.i.i.i, %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl12create_entryERKSt9type_info.exit ], [ %.3.i, %_ZNSt11unique_lockISt5mutexED2Ev.exit18.i ]
+  %.1.i = phi ptr [ %.3.i, %_ZNSt11unique_lockISt5mutexED2Ev.exit18.i ], [ %.0.i.i.i, %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl12create_entryERKSt9type_info.exit ]
   %185 = ptrtoint ptr %.1.i to i64
   store atomic i64 %185, ptr %0 release, align 8
   ret ptr %.1.i

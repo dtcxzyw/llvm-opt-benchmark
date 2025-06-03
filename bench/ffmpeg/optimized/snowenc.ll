@@ -12821,7 +12821,7 @@ define internal fastcc i32 @encode_q_branch(ptr noundef %0, i32 noundef %1, i32 
   br label %get_penalty_factor.exit
 
 get_penalty_factor.exit:                          ; preds = %234, %275, %277, %280, %282, %284, %286
-  %.0.i = phi i32 [ %276, %275 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %277 ], [ 1, %234 ]
+  %.0.i = phi i32 [ %276, %275 ], [ %279, %277 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ 1, %234 ]
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 2148760
   store i32 %.0.i, ptr %288, align 8, !tbaa !361
   %289 = getelementptr inbounds nuw i8, ptr %272, i64 248
@@ -12866,7 +12866,7 @@ get_penalty_factor.exit:                          ; preds = %234, %275, %277, %2
   br label %get_penalty_factor.exit493
 
 get_penalty_factor.exit493:                       ; preds = %get_penalty_factor.exit, %291, %293, %296, %298, %300, %302
-  %.0.i492 = phi i32 [ %292, %291 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %293 ], [ 1, %get_penalty_factor.exit ]
+  %.0.i492 = phi i32 [ %292, %291 ], [ %295, %293 ], [ %297, %296 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ 1, %get_penalty_factor.exit ]
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 2148764
   store i32 %.0.i492, ptr %304, align 4, !tbaa !363
   %305 = getelementptr inbounds nuw i8, ptr %272, i64 252
@@ -12911,7 +12911,7 @@ get_penalty_factor.exit493:                       ; preds = %get_penalty_factor.
   br label %get_penalty_factor.exit496
 
 get_penalty_factor.exit496:                       ; preds = %get_penalty_factor.exit493, %307, %309, %312, %314, %316, %318
-  %.0.i495 = phi i32 [ %308, %307 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %309 ], [ 1, %get_penalty_factor.exit493 ]
+  %.0.i495 = phi i32 [ %308, %307 ], [ %311, %309 ], [ %313, %312 ], [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ 1, %get_penalty_factor.exit493 ]
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 2148768
   store i32 %.0.i495, ptr %320, align 8, !tbaa !365
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 2149400
@@ -14751,7 +14751,7 @@ define internal fastcc i32 @get_4block_rd(ptr noundef %0, i32 noundef %1, i32 no
   br label %get_penalty_factor.exit
 
 get_penalty_factor.exit:                          ; preds = %3, %32, %34, %37, %39, %41, %43
-  %.0.i188 = phi i32 [ %33, %32 ], [ %46, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %34 ], [ 1, %3 ]
+  %.0.i188 = phi i32 [ %33, %32 ], [ %36, %34 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %46, %43 ], [ 1, %3 ]
   %47 = lshr i32 8, %6
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 6660
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2141880
@@ -15757,7 +15757,7 @@ define internal fastcc i32 @get_block_rd(ptr noundef %0, i32 noundef %1, i32 nou
   br label %get_penalty_factor.exit
 
 get_penalty_factor.exit:                          ; preds = %4, %38, %40, %43, %45, %47, %49
-  %.0.i = phi i32 [ %39, %38 ], [ %52, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %40 ], [ 1, %4 ]
+  %.0.i = phi i32 [ %39, %38 ], [ %42, %40 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %52, %49 ], [ 1, %4 ]
   %53 = mul nsw i32 %8, %1
   %54 = lshr i32 8, %7
   %55 = sub nsw i32 %53, %54

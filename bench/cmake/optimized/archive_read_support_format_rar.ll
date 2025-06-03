@@ -597,8 +597,8 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   %156 = icmp eq ptr %155, null
   br i1 %156, label %.thread135, label %67
 
-.thread135:                                       ; preds = %154, %85, %128, %147, %149, %61, %.thread, %72, %110, %103, %97, %84, %111, %146, %127, %122, %152, %skip_sfx.exit.thread, %17
-  %.098 = phi i32 [ 1, %17 ], [ -30, %skip_sfx.exit.thread ], [ -30, %.thread ], [ -30, %72 ], [ -30, %110 ], [ -30, %103 ], [ -30, %97 ], [ -30, %84 ], [ %112, %111 ], [ -30, %146 ], [ -30, %127 ], [ -30, %122 ], [ -30, %152 ], [ -30, %61 ], [ -30, %154 ], [ -30, %85 ], [ -30, %128 ], [ 1, %147 ], [ %150, %149 ]
+.thread135:                                       ; preds = %154, %85, %128, %147, %149, %61, %.thread, %146, %127, %122, %111, %110, %103, %97, %84, %72, %152, %skip_sfx.exit.thread, %17
+  %.098 = phi i32 [ 1, %17 ], [ -30, %skip_sfx.exit.thread ], [ -30, %.thread ], [ -30, %146 ], [ -30, %127 ], [ -30, %122 ], [ %112, %111 ], [ -30, %110 ], [ -30, %103 ], [ -30, %97 ], [ -30, %84 ], [ -30, %72 ], [ -30, %152 ], [ -30, %61 ], [ -30, %154 ], [ -30, %85 ], [ -30, %128 ], [ 1, %147 ], [ %150, %149 ]
   ret i32 %.098
 }
 
@@ -771,7 +771,7 @@ read_data_stored.exit:                            ; preds = %55, %56, %62, %63
   br label %85
 
 85:                                               ; preds = %read_data_stored.exit, %84, %79, %77, %77, %27
-  %.035 = phi i32 [ 1, %27 ], [ -30, %84 ], [ %78, %79 ], [ %78, %77 ], [ %.0.i, %read_data_stored.exit ], [ %78, %77 ]
+  %.035 = phi i32 [ 1, %27 ], [ -30, %84 ], [ %.0.i, %read_data_stored.exit ], [ %78, %79 ], [ %78, %77 ], [ %78, %77 ]
   ret i32 %.035
 }
 
@@ -1710,7 +1710,7 @@ default.unreachable:                              ; preds = %194
   br i1 %.not455, label %.split554.us, label %.backedge
 
 .backedge:                                        ; preds = %230, %236, %200, %210
-  %.1364.be = phi i32 [ %.2365, %210 ], [ %.2365, %200 ], [ %.2365, %230 ], [ %232, %236 ]
+  %.1364.be = phi i32 [ %.2365, %200 ], [ %.2365, %210 ], [ %.2365, %230 ], [ %232, %236 ]
   %201 = icmp ult i32 %.1364.be, %128
   br i1 %201, label %.lr.ph.split, label %.outer._crit_edge, !llvm.loop !123
 
@@ -1840,10 +1840,10 @@ default.unreachable:                              ; preds = %194
   br i1 %256, label %.lr.ph568, label %.thread488, !llvm.loop !124
 
 .thread488:                                       ; preds = %.lr.ph568, %.loopexit500, %.split544.us, %.split549.us, %.split554.us
-  %.1376526 = phi i8 [ %.us-phi545, %.split544.us ], [ %.us-phi550, %.split549.us ], [ %.us-phi555, %.split554.us ], [ %.1376527, %.loopexit500 ], [ %.1376527, %.lr.ph568 ]
-  %257 = phi i8 [ %.us-phi547, %.split544.us ], [ %.us-phi552, %.split549.us ], [ %.us-phi557, %.split554.us ], [ %241, %.loopexit500 ], [ %241, %.lr.ph568 ]
-  %.1387 = phi i32 [ %227, %.split544.us ], [ %217, %.split549.us ], [ %208, %.split554.us ], [ %.0386.ph576, %.loopexit500 ], [ %254, %.lr.ph568 ]
-  %.3366 = phi i32 [ %229, %.split544.us ], [ %213, %.split549.us ], [ %204, %.split554.us ], [ %.5368, %.loopexit500 ], [ %.5368, %.lr.ph568 ]
+  %.1376526 = phi i8 [ %.us-phi555, %.split554.us ], [ %.us-phi550, %.split549.us ], [ %.us-phi545, %.split544.us ], [ %.1376527, %.loopexit500 ], [ %.1376527, %.lr.ph568 ]
+  %257 = phi i8 [ %.us-phi557, %.split554.us ], [ %.us-phi552, %.split549.us ], [ %.us-phi547, %.split544.us ], [ %241, %.loopexit500 ], [ %241, %.lr.ph568 ]
+  %.1387 = phi i32 [ %208, %.split554.us ], [ %217, %.split549.us ], [ %227, %.split544.us ], [ %.0386.ph576, %.loopexit500 ], [ %254, %.lr.ph568 ]
+  %.3366 = phi i32 [ %204, %.split554.us ], [ %213, %.split549.us ], [ %229, %.split544.us ], [ %.5368, %.loopexit500 ], [ %.5368, %.lr.ph568 ]
   %258 = icmp ult i32 %.1387, %136
   %259 = icmp ult i32 %.3366, %128
   %260 = select i1 %259, i1 %258, i1 false
@@ -3384,7 +3384,7 @@ thread-pre-split:                                 ; preds = %257, %363, %run_fil
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %99, %230, %338, %355, %10, %rar_br_preparation.exit, %run_filters.exit.thread, %377, %352, %301, %270, %261, %258, %255, %253, %238, %111, %93, %92, %73
-  %.1 = phi i32 [ %.1191, %377 ], [ 0, %73 ], [ -30, %92 ], [ 1, %93 ], [ -30, %238 ], [ -30, %253 ], [ -30, %301 ], [ -30, %261 ], [ -30, %270 ], [ -25, %258 ], [ %256, %255 ], [ -30, %352 ], [ 0, %111 ], [ -30, %rar_br_preparation.exit ], [ -30, %run_filters.exit.thread ], [ -30, %10 ], [ %362, %355 ], [ %346, %338 ], [ %231, %230 ], [ %104, %99 ], [ -30, %.backedge ]
+  %.1 = phi i32 [ %.1191, %377 ], [ 0, %73 ], [ -30, %92 ], [ 1, %93 ], [ -30, %238 ], [ -30, %253 ], [ %256, %255 ], [ -25, %258 ], [ -30, %261 ], [ -30, %270 ], [ -30, %301 ], [ -30, %352 ], [ 0, %111 ], [ -30, %rar_br_preparation.exit ], [ -30, %run_filters.exit.thread ], [ -30, %10 ], [ %362, %355 ], [ %346, %338 ], [ %231, %230 ], [ %104, %99 ], [ -30, %.backedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   br label %384
 

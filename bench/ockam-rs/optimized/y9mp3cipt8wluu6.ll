@@ -214,7 +214,7 @@ default.unreachable:                              ; preds = %2
   br label %41
 
 41:                                               ; preds = %35, %29, %23, %17, %11
-  %.0.in = phi i1 [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0.in = phi i1 [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ]
   ret i1 %.0.in
 }
 
@@ -315,7 +315,7 @@ default.unreachable:                              ; preds = %2
   br label %41
 
 41:                                               ; preds = %35, %29, %23, %17, %11
-  %.0.in = phi i1 [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0.in = phi i1 [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ]
   ret i1 %.0.in
 }
 
@@ -416,7 +416,7 @@ default.unreachable:                              ; preds = %2
   br label %41
 
 41:                                               ; preds = %35, %29, %23, %17, %11
-  %.0.in = phi i1 [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0.in = phi i1 [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ]
   ret i1 %.0.in
 }
 
@@ -517,7 +517,7 @@ default.unreachable:                              ; preds = %2
   br label %41
 
 41:                                               ; preds = %35, %29, %23, %17, %11
-  %.0.in = phi i1 [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0.in = phi i1 [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ]
   ret i1 %.0.in
 }
 
@@ -2485,8 +2485,8 @@ default.unreachable119:                           ; preds = %41, %19
 152:                                              ; preds = %.thread112, %102, %109, %113, %148, %150, %155, %153
   ret void
 
-153:                                              ; preds = %117, %32, %25, %87, %61
-  %.sink = phi i64 [ 3, %117 ], [ 5, %32 ], [ 4, %25 ], [ 5, %87 ], [ 3, %61 ]
+153:                                              ; preds = %61, %87, %25, %32, %117
+  %.sink = phi i64 [ 3, %61 ], [ 5, %87 ], [ 4, %25 ], [ 5, %32 ], [ 3, %117 ]
   store i64 %.sink, ptr %0, align 8
   %154 = load i64, ptr %3, align 8, !range !220, !noundef !5
   %.not = icmp eq i64 %154, 3
@@ -2502,8 +2502,8 @@ default.unreachable119:                           ; preds = %41, %19
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.17484987761838435091"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #29
           to label %.thread95 unwind label %106
 
-.thread95:                                        ; preds = %.body.i, %.body.i58, %104, %110, %115, %156, %142, %.body.i65, %159, %.thread87
-  %.pn80 = phi { ptr, i32 } [ %eh.lpad-body86, %159 ], [ %eh.lpad-body86, %.thread87 ], [ %125, %142 ], [ %125, %.body.i65 ], [ %105, %104 ], [ %111, %110 ], [ %116, %115 ], [ %157, %156 ], [ %96, %.body.i58 ], [ %79, %.body.i ]
+.thread95:                                        ; preds = %.body.i, %.body.i58, %156, %115, %110, %104, %142, %.body.i65, %159, %.thread87
+  %.pn80 = phi { ptr, i32 } [ %eh.lpad-body86, %159 ], [ %eh.lpad-body86, %.thread87 ], [ %125, %142 ], [ %125, %.body.i65 ], [ %157, %156 ], [ %116, %115 ], [ %111, %110 ], [ %105, %104 ], [ %96, %.body.i58 ], [ %79, %.body.i ]
   resume { ptr, i32 } %.pn80
 
 .thread87:                                        ; preds = %52, %69, %.thread99
@@ -4266,7 +4266,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN101_$LT$aws_smithy_runtime_api..client..orchestrator..ErrorKind$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbb1f2ffa470825fE.exit"
 
 "_ZN101_$LT$aws_smithy_runtime_api..client..orchestrator..ErrorKind$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbb1f2ffa470825fE.exit": ; preds = %14, %17, %20, %23, %25, %28
-  %.0.in.i = phi i1 [ %30, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ]
+  %.0.in.i = phi i1 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ %30, %28 ]
   ret i1 %.0.in.i
 }
 
@@ -4609,7 +4609,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$ockam_vault_aws..error..Erro
   unreachable
 
 78:                                               ; preds = %105, %92, %79, %63
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %93, %92 ], [ %80, %79 ], [ %64, %63 ]
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %80, %79 ], [ %93, %92 ], [ %106, %105 ]
   resume { ptr, i32 } %.pn
 
 79:                                               ; preds = %33
@@ -6663,7 +6663,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he74428ad1a3f0485E.exit"
 
 "_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17he74428ad1a3f0485E.exit": ; preds = %10, %16, %22, %28, %34
-  %.0.in.i.i = phi i1 [ %39, %34 ], [ %33, %28 ], [ %27, %22 ], [ %21, %16 ], [ %15, %10 ]
+  %.0.in.i.i = phi i1 [ %15, %10 ], [ %21, %16 ], [ %27, %22 ], [ %33, %28 ], [ %39, %34 ]
   ret i1 %.0.in.i.i
 }
 
@@ -6971,7 +6971,7 @@ default.unreachable:                              ; preds = %2
   br label %25
 
 25:                                               ; preds = %23, %20, %17, %14, %11
-  %.0.in = phi i1 [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.0.in = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ]
   ret i1 %.0.in
 }
 

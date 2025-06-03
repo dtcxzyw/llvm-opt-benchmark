@@ -1218,8 +1218,8 @@ extractFile.exit.i:                               ; preds = %531, %529
   br i1 %.not25.i, label %parseFileEntryDescriptor.exit, label %extractFile.exit.thread.i
 
 extractFile.exit.thread.sink.split.i:             ; preds = %492, %482, %481, %472, %471, %465, %461
-  %.str.32.sink.i = phi ptr [ @.str.32, %465 ], [ @.str.33, %471 ], [ @.str.34, %472 ], [ @.str.35, %481 ], [ @.str.34, %482 ], [ @.str.36, %461 ], [ @.str.37, %492 ]
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.32.sink.i) #7
+  %.str.36.sink.i = phi ptr [ @.str.32, %465 ], [ @.str.33, %471 ], [ @.str.34, %472 ], [ @.str.35, %481 ], [ @.str.34, %482 ], [ @.str.36, %461 ], [ @.str.37, %492 ]
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.36.sink.i) #7
   br label %extractFile.exit.thread.i
 
 extractFile.exit.thread.i:                        ; preds = %extractFile.exit.i, %extractFile.exit.thread.sink.split.i
@@ -1287,12 +1287,12 @@ findFileIdentifiers.exit.thread:                  ; preds = %419, %435, %379, %4
   br label %44
 
 .thread484:                                       ; preds = %findFileEntries.exit, %findFileIdentifiers.exit, %363, %.loopexit609, %.loopexit610, %.loopexit611, %.loopexit612, %.loopexit613, %.loopexit614, %.loopexit615, %.loopexit616, %.loopexit617
-  %.sroa.0361.0 = phi ptr [ %.sroa.0361.2, %363 ], [ %47, %.loopexit617 ], [ %47, %.loopexit616 ], [ %47, %.loopexit615 ], [ %47, %.loopexit614 ], [ %47, %.loopexit613 ], [ %47, %.loopexit612 ], [ %47, %.loopexit611 ], [ %47, %.loopexit610 ], [ %47, %.loopexit609 ], [ %.sroa.0361.5, %findFileIdentifiers.exit ], [ %.sroa.0361.2, %findFileEntries.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %363 ], [ %52, %.loopexit617 ], [ %52, %.loopexit616 ], [ %52, %.loopexit615 ], [ %52, %.loopexit614 ], [ %52, %.loopexit613 ], [ %52, %.loopexit612 ], [ %52, %.loopexit611 ], [ %52, %.loopexit610 ], [ %52, %.loopexit609 ], [ %.sroa.0.2, %findFileIdentifiers.exit ], [ %.sroa.0.5, %findFileEntries.exit ]
-  %.0112 = phi ptr [ %.2114, %363 ], [ %.1113, %.loopexit617 ], [ null, %.loopexit616 ], [ %106, %.loopexit615 ], [ %106, %.loopexit614 ], [ %106, %.loopexit613 ], [ %106, %.loopexit612 ], [ %106, %.loopexit611 ], [ %106, %.loopexit610 ], [ %106, %.loopexit609 ], [ %.2114, %findFileIdentifiers.exit ], [ %.2114, %findFileEntries.exit ]
-  %.0106 = phi ptr [ %.2108, %363 ], [ %.1107, %.loopexit617 ], [ %.1107, %.loopexit616 ], [ null, %.loopexit615 ], [ %129, %.loopexit614 ], [ %129, %.loopexit613 ], [ %129, %.loopexit612 ], [ %129, %.loopexit611 ], [ %129, %.loopexit610 ], [ %129, %.loopexit609 ], [ %.2108, %findFileIdentifiers.exit ], [ %.2108, %findFileEntries.exit ]
-  %.099 = phi ptr [ null, %363 ], [ %.1100, %.loopexit617 ], [ %.1100, %.loopexit616 ], [ %.1100, %.loopexit615 ], [ %.1100, %.loopexit614 ], [ %.1100, %.loopexit613 ], [ %.1100, %.loopexit612 ], [ %.1100, %.loopexit611 ], [ %.1100, %.loopexit610 ], [ %.1100, %.loopexit609 ], [ %361, %findFileIdentifiers.exit ], [ %361, %findFileEntries.exit ]
-  %.087 = phi i32 [ 0, %363 ], [ 0, %.loopexit617 ], [ 0, %.loopexit616 ], [ 0, %.loopexit615 ], [ 0, %.loopexit614 ], [ 0, %.loopexit613 ], [ 0, %.loopexit612 ], [ 0, %.loopexit611 ], [ 0, %.loopexit610 ], [ 0, %.loopexit609 ], [ 20, %findFileIdentifiers.exit ], [ 20, %findFileEntries.exit ]
+  %.sroa.0361.0 = phi ptr [ %.sroa.0361.2, %363 ], [ %47, %.loopexit617 ], [ %47, %.loopexit616 ], [ %47, %.loopexit615 ], [ %47, %.loopexit614 ], [ %47, %.loopexit613 ], [ %47, %.loopexit612 ], [ %47, %.loopexit611 ], [ %47, %.loopexit610 ], [ %47, %.loopexit609 ], [ %.sroa.0361.2, %findFileEntries.exit ], [ %.sroa.0361.5, %findFileIdentifiers.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %363 ], [ %52, %.loopexit617 ], [ %52, %.loopexit616 ], [ %52, %.loopexit615 ], [ %52, %.loopexit614 ], [ %52, %.loopexit613 ], [ %52, %.loopexit612 ], [ %52, %.loopexit611 ], [ %52, %.loopexit610 ], [ %52, %.loopexit609 ], [ %.sroa.0.5, %findFileEntries.exit ], [ %.sroa.0.2, %findFileIdentifiers.exit ]
+  %.0112 = phi ptr [ %.2114, %363 ], [ %.1113, %.loopexit617 ], [ null, %.loopexit616 ], [ %106, %.loopexit615 ], [ %106, %.loopexit614 ], [ %106, %.loopexit613 ], [ %106, %.loopexit612 ], [ %106, %.loopexit611 ], [ %106, %.loopexit610 ], [ %106, %.loopexit609 ], [ %.2114, %findFileEntries.exit ], [ %.2114, %findFileIdentifiers.exit ]
+  %.0106 = phi ptr [ %.2108, %363 ], [ %.1107, %.loopexit617 ], [ %.1107, %.loopexit616 ], [ null, %.loopexit615 ], [ %129, %.loopexit614 ], [ %129, %.loopexit613 ], [ %129, %.loopexit612 ], [ %129, %.loopexit611 ], [ %129, %.loopexit610 ], [ %129, %.loopexit609 ], [ %.2108, %findFileEntries.exit ], [ %.2108, %findFileIdentifiers.exit ]
+  %.099 = phi ptr [ null, %363 ], [ %.1100, %.loopexit617 ], [ %.1100, %.loopexit616 ], [ %.1100, %.loopexit615 ], [ %.1100, %.loopexit614 ], [ %.1100, %.loopexit613 ], [ %.1100, %.loopexit612 ], [ %.1100, %.loopexit611 ], [ %.1100, %.loopexit610 ], [ %.1100, %.loopexit609 ], [ %361, %findFileEntries.exit ], [ %361, %findFileIdentifiers.exit ]
+  %.087 = phi i32 [ 0, %363 ], [ 0, %.loopexit617 ], [ 0, %.loopexit616 ], [ 0, %.loopexit615 ], [ 0, %.loopexit614 ], [ 0, %.loopexit613 ], [ 0, %.loopexit612 ], [ 0, %.loopexit611 ], [ 0, %.loopexit610 ], [ 0, %.loopexit609 ], [ 20, %findFileEntries.exit ], [ 20, %findFileIdentifiers.exit ]
   %.not.i339 = icmp eq ptr %.sroa.0361.0, null
   br i1 %.not.i339, label %freePointerList.exit, label %564
 

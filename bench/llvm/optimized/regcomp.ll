@@ -639,11 +639,11 @@ switch.early.test.i:                              ; preds = %201
   br label %214
 
 214:                                              ; preds = %212, %.loopexit.i104, %198, %192, %192, %192
-  %.3.i = phi ptr [ %193, %192 ], [ %193, %192 ], [ %193, %192 ], [ %193, %198 ], [ %.147.i, %212 ], [ %.147.i, %.loopexit.i104 ]
-  %.245.i = phi ptr [ %.043.i, %192 ], [ %.043.i, %192 ], [ %.043.i, %192 ], [ %.043.i, %198 ], [ %.040.i, %212 ], [ %.043.i, %.loopexit.i104 ]
-  %.242.i = phi ptr [ %.040.i, %192 ], [ %.040.i, %192 ], [ %.040.i, %192 ], [ %spec.select.i, %198 ], [ %.040.i, %212 ], [ %.040.i, %.loopexit.i104 ]
-  %.139.i = phi i64 [ %.038.i, %192 ], [ %.038.i, %192 ], [ %.038.i, %192 ], [ %200, %198 ], [ 0, %212 ], [ 0, %.loopexit.i104 ]
-  %.2.i = phi i64 [ %194, %192 ], [ %194, %192 ], [ %194, %192 ], [ %194, %198 ], [ %.037.i, %212 ], [ %.037.i, %.loopexit.i104 ]
+  %.3.i = phi ptr [ %193, %198 ], [ %193, %192 ], [ %193, %192 ], [ %193, %192 ], [ %.147.i, %212 ], [ %.147.i, %.loopexit.i104 ]
+  %.245.i = phi ptr [ %.043.i, %198 ], [ %.043.i, %192 ], [ %.043.i, %192 ], [ %.043.i, %192 ], [ %.040.i, %212 ], [ %.043.i, %.loopexit.i104 ]
+  %.242.i = phi ptr [ %spec.select.i, %198 ], [ %.040.i, %192 ], [ %.040.i, %192 ], [ %.040.i, %192 ], [ %.040.i, %212 ], [ %.040.i, %.loopexit.i104 ]
+  %.139.i = phi i64 [ %200, %198 ], [ %.038.i, %192 ], [ %.038.i, %192 ], [ %.038.i, %192 ], [ 0, %212 ], [ 0, %.loopexit.i104 ]
+  %.2.i = phi i64 [ %194, %198 ], [ %194, %192 ], [ %194, %192 ], [ %194, %192 ], [ %.037.i, %212 ], [ %.037.i, %.loopexit.i104 ]
   %215 = and i64 %.2.i, 4160749568
   %.not54.i = icmp eq i64 %215, 134217728
   br i1 %.not54.i, label %216, label %192, !llvm.loop !48
@@ -722,8 +722,8 @@ findmust.exit:                                    ; preds = %findmust.exit.prehe
   br label %241
 
 241:                                              ; preds = %239, %237, %findmust.exit
-  %.114.i = phi i64 [ %.013.i, %findmust.exit ], [ %240, %239 ], [ %238, %237 ]
-  %.2.i109 = phi i64 [ %.0.i, %findmust.exit ], [ %spec.select.i108, %239 ], [ %.0.i, %237 ]
+  %.114.i = phi i64 [ %.013.i, %findmust.exit ], [ %238, %237 ], [ %240, %239 ]
+  %.2.i109 = phi i64 [ %.0.i, %findmust.exit ], [ %.0.i, %237 ], [ %spec.select.i108, %239 ]
   %.not17.i = icmp eq i64 %236, 134217728
   br i1 %.not17.i, label %242, label %findmust.exit, !llvm.loop !51
 
@@ -1648,7 +1648,7 @@ seterr.exit132:                                   ; preds = %351, %354
   br label %doemit.exit159
 
 doemit.exit159:                                   ; preds = %enlarge.exit.i156, %206, %355, %338, %doemit.exit139, %seterr.exit151, %230, %205, %seterr.exit160, %seterr.exit161, %doemit.exit168, %doemit.exit175, %seterr.exit176, %seterr.exit177, %118
-  %.not186.i = phi i1 [ true, %355 ], [ true, %seterr.exit151 ], [ true, %doemit.exit139 ], [ true, %338 ], [ true, %230 ], [ true, %205 ], [ true, %seterr.exit160 ], [ true, %seterr.exit161 ], [ true, %doemit.exit168 ], [ false, %doemit.exit175 ], [ true, %seterr.exit176 ], [ true, %118 ], [ true, %seterr.exit177 ], [ true, %206 ], [ true, %enlarge.exit.i156 ]
+  %.not186.i = phi i1 [ true, %355 ], [ true, %118 ], [ true, %seterr.exit177 ], [ true, %seterr.exit176 ], [ false, %doemit.exit175 ], [ true, %doemit.exit168 ], [ true, %seterr.exit161 ], [ true, %seterr.exit160 ], [ true, %205 ], [ true, %230 ], [ true, %seterr.exit151 ], [ true, %doemit.exit139 ], [ true, %338 ], [ true, %206 ], [ true, %enlarge.exit.i156 ]
   %356 = load ptr, ptr %4, align 8, !tbaa !18
   %357 = load ptr, ptr %0, align 8, !tbaa !17
   %358 = ptrtoint ptr %356 to i64

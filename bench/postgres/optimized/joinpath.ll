@@ -579,9 +579,9 @@ sort_inner_and_outer.exit.thread:                 ; preds = %277, %.lr.ph.split.
   unreachable
 
 292:                                              ; preds = %288, %287, %sort_inner_and_outer.exit.thread, %sort_inner_and_outer.exit.thread, %sort_inner_and_outer.exit.thread, %sort_inner_and_outer.exit.thread
-  %.0143.i = phi i1 [ false, %288 ], [ true, %287 ], [ false, %sort_inner_and_outer.exit.thread ], [ false, %sort_inner_and_outer.exit.thread ], [ false, %sort_inner_and_outer.exit.thread ], [ false, %sort_inner_and_outer.exit.thread ]
-  %.0142.i = phi i1 [ true, %288 ], [ false, %287 ], [ true, %sort_inner_and_outer.exit.thread ], [ true, %sort_inner_and_outer.exit.thread ], [ true, %sort_inner_and_outer.exit.thread ], [ true, %sort_inner_and_outer.exit.thread ]
-  %.0.i106 = phi i32 [ 0, %288 ], [ %4, %287 ], [ %4, %sort_inner_and_outer.exit.thread ], [ %4, %sort_inner_and_outer.exit.thread ], [ %4, %sort_inner_and_outer.exit.thread ], [ %4, %sort_inner_and_outer.exit.thread ]
+  %.0143.i = phi i1 [ true, %287 ], [ false, %288 ], [ false, %sort_inner_and_outer.exit.thread ], [ false, %sort_inner_and_outer.exit.thread ], [ false, %sort_inner_and_outer.exit.thread ], [ false, %sort_inner_and_outer.exit.thread ]
+  %.0142.i = phi i1 [ false, %287 ], [ true, %288 ], [ true, %sort_inner_and_outer.exit.thread ], [ true, %sort_inner_and_outer.exit.thread ], [ true, %sort_inner_and_outer.exit.thread ], [ true, %sort_inner_and_outer.exit.thread ]
+  %.0.i106 = phi i32 [ %4, %287 ], [ 0, %288 ], [ %4, %sort_inner_and_outer.exit.thread ], [ %4, %sort_inner_and_outer.exit.thread ], [ %4, %sort_inner_and_outer.exit.thread ], [ %4, %sort_inner_and_outer.exit.thread ]
   %293 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %294 = load ptr, ptr %293, align 8
   %.not.i107 = icmp eq ptr %294, null

@@ -745,7 +745,7 @@ define range(i32 0, 2) i32 @fileblobScanAndDestroy(ptr noundef captures(address_
   br label %6
 
 6:                                                ; preds = %5, %4, %3
-  %.0 = phi i32 [ 0, %5 ], [ 0, %4 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %3 ], [ 0, %4 ]
   ret i32 %.0
 }
 

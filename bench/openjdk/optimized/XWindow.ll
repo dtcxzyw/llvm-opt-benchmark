@@ -154,7 +154,7 @@ define hidden noundef zeroext i16 @keySymToUnicodeCharacter(i64 noundef %0) loca
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %3
-  %.0 = phi i16 [ %2, %1 ], [ 24, %6 ], [ 10, %5 ], [ %4, %3 ]
+  %.0 = phi i16 [ %2, %1 ], [ %4, %3 ], [ 10, %5 ], [ 24, %6 ]
   ret i16 %.0
 }
 

@@ -221,7 +221,7 @@ dom_local_name_compare_ex.exit73.thread108:       ; preds = %dom_local_name_comp
   br label %dom_local_name_compare_ex.exit73.thread
 
 dom_local_name_compare_ex.exit73.thread:          ; preds = %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit55, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit59, %dom_local_name_compare_ex.exit61, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit69, %dom_local_name_compare_ex.exit71, %dom_local_name_compare_ex.exit73, %dom_local_name_compare_ex.exit73.thread108
-  %.1 = phi i1 [ true, %dom_local_name_compare_ex.exit73 ], [ false, %dom_local_name_compare_ex.exit73.thread108 ], [ true, %dom_local_name_compare_ex.exit71 ], [ true, %dom_local_name_compare_ex.exit69 ], [ true, %dom_local_name_compare_ex.exit67 ], [ true, %dom_local_name_compare_ex.exit65 ], [ true, %dom_local_name_compare_ex.exit63 ], [ true, %dom_local_name_compare_ex.exit61 ], [ true, %dom_local_name_compare_ex.exit59 ], [ true, %dom_local_name_compare_ex.exit57 ], [ true, %dom_local_name_compare_ex.exit55 ], [ true, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit43 ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit ]
+  %.1 = phi i1 [ false, %dom_local_name_compare_ex.exit73.thread108 ], [ true, %dom_local_name_compare_ex.exit73 ], [ true, %dom_local_name_compare_ex.exit71 ], [ true, %dom_local_name_compare_ex.exit69 ], [ true, %dom_local_name_compare_ex.exit67 ], [ true, %dom_local_name_compare_ex.exit65 ], [ true, %dom_local_name_compare_ex.exit63 ], [ true, %dom_local_name_compare_ex.exit61 ], [ true, %dom_local_name_compare_ex.exit59 ], [ true, %dom_local_name_compare_ex.exit57 ], [ true, %dom_local_name_compare_ex.exit55 ], [ true, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit43 ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit ]
   ret i1 %.1
 }
 
@@ -980,8 +980,8 @@ define internal fastcc i32 @dom_html5_escape_string(ptr noundef readonly capture
   br label %80
 
 80:                                               ; preds = %22, %52, %65, %78, %39, %24, %7
-  %.263 = phi ptr [ %79, %78 ], [ %66, %65 ], [ %53, %52 ], [ %40, %39 ], [ %.061, %24 ], [ %23, %22 ], [ %.061, %7 ]
-  %.260 = phi ptr [ %9, %78 ], [ %9, %65 ], [ %9, %52 ], [ %25, %39 ], [ %9, %24 ], [ %9, %22 ], [ %9, %7 ]
+  %.263 = phi ptr [ %23, %22 ], [ %40, %39 ], [ %.061, %24 ], [ %53, %52 ], [ %66, %65 ], [ %79, %78 ], [ %.061, %7 ]
+  %.260 = phi ptr [ %9, %22 ], [ %25, %39 ], [ %9, %24 ], [ %9, %52 ], [ %9, %65 ], [ %9, %78 ], [ %9, %7 ]
   %81 = getelementptr inbounds nuw i8, ptr %.260, i64 1
   br label %7
 

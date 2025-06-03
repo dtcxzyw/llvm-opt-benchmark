@@ -1367,7 +1367,7 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
   br label %.backedge218
 
 .backedge218:                                     ; preds = %16, %77, %83, %86, %207, %218, %266
-  %.0150.be = phi ptr [ %271, %266 ], [ %220, %218 ], [ %217, %207 ], [ %91, %86 ], [ %85, %83 ], [ %82, %77 ], [ %20, %16 ]
+  %.0150.be = phi ptr [ %20, %16 ], [ %82, %77 ], [ %85, %83 ], [ %91, %86 ], [ %217, %207 ], [ %220, %218 ], [ %271, %266 ]
   %.not = icmp eq ptr %.0150.be, null
   br i1 %.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph249.backedge
 

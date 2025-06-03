@@ -1484,8 +1484,8 @@ default.unreachable:                              ; preds = %4
           to label %301 unwind label %103
 
 .body:                                            ; preds = %39, %69, %103, %99, %84, %54, %299, %284, %269, %254, %239, %224, %209, %194, %179, %164, %149, %134, %118
-  %.pn = phi { ptr, i32 } [ %300, %299 ], [ %285, %284 ], [ %270, %269 ], [ %255, %254 ], [ %240, %239 ], [ %225, %224 ], [ %210, %209 ], [ %195, %194 ], [ %180, %179 ], [ %165, %164 ], [ %150, %149 ], [ %135, %134 ], [ %119, %118 ], [ %40, %39 ], [ %55, %54 ], [ %70, %69 ], [ %85, %84 ], [ %104, %103 ], [ %100, %99 ]
-  %.1 = phi i1 [ true, %299 ], [ true, %284 ], [ true, %269 ], [ true, %254 ], [ true, %239 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %149 ], [ true, %134 ], [ true, %118 ], [ true, %39 ], [ true, %54 ], [ true, %69 ], [ true, %84 ], [ false, %103 ], [ true, %99 ]
+  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %135, %134 ], [ %150, %149 ], [ %165, %164 ], [ %180, %179 ], [ %195, %194 ], [ %210, %209 ], [ %225, %224 ], [ %240, %239 ], [ %255, %254 ], [ %270, %269 ], [ %285, %284 ], [ %300, %299 ], [ %40, %39 ], [ %55, %54 ], [ %70, %69 ], [ %85, %84 ], [ %104, %103 ], [ %100, %99 ]
+  %.1 = phi i1 [ true, %118 ], [ true, %134 ], [ true, %149 ], [ true, %164 ], [ true, %179 ], [ true, %194 ], [ true, %209 ], [ true, %224 ], [ true, %239 ], [ true, %254 ], [ true, %269 ], [ true, %284 ], [ true, %299 ], [ true, %39 ], [ true, %54 ], [ true, %69 ], [ true, %84 ], [ false, %103 ], [ true, %99 ]
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.800285880109910518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %102) #37
           to label %304 unwind label %302
@@ -4856,7 +4856,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN102_$LT$aws_sdk_dynamodb..types.._comparison_operator..ComparisonOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17h691a96c80498b0a0E.exit"
 
 "_ZN102_$LT$aws_sdk_dynamodb..types.._comparison_operator..ComparisonOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17h691a96c80498b0a0E.exit": ; preds = %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34
-  %.0.in.i = phi i1 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   ret i1 %.0.in.i
 }
 
@@ -4900,7 +4900,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN140_$LT$aws_sdk_dynamodb..types.._return_values_on_condition_check_failure..ReturnValuesOnConditionCheckFailure$u20$as$u20$core..fmt..Debug$GT$3fmt17h6dc7eebaf8a25491E.exit"
 
 "_ZN140_$LT$aws_sdk_dynamodb..types.._return_values_on_condition_check_failure..ReturnValuesOnConditionCheckFailure$u20$as$u20$core..fmt..Debug$GT$3fmt17h6dc7eebaf8a25491E.exit": ; preds = %8, %10, %12
-  %.0.in.i = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.0.in.i
 }
 
@@ -5462,7 +5462,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$aws_smithy_runtime
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %4, %"_ZN4core3ptr184drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h99eacc3583835d71E.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr184drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h99eacc3583835d71E.exit", %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -5713,7 +5713,7 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$aws_sdk_dynamodb..
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
   ret void
 
 4:                                                ; preds = %1
@@ -5782,19 +5782,19 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   %27 = load ptr, ptr %26, align 8, !alias.scope !1306, !nonnull !14, !noundef !14
   %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !1306
   %29 = icmp eq i64 %28, 1
-  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
 
 30:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6" unwind label %31
+          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7" unwind label %31
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit"
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
+"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 7113
   store i8 0, ptr %33, align 1
   br label %common.ret
@@ -5880,7 +5880,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$aws_sdk_dynamodb..
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
   ret void
 
 4:                                                ; preds = %1
@@ -5949,19 +5949,19 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   %27 = load ptr, ptr %26, align 8, !alias.scope !1320, !nonnull !14, !noundef !14
   %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !1320
   %29 = icmp eq i64 %28, 1
-  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
 
 30:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6" unwind label %31
+          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7" unwind label %31
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit"
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
+"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 6025
   store i8 0, ptr %33, align 1
   br label %common.ret
@@ -6042,7 +6042,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$aws_sdk_dynamodb..
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
   ret void
 
 4:                                                ; preds = %1
@@ -6111,19 +6111,19 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   %27 = load ptr, ptr %26, align 8, !alias.scope !1334, !nonnull !14, !noundef !14
   %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !1334
   %29 = icmp eq i64 %28, 1
-  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
 
 30:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6" unwind label %31
+          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7" unwind label %31
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit"
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
+"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 6665
   store i8 0, ptr %33, align 1
   br label %common.ret
@@ -6204,7 +6204,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$aws_sdk_dynamodb..
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+common.ret:                                       ; preds = %4, %1, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
   ret void
 
 4:                                                ; preds = %1
@@ -6273,19 +6273,19 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   %27 = load ptr, ptr %26, align 8, !alias.scope !1348, !nonnull !14, !noundef !14
   %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !1348
   %29 = icmp eq i64 %28, 1
-  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6"
+  br i1 %29, label %30, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7"
 
 30:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a947b1aa3bbd971E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6" unwind label %31
+          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7" unwind label %31
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit"
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit6": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
+"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit7": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit", %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 6953
   store i8 0, ptr %33, align 1
   br label %common.ret
@@ -6353,7 +6353,7 @@ define internal void @"_ZN4core3ptr140drop_in_place$LT$$LT$deltalake_aws..storag
     i8 3, label %13
   ]
 
-common.ret:                                       ; preds = %4, %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..PutResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf892fdb8a54277c8E.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..PutResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf892fdb8a54277c8E.exit", %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -6533,7 +6533,7 @@ define internal fastcc void @"_ZN4core3ptr143drop_in_place$LT$aws_smithy_runtime
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %4, %35, %1
+common.ret:                                       ; preds = %35, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -6647,7 +6647,7 @@ define internal void @"_ZN4core3ptr145drop_in_place$LT$$LT$deltalake_aws..storag
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..GetResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h89be2201d402b15aE.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..GetResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h89be2201d402b15aE.exit", %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -6695,7 +6695,7 @@ define internal void @"_ZN4core3ptr145drop_in_place$LT$$LT$deltalake_aws..storag
     i8 3, label %15
   ]
 
-common.ret:                                       ; preds = %"_ZN4core3ptr45drop_in_place$LT$object_store..PutOptions$GT$17h2d74d448a9f12277E.exit", %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..PutResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf892fdb8a54277c8E.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..PutResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf892fdb8a54277c8E.exit", %"_ZN4core3ptr45drop_in_place$LT$object_store..PutOptions$GT$17h2d74d448a9f12277E.exit", %1
   ret void
 
 5:                                                ; preds = %1
@@ -7126,8 +7126,8 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 668
   %53 = load i8, ptr %52, align 4, !range !1019, !noundef !14
-  %cond.i6.i.i = icmp eq i8 %53, 3
-  br i1 %cond.i6.i.i, label %54, label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i"
+  %cond.i7.i.i = icmp eq i8 %53, 3
+  br i1 %cond.i7.i.i, label %54, label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i"
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -7136,8 +7136,8 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1507)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %57 = load i32, ptr %56, align 8, !range !1510, !alias.scope !1511, !noundef !14
-  %.not.i.i.i.i7.i.i = icmp eq i32 %57, 1000000003
-  br i1 %.not.i.i.i.i7.i.i, label %71, label %58
+  %.not.i.i.i.i8.i.i = icmp eq i32 %57, 1000000003
+  br i1 %.not.i.i.i.i8.i.i, label %71, label %58
 
 58:                                               ; preds = %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1512)
@@ -7146,8 +7146,8 @@ common.ret:                                       ; preds = %206, %186, %178, %5
 
 60:                                               ; preds = %58
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1515)
-  %.not.i.i.i.i.i.i8.i.i = icmp eq i32 %57, 1000000001
-  br i1 %.not.i.i.i.i.i.i8.i.i, label %62, label %61
+  %.not.i.i.i.i.i.i9.i.i = icmp eq i32 %57, 1000000001
+  br i1 %.not.i.i.i.i.i.i9.i.i, label %62, label %61
 
 61:                                               ; preds = %60
   invoke void @"_ZN4core3ptr71drop_in_place$LT$aws_smithy_runtime_api..client..identity..Identity$GT$17h23c1d78ead29f955E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %55)
@@ -7160,13 +7160,13 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   %65 = load ptr, ptr %64, align 8, !alias.scope !1521, !nonnull !14, !align !56, !noundef !14
   %66 = load ptr, ptr %65, align 8, !invariant.load !14, !noalias !1521, !nonnull !14
   invoke void %66(ptr noundef nonnull align 1 %63)
-          to label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i11.i.i" unwind label %67, !noalias !1521
+          to label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i12.i.i" unwind label %67, !noalias !1521
 
 67:                                               ; preds = %62
   %68 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c3b8898271d9448E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(48) %55) #37
-          to label %.body.i9.i.i unwind label %69
+          to label %.body.i10.i.i unwind label %69
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
@@ -7174,7 +7174,7 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
-"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i11.i.i": ; preds = %62
+"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i12.i.i": ; preds = %62
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c3b8898271d9448E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(48) %55)
           to label %"_ZN4core3ptr77drop_in_place$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$GT$17h5904deb1f540b79fE.exit.i.i.i" unwind label %72
 
@@ -7182,18 +7182,18 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   invoke void @"_ZN4core3ptr309drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$aws_smithy_runtime_api..client..identity..Identity$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$u2b$core..marker..Send$GT$$GT$17h387577bd4f379b02E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(48) %55)
           to label %"_ZN4core3ptr77drop_in_place$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$GT$17h5904deb1f540b79fE.exit.i.i.i" unwind label %72
 
-72:                                               ; preds = %71, %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i11.i.i", %61
+72:                                               ; preds = %71, %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i12.i.i", %61
   %73 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i9.i.i
+  br label %.body.i10.i.i
 
-.body.i9.i.i:                                     ; preds = %72, %67
-  %eh.lpad-body.i10.i.i = phi { ptr, i32 } [ %73, %72 ], [ %68, %67 ]
+.body.i10.i.i:                                    ; preds = %72, %67
+  %eh.lpad-body.i11.i.i = phi { ptr, i32 } [ %73, %72 ], [ %68, %67 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 424
   invoke void @"_ZN4core3ptr82drop_in_place$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$17h1333fbc12fe214c5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %74) #37
           to label %114 unwind label %112
 
-"_ZN4core3ptr77drop_in_place$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$GT$17h5904deb1f540b79fE.exit.i.i.i": ; preds = %71, %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i11.i.i", %61, %58
+"_ZN4core3ptr77drop_in_place$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$GT$17h5904deb1f540b79fE.exit.i.i.i": ; preds = %71, %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit.i.i.i.i.i.i12.i.i", %61, %58
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 424
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1522)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1525)
@@ -7307,14 +7307,14 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h892e56fe6703d0edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51)
           to label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i" unwind label %176
 
-112:                                              ; preds = %119, %114, %105, %.body.i9.i.i
+112:                                              ; preds = %119, %114, %105, %.body.i10.i.i
   %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
-114:                                              ; preds = %80, %.body.i9.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body.i10.i.i, %.body.i9.i.i ]
+114:                                              ; preds = %80, %.body.i10.i.i
+  %.pn.i.i.i = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body.i11.i.i, %.body.i10.i.i ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 666
   store i8 0, ptr %115, align 2
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 665
@@ -7406,9 +7406,9 @@ common.ret:                                       ; preds = %206, %186, %178, %5
 
 148:                                              ; preds = %"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h1137fb662f0abd51E.exit.i.i"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.7909737541732249412(i8 noundef 2)
-          to label %.noexc16.i.i unwind label %151
+          to label %.noexc17.i.i unwind label %151
 
-.noexc16.i.i:                                     ; preds = %148
+.noexc17.i.i:                                     ; preds = %148
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hab3bd934da3ff45eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %144)
           to label %"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h2132f06ae6b6269dE.exit.i.i" unwind label %151
 
@@ -7418,12 +7418,12 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   invoke void @"_ZN4core3ptr75drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$17h7b5f73636691b515E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %150) #37
           to label %.body.i.i unwind label %161
 
-151:                                              ; preds = %.noexc16.i.i, %148
+151:                                              ; preds = %.noexc17.i.i, %148
   %152 = landingpad { ptr, i32 }
           cleanup
   br label %149
 
-"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h2132f06ae6b6269dE.exit.i.i": ; preds = %.noexc16.i.i, %"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h1137fb662f0abd51E.exit.i.i"
+"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h2132f06ae6b6269dE.exit.i.i": ; preds = %.noexc17.i.i, %"_ZN4core3ptr113drop_in_place$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$GT$17h1137fb662f0abd51E.exit.i.i"
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 872
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1584)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1587)
@@ -7435,18 +7435,18 @@ common.ret:                                       ; preds = %206, %186, %178, %5
 
 157:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h2132f06ae6b6269dE.exit.i.i"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.7909737541732249412(i8 noundef 2)
-          to label %.noexc18.i.i unwind label %158
+          to label %.noexc19.i.i unwind label %158
 
-.noexc18.i.i:                                     ; preds = %157
+.noexc19.i.i:                                     ; preds = %157
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h07b02097018f10adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %153)
           to label %"_ZN4core3ptr202drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h190bf6f867fbcdd3E.exit.i.i" unwind label %158
 
-158:                                              ; preds = %.noexc18.i.i, %157
+158:                                              ; preds = %.noexc19.i.i, %157
   %159 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-"_ZN4core3ptr202drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h190bf6f867fbcdd3E.exit.i.i": ; preds = %.noexc18.i.i, %"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h2132f06ae6b6269dE.exit.i.i", %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h3519939a4da4ae1bE.llvm.7909737541732249412.exit.i.i.i"
+"_ZN4core3ptr202drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h190bf6f867fbcdd3E.exit.i.i": ; preds = %.noexc19.i.i, %"_ZN4core3ptr78drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$GT$17h2132f06ae6b6269dE.exit.i.i", %"_ZN7tracing10instrument1_94_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tracing..instrument..Instrumented$LT$T$GT$$GT$4drop17h3519939a4da4ae1bE.llvm.7909737541732249412.exit.i.i.i"
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %160, align 8
   br label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3a8c76fd3eec2fa5E.exit.i"
@@ -7458,7 +7458,7 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   unreachable
 
 .body.i.i:                                        ; preds = %164, %158, %149, %137
-  %.pn2.pn.i.i = phi { ptr, i32 } [ %159, %158 ], [ %.pn.i.i, %149 ], [ %165, %164 ], [ %138, %137 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %159, %158 ], [ %.pn.i.i, %149 ], [ %165, %164 ], [ %138, %137 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %163, align 8
   br label %.body.i
@@ -7482,7 +7482,7 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   br i1 %171, label %179, label %178
 
 .body.i:                                          ; preds = %176, %166, %.body.i.i, %105, %.body.i.i.i, %11
-  %.pn.i = phi { ptr, i32 } [ %167, %166 ], [ %12, %11 ], [ %177, %176 ], [ %.pn2.pn.i.i, %.body.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %.pn4.i.i.i, %105 ]
+  %.pn.i = phi { ptr, i32 } [ %167, %166 ], [ %12, %11 ], [ %177, %176 ], [ %.pn4.i.i, %.body.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %.pn4.i.i.i, %105 ]
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %172, align 1
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7736,7 +7736,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$bytes..bytes..Bytes$GT$$GT$17hc9649b208150845bE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(40) %31)
-          to label %"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit5.i.i.i.i" unwind label %34
+          to label %"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit6.i.i.i.i" unwind label %34
 
 "_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit.i.i.i.i": ; preds = %34, %27
   %.pn2.i.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %28, %27 ]
@@ -7751,7 +7751,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit.i.i.i.i"
 
-"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit5.i.i.i.i": ; preds = %30
+"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit6.i.i.i.i": ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1785
   store i8 0, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1786
@@ -7887,7 +7887,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   store i8 0, ptr %83, align 4
   br label %.body.i
 
-"_ZN4core3ptr100drop_in_place$LT$aws_smithy_types..byte_stream..ByteStream..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0ae8625a88b76586E.exit.i.i": ; preds = %"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit5.i.i.i.i", %.invoke.i.i, %21, %18
+"_ZN4core3ptr100drop_in_place$LT$aws_smithy_types..byte_stream..ByteStream..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0ae8625a88b76586E.exit.i.i": ; preds = %"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE.exit6.i.i.i.i", %.invoke.i.i, %21, %18
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i8 0, ptr %84, align 4
   br label %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc67603320c6d890aE.exit.i"
@@ -7989,7 +7989,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h822312df74600c24E.exit.i.i" unwind label %122
 
 117:                                              ; preds = %.body14.i.i, %.body10.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body11.i.i, %.body10.i.i ], [ %eh.lpad-body15.i.i, %.body14.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body15.i.i, %.body14.i.i ], [ %eh.lpad-body11.i.i, %.body10.i.i ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17hae0705024851bfecE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #37
           to label %.body20.i.i unwind label %95
 
@@ -8601,7 +8601,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.exit"
 
 common.resume:                                    ; preds = %288, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i48", %265, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i44", %242, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i40", %280, %257, %234, %209, %217, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i36", %164, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i23", %156, %119, %126, %135, %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %34, %33 ], [ %136, %135 ], [ %127, %126 ], [ %120, %119 ], [ %157, %156 ], [ %165, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i23" ], [ %165, %164 ], [ %218, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i36" ], [ %218, %217 ], [ %281, %280 ], [ %258, %257 ], [ %235, %234 ], [ %210, %209 ], [ %243, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i40" ], [ %243, %242 ], [ %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i44" ], [ %266, %265 ], [ %289, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i48" ], [ %289, %288 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %34, %33 ], [ %136, %135 ], [ %120, %119 ], [ %127, %126 ], [ %157, %156 ], [ %165, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i23" ], [ %165, %164 ], [ %218, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i36" ], [ %218, %217 ], [ %210, %209 ], [ %235, %234 ], [ %258, %257 ], [ %281, %280 ], [ %243, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i40" ], [ %243, %242 ], [ %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i44" ], [ %266, %265 ], [ %289, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i48" ], [ %289, %288 ]
   resume { ptr, i32 } %common.resume.op
 
 48:                                               ; preds = %1
@@ -14609,7 +14609,7 @@ common.resume:                                    ; preds = %465, %451, %454, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %309, !noalias !2787
 
 .body28.i.i:                                      ; preds = %405, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %309, %304, %297
-  %.pn22.i.i = phi { ptr, i32 } [ %.pn15.pn.pn.i.i, %405 ], [ %.pn15.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %298, %297 ], [ %310, %309 ], [ %.pn.i.i.i.i, %304 ]
+  %.pn22.i.i = phi { ptr, i32 } [ %298, %297 ], [ %.pn18.pn.pn.i.i, %405 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %310, %309 ], [ %.pn.i.i.i.i, %304 ]
   store i8 0, ptr %.sroa.8.0..sroa_idx.i, align 1, !noalias !2748
   store i8 2, ptr %.phi.trans.insert.i, align 8, !noalias !2748
   br label %.body104.i
@@ -14620,7 +14620,7 @@ common.resume:                                    ; preds = %465, %451, %454, %"
   br label %.body28.i.i
 
 .body39.i.i:                                      ; preds = %397, %392, %388, %.body25.i.i, %.body.i.i
-  %.pn15.pn.pn.i.i = phi { ptr, i32 } [ %.pn13.i.i, %388 ], [ %398, %397 ], [ %393, %392 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %267, %.body.i.i ]
+  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %.pn13.i.i, %388 ], [ %398, %397 ], [ %393, %392 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %267, %.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %23), !noalias !2748
   call void @llvm.experimental.noalias.scope.decl(metadata !2807)
   call void @llvm.experimental.noalias.scope.decl(metadata !2810)
@@ -16315,7 +16315,7 @@ common.resume:                                    ; preds = %371, %359, %362, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %217, !noalias !3020
 
 .body28.i.i:                                      ; preds = %313, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %217, %212, %205
-  %.pn22.i.i = phi { ptr, i32 } [ %.pn15.pn.pn.i.i, %313 ], [ %.pn15.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %206, %205 ], [ %218, %217 ], [ %.pn.i.i.i.i, %212 ]
+  %.pn22.i.i = phi { ptr, i32 } [ %206, %205 ], [ %.pn18.pn.pn.i.i, %313 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %218, %217 ], [ %.pn.i.i.i.i, %212 ]
   store i8 0, ptr %.sroa.8.0..sroa_idx.i, align 1, !noalias !2984
   store i8 2, ptr %.phi.trans.insert.i, align 8, !noalias !2984
   br label %.body73.i
@@ -16326,7 +16326,7 @@ common.resume:                                    ; preds = %371, %359, %362, %"
   br label %.body28.i.i
 
 .body40.i.i:                                      ; preds = %305, %300, %296, %.body25.i.i, %.body.i.i
-  %.pn15.pn.pn.i.i = phi { ptr, i32 } [ %.pn13.i.i, %296 ], [ %306, %305 ], [ %301, %300 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %175, %.body.i.i ]
+  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %.pn13.i.i, %296 ], [ %306, %305 ], [ %301, %300 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %175, %.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %23), !noalias !2984
   call void @llvm.experimental.noalias.scope.decl(metadata !3040)
   call void @llvm.experimental.noalias.scope.decl(metadata !3043)
@@ -20297,12 +20297,12 @@ common.resume:                                    ; preds = %352, %339, %342, %"
   br label %315
 
 314:                                              ; preds = %311, %303, %290
-  %.sroa.6.sroa.0.1.ph.i = phi i64 [ 2, %303 ], [ 4, %311 ], [ undef, %290 ]
-  %.sroa.6.sroa.5.1.ph.i = phi i64 [ %309, %303 ], [ undef, %311 ], [ undef, %290 ]
-  %.sroa.6.sroa.7.1.ph.i = phi i64 [ %304, %303 ], [ undef, %311 ], [ undef, %290 ]
-  %.sroa.6.sroa.8.1.ph.i = phi ptr [ %305, %303 ], [ undef, %311 ], [ undef, %290 ]
-  %.sroa.6.sroa.9.1.ph.i = phi i64 [ %299, %303 ], [ undef, %311 ], [ undef, %290 ]
-  %.sroa.06.1.ph.i = phi i64 [ 8, %303 ], [ 8, %311 ], [ 3, %290 ]
+  %.sroa.6.sroa.0.1.ph.i = phi i64 [ 4, %311 ], [ 2, %303 ], [ undef, %290 ]
+  %.sroa.6.sroa.5.1.ph.i = phi i64 [ undef, %311 ], [ %309, %303 ], [ undef, %290 ]
+  %.sroa.6.sroa.7.1.ph.i = phi i64 [ undef, %311 ], [ %304, %303 ], [ undef, %290 ]
+  %.sroa.6.sroa.8.1.ph.i = phi ptr [ undef, %311 ], [ %305, %303 ], [ undef, %290 ]
+  %.sroa.6.sroa.9.1.ph.i = phi i64 [ undef, %311 ], [ %299, %303 ], [ undef, %290 ]
+  %.sroa.06.1.ph.i = phi i64 [ 8, %311 ], [ 8, %303 ], [ 3, %290 ]
   invoke fastcc void @"_ZN4core3ptr179drop_in_place$LT$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3c301726b57f8082E"(ptr noalias noundef align 8 dereferenceable(376) %28)
           to label %285 unwind label %317, !noalias !3319
 
@@ -24998,7 +24998,7 @@ default.unreachable1:                             ; preds = %2
   br label %32
 
 32:                                               ; preds = %30, %27, %24, %22, %20, %16, %12, %9
-  %.0.in = phi i1 [ %31, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %9 ]
+  %.0.in = phi i1 [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %21, %20 ], [ %23, %22 ], [ %26, %24 ], [ %29, %27 ], [ %31, %30 ]
   ret i1 %.0.in
 }
 

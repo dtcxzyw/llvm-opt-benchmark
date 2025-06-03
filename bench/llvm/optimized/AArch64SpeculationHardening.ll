@@ -1313,7 +1313,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i65.i.i.i.i.i.i: ; 
   br label %400
 
 400:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit67.thread86.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %399, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit67.thread86.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %399, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit67.thread86.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8
   %401 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 4
   %.1.val38.i.i.i.i.i.i = load i32, ptr %401, align 4
@@ -1372,7 +1372,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i72.i.i.i.i.i.i: ; 
   br label %436
 
 436:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit74.thread87.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %435, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit74.thread87.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %435, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit74.thread87.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8
   %437 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 4
   %.2.val39.i.i.i.i.i.i = load i32, ptr %437, align 4
@@ -2461,7 +2461,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i102
   br label %877
 
 877:                                              ; preds = %875, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %876, %875 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %876, %875 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %878 = load i64, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !47
   %.not30.i.i.i.i.i.i.i.i = icmp eq i64 %878, 0
   br i1 %.not30.i.i.i.i.i.i.i.i, label %879, label %_ZNK4llvm9BitVector3anyEv.exit.i
@@ -2471,7 +2471,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i102
   br label %881
 
 881:                                              ; preds = %879, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %880, %879 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %880, %879 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %882 = load i64, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !47
   %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %882, 0
   br i1 %.not31.i.i.i.i.i.i.i.i, label %_ZNK4llvm9BitVector3anyEv.exit.thread.i, label %_ZNK4llvm9BitVector3anyEv.exit.i
@@ -2755,7 +2755,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i111:                  ; preds = %935, %976, %_ZN12_G
   br label %980
 
 980:                                              ; preds = %979, %_ZN4llvm8DebugLocD2Ev.exit.i111
-  %.024.i.i = phi i1 [ true, %_ZN4llvm8DebugLocD2Ev.exit.i111 ], [ false, %979 ]
+  %.024.i.i = phi i1 [ false, %979 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit.i111 ]
   %981 = load i8, ptr %193, align 8, !tbaa !242, !range !52, !noundef !53
   %982 = trunc nuw i8 %981 to i1
   %or.cond.i.i113 = or i1 %.0171, %982
@@ -3038,7 +3038,7 @@ _ZN12_GLOBAL__N_127AArch64SpeculationHardening26expandSpeculationSafeValueERN4ll
   br label %1072
 
 1072:                                             ; preds = %1070, %._crit_edge.i.i.i.i.i.i.i62.i
-  %.1.i.i.i.i.i.i.i67.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i64.i, %._crit_edge.i.i.i.i.i.i.i62.i ], [ %1071, %1070 ]
+  %.1.i.i.i.i.i.i.i67.i = phi ptr [ %1071, %1070 ], [ %.029.lcssa.i.i.i.i.i.i.i64.i, %._crit_edge.i.i.i.i.i.i.i62.i ]
   %1073 = load i64, ptr %.1.i.i.i.i.i.i.i67.i, align 8, !tbaa !47
   %.not30.i.i.i.i.i.i.i68.i = icmp eq i64 %1073, 0
   br i1 %.not30.i.i.i.i.i.i.i68.i, label %1074, label %_ZNK4llvm9BitVector3anyEv.exit71.i
@@ -3048,7 +3048,7 @@ _ZN12_GLOBAL__N_127AArch64SpeculationHardening26expandSpeculationSafeValueERN4ll
   br label %1076
 
 1076:                                             ; preds = %1074, %._crit_edge.i.i.i.i.i.i.i62.i
-  %.2.i.i.i.i.i.i.i65.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i64.i, %._crit_edge.i.i.i.i.i.i.i62.i ], [ %1075, %1074 ]
+  %.2.i.i.i.i.i.i.i65.i = phi ptr [ %1075, %1074 ], [ %.029.lcssa.i.i.i.i.i.i.i64.i, %._crit_edge.i.i.i.i.i.i.i62.i ]
   %1077 = load i64, ptr %.2.i.i.i.i.i.i.i65.i, align 8, !tbaa !47
   %.not31.i.i.i.i.i.i.i66.i = icmp eq i64 %1077, 0
   br i1 %.not31.i.i.i.i.i.i.i66.i, label %_ZN4llvm8DebugLocD2Ev.exit75.i, label %_ZNK4llvm9BitVector3anyEv.exit71.i

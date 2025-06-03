@@ -659,7 +659,7 @@ define { i64, i32 } @_ZN6icu_776number4impl14stem_to_object8notationENS1_8skelet
   unreachable
 
 13:                                               ; preds = %10, %8, %6, %4, %2
-  %.pn = phi { i64, i32 } [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.pn = phi { i64, i32 } [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   ret { i64, i32 } %.pn
 }
 
@@ -974,7 +974,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit24: ; preds = %43
   ret void
 
 49:                                               ; preds = %45, %41, %37, %33, %29, %25, %21, %17, %13, %9, %5
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %42, %41 ], [ %38, %37 ], [ %34, %33 ], [ %30, %29 ], [ %26, %25 ], [ %22, %21 ], [ %18, %17 ], [ %14, %13 ], [ %10, %9 ], [ %6, %5 ]
+  %.pn = phi { ptr, i32 } [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ %22, %21 ], [ %26, %25 ], [ %30, %29 ], [ %34, %33 ], [ %38, %37 ], [ %42, %41 ], [ %46, %45 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1066,7 +1066,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit12: ; preds = %19
   ret void
 
 25:                                               ; preds = %21, %17, %13, %9, %5
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %18, %17 ], [ %14, %13 ], [ %10, %9 ], [ %6, %5 ]
+  %.pn = phi { ptr, i32 } [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1188,7 +1188,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit16: ; preds = %27
   ret void
 
 33:                                               ; preds = %29, %25, %21, %17, %13, %9, %5
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %26, %25 ], [ %22, %21 ], [ %18, %17 ], [ %14, %13 ], [ %10, %9 ], [ %6, %5 ]
+  %.pn = phi { ptr, i32 } [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ %22, %21 ], [ %26, %25 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1340,7 +1340,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit20: ; preds = %35
   ret void
 
 41:                                               ; preds = %37, %33, %29, %25, %21, %17, %13, %9, %5
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %34, %33 ], [ %30, %29 ], [ %26, %25 ], [ %22, %21 ], [ %18, %17 ], [ %14, %13 ], [ %10, %9 ], [ %6, %5 ]
+  %.pn = phi { ptr, i32 } [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ %22, %21 ], [ %26, %25 ], [ %30, %29 ], [ %34, %33 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1387,7 +1387,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit6: ; preds = %7
   ret void
 
 13:                                               ; preds = %9, %5
-  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %6, %5 ]
+  %.pn = phi { ptr, i32 } [ %6, %5 ], [ %10, %9 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -5384,7 +5384,7 @@ switch.lookup153:                                 ; preds = %177
   unreachable
 
 _ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit: ; preds = %47, %46, %53, %137, %105, %253, %252, %247, %246, %241, %240, %235, %234, %229, %224, %223, %218, %217, %212, %207, %206, %201, %200, %195, %194, %188, %187, %switch.lookup153, %181, %switch.lookup151, %175, %168, %167, %switch.lookup, %160, %152, %151, %144, %143, %136, %127, %126, %121, %114, %113, %104, %33, %28, %27, %23, %22, %17, %16
-  %.0 = phi i32 [ 0, %33 ], [ 0, %27 ], [ 0, %28 ], [ 0, %22 ], [ 3, %23 ], [ 0, %16 ], [ 2, %17 ], [ 0, %53 ], [ 0, %252 ], [ 12, %253 ], [ 0, %246 ], [ 11, %247 ], [ 0, %240 ], [ 10, %241 ], [ 0, %229 ], [ 0, %234 ], [ 9, %235 ], [ 0, %223 ], [ 8, %224 ], [ 0, %212 ], [ 0, %217 ], [ 7, %218 ], [ 0, %206 ], [ 6, %207 ], [ 0, %200 ], [ 5, %201 ], [ 0, %194 ], [ 4, %195 ], [ 0, %187 ], [ 0, %188 ], [ 0, %181 ], [ 0, %switch.lookup153 ], [ 0, %175 ], [ 0, %switch.lookup151 ], [ 0, %167 ], [ 0, %168 ], [ 0, %160 ], [ 0, %switch.lookup ], [ 0, %151 ], [ 0, %152 ], [ 0, %143 ], [ 0, %144 ], [ 0, %136 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %113 ], [ 0, %114 ], [ 0, %104 ], [ %., %105 ], [ %.141, %137 ], [ 0, %46 ], [ 0, %47 ]
+  %.0 = phi i32 [ 0, %16 ], [ 2, %17 ], [ 0, %22 ], [ 3, %23 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ], [ 0, %53 ], [ 0, %104 ], [ 0, %113 ], [ 0, %114 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %136 ], [ 0, %143 ], [ 0, %144 ], [ 0, %151 ], [ 0, %152 ], [ 0, %160 ], [ 0, %switch.lookup ], [ 0, %167 ], [ 0, %168 ], [ 0, %175 ], [ 0, %switch.lookup151 ], [ 0, %181 ], [ 0, %switch.lookup153 ], [ 0, %187 ], [ 0, %188 ], [ 0, %194 ], [ 4, %195 ], [ 0, %200 ], [ 5, %201 ], [ 0, %206 ], [ 6, %207 ], [ 0, %212 ], [ 0, %217 ], [ 7, %218 ], [ 0, %223 ], [ 8, %224 ], [ 0, %229 ], [ 0, %234 ], [ 9, %235 ], [ 0, %240 ], [ 10, %241 ], [ 0, %246 ], [ 11, %247 ], [ 0, %252 ], [ 12, %253 ], [ %., %105 ], [ %.141, %137 ], [ 0, %46 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -5553,7 +5553,7 @@ _ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13String
   br label %55
 
 55:                                               ; preds = %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit.thread, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit, %41, %39, %36, %34, %31, %29, %.thread57, %28, %27, %26, %24, %23, %22, %_ZN6icu_776number4impl17blueprint_helpers25parseMeasurePerUnitOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit, %9, %8
-  %.0 = phi i32 [ 0, %.thread57 ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 3, %24 ], [ 0, %23 ], [ 0, %22 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers25parseMeasurePerUnitOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ], [ 0, %9 ], [ 0, %8 ], [ 1, %29 ], [ 0, %31 ], [ 1, %34 ], [ 0, %36 ], [ 3, %39 ], [ 0, %41 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit.thread ]
+  %.0 = phi i32 [ 0, %.thread57 ], [ 0, %8 ], [ 0, %9 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers25parseMeasurePerUnitOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ], [ 0, %22 ], [ 0, %23 ], [ 3, %24 ], [ 0, %26 ], [ 0, %27 ], [ 0, %28 ], [ 1, %29 ], [ 0, %31 ], [ 1, %34 ], [ 0, %36 ], [ 3, %39 ], [ 0, %41 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit.thread ]
   ret i32 %.0
 }
 

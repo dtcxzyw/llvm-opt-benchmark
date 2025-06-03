@@ -1886,7 +1886,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %660
 
 442:                                              ; preds = %397, %.thread.thread
-  %.0158 = phi ptr [ null, %.thread.thread ], [ %412, %397 ]
+  %.0158 = phi ptr [ %412, %397 ], [ null, %.thread.thread ]
   %443 = load ptr, ptr %5, align 8
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 56
   %445 = load ptr, ptr %444, align 8
@@ -1939,8 +1939,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %660
 
 487:                                              ; preds = %442, %.thread.thread
-  %.1159 = phi ptr [ null, %.thread.thread ], [ %.0158, %442 ]
-  %.0157 = phi ptr [ null, %.thread.thread ], [ %457, %442 ]
+  %.1159 = phi ptr [ %.0158, %442 ], [ null, %.thread.thread ]
+  %.0157 = phi ptr [ %457, %442 ], [ null, %.thread.thread ]
   %488 = load ptr, ptr %5, align 8
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 56
   %490 = load ptr, ptr %489, align 8
@@ -2114,7 +2114,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %622
 
 622:                                              ; preds = %615, %620, %585
-  %.0156 = phi ptr [ %587, %585 ], [ %621, %620 ], [ %619, %615 ]
+  %.0156 = phi ptr [ %587, %585 ], [ %619, %615 ], [ %621, %620 ]
   %623 = icmp ne ptr %.0160, null
   %or.cond16 = and i1 %243, %623
   br i1 %or.cond16, label %624, label %644
@@ -3980,7 +3980,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   unreachable
 
 333:                                              ; preds = %290, %326, %307, %297
-  %.068 = phi ptr [ %253, %290 ], [ %329, %326 ], [ %310, %307 ], [ %300, %297 ]
+  %.068 = phi ptr [ %300, %297 ], [ %310, %307 ], [ %329, %326 ], [ %253, %290 ]
   %334 = zext nneg i8 %206 to i64
   %335 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %334
   %336 = load ptr, ptr %335, align 8
@@ -7549,7 +7549,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   unreachable
 
 467:                                              ; preds = %420, %460, %450, %431
-  %.0 = phi ptr [ %463, %460 ], [ %453, %450 ], [ %434, %431 ], [ %424, %420 ]
+  %.0 = phi ptr [ %434, %431 ], [ %453, %450 ], [ %463, %460 ], [ %424, %420 ]
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.0, ptr %468, align 8
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11602,7 +11602,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   unreachable
 
 330:                                              ; preds = %235, %323, %313, %294, %284, %265
-  %.050 = phi ptr [ %249, %235 ], [ %326, %323 ], [ %316, %313 ], [ %297, %294 ], [ %287, %284 ], [ %268, %265 ]
+  %.050 = phi ptr [ %268, %265 ], [ %287, %284 ], [ %297, %294 ], [ %316, %313 ], [ %326, %323 ], [ %249, %235 ]
   %331 = load ptr, ptr %2, align 8
   %332 = load i32, ptr %85, align 8
   %333 = tail call noundef ptr @_ZN16VectorInsertNode4makeEP4NodeS1_iR8PhaseGVN(ptr noundef nonnull %233, ptr noundef %.050, i32 noundef %332, ptr noundef nonnull align 8 dereferenceable(2400) %331) #9
@@ -12291,7 +12291,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   unreachable
 
 430:                                              ; preds = %394, %413, %423, %379, %239, %304
-  %.1 = phi ptr [ %242, %239 ], [ %307, %304 ], [ %387, %379 ], [ %426, %423 ], [ %416, %413 ], [ %397, %394 ]
+  %.1 = phi ptr [ %242, %239 ], [ %307, %304 ], [ %397, %394 ], [ %416, %413 ], [ %426, %423 ], [ %387, %379 ]
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.1, ptr %431, align 8
   br label %432
@@ -13329,7 +13329,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   unreachable
 
 353:                                              ; preds = %321, %321, %321, %321, %321, %346, %337, %328
-  %.087 = phi ptr [ %349, %346 ], [ %340, %337 ], [ %331, %328 ], [ %192, %321 ], [ %192, %321 ], [ %192, %321 ], [ %192, %321 ], [ %192, %321 ]
+  %.087 = phi ptr [ %192, %321 ], [ %192, %321 ], [ %192, %321 ], [ %192, %321 ], [ %192, %321 ], [ %331, %328 ], [ %340, %337 ], [ %349, %346 ]
   %354 = load ptr, ptr %2, align 8
   %355 = load ptr, ptr %307, align 8
   %356 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %.087, i32 noundef %165, ptr noundef %355, i1 noundef zeroext false) #9
@@ -13898,7 +13898,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   unreachable
 
 281:                                              ; preds = %249, %274, %265, %256
-  %.068 = phi ptr [ %242, %249 ], [ %277, %274 ], [ %268, %265 ], [ %259, %256 ]
+  %.068 = phi ptr [ %259, %256 ], [ %268, %265 ], [ %277, %274 ], [ %242, %249 ]
   %282 = load ptr, ptr %2, align 8
   %283 = zext nneg i8 %153 to i64
   %284 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %283

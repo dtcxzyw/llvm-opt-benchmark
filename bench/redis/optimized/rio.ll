@@ -113,7 +113,7 @@ define dso_local void @rioFreeConn(ptr noundef captures(none) %0, ptr noundef wr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ]
   %30 = icmp ult i64 %5, %.0.i
   br i1 %30, label %31, label %sdslen.exit.thread
 
@@ -341,7 +341,7 @@ define internal range(i64 0, 2) i64 @rioBufferRead(ptr noundef captures(none) %0
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %10, %13, %17, %21, %25
-  %.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %27, %25 ], [ 0, %3 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i64, ptr %28, align 8, !tbaa !12
   %30 = sub i64 %.0.i, %29
@@ -457,7 +457,7 @@ sdslen.exit74:                                    ; preds = %3, %sdslen.exit.thr
   br label %sdsavail.exit
 
 sdsavail.exit:                                    ; preds = %sdslen.exit74, %28, %36, %44, %51
-  %.0.i75 = phi i64 [ %56, %51 ], [ %50, %44 ], [ %43, %36 ], [ %35, %28 ], [ 0, %sdslen.exit74 ]
+  %.0.i75 = phi i64 [ %35, %28 ], [ %43, %36 ], [ %50, %44 ], [ %56, %51 ], [ 0, %sdslen.exit74 ]
   %57 = add i64 %.0.i75, %.sink
   %58 = icmp ult i64 %57, %2
   br i1 %58, label %59, label %80
@@ -500,7 +500,7 @@ sdsavail.exit:                                    ; preds = %sdslen.exit74, %28,
   br label %sdslen.exit77
 
 sdslen.exit77:                                    ; preds = %59, %60, %63, %67, %71, %75
-  %.0.i76 = phi i64 [ %77, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %60 ], [ 0, %59 ]
+  %.0.i76 = phi i64 [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %77, %75 ], [ 0, %59 ]
   %78 = sub i64 %2, %.0.i76
   %79 = tail call ptr @sdsMakeRoomFor(ptr noundef nonnull %6, i64 noundef %78) #16
   store ptr %79, ptr %5, align 8, !tbaa !12
@@ -560,7 +560,7 @@ sdslen.exit77:                                    ; preds = %59, %60, %63, %67, 
   br label %sdsavail.exit79
 
 sdsavail.exit79:                                  ; preds = %83, %87, %95, %103, %110
-  %.0.i78 = phi i64 [ %115, %110 ], [ %109, %103 ], [ %102, %95 ], [ %94, %87 ], [ 0, %83 ]
+  %.0.i78 = phi i64 [ %94, %87 ], [ %102, %95 ], [ %109, %103 ], [ %115, %110 ], [ 0, %83 ]
   %116 = sub nuw i64 %2, %26
   %117 = icmp ult i64 %.0.i78, %116
   br i1 %117, label %118, label %120
@@ -636,7 +636,7 @@ sdsavail.exit79:                                  ; preds = %83, %87, %95, %103,
   br label %sdslen.exit81
 
 sdslen.exit81:                                    ; preds = %132, %138, %141, %145, %149, %153
-  %.0.i80 = phi i64 [ %155, %153 ], [ %152, %149 ], [ %148, %145 ], [ %144, %141 ], [ %140, %138 ], [ 0, %132 ]
+  %.0.i80 = phi i64 [ %140, %138 ], [ %144, %141 ], [ %148, %145 ], [ %152, %149 ], [ %155, %153 ], [ 0, %132 ]
   %156 = load i64, ptr %24, align 8, !tbaa !12
   %157 = sub i64 %.0.i80, %156
   %158 = icmp ugt i64 %2, %157
@@ -680,7 +680,7 @@ sdslen.exit81:                                    ; preds = %132, %138, %141, %1
   br label %sdslen.exit83
 
 sdslen.exit83:                                    ; preds = %159, %160, %163, %167, %171, %175
-  %.0.i82 = phi i64 [ %177, %175 ], [ %174, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %160 ], [ 0, %159 ]
+  %.0.i82 = phi i64 [ %162, %160 ], [ %166, %163 ], [ %170, %167 ], [ %174, %171 ], [ %177, %175 ], [ 0, %159 ]
   %178 = sub i64 %.0.i82, %156
   %179 = sub i64 %2, %178
   %180 = tail call i64 @llvm.umax.i64(i64 %179, i64 16384)
@@ -741,9 +741,9 @@ sdslen.exit83:                                    ; preds = %159, %160, %163, %1
   br label %sdsavail.exit85
 
 sdsavail.exit85:                                  ; preds = %182, %190, %201, %212
-  %222 = phi i8 [ %221, %212 ], [ %211, %201 ], [ %200, %190 ], [ %187, %182 ]
-  %223 = phi i8 [ %219, %212 ], [ %209, %201 ], [ %199, %190 ], [ %185, %182 ]
-  %.0.i84 = phi i64 [ %217, %212 ], [ %207, %201 ], [ %197, %190 ], [ %189, %182 ]
+  %222 = phi i8 [ %187, %182 ], [ %200, %190 ], [ %211, %201 ], [ %221, %212 ]
+  %223 = phi i8 [ %185, %182 ], [ %199, %190 ], [ %209, %201 ], [ %219, %212 ]
+  %.0.i84 = phi i64 [ %189, %182 ], [ %197, %190 ], [ %207, %201 ], [ %217, %212 ]
   %224 = icmp ugt i64 %180, %.0.i84
   br i1 %224, label %sdsavail.exit85.thread, label %sdsavail.exit87
 
@@ -792,7 +792,7 @@ default.unreachable:                              ; preds = %sdsavail.exit85.thr
   unreachable
 
 sdsavail.exit87:                                  ; preds = %sdslen.exit83, %244, %237, %229, %225, %sdsavail.exit85
-  %.060 = phi i64 [ %180, %sdsavail.exit85 ], [ %249, %244 ], [ %243, %237 ], [ %236, %229 ], [ %228, %225 ], [ 0, %sdslen.exit83 ]
+  %.060 = phi i64 [ %180, %sdsavail.exit85 ], [ %228, %225 ], [ %236, %229 ], [ %243, %237 ], [ %249, %244 ], [ 0, %sdslen.exit83 ]
   %250 = load i64, ptr %121, align 8, !tbaa !12
   %.not71 = icmp eq i64 %250, 0
   br i1 %.not71, label %257, label %251
@@ -846,7 +846,7 @@ sdsavail.exit87:                                  ; preds = %sdslen.exit83, %244
   br label %sdslen.exit89
 
 sdslen.exit89:                                    ; preds = %257, %259, %262, %266, %270, %274
-  %.0.i88 = phi i64 [ %276, %274 ], [ %273, %270 ], [ %269, %266 ], [ %265, %262 ], [ %261, %259 ], [ 0, %257 ]
+  %.0.i88 = phi i64 [ %261, %259 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %276, %274 ], [ 0, %257 ]
   %277 = getelementptr inbounds nuw i8, ptr %133, i64 %.0.i88
   %278 = load ptr, ptr %258, align 8, !tbaa !29
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 144
@@ -1445,7 +1445,7 @@ define internal range(i64 0, 2) i64 @rioFdWrite(ptr noundef captures(none) %0, p
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ]
   %.not42 = icmp eq i64 %.0.i, 0
   br i1 %.not42, label %.outer.split.preheader, label %32
 
@@ -1490,7 +1490,7 @@ default.unreachable:                              ; preds = %32
   unreachable
 
 sdslen.exit50:                                    ; preds = %33, %36, %40, %44, %48
-  %.0.i49 = phi i64 [ %50, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %33 ]
+  %.0.i49 = phi i64 [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not43.i68 = icmp eq i64 %.0.i49, 0
   br i1 %.not43.i68, label %rioFdWrite.exit, label %.outer60.split
@@ -1580,7 +1580,7 @@ rioFdWrite.exit:                                  ; preds = %rioFdWrite.exit.loo
   br label %sdslen.exit46
 
 sdslen.exit46:                                    ; preds = %76, %80, %84
-  %.0.i45 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %76 ]
+  %.0.i45 = phi i64 [ %79, %76 ], [ %83, %80 ], [ %86, %84 ]
   %.0.i45.fr = freeze i64 %.0.i45
   %87 = icmp ugt i64 %.0.i45.fr, 16384
   %brmerge = or i1 %.not41.not58, %87
@@ -1628,8 +1628,8 @@ sdslen.exit46:                                    ; preds = %76, %80, %84
   br label %sdslen.exit48
 
 sdslen.exit48:                                    ; preds = %107, %103, %99, %95, %92, %rioFdWrite.exit
-  %.033 = phi i64 [ %2, %rioFdWrite.exit ], [ %109, %107 ], [ %106, %103 ], [ %102, %99 ], [ %98, %95 ], [ %94, %92 ]
-  %.031 = phi ptr [ %1, %rioFdWrite.exit ], [ %89, %107 ], [ %89, %103 ], [ %89, %99 ], [ %89, %95 ], [ %89, %92 ]
+  %.033 = phi i64 [ %2, %rioFdWrite.exit ], [ %94, %92 ], [ %98, %95 ], [ %102, %99 ], [ %106, %103 ], [ %109, %107 ]
+  %.031 = phi ptr [ %1, %rioFdWrite.exit ], [ %89, %92 ], [ %89, %95 ], [ %89, %99 ], [ %89, %103 ], [ %89, %107 ]
   %.not4370 = icmp eq i64 %.033, 0
   br i1 %.not4370, label %.outer._crit_edge, label %.outer.split.preheader
 
@@ -1766,7 +1766,7 @@ sdslen.exit76.thread109:                          ; preds = %3
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %20, %24
-  %.0.i = phi i64 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.0.i = phi i64 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %27 = icmp ult i64 %.0.i, 16385
   br i1 %27, label %sdslen.exit.thread, label %28
 
@@ -1812,7 +1812,7 @@ sdslen.exit:                                      ; preds = %16, %20, %24
   br label %sdslen.exit76
 
 sdslen.exit76:                                    ; preds = %48, %44, %40, %36, %33
-  %.057 = phi i64 [ %50, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %33 ]
+  %.057 = phi i64 [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ]
   %.not91 = icmp eq i64 %.057, 0
   br i1 %.not91, label %._crit_edge96, label %.lr.ph95
 

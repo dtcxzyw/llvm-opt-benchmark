@@ -7495,7 +7495,7 @@ define hidden { i64, i64 } @_ZNK3sat8aig_cuts4evalERKNS0_4nodeERK7svectorINS_7cu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %21, %.preheader61, %.preheader, %90, %47, %20
-  %.0 = phi i64 [ 0, %90 ], [ %89, %47 ], [ 0, %20 ], [ -1, %.preheader ], [ 0, %.preheader61 ], [ %33, %21 ], [ %46, %34 ]
+  %.0 = phi i64 [ 0, %90 ], [ 0, %20 ], [ %89, %47 ], [ -1, %.preheader ], [ 0, %.preheader61 ], [ %33, %21 ], [ %46, %34 ]
   %91 = load i8, ptr %1, align 8, !tbaa !108, !range !57, !noundef !58
   %92 = zext nneg i8 %91 to i64
   %93 = sub nsw i64 0, %92

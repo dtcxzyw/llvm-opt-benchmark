@@ -276,7 +276,7 @@ _ZN4cvc58internal6StringD2Ev.exit16:              ; preds = %67, %70
           to label %_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tE.exit unwind label %78
 
 common.resume:                                    ; preds = %_ZN4cvc58internal8RationalD2Ev.exit12, %_ZN4cvc58internal8RationalD2Ev.exit14, %_ZN4cvc58internal6StringD2Ev.exit16, %78
-  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %68, %_ZN4cvc58internal6StringD2Ev.exit16 ], [ %51, %_ZN4cvc58internal8RationalD2Ev.exit14 ], [ %40, %_ZN4cvc58internal8RationalD2Ev.exit12 ]
+  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %40, %_ZN4cvc58internal8RationalD2Ev.exit12 ], [ %51, %_ZN4cvc58internal8RationalD2Ev.exit14 ], [ %68, %_ZN4cvc58internal6StringD2Ev.exit16 ]
   resume { ptr, i32 } %common.resume.op
 
 78:                                               ; preds = %76
@@ -1661,7 +1661,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %519, %513, %509, %4
   ret void
 
 538:                                              ; preds = %523, %492, %461, %430, %397, %364, %331, %298, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit35, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit29, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit23, %120, %89, %58
-  %.pn12 = phi { ptr, i32 } [ %524, %523 ], [ %493, %492 ], [ %462, %461 ], [ %431, %430 ], [ %398, %397 ], [ %365, %364 ], [ %332, %331 ], [ %299, %298 ], [ %.pn, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit35 ], [ %.pn8, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit29 ], [ %.pn10, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit23 ], [ %121, %120 ], [ %90, %89 ], [ %59, %58 ]
+  %.pn12 = phi { ptr, i32 } [ %59, %58 ], [ %90, %89 ], [ %121, %120 ], [ %.pn10, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit23 ], [ %.pn8, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit29 ], [ %.pn, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit35 ], [ %299, %298 ], [ %332, %331 ], [ %365, %364 ], [ %398, %397 ], [ %431, %430 ], [ %462, %461 ], [ %493, %492 ], [ %524, %523 ]
   resume { ptr, i32 } %.pn12
 }
 

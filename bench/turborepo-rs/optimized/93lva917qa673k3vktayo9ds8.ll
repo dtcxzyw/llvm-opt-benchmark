@@ -338,7 +338,7 @@ _RNvMs2_NtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5innerINtB5_4PoolNtNtNtBb_
   br label %68
 
 68:                                               ; preds = %62, %59
-  %.sroa.01.0.i = phi ptr [ %65, %62 ], [ %61, %59 ]
+  %.sroa.01.0.i = phi ptr [ %61, %59 ], [ %65, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %70 = load ptr, ptr %69, align 8, !invariant.load !23, !noalias !50, !nonnull !23
   invoke void %70(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef align 1 %57, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9)

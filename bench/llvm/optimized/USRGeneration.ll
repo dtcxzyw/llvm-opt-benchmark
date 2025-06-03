@@ -24657,7 +24657,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3212:             ; preds = %12401, %12403
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %12416, %.lr.ph.i
-  %.1.i.i = phi ptr [ %12412, %.lr.ph.i ], [ %12417, %12416 ]
+  %.1.i.i = phi ptr [ %12417, %12416 ], [ %12412, %.lr.ph.i ]
   %12418 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %12419 = load i24, ptr %12418, align 16
   %12420 = and i24 %12419, 1048576
@@ -24736,7 +24736,7 @@ _ZN4llvm11raw_ostreamlsEc.exit3221:               ; preds = %12435, %12437
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i3227
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i3227: ; preds = %12449, %.lr.ph.i3223
-  %.1.i.i3228 = phi ptr [ %12445, %.lr.ph.i3223 ], [ %12450, %12449 ]
+  %.1.i.i3228 = phi ptr [ %12450, %12449 ], [ %12445, %.lr.ph.i3223 ]
   %12451 = getelementptr inbounds nuw i8, ptr %.1.i.i3228, i64 16
   %12452 = load i24, ptr %12451, align 16
   %12453 = and i24 %12452, 1048576
@@ -27581,7 +27581,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v(p
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -29805,7 +29805,7 @@ _ZN4llvm11raw_ostreamlsEc.exit109:                ; preds = %313, %315
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %_ZN4llvm11raw_ostreamlsEc.exit109, %323
-  %.1.i.i = phi ptr [ %319, %_ZN4llvm11raw_ostreamlsEc.exit109 ], [ %324, %323 ]
+  %.1.i.i = phi ptr [ %324, %323 ], [ %319, %_ZN4llvm11raw_ostreamlsEc.exit109 ]
   %325 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %325, align 8, !tbaa !16
   call fastcc void @_ZN12_GLOBAL__N_112USRGenerator9VisitTypeEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %.sroa.0.0.copyload.i1.i)
@@ -29870,7 +29870,7 @@ _ZN4llvm11raw_ostreamlsEc.exit116:                ; preds = %345, %343, %338
   br label %_ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit
 
 _ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit116, %352
-  %.1.i.i119 = phi ptr [ %349, %_ZN4llvm11raw_ostreamlsEc.exit116 ], [ %353, %352 ]
+  %.1.i.i119 = phi ptr [ %353, %352 ], [ %349, %_ZN4llvm11raw_ostreamlsEc.exit116 ]
   %354 = call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i119)
   %355 = trunc i64 %354 to i32
   %356 = and i32 %355, 15
@@ -29910,7 +29910,7 @@ _ZN4llvm11raw_ostreamlsEc.exit122:                ; preds = %364, %362, %_ZNK5cl
   br label %_ZNK5clang13CXXMethodDecl15getRefQualifierEv.exit
 
 _ZNK5clang13CXXMethodDecl15getRefQualifierEv.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit122, %371
-  %.1.i.i125 = phi ptr [ %368, %_ZN4llvm11raw_ostreamlsEc.exit122 ], [ %372, %371 ]
+  %.1.i.i125 = phi ptr [ %372, %371 ], [ %368, %_ZN4llvm11raw_ostreamlsEc.exit122 ]
   %373 = getelementptr inbounds nuw i8, ptr %.1.i.i125, i64 16
   %374 = load i64, ptr %373, align 16
   %375 = lshr i64 %374, 32

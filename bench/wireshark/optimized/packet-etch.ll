@@ -1013,9 +1013,9 @@ define internal fastcc void @read_number(ptr noundef captures(none) %0, ptr noun
 15:                                               ; preds = %5, %5
   br label %16
 
-16:                                               ; preds = %5, %15, %14, %13
-  %17 = phi i1 [ false, %13 ], [ true, %14 ], [ false, %15 ], [ false, %5 ]
-  %.0.i.ph = phi i32 [ 2, %13 ], [ 4, %14 ], [ 8, %15 ], [ 1, %5 ]
+16:                                               ; preds = %5, %13, %14, %15
+  %17 = phi i1 [ false, %15 ], [ true, %14 ], [ false, %13 ], [ false, %5 ]
+  %.0.i.ph = phi i32 [ 8, %15 ], [ 4, %14 ], [ 2, %13 ], [ 1, %5 ]
   %18 = tail call ptr @wmem_packet_scope()
   %19 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %18, ptr noundef nonnull @.str.70)
   store ptr %19, ptr @gbl_symbol_buffer, align 8
@@ -1101,8 +1101,8 @@ get_byte_length.exit:                             ; preds = %8, %8
   br label %.thread
 
 .thread:                                          ; preds = %16, %19, %get_byte_length.exit, %6
-  %.034 = phi i32 [ 1, %6 ], [ 1, %16 ], [ 2, %19 ], [ 4, %get_byte_length.exit ]
-  %.032 = phi i32 [ %7, %6 ], [ %18, %16 ], [ %21, %19 ], [ %22, %get_byte_length.exit ]
+  %.034 = phi i32 [ 1, %6 ], [ 4, %get_byte_length.exit ], [ 2, %19 ], [ 1, %16 ]
+  %.032 = phi i32 [ %7, %6 ], [ %22, %get_byte_length.exit ], [ %21, %19 ], [ %18, %16 ]
   %23 = load i32, ptr @hf_etch_length, align 4
   %24 = load i32, ptr %0, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %1, i32 noundef %24, i32 noundef %.034, i32 noundef 0)

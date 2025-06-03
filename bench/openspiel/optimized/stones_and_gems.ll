@@ -3315,8 +3315,8 @@ define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState10
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
-  %40 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %40 = phi i32 [ %35, %37 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %41 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %42 = icmp eq i32 %41, %40
   br i1 %42, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit, label %43
@@ -3326,8 +3326,8 @@ define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState10
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge57.i.i.i
-  %46 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %40, %43 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %44, %43 ]
+  %46 = phi i32 [ %40, %43 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %47 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %48 = icmp eq i32 %47, %46
   %spec.select.i.i.i = select i1 %48, ptr %.sroa.032.2.i.i.i, ptr %5
@@ -10757,8 +10757,8 @@ _ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv.exit: ; preds = %
   br label %203
 
 203:                                              ; preds = %201, %._crit_edge._crit_edge.i.i.i
-  %204 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %199, %201 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %202, %201 ]
+  %204 = phi i32 [ %199, %201 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %202, %201 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %205 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %206 = icmp eq i32 %205, %204
   br i1 %206, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, label %207
@@ -10768,8 +10768,8 @@ _ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv.exit: ; preds = %
   br label %209
 
 209:                                              ; preds = %207, %._crit_edge._crit_edge57.i.i.i
-  %210 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %204, %207 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %208, %207 ]
+  %210 = phi i32 [ %204, %207 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %208, %207 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %211 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %212 = icmp eq i32 %211, %210
   %spec.select.i.i.i = select i1 %212, ptr %.sroa.032.2.i.i.i, ptr %168
@@ -13850,8 +13850,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %674
 
 674:                                              ; preds = %672, %._crit_edge._crit_edge.i.i.i
-  %675 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %670, %672 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %673, %672 ]
+  %675 = phi i32 [ %670, %672 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %673, %672 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %676 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %677 = icmp eq i32 %676, %675
   br i1 %677, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit, label %678
@@ -13861,8 +13861,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %680
 
 680:                                              ; preds = %678, %._crit_edge._crit_edge57.i.i.i
-  %681 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %675, %678 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %679, %678 ]
+  %681 = phi i32 [ %675, %678 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %679, %678 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %682 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %683 = icmp eq i32 %682, %681
   %spec.select.i.i.i = select i1 %683, ptr %.sroa.032.2.i.i.i, ptr %640
@@ -16155,8 +16155,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %391
 
 391:                                              ; preds = %389, %._crit_edge._crit_edge.i.i.i
-  %392 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %387, %389 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %390, %389 ]
+  %392 = phi i32 [ %387, %389 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %390, %389 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %393 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %394 = icmp eq i32 %393, %392
   br i1 %394, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, label %395
@@ -16166,8 +16166,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %397
 
 397:                                              ; preds = %395, %._crit_edge._crit_edge57.i.i.i
-  %398 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %392, %395 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %396, %395 ]
+  %398 = phi i32 [ %392, %395 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %396, %395 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %399 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %400 = icmp eq i32 %399, %398
   %spec.select.i.i.i = select i1 %400, ptr %.sroa.032.2.i.i.i, ptr %357

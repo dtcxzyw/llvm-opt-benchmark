@@ -2129,7 +2129,7 @@ Vec_IntPush.exit279:                              ; preds = %Vec_IntPush.exit279
   %667 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 46, i64 1, ptr %666)
   br label %.thread299
 
-.thread299:                                       ; preds = %.thread, %71, %112, %177, %205, %393, %.critedge._crit_edge, %659, %662, %665
+.thread299:                                       ; preds = %.thread, %393, %205, %177, %112, %71, %.critedge._crit_edge, %659, %662, %665
   tail call void @free(ptr noundef %21) #17
   %668 = load ptr, ptr %4, align 8, !tbaa !27
   %669 = icmp eq ptr %668, null

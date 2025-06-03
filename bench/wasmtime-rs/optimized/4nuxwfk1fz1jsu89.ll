@@ -602,7 +602,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN111_$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$u20$as$u20$core..fmt..Debug$GT$3fmt17hb563c44e55fa8420E.exit"
 
 "_ZN111_$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$u20$as$u20$core..fmt..Debug$GT$3fmt17hb563c44e55fa8420E.exit": ; preds = %7, %11
-  %.0.in.i = phi i1 [ %14, %11 ], [ %10, %7 ]
+  %.0.in.i = phi i1 [ %10, %7 ], [ %14, %11 ]
   ret i1 %.0.in.i
 }
 
@@ -4533,7 +4533,7 @@ default.unreachable1:                             ; preds = %2
   br label %46
 
 46:                                               ; preds = %43, %40, %34, %32, %30, %27, %23, %20, %18, %15, %12
-  %.0.in = phi i1 [ %45, %43 ], [ %42, %40 ], [ %39, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %27 ], [ %26, %23 ], [ %22, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %19, %18 ], [ %22, %20 ], [ %26, %23 ], [ %29, %27 ], [ %31, %30 ], [ %33, %32 ], [ %39, %34 ], [ %42, %40 ], [ %45, %43 ]
   ret i1 %.0.in
 }
 

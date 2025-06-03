@@ -4923,7 +4923,7 @@ ir_vregs_inside.exit._crit_edge:                  ; preds = %ir_vregs_inside.exi
   br label %ir_try_swap_operands.exit
 
 ir_try_swap_operands.exit:                        ; preds = %395, %494, %.critedge.i.i, %535, %530, %509, %492, %491, %ir_hint_conflict.exit111.thread.i, %412, %399, %ir_hint_conflict.exit.i, %._crit_edge.i.i, %543, %315, %497, %501, %506, %ir_vregs_inside.exit._crit_edge, %322, %332, %336, %340
-  %.11 = phi i1 [ %.10501, %340 ], [ %.10501, %336 ], [ %.10501, %332 ], [ %.10501, %322 ], [ %.10501, %543 ], [ true, %ir_vregs_inside.exit._crit_edge ], [ %.10501, %506 ], [ %.10501, %501 ], [ %.10501, %497 ], [ %.10501, %315 ], [ %.10501, %._crit_edge.i.i ], [ %.10501, %ir_hint_conflict.exit.i ], [ %.10501, %399 ], [ %.10501, %412 ], [ %.10501, %ir_hint_conflict.exit111.thread.i ], [ %.10501, %491 ], [ %.10501, %492 ], [ %.10501, %509 ], [ %.10501, %530 ], [ %.10501, %535 ], [ %.10501, %.critedge.i.i ], [ %.10501, %494 ], [ %.10501, %395 ]
+  %.11 = phi i1 [ %.10501, %340 ], [ %.10501, %336 ], [ %.10501, %332 ], [ %.10501, %322 ], [ true, %ir_vregs_inside.exit._crit_edge ], [ %.10501, %543 ], [ %.10501, %506 ], [ %.10501, %501 ], [ %.10501, %497 ], [ %.10501, %315 ], [ %.10501, %._crit_edge.i.i ], [ %.10501, %ir_hint_conflict.exit.i ], [ %.10501, %399 ], [ %.10501, %412 ], [ %.10501, %ir_hint_conflict.exit111.thread.i ], [ %.10501, %491 ], [ %.10501, %492 ], [ %.10501, %509 ], [ %.10501, %530 ], [ %.10501, %535 ], [ %.10501, %.critedge.i.i ], [ %.10501, %494 ], [ %.10501, %395 ]
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %553 = load i32, ptr %308, align 8, !tbaa !26
   %554 = sext i32 %553 to i64

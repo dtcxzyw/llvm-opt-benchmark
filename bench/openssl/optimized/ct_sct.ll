@@ -236,7 +236,7 @@ define range(i32 0, 2) i32 @SCT_set_signature_nid(ptr noundef writeonly captures
   br label %12
 
 12:                                               ; preds = %11, %7, %3
-  %.0 = phi i32 [ 0, %11 ], [ 1, %7 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %3 ], [ 1, %7 ]
   ret i32 %.0
 }
 

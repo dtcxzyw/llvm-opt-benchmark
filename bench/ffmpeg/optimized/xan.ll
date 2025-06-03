@@ -251,7 +251,7 @@ bytestream2_get_le32.exit73:                      ; preds = %84, %86
   br label %96
 
 96:                                               ; preds = %79, %93, %92, %91
-  %.sroa.0.1 = phi ptr [ %95, %93 ], [ %.sroa.0.4, %91 ], [ %.sroa.0.4, %92 ], [ %66, %79 ]
+  %.sroa.0.1 = phi ptr [ %95, %93 ], [ %66, %79 ], [ %.sroa.0.4, %91 ], [ %.sroa.0.4, %92 ]
   %97 = ptrtoint ptr %.sroa.0.1 to i64
   %98 = sub i64 %15, %97
   %99 = trunc i64 %98 to i32
@@ -823,8 +823,8 @@ xan_unpack.exit.i:                                ; preds = %348, %xan_unpack.ex
   br label %bytestream2_get_byte.exit.i
 
 bytestream2_get_byte.exit.i:                      ; preds = %.lr.ph.split.i, %394, %392, %383, %381, %373, %371, %.split232.us.i, %.split.us.i
-  %.sroa.0173.1.i = phi ptr [ %.sroa.0173.0.ph252.i, %.split232.us.i ], [ %.sroa.0173.0.ph252.i, %.split.us.i ], [ %374, %373 ], [ %162, %371 ], [ %384, %383 ], [ %162, %381 ], [ %395, %394 ], [ %162, %392 ], [ %.sroa.0173.0.ph252.i, %.lr.ph.split.i ]
-  %.0113.i = phi i32 [ %366, %.split232.us.i ], [ %364, %.split.us.i ], [ %376, %373 ], [ 0, %371 ], [ %387, %383 ], [ 0, %381 ], [ %407, %394 ], [ 0, %392 ], [ 0, %.lr.ph.split.i ]
+  %.sroa.0173.1.i = phi ptr [ %.sroa.0173.0.ph252.i, %.split.us.i ], [ %.sroa.0173.0.ph252.i, %.split232.us.i ], [ %374, %373 ], [ %162, %371 ], [ %384, %383 ], [ %162, %381 ], [ %395, %394 ], [ %162, %392 ], [ %.sroa.0173.0.ph252.i, %.lr.ph.split.i ]
+  %.0113.i = phi i32 [ %364, %.split.us.i ], [ %366, %.split232.us.i ], [ %376, %373 ], [ 0, %371 ], [ %387, %383 ], [ 0, %381 ], [ %407, %394 ], [ 0, %392 ], [ 0, %.lr.ph.split.i ]
   %408 = icmp sgt i32 %.0113.i, %.0109.ph259.i
   br i1 %408, label %xan_wc3_decode_frame.exit, label %409
 

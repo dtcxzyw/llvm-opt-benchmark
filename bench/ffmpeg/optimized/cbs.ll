@@ -2510,7 +2510,7 @@ cbs_clone_noncomplex_unit_content.exit:           ; preds = %cbs_alloc_content.e
   unreachable
 
 64:                                               ; preds = %61, %cbs_clone_noncomplex_unit_content.exit
-  %.0 = phi i32 [ %62, %61 ], [ %.0.i, %cbs_clone_noncomplex_unit_content.exit ]
+  %.0 = phi i32 [ %.0.i, %cbs_clone_noncomplex_unit_content.exit ], [ %62, %61 ]
   %65 = icmp slt i32 %.0, 0
   br i1 %65, label %cbs_find_unit_type_desc.exit.thread, label %66
 

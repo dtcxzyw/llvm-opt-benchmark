@@ -105,7 +105,7 @@ sub_1:                                            ; preds = %sub_0
   br label %44
 
 44:                                               ; preds = %43, %16, %.tail.thread
-  %.011 = phi i32 [ 1, %16 ], [ %.lobit, %43 ], [ 1, %.tail.thread ]
+  %.011 = phi i32 [ 1, %16 ], [ 1, %.tail.thread ], [ %.lobit, %43 ]
   ret i32 %.011
 }
 

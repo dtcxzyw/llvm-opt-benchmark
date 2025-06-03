@@ -12497,7 +12497,7 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTy
   br label %15
 
 15:                                               ; preds = %7, %5, %.sink.split, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %5 ], [ %14, %.sink.split ]
+  %.0 = phi ptr [ null, %4 ], [ null, %5 ], [ null, %7 ], [ %14, %.sink.split ]
   ret ptr %.0
 }
 
@@ -12553,7 +12553,7 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContex
   br label %15
 
 15:                                               ; preds = %7, %5, %.sink.split, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %5 ], [ %14, %.sink.split ]
+  %.0 = phi ptr [ null, %4 ], [ null, %5 ], [ null, %7 ], [ %14, %.sink.split ]
   ret ptr %.0
 }
 
@@ -12589,7 +12589,7 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContex
   br label %15
 
 15:                                               ; preds = %7, %5, %.sink.split, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %5 ], [ %14, %.sink.split ]
+  %.0 = phi ptr [ null, %4 ], [ null, %5 ], [ null, %7 ], [ %14, %.sink.split ]
   ret ptr %.0
 }
 
@@ -16554,7 +16554,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit221: ; preds = %93, %95, %
   br label %.body255
 
 _ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread: ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit219, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEED2Ev.exit, %39, %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %90, %.thread, %57
-  %.sroa.0268.3.ph = phi ptr [ null, %57 ], [ null, %.thread ], [ %.sroa.0268.2, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEED2Ev.exit ], [ %.sroa.0268.2, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit219 ], [ %.sroa.0268.6, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.sroa.0268.2, %39 ], [ %.sroa.0268.2, %90 ]
+  %.sroa.0268.3.ph = phi ptr [ null, %57 ], [ null, %.thread ], [ %.sroa.0268.2, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEED2Ev.exit ], [ %.sroa.0268.6, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.sroa.0268.2, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit219 ], [ %.sroa.0268.2, %39 ], [ %.sroa.0268.2, %90 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #19
   br label %.thread301

@@ -3742,9 +3742,9 @@ _ZN7QStringD2Ev.exit258:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit515, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %632, %621, %610, %599, %588, %577, %566, %555, %544, %300, %289, %278, %267, %256
-  %.pn104.pn.pn.pn = phi { ptr, i32 } [ %.pn104.pn.pn, %632 ], [ %.pn100.pn.pn, %621 ], [ %.pn96.pn.pn, %610 ], [ %.pn92.pn.pn, %599 ], [ %.pn88.pn.pn, %588 ], [ %.pn84.pn.pn, %577 ], [ %.pn80.pn.pn, %566 ], [ %.pn76.pn.pn, %555 ], [ %.pn.pn.pn, %544 ], [ %.pn124.pn.pn, %300 ], [ %.pn120.pn.pn, %289 ], [ %.pn116.pn.pn, %278 ], [ %.pn112.pn.pn, %267 ], [ %.pn108.pn.pn, %256 ], [ %lpad.loopexit, %.loopexit515 ], [ %lpad.loopexit517, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp518, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn124.pn.pn.pn = phi { ptr, i32 } [ %.pn124.pn.pn, %300 ], [ %.pn120.pn.pn, %289 ], [ %.pn116.pn.pn, %278 ], [ %.pn112.pn.pn, %267 ], [ %.pn108.pn.pn, %256 ], [ %.pn104.pn.pn, %632 ], [ %.pn100.pn.pn, %621 ], [ %.pn96.pn.pn, %610 ], [ %.pn92.pn.pn, %599 ], [ %.pn88.pn.pn, %588 ], [ %.pn84.pn.pn, %577 ], [ %.pn80.pn.pn, %566 ], [ %.pn76.pn.pn, %555 ], [ %.pn.pn.pn, %544 ], [ %lpad.loopexit, %.loopexit515 ], [ %lpad.loopexit517, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp518, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
-  resume { ptr, i32 } %.pn104.pn.pn.pn
+  resume { ptr, i32 } %.pn124.pn.pn.pn
 }
 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
@@ -4846,8 +4846,8 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %185, %183, %._crit_
   ret void
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit182: ; preds = %234, %210, %187, %.body, %112, %97, %236, %212, %114, %99, %335, %331, %329, %327, %325, %323, %321, %319, %231, %207, %94, %92, %90, %88, %86
-  %.pn130.pn = phi { ptr, i32 } [ %.pn130260, %212 ], [ %211, %210 ], [ %.pn128266, %236 ], [ %235, %234 ], [ %.pn, %335 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %232, %231 ], [ %208, %207 ], [ %.pn139248, %99 ], [ %98, %97 ], [ %.pn132254, %114 ], [ %113, %112 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %.pn137, %.body ], [ %.pn137, %187 ]
-  resume { ptr, i32 } %.pn130.pn
+  %.pn139.pn = phi { ptr, i32 } [ %.pn139248, %99 ], [ %98, %97 ], [ %.pn132254, %114 ], [ %113, %112 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %.pn130260, %212 ], [ %211, %210 ], [ %.pn128266, %236 ], [ %235, %234 ], [ %.pn, %335 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %232, %231 ], [ %208, %207 ], [ %.pn137, %.body ], [ %.pn137, %187 ]
+  resume { ptr, i32 } %.pn139.pn
 
 352:                                              ; preds = %230, %206, %110, %85
   unreachable

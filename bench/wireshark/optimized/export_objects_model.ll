@@ -376,7 +376,7 @@ _Zeq9QMetaTypeS_.exit.thread11.i.i:               ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i.i.i
 
 _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
-  %.1.i.i.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i.i.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i.i.i, label %17, label %_Zeq9QMetaTypeS_.exit.i.i
@@ -386,7 +386,7 @@ _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit.i.i
 
 _Zeq9QMetaTypeS_.exit.i.i:                        ; preds = %17, %_ZNK9QMetaType2idEi.exit.i.i.i
-  %.1.i8.i.i.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ], [ %18, %17 ]
+  %.1.i8.i.i.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ]
   %19 = icmp eq i32 %.1.i.i.i.i, %.1.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -525,7 +525,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4, %_ZNK11QModelInd
           to label %_ZNK5QListI8QVariantE5valueEx.exit unwind label %36
 
 common.resume:                                    ; preds = %43, %_ZN7QStringD2Ev.exit26, %_ZN7QStringD2Ev.exit34, %_ZN7QStringD2Ev.exit46, %_ZN7QStringD2Ev.exit54, %_ZN7QStringD2Ev.exit66, %131, %36
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %132, %131 ], [ %114, %_ZN7QStringD2Ev.exit66 ], [ %99, %_ZN7QStringD2Ev.exit54 ], [ %85, %_ZN7QStringD2Ev.exit46 ], [ %70, %_ZN7QStringD2Ev.exit34 ], [ %55, %_ZN7QStringD2Ev.exit26 ], [ %44, %43 ]
+  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %132, %131 ], [ %55, %_ZN7QStringD2Ev.exit26 ], [ %70, %_ZN7QStringD2Ev.exit34 ], [ %85, %_ZN7QStringD2Ev.exit46 ], [ %99, %_ZN7QStringD2Ev.exit54 ], [ %114, %_ZN7QStringD2Ev.exit66 ], [ %44, %43 ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %34
@@ -874,7 +874,7 @@ _ZNK5QListI8QVariantE5valueEx.exit67:             ; preds = %129
   store i64 2, ptr %134, align 8
   br label %.thread
 
-.thread:                                          ; preds = %_ZN7QStringD2Ev.exit, %_ZN7QStringD2Ev.exit30, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit62, %41, %133, %_ZNK5QListI8QVariantE5valueEx.exit67, %_ZNK11QModelIndex7isValidEv.exit.thread
+.thread:                                          ; preds = %_ZN7QStringD2Ev.exit62, %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit30, %_ZN7QStringD2Ev.exit, %41, %133, %_ZNK5QListI8QVariantE5valueEx.exit67, %_ZNK11QModelIndex7isValidEv.exit.thread
   ret void
 }
 
@@ -1157,7 +1157,7 @@ _ZN7QStringD2Ev.exit42:                           ; preds = %70, %_ZN17QArrayDat
   ret void
 
 79:                                               ; preds = %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit34, %_ZN7QStringD2Ev.exit26, %_ZN7QStringD2Ev.exit18, %_ZN7QStringD2Ev.exit10
-  %.pn = phi { ptr, i32 } [ %71, %_ZN7QStringD2Ev.exit42 ], [ %59, %_ZN7QStringD2Ev.exit34 ], [ %47, %_ZN7QStringD2Ev.exit26 ], [ %35, %_ZN7QStringD2Ev.exit18 ], [ %23, %_ZN7QStringD2Ev.exit10 ]
+  %.pn = phi { ptr, i32 } [ %23, %_ZN7QStringD2Ev.exit10 ], [ %35, %_ZN7QStringD2Ev.exit18 ], [ %47, %_ZN7QStringD2Ev.exit26 ], [ %59, %_ZN7QStringD2Ev.exit34 ], [ %71, %_ZN7QStringD2Ev.exit42 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2090,7 +2090,7 @@ define noundef zeroext i1 @_ZNK22ExportObjectProxyModel8lessThanERK11QModelIndex
   br label %39
 
 39:                                               ; preds = %37, %31, %27
-  %.0 = phi i1 [ %38, %37 ], [ %36, %31 ], [ %30, %27 ]
+  %.0 = phi i1 [ %38, %37 ], [ %30, %27 ], [ %36, %31 ]
   ret i1 %.0
 
 40:                                               ; preds = %25, %23
@@ -2450,7 +2450,7 @@ _ZN7QStringD2Ev.exit50:                           ; preds = %124, %_ZN17QArrayDa
   br label %127
 
 127:                                              ; preds = %.thread54, %.thread, %121, %126
-  %.217 = phi i1 [ false, %121 ], [ true, %126 ], [ false, %.thread ], [ false, %.thread54 ]
+  %.217 = phi i1 [ true, %126 ], [ false, %121 ], [ false, %.thread ], [ false, %.thread54 ]
   ret i1 %.217
 
 128:                                              ; preds = %_ZN7QStringD2Ev.exit50, %44

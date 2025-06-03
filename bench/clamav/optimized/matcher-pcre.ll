@@ -1241,8 +1241,8 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br label %cli_pcre_qoff.exit.thread
 
 cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i, %74, %79, %85
-  %.2176 = phi i32 [ %88, %85 ], [ -1, %.sink.split.i ], [ %76, %74 ], [ %82, %79 ], [ 0, %71 ]
-  %.2172 = phi i32 [ %91, %85 ], [ 0, %.sink.split.i ], [ %78, %74 ], [ %84, %79 ], [ 0, %71 ]
+  %.2176 = phi i32 [ %88, %85 ], [ -1, %.sink.split.i ], [ %82, %79 ], [ %76, %74 ], [ 0, %71 ]
+  %.2172 = phi i32 [ %91, %85 ], [ 0, %.sink.split.i ], [ %84, %79 ], [ %78, %74 ], [ 0, %71 ]
   %.2176.fr = freeze i32 %.2176
   %92 = icmp eq i32 %68, 0
   %93 = icmp eq i32 %.2172, 0

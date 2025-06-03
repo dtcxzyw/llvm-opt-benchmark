@@ -9010,7 +9010,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN5ImGui15DataTypeCompareEiPKvS1
   br label %18
 
 18:                                               ; preds = %3, %15, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i32 [ %.0.i49, %15 ], [ %.0.i47, %12 ], [ %.0.i46, %11 ], [ %.0.i45, %10 ], [ %.0.i44, %9 ], [ %.0.i43, %8 ], [ %.0.i42, %7 ], [ %.0.i41, %6 ], [ %.0.i40, %5 ], [ %.0.i, %4 ], [ 0, %3 ]
+  %.0 = phi i32 [ %.0.i, %4 ], [ %.0.i40, %5 ], [ %.0.i41, %6 ], [ %.0.i42, %7 ], [ %.0.i43, %8 ], [ %.0.i44, %9 ], [ %.0.i45, %10 ], [ %.0.i46, %11 ], [ %.0.i47, %12 ], [ %.0.i49, %15 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -9368,7 +9368,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui14DataTypeIsZeroEiPKv(i32 noundef 
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 _ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %2, %5, %6, %7, %8, %9, %10, %11, %12, %13, %16
-  %.0.i = phi i32 [ %.0.i49.i, %16 ], [ %.0.i47.i, %13 ], [ %.0.i46.i, %12 ], [ %.0.i45.i, %11 ], [ %.0.i44.i, %10 ], [ %.0.i43.i, %9 ], [ %.0.i42.i, %8 ], [ %.0.i41.i, %7 ], [ %.0.i40.i, %6 ], [ %.0.i.i, %5 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %.0.i.i, %5 ], [ %.0.i40.i, %6 ], [ %.0.i41.i, %7 ], [ %.0.i42.i, %8 ], [ %.0.i43.i, %9 ], [ %.0.i44.i, %10 ], [ %.0.i45.i, %11 ], [ %.0.i46.i, %12 ], [ %.0.i47.i, %13 ], [ %.0.i49.i, %16 ], [ 0, %2 ]
   %19 = icmp eq i32 %.0.i, 0
   ret i1 %19
 }
@@ -9731,7 +9731,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui12DragBehaviorEjiPvfPKvS2_PKci(i32
   br label %175
 
 175:                                              ; preds = %42, %36, %.thread, %172, %162, %152, %142, %132, %122, %114, %96, %78, %60
-  %.0 = phi i1 [ %174, %172 ], [ %164, %162 ], [ %154, %152 ], [ %144, %142 ], [ %134, %132 ], [ %124, %122 ], [ %110, %114 ], [ %92, %96 ], [ %74, %78 ], [ %56, %60 ], [ false, %.thread ], [ false, %36 ], [ false, %42 ]
+  %.0 = phi i1 [ %56, %60 ], [ %74, %78 ], [ %92, %96 ], [ %110, %114 ], [ %124, %122 ], [ %134, %132 ], [ %144, %142 ], [ %154, %152 ], [ %164, %162 ], [ %174, %172 ], [ false, %.thread ], [ false, %36 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -13780,15 +13780,15 @@ _ZN5ImGui13TempInputTextERK6ImRectjPKcPcii.exit:  ; preds = %57, %75
   %106 = fcmp ogt double %.val38.i, %.val39.i
   br i1 %105, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %101, %104, %85, %87, %89, %91, %93, %95, %97, %99
-  %.0.i30 = phi i1 [ %106, %104 ], [ %103, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ]
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %104, %101, %85, %87, %89, %91, %93, %95, %97, %99
+  %.0.i30 = phi i1 [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %103, %101 ], [ %106, %104 ]
   %spec.select = select i1 %.0.i30, ptr %7, ptr %6
   %spec.select40 = select i1 %.0.i30, ptr %6, ptr %7
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %101, %104, %84, %83
-  %.037 = phi ptr [ %6, %83 ], [ %6, %84 ], [ %6, %104 ], [ %6, %101 ], [ %spec.select, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
-  %.036 = phi ptr [ %7, %83 ], [ %7, %84 ], [ %7, %104 ], [ %7, %101 ], [ %spec.select40, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %104, %101, %84, %83
+  %.037 = phi ptr [ %6, %83 ], [ %6, %84 ], [ %6, %101 ], [ %6, %104 ], [ %spec.select, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
+  %.036 = phi ptr [ %7, %83 ], [ %7, %84 ], [ %7, %101 ], [ %7, %104 ], [ %spec.select40, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
   %107 = call noundef zeroext i1 @_ZN5ImGui13DataTypeClampEiPvPKvS2_(i32 noundef %3, ptr noundef %4, ptr noundef %.037, ptr noundef %.036)
   br label %108
 
@@ -14263,7 +14263,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui14SliderBehaviorERK6ImRectjiPvPKvS
   br label %86
 
 86:                                               ; preds = %9, %82, %78, %74, %70, %66, %62, %61, %49, %37, %25
-  %.0 = phi i1 [ %85, %82 ], [ %81, %78 ], [ %77, %74 ], [ %73, %70 ], [ %69, %66 ], [ %65, %62 ], [ %57, %61 ], [ %45, %49 ], [ %33, %37 ], [ %21, %25 ], [ false, %9 ]
+  %.0 = phi i1 [ %21, %25 ], [ %33, %37 ], [ %45, %49 ], [ %57, %61 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -23125,15 +23125,15 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11InputScalarEPKciPvPKvS4_S1_i(ptr
   %54 = fcmp ule double %.val38.i, %.val39.i
   br i1 %53, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %49, %52
-  %.0.i = phi i1 [ %54, %52 ], [ %51, %49 ]
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %52, %49
+  %.0.i = phi i1 [ %51, %49 ], [ %54, %52 ]
   br i1 %.0.i, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread86, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread86: ; preds = %33, %35, %37, %39, %41, %43, %45, %47, %32, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread86: ; preds = %47, %45, %43, %41, %39, %37, %35, %33, %32, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
   store i8 0, ptr %10, align 16, !tbaa !338
   br label %56
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %33, %35, %37, %39, %41, %43, %45, %47, %49, %52, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %26
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %47, %45, %43, %41, %39, %37, %35, %33, %52, %49, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %26
   %55 = call noundef i32 @_ZN5ImGui20DataTypeFormatStringEPciiPKvPKc(ptr noundef nonnull %10, i32 noundef 64, i32 noundef %1, ptr noundef %2, ptr noundef %.073)
   br label %56
 
@@ -25260,7 +25260,7 @@ _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.ex
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %745, %585
-  %.0.i.be = phi i32 [ %746, %745 ], [ %586, %585 ]
+  %.0.i.be = phi i32 [ %586, %585 ], [ %746, %745 ]
   br label %.backedge.i
 
 747:                                              ; preds = %.backedge.i, %.backedge.i

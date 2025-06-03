@@ -5420,7 +5420,7 @@ _ZN4lean10object_refD2Ev.exit35:                  ; preds = %96, %103, %105, %10
           to label %133 unwind label %134
 
 132:                                              ; preds = %50, %.thread44, %129, %_ZN4lean10object_refD2Ev.exit35
-  %.1 = phi i1 [ %53, %50 ], [ %95, %_ZN4lean10object_refD2Ev.exit35 ], [ %128, %129 ], [ %49, %.thread44 ]
+  %.1 = phi i1 [ %95, %_ZN4lean10object_refD2Ev.exit35 ], [ %128, %129 ], [ %53, %50 ], [ %49, %.thread44 ]
   ret i1 %.1
 
 133:                                              ; preds = %130, %123

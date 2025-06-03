@@ -58,7 +58,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %if.then.i
   br label %return
 
 return:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %sw.bb3, %sw.bb1, %sw.bb
-  %retval.0 = phi ptr [ %retval.0.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ %out, %sw.bb3 ], [ %out, %sw.bb1 ], [ %out, %sw.bb ]
+  %retval.0 = phi ptr [ %retval.0.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ %out, %sw.bb ], [ %out, %sw.bb1 ], [ %out, %sw.bb3 ]
   ret ptr %retval.0
 }
 

@@ -1579,7 +1579,7 @@ define ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, ptr nound
   br label %80
 
 80:                                               ; preds = %.sink.split, %35, %61, %67
-  %.050 = phi ptr [ %.1, %35 ], [ %.1, %61 ], [ %.1, %67 ], [ %.050.ph, %.sink.split ]
+  %.050 = phi ptr [ %.1, %61 ], [ %.1, %67 ], [ %.1, %35 ], [ %.050.ph, %.sink.split ]
   br i1 %9, label %83, label %81
 
 81:                                               ; preds = %80

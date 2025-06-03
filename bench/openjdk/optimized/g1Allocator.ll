@@ -849,7 +849,7 @@ define hidden noundef ptr @_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegi
   unreachable
 
 _ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit: ; preds = %6, %8
-  %.0.i = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %.0.i = phi ptr [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0.i
 }
 
@@ -877,7 +877,7 @@ define hidden noundef ptr @_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegi
   unreachable
 
 13:                                               ; preds = %9, %7
-  %.0 = phi ptr [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi ptr [ %8, %7 ], [ %10, %9 ]
   ret ptr %.0
 }
 
@@ -1476,7 +1476,7 @@ _ZN15G1PLABAllocator8PLABData18notify_plab_refillEmm.exit: ; preds = %57, %59
   unreachable
 
 _ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit: ; preds = %63, %65
-  %.0.i = phi ptr [ %66, %65 ], [ %64, %63 ]
+  %.0.i = phi ptr [ %64, %63 ], [ %66, %65 ]
   %.not43 = icmp eq ptr %.0.i, null
   br i1 %.not43, label %87, label %69
 
@@ -1539,7 +1539,7 @@ _ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit: ; preds =
   unreachable
 
 _ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit: ; preds = %91, %93
-  %.0.i.i50 = phi ptr [ %94, %93 ], [ %92, %91 ]
+  %.0.i.i50 = phi ptr [ %92, %91 ], [ %94, %93 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not44 = icmp eq ptr %.0.i.i50, null
   br i1 %.not44, label %_ZN4PLAB8allocateEm.exit, label %97

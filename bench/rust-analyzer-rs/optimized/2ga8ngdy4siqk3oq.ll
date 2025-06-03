@@ -18192,7 +18192,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$hir_ty..mir..Statem
   unreachable
 
 common.resume.i.i:                                ; preds = %355, %350, %.body34.i.i, %.body25.i.i, %327, %322, %.body17.i.i, %300, %295, %.body10.i.i, %274, %269, %.body.i.i, %250, %245, %120, %115, %20, %15
-  %common.resume.op.i.i = phi { ptr, i32 } [ %16, %20 ], [ %16, %15 ], [ %116, %120 ], [ %116, %115 ], [ %246, %250 ], [ %246, %245 ], [ %270, %274 ], [ %270, %269 ], [ %eh.lpad-body26.i.i, %.body25.i.i ], [ %eh.lpad-body18.i.i, %.body17.i.i ], [ %eh.lpad-body11.i.i, %.body10.i.i ], [ %eh.lpad-body35.i.i, %.body34.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %296, %300 ], [ %296, %295 ], [ %323, %327 ], [ %323, %322 ], [ %351, %355 ], [ %351, %350 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %16, %20 ], [ %16, %15 ], [ %116, %120 ], [ %116, %115 ], [ %246, %250 ], [ %246, %245 ], [ %270, %274 ], [ %270, %269 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body35.i.i, %.body34.i.i ], [ %eh.lpad-body11.i.i, %.body10.i.i ], [ %eh.lpad-body18.i.i, %.body17.i.i ], [ %eh.lpad-body26.i.i, %.body25.i.i ], [ %296, %300 ], [ %296, %295 ], [ %323, %327 ], [ %323, %322 ], [ %351, %355 ], [ %351, %350 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 31:                                               ; preds = %5
@@ -22344,7 +22344,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$hir..term_search..expr..Expr$GT$$GT$17h31fd03798c7c0e74E.exit" unwind label %20, !noalias !8080
 
 common.resume:                                    ; preds = %122, %126, %103, %107, %84, %88, %65, %69, %27, %.body, %73, %92, %111, %38, %42, %25, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %26, %25 ], [ %39, %42 ], [ %39, %38 ], [ %112, %111 ], [ %93, %92 ], [ %74, %73 ], [ %.pn, %.body ], [ %28, %27 ], [ %66, %69 ], [ %66, %65 ], [ %85, %88 ], [ %85, %84 ], [ %104, %107 ], [ %104, %103 ], [ %123, %126 ], [ %123, %122 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %26, %25 ], [ %39, %42 ], [ %39, %38 ], [ %28, %27 ], [ %.pn, %.body ], [ %74, %73 ], [ %93, %92 ], [ %112, %111 ], [ %66, %69 ], [ %66, %65 ], [ %85, %88 ], [ %85, %84 ], [ %104, %107 ], [ %104, %103 ], [ %123, %126 ], [ %123, %122 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %17
@@ -25384,7 +25384,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$hir_def..hir..type_ref..Type
   br label %common.resume
 
 common.resume:                                    ; preds = %151, %156, %.body, %.body9, %.body19, %108, %111, %96, %99, %.body32, %24, %49, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %50, %49 ], [ %17, %24 ], [ %17, %.body32 ], [ %97, %99 ], [ %97, %96 ], [ %109, %111 ], [ %109, %108 ], [ %eh.lpad-body42, %.body19 ], [ %44, %.body9 ], [ %39, %.body ], [ %152, %156 ], [ %152, %151 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %50, %49 ], [ %17, %24 ], [ %17, %.body32 ], [ %97, %99 ], [ %97, %96 ], [ %109, %111 ], [ %109, %108 ], [ %39, %.body ], [ %44, %.body9 ], [ %eh.lpad-body42, %.body19 ], [ %152, %156 ], [ %152, %151 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$hir_def..hir..type_ref..TypeRef$GT$$GT$17h3a9f7a7f6467d814E.exit": ; preds = %9
@@ -27071,7 +27071,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$hir_def..generics..
   unreachable
 
 common.resume:                                    ; preds = %116, %121, %.body, %67, %.body10, %49, %54
-  %common.resume.op = phi { ptr, i32 } [ %50, %54 ], [ %50, %49 ], [ %.pn, %.body10 ], [ %68, %67 ], [ %eh.lpad-body, %.body ], [ %117, %121 ], [ %117, %116 ]
+  %common.resume.op = phi { ptr, i32 } [ %50, %54 ], [ %50, %49 ], [ %.pn, %.body10 ], [ %eh.lpad-body, %.body ], [ %68, %67 ], [ %117, %121 ], [ %117, %116 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr78drop_in_place$LT$intern..Interned$LT$hir_def..hir..type_ref..TypeBound$GT$$GT$17hde220c03a5fc468eE.exit": ; preds = %127, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h23af0dea0fe9c697E.exit.i13", %78, %73, %72, %"_ZN4core3ptr56drop_in_place$LT$hir_def..hir..type_ref..LifetimeRef$GT$17hf3e4721aead25379E.llvm.12053455592450410520.exit", %60, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h23af0dea0fe9c697E.exit.i"
@@ -35997,7 +35997,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$hir_def..nameres..diagnostic
   unreachable
 
 "_ZN4core3ptr36drop_in_place$LT$cfg..CfgOptions$GT$17hd3bce97f0e8737dbE.llvm.12053455592450410520.exit": ; preds = %157, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12053455592450410520.exit.i.i1.i.i11", %147, %116, %123
-  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %124, %123 ], [ %117, %116 ], [ %148, %147 ], [ %148, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12053455592450410520.exit.i.i1.i.i11" ]
+  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %158, %157 ], [ %117, %116 ], [ %148, %147 ], [ %148, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12053455592450410520.exit.i.i1.i.i11" ]
   resume { ptr, i32 } %.pn
 
 123:                                              ; preds = %68, %58
@@ -36660,7 +36660,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$chalk_ir..TyKind$LT$hir_ty..
   unreachable
 
 common.resume:                                    ; preds = %327, %332, %.body, %.body15, %301, %306, %277, %282, %251, %256, %229, %234, %207, %212, %185, %190, %163, %168, %119, %124, %97, %102, %53, %58, %31, %36, %9, %14
-  %common.resume.op = phi { ptr, i32 } [ %10, %14 ], [ %10, %9 ], [ %32, %36 ], [ %32, %31 ], [ %54, %58 ], [ %54, %53 ], [ %98, %102 ], [ %98, %97 ], [ %120, %124 ], [ %120, %119 ], [ %164, %168 ], [ %164, %163 ], [ %186, %190 ], [ %186, %185 ], [ %208, %212 ], [ %208, %207 ], [ %230, %234 ], [ %230, %229 ], [ %252, %256 ], [ %252, %251 ], [ %278, %282 ], [ %278, %277 ], [ %302, %306 ], [ %302, %301 ], [ %eh.lpad-body16, %.body15 ], [ %eh.lpad-body, %.body ], [ %328, %332 ], [ %328, %327 ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %14 ], [ %10, %9 ], [ %32, %36 ], [ %32, %31 ], [ %54, %58 ], [ %54, %53 ], [ %98, %102 ], [ %98, %97 ], [ %120, %124 ], [ %120, %119 ], [ %164, %168 ], [ %164, %163 ], [ %186, %190 ], [ %186, %185 ], [ %208, %212 ], [ %208, %207 ], [ %230, %234 ], [ %230, %229 ], [ %252, %256 ], [ %252, %251 ], [ %278, %282 ], [ %278, %277 ], [ %302, %306 ], [ %302, %301 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body16, %.body15 ], [ %328, %332 ], [ %328, %327 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %1
@@ -38422,7 +38422,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Optio
   unreachable
 
 common.resume.i.i:                                ; preds = %.body10.i.i, %.body.i.i, %121, %116, %96, %91, %46, %41
-  %common.resume.op.i.i = phi { ptr, i32 } [ %42, %46 ], [ %42, %41 ], [ %92, %96 ], [ %92, %91 ], [ %117, %121 ], [ %117, %116 ], [ %eh.lpad-body11.i.i, %.body10.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %42, %46 ], [ %42, %41 ], [ %92, %96 ], [ %92, %91 ], [ %117, %121 ], [ %117, %116 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body11.i.i, %.body10.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 57:                                               ; preds = %5
@@ -48099,7 +48099,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h2728c999cb5d9b46E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -48159,7 +48159,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hadcd43e7b786dfa1E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 

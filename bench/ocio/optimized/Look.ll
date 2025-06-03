@@ -1904,7 +1904,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
   br label %481
 
 319:                                              ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit84, %5
-  %.038 = phi i1 [ false, %5 ], [ %.2, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121 ], [ %.1, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit84 ]
+  %.038 = phi i1 [ false, %5 ], [ %.1, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit84 ], [ %.2, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121 ]
   %320 = load ptr, ptr %3, align 8, !tbaa !29
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %322 = load ptr, ptr %321, align 8, !tbaa !34
@@ -2290,7 +2290,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_poli
   ret i1 %.3
 
 481:                                              ; preds = %455, %318, %167
-  %.pn53.pn = phi { ptr, i32 } [ %.pn53, %455 ], [ %.pn, %318 ], [ %.pn51, %167 ]
+  %.pn53.pn = phi { ptr, i32 } [ %.pn53, %455 ], [ %.pn51, %167 ], [ %.pn, %318 ]
   resume { ptr, i32 } %.pn53.pn
 }
 

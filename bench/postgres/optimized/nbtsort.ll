@@ -788,8 +788,8 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   br label %index_getattr.exit.i.i
 
 index_getattr.exit.i.i:                           ; preds = %428, %418, %415, %413, %407, %404, %401, %398
-  %.0169.i.i = phi i1 [ false, %428 ], [ false, %407 ], [ false, %404 ], [ false, %401 ], [ false, %398 ], [ false, %413 ], [ false, %415 ], [ true, %418 ]
-  %.1.i.i.i = phi i64 [ %430, %428 ], [ %408, %407 ], [ %406, %404 ], [ %403, %401 ], [ %400, %398 ], [ %414, %413 ], [ %417, %415 ], [ 0, %418 ]
+  %.0169.i.i = phi i1 [ false, %428 ], [ false, %398 ], [ false, %401 ], [ false, %404 ], [ false, %407 ], [ false, %413 ], [ false, %415 ], [ true, %418 ]
+  %.1.i.i.i = phi i64 [ %430, %428 ], [ %400, %398 ], [ %403, %401 ], [ %406, %404 ], [ %408, %407 ], [ %414, %413 ], [ %417, %415 ], [ 0, %418 ]
   %.val.i147.i.i = load i16, ptr %378, align 2
   %431 = icmp slt i16 %.val.i147.i.i, 0
   br i1 %431, label %465, label %432
@@ -873,7 +873,7 @@ index_getattr.exit.i.i:                           ; preds = %428, %418, %415, %4
   br label %index_getattr.exit150.i.i
 
 index_getattr.exit150.i.i:                        ; preds = %475, %462, %460, %454, %451, %448, %445
-  %.1.i148.i.i = phi i64 [ %477, %475 ], [ %455, %454 ], [ %453, %451 ], [ %450, %448 ], [ %447, %445 ], [ %461, %460 ], [ %464, %462 ]
+  %.1.i148.i.i = phi i64 [ %477, %475 ], [ %447, %445 ], [ %450, %448 ], [ %453, %451 ], [ %455, %454 ], [ %461, %460 ], [ %464, %462 ]
   br i1 %.0169.i.i, label %478, label %486
 
 index_getattr.exit150.thread.i.i:                 ; preds = %465

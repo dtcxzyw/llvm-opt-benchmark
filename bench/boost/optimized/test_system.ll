@@ -598,7 +598,7 @@ define hidden noundef zeroext i1 @_Z8is_asciiRKNSt7__cxx1112basic_stringIcSt11ch
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %33, %32 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %35 = load i8, ptr %.sroa.025.1.i.i.i, align 1, !tbaa !17
   %36 = icmp slt i8 %35, 0
   br i1 %36, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZ8is_asciiRKS9_E3$_0ET_SE_SE_T0_.exit", label %37
@@ -608,7 +608,7 @@ define hidden noundef zeroext i1 @_Z8is_asciiRKNSt7__cxx1112basic_stringIcSt11ch
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %38, %37 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %40 = load i8, ptr %.sroa.025.2.i.i.i, align 1, !tbaa !17
   %41 = icmp slt i8 %40, 0
   %spec.select.i.i.i = select i1 %41, ptr %.sroa.025.2.i.i.i, ptr %5
@@ -854,9 +854,9 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6
   br label %49
 
 49:                                               ; preds = %21, %44
-  %50 = phi ptr [ %6, %21 ], [ %41, %44 ]
-  %.0.i.ph.ph51 = phi i32 [ 1, %21 ], [ %.0.i.ph.ph52, %44 ]
-  %.2 = phi i32 [ %23, %21 ], [ %48, %44 ]
+  %50 = phi ptr [ %41, %44 ], [ %6, %21 ]
+  %.0.i.ph.ph51 = phi i32 [ %.0.i.ph.ph52, %44 ], [ 1, %21 ]
+  %.2 = phi i32 [ %48, %44 ], [ %23, %21 ]
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %52, !prof !34
 
@@ -1786,7 +1786,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %245
 
 245:                                              ; preds = %243, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %244, %243 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %244, %243 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %246 = load i8, ptr %.sroa.025.1.i.i.i.i, align 1, !tbaa !17
   %247 = icmp slt i8 %246, 0
   br i1 %247, label %.loopexit, label %248
@@ -1796,7 +1796,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %250
 
 250:                                              ; preds = %248, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %249, %248 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %249, %248 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %251 = load i8, ptr %.sroa.025.2.i.i.i.i, align 1, !tbaa !17
   %252 = icmp slt i8 %251, 0
   %spec.select.i.i.i.i = select i1 %252, ptr %.sroa.025.2.i.i.i.i, ptr %216
@@ -2642,7 +2642,7 @@ _ZN5boost6nowide4test8test_monEv.exit61:          ; preds = %59, %57, %48
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %111, %110 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %111, %110 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %113 = load i8, ptr %.sroa.025.1.i.i.i.i, align 1, !tbaa !17
   %114 = icmp slt i8 %113, 0
   br i1 %114, label %.loopexit, label %115
@@ -2652,7 +2652,7 @@ _ZN5boost6nowide4test8test_monEv.exit61:          ; preds = %59, %57, %48
   br label %117
 
 117:                                              ; preds = %115, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %116, %115 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %116, %115 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %118 = load i8, ptr %.sroa.025.2.i.i.i.i, align 1, !tbaa !17
   %119 = icmp slt i8 %118, 0
   %spec.select.i.i.i.i = select i1 %119, ptr %.sroa.025.2.i.i.i.i, ptr %83

@@ -3098,8 +3098,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %153
   ret void
 
 .body:                                            ; preds = %148, %116, %84, %52
-  %.pn.pn = phi { ptr, i32 } [ %.pn5.i, %52 ], [ %.pn5.i18, %84 ], [ %.pn5.i27, %116 ], [ %.pn5.i36, %148 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn11.pn = phi { ptr, i32 } [ %.pn5.i, %52 ], [ %.pn5.i18, %84 ], [ %.pn5.i27, %116 ], [ %.pn5.i36, %148 ]
+  resume { ptr, i32 } %.pn11.pn
 }
 
 ; Function Attrs: mustprogress uwtable

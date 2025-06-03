@@ -405,7 +405,7 @@ drain_packet.exit113:                             ; preds = %124, %127
   br label %set_silence.exit
 
 set_silence.exit:                                 ; preds = %154, %164, %165, %166
-  %.0.i114 = phi i8 [ 0, %154 ], [ -128, %166 ], [ -1, %165 ], [ -43, %164 ]
+  %.0.i114 = phi i8 [ 0, %154 ], [ -43, %164 ], [ -1, %165 ], [ -128, %166 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %160, i8 %.0.i114, i64 range(i64 -2147483648, 2147483648) %162, i1 false)
   %167 = load ptr, ptr %27, align 8, !tbaa !29
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32

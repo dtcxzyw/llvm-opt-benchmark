@@ -680,7 +680,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN92_$LT$ruff_python_formatter..expression..binary_like..Operand$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2c3443fd52c2f56E.exit"
 
 "_ZN92_$LT$ruff_python_formatter..expression..binary_like..Operand$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2c3443fd52c2f56E.exit": ; preds = %8, %12, %15
-  %.sroa.0.0.in.i = phi i1 [ %18, %15 ], [ %14, %12 ], [ %11, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %8 ], [ %14, %12 ], [ %18, %15 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -5358,7 +5358,7 @@ define hidden noundef zeroext i1 @_ZN21ruff_python_formatter7context9NodeLevel16
   br label %5
 
 5:                                                ; preds = %1, %4, %2
-  %.sroa.03.0 = phi i1 [ true, %4 ], [ %3, %2 ], [ false, %1 ]
+  %.sroa.03.0 = phi i1 [ %3, %2 ], [ true, %4 ], [ false, %1 ]
   ret i1 %.sroa.03.0
 }
 
@@ -8132,7 +8132,7 @@ default.unreachable1:                             ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %11, %9, %6
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %6 ]
+  %.sroa.0.0.in = phi i1 [ %8, %6 ], [ %10, %9 ], [ %13, %11 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -8174,7 +8174,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 

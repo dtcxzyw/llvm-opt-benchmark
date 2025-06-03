@@ -151,8 +151,8 @@ define dso_local { ptr, i64 } @_ZN4llvm12machineToStrENS_4COFF12MachineTypesE(i3
   unreachable
 
 8:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.sroa.7.0 = phi i64 [ 3, %6 ], [ 3, %5 ], [ 6, %4 ], [ 7, %3 ], [ 5, %2 ], [ 3, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.2, %6 ], [ @.str, %5 ], [ @.str.7, %4 ], [ @.str.6, %3 ], [ @.str.5, %2 ], [ @.str.4, %1 ]
+  %.sroa.7.0 = phi i64 [ 5, %2 ], [ 7, %3 ], [ 6, %4 ], [ 3, %5 ], [ 3, %6 ], [ 3, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.5, %2 ], [ @.str.6, %3 ], [ @.str.7, %4 ], [ @.str, %5 ], [ @.str.2, %6 ], [ @.str.4, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %.fca.1.insert

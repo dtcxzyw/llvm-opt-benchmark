@@ -411,8 +411,8 @@ define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed
   br label %70
 
 70:                                               ; preds = %66, %62, %57
-  %71 = phi i8 [ %58, %57 ], [ %63, %62 ], [ %67, %66 ]
-  %.0.in.i.us.i = phi i32 [ %61, %57 ], [ %spec.select1415.i.us.i, %62 ], [ %spec.select16.i.us.i, %66 ]
+  %71 = phi i8 [ %67, %66 ], [ %63, %62 ], [ %58, %57 ]
+  %.0.in.i.us.i = phi i32 [ %spec.select16.i.us.i, %66 ], [ %spec.select1415.i.us.i, %62 ], [ %61, %57 ]
   %72 = icmp eq i8 %.sroa.6.0.us.i, 0
   br i1 %72, label %blend_non_normal_pixel.exit.us.i, label %73
 
@@ -812,8 +812,8 @@ lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us
   br label %251
 
 251:                                              ; preds = %247, %243, %238
-  %252 = phi i8 [ %239, %238 ], [ %244, %243 ], [ %248, %247 ]
-  %.0.in.i.us188.i = phi i32 [ %242, %238 ], [ %spec.select1415.i.us186.i, %243 ], [ %spec.select16.i.us187.i, %247 ]
+  %252 = phi i8 [ %248, %247 ], [ %244, %243 ], [ %239, %238 ]
+  %.0.in.i.us188.i = phi i32 [ %spec.select16.i.us187.i, %247 ], [ %spec.select1415.i.us186.i, %243 ], [ %242, %238 ]
   %253 = icmp samesign ult i32 %232, 65536
   br i1 %253, label %blend_non_normal_pixel.exit.us192.i, label %254
 
@@ -897,8 +897,8 @@ blend_non_normal_pixel.exit.us192.i:              ; preds = %.sink.split.i.i.us1
   br label %290
 
 290:                                              ; preds = %286, %282, %277
-  %291 = phi i8 [ %278, %277 ], [ %283, %282 ], [ %287, %286 ]
-  %.0.in.i.us.us.i = phi i32 [ %281, %277 ], [ %spec.select1415.i.us.us.i, %282 ], [ %spec.select16.i.us.us.i, %286 ]
+  %291 = phi i8 [ %287, %286 ], [ %283, %282 ], [ %278, %277 ]
+  %.0.in.i.us.us.i = phi i32 [ %spec.select16.i.us.us.i, %286 ], [ %spec.select1415.i.us.us.i, %282 ], [ %281, %277 ]
   %292 = icmp samesign ult i32 %271, 256
   br i1 %292, label %blend_non_normal_pixel.exit.us.us.i, label %293
 
@@ -1330,8 +1330,8 @@ lv_color_8_8_mix.exit157.us.i:                    ; preds = %.sink.split.i155.us
   br label %501
 
 501:                                              ; preds = %497, %493, %488
-  %502 = phi i8 [ %489, %488 ], [ %494, %493 ], [ %498, %497 ]
-  %.0.in.i.us184.i = phi i32 [ %492, %488 ], [ %spec.select1415.i.us182.i, %493 ], [ %spec.select16.i.us183.i, %497 ]
+  %502 = phi i8 [ %498, %497 ], [ %494, %493 ], [ %489, %488 ]
+  %.0.in.i.us184.i = phi i32 [ %spec.select16.i.us183.i, %497 ], [ %spec.select1415.i.us182.i, %493 ], [ %492, %488 ]
   %503 = icmp ult i16 %481, 256
   br i1 %503, label %blend_non_normal_pixel.exit.us188.i, label %504
 
@@ -1412,8 +1412,8 @@ blend_non_normal_pixel.exit.us188.i:              ; preds = %.sink.split.i.i.us1
   br label %540
 
 540:                                              ; preds = %536, %532, %527
-  %541 = phi i8 [ %528, %527 ], [ %533, %532 ], [ %537, %536 ]
-  %.0.in.i.us.us.i40 = phi i32 [ %531, %527 ], [ %spec.select1415.i.us.us.i46, %532 ], [ %spec.select16.i.us.us.i47, %536 ]
+  %541 = phi i8 [ %537, %536 ], [ %533, %532 ], [ %528, %527 ]
+  %.0.in.i.us.us.i40 = phi i32 [ %spec.select16.i.us.us.i47, %536 ], [ %spec.select1415.i.us.us.i46, %532 ], [ %531, %527 ]
   br i1 %469, label %blend_non_normal_pixel.exit.us.us.i44, label %542
 
 542:                                              ; preds = %540
@@ -1767,8 +1767,8 @@ lv_color_8_8_mix.exit151.us.i57:                  ; preds = %.sink.split.i149.us
   br label %707
 
 707:                                              ; preds = %703, %699, %694
-  %708 = phi i8 [ %695, %694 ], [ %700, %699 ], [ %704, %703 ]
-  %.0.in.i.us204.i = phi i32 [ %698, %694 ], [ %spec.select1415.i.us202.i, %699 ], [ %spec.select16.i.us203.i, %703 ]
+  %708 = phi i8 [ %704, %703 ], [ %700, %699 ], [ %695, %694 ]
+  %.0.in.i.us204.i = phi i32 [ %spec.select16.i.us203.i, %703 ], [ %spec.select1415.i.us202.i, %699 ], [ %698, %694 ]
   %709 = icmp ult i16 %687, 256
   br i1 %709, label %blend_non_normal_pixel.exit.us208.i, label %710
 
@@ -1849,8 +1849,8 @@ blend_non_normal_pixel.exit.us208.i:              ; preds = %.sink.split.i.i.us2
   br label %746
 
 746:                                              ; preds = %742, %738, %733
-  %747 = phi i8 [ %734, %733 ], [ %739, %738 ], [ %743, %742 ]
-  %.0.in.i.us.us.i80 = phi i32 [ %737, %733 ], [ %spec.select1415.i.us.us.i86, %738 ], [ %spec.select16.i.us.us.i87, %742 ]
+  %747 = phi i8 [ %743, %742 ], [ %739, %738 ], [ %734, %733 ]
+  %.0.in.i.us.us.i80 = phi i32 [ %spec.select16.i.us.us.i87, %742 ], [ %spec.select1415.i.us.us.i86, %738 ], [ %737, %733 ]
   br i1 %675, label %blend_non_normal_pixel.exit.us.us.i84, label %748
 
 748:                                              ; preds = %746
@@ -2286,8 +2286,8 @@ lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us
   br label %959
 
 959:                                              ; preds = %955, %951, %946
-  %960 = phi i8 [ %947, %946 ], [ %952, %951 ], [ %956, %955 ]
-  %.0.in.i.us.i108 = phi i32 [ %950, %946 ], [ %spec.select1415.i.us.i116, %951 ], [ %spec.select16.i.us.i117, %955 ]
+  %960 = phi i8 [ %956, %955 ], [ %952, %951 ], [ %947, %946 ]
+  %.0.in.i.us.i108 = phi i32 [ %spec.select16.i.us.i117, %955 ], [ %spec.select1415.i.us.i116, %951 ], [ %950, %946 ]
   %961 = icmp eq i8 %.sroa.8.0.us.i, 0
   br i1 %961, label %blend_non_normal_pixel.exit.us.i112, label %962
 
@@ -2717,8 +2717,8 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   br label %61
 
 61:                                               ; preds = %57, %53, %48
-  %62 = phi i8 [ %49, %48 ], [ %54, %53 ], [ %58, %57 ]
-  %.0.in.i.us203 = phi i32 [ %52, %48 ], [ %spec.select1415.i.us201, %53 ], [ %spec.select16.i.us202, %57 ]
+  %62 = phi i8 [ %58, %57 ], [ %54, %53 ], [ %49, %48 ]
+  %.0.in.i.us203 = phi i32 [ %spec.select16.i.us202, %57 ], [ %spec.select1415.i.us201, %53 ], [ %52, %48 ]
   %63 = icmp ult i16 %42, 256
   br i1 %63, label %blend_non_normal_pixel.exit.us207, label %64
 
@@ -2802,8 +2802,8 @@ blend_non_normal_pixel.exit.us207:                ; preds = %.sink.split.i.i.us2
   br label %101
 
 101:                                              ; preds = %97, %93, %88
-  %102 = phi i8 [ %89, %88 ], [ %94, %93 ], [ %98, %97 ]
-  %.0.in.i.us.us = phi i32 [ %92, %88 ], [ %spec.select1415.i.us.us, %93 ], [ %spec.select16.i.us.us, %97 ]
+  %102 = phi i8 [ %98, %97 ], [ %94, %93 ], [ %89, %88 ]
+  %.0.in.i.us.us = phi i32 [ %spec.select16.i.us.us, %97 ], [ %spec.select1415.i.us.us, %93 ], [ %92, %88 ]
   br i1 %26, label %blend_non_normal_pixel.exit.us.us, label %103
 
 103:                                              ; preds = %101

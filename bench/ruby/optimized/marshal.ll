@@ -4841,7 +4841,7 @@ r_long.exit:                                      ; preds = %58, %43, %31, %40, 
   br label %r_symbol.exit652
 
 r_symbol.exit652:                                 ; preds = %90, %95
-  %.06.i651 = phi i64 [ %96, %95 ], [ %91, %90 ]
+  %.06.i651 = phi i64 [ %91, %90 ], [ %96, %95 ]
   %97 = tail call i64 @rb_path_to_class(i64 noundef %.06.i651) #22
   %98 = icmp eq i64 %3, 4
   br i1 %98, label %99, label %101
@@ -4996,7 +4996,7 @@ rb_array_len.exit449:                             ; preds = %142, %145
   br label %r_symbol.exit657
 
 r_symbol.exit657:                                 ; preds = %154, %159
-  %.06.i656 = phi i64 [ %160, %159 ], [ %155, %154 ]
+  %.06.i656 = phi i64 [ %155, %154 ], [ %160, %159 ]
   %161 = tail call i64 @rb_path_to_class(i64 noundef %.06.i656) #22
   %162 = icmp eq i64 %161, 0
   %163 = and i64 %161, 7
@@ -6037,7 +6037,7 @@ r_entry0.exit546:                                 ; preds = %r_long.exit543, %63
   br label %r_symbol.exit662
 
 r_symbol.exit662:                                 ; preds = %671, %676
-  %.06.i661 = phi i64 [ %677, %676 ], [ %672, %671 ]
+  %.06.i661 = phi i64 [ %672, %671 ], [ %677, %676 ]
   %678 = tail call i64 @rb_path_to_class(i64 noundef %.06.i661) #22
   %679 = icmp eq i64 %678, 0
   %680 = and i64 %678, 7
@@ -6275,7 +6275,7 @@ RARRAY_AREF.exit:                                 ; preds = %776, %779
   br label %r_symbol.exit
 
 r_symbol.exit:                                    ; preds = %788, %793
-  %.06.i = phi i64 [ %794, %793 ], [ %789, %788 ]
+  %.06.i = phi i64 [ %789, %788 ], [ %794, %793 ]
   %795 = call i64 @rb_str_equal(i64 noundef %783, i64 noundef %.06.i) #22
   %.not411 = icmp eq i64 %795, 0
   br i1 %.not411, label %796, label %799
@@ -6363,7 +6363,7 @@ RARRAY_AREF.exit572:                              ; preds = %800, %803
   br label %r_symbol.exit667
 
 r_symbol.exit667:                                 ; preds = %825, %830
-  %.06.i666 = phi i64 [ %831, %830 ], [ %826, %825 ]
+  %.06.i666 = phi i64 [ %826, %825 ], [ %831, %830 ]
   %832 = tail call i64 @rb_path_to_class(i64 noundef %.06.i666) #22
   %833 = icmp eq i64 %832, 0
   %834 = and i64 %832, 7
@@ -6519,7 +6519,7 @@ r_entry0.exit579:                                 ; preds = %check_load_arg.exit
   br label %r_symbol.exit672
 
 r_symbol.exit672:                                 ; preds = %892, %897
-  %.06.i671 = phi i64 [ %898, %897 ], [ %893, %892 ]
+  %.06.i671 = phi i64 [ %893, %892 ], [ %898, %897 ]
   %899 = tail call i64 @rb_path_to_class(i64 noundef %.06.i671) #22
   %900 = icmp eq i64 %899, 0
   %901 = and i64 %899, 7
@@ -6702,7 +6702,7 @@ r_post_proc.exit:                                 ; preds = %947, %950
   br label %r_symbol.exit677
 
 r_symbol.exit677:                                 ; preds = %972, %977
-  %.06.i676 = phi i64 [ %978, %977 ], [ %973, %972 ]
+  %.06.i676 = phi i64 [ %973, %972 ], [ %978, %977 ]
   %979 = tail call i64 @rb_path_to_class(i64 noundef %.06.i676) #22
   %980 = icmp eq i64 %979, 0
   %981 = and i64 %979, 7
@@ -6801,7 +6801,7 @@ r_entry0.exit592:                                 ; preds = %999, %1002
   br label %r_symbol.exit682
 
 r_symbol.exit682:                                 ; preds = %1015, %1020
-  %.06.i681 = phi i64 [ %1021, %1020 ], [ %1016, %1015 ]
+  %.06.i681 = phi i64 [ %1016, %1015 ], [ %1021, %1020 ]
   %1022 = tail call i64 @rb_path_to_class(i64 noundef %.06.i681) #22
   %1023 = icmp eq i64 %1022, 0
   %1024 = and i64 %1022, 7
@@ -7310,7 +7310,7 @@ r_entry0.exit647:                                 ; preds = %1252, %1259
   unreachable
 
 1283:                                             ; preds = %73, %78, %1278, %1275, %r_entry0.exit647, %r_entry0.exit631, %r_entry0.exit614, %check_load_arg.exit600, %r_entry0.exit592, %962, %888, %._crit_edge, %660, %._crit_edge807, %r_entry0.exit518, %r_entry0.exit500, %r_entry0.exit497, %r_entry0.exit, %r_long.exit465, %203, %201, %199, %.loopexit, %85
-  %.0370 = phi i64 [ %1280, %1278 ], [ %1277, %1275 ], [ %1268, %r_entry0.exit647 ], [ %1199, %r_entry0.exit631 ], [ %1130, %r_entry0.exit614 ], [ %1070, %check_load_arg.exit600 ], [ %1011, %r_entry0.exit592 ], [ %955, %962 ], [ %.6, %888 ], [ %819, %._crit_edge ], [ %661, %660 ], [ %586, %._crit_edge807 ], [ %522, %r_entry0.exit518 ], [ %442, %r_entry0.exit500 ], [ %424, %r_entry0.exit497 ], [ %335, %r_entry0.exit ], [ %244, %r_long.exit465 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %150, %.loopexit ], [ %86, %85 ], [ %74, %73 ], [ %79, %78 ]
+  %.0370 = phi i64 [ %74, %73 ], [ %79, %78 ], [ %86, %85 ], [ %150, %.loopexit ], [ %661, %660 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %244, %r_long.exit465 ], [ %335, %r_entry0.exit ], [ %424, %r_entry0.exit497 ], [ %442, %r_entry0.exit500 ], [ %522, %r_entry0.exit518 ], [ %586, %._crit_edge807 ], [ %819, %._crit_edge ], [ %.6, %888 ], [ %955, %962 ], [ %1011, %r_entry0.exit592 ], [ %1070, %check_load_arg.exit600 ], [ %1130, %r_entry0.exit614 ], [ %1199, %r_entry0.exit631 ], [ %1268, %r_entry0.exit647 ], [ %1277, %1275 ], [ %1280, %1278 ]
   %1284 = icmp eq i64 %.0370, 36
   br i1 %1284, label %1285, label %1287
 
@@ -7490,7 +7490,7 @@ rbimpl_RB_TYPE_P_fastpath.exit31:                 ; preds = %rbimpl_RB_TYPE_P_fa
   br label %r_symbol.exit
 
 r_symbol.exit:                                    ; preds = %55, %60
-  %.06.i = phi i64 [ %61, %60 ], [ %56, %55 ]
+  %.06.i = phi i64 [ %56, %55 ], [ %61, %60 ]
   %62 = tail call fastcc i32 @r_byte(ptr noundef %2)
   %63 = tail call fastcc i64 @r_object_for(ptr noundef %2, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %62)
   %64 = tail call fastcc i32 @sym2encidx(i64 noundef %.06.i, i64 noundef %63)
@@ -8528,7 +8528,7 @@ r_long.exit32:                                    ; preds = %74, %62, %59
   br label %r_symbol.exit
 
 r_symbol.exit:                                    ; preds = %90, %95
-  %.06.i = phi i64 [ %96, %95 ], [ %91, %90 ]
+  %.06.i = phi i64 [ %91, %90 ], [ %96, %95 ]
   %97 = tail call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %98 = tail call fastcc i64 @r_object_for(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %97)
   %99 = tail call fastcc i32 @sym2encidx(i64 noundef %.06.i, i64 noundef %98)

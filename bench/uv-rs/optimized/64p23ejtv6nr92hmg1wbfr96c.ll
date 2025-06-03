@@ -4053,10 +4053,10 @@ default.unreachable:                              ; preds = %49
   br label %"_ZN57_$LT$glob..PatternToken$u20$as$u20$core..clone..Clone$GT$5clone17h029dc71ba104f74aE.exit.i.i.i.i"
 
 "_ZN57_$LT$glob..PatternToken$u20$as$u20$core..clone..Clone$GT$5clone17h029dc71ba104f74aE.exit.i.i.i.i": ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i", %53, %49, %49, %49
-  %.sroa.416.1.i.i.i.i = phi i32 [ %.sroa.416.042.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %.sroa.416.042.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %.sroa.416.042.i.i.i.i, %49 ], [ %55, %53 ], [ %.sroa.416.042.i.i.i.i, %49 ], [ %.sroa.416.042.i.i.i.i, %49 ]
-  %.sroa.517.1.i.i.i.i = phi i64 [ %70, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %60, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %.sroa.517.043.i.i.i.i, %49 ], [ %.sroa.517.043.i.i.i.i, %53 ], [ %.sroa.517.043.i.i.i.i, %49 ], [ %.sroa.517.043.i.i.i.i, %49 ]
-  %.sroa.718.1.i.i.i.i = phi ptr [ %75, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %63, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %.sroa.718.046.i.i.i.i, %49 ], [ %.sroa.718.046.i.i.i.i, %53 ], [ %.sroa.718.046.i.i.i.i, %49 ], [ %.sroa.718.046.i.i.i.i, %49 ]
-  %.sroa.9.1.i.i.i.i = phi i64 [ %.val3.i.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %.val1.i.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %.sroa.9.048.i.i.i.i, %49 ], [ %.sroa.9.048.i.i.i.i, %53 ], [ %.sroa.9.048.i.i.i.i, %49 ], [ %.sroa.9.048.i.i.i.i, %49 ]
+  %.sroa.416.1.i.i.i.i = phi i32 [ %55, %53 ], [ %.sroa.416.042.i.i.i.i, %49 ], [ %.sroa.416.042.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %.sroa.416.042.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %.sroa.416.042.i.i.i.i, %49 ], [ %.sroa.416.042.i.i.i.i, %49 ]
+  %.sroa.517.1.i.i.i.i = phi i64 [ %.sroa.517.043.i.i.i.i, %53 ], [ %.sroa.517.043.i.i.i.i, %49 ], [ %60, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %70, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %.sroa.517.043.i.i.i.i, %49 ], [ %.sroa.517.043.i.i.i.i, %49 ]
+  %.sroa.718.1.i.i.i.i = phi ptr [ %.sroa.718.046.i.i.i.i, %53 ], [ %.sroa.718.046.i.i.i.i, %49 ], [ %63, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %75, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %.sroa.718.046.i.i.i.i, %49 ], [ %.sroa.718.046.i.i.i.i, %49 ]
+  %.sroa.9.1.i.i.i.i = phi i64 [ %.sroa.9.048.i.i.i.i, %53 ], [ %.sroa.9.048.i.i.i.i, %49 ], [ %.val1.i.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit.i.i.i.i.i" ], [ %.val3.i.i.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE.exit7.i.i.i.i.i" ], [ %.sroa.9.048.i.i.i.i, %49 ], [ %.sroa.9.048.i.i.i.i, %49 ]
   %78 = getelementptr inbounds nuw { [4 x i64] }, ptr %43, i64 %.sroa.7.045.i.i.i.i
   store i32 %52, ptr %78, align 8, !noalias !952
   %.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %78, i64 4
@@ -4578,35 +4578,35 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %31, ptr noundef nonnull readonly align 8 dereferenceable(17) %104, i64 17, i1 false), !alias.scope !1009, !noalias !990
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 48
   %106 = load i16, ptr %105, align 8, !range !897, !alias.scope !1007, !noalias !1008, !noundef !3
-  %trunc.i37.i = trunc nuw i16 %106 to i1
+  %trunc.i36.i = trunc nuw i16 %106 to i1
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 50
   %108 = load i16, ptr %107, align 2, !alias.scope !1007, !noalias !1008
-  %.sroa.5.0.i38.i = select i1 %trunc.i37.i, i16 %108, i16 undef
+  %.sroa.5.0.i37.i = select i1 %trunc.i36.i, i16 %108, i16 undef
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 68
   %110 = load i32, ptr %109, align 4, !alias.scope !1007, !noalias !1008, !noundef !3
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 32
   %112 = load i32, ptr %111, align 8, !range !898, !alias.scope !1007, !noalias !1008, !noundef !3
-  %trunc5.i39.i = trunc nuw i32 %112 to i1
+  %trunc5.i38.i = trunc nuw i32 %112 to i1
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 36
   %114 = load i32, ptr %113, align 4, !alias.scope !1007, !noalias !1008
-  %.sroa.52.0.i40.i = select i1 %trunc5.i39.i, i32 %114, i32 undef
+  %.sroa.52.0.i39.i = select i1 %trunc5.i38.i, i32 %114, i32 undef
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 40
   %116 = load i32, ptr %115, align 8, !range !898, !alias.scope !1007, !noalias !1008, !noundef !3
-  %trunc6.i41.i = trunc nuw i32 %116 to i1
+  %trunc6.i40.i = trunc nuw i32 %116 to i1
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 44
   %118 = load i32, ptr %117, align 4, !alias.scope !1007, !noalias !1008
-  %.sroa.54.0.i42.i = select i1 %trunc6.i41.i, i32 %118, i32 undef
+  %.sroa.54.0.i41.i = select i1 %trunc6.i40.i, i32 %118, i32 undef
   store i32 %97, ptr %32, align 4, !alias.scope !1002, !noalias !1010
   store i32 %99, ptr %33, align 8, !alias.scope !1002, !noalias !1010
   store i32 %101, ptr %34, align 4, !alias.scope !1002, !noalias !1010
   store i32 %103, ptr %35, align 8, !alias.scope !1002, !noalias !1010
   store i16 %106, ptr %36, align 8, !alias.scope !1002, !noalias !1010
-  store i16 %.sroa.5.0.i38.i, ptr %37, align 2, !alias.scope !1002, !noalias !1010
+  store i16 %.sroa.5.0.i37.i, ptr %37, align 2, !alias.scope !1002, !noalias !1010
   store i32 %110, ptr %38, align 4, !alias.scope !1002, !noalias !1010
   store i32 %112, ptr %39, align 8, !alias.scope !1002, !noalias !1010
-  store i32 %.sroa.52.0.i40.i, ptr %40, align 4, !alias.scope !1002, !noalias !1010
+  store i32 %.sroa.52.0.i39.i, ptr %40, align 4, !alias.scope !1002, !noalias !1010
   store i32 %116, ptr %41, align 8, !alias.scope !1002, !noalias !1010
-  store i32 %.sroa.54.0.i42.i, ptr %42, align 4, !alias.scope !1002, !noalias !1010
+  store i32 %.sroa.54.0.i41.i, ptr %42, align 4, !alias.scope !1002, !noalias !1010
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 96
   %120 = load ptr, ptr %119, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %121 = icmp eq ptr %120, null
@@ -4640,18 +4640,18 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 32
   %138 = load ptr, ptr %137, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i", label %294
+  br i1 %139, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i", label %294
 
 140:                                              ; preds = %59
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 8
-  %.val36.i = load ptr, ptr %141, align 8, !alias.scope !987, !noalias !990, !nonnull !3, !noundef !3
-  %142 = load i64, ptr %.val36.i, align 8, !noalias !990, !noundef !3
+  %.val35.i = load ptr, ptr %141, align 8, !alias.scope !987, !noalias !990, !nonnull !3, !noundef !3
+  %142 = load i64, ptr %.val35.i, align 8, !noalias !990, !noundef !3
   %143 = and i64 %142, 1
   %144 = icmp eq i64 %143, 0
   br i1 %144, label %145, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
 
 145:                                              ; preds = %140
-  %146 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %.val35.i, i64 8
   %147 = load atomic i64, ptr %146 monotonic, align 8, !noalias !990
   %148 = and i64 %147, 1
   %.not.i.i = icmp eq i64 %148, 0
@@ -4673,7 +4673,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 24
   %157 = load ptr, ptr %156, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %158 = icmp eq ptr %157, null
-  br i1 %158, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i", label %324
+  br i1 %158, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i", label %324
 
 159:                                              ; preds = %59
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 32
@@ -4683,7 +4683,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 16
   %165 = load ptr, ptr %164, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i", label %355
+  br i1 %166, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i", label %355
 
 167:                                              ; preds = %.noexc
   store ptr null, ptr %15, align 8, !noalias !992
@@ -4807,7 +4807,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %208 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 184
   %209 = load ptr, ptr %208, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i", label %214
+  br i1 %210, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i", label %214
 
 211:                                              ; preds = %204
   %212 = landingpad { ptr, i32 }
@@ -4825,55 +4825,55 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %215 = load i64, ptr %209, align 8, !noalias !990, !noundef !3
   %216 = and i64 %215, 1
   %217 = icmp eq i64 %216, 0
-  br i1 %217, label %218, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i"
+  br i1 %217, label %218, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i"
 
 218:                                              ; preds = %214
   %219 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %220 = load atomic i64, ptr %219 monotonic, align 8, !noalias !990
   %221 = and i64 %220, 1
-  %.not.i43.i = icmp eq i64 %221, 0
-  br i1 %.not.i43.i, label %222, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i"
+  %.not.i42.i = icmp eq i64 %221, 0
+  br i1 %.not.i42.i, label %222, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i"
 
 222:                                              ; preds = %218
   %223 = atomicrmw add ptr %219, i64 2 monotonic, align 8, !noalias !990
   %224 = and i64 %223, -9223372036854775807
-  %or.cond.i44.i = icmp eq i64 %224, -9223372036854775808
-  br i1 %or.cond.i44.i, label %225, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i"
+  %or.cond.i43.i = icmp eq i64 %224, -9223372036854775808
+  br i1 %or.cond.i43.i, label %225, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i"
 
 225:                                              ; preds = %222
   %226 = atomicrmw or ptr %219, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i": ; preds = %225, %222, %218, %214, %205
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i": ; preds = %225, %222, %218, %214, %205
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 192
   %228 = load ptr, ptr %227, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %229 = icmp eq ptr %228, null
-  br i1 %229, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i", label %230
+  br i1 %229, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i", label %230
 
-230:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i"
+230:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i"
   %231 = load i64, ptr %228, align 8, !noalias !990, !noundef !3
   %232 = and i64 %231, 1
   %233 = icmp eq i64 %232, 0
-  br i1 %233, label %234, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i"
+  br i1 %233, label %234, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i"
 
 234:                                              ; preds = %230
   %235 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %236 = load atomic i64, ptr %235 monotonic, align 8, !noalias !990
   %237 = and i64 %236, 1
-  %.not.i46.i = icmp eq i64 %237, 0
-  br i1 %.not.i46.i, label %238, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i"
+  %.not.i45.i = icmp eq i64 %237, 0
+  br i1 %.not.i45.i, label %238, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i"
 
 238:                                              ; preds = %234
   %239 = atomicrmw add ptr %235, i64 2 monotonic, align 8, !noalias !990
   %240 = and i64 %239, -9223372036854775807
-  %or.cond.i47.i = icmp eq i64 %240, -9223372036854775808
-  br i1 %or.cond.i47.i, label %241, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i"
+  %or.cond.i46.i = icmp eq i64 %240, -9223372036854775808
+  br i1 %or.cond.i46.i, label %241, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i"
 
 241:                                              ; preds = %238
   %242 = atomicrmw or ptr %235, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i": ; preds = %241, %238, %234, %230, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit45.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i": ; preds = %241, %238, %234, %230, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44.i"
   %.sroa.016.0.copyload17 = load i64, ptr %16, align 8, !noalias !987
   %.sroa.8.0.copyload19 = load i64, ptr %.sroa.8.0..sroa_idx18, align 8, !noalias !987
   %.sroa.12.0.copyload21 = load i64, ptr %.sroa.12.0..sroa_idx20, align 8, !noalias !987
@@ -4913,14 +4913,14 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
           to label %259 unwind label %257, !noalias !990
 
 251:                                              ; preds = %261, %.noexc12
-  %.sroa.089.0.i = phi ptr [ %262, %261 ], [ null, %.noexc12 ]
-  %.sroa.590.0.i = phi i64 [ %263, %261 ], [ undef, %.noexc12 ]
+  %.sroa.088.0.i = phi ptr [ %262, %261 ], [ null, %.noexc12 ]
+  %.sroa.589.0.i = phi i64 [ %263, %261 ], [ undef, %.noexc12 ]
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 112
   %253 = load i64, ptr %252, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 120
   %255 = load ptr, ptr %254, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %256 = icmp eq ptr %255, null
-  br i1 %256, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i", label %265
+  br i1 %256, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i", label %265
 
 257:                                              ; preds = %259, %248
   %258 = landingpad { ptr, i32 }
@@ -4947,55 +4947,55 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %266 = load i64, ptr %255, align 8, !noalias !990, !noundef !3
   %267 = and i64 %266, 1
   %268 = icmp eq i64 %267, 0
-  br i1 %268, label %269, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i"
+  br i1 %268, label %269, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i"
 
 269:                                              ; preds = %265
   %270 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %271 = load atomic i64, ptr %270 monotonic, align 8, !noalias !990
   %272 = and i64 %271, 1
-  %.not.i50.i = icmp eq i64 %272, 0
-  br i1 %.not.i50.i, label %273, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i"
+  %.not.i49.i = icmp eq i64 %272, 0
+  br i1 %.not.i49.i, label %273, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i"
 
 273:                                              ; preds = %269
   %274 = atomicrmw add ptr %270, i64 2 monotonic, align 8, !noalias !990
   %275 = and i64 %274, -9223372036854775807
-  %or.cond.i51.i = icmp eq i64 %275, -9223372036854775808
-  br i1 %or.cond.i51.i, label %276, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i"
+  %or.cond.i50.i = icmp eq i64 %275, -9223372036854775808
+  br i1 %or.cond.i50.i, label %276, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i"
 
 276:                                              ; preds = %273
   %277 = atomicrmw or ptr %270, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i": ; preds = %276, %273, %269, %265, %251
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i": ; preds = %276, %273, %269, %265, %251
   %278 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 128
   %279 = load ptr, ptr %278, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %280 = icmp eq ptr %279, null
-  br i1 %280, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i", label %281
+  br i1 %280, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i", label %281
 
-281:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i"
+281:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i"
   %282 = load i64, ptr %279, align 8, !noalias !990, !noundef !3
   %283 = and i64 %282, 1
   %284 = icmp eq i64 %283, 0
-  br i1 %284, label %285, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i"
+  br i1 %284, label %285, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i"
 
 285:                                              ; preds = %281
   %286 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %287 = load atomic i64, ptr %286 monotonic, align 8, !noalias !990
   %288 = and i64 %287, 1
-  %.not.i55.i = icmp eq i64 %288, 0
-  br i1 %.not.i55.i, label %289, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i"
+  %.not.i54.i = icmp eq i64 %288, 0
+  br i1 %.not.i54.i, label %289, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i"
 
 289:                                              ; preds = %285
   %290 = atomicrmw add ptr %286, i64 2 monotonic, align 8, !noalias !990
   %291 = and i64 %290, -9223372036854775807
-  %or.cond.i56.i = icmp eq i64 %291, -9223372036854775808
-  br i1 %or.cond.i56.i, label %292, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i"
+  %or.cond.i55.i = icmp eq i64 %291, -9223372036854775808
+  br i1 %or.cond.i55.i, label %292, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i"
 
 292:                                              ; preds = %289
   %293 = atomicrmw or ptr %286, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i": ; preds = %292, %289, %285, %281, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit52.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i": ; preds = %292, %289, %285, %281, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit51.i"
   %.sroa.8.8.copyload = load i64, ptr %12, align 8, !noalias !987
   %.sroa.12.8.copyload = load i64, ptr %.sroa.12.8..sroa_idx, align 8, !noalias !987
   %.sroa.15.8.copyload = load i64, ptr %.sroa.15.8..sroa_idx, align 8, !noalias !987
@@ -5012,55 +5012,55 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %295 = load i64, ptr %138, align 8, !noalias !990, !noundef !3
   %296 = and i64 %295, 1
   %297 = icmp eq i64 %296, 0
-  br i1 %297, label %298, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i"
+  br i1 %297, label %298, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i"
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %300 = load atomic i64, ptr %299 monotonic, align 8, !noalias !990
   %301 = and i64 %300, 1
-  %.not.i60.i = icmp eq i64 %301, 0
-  br i1 %.not.i60.i, label %302, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i"
+  %.not.i59.i = icmp eq i64 %301, 0
+  br i1 %.not.i59.i, label %302, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i"
 
 302:                                              ; preds = %298
   %303 = atomicrmw add ptr %299, i64 2 monotonic, align 8, !noalias !990
   %304 = and i64 %303, -9223372036854775807
-  %or.cond.i61.i = icmp eq i64 %304, -9223372036854775808
-  br i1 %or.cond.i61.i, label %305, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i"
+  %or.cond.i60.i = icmp eq i64 %304, -9223372036854775808
+  br i1 %or.cond.i60.i, label %305, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i"
 
 305:                                              ; preds = %302
   %306 = atomicrmw or ptr %299, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i": ; preds = %305, %302, %298, %294, %.noexc14
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i": ; preds = %305, %302, %298, %294, %.noexc14
   %307 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 40
   %308 = load ptr, ptr %307, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %309 = icmp eq ptr %308, null
-  br i1 %309, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i", label %310
+  br i1 %309, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i", label %310
 
-310:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i"
+310:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i"
   %311 = load i64, ptr %308, align 8, !noalias !990, !noundef !3
   %312 = and i64 %311, 1
   %313 = icmp eq i64 %312, 0
-  br i1 %313, label %314, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i"
+  br i1 %313, label %314, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i"
 
 314:                                              ; preds = %310
   %315 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %316 = load atomic i64, ptr %315 monotonic, align 8, !noalias !990
   %317 = and i64 %316, 1
-  %.not.i64.i = icmp eq i64 %317, 0
-  br i1 %.not.i64.i, label %318, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i"
+  %.not.i63.i = icmp eq i64 %317, 0
+  br i1 %.not.i63.i, label %318, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i"
 
 318:                                              ; preds = %314
   %319 = atomicrmw add ptr %315, i64 2 monotonic, align 8, !noalias !990
   %320 = and i64 %319, -9223372036854775807
-  %or.cond.i65.i = icmp eq i64 %320, -9223372036854775808
-  br i1 %or.cond.i65.i, label %321, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i"
+  %or.cond.i64.i = icmp eq i64 %320, -9223372036854775808
+  br i1 %or.cond.i64.i, label %321, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i"
 
 321:                                              ; preds = %318
   %322 = atomicrmw or ptr %315, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i": ; preds = %321, %318, %314, %310, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit62.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i": ; preds = %321, %318, %314, %310, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit61.i"
   %323 = ptrtoint ptr %128 to i64
   br label %"_ZN70_$LT$uv_workspace..pyproject..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd85e295878c8bfb2E.exit"
 
@@ -5068,56 +5068,56 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %325 = load i64, ptr %157, align 8, !noalias !990, !noundef !3
   %326 = and i64 %325, 1
   %327 = icmp eq i64 %326, 0
-  br i1 %327, label %328, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i"
+  br i1 %327, label %328, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i"
 
 328:                                              ; preds = %324
   %329 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %330 = load atomic i64, ptr %329 monotonic, align 8, !noalias !990
   %331 = and i64 %330, 1
-  %.not.i69.i = icmp eq i64 %331, 0
-  br i1 %.not.i69.i, label %332, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i"
+  %.not.i68.i = icmp eq i64 %331, 0
+  br i1 %.not.i68.i, label %332, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i"
 
 332:                                              ; preds = %328
   %333 = atomicrmw add ptr %329, i64 2 monotonic, align 8, !noalias !990
   %334 = and i64 %333, -9223372036854775807
-  %or.cond.i70.i = icmp eq i64 %334, -9223372036854775808
-  br i1 %or.cond.i70.i, label %335, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i"
+  %or.cond.i69.i = icmp eq i64 %334, -9223372036854775808
+  br i1 %or.cond.i69.i, label %335, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i"
 
 335:                                              ; preds = %332
   %336 = atomicrmw or ptr %329, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i": ; preds = %335, %332, %328, %324, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i": ; preds = %335, %332, %328, %324, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
   %337 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 32
   %338 = load ptr, ptr %337, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %339 = icmp eq ptr %338, null
-  br i1 %339, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i", label %340
+  br i1 %339, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i", label %340
 
-340:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i"
+340:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i"
   %341 = load i64, ptr %338, align 8, !noalias !990, !noundef !3
   %342 = and i64 %341, 1
   %343 = icmp eq i64 %342, 0
-  br i1 %343, label %344, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i"
+  br i1 %343, label %344, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i"
 
 344:                                              ; preds = %340
   %345 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %346 = load atomic i64, ptr %345 monotonic, align 8, !noalias !990
   %347 = and i64 %346, 1
-  %.not.i73.i = icmp eq i64 %347, 0
-  br i1 %.not.i73.i, label %348, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i"
+  %.not.i72.i = icmp eq i64 %347, 0
+  br i1 %.not.i72.i, label %348, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i"
 
 348:                                              ; preds = %344
   %349 = atomicrmw add ptr %345, i64 2 monotonic, align 8, !noalias !990
   %350 = and i64 %349, -9223372036854775807
-  %or.cond.i74.i = icmp eq i64 %350, -9223372036854775808
-  br i1 %or.cond.i74.i, label %351, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i"
+  %or.cond.i73.i = icmp eq i64 %350, -9223372036854775808
+  br i1 %or.cond.i73.i, label %351, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i"
 
 351:                                              ; preds = %348
   %352 = atomicrmw or ptr %345, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i": ; preds = %351, %348, %344, %340, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit71.i"
-  %353 = ptrtoint ptr %.val36.i to i64
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i": ; preds = %351, %348, %344, %340, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit70.i"
+  %353 = ptrtoint ptr %.val35.i to i64
   %354 = ptrtoint ptr %157 to i64
   br label %"_ZN70_$LT$uv_workspace..pyproject..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd85e295878c8bfb2E.exit"
 
@@ -5125,55 +5125,55 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %356 = load i64, ptr %165, align 8, !noalias !990, !noundef !3
   %357 = and i64 %356, 1
   %358 = icmp eq i64 %357, 0
-  br i1 %358, label %359, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i"
+  br i1 %358, label %359, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i"
 
 359:                                              ; preds = %355
   %360 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %361 = load atomic i64, ptr %360 monotonic, align 8, !noalias !990
   %362 = and i64 %361, 1
-  %.not.i78.i = icmp eq i64 %362, 0
-  br i1 %.not.i78.i, label %363, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i"
+  %.not.i77.i = icmp eq i64 %362, 0
+  br i1 %.not.i77.i, label %363, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i"
 
 363:                                              ; preds = %359
   %364 = atomicrmw add ptr %360, i64 2 monotonic, align 8, !noalias !990
   %365 = and i64 %364, -9223372036854775807
-  %or.cond.i79.i = icmp eq i64 %365, -9223372036854775808
-  br i1 %or.cond.i79.i, label %366, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i"
+  %or.cond.i78.i = icmp eq i64 %365, -9223372036854775808
+  br i1 %or.cond.i78.i, label %366, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i"
 
 366:                                              ; preds = %363
   %367 = atomicrmw or ptr %360, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i": ; preds = %366, %363, %359, %355, %159
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i": ; preds = %366, %363, %359, %355, %159
   %368 = getelementptr inbounds nuw i8, ptr %.sroa.015.0104, i64 24
   %369 = load ptr, ptr %368, align 8, !alias.scope !987, !noalias !990, !noundef !3
   %370 = icmp eq ptr %369, null
-  br i1 %370, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i", label %371
+  br i1 %370, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i", label %371
 
-371:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i"
+371:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i"
   %372 = load i64, ptr %369, align 8, !noalias !990, !noundef !3
   %373 = and i64 %372, 1
   %374 = icmp eq i64 %373, 0
-  br i1 %374, label %375, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i"
+  br i1 %374, label %375, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i"
 
 375:                                              ; preds = %371
   %376 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %377 = load atomic i64, ptr %376 monotonic, align 8, !noalias !990
   %378 = and i64 %377, 1
-  %.not.i81.i = icmp eq i64 %378, 0
-  br i1 %.not.i81.i, label %379, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i"
+  %.not.i80.i = icmp eq i64 %378, 0
+  br i1 %.not.i80.i, label %379, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i"
 
 379:                                              ; preds = %375
   %380 = atomicrmw add ptr %376, i64 2 monotonic, align 8, !noalias !990
   %381 = and i64 %380, -9223372036854775807
-  %or.cond.i82.i = icmp eq i64 %381, -9223372036854775808
-  br i1 %or.cond.i82.i, label %382, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i"
+  %or.cond.i81.i = icmp eq i64 %381, -9223372036854775808
+  br i1 %or.cond.i81.i, label %382, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i"
 
 382:                                              ; preds = %379
   %383 = atomicrmw or ptr %376, i64 1 release, align 8, !noalias !990
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i": ; preds = %382, %379, %375, %371, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit80.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i": ; preds = %382, %379, %375, %371, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit79.i"
   %384 = ptrtoint ptr %.sroa.18.0105 to i64
   %.sroa.18.0.insert.ext = zext nneg i8 %161 to i64
   %.sroa.18.0.insert.mask = and i64 %384, -256
@@ -5183,27 +5183,27 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %387 = ptrtoint ptr %369 to i64
   br label %"_ZN70_$LT$uv_workspace..pyproject..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd85e295878c8bfb2E.exit"
 
-"_ZN70_$LT$uv_workspace..pyproject..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd85e295878c8bfb2E.exit": ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i"
-  %.sroa.24.sroa.5.1 = phi i64 [ %.sroa.24.sroa.5.0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.24.sroa.5.0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.24.sroa.5.0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.24.sroa.5.0.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %245, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.36.1 = phi ptr [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %209, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.35.1 = phi i64 [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %207, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.34.1 = phi i64 [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %244, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.33.1 = phi ptr [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %243, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.31.1 = phi i64 [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.0.0.i11, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.30.1 = phi ptr [ %.sroa.30.092, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.30.092, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.30.092, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %279, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.30.112.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.29.1 = phi ptr [ %.sroa.29.093, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.29.093, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.29.093, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %255, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.29.112.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.27.1 = phi i64 [ %.sroa.27.094, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.27.094, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.27.094, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %253, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.27.112.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.26.1 = phi i64 [ %.sroa.26.095, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.26.095, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.26.095, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.590.0.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.26.88.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.25.1 = phi ptr [ %.sroa.25.096, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.25.096, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.25.096, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.089.0.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.25.88.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.23.1 = phi i8 [ %.sroa.23.097, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.23.097, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %134, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.23.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.23.0.copyload31, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.22.1 = phi i8 [ %.sroa.22.098, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.22.098, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %132, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.22.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.22.0.copyload29, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.21.1 = phi ptr [ %.sroa.21.099, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.21.099, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %308, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.21.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.21.0.copyload27, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.15.0 = phi i64 [ %387, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %354, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %136, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.15.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.15.0.copyload23, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.12.0 = phi i64 [ %386, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %155, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %129, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.12.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.12.0.copyload21, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.8.0 = phi i64 [ %163, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %353, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %323, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.8.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.8.0.copyload19, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.016.0 = phi i64 [ -9223372036854775805, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ -9223372036854775806, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ -9223372036854775807, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ -9223372036854775808, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.016.0.copyload17, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.37.1 = phi ptr [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %228, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
-  %.sroa.18.1 = phi ptr [ %385, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit83.i" ], [ %338, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit75.i" ], [ %138, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit66.i" ], [ %.sroa.18.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit57.i" ], [ %.sroa.18.0.copyload25, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit48.i" ]
+"_ZN70_$LT$uv_workspace..pyproject..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd85e295878c8bfb2E.exit": ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i"
+  %.sroa.24.sroa.5.1 = phi i64 [ %245, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.24.sroa.5.0.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.24.sroa.5.0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.24.sroa.5.0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.24.sroa.5.0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.36.1 = phi ptr [ %209, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.36.087, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.35.1 = phi i64 [ %207, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.35.088, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.34.1 = phi i64 [ %244, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.34.089, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.33.1 = phi ptr [ %243, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.33.090, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.31.1 = phi i64 [ %.sroa.0.0.i11, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.31.091, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.30.1 = phi ptr [ %.sroa.30.112.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %279, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.30.092, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.30.092, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.30.092, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.29.1 = phi ptr [ %.sroa.29.112.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %255, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.29.093, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.29.093, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.29.093, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.27.1 = phi i64 [ %.sroa.27.112.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %253, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.27.094, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.27.094, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.27.094, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.26.1 = phi i64 [ %.sroa.26.88.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.589.0.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.26.095, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.26.095, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.26.095, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.25.1 = phi ptr [ %.sroa.25.88.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.088.0.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.25.096, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.25.096, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.25.096, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.23.1 = phi i8 [ %.sroa.23.0.copyload31, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.23.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %134, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.23.097, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.23.097, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.22.1 = phi i8 [ %.sroa.22.0.copyload29, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.22.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %132, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.22.098, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.22.098, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.0.copyload27, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.21.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %308, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.21.099, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.21.099, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.15.0 = phi i64 [ %.sroa.15.0.copyload23, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.15.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %136, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %354, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %387, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.12.0 = phi i64 [ %.sroa.12.0.copyload21, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.12.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %129, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %155, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %386, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.8.0 = phi i64 [ %.sroa.8.0.copyload19, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.8.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %323, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %353, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %163, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.016.0 = phi i64 [ %.sroa.016.0.copyload17, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ -9223372036854775808, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ -9223372036854775807, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ -9223372036854775806, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ -9223372036854775805, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.37.1 = phi ptr [ %228, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %.sroa.37.0103, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
+  %.sroa.18.1 = phi ptr [ %.sroa.18.0.copyload25, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit47.i" ], [ %.sroa.18.8.copyload, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit56.i" ], [ %138, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit65.i" ], [ %338, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit74.i" ], [ %385, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit82.i" ]
   %388 = getelementptr inbounds nuw { [25 x i64] }, ptr %25, i64 %.sroa.7.0101
   store i64 %.sroa.016.0, ptr %388, align 8
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 8
@@ -5258,7 +5258,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 392:                                              ; preds = %.loopexit, %257, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h4213433095af5c28E.exit.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %258, %257 ], [ %.pn19.pn.pn.pn.pn.i, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h4213433095af5c28E.exit.i" ], [ %lpad.loopexit, %.loopexit ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn19.pn.pn.pn.pn.i, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h4213433095af5c28E.exit.i" ], [ %258, %257 ], [ %lpad.loopexit, %.loopexit ]
   store i64 %.sroa.7.0101, ptr %28, align 8
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..Source$GT$$GT$17h48a94afe570307f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #44
           to label %393 unwind label %390
@@ -6371,29 +6371,29 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 .noexc23.i:                                       ; preds = %398
   %403 = load i64, ptr %5, align 8, !range !80, !noalias !1176, !noundef !3
-  %trunc.i.i.i5.i.i = trunc nuw i64 %403 to i1
+  %trunc.i.i.i6.i.i = trunc nuw i64 %403 to i1
   %404 = load i64, ptr %105, align 8, !range !102, !noalias !1176, !noundef !3
-  br i1 %trunc.i.i.i5.i.i, label %405, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit8.i.i"
+  br i1 %trunc.i.i.i6.i.i, label %405, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit9.i.i"
 
 405:                                              ; preds = %.noexc23.i
   %406 = load i64, ptr %106, align 8, !noalias !1176
   br label %.invoke.i
 
-"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit8.i.i": ; preds = %.noexc23.i
+"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit9.i.i": ; preds = %.noexc23.i
   %407 = load ptr, ptr %106, align 8, !noalias !1176, !nonnull !3, !noundef !3
   %408 = icmp uge i64 %404, %402
   tail call void @llvm.assume(i1 %408)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1176
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %407, ptr nonnull readonly align 1 %401, i64 %402, i1 false), !noalias !1182
   %409 = getelementptr inbounds nuw i8, ptr %.sroa.012.097, i64 320
-  %.val4.i.i = load ptr, ptr %409, align 8, !alias.scope !1183, !noalias !1184, !nonnull !3, !noundef !3
-  %410 = load i64, ptr %.val4.i.i, align 8, !noalias !1185, !noundef !3
+  %.val5.i.i = load ptr, ptr %409, align 8, !alias.scope !1183, !noalias !1184, !nonnull !3, !noundef !3
+  %410 = load i64, ptr %.val5.i.i, align 8, !noalias !1185, !noundef !3
   %411 = and i64 %410, 1
   %412 = icmp eq i64 %411, 0
   br i1 %412, label %413, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i"
 
-413:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit8.i.i"
-  %414 = getelementptr inbounds nuw i8, ptr %.val4.i.i, i64 8
+413:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit9.i.i"
+  %414 = getelementptr inbounds nuw i8, ptr %.val5.i.i, i64 8
   %415 = load atomic i64, ptr %414 monotonic, align 8, !noalias !1185
   %416 = and i64 %415, 1
   %.not.i.i.i = icmp eq i64 %416, 0
@@ -6421,9 +6421,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 .noexc25.i:                                       ; preds = %422
   %427 = load i64, ptr %4, align 8, !range !80, !noalias !1192, !noundef !3
-  %trunc.i.i.i9.i.i = trunc nuw i64 %427 to i1
+  %trunc.i.i.i10.i.i = trunc nuw i64 %427 to i1
   %428 = load i64, ptr %103, align 8, !range !102, !noalias !1192, !noundef !3
-  br i1 %trunc.i.i.i9.i.i, label %429, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit12.i.i"
+  br i1 %trunc.i.i.i10.i.i, label %429, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit13.i.i"
 
 429:                                              ; preds = %.noexc25.i
   %430 = load i64, ptr %104, align 8, !noalias !1192
@@ -6438,68 +6438,68 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit12.i.i": ; preds = %.noexc25.i
+"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit13.i.i": ; preds = %.noexc25.i
   %433 = load ptr, ptr %104, align 8, !noalias !1192, !nonnull !3, !noundef !3
   %434 = icmp uge i64 %428, %426
   tail call void @llvm.assume(i1 %434)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1192
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %433, ptr nonnull readonly align 1 %425, i64 %426, i1 false), !noalias !1198
   %435 = getelementptr inbounds nuw i8, ptr %.sroa.012.097, i64 312
-  %.val3.i.i = load ptr, ptr %435, align 8, !alias.scope !1183, !noalias !1184, !nonnull !3, !noundef !3
-  %436 = load i64, ptr %.val3.i.i, align 8, !noalias !1185, !noundef !3
+  %.val4.i.i = load ptr, ptr %435, align 8, !alias.scope !1183, !noalias !1184, !nonnull !3, !noundef !3
+  %436 = load i64, ptr %.val4.i.i, align 8, !noalias !1185, !noundef !3
   %437 = and i64 %436, 1
   %438 = icmp eq i64 %437, 0
-  br i1 %438, label %439, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit15.i.i"
+  br i1 %438, label %439, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit16.i.i"
 
-439:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit12.i.i"
-  %440 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 8
+439:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit13.i.i"
+  %440 = getelementptr inbounds nuw i8, ptr %.val4.i.i, i64 8
   %441 = load atomic i64, ptr %440 monotonic, align 8, !noalias !1185
   %442 = and i64 %441, 1
-  %.not.i13.i.i = icmp eq i64 %442, 0
-  br i1 %.not.i13.i.i, label %443, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit15.i.i"
+  %.not.i14.i.i = icmp eq i64 %442, 0
+  br i1 %.not.i14.i.i, label %443, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit16.i.i"
 
 443:                                              ; preds = %439
   %444 = atomicrmw add ptr %440, i64 2 monotonic, align 8, !noalias !1185
   %445 = and i64 %444, -9223372036854775807
-  %or.cond.i14.i.i = icmp eq i64 %445, -9223372036854775808
-  br i1 %or.cond.i14.i.i, label %446, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit15.i.i"
+  %or.cond.i15.i.i = icmp eq i64 %445, -9223372036854775808
+  br i1 %or.cond.i15.i.i, label %446, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit16.i.i"
 
 446:                                              ; preds = %443
   %447 = atomicrmw or ptr %440, i64 1 release, align 8, !noalias !1185
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit15.i.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit16.i.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i": ; preds = %420, %417, %413, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit8.i.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i": ; preds = %420, %417, %413, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit9.i.i"
   %448 = ptrtoint ptr %407 to i64
   br label %467
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit15.i.i": ; preds = %446, %443, %439, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit12.i.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit16.i.i": ; preds = %446, %443, %439, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit13.i.i"
   %449 = getelementptr inbounds nuw i8, ptr %.sroa.012.097, i64 320
   %.val.i.i = load ptr, ptr %449, align 8, !alias.scope !1183, !noalias !1184, !nonnull !3, !noundef !3
   %450 = load i64, ptr %.val.i.i, align 8, !noalias !1185, !noundef !3
   %451 = and i64 %450, 1
   %452 = icmp eq i64 %451, 0
-  br i1 %452, label %453, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i"
+  br i1 %452, label %453, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i"
 
-453:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit15.i.i"
+453:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit16.i.i"
   %454 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %455 = load atomic i64, ptr %454 monotonic, align 8, !noalias !1185
   %456 = and i64 %455, 1
-  %.not.i16.i.i = icmp eq i64 %456, 0
-  br i1 %.not.i16.i.i, label %457, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i"
+  %.not.i17.i.i = icmp eq i64 %456, 0
+  br i1 %.not.i17.i.i, label %457, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i"
 
 457:                                              ; preds = %453
   %458 = atomicrmw add ptr %454, i64 2 monotonic, align 8, !noalias !1185
   %459 = and i64 %458, -9223372036854775807
-  %or.cond.i17.i.i = icmp eq i64 %459, -9223372036854775808
-  br i1 %or.cond.i17.i.i, label %460, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i"
+  %or.cond.i18.i.i = icmp eq i64 %459, -9223372036854775808
+  br i1 %or.cond.i18.i.i, label %460, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i"
 
 460:                                              ; preds = %457
   %461 = atomicrmw or ptr %454, i64 1 release, align 8, !noalias !1185
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i": ; preds = %460, %457, %453, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit15.i.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i": ; preds = %460, %457, %453, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit16.i.i"
   %462 = ptrtoint ptr %433 to i64
-  %463 = ptrtoint ptr %.val3.i.i to i64
+  %463 = ptrtoint ptr %.val4.i.i to i64
   br label %467
 
 .loopexit:                                        ; preds = %386, %398, %422
@@ -6523,12 +6523,12 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #43, !noalias !1041
   unreachable
 
-467:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i", %381, %141
-  %.sroa.5.sroa.0.0.i = phi i64 [ undef, %141 ], [ %462, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i" ], [ %404, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %392, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ undef, %381 ]
-  %.sroa.5.sroa.4.0.i = phi i64 [ undef, %141 ], [ %426, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i" ], [ %448, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %397, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ undef, %381 ]
-  %.sroa.5.sroa.5.0.i = phi i64 [ undef, %141 ], [ %463, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i" ], [ %402, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %390, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ undef, %381 ]
-  %.sroa.5.sroa.6.0.i = phi ptr [ undef, %141 ], [ %.val.i.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i" ], [ %.val4.i.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ undef, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ undef, %381 ]
-  %.sroa.0.0.i11 = phi i64 [ -9223372036854775804, %141 ], [ %428, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit18.i.i" ], [ -9223372036854775807, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ -9223372036854775808, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ -9223372036854775805, %381 ]
+467:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i", %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i", %381, %141
+  %.sroa.5.sroa.0.0.i = phi i64 [ undef, %141 ], [ %392, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ %404, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %462, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i" ], [ undef, %381 ]
+  %.sroa.5.sroa.4.0.i = phi i64 [ undef, %141 ], [ %397, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ %448, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %426, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i" ], [ undef, %381 ]
+  %.sroa.5.sroa.5.0.i = phi i64 [ undef, %141 ], [ %390, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ %402, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %463, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i" ], [ undef, %381 ]
+  %.sroa.5.sroa.6.0.i = phi ptr [ undef, %141 ], [ undef, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ %.val5.i.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %.val.i.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i" ], [ undef, %381 ]
+  %.sroa.0.0.i11 = phi i64 [ -9223372036854775804, %141 ], [ -9223372036854775808, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd60df7af84172b18E.exit.i.i" ], [ -9223372036854775807, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i" ], [ %428, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit19.i.i" ], [ -9223372036854775805, %381 ]
   %468 = load ptr, ptr %24, align 8, !noalias !1039, !nonnull !3, !noundef !3
   %469 = icmp ne ptr %134, null
   tail call void @llvm.assume(i1 %469)

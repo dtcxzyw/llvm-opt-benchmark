@@ -1196,7 +1196,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br label %pop3_state_auth_resp.exit
 
 pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %163, %169, %.sink.split.i.i, %175
-  %.0.i = phi i32 [ %150, %147 ], [ 0, %151 ], [ %164, %163 ], [ 67, %175 ], [ 0, %153 ], [ %173, %169 ], [ 0, %.sink.split.i.i ]
+  %.0.i = phi i32 [ %150, %147 ], [ 0, %151 ], [ 0, %153 ], [ %164, %163 ], [ 67, %175 ], [ %173, %169 ], [ 0, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   br label %pop3_state_servergreet_resp.exit
 

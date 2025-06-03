@@ -1563,7 +1563,7 @@ signed_char_clamp_high.exit:                      ; preds = %7
   br label %signed_char_clamp_high.exit69
 
 signed_char_clamp_high.exit69:                    ; preds = %signed_char_clamp_high.exit.thread, %signed_char_clamp_high.exit.thread72, %signed_char_clamp_high.exit
-  %.0.in.i67 = phi i32 [ %147, %signed_char_clamp_high.exit ], [ %111, %signed_char_clamp_high.exit.thread72 ], [ %75, %signed_char_clamp_high.exit.thread ]
+  %.0.in.i67 = phi i32 [ %147, %signed_char_clamp_high.exit ], [ %75, %signed_char_clamp_high.exit.thread ], [ %111, %signed_char_clamp_high.exit.thread72 ]
   %.0.i68 = trunc nsw i32 %.0.in.i67 to i16
   %148 = add i16 %.0.i68, %11
   store i16 %148, ptr %2, align 2

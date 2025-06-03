@@ -1212,7 +1212,7 @@ _ZN5clang4Expr10EvalResultD2Ev.exit77:            ; preds = %546, %548
   br label %549
 
 549:                                              ; preds = %3, %_ZN5clang4Expr10EvalResultD2Ev.exit77, %157, %155, %153, %_ZN4llvm5APIntD2Ev.exit
-  %.1 = phi i1 [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %.2, %_ZN5clang4Expr10EvalResultD2Ev.exit77 ], [ %.0, %_ZN4llvm5APIntD2Ev.exit ], [ false, %3 ]
+  %.1 = phi i1 [ %.0, %_ZN4llvm5APIntD2Ev.exit ], [ %.2, %_ZN5clang4Expr10EvalResultD2Ev.exit77 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ false, %3 ]
   %550 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %551 = load i32, ptr %550, align 4, !tbaa !89
   %552 = icmp eq i32 %551, 0

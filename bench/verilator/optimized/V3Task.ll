@@ -49447,7 +49447,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %47, %46 ]
+  %.sroa.031.1 = phi ptr [ %47, %46 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %49 = load i8, ptr %.sroa.031.1, align 1, !tbaa !14
   %50 = sext i8 %49 to i32
   %51 = tail call i32 @isalnum(i32 noundef %50) #32
@@ -49461,7 +49461,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %55, %54 ]
+  %.sroa.031.2 = phi ptr [ %55, %54 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %57 = load i8, ptr %.sroa.031.2, align 1, !tbaa !14
   %58 = sext i8 %57 to i32
   %59 = tail call i32 @isalnum(i32 noundef %58) #32

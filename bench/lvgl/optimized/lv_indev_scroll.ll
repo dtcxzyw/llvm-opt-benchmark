@@ -1398,8 +1398,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   br label %50
 
 50:                                               ; preds = %37, %32, %27
-  %.045 = phi i32 [ %43, %37 ], [ %34, %32 ], [ %29, %27 ]
-  %.044 = phi i32 [ %49, %37 ], [ %36, %32 ], [ %31, %27 ]
+  %.045 = phi i32 [ %29, %27 ], [ %34, %32 ], [ %43, %37 ]
+  %.044 = phi i32 [ %31, %27 ], [ %36, %32 ], [ %49, %37 ]
   %51 = add nsw i32 %.045, %3
   %.not = icmp slt i32 %51, %1
   %.not51 = icmp sgt i32 %51, %2
@@ -1511,8 +1511,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   br label %48
 
 48:                                               ; preds = %36, %31, %26
-  %.045 = phi i32 [ %41, %36 ], [ %33, %31 ], [ %28, %26 ]
-  %.044 = phi i32 [ %47, %36 ], [ %35, %31 ], [ %30, %26 ]
+  %.045 = phi i32 [ %28, %26 ], [ %33, %31 ], [ %41, %36 ]
+  %.044 = phi i32 [ %30, %26 ], [ %35, %31 ], [ %47, %36 ]
   %49 = add nsw i32 %.045, %3
   %.not = icmp slt i32 %49, %1
   %.not51 = icmp sgt i32 %49, %2
@@ -1616,7 +1616,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   br label %33
 
 33:                                               ; preds = %6, %27, %21, %8
-  %.0 = phi i32 [ 0, %6 ], [ %32, %27 ], [ %26, %21 ], [ %20, %8 ]
+  %.0 = phi i32 [ 0, %6 ], [ %20, %8 ], [ %26, %21 ], [ %32, %27 ]
   %34 = add nsw i32 %.0, 1
   %35 = tail call fastcc i32 @find_snap_point_x(ptr noundef nonnull %0, i32 noundef %34, i32 noundef 536870911, i32 noundef 0)
   %36 = icmp eq i32 %35, 536870911
@@ -1677,7 +1677,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   br label %70
 
 70:                                               ; preds = %42, %64, %58, %44
-  %.049 = phi i32 [ 0, %42 ], [ %69, %64 ], [ %63, %58 ], [ %57, %44 ]
+  %.049 = phi i32 [ 0, %42 ], [ %57, %44 ], [ %63, %58 ], [ %69, %64 ]
   %71 = add nsw i32 %.049, 1
   %72 = tail call fastcc i32 @find_snap_point_y(ptr noundef nonnull %0, i32 noundef %71, i32 noundef 536870911, i32 noundef 0)
   %73 = icmp eq i32 %72, 536870911

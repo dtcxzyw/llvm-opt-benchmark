@@ -476,7 +476,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br label %191
 
 191:                                              ; preds = %104, %107, %109, %114, %116, %121, %123, %128, %130, %135, %140, %142, %147, %152, %154, %167, %171, %176, %178, %180, %183, %186, %188, %103
-  %.sroa.0278.0 = phi i64 [ %100, %103 ], [ %190, %188 ], [ %187, %186 ], [ %185, %183 ], [ %182, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %171 ], [ %170, %167 ], [ %158, %154 ], [ %153, %152 ], [ %151, %147 ], [ %146, %142 ], [ %141, %140 ], [ %139, %135 ], [ %134, %130 ], [ %129, %128 ], [ %127, %123 ], [ %122, %121 ], [ %120, %116 ], [ %115, %114 ], [ %113, %109 ], [ %108, %107 ], [ %100, %104 ]
+  %.sroa.0278.0 = phi i64 [ %100, %103 ], [ %100, %104 ], [ %108, %107 ], [ %113, %109 ], [ %115, %114 ], [ %120, %116 ], [ %122, %121 ], [ %127, %123 ], [ %129, %128 ], [ %134, %130 ], [ %139, %135 ], [ %141, %140 ], [ %146, %142 ], [ %151, %147 ], [ %153, %152 ], [ %158, %154 ], [ %170, %167 ], [ %175, %171 ], [ %177, %176 ], [ %179, %178 ], [ %182, %180 ], [ %185, %183 ], [ %187, %186 ], [ %190, %188 ]
   %192 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
   %.not239 = icmp eq i32 %192, 0
   br i1 %.not239, label %._crit_edge373, label %193
@@ -599,9 +599,9 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br label %250
 
 250:                                              ; preds = %238, %249, %246, %240
-  %.5283 = phi ptr [ %.0, %238 ], [ %5, %249 ], [ %245, %246 ], [ %.0, %240 ]
-  %.0178 = phi ptr [ @.str.10, %238 ], [ @.str.10, %249 ], [ %245, %246 ], [ %.0, %240 ]
-  %.0177 = phi i1 [ true, %238 ], [ true, %249 ], [ %248, %246 ], [ false, %240 ]
+  %.5283 = phi ptr [ %.0, %238 ], [ %.0, %240 ], [ %5, %249 ], [ %245, %246 ]
+  %.0178 = phi ptr [ @.str.10, %238 ], [ %.0, %240 ], [ @.str.10, %249 ], [ %245, %246 ]
+  %.0177 = phi i1 [ true, %238 ], [ false, %240 ], [ true, %249 ], [ %248, %246 ]
   %251 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
   call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %251, ptr noundef %.0178)
   br i1 %.0177, label %309, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
@@ -1067,8 +1067,8 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: ; preds = %26, %.critedge.thread.i.i, %1, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %37, %36, %35, %34
-  %.1.i5 = phi i32 [ 4, %36 ], [ 3, %35 ], [ 2, %34 ], [ 5, %37 ], [ %33, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %26 ]
-  %.046 = phi ptr [ @.str.54, %36 ], [ @.str.53, %35 ], [ @.str.52, %34 ], [ @.str.55, %37 ], [ @.str.10, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.10, %1 ], [ @.str.51, %.critedge.thread.i.i ], [ @.str.51, %26 ]
+  %.1.i5 = phi i32 [ 5, %37 ], [ 2, %34 ], [ 3, %35 ], [ 4, %36 ], [ %33, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %26 ]
+  %.046 = phi ptr [ @.str.55, %37 ], [ @.str.52, %34 ], [ @.str.53, %35 ], [ @.str.54, %36 ], [ @.str.10, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.10, %1 ], [ @.str.51, %.critedge.thread.i.i ], [ @.str.51, %26 ]
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #20
   %39 = shl nsw i32 %.1.i5, 1
   %40 = sext i32 %39 to i64

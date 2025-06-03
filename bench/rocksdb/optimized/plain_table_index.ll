@@ -1209,7 +1209,7 @@ _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit54: ; preds = %.lr.ph.i
   br label %102
 
 102:                                              ; preds = %._crit_edge, %68, %67
-  %.1 = phi i32 [ %101, %._crit_edge ], [ %.04165, %68 ], [ %.04165, %67 ]
+  %.1 = phi i32 [ %101, %._crit_edge ], [ %.04165, %67 ], [ %.04165, %68 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %103 = load i32, ptr %8, align 8, !tbaa !152
   %104 = zext i32 %103 to i64

@@ -538,12 +538,12 @@ process_rdma_lists.exit:                          ; preds = %121, %113
   br label %156
 
 155:                                              ; preds = %143, %147, %process_rdma_lists.exit, %131, %106, %15
-  %.0145 = phi i32 [ 16, %15 ], [ 20, %143 ], [ 28, %147 ], [ %114, %131 ], [ %114, %process_rdma_lists.exit ], [ %35, %106 ]
+  %.0145 = phi i32 [ 16, %15 ], [ %35, %106 ], [ %114, %131 ], [ %114, %process_rdma_lists.exit ], [ 28, %147 ], [ 20, %143 ]
   call void @proto_item_set_len(ptr noundef %23, i32 noundef %.0145)
   br label %156
 
 156:                                              ; preds = %40, %13, %4, %155, %152, %134, %110, %37
-  %.0 = phi i32 [ %.0145, %155 ], [ %154, %152 ], [ %142, %134 ], [ %39, %37 ], [ %112, %110 ], [ 0, %4 ], [ 0, %13 ], [ 0, %40 ]
+  %.0 = phi i32 [ %.0145, %155 ], [ %39, %37 ], [ %112, %110 ], [ %142, %134 ], [ %154, %152 ], [ 0, %4 ], [ 0, %13 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %.0
@@ -789,7 +789,7 @@ find_segment_info.exit.i63:                       ; preds = %70
   br label %add_request_info.exit64
 
 109:                                              ; preds = %5, %5, %12
-  %.052 = phi ptr [ %13, %12 ], [ %0, %5 ], [ %0, %5 ]
+  %.052 = phi ptr [ %0, %5 ], [ %0, %5 ], [ %13, %12 ]
   %110 = tail call fastcc zeroext i1 @packet_is_rpcordma(ptr noundef %.052)
   br i1 %110, label %111, label %add_request_info.exit64
 
@@ -798,7 +798,7 @@ find_segment_info.exit.i63:                       ; preds = %70
   br label %add_request_info.exit64
 
 add_request_info.exit64:                          ; preds = %97, %find_segment_info.exit.i63, %70, %67, %61, %57, %109, %5, %105, %4, %111, %.thread72, %add_request_info.exit, %14, %10
-  %.0 = phi i1 [ %108, %.thread72 ], [ false, %add_request_info.exit ], [ false, %14 ], [ true, %111 ], [ false, %10 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %109 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
+  %.0 = phi i1 [ true, %111 ], [ false, %10 ], [ false, %14 ], [ false, %add_request_info.exit ], [ %108, %.thread72 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %109 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
   ret i1 %.0
 }
 
@@ -886,7 +886,7 @@ define internal zeroext i1 @dissect_rpcrdma_iwarp_heur(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %41, %5, %35, %17, %23, %26, %9, %4, %43, %37, %15
-  %.0 = phi i1 [ %40, %37 ], [ false, %15 ], [ true, %43 ], [ false, %4 ], [ false, %9 ], [ false, %26 ], [ false, %23 ], [ false, %17 ], [ false, %35 ], [ false, %5 ], [ false, %41 ]
+  %.0 = phi i1 [ true, %43 ], [ false, %15 ], [ %40, %37 ], [ false, %4 ], [ false, %9 ], [ false, %26 ], [ false, %23 ], [ false, %17 ], [ false, %35 ], [ false, %5 ], [ false, %41 ]
   ret i1 %.0
 }
 

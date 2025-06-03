@@ -1605,7 +1605,7 @@ _ZNK5clang12TemplateName7getKindEv.exit.fold.split: ; preds = %11
   br label %_ZNK5clang12TemplateName7getKindEv.exit
 
 _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %.lr.ph, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit, %_ZN5clang4Decl14getDeclContextEv.exit29, %11, %_ZNK5clang12TemplateName7getKindEv.exit.fold.split, %57, %62, %_ZN5clang4Decl14getDeclContextEv.exit, %_ZN5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit, %67
-  %.0 = phi i8 [ %77, %_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit ], [ %73, %67 ], [ 6, %11 ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit.thread ], [ %59, %57 ], [ %66, %62 ], [ 7, %_ZNK5clang12TemplateName7getKindEv.exit.fold.split ], [ %spec.select75, %_ZN5clang4Decl14getDeclContextEv.exit29 ], [ %79, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit ], [ %85, %.lr.ph ]
+  %.0 = phi i8 [ %73, %67 ], [ %77, %_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit ], [ 6, %11 ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit.thread ], [ %59, %57 ], [ %66, %62 ], [ 7, %_ZNK5clang12TemplateName7getKindEv.exit.fold.split ], [ %spec.select75, %_ZN5clang4Decl14getDeclContextEv.exit29 ], [ %79, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit ], [ %85, %.lr.ph ]
   ret i8 %.0
 }
 

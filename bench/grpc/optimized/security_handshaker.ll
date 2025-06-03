@@ -5932,7 +5932,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %435, %72, %69
   br label %441
 
 441:                                              ; preds = %439, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit153.i.i, %416, %380, %378, %370, %355, %317, %270, %252
-  %.pn73.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %317 ], [ %253, %252 ], [ %.pn56.pn.pn.i.i, %270 ], [ %440, %439 ], [ %379, %378 ], [ %.pn71.i.i, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit153.i.i ], [ %417, %416 ], [ %.pn67.i.i, %355 ], [ %.pn63.i.i, %370 ], [ %381, %380 ]
+  %.pn73.pn.i.i = phi { ptr, i32 } [ %.pn56.pn.pn.i.i, %270 ], [ %253, %252 ], [ %.pn.pn.pn.i.i, %317 ], [ %440, %439 ], [ %379, %378 ], [ %.pn71.i.i, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit153.i.i ], [ %417, %416 ], [ %.pn67.i.i, %355 ], [ %.pn63.i.i, %370 ], [ %381, %380 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #30
   br label %442

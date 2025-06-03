@@ -798,7 +798,7 @@ _ZN4llvm9RecordVal15addReferenceLocENS_7SMRangeE.exit: ; preds = %52, %58
   br label %98
 
 98:                                               ; preds = %68, %.critedge, %83, %90, %76, %94
-  %.2 = phi ptr [ %97, %94 ], [ %77, %76 ], [ %72, %68 ], [ %91, %90 ], [ %82, %83 ], [ null, %.critedge ]
+  %.2 = phi ptr [ %97, %94 ], [ %91, %90 ], [ %77, %76 ], [ %72, %68 ], [ %82, %83 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #19
   br label %99
 
@@ -7980,7 +7980,7 @@ _ZNK4llvm6Record8getValueEPKNS_4InitE.exit228.thread: ; preds = %368, %.lr.ph, %
   br label %.thread309.backedge
 
 .thread309.backedge:                              ; preds = %.loopexit, %.thread298, %406, %406, %406, %.thread312, %159, %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
-  %.0107.be = phi ptr [ %387, %.loopexit ], [ %153, %159 ], [ %.1108, %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit ], [ %413, %.thread312 ], [ %504, %.thread298 ], [ %.0107, %406 ], [ %.0107, %406 ], [ %.0107, %406 ]
+  %.0107.be = phi ptr [ %.1108, %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit ], [ %153, %159 ], [ %387, %.loopexit ], [ %413, %.thread312 ], [ %504, %.thread298 ], [ %.0107, %406 ], [ %.0107, %406 ], [ %.0107, %406 ]
   br label %.thread309, !llvm.loop !565
 
 392:                                              ; preds = %.thread309
@@ -11760,7 +11760,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %31, %37
   br label %75
 
 75:                                               ; preds = %62, %65
-  %.128 = phi i64 [ %68, %65 ], [ %64, %62 ]
+  %.128 = phi i64 [ %64, %62 ], [ %68, %65 ]
   %76 = icmp slt i64 %.128, 0
   br i1 %76, label %77, label %81
 
@@ -12419,7 +12419,7 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit: ; preds = %160
   br label %172
 
 172:                                              ; preds = %87, %99, %97, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit, %166, %154, %130, %134, %150, %119, %110, %50, %40, %30, %20, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %150 ], [ null, %110 ], [ null, %119 ], [ %59, %50 ], [ %49, %40 ], [ %39, %30 ], [ %29, %20 ], [ null, %130 ], [ %142, %134 ], [ %171, %166 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit ], [ null, %154 ], [ %95, %87 ], [ null, %99 ], [ %98, %97 ]
+  %.0 = phi ptr [ null, %16 ], [ %29, %20 ], [ %39, %30 ], [ %49, %40 ], [ %59, %50 ], [ null, %110 ], [ null, %119 ], [ null, %150 ], [ null, %130 ], [ %142, %134 ], [ %171, %166 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit ], [ null, %154 ], [ %95, %87 ], [ null, %99 ], [ %98, %97 ]
   ret ptr %.0
 }
 
@@ -12557,7 +12557,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %50, %51, %56
   br label %.thread
 
 .thread:                                          ; preds = %29, %_ZNK4llvm6Record18appendReferenceLocENS_7SMRangeE.exit, %26, %6, %20, %_ZN4llvmplERKNS_5TwineES2_.exit, %59
-  %.1 = phi ptr [ %19, %6 ], [ null, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %61, %59 ], [ %2, %20 ], [ %25, %26 ], [ %25, %_ZNK4llvm6Record18appendReferenceLocENS_7SMRangeE.exit ], [ %25, %29 ]
+  %.1 = phi ptr [ null, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %61, %59 ], [ %19, %6 ], [ %2, %20 ], [ %25, %26 ], [ %25, %_ZNK4llvm6Record18appendReferenceLocENS_7SMRangeE.exit ], [ %25, %29 ]
   ret ptr %.1
 }
 
@@ -13204,13 +13204,13 @@ define dso_local noundef ptr @_ZN4llvm8TGParser14ParseOperationEPNS_6RecordEPKNS
   br label %343
 
 343:                                              ; preds = %272, %335, %331, %327, %280, %339, %315, %311, %310, %306, %302, %298, %294, %290, %286
-  %.0989 = phi ptr [ %342, %339 ], [ %322, %327 ], [ %322, %331 ], [ %338, %335 ], [ %318, %315 ], [ %314, %311 ], [ null, %310 ], [ %309, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %294 ], [ %293, %290 ], [ %289, %286 ], [ %281, %280 ], [ null, %272 ]
-  %344 = phi i1 [ false, %339 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ true, %315 ], [ false, %311 ], [ false, %310 ], [ false, %306 ], [ false, %302 ], [ false, %298 ], [ false, %294 ], [ false, %290 ], [ false, %286 ], [ false, %280 ], [ false, %272 ]
-  %345 = phi i1 [ false, %339 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %315 ], [ true, %311 ], [ false, %310 ], [ false, %306 ], [ false, %302 ], [ false, %298 ], [ false, %294 ], [ false, %290 ], [ false, %286 ], [ false, %280 ], [ false, %272 ]
-  %346 = phi i1 [ false, %339 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %315 ], [ false, %311 ], [ false, %310 ], [ false, %306 ], [ false, %302 ], [ false, %298 ], [ false, %294 ], [ false, %290 ], [ false, %286 ], [ false, %280 ], [ true, %272 ]
-  %347 = phi i1 [ false, %339 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %315 ], [ false, %311 ], [ true, %310 ], [ false, %306 ], [ false, %302 ], [ false, %298 ], [ false, %294 ], [ false, %290 ], [ false, %286 ], [ false, %280 ], [ false, %272 ]
-  %348 = phi i1 [ false, %339 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %315 ], [ false, %311 ], [ false, %310 ], [ false, %306 ], [ true, %302 ], [ false, %298 ], [ false, %294 ], [ false, %290 ], [ false, %286 ], [ false, %280 ], [ false, %272 ]
-  %.0365 = phi i8 [ 12, %339 ], [ 8, %327 ], [ 8, %331 ], [ 8, %335 ], [ 7, %315 ], [ 6, %311 ], [ 5, %310 ], [ 9, %306 ], [ 11, %302 ], [ 3, %298 ], [ 1, %294 ], [ 0, %290 ], [ 10, %286 ], [ 2, %280 ], [ 4, %272 ]
+  %.0989 = phi ptr [ %281, %280 ], [ %289, %286 ], [ %293, %290 ], [ %297, %294 ], [ %301, %298 ], [ %305, %302 ], [ %309, %306 ], [ null, %310 ], [ %314, %311 ], [ %318, %315 ], [ %322, %327 ], [ %322, %331 ], [ %338, %335 ], [ %342, %339 ], [ null, %272 ]
+  %344 = phi i1 [ false, %280 ], [ false, %286 ], [ false, %290 ], [ false, %294 ], [ false, %298 ], [ false, %302 ], [ false, %306 ], [ false, %310 ], [ false, %311 ], [ true, %315 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %339 ], [ false, %272 ]
+  %345 = phi i1 [ false, %280 ], [ false, %286 ], [ false, %290 ], [ false, %294 ], [ false, %298 ], [ false, %302 ], [ false, %306 ], [ false, %310 ], [ true, %311 ], [ false, %315 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %339 ], [ false, %272 ]
+  %346 = phi i1 [ false, %280 ], [ false, %286 ], [ false, %290 ], [ false, %294 ], [ false, %298 ], [ false, %302 ], [ false, %306 ], [ false, %310 ], [ false, %311 ], [ false, %315 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %339 ], [ true, %272 ]
+  %347 = phi i1 [ false, %280 ], [ false, %286 ], [ false, %290 ], [ false, %294 ], [ false, %298 ], [ false, %302 ], [ false, %306 ], [ true, %310 ], [ false, %311 ], [ false, %315 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %339 ], [ false, %272 ]
+  %348 = phi i1 [ false, %280 ], [ false, %286 ], [ false, %290 ], [ false, %294 ], [ false, %298 ], [ true, %302 ], [ false, %306 ], [ false, %310 ], [ false, %311 ], [ false, %315 ], [ false, %327 ], [ false, %331 ], [ false, %335 ], [ false, %339 ], [ false, %272 ]
+  %.0365 = phi i8 [ 2, %280 ], [ 10, %286 ], [ 0, %290 ], [ 1, %294 ], [ 3, %298 ], [ 11, %302 ], [ 9, %306 ], [ 5, %310 ], [ 6, %311 ], [ 7, %315 ], [ 8, %327 ], [ 8, %331 ], [ 8, %335 ], [ 12, %339 ], [ 4, %272 ]
   %349 = load i32, ptr %266, align 8, !tbaa !527
   %350 = icmp eq i32 %349, 8
   br i1 %350, label %354, label %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit
@@ -13760,22 +13760,22 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit562: ; preds = %524
   br label %604
 
 583:                                              ; preds = %537, %554, %553, %552, %551, %550, %549, %548, %547, %546
-  %.ph = phi i1 [ true, %546 ], [ true, %547 ], [ true, %548 ], [ true, %549 ], [ true, %550 ], [ true, %551 ], [ true, %552 ], [ true, %553 ], [ true, %554 ], [ false, %537 ]
-  %.ph998 = phi i1 [ false, %546 ], [ true, %547 ], [ true, %548 ], [ true, %549 ], [ true, %550 ], [ true, %551 ], [ true, %552 ], [ true, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph999 = phi i1 [ true, %546 ], [ true, %547 ], [ true, %548 ], [ false, %549 ], [ true, %550 ], [ true, %551 ], [ true, %552 ], [ true, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph1000 = phi i1 [ true, %546 ], [ true, %547 ], [ true, %548 ], [ true, %549 ], [ false, %550 ], [ true, %551 ], [ true, %552 ], [ true, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph1001 = phi i1 [ true, %546 ], [ true, %547 ], [ true, %548 ], [ true, %549 ], [ true, %550 ], [ false, %551 ], [ true, %552 ], [ true, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph1002 = phi i1 [ true, %546 ], [ true, %547 ], [ true, %548 ], [ true, %549 ], [ true, %550 ], [ true, %551 ], [ false, %552 ], [ true, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph1003 = phi i1 [ true, %546 ], [ true, %547 ], [ true, %548 ], [ true, %549 ], [ true, %550 ], [ true, %551 ], [ true, %552 ], [ false, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph1004 = phi i1 [ true, %546 ], [ true, %547 ], [ true, %548 ], [ true, %549 ], [ true, %550 ], [ true, %551 ], [ true, %552 ], [ true, %553 ], [ false, %554 ], [ true, %537 ]
-  %.ph1005 = phi i1 [ true, %546 ], [ false, %547 ], [ true, %548 ], [ true, %549 ], [ true, %550 ], [ true, %551 ], [ true, %552 ], [ true, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph1006 = phi i1 [ true, %546 ], [ true, %547 ], [ false, %548 ], [ true, %549 ], [ true, %550 ], [ true, %551 ], [ true, %552 ], [ true, %553 ], [ true, %554 ], [ true, %537 ]
-  %.ph1007 = phi i1 [ false, %546 ], [ false, %547 ], [ false, %548 ], [ false, %549 ], [ false, %550 ], [ false, %551 ], [ false, %552 ], [ false, %553 ], [ false, %554 ], [ true, %537 ]
-  %.ph1008 = phi i1 [ false, %546 ], [ false, %547 ], [ false, %548 ], [ true, %549 ], [ false, %550 ], [ false, %551 ], [ false, %552 ], [ false, %553 ], [ false, %554 ], [ false, %537 ]
-  %.ph1009 = phi i1 [ false, %546 ], [ false, %547 ], [ false, %548 ], [ false, %549 ], [ true, %550 ], [ false, %551 ], [ false, %552 ], [ false, %553 ], [ false, %554 ], [ false, %537 ]
-  %.ph1010 = phi i1 [ false, %546 ], [ false, %547 ], [ false, %548 ], [ false, %549 ], [ false, %550 ], [ true, %551 ], [ false, %552 ], [ false, %553 ], [ false, %554 ], [ false, %537 ]
-  %.ph1011 = phi i1 [ false, %546 ], [ true, %547 ], [ false, %548 ], [ false, %549 ], [ false, %550 ], [ false, %551 ], [ false, %552 ], [ false, %553 ], [ false, %554 ], [ false, %537 ]
-  %.0385.ph = phi i8 [ 1, %546 ], [ 2, %547 ], [ 3, %548 ], [ 4, %549 ], [ 5, %550 ], [ 6, %551 ], [ 8, %552 ], [ 9, %553 ], [ 7, %554 ], [ 0, %537 ]
+  %.ph = phi i1 [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %549 ], [ true, %548 ], [ true, %547 ], [ true, %546 ], [ false, %537 ]
+  %.ph998 = phi i1 [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %549 ], [ true, %548 ], [ true, %547 ], [ false, %546 ], [ true, %537 ]
+  %.ph999 = phi i1 [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ false, %549 ], [ true, %548 ], [ true, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1000 = phi i1 [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ false, %550 ], [ true, %549 ], [ true, %548 ], [ true, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1001 = phi i1 [ true, %554 ], [ true, %553 ], [ true, %552 ], [ false, %551 ], [ true, %550 ], [ true, %549 ], [ true, %548 ], [ true, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1002 = phi i1 [ true, %554 ], [ true, %553 ], [ false, %552 ], [ true, %551 ], [ true, %550 ], [ true, %549 ], [ true, %548 ], [ true, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1003 = phi i1 [ true, %554 ], [ false, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %549 ], [ true, %548 ], [ true, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1004 = phi i1 [ false, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %549 ], [ true, %548 ], [ true, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1005 = phi i1 [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %549 ], [ true, %548 ], [ false, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1006 = phi i1 [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %549 ], [ false, %548 ], [ true, %547 ], [ true, %546 ], [ true, %537 ]
+  %.ph1007 = phi i1 [ false, %554 ], [ false, %553 ], [ false, %552 ], [ false, %551 ], [ false, %550 ], [ false, %549 ], [ false, %548 ], [ false, %547 ], [ false, %546 ], [ true, %537 ]
+  %.ph1008 = phi i1 [ false, %554 ], [ false, %553 ], [ false, %552 ], [ false, %551 ], [ false, %550 ], [ true, %549 ], [ false, %548 ], [ false, %547 ], [ false, %546 ], [ false, %537 ]
+  %.ph1009 = phi i1 [ false, %554 ], [ false, %553 ], [ false, %552 ], [ false, %551 ], [ true, %550 ], [ false, %549 ], [ false, %548 ], [ false, %547 ], [ false, %546 ], [ false, %537 ]
+  %.ph1010 = phi i1 [ false, %554 ], [ false, %553 ], [ false, %552 ], [ true, %551 ], [ false, %550 ], [ false, %549 ], [ false, %548 ], [ false, %547 ], [ false, %546 ], [ false, %537 ]
+  %.ph1011 = phi i1 [ false, %554 ], [ false, %553 ], [ false, %552 ], [ false, %551 ], [ false, %550 ], [ false, %549 ], [ false, %548 ], [ true, %547 ], [ false, %546 ], [ false, %537 ]
+  %.0385.ph = phi i8 [ 7, %554 ], [ 9, %553 ], [ 8, %552 ], [ 6, %551 ], [ 5, %550 ], [ 4, %549 ], [ 3, %548 ], [ 2, %547 ], [ 1, %546 ], [ 0, %537 ]
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %585 = load ptr, ptr %584, align 8, !tbaa !184
   %586 = tail call noundef ptr @_ZN4llvm8IntRecTy3getERNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(240) %585) #19
@@ -13784,7 +13784,7 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit562: ; preds = %524
   br label %604
 
 589:                                              ; preds = %537, %559, %558, %557, %556, %555
-  %.0385.ph1017 = phi i8 [ 20, %555 ], [ 21, %556 ], [ 22, %557 ], [ 23, %558 ], [ 24, %559 ], [ 19, %537 ]
+  %.0385.ph1017 = phi i8 [ 24, %559 ], [ 23, %558 ], [ 22, %557 ], [ 21, %556 ], [ 20, %555 ], [ 19, %537 ]
   %590 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %591 = load ptr, ptr %590, align 8, !tbaa !184
   %592 = tail call noundef ptr @_ZN4llvm8BitRecTy3getERNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(240) %591) #19
@@ -13808,26 +13808,26 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit562: ; preds = %524
   br label %604
 
 604:                                              ; preds = %600, %594, %589, %583, %577, %573, %561
-  %.03851014 = phi i8 [ 17, %600 ], [ 16, %594 ], [ %.0385.ph1017, %589 ], [ %.0385.ph, %583 ], [ 26, %577 ], [ 25, %573 ], [ %.0385.ph1023, %561 ]
-  %605 = phi i1 [ false, %600 ], [ false, %594 ], [ false, %589 ], [ %.ph1011, %583 ], [ false, %577 ], [ false, %573 ], [ false, %561 ]
-  %606 = phi i1 [ false, %600 ], [ false, %594 ], [ false, %589 ], [ %.ph1010, %583 ], [ false, %577 ], [ false, %573 ], [ false, %561 ]
-  %607 = phi i1 [ false, %600 ], [ false, %594 ], [ false, %589 ], [ %.ph1009, %583 ], [ false, %577 ], [ false, %573 ], [ false, %561 ]
-  %608 = phi i1 [ false, %600 ], [ false, %594 ], [ false, %589 ], [ %.ph1008, %583 ], [ false, %577 ], [ false, %573 ], [ false, %561 ]
-  %609 = phi i1 [ false, %600 ], [ false, %594 ], [ false, %589 ], [ %.ph1007, %583 ], [ false, %577 ], [ false, %573 ], [ false, %561 ]
-  %610 = phi i1 [ false, %600 ], [ false, %594 ], [ false, %589 ], [ false, %583 ], [ false, %577 ], [ false, %573 ], [ %.ph1022, %561 ]
-  %611 = phi i1 [ false, %600 ], [ true, %594 ], [ false, %589 ], [ false, %583 ], [ false, %577 ], [ false, %573 ], [ false, %561 ]
-  %612 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph1006, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %613 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph1005, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %614 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph1004, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %615 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph1003, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %616 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph1002, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %617 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph1001, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %618 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph1000, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %619 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph999, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %620 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph998, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %621 = phi i1 [ true, %600 ], [ true, %594 ], [ true, %589 ], [ %.ph, %583 ], [ true, %577 ], [ true, %573 ], [ true, %561 ]
-  %.0991 = phi ptr [ null, %600 ], [ %599, %594 ], [ null, %589 ], [ %588, %583 ], [ %582, %577 ], [ %576, %573 ], [ %566, %561 ]
-  %.0386 = phi ptr [ %603, %600 ], [ %597, %594 ], [ %592, %589 ], [ %586, %583 ], [ %580, %577 ], [ %568, %573 ], [ %564, %561 ]
+  %.03851014 = phi i8 [ %.0385.ph1023, %561 ], [ 25, %573 ], [ 26, %577 ], [ %.0385.ph, %583 ], [ %.0385.ph1017, %589 ], [ 16, %594 ], [ 17, %600 ]
+  %605 = phi i1 [ false, %561 ], [ false, %573 ], [ false, %577 ], [ %.ph1011, %583 ], [ false, %589 ], [ false, %594 ], [ false, %600 ]
+  %606 = phi i1 [ false, %561 ], [ false, %573 ], [ false, %577 ], [ %.ph1010, %583 ], [ false, %589 ], [ false, %594 ], [ false, %600 ]
+  %607 = phi i1 [ false, %561 ], [ false, %573 ], [ false, %577 ], [ %.ph1009, %583 ], [ false, %589 ], [ false, %594 ], [ false, %600 ]
+  %608 = phi i1 [ false, %561 ], [ false, %573 ], [ false, %577 ], [ %.ph1008, %583 ], [ false, %589 ], [ false, %594 ], [ false, %600 ]
+  %609 = phi i1 [ false, %561 ], [ false, %573 ], [ false, %577 ], [ %.ph1007, %583 ], [ false, %589 ], [ false, %594 ], [ false, %600 ]
+  %610 = phi i1 [ %.ph1022, %561 ], [ false, %573 ], [ false, %577 ], [ false, %583 ], [ false, %589 ], [ false, %594 ], [ false, %600 ]
+  %611 = phi i1 [ false, %561 ], [ false, %573 ], [ false, %577 ], [ false, %583 ], [ false, %589 ], [ true, %594 ], [ false, %600 ]
+  %612 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph1006, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %613 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph1005, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %614 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph1004, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %615 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph1003, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %616 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph1002, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %617 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph1001, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %618 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph1000, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %619 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph999, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %620 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph998, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %621 = phi i1 [ true, %561 ], [ true, %573 ], [ true, %577 ], [ %.ph, %583 ], [ true, %589 ], [ true, %594 ], [ true, %600 ]
+  %.0991 = phi ptr [ %566, %561 ], [ %576, %573 ], [ %582, %577 ], [ %588, %583 ], [ null, %589 ], [ %599, %594 ], [ null, %600 ]
+  %.0386 = phi ptr [ %564, %561 ], [ %568, %573 ], [ %580, %577 ], [ %586, %583 ], [ %592, %589 ], [ %597, %594 ], [ %603, %600 ]
   %622 = icmp ne ptr %.0386, null
   %623 = icmp ne ptr %2, null
   %or.cond26 = and i1 %623, %622
@@ -15094,7 +15094,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
   br label %.thread1067
 
 .thread1057:                                      ; preds = %1096, %930, %923, %916, %962, %955
-  %.3994 = phi ptr [ %781, %955 ], [ %781, %962 ], [ %781, %916 ], [ %781, %923 ], [ %781, %930 ], [ %spec.select1104, %1096 ]
+  %.3994 = phi ptr [ %781, %916 ], [ %781, %923 ], [ %781, %930 ], [ %781, %955 ], [ %781, %962 ], [ %spec.select1104, %1096 ]
   switch i8 %.038510141053, label %.thread1060 [
     i8 27, label %1098
     i8 25, label %1101
@@ -15115,7 +15115,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
   br label %.thread1060
 
 .thread1060:                                      ; preds = %894, %783, %872, %869, %986, %1017, %987, %991, %.thread1057, %1102, %1101, %1098
-  %.5 = phi ptr [ %.3994, %.thread1057 ], [ %1104, %1102 ], [ null, %1101 ], [ %1100, %1098 ], [ null, %991 ], [ null, %987 ], [ null, %1017 ], [ null, %986 ], [ null, %869 ], [ null, %872 ], [ %781, %783 ], [ %781, %894 ]
+  %.5 = phi ptr [ %.3994, %.thread1057 ], [ %1100, %1098 ], [ null, %1101 ], [ %1104, %1102 ], [ null, %991 ], [ null, %987 ], [ null, %1017 ], [ null, %986 ], [ null, %869 ], [ null, %872 ], [ %781, %894 ], [ %781, %783 ]
   %1105 = load i32, ptr %266, align 8, !tbaa !527
   switch i32 %1105, label %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit755 [
     i32 14, label %1106
@@ -15238,8 +15238,8 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit755: ; preds = %.thread1060
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %132) #19
   br label %.thread1067
 
-.thread1067:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4InitELb1EE9push_backES3_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit630, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit639, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit642, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit645, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit648, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit687, %1097, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit627, %1159, %1152, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit755
-  %.23 = phi ptr [ %1158, %1152 ], [ null, %1159 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit755 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit627 ], [ null, %1097 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit687 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit684 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit648 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit645 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit642 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit639 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit630 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4InitELb1EE9push_backES3_.exit ]
+.thread1067:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4InitELb1EE9push_backES3_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit687, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit648, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit645, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit639, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit642, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit630, %1097, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit627, %1159, %1152, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit755
+  %.23 = phi ptr [ %1158, %1152 ], [ null, %1159 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit755 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit627 ], [ null, %1097 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit630 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit642 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit639 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit645 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit648 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit684 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit687 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4InitELb1EE9push_backES3_.exit ]
   %1162 = load ptr, ptr %63, align 8, !tbaa !51
   %1163 = icmp eq ptr %1162, %693
   br i1 %1163, label %_ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit, label %1164
@@ -15868,7 +15868,7 @@ _ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit797: ; preds = %.thread1085, %140
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %1404, %1413, %1414
-  %.0399.ph = phi i8 [ 8, %1413 ], [ 9, %1414 ], [ 4, %1404 ]
+  %.0399.ph = phi i8 [ 9, %1414 ], [ 8, %1413 ], [ 4, %1404 ]
   %1415 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %1416 = load ptr, ptr %1415, align 8, !tbaa !184
   %1417 = tail call noundef ptr @_ZN4llvm8DagRecTy3getERNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(240) %1416) #19
@@ -17594,7 +17594,7 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit899: ; preds = %2068
   br label %.critedge515
 
 .critedge515:                                     ; preds = %1581, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit800, %1436, %.thread1097, %.critedge538, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit853, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit806, %1474, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit811, %1533, %1505, %.critedge531, %1449, %.critedge84, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit801, %569, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit610, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit611, %_ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit, %282, %323, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit, %394, %403, %384, %375, %switch.early.test, %354, %442, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit554, %419, %1780, %1815, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit869, %1869, %1878, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889, %1992, %2082, %1941, %1932, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit876, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit860, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit859, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit798, %1424, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit799, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit756, %_ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit797, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit557, %482, %507, %521, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit562, %530, %516, %496, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit555, %449, %463, %475, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit556, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit854, %1767, %1765, %1763, %1165, %268
-  %.0 = phi ptr [ null, %268 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit854 ], [ %1768, %1767 ], [ %1766, %1765 ], [ %1764, %1763 ], [ %1166, %1165 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit555 ], [ null, %449 ], [ %481, %475 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit556 ], [ null, %463 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit557 ], [ null, %482 ], [ null, %496 ], [ null, %507 ], [ null, %516 ], [ %536, %530 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit562 ], [ null, %521 ], [ %.26, %_ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit797 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit756 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit798 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit799 ], [ null, %1424 ], [ null, %1780 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit860 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit859 ], [ null, %1815 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865 ], [ null, %1869 ], [ null, %1878 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit869 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit876 ], [ null, %1932 ], [ null, %1941 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889 ], [ null, %1992 ], [ %.48, %2082 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit ], [ null, %323 ], [ null, %282 ], [ %448, %442 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit554 ], [ null, %354 ], [ null, %switch.early.test ], [ null, %375 ], [ null, %419 ], [ null, %384 ], [ null, %403 ], [ null, %394 ], [ %.23, %_ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit611 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit610 ], [ null, %569 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit800 ], [ null, %1436 ], [ %1762, %.critedge84 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit801 ], [ null, %1449 ], [ null, %.critedge531 ], [ null, %1505 ], [ null, %1533 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit811 ], [ null, %1474 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit806 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit853 ], [ null, %.critedge538 ], [ null, %.thread1097 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823 ], [ null, %1581 ]
+  %.0 = phi ptr [ null, %268 ], [ %1166, %1165 ], [ %1764, %1763 ], [ %1766, %1765 ], [ %1768, %1767 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit854 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit555 ], [ null, %449 ], [ %481, %475 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit556 ], [ null, %463 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit557 ], [ null, %482 ], [ null, %496 ], [ null, %507 ], [ null, %516 ], [ %536, %530 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit562 ], [ null, %521 ], [ %.26, %_ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit797 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit756 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit798 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit799 ], [ null, %1424 ], [ null, %1780 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit860 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit859 ], [ null, %1815 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865 ], [ null, %1869 ], [ null, %1878 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit869 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit876 ], [ null, %1932 ], [ null, %1941 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889 ], [ null, %1992 ], [ %.48, %2082 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit ], [ null, %282 ], [ null, %323 ], [ %448, %442 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit554 ], [ null, %354 ], [ null, %switch.early.test ], [ null, %375 ], [ null, %419 ], [ null, %384 ], [ null, %403 ], [ null, %394 ], [ %.23, %_ZN4llvm11SmallVectorIPKNS_4InitELj2EED2Ev.exit ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit611 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit610 ], [ null, %569 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit800 ], [ null, %1436 ], [ %1762, %.critedge84 ], [ null, %_ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit801 ], [ null, %1449 ], [ null, %.critedge531 ], [ null, %1505 ], [ null, %1533 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit811 ], [ null, %1474 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit806 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit853 ], [ null, %.critedge538 ], [ null, %.thread1097 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823 ], [ null, %1581 ]
   ret ptr %.0
 }
 
@@ -21598,7 +21598,7 @@ _ZN4llvm11SmallVectorISt4pairIPKNS_4InitEPKNS_10StringInitEELj8EED2Ev.exit: ; pr
   br label %654
 
 654:                                              ; preds = %56, %60, %70, %80, %_ZN4llvm11SmallVectorIPNS_4InitELj16EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %186, %200, %605, %_ZN4llvm11SmallVectorISt4pairIPKNS_4InitEPKNS_10StringInitEELj8EED2Ev.exit, %615, %227, %210, %_ZN4llvm11SmallVectorIPKNS_12ArgumentInitELj8EED2Ev.exit, %233, %601, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EED2Ev.exit281, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EED2Ev.exit265, %53
-  %.0126 = phi ptr [ %54, %53 ], [ null, %601 ], [ %.12, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EED2Ev.exit281 ], [ %.4, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EED2Ev.exit265 ], [ %228, %227 ], [ %220, %210 ], [ %.3, %_ZN4llvm11SmallVectorIPKNS_12ArgumentInitELj8EED2Ev.exit ], [ null, %233 ], [ null, %605 ], [ null, %615 ], [ %.20, %_ZN4llvm11SmallVectorISt4pairIPKNS_4InitEPKNS_10StringInitEELj8EED2Ev.exit ], [ null, %56 ], [ %203, %200 ], [ %193, %186 ], [ %179, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %121, %_ZN4llvm11SmallVectorIPNS_4InitELj16EED2Ev.exit ], [ %85, %80 ], [ %73, %70 ], [ %63, %60 ]
+  %.0126 = phi ptr [ %54, %53 ], [ %.4, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EED2Ev.exit265 ], [ %.12, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EED2Ev.exit281 ], [ null, %601 ], [ %228, %227 ], [ %220, %210 ], [ %.3, %_ZN4llvm11SmallVectorIPKNS_12ArgumentInitELj8EED2Ev.exit ], [ null, %233 ], [ null, %605 ], [ null, %615 ], [ %.20, %_ZN4llvm11SmallVectorISt4pairIPKNS_4InitEPKNS_10StringInitEELj8EED2Ev.exit ], [ null, %56 ], [ %63, %60 ], [ %73, %70 ], [ %85, %80 ], [ %121, %_ZN4llvm11SmallVectorIPNS_4InitELj16EED2Ev.exit ], [ %179, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %193, %186 ], [ %203, %200 ]
   ret ptr %.0126
 }
 
@@ -26710,7 +26710,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8TGParser11ParseObjectEPNS_10MultiC
   br label %72
 
 72:                                               ; preds = %70, %66, %58, %54, %44, %41, %37, %34, %32, %30, %28, %26, %24, %22, %20, %18, %14
-  %.0 = phi i1 [ true, %14 ], [ %71, %70 ], [ true, %66 ], [ true, %44 ], [ %59, %58 ], [ %57, %54 ], [ true, %37 ], [ %42, %41 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
+  %.0 = phi i1 [ true, %14 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ true, %37 ], [ %42, %41 ], [ true, %44 ], [ %59, %58 ], [ %57, %54 ], [ %71, %70 ], [ true, %66 ]
   ret i1 %.0
 }
 

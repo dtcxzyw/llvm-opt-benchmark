@@ -291,7 +291,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef readon
   br label %108
 
 108:                                              ; preds = %105, %100, %95, %90
-  %.2 = phi i32 [ %107, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ]
+  %.2 = phi i32 [ %107, %105 ], [ %94, %90 ], [ %99, %95 ], [ %104, %100 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   %109 = icmp ult i32 %.2, %69

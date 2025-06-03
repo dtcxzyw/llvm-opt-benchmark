@@ -427,7 +427,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hcaf9
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -586,7 +586,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -1062,13 +1062,13 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit.i.i.i.i.i.i.i: ; pred
   %112 = getelementptr inbounds nuw i8, ptr %26, i64 71
   %113 = load i8, ptr %112, align 1, !alias.scope !219, !noalias !172, !noundef !8
   %114 = icmp slt i8 %113, 0
-  %115 = load ptr, ptr %111, align 8, !alias.scope !219, !noalias !172, !nonnull !8
-  %116 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %117 = load i64, ptr %116, align 8, !alias.scope !219, !noalias !172
-  %118 = and i8 %113, 127
-  %119 = zext nneg i8 %118 to i64
-  %.sroa.3.0.i.i.i.i.i.i.i.i = select i1 %114, i64 %119, i64 %117
-  %.sroa.0.0.i.i.i.i.i.i.i.i = select i1 %114, ptr %111, ptr %115
+  %115 = and i8 %113, 127
+  %116 = zext nneg i8 %115 to i64
+  %117 = load ptr, ptr %111, align 8, !alias.scope !219, !noalias !172, !nonnull !8
+  %118 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %119 = load i64, ptr %118, align 8, !alias.scope !219, !noalias !172
+  %.sroa.3.0.i.i.i.i.i.i.i.i = select i1 %114, i64 %116, i64 %119
+  %.sroa.0.0.i.i.i.i.i.i.i.i = select i1 %114, ptr %111, ptr %117
   call fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.3.0.i.i.i.i.i.i.i.i), !noalias !161
   %120 = load i64, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !222, !noalias !229, !noundef !8
   %121 = add i64 %120, 1

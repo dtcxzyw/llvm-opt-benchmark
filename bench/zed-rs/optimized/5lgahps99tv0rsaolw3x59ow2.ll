@@ -84,9 +84,9 @@ define hidden { i32, float } @"_ZN119_$LT$rodio..conversions..channels..ChannelC
   br label %29
 
 29:                                               ; preds = %15, %._crit_edge
-  %30 = phi i16 [ %.pre9, %15 ], [ %28, %._crit_edge ]
-  %.sroa.7.2 = phi float [ %.sroa.7.0, %15 ], [ %.sroa.7.1, %._crit_edge ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %15 ], [ 1, %._crit_edge ]
+  %30 = phi i16 [ %28, %._crit_edge ], [ %.pre9, %15 ]
+  %.sroa.7.2 = phi float [ %.sroa.7.1, %._crit_edge ], [ %.sroa.7.0, %15 ]
+  %.sroa.0.2 = phi i32 [ 1, %._crit_edge ], [ %.sroa.0.0, %15 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %32 = load i16, ptr %31, align 2, !noundef !4
   %33 = icmp eq i16 %30, %32
@@ -472,8 +472,8 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit: ; preds = %163
   br label %169
 
 169:                                              ; preds = %155, %._crit_edge54, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit", %12
-  %.sroa.8.0 = phi float [ %15, %12 ], [ %159, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %.sroa.8.2, %._crit_edge54 ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa61, %155 ]
-  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 1, %._crit_edge54 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %155 ]
+  %.sroa.8.0 = phi float [ %15, %12 ], [ %.sroa.8.2, %._crit_edge54 ], [ %159, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa61, %155 ]
+  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %._crit_edge54 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %155 ]
   %170 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %171 = insertvalue { i32, float } %170, float %.sroa.8.0, 1
   ret { i32, float } %171

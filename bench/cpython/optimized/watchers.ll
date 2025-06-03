@@ -1439,7 +1439,7 @@ define internal range(i32 -1, 1) i32 @dict_watch_callback(i32 noundef %0, ptr re
   br label %19
 
 19:                                               ; preds = %17, %15, %13, %11, %9, %7, %5
-  %.0 = phi ptr [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi ptr [ %18, %17 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   %20 = icmp eq ptr %.0, null
   br i1 %20, label %34, label %21
 

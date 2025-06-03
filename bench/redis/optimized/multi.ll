@@ -718,7 +718,7 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
   br label %101
 
 101:                                              ; preds = %87, %100, %99, %98
-  %.0 = phi ptr [ @.str.7, %100 ], [ @.str.6, %99 ], [ @.str.5, %98 ], [ @.str.4, %87 ]
+  %.0 = phi ptr [ @.str.7, %100 ], [ @.str.5, %98 ], [ @.str.6, %99 ], [ @.str.4, %87 ]
   %102 = load i32, ptr %3, align 4, !tbaa !92
   call void @addACLLogEntry(ptr noundef nonnull %0, i32 noundef %97, i32 noundef 2, i32 noundef %102, ptr noundef null, ptr noundef null) #10
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0) #10

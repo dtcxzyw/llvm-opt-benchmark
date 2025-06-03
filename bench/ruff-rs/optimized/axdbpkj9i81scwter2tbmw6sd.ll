@@ -405,7 +405,7 @@ default.unreachable2:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.pn = phi { i32, i32 } [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.pn = phi { i32, i32 } [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret { i32, i32 } %.pn
 }
 
@@ -446,7 +446,7 @@ default.unreachable2:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.pn = phi { i32, i32 } [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.pn = phi { i32, i32 } [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret { i32, i32 } %.pn
 }
 
@@ -572,7 +572,7 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN11ruff_linter5rules5isort10categorize1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff_linter..rules..isort..categorize..ImportType$GT$9serialize17h8dbbc40ee0a3dfc8E.exit"
 
 "_ZN11ruff_linter5rules5isort10categorize1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff_linter..rules..isort..categorize..ImportType$GT$9serialize17h8dbbc40ee0a3dfc8E.exit": ; preds = %19, %17, %15, %13, %11, %5
-  %.pn = phi { i32, i32 } [ %9, %5 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.pn = phi { i32, i32 } [ %9, %5 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   ret { i32, i32 } %.pn
 }
 
@@ -903,7 +903,7 @@ define hidden range(i64 0, -4294965248) i64 @"_ZN206_$LT$ruff_linter..rules..iso
   br label %23
 
 23:                                               ; preds = %32, %30, %28, %26, %21, %6
-  %.sroa.171.0 = phi i32 [ %8, %6 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %22, %21 ]
+  %.sroa.171.0 = phi i32 [ %8, %6 ], [ %22, %21 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ]
   %24 = zext i32 %.sroa.171.0 to i64
   %25 = shl nuw i64 %24, 32
   br label %34
@@ -1428,7 +1428,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN212_$LT$ruff_linter..rules..pyd
   br label %26
 
 19:                                               ; preds = %2, %24, %22, %14
-  %.sroa.111.0 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %15, %14 ], [ %.sroa.530.0.extract.trunc, %2 ]
+  %.sroa.111.0 = phi i32 [ %15, %14 ], [ %23, %22 ], [ %25, %24 ], [ %.sroa.530.0.extract.trunc, %2 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   br label %26
@@ -1494,7 +1494,7 @@ define hidden range(i64 0, -4294966272) i64 @"_ZN212_$LT$ruff_linter..rules..pyd
   br label %19
 
 19:                                               ; preds = %24, %22, %17, %6
-  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %25, %24 ], [ %23, %22 ], [ %18, %17 ]
+  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %18, %17 ], [ %23, %22 ], [ %25, %24 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   br label %26
@@ -1771,7 +1771,7 @@ define hidden range(i64 0, -4294966272) i64 @"_ZN233_$LT$ruff_linter..rules..fla
   br label %19
 
 19:                                               ; preds = %24, %22, %17, %6
-  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %25, %24 ], [ %23, %22 ], [ %18, %17 ]
+  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %18, %17 ], [ %23, %22 ], [ %25, %24 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   br label %26
@@ -1836,7 +1836,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN233_$LT$ruff_linter..rules..fla
   br label %26
 
 19:                                               ; preds = %2, %24, %22, %14
-  %.sroa.111.0 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %15, %14 ], [ %.sroa.530.0.extract.trunc, %2 ]
+  %.sroa.111.0 = phi i32 [ %15, %14 ], [ %23, %22 ], [ %25, %24 ], [ %.sroa.530.0.extract.trunc, %2 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   br label %26
@@ -2772,7 +2772,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN72_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..fmt..Debug$GT$3fmt17ha2129f14671ec626E.exit"
 
 "_ZN72_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..fmt..Debug$GT$3fmt17ha2129f14671ec626E.exit": ; preds = %17, %20, %23, %26, %28, %31, %34, %37
-  %.sroa.0.0.in.i = phi i1 [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.sroa.0.0.in.i = phi i1 [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %27, %26 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -3379,7 +3379,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN69_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$core..fmt..Debug$GT$3fmt17h0df5d094fb0899eeE.exit"
 
 "_ZN69_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$core..fmt..Debug$GT$3fmt17h0df5d094fb0899eeE.exit": ; preds = %34, %36, %39, %42, %45, %48, %51, %54, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %102, %105
-  %.sroa.0.0.in.i = phi i1 [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %34 ]
+  %.sroa.0.0.in.i = phi i1 [ %35, %34 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4213,7 +4213,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 "_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit": ; preds = %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %70, %73, %76, %79, %82, %85, %88, %91, %94, %97, %100, %103, %106, %109, %112, %115, %118, %121, %124, %127, %130
-  %.sroa.0.0.in.i = phi i1 [ %132, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ]
+  %.sroa.0.0.in.i = phi i1 [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4325,7 +4325,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN74_$LT$ruff_python_ast..generated..TypeParam$u20$as$u20$core..fmt..Debug$GT$3fmt17hc6cae27cc318542dE.exit"
 
 "_ZN74_$LT$ruff_python_ast..generated..TypeParam$u20$as$u20$core..fmt..Debug$GT$3fmt17hc6cae27cc318542dE.exit": ; preds = %13, %15, %17
-  %.sroa.0.0.in.i = phi i1 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ]
   ret i1 %.sroa.0.0.in.i
 }
 

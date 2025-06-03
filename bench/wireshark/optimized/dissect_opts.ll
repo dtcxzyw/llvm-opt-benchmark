@@ -301,7 +301,7 @@ sub_088:                                          ; preds = %2
   br label %93
 
 93:                                               ; preds = %21, %61, %62, %4, %.loopexit, %73, %10
-  %.044 = phi i1 [ true, %.loopexit ], [ false, %73 ], [ false, %21 ], [ false, %10 ], [ false, %4 ], [ false, %62 ], [ false, %61 ]
+  %.044 = phi i1 [ true, %.loopexit ], [ false, %10 ], [ false, %21 ], [ false, %73 ], [ false, %4 ], [ false, %62 ], [ false, %61 ]
   ret i1 %.044
 }
 

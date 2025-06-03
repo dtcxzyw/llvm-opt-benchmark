@@ -8558,7 +8558,7 @@ _ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2
   br label %_ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeEPS0_.exit
 
 _ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeEPS0_.exit: ; preds = %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i, %.critedge.thread.i
-  %.2.i = phi i64 [ %133, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i ], [ 0, %.critedge.thread.i ]
+  %.2.i = phi i64 [ 0, %.critedge.thread.i ], [ %133, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i ]
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.147, i64 %.2.i)
   br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread
 

@@ -1309,8 +1309,8 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   %282 = call ptr @H5MM_xfree(ptr noundef nonnull %114) #18
   br label %.thread253
 
-.thread253:                                       ; preds = %265, %19, %85, %78, %65, %116, %106, %99, %56, %32, %25, %.thread245, %4, %275
-  %.0 = phi ptr [ null, %275 ], [ null, %4 ], [ %114, %.thread245 ], [ null, %19 ], [ null, %85 ], [ null, %78 ], [ null, %65 ], [ null, %116 ], [ null, %106 ], [ null, %99 ], [ null, %56 ], [ null, %32 ], [ null, %25 ], [ %114, %265 ]
+.thread253:                                       ; preds = %265, %19, %85, %78, %65, %106, %116, %99, %56, %32, %25, %.thread245, %4, %275
+  %.0 = phi ptr [ null, %275 ], [ null, %4 ], [ %114, %.thread245 ], [ null, %19 ], [ null, %85 ], [ null, %78 ], [ null, %65 ], [ null, %106 ], [ null, %116 ], [ null, %99 ], [ null, %56 ], [ null, %32 ], [ null, %25 ], [ %114, %265 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #18
   ret ptr %.0
@@ -2077,7 +2077,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr noundef captures(none
   br label %.thread87
 
 .thread87:                                        ; preds = %.thread, %67, %58, %154, %6, %162, %25
-  %.0 = phi i32 [ -1, %25 ], [ -1, %154 ], [ 0, %162 ], [ 0, %6 ], [ -1, %58 ], [ -1, %67 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %25 ], [ 0, %162 ], [ -1, %154 ], [ 0, %6 ], [ -1, %58 ], [ -1, %67 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -2181,7 +2181,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_flush(ptr noundef captures(none
   br label %57
 
 57:                                               ; preds = %45, %3, %10, %14, %18, %.thread, %53
-  %.025 = phi i32 [ -1, %45 ], [ 0, %.thread ], [ -1, %53 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ], [ 0, %3 ]
+  %.025 = phi i32 [ 0, %.thread ], [ -1, %45 ], [ -1, %53 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ], [ 0, %3 ]
   ret i32 %.025
 }
 

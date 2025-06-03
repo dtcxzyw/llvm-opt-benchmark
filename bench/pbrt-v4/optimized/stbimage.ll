@@ -11563,9 +11563,9 @@ _ZL18stbi__tga_get_compiiPi.exit:                 ; preds = %242, %238
   br label %557
 
 250:                                              ; preds = %240, %238, %239, %247, %242, %243, %246
-  %251 = phi i1 [ false, %242 ], [ false, %243 ], [ true, %246 ], [ false, %247 ], [ false, %238 ], [ true, %239 ], [ false, %240 ]
-  %.not211 = phi i1 [ true, %242 ], [ true, %243 ], [ false, %246 ], [ true, %247 ], [ true, %238 ], [ false, %239 ], [ true, %240 ]
-  %.0196.ph.shrunk = phi i8 [ 1, %242 ], [ 2, %243 ], [ 3, %246 ], [ %248, %247 ], [ 1, %238 ], [ 3, %239 ], [ %241, %240 ]
+  %251 = phi i1 [ false, %247 ], [ true, %246 ], [ false, %243 ], [ false, %242 ], [ false, %240 ], [ true, %239 ], [ false, %238 ]
+  %.not211 = phi i1 [ true, %247 ], [ false, %246 ], [ true, %243 ], [ true, %242 ], [ true, %240 ], [ false, %239 ], [ true, %238 ]
+  %.0196.ph.shrunk = phi i8 [ %248, %247 ], [ 3, %246 ], [ 2, %243 ], [ 1, %242 ], [ %241, %240 ], [ 3, %239 ], [ 1, %238 ]
   %.0196.ph = zext nneg i8 %.0196.ph.shrunk to i32
   store i32 %159, ptr %1, align 4, !tbaa !9
   store i32 %160, ptr %2, align 4, !tbaa !9
@@ -19965,7 +19965,7 @@ _ZL10stbi__get8P13stbi__context.exit176:          ; preds = %387, %390, %_ZL19st
   br label %_ZL10stbi__skipP13stbi__contexti.exit
 
 _ZL10stbi__skipP13stbi__contexti.exit:            ; preds = %77, %65, %.thread.i, %458, %441, %436, %.thread185, %468, %328, %327, %._crit_edge201, %._crit_edge206, %11, %9, %4
-  %.0111.shrunk = phi i1 [ false, %327 ], [ false, %328 ], [ false, %468 ], [ %317, %._crit_edge201 ], [ %125, %._crit_edge206 ], [ false, %9 ], [ true, %11 ], [ false, %4 ], [ false, %.thread185 ], [ true, %436 ], [ true, %441 ], [ true, %458 ], [ true, %.thread.i ], [ false, %65 ], [ false, %77 ]
+  %.0111.shrunk = phi i1 [ false, %327 ], [ false, %328 ], [ false, %468 ], [ false, %4 ], [ false, %9 ], [ true, %11 ], [ %125, %._crit_edge206 ], [ %317, %._crit_edge201 ], [ false, %.thread185 ], [ true, %436 ], [ true, %441 ], [ true, %458 ], [ true, %.thread.i ], [ false, %65 ], [ false, %77 ]
   %.0111 = zext i1 %.0111.shrunk to i32
   ret i32 %.0111
 }
@@ -23250,7 +23250,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL10stbi__getnP13stbi__cont
   br label %35
 
 35:                                               ; preds = %16, %.thread, %31
-  %.1 = phi i32 [ %25, %16 ], [ 1, %31 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 1, %31 ], [ %25, %16 ], [ 0, %.thread ]
   ret i32 %.1
 }
 

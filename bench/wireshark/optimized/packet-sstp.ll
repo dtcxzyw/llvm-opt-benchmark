@@ -323,7 +323,7 @@ define internal i32 @dissect_sstp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %119
 
 119:                                              ; preds = %82, %.thread, %.preheader, %60, %64, %109, %105
-  %.3 = phi i32 [ %59, %.preheader ], [ %118, %109 ], [ %108, %105 ], [ %81, %64 ], [ %63, %60 ], [ %104, %.thread ], [ %92, %82 ]
+  %.3 = phi i32 [ %59, %.preheader ], [ %63, %60 ], [ %81, %64 ], [ %108, %105 ], [ %118, %109 ], [ %104, %.thread ], [ %92, %82 ]
   %120 = add i16 %.0148153, -1
   %.not151 = icmp eq i16 %120, 0
   br i1 %.not151, label %.loopexit, label %.preheader, !llvm.loop !6

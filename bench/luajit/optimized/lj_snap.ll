@@ -837,7 +837,7 @@ define internal fastcc i32 @snap_usedef(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond325.not, label %.thread186, label %.lr.ph257, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph229, %.preheader196, %36, %97, %90, %39
-  %.1153 = phi ptr [ %23, %36 ], [ %95, %90 ], [ %23, %97 ], [ %23, %39 ], [ %23, %.preheader196 ], [ %23, %.lr.ph229 ]
+  %.1153 = phi ptr [ %23, %36 ], [ %23, %39 ], [ %95, %90 ], [ %23, %97 ], [ %23, %.preheader196 ], [ %23, %.lr.ph229 ]
   %117 = and i16 %28, 7
   switch i16 %117, label %.thread184.backedge [
     i16 3, label %118
@@ -2653,7 +2653,7 @@ define internal fastcc i32 @snap_replay_const(ptr noundef %0, ptr noundef readon
   br label %39
 
 39:                                               ; preds = %2, %33, %28, %23, %15, %12, %5
-  %.0 = phi i32 [ %38, %33 ], [ %32, %28 ], [ %27, %23 ], [ %22, %15 ], [ %14, %12 ], [ %11, %5 ], [ 32767, %2 ]
+  %.0 = phi i32 [ %11, %5 ], [ %14, %12 ], [ %22, %15 ], [ %27, %23 ], [ %32, %28 ], [ %38, %33 ], [ 32767, %2 ]
   ret i32 %.0
 }
 

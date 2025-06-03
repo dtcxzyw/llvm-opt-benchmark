@@ -2519,7 +2519,7 @@ default.unreachable39:                            ; preds = %25
   unreachable
 
 36:                                               ; preds = %34, %30, %27
-  %.032 = phi i32 [ %35, %34 ], [ %32, %30 ], [ %29, %27 ]
+  %.032 = phi i32 [ %29, %27 ], [ %32, %30 ], [ %35, %34 ]
   %37 = icmp eq i32 %.032, 58
   br i1 %37, label %.thread.sink.split, label %.thread
 
@@ -2529,8 +2529,8 @@ default.unreachable39:                            ; preds = %25
   %39 = tail call i32 @call_dissector(ptr noundef %38, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %18, %21, %33, %25, %4, %36, %9, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %25 ], [ false, %33 ], [ false, %21 ], [ false, %18 ], [ true, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %18, %21, %25, %33, %4, %36, %9, %13
+  %.0 = phi i1 [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %33 ], [ false, %25 ], [ false, %21 ], [ false, %18 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

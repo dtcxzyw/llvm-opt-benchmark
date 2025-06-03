@@ -1935,7 +1935,7 @@ define noundef zeroext i1 @_ZN2c420is_debugger_attachedEv() local_unnamed_addr #
   br label %24
 
 24:                                               ; preds = %20, %21
-  %.1 = phi i1 [ false, %20 ], [ %23, %21 ]
+  %.1 = phi i1 [ %23, %21 ], [ false, %20 ]
   ret i1 %.1
 }
 
@@ -2196,8 +2196,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %19
   br label %_ZN2c43yml8from_tagENS0_9YamlTag_eE.exit
 
 _ZN2c43yml8from_tagENS0_9YamlTag_eE.exit:         ; preds = %.lr.ph.i, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %2
-  %.sroa.0.0.i.pn = phi ptr [ @.str.68, %16 ], [ @.str.67, %15 ], [ @.str.66, %14 ], [ @.str.65, %13 ], [ @.str.64, %12 ], [ @.str.63, %11 ], [ @.str.62, %10 ], [ @.str.61, %9 ], [ @.str.60, %8 ], [ @.str.59, %7 ], [ @.str.58, %6 ], [ @.str.57, %5 ], [ @.str.56, %4 ], [ @.str.55, %2 ], [ %0, %17 ], [ %25, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %0, %.lr.ph.i ]
-  %.sroa.18.0.i.pn = phi i64 [ 7, %16 ], [ 11, %15 ], [ 5, %14 ], [ 6, %13 ], [ 7, %12 ], [ 5, %11 ], [ 7, %10 ], [ 6, %9 ], [ 8, %8 ], [ 5, %7 ], [ 5, %6 ], [ 7, %5 ], [ 6, %4 ], [ 5, %2 ], [ %1, %17 ], [ %26, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %1, %.lr.ph.i ]
+  %.sroa.0.0.i.pn = phi ptr [ @.str.56, %4 ], [ @.str.57, %5 ], [ @.str.58, %6 ], [ @.str.59, %7 ], [ @.str.60, %8 ], [ @.str.61, %9 ], [ @.str.62, %10 ], [ @.str.63, %11 ], [ @.str.64, %12 ], [ @.str.65, %13 ], [ @.str.66, %14 ], [ @.str.67, %15 ], [ @.str.68, %16 ], [ @.str.55, %2 ], [ %0, %17 ], [ %25, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %0, %.lr.ph.i ]
+  %.sroa.18.0.i.pn = phi i64 [ 6, %4 ], [ 7, %5 ], [ 5, %6 ], [ 5, %7 ], [ 8, %8 ], [ 6, %9 ], [ 7, %10 ], [ 5, %11 ], [ 7, %12 ], [ 6, %13 ], [ 5, %14 ], [ 11, %15 ], [ 7, %16 ], [ 5, %2 ], [ %1, %17 ], [ %26, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %1, %.lr.ph.i ]
   %.fca.0.insert.i4.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i4.pn, i64 %.sroa.18.0.i.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -2907,8 +2907,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %19
   br label %_ZN2c43yml13from_tag_longENS0_9YamlTag_eE.exit
 
 _ZN2c43yml13from_tag_longENS0_9YamlTag_eE.exit:   ; preds = %.lr.ph.i, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %2
-  %.sroa.0.0.i.pn = phi ptr [ @.str.52, %16 ], [ @.str.51, %15 ], [ @.str.50, %14 ], [ @.str.49, %13 ], [ @.str.48, %12 ], [ @.str.47, %11 ], [ @.str.46, %10 ], [ @.str.45, %9 ], [ @.str.44, %8 ], [ @.str.43, %7 ], [ @.str.42, %6 ], [ @.str.41, %5 ], [ @.str.40, %4 ], [ @.str.39, %2 ], [ %0, %17 ], [ %25, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %0, %.lr.ph.i ]
-  %.sroa.18.0.i.pn = phi i64 [ 25, %16 ], [ 29, %15 ], [ 23, %14 ], [ 24, %13 ], [ 25, %12 ], [ 23, %11 ], [ 25, %10 ], [ 24, %9 ], [ 26, %8 ], [ 23, %7 ], [ 23, %6 ], [ 25, %5 ], [ 24, %4 ], [ 23, %2 ], [ %1, %17 ], [ %26, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %1, %.lr.ph.i ]
+  %.sroa.0.0.i.pn = phi ptr [ @.str.40, %4 ], [ @.str.41, %5 ], [ @.str.42, %6 ], [ @.str.43, %7 ], [ @.str.44, %8 ], [ @.str.45, %9 ], [ @.str.46, %10 ], [ @.str.47, %11 ], [ @.str.48, %12 ], [ @.str.49, %13 ], [ @.str.50, %14 ], [ @.str.51, %15 ], [ @.str.52, %16 ], [ @.str.39, %2 ], [ %0, %17 ], [ %25, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %0, %.lr.ph.i ]
+  %.sroa.18.0.i.pn = phi i64 [ 24, %4 ], [ 25, %5 ], [ 23, %6 ], [ 23, %7 ], [ 26, %8 ], [ 24, %9 ], [ 25, %10 ], [ 23, %11 ], [ 25, %12 ], [ 24, %13 ], [ 23, %14 ], [ 29, %15 ], [ 25, %16 ], [ 23, %2 ], [ %1, %17 ], [ %26, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit ], [ %1, %.lr.ph.i ]
   %.fca.0.insert.i4.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i4.pn, i64 %.sroa.18.0.i.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -3049,7 +3049,7 @@ define noundef nonnull ptr @_ZN2c43yml8NodeType8type_strENS0_10NodeType_eE(i64 n
   br label %43
 
 43:                                               ; preds = %41, %39, %37, %35, %33, %30, %27, %24, %21, %18, %15, %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.82, %14 ], [ @.str.81, %13 ], [ @.str.80, %12 ], [ @.str.79, %11 ], [ @.str.78, %10 ], [ @.str.77, %9 ], [ @.str.76, %8 ], [ @.str.75, %7 ], [ @.str.74, %6 ], [ @.str.73, %5 ], [ @.str.72, %4 ], [ @.str.71, %3 ], [ @.str.70, %1 ], [ @.str.83, %15 ], [ @.str.84, %18 ], [ @.str.85, %21 ], [ @.str.86, %24 ], [ @.str.87, %27 ], [ @.str.88, %30 ], [ @.str.89, %33 ], [ @.str.90, %35 ], [ @.str.91, %37 ], [ @.str.92, %39 ], [ %.str.94..str.93, %41 ]
+  %.0 = phi ptr [ @.str.71, %3 ], [ @.str.72, %4 ], [ @.str.73, %5 ], [ @.str.74, %6 ], [ @.str.75, %7 ], [ @.str.76, %8 ], [ @.str.77, %9 ], [ @.str.78, %10 ], [ @.str.79, %11 ], [ @.str.80, %12 ], [ @.str.81, %13 ], [ @.str.82, %14 ], [ @.str.70, %1 ], [ @.str.83, %15 ], [ @.str.84, %18 ], [ @.str.85, %21 ], [ @.str.86, %24 ], [ @.str.87, %27 ], [ @.str.88, %30 ], [ @.str.89, %33 ], [ @.str.90, %35 ], [ @.str.91, %37 ], [ @.str.92, %39 ], [ %.str.94..str.93, %41 ]
   ret ptr %.0
 }
 
@@ -18442,8 +18442,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %314
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i, %297, %299, %300, %301, %302, %303, %304, %305, %306, %307, %308, %309, %310, %311, %312, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i
-  %.sroa.0.0.i.pn.i = phi ptr [ @.str.68, %311 ], [ @.str.67, %310 ], [ @.str.66, %309 ], [ @.str.65, %308 ], [ @.str.64, %307 ], [ @.str.63, %306 ], [ @.str.62, %305 ], [ @.str.61, %304 ], [ @.str.60, %303 ], [ @.str.59, %302 ], [ @.str.58, %301 ], [ @.str.57, %300 ], [ @.str.56, %299 ], [ @.str.55, %297 ], [ %294, %312 ], [ %320, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %294, %.lr.ph.i.i ]
-  %.sroa.18.0.i.pn.i = phi i64 [ 7, %311 ], [ 11, %310 ], [ 5, %309 ], [ 6, %308 ], [ 7, %307 ], [ 5, %306 ], [ 7, %305 ], [ 6, %304 ], [ 8, %303 ], [ 5, %302 ], [ 5, %301 ], [ 7, %300 ], [ 6, %299 ], [ 5, %297 ], [ 1, %312 ], [ %321, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %292, %.lr.ph.i.i ]
+  %.sroa.0.0.i.pn.i = phi ptr [ @.str.56, %299 ], [ @.str.57, %300 ], [ @.str.58, %301 ], [ @.str.59, %302 ], [ @.str.60, %303 ], [ @.str.61, %304 ], [ @.str.62, %305 ], [ @.str.63, %306 ], [ @.str.64, %307 ], [ @.str.65, %308 ], [ @.str.66, %309 ], [ @.str.67, %310 ], [ @.str.68, %311 ], [ @.str.55, %297 ], [ %294, %312 ], [ %320, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %294, %.lr.ph.i.i ]
+  %.sroa.18.0.i.pn.i = phi i64 [ 6, %299 ], [ 7, %300 ], [ 5, %301 ], [ 5, %302 ], [ 8, %303 ], [ 6, %304 ], [ 7, %305 ], [ 5, %306 ], [ 7, %307 ], [ 6, %308 ], [ 5, %309 ], [ 11, %310 ], [ 7, %311 ], [ 5, %297 ], [ 1, %312 ], [ %321, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %292, %.lr.ph.i.i ]
   %322 = load ptr, ptr %240, align 8, !tbaa !117
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 %244
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 56
@@ -26277,8 +26277,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %217
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i, %197, %202, %203, %204, %205, %206, %207, %208, %209, %210, %211, %212, %213, %214, %215, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i
-  %.sroa.0.0.i.pn.i = phi ptr [ @.str.68, %214 ], [ @.str.67, %213 ], [ @.str.66, %212 ], [ @.str.65, %211 ], [ @.str.64, %210 ], [ @.str.63, %209 ], [ @.str.62, %208 ], [ @.str.61, %207 ], [ @.str.60, %206 ], [ @.str.59, %205 ], [ @.str.58, %204 ], [ @.str.57, %203 ], [ @.str.56, %202 ], [ @.str.55, %197 ], [ %194, %215 ], [ %223, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %194, %.lr.ph.i.i ]
-  %.sroa.18.0.i.pn.i = phi i64 [ 7, %214 ], [ 11, %213 ], [ 5, %212 ], [ 6, %211 ], [ 7, %210 ], [ 5, %209 ], [ 7, %208 ], [ 6, %207 ], [ 8, %206 ], [ 5, %205 ], [ 5, %204 ], [ 7, %203 ], [ 6, %202 ], [ 5, %197 ], [ 1, %215 ], [ %224, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %192, %.lr.ph.i.i ]
+  %.sroa.0.0.i.pn.i = phi ptr [ @.str.56, %202 ], [ @.str.57, %203 ], [ @.str.58, %204 ], [ @.str.59, %205 ], [ @.str.60, %206 ], [ @.str.61, %207 ], [ @.str.62, %208 ], [ @.str.63, %209 ], [ @.str.64, %210 ], [ @.str.65, %211 ], [ @.str.66, %212 ], [ @.str.67, %213 ], [ @.str.68, %214 ], [ @.str.55, %197 ], [ %194, %215 ], [ %223, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %194, %.lr.ph.i.i ]
+  %.sroa.18.0.i.pn.i = phi i64 [ 6, %202 ], [ 7, %203 ], [ 5, %204 ], [ 5, %205 ], [ 8, %206 ], [ 6, %207 ], [ 7, %208 ], [ 5, %209 ], [ 7, %210 ], [ 6, %211 ], [ 5, %212 ], [ 11, %213 ], [ 7, %214 ], [ 5, %197 ], [ 1, %215 ], [ %224, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %192, %.lr.ph.i.i ]
   %225 = load ptr, ptr %198, align 8, !tbaa !117
   %226 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %225, i64 %200
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
@@ -26726,8 +26726,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i56: ; preds = %411
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit58
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit58: ; preds = %.lr.ph.i.i52, %392, %396, %397, %398, %399, %400, %401, %402, %403, %404, %405, %406, %407, %408, %409, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i56
-  %.sroa.0.0.i.pn.i48 = phi ptr [ @.str.68, %408 ], [ @.str.67, %407 ], [ @.str.66, %406 ], [ @.str.65, %405 ], [ @.str.64, %404 ], [ @.str.63, %403 ], [ @.str.62, %402 ], [ @.str.61, %401 ], [ @.str.60, %400 ], [ @.str.59, %399 ], [ @.str.58, %398 ], [ @.str.57, %397 ], [ @.str.56, %396 ], [ @.str.55, %392 ], [ %389, %409 ], [ %417, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i56 ], [ %389, %.lr.ph.i.i52 ]
-  %.sroa.18.0.i.pn.i49 = phi i64 [ 7, %408 ], [ 11, %407 ], [ 5, %406 ], [ 6, %405 ], [ 7, %404 ], [ 5, %403 ], [ 7, %402 ], [ 6, %401 ], [ 8, %400 ], [ 5, %399 ], [ 5, %398 ], [ 7, %397 ], [ 6, %396 ], [ 5, %392 ], [ 1, %409 ], [ %418, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i56 ], [ %387, %.lr.ph.i.i52 ]
+  %.sroa.0.0.i.pn.i48 = phi ptr [ @.str.56, %396 ], [ @.str.57, %397 ], [ @.str.58, %398 ], [ @.str.59, %399 ], [ @.str.60, %400 ], [ @.str.61, %401 ], [ @.str.62, %402 ], [ @.str.63, %403 ], [ @.str.64, %404 ], [ @.str.65, %405 ], [ @.str.66, %406 ], [ @.str.67, %407 ], [ @.str.68, %408 ], [ @.str.55, %392 ], [ %389, %409 ], [ %417, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i56 ], [ %389, %.lr.ph.i.i52 ]
+  %.sroa.18.0.i.pn.i49 = phi i64 [ 6, %396 ], [ 7, %397 ], [ 5, %398 ], [ 5, %399 ], [ 8, %400 ], [ 6, %401 ], [ 7, %402 ], [ 5, %403 ], [ 7, %404 ], [ 6, %405 ], [ 5, %406 ], [ 11, %407 ], [ 7, %408 ], [ 5, %392 ], [ 1, %409 ], [ %418, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i56 ], [ %387, %.lr.ph.i.i52 ]
   %419 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %383, i64 %394
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 56
   store ptr %.sroa.0.0.i.pn.i48, ptr %420, align 8, !tbaa !67
@@ -27109,8 +27109,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %182
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i, %163, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i
-  %.sroa.0.0.i.pn.i = phi ptr [ @.str.68, %179 ], [ @.str.67, %178 ], [ @.str.66, %177 ], [ @.str.65, %176 ], [ @.str.64, %175 ], [ @.str.63, %174 ], [ @.str.62, %173 ], [ @.str.61, %172 ], [ @.str.60, %171 ], [ @.str.59, %170 ], [ @.str.58, %169 ], [ @.str.57, %168 ], [ @.str.56, %167 ], [ @.str.55, %163 ], [ %160, %180 ], [ %188, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %160, %.lr.ph.i.i ]
-  %.sroa.18.0.i.pn.i = phi i64 [ 7, %179 ], [ 11, %178 ], [ 5, %177 ], [ 6, %176 ], [ 7, %175 ], [ 5, %174 ], [ 7, %173 ], [ 6, %172 ], [ 8, %171 ], [ 5, %170 ], [ 5, %169 ], [ 7, %168 ], [ 6, %167 ], [ 5, %163 ], [ 1, %180 ], [ %189, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %158, %.lr.ph.i.i ]
+  %.sroa.0.0.i.pn.i = phi ptr [ @.str.56, %167 ], [ @.str.57, %168 ], [ @.str.58, %169 ], [ @.str.59, %170 ], [ @.str.60, %171 ], [ @.str.61, %172 ], [ @.str.62, %173 ], [ @.str.63, %174 ], [ @.str.64, %175 ], [ @.str.65, %176 ], [ @.str.66, %177 ], [ @.str.67, %178 ], [ @.str.68, %179 ], [ @.str.55, %163 ], [ %160, %180 ], [ %188, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %160, %.lr.ph.i.i ]
+  %.sroa.18.0.i.pn.i = phi i64 [ 6, %167 ], [ 7, %168 ], [ 5, %169 ], [ 5, %170 ], [ 8, %171 ], [ 6, %172 ], [ 7, %173 ], [ 5, %174 ], [ 7, %175 ], [ 6, %176 ], [ 5, %177 ], [ 11, %178 ], [ 7, %179 ], [ 5, %163 ], [ 1, %180 ], [ %189, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %158, %.lr.ph.i.i ]
   %190 = load ptr, ptr %.pre77, align 8, !tbaa !117
   %191 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %190, i64 %165
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
@@ -27592,8 +27592,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i58: ; preds = %399
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit60
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit60: ; preds = %.lr.ph.i.i54, %378, %384, %385, %386, %387, %388, %389, %390, %391, %392, %393, %394, %395, %396, %397, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i58
-  %.sroa.0.0.i.pn.i50 = phi ptr [ @.str.68, %396 ], [ @.str.67, %395 ], [ @.str.66, %394 ], [ @.str.65, %393 ], [ @.str.64, %392 ], [ @.str.63, %391 ], [ @.str.62, %390 ], [ @.str.61, %389 ], [ @.str.60, %388 ], [ @.str.59, %387 ], [ @.str.58, %386 ], [ @.str.57, %385 ], [ @.str.56, %384 ], [ @.str.55, %378 ], [ %375, %397 ], [ %405, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i58 ], [ %375, %.lr.ph.i.i54 ]
-  %.sroa.18.0.i.pn.i51 = phi i64 [ 7, %396 ], [ 11, %395 ], [ 5, %394 ], [ 6, %393 ], [ 7, %392 ], [ 5, %391 ], [ 7, %390 ], [ 6, %389 ], [ 8, %388 ], [ 5, %387 ], [ 5, %386 ], [ 7, %385 ], [ 6, %384 ], [ 5, %378 ], [ 1, %397 ], [ %406, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i58 ], [ %373, %.lr.ph.i.i54 ]
+  %.sroa.0.0.i.pn.i50 = phi ptr [ @.str.56, %384 ], [ @.str.57, %385 ], [ @.str.58, %386 ], [ @.str.59, %387 ], [ @.str.60, %388 ], [ @.str.61, %389 ], [ @.str.62, %390 ], [ @.str.63, %391 ], [ @.str.64, %392 ], [ @.str.65, %393 ], [ @.str.66, %394 ], [ @.str.67, %395 ], [ @.str.68, %396 ], [ @.str.55, %378 ], [ %375, %397 ], [ %405, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i58 ], [ %375, %.lr.ph.i.i54 ]
+  %.sroa.18.0.i.pn.i51 = phi i64 [ 6, %384 ], [ 7, %385 ], [ 5, %386 ], [ 5, %387 ], [ 8, %388 ], [ 6, %389 ], [ 7, %390 ], [ 5, %391 ], [ 7, %392 ], [ 6, %393 ], [ 5, %394 ], [ 11, %395 ], [ 7, %396 ], [ 5, %378 ], [ 1, %397 ], [ %406, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i58 ], [ %373, %.lr.ph.i.i54 ]
   %407 = load ptr, ptr %379, align 8, !tbaa !117
   %408 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %407, i64 %382
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 56
@@ -28791,8 +28791,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %473
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i164, %_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit, %458, %459, %460, %461, %462, %463, %464, %465, %466, %467, %468, %469, %470, %471, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i
-  %.sroa.0.0.i.pn.i = phi ptr [ @.str.68, %470 ], [ @.str.67, %469 ], [ @.str.66, %468 ], [ @.str.65, %467 ], [ @.str.64, %466 ], [ @.str.63, %465 ], [ @.str.62, %464 ], [ @.str.61, %463 ], [ @.str.60, %462 ], [ @.str.59, %461 ], [ @.str.58, %460 ], [ @.str.57, %459 ], [ @.str.56, %458 ], [ @.str.55, %_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit ], [ %.sroa.01.0.copyload, %471 ], [ %479, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %.sroa.01.0.copyload, %.lr.ph.i.i164 ]
-  %.sroa.18.0.i.pn.i = phi i64 [ 7, %470 ], [ 11, %469 ], [ 5, %468 ], [ 6, %467 ], [ 7, %466 ], [ 5, %465 ], [ 7, %464 ], [ 6, %463 ], [ 8, %462 ], [ 5, %461 ], [ 5, %460 ], [ 7, %459 ], [ 6, %458 ], [ 5, %_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit ], [ %.sroa.22.0.copyload, %471 ], [ %480, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %.sroa.22.0.copyload, %.lr.ph.i.i164 ]
+  %.sroa.0.0.i.pn.i = phi ptr [ @.str.56, %458 ], [ @.str.57, %459 ], [ @.str.58, %460 ], [ @.str.59, %461 ], [ @.str.60, %462 ], [ @.str.61, %463 ], [ @.str.62, %464 ], [ @.str.63, %465 ], [ @.str.64, %466 ], [ @.str.65, %467 ], [ @.str.66, %468 ], [ @.str.67, %469 ], [ @.str.68, %470 ], [ @.str.55, %_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit ], [ %.sroa.01.0.copyload, %471 ], [ %479, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %.sroa.01.0.copyload, %.lr.ph.i.i164 ]
+  %.sroa.18.0.i.pn.i = phi i64 [ 6, %458 ], [ 7, %459 ], [ 5, %460 ], [ 5, %461 ], [ 8, %462 ], [ 6, %463 ], [ 7, %464 ], [ 5, %465 ], [ 7, %466 ], [ 6, %467 ], [ 5, %468 ], [ 11, %469 ], [ 7, %470 ], [ 5, %_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit ], [ %.sroa.22.0.copyload, %471 ], [ %480, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %.sroa.22.0.copyload, %.lr.ph.i.i164 ]
   %481 = load ptr, ptr %453, align 8, !tbaa !117
   %482 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %481, i64 %456
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 56
@@ -29796,8 +29796,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %130
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i, %112, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %127, %128, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i
-  %.sroa.0.0.i.pn.i = phi ptr [ @.str.68, %127 ], [ @.str.67, %126 ], [ @.str.66, %125 ], [ @.str.65, %124 ], [ @.str.64, %123 ], [ @.str.63, %122 ], [ @.str.62, %121 ], [ @.str.61, %120 ], [ @.str.60, %119 ], [ @.str.59, %118 ], [ @.str.58, %117 ], [ @.str.57, %116 ], [ @.str.56, %115 ], [ @.str.55, %112 ], [ %109, %128 ], [ %136, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %109, %.lr.ph.i.i ]
-  %.sroa.18.0.i.pn.i = phi i64 [ 7, %127 ], [ 11, %126 ], [ 5, %125 ], [ 6, %124 ], [ 7, %123 ], [ 5, %122 ], [ 7, %121 ], [ 6, %120 ], [ 8, %119 ], [ 5, %118 ], [ 5, %117 ], [ 7, %116 ], [ 6, %115 ], [ 5, %112 ], [ 1, %128 ], [ %137, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %107, %.lr.ph.i.i ]
+  %.sroa.0.0.i.pn.i = phi ptr [ @.str.56, %115 ], [ @.str.57, %116 ], [ @.str.58, %117 ], [ @.str.59, %118 ], [ @.str.60, %119 ], [ @.str.61, %120 ], [ @.str.62, %121 ], [ @.str.63, %122 ], [ @.str.64, %123 ], [ @.str.65, %124 ], [ @.str.66, %125 ], [ @.str.67, %126 ], [ @.str.68, %127 ], [ @.str.55, %112 ], [ %109, %128 ], [ %136, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %109, %.lr.ph.i.i ]
+  %.sroa.18.0.i.pn.i = phi i64 [ 6, %115 ], [ 7, %116 ], [ 5, %117 ], [ 5, %118 ], [ 8, %119 ], [ 6, %120 ], [ 7, %121 ], [ 5, %122 ], [ 7, %123 ], [ 6, %124 ], [ 5, %125 ], [ 11, %126 ], [ 7, %127 ], [ 5, %112 ], [ 1, %128 ], [ %137, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %107, %.lr.ph.i.i ]
   %138 = load ptr, ptr %113, align 8, !tbaa !117
   %139 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %138, i64 %67
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
@@ -30243,8 +30243,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i: ; preds = %115
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i, %97, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i
-  %.sroa.0.0.i.pn.i = phi ptr [ @.str.68, %112 ], [ @.str.67, %111 ], [ @.str.66, %110 ], [ @.str.65, %109 ], [ @.str.64, %108 ], [ @.str.63, %107 ], [ @.str.62, %106 ], [ @.str.61, %105 ], [ @.str.60, %104 ], [ @.str.59, %103 ], [ @.str.58, %102 ], [ @.str.57, %101 ], [ @.str.56, %100 ], [ @.str.55, %97 ], [ %94, %113 ], [ %121, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %94, %.lr.ph.i.i ]
-  %.sroa.18.0.i.pn.i = phi i64 [ 7, %112 ], [ 11, %111 ], [ 5, %110 ], [ 6, %109 ], [ 7, %108 ], [ 5, %107 ], [ 7, %106 ], [ 6, %105 ], [ 8, %104 ], [ 5, %103 ], [ 5, %102 ], [ 7, %101 ], [ 6, %100 ], [ 5, %97 ], [ 1, %113 ], [ %122, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %92, %.lr.ph.i.i ]
+  %.sroa.0.0.i.pn.i = phi ptr [ @.str.56, %100 ], [ @.str.57, %101 ], [ @.str.58, %102 ], [ @.str.59, %103 ], [ @.str.60, %104 ], [ @.str.61, %105 ], [ @.str.62, %106 ], [ @.str.63, %107 ], [ @.str.64, %108 ], [ @.str.65, %109 ], [ @.str.66, %110 ], [ @.str.67, %111 ], [ @.str.68, %112 ], [ @.str.55, %97 ], [ %94, %113 ], [ %121, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %94, %.lr.ph.i.i ]
+  %.sroa.18.0.i.pn.i = phi i64 [ 6, %100 ], [ 7, %101 ], [ 5, %102 ], [ 5, %103 ], [ 8, %104 ], [ 6, %105 ], [ 7, %106 ], [ 5, %107 ], [ 7, %108 ], [ 6, %109 ], [ 5, %110 ], [ 11, %111 ], [ 7, %112 ], [ 5, %97 ], [ 1, %113 ], [ %122, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i ], [ %92, %.lr.ph.i.i ]
   %123 = load ptr, ptr %98, align 8, !tbaa !117
   %124 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %123, i64 %52
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -30351,8 +30351,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit.i37: ; preds = %154
   br label %_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit39
 
 _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit39: ; preds = %.lr.ph.i.i33, %136, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %152, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i37
-  %.sroa.0.0.i.pn.i29 = phi ptr [ @.str.68, %151 ], [ @.str.67, %150 ], [ @.str.66, %149 ], [ @.str.65, %148 ], [ @.str.64, %147 ], [ @.str.63, %146 ], [ @.str.62, %145 ], [ @.str.61, %144 ], [ @.str.60, %143 ], [ @.str.59, %142 ], [ @.str.58, %141 ], [ @.str.57, %140 ], [ @.str.56, %139 ], [ @.str.55, %136 ], [ %133, %152 ], [ %160, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i37 ], [ %133, %.lr.ph.i.i33 ]
-  %.sroa.18.0.i.pn.i30 = phi i64 [ 7, %151 ], [ 11, %150 ], [ 5, %149 ], [ 6, %148 ], [ 7, %147 ], [ 5, %146 ], [ 7, %145 ], [ 6, %144 ], [ 8, %143 ], [ 5, %142 ], [ 5, %141 ], [ 7, %140 ], [ 6, %139 ], [ 5, %136 ], [ 1, %152 ], [ %161, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i37 ], [ %131, %.lr.ph.i.i33 ]
+  %.sroa.0.0.i.pn.i29 = phi ptr [ @.str.56, %139 ], [ @.str.57, %140 ], [ @.str.58, %141 ], [ @.str.59, %142 ], [ @.str.60, %143 ], [ @.str.61, %144 ], [ @.str.62, %145 ], [ @.str.63, %146 ], [ @.str.64, %147 ], [ @.str.65, %148 ], [ @.str.66, %149 ], [ @.str.67, %150 ], [ @.str.68, %151 ], [ @.str.55, %136 ], [ %133, %152 ], [ %160, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i37 ], [ %133, %.lr.ph.i.i33 ]
+  %.sroa.18.0.i.pn.i30 = phi i64 [ 6, %139 ], [ 7, %140 ], [ 5, %141 ], [ 5, %142 ], [ 8, %143 ], [ 6, %144 ], [ 7, %145 ], [ 5, %146 ], [ 7, %147 ], [ 6, %148 ], [ 5, %149 ], [ 11, %150 ], [ 7, %151 ], [ 5, %136 ], [ 1, %152 ], [ %161, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit.i37 ], [ %131, %.lr.ph.i.i33 ]
   %162 = load ptr, ptr %137, align 8, !tbaa !117
   %163 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %162, i64 %52
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 56
@@ -47369,8 +47369,8 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %_
   br label %_ZNK2c415basic_substringIcE4trimENS0_IKcEE.exit.thread
 
 _ZNK2c415basic_substringIcE4trimENS0_IKcEE.exit.thread: ; preds = %63, %.loopexit.us.i.i.i, %85, %76, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit, %496, %228, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i, %51
-  %.pn451 = phi ptr [ %1, %51 ], [ %1, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i ], [ %1, %85 ], [ %1, %76 ], [ %1, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread ], [ %1, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ %1, %496 ], [ %.sroa.0.1, %228 ], [ %1, %.loopexit.us.i.i.i ], [ %1, %63 ]
-  %.pn449 = phi i64 [ 0, %51 ], [ 0, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i ], [ 1, %85 ], [ 0, %76 ], [ 0, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread ], [ %2, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ %.sroa.26.3, %496 ], [ %.sroa.26.1, %228 ], [ 0, %.loopexit.us.i.i.i ], [ 0, %63 ]
+  %.pn451 = phi ptr [ %1, %51 ], [ %1, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i ], [ %1, %85 ], [ %1, %76 ], [ %1, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread ], [ %1, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ %.sroa.0.1, %228 ], [ %1, %496 ], [ %1, %.loopexit.us.i.i.i ], [ %1, %63 ]
+  %.pn449 = phi i64 [ 0, %51 ], [ 0, %_ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.i.i ], [ 1, %85 ], [ 0, %76 ], [ 0, %_ZNK2c415basic_substringIcE12first_not_ofEcm.exit.thread ], [ %2, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ %.sroa.26.1, %228 ], [ %.sroa.26.3, %496 ], [ 0, %.loopexit.us.i.i.i ], [ 0, %63 ]
   %.fca.0.insert.i192.pn = insertvalue { ptr, i64 } poison, ptr %.pn451, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i192.pn, i64 %.pn449, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -48228,7 +48228,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %_
   br label %63
 
 63:                                               ; preds = %19, %23, %28, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit, %30
-  %.0 = phi i1 [ false, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ false, %30 ], [ true, %23 ], [ false, %28 ], [ %20, %19 ]
+  %.0 = phi i1 [ false, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ true, %23 ], [ false, %28 ], [ false, %30 ], [ %20, %19 ]
   ret i1 %.0
 }
 
@@ -49137,7 +49137,7 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit: ; preds = %73, %90, %_ZNK2c
   br label %125
 
 125:                                              ; preds = %104, %.thread118, %123, %117, %111, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit75, %102
-  %.2 = phi i1 [ true, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit75 ], [ true, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit ], [ true, %102 ], [ true, %111 ], [ true, %117 ], [ true, %123 ], [ false, %.thread118 ], [ false, %104 ]
+  %.2 = phi i1 [ true, %102 ], [ true, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit ], [ true, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit75 ], [ true, %111 ], [ true, %117 ], [ true, %123 ], [ false, %.thread118 ], [ false, %104 ]
   ret i1 %.2
 }
 
@@ -50276,10 +50276,10 @@ _ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit: ; preds = %92, %86, %_Z
   br label %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread188
 
 _ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread188: ; preds = %129, %70, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106, %72
-  %.sroa.16.1 = phi i64 [ %.sroa.16.0209, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ %.sroa.16.0209, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ %81, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ %.sroa.16.0209, %72 ], [ %.sroa.16.0209, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ %.sroa.16.0209, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ %.sroa.16.0209, %70 ], [ %.sroa.16.0209, %129 ]
-  %.265 = phi i64 [ %.164, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ %128, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ %.164194, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ %.164194, %72 ], [ %.164194, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ %61, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ %.063210, %70 ], [ %.164, %129 ]
-  %.162 = phi i64 [ %.061211, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ %.061211, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ %84, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ %.061211, %72 ], [ %.061211, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ %.061211, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ %.061211, %70 ], [ %.061211, %129 ]
-  %.2 = phi i32 [ %.1, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ 0, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ 1, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ 1, %72 ], [ 2, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ 0, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ 0, %70 ], [ %spec.select, %129 ]
+  %.sroa.16.1 = phi i64 [ %.sroa.16.0209, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ %81, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ %.sroa.16.0209, %72 ], [ %.sroa.16.0209, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ %.sroa.16.0209, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ %.sroa.16.0209, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ %.sroa.16.0209, %70 ], [ %.sroa.16.0209, %129 ]
+  %.265 = phi i64 [ %.164, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ %.164194, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ %.164194, %72 ], [ %128, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ %.164194, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ %61, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ %.063210, %70 ], [ %.164, %129 ]
+  %.162 = phi i64 [ %.061211, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ %84, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ %.061211, %72 ], [ %.061211, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ %.061211, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ %.061211, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ %.061211, %70 ], [ %.061211, %129 ]
+  %.2 = phi i32 [ %.1, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit ], [ 1, %_ZN2c43yml6detail13_SubstrWriter6appendENS_15basic_substringIKcEE.exit106 ], [ 1, %72 ], [ 0, %_ZNK2c415basic_substringIKcE17pair_range_nestedEcc.exit ], [ 2, %_ZN2c43yml12_GLOBAL__N_110_is_idcharEc.exit.thread191 ], [ 0, %_ZN2c415basic_substringIKcE14pair_range_escEcc.exit ], [ 0, %70 ], [ %spec.select, %129 ]
   %131 = add i64 %.265, 1
   %132 = icmp ult i64 %131, %.sroa.13.0
   br i1 %132, label %28, label %._crit_edge.loopexit, !llvm.loop !444

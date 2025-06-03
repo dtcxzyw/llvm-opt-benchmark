@@ -1272,7 +1272,7 @@ define dso_local i32 @pubsubPublishMessageInternal(ptr noundef %0, ptr noundef %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %15, %18, %22, %26, %30
-  %.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ]
+  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ]
   %33 = trunc i64 %.0.i to i32
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -1501,7 +1501,7 @@ addReplyPubsubMessage.exit:                       ; preds = %90, %92
   br label %sdslen.exit54
 
 sdslen.exit54:                                    ; preds = %106, %116, %119, %123, %127, %131
-  %.0.i53 = phi i64 [ %133, %131 ], [ %130, %127 ], [ %126, %123 ], [ %122, %119 ], [ %118, %116 ], [ 0, %106 ]
+  %.0.i53 = phi i64 [ %118, %116 ], [ %122, %119 ], [ %126, %123 ], [ %130, %127 ], [ %133, %131 ], [ 0, %106 ]
   %134 = trunc i64 %.0.i53 to i32
   %135 = load ptr, ptr %105, align 8, !tbaa !69
   %136 = getelementptr inbounds i8, ptr %135, i64 -1
@@ -1545,7 +1545,7 @@ sdslen.exit54:                                    ; preds = %106, %116, %119, %1
   br label %sdslen.exit56
 
 sdslen.exit56:                                    ; preds = %sdslen.exit54, %140, %143, %147, %151, %155
-  %.0.i55 = phi i64 [ %157, %155 ], [ %154, %151 ], [ %150, %147 ], [ %146, %143 ], [ %142, %140 ], [ 0, %sdslen.exit54 ]
+  %.0.i55 = phi i64 [ %142, %140 ], [ %146, %143 ], [ %150, %147 ], [ %154, %151 ], [ %157, %155 ], [ 0, %sdslen.exit54 ]
   %158 = trunc i64 %.0.i55 to i32
   %159 = tail call i32 @stringmatchlen(ptr noundef nonnull %111, i32 noundef %134, ptr noundef nonnull %135, i32 noundef %158, i32 noundef 0) #9
   %.not51 = icmp eq i32 %159, 0
@@ -2312,7 +2312,7 @@ define dso_local void @channelList(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %32, %35, %38, %41, %44
-  %.0.i = phi i64 [ %45, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ 0, %.lr.ph ]
   %46 = trunc i64 %.0.i to i32
   %47 = getelementptr inbounds i8, ptr %28, i64 -1
   %48 = load i8, ptr %47, align 1, !tbaa !81
@@ -2355,7 +2355,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %32, %35, %
   br label %sdslen.exit30
 
 sdslen.exit30:                                    ; preds = %sdslen.exit, %51, %54, %58, %62, %66
-  %.0.i29 = phi i64 [ %68, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %54 ], [ %53, %51 ], [ 0, %sdslen.exit ]
+  %.0.i29 = phi i64 [ %53, %51 ], [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ %68, %66 ], [ 0, %sdslen.exit ]
   %69 = trunc i64 %.0.i29 to i32
   %70 = tail call i32 @stringmatchlen(ptr noundef nonnull %1, i32 noundef %46, ptr noundef nonnull %28, i32 noundef %69, i32 noundef 0) #9
   %.not28 = icmp eq i32 %70, 0

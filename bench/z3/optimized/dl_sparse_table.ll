@@ -17819,8 +17819,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorIjjE22def
   br label %222
 
 222:                                              ; preds = %._crit_edge._crit_edge, %217
-  %223 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %218, %217 ]
-  %.2 = phi i32 [ %210, %._crit_edge._crit_edge ], [ %221, %217 ]
+  %223 = phi ptr [ %218, %217 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %221, %217 ], [ %210, %._crit_edge._crit_edge ]
   %224 = load i32, ptr %223, align 4, !tbaa !59
   %225 = add i32 %224, %214
   br label %226
@@ -17867,7 +17867,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorIjjE22def
   br label %263
 
 263:                                              ; preds = %4, %226, %84, %41, %7
-  %.0 = phi i32 [ %262, %226 ], [ %164, %84 ], [ %83, %41 ], [ %40, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %262, %226 ], [ %40, %7 ], [ %83, %41 ], [ %164, %84 ], [ 11, %4 ]
   ret i32 %.0
 }
 
@@ -19143,8 +19143,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorImjE22def
   br label %232
 
 232:                                              ; preds = %._crit_edge._crit_edge, %226
-  %233 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %227, %226 ]
-  %.2 = phi i32 [ %219, %._crit_edge._crit_edge ], [ %231, %226 ]
+  %233 = phi ptr [ %227, %226 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %231, %226 ], [ %219, %._crit_edge._crit_edge ]
   %234 = load i64, ptr %233, align 8, !tbaa !8
   %235 = trunc i64 %234 to i32
   %236 = add i32 %223, %235
@@ -19192,7 +19192,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorImjE22def
   br label %274
 
 274:                                              ; preds = %4, %237, %87, %42, %7
-  %.0 = phi i32 [ %273, %237 ], [ %170, %87 ], [ %86, %42 ], [ %41, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %273, %237 ], [ %41, %7 ], [ %86, %42 ], [ %170, %87 ], [ 11, %4 ]
   ret i32 %.0
 }
 

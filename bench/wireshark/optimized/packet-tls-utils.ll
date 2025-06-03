@@ -2252,7 +2252,7 @@ define hidden range(i32 0, 39) i32 @ssl_get_keyex_alg(i32 noundef %0) local_unna
   br label %23
 
 23:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %22 ], [ 38, %21 ], [ 36, %20 ], [ 34, %19 ], [ 33, %18 ], [ 32, %17 ], [ 31, %16 ], [ 30, %15 ], [ 29, %14 ], [ 28, %13 ], [ 24, %12 ], [ 23, %11 ], [ 22, %10 ], [ 27, %9 ], [ 26, %8 ], [ 25, %7 ], [ 18, %6 ], [ 17, %5 ], [ 16, %4 ], [ 21, %3 ], [ 20, %2 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ]
+  %.0 = phi i32 [ 0, %22 ], [ 20, %2 ], [ 21, %3 ], [ 16, %4 ], [ 17, %5 ], [ 18, %6 ], [ 25, %7 ], [ 26, %8 ], [ 27, %9 ], [ 22, %10 ], [ 23, %11 ], [ 24, %12 ], [ 28, %13 ], [ 29, %14 ], [ 30, %15 ], [ 31, %16 ], [ 32, %17 ], [ 33, %18 ], [ 34, %19 ], [ 36, %20 ], [ 38, %21 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ], [ 19, %1 ]
   ret i32 %.0
 }
 
@@ -3415,9 +3415,9 @@ ssl_get_cipher_export_keymat_size.exit:           ; preds = %.critedge237
   %146 = trunc i64 %145 to i32
   br label %ssl_get_cipher_export_keymat_size.exit.thread
 
-ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %141, %142, %144, %ssl_get_cipher_export_keymat_size.exit
-  %.not225255 = phi i1 [ true, %144 ], [ true, %ssl_get_cipher_export_keymat_size.exit ], [ false, %142 ], [ false, %141 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ]
-  %.0188 = phi i32 [ %146, %144 ], [ 0, %ssl_get_cipher_export_keymat_size.exit ], [ 7, %142 ], [ 7, %141 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ]
+ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %142, %141, %144, %ssl_get_cipher_export_keymat_size.exit
+  %.not225255 = phi i1 [ true, %144 ], [ true, %ssl_get_cipher_export_keymat_size.exit ], [ false, %141 ], [ false, %142 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ]
+  %.0188 = phi i32 [ %146, %144 ], [ 0, %ssl_get_cipher_export_keymat_size.exit ], [ 7, %141 ], [ 7, %142 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ]
   %147 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %148 = load i32, ptr %147, align 4
   switch i32 %148, label %.fold.split [
@@ -4288,7 +4288,7 @@ tls_prf.exit:                                     ; preds = %85, %165
   br label %178
 
 178:                                              ; preds = %176, %174, %172, %tls_prf.exit, %ssl3_prf.exit
-  %.0 = phi i1 [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %.052.i, %tls_prf.exit ], [ %.039.i, %ssl3_prf.exit ]
+  %.0 = phi i1 [ %177, %176 ], [ %173, %172 ], [ %175, %174 ], [ %.039.i, %ssl3_prf.exit ], [ %.052.i, %tls_prf.exit ]
   ret i1 %.0
 }
 
@@ -5907,7 +5907,7 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %425, %428, %ssl_cip
   br label %ssl_decompress_record.exit.thread
 
 512:                                              ; preds = %tls_decrypt_aead_record.exit, %479, %492, %490, %508, %510, %504, %498, %500, %478
-  %.0208 = phi i32 [ %.0189234.i, %tls_decrypt_aead_record.exit ], [ %.2, %478 ], [ %.2, %479 ], [ %.2, %504 ], [ %.2, %508 ], [ %.2, %510 ], [ %.2, %498 ], [ %.2, %500 ], [ %.2, %490 ], [ %.2, %492 ]
+  %.0208 = phi i32 [ %.0189234.i, %tls_decrypt_aead_record.exit ], [ %.2, %478 ], [ %.2, %479 ], [ %.2, %490 ], [ %.2, %492 ], [ %.2, %498 ], [ %.2, %500 ], [ %.2, %504 ], [ %.2, %508 ], [ %.2, %510 ]
   store i32 %.0208, ptr %11, align 4
   %513 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %514 = load i32, ptr %513, align 8
@@ -8715,7 +8715,7 @@ define hidden noundef zeroext i1 @ssldecrypt_uat_fld_port_chk_cb(ptr noundef rea
   br label %18
 
 18:                                               ; preds = %15, %17, %10
-  %.08 = phi i1 [ true, %10 ], [ false, %15 ], [ true, %17 ]
+  %.08 = phi i1 [ true, %10 ], [ true, %17 ], [ false, %15 ]
   ret i1 %.08
 }
 
@@ -12032,7 +12032,7 @@ proto_item_set_generated.exit:                    ; preds = %868, %871, %874
   br label %ssl_dissect_hnd_hello_ext_ech.exit
 
 ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %550, %474, %475, %486, %515, %523, %527, %531, %537, %545, %549, %580, %601, %615, %618, %639, %.split.i, %853, %857, %880
-  %.0.i436 = phi i32 [ %321, %474 ], [ %881, %880 ], [ %862, %857 ], [ %511, %515 ], [ %511, %527 ], [ %511, %531 ], [ %511, %537 ], [ %511, %545 ], [ %511, %549 ], [ %511, %580 ], [ %511, %601 ], [ %511, %615 ], [ %511, %618 ], [ %511, %639 ], [ %511, %523 ], [ %511, %486 ], [ %478, %475 ], [ %511, %853 ], [ %511, %.split.i ], [ %511, %550 ]
+  %.0.i436 = phi i32 [ %321, %474 ], [ %511, %515 ], [ %511, %527 ], [ %511, %531 ], [ %511, %537 ], [ %511, %545 ], [ %511, %549 ], [ %511, %580 ], [ %511, %601 ], [ %511, %615 ], [ %511, %618 ], [ %511, %639 ], [ %511, %523 ], [ %511, %486 ], [ %478, %475 ], [ %862, %857 ], [ %881, %880 ], [ %511, %853 ], [ %511, %.split.i ], [ %511, %550 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #31
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %52)
@@ -12952,7 +12952,7 @@ ssl_end_vector.exit.thread14.i:                   ; preds = %1096
   br label %ssl_end_vector.exit.i452
 
 .loopexit.i:                                      ; preds = %.lr.ph.i453, %1328, %1318, %1312, %1290, %._crit_edge.i454, %1275, %1263, %1261, %1244, %1238, %1226, %1225, %1184, %1179, %1173, %1167, %1161, %1155, %1149, %1143, %1137, %1133, %1127, %1119, %1119
-  %.5.i = phi i32 [ %.3346.i, %1328 ], [ %.3346.i, %1318 ], [ %1295, %1290 ], [ %.7.lcssa.i, %._crit_edge.i454 ], [ %1278, %1275 ], [ %1268, %1263 ], [ %1262, %1261 ], [ %1254, %1244 ], [ %1243, %1238 ], [ %1231, %1226 ], [ %.6.i, %1225 ], [ %.3346.i, %1119 ], [ %.3346.i, %1119 ], [ %1189, %1184 ], [ %1183, %1179 ], [ %1178, %1173 ], [ %1172, %1167 ], [ %1166, %1161 ], [ %1160, %1155 ], [ %1154, %1149 ], [ %1148, %1143 ], [ %1142, %1137 ], [ %1136, %1133 ], [ %1132, %1127 ], [ %.820.i, %1312 ], [ %.8.i, %.lr.ph.i453 ]
+  %.5.i = phi i32 [ %1132, %1127 ], [ %1136, %1133 ], [ %1142, %1137 ], [ %1148, %1143 ], [ %1154, %1149 ], [ %1160, %1155 ], [ %1166, %1161 ], [ %1172, %1167 ], [ %1178, %1173 ], [ %1183, %1179 ], [ %1189, %1184 ], [ %.6.i, %1225 ], [ %1231, %1226 ], [ %1243, %1238 ], [ %1254, %1244 ], [ %1262, %1261 ], [ %1268, %1263 ], [ %.7.lcssa.i, %._crit_edge.i454 ], [ %1278, %1275 ], [ %1295, %1290 ], [ %.3346.i, %1119 ], [ %.3346.i, %1119 ], [ %.3346.i, %1318 ], [ %.3346.i, %1328 ], [ %.820.i, %1312 ], [ %.8.i, %.lr.ph.i453 ]
   %1338 = icmp ult i32 %.5.i, %1120
   br i1 %1338, label %1339, label %1344
 
@@ -12975,7 +12975,7 @@ ssl_end_vector.exit.thread14.i:                   ; preds = %1096
   br label %ssl_end_vector.exit.i452
 
 ssl_end_vector.exit.i452:                         ; preds = %1346, %1344, %1339, %1335, %1334, %1329, %1327, %1322, %1319, %1309, %1306, %1299, %1296, %1272, %1269, %1235, %1232, %1124, %1119
-  %.4347.i = phi i32 [ %1120, %1339 ], [ %1120, %1346 ], [ %.5.i, %1344 ], [ %1120, %1119 ], [ %1120, %1329 ], [ %1120, %1334 ], [ %1120, %1322 ], [ %1120, %1327 ], [ %1120, %1124 ], [ %1120, %1232 ], [ %1120, %1235 ], [ %1120, %1269 ], [ %1120, %1272 ], [ %1120, %1296 ], [ %1120, %1299 ], [ %1120, %1306 ], [ %1120, %1309 ], [ %1120, %1319 ], [ %1120, %1335 ]
+  %.4347.i = phi i32 [ %1120, %1339 ], [ %1120, %1346 ], [ %.5.i, %1344 ], [ %1120, %1119 ], [ %1120, %1329 ], [ %1120, %1334 ], [ %1120, %1322 ], [ %1120, %1327 ], [ %1120, %1335 ], [ %1120, %1319 ], [ %1120, %1309 ], [ %1120, %1306 ], [ %1120, %1299 ], [ %1120, %1296 ], [ %1120, %1272 ], [ %1120, %1269 ], [ %1120, %1235 ], [ %1120, %1232 ], [ %1120, %1124 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #31
@@ -13095,7 +13095,7 @@ ssl_dissect_hnd_hello_ext_session_ticket.exit:    ; preds = %1352, %1354
   br label %ssl_dissect_hnd_hello_ext_key_share.exit
 
 ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %1362, %1363, %1366, %1380, %1385, %1387, %1392, %1395, %1396
-  %.051.i = phi i32 [ %321, %1362 ], [ %323, %1366 ], [ %321, %1363 ], [ %1399, %1396 ], [ %1393, %1395 ], [ %1393, %1392 ], [ %.052.lcssa.i, %1385 ], [ %1372, %1380 ], [ %1372, %1387 ]
+  %.051.i = phi i32 [ %321, %1362 ], [ %323, %1366 ], [ %321, %1363 ], [ %1393, %1395 ], [ %1393, %1392 ], [ %1399, %1396 ], [ %.052.lcssa.i, %1385 ], [ %1372, %1380 ], [ %1372, %1387 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #31
@@ -13627,7 +13627,7 @@ ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1599, %1604, %1607
   br label %ssl_dissect_hnd_hello_ext_esni.exit
 
 ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1611, %1612, %1626, %1629, %1632, %1636
-  %.0.i491 = phi i32 [ %323, %1612 ], [ %323, %1626 ], [ %321, %1611 ], [ %1639, %1636 ], [ %1635, %1632 ], [ %1630, %1629 ]
+  %.0.i491 = phi i32 [ %323, %1612 ], [ %323, %1626 ], [ %321, %1611 ], [ %1635, %1632 ], [ %1630, %1629 ], [ %1639, %1636 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #31
   br label %ssl_dissect_hnd_ext_delegated_credentials.exit
@@ -13762,8 +13762,8 @@ ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1611, %1612, %1626,
   br label %1706
 
 1706:                                             ; preds = %1703, %1697, %.lr.ph.i498
-  %.268.i = phi i32 [ %1693, %1703 ], [ %1702, %1697 ], [ %1693, %.lr.ph.i498 ]
-  %.0.i499 = phi i32 [ 20, %1703 ], [ 0, %1697 ], [ 0, %.lr.ph.i498 ]
+  %.268.i = phi i32 [ %1702, %1697 ], [ %1693, %1703 ], [ %1693, %.lr.ph.i498 ]
+  %.0.i499 = phi i32 [ 0, %1697 ], [ 20, %1703 ], [ 0, %.lr.ph.i498 ]
   %1707 = or disjoint i32 %.0.i499, 1
   call void @proto_item_set_len(ptr noundef %1688, i32 noundef %1707)
   %1708 = add i32 %.0.i499, %.268.i
@@ -13806,7 +13806,7 @@ ssl_dissect_hnd_hello_ext_trusted_ca_keys.exit:   ; preds = %1670, %.thread.i500
   br label %ssl_end_vector.exit
 
 ssl_dissect_hnd_ext_delegated_credentials.exit:   ; preds = %ssl_end_vector.exit.i452, %1641, %1661, %._crit_edge.i507, %.loopexit.i486, %1450, %1449, %1448, %1447, %1443, %1437, %.thread86.i, %1402, %ssl_end_vector.exit.thread14.i, %.thread.i450, %435, %411, %994, %437, %1454, %ssl_dissect_hnd_hello_ext_supported_versions.exit, %1532, %1007, %1008, %1012, %1009, %1003, %1004, %995, %983, %ssl_dissect_hnd_hello_ext_status_request_v2.exit, %440, %438, %436, %393, %395, %388, %390, %380, %383, %382, %324, %374, %ssl_dissect_hnd_hello_ext_server_name.exit, %ssl_dissect_hnd_hello_ext_trusted_ca_keys.exit, %ssl_dissect_hnd_hello_ext_esni.exit, %ssl_dissect_hnd_hello_ext_reneg_info.exit, %ssl_dissect_hnd_hello_ext_npn.exit, %1560, %1558, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, %ssl_dissect_hnd_hello_ext_cookie.exit, %ssl_dissect_hnd_hello_ext_key_share.exit, %1057, %ssl_dissect_hnd_hello_ext_token_binding.exit, %ssl_dissect_hnd_hello_ext_compress_certificate.exit, %998, %ssl_dissect_hnd_hello_ext_alpn.exit, %882, %ssl_dissect_hnd_hello_ext_ech.exit, %ssl_dissect_hnd_ech_outer_ext.exit, %408, %406, %ssl_dissect_hnd_hello_ext_srp.exit, %385, %375, %320
-  %.1418 = phi i32 [ %.065.i, %ssl_dissect_hnd_hello_ext_trusted_ca_keys.exit ], [ %.0.i491, %ssl_dissect_hnd_hello_ext_esni.exit ], [ %.0.i489, %ssl_dissect_hnd_hello_ext_reneg_info.exit ], [ %.0.i482, %ssl_dissect_hnd_hello_ext_npn.exit ], [ %321, %320 ], [ %1561, %1560 ], [ %1559, %1558 ], [ %.0.i478, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit ], [ %.0.i476, %ssl_dissect_hnd_hello_ext_cookie.exit ], [ %321, %1454 ], [ %1535, %1532 ], [ %.058.i, %ssl_dissect_hnd_hello_ext_supported_versions.exit ], [ %.051.i, %ssl_dissect_hnd_hello_ext_key_share.exit ], [ %1060, %1057 ], [ %.0.i447, %ssl_dissect_hnd_hello_ext_token_binding.exit ], [ %.0.i445, %ssl_dissect_hnd_hello_ext_compress_certificate.exit ], [ %321, %1008 ], [ %321, %1012 ], [ %321, %1009 ], [ %321, %1007 ], [ %321, %1004 ], [ %321, %1003 ], [ %999, %998 ], [ %997, %995 ], [ %321, %994 ], [ %.0.i443, %ssl_dissect_hnd_hello_ext_status_request_v2.exit ], [ %321, %983 ], [ %.0.i439, %ssl_dissect_hnd_hello_ext_alpn.exit ], [ %885, %882 ], [ %.0.i436, %ssl_dissect_hnd_hello_ext_ech.exit ], [ %.0.i434, %ssl_dissect_hnd_ech_outer_ext.exit ], [ %439, %438 ], [ %441, %440 ], [ %321, %436 ], [ %409, %408 ], [ %407, %406 ], [ %.0.i, %ssl_dissect_hnd_hello_ext_srp.exit ], [ %394, %393 ], [ %396, %395 ], [ %389, %388 ], [ %391, %390 ], [ %386, %385 ], [ %381, %380 ], [ %384, %383 ], [ %321, %382 ], [ %378, %375 ], [ %.050.i, %374 ], [ %.050.i, %ssl_dissect_hnd_hello_ext_server_name.exit ], [ %321, %324 ], [ %321, %437 ], [ %412, %411 ], [ %.1.i, %435 ], [ %.0350.i, %ssl_end_vector.exit.thread14.i ], [ %.0343.i, %.thread.i450 ], [ %321, %1402 ], [ %1446, %1443 ], [ %1442, %1437 ], [ %.0.ph.i, %.thread86.i ], [ %321, %1447 ], [ %1453, %1450 ], [ %321, %1449 ], [ %321, %1448 ], [ %.0.i487, %.loopexit.i486 ], [ %321, %1641 ], [ %1669, %._crit_edge.i507 ], [ %1664, %1661 ], [ %.4347.i, %ssl_end_vector.exit.i452 ]
+  %.1418 = phi i32 [ %.050.i, %374 ], [ %.050.i, %ssl_dissect_hnd_hello_ext_server_name.exit ], [ %321, %324 ], [ %378, %375 ], [ %381, %380 ], [ %384, %383 ], [ %321, %382 ], [ %386, %385 ], [ %389, %388 ], [ %391, %390 ], [ %394, %393 ], [ %396, %395 ], [ %.0.i, %ssl_dissect_hnd_hello_ext_srp.exit ], [ %407, %406 ], [ %409, %408 ], [ %439, %438 ], [ %441, %440 ], [ %321, %436 ], [ %.0.i434, %ssl_dissect_hnd_ech_outer_ext.exit ], [ %.0.i436, %ssl_dissect_hnd_hello_ext_ech.exit ], [ %885, %882 ], [ %.0.i439, %ssl_dissect_hnd_hello_ext_alpn.exit ], [ %.0.i443, %ssl_dissect_hnd_hello_ext_status_request_v2.exit ], [ %321, %983 ], [ %997, %995 ], [ %321, %994 ], [ %999, %998 ], [ %321, %1004 ], [ %321, %1003 ], [ %321, %1008 ], [ %321, %1009 ], [ %321, %1012 ], [ %321, %1007 ], [ %.0.i445, %ssl_dissect_hnd_hello_ext_compress_certificate.exit ], [ %.0.i447, %ssl_dissect_hnd_hello_ext_token_binding.exit ], [ %1060, %1057 ], [ %.051.i, %ssl_dissect_hnd_hello_ext_key_share.exit ], [ %321, %1454 ], [ %.058.i, %ssl_dissect_hnd_hello_ext_supported_versions.exit ], [ %1535, %1532 ], [ %.0.i476, %ssl_dissect_hnd_hello_ext_cookie.exit ], [ %.0.i478, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit ], [ %1559, %1558 ], [ %1561, %1560 ], [ %321, %320 ], [ %.0.i482, %ssl_dissect_hnd_hello_ext_npn.exit ], [ %.0.i489, %ssl_dissect_hnd_hello_ext_reneg_info.exit ], [ %.0.i491, %ssl_dissect_hnd_hello_ext_esni.exit ], [ %.065.i, %ssl_dissect_hnd_hello_ext_trusted_ca_keys.exit ], [ %321, %437 ], [ %412, %411 ], [ %.1.i, %435 ], [ %.0350.i, %ssl_end_vector.exit.thread14.i ], [ %.0343.i, %.thread.i450 ], [ %321, %1402 ], [ %1446, %1443 ], [ %1442, %1437 ], [ %.0.ph.i, %.thread86.i ], [ %321, %1447 ], [ %321, %1449 ], [ %321, %1448 ], [ %1453, %1450 ], [ %.0.i487, %.loopexit.i486 ], [ %321, %1641 ], [ %1669, %._crit_edge.i507 ], [ %1664, %1661 ], [ %.4347.i, %ssl_end_vector.exit.i452 ]
   %1726 = icmp ult i32 %.1418, %323
   br i1 %1726, label %1727, label %1732
 
@@ -13828,8 +13828,8 @@ ssl_dissect_hnd_ext_delegated_credentials.exit:   ; preds = %ssl_end_vector.exit
   %1738 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %306, ptr noundef %3, ptr noundef nonnull %102, ptr noundef %1, i32 noundef %323, i32 noundef %1735, ptr noundef nonnull @.str.722, i32 noundef %1735, ptr noundef nonnull %1737)
   br label %ssl_end_vector.exit
 
-ssl_end_vector.exit:                              ; preds = %1723, %ssl_dissect_hnd_hello_ext_session_ticket.exit, %1000, %1073, %1577, %1732, %1734, %1727
-  %1739 = phi i32 [ %323, %1727 ], [ %323, %1734 ], [ %.1418, %1732 ], [ %323, %1577 ], [ %323, %1073 ], [ %323, %1000 ], [ %323, %ssl_dissect_hnd_hello_ext_session_ticket.exit ], [ %323, %1723 ]
+ssl_end_vector.exit:                              ; preds = %1723, %1000, %ssl_dissect_hnd_hello_ext_session_ticket.exit, %1073, %1577, %1732, %1734, %1727
+  %1739 = phi i32 [ %323, %1727 ], [ %323, %1734 ], [ %.1418, %1732 ], [ %323, %1577 ], [ %323, %1073 ], [ %323, %ssl_dissect_hnd_hello_ext_session_ticket.exit ], [ %323, %1000 ], [ %323, %1723 ]
   %1740 = sub i32 %83, %1739
   %1741 = icmp ugt i32 %1740, 3
   br i1 %1741, label %283, label %._crit_edge, !llvm.loop !151
@@ -15611,7 +15611,7 @@ define hidden void @ssl_dissect_hnd_compress_certificate(ptr noundef %0, ptr nou
   br label %38
 
 38:                                               ; preds = %36, %34, %32
-  %.0 = phi ptr [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %39
 

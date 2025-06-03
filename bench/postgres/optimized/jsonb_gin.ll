@@ -396,7 +396,7 @@ make_text_key.exit13:                             ; preds = %34, %41
   unreachable
 
 56:                                               ; preds = %make_text_key.exit13, %make_text_key.exit, %9, %6
-  %.0.in = phi ptr [ %47, %make_text_key.exit13 ], [ %29, %make_text_key.exit ], [ %13, %9 ], [ %7, %6 ]
+  %.0.in = phi ptr [ %7, %6 ], [ %13, %9 ], [ %29, %make_text_key.exit ], [ %47, %make_text_key.exit13 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -1121,6 +1121,10 @@ define dso_local i64 @gin_extract_jsonb_path(ptr noundef readonly captures(none)
   store ptr %.0.ph48, ptr %29, align 8
   br label %.outer47.backedge
 
+.outer47.backedge:                                ; preds = %26, %55, %53
+  %.0.ph48.be = phi ptr [ %50, %53 ], [ %50, %55 ], [ %27, %26 ]
+  br label %.outer47, !llvm.loop !15
+
 30:                                               ; preds = %24
   call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph48) #8
   br label %24, !llvm.loop !15
@@ -1177,10 +1181,6 @@ add_gin_entry.exit:                               ; preds = %31, %35, %40
 55:                                               ; preds = %48
   store i32 0, ptr %50, align 8
   br label %.outer47.backedge
-
-.outer47.backedge:                                ; preds = %55, %53, %26
-  %.0.ph48.be = phi ptr [ %27, %26 ], [ %50, %53 ], [ %50, %55 ]
-  br label %.outer47, !llvm.loop !15
 
 56:                                               ; preds = %24
   %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1438,7 +1438,7 @@ define internal noundef zeroext i1 @jsonb_path_ops__add_path_item(ptr noundef %0
   br label %11
 
 11:                                               ; preds = %2, %2, %10, %6, %5
-  %.0 = phi i1 [ false, %10 ], [ true, %6 ], [ true, %5 ], [ true, %2 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %10 ], [ true, %5 ], [ true, %6 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -1689,7 +1689,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %0, ptr %1
   br i1 %18, label %19, label %extract_jsp_path_expr_nodes.exit
 
 19:                                               ; preds = %16, %15, %8
-  %.1.i = phi ptr [ %.015.i, %16 ], [ %.2.i, %15 ], [ %.015.i, %8 ]
+  %.1.i = phi ptr [ %.015.i, %16 ], [ %.015.i, %8 ], [ %.2.i, %15 ]
   %20 = call zeroext i1 @jspGetNext(ptr noundef nonnull %.016.i, ptr noundef nonnull %6) #8
   br i1 %20, label %8, label %21
 
@@ -1909,7 +1909,7 @@ default.unreachable:                              ; preds = %44
   br label %65
 
 65:                                               ; preds = %4, %64, %36, %30, %29
-  %.1 = phi ptr [ %.3, %64 ], [ %.2, %36 ], [ %32, %30 ], [ %.047, %29 ], [ null, %4 ]
+  %.1 = phi ptr [ %.047, %29 ], [ %32, %30 ], [ %.2, %36 ], [ %.3, %64 ], [ null, %4 ]
   ret ptr %.1
 }
 

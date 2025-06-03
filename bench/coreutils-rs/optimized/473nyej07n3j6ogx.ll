@@ -406,9 +406,9 @@ default.unreachable42:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %6, %27, %21
-  %.sroa.01.sroa.0.0 = phi i64 [ %28, %27 ], [ %22, %21 ], [ 0, %6 ]
-  %.sroa.01.sroa.4.0 = phi ptr [ %29, %27 ], [ %23, %21 ], [ inttoptr (i64 1 to ptr), %6 ]
-  %.sroa.01.sroa.5.0 = phi i64 [ 1, %27 ], [ 19, %21 ], [ 0, %6 ]
+  %.sroa.01.sroa.0.0 = phi i64 [ %22, %21 ], [ %28, %27 ], [ 0, %6 ]
+  %.sroa.01.sroa.4.0 = phi ptr [ %23, %21 ], [ %29, %27 ], [ inttoptr (i64 1 to ptr), %6 ]
+  %.sroa.01.sroa.5.0 = phi i64 [ 19, %21 ], [ 1, %27 ], [ 0, %6 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.01.sroa.0.0, ptr %26, align 8
@@ -2185,7 +2185,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread:
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; preds = %66, %69, %72, %77
-  %.0.i = phi i8 [ %71, %69 ], [ %82, %77 ], [ %68, %66 ], [ %76, %72 ]
+  %.0.i = phi i8 [ %76, %72 ], [ %68, %66 ], [ %82, %77 ], [ %71, %69 ]
   %83 = trunc i8 %.0.i to i1
   br i1 %83, label %.critedge, label %.critedge49.backedge
 
@@ -2340,7 +2340,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6377f41f0d1c455fE.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6377f41f0d1c455fE.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.0.i.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.0.i.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.0.i.i.i.i.i.i.i to i1
   br i1 %70, label %73, label %71
 
@@ -2499,7 +2499,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h923c338a047931bcE.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h923c338a047931bcE.exit.i.i.i": ; preds = %150, %145, %142, %139
-  %.0.i.i.i.i.i.i = phi i8 [ %144, %142 ], [ %155, %150 ], [ %141, %139 ], [ %149, %145 ]
+  %.0.i.i.i.i.i.i = phi i8 [ %149, %145 ], [ %141, %139 ], [ %155, %150 ], [ %144, %142 ]
   %156 = trunc i8 %.0.i.i.i.i.i.i to i1
   br i1 %156, label %157, label %159
 

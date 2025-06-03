@@ -1230,7 +1230,7 @@ _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit.thread28.fold
   br label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit.thread28
 
 _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit.thread28: ; preds = %10, %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit.thread28.fold.split, %54, %53, %52, %13
-  %.0.i27 = phi i8 [ 0, %13 ], [ 9, %52 ], [ 6, %53 ], [ 12, %54 ], [ -1, %10 ], [ 0, %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit.thread28.fold.split ]
+  %.0.i27 = phi i8 [ 0, %13 ], [ 12, %54 ], [ 6, %53 ], [ 9, %52 ], [ -1, %10 ], [ 0, %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit.thread28.fold.split ]
   %92 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
   tail call void @_ZN4llvm12MCAsmBackendC2ENS_10endiannessEj(ptr noundef nonnull align 8 dereferenceable(202) %92, i32 noundef 1, i32 noundef 1320) #26
   store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_113X86AsmBackendE, i64 16), ptr %92, align 8, !tbaa !3
@@ -1690,7 +1690,7 @@ _ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetIn
   br label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
 
 _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %10, %89, %90, %91, %.thread38
-  %.0.i = phi i8 [ 0, %.thread38 ], [ 12, %91 ], [ 6, %90 ], [ 9, %89 ], [ -1, %10 ]
+  %.0.i = phi i8 [ 0, %.thread38 ], [ 9, %89 ], [ 6, %90 ], [ 12, %91 ], [ -1, %10 ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %93 = load i32, ptr %92, align 8, !tbaa !127
   switch i32 %93, label %131 [
@@ -2000,20 +2000,20 @@ _ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i
   switch i32 %55, label %70 [
     i32 0, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i
     i32 2, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i
-    i32 1, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.i
-    i32 3, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.i
-    i32 4, label %69
+    i32 1, label %69
+    i32 3, label %69
+    i32 4, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.i
     i32 5, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread.i
   ]
 
-69:                                               ; preds = %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i
-  br i1 %67, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread.i
+69:                                               ; preds = %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i, %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i
+  br i1 %68, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread.i
 
 70:                                               ; preds = %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i
   unreachable
 
-_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.i: ; preds = %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i, %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i
-  br i1 %68, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread.i
+_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.i: ; preds = %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i
+  br i1 %67, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i, label %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread.i
 
 _ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.i, %69, %_ZL31classifySecondInstInMacroFusionRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.i.i, %51, %39
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 176
@@ -4339,10 +4339,10 @@ define internal void @_ZNK12_GLOBAL__N_113X86AsmBackend10applyFixupERKN4llvm11MC
   br label %_ZL16getFixupKindSizej.exit
 
 _ZL16getFixupKindSizej.exit:                      ; preds = %18, %20, %21, %22, %23
-  %.not78 = phi i1 [ false, %23 ], [ false, %22 ], [ false, %21 ], [ false, %20 ], [ true, %18 ]
-  %24 = phi i1 [ true, %23 ], [ false, %22 ], [ false, %21 ], [ false, %20 ], [ false, %18 ]
-  %25 = phi ptr [ @.str.132, %23 ], [ @.str.132, %22 ], [ @.str.132, %21 ], [ @.str.131, %20 ], [ @.str.132, %18 ]
-  %.0.i = phi i32 [ 8, %23 ], [ 4, %22 ], [ 2, %21 ], [ 1, %20 ], [ 0, %18 ]
+  %.not78 = phi i1 [ false, %20 ], [ false, %21 ], [ false, %22 ], [ false, %23 ], [ true, %18 ]
+  %24 = phi i1 [ false, %20 ], [ false, %21 ], [ false, %22 ], [ true, %23 ], [ false, %18 ]
+  %25 = phi ptr [ @.str.131, %20 ], [ @.str.132, %21 ], [ @.str.132, %22 ], [ @.str.132, %23 ], [ @.str.132, %18 ]
+  %.0.i = phi i32 [ 1, %20 ], [ 2, %21 ], [ 4, %22 ], [ 8, %23 ], [ 0, %18 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
   store i64 %6, ptr %10, align 8, !tbaa !51
   %26 = load ptr, ptr %3, align 8, !tbaa !290
@@ -4525,9 +4525,9 @@ define internal void @_ZNK12_GLOBAL__N_113X86AsmBackend16relaxInstructionERN4llv
   %10 = and i64 %9, 128
   %.not = icmp eq i64 %10, 0
   %11 = icmp eq i32 %.val, 1967
-  %12 = select i1 %.not, i32 1989, i32 1988
-  %13 = select i1 %.not, i32 1969, i32 1968
-  %.0.i.i = select i1 %11, i32 %13, i32 %12
+  %12 = select i1 %.not, i32 1969, i32 1968
+  %13 = select i1 %.not, i32 1989, i32 1988
+  %.0.i.i = select i1 %11, i32 %12, i32 %13
   br label %_ZL16getRelaxedOpcodeRKN4llvm6MCInstEb.exit
 
 14:                                               ; preds = %3
@@ -4900,8 +4900,8 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10MCFragmentENS_8DenseMapIS3_NS0_13DenseSetEm
   switch i8 %103, label %.critedge.sink.split [
     i8 1, label %.critedge
     i8 4, label %104
-    i8 0, label %"_ZZNK12_GLOBAL__N_113X86AsmBackend12finishLayoutERKN4llvm11MCAssemblerEENK3$_0clERNS1_10MCFragmentE.exit"
-    i8 9, label %116
+    i8 0, label %116
+    i8 9, label %"_ZZNK12_GLOBAL__N_113X86AsmBackend12finishLayoutERKN4llvm11MCAssemblerEENK3$_0clERNS1_10MCFragmentE.exit"
   ]
 
 104:                                              ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_10MCFragmentENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit.thread
@@ -4928,12 +4928,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_19MCRelaxableFragmentELb1EE9push_backES2_.
   br label %.critedge.sink.split
 
 116:                                              ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_10MCFragmentENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit.thread
-  %117 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_120X86PadForBranchAlignE, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
+  %117 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_114X86PadForAlignE, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %121, label %.critedge.sink.split
 
 "_ZZNK12_GLOBAL__N_113X86AsmBackend12finishLayoutERKN4llvm11MCAssemblerEENK3$_0clERNS1_10MCFragmentE.exit": ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_10MCFragmentENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit.thread
-  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_114X86PadForAlignE, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
+  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_120X86PadForBranchAlignE, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %.critedge.sink.split
 
@@ -5400,7 +5400,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit2
   br label %331
 
 331:                                              ; preds = %.thread36.i.i.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i.i, %323, %.thread.i.i.i.i, %305, %292, %284
-  %.0.i.i.i.i = phi i32 [ 0, %.thread36.i.i.i.i ], [ 0, %.thread.i.i.i.i ], [ 0, %284 ], [ 1, %292 ], [ 1, %305 ], [ 2, %323 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i.i ]
+  %.0.i.i.i.i = phi i32 [ 0, %.thread.i.i.i.i ], [ 0, %.thread36.i.i.i.i ], [ 0, %284 ], [ 1, %292 ], [ 1, %305 ], [ 2, %323 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i.i ]
   %332 = add i32 %.0.i.i.i.i, %283
   %333 = icmp sgt i32 %332, -1
   br i1 %333, label %334, label %.thread.i.i.i
@@ -5503,7 +5503,7 @@ select.unfold.i.i.i:                              ; preds = %347, %342, %352, %.
   br label %_ZNK12_GLOBAL__N_113X86AsmBackend22determinePaddingPrefixERKN4llvm6MCInstE.exit.i.i
 
 _ZNK12_GLOBAL__N_113X86AsmBackend22determinePaddingPrefixERKN4llvm6MCInstE.exit.i.i: ; preds = %369, %363, %362, %361, %360, %359, %358, %select.unfold.i.i.i
-  %.0.i33.i.i = phi i8 [ %.mux.i.i.i, %363 ], [ 54, %362 ], [ 101, %361 ], [ 100, %360 ], [ 38, %359 ], [ 62, %358 ], [ 46, %select.unfold.i.i.i ], [ %375, %369 ]
+  %.0.i33.i.i = phi i8 [ %.mux.i.i.i, %363 ], [ 62, %358 ], [ 38, %359 ], [ 100, %360 ], [ 101, %361 ], [ 54, %362 ], [ 46, %select.unfold.i.i.i ], [ %375, %369 ]
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4) #26
   store ptr %51, ptr %4, align 8, !tbaa !258
   store i64 0, ptr %52, align 8, !tbaa !169
@@ -5818,11 +5818,11 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_119DarwinX86AsmBackend29generateCo
   br label %51
 
 51:                                               ; preds = %40, %34
-  %.2.ph = phi i64 [ %.0132177, %34 ], [ %.sroa.speculated, %40 ]
-  %.288.ph = phi i32 [ %.086178, %34 ], [ %50, %40 ]
-  %.284.ph = phi i32 [ %.082179, %34 ], [ %48, %40 ]
-  %.280.ph = phi i64 [ %37, %34 ], [ %.078180, %40 ]
-  %.267.ph = phi i32 [ %.065183, %34 ], [ %44, %40 ]
+  %.2.ph = phi i64 [ %.sroa.speculated, %40 ], [ %.0132177, %34 ]
+  %.288.ph = phi i32 [ %50, %40 ], [ %.086178, %34 ]
+  %.284.ph = phi i32 [ %48, %40 ], [ %.082179, %34 ]
+  %.280.ph = phi i64 [ %.078180, %40 ], [ %37, %34 ]
+  %.267.ph = phi i32 [ %44, %40 ], [ %.065183, %34 ]
   %52 = getelementptr inbounds nuw i8, ptr %.073181, i64 104
   %.not = icmp eq ptr %52, %8
   br i1 %.not, label %._crit_edge, label %24
@@ -6175,7 +6175,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
 _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit: ; preds = %154, %172, %191, %206, %217, %224
-  %.0.i119 = phi i32 [ %226, %224 ], [ %223, %217 ], [ %216, %206 ], [ %205, %191 ], [ %190, %172 ], [ %171, %154 ]
+  %.0.i119 = phi i32 [ %171, %154 ], [ %190, %172 ], [ %205, %191 ], [ %216, %206 ], [ %223, %217 ], [ %226, %224 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
   %.not96 = icmp eq i32 %.0.i119, -1
   %227 = and i32 %.0.i119, 1023
@@ -6786,7 +6786,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm5X86II18getMemoryOperandNoEm(i64
   br label %28
 
 28:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %24, %23, %19, %18, %15, %10, %6
-  %.0 = phi i32 [ %27, %24 ], [ 1, %23 ], [ %22, %19 ], [ 3, %18 ], [ %17, %15 ], [ %14, %10 ], [ %9, %6 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ]
+  %.0 = phi i32 [ %9, %6 ], [ %14, %10 ], [ %17, %15 ], [ 3, %18 ], [ %22, %19 ], [ 1, %23 ], [ %27, %24 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -7158,7 +7158,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit2
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i
 
 _ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i: ; preds = %.thread36.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i, %46, %.thread.i.i, %28, %15, %1
-  %.0.i.i = phi i32 [ 0, %.thread36.i.i ], [ 0, %.thread.i.i ], [ 0, %1 ], [ 1, %15 ], [ 1, %28 ], [ 2, %46 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i ]
+  %.0.i.i = phi i32 [ 0, %.thread.i.i ], [ 0, %.thread36.i.i ], [ 0, %1 ], [ 1, %15 ], [ 1, %28 ], [ 2, %46 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i ]
   %54 = tail call noundef i32 @_ZN4llvm5X86II18getMemoryOperandNoEm(i64 noundef %7)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %_ZL13isRIPRelativeRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit.thread, label %_ZL13isRIPRelativeRKN4llvm6MCInstERKNS_11MCInstrInfoE.exit
@@ -7317,7 +7317,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm3X8632classifyFirstOpcodeInMacro
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 4, %6 ], [ 3, %5 ], [ 1, %4 ], [ 2, %3 ], [ 0, %2 ], [ 5, %1 ]
+  %.0 = phi i32 [ 0, %2 ], [ 2, %3 ], [ 1, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %1 ]
   ret i32 %.0
 }
 

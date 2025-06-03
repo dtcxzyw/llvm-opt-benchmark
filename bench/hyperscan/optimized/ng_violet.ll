@@ -1255,28 +1255,28 @@ _ZNSt10_HashtableISt10shared_ptrIN3ue28NGHolderEES3_SaIS3_ENSt8__detail9_Identit
   %190 = getelementptr i8, ptr %189, i64 64
   %.val = load i32, ptr %190, align 8
   switch i32 %.val, label %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit.thread [
-    i32 3, label %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit
-    i32 0, label %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit
-    i32 1, label %191
-    i32 2, label %194
+    i32 3, label %191
+    i32 0, label %191
+    i32 1, label %194
+    i32 2, label %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit
   ]
 
-191:                                              ; preds = %187
-  %192 = load i8, ptr %38, align 2, !range !36, !noundef !37
+191:                                              ; preds = %187, %187
+  %192 = load i8, ptr %39, align 1, !range !36, !noundef !37
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %199, label %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit.thread
 
 194:                                              ; preds = %187
-  %195 = load i8, ptr %37, align 1, !range !36, !noundef !37
+  %195 = load i8, ptr %38, align 2, !range !36, !noundef !37
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %199, label %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit.thread
 
-_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit: ; preds = %187, %187
-  %197 = load i8, ptr %39, align 1, !range !36, !noundef !37
+_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit: ; preds = %187
+  %197 = load i8, ptr %37, align 1, !range !36, !noundef !37
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %199, label %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit.thread
 
-199:                                              ; preds = %191, %194, %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit
+199:                                              ; preds = %194, %191, %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit
   %200 = load ptr, ptr %188, align 8
   %201 = getelementptr inbounds nuw i8, ptr %.sroa.0158.0352, i64 24
   %202 = load ptr, ptr %201, align 8
@@ -1725,7 +1725,7 @@ _ZN3ue2L10doEarlyDfaERNS_9RoseBuildERNS_11RoseInGraphERNS_8NGHolderERKSt6vectorI
   %.pre447 = load ptr, ptr %.sroa.0158.0352, align 8
   br label %347
 
-_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit.thread: ; preds = %187, %191, %194, %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit
+_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit.thread: ; preds = %187, %194, %191, %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit
   br i1 %2, label %347, label %.thread188.thread
 
 347:                                              ; preds = %_ZN3ue2L10doEarlyDfaERNS_9RoseBuildERNS_11RoseInGraphERNS_8NGHolderERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS2_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EEbRKNS_13ReportManagerERKNS_14CompileContextE.exit._crit_edge, %_ZN3ue2L14tryForEarlyDfaERKNS_8NGHolderERKNS_14CompileContextE.exit.thread

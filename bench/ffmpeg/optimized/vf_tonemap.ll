@@ -677,7 +677,7 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   br label %tonemap.exit.us
 
 tonemap.exit.us:                                  ; preds = %208, %204, %198, %195, %175, %167, %158, %156
-  %.0.i.us = phi nsz float [ %157, %156 ], [ %166, %158 ], [ %174, %167 ], [ %..i.i.us, %175 ], [ %197, %195 ], [ %203, %198 ], [ %237, %208 ], [ %157, %204 ]
+  %.0.i.us = phi nsz float [ %157, %156 ], [ %203, %198 ], [ %197, %195 ], [ %..i.i.us, %175 ], [ %174, %167 ], [ %166, %158 ], [ %237, %208 ], [ %157, %204 ]
   %238 = fdiv nsz float %.0.i.us, %157
   %239 = fmul nsz float %146, %238
   store float %239, ptr %gep32.us, align 4, !tbaa !72

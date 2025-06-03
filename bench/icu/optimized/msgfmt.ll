@@ -1990,7 +1990,7 @@ _ZNK6icu_7714MessagePattern12getSubstringERKNS0_4PartE.exit: ; preds = %99
   br label %119
 
 119:                                              ; preds = %118, %117, %116, %112, %86
-  %.2 = phi i32 [ %.04976, %118 ], [ %.04976, %117 ], [ %.04976, %116 ], [ %.3, %112 ], [ %.04976, %86 ]
+  %.2 = phi i32 [ %.04976, %118 ], [ %.04976, %86 ], [ %.3, %112 ], [ %.04976, %116 ], [ %.04976, %117 ]
   %.not63 = icmp eq i32 %.047, -1
   br i1 %.not63, label %128, label %120
 
@@ -7068,7 +7068,7 @@ define noundef ptr @_ZN6icu_7713MessageFormat23createAppropriateFormatERNS_13Uni
   br label %_ZN6icu_77L8makeRBNFENS_15URBNFRuleSetTagERKNS_6LocaleERKNS_13UnicodeStringER10UErrorCode.exit
 
 common.resume:                                    ; preds = %50, %69, %151, %126, %101
-  %common.resume.op = phi { ptr, i32 } [ %102, %101 ], [ %127, %126 ], [ %152, %151 ], [ %70, %69 ], [ %.pn.pn, %50 ]
+  %common.resume.op = phi { ptr, i32 } [ %102, %101 ], [ %127, %126 ], [ %152, %151 ], [ %.pn.pn, %50 ], [ %70, %69 ]
   resume { ptr, i32 } %common.resume.op
 
 101:                                              ; preds = %98
@@ -7206,7 +7206,7 @@ common.resume:                                    ; preds = %50, %69, %151, %126
   br label %_ZN6icu_77L8makeRBNFENS_15URBNFRuleSetTagERKNS_6LocaleERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZN6icu_77L8makeRBNFENS_15URBNFRuleSetTagERKNS_6LocaleERKNS_13UnicodeStringER10UErrorCode.exit: ; preds = %166, %156, %153, %150, %141, %131, %128, %125, %116, %106, %103, %100, %170, %42, %51, %29, %26, %23, %20, %86, %68, %56, %54, %91, %89, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %170 ], [ %67, %68 ], [ %.1, %86 ], [ %41, %42 ], [ null, %51 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %53, %56 ], [ %53, %54 ], [ %.1, %91 ], [ %.1, %89 ], [ null, %100 ], [ %96, %103 ], [ %96, %106 ], [ %96, %116 ], [ null, %125 ], [ %121, %128 ], [ %121, %131 ], [ %121, %141 ], [ null, %150 ], [ %146, %153 ], [ %146, %156 ], [ %146, %166 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %170 ], [ %41, %42 ], [ null, %51 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %67, %68 ], [ %.1, %86 ], [ %53, %56 ], [ %53, %54 ], [ %.1, %91 ], [ %.1, %89 ], [ null, %100 ], [ %96, %103 ], [ %96, %106 ], [ %96, %116 ], [ null, %125 ], [ %121, %128 ], [ %121, %131 ], [ %121, %141 ], [ null, %150 ], [ %146, %153 ], [ %146, %156 ], [ %146, %166 ]
   ret ptr %.0
 }
 

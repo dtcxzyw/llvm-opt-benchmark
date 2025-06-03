@@ -1590,7 +1590,7 @@ default.unreachable:                              ; preds = %182, %.thread262
           to label %112 unwind label %100
 
 99:                                               ; preds = %128, %153, %137, %109, %100
-  %.pn200 = phi { ptr, i32 } [ %101, %100 ], [ %154, %153 ], [ %129, %128 ], [ %138, %137 ], [ %110, %109 ]
+  %.pn200 = phi { ptr, i32 } [ %138, %137 ], [ %154, %153 ], [ %129, %128 ], [ %101, %100 ], [ %110, %109 ]
   invoke void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17hb43928480abb9f20E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %53)
           to label %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h6ff015252568a890E.exit" unwind label %155
 
@@ -1842,7 +1842,7 @@ default.unreachable:                              ; preds = %182, %.thread262
   br label %172
 
 common.resume:                                    ; preds = %404, %391, %381, %352, %342, %298, %169, %178, %179, %228, %237, %359, %395, %329, %174, %180, %204, %"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17ha9c233c4d008fc49E.exit223", %220, %224, %246, %262, %303, %335, %401
-  %common.resume.op = phi { ptr, i32 } [ %360, %359 ], [ %396, %395 ], [ %330, %329 ], [ %238, %237 ], [ %229, %228 ], [ %170, %169 ], [ %.pn202, %179 ], [ %.pn202, %178 ], [ %170, %174 ], [ %.pn202, %180 ], [ %205, %204 ], [ %.pn196, %"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17ha9c233c4d008fc49E.exit223" ], [ %221, %220 ], [ %225, %224 ], [ %247, %246 ], [ %.pn.pn, %262 ], [ %304, %303 ], [ %336, %335 ], [ %402, %401 ], [ %299, %298 ], [ %343, %342 ], [ %353, %352 ], [ %382, %381 ], [ %392, %391 ], [ %405, %404 ]
+  %common.resume.op = phi { ptr, i32 } [ %170, %169 ], [ %.pn202, %179 ], [ %.pn202, %178 ], [ %229, %228 ], [ %238, %237 ], [ %330, %329 ], [ %360, %359 ], [ %396, %395 ], [ %170, %174 ], [ %.pn202, %180 ], [ %205, %204 ], [ %.pn196, %"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17ha9c233c4d008fc49E.exit223" ], [ %221, %220 ], [ %225, %224 ], [ %247, %246 ], [ %.pn.pn, %262 ], [ %304, %303 ], [ %336, %335 ], [ %402, %401 ], [ %299, %298 ], [ %343, %342 ], [ %353, %352 ], [ %382, %381 ], [ %392, %391 ], [ %405, %404 ]
   resume { ptr, i32 } %common.resume.op
 
 174:                                              ; preds = %169

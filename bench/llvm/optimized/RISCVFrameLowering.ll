@@ -5505,7 +5505,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFuncti
   br label %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread
 
 _ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread: ; preds = %37, %._crit_edge, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread.fold.split, %15, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i, %29, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %2, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit
-  %.0 = phi i32 [ -1, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit ], [ -1, %2 ], [ 0, %58 ], [ 1, %57 ], [ 2, %56 ], [ 3, %55 ], [ 4, %54 ], [ 5, %53 ], [ 6, %52 ], [ 7, %51 ], [ 8, %50 ], [ 9, %49 ], [ 10, %48 ], [ 11, %47 ], [ -1, %._crit_edge ], [ -1, %29 ], [ -1, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i ], [ -1, %15 ], [ 12, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread.fold.split ], [ -1, %37 ]
+  %.0 = phi i32 [ -1, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit ], [ -1, %2 ], [ 11, %47 ], [ 10, %48 ], [ 9, %49 ], [ 8, %50 ], [ 7, %51 ], [ 6, %52 ], [ 5, %53 ], [ 4, %54 ], [ 3, %55 ], [ 2, %56 ], [ 1, %57 ], [ 0, %58 ], [ -1, %._crit_edge ], [ -1, %29 ], [ -1, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i ], [ -1, %15 ], [ 12, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread.fold.split ], [ -1, %37 ]
   ret i32 %.0
 }
 
@@ -9552,8 +9552,8 @@ _ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoES
   br label %68
 
 68:                                               ; preds = %_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit, %65, %59
-  %.sroa.18.0 = phi i64 [ 0, %_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ], [ %67, %65 ], [ 0, %59 ]
-  %.sroa.0100.0 = phi i64 [ 0, %_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ], [ 0, %65 ], [ %64, %59 ]
+  %.sroa.18.0 = phi i64 [ 0, %_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ], [ 0, %59 ], [ %67, %65 ]
+  %.sroa.0100.0 = phi i64 [ 0, %_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ], [ %64, %59 ], [ 0, %65 ]
   %69 = load ptr, ptr %14, align 8, !tbaa !282
   %70 = load ptr, ptr %6, align 8, !tbaa !257
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
@@ -11329,8 +11329,8 @@ _ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoE
   br label %_ZL24getPushPopEncodingAndNumN4llvm8RegisterE.exit
 
 _ZL24getPushPopEncodingAndNumN4llvm8RegisterE.exit: ; preds = %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56
-  %.sroa.091.0.i = phi i32 [ 4, %56 ], [ 5, %55 ], [ 6, %54 ], [ 7, %53 ], [ 8, %52 ], [ 9, %51 ], [ 10, %50 ], [ 11, %49 ], [ 12, %48 ], [ 13, %47 ], [ 14, %46 ], [ 15, %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ]
-  %.sroa.13.0.i = phi i32 [ 1, %56 ], [ 2, %55 ], [ 3, %54 ], [ 4, %53 ], [ 5, %52 ], [ 6, %51 ], [ 7, %50 ], [ 8, %49 ], [ 9, %48 ], [ 10, %47 ], [ 11, %46 ], [ 13, %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ]
+  %.sroa.091.0.i = phi i32 [ 14, %46 ], [ 13, %47 ], [ 12, %48 ], [ 11, %49 ], [ 10, %50 ], [ 9, %51 ], [ 8, %52 ], [ 7, %53 ], [ 6, %54 ], [ 5, %55 ], [ 4, %56 ], [ 15, %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ]
+  %.sroa.13.0.i = phi i32 [ 11, %46 ], [ 10, %47 ], [ 9, %48 ], [ 8, %49 ], [ 7, %50 ], [ 6, %51 ], [ 5, %52 ], [ 4, %53 ], [ 3, %54 ], [ 2, %55 ], [ 1, %56 ], [ 13, %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 116
   store i32 %.sroa.13.0.i, ptr %57, align 4, !tbaa !803
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

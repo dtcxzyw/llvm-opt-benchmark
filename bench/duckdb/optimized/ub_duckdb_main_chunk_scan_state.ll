@@ -132,7 +132,7 @@ define noundef zeroext i1 @_ZN6duckdb25QueryResultChunkScanState12InternalLoadER
   br label %15
 
 15:                                               ; preds = %8, %11
-  %.1 = phi i1 [ true, %8 ], [ %14, %11 ]
+  %.1 = phi i1 [ %14, %11 ], [ true, %8 ]
   ret i1 %.1
 }
 

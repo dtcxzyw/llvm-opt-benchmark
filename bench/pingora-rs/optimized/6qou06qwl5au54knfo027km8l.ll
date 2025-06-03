@@ -750,8 +750,8 @@ default.unreachable:                              ; preds = %24, %2
           to label %27 unwind label %112, !noalias !56
 
 24:                                               ; preds = %27, %20, %2, %2, %2, %2, %2, %2, %2, %2, %2
-  %.sroa.15.0.i = phi i64 [ %29, %27 ], [ %.sroa.15.0.copyload.i, %20 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
-  %.sroa.145.0.i = phi ptr [ %28, %27 ], [ %.sroa.145.0.copyload.i, %20 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.15.0.i = phi i64 [ %.sroa.15.0.copyload.i, %20 ], [ %29, %27 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.145.0.i = phi ptr [ %.sroa.145.0.copyload.i, %20 ], [ %28, %27 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.i, i64 7, i1 false), !noalias !56
@@ -821,8 +821,8 @@ default.unreachable:                              ; preds = %24, %2
   br label %47
 
 47:                                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i", %30, %24
-  %.sroa.72.0.i.i = phi ptr [ %35, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ undef, %30 ], [ undef, %24 ]
-  %.sroa.6.0.i.i = phi i8 [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ %32, %30 ], [ undef, %24 ]
+  %.sroa.72.0.i.i = phi ptr [ undef, %30 ], [ %35, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ undef, %24 ]
+  %.sroa.6.0.i.i = phi i8 [ %32, %30 ], [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ undef, %24 ]
   store i8 %26, ptr %9, align 8, !noalias !60
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %.sroa.6.0.i.i, ptr %.sroa.6.0..sroa_idx.i.i, align 1, !noalias !60

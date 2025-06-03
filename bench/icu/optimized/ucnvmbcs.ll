@@ -214,16 +214,16 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
   br label %85
 
 85:                                               ; preds = %82, %81
-  %.2151 = phi ptr [ %.0149, %81 ], [ %83, %82 ]
-  %.0142 = phi i8 [ 0, %81 ], [ %84, %82 ]
+  %.2151 = phi ptr [ %83, %82 ], [ %.0149, %81 ]
+  %.0142 = phi i8 [ %84, %82 ], [ 0, %81 ]
   %86 = getelementptr inbounds nuw i8, ptr %.2151, i64 1
   %87 = load i8, ptr %.2151, align 1, !tbaa !28
   %88 = or i8 %87, %.0142
   br label %89
 
 89:                                               ; preds = %85, %81
-  %.3152 = phi ptr [ %.0149, %81 ], [ %86, %85 ]
-  %.1 = phi i8 [ 0, %81 ], [ %88, %85 ]
+  %.3152 = phi ptr [ %86, %85 ], [ %.0149, %81 ]
+  %.1 = phi i8 [ %88, %85 ], [ 0, %81 ]
   %90 = getelementptr inbounds nuw i8, ptr %.3152, i64 2
   %91 = load i8, ptr %.3152, align 1, !tbaa !28
   %92 = getelementptr inbounds nuw i8, ptr %.3152, i64 1
@@ -2703,11 +2703,11 @@ _ZL33ucnv_MBCSSingleFromBMPWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.
   br i1 %or.cond.i453, label %248, label %233
 
 233:                                              ; preds = %301, %288, %201
-  %234 = phi ptr [ %.pre.i457, %301 ], [ %.pre97.i, %288 ], [ %203, %201 ]
-  %.176.i = phi i32 [ %308, %301 ], [ %.272.i, %288 ], [ %231, %201 ]
-  %.171.i = phi i32 [ %308, %301 ], [ %.272.i, %288 ], [ 0, %201 ]
-  %.167.i = phi i32 [ %298, %301 ], [ 0, %288 ], [ %229, %201 ]
-  %.1.i = phi i32 [ %314, %301 ], [ %289, %288 ], [ %213, %201 ]
+  %234 = phi ptr [ %.pre97.i, %288 ], [ %.pre.i457, %301 ], [ %203, %201 ]
+  %.176.i = phi i32 [ %.272.i, %288 ], [ %308, %301 ], [ %231, %201 ]
+  %.171.i = phi i32 [ %.272.i, %288 ], [ %308, %301 ], [ 0, %201 ]
+  %.167.i = phi i32 [ 0, %288 ], [ %298, %301 ], [ %229, %201 ]
+  %.1.i = phi i32 [ %289, %288 ], [ %314, %301 ], [ %213, %201 ]
   %235 = icmp ult ptr %234, %205
   br i1 %235, label %236, label %_ZL37ucnv_MBCSSingleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
@@ -2854,8 +2854,8 @@ _ZL33ucnv_MBCSSingleFromBMPWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.
   br label %_ZL37ucnv_MBCSSingleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
 _ZL37ucnv_MBCSSingleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit: ; preds = %233, %248, %.thread92.i, %.sink.split.i
-  %315 = phi ptr [ %.pre.i457, %.thread92.i ], [ %234, %233 ], [ %249, %248 ], [ %.ph.i, %.sink.split.i ]
-  %.268.i = phi i32 [ %298, %.thread92.i ], [ %.167.i, %233 ], [ %.066.i, %248 ], [ %.268.ph.i, %.sink.split.i ]
+  %315 = phi ptr [ %234, %233 ], [ %.pre.i457, %.thread92.i ], [ %249, %248 ], [ %.ph.i, %.sink.split.i ]
+  %.268.i = phi i32 [ %.167.i, %233 ], [ %298, %.thread92.i ], [ %.066.i, %248 ], [ %.268.ph.i, %.sink.split.i ]
   store i32 %.268.i, ptr %228, align 4, !tbaa !102
   store ptr %315, ptr %39, align 8, !tbaa !94
   %316 = load ptr, ptr %7, align 8, !tbaa !61
@@ -2920,11 +2920,11 @@ _ZL37ucnv_MBCSSingleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorC
   br i1 %or.cond.i459, label %403, label %.preheader.i460
 
 .preheader.i460:                                  ; preds = %507, %462, %321
-  %355 = phi ptr [ %328, %321 ], [ %.pre.i465, %507 ], [ %.pre188.i, %462 ]
-  %.1114.ph.i = phi i32 [ 0, %321 ], [ %.3116.i, %507 ], [ %469, %462 ]
-  %.1108.ph.i = phi i32 [ %353, %321 ], [ %.3116.i, %507 ], [ %469, %462 ]
-  %.1102.ph.i = phi i32 [ %351, %321 ], [ 0, %507 ], [ %459, %462 ]
-  %.1.ph.i = phi i32 [ %338, %321 ], [ %508, %507 ], [ %475, %462 ]
+  %355 = phi ptr [ %328, %321 ], [ %.pre188.i, %462 ], [ %.pre.i465, %507 ]
+  %.1114.ph.i = phi i32 [ 0, %321 ], [ %469, %462 ], [ %.3116.i, %507 ]
+  %.1108.ph.i = phi i32 [ %353, %321 ], [ %469, %462 ], [ %.3116.i, %507 ]
+  %.1102.ph.i = phi i32 [ %351, %321 ], [ %459, %462 ], [ 0, %507 ]
+  %.1.ph.i = phi i32 [ %338, %321 ], [ %475, %462 ], [ %508, %507 ]
   %356 = icmp ult ptr %355, %330
   br i1 %356, label %.lr.ph.i461.preheader, label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
@@ -3052,11 +3052,11 @@ select.unfold.i:                                  ; preds = %406
   br label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
 418:                                              ; preds = %select.unfold.i, %396
-  %419 = phi ptr [ %381, %396 ], [ %411, %select.unfold.i ]
-  %.4117.i = phi i32 [ %364, %396 ], [ %412, %select.unfold.i ]
-  %.5112.i = phi i32 [ %.1108165.i548, %396 ], [ %.0107.i, %select.unfold.i ]
-  %.4105.i = phi i32 [ %363, %396 ], [ %415, %select.unfold.i ]
-  %.4.i462 = phi i32 [ %.1167.i547, %396 ], [ %.098.i, %select.unfold.i ]
+  %419 = phi ptr [ %411, %select.unfold.i ], [ %381, %396 ]
+  %.4117.i = phi i32 [ %412, %select.unfold.i ], [ %364, %396 ]
+  %.5112.i = phi i32 [ %.0107.i, %select.unfold.i ], [ %.1108165.i548, %396 ]
+  %.4105.i = phi i32 [ %415, %select.unfold.i ], [ %363, %396 ]
+  %.4.i462 = phi i32 [ %.098.i, %select.unfold.i ], [ %.1167.i547, %396 ]
   %420 = ashr i32 %.4105.i, 10
   %421 = sext i32 %420 to i64
   %422 = getelementptr inbounds i16, ptr %342, i64 %421
@@ -3101,11 +3101,11 @@ select.unfold.i:                                  ; preds = %406
   br i1 %.old2.not.i, label %450, label %476
 
 450:                                              ; preds = %449, %445, %select.unfold.i, %.thread.i468
-  %451 = phi ptr [ %411, %select.unfold.i ], [ %384, %.thread.i468 ], [ %419, %449 ], [ %419, %445 ]
-  %.2115.i = phi i32 [ %412, %select.unfold.i ], [ %364, %.thread.i468 ], [ %.4117.i, %449 ], [ %.4117.i, %445 ]
-  %.3110.i = phi i32 [ %.0107.i, %select.unfold.i ], [ %.1108165.i548, %.thread.i468 ], [ %.5112.i, %449 ], [ %.5112.i, %445 ]
-  %.3104.i = phi i32 [ %415, %select.unfold.i ], [ %363, %.thread.i468 ], [ %.4105.i, %449 ], [ %.4105.i, %445 ]
-  %.2.i466 = phi i32 [ %.098.i, %select.unfold.i ], [ %.1167.i547, %.thread.i468 ], [ %.4.i462, %449 ], [ %.4.i462, %445 ]
+  %451 = phi ptr [ %384, %.thread.i468 ], [ %419, %449 ], [ %419, %445 ], [ %411, %select.unfold.i ]
+  %.2115.i = phi i32 [ %364, %.thread.i468 ], [ %.4117.i, %449 ], [ %.4117.i, %445 ], [ %412, %select.unfold.i ]
+  %.3110.i = phi i32 [ %.1108165.i548, %.thread.i468 ], [ %.5112.i, %449 ], [ %.5112.i, %445 ], [ %.0107.i, %select.unfold.i ]
+  %.3104.i = phi i32 [ %363, %.thread.i468 ], [ %.4105.i, %449 ], [ %.4105.i, %445 ], [ %415, %select.unfold.i ]
+  %.2.i466 = phi i32 [ %.1167.i547, %.thread.i468 ], [ %.4.i462, %449 ], [ %.4.i462, %445 ], [ %.098.i, %select.unfold.i ]
   store ptr %451, ptr %327, align 8, !tbaa !94
   %452 = load ptr, ptr %323, align 8, !tbaa !50
   %453 = load ptr, ptr %4, align 8, !tbaa !61
@@ -3223,8 +3223,8 @@ select.unfold.i:                                  ; preds = %406
   br label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
 _ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit: ; preds = %377, %.preheader.i460, %403, %.thread144.i, %417, %450, %503, %.lr.ph.i461._crit_edge
-  %509 = phi ptr [ %.pre188.i, %450 ], [ %.pre187.i, %503 ], [ %381, %417 ], [ %.lcssa528, %.lr.ph.i461._crit_edge ], [ %404, %403 ], [ %404, %.thread144.i ], [ %355, %.preheader.i460 ], [ %378, %377 ]
-  %.2103.i = phi i32 [ %459, %450 ], [ 0, %503 ], [ %363, %417 ], [ %.1102166.i.lcssa, %.lr.ph.i461._crit_edge ], [ %.0101.i, %403 ], [ %.0101.i, %.thread144.i ], [ %.1102.ph.i, %.preheader.i460 ], [ 0, %377 ]
+  %509 = phi ptr [ %.pre188.i, %450 ], [ %381, %417 ], [ %.lcssa528, %.lr.ph.i461._crit_edge ], [ %.pre187.i, %503 ], [ %404, %403 ], [ %404, %.thread144.i ], [ %355, %.preheader.i460 ], [ %378, %377 ]
+  %.2103.i = phi i32 [ %459, %450 ], [ %363, %417 ], [ %.1102166.i.lcssa, %.lr.ph.i461._crit_edge ], [ 0, %503 ], [ %.0101.i, %403 ], [ %.0101.i, %.thread144.i ], [ %.1102.ph.i, %.preheader.i460 ], [ 0, %377 ]
   store i32 %.2103.i, ptr %350, align 4, !tbaa !102
   store ptr %509, ptr %327, align 8, !tbaa !94
   %510 = load ptr, ptr %4, align 8, !tbaa !61
@@ -3328,14 +3328,14 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit472:        ; preds = %550, %546, %552, %5
   br i1 %or.cond, label %739, label %.preheader
 
 .preheader:                                       ; preds = %938, %1006, %_ZL12getSISOBytes11SISO_OptionjPh.exit472
-  %560 = phi ptr [ %526, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %1007, %1006 ], [ %953, %938 ]
-  %561 = phi ptr [ %514, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %.pre, %1006 ], [ %939, %938 ]
-  %.1361.ph = phi i32 [ -1, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %spec.select442, %1006 ], [ %spec.select, %938 ]
-  %.1353.ph = phi i32 [ %548, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %spec.select443, %1006 ], [ %spec.select441, %938 ]
-  %.1347.ph = phi i32 [ 0, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %.3349628, %1006 ], [ %946, %938 ]
-  %.1340.ph = phi i32 [ %541, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ 0, %1006 ], [ %933, %938 ]
-  %.2318.ph = phi i32 [ %.0316, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %.5321631, %1006 ], [ %935, %938 ]
-  %.1313.ph = phi i32 [ %524, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %1008, %1006 ], [ %952, %938 ]
+  %560 = phi ptr [ %526, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %953, %938 ], [ %1007, %1006 ]
+  %561 = phi ptr [ %514, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %939, %938 ], [ %.pre, %1006 ]
+  %.1361.ph = phi i32 [ -1, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %spec.select, %938 ], [ %spec.select442, %1006 ]
+  %.1353.ph = phi i32 [ %548, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %spec.select441, %938 ], [ %spec.select443, %1006 ]
+  %.1347.ph = phi i32 [ 0, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %946, %938 ], [ %.3349628, %1006 ]
+  %.1340.ph = phi i32 [ %541, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %933, %938 ], [ 0, %1006 ]
+  %.2318.ph = phi i32 [ %.0316, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %935, %938 ], [ %.5321631, %1006 ]
+  %.1313.ph = phi i32 [ %524, %_ZL12getSISOBytes11SISO_OptionjPh.exit472 ], [ %952, %938 ], [ %1008, %1006 ]
   %562 = icmp ult ptr %561, %516
   br i1 %562, label %.lr.ph557.preheader, label %.loopexit
 
@@ -3951,12 +3951,12 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit472:        ; preds = %550, %546, %552, %5
   br i1 %.old4.not, label %924, label %954
 
 924:                                              ; preds = %755, %919, %923, %721, %692, %678, %667, %639, %617, %606
-  %925 = phi ptr [ %749, %755 ], [ %589, %721 ], [ %589, %692 ], [ %589, %678 ], [ %589, %667 ], [ %589, %639 ], [ %589, %617 ], [ %589, %606 ], [ %758, %923 ], [ %758, %919 ]
-  %.4364 = phi i32 [ %.0360, %755 ], [ %.1361552743, %721 ], [ %.1361552743, %692 ], [ %.1361552743, %678 ], [ %.1361552743, %667 ], [ %.1361552743, %639 ], [ %.1361552743, %617 ], [ %.1361552743, %606 ], [ %.6366, %923 ], [ %.6366, %919 ]
-  %.3355 = phi i32 [ %.0352, %755 ], [ %.1353553742, %721 ], [ %.1353553742, %692 ], [ %.1353553742, %678 ], [ %.1353553742, %667 ], [ %.1353553742, %639 ], [ %.1353553742, %617 ], [ %.1353553742, %606 ], [ %.5357, %923 ], [ %.5357, %919 ]
-  %.2348 = phi i32 [ %750, %755 ], [ %570, %721 ], [ %570, %692 ], [ %570, %678 ], [ %570, %667 ], [ %570, %639 ], [ %570, %617 ], [ %570, %606 ], [ %.4350, %923 ], [ %.4350, %919 ]
-  %.3342 = phi i32 [ %753, %755 ], [ %569, %721 ], [ %569, %692 ], [ %569, %678 ], [ %569, %667 ], [ %569, %639 ], [ %569, %617 ], [ %569, %606 ], [ %.4343, %923 ], [ %.4343, %919 ]
-  %.3 = phi i32 [ %.0312, %755 ], [ %.1313556740, %721 ], [ %.1313556740, %692 ], [ %.1313556740, %678 ], [ %.1313556740, %667 ], [ %.1313556740, %639 ], [ %.1313556740, %617 ], [ %.1313556740, %606 ], [ %.5, %923 ], [ %.5, %919 ]
+  %925 = phi ptr [ %589, %606 ], [ %589, %617 ], [ %589, %639 ], [ %589, %667 ], [ %589, %678 ], [ %589, %692 ], [ %589, %721 ], [ %758, %923 ], [ %758, %919 ], [ %749, %755 ]
+  %.4364 = phi i32 [ %.1361552743, %606 ], [ %.1361552743, %617 ], [ %.1361552743, %639 ], [ %.1361552743, %667 ], [ %.1361552743, %678 ], [ %.1361552743, %692 ], [ %.1361552743, %721 ], [ %.6366, %923 ], [ %.6366, %919 ], [ %.0360, %755 ]
+  %.3355 = phi i32 [ %.1353553742, %606 ], [ %.1353553742, %617 ], [ %.1353553742, %639 ], [ %.1353553742, %667 ], [ %.1353553742, %678 ], [ %.1353553742, %692 ], [ %.1353553742, %721 ], [ %.5357, %923 ], [ %.5357, %919 ], [ %.0352, %755 ]
+  %.2348 = phi i32 [ %570, %606 ], [ %570, %617 ], [ %570, %639 ], [ %570, %667 ], [ %570, %678 ], [ %570, %692 ], [ %570, %721 ], [ %.4350, %923 ], [ %.4350, %919 ], [ %750, %755 ]
+  %.3342 = phi i32 [ %569, %606 ], [ %569, %617 ], [ %569, %639 ], [ %569, %667 ], [ %569, %678 ], [ %569, %692 ], [ %569, %721 ], [ %.4343, %923 ], [ %.4343, %919 ], [ %753, %755 ]
+  %.3 = phi i32 [ %.1313556740, %606 ], [ %.1313556740, %617 ], [ %.1313556740, %639 ], [ %.1313556740, %667 ], [ %.1313556740, %678 ], [ %.1313556740, %692 ], [ %.1313556740, %721 ], [ %.5, %923 ], [ %.5, %919 ], [ %.0312, %755 ]
   store ptr %925, ptr %513, align 8, !tbaa !94
   %926 = load ptr, ptr %28, align 8, !tbaa !50
   %927 = load ptr, ptr %13, align 8, !tbaa !61
@@ -4147,7 +4147,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit472:        ; preds = %550, %546, %552, %5
   br label %1016
 
 1016:                                             ; preds = %1012, %1009
-  %.0 = phi ptr [ %1011, %1009 ], [ %1015, %1012 ]
+  %.0 = phi ptr [ %1015, %1012 ], [ %1011, %1009 ]
   %1017 = lshr i32 %.3335, 8
   %1018 = trunc i32 %1017 to i8
   %1019 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -4155,7 +4155,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit472:        ; preds = %550, %546, %552, %5
   br label %1020
 
 1020:                                             ; preds = %1016, %1009
-  %.1 = phi ptr [ %1011, %1009 ], [ %1019, %1016 ]
+  %.1 = phi ptr [ %1019, %1016 ], [ %1011, %1009 ]
   %1021 = trunc i32 %.3335 to i8
   store i8 %1021, ptr %.1, align 1, !tbaa !28
   br label %1022
@@ -6285,7 +6285,7 @@ define internal void @_ZL17ucnv_MBCSWriteSubP25UConverterFromUnicodeArgsiP10UErr
   br label %59
 
 53:                                               ; preds = %46, %37
-  %.132 = phi ptr [ %51, %46 ], [ %39, %37 ]
+  %.132 = phi ptr [ %39, %37 ], [ %51, %46 ]
   %54 = ptrtoint ptr %.132 to i64
   %55 = ptrtoint ptr %4 to i64
   %56 = sub i64 %54, %55

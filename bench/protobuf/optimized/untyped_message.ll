@@ -2743,7 +2743,7 @@ _ZN6google8protobuf13json_internalL24MakeUnknownWireTypeErrorEi.exit228: ; preds
 sw.epilog:                                        ; preds = %do.body110, %do.body92, %do.body74, %do.body, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then22, %if.end4.i, %if.then3.i, %if.end48, %invoke.cont37.thread, %invoke.cont30.thread, %invoke.cont23.thread, %if.end.i, %if.else.i, %if.else.i79, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit, %sw.epilog
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then22, %if.end4.i, %if.then3.i, %if.end48, %invoke.cont37.thread, %invoke.cont30.thread, %invoke.cont23.thread, %if.else.i79, %if.else.i, %if.end.i, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit, %sw.epilog
   %cleanup.dest.slot.0270 = phi i32 [ 2, %if.then3.i ], [ 2, %if.end48 ], [ 2, %if.end4.i ], [ 2, %invoke.cont37.thread ], [ 2, %invoke.cont30.thread ], [ 2, %invoke.cont23.thread ], [ 2, %if.else.i79 ], [ 2, %if.else.i ], [ 2, %if.end.i ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
   %switch = icmp eq i32 %cleanup.dest.slot.0270, 1
   br i1 %switch, label %return, label %while.body
@@ -3722,7 +3722,7 @@ return:                                           ; preds = %cleanup159, %cleanu
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup109, %lpad
-  %.pn37 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup109 ], [ %3, %lpad ]
+  %.pn37 = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %ehcleanup109 ]
   resume { ptr, i32 } %.pn37
 }
 

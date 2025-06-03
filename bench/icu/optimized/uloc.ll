@@ -2096,22 +2096,22 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread:
   br i1 %76, label %77, label %.preheader131, !llvm.loop !31
 
 77:                                               ; preds = %._crit_edge, %._crit_edge139
-  %.1128 = phi i32 [ %spec.select, %._crit_edge139 ], [ %.0, %._crit_edge ]
-  call void @uprv_sortArray_77(ptr noundef nonnull %7, i32 noundef %.1128, i32 noundef 48, ptr noundef nonnull @_ZN12_GLOBAL__N_121compareKeywordStructsEPKvS1_S1_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %5)
-  %78 = icmp sgt i32 %.1128, 0
+  %.1129 = phi i32 [ %spec.select, %._crit_edge139 ], [ %.0, %._crit_edge ]
+  call void @uprv_sortArray_77(ptr noundef nonnull %7, i32 noundef %.1129, i32 noundef 48, ptr noundef nonnull @_ZN12_GLOBAL__N_121compareKeywordStructsEPKvS1_S1_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %5)
+  %78 = icmp sgt i32 %.1129, 0
   br i1 %78, label %.lr.ph145, label %.thread
 
 .lr.ph145:                                        ; preds = %77
   br i1 %4, label %.lr.ph145.split.us.preheader, label %.lr.ph145.split.preheader
 
 .lr.ph145.split.preheader:                        ; preds = %.lr.ph145
-  %wide.trip.count157 = zext nneg i32 %.1128 to i64
+  %wide.trip.count157 = zext nneg i32 %.1129 to i64
   br label %.lr.ph145.split
 
 .lr.ph145.split.us.preheader:                     ; preds = %.lr.ph145
-  %79 = add nsw i32 %.1128, -1
+  %79 = add nsw i32 %.1129, -1
   %80 = zext nneg i32 %79 to i64
-  %wide.trip.count162 = zext nneg i32 %.1128 to i64
+  %wide.trip.count162 = zext nneg i32 %.1129 to i64
   br label %.lr.ph145.split.us
 
 .lr.ph145.split.us:                               ; preds = %.lr.ph145.split.us.preheader, %102
@@ -8050,7 +8050,7 @@ define void @_Z34ulocimp_toLegacyKeyWithFallback_77St17basic_string_viewIcSt11ch
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %51, %50 ]
+  %.1.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %53 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !20
   %54 = call signext i8 @uprv_isASCIILetter_77(i8 noundef signext %53)
   %.not.i1.i = icmp ne i8 %54, 0
@@ -8064,7 +8064,7 @@ define void @_Z34ulocimp_toLegacyKeyWithFallback_77St17basic_string_viewIcSt11ch
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %59, %58 ]
+  %.2.i.i.i.i.i = phi ptr [ %59, %58 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %61 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !20
   %62 = call signext i8 @uprv_isASCIILetter_77(i8 noundef signext %61)
   %.not.i.i = icmp ne i8 %62, 0

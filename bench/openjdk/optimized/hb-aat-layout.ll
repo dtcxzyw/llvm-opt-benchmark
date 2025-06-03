@@ -5697,28 +5697,28 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEELb1EEES4_E16sani
   %69 = zext i8 %68 to i16
   %trunc.i.i.i.i.i = or disjoint i16 %66, %69
   switch i16 %trunc.i.i.i.i.i, label %85 [
-    i16 1, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i
-    i16 2, label %70
-    i16 3, label %74
+    i16 1, label %70
+    i16 2, label %74
+    i16 3, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i
   ]
 
 70:                                               ; preds = %63
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %72 = ptrtoint ptr %71 to i64
   %73 = sub i64 %72, %44
-  %.not.i.i = icmp ugt i64 %73, %47
-  br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
+  %.not12.i.i = icmp ugt i64 %73, %47
+  br i1 %.not12.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
 
 74:                                               ; preds = %63
-  %75 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  br i1 %75, label %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %76 = ptrtoint ptr %75 to i64
+  %77 = sub i64 %76, %44
+  %.not.i.i = icmp ugt i64 %77, %47
+  br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i: ; preds = %63
-  %76 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %77 = ptrtoint ptr %76 to i64
-  %78 = sub i64 %77, %44
-  %.not12.i.i = icmp ugt i64 %78, %47
-  br i1 %.not12.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
+  %78 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  br i1 %78, label %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i, %74, %70, %54
   %79 = load i32, ptr %37, align 4
@@ -5736,7 +5736,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i: ; preds = %_ZN21hb_saniti
   store i16 0, ptr %40, align 1
   br label %85
 
-85:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i, %48, %74, %70, %63, %84
+85:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i, %48, %70, %74, %63, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10CaretValueENS1_7IntTypeItLj2EEELb1EEEJPKNS1_8LigGlyphEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %39, !llvm.loop !32
@@ -7602,7 +7602,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13ChainSubtableINS_13Exte
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ExtendedTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ExtendedTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit: ; preds = %79, %76, %66, %50, %37, %24, %21, %11, %2, %63, %8, %5
-  %.0 = phi i1 [ %65, %63 ], [ %10, %8 ], [ %7, %5 ], [ true, %2 ], [ false, %37 ], [ false, %24 ], [ false, %21 ], [ false, %11 ], [ %62, %50 ], [ false, %76 ], [ false, %66 ], [ %91, %79 ]
+  %.0 = phi i1 [ %7, %5 ], [ %10, %8 ], [ %65, %63 ], [ true, %2 ], [ false, %37 ], [ false, %24 ], [ false, %21 ], [ false, %11 ], [ %62, %50 ], [ false, %76 ], [ false, %66 ], [ %91, %79 ]
   ret i1 %.0
 }
 
@@ -11350,7 +11350,7 @@ _ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteType
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit: ; preds = %87, %84, %74, %64, %57, %50, %47, %37, %2, %71, %_ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit, %6
-  %.0 = phi i1 [ %73, %71 ], [ %.0.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit ], [ %8, %6 ], [ true, %2 ], [ false, %57 ], [ false, %50 ], [ false, %47 ], [ false, %37 ], [ %70, %64 ], [ false, %84 ], [ false, %74 ], [ %93, %87 ]
+  %.0 = phi i1 [ %8, %6 ], [ %.0.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit ], [ %73, %71 ], [ true, %2 ], [ false, %57 ], [ false, %50 ], [ false, %47 ], [ false, %37 ], [ %70, %64 ], [ false, %84 ], [ false, %74 ], [ %93, %87 ]
   ret i1 %.0
 }
 
@@ -13846,7 +13846,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ExtendedTyp
   br label %205
 
 205:                                              ; preds = %2, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ExtendedTypesEEEEEbRKT_.exit, %165, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ExtendedTypesEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_18ContextualSubtableINS_13ExtendedTypesEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13ExtendedTypesEEEEEbRKT_.exit
-  %.0 = phi i1 [ %204, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ %167, %165 ], [ %164, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ %86, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_18ContextualSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ %29, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ false, %2 ]
+  %.0 = phi i1 [ %29, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ %86, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_18ContextualSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ %164, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ %167, %165 ], [ %204, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ExtendedTypesEEEEEbRKT_.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -15028,7 +15028,7 @@ _ZNK3AAT13LookupFormat6IN2OT7IntTypeItLj2EEEE9get_valueEj.exit: ; preds = %132, 
   br label %_ZNK3AAT13LookupFormat8IN2OT7IntTypeItLj2EEEE9get_valueEj.exit
 
 _ZNK3AAT13LookupFormat8IN2OT7IntTypeItLj2EEEE9get_valueEj.exit: ; preds = %159, %148, %139, %3, %_ZNK3AAT13LookupFormat6IN2OT7IntTypeItLj2EEEE9get_valueEj.exit, %80, %_ZNK3AAT13LookupFormat2IN2OT7IntTypeItLj2EEEE9get_valueEj.exit, %10
-  %.0 = phi ptr [ %138, %_ZNK3AAT13LookupFormat6IN2OT7IntTypeItLj2EEEE9get_valueEj.exit ], [ %81, %80 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT7IntTypeItLj2EEEE9get_valueEj.exit ], [ %.0.i, %10 ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
+  %.0 = phi ptr [ %.0.i, %10 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT7IntTypeItLj2EEEE9get_valueEj.exit ], [ %81, %80 ], [ %138, %_ZNK3AAT13LookupFormat6IN2OT7IntTypeItLj2EEEE9get_valueEj.exit ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
   ret ptr %.0
 }
 
@@ -15946,7 +15946,7 @@ define linkonce_odr hidden void @_ZN3AAT18ContextualSubtableINS_13ExtendedTypesE
   br label %_ZNK2OT4GDEF15get_glyph_propsEj.exit
 
 _ZNK2OT4GDEF15get_glyph_propsEj.exit:             ; preds = %74, %87, %88, %89
-  %.0.i = phi i16 [ %92, %89 ], [ 4, %88 ], [ 2, %87 ], [ 0, %74 ]
+  %.0.i = phi i16 [ 2, %87 ], [ 4, %88 ], [ %92, %89 ], [ 0, %74 ]
   %93 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %75, i64 %77, i32 3
   store i16 %.0.i, ptr %93, align 4
   br label %94
@@ -16054,7 +16054,7 @@ _ZNK2OT4GDEF15get_glyph_propsEj.exit:             ; preds = %74, %87, %88, %89
   br label %_ZNK2OT4GDEF15get_glyph_propsEj.exit41
 
 _ZNK2OT4GDEF15get_glyph_propsEj.exit41:           ; preds = %150, %161, %162, %163
-  %.0.i40 = phi i16 [ %166, %163 ], [ 4, %162 ], [ 2, %161 ], [ 0, %150 ]
+  %.0.i40 = phi i16 [ 2, %161 ], [ 4, %162 ], [ %166, %163 ], [ 0, %150 ]
   %167 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %151, i64 %131, i32 3
   store i16 %.0.i40, ptr %167, align 4
   br label %168
@@ -16513,7 +16513,7 @@ _ZNK3AAT13LookupFormat6IN2OT11HBGlyphID16EE9get_valueEj.exit: ; preds = %132, %_
   br label %_ZNK3AAT13LookupFormat8IN2OT11HBGlyphID16EE9get_valueEj.exit
 
 _ZNK3AAT13LookupFormat8IN2OT11HBGlyphID16EE9get_valueEj.exit: ; preds = %159, %148, %139, %3, %_ZNK3AAT13LookupFormat6IN2OT11HBGlyphID16EE9get_valueEj.exit, %80, %_ZNK3AAT13LookupFormat2IN2OT11HBGlyphID16EE9get_valueEj.exit, %10
-  %.0 = phi ptr [ %138, %_ZNK3AAT13LookupFormat6IN2OT11HBGlyphID16EE9get_valueEj.exit ], [ %81, %80 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT11HBGlyphID16EE9get_valueEj.exit ], [ %.0.i, %10 ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
+  %.0 = phi ptr [ %.0.i, %10 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT11HBGlyphID16EE9get_valueEj.exit ], [ %81, %80 ], [ %138, %_ZNK3AAT13LookupFormat6IN2OT11HBGlyphID16EE9get_valueEj.exit ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
   ret ptr %.0
 }
 
@@ -16835,7 +16835,7 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds 
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
 _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT4GDEF19get_glyph_class_defEv.exit, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.0.i1 = phi i32 [ %102, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %56, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %_ZNK2OT4GDEF19get_glyph_class_defEv.exit ]
+  %.0.i1 = phi i32 [ %56, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %102, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %_ZNK2OT4GDEF19get_glyph_class_defEv.exit ]
   ret i32 %.0.i1
 }
 
@@ -16997,7 +16997,7 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds 
   br label %_ZNK2OT8ClassDef9get_classEj.exit
 
 _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i
-  %.0.i1 = phi i32 [ %102, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %56, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit ]
+  %.0.i1 = phi i32 [ %56, %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ %102, %_ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE9get_classEj.exit.i ], [ 0, %_ZNK2OT4GDEF25get_mark_attach_class_defEv.exit ]
   ret i32 %.0.i1
 }
 
@@ -18120,7 +18120,7 @@ _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %2, %23
   br label %_ZNK2OT4GDEF15get_glyph_propsEj.exit.us
 
 _ZNK2OT4GDEF15get_glyph_propsEj.exit.us:          ; preds = %83, %82, %78, %63
-  %.0.i46.us = phi i16 [ %81, %78 ], [ 4, %82 ], [ 2, %83 ], [ 0, %63 ]
+  %.0.i46.us = phi i16 [ 2, %83 ], [ 4, %82 ], [ %81, %78 ], [ 0, %63 ]
   %84 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i16 %.0.i46.us, ptr %84, align 4
   br label %85
@@ -20065,7 +20065,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ObsoleteTyp
   br label %155
 
 155:                                              ; preds = %2, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit, %125, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_18ContextualSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit
-  %.0 = phi i1 [ %154, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ %127, %125 ], [ %124, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ %76, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_18ContextualSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ %29, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ false, %2 ]
+  %.0 = phi i1 [ %29, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ %76, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_18ContextualSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ %124, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ %127, %125 ], [ %154, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ObsoleteTypesEEEEEbRKT_.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -21629,7 +21629,7 @@ define linkonce_odr hidden void @_ZN3AAT18ContextualSubtableINS_13ObsoleteTypesE
   br label %_ZNK2OT4GDEF15get_glyph_propsEj.exit
 
 _ZNK2OT4GDEF15get_glyph_propsEj.exit:             ; preds = %77, %90, %91, %92
-  %.0.i = phi i16 [ %95, %92 ], [ 4, %91 ], [ 2, %90 ], [ 0, %77 ]
+  %.0.i = phi i16 [ 2, %90 ], [ 4, %91 ], [ %95, %92 ], [ 0, %77 ]
   %96 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %78, i64 %80, i32 3
   store i16 %.0.i, ptr %96, align 4
   br label %97
@@ -21739,7 +21739,7 @@ _ZNK2OT4GDEF15get_glyph_propsEj.exit:             ; preds = %77, %90, %91, %92
   br label %_ZNK2OT4GDEF15get_glyph_propsEj.exit46
 
 _ZNK2OT4GDEF15get_glyph_propsEj.exit46:           ; preds = %138, %149, %150, %151
-  %.0.i45 = phi i16 [ %154, %151 ], [ 4, %150 ], [ 2, %149 ], [ 0, %138 ]
+  %.0.i45 = phi i16 [ 2, %149 ], [ 4, %150 ], [ %154, %151 ], [ 0, %138 ]
   %155 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %139, i64 %111, i32 3
   store i16 %.0.i45, ptr %155, align 4
   br label %156
@@ -22830,7 +22830,7 @@ _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %2, %23
   br label %_ZNK2OT4GDEF15get_glyph_propsEj.exit.us
 
 _ZNK2OT4GDEF15get_glyph_propsEj.exit.us:          ; preds = %83, %82, %78, %63
-  %.0.i46.us = phi i16 [ %81, %78 ], [ 4, %82 ], [ 2, %83 ], [ 0, %63 ]
+  %.0.i46.us = phi i16 [ 2, %83 ], [ 4, %82 ], [ %81, %78 ], [ 0, %63 ]
   %84 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i16 %.0.i46.us, ptr %84, align 4
   br label %85
@@ -24519,7 +24519,7 @@ _ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE16sani
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT19KerxSubTableFormat0INS1_18KerxSubTableHeaderEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN3AAT19KerxSubTableFormat0INS1_18KerxSubTableHeaderEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit: ; preds = %76, %66, %61, %51, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %41, %37, %15, %5, %2, %79, %64
-  %.0 = phi i1 [ %80, %79 ], [ %65, %64 ], [ true, %2 ], [ false, %5 ], [ false, %15 ], [ false, %41 ], [ false, %37 ], [ %50, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i ], [ false, %51 ], [ %63, %61 ], [ false, %66 ], [ %78, %76 ]
+  %.0 = phi i1 [ %65, %64 ], [ %80, %79 ], [ true, %2 ], [ false, %5 ], [ false, %15 ], [ false, %41 ], [ false, %37 ], [ %50, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i ], [ false, %51 ], [ %63, %61 ], [ false, %66 ], [ %78, %76 ]
   ret i1 %.0
 }
 
@@ -26531,7 +26531,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4E
   br label %_ZNK3AAT13LookupFormat0IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE8sanitizeEP21hb_sanitize_context_tPKv.exit
 
 _ZNK3AAT13LookupFormat0IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE8sanitizeEP21hb_sanitize_context_tPKv.exit: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit.i.i.i24, %125, %113, %.lr.ph.i18, %107, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit.i.i.i, %54, %42, %36, %35, %.preheader.i16, %_ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_7ArrayOfIN3AAT6AnchorENS_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i15, %88, %84, %.preheader.i, %_ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_7ArrayOfIN3AAT6AnchorENS_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i, %25, %20, %13, %3, %149, %82, %80, %78
-  %.0 = phi i1 [ true, %149 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ false, %3 ], [ false, %13 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_7ArrayOfIN3AAT6AnchorENS_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i ], [ false, %20 ], [ false, %25 ], [ true, %.preheader.i ], [ false, %84 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_7ArrayOfIN3AAT6AnchorENS_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i15 ], [ false, %88 ], [ true, %.preheader.i16 ], [ false, %42 ], [ false, %54 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit.i.i.i ], [ true, %35 ], [ false, %36 ], [ false, %.lr.ph.i18 ], [ true, %107 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit.i.i.i24 ], [ false, %125 ], [ false, %113 ]
+  %.0 = phi i1 [ true, %149 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ false, %3 ], [ false, %13 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_7ArrayOfIN3AAT6AnchorENS_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i ], [ false, %20 ], [ false, %25 ], [ true, %.preheader.i ], [ false, %84 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_7ArrayOfIN3AAT6AnchorENS_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i15 ], [ false, %88 ], [ true, %.preheader.i16 ], [ false, %42 ], [ false, %54 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit.i.i.i ], [ true, %35 ], [ false, %36 ], [ false, %.lr.ph.i18 ], [ true, %107 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit.i.i.i24 ], [ false, %125 ], [ false, %113 ]
   ret i1 %.0
 }
 
@@ -27599,7 +27599,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat6INS_18KerxSubTa
   br label %158
 
 158:                                              ; preds = %2, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat6INS_18KerxSubTableHeaderEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat4INS_18KerxSubTableHeaderEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat2INS_18KerxSubTableHeaderEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat1INS_18KerxSubTableHeaderEEEEEbRKT_.exit, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat0INS_18KerxSubTableHeaderEEEEEbRKT_.exit
-  %.0 = phi i1 [ %.0.i.i12, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat6INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ true, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat4INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ %.0.i.i8, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat2INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ %or.cond.not.i.i, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat1INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ %.0.i.i, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat0INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ false, %2 ]
+  %.0 = phi i1 [ %.0.i.i, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat0INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ %or.cond.not.i.i, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat1INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ %.0.i.i8, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat2INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ true, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat4INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ %.0.i.i12, %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat6INS_18KerxSubTableHeaderEEEEEbRKT_.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -32568,7 +32568,7 @@ _ZNK3AAT13LookupFormat6IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4E
   br label %_ZNK3AAT13LookupFormat8IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit
 
 _ZNK3AAT13LookupFormat8IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit: ; preds = %159, %148, %139, %3, %_ZNK3AAT13LookupFormat6IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit, %80, %_ZNK3AAT13LookupFormat2IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit, %10
-  %.0 = phi ptr [ %138, %_ZNK3AAT13LookupFormat6IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit ], [ %81, %80 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit ], [ %.0.i, %10 ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
+  %.0 = phi ptr [ %.0.i, %10 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit ], [ %81, %80 ], [ %138, %_ZNK3AAT13LookupFormat6IN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEj.exit ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
   ret ptr %.0
 }
 
@@ -34174,7 +34174,7 @@ _ZNK3AAT13LookupFormat6IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit: ; preds = %132, 
   br label %_ZNK3AAT13LookupFormat8IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit
 
 _ZNK3AAT13LookupFormat8IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit: ; preds = %159, %148, %139, %3, %_ZNK3AAT13LookupFormat6IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit, %80, %_ZNK3AAT13LookupFormat2IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit, %10
-  %.0 = phi ptr [ %138, %_ZNK3AAT13LookupFormat6IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit ], [ %81, %80 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit ], [ %.0.i, %10 ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
+  %.0 = phi ptr [ %.0.i, %10 ], [ %79, %_ZNK3AAT13LookupFormat2IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit ], [ %81, %80 ], [ %138, %_ZNK3AAT13LookupFormat6IN2OT7IntTypeIjLj4EEEE9get_valueEj.exit ], [ null, %3 ], [ %162, %159 ], [ null, %148 ], [ null, %139 ]
   ret ptr %.0
 }
 

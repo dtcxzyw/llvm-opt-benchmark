@@ -12097,7 +12097,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %13, %.lr.ph.i
-  %.1.i.i = phi ptr [ %9, %.lr.ph.i ], [ %14, %13 ]
+  %.1.i.i = phi ptr [ %14, %13 ], [ %9, %.lr.ph.i ]
   %15 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %16 = load i24, ptr %15, align 16
   %17 = and i24 %16, 1048576
@@ -28901,7 +28901,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %13, %.lr.ph.i
-  %.1.i.i = phi ptr [ %9, %.lr.ph.i ], [ %14, %13 ]
+  %.1.i.i = phi ptr [ %14, %13 ], [ %9, %.lr.ph.i ]
   %15 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %16 = load i24, ptr %15, align 16
   %17 = and i24 %16, 1048576

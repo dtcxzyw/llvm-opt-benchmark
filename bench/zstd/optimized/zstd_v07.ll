@@ -5417,8 +5417,8 @@ default.unreachable:                              ; preds = %60, %47
   unreachable
 
 60:                                               ; preds = %47, %57, %53, %48
-  %.175 = phi i64 [ %.074, %47 ], [ %56, %53 ], [ %52, %48 ], [ %59, %57 ]
-  %.070 = phi i32 [ %17, %47 ], [ %55, %53 ], [ %51, %48 ], [ %.val84, %57 ]
+  %.175 = phi i64 [ %.074, %47 ], [ %59, %57 ], [ %52, %48 ], [ %56, %53 ]
+  %.070 = phi i32 [ %17, %47 ], [ %.val84, %57 ], [ %51, %48 ], [ %55, %53 ]
   switch i32 %18, label %default.unreachable [
     i32 3, label %73
     i32 1, label %66
@@ -5454,7 +5454,7 @@ default.unreachable:                              ; preds = %60, %47
   br label %75
 
 75:                                               ; preds = %61, %62, %73, %70, %66
-  %.069 = phi i64 [ %65, %62 ], [ 0, %61 ], [ %72, %70 ], [ %69, %66 ], [ %.val88, %73 ]
+  %.069 = phi i64 [ %65, %62 ], [ 0, %61 ], [ %.val88, %73 ], [ %69, %66 ], [ %72, %70 ]
   %.not81 = icmp eq i32 %.071, 0
   %76 = trunc i64 %.069 to i32
   %spec.select = select i1 %.not81, i32 %76, i32 %.071
@@ -5769,8 +5769,8 @@ HUFv07_decompress1X4_usingDTable.exit.i:          ; preds = %134
   br label %169
 
 169:                                              ; preds = %157, %150, %148
-  %.0128.in.i = phi i32 [ %149, %148 ], [ %156, %150 ], [ %168, %157 ]
-  %.0127.i = phi i64 [ 1, %148 ], [ 2, %150 ], [ 3, %157 ]
+  %.0128.in.i = phi i32 [ %149, %148 ], [ %168, %157 ], [ %156, %150 ]
+  %.0127.i = phi i64 [ 1, %148 ], [ 3, %157 ], [ 2, %150 ]
   %.0128.i = zext nneg i32 %.0128.in.i to i64
   %170 = add nuw nsw i64 %.0127.i, %.0128.i
   %171 = add nuw nsw i64 %170, 8
@@ -6120,7 +6120,7 @@ ZSTDv07_buildSeqTable.exit.i.i:                   ; preds = %329
   br label %ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i
 
 ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i: ; preds = %ZSTDv07_buildSeqTable.exit.i.i, %FSEv07_buildDTable.exit.i.i, %277
-  %.0.i.ph.pn.ph.i.i = phi i64 [ %327, %ZSTDv07_buildSeqTable.exit.i.i ], [ 1, %277 ], [ 0, %FSEv07_buildDTable.exit.i.i ]
+  %.0.i.ph.pn.ph.i.i = phi i64 [ %327, %ZSTDv07_buildSeqTable.exit.i.i ], [ 0, %FSEv07_buildDTable.exit.i.i ], [ 1, %277 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %ZSTDv07_buildSeqTable.exit.thread149.i.i
 
@@ -6313,7 +6313,7 @@ ZSTDv07_buildSeqTable.exit91.i.i:                 ; preds = %390
   br label %ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i
 
 ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i: ; preds = %ZSTDv07_buildSeqTable.exit91.i.i, %FSEv07_buildDTable.exit.i, %338
-  %.0.i86.ph.pn.ph.i.i = phi i64 [ %388, %ZSTDv07_buildSeqTable.exit91.i.i ], [ 1, %338 ], [ 0, %FSEv07_buildDTable.exit.i ]
+  %.0.i86.ph.pn.ph.i.i = phi i64 [ %388, %ZSTDv07_buildSeqTable.exit91.i.i ], [ 0, %FSEv07_buildDTable.exit.i ], [ 1, %338 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %ZSTDv07_buildSeqTable.exit91.thread156.i.i
 
@@ -6391,7 +6391,7 @@ ZSTDv07_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv07_buildSeqTab
   br label %.thread163.sink.split.i.i
 
 .thread163.sink.split.i.i:                        ; preds = %415, %404, %399
-  %.0.i93.ph.pn.ph.i.i = phi i64 [ %410, %415 ], [ 1, %399 ], [ 0, %404 ]
+  %.0.i93.ph.pn.ph.i.i = phi i64 [ %410, %415 ], [ 0, %404 ], [ 1, %399 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %ZSTDv07_decodeSeqHeaders.exit.i
 
@@ -8295,7 +8295,7 @@ ZSTDv07_copyRawBlock.exit:                        ; preds = %113, %108
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 ZSTDv07_decodeFrameHeader.exit.thread:            ; preds = %62, %ZSTDv07_copyRawBlock.exit.thread113, %104, %92, %28, %ZSTDv07_checkContinuity.exit, %105, %ZSTDv07_copyRawBlock.exit, %120, %115, %72, %ZSTDv07_decodeFrameHeader.exit, %22, %5, %127, %123, %50, %26
-  %.082 = phi i64 [ 0, %127 ], [ 0, %123 ], [ 0, %26 ], [ 0, %50 ], [ -72, %5 ], [ -72, %22 ], [ 0, %72 ], [ %59, %ZSTDv07_decodeFrameHeader.exit ], [ -1, %105 ], [ %.0, %ZSTDv07_copyRawBlock.exit ], [ %.0112, %120 ], [ %.0112, %115 ], [ -1, %ZSTDv07_checkContinuity.exit ], [ %44, %28 ], [ 0, %104 ], [ -22, %92 ], [ -70, %ZSTDv07_copyRawBlock.exit.thread113 ], [ -32, %62 ]
+  %.082 = phi i64 [ 0, %26 ], [ 0, %50 ], [ 0, %123 ], [ 0, %127 ], [ -72, %5 ], [ -72, %22 ], [ 0, %72 ], [ %59, %ZSTDv07_decodeFrameHeader.exit ], [ -1, %105 ], [ %.0, %ZSTDv07_copyRawBlock.exit ], [ %.0112, %120 ], [ %.0112, %115 ], [ -1, %ZSTDv07_checkContinuity.exit ], [ %44, %28 ], [ 0, %104 ], [ -22, %92 ], [ -70, %ZSTDv07_copyRawBlock.exit.thread113 ], [ -32, %62 ]
   ret i64 %.082
 }
 
@@ -8982,9 +8982,9 @@ ZBUFFv07_limitCopy.exit:                          ; preds = %135, %139
   br label %165
 
 165:                                              ; preds = %._crit_edge318, %162
-  %166 = phi i64 [ %.pre320, %._crit_edge318 ], [ %163, %162 ]
-  %167 = phi i64 [ %.pre319, %._crit_edge318 ], [ %164, %162 ]
-  %.3203 = phi ptr [ %.0200305, %._crit_edge318 ], [ %143, %162 ]
+  %166 = phi i64 [ %163, %162 ], [ %.pre320, %._crit_edge318 ]
+  %167 = phi i64 [ %164, %162 ], [ %.pre319, %._crit_edge318 ]
+  %.3203 = phi ptr [ %143, %162 ], [ %.0200305, %._crit_edge318 ]
   %168 = sub i64 %167, %166
   %169 = ptrtoint ptr %.0210304.ph to i64
   %170 = sub i64 %27, %169

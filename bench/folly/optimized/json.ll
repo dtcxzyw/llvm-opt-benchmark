@@ -831,7 +831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit48:             ; preds = %97, %.thread, %102, %106
-  %.0.i.i47 = phi double [ %108, %106 ], [ %105, %102 ], [ %101, %.thread ], [ %99, %97 ]
+  %.0.i.i47 = phi double [ %99, %97 ], [ %101, %.thread ], [ %105, %102 ], [ %108, %106 ]
   %110 = load ptr, ptr %0, align 8, !tbaa !47
   %111 = load ptr, ptr %18, align 8, !tbaa !40
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 84
@@ -2393,7 +2393,7 @@ define linkonce_odr noundef i64 @_ZNK5folly7dynamic5asIntEv(ptr noundef nonnull 
   unreachable
 
 _ZNK5folly7dynamic6asImplIlEET_v.exit:            ; preds = %3, %6, %9, %13
-  %.0.i = phi i64 [ %15, %13 ], [ %12, %9 ], [ %8, %6 ], [ %5, %3 ]
+  %.0.i = phi i64 [ %5, %3 ], [ %8, %6 ], [ %12, %9 ], [ %15, %13 ]
   ret i64 %.0.i
 }
 
@@ -9101,8 +9101,8 @@ default.unreachable87:                            ; preds = %.lr.ph
   unreachable
 
 .thread79:                                        ; preds = %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit41, %_ZNK5folly5RangeIPKcE10startsWithERS1_.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %118, %73, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit21.thread, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread
-  %.113 = phi i32 [ 1, %73 ], [ 2, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread ], [ 3, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit21.thread ], [ 3, %118 ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38 ], [ %spec.select16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit34 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit45 ], [ 2, %_ZNK5folly5RangeIPKcE10startsWithERS1_.exit.thread ], [ %spec.select83, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit41 ]
-  %.1 = phi i64 [ %78, %73 ], [ %14, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread ], [ %16, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit21.thread ], [ %.01186, %118 ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38 ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit34 ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit45 ], [ %.01186, %_ZNK5folly5RangeIPKcE10startsWithERS1_.exit.thread ], [ %spec.select84, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit41 ]
+  %.113 = phi i32 [ 2, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread ], [ 3, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit21.thread ], [ 1, %73 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %spec.select16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit34 ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38 ], [ 3, %118 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit45 ], [ 2, %_ZNK5folly5RangeIPKcE10startsWithERS1_.exit.thread ], [ %spec.select83, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit41 ]
+  %.1 = phi i64 [ %14, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread ], [ %16, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit21.thread ], [ %78, %73 ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit34 ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38 ], [ %.01186, %118 ], [ %.01186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit45 ], [ %.01186, %_ZNK5folly5RangeIPKcE10startsWithERS1_.exit.thread ], [ %spec.select84, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit41 ]
   %136 = add i64 %.1, 1
   %137 = icmp ult i64 %136, %8
   br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !317

@@ -560,7 +560,7 @@ pq_copymsgbytes.exit6:                            ; preds = %36
   unreachable
 
 55:                                               ; preds = %pq_copymsgbytes.exit6, %pq_copymsgbytes.exit5, %pq_copymsgbytes.exit
-  %.0 = phi i32 [ %51, %pq_copymsgbytes.exit6 ], [ %35, %pq_copymsgbytes.exit5 ], [ %18, %pq_copymsgbytes.exit ]
+  %.0 = phi i32 [ %18, %pq_copymsgbytes.exit ], [ %35, %pq_copymsgbytes.exit5 ], [ %51, %pq_copymsgbytes.exit6 ]
   ret i32 %.0
 }
 

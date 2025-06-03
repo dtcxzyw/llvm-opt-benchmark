@@ -4857,7 +4857,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit11
   br i1 %540, label %262, label %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit
 
 541:                                              ; preds = %302, %350, %483, %481, %517, %515
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn159, %517 ], [ %516, %515 ], [ %.pn.pn152, %483 ], [ %482, %481 ], [ %303, %302 ], [ %351, %350 ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn159, %517 ], [ %516, %515 ], [ %303, %302 ], [ %351, %350 ], [ %.pn.pn152, %483 ], [ %482, %481 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #27
   br label %542
 

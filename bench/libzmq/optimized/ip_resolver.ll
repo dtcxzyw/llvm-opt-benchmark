@@ -1339,7 +1339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   br label %397
 
 397:                                              ; preds = %395, %396
-  %.sroa.0.0 = phi i16 [ 10, %396 ], [ 2, %395 ]
+  %.sroa.0.0 = phi i16 [ 2, %395 ], [ 10, %396 ]
   store i16 %.sroa.0.0, ptr %1, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(22) %.sroa.8, i64 22, i1 false), !tbaa.struct !51

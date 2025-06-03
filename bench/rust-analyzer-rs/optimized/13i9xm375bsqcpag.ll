@@ -4769,7 +4769,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   br label %_ZN4core3ops8function5FnMut8call_mut17h0ad1439c8762f870E.exit.i
 
 _ZN4core3ops8function5FnMut8call_mut17h0ad1439c8762f870E.exit.i: ; preds = %29, %25, %24, %20
-  %.0.i.i.i.i = phi i8 [ %32, %29 ], [ %.04.i.i.i.i, %24 ], [ %28, %25 ], [ %23, %20 ]
+  %.0.i.i.i.i = phi i8 [ %23, %20 ], [ %.04.i.i.i.i, %24 ], [ %28, %25 ], [ %32, %29 ]
   %33 = icmp eq i8 %.0.i.i.i.i, -1
   br i1 %33, label %34, label %_ZN4core5slice4sort11insert_tail17h2ae8b247e9581837E.exit
 
@@ -5426,7 +5426,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$cargo_metadata..errors..Error$u20
   br label %29
 
 29:                                               ; preds = %27, %24, %22, %19, %16, %13
-  %.0.in = phi i1 [ %28, %27 ], [ %26, %24 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.0.in = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ], [ %26, %24 ], [ %28, %27 ]
   ret i1 %.0.in
 }
 
@@ -5490,8 +5490,8 @@ define internal { ptr, ptr } @"_ZN68_$LT$cargo_metadata..errors..Error$u20$as$u2
   br label %14
 
 14:                                               ; preds = %1, %1, %12, %11, %9, %7
-  %.sroa.7.0 = phi ptr [ @anon.0b036f8d6b77cceeaf16633e0a274392.85, %12 ], [ @anon.0b036f8d6b77cceeaf16633e0a274392.83, %11 ], [ @anon.0b036f8d6b77cceeaf16633e0a274392.81, %9 ], [ @anon.0b036f8d6b77cceeaf16633e0a274392.79, %7 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %13, %12 ], [ %0, %11 ], [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.0b036f8d6b77cceeaf16633e0a274392.79, %7 ], [ @anon.0b036f8d6b77cceeaf16633e0a274392.81, %9 ], [ @anon.0b036f8d6b77cceeaf16633e0a274392.83, %11 ], [ @anon.0b036f8d6b77cceeaf16633e0a274392.85, %12 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ %13, %12 ], [ null, %1 ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %16

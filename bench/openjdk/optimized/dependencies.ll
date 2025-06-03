@@ -8647,7 +8647,7 @@ _ZN12Dependencies17check_evol_methodEP6Method.exit.thread: ; preds = %_ZN12Depen
   br label %_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit
 
 _ZN12Dependencies17check_evol_methodEP6Method.exit: ; preds = %33, %_ZN12Dependencies9DepStream12context_typeEv.exit, %22, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit, %_ZN12Dependencies9DepStream12context_typeEv.exit26, %_ZN12Dependencies9DepStream12context_typeEv.exit22, %_ZN12Dependencies9DepStream12context_typeEv.exit18, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit
-  %.0 = phi ptr [ %.lcssa.i.i, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit ], [ %..i, %_ZN12Dependencies9DepStream12context_typeEv.exit26 ], [ %82, %_ZN12Dependencies9DepStream12context_typeEv.exit22 ], [ %77, %_ZN12Dependencies9DepStream12context_typeEv.exit18 ], [ %.0.i.i, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit ], [ %28, %22 ], [ %34, %33 ], [ %30, %_ZN12Dependencies9DepStream12context_typeEv.exit ]
+  %.0 = phi ptr [ %.0.i.i, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit ], [ %77, %_ZN12Dependencies9DepStream12context_typeEv.exit18 ], [ %82, %_ZN12Dependencies9DepStream12context_typeEv.exit22 ], [ %..i, %_ZN12Dependencies9DepStream12context_typeEv.exit26 ], [ %.lcssa.i.i, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit ], [ %28, %22 ], [ %34, %33 ], [ %30, %_ZN12Dependencies9DepStream12context_typeEv.exit ]
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
   %101 = load i8, ptr @_ZN12Dependencies19_verify_in_progressE, align 1
   %102 = trunc i8 %101 to i1
@@ -9317,7 +9317,7 @@ define hidden noundef zeroext i1 @_ZN9DepChange13ContextStream4nextEv(ptr nounde
   unreachable
 
 45:                                               ; preds = %42, %1, %12, %33, %4
-  %.0 = phi i1 [ true, %33 ], [ true, %4 ], [ true, %12 ], [ false, %1 ], [ false, %42 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %33 ], [ true, %12 ], [ false, %1 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -9413,12 +9413,12 @@ select.unfold:                                    ; preds = %select.unfold.prehe
 default.unreachable20:                            ; preds = %select.unfold
   unreachable
 
-26:                                               ; preds = %20, %7, %10
-  %.sroa.18.1.ph = phi i32 [ 0, %7 ], [ %.sroa.18.0, %10 ], [ %21, %20 ]
-  %.sroa.21.2.ph = phi i32 [ %.sroa.21.0, %7 ], [ %.sroa.21.0, %10 ], [ %.sroa.21.1, %20 ]
-  %.sroa.8.2.ph = phi ptr [ %.sroa.8.0, %7 ], [ %14, %10 ], [ %25, %20 ]
-  %.sroa.2.3.ph = phi i32 [ 1, %7 ], [ 2, %10 ], [ 3, %20 ]
-  %.sroa.14.1.ph = phi ptr [ %9, %7 ], [ %.sroa.14.0, %10 ], [ %.sroa.14.0, %20 ]
+26:                                               ; preds = %7, %20, %10
+  %.sroa.18.1.ph = phi i32 [ %.sroa.18.0, %10 ], [ %21, %20 ], [ 0, %7 ]
+  %.sroa.21.2.ph = phi i32 [ %.sroa.21.0, %10 ], [ %.sroa.21.1, %20 ], [ %.sroa.21.0, %7 ]
+  %.sroa.8.2.ph = phi ptr [ %14, %10 ], [ %25, %20 ], [ %.sroa.8.0, %7 ]
+  %.sroa.2.3.ph = phi i32 [ 2, %10 ], [ 3, %20 ], [ 1, %7 ]
+  %.sroa.14.1.ph = phi ptr [ %.sroa.14.0, %10 ], [ %.sroa.14.0, %20 ], [ %9, %7 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.8.2.ph, i64 310
   %28 = load volatile i8, ptr %27, align 1
   br label %.preheader.i
@@ -9498,12 +9498,12 @@ select.unfold:                                    ; preds = %select.unfold.prehe
 default.unreachable:                              ; preds = %select.unfold
   unreachable
 
-22:                                               ; preds = %16, %3, %6
-  %.sroa.18.1.ph = phi i32 [ 0, %3 ], [ %.sroa.18.0, %6 ], [ %17, %16 ]
-  %.sroa.21.2.ph = phi i32 [ %.sroa.21.0, %3 ], [ %.sroa.21.0, %6 ], [ %.sroa.21.1, %16 ]
-  %.sroa.8.2.ph = phi ptr [ %.sroa.8.0, %3 ], [ %10, %6 ], [ %21, %16 ]
-  %.sroa.2.3.ph = phi i32 [ 1, %3 ], [ 2, %6 ], [ 3, %16 ]
-  %.sroa.14.1.ph = phi ptr [ %5, %3 ], [ %.sroa.14.0, %6 ], [ %.sroa.14.0, %16 ]
+22:                                               ; preds = %3, %16, %6
+  %.sroa.18.1.ph = phi i32 [ %.sroa.18.0, %6 ], [ %17, %16 ], [ 0, %3 ]
+  %.sroa.21.2.ph = phi i32 [ %.sroa.21.0, %6 ], [ %.sroa.21.1, %16 ], [ %.sroa.21.0, %3 ]
+  %.sroa.8.2.ph = phi ptr [ %10, %6 ], [ %21, %16 ], [ %.sroa.8.0, %3 ]
+  %.sroa.2.3.ph = phi i32 [ 2, %6 ], [ 3, %16 ], [ 1, %3 ]
+  %.sroa.14.1.ph = phi ptr [ %.sroa.14.0, %6 ], [ %.sroa.14.0, %16 ], [ %5, %3 ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.8.2.ph, i64 310
   %24 = load volatile i8, ptr %23, align 1
   br label %.preheader1.i

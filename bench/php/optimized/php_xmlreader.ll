@@ -4461,7 +4461,7 @@ define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr noundef readon
   br label %36
 
 36:                                               ; preds = %33, %31
-  %.023.i = phi ptr [ %35, %33 ], [ %32, %31 ]
+  %.023.i = phi ptr [ %32, %31 ], [ %35, %33 ]
   %37 = icmp eq ptr %.023.i, null
   br i1 %37, label %_xmlreader_get_relaxNG.exit.thread, label %_xmlreader_get_relaxNG.exit
 

@@ -708,7 +708,7 @@ _ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit._crit_edge: ; preds 
           to label %98 unwind label %.loopexit.split-lp
 
 _ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit.thread: ; preds = %.noexc28, %.noexc27, %_ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit._crit_edge
-  %95 = phi ptr [ %.pre170, %_ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit._crit_edge ], [ %85, %.noexc27 ], [ %87, %.noexc28 ]
+  %95 = phi ptr [ %.pre170, %_ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit._crit_edge ], [ %87, %.noexc28 ], [ %85, %.noexc27 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %95, ptr %96, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -876,7 +876,7 @@ _ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit.thread: ; preds = %.
   br label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0d4bfe3f6a549714E.exit.thread.i.i"
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0d4bfe3f6a549714E.exit.thread.i.i": ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0d4bfe3f6a549714E.exit._crit_edge.i.i", %.noexc7.i.i, %.noexc.i.i
-  %134 = phi ptr [ %.pre.i.i, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0d4bfe3f6a549714E.exit._crit_edge.i.i" ], [ %125, %.noexc.i.i ], [ %127, %.noexc7.i.i ]
+  %134 = phi ptr [ %.pre.i.i, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0d4bfe3f6a549714E.exit._crit_edge.i.i" ], [ %127, %.noexc7.i.i ], [ %125, %.noexc.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !183
   %135 = icmp eq i64 %106, 0
   br i1 %135, label %.thread98, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9180888732656986660.exit.i.i1.i.i9.i.i"
@@ -970,7 +970,7 @@ _ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit.thread: ; preds = %.
           to label %159 unwind label %155
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h83f4b8d513f98ef2E.exit.thread": ; preds = %63, %.loopexit.i.i, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h83f4b8d513f98ef2E.exit._crit_edge"
-  %153 = phi ptr [ %.pre, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h83f4b8d513f98ef2E.exit._crit_edge" ], [ %62, %.loopexit.i.i ], [ %64, %63 ]
+  %153 = phi ptr [ %.pre, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h83f4b8d513f98ef2E.exit._crit_edge" ], [ %64, %63 ], [ %62, %.loopexit.i.i ]
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %153, ptr %154, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -1740,7 +1740,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN71_$LT$supermaven..messages..ResponseItem$u20$as$u20$core..fmt..Debug$GT$3fmt17h56370173f6cff5f5E.exit"
 
 "_ZN71_$LT$supermaven..messages..ResponseItem$u20$as$u20$core..fmt..Debug$GT$3fmt17h56370173f6cff5f5E.exit": ; preds = %8, %11, %14, %17, %19
-  %.sroa.0.0.in.i = phi i1 [ %20, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2401,7 +2401,7 @@ default.unreachable63.i.i.i.i.i.i:                ; preds = %26
   %60 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %60, label %61, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h5a89cb5e36808a90E.exit.thread.i.i"
 
-61:                                               ; preds = %22, %23, %53, %49, %39, %28, %36, %47, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h5a89cb5e36808a90E.exit.i.i"
+61:                                               ; preds = %22, %23, %53, %49, %39, %28, %47, %36, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h5a89cb5e36808a90E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !559
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
@@ -9720,7 +9720,7 @@ _ZN10serde_json3ser9Formatter10end_object17h69fd795581983289E.exit.i.i.i60: ; pr
   br label %147
 
 121:                                              ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he3c62dd5ac4b87ffE.exit73.thread", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h15292c1ba9c94fe0E.exit78", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he3c62dd5ac4b87ffE.exit.thread", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h15292c1ba9c94fe0E.exit", %"_ZN10supermaven8messages1_92_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$supermaven..messages..StateUpdateMessage$GT$9serialize17h82b030677027739bE.exit", %"_ZN10supermaven8messages1_83_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$supermaven..messages..SetApiKey$GT$9serialize17h5872da7a30c5cf50E.exit"
-  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he3c62dd5ac4b87ffE.exit73.thread" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h15292c1ba9c94fe0E.exit78" ], [ %.sroa.0.1, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he3c62dd5ac4b87ffE.exit.thread" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h15292c1ba9c94fe0E.exit" ], [ %.sroa.0.1.i49, %"_ZN10supermaven8messages1_92_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$supermaven..messages..StateUpdateMessage$GT$9serialize17h82b030677027739bE.exit" ], [ %.sroa.0.1.i, %"_ZN10supermaven8messages1_83_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$supermaven..messages..SetApiKey$GT$9serialize17h5872da7a30c5cf50E.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.i, %"_ZN10supermaven8messages1_83_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$supermaven..messages..SetApiKey$GT$9serialize17h5872da7a30c5cf50E.exit" ], [ %.sroa.0.1.i49, %"_ZN10supermaven8messages1_92_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$supermaven..messages..StateUpdateMessage$GT$9serialize17h82b030677027739bE.exit" ], [ %.sroa.0.1, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he3c62dd5ac4b87ffE.exit.thread" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h15292c1ba9c94fe0E.exit" ], [ %.sroa.0.2, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he3c62dd5ac4b87ffE.exit73.thread" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h15292c1ba9c94fe0E.exit78" ]
   ret ptr %.sroa.0.0
 
 122:                                              ; preds = %109, %114
@@ -13856,7 +13856,7 @@ define hidden void @"_ZN10supermaven8messages1_92_$LT$impl$u20$serde..de..Deseri
   br i1 %152, label %246, label %241
 
 153:                                              ; preds = %91, %84, %81
-  %.sroa.0.1.i.i = phi ptr [ %83, %81 ], [ %92, %91 ], [ %85, %84 ]
+  %.sroa.0.1.i.i = phi ptr [ %85, %84 ], [ %92, %91 ], [ %83, %81 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !2631
   br label %157
 
@@ -13879,12 +13879,12 @@ define hidden void @"_ZN10supermaven8messages1_92_$LT$impl$u20$serde..de..Deseri
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread"
 
 157:                                              ; preds = %299, %250, %204, %184, %178, %163, %158, %153
-  %.sroa.21.1 = phi ptr [ %300, %299 ], [ %251, %250 ], [ %205, %204 ], [ %144, %184 ], [ %179, %178 ], [ %.sroa.0.1.i108.i, %163 ], [ %.sroa.0.1.i100.i, %158 ], [ %.sroa.0.1.i.i, %153 ]
+  %.sroa.21.1 = phi ptr [ %300, %299 ], [ %.sroa.0.1.i.i, %153 ], [ %.sroa.0.1.i100.i, %158 ], [ %.sroa.0.1.i108.i, %163 ], [ %179, %178 ], [ %144, %184 ], [ %205, %204 ], [ %251, %250 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.63.i)
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread"
 
 158:                                              ; preds = %111, %104, %101
-  %.sroa.0.1.i100.i = phi ptr [ %103, %101 ], [ %112, %111 ], [ %105, %104 ]
+  %.sroa.0.1.i100.i = phi ptr [ %105, %104 ], [ %112, %111 ], [ %103, %101 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !2641
   br label %157
 
@@ -13909,7 +13909,7 @@ define hidden void @"_ZN10supermaven8messages1_92_$LT$impl$u20$serde..de..Deseri
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread"
 
 163:                                              ; preds = %131, %124, %121
-  %.sroa.0.1.i108.i = phi ptr [ %123, %121 ], [ %132, %131 ], [ %125, %124 ]
+  %.sroa.0.1.i108.i = phi ptr [ %125, %124 ], [ %132, %131 ], [ %123, %121 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !2651
   br label %157
 
@@ -14198,7 +14198,7 @@ common.resume.sink.split.i:                       ; preds = %282, %238
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %258, %common.resume.sink.split.i, %212
-  %common.resume.op.i = phi { ptr, i32 } [ %259, %258 ], [ %213, %212 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %213, %212 ], [ %259, %258 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 238:                                              ; preds = %236, %232, %230
@@ -14211,8 +14211,8 @@ common.resume.i:                                  ; preds = %258, %common.resume
   br label %.thread.i
 
 240:                                              ; preds = %.thread245.i, %.thread.i
-  %.sroa.0121.3.i = phi i8 [ %.sroa.0121.5250.i, %.thread245.i ], [ %.sroa.0121.1238.i, %.thread.i ]
-  %.sroa.45147.4.i = phi ptr [ %.sroa.45147.6251.i, %.thread245.i ], [ %.sroa.45147.2239.i, %.thread.i ]
+  %.sroa.0121.3.i = phi i8 [ %.sroa.0121.1238.i, %.thread.i ], [ %.sroa.0121.5250.i, %.thread245.i ]
+  %.sroa.45147.4.i = phi ptr [ %.sroa.45147.2239.i, %.thread.i ], [ %.sroa.45147.6251.i, %.thread245.i ]
   %.not253.i = icmp eq i8 %.sroa.0121.3.i, 12
   br i1 %.not253.i, label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread98", label %303
 
@@ -14453,8 +14453,8 @@ default.unreachable:                              ; preds = %303
     i8 11, label %342
   ]
 
-"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread": ; preds = %.loopexit.i, %154, %159, %164, %180, %301, %157, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread98"
-  %.sroa.21.297 = phi ptr [ %194, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread98" ], [ %70, %.loopexit.i ], [ %156, %154 ], [ %162, %159 ], [ %167, %164 ], [ %181, %180 ], [ %302, %301 ], [ %.sroa.21.1, %157 ]
+"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread": ; preds = %.loopexit.i, %180, %164, %159, %154, %301, %157, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread98"
+  %.sroa.21.297 = phi ptr [ %194, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfac8b4f2a7932c7cE.exit.thread98" ], [ %70, %.loopexit.i ], [ %181, %180 ], [ %167, %164 ], [ %162, %159 ], [ %156, %154 ], [ %302, %301 ], [ %.sroa.21.1, %157 ]
   %304 = icmp ne ptr %.sroa.21.297, null
   call void @llvm.assume(i1 %304)
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 8

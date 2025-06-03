@@ -2251,8 +2251,8 @@ define hidden void @_ZN19pyo3_macros_backend6params14impl_arg_param17h766ba4f9ed
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %12)
           to label %195 unwind label %60
 
-.thread:                                          ; preds = %93, %99, %72, %196, %193, %144, %106, %.thread24, %67, %60
-  %.pn20 = phi { ptr, i32 } [ %197, %196 ], [ %61, %60 ], [ %194, %193 ], [ %.pn9, %144 ], [ %.pn14, %106 ], [ %.pn1827, %.thread24 ], [ %73, %72 ], [ %68, %67 ], [ %lpad.thr_comm.split-lp, %93 ], [ %lpad.thr_comm, %99 ]
+.thread:                                          ; preds = %93, %99, %72, %196, %193, %144, %106, %.thread23, %67, %60
+  %.pn18.pn = phi { ptr, i32 } [ %.pn1826, %.thread23 ], [ %73, %72 ], [ %61, %60 ], [ %68, %67 ], [ %.pn14, %106 ], [ %.pn9, %144 ], [ %194, %193 ], [ %197, %196 ], [ %lpad.thr_comm.split-lp, %93 ], [ %lpad.thr_comm, %99 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %40) #6
           to label %198 unwind label %100
 
@@ -2282,12 +2282,12 @@ define hidden void @_ZN19pyo3_macros_backend6params14impl_arg_param17h766ba4f9ed
 
 70:                                               ; preds = %69
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %32)
-          to label %74 unwind label %.thread28
+          to label %74 unwind label %.thread27
 
-.thread28:                                        ; preds = %70
+.thread27:                                        ; preds = %70
   %71 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread24
+  br label %.thread23
 
 72:                                               ; preds = %87
   %73 = landingpad { ptr, i32 }
@@ -2301,7 +2301,7 @@ define hidden void @_ZN19pyo3_macros_backend6params14impl_arg_param17h766ba4f9ed
 75:                                               ; preds = %80, %76
   %.pn16 = phi { ptr, i32 } [ %77, %76 ], [ %81, %80 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %32) #6
-          to label %.thread24 unwind label %100
+          to label %.thread23 unwind label %100
 
 76:                                               ; preds = %86, %85, %84, %83, %82, %78, %74
   %77 = landingpad { ptr, i32 }
@@ -2391,14 +2391,14 @@ define hidden void @_ZN19pyo3_macros_backend6params14impl_arg_param17h766ba4f9ed
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %26) #6
           to label %.thread unwind label %100
 
-100:                                              ; preds = %196, %193, %166, %152, %148, %144, %128, %114, %110, %106, %.thread24, %99, %80, %75, %67, %.thread
+100:                                              ; preds = %196, %193, %166, %152, %148, %144, %128, %114, %110, %106, %.thread23, %99, %80, %75, %67, %.thread
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
 
-.thread24:                                        ; preds = %75, %.thread28
-  %.pn1827 = phi { ptr, i32 } [ %71, %.thread28 ], [ %.pn16, %75 ]
+.thread23:                                        ; preds = %75, %.thread27
+  %.pn1826 = phi { ptr, i32 } [ %71, %.thread27 ], [ %.pn16, %75 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %39) #6
           to label %.thread unwind label %100
 
@@ -2756,7 +2756,7 @@ define hidden void @_ZN19pyo3_macros_backend6params14impl_arg_param17h766ba4f9ed
           to label %.thread unwind label %100
 
 198:                                              ; preds = %.thread
-  resume { ptr, i32 } %.pn20
+  resume { ptr, i32 } %.pn18.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

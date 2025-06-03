@@ -988,7 +988,7 @@ define internal fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, p
   br label %fc_get_ftype.exit
 
 fc_get_ftype.exit:                                ; preds = %124, %135, %136, %138, %139, %140, %141, %142, %143, %145, %147, %148, %150, %151
-  %.0.i = phi i8 [ 0, %151 ], [ 10, %150 ], [ 0, %142 ], [ 13, %141 ], [ 12, %140 ], [ 7, %139 ], [ 3, %138 ], [ %..i, %136 ], [ 2, %135 ], [ 5, %143 ], [ %.13.i, %145 ], [ %.14.i, %147 ], [ 9, %124 ], [ %.15.i, %148 ]
+  %.0.i = phi i8 [ 0, %151 ], [ 0, %142 ], [ 3, %138 ], [ 7, %139 ], [ 12, %140 ], [ 13, %141 ], [ 10, %150 ], [ %..i, %136 ], [ 2, %135 ], [ 5, %143 ], [ %.13.i, %145 ], [ %.14.i, %147 ], [ 9, %124 ], [ %.15.i, %148 ]
   %152 = load ptr, ptr %11, align 8
   %153 = zext nneg i8 %.0.i to i32
   %154 = tail call ptr @val_to_str(i32 noundef %153, ptr noundef nonnull @fc_ftype_vals, ptr noundef nonnull @.str.241)

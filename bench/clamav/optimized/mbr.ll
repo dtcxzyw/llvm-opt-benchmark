@@ -537,7 +537,7 @@ mbr_check_ebr.exit.i:                             ; preds = %109, %105
   br label %133
 
 133:                                              ; preds = %132, %131
-  %.264.i = phi i64 [ %.16398.i.ph, %131 ], [ 0, %132 ]
+  %.264.i = phi i64 [ 0, %132 ], [ %.16398.i.ph, %131 ]
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.15) #6
   br label %.backedge.i.outer.backedge
 
@@ -657,8 +657,8 @@ mbr_scanextprtn.exit:                             ; preds = %157, %158
   br i1 %.not79, label %167, label %.loopexit
 
 167:                                              ; preds = %mbr_scanextprtn.exit, %85, %163
-  %.1 = phi i32 [ %164, %163 ], [ %111, %mbr_scanextprtn.exit ], [ %86, %85 ]
-  %.157 = phi i32 [ %.056138, %163 ], [ 2, %mbr_scanextprtn.exit ], [ %.056138, %85 ]
+  %.1 = phi i32 [ %164, %163 ], [ %86, %85 ], [ %111, %mbr_scanextprtn.exit ]
+  %.157 = phi i32 [ %.056138, %163 ], [ %.056138, %85 ], [ 2, %mbr_scanextprtn.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %..critedge_crit_edge, label %64

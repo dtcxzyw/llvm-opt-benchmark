@@ -6674,7 +6674,7 @@ default.unreachable:                              ; preds = %2262
   unreachable
 
 check_intra_pred8x8_mode_emuedge.exit:            ; preds = %2266, %2262, %2263, %2264
-  %.0.i55 = phi i64 [ %2265, %2264 ], [ %.0.i70, %2263 ], [ %230, %2262 ], [ %., %2266 ]
+  %.0.i55 = phi i64 [ %.0.i70, %2263 ], [ %2265, %2264 ], [ %230, %2262 ], [ %., %2266 ]
   %2267 = getelementptr inbounds nuw [9 x ptr], ptr %233, i64 0, i64 %.0.i55
   %2268 = load ptr, ptr %2267, align 8, !tbaa !102
   %2269 = load i64, ptr %40, align 8, !tbaa !159
@@ -6860,8 +6860,8 @@ check_intra_pred4x4_mode_emuedge.exit.thread299:  ; preds = %2317, %check_intra_
   store i8 %2348, ptr %221, align 1, !tbaa !56
   br label %2353
 
-2349:                                             ; preds = %2320, %2301, %2321, %2318, %2315
-  %.0.i62.ph = phi i32 [ %2308, %2301 ], [ %2308, %2321 ], [ %2316, %2315 ], [ %2319, %2318 ], [ %.573, %2320 ]
+2349:                                             ; preds = %2320, %2301, %2315, %2318, %2321
+  %.0.i62.ph = phi i32 [ %2308, %2301 ], [ %2308, %2321 ], [ %2319, %2318 ], [ %2316, %2315 ], [ %.573, %2320 ]
   %2350 = zext nneg i32 %.0.i62.ph to i64
   %2351 = getelementptr inbounds nuw [15 x ptr], ptr %222, i64 0, i64 %2350
   %2352 = load ptr, ptr %2351, align 8, !tbaa !102
@@ -6962,7 +6962,7 @@ check_intra_pred4x4_mode_emuedge.exit.thread299:  ; preds = %2317, %check_intra_
   br label %check_intra_pred8x8_mode_emuedge.exit60
 
 check_intra_pred8x8_mode_emuedge.exit60:          ; preds = %2390, %2382, %2386, %2387, %2388
-  %.0.i57 = phi i64 [ %2389, %2388 ], [ %230, %2387 ], [ %.0.i66, %2386 ], [ %2385, %2382 ], [ %.574, %2390 ]
+  %.0.i57 = phi i64 [ %.0.i66, %2386 ], [ %230, %2387 ], [ %2389, %2388 ], [ %2385, %2382 ], [ %.574, %2390 ]
   %2391 = and i64 %.0.i57, 4294967295
   %2392 = getelementptr inbounds nuw [11 x ptr], ptr %234, i64 0, i64 %2391
   %2393 = load ptr, ptr %2392, align 8, !tbaa !102
@@ -26585,7 +26585,7 @@ default.unreachable:                              ; preds = %2147
   unreachable
 
 check_intra_pred8x8_mode_emuedge.exit:            ; preds = %2151, %2147, %2148, %2149
-  %.0.i55 = phi i64 [ %2150, %2149 ], [ %.0.i70, %2148 ], [ %223, %2147 ], [ %., %2151 ]
+  %.0.i55 = phi i64 [ %.0.i70, %2148 ], [ %2150, %2149 ], [ %223, %2147 ], [ %., %2151 ]
   %2152 = getelementptr inbounds nuw [9 x ptr], ptr %226, i64 0, i64 %.0.i55
   %2153 = load ptr, ptr %2152, align 8, !tbaa !102
   %2154 = load i64, ptr %38, align 8, !tbaa !159
@@ -26771,8 +26771,8 @@ check_intra_pred4x4_mode_emuedge.exit.thread324:  ; preds = %2202, %check_intra_
   store i8 %2233, ptr %215, align 1, !tbaa !56
   br label %2238
 
-2234:                                             ; preds = %2205, %2186, %2206, %2203, %2200
-  %.0.i62.ph = phi i32 [ %2193, %2186 ], [ %2193, %2206 ], [ %2201, %2200 ], [ %2204, %2203 ], [ %.602, %2205 ]
+2234:                                             ; preds = %2205, %2186, %2200, %2203, %2206
+  %.0.i62.ph = phi i32 [ %2193, %2186 ], [ %2193, %2206 ], [ %2204, %2203 ], [ %2201, %2200 ], [ %.602, %2205 ]
   %2235 = zext nneg i32 %.0.i62.ph to i64
   %2236 = getelementptr inbounds nuw [15 x ptr], ptr %216, i64 0, i64 %2235
   %2237 = load ptr, ptr %2236, align 8, !tbaa !102
@@ -26873,7 +26873,7 @@ check_intra_pred4x4_mode_emuedge.exit.thread324:  ; preds = %2202, %check_intra_
   br label %check_intra_pred8x8_mode_emuedge.exit60
 
 check_intra_pred8x8_mode_emuedge.exit60:          ; preds = %2275, %2267, %2271, %2272, %2273
-  %.0.i57 = phi i64 [ %2274, %2273 ], [ %223, %2272 ], [ %.0.i66, %2271 ], [ %2270, %2267 ], [ %.603, %2275 ]
+  %.0.i57 = phi i64 [ %.0.i66, %2271 ], [ %223, %2272 ], [ %2274, %2273 ], [ %2270, %2267 ], [ %.603, %2275 ]
   %2276 = and i64 %.0.i57, 4294967295
   %2277 = getelementptr inbounds nuw [11 x ptr], ptr %227, i64 0, i64 %2276
   %2278 = load ptr, ptr %2277, align 8, !tbaa !102

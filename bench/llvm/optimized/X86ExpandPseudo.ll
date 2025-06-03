@@ -1479,9 +1479,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86ExpandPseudo8ex
   br label %130
 
 130:                                              ; preds = %126, %129, %128, %127
-  %131 = phi i1 [ false, %129 ], [ false, %128 ], [ true, %127 ], [ false, %126 ]
-  %132 = phi i1 [ false, %129 ], [ true, %128 ], [ false, %127 ], [ false, %126 ]
-  %.0372.neg = phi i64 [ -4960, %129 ], [ -4961, %128 ], [ -4962, %127 ], [ -4959, %126 ]
+  %131 = phi i1 [ false, %129 ], [ true, %127 ], [ false, %128 ], [ false, %126 ]
+  %132 = phi i1 [ false, %129 ], [ false, %127 ], [ true, %128 ], [ false, %126 ]
+  %.0372.neg = phi i64 [ -4960, %129 ], [ -4962, %127 ], [ -4961, %128 ], [ -4959, %126 ]
   %.sroa.0223.0.copyload = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #16
   %133 = load ptr, ptr %92, align 8, !tbaa !382
@@ -3153,7 +3153,7 @@ _ZN4llvm8DebugLocD2Ev.exit545:                    ; preds = %_ZN4llvm10MIMetadat
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 371
   %815 = load i8, ptr %814, align 1, !tbaa !587, !range !417, !noundef !418
   %816 = trunc nuw i8 %815 to i1
-  %.neg783 = select i1 %816, i64 -5027, i64 -5024
+  %.neg780 = select i1 %816, i64 -5027, i64 -5024
   br label %847
 
 817:                                              ; preds = %808
@@ -3162,7 +3162,7 @@ _ZN4llvm8DebugLocD2Ev.exit545:                    ; preds = %_ZN4llvm10MIMetadat
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 371
   %821 = load i8, ptr %820, align 1, !tbaa !587, !range !417, !noundef !418
   %822 = trunc nuw i8 %821 to i1
-  %.neg782 = select i1 %822, i64 -5026, i64 -5025
+  %.neg781 = select i1 %822, i64 -5026, i64 -5025
   br label %847
 
 823:                                              ; preds = %808
@@ -3171,7 +3171,7 @@ _ZN4llvm8DebugLocD2Ev.exit545:                    ; preds = %_ZN4llvm10MIMetadat
   %826 = getelementptr inbounds nuw i8, ptr %825, i64 371
   %827 = load i8, ptr %826, align 1, !tbaa !587, !range !417, !noundef !418
   %828 = trunc nuw i8 %827 to i1
-  %.neg781 = select i1 %828, i64 -5030, i64 -5023
+  %.neg782 = select i1 %828, i64 -5030, i64 -5023
   br label %847
 
 829:                                              ; preds = %808
@@ -3180,7 +3180,7 @@ _ZN4llvm8DebugLocD2Ev.exit545:                    ; preds = %_ZN4llvm10MIMetadat
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 371
   %833 = load i8, ptr %832, align 1, !tbaa !587, !range !417, !noundef !418
   %834 = trunc nuw i8 %833 to i1
-  %.neg780 = select i1 %834, i64 -5029, i64 -5028
+  %.neg783 = select i1 %834, i64 -5029, i64 -5028
   br label %847
 
 835:                                              ; preds = %808
@@ -3220,7 +3220,7 @@ _ZN4llvm8DebugLocD2Ev.exit545:                    ; preds = %_ZN4llvm10MIMetadat
   unreachable
 
 847:                                              ; preds = %808, %845, %844, %843, %842, %841, %840, %839, %838, %837, %836, %835, %829, %823, %817, %811
-  %.0384.neg = phi i64 [ -5032, %845 ], [ -5031, %844 ], [ -4990, %843 ], [ -4989, %842 ], [ -4988, %841 ], [ -4987, %840 ], [ -4986, %839 ], [ -4985, %838 ], [ -4984, %837 ], [ -4983, %836 ], [ -4982, %835 ], [ %.neg780, %829 ], [ %.neg781, %823 ], [ %.neg782, %817 ], [ %.neg783, %811 ], [ -4981, %808 ]
+  %.0384.neg = phi i64 [ %.neg780, %811 ], [ %.neg781, %817 ], [ %.neg782, %823 ], [ %.neg783, %829 ], [ -4982, %835 ], [ -4983, %836 ], [ -4984, %837 ], [ -4985, %838 ], [ -4986, %839 ], [ -4987, %840 ], [ -4988, %841 ], [ -4989, %842 ], [ -4990, %843 ], [ -5031, %844 ], [ -5032, %845 ], [ -4981, %808 ]
   %848 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %849 = load ptr, ptr %848, align 8, !tbaa !153
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 8
@@ -3772,42 +3772,42 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit593:   ; preds = %1071, %1073
   br i1 %.not399, label %1103, label %1109, !llvm.loop !619
 
 1111:                                             ; preds = %1103
-  %.neg778 = select i1 %1108, i64 -4950, i64 -4943
+  %.neg771 = select i1 %1108, i64 -4950, i64 -4943
   br label %1120
 
 1112:                                             ; preds = %1103
-  %.neg777 = select i1 %1108, i64 -4949, i64 -4948
+  %.neg772 = select i1 %1108, i64 -4949, i64 -4948
   br label %1120
 
 1113:                                             ; preds = %1103
-  %.neg776 = select i1 %1108, i64 -4958, i64 -4951
+  %.neg773 = select i1 %1108, i64 -4958, i64 -4951
   br label %1120
 
 1114:                                             ; preds = %1103
-  %.neg775 = select i1 %1108, i64 -4957, i64 -4956
+  %.neg774 = select i1 %1108, i64 -4957, i64 -4956
   br label %1120
 
 1115:                                             ; preds = %1103
-  %.neg774 = select i1 %1108, i64 -4947, i64 -4944
+  %.neg775 = select i1 %1108, i64 -4947, i64 -4944
   br label %1120
 
 1116:                                             ; preds = %1103
-  %.neg773 = select i1 %1108, i64 -4946, i64 -4945
+  %.neg776 = select i1 %1108, i64 -4946, i64 -4945
   br label %1120
 
 1117:                                             ; preds = %1103
-  %.neg772 = select i1 %1108, i64 -4955, i64 -4952
+  %.neg777 = select i1 %1108, i64 -4955, i64 -4952
   br label %1120
 
 1118:                                             ; preds = %1103
-  %.neg771 = select i1 %1108, i64 -4954, i64 -4953
+  %.neg778 = select i1 %1108, i64 -4954, i64 -4953
   br label %1120
 
 1119:                                             ; preds = %1103
   unreachable
 
 1120:                                             ; preds = %1118, %1117, %1116, %1115, %1114, %1113, %1112, %1111
-  %.0391.neg = phi i64 [ %.neg771, %1118 ], [ %.neg772, %1117 ], [ %.neg773, %1116 ], [ %.neg774, %1115 ], [ %.neg775, %1114 ], [ %.neg776, %1113 ], [ %.neg777, %1112 ], [ %.neg778, %1111 ]
+  %.0391.neg = phi i64 [ %.neg771, %1111 ], [ %.neg772, %1112 ], [ %.neg773, %1113 ], [ %.neg774, %1114 ], [ %.neg775, %1115 ], [ %.neg776, %1116 ], [ %.neg777, %1117 ], [ %.neg778, %1118 ]
   %1121 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1122 = load ptr, ptr %1121, align 8, !tbaa !153
   %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 8
@@ -3950,7 +3950,7 @@ _ZN4llvm12MachineInstr15untieRegOperandEj.exit:   ; preds = %_ZN4llvm12MachineIn
   unreachable
 
 1175:                                             ; preds = %1154, %1173, %1172, %1171, %1170, %1169, %1168, %1167, %1166, %1165, %1164, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156
-  %.0388.neg = phi i64 [ -5001, %1173 ], [ -5000, %1172 ], [ -4994, %1171 ], [ -4993, %1170 ], [ -5059, %1169 ], [ -5048, %1168 ], [ -4971, %1167 ], [ -5056, %1166 ], [ -5055, %1165 ], [ -5058, %1164 ], [ -5057, %1163 ], [ -4999, %1162 ], [ -4992, %1161 ], [ -4998, %1160 ], [ -4997, %1159 ], [ -4996, %1158 ], [ -4995, %1157 ], [ -4970, %1156 ], [ -4969, %1154 ]
+  %.0388.neg = phi i64 [ -4970, %1156 ], [ -4995, %1157 ], [ -4996, %1158 ], [ -4997, %1159 ], [ -4998, %1160 ], [ -4992, %1161 ], [ -4999, %1162 ], [ -5057, %1163 ], [ -5058, %1164 ], [ -5055, %1165 ], [ -5056, %1166 ], [ -4971, %1167 ], [ -5048, %1168 ], [ -5059, %1169 ], [ -4993, %1170 ], [ -4994, %1171 ], [ -5000, %1172 ], [ -5001, %1173 ], [ -4969, %1154 ]
   %1176 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1177 = load ptr, ptr %1176, align 8, !tbaa !153
   %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 8
@@ -4527,8 +4527,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit603.thread: ; preds = %
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %1392, %1406, %1405, %1404, %1403, %1402, %1401, %1400, %1399, %1398, %1397, %1396, %1395, %1394
-  %.0375.neg = phi i64 [ -4206, %1406 ], [ -4181, %1405 ], [ -491, %1404 ], [ -466, %1403 ], [ -22721, %1402 ], [ -22680, %1401 ], [ -2982, %1400 ], [ -2941, %1399 ], [ -868, %1398 ], [ -827, %1397 ], [ -4823, %1396 ], [ -4782, %1395 ], [ -637, %1394 ], [ -596, %1392 ]
-  %.0374.neg = phi i64 [ -2568, %1406 ], [ -2551, %1405 ], [ -2568, %1404 ], [ -2551, %1403 ], [ -2568, %1402 ], [ -2551, %1401 ], [ -2568, %1400 ], [ -2551, %1399 ], [ -2568, %1398 ], [ -2551, %1397 ], [ -2568, %1396 ], [ -2551, %1395 ], [ -2568, %1394 ], [ -2551, %1392 ]
+  %.0375.neg = phi i64 [ -637, %1394 ], [ -4782, %1395 ], [ -4823, %1396 ], [ -827, %1397 ], [ -868, %1398 ], [ -2941, %1399 ], [ -2982, %1400 ], [ -22680, %1401 ], [ -22721, %1402 ], [ -466, %1403 ], [ -491, %1404 ], [ -4181, %1405 ], [ -4206, %1406 ], [ -596, %1392 ]
+  %.0374.neg = phi i64 [ -2568, %1394 ], [ -2551, %1395 ], [ -2568, %1396 ], [ -2551, %1397 ], [ -2568, %1398 ], [ -2551, %1399 ], [ -2568, %1400 ], [ -2551, %1401 ], [ -2568, %1402 ], [ -2551, %1403 ], [ -2568, %1404 ], [ -2551, %1405 ], [ -2568, %1406 ], [ -2551, %1392 ]
   %1407 = getelementptr inbounds nuw i8, ptr %1338, i64 4
   %1408 = load i32, ptr %1407, align 4, !tbaa !220
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i604 = load i64, ptr %2, align 8
@@ -4648,7 +4648,7 @@ _ZN4llvm8DebugLocD2Ev.exit615:                    ; preds = %_ZN4llvm10MIMetadat
   br i1 %.not397, label %._crit_edge, label %.lr.ph, !llvm.loop !644
 
 _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit: ; preds = %.lr.ph.i.i.i432, %1348, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit603.thread, %._crit_edge, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i, %1330, %3, %_ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit, %1193, %1181, %1175, %1126, %1120, %_ZNK4llvm12MachineInstr11memoperandsEv.exit593, %_ZNK4llvm12MachineInstr11memoperandsEv.exit567, %847, %797, %796, %_ZN4llvm8DebugLocD2Ev.exit545, %_ZNK4llvm12MachineInstr11memoperandsEv.exit536, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %552, %._crit_edge821, %_ZN4llvm8DebugLocD2Ev.exit449, %_ZN4llvm8DebugLocD2Ev.exit441
-  %.0371 = phi i1 [ true, %_ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit ], [ true, %1193 ], [ true, %1181 ], [ true, %1175 ], [ true, %1126 ], [ true, %1120 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit593 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit567 ], [ true, %847 ], [ true, %797 ], [ true, %796 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit545 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit536 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ true, %552 ], [ true, %._crit_edge821 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit449 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit441 ], [ false, %3 ], [ false, %1330 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ false, %1348 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit603.thread ], [ true, %._crit_edge ], [ true, %.lr.ph.i.i.i432 ]
+  %.0371 = phi i1 [ true, %_ZN4llvm8DebugLocD2Ev.exit441 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit449 ], [ true, %._crit_edge821 ], [ true, %552 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit536 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit545 ], [ true, %796 ], [ true, %797 ], [ true, %847 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit567 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit593 ], [ true, %1120 ], [ true, %1126 ], [ true, %1175 ], [ true, %1181 ], [ true, %1193 ], [ true, %_ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit ], [ false, %3 ], [ false, %1330 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ false, %1348 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit603.thread ], [ true, %._crit_edge ], [ true, %.lr.ph.i.i.i432 ]
   ret i1 %.0371
 }
 

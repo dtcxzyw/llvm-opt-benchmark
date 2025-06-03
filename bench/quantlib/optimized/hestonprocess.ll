@@ -3209,7 +3209,7 @@ ehcleanup144.i:                                   ; preds = %cleanup.action142.i
   br label %ehcleanup148.i
 
 ehcleanup148.i:                                   ; preds = %ehcleanup144.i, %ehcleanup.i, %lpad.i
-  %.pn15.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn15.pn.pn.pn.i, %ehcleanup144.i ], [ %.pn.i, %ehcleanup.i ], [ %15, %lpad.i ]
+  %.pn15.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn15.pn.pn.pn.i, %ehcleanup144.i ], [ %15, %lpad.i ], [ %.pn.i, %ehcleanup.i ]
   resume { ptr, i32 } %.pn15.pn.pn.pn.pn.i
 
 unreachable.i:                                    ; preds = %invoke.cont129.i
@@ -6319,7 +6319,7 @@ ehcleanup750:                                     ; preds = %ehcleanup749, %lpad
   br label %ehcleanup753
 
 ehcleanup753:                                     ; preds = %lpad639.loopexit, %lpad639.loopexit.split-lp.loopexit.split-lp, %lpad639.loopexit.split-lp.loopexit, %ehcleanup207.i, %ehcleanup154.i.i, %lpad607, %ehcleanup687, %lpad618, %ehcleanup416, %ehcleanup566, %ehcleanup504, %lpad455, %ehcleanup750, %ehcleanup246, %ehcleanup174, %ehcleanup106, %ehcleanup32, %lpad
-  %.pn173.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn173.pn.pn.pn.pn, %ehcleanup750 ], [ %43, %lpad ], [ %.pn165, %ehcleanup246 ], [ %.pn167, %ehcleanup174 ], [ %.pn169, %ehcleanup106 ], [ %.pn171, %ehcleanup32 ], [ %.pn162, %ehcleanup566 ], [ %.pn156.pn.pn.pn.pn, %ehcleanup416 ], [ %.pn149.pn.pn.pn.pn, %ehcleanup504 ], [ %215, %lpad455 ], [ %400, %lpad607 ], [ %401, %lpad618 ], [ %.pn, %ehcleanup687 ], [ %.pn.pn.pn.pn.i.i, %ehcleanup154.i.i ], [ %.pn.pn.pn.pn.i, %ehcleanup207.i ], [ %lpad.loopexit, %lpad639.loopexit ], [ %lpad.loopexit800, %lpad639.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp801, %lpad639.loopexit.split-lp.loopexit.split-lp ]
+  %.pn173.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn173.pn.pn.pn.pn, %ehcleanup750 ], [ %.pn171, %ehcleanup32 ], [ %.pn169, %ehcleanup106 ], [ %.pn167, %ehcleanup174 ], [ %43, %lpad ], [ %.pn165, %ehcleanup246 ], [ %.pn162, %ehcleanup566 ], [ %.pn156.pn.pn.pn.pn, %ehcleanup416 ], [ %.pn149.pn.pn.pn.pn, %ehcleanup504 ], [ %215, %lpad455 ], [ %400, %lpad607 ], [ %401, %lpad618 ], [ %.pn, %ehcleanup687 ], [ %.pn.pn.pn.pn.i.i, %ehcleanup154.i.i ], [ %.pn.pn.pn.pn.i, %ehcleanup207.i ], [ %lpad.loopexit, %lpad639.loopexit ], [ %lpad.loopexit800, %lpad639.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp801, %lpad639.loopexit.split-lp.loopexit.split-lp ]
   %426 = load ptr, ptr %agg.result, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %426, null
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i

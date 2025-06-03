@@ -1310,7 +1310,7 @@ dissect_octet_string.exit:                        ; preds = %27, %29
   br label %53
 
 53:                                               ; preds = %47, %41, %dissect_octet_string.exit, %20, %12
-  %.045 = phi i32 [ %19, %12 ], [ %52, %47 ], [ %46, %41 ], [ %40, %dissect_octet_string.exit ], [ %23, %20 ]
+  %.045 = phi i32 [ %19, %12 ], [ %23, %20 ], [ %40, %dissect_octet_string.exit ], [ %46, %41 ], [ %52, %47 ]
   %54 = add i32 %.045, 4
   br label %55
 

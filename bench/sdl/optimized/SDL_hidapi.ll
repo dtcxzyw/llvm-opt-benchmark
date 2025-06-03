@@ -3635,9 +3635,9 @@ hid_iterate_over_collection.exit:                 ; preds = %.thread33.i
   br i1 %.not52, label %104, label %.thread.sink.split
 
 104:                                              ; preds = %get_hid_item_size.exit, %get_hid_report_bytes.exit, %get_hid_report_bytes.exit61, %get_hid_report_bytes.exit58, %102, %hid_iterate_over_collection.exit
-  %.067 = phi i32 [ %.sink21.i, %get_hid_item_size.exit ], [ %.sink21.i.i, %hid_iterate_over_collection.exit ], [ %.sink21.i.i, %102 ], [ 4, %get_hid_report_bytes.exit58 ], [ %.sink21.i, %get_hid_report_bytes.exit61 ], [ %.sink21.i, %get_hid_report_bytes.exit ]
-  %.0 = phi i32 [ %.sink.i, %get_hid_item_size.exit ], [ %.sink.i.i, %hid_iterate_over_collection.exit ], [ %.sink.i.i, %102 ], [ %.sink.i, %get_hid_report_bytes.exit58 ], [ %.sink.i, %get_hid_report_bytes.exit61 ], [ %.sink.i, %get_hid_report_bytes.exit ]
-  %.246 = phi i32 [ %.04478, %get_hid_item_size.exit ], [ 0, %hid_iterate_over_collection.exit ], [ 1, %102 ], [ 1, %get_hid_report_bytes.exit58 ], [ 1, %get_hid_report_bytes.exit61 ], [ %.04478, %get_hid_report_bytes.exit ]
+  %.067 = phi i32 [ %.sink21.i, %get_hid_item_size.exit ], [ %.sink21.i, %get_hid_report_bytes.exit ], [ 4, %get_hid_report_bytes.exit58 ], [ %.sink21.i, %get_hid_report_bytes.exit61 ], [ %.sink21.i.i, %hid_iterate_over_collection.exit ], [ %.sink21.i.i, %102 ]
+  %.0 = phi i32 [ %.sink.i, %get_hid_item_size.exit ], [ %.sink.i, %get_hid_report_bytes.exit ], [ %.sink.i, %get_hid_report_bytes.exit58 ], [ %.sink.i, %get_hid_report_bytes.exit61 ], [ %.sink.i.i, %hid_iterate_over_collection.exit ], [ %.sink.i.i, %102 ]
+  %.246 = phi i32 [ %.04478, %get_hid_item_size.exit ], [ %.04478, %get_hid_report_bytes.exit ], [ 1, %get_hid_report_bytes.exit58 ], [ 1, %get_hid_report_bytes.exit61 ], [ 0, %hid_iterate_over_collection.exit ], [ 1, %102 ]
   %105 = add nuw nsw i32 %.0, %.067
   %106 = load i32, ptr %2, align 4
   %107 = add i32 %105, %106

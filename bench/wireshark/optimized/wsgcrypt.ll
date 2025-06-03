@@ -727,7 +727,7 @@ define i32 @hpke_setup_aead(ptr noundef %0, i16 noundef zeroext %1, ptr noundef 
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.0 = phi i32 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi i32 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %hpke_aead_key_len.exit, label %13
 

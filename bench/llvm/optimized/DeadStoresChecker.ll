@@ -3068,7 +3068,7 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   br label %234
 
 234:                                              ; preds = %233, %_ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread
-  %.not26 = phi ptr [ @.str.7, %_ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread ], [ @.str.6, %233 ]
+  %.not26 = phi ptr [ @.str.6, %233 ], [ @.str.7, %_ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread ]
   %235 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %236 = load ptr, ptr %235, align 8, !tbaa !782
   %237 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -6389,7 +6389,7 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   br label %125
 
 125:                                              ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread, %._crit_edge
-  %.1.i = phi ptr [ %.029.i.lcssa, %._crit_edge ], [ %124, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread ]
+  %.1.i = phi ptr [ %124, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread ], [ %.029.i.lcssa, %._crit_edge ]
   %126 = load ptr, ptr %.1.i, align 8, !tbaa !878
   %127 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #23
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6426,7 +6426,7 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   br label %147
 
 147:                                              ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread, %._crit_edge
-  %.2.i = phi ptr [ %.029.i.lcssa, %._crit_edge ], [ %146, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread ]
+  %.2.i = phi ptr [ %146, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread ], [ %.029.i.lcssa, %._crit_edge ]
   %148 = load ptr, ptr %.2.i, align 8, !tbaa !878
   %149 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %148) #23
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 16

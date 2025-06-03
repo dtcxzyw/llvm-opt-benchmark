@@ -3649,7 +3649,7 @@ sw.default.i.i.i.i.i.i.i.i.i.i:                   ; preds = %invoke.cont10.i31.i
   unreachable
 
 call.i.noexc.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb10.i.i.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i.i = phi i1 [ %tobool.i.i.i.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i.i.i ], [ %cmp.i4.i.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i ], [ %call2.i.i.i23.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i.i.i.i = phi i1 [ %cmp.i.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i ], [ %cmp.i4.i.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i.i ], [ %tobool.i.i.i.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i.i.i ], [ %call2.i.i.i23.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i.i ]
   %castType_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %68, i64 40
   %83 = load ptr, ptr %castType_.i.i.i.i.i.i.i.i.i.i, align 8
   %84 = load ptr, ptr %83, align 8
@@ -4624,7 +4624,7 @@ sw.default.i.i48.i.i.i.i.i.i.i.i:                 ; preds = %if.else17.i.i.i.i.i
   unreachable
 
 call4.i.noexc.i.i.i.i.i.i.i.i:                    ; preds = %sw.bb10.i.i35.i.i.i.i.i.i.i.i, %sw.bb7.i.i41.i.i.i.i.i.i.i.i, %sw.bb.i.i46.i.i.i.i.i.i.i.i
-  %retval.0.i.i40.i.i.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i, %sw.bb7.i.i41.i.i.i.i.i.i.i.i ], [ %222, %sw.bb.i.i46.i.i.i.i.i.i.i.i ], [ %call2.i.i.i51.i.i.i.i.i.i.i.i, %sw.bb10.i.i35.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i40.i.i.i.i.i.i.i.i = phi i64 [ %222, %sw.bb.i.i46.i.i.i.i.i.i.i.i ], [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i, %sw.bb7.i.i41.i.i.i.i.i.i.i.i ], [ %call2.i.i.i51.i.i.i.i.i.i.i.i, %sw.bb10.i.i35.i.i.i.i.i.i.i.i ]
   store i64 %retval.0.i.i40.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i)
   %225 = add i64 %retval.0.i.i40.i.i.i.i.i.i.i.i, 2147483648
@@ -7668,7 +7668,7 @@ sw.default.i.i48.i.i.i.i.i.i.i.i1301:             ; preds = %if.else17.i.i.i.i.i
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit.i.i.i.i.i.i.i.i: ; preds = %sw.bb10.i.i35.i.i.i.i.i.i.i.i1287, %sw.bb7.i.i41.i.i.i.i.i.i.i.i1249, %sw.bb.i.i46.i.i.i.i.i.i.i.i1293, %if.then3.i.i.i.i.i.i.i.i.i1298
-  %retval.i.0.i.i.i.i.i.i.i.i1252 = phi i64 [ %conv.i.i.i.i.i.i.i.i.i1299, %if.then3.i.i.i.i.i.i.i.i.i1298 ], [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i1251, %sw.bb7.i.i41.i.i.i.i.i.i.i.i1249 ], [ %661, %sw.bb.i.i46.i.i.i.i.i.i.i.i1293 ], [ %call2.i.i.i51.i.i.i.i.i.i.i.i1292, %sw.bb10.i.i35.i.i.i.i.i.i.i.i1287 ]
+  %retval.i.0.i.i.i.i.i.i.i.i1252 = phi i64 [ %conv.i.i.i.i.i.i.i.i.i1299, %if.then3.i.i.i.i.i.i.i.i.i1298 ], [ %661, %sw.bb.i.i46.i.i.i.i.i.i.i.i1293 ], [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i1251, %sw.bb7.i.i41.i.i.i.i.i.i.i.i1249 ], [ %call2.i.i.i51.i.i.i.i.i.i.i.i1292, %sw.bb10.i.i35.i.i.i.i.i.i.i.i1287 ]
   %castType_.i.i.i.i.i.i.i.i.i.i1253 = getelementptr inbounds nuw i8, ptr %647, i64 40
   %664 = load ptr, ptr %castType_.i.i.i.i.i.i.i.i.i.i1253, align 8
   %665 = load ptr, ptr %664, align 8
@@ -9429,7 +9429,7 @@ sw.default.i.i.i.i.i.i.i.i.i.i1942:               ; preds = %if.else17.i.i.i.i.i
   unreachable
 
 call.i.noexc.i.i.i.i.i.i.i.i1910:                 ; preds = %sw.bb10.i.i.i.i.i.i.i.i.i.i1889, %sw.bb7.i.i.i.i.i.i.i.i.i.i1937, %sw.bb4.i.i.i.i.i.i.i.i.i.i1938, %sw.bb.i.i.i.i.i.i.i.i.i.i1940
-  %retval.0.i.i.i.i.i.i.i.i.i.i1911 = phi double [ %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i.i.i1937 ], [ %919, %sw.bb4.i.i.i.i.i.i.i.i.i.i1938 ], [ %call3.i.i23.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i1940 ], [ %call2.i.i.i24.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i.i1889 ]
+  %retval.0.i.i.i.i.i.i.i.i.i.i1911 = phi double [ %919, %sw.bb4.i.i.i.i.i.i.i.i.i.i1938 ], [ %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i.i.i1937 ], [ %call3.i.i23.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i1940 ], [ %call2.i.i.i24.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i.i1889 ]
   store double %retval.0.i.i.i.i.i.i.i.i.i.i1911, ptr %ref.tmp.i.i.i.i.i.i.i.i.i1720, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i1719)
   %922 = call double @llvm.fabs.f64(double %retval.0.i.i.i.i.i.i.i.i.i.i1911)
@@ -10427,7 +10427,7 @@ sw.default.i.i.i.i.i.i.i.i.i.i2305:               ; preds = %invoke.cont10.i31.i
   unreachable
 
 call.i.noexc.i.i.i.i.i.i.i.i2266:                 ; preds = %sw.bb10.i.i.i.i.i.i.i.i.i.i2245, %sw.bb7.i.i.i.i.i.i.i.i.i.i2288, %sw.bb4.i.i.i.i.i.i.i.i.i.i2291, %sw.bb.i.i.i.i.i.i.i.i.i.i2293
-  %retval.0.i.i.i.i.i.i.i.i.i.i2267 = phi double [ %conv.i.i.i.i.i.i.i.i.i.i.i.i.i2290, %sw.bb7.i.i.i.i.i.i.i.i.i.i2288 ], [ %1065, %sw.bb4.i.i.i.i.i.i.i.i.i.i2291 ], [ %call3.i.i23.i.i.i.i.i.i.i.i2295, %sw.bb.i.i.i.i.i.i.i.i.i.i2293 ], [ %call2.i.i.i24.i.i.i.i.i.i.i.i2250, %sw.bb10.i.i.i.i.i.i.i.i.i.i2245 ]
+  %retval.0.i.i.i.i.i.i.i.i.i.i2267 = phi double [ %1065, %sw.bb4.i.i.i.i.i.i.i.i.i.i2291 ], [ %conv.i.i.i.i.i.i.i.i.i.i.i.i.i2290, %sw.bb7.i.i.i.i.i.i.i.i.i.i2288 ], [ %call3.i.i23.i.i.i.i.i.i.i.i2295, %sw.bb.i.i.i.i.i.i.i.i.i.i2293 ], [ %call2.i.i.i24.i.i.i.i.i.i.i.i2250, %sw.bb10.i.i.i.i.i.i.i.i.i.i2245 ]
   %castType_.i.i.i.i.i.i.i.i.i.i2268 = getelementptr inbounds nuw i8, ptr %1053, i64 40
   %1068 = load ptr, ptr %castType_.i.i.i.i.i.i.i.i.i.i2268, align 8
   %1069 = load ptr, ptr %1068, align 8
@@ -11577,7 +11577,7 @@ sw.default.i.i.i.i.i.i.i.i.i.i2638:               ; preds = %call8.i.noexc.i.i.i
   unreachable
 
 call9.i.noexc.i.i.i.i.i.i.i.i:                    ; preds = %sw.bb10.i.i.i.i.i.i.i.i.i.i2623, %sw.bb7.i.i.i.i.i.i.i.i.i.i2629, %sw.bb4.i.i.i.i.i.i.i.i.i.i2632, %sw.bb.i.i.i.i.i.i.i.i.i.i2635
-  %retval.0.i.i.i.i.i.i.i.i.i.i2627 = phi i1 [ %tobool.i.i.i.i.i.i.i.i.i.i.i2631, %sw.bb7.i.i.i.i.i.i.i.i.i.i2629 ], [ %cmp.i4.i.i.i.i.i.i.i.i.i.i2634, %sw.bb4.i.i.i.i.i.i.i.i.i.i2632 ], [ %cmp.i.i.i.i.i.i.i.i.i.i.i2637, %sw.bb.i.i.i.i.i.i.i.i.i.i2635 ], [ %call2.i.i.i63.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i.i2623 ]
+  %retval.0.i.i.i.i.i.i.i.i.i.i2627 = phi i1 [ %cmp.i.i.i.i.i.i.i.i.i.i.i2637, %sw.bb.i.i.i.i.i.i.i.i.i.i2635 ], [ %cmp.i4.i.i.i.i.i.i.i.i.i.i2634, %sw.bb4.i.i.i.i.i.i.i.i.i.i2632 ], [ %tobool.i.i.i.i.i.i.i.i.i.i.i2631, %sw.bb7.i.i.i.i.i.i.i.i.i.i2629 ], [ %call2.i.i.i63.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i.i2623 ]
   %cond.i.i.i.i.i.i.i.i.i = select i1 %retval.0.i.i.i.i.i.i.i.i.i.i2627, ptr @.str.13, ptr @.str.14
   %call.i.i.i65.i.i.i.i.i.i.i.i = select i1 %retval.0.i.i.i.i.i.i.i.i.i.i2627, i64 4, i64 5
   %size_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i52.i.i.i.i.i.i.i.i, i64 32
@@ -64533,7 +64533,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont8
   unreachable
 
 call.i.noexc:                                     ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i23, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i23, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %25, i64 40
   %42 = load ptr, ptr %castType_.i.i, align 8
   %43 = load ptr, ptr %42, align 8
@@ -67306,7 +67306,7 @@ sw.default.i.i48:                                 ; preds = %if.else15
   unreachable
 
 call4.i.noexc:                                    ; preds = %sw.bb7.i.i41, %sw.bb.i.i46, %sw.bb10.i.i35
-  %retval.0.i.i40 = phi i64 [ %conv.i.i.i.i.i43, %sw.bb7.i.i41 ], [ %40, %sw.bb.i.i46 ], [ %call2.i.i.i51, %sw.bb10.i.i35 ]
+  %retval.0.i.i40 = phi i64 [ %40, %sw.bb.i.i46 ], [ %conv.i.i.i.i.i43, %sw.bb7.i.i41 ], [ %call2.i.i.i51, %sw.bb10.i.i35 ]
   store i64 %retval.0.i.i40, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %43 = add i64 %retval.0.i.i40, 2147483648
@@ -75074,7 +75074,7 @@ sw.default.i.i48:                                 ; preds = %if.else15
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit: ; preds = %sw.bb10.i.i35, %sw.bb.i.i46, %sw.bb7.i.i41, %if.then3.i
-  %retval.i.0 = phi i64 [ %conv.i, %if.then3.i ], [ %conv.i.i.i.i.i43, %sw.bb7.i.i41 ], [ %41, %sw.bb.i.i46 ], [ %call2.i.i.i51, %sw.bb10.i.i35 ]
+  %retval.i.0 = phi i64 [ %conv.i, %if.then3.i ], [ %41, %sw.bb.i.i46 ], [ %conv.i.i.i.i.i43, %sw.bb7.i.i41 ], [ %call2.i.i.i51, %sw.bb10.i.i35 ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %25, i64 40
   %44 = load ptr, ptr %castType_.i.i, align 8
   %45 = load ptr, ptr %44, align 8
@@ -77788,7 +77788,7 @@ sw.default.i.i:                                   ; preds = %if.else15
   unreachable
 
 call.i.noexc:                                     ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi double [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %39, %sw.bb4.i.i ], [ %call3.i.i23, %sw.bb.i.i ], [ %call2.i.i.i24, %sw.bb10.i.i ]
+  %retval.0.i.i = phi double [ %39, %sw.bb4.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call3.i.i23, %sw.bb.i.i ], [ %call2.i.i.i24, %sw.bb10.i.i ]
   store double %retval.0.i.i, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %42 = call double @llvm.fabs.f64(double %retval.0.i.i)
@@ -80246,7 +80246,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont8
   unreachable
 
 call.i.noexc:                                     ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi double [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %39, %sw.bb4.i.i ], [ %call3.i.i23, %sw.bb.i.i ], [ %call2.i.i.i24, %sw.bb10.i.i ]
+  %retval.0.i.i = phi double [ %39, %sw.bb4.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call3.i.i23, %sw.bb.i.i ], [ %call2.i.i.i24, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %25, i64 40
   %42 = load ptr, ptr %castType_.i.i, align 8
   %43 = load ptr, ptr %42, align 8
@@ -82831,7 +82831,7 @@ sw.default.i.i:                                   ; preds = %call8.i.noexc
   unreachable
 
 call9.i.noexc:                                    ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i63, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i63, %sw.bb10.i.i ]
   %cond.i = select i1 %retval.0.i.i, ptr @.str.13, ptr @.str.14
   %call.i.i.i65 = select i1 %retval.0.i.i, i64 4, i64 5
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i52, i64 32
@@ -88335,7 +88335,7 @@ sw.default.i.i:                                   ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit:                 ; preds = %sw.bb.i.i, %sw.bb4.i.i, %sw.bb7.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %call2.i.i.i, %sw.bb10.i.i ], [ %tobool.i.i.i76, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i77, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i77, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i76, %sw.bb7.i.i ], [ %call2.i.i.i, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %23, i64 40
   %28 = load ptr, ptr %castType_.i.i, align 8
   %29 = load ptr, ptr %28, align 8
@@ -88486,7 +88486,7 @@ sw.default.i.i132:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %sw.bb.i.i130, %sw.bb7.i.i125, %sw.bb10.i.i118
-  %retval.0.i.i124 = phi i64 [ %call2.i.i.i123, %sw.bb10.i.i118 ], [ %conv.i.i.i.i.i127, %sw.bb7.i.i125 ], [ %57, %sw.bb.i.i130 ]
+  %retval.0.i.i124 = phi i64 [ %57, %sw.bb.i.i130 ], [ %conv.i.i.i.i.i127, %sw.bb7.i.i125 ], [ %call2.i.i.i123, %sw.bb10.i.i118 ]
   store i64 %retval.0.i.i124, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %60 = add i64 %retval.0.i.i124, 2147483648
@@ -88680,7 +88680,7 @@ sw.default.i.i205:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit206:               ; preds = %sw.bb.i.i203, %sw.bb10.i.i190
-  %retval.0.i.i196 = phi i64 [ %call2.i.i.i195, %sw.bb10.i.i190 ], [ %95, %sw.bb.i.i203 ]
+  %retval.0.i.i196 = phi i64 [ %95, %sw.bb.i.i203 ], [ %call2.i.i.i195, %sw.bb10.i.i190 ]
   store i64 %retval.0.i.i196, ptr %ref.tmp.i63, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i208)
   %cmp.i.i.i.i.i209 = icmp sgt i64 %retval.0.i.i196, 127
@@ -88870,7 +88870,7 @@ sw.default.i.i291:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit292:               ; preds = %sw.bb.i.i289, %sw.bb10.i.i276
-  %retval.0.i.i282 = phi i64 [ %call2.i.i.i281, %sw.bb10.i.i276 ], [ %130, %sw.bb.i.i289 ]
+  %retval.0.i.i282 = phi i64 [ %130, %sw.bb.i.i289 ], [ %call2.i.i.i281, %sw.bb10.i.i276 ]
   store i64 %retval.0.i.i282, ptr %ref.tmp.i85, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i294)
   %cmp.i.i.i.i.i295 = icmp sgt i64 %retval.0.i.i282, 32767
@@ -89058,7 +89058,7 @@ sw.default.i.i378:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit: ; preds = %sw.bb10.i.i363, %sw.bb7.i.i370, %sw.bb.i.i376, %if.then3.i118
-  %retval.i102.0 = phi i64 [ %conv.i119, %if.then3.i118 ], [ %call2.i.i.i368, %sw.bb10.i.i363 ], [ %conv.i.i.i.i.i372, %sw.bb7.i.i370 ], [ %166, %sw.bb.i.i376 ]
+  %retval.i102.0 = phi i64 [ %conv.i119, %if.then3.i118 ], [ %166, %sw.bb.i.i376 ], [ %conv.i.i.i.i.i372, %sw.bb7.i.i370 ], [ %call2.i.i.i368, %sw.bb10.i.i363 ]
   %castType_.i.i380 = getelementptr inbounds nuw i8, ptr %162, i64 40
   %169 = load ptr, ptr %castType_.i.i380, align 8
   %170 = load ptr, ptr %169, align 8
@@ -89209,7 +89209,7 @@ sw.default.i.i438:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit439:            ; preds = %sw.bb.i.i435, %sw.bb4.i.i433, %sw.bb7.i.i430, %sw.bb10.i.i423
-  %retval.0.i.i429 = phi double [ %call2.i.i.i428, %sw.bb10.i.i423 ], [ %conv.i.i.i.i.i432, %sw.bb7.i.i430 ], [ %201, %sw.bb4.i.i433 ], [ %call3.i.i437, %sw.bb.i.i435 ]
+  %retval.0.i.i429 = phi double [ %call3.i.i437, %sw.bb.i.i435 ], [ %201, %sw.bb4.i.i433 ], [ %conv.i.i.i.i.i432, %sw.bb7.i.i430 ], [ %call2.i.i.i428, %sw.bb10.i.i423 ]
   store double %retval.0.i.i429, ptr %ref.tmp.i122, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i441)
   %204 = tail call double @llvm.fabs.f64(double %retval.0.i.i429)
@@ -89387,7 +89387,7 @@ sw.default.i.i505:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit506:            ; preds = %sw.bb.i.i502, %sw.bb4.i.i500, %sw.bb7.i.i497, %sw.bb10.i.i490
-  %retval.0.i.i496 = phi double [ %call2.i.i.i495, %sw.bb10.i.i490 ], [ %conv.i.i.i.i.i499, %sw.bb7.i.i497 ], [ %237, %sw.bb4.i.i500 ], [ %call3.i.i504, %sw.bb.i.i502 ]
+  %retval.0.i.i496 = phi double [ %call3.i.i504, %sw.bb.i.i502 ], [ %237, %sw.bb4.i.i500 ], [ %conv.i.i.i.i.i499, %sw.bb7.i.i497 ], [ %call2.i.i.i495, %sw.bb10.i.i490 ]
   %castType_.i.i507 = getelementptr inbounds nuw i8, ptr %235, i64 40
   %240 = load ptr, ptr %castType_.i.i507, align 8
   %241 = load ptr, ptr %240, align 8
@@ -89709,7 +89709,7 @@ sw.default.i.i611:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit612:              ; preds = %sw.bb.i.i608, %sw.bb4.i.i605, %sw.bb7.i.i602, %sw.bb10.i.i595
-  %retval.0.i.i601 = phi i1 [ %call2.i.i.i600, %sw.bb10.i.i595 ], [ %tobool.i.i.i604, %sw.bb7.i.i602 ], [ %cmp.i4.i.i607, %sw.bb4.i.i605 ], [ %cmp.i.i.i610, %sw.bb.i.i608 ]
+  %retval.0.i.i601 = phi i1 [ %cmp.i.i.i610, %sw.bb.i.i608 ], [ %cmp.i4.i.i607, %sw.bb4.i.i605 ], [ %tobool.i.i.i604, %sw.bb7.i.i602 ], [ %call2.i.i.i600, %sw.bb10.i.i595 ]
   %cond.i = select i1 %retval.0.i.i601, ptr @.str.13, ptr @.str.14
   %call.i.i.i613 = select i1 %retval.0.i.i601, i64 4, i64 5
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i587, i64 32
@@ -92383,7 +92383,7 @@ sw.default.i.i:                                   ; preds = %sw.bb
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit:                 ; preds = %sw.bb.i.i, %sw.bb4.i.i, %sw.bb7.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %call2.i.i.i, %sw.bb10.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load ptr, ptr %castType_.i.i, align 8
   %15 = load ptr, ptr %14, align 8
@@ -92477,7 +92477,7 @@ sw.default.i.i101:                                ; preds = %sw.bb6
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %sw.bb.i.i99, %sw.bb7.i.i94, %sw.bb10.i.i87
-  %retval.0.i.i93 = phi i64 [ %call2.i.i.i92, %sw.bb10.i.i87 ], [ %conv.i.i.i.i.i96, %sw.bb7.i.i94 ], [ %29, %sw.bb.i.i99 ]
+  %retval.0.i.i93 = phi i64 [ %29, %sw.bb.i.i99 ], [ %conv.i.i.i.i.i96, %sw.bb7.i.i94 ], [ %call2.i.i.i92, %sw.bb10.i.i87 ]
   store i64 %retval.0.i.i93, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %32 = add i64 %retval.0.i.i93, 2147483648
@@ -92614,7 +92614,7 @@ sw.default.i.i146:                                ; preds = %sw.bb8
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit147:               ; preds = %sw.bb.i.i144, %sw.bb10.i.i131
-  %retval.0.i.i137 = phi i64 [ %call2.i.i.i136, %sw.bb10.i.i131 ], [ %53, %sw.bb.i.i144 ]
+  %retval.0.i.i137 = phi i64 [ %53, %sw.bb.i.i144 ], [ %call2.i.i.i136, %sw.bb10.i.i131 ]
   store i64 %retval.0.i.i137, ptr %ref.tmp.i48, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i149)
   %cmp.i.i.i.i.i150 = icmp sgt i64 %retval.0.i.i137, 127
@@ -92747,7 +92747,7 @@ sw.default.i.i203:                                ; preds = %sw.bb10
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit204:               ; preds = %sw.bb.i.i201, %sw.bb10.i.i188
-  %retval.0.i.i194 = phi i64 [ %call2.i.i.i193, %sw.bb10.i.i188 ], [ %74, %sw.bb.i.i201 ]
+  %retval.0.i.i194 = phi i64 [ %74, %sw.bb.i.i201 ], [ %call2.i.i.i193, %sw.bb10.i.i188 ]
   store i64 %retval.0.i.i194, ptr %ref.tmp.i70, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i206)
   %cmp.i.i.i.i.i207 = icmp sgt i64 %retval.0.i.i194, 32767
@@ -92878,7 +92878,7 @@ sw.default.i.i262:                                ; preds = %sw.bb12
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit: ; preds = %sw.bb10.i.i247, %sw.bb7.i.i254, %sw.bb.i.i260, %if.then3.i103
-  %retval.i87.0 = phi i64 [ %conv.i104, %if.then3.i103 ], [ %call2.i.i.i252, %sw.bb10.i.i247 ], [ %conv.i.i.i.i.i256, %sw.bb7.i.i254 ], [ %96, %sw.bb.i.i260 ]
+  %retval.i87.0 = phi i64 [ %conv.i104, %if.then3.i103 ], [ %96, %sw.bb.i.i260 ], [ %conv.i.i.i.i.i256, %sw.bb7.i.i254 ], [ %call2.i.i.i252, %sw.bb10.i.i247 ]
   %castType_.i.i264 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %99 = load ptr, ptr %castType_.i.i264, align 8
   %100 = load ptr, ptr %99, align 8
@@ -92969,7 +92969,7 @@ sw.default.i.i294:                                ; preds = %sw.bb16
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit295:            ; preds = %sw.bb.i.i291, %sw.bb4.i.i289, %sw.bb7.i.i286, %sw.bb10.i.i279
-  %retval.0.i.i285 = phi double [ %call2.i.i.i284, %sw.bb10.i.i279 ], [ %conv.i.i.i.i.i288, %sw.bb7.i.i286 ], [ %115, %sw.bb4.i.i289 ], [ %call3.i.i293, %sw.bb.i.i291 ]
+  %retval.0.i.i285 = phi double [ %call3.i.i293, %sw.bb.i.i291 ], [ %115, %sw.bb4.i.i289 ], [ %conv.i.i.i.i.i288, %sw.bb7.i.i286 ], [ %call2.i.i.i284, %sw.bb10.i.i279 ]
   store double %retval.0.i.i285, ptr %ref.tmp.i107, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i297)
   %118 = tail call double @llvm.fabs.f64(double %retval.0.i.i285)
@@ -93090,7 +93090,7 @@ sw.default.i.i333:                                ; preds = %sw.bb18
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit334:            ; preds = %sw.bb.i.i330, %sw.bb4.i.i328, %sw.bb7.i.i325, %sw.bb10.i.i318
-  %retval.0.i.i324 = phi double [ %call2.i.i.i323, %sw.bb10.i.i318 ], [ %conv.i.i.i.i.i327, %sw.bb7.i.i325 ], [ %137, %sw.bb4.i.i328 ], [ %call3.i.i332, %sw.bb.i.i330 ]
+  %retval.0.i.i324 = phi double [ %call3.i.i332, %sw.bb.i.i330 ], [ %137, %sw.bb4.i.i328 ], [ %conv.i.i.i.i.i327, %sw.bb7.i.i325 ], [ %call2.i.i.i323, %sw.bb10.i.i318 ]
   %castType_.i.i335 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %140 = load ptr, ptr %castType_.i.i335, align 8
   %141 = load ptr, ptr %140, align 8
@@ -93355,7 +93355,7 @@ sw.default.i.i410:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit411:              ; preds = %sw.bb.i.i407, %sw.bb4.i.i404, %sw.bb7.i.i401, %sw.bb10.i.i394
-  %retval.0.i.i400 = phi i1 [ %call2.i.i.i399, %sw.bb10.i.i394 ], [ %tobool.i.i.i403, %sw.bb7.i.i401 ], [ %cmp.i4.i.i406, %sw.bb4.i.i404 ], [ %cmp.i.i.i409, %sw.bb.i.i407 ]
+  %retval.0.i.i400 = phi i1 [ %cmp.i.i.i409, %sw.bb.i.i407 ], [ %cmp.i4.i.i406, %sw.bb4.i.i404 ], [ %tobool.i.i.i403, %sw.bb7.i.i401 ], [ %call2.i.i.i399, %sw.bb10.i.i394 ]
   %cond.i = select i1 %retval.0.i.i400, ptr @.str.13, ptr @.str.14
   %call.i.i.i412 = select i1 %retval.0.i.i400, i64 4, i64 5
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i386, i64 32
@@ -94663,7 +94663,7 @@ sw.default.i.i:                                   ; preds = %sw.bb
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit:                 ; preds = %sw.bb.i.i, %sw.bb4.i.i, %sw.bb7.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %call2.i.i.i, %sw.bb10.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load ptr, ptr %castType_.i.i, align 8
   %16 = load ptr, ptr %15, align 8
@@ -94759,7 +94759,7 @@ sw.default.i.i102:                                ; preds = %sw.bb7
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %sw.bb.i.i100, %sw.bb7.i.i95, %sw.bb10.i.i88
-  %retval.0.i.i94 = phi i64 [ %call2.i.i.i93, %sw.bb10.i.i88 ], [ %conv.i.i.i.i.i97, %sw.bb7.i.i95 ], [ %31, %sw.bb.i.i100 ]
+  %retval.0.i.i94 = phi i64 [ %31, %sw.bb.i.i100 ], [ %conv.i.i.i.i.i97, %sw.bb7.i.i95 ], [ %call2.i.i.i93, %sw.bb10.i.i88 ]
   store i64 %retval.0.i.i94, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %34 = add i64 %retval.0.i.i94, 2147483648
@@ -94898,7 +94898,7 @@ sw.default.i.i148:                                ; preds = %sw.bb10
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit149:               ; preds = %sw.bb.i.i146, %sw.bb10.i.i133
-  %retval.0.i.i139 = phi i64 [ %call2.i.i.i138, %sw.bb10.i.i133 ], [ %56, %sw.bb.i.i146 ]
+  %retval.0.i.i139 = phi i64 [ %56, %sw.bb.i.i146 ], [ %call2.i.i.i138, %sw.bb10.i.i133 ]
   store i64 %retval.0.i.i139, ptr %ref.tmp.i62, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i151)
   %cmp.i.i.i.i.i152 = icmp sgt i64 %retval.0.i.i139, 127
@@ -95033,7 +95033,7 @@ sw.default.i.i206:                                ; preds = %sw.bb13
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit207:               ; preds = %sw.bb.i.i204, %sw.bb10.i.i191
-  %retval.0.i.i197 = phi i64 [ %call2.i.i.i196, %sw.bb10.i.i191 ], [ %78, %sw.bb.i.i204 ]
+  %retval.0.i.i197 = phi i64 [ %78, %sw.bb.i.i204 ], [ %call2.i.i.i196, %sw.bb10.i.i191 ]
   store i64 %retval.0.i.i197, ptr %ref.tmp.i84, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i209)
   %cmp.i.i.i.i.i210 = icmp sgt i64 %retval.0.i.i197, 32767
@@ -95166,7 +95166,7 @@ sw.default.i.i266:                                ; preds = %sw.bb16
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit: ; preds = %sw.bb10.i.i251, %sw.bb7.i.i258, %sw.bb.i.i264, %if.then3.i117
-  %retval.i101.0 = phi i64 [ %conv.i118, %if.then3.i117 ], [ %call2.i.i.i256, %sw.bb10.i.i251 ], [ %conv.i.i.i.i.i260, %sw.bb7.i.i258 ], [ %101, %sw.bb.i.i264 ]
+  %retval.i101.0 = phi i64 [ %conv.i118, %if.then3.i117 ], [ %101, %sw.bb.i.i264 ], [ %conv.i.i.i.i.i260, %sw.bb7.i.i258 ], [ %call2.i.i.i256, %sw.bb10.i.i251 ]
   %castType_.i.i268 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %104 = load ptr, ptr %castType_.i.i268, align 8
   %105 = load ptr, ptr %104, align 8
@@ -95259,7 +95259,7 @@ sw.default.i.i300:                                ; preds = %sw.bb22
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit301:            ; preds = %sw.bb.i.i297, %sw.bb4.i.i295, %sw.bb7.i.i292, %sw.bb10.i.i285
-  %retval.0.i.i291 = phi double [ %call2.i.i.i290, %sw.bb10.i.i285 ], [ %conv.i.i.i.i.i294, %sw.bb7.i.i292 ], [ %121, %sw.bb4.i.i295 ], [ %call3.i.i299, %sw.bb.i.i297 ]
+  %retval.0.i.i291 = phi double [ %call3.i.i299, %sw.bb.i.i297 ], [ %121, %sw.bb4.i.i295 ], [ %conv.i.i.i.i.i294, %sw.bb7.i.i292 ], [ %call2.i.i.i290, %sw.bb10.i.i285 ]
   store double %retval.0.i.i291, ptr %ref.tmp.i121, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i303)
   %124 = tail call double @llvm.fabs.f64(double %retval.0.i.i291)
@@ -95382,7 +95382,7 @@ sw.default.i.i340:                                ; preds = %sw.bb25
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit341:            ; preds = %sw.bb.i.i337, %sw.bb4.i.i335, %sw.bb7.i.i332, %sw.bb10.i.i325
-  %retval.0.i.i331 = phi double [ %call2.i.i.i330, %sw.bb10.i.i325 ], [ %conv.i.i.i.i.i334, %sw.bb7.i.i332 ], [ %144, %sw.bb4.i.i335 ], [ %call3.i.i339, %sw.bb.i.i337 ]
+  %retval.0.i.i331 = phi double [ %call3.i.i339, %sw.bb.i.i337 ], [ %144, %sw.bb4.i.i335 ], [ %conv.i.i.i.i.i334, %sw.bb7.i.i332 ], [ %call2.i.i.i330, %sw.bb10.i.i325 ]
   %castType_.i.i342 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %147 = load ptr, ptr %castType_.i.i342, align 8
   %148 = load ptr, ptr %147, align 8
@@ -95649,7 +95649,7 @@ sw.default.i.i418:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit419:              ; preds = %sw.bb.i.i415, %sw.bb4.i.i412, %sw.bb7.i.i409, %sw.bb10.i.i402
-  %retval.0.i.i408 = phi i1 [ %call2.i.i.i407, %sw.bb10.i.i402 ], [ %tobool.i.i.i411, %sw.bb7.i.i409 ], [ %cmp.i4.i.i414, %sw.bb4.i.i412 ], [ %cmp.i.i.i417, %sw.bb.i.i415 ]
+  %retval.0.i.i408 = phi i1 [ %cmp.i.i.i417, %sw.bb.i.i415 ], [ %cmp.i4.i.i414, %sw.bb4.i.i412 ], [ %tobool.i.i.i411, %sw.bb7.i.i409 ], [ %call2.i.i.i407, %sw.bb10.i.i402 ]
   %cond.i = select i1 %retval.0.i.i408, ptr @.str.13, ptr @.str.14
   %call.i.i.i420 = select i1 %retval.0.i.i408, i64 4, i64 5
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i394, i64 32
@@ -96862,7 +96862,7 @@ sw.default.i.i:                                   ; preds = %sw.bb
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit:                 ; preds = %sw.bb.i.i, %sw.bb4.i.i, %sw.bb7.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %call2.i.i.i, %sw.bb10.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load ptr, ptr %castType_.i.i, align 8
   %16 = load ptr, ptr %15, align 8
@@ -96958,7 +96958,7 @@ sw.default.i.i101:                                ; preds = %sw.bb7
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %sw.bb.i.i99, %sw.bb7.i.i94, %sw.bb10.i.i87
-  %retval.0.i.i93 = phi i64 [ %call2.i.i.i92, %sw.bb10.i.i87 ], [ %conv.i.i.i.i.i96, %sw.bb7.i.i94 ], [ %31, %sw.bb.i.i99 ]
+  %retval.0.i.i93 = phi i64 [ %31, %sw.bb.i.i99 ], [ %conv.i.i.i.i.i96, %sw.bb7.i.i94 ], [ %call2.i.i.i92, %sw.bb10.i.i87 ]
   store i64 %retval.0.i.i93, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %34 = add i64 %retval.0.i.i93, 2147483648
@@ -97097,7 +97097,7 @@ sw.default.i.i146:                                ; preds = %sw.bb10
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit147:               ; preds = %sw.bb.i.i144, %sw.bb10.i.i131
-  %retval.0.i.i137 = phi i64 [ %call2.i.i.i136, %sw.bb10.i.i131 ], [ %56, %sw.bb.i.i144 ]
+  %retval.0.i.i137 = phi i64 [ %56, %sw.bb.i.i144 ], [ %call2.i.i.i136, %sw.bb10.i.i131 ]
   store i64 %retval.0.i.i137, ptr %ref.tmp.i62, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i149)
   %cmp.i.i.i.i.i150 = icmp sgt i64 %retval.0.i.i137, 127
@@ -97232,7 +97232,7 @@ sw.default.i.i203:                                ; preds = %sw.bb13
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit204:               ; preds = %sw.bb.i.i201, %sw.bb10.i.i188
-  %retval.0.i.i194 = phi i64 [ %call2.i.i.i193, %sw.bb10.i.i188 ], [ %78, %sw.bb.i.i201 ]
+  %retval.0.i.i194 = phi i64 [ %78, %sw.bb.i.i201 ], [ %call2.i.i.i193, %sw.bb10.i.i188 ]
   store i64 %retval.0.i.i194, ptr %ref.tmp.i84, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i206)
   %cmp.i.i.i.i.i207 = icmp sgt i64 %retval.0.i.i194, 32767
@@ -97365,7 +97365,7 @@ sw.default.i.i262:                                ; preds = %sw.bb16
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit: ; preds = %sw.bb10.i.i247, %sw.bb7.i.i254, %sw.bb.i.i260, %if.then3.i117
-  %retval.i101.0 = phi i64 [ %conv.i118, %if.then3.i117 ], [ %call2.i.i.i252, %sw.bb10.i.i247 ], [ %conv.i.i.i.i.i256, %sw.bb7.i.i254 ], [ %101, %sw.bb.i.i260 ]
+  %retval.i101.0 = phi i64 [ %conv.i118, %if.then3.i117 ], [ %101, %sw.bb.i.i260 ], [ %conv.i.i.i.i.i256, %sw.bb7.i.i254 ], [ %call2.i.i.i252, %sw.bb10.i.i247 ]
   %castType_.i.i264 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %104 = load ptr, ptr %castType_.i.i264, align 8
   %105 = load ptr, ptr %104, align 8
@@ -97458,7 +97458,7 @@ sw.default.i.i294:                                ; preds = %sw.bb22
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit295:            ; preds = %sw.bb.i.i291, %sw.bb4.i.i289, %sw.bb7.i.i286, %sw.bb10.i.i279
-  %retval.0.i.i285 = phi double [ %call2.i.i.i284, %sw.bb10.i.i279 ], [ %conv.i.i.i.i.i288, %sw.bb7.i.i286 ], [ %121, %sw.bb4.i.i289 ], [ %call3.i.i293, %sw.bb.i.i291 ]
+  %retval.0.i.i285 = phi double [ %call3.i.i293, %sw.bb.i.i291 ], [ %121, %sw.bb4.i.i289 ], [ %conv.i.i.i.i.i288, %sw.bb7.i.i286 ], [ %call2.i.i.i284, %sw.bb10.i.i279 ]
   store double %retval.0.i.i285, ptr %ref.tmp.i121, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i297)
   %124 = tail call double @llvm.fabs.f64(double %retval.0.i.i285)
@@ -97581,7 +97581,7 @@ sw.default.i.i333:                                ; preds = %sw.bb25
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit334:            ; preds = %sw.bb.i.i330, %sw.bb4.i.i328, %sw.bb7.i.i325, %sw.bb10.i.i318
-  %retval.0.i.i324 = phi double [ %call2.i.i.i323, %sw.bb10.i.i318 ], [ %conv.i.i.i.i.i327, %sw.bb7.i.i325 ], [ %144, %sw.bb4.i.i328 ], [ %call3.i.i332, %sw.bb.i.i330 ]
+  %retval.0.i.i324 = phi double [ %call3.i.i332, %sw.bb.i.i330 ], [ %144, %sw.bb4.i.i328 ], [ %conv.i.i.i.i.i327, %sw.bb7.i.i325 ], [ %call2.i.i.i323, %sw.bb10.i.i318 ]
   %castType_.i.i335 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %147 = load ptr, ptr %castType_.i.i335, align 8
   %148 = load ptr, ptr %147, align 8
@@ -97848,7 +97848,7 @@ sw.default.i.i410:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit411:              ; preds = %sw.bb.i.i407, %sw.bb4.i.i404, %sw.bb7.i.i401, %sw.bb10.i.i394
-  %retval.0.i.i400 = phi i1 [ %call2.i.i.i399, %sw.bb10.i.i394 ], [ %tobool.i.i.i403, %sw.bb7.i.i401 ], [ %cmp.i4.i.i406, %sw.bb4.i.i404 ], [ %cmp.i.i.i409, %sw.bb.i.i407 ]
+  %retval.0.i.i400 = phi i1 [ %cmp.i.i.i409, %sw.bb.i.i407 ], [ %cmp.i4.i.i406, %sw.bb4.i.i404 ], [ %tobool.i.i.i403, %sw.bb7.i.i401 ], [ %call2.i.i.i399, %sw.bb10.i.i394 ]
   %cond.i = select i1 %retval.0.i.i400, ptr @.str.13, ptr @.str.14
   %call.i.i.i412 = select i1 %retval.0.i.i400, i64 4, i64 5
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i386, i64 32
@@ -100178,7 +100178,7 @@ sw.default.i.i:                                   ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit:                 ; preds = %sw.bb.i.i, %sw.bb4.i.i, %sw.bb7.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %call2.i.i.i, %sw.bb10.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %26, i64 40
   %31 = load ptr, ptr %castType_.i.i, align 8
   %32 = load ptr, ptr %31, align 8
@@ -100315,7 +100315,7 @@ sw.default.i.i130:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %sw.bb.i.i128, %sw.bb7.i.i123, %sw.bb10.i.i116
-  %retval.0.i.i122 = phi i64 [ %call2.i.i.i121, %sw.bb10.i.i116 ], [ %conv.i.i.i.i.i125, %sw.bb7.i.i123 ], [ %60, %sw.bb.i.i128 ]
+  %retval.0.i.i122 = phi i64 [ %60, %sw.bb.i.i128 ], [ %conv.i.i.i.i.i125, %sw.bb7.i.i123 ], [ %call2.i.i.i121, %sw.bb10.i.i116 ]
   store i64 %retval.0.i.i122, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %63 = add i64 %retval.0.i.i122, 2147483648
@@ -100495,7 +100495,7 @@ sw.default.i.i198:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit199:               ; preds = %sw.bb.i.i196, %sw.bb10.i.i183
-  %retval.0.i.i189 = phi i64 [ %call2.i.i.i188, %sw.bb10.i.i183 ], [ %98, %sw.bb.i.i196 ]
+  %retval.0.i.i189 = phi i64 [ %98, %sw.bb.i.i196 ], [ %call2.i.i.i188, %sw.bb10.i.i183 ]
   store i64 %retval.0.i.i189, ptr %ref.tmp.i63, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i201)
   %cmp.i.i.i.i.i202 = icmp sgt i64 %retval.0.i.i189, 127
@@ -100671,7 +100671,7 @@ sw.default.i.i278:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit279:               ; preds = %sw.bb.i.i276, %sw.bb10.i.i263
-  %retval.0.i.i269 = phi i64 [ %call2.i.i.i268, %sw.bb10.i.i263 ], [ %133, %sw.bb.i.i276 ]
+  %retval.0.i.i269 = phi i64 [ %133, %sw.bb.i.i276 ], [ %call2.i.i.i268, %sw.bb10.i.i263 ]
   store i64 %retval.0.i.i269, ptr %ref.tmp.i85, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i281)
   %cmp.i.i.i.i.i282 = icmp sgt i64 %retval.0.i.i269, 32767
@@ -100845,7 +100845,7 @@ sw.default.i.i360:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit: ; preds = %sw.bb10.i.i345, %sw.bb7.i.i352, %sw.bb.i.i358, %if.then3.i118
-  %retval.i102.0 = phi i64 [ %conv.i119, %if.then3.i118 ], [ %call2.i.i.i350, %sw.bb10.i.i345 ], [ %conv.i.i.i.i.i354, %sw.bb7.i.i352 ], [ %169, %sw.bb.i.i358 ]
+  %retval.i102.0 = phi i64 [ %conv.i119, %if.then3.i118 ], [ %169, %sw.bb.i.i358 ], [ %conv.i.i.i.i.i354, %sw.bb7.i.i352 ], [ %call2.i.i.i350, %sw.bb10.i.i345 ]
   %castType_.i.i362 = getelementptr inbounds nuw i8, ptr %165, i64 40
   %172 = load ptr, ptr %castType_.i.i362, align 8
   %173 = load ptr, ptr %172, align 8
@@ -100984,7 +100984,7 @@ sw.default.i.i415:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit416:            ; preds = %sw.bb.i.i412, %sw.bb4.i.i410, %sw.bb7.i.i407, %sw.bb10.i.i400
-  %retval.0.i.i406 = phi double [ %call2.i.i.i405, %sw.bb10.i.i400 ], [ %conv.i.i.i.i.i409, %sw.bb7.i.i407 ], [ %206, %sw.bb4.i.i410 ], [ %call3.i.i414, %sw.bb.i.i412 ]
+  %retval.0.i.i406 = phi double [ %call3.i.i414, %sw.bb.i.i412 ], [ %206, %sw.bb4.i.i410 ], [ %conv.i.i.i.i.i409, %sw.bb7.i.i407 ], [ %call2.i.i.i405, %sw.bb10.i.i400 ]
   store double %retval.0.i.i406, ptr %ref.tmp.i122, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i418)
   %209 = tail call double @llvm.fabs.f64(double %retval.0.i.i406)
@@ -101148,7 +101148,7 @@ sw.default.i.i477:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit478:            ; preds = %sw.bb.i.i474, %sw.bb4.i.i472, %sw.bb7.i.i469, %sw.bb10.i.i462
-  %retval.0.i.i468 = phi double [ %call2.i.i.i467, %sw.bb10.i.i462 ], [ %conv.i.i.i.i.i471, %sw.bb7.i.i469 ], [ %242, %sw.bb4.i.i472 ], [ %call3.i.i476, %sw.bb.i.i474 ]
+  %retval.0.i.i468 = phi double [ %call3.i.i476, %sw.bb.i.i474 ], [ %242, %sw.bb4.i.i472 ], [ %conv.i.i.i.i.i471, %sw.bb7.i.i469 ], [ %call2.i.i.i467, %sw.bb10.i.i462 ]
   %castType_.i.i479 = getelementptr inbounds nuw i8, ptr %240, i64 40
   %245 = load ptr, ptr %castType_.i.i479, align 8
   %246 = load ptr, ptr %245, align 8
@@ -101456,7 +101456,7 @@ sw.default.i.i578:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit579:              ; preds = %sw.bb.i.i575, %sw.bb4.i.i572, %sw.bb7.i.i569, %sw.bb10.i.i562
-  %retval.0.i.i568 = phi i1 [ %call2.i.i.i567, %sw.bb10.i.i562 ], [ %tobool.i.i.i571, %sw.bb7.i.i569 ], [ %cmp.i4.i.i574, %sw.bb4.i.i572 ], [ %cmp.i.i.i577, %sw.bb.i.i575 ]
+  %retval.0.i.i568 = phi i1 [ %cmp.i.i.i577, %sw.bb.i.i575 ], [ %cmp.i4.i.i574, %sw.bb4.i.i572 ], [ %tobool.i.i.i571, %sw.bb7.i.i569 ], [ %call2.i.i.i567, %sw.bb10.i.i562 ]
   %cond.i = select i1 %retval.0.i.i568, ptr @.str.13, ptr @.str.14
   %call.i.i.i580 = select i1 %retval.0.i.i568, i64 4, i64 5
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i554, i64 32
@@ -103069,7 +103069,7 @@ sw.default.i.i:                                   ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit:                 ; preds = %sw.bb.i.i, %sw.bb4.i.i, %sw.bb7.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %call2.i.i.i, %sw.bb10.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i, %sw.bb10.i.i ]
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %24, i64 40
   %29 = load ptr, ptr %castType_.i.i, align 8
   %30 = load ptr, ptr %29, align 8
@@ -103208,7 +103208,7 @@ sw.default.i.i129:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %sw.bb.i.i127, %sw.bb7.i.i122, %sw.bb10.i.i115
-  %retval.0.i.i121 = phi i64 [ %call2.i.i.i120, %sw.bb10.i.i115 ], [ %conv.i.i.i.i.i124, %sw.bb7.i.i122 ], [ %59, %sw.bb.i.i127 ]
+  %retval.0.i.i121 = phi i64 [ %59, %sw.bb.i.i127 ], [ %conv.i.i.i.i.i124, %sw.bb7.i.i122 ], [ %call2.i.i.i120, %sw.bb10.i.i115 ]
   store i64 %retval.0.i.i121, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %62 = add i64 %retval.0.i.i121, 2147483648
@@ -103390,7 +103390,7 @@ sw.default.i.i197:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit198:               ; preds = %sw.bb.i.i195, %sw.bb10.i.i182
-  %retval.0.i.i188 = phi i64 [ %call2.i.i.i187, %sw.bb10.i.i182 ], [ %98, %sw.bb.i.i195 ]
+  %retval.0.i.i188 = phi i64 [ %98, %sw.bb.i.i195 ], [ %call2.i.i.i187, %sw.bb10.i.i182 ]
   store i64 %retval.0.i.i188, ptr %ref.tmp.i74, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i200)
   %cmp.i.i.i.i.i201 = icmp sgt i64 %retval.0.i.i188, 127
@@ -103568,7 +103568,7 @@ sw.default.i.i278:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit279:               ; preds = %sw.bb.i.i276, %sw.bb10.i.i263
-  %retval.0.i.i269 = phi i64 [ %call2.i.i.i268, %sw.bb10.i.i263 ], [ %134, %sw.bb.i.i276 ]
+  %retval.0.i.i269 = phi i64 [ %134, %sw.bb.i.i276 ], [ %call2.i.i.i268, %sw.bb10.i.i263 ]
   store i64 %retval.0.i.i269, ptr %ref.tmp.i96, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i281)
   %cmp.i.i.i.i.i282 = icmp sgt i64 %retval.0.i.i269, 32767
@@ -103744,7 +103744,7 @@ sw.default.i.i360:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIlEET_RKN5folly7dynamicE.exit: ; preds = %sw.bb10.i.i345, %sw.bb7.i.i352, %sw.bb.i.i358, %if.then3.i129
-  %retval.i113.0 = phi i64 [ %conv.i130, %if.then3.i129 ], [ %call2.i.i.i350, %sw.bb10.i.i345 ], [ %conv.i.i.i.i.i354, %sw.bb7.i.i352 ], [ %171, %sw.bb.i.i358 ]
+  %retval.i113.0 = phi i64 [ %conv.i130, %if.then3.i129 ], [ %171, %sw.bb.i.i358 ], [ %conv.i.i.i.i.i354, %sw.bb7.i.i352 ], [ %call2.i.i.i350, %sw.bb10.i.i345 ]
   %castType_.i.i362 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %174 = load ptr, ptr %castType_.i.i362, align 8
   %175 = load ptr, ptr %174, align 8
@@ -103885,7 +103885,7 @@ sw.default.i.i415:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit416:            ; preds = %sw.bb.i.i412, %sw.bb4.i.i410, %sw.bb7.i.i407, %sw.bb10.i.i400
-  %retval.0.i.i406 = phi double [ %call2.i.i.i405, %sw.bb10.i.i400 ], [ %conv.i.i.i.i.i409, %sw.bb7.i.i407 ], [ %209, %sw.bb4.i.i410 ], [ %call3.i.i414, %sw.bb.i.i412 ]
+  %retval.0.i.i406 = phi double [ %call3.i.i414, %sw.bb.i.i412 ], [ %209, %sw.bb4.i.i410 ], [ %conv.i.i.i.i.i409, %sw.bb7.i.i407 ], [ %call2.i.i.i405, %sw.bb10.i.i400 ]
   store double %retval.0.i.i406, ptr %ref.tmp.i133, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i418)
   %212 = tail call double @llvm.fabs.f64(double %retval.0.i.i406)
@@ -104051,7 +104051,7 @@ sw.default.i.i477:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit478:            ; preds = %sw.bb.i.i474, %sw.bb4.i.i472, %sw.bb7.i.i469, %sw.bb10.i.i462
-  %retval.0.i.i468 = phi double [ %call2.i.i.i467, %sw.bb10.i.i462 ], [ %conv.i.i.i.i.i471, %sw.bb7.i.i469 ], [ %246, %sw.bb4.i.i472 ], [ %call3.i.i476, %sw.bb.i.i474 ]
+  %retval.0.i.i468 = phi double [ %call3.i.i476, %sw.bb.i.i474 ], [ %246, %sw.bb4.i.i472 ], [ %conv.i.i.i.i.i471, %sw.bb7.i.i469 ], [ %call2.i.i.i467, %sw.bb10.i.i462 ]
   %castType_.i.i479 = getelementptr inbounds nuw i8, ptr %244, i64 40
   %249 = load ptr, ptr %castType_.i.i479, align 8
   %250 = load ptr, ptr %249, align 8
@@ -104361,7 +104361,7 @@ sw.default.i.i577:                                ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK5folly7dynamic6asBoolEv.exit578:              ; preds = %sw.bb.i.i574, %sw.bb4.i.i571, %sw.bb7.i.i568, %sw.bb10.i.i561
-  %retval.0.i.i567 = phi i1 [ %call2.i.i.i566, %sw.bb10.i.i561 ], [ %tobool.i.i.i570, %sw.bb7.i.i568 ], [ %cmp.i4.i.i573, %sw.bb4.i.i571 ], [ %cmp.i.i.i576, %sw.bb.i.i574 ]
+  %retval.0.i.i567 = phi i1 [ %cmp.i.i.i576, %sw.bb.i.i574 ], [ %cmp.i4.i.i573, %sw.bb4.i.i571 ], [ %tobool.i.i.i570, %sw.bb7.i.i568 ], [ %call2.i.i.i566, %sw.bb10.i.i561 ]
   %cond.i = select i1 %retval.0.i.i567, ptr @.str.13, ptr @.str.14
   %call.i.i.i579 = select i1 %retval.0.i.i567, i64 4, i64 5
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %writer.0.i.i553, i64 32

@@ -2720,8 +2720,8 @@ add_display_matrix_to_stream.exit.i:              ; preds = %618
   %872 = icmp slt i32 %871, 0
   br i1 %872, label %.thread412, label %873
 
-.thread412:                                       ; preds = %544, %866, %848, %824, %699, %689, %686, %.thread326.i, %add_display_matrix_to_stream.exit.i, %591, %._crit_edge.i, %791, %821, %864, %845, %830, %761, %719
-  %.0244.i.ph = phi i32 [ %.6.ph.i, %.thread326.i ], [ -12, %add_display_matrix_to_stream.exit.i ], [ %589, %591 ], [ -22, %._crit_edge.i ], [ %789, %791 ], [ %819, %821 ], [ %862, %864 ], [ %843, %845 ], [ %828, %830 ], [ %759, %761 ], [ -22, %719 ], [ -12, %686 ], [ %695, %689 ], [ %709, %699 ], [ -12, %824 ], [ %853, %848 ], [ %871, %866 ], [ -12, %544 ]
+.thread412:                                       ; preds = %544, %866, %848, %824, %699, %689, %686, %.thread326.i, %add_display_matrix_to_stream.exit.i, %591, %._crit_edge.i, %821, %864, %845, %830, %791, %761, %719
+  %.0244.i.ph = phi i32 [ %.6.ph.i, %.thread326.i ], [ -12, %add_display_matrix_to_stream.exit.i ], [ %589, %591 ], [ -22, %._crit_edge.i ], [ %819, %821 ], [ %862, %864 ], [ %843, %845 ], [ %828, %830 ], [ %789, %791 ], [ %759, %761 ], [ -22, %719 ], [ -12, %686 ], [ %695, %689 ], [ %709, %699 ], [ -12, %824 ], [ %853, %848 ], [ %871, %866 ], [ -12, %544 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14

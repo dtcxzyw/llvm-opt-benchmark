@@ -1299,7 +1299,7 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   br label %61
 
 61:                                               ; preds = %58, %46, %25, %23, %thread-pre-split.thread, %60
-  %.028 = phi i1 [ %47, %46 ], [ true, %60 ], [ %59, %58 ], [ true, %thread-pre-split.thread ], [ true, %23 ], [ false, %25 ]
+  %.028 = phi i1 [ true, %60 ], [ %47, %46 ], [ %59, %58 ], [ true, %thread-pre-split.thread ], [ true, %23 ], [ false, %25 ]
   ret i1 %.028
 }
 

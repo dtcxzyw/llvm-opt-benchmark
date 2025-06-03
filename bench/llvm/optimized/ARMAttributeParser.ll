@@ -335,8 +335,8 @@ define dso_local void @_ZN4llvm18ARMAttributeParser16CPU_arch_profileENS_13ARMBu
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8, %9, %10, %11, %12
-  %.sroa.10.0 = phi i64 [ 4, %12 ], [ 7, %11 ], [ 15, %10 ], [ 9, %9 ], [ 11, %8 ], [ 7, %3 ]
-  %.sroa.015.0 = phi ptr [ @.str.10, %12 ], [ @.str.9, %11 ], [ @.str.8, %10 ], [ @.str.7, %9 ], [ @.str.6, %8 ], [ @.str.5, %3 ]
+  %.sroa.10.0 = phi i64 [ 11, %8 ], [ 9, %9 ], [ 15, %10 ], [ 7, %11 ], [ 4, %12 ], [ 7, %3 ]
+  %.sroa.015.0 = phi ptr [ @.str.6, %8 ], [ @.str.7, %9 ], [ @.str.8, %10 ], [ @.str.9, %11 ], [ @.str.10, %12 ], [ @.str.5, %3 ]
   %13 = trunc i64 %7 to i32
   tail call void @_ZN4llvm18ELFAttributeParser14printAttributeEjjNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %2, i32 noundef %13, ptr nonnull %.sroa.015.0, i64 %.sroa.10.0) #16
   store ptr null, ptr %0, align 8, !tbaa !31
@@ -1901,7 +1901,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser20also_compatible_withENS_13A
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %67, %66 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %67, %66 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !77
   %69 = zext i32 %.1.val.i.i.i.i.i.i to i64
   %70 = icmp eq i64 %37, %69
@@ -1912,7 +1912,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser20also_compatible_withENS_13A
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %72, %71 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %72, %71 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !77
   %74 = zext i32 %.2.val.i.i.i.i.i.i to i64
   %75 = icmp eq i64 %37, %74
@@ -2389,7 +2389,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit127:              ; preds = %282, %284
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit120
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit120:   ; preds = %252, %251, %249, %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm5ErrorD2Ev.exit110, %_ZN4llvm11raw_ostreamlsEPKc.exit127, %_ZN4llvm5ErrorD2Ev.exit
-  %.sroa.11.0 = phi ptr [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit127 ], [ %205, %_ZN4llvm5ErrorD2Ev.exit110 ], [ %187, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %91, %_ZN4llvm5ErrorD2Ev.exit ], [ null, %249 ], [ null, %251 ], [ null, %252 ]
+  %.sroa.11.0 = phi ptr [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit127 ], [ %187, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %205, %_ZN4llvm5ErrorD2Ev.exit110 ], [ %91, %_ZN4llvm5ErrorD2Ev.exit ], [ null, %249 ], [ null, %251 ], [ null, %252 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store ptr %34, ptr %4, align 8

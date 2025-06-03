@@ -7700,7 +7700,7 @@ dt_masks_intbuf_add2.exit.i:                      ; preds = %624, %620, %618
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
 dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %640, %638, %635
-  %.0.i.i = phi ptr [ null, %638 ], [ %643, %640 ], [ null, %635 ]
+  %.0.i.i = phi ptr [ %643, %640 ], [ null, %638 ], [ null, %635 ]
   %644 = load i64, ptr %262, align 8, !tbaa !201
   %645 = add i64 %644, %632
   %646 = load i64, ptr %282, align 8, !tbaa !202
@@ -7736,7 +7736,7 @@ dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %640, %638, %635
   br label %dt_masks_dynbuf_reserve_n.exit114.i
 
 dt_masks_dynbuf_reserve_n.exit114.i:              ; preds = %652, %650, %647
-  %.0.i113.i = phi ptr [ null, %650 ], [ %655, %652 ], [ null, %647 ]
+  %.0.i113.i = phi ptr [ %655, %652 ], [ null, %650 ], [ null, %647 ]
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.critedge427, label %.lr.ph.i
 

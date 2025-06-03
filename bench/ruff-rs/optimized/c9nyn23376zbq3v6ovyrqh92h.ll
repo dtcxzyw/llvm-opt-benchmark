@@ -2867,7 +2867,7 @@ common.resume:                                    ; preds = %75, %36
   br label %55
 
 55:                                               ; preds = %17, %2, %135, %54
-  %.sroa.0.0 = phi i1 [ %.sroa.0.2, %135 ], [ %.sroa.0.1, %54 ], [ false, %2 ], [ false, %17 ]
+  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %54 ], [ %.sroa.0.2, %135 ], [ false, %2 ], [ false, %17 ]
   ret i1 %.sroa.0.0
 
 56:                                               ; preds = %17
@@ -3316,7 +3316,7 @@ common.resume:                                    ; preds = %205, %167, %134, %8
   br i1 %119, label %186, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4482aef8536a1ab1E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4482aef8536a1ab1E.exit": ; preds = %.backedge.i5, %"_ZN20ruff_python_semantic7analyze7imports26is_os_environ_modification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1a7a80de543f859E.exit.i.i", %.backedge.i, %"_ZN20ruff_python_semantic7analyze7imports26is_os_environ_modification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1dd7cfd6c00fa61E.exit.i.i", %60, %17, %115, %2, %263, %185, %152
-  %.sroa.0.0 = phi i1 [ %.sroa.0.3, %263 ], [ %.sroa.0.2, %185 ], [ %.sroa.0.1, %152 ], [ false, %2 ], [ false, %115 ], [ false, %17 ], [ false, %60 ], [ false, %.backedge.i ], [ true, %"_ZN20ruff_python_semantic7analyze7imports26is_os_environ_modification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1dd7cfd6c00fa61E.exit.i.i" ], [ false, %.backedge.i5 ], [ true, %"_ZN20ruff_python_semantic7analyze7imports26is_os_environ_modification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1a7a80de543f859E.exit.i.i" ]
+  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %152 ], [ %.sroa.0.2, %185 ], [ %.sroa.0.3, %263 ], [ false, %2 ], [ false, %115 ], [ false, %17 ], [ false, %60 ], [ false, %.backedge.i ], [ true, %"_ZN20ruff_python_semantic7analyze7imports26is_os_environ_modification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1dd7cfd6c00fa61E.exit.i.i" ], [ false, %.backedge.i5 ], [ true, %"_ZN20ruff_python_semantic7analyze7imports26is_os_environ_modification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1a7a80de543f859E.exit.i.i" ]
   ret i1 %.sroa.0.0
 
 120:                                              ; preds = %103

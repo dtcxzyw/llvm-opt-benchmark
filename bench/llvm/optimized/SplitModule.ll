@@ -1184,13 +1184,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_11GlobalValueELb1EE9push_backES3_.exit: ;
   br i1 %450, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i71, !prof !85, !llvm.loop !101
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %444, %435
-  %.lcssa.i.i.pn = phi i64 [ %438, %435 ], [ %447, %444 ]
+  %.pn = phi i64 [ %438, %435 ], [ %447, %444 ]
   %451 = zext i32 %433 to i64
-  %.not151 = icmp samesign eq i64 %.lcssa.i.i.pn, %451
+  %.not151 = icmp samesign eq i64 %.pn, %451
   br i1 %.not151, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %452
 
 452:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %.sroa.0.1.i72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.105", ptr %432, i64 %.lcssa.i.i.pn
+  %.sroa.0.1.i72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.105", ptr %432, i64 %.pn
   call void @_ZNSt14priority_queueISt4pairIjjESt6vectorIS1_SaIS1_EEPFbRKS1_S6_EE4pushES6_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.1.i72)
   br label %453
 

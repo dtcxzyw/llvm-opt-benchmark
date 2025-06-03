@@ -880,9 +880,9 @@ X509V3_add_value.exit:                            ; preds = %.critedge25.i92
   br label %74
 
 74:                                               ; preds = %7, %strip_spaces.exit78, %strip_spaces.exit, %72, %49
-  %.147 = phi ptr [ %73, %72 ], [ %.046, %49 ], [ %27, %strip_spaces.exit ], [ %47, %strip_spaces.exit78 ], [ %.046, %7 ]
-  %.144 = phi ptr [ null, %72 ], [ %.043, %49 ], [ %.01929.i, %strip_spaces.exit ], [ %.01929.i65, %strip_spaces.exit78 ], [ %.043, %7 ]
-  %.1 = phi i32 [ 1, %72 ], [ 2, %49 ], [ 2, %strip_spaces.exit ], [ 1, %strip_spaces.exit78 ], [ 1, %7 ]
+  %.147 = phi ptr [ %27, %strip_spaces.exit ], [ %47, %strip_spaces.exit78 ], [ %73, %72 ], [ %.046, %49 ], [ %.046, %7 ]
+  %.144 = phi ptr [ %.01929.i, %strip_spaces.exit ], [ %.01929.i65, %strip_spaces.exit78 ], [ null, %72 ], [ %.043, %49 ], [ %.043, %7 ]
+  %.1 = phi i32 [ 2, %strip_spaces.exit ], [ 1, %strip_spaces.exit78 ], [ 1, %72 ], [ 2, %49 ], [ 1, %7 ]
   %75 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   br label %.preheader, !llvm.loop !26
 
@@ -1398,12 +1398,12 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %.058 = phi i64 [ %20, %19 ], [ %2, %17 ]
   %22 = tail call ptr @X509_get_ext_d2i(ptr noundef %0, i32 noundef 85, ptr noundef null, ptr noundef null) #12
   %.not84 = icmp eq ptr %22, null
-  br i1 %.not84, label %58, label %.preheader
+  br i1 %.not84, label %59, label %.preheader
 
 .preheader:                                       ; preds = %21
   %23 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %.loopexit152
+  br i1 %24, label %.lr.ph, label %.loopexit150
 
 .lr.ph:                                           ; preds = %.preheader
   %.not85 = icmp eq i32 %4, 7
@@ -1447,12 +1447,12 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %36 = add nuw nsw i32 %.075112.us, 1
   %37 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph.split.us, label %.loopexit152, !llvm.loop !44
+  br i1 %38, label %.lr.ph.split.us, label %.loopexit150, !llvm.loop !44
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.thread
   %.068114 = phi i32 [ %.270107, %.thread ], [ 0, %.lr.ph ]
   %.172113 = phi i32 [ %.273106, %.thread ], [ %.071, %.lr.ph ]
-  %.075112 = phi i32 [ %54, %.thread ], [ 0, %.lr.ph ]
+  %.075112 = phi i32 [ %55, %.thread ], [ 0, %.lr.ph ]
   %39 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %22, i32 noundef %.075112) #12
   %40 = load i32, ptr %39, align 8, !tbaa !30
   switch i32 %40, label %.thread [
@@ -1480,110 +1480,110 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
 51:                                               ; preds = %.lr.ph.split.split
   br i1 %.not86, label %52, label %.thread
 
-52:                                               ; preds = %.lr.ph.split.split, %46, %51
-  %.3 = phi i32 [ 0, %46 ], [ %.172113, %51 ], [ %.172113, %.lr.ph.split.split ]
-  %.pn = phi ptr [ %49, %46 ], [ %39, %51 ], [ %39, %.lr.ph.split.split ]
-  %.061.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %.061 = load ptr, ptr %.061.in, align 8, !tbaa !13
-  %53 = tail call fastcc i32 @do_check_string(ptr noundef %.061, i32 noundef %.3, ptr noundef nonnull %.064, i32 noundef %.062, ptr noundef %1, i64 noundef %.058, ptr noundef %5)
-  %.not90.not = icmp eq i32 %53, 0
+52:                                               ; preds = %51, %.lr.ph.split.split, %46
+  %.sink = phi ptr [ %49, %46 ], [ %39, %.lr.ph.split.split ], [ %39, %51 ]
+  %.3 = phi i32 [ 0, %46 ], [ %.172113, %.lr.ph.split.split ], [ %.172113, %51 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  %.061 = load ptr, ptr %53, align 8, !tbaa !13
+  %54 = tail call fastcc i32 @do_check_string(ptr noundef %.061, i32 noundef %.3, ptr noundef nonnull %.064, i32 noundef %.062, ptr noundef %1, i64 noundef %.058, ptr noundef %5)
+  %.not90.not = icmp eq i32 %54, 0
   br i1 %.not90.not, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %51, %46, %41, %.lr.ph.split.split, %52
   %.270107 = phi i32 [ 1, %52 ], [ %.068114, %41 ], [ %.068114, %46 ], [ %.068114, %51 ], [ %.068114, %.lr.ph.split.split ]
   %.273106 = phi i32 [ %.3, %52 ], [ %.172113, %41 ], [ %.172113, %46 ], [ %.172113, %51 ], [ %.172113, %.lr.ph.split.split ]
-  %54 = add nuw nsw i32 %.075112, 1
-  %55 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
-  %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph.split.split, label %.loopexit152, !llvm.loop !44
+  %55 = add nuw nsw i32 %.075112, 1
+  %56 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %.lr.ph.split.split, label %.loopexit150, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %34, %52
-  %.166 = phi i32 [ %53, %52 ], [ %35, %34 ]
+  %.166 = phi i32 [ %54, %52 ], [ %35, %34 ]
   tail call void @GENERAL_NAMES_free(ptr noundef nonnull %22) #12
   br label %.loopexit
 
-.loopexit152:                                     ; preds = %.thread.us, %.thread, %.preheader
+.loopexit150:                                     ; preds = %.thread.us, %.thread, %.preheader
   %.169.ph = phi i32 [ 0, %.preheader ], [ %.270107, %.thread ], [ %.270107.us, %.thread.us ]
   tail call void @GENERAL_NAMES_free(ptr noundef nonnull %22) #12
   %.not92 = icmp ne i32 %.169.ph, 0
-  %57 = and i32 %.062, 1
-  %.not93 = icmp eq i32 %57, 0
+  %58 = and i32 %.062, 1
+  %.not93 = icmp eq i32 %58, 0
   %or.cond = and i1 %.not93, %.not92
-  br i1 %or.cond, label %.loopexit, label %58
+  br i1 %or.cond, label %.loopexit, label %59
 
-58:                                               ; preds = %.loopexit152, %21
-  %59 = and i32 %.062, 32
-  %.not94 = icmp eq i32 %59, 0
+59:                                               ; preds = %.loopexit150, %21
+  %60 = and i32 %.062, 32
+  %.not94 = icmp eq i32 %60, 0
   %or.cond98 = and i1 %.not97, %.not94
-  br i1 %or.cond98, label %60, label %.loopexit
+  br i1 %or.cond98, label %61, label %.loopexit
 
-60:                                               ; preds = %58
-  %61 = tail call ptr @X509_get_subject_name(ptr noundef %0) #12
-  %62 = icmp ne ptr %5, null
-  br label %63
+61:                                               ; preds = %59
+  %62 = tail call ptr @X509_get_subject_name(ptr noundef %0) #12
+  %63 = icmp ne ptr %5, null
+  br label %64
 
-63:                                               ; preds = %do_check_string.exit, %60
-  %.176 = phi i32 [ -1, %60 ], [ %64, %do_check_string.exit ]
-  %64 = call i32 @X509_NAME_get_index_by_NID(ptr noundef %61, i32 noundef %.074, i32 noundef %.176) #12
-  %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %66, label %.loopexit
+64:                                               ; preds = %do_check_string.exit, %61
+  %.176 = phi i32 [ -1, %61 ], [ %65, %do_check_string.exit ]
+  %65 = call i32 @X509_NAME_get_index_by_NID(ptr noundef %62, i32 noundef %.074, i32 noundef %.176) #12
+  %66 = icmp sgt i32 %65, -1
+  br i1 %66, label %67, label %.loopexit
 
-66:                                               ; preds = %63
-  %67 = call ptr @X509_NAME_get_entry(ptr noundef %61, i32 noundef %64) #12
-  %68 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %67) #12
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !39
-  %.not.i = icmp eq ptr %70, null
-  br i1 %.not.i, label %do_check_string.exit, label %71
+67:                                               ; preds = %64
+  %68 = call ptr @X509_NAME_get_entry(ptr noundef %62, i32 noundef %65) #12
+  %69 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %68) #12
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !39
+  %.not.i = icmp eq ptr %71, null
+  br i1 %.not.i, label %do_check_string.exit, label %72
 
-71:                                               ; preds = %66
-  %72 = load i32, ptr %68, align 8, !tbaa !40
-  %.not49.i = icmp eq i32 %72, 0
-  br i1 %.not49.i, label %do_check_string.exit, label %73
+72:                                               ; preds = %67
+  %73 = load i32, ptr %69, align 8, !tbaa !40
+  %.not49.i = icmp eq i32 %73, 0
+  br i1 %.not49.i, label %do_check_string.exit, label %74
 
-73:                                               ; preds = %71
+74:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  %74 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %7, ptr noundef nonnull %68) #12
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %do_check_string.exit.thread, label %76
+  %75 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %7, ptr noundef nonnull %69) #12
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %do_check_string.exit.thread, label %77
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %7, align 8, !tbaa !48
-  %78 = zext nneg i32 %74 to i64
-  %79 = call i32 %.064(ptr noundef %77, i64 noundef %78, ptr noundef nonnull %1, i64 noundef %.058, i32 noundef %.062) #12, !callees !49
-  %80 = icmp sgt i32 %79, 0
-  %or.cond3.i = and i1 %62, %80
-  br i1 %or.cond3.i, label %81, label %87
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %7, align 8, !tbaa !48
+  %79 = zext nneg i32 %75 to i64
+  %80 = call i32 %.064(ptr noundef %78, i64 noundef %79, ptr noundef nonnull %1, i64 noundef %.058, i32 noundef %.062) #12, !callees !49
+  %81 = icmp sgt i32 %80, 0
+  %or.cond3.i = and i1 %63, %81
+  br i1 %or.cond3.i, label %82, label %88
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %7, align 8, !tbaa !48
-  %83 = call noalias ptr @CRYPTO_strndup(ptr noundef %82, i64 noundef %78, ptr noundef nonnull @.str, i32 noundef 865) #12
-  store ptr %83, ptr %5, align 8, !tbaa !48
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %87
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %7, align 8, !tbaa !48
+  %84 = call noalias ptr @CRYPTO_strndup(ptr noundef %83, i64 noundef %79, ptr noundef nonnull @.str, i32 noundef 865) #12
+  store ptr %84, ptr %5, align 8, !tbaa !48
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %88
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %7, align 8, !tbaa !48
-  call void @CRYPTO_free(ptr noundef %86, ptr noundef nonnull @.str, i32 noundef 867) #12
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %7, align 8, !tbaa !48
+  call void @CRYPTO_free(ptr noundef %87, ptr noundef nonnull @.str, i32 noundef 867) #12
   br label %do_check_string.exit.thread
 
-do_check_string.exit.thread:                      ; preds = %73, %85
+do_check_string.exit.thread:                      ; preds = %74, %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   br label %.loopexit
 
-87:                                               ; preds = %81, %76
-  %88 = load ptr, ptr %7, align 8, !tbaa !48
-  call void @CRYPTO_free(ptr noundef %88, ptr noundef nonnull @.str, i32 noundef 871) #12
+88:                                               ; preds = %82, %77
+  %89 = load ptr, ptr %7, align 8, !tbaa !48
+  call void @CRYPTO_free(ptr noundef %89, ptr noundef nonnull @.str, i32 noundef 871) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   br label %do_check_string.exit
 
-do_check_string.exit:                             ; preds = %66, %71, %87
-  %.0.i = phi i32 [ 0, %71 ], [ 0, %66 ], [ %79, %87 ]
+do_check_string.exit:                             ; preds = %67, %72, %88
+  %.0.i = phi i32 [ 0, %72 ], [ 0, %67 ], [ %80, %88 ]
   %.not95 = icmp eq i32 %.0.i, 0
-  br i1 %.not95, label %63, label %.loopexit, !llvm.loop !50
+  br i1 %.not95, label %64, label %.loopexit, !llvm.loop !50
 
-.loopexit:                                        ; preds = %63, %do_check_string.exit, %._crit_edge, %do_check_string.exit.thread, %58, %.loopexit152
-  %.0 = phi i32 [ %.166, %._crit_edge ], [ 0, %.loopexit152 ], [ 0, %58 ], [ -1, %do_check_string.exit.thread ], [ 0, %63 ], [ %.0.i, %do_check_string.exit ]
+.loopexit:                                        ; preds = %64, %do_check_string.exit, %._crit_edge, %do_check_string.exit.thread, %59, %.loopexit150
+  %.0 = phi i32 [ %.166, %._crit_edge ], [ 0, %.loopexit150 ], [ 0, %59 ], [ -1, %do_check_string.exit.thread ], [ 0, %64 ], [ %.0.i, %do_check_string.exit ]
   ret i32 %.0
 }
 

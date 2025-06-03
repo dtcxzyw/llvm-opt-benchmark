@@ -185,16 +185,16 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
   %13 = or i32 %12, %.047.ph
   br label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %6, %6, %8, %14
+  %.047.ph.be = phi i32 [ %18, %14 ], [ %13, %8 ], [ 1, %6 ], [ 1, %6 ]
+  br label %.outer, !llvm.loop !20
+
 14:                                               ; preds = %6
   %15 = load ptr, ptr @share__optarg, align 8, !tbaa !22
   %16 = call fastcc i32 @parse_option(i32 noundef 0, ptr noundef %15, ptr noundef %2)
   %17 = xor i32 %16, 1
   %18 = or i32 %17, %.047.ph
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %6, %6, %14, %8
-  %.047.ph.be = phi i32 [ %13, %8 ], [ %18, %14 ], [ 1, %6 ], [ 1, %6 ]
-  br label %.outer, !llvm.loop !20
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4

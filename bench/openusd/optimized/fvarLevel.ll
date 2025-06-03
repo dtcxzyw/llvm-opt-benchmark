@@ -2164,9 +2164,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel9ValueSpanELj16EL
   br label %434
 
 434:                                              ; preds = %432, %._crit_edge._crit_edge.i.i.i
-  %435 = phi ptr [ %427, %._crit_edge._crit_edge.i.i.i ], [ %402, %432 ]
-  %436 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %430, %432 ]
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i623, %._crit_edge._crit_edge.i.i.i ], [ %433, %432 ]
+  %435 = phi ptr [ %402, %432 ], [ %427, %._crit_edge._crit_edge.i.i.i ]
+  %436 = phi i32 [ %430, %432 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %433, %432 ], [ %.029.lcssa.i.i.i623, %._crit_edge._crit_edge.i.i.i ]
   %437 = load i32, ptr %.1.i.i.i, align 4
   %438 = icmp eq i32 %437, %436
   br i1 %438, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit, label %439
@@ -2176,9 +2176,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel9ValueSpanELj16EL
   br label %441
 
 441:                                              ; preds = %439, %._crit_edge._crit_edge52.i.i.i
-  %442 = phi ptr [ %402, %._crit_edge._crit_edge52.i.i.i ], [ %435, %439 ]
-  %443 = phi i32 [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %436, %439 ]
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %440, %439 ]
+  %442 = phi ptr [ %435, %439 ], [ %402, %._crit_edge._crit_edge52.i.i.i ]
+  %443 = phi i32 [ %436, %439 ], [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
+  %.2.i.i.i = phi ptr [ %440, %439 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
   %444 = load i32, ptr %.2.i.i.i, align 4
   %445 = icmp eq i32 %444, %443
   br i1 %445, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.thread

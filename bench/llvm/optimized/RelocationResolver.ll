@@ -263,8 +263,8 @@ _ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread: ; preds = %57, %_ZN
   br label %86
 
 86:                                               ; preds = %80, %67, %73, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17, %44, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit, %26, %5, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread, %35, %34, %33, %32, %31, %30, %29, %28, %27, %13, %12, %11, %10
-  %.sroa.38.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL16resolveCOFFARM64Emmmml, %12 ], [ @_ZN4llvm6objectL14resolveCOFFARMEmmmml, %11 ], [ @_ZN4llvm6objectL14resolveCOFFX86Emmmml, %10 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %35 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %34 ], [ @_ZN4llvm6objectL14resolveSparc64Emmmml, %33 ], [ @_ZN4llvm6objectL14resolveSystemZEmmmml, %32 ], [ @_ZN4llvm6objectL12resolvePPC64Emmmml, %31 ], [ @_ZN4llvm6objectL13resolveMips64Emmmml, %30 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %29 ], [ @_ZN4llvm6objectL10resolveBPFEmmmml, %28 ], [ @_ZN4llvm6objectL14resolveAArch64Emmmml, %27 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread ], [ @_ZN4llvm6objectL11resolveCSKYEmmmml, %56 ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %55 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %54 ], [ @_ZN4llvm6objectL14resolveHexagonEmmmml, %53 ], [ @_ZN4llvm6objectL14resolveSparc32Emmmml, %52 ], [ @_ZN4llvm6objectL13resolveMSP430Emmmml, %51 ], [ @_ZN4llvm6objectL13resolveMips32Emmmml, %50 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %49 ], [ @_ZN4llvm6objectL12resolveLanaiEmmmml, %48 ], [ @_ZN4llvm6objectL10resolveAVREmmmml, %47 ], [ @_ZN4llvm6objectL10resolveARMEmmmml, %46 ], [ @_ZN4llvm6objectL12resolvePPC32Emmmml, %45 ], [ @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml, %5 ], [ @_ZN4llvm6objectL13resolveX86_64Emmmml, %26 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL10resolveX86Emmmml, %44 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17 ], [ @_ZN4llvm6objectL13resolveWasm32Emmmml, %73 ], [ %spec.select, %67 ], [ %spec.select95, %80 ]
-  %.sroa.0.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL17supportsCOFFARM64Em, %12 ], [ @_ZN4llvm6objectL15supportsCOFFARMEm, %11 ], [ @_ZN4llvm6objectL15supportsCOFFX86Em, %10 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL13supportsRISCVEm, %35 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %34 ], [ @_ZN4llvm6objectL15supportsSparc64Em, %33 ], [ @_ZN4llvm6objectL15supportsSystemZEm, %32 ], [ @_ZN4llvm6objectL13supportsPPC64Em, %31 ], [ @_ZN4llvm6objectL14supportsMips64Em, %30 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %29 ], [ @_ZN4llvm6objectL11supportsBPFEm, %28 ], [ @_ZN4llvm6objectL15supportsAArch64Em, %27 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread ], [ @_ZN4llvm6objectL12supportsCSKYEm, %56 ], [ @_ZN4llvm6objectL13supportsRISCVEm, %55 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %54 ], [ @_ZN4llvm6objectL15supportsHexagonEm, %53 ], [ @_ZN4llvm6objectL15supportsSparc32Em, %52 ], [ @_ZN4llvm6objectL14supportsMSP430Em, %51 ], [ @_ZN4llvm6objectL14supportsMips32Em, %50 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %49 ], [ @_ZN4llvm6objectL13supportsLanaiEm, %48 ], [ @_ZN4llvm6objectL11supportsAVREm, %47 ], [ @_ZN4llvm6objectL11supportsARMEm, %46 ], [ @_ZN4llvm6objectL13supportsPPC32Em, %45 ], [ @_ZN4llvm6objectL18supportsCOFFX86_64Em, %5 ], [ @_ZN4llvm6objectL14supportsX86_64Em, %26 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL11supportsX86Em, %44 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17 ], [ @_ZN4llvm6objectL14supportsWasm32Em, %73 ], [ %spec.select94, %67 ], [ %spec.select96, %80 ]
+  %.sroa.38.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL14resolveCOFFX86Emmmml, %10 ], [ @_ZN4llvm6objectL14resolveCOFFARMEmmmml, %11 ], [ @_ZN4llvm6objectL16resolveCOFFARM64Emmmml, %12 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL14resolveAArch64Emmmml, %27 ], [ @_ZN4llvm6objectL10resolveBPFEmmmml, %28 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %29 ], [ @_ZN4llvm6objectL13resolveMips64Emmmml, %30 ], [ @_ZN4llvm6objectL12resolvePPC64Emmmml, %31 ], [ @_ZN4llvm6objectL14resolveSystemZEmmmml, %32 ], [ @_ZN4llvm6objectL14resolveSparc64Emmmml, %33 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %34 ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %35 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread ], [ @_ZN4llvm6objectL12resolvePPC32Emmmml, %45 ], [ @_ZN4llvm6objectL10resolveARMEmmmml, %46 ], [ @_ZN4llvm6objectL10resolveAVREmmmml, %47 ], [ @_ZN4llvm6objectL12resolveLanaiEmmmml, %48 ], [ @_ZN4llvm6objectL16resolveLoongArchEmmmml, %49 ], [ @_ZN4llvm6objectL13resolveMips32Emmmml, %50 ], [ @_ZN4llvm6objectL13resolveMSP430Emmmml, %51 ], [ @_ZN4llvm6objectL14resolveSparc32Emmmml, %52 ], [ @_ZN4llvm6objectL14resolveHexagonEmmmml, %53 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %54 ], [ @_ZN4llvm6objectL12resolveRISCVEmmmml, %55 ], [ @_ZN4llvm6objectL11resolveCSKYEmmmml, %56 ], [ @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml, %5 ], [ @_ZN4llvm6objectL13resolveX86_64Emmmml, %26 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL10resolveX86Emmmml, %44 ], [ @_ZN4llvm6objectL13resolveAmdgpuEmmmml, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17 ], [ @_ZN4llvm6objectL13resolveWasm32Emmmml, %73 ], [ %spec.select, %67 ], [ %spec.select95, %80 ]
+  %.sroa.0.0 = phi ptr [ null, %13 ], [ @_ZN4llvm6objectL15supportsCOFFX86Em, %10 ], [ @_ZN4llvm6objectL15supportsCOFFARMEm, %11 ], [ @_ZN4llvm6objectL17supportsCOFFARM64Em, %12 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit.thread ], [ @_ZN4llvm6objectL15supportsAArch64Em, %27 ], [ @_ZN4llvm6objectL11supportsBPFEm, %28 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %29 ], [ @_ZN4llvm6objectL14supportsMips64Em, %30 ], [ @_ZN4llvm6objectL13supportsPPC64Em, %31 ], [ @_ZN4llvm6objectL15supportsSystemZEm, %32 ], [ @_ZN4llvm6objectL15supportsSparc64Em, %33 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %34 ], [ @_ZN4llvm6objectL13supportsRISCVEm, %35 ], [ null, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread ], [ @_ZN4llvm6objectL13supportsPPC32Em, %45 ], [ @_ZN4llvm6objectL11supportsARMEm, %46 ], [ @_ZN4llvm6objectL11supportsAVREm, %47 ], [ @_ZN4llvm6objectL13supportsLanaiEm, %48 ], [ @_ZN4llvm6objectL17supportsLoongArchEm, %49 ], [ @_ZN4llvm6objectL14supportsMips32Em, %50 ], [ @_ZN4llvm6objectL14supportsMSP430Em, %51 ], [ @_ZN4llvm6objectL15supportsSparc32Em, %52 ], [ @_ZN4llvm6objectL15supportsHexagonEm, %53 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %54 ], [ @_ZN4llvm6objectL13supportsRISCVEm, %55 ], [ @_ZN4llvm6objectL12supportsCSKYEm, %56 ], [ @_ZN4llvm6objectL18supportsCOFFX86_64Em, %5 ], [ @_ZN4llvm6objectL14supportsX86_64Em, %26 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit ], [ @_ZN4llvm6objectL11supportsX86Em, %44 ], [ @_ZN4llvm6objectL14supportsAmdgpuEm, %_ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17 ], [ @_ZN4llvm6objectL14supportsWasm32Em, %73 ], [ %spec.select94, %67 ], [ %spec.select96, %80 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.38.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -381,7 +381,7 @@ define internal noundef i64 @_ZN4llvm6objectL13resolveX86_64Emmmml(i64 noundef %
   unreachable
 
 15:                                               ; preds = %5, %11, %8, %6
-  %.0 = phi i64 [ %13, %11 ], [ %10, %8 ], [ %7, %6 ], [ %3, %5 ]
+  %.0 = phi i64 [ %7, %6 ], [ %10, %8 ], [ %13, %11 ], [ %3, %5 ]
   ret i64 %.0
 }
 
@@ -429,7 +429,7 @@ define internal noundef i64 @_ZN4llvm6objectL14resolveAArch64Emmmml(i64 noundef 
   unreachable
 
 18:                                               ; preds = %5, %15, %12, %9, %7
-  %.0 = phi i64 [ %16, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i64 [ %8, %7 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ], [ %6, %5 ]
   ret i64 %.0
 }
 
@@ -576,7 +576,7 @@ define internal noundef i64 @_ZN4llvm6objectL16resolveLoongArchEmmmml(i64 nounde
   unreachable
 
 58:                                               ; preds = %5, %54, %51, %47, %43, %39, %35, %31, %27, %21, %15, %13, %9, %6
-  %.0 = phi i64 [ %56, %54 ], [ %53, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %21 ], [ %20, %15 ], [ %14, %13 ], [ %12, %9 ], [ %8, %6 ], [ %3, %5 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %14, %13 ], [ %20, %15 ], [ %26, %21 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ], [ %56, %54 ], [ %3, %5 ]
   ret i64 %.0
 }
 
@@ -623,7 +623,7 @@ define internal noundef i64 @_ZN4llvm6objectL13resolveMips64Emmmml(i64 noundef %
   unreachable
 
 14:                                               ; preds = %5, %11, %9, %7
-  %.0 = phi i64 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i64 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %6, %5 ]
   ret i64 %.0
 }
 
@@ -664,7 +664,7 @@ define internal noundef i64 @_ZN4llvm6objectL12resolvePPC64Emmmml(i64 noundef %0
   unreachable
 
 15:                                               ; preds = %5, %12, %9, %7
-  %.0 = phi i64 [ %13, %12 ], [ %11, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i64 [ %8, %7 ], [ %11, %9 ], [ %13, %12 ], [ %6, %5 ]
   ret i64 %.0
 }
 
@@ -842,7 +842,7 @@ define internal noundef i64 @_ZN4llvm6objectL12resolveRISCVEmmmml(i64 noundef %0
   unreachable
 
 66:                                               ; preds = %5, %62, %59, %55, %51, %48, %44, %40, %37, %33, %29, %26, %20, %15, %13, %9, %6
-  %.0 = phi i64 [ %64, %62 ], [ %61, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %26 ], [ %25, %20 ], [ %19, %15 ], [ %14, %13 ], [ %12, %9 ], [ %8, %6 ], [ %3, %5 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %14, %13 ], [ %19, %15 ], [ %25, %20 ], [ %28, %26 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ %64, %62 ], [ %3, %5 ]
   ret i64 %.0
 }
 
@@ -873,7 +873,7 @@ define internal noundef i64 @_ZN4llvm6objectL10resolveX86Emmmml(i64 noundef %0, 
   unreachable
 
 12:                                               ; preds = %5, %8, %6
-  %.0 = phi i64 [ %10, %8 ], [ %7, %6 ], [ %3, %5 ]
+  %.0 = phi i64 [ %7, %6 ], [ %10, %8 ], [ %3, %5 ]
   ret i64 %.0
 }
 
@@ -1057,7 +1057,7 @@ define internal noundef i64 @_ZN4llvm6objectL11resolveCSKYEmmmml(i64 noundef %0,
   unreachable
 
 14:                                               ; preds = %5, %9, %6
-  %.0 = phi i64 [ %12, %9 ], [ %8, %6 ], [ %3, %5 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %3, %5 ]
   ret i64 %.0
 }
 
@@ -1330,7 +1330,7 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelS
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
 "_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit": ; preds = %51, %70, %88, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i
-  %.1.i = phi i32 [ %.0.copyload.i.i.i.i, %51 ], [ %.0.copyload.i.i.i30.i, %70 ], [ %91, %88 ], [ %108, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i ]
+  %.1.i = phi i32 [ %108, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i ], [ %91, %88 ], [ %.0.copyload.i.i.i30.i, %70 ], [ %.0.copyload.i.i.i.i, %51 ]
   %109 = icmp eq i32 %.1.i, 4
   br i1 %109, label %110, label %195
 
@@ -1557,7 +1557,7 @@ _ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit: ; preds = %_ZN4llvm5Er
   br label %208
 
 208:                                              ; preds = %195, %.thread
-  %.1 = phi i64 [ %206, %195 ], [ %207, %.thread ]
+  %.1 = phi i64 [ %207, %.thread ], [ %206, %195 ]
   ret i64 %.1
 }
 

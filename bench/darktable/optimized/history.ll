@@ -3208,7 +3208,7 @@ define internal fastcc ptr @_lib_history_change_text(ptr noundef readonly captur
   br label %.critedge205.thread
 
 .critedge205.thread:                              ; preds = %114, %69, %71, %67, %110, %123, %128, %133, %140, %147, %154, %170, %196, %4, %205, %.critedge205, %199, %.critedge, %164, %150, %143, %136, %131, %126, %119, %.thread, %._crit_edge228.thread
-  %.0 = phi ptr [ %204, %199 ], [ %179, %.critedge ], [ %169, %164 ], [ %153, %150 ], [ %146, %143 ], [ %139, %136 ], [ %132, %131 ], [ %127, %126 ], [ %122, %119 ], [ %75, %.critedge205 ], [ %.0150, %.thread ], [ %62, %._crit_edge228.thread ], [ null, %205 ], [ null, %4 ], [ null, %196 ], [ null, %170 ], [ null, %154 ], [ null, %147 ], [ null, %140 ], [ null, %133 ], [ null, %128 ], [ null, %123 ], [ null, %110 ], [ null, %67 ], [ null, %71 ], [ null, %69 ], [ null, %114 ]
+  %.0 = phi ptr [ %62, %._crit_edge228.thread ], [ %75, %.critedge205 ], [ %.0150, %.thread ], [ %122, %119 ], [ %127, %126 ], [ %132, %131 ], [ %139, %136 ], [ %146, %143 ], [ %153, %150 ], [ %169, %164 ], [ %179, %.critedge ], [ %204, %199 ], [ null, %205 ], [ null, %4 ], [ null, %196 ], [ null, %170 ], [ null, %154 ], [ null, %147 ], [ null, %140 ], [ null, %133 ], [ null, %128 ], [ null, %123 ], [ null, %110 ], [ null, %67 ], [ null, %71 ], [ null, %69 ], [ null, %114 ]
   ret ptr %.0
 }
 

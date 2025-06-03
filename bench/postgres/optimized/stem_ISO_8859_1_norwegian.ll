@@ -326,7 +326,7 @@ r_other_suffix.exit.thread:                       ; preds = %.r_other_suffix.exi
   br label %r_consonant_pair.exit
 
 r_consonant_pair.exit:                            ; preds = %125, %99, %54, %select.unfold.i, %74, %r_other_suffix.exit.thread
-  %.1 = phi i32 [ 1, %r_other_suffix.exit.thread ], [ %75, %74 ], [ %72, %select.unfold.i ], [ %55, %54 ], [ %101, %99 ], [ %128, %125 ]
+  %.1 = phi i32 [ 1, %r_other_suffix.exit.thread ], [ %55, %54 ], [ %72, %select.unfold.i ], [ %75, %74 ], [ %101, %99 ], [ %128, %125 ]
   ret i32 %.1
 }
 

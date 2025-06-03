@@ -5352,7 +5352,7 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %79
 
 79:                                               ; preds = %69, %75, %72, %78
-  %.063 = phi i32 [ 0, %78 ], [ %76, %75 ], [ %73, %72 ], [ -192, %69 ]
+  %.063 = phi i32 [ %73, %72 ], [ %76, %75 ], [ 0, %78 ], [ -192, %69 ]
   store i32 0, ptr %70, align 8, !tbaa !47
   br label %80
 

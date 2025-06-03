@@ -6749,8 +6749,8 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %31, %35
   br label %39
 
 39:                                               ; preds = %3, %14, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit, %5
-  %.sroa.1623.0 = phi i32 [ %2, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %15, %14 ], [ 0, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ %7, %5 ], [ 0, %3 ]
-  %.sroa.6.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ -78, %14 ], [ %17, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ -54, %5 ], [ 0, %3 ]
+  %.sroa.1623.0 = phi i32 [ %7, %5 ], [ %15, %14 ], [ 0, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ %2, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ 0, %3 ]
+  %.sroa.6.0 = phi i8 [ -54, %5 ], [ -78, %14 ], [ %17, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ 0, %3 ]
   %.sroa.1623.0.insert.ext = zext i32 %.sroa.1623.0 to i64
   %.sroa.1623.0.insert.shift = shl nuw i64 %.sroa.1623.0.insert.ext, 32
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0 to i64
@@ -8137,8 +8137,8 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46: ; preds = %102, %10
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 
 _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit: ; preds = %4, %116, %114, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40
-  %.sroa.1647.0 = phi i32 [ %.pre-phi, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %6, %114 ], [ %6, %116 ], [ 0, %4 ]
-  %.sroa.6.0 = phi i8 [ %.sroa.06.0.copyload.i41, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %.sroa.06.0.copyload.i43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %10, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %91, %114 ], [ %91, %116 ], [ 0, %4 ]
+  %.sroa.1647.0 = phi i32 [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.pre-phi, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %6, %114 ], [ %6, %116 ], [ 0, %4 ]
+  %.sroa.6.0 = phi i8 [ %10, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.sroa.06.0.copyload.i41, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %.sroa.06.0.copyload.i43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %91, %114 ], [ %91, %116 ], [ 0, %4 ]
   %.sroa.1647.0.insert.ext = zext i32 %.sroa.1647.0 to i64
   %.sroa.1647.0.insert.shift = shl nuw i64 %.sroa.1647.0.insert.ext, 32
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0 to i64

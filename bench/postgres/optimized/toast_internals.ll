@@ -86,8 +86,8 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   unreachable
 
 34:                                               ; preds = %28, %26
-  %.021 = phi ptr [ %29, %28 ], [ %27, %26 ]
-  %.0 = phi i32 [ 1073741824, %28 ], [ 0, %26 ]
+  %.021 = phi ptr [ %27, %26 ], [ %29, %28 ]
+  %.0 = phi i32 [ 0, %26 ], [ 1073741824, %28 ]
   %35 = icmp eq ptr %.021, null
   br i1 %35, label %46, label %36
 

@@ -229,8 +229,8 @@ sw.bb8.i:                                         ; preds = %_ZNKSt17basic_strin
   br label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %sw.bb8.i, %sw.bb6.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %.sink.i = phi i32 [ 7, %sw.bb8.i ], [ 15, %sw.bb6.i ], [ 31, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %and9.i = and i32 %.sink.i, %conv.i
+  %.sink.i = phi i32 [ 15, %sw.bb6.i ], [ 7, %sw.bb8.i ], [ 31, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+  %and.i = and i32 %.sink.i, %conv.i
   %3 = zext nneg i32 %sub.i.i.i.i to i64
   %scevgep = getelementptr i8, ptr %str.sroa.5.095, i64 %str.sroa.0.094
   %4 = sub i64 %str.sroa.0.094, %3
@@ -240,7 +240,7 @@ for.body.preheader.i:                             ; preds = %sw.bb8.i, %sw.bb6.i
 for.body.i:                                       ; preds = %if.end17.i, %for.body.preheader.i
   %str.sroa.0.1 = phi i64 [ %sub.i.i, %for.body.preheader.i ], [ %sub.i24.i, %if.end17.i ]
   %str.sroa.5.1 = phi ptr [ %add.ptr.i.i, %for.body.preheader.i ], [ %add.ptr.i26.i, %if.end17.i ]
-  %scalar.1.fr44.i = phi i32 [ %and9.i, %for.body.preheader.i ], [ %or.i, %if.end17.i ]
+  %scalar.1.fr44.i = phi i32 [ %and.i, %for.body.preheader.i ], [ %or.i, %if.end17.i ]
   %len.043.i = phi i64 [ 1, %for.body.preheader.i ], [ %inc.i, %if.end17.i ]
   %cmp.i.i = icmp eq i64 %str.sroa.0.1, 0
   br i1 %cmp.i.i, label %if.then4, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i
@@ -386,11 +386,11 @@ while.cond.backedge:                              ; preds = %if.then, %if.then4,
   %cmp.i = icmp eq i64 %str.sroa.0.0.be, 0
   br i1 %cmp.i, label %while.end, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, !llvm.loop !11
 
-if.then4:                                         ; preds = %for.body.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %for.end.i, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
-  %str.sroa.5.343.ph.ph = phi ptr [ %str.sroa.5.3, %sw.bb11.i ], [ %str.sroa.5.3, %sw.bb9.i ], [ %str.sroa.5.3, %sw.bb7.i ], [ %str.sroa.5.3, %sw.bb5.i ], [ %str.sroa.5.3, %sw.bb3.i ], [ %str.sroa.5.3, %sw.bb1.i ], [ %str.sroa.5.3, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %scevgep96, %for.end.i ], [ %str.sroa.5.3, %sw.bb13.i ], [ %scevgep, %for.body.i ], [ %add.ptr.i26.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ]
-  %str.sroa.0.341.ph.ph = phi i64 [ %str.sroa.0.3, %sw.bb11.i ], [ %str.sroa.0.3, %sw.bb9.i ], [ %str.sroa.0.3, %sw.bb7.i ], [ %str.sroa.0.3, %sw.bb5.i ], [ %str.sroa.0.3, %sw.bb3.i ], [ %str.sroa.0.3, %sw.bb1.i ], [ %str.sroa.0.3, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %4, %for.end.i ], [ %str.sroa.0.3, %sw.bb13.i ], [ 0, %for.body.i ], [ %sub.i24.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ]
-  %custom_escape.sroa.0.1.ph.ph = phi i64 [ 2, %sw.bb11.i ], [ 2, %sw.bb9.i ], [ 2, %sw.bb7.i ], [ 2, %sw.bb5.i ], [ 2, %sw.bb3.i ], [ 2, %sw.bb1.i ], [ 2, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ 1, %for.end.i ], [ 1, %sw.bb13.i ], [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ], [ 1, %for.body.i ]
-  %custom_escape.sroa.11.1.ph.ph = phi ptr [ @.str.14, %sw.bb11.i ], [ @.str.13, %sw.bb9.i ], [ @.str.12, %sw.bb7.i ], [ @.str.11, %sw.bb5.i ], [ @.str.10, %sw.bb3.i ], [ @.str.9, %sw.bb1.i ], [ @.str.8, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ @.str.15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ @.str.15, %for.end.i ], [ @.str.15, %sw.bb13.i ], [ @.str.15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ], [ @.str.15, %for.body.i ]
+if.then4:                                         ; preds = %for.body.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %for.end.i, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i
+  %str.sroa.5.343.ph.ph = phi ptr [ %str.sroa.5.3, %sw.bb1.i ], [ %str.sroa.5.3, %sw.bb3.i ], [ %str.sroa.5.3, %sw.bb5.i ], [ %str.sroa.5.3, %sw.bb7.i ], [ %str.sroa.5.3, %sw.bb9.i ], [ %str.sroa.5.3, %sw.bb11.i ], [ %str.sroa.5.3, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %scevgep96, %for.end.i ], [ %str.sroa.5.3, %sw.bb13.i ], [ %scevgep, %for.body.i ], [ %add.ptr.i26.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ]
+  %str.sroa.0.341.ph.ph = phi i64 [ %str.sroa.0.3, %sw.bb1.i ], [ %str.sroa.0.3, %sw.bb3.i ], [ %str.sroa.0.3, %sw.bb5.i ], [ %str.sroa.0.3, %sw.bb7.i ], [ %str.sroa.0.3, %sw.bb9.i ], [ %str.sroa.0.3, %sw.bb11.i ], [ %str.sroa.0.3, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %4, %for.end.i ], [ %str.sroa.0.3, %sw.bb13.i ], [ 0, %for.body.i ], [ %sub.i24.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ]
+  %custom_escape.sroa.0.1.ph.ph = phi i64 [ 2, %sw.bb1.i ], [ 2, %sw.bb3.i ], [ 2, %sw.bb5.i ], [ 2, %sw.bb7.i ], [ 2, %sw.bb9.i ], [ 2, %sw.bb11.i ], [ 2, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ 1, %for.end.i ], [ 1, %sw.bb13.i ], [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ], [ 1, %for.body.i ]
+  %custom_escape.sroa.11.1.ph.ph = phi ptr [ @.str.9, %sw.bb1.i ], [ @.str.10, %sw.bb3.i ], [ @.str.11, %sw.bb5.i ], [ @.str.12, %sw.bb7.i ], [ @.str.13, %sw.bb9.i ], [ @.str.14, %sw.bb11.i ], [ @.str.8, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ @.str.15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ @.str.15, %for.end.i ], [ @.str.15, %sw.bb13.i ], [ @.str.15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ], [ @.str.15, %for.body.i ]
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %custom_escape.sroa.11.1.ph.ph, i64 noundef %custom_escape.sroa.0.1.ph.ph)
   br label %while.cond.backedge
 

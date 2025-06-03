@@ -298,7 +298,7 @@ define internal void @start_input_tga(ptr noundef %0, ptr noundef captures(none)
   br label %148
 
 148:                                              ; preds = %144, %135, %117, %96
-  %.0133 = phi i32 [ 3, %144 ], [ 1, %135 ], [ 3, %117 ], [ 3, %96 ]
+  %.0133 = phi i32 [ 3, %144 ], [ 3, %96 ], [ 3, %117 ], [ 1, %135 ]
   br i1 %53, label %149, label %165
 
 149:                                              ; preds = %148

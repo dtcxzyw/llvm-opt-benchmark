@@ -5722,7 +5722,7 @@ define hidden void @_ZN2cv3dnn15LayerEinsumImpl13parseEquationENSt7__cxx1112basi
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i32
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ], [ %46, %45 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ]
   %48 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !70
   %49 = sext i8 %48 to i32
   %50 = tail call noundef i32 @isspace(i32 noundef %49)
@@ -5734,7 +5734,7 @@ define hidden void @_ZN2cv3dnn15LayerEinsumImpl13parseEquationENSt7__cxx1112basi
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i32
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ], [ %52, %51 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ]
   %54 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !70
   %55 = sext i8 %54 to i32
   %56 = tail call noundef i32 @isspace(i32 noundef %55)

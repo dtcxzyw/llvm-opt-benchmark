@@ -289,7 +289,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
   unreachable
 
 "_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h8a2a64c0c2b0f2a5E.exit": ; preds = %15, %25, %29
-  %.0.i = phi i32 [ %28, %25 ], [ %33, %29 ], [ %18, %15 ]
+  %.0.i = phi i32 [ %18, %15 ], [ %33, %29 ], [ %28, %25 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !32
   store i32 %.0.i, ptr %5, align 4, !noalias !32
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hffbefa2c24e62249E.llvm.2637256044514720036"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 4)
@@ -342,7 +342,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
   unreachable
 
 "_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h7fd38847e947a07dE.exit": ; preds = %40, %50, %54
-  %.0.i1 = phi i32 [ %53, %50 ], [ %58, %54 ], [ %43, %40 ]
+  %.0.i1 = phi i32 [ %43, %40 ], [ %58, %54 ], [ %53, %50 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !39
   store i32 %.0.i1, ptr %4, align 4, !noalias !39
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hffbefa2c24e62249E.llvm.2637256044514720036"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 4)
@@ -393,7 +393,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
   unreachable
 
 "_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17hc165d92be6a13123E.exit": ; preds = %65, %75, %79
-  %.0.i2 = phi i32 [ %78, %75 ], [ %83, %79 ], [ %68, %65 ]
+  %.0.i2 = phi i32 [ %68, %65 ], [ %83, %79 ], [ %78, %75 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !45
   store i32 %.0.i2, ptr %3, align 4, !noalias !45
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hffbefa2c24e62249E.llvm.2637256044514720036"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 4)

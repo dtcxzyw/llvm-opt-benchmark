@@ -2266,7 +2266,7 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosure27
   unreachable
 
 _ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosure27DerivedPointerIterationMode.exit: ; preds = %4, %15, %16
-  %.0.i = phi ptr [ %7, %16 ], [ %6, %15 ], [ %5, %4 ]
+  %.0.i = phi ptr [ %6, %15 ], [ %7, %16 ], [ %5, %4 ]
   store ptr %2, ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0.i, ptr %19, align 8
@@ -2318,7 +2318,7 @@ define hidden void @_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopC
   unreachable
 
 15:                                               ; preds = %5, %12, %11
-  %.0 = phi ptr [ %8, %12 ], [ %7, %11 ], [ %6, %5 ]
+  %.0 = phi ptr [ %7, %11 ], [ %8, %12 ], [ %6, %5 ]
   store ptr %3, ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0, ptr %16, align 8

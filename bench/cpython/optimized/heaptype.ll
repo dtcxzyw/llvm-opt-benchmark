@@ -733,7 +733,7 @@ define internal ptr @create_type_from_repeated_slots(ptr readnone captures(none)
   br label %13
 
 13:                                               ; preds = %7, %9, %11, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ %8, %7 ], [ %10, %9 ]
   ret ptr %.0
 }
 
@@ -1698,7 +1698,7 @@ define internal i32 @heapgcctype_traverse(ptr noundef readonly captures(none) %0
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -1807,7 +1807,7 @@ define internal i32 @heapmanaged_traverse(ptr noundef %0, ptr noundef %1, ptr no
   br label %9
 
 9:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ %8, %7 ]
+  %.1 = phi i32 [ %8, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

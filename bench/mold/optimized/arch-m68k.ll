@@ -392,9 +392,9 @@ _ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.i: ; preds = %_
   %49 = load ptr, ptr %48, align 8, !tbaa !259
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %51 = load i8, ptr %50, align 1, !tbaa !258
-  %.neg27 = sub i8 0, %51
-  %.neg27.z = zext i8 %.neg27 to i32
-  %.neg11 = shl nuw i32 %.neg27.z, 24
+  %.neg28 = sub i8 0, %51
+  %.neg28.z = zext i8 %.neg28 to i32
+  %.neg20 = shl nuw i32 %.neg28.z, 24
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 37
   %53 = load i8, ptr %52, align 1, !tbaa !258
   %54 = zext i8 %53 to i32
@@ -408,10 +408,10 @@ _ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.i: ; preds = %_
   %62 = load i8, ptr %61, align 1, !tbaa !258
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %60, %63
-  %.neg15 = sub i32 %.neg11, %64
-  %.neg = mul i32 %46, -14
-  %.neg9 = add i32 %.neg, -18
-  %.neg16 = add i32 %.neg9, %.neg15
+  %.neg24 = sub i32 %.neg20, %64
+  %.neg17 = mul i32 %46, -14
+  %.neg18 = add i32 %.neg17, -18
+  %.neg25 = add i32 %.neg18, %.neg24
   br label %_ZNK4mold6SymbolINS_4M68KEE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i: ; preds = %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit, %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.i
@@ -420,9 +420,9 @@ _ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i: ; pre
   %67 = load ptr, ptr %66, align 8, !tbaa !276
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 36
   %69 = load i8, ptr %68, align 1, !tbaa !258
-  %.neg28 = sub i8 0, %69
-  %.neg28.z = zext i8 %.neg28 to i32
-  %.neg20 = shl nuw i32 %.neg28.z, 24
+  %.neg27 = sub i8 0, %69
+  %.neg27.z = zext i8 %.neg27 to i32
+  %.neg11 = shl nuw i32 %.neg27.z, 24
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 37
   %71 = load i8, ptr %70, align 1, !tbaa !258
   %72 = zext i8 %71 to i32
@@ -436,7 +436,7 @@ _ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i: ; pre
   %80 = load i8, ptr %79, align 1, !tbaa !258
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
-  %.neg24 = sub i32 %.neg20, %82
+  %.neg15 = sub i32 %.neg11, %82
   br i1 %37, label %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i, label %83
 
 83:                                               ; preds = %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i
@@ -445,17 +445,17 @@ _ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i: ; pre
   %86 = load ptr, ptr %84, align 8, !tbaa !268
   %87 = getelementptr inbounds nuw %"struct.mold::SymbolAux", ptr %86, i64 %85, i32 5
   %88 = load i32, ptr %87, align 4, !tbaa !277
-  %.neg17 = mul i32 %88, -8
+  %.neg = mul i32 %88, -8
   br label %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
 
 _ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds = %83, %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i
-  %.neg18 = phi i32 [ %.neg17, %83 ], [ 8, %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i ]
-  %.neg25 = add i32 %.neg18, %.neg24
+  %.neg9 = phi i32 [ %.neg, %83 ], [ 8, %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i ]
+  %.neg16 = add i32 %.neg9, %.neg15
   br label %_ZNK4mold6SymbolINS_4M68KEE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_4M68KEE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %47, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %89 = phi i32 [ %43, %47 ], [ %65, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
-  %.1.i.neg26 = phi i32 [ %.neg16, %47 ], [ %.neg25, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %89 = phi i32 [ %65, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %43, %47 ]
+  %.1.i.neg26 = phi i32 [ %.neg16, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %.neg25, %47 ]
   %90 = zext i8 %31 to i32
   %91 = shl nuw nsw i32 %90, 16
   %92 = zext i8 %29 to i32
@@ -672,7 +672,7 @@ _ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds =
   br label %_ZNK4mold6SymbolINS_4M68KEE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_4M68KEE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %95, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %.1.i = phi i32 [ %118, %95 ], [ %147, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %.1.i = phi i32 [ %147, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %118, %95 ]
   %148 = sub i32 %.0.i, %.1.i
   %149 = add i32 %148, -2
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2129,7 +2129,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i51: ; preds = %338
   br label %_ZNK4mold6SymbolINS_4M68KEE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_4M68KEE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %201, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold12InputSectionINS_4M68KEE4nameEv.exit, %21, %17, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i, %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.i35, %163, %174, %264, %297, %.critedge4, %373, %56, %78
-  %.1 = phi i64 [ %77, %56 ], [ %99, %78 ], [ %399, %373 ], [ %200, %174 ], [ %284, %264 ], [ %337, %297 ], [ %366, %.critedge4 ], [ %165, %163 ], [ %136, %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ %161, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ 0, %17 ], [ %47, %21 ], [ 0, %_ZNK4mold12InputSectionINS_4M68KEE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %201 ]
+  %.1 = phi i64 [ %77, %56 ], [ %99, %78 ], [ %399, %373 ], [ %200, %174 ], [ %284, %264 ], [ %337, %297 ], [ %366, %.critedge4 ], [ %165, %163 ], [ %161, %_ZNK4mold6SymbolINS_4M68KEE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %136, %_ZNK4mold6SymbolINS_4M68KEE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ 0, %17 ], [ %47, %21 ], [ 0, %_ZNK4mold12InputSectionINS_4M68KEE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %201 ]
   ret i64 %.1
 }
 

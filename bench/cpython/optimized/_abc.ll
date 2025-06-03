@@ -2360,7 +2360,7 @@ Py_DECREF.exit.i:                                 ; preds = %97, %94, %92
   unreachable
 
 _Py_NewRef.exit.i:                                ; preds = %Py_DECREF.exit.i, %91, %88, %86, %84, %80, %77, %75, %72, %67, %59, %56, %_in_weak_set.exit.i, %43
-  %.036.i = phi ptr [ null, %_in_weak_set.exit.i ], [ null, %67 ], [ %79, %77 ], [ null, %80 ], [ %82, %84 ], [ %99, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %56 ], [ @_Py_TrueStruct, %59 ], [ @_Py_FalseStruct, %72 ], [ @_Py_FalseStruct, %75 ], [ null, %86 ], [ null, %88 ], [ null, %91 ], [ null, %43 ]
+  %.036.i = phi ptr [ null, %_in_weak_set.exit.i ], [ null, %67 ], [ %79, %77 ], [ null, %80 ], [ %99, %Py_DECREF.exit.i ], [ %82, %84 ], [ @_Py_TrueStruct, %56 ], [ @_Py_TrueStruct, %59 ], [ @_Py_FalseStruct, %72 ], [ @_Py_FalseStruct, %75 ], [ null, %86 ], [ null, %88 ], [ null, %91 ], [ null, %43 ]
   %101 = load i32, ptr %14, align 8, !tbaa !17
   %.not.i.i62.i = icmp sgt i32 %101, -1
   br i1 %.not.i.i62.i, label %102, label %Py_XDECREF.exit.i

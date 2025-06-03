@@ -2526,8 +2526,8 @@ define void @_ZN3gmx15checkUserGpuIdsENS_8ArrayRefIKSt10unique_ptrI17DeviceInfor
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge._crit_edge.i.i.i
-  %57 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %52, %54 ]
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %55, %54 ]
+  %57 = phi i32 [ %52, %54 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.034.1.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %58 = load i32, ptr %.sroa.034.1.i.i.i, align 4, !tbaa !12
   %59 = icmp eq i32 %58, %57
   br i1 %59, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit, label %60
@@ -2537,8 +2537,8 @@ define void @_ZN3gmx15checkUserGpuIdsENS_8ArrayRefIKSt10unique_ptrI17DeviceInfor
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge._crit_edge57.i.i.i
-  %63 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %57, %60 ]
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %61, %60 ]
+  %63 = phi i32 [ %57, %60 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.034.2.i.i.i = phi ptr [ %61, %60 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %64 = load i32, ptr %.sroa.034.2.i.i.i, align 4, !tbaa !12
   %65 = icmp eq i32 %64, %63
   %spec.select.i.i.i = select i1 %65, ptr %.sroa.034.2.i.i.i, ptr %3

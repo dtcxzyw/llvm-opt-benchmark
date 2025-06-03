@@ -841,7 +841,7 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
   br label %286
 
 286:                                              ; preds = %226, %229, %181, %184, %278, %268, %261, %189, %155
-  %.0188 = phi i1 [ false, %155 ], [ false, %278 ], [ false, %268 ], [ false, %261 ], [ false, %229 ], [ false, %226 ], [ true, %189 ], [ false, %184 ], [ false, %181 ]
+  %.0188 = phi i1 [ false, %155 ], [ false, %181 ], [ false, %184 ], [ true, %189 ], [ false, %226 ], [ false, %229 ], [ false, %261 ], [ false, %268 ], [ false, %278 ]
   %287 = and i32 %63, 1
   %.not190 = icmp eq i32 %287, 0
   br i1 %.not190, label %801, label %288

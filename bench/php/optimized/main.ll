@@ -872,10 +872,10 @@ zend_string_free.exit120:                         ; preds = %escape_html.exit, %
   %.str.18..str.19 = select i1 %.not99, ptr @.str.18, ptr @.str.19
   br label %67
 
-64:                                               ; preds = %55, %54, %53, %52, %59, %49
-  %65 = phi ptr [ @.str.3, %49 ], [ %.pre, %59 ], [ @.str.3, %52 ], [ @.str.3, %53 ], [ @.str.3, %54 ], [ @.str.3, %55 ]
-  %.072.ph = phi ptr [ @.str.3, %49 ], [ %60, %59 ], [ @.str.3, %52 ], [ @.str.3, %53 ], [ @.str.3, %54 ], [ @.str.3, %55 ]
-  %.070.ph = phi ptr [ @.str.13, %49 ], [ %57, %59 ], [ @.str.14, %52 ], [ @.str.15, %53 ], [ @.str.16, %54 ], [ @.str.17, %55 ]
+64:                                               ; preds = %52, %53, %54, %55, %59, %49
+  %65 = phi ptr [ @.str.3, %49 ], [ %.pre, %59 ], [ @.str.3, %55 ], [ @.str.3, %54 ], [ @.str.3, %53 ], [ @.str.3, %52 ]
+  %.072.ph = phi ptr [ @.str.3, %49 ], [ %60, %59 ], [ @.str.3, %55 ], [ @.str.3, %54 ], [ @.str.3, %53 ], [ @.str.3, %52 ]
+  %.070.ph = phi ptr [ @.str.13, %49 ], [ %57, %59 ], [ @.str.17, %55 ], [ @.str.16, %54 ], [ @.str.15, %53 ], [ @.str.14, %52 ]
   %66 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %8, i64 noundef 0, ptr noundef nonnull @.str.20, ptr noundef %.072.ph, ptr noundef %65, ptr noundef nonnull %.070.ph, ptr noundef %1) #28
   br label %69
 
@@ -2626,8 +2626,8 @@ zend_string_copy.exit144:                         ; preds = %zend_string_copy.ex
   br label %90
 
 90:                                               ; preds = %83, %83, %83, %83, %89, %88, %87, %86, %85, %84
-  %.0103 = phi ptr [ @.str.72, %89 ], [ @.str.71, %88 ], [ @.str.70, %87 ], [ @.str.69, %86 ], [ @.str.68, %85 ], [ @.str.67, %84 ], [ @.str.66, %83 ], [ @.str.66, %83 ], [ @.str.66, %83 ], [ @.str.66, %83 ]
-  %.0102 = phi i32 [ 5, %89 ], [ 6, %88 ], [ 5, %87 ], [ 3, %86 ], [ 4, %85 ], [ 3, %84 ], [ 3, %83 ], [ 3, %83 ], [ 3, %83 ], [ 3, %83 ]
+  %.0103 = phi ptr [ @.str.72, %89 ], [ @.str.67, %84 ], [ @.str.68, %85 ], [ @.str.69, %86 ], [ @.str.70, %87 ], [ @.str.71, %88 ], [ @.str.66, %83 ], [ @.str.66, %83 ], [ @.str.66, %83 ], [ @.str.66, %83 ]
+  %.0102 = phi i32 [ 5, %89 ], [ 3, %84 ], [ 4, %85 ], [ 3, %86 ], [ 5, %87 ], [ 6, %88 ], [ 3, %83 ], [ 3, %83 ], [ 3, %83 ], [ 3, %83 ]
   br i1 %80, label %96, label %91
 
 91:                                               ; preds = %90

@@ -1154,7 +1154,7 @@ check_blob.exit.i:                                ; preds = %29
   br label %blob_seek_impl.exit
 
 54:                                               ; preds = %50, %45, %check_blob.exit.i
-  %.016.i = phi i32 [ %51, %50 ], [ %46, %45 ], [ %9, %check_blob.exit.i ]
+  %.016.i = phi i32 [ %9, %check_blob.exit.i ], [ %46, %45 ], [ %51, %50 ]
   %55 = icmp slt i32 %.016.i, 0
   %56 = icmp sgt i32 %.016.i, %39
   %or.cond.i = select i1 %55, i1 true, i1 %56
@@ -1176,7 +1176,7 @@ check_blob.exit.i:                                ; preds = %29
   br label %blob_seek_impl.exit
 
 blob_seek_impl.exit:                              ; preds = %61, %59, %57, %52, %33, %26, %22, %20, %11, %5
-  %.012 = phi ptr [ null, %11 ], [ null, %20 ], [ null, %5 ], [ null, %52 ], [ null, %61 ], [ null, %57 ], [ @_Py_NoneStruct, %59 ], [ null, %33 ], [ null, %26 ], [ null, %22 ]
+  %.012 = phi ptr [ null, %11 ], [ null, %20 ], [ null, %5 ], [ null, %52 ], [ null, %57 ], [ @_Py_NoneStruct, %59 ], [ null, %61 ], [ null, %33 ], [ null, %26 ], [ null, %22 ]
   ret ptr %.012
 }
 

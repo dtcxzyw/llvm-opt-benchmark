@@ -2821,7 +2821,7 @@ define hidden noundef zeroext i1 @_ZN3sat12asymm_branch7cleanupERNS_13scoped_det
   br label %27
 
 27:                                               ; preds = %11, %24, %26, %9
-  %.1 = phi i32 [ %.021, %9 ], [ %.021, %11 ], [ %.021, %26 ], [ %25, %24 ]
+  %.1 = phi i32 [ %.021, %9 ], [ %.021, %11 ], [ %25, %24 ], [ %.021, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !212

@@ -355,7 +355,7 @@ define hidden i64 @crc32_sse42_pclmul_update(i32 noundef %0, ptr noundef capture
   br label %13
 
 13:                                               ; preds = %9, %11, %6, %4
-  %.0 = phi i64 [ 0, %4 ], [ %12, %11 ], [ %10, %9 ], [ 0, %6 ]
+  %.0 = phi i64 [ 0, %4 ], [ %10, %9 ], [ %12, %11 ], [ 0, %6 ]
   ret i64 %.0
 }
 

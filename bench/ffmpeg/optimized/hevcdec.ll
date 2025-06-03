@@ -4510,7 +4510,7 @@ map_to_alpha_format.exit.i.i.i.i:                 ; preds = %map_to_alpha_format
   ]
 
 .sink.split.i.thread.i.i.i:                       ; preds = %1604, %1603, %1602, %1601, %1600, %1599, %1597
-  %.0.i286299.ph.i.i.i = phi i32 [ 87, %1597 ], [ 185, %1604 ], [ 187, %1603 ], [ 91, %1602 ], [ 89, %1601 ], [ 78, %1600 ], [ 79, %1599 ]
+  %.0.i286299.ph.i.i.i = phi i32 [ 87, %1597 ], [ 79, %1599 ], [ 78, %1600 ], [ 89, %1601 ], [ 91, %1602 ], [ 187, %1603 ], [ 185, %1604 ]
   store i32 44, ptr %9, align 16, !tbaa !137
   br label %1610
 
@@ -5384,7 +5384,7 @@ decode_slice.exit.i:                              ; preds = %hevc_frame_start.ex
   br label %decode_nal_unit.exit.thread
 
 decode_slice.exit.thread.i:                       ; preds = %decode_slice.exit.i, %2019, %1773, %1694, %1461, %252, %248, %242, %238, %229
-  %.0.i = phi i32 [ %234, %229 ], [ %2029, %decode_slice.exit.i ], [ %254, %252 ], [ %250, %248 ], [ %246, %242 ], [ %240, %238 ], [ %.0211.i.i.i, %2019 ], [ %1776, %1773 ], [ %.030.i.ph.i.i.i, %1694 ], [ %.0.i.ph.i.i, %1461 ]
+  %.0.i = phi i32 [ %234, %229 ], [ %240, %238 ], [ %246, %242 ], [ %250, %248 ], [ %254, %252 ], [ %2029, %decode_slice.exit.i ], [ %.0211.i.i.i, %2019 ], [ %1776, %1773 ], [ %.030.i.ph.i.i.i, %1694 ], [ %.0.i.ph.i.i, %1461 ]
   %2033 = icmp eq i32 %.0.i, -1094995529
   br i1 %2033, label %decode_slice.exit.thread.thread.i, label %.loopexit138
 

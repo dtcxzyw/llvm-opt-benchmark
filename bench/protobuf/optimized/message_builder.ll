@@ -4358,7 +4358,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %lpad40, %lpad47, %lpad.i61, %invoke.cont13.i.i.i.i64, %lpad.i45, %invoke.cont13.i.i.i.i48, %lpad.i, %invoke.cont13.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %39, %invoke.cont13.i.i.i.i48 ], [ %39, %lpad.i45 ], [ %44, %invoke.cont13.i.i.i.i64 ], [ %44, %lpad.i61 ], [ %32, %lpad40 ], [ %34, %lpad47 ], [ %20, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %39, %invoke.cont13.i.i.i.i48 ], [ %39, %lpad.i45 ], [ %44, %invoke.cont13.i.i.i.i64 ], [ %44, %lpad.i61 ], [ %20, %lpad ], [ %32, %lpad40 ], [ %34, %lpad47 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry

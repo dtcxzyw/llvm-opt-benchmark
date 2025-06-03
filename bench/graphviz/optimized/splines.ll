@@ -3336,7 +3336,7 @@ convert_sides_to_points.exit:                     ; preds = %.split.loop.exit29.
   br label %convert_sides_to_points.exit.thread
 
 convert_sides_to_points.exit.thread:              ; preds = %.split.loop.exit29.i, %convert_sides_to_points.exit, %124, %111, %105, %98, %86, %79, %72, %65, %58
-  %.0163 = phi double [ 0.000000e+00, %convert_sides_to_points.exit ], [ %136, %124 ], [ %123, %111 ], [ %110, %105 ], [ %104, %98 ], [ %97, %86 ], [ %85, %79 ], [ %78, %72 ], [ %71, %65 ], [ %64, %58 ], [ 0.000000e+00, %.split.loop.exit29.i ]
+  %.0163 = phi double [ 0.000000e+00, %convert_sides_to_points.exit ], [ %64, %58 ], [ %71, %65 ], [ %78, %72 ], [ %85, %79 ], [ %97, %86 ], [ %104, %98 ], [ %110, %105 ], [ %123, %111 ], [ %136, %124 ], [ 0.000000e+00, %.split.loop.exit29.i ]
   %.not181 = icmp eq i64 %2, 0
   br i1 %.not181, label %._crit_edge, label %.lr.ph
 

@@ -1529,8 +1529,8 @@ obj_to_asn1derstr.exit.i:                         ; preds = %RSTRING_PTR.exit.i4
   unreachable
 
 obj_to_asn1null.exit.i:                           ; preds = %obj_to_asn1derstr.exit.i, %obj_to_asn1gtime.exit.i, %obj_to_asn1utime.exit.i, %obj_to_asn1obj.exit.i, %obj_to_asn1str.exit.i, %78, %obj_to_asn1bstr.exit.i, %obj_to_asn1int.exit.i
-  %.021.i = phi ptr [ @ASN1_STRING_free, %obj_to_asn1derstr.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1gtime.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1utime.exit.i ], [ @ASN1_OBJECT_free, %obj_to_asn1obj.exit.i ], [ @ASN1_STRING_free, %obj_to_asn1str.exit.i ], [ @ASN1_BIT_STRING_free, %obj_to_asn1bstr.exit.i ], [ @ASN1_INTEGER_free, %obj_to_asn1int.exit.i ], [ @ASN1_NULL_free, %78 ]
-  %.0.i = phi ptr [ %135, %obj_to_asn1derstr.exit.i ], [ %130, %obj_to_asn1gtime.exit.i ], [ %124, %obj_to_asn1utime.exit.i ], [ %.011.i.i, %obj_to_asn1obj.exit.i ], [ %84, %obj_to_asn1str.exit.i ], [ %53, %obj_to_asn1bstr.exit.i ], [ %37, %obj_to_asn1int.exit.i ], [ %79, %78 ]
+  %.021.i = phi ptr [ @ASN1_INTEGER_free, %obj_to_asn1int.exit.i ], [ @ASN1_BIT_STRING_free, %obj_to_asn1bstr.exit.i ], [ @ASN1_STRING_free, %obj_to_asn1str.exit.i ], [ @ASN1_OBJECT_free, %obj_to_asn1obj.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1utime.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1gtime.exit.i ], [ @ASN1_STRING_free, %obj_to_asn1derstr.exit.i ], [ @ASN1_NULL_free, %78 ]
+  %.0.i = phi ptr [ %37, %obj_to_asn1int.exit.i ], [ %53, %obj_to_asn1bstr.exit.i ], [ %84, %obj_to_asn1str.exit.i ], [ %.011.i.i, %obj_to_asn1obj.exit.i ], [ %124, %obj_to_asn1utime.exit.i ], [ %130, %obj_to_asn1gtime.exit.i ], [ %135, %obj_to_asn1derstr.exit.i ], [ %79, %78 ]
   %152 = call ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str.115, i32 noundef 566) #9
   %.not.i = icmp eq ptr %152, null
   br i1 %.not.i, label %157, label %ossl_asn1_get_asn1type.exit
@@ -3147,8 +3147,8 @@ decode_time.exit.i:                               ; preds = %282
   br label %293
 
 293:                                              ; preds = %290, %287, %decode_time.exit.i, %decode_obj.exit.i, %decode_enum.exit.i, %decode_null.exit.i, %decode_bstr.exit.i, %decode_int.exit.i, %decode_bool.exit.i, %decode_eoc.exit.i
-  %.092.i = phi i64 [ 1, %287 ], [ 1, %decode_time.exit.i ], [ 1, %decode_obj.exit.i ], [ 1, %decode_enum.exit.i ], [ 1, %decode_null.exit.i ], [ %243, %decode_bstr.exit.i ], [ 1, %decode_int.exit.i ], [ 1, %decode_bool.exit.i ], [ 1, %decode_eoc.exit.i ], [ 1, %290 ]
-  %.0.i70 = phi i64 [ %289, %287 ], [ %284, %decode_time.exit.i ], [ %.0.i.i, %decode_obj.exit.i ], [ %256, %decode_enum.exit.i ], [ 4, %decode_null.exit.i ], [ %239, %decode_bstr.exit.i ], [ %224, %decode_int.exit.i ], [ %216, %decode_bool.exit.i ], [ %202, %decode_eoc.exit.i ], [ %292, %290 ]
+  %.092.i = phi i64 [ 1, %287 ], [ 1, %decode_eoc.exit.i ], [ 1, %decode_bool.exit.i ], [ 1, %decode_int.exit.i ], [ %243, %decode_bstr.exit.i ], [ 1, %decode_null.exit.i ], [ 1, %decode_enum.exit.i ], [ 1, %decode_obj.exit.i ], [ 1, %decode_time.exit.i ], [ 1, %290 ]
+  %.0.i70 = phi i64 [ %289, %287 ], [ %202, %decode_eoc.exit.i ], [ %216, %decode_bool.exit.i ], [ %224, %decode_int.exit.i ], [ %239, %decode_bstr.exit.i ], [ 4, %decode_null.exit.i ], [ %256, %decode_enum.exit.i ], [ %.0.i.i, %decode_obj.exit.i ], [ %284, %decode_time.exit.i ], [ %292, %290 ]
   %294 = add nsw i64 %180, %51
   %295 = load ptr, ptr %0, align 8, !tbaa !37
   %296 = getelementptr inbounds i8, ptr %295, i64 %294

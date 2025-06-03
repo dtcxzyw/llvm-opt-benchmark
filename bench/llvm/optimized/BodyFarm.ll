@@ -370,7 +370,7 @@ define internal noundef ptr @_ZL23create_std_move_forwardRN5clang10ASTContextEPK
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %2, %11
-  %.1.i = phi ptr [ %7, %2 ], [ %12, %11 ]
+  %.1.i = phi ptr [ %12, %11 ], [ %7, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %.sroa.0.0.copyload.i7 = load i64, ptr %13, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -429,7 +429,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %43, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %44, %43 ]
+  %.1.i.i.i.i = phi ptr [ %44, %43 ], [ %39, %.lr.ph.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %46 = load i24, ptr %45, align 16
   %47 = and i24 %46, 1048576
@@ -486,7 +486,7 @@ define internal noundef ptr @_ZL29create_OSAtomicCompareAndSwapRN5clang10ASTCont
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %6, %14
-  %.1.i.i = phi ptr [ %10, %6 ], [ %15, %14 ]
+  %.1.i.i = phi ptr [ %15, %14 ], [ %10, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %16, align 8, !tbaa !47
   %17 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -871,7 +871,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %82, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %78, %.lr.ph.i.i ], [ %83, %82 ]
+  %.1.i.i.i = phi ptr [ %83, %82 ], [ %78, %.lr.ph.i.i ]
   %84 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %85 = load i24, ptr %84, align 16
   %86 = and i24 %85, 1048576
@@ -943,7 +943,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i116: ; preds = %_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i123
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i123: ; preds = %115, %.lr.ph.i.i119
-  %.1.i.i.i124 = phi ptr [ %111, %.lr.ph.i.i119 ], [ %116, %115 ]
+  %.1.i.i.i124 = phi ptr [ %116, %115 ], [ %111, %.lr.ph.i.i119 ]
   %117 = getelementptr inbounds nuw i8, ptr %.1.i.i.i124, i64 16
   %118 = load i24, ptr %117, align 16
   %119 = and i24 %118, 1048576
@@ -1124,7 +1124,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i147: ; preds = %_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i154
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i154: ; preds = %196, %.lr.ph.i.i150
-  %.1.i.i.i155 = phi ptr [ %192, %.lr.ph.i.i150 ], [ %197, %196 ]
+  %.1.i.i.i155 = phi ptr [ %197, %196 ], [ %192, %.lr.ph.i.i150 ]
   %198 = getelementptr inbounds nuw i8, ptr %.1.i.i.i155, i64 16
   %199 = load i24, ptr %198, align 16
   %200 = and i24 %199, 1048576
@@ -1200,7 +1200,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i170: ; preds = %_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i177
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i177: ; preds = %232, %.lr.ph.i.i173
-  %.1.i.i.i178 = phi ptr [ %228, %.lr.ph.i.i173 ], [ %233, %232 ]
+  %.1.i.i.i178 = phi ptr [ %233, %232 ], [ %228, %.lr.ph.i.i173 ]
   %234 = getelementptr inbounds nuw i8, ptr %.1.i.i.i178, i64 16
   %235 = load i24, ptr %234, align 16
   %236 = and i24 %235, 1048576
@@ -1296,7 +1296,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i198: ; preds = %_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i205
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i205: ; preds = %280, %.lr.ph.i.i201
-  %.1.i.i.i206 = phi ptr [ %276, %.lr.ph.i.i201 ], [ %281, %280 ]
+  %.1.i.i.i206 = phi ptr [ %281, %280 ], [ %276, %.lr.ph.i.i201 ]
   %282 = getelementptr inbounds nuw i8, ptr %.1.i.i.i206, i64 16
   %283 = load i24, ptr %282, align 16
   %284 = and i24 %283, 1048576
@@ -1608,7 +1608,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %90, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i ], [ %91, %90 ]
+  %.1.i.i.i.i = phi ptr [ %91, %90 ], [ %86, %.lr.ph.i.i.i ]
   %92 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %93 = load i24, ptr %92, align 16
   %94 = and i24 %93, 1048576
@@ -2217,7 +2217,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %235, %.lr.ph.i.i105.i
-  %.1.i.i.i.i = phi ptr [ %231, %.lr.ph.i.i105.i ], [ %236, %235 ]
+  %.1.i.i.i.i = phi ptr [ %236, %235 ], [ %231, %.lr.ph.i.i105.i ]
   %237 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %238 = load i24, ptr %237, align 16
   %239 = and i24 %238, 1048576
@@ -2431,7 +2431,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %30, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %31, %30 ]
+  %.1.i.i.i = phi ptr [ %31, %30 ], [ %26, %.lr.ph.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %33 = load i24, ptr %32, align 16
   %34 = and i24 %33, 1048576
@@ -2728,7 +2728,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEE
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -2804,7 +2804,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %34, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %30, %.lr.ph.i.i ], [ %35, %34 ]
+  %.1.i.i.i = phi ptr [ %35, %34 ], [ %30, %.lr.ph.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %37 = load i24, ptr %36, align 16
   %38 = and i24 %37, 1048576
@@ -2881,7 +2881,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i35: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i42
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i42: ; preds = %70, %.lr.ph.i.i38
-  %.1.i.i.i43 = phi ptr [ %66, %.lr.ph.i.i38 ], [ %71, %70 ]
+  %.1.i.i.i43 = phi ptr [ %71, %70 ], [ %66, %.lr.ph.i.i38 ]
   %72 = getelementptr inbounds nuw i8, ptr %.1.i.i.i43, i64 16
   %73 = load i24, ptr %72, align 16
   %74 = and i24 %73, 1048576

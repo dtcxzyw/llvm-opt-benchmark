@@ -18219,7 +18219,7 @@ default.unreachable17:                            ; preds = %21
   ]
 
 24:                                               ; preds = %26, %3, %21, %25
-  %.sroa.02.0 = phi ptr [ %7, %25 ], [ %6, %21 ], [ %6, %3 ], [ %spec.select, %26 ]
+  %.sroa.02.0 = phi ptr [ %6, %21 ], [ %7, %25 ], [ %6, %3 ], [ %spec.select, %26 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %27 unwind label %12
@@ -18442,7 +18442,7 @@ default.unreachable1:                             ; preds = %1
   br label %7
 
 7:                                                ; preds = %1, %4, %3
-  %.sroa.0.0 = phi float [ %6, %4 ], [ 0x3FF4CCCCC0000000, %3 ], [ 0x3FF9E35400000000, %1 ]
+  %.sroa.0.0 = phi float [ 0x3FF4CCCCC0000000, %3 ], [ %6, %4 ], [ 0x3FF9E35400000000, %1 ]
   ret float %.sroa.0.0
 }
 
@@ -18533,7 +18533,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN5theme8settings16BufferLineHeight5value17hff38f1d4b2f4c73dE.exit
 
 _ZN5theme8settings16BufferLineHeight5value17hff38f1d4b2f4c73dE.exit: ; preds = %1, %4, %5
-  %.sroa.0.0.i = phi float [ %7, %5 ], [ 0x3FF4CCCCC0000000, %4 ], [ 0x3FF9E35400000000, %1 ]
+  %.sroa.0.0.i = phi float [ 0x3FF4CCCCC0000000, %4 ], [ %7, %5 ], [ 0x3FF9E35400000000, %1 ]
   %8 = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 1.000000e+00)
   ret float %8
 }

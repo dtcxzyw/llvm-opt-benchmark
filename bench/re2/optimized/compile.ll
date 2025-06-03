@@ -5440,7 +5440,7 @@ sw.bb42:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end41, %if.end, %if.end29, %sw.bb, %entry, %sw.bb42, %if.then37, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit43
-  %retval.0 = phi i1 [ true, %sw.bb42 ], [ true, %if.then37 ], [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit43 ], [ false, %entry ], [ false, %sw.bb ], [ false, %if.end29 ], [ false, %if.end ], [ false, %if.end41 ]
+  %retval.0 = phi i1 [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit43 ], [ true, %if.then37 ], [ true, %sw.bb42 ], [ false, %entry ], [ false, %sw.bb ], [ false, %if.end29 ], [ false, %if.end ], [ false, %if.end41 ]
   ret i1 %retval.0
 }
 
@@ -5595,7 +5595,7 @@ sw.bb44:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end43, %if.end, %if.end31, %sw.bb, %entry, %sw.bb44, %if.then39, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit51
-  %retval.0 = phi i1 [ true, %sw.bb44 ], [ true, %if.then39 ], [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit51 ], [ false, %entry ], [ false, %sw.bb ], [ false, %if.end31 ], [ false, %if.end ], [ false, %if.end43 ]
+  %retval.0 = phi i1 [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit51 ], [ true, %if.then39 ], [ true, %sw.bb44 ], [ false, %entry ], [ false, %sw.bb ], [ false, %if.end31 ], [ false, %if.end ], [ false, %if.end43 ]
   ret i1 %retval.0
 }
 

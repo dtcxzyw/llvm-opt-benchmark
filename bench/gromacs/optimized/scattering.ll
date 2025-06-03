@@ -2526,7 +2526,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev.exit:     ; preds = %294, %296
   ret void
 
 _ZNSt6vectorIdSaIdEED2Ev.exit58:                  ; preds = %.loopexit, %.loopexit.split-lp, %187, %184, %_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit40, %_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit53, %146, %144, %.body, %39
-  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %40, %39 ], [ %.pn29.pn103, %146 ], [ %145, %144 ], [ %.pn25, %_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit53 ], [ %.pn27, %_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit40 ], [ %185, %184 ], [ %185, %187 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %40, %39 ], [ %.pn29.pn103, %146 ], [ %145, %144 ], [ %.pn27, %_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit40 ], [ %.pn25, %_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit53 ], [ %185, %184 ], [ %185, %187 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %302 = load ptr, ptr %4, align 8, !tbaa !185
   %.not.i.i.i68 = icmp eq ptr %302, null
   br i1 %.not.i.i.i68, label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev.exit69, label %303

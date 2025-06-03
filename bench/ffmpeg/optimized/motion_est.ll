@@ -6401,7 +6401,7 @@ init_ref.exit:                                    ; preds = %28
   br label %get_penalty_factor.exit
 
 get_penalty_factor.exit:                          ; preds = %55, %55, %63, %65, %68, %70, %72, %74
-  %.0.i = phi i32 [ %64, %63 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %65 ], [ 1, %55 ], [ 1, %55 ]
+  %.0.i = phi i32 [ %64, %63 ], [ %67, %65 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ 1, %55 ], [ 1, %55 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 5128
   store i32 %.0.i, ptr %76, align 8, !tbaa !122
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 248
@@ -6447,7 +6447,7 @@ get_penalty_factor.exit:                          ; preds = %55, %55, %63, %65, 
   br label %get_penalty_factor.exit286
 
 get_penalty_factor.exit286:                       ; preds = %get_penalty_factor.exit, %get_penalty_factor.exit, %79, %81, %84, %86, %88, %90
-  %.0.i285 = phi i32 [ %80, %79 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %81 ], [ 1, %get_penalty_factor.exit ], [ 1, %get_penalty_factor.exit ]
+  %.0.i285 = phi i32 [ %80, %79 ], [ %83, %81 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ 1, %get_penalty_factor.exit ], [ 1, %get_penalty_factor.exit ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 5132
   store i32 %.0.i285, ptr %92, align 4, !tbaa !112
   %93 = getelementptr inbounds nuw i8, ptr %60, i64 252
@@ -6493,7 +6493,7 @@ get_penalty_factor.exit286:                       ; preds = %get_penalty_factor.
   br label %get_penalty_factor.exit289
 
 get_penalty_factor.exit289:                       ; preds = %get_penalty_factor.exit286, %get_penalty_factor.exit286, %95, %97, %100, %102, %104, %106
-  %.0.i288 = phi i32 [ %96, %95 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %97 ], [ 1, %get_penalty_factor.exit286 ], [ 1, %get_penalty_factor.exit286 ]
+  %.0.i288 = phi i32 [ %96, %95 ], [ %99, %97 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ 1, %get_penalty_factor.exit286 ], [ 1, %get_penalty_factor.exit286 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 5136
   store i32 %.0.i288, ptr %108, align 8, !tbaa !4
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 5768
@@ -8748,7 +8748,7 @@ init_ref.exit:                                    ; preds = %30
   br label %get_penalty_factor.exit
 
 get_penalty_factor.exit:                          ; preds = %46, %46, %53, %55, %58, %60, %62, %64
-  %.0.i = phi i32 [ %54, %53 ], [ %67, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %55 ], [ 1, %46 ], [ 1, %46 ]
+  %.0.i = phi i32 [ %54, %53 ], [ %57, %55 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %67, %64 ], [ 1, %46 ], [ 1, %46 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 5124
   store i32 %.0.i, ptr %68, align 4, !tbaa !162
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 5768
@@ -9226,7 +9226,7 @@ get_limits.exit:                                  ; preds = %56, %63
   br label %get_penalty_factor.exit
 
 get_penalty_factor.exit:                          ; preds = %117, %117, %124, %126, %129, %131, %133, %135
-  %.0.i156 = phi i32 [ %125, %124 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %126 ], [ 1, %117 ], [ 1, %117 ]
+  %.0.i156 = phi i32 [ %125, %124 ], [ %128, %126 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ 1, %117 ], [ 1, %117 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 5128
   store i32 %.0.i156, ptr %137, align 8, !tbaa !122
   %138 = getelementptr inbounds nuw i8, ptr %49, i64 248
@@ -9272,7 +9272,7 @@ get_penalty_factor.exit:                          ; preds = %117, %117, %124, %1
   br label %get_penalty_factor.exit159
 
 get_penalty_factor.exit159:                       ; preds = %get_penalty_factor.exit, %get_penalty_factor.exit, %140, %142, %145, %147, %149, %151
-  %.0.i158 = phi i32 [ %141, %140 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %142 ], [ 1, %get_penalty_factor.exit ], [ 1, %get_penalty_factor.exit ]
+  %.0.i158 = phi i32 [ %141, %140 ], [ %144, %142 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ 1, %get_penalty_factor.exit ], [ 1, %get_penalty_factor.exit ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 5132
   store i32 %.0.i158, ptr %153, align 4, !tbaa !112
   %154 = getelementptr inbounds nuw i8, ptr %49, i64 252
@@ -9318,7 +9318,7 @@ get_penalty_factor.exit159:                       ; preds = %get_penalty_factor.
   br label %get_penalty_factor.exit162
 
 get_penalty_factor.exit162:                       ; preds = %get_penalty_factor.exit159, %get_penalty_factor.exit159, %156, %158, %161, %163, %165, %167
-  %.0.i161 = phi i32 [ %157, %156 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %158 ], [ 1, %get_penalty_factor.exit159 ], [ 1, %get_penalty_factor.exit159 ]
+  %.0.i161 = phi i32 [ %157, %156 ], [ %160, %158 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ 1, %get_penalty_factor.exit159 ], [ 1, %get_penalty_factor.exit159 ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 5136
   store i32 %.0.i161, ptr %169, align 8, !tbaa !4
   br i1 %93, label %170, label %172

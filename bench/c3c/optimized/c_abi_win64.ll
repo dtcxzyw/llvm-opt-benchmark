@@ -176,7 +176,7 @@ is_power_of_two.exit.thread:                      ; preds = %57
   br label %87
 
 87:                                               ; preds = %85, %83, %77, %75, %71, %62, %is_power_of_two.exit.thread, %.thread.thread, %45, %30, %11
-  %.040 = phi ptr [ %12, %11 ], [ %31, %30 ], [ %47, %45 ], [ %52, %.thread.thread ], [ %61, %is_power_of_two.exit.thread ], [ %65, %62 ], [ %84, %83 ], [ %86, %85 ], [ %80, %77 ], [ %76, %75 ], [ %73, %71 ]
+  %.040 = phi ptr [ %12, %11 ], [ %31, %30 ], [ %47, %45 ], [ %52, %.thread.thread ], [ %61, %is_power_of_two.exit.thread ], [ %65, %62 ], [ %84, %83 ], [ %86, %85 ], [ %73, %71 ], [ %80, %77 ], [ %76, %75 ]
   ret ptr %.040
 }
 
@@ -211,7 +211,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   ]
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
-  %.026.be = phi ptr [ %36, %30 ], [ %23, %17 ], [ %16, %10 ], [ %9, %7 ], [ %2, %.backedge ]
+  %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
   br label %.backedge
 
 6:                                                ; preds = %.backedge
@@ -312,7 +312,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %62, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %51 ], [ %43, %42 ], [ %29, %26 ], [ %25, %24 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 

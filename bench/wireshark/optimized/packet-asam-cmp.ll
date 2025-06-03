@@ -1681,7 +1681,7 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_devic
   br label %177
 
 177:                                              ; preds = %174, %148, %143
-  %.092.i = phi i32 [ %176, %174 ], [ %152, %148 ], [ %147, %143 ]
+  %.092.i = phi i32 [ %176, %174 ], [ %147, %143 ], [ %152, %148 ]
   %178 = load i32, ptr %37, align 4
   %179 = add i32 %178, 16
   %180 = sub i32 %.092.i, %.0103
@@ -1696,7 +1696,7 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_devic
   br label %dissect_asam_cmp_ctrl_msg.exit
 
 dissect_asam_cmp_ctrl_msg.exit:                   ; preds = %138, %170, %177, %182
-  %.0.i = phi i32 [ %173, %170 ], [ %142, %138 ], [ %.pre1.i, %182 ], [ %179, %177 ]
+  %.0.i = phi i32 [ %142, %138 ], [ %173, %170 ], [ %.pre1.i, %182 ], [ %179, %177 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #7
@@ -2188,7 +2188,7 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %393, %390, %38
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %424, %.lr.ph10.i, %475, %470, %467, %455, %435, %430, %427, %318, %313, %308
-  %.4.i = phi i32 [ %477, %475 ], [ %474, %470 ], [ %216, %467 ], [ %466, %455 ], [ %454, %435 ], [ %434, %430 ], [ %216, %427 ], [ %317, %313 ], [ %311, %308 ], [ %216, %318 ], [ %.58.i, %.lr.ph10.i ], [ %.8.i, %424 ]
+  %.4.i = phi i32 [ %477, %475 ], [ %317, %313 ], [ %311, %308 ], [ %434, %430 ], [ %216, %427 ], [ %454, %435 ], [ %466, %455 ], [ %474, %470 ], [ %216, %467 ], [ %216, %318 ], [ %.58.i, %.lr.ph10.i ], [ %.8.i, %424 ]
   %478 = load i32, ptr %25, align 4
   %479 = add i32 %478, 16
   %480 = sub i32 %.4.i, %.0103
@@ -3131,7 +3131,7 @@ proto_item_set_hidden.exit494.i:                  ; preds = %966, %963, %proto_i
   br label %1005
 
 1005:                                             ; preds = %1002, %1001, %990, %.loopexit496.i, %.loopexit.i, %839, %784, %728, %657, %579
-  %.1.i88 = phi i32 [ %1004, %1002 ], [ %.10.i, %1001 ], [ %992, %990 ], [ %.7.i, %.loopexit496.i ], [ %.5.i, %.loopexit.i ], [ %841, %839 ], [ %.4.i91, %784 ], [ %.3.i92, %728 ], [ %.2.i94, %657 ], [ %.0.i95, %579 ]
+  %.1.i88 = phi i32 [ %1004, %1002 ], [ %.0.i95, %579 ], [ %.2.i94, %657 ], [ %.3.i92, %728 ], [ %.4.i91, %784 ], [ %841, %839 ], [ %.5.i, %.loopexit.i ], [ %.7.i, %.loopexit496.i ], [ %992, %990 ], [ %.10.i, %1001 ]
   %1006 = load i32, ptr %6, align 4
   %1007 = add i32 %1006, 16
   %1008 = sub i32 %.1.i88, %.0103
@@ -3155,7 +3155,7 @@ dissect_asam_cmp_data_msg.exit:                   ; preds = %1005, %1010
   br label %1012
 
 1012:                                             ; preds = %dissect_asam_cmp_data_msg.exit, %dissect_asam_cmp_vendor_msg.exit, %dissect_asam_cmp_status_msg.exit, %dissect_asam_cmp_ctrl_msg.exit
-  %.pn = phi i32 [ %.pre-phi.i, %dissect_asam_cmp_data_msg.exit ], [ %524, %dissect_asam_cmp_vendor_msg.exit ], [ %.0284.i, %dissect_asam_cmp_status_msg.exit ], [ %.0.i, %dissect_asam_cmp_ctrl_msg.exit ]
+  %.pn = phi i32 [ %.0.i, %dissect_asam_cmp_ctrl_msg.exit ], [ %.0284.i, %dissect_asam_cmp_status_msg.exit ], [ %524, %dissect_asam_cmp_vendor_msg.exit ], [ %.pre-phi.i, %dissect_asam_cmp_data_msg.exit ]
   %.1 = add i32 %.pn, %.0103
   %.0.neg = sub i32 0, %.1
   %1013 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)

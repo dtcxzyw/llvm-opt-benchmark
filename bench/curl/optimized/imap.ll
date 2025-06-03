@@ -1899,7 +1899,7 @@ define internal i32 @imap_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br label %imap_state_auth_resp.exit
 
 imap_state_auth_resp.exit:                        ; preds = %145, %147, %149, %159, %.sink.split.i.i, %170
-  %.0.i58 = phi i32 [ %146, %145 ], [ 0, %147 ], [ 67, %170 ], [ 0, %149 ], [ %166, %159 ], [ 0, %.sink.split.i.i ]
+  %.0.i58 = phi i32 [ %146, %145 ], [ 0, %147 ], [ 0, %149 ], [ 67, %170 ], [ %166, %159 ], [ 0, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   br label %imap_state_servergreet_resp.exit
 
@@ -2334,7 +2334,7 @@ imap_state_fetch_resp.exit:                       ; preds = %307, %.sink.split.i
   br label %imap_state_servergreet_resp.exit.thread91
 
 imap_state_servergreet_resp.exit:                 ; preds = %265, %179, %143, %141, %131, %128, %imap_state_auth_resp.exit, %imap_state_fetch_resp.exit
-  %.1 = phi i32 [ %.058.i, %imap_state_fetch_resp.exit ], [ %.0.i58, %imap_state_auth_resp.exit ], [ %132, %131 ], [ %129, %128 ], [ %142, %141 ], [ %144, %143 ], [ %183, %179 ], [ %266, %265 ]
+  %.1 = phi i32 [ %.0.i58, %imap_state_auth_resp.exit ], [ %.058.i, %imap_state_fetch_resp.exit ], [ %132, %131 ], [ %129, %128 ], [ %142, %141 ], [ %144, %143 ], [ %183, %179 ], [ %266, %265 ]
   %.not50 = icmp eq i32 %.1, 0
   br i1 %.not50, label %imap_state_servergreet_resp.exit.thread91, label %imap_state_servergreet_resp.exit.thread
 

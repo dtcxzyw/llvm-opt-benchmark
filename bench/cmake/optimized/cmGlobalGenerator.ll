@@ -28405,7 +28405,7 @@ define dso_local void @_ZN17cmGlobalGenerator31CreateImportedGenerationObjectsEP
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %33, %32 ]
+  %.sroa.038.1.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i, align 8, !tbaa !219
   %35 = icmp eq ptr %.val1.i26.i.i.i, %1
   br i1 %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI10cmMakefileSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEEZN17cmGlobalGenerator31CreateImportedGenerationObjectsEPS3_RKS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EERS8_IPK17cmGeneratorTargetSaISQ_EEE3$_0ET_SV_SV_T0_.exit", label %36
@@ -28415,7 +28415,7 @@ define dso_local void @_ZN17cmGlobalGenerator31CreateImportedGenerationObjectsEP
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.038.2.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i, align 8, !tbaa !219
   %39 = icmp eq ptr %.val1.i27.i.i.i, %1
   %spec.select.i.i.i = select i1 %39, ptr %.sroa.038.2.i.i.i, ptr %8
@@ -85654,9 +85654,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i54: ; preds = %46
   br label %51
 
 51:                                               ; preds = %._crit_edge._crit_edge, %49
-  %52 = phi i64 [ %.pre108, %._crit_edge._crit_edge ], [ %44, %49 ]
-  %53 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %42, %49 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %50, %49 ]
+  %52 = phi i64 [ %44, %49 ], [ %.pre108, %._crit_edge._crit_edge ]
+  %53 = phi ptr [ %42, %49 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %50, %49 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i58 = load i64, ptr %.1, align 8, !tbaa !10
   %.sroa.22.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.22.0.copyload.i60 = load ptr, ptr %.sroa.22.0..sroa_idx.i59, align 8, !tbaa !24
@@ -85677,9 +85677,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i61: ; preds = %55
   br label %60
 
 60:                                               ; preds = %._crit_edge._crit_edge109, %58
-  %61 = phi i64 [ %.pre112, %._crit_edge._crit_edge109 ], [ %52, %58 ]
-  %62 = phi ptr [ %.pre110, %._crit_edge._crit_edge109 ], [ %53, %58 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge109 ], [ %59, %58 ]
+  %61 = phi i64 [ %52, %58 ], [ %.pre112, %._crit_edge._crit_edge109 ]
+  %62 = phi ptr [ %53, %58 ], [ %.pre110, %._crit_edge._crit_edge109 ]
+  %.2 = phi ptr [ %59, %58 ], [ %.029.lcssa, %._crit_edge._crit_edge109 ]
   %.sroa.01.0.copyload.i65 = load i64, ptr %.2, align 8, !tbaa !10
   %.sroa.22.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.22.0.copyload.i67 = load ptr, ptr %.sroa.22.0..sroa_idx.i66, align 8, !tbaa !24

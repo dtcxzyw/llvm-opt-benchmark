@@ -438,8 +438,8 @@ _ZN4llvm9StringRefC2EPKc.exit132:                 ; preds = %207
 224:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit132
   unreachable
 
-225:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit132, %223, %222, %221, %220, %219
-  %.0.i.ph = phi i16 [ 25, %219 ], [ 26, %220 ], [ 27, %221 ], [ 22, %222 ], [ 23, %223 ], [ 24, %_ZN4llvm9StringRefC2EPKc.exit132 ]
+225:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit132, %219, %220, %221, %222, %223
+  %.0.i.ph = phi i16 [ 23, %223 ], [ 22, %222 ], [ 27, %221 ], [ 26, %220 ], [ 25, %219 ], [ 24, %_ZN4llvm9StringRefC2EPKc.exit132 ]
   %226 = load ptr, ptr %211, align 8, !tbaa !44
   %227 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %216, i16 noundef zeroext %.0.i.ph, ptr noundef nonnull align 8 dereferenceable(2432) %226, ptr null) #10
   br label %236

@@ -1657,7 +1657,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170, %172, %174, %1
   br label %210
 
 210:                                              ; preds = %207, %206, %205, %._crit_edge
-  %.157 = phi i32 [ %.05673, %._crit_edge ], [ %209, %207 ], [ %9, %206 ], [ %8, %205 ]
+  %.157 = phi i32 [ %.05673, %._crit_edge ], [ %8, %205 ], [ %9, %206 ], [ %209, %207 ]
   br label %211
 
 211:                                              ; preds = %211, %210

@@ -242,9 +242,9 @@ define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__
 13:                                               ; preds = %11, %7, %4
   switch i32 %3, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i [
     i32 0, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i
-    i32 1, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
-    i32 2, label %16
-    i32 3, label %19
+    i32 1, label %16
+    i32 2, label %19
+    i32 3, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
   ]
 
 14:                                               ; preds = %9
@@ -255,7 +255,7 @@ define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8, !tbaa !15
-  %18 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 32)
+  %18 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 4)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %16
@@ -263,7 +263,7 @@ define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8, !tbaa !15
-  %21 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 1984)
+  %21 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 32)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %19
@@ -271,7 +271,7 @@ define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__
 
 _ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i: ; preds = %13
   %22 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8, !tbaa !15
-  %23 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 4)
+  %23 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 1984)
           to label %.noexc4 unwind label %.loopexit
 
 .noexc4:                                          ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
@@ -284,8 +284,8 @@ _ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunction
   br label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i
 
 _ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread7.i: ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i, %.noexc4, %.noexc3, %.noexc, %13, %.lr.ph.i
-  %.sroa.04.1.i = phi i32 [ %.sroa.04.013.i, %.lr.ph.i ], [ %24, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.04.013.i, %.noexc4 ], [ %.sroa.04.013.i, %.noexc3 ], [ %.sroa.04.013.i, %.noexc ], [ %.sroa.04.013.i, %13 ]
-  %.sroa.65.1.i = phi ptr [ %.sroa.65.015.i, %.lr.ph.i ], [ %26, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.65.015.i, %.noexc4 ], [ %.sroa.65.015.i, %.noexc3 ], [ %.sroa.65.015.i, %.noexc ], [ %.sroa.65.015.i, %13 ]
+  %.sroa.04.1.i = phi i32 [ %.sroa.04.013.i, %.lr.ph.i ], [ %24, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.04.013.i, %.noexc4 ], [ %.sroa.04.013.i, %.noexc ], [ %.sroa.04.013.i, %.noexc3 ], [ %.sroa.04.013.i, %13 ]
+  %.sroa.65.1.i = phi ptr [ %.sroa.65.015.i, %.lr.ph.i ], [ %26, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.thread.i ], [ %.sroa.65.015.i, %.noexc4 ], [ %.sroa.65.015.i, %.noexc ], [ %.sroa.65.015.i, %.noexc3 ], [ %.sroa.65.015.i, %13 ]
   %.sroa.01.014.i.add = add nuw nsw i64 %.sroa.01.014.i.idx, 16
   %.not10.i = icmp eq i64 %.sroa.01.014.i.add, 48
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i

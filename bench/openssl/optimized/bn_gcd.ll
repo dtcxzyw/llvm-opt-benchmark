@@ -180,7 +180,7 @@ define ptr @int_bn_mod_inverse(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %bn_mod_inverse_no_branch.exit
 
 .thread105.i:                                     ; preds = %51, %49, %.lr.ph, %70, %68, %66, %._crit_edge.thread, %44, %34, %31, %.thread.i, %16
-  %.076.i = phi ptr [ null, %16 ], [ %.177103.i, %31 ], [ %.177103.i, %34 ], [ %.177103.i, %44 ], [ %.177103.i, %68 ], [ %.177103.i, %66 ], [ %.177103.i, %70 ], [ %.177103.i, %._crit_edge.thread ], [ %.177103.i, %.thread.i ], [ %.177103.i, %.lr.ph ], [ %.177103.i, %49 ], [ %.177103.i, %51 ]
+  %.076.i = phi ptr [ null, %16 ], [ %.177103.i, %31 ], [ %.177103.i, %34 ], [ %.177103.i, %68 ], [ %.177103.i, %66 ], [ %.177103.i, %70 ], [ %.177103.i, %._crit_edge.thread ], [ %.177103.i, %44 ], [ %.177103.i, %.thread.i ], [ %.177103.i, %.lr.ph ], [ %.177103.i, %49 ], [ %.177103.i, %51 ]
   %71 = icmp eq ptr %0, null
   br i1 %71, label %.thread105.thread.i, label %bn_mod_inverse_no_branch.exit
 

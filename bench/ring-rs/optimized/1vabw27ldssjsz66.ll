@@ -428,7 +428,7 @@ default.unreachable:                              ; preds = %"_ZN4spin4once17Onc
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit": ; preds = %16, %15, %14
-  %.sroa.0.0 = phi i40 [ %.sroa.0.0.copyload, %16 ], [ %.sroa.0.0.copyload7, %15 ], [ %.sroa.0.0.copyload8, %14 ]
+  %.sroa.0.0 = phi i40 [ %.sroa.0.0.copyload8, %14 ], [ %.sroa.0.0.copyload7, %15 ], [ %.sroa.0.0.copyload, %16 ]
   ret i40 %.sroa.0.0
 }
 
@@ -2207,8 +2207,8 @@ define hidden { ptr, i64 } @_ZN4ring2io10der_writer9write_all17h3a1f4346c53abf5f
   br label %43
 
 43:                                               ; preds = %27, %"_ZN4core3ptr45drop_in_place$LT$ring..io..writer..Writer$GT$17h0d564ddb3b770417E.exit", %19
-  %.sroa.4.0 = phi i64 [ undef, %19 ], [ undef, %"_ZN4core3ptr45drop_in_place$LT$ring..io..writer..Writer$GT$17h0d564ddb3b770417E.exit" ], [ %30, %27 ]
-  %.sroa.0.0 = phi ptr [ null, %19 ], [ null, %"_ZN4core3ptr45drop_in_place$LT$ring..io..writer..Writer$GT$17h0d564ddb3b770417E.exit" ], [ %29, %27 ]
+  %.sroa.4.0 = phi i64 [ %30, %27 ], [ undef, %"_ZN4core3ptr45drop_in_place$LT$ring..io..writer..Writer$GT$17h0d564ddb3b770417E.exit" ], [ undef, %19 ]
+  %.sroa.0.0 = phi ptr [ %29, %27 ], [ null, %"_ZN4core3ptr45drop_in_place$LT$ring..io..writer..Writer$GT$17h0d564ddb3b770417E.exit" ], [ null, %19 ]
   %44 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %45 = insertvalue { ptr, i64 } %44, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %45

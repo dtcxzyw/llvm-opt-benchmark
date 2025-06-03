@@ -816,9 +816,9 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02
   %29 = load i16, ptr %3, align 2, !range !11, !noundef !3
   %30 = load i16, ptr %18, align 2, !noundef !3
   switch i16 %29, label %.unreachabledefault [
-    i16 0, label %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit"
-    i16 1, label %32
-    i16 2, label %37
+    i16 0, label %32
+    i16 1, label %34
+    i16 2, label %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit"
   ]
 
 31:                                               ; preds = %22
@@ -832,46 +832,46 @@ default.unreachable:                              ; preds = %45
   unreachable
 
 32:                                               ; preds = %26
-  %33 = load i16, ptr %19, align 2, !noundef !3
-  %34 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  %35 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %34, i16 %30, i16 %33)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br i1 %35, label %.outer.backedge, label %.preheader
-
-.preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %37, %32
-  %36 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %9)
-  %.not1050 = icmp eq ptr %36, null
-  br i1 %.not1050, label %.loopexit, label %.lr.ph
-
-37:                                               ; preds = %26
-  store i16 %30, ptr %7, align 2
-  %38 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %39 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %38, ptr nonnull align 2 %7)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br i1 %39, label %.outer.backedge, label %.preheader
-
-"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit": ; preds = %26
   call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %8, ptr nonnull align 8 %28, i16 %30)
-  %40 = load i8, ptr %8, align 16, !range !10, !noundef !3
-  %.not19 = icmp eq i8 %40, 4
+  %33 = load i8, ptr %8, align 16, !range !10, !noundef !3
+  %.not19 = icmp eq i8 %33, 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br i1 %.not19, label %.preheader, label %.outer.backedge
+
+34:                                               ; preds = %26
+  %35 = load i16, ptr %19, align 2, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %37 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %36, i16 %30, i16 %35)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  br i1 %37, label %.outer.backedge, label %.preheader
+
+.preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %32, %34
+  %38 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %9)
+  %.not1050 = icmp eq ptr %38, null
+  br i1 %.not1050, label %.loopexit, label %.lr.ph
+
+"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit": ; preds = %26
+  store i16 %30, ptr %7, align 2
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 120
+  %40 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %39, ptr nonnull align 2 %7)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  br i1 %40, label %.outer.backedge, label %.preheader
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.loopexit, %4
   %.0.ph.lcssa49 = phi i64 [ 0, %4 ], [ %.0.ph55, %.loopexit ], [ %.0.ph.be, %.outer.backedge ]
   ret i64 %.0.ph.lcssa49
 
-.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %37, %32, %60
+.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %32, %34, %60
   %.0.ph.be = add i64 %.0.ph55, 1
   %41 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %9)
   %.not51 = icmp eq ptr %41, null
   br i1 %.not51, label %.outer._crit_edge, label %.lr.ph52
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
-  %42 = phi ptr [ %59, %.backedge ], [ %36, %.preheader ]
+  %42 = phi ptr [ %59, %.backedge ], [ %38, %.preheader ]
   %.val15 = load i64, ptr %42, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -885,9 +885,9 @@ default.unreachable:                              ; preds = %45
   %48 = load i16, ptr %3, align 2, !range !11, !noundef !3
   %49 = load i16, ptr %18, align 2, !noundef !3
   switch i16 %48, label %default.unreachable [
-    i16 0, label %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18"
-    i16 1, label %51
-    i16 2, label %55
+    i16 0, label %51
+    i16 1, label %53
+    i16 2, label %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18"
   ]
 
 50:                                               ; preds = %.lr.ph
@@ -895,35 +895,35 @@ default.unreachable:                              ; preds = %45
   unreachable
 
 51:                                               ; preds = %45
-  %52 = load i16, ptr %19, align 2, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %54 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %53, i16 %49, i16 %52)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %54, label %60, label %.backedge
-
-55:                                               ; preds = %45
-  store i16 %49, ptr %5, align 2
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 120
-  %57 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %56, ptr nonnull align 2 %5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %57, label %60, label %.backedge
-
-"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18": ; preds = %45
   call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %6, ptr nonnull align 8 %47, i16 %49)
-  %58 = load i8, ptr %6, align 16, !range !10, !noundef !3
-  %.not20 = icmp eq i8 %58, 4
+  %52 = load i8, ptr %6, align 16, !range !10, !noundef !3
+  %.not20 = icmp eq i8 %52, 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br i1 %.not20, label %.backedge, label %60
 
-.backedge:                                        ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18", %55, %51
+53:                                               ; preds = %45
+  %54 = load i16, ptr %19, align 2, !noundef !3
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  %56 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %55, i16 %49, i16 %54)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  br i1 %56, label %60, label %.backedge
+
+"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18": ; preds = %45
+  store i16 %49, ptr %5, align 2
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 120
+  %58 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %57, ptr nonnull align 2 %5)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  br i1 %58, label %60, label %.backedge
+
+.backedge:                                        ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18", %51, %53
   %59 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %9)
   %.not10 = icmp eq ptr %59, null
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
-60:                                               ; preds = %51, %55, %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18"
+60:                                               ; preds = %53, %51, %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18"
   %61 = load i64, ptr %23, align 8, !noundef !3
   %62 = load i64, ptr %42, align 8, !noundef !3
   store i64 %62, ptr %23, align 8

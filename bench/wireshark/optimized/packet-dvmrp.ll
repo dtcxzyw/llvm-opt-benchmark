@@ -847,7 +847,7 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   br label %325
 
 325:                                              ; preds = %323, %._crit_edge.i, %311, %._crit_edge195.i, %296, %._crit_edge202.i, %284, %275, %263, %254, %253, %251, %226, %220, %219, %217, %.lr.ph206.i
-  %.1.i = phi i32 [ %216, %.lr.ph206.i ], [ %.4.lcssa.i, %323 ], [ %.4.lcssa.i, %._crit_edge.i ], [ %.3.lcssa.i22, %311 ], [ %.3.lcssa.i22, %._crit_edge195.i ], [ %.2.lcssa.i, %296 ], [ %.2.lcssa.i, %._crit_edge202.i ], [ %285, %284 ], [ %276, %275 ], [ %264, %263 ], [ %252, %251 ], [ %234, %254 ], [ %234, %253 ], [ %225, %226 ], [ %225, %220 ], [ %218, %219 ], [ %218, %217 ]
+  %.1.i = phi i32 [ %216, %.lr.ph206.i ], [ %218, %219 ], [ %218, %217 ], [ %225, %226 ], [ %225, %220 ], [ %252, %251 ], [ %234, %254 ], [ %234, %253 ], [ %264, %263 ], [ %276, %275 ], [ %285, %284 ], [ %.2.lcssa.i, %296 ], [ %.2.lcssa.i, %._crit_edge202.i ], [ %.3.lcssa.i22, %311 ], [ %.3.lcssa.i22, %._crit_edge195.i ], [ %.4.lcssa.i, %323 ], [ %.4.lcssa.i, %._crit_edge.i ]
   %326 = sub i32 %.1.i, %.0204.i
   tail call void @proto_item_set_len(ptr noundef %209, i32 noundef %326)
   %327 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
@@ -855,7 +855,7 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   br i1 %328, label %.lr.ph206.i, label %dissect_dvmrp_v3.exit, !llvm.loop !17
 
 dissect_dvmrp_v3.exit:                            ; preds = %.loopexit.i, %120, %.lr.ph159.i, %325, %193, %dissect_v3_report.exit.sink.split.i, %140, %133, %124, %59, %49, %.preheader.i, %42
-  %.0 = phi i32 [ 8, %42 ], [ 16, %140 ], [ 16, %133 ], [ 20, %124 ], [ 8, %59 ], [ 12, %49 ], [ 8, %.preheader.i ], [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 4, %193 ], [ %.1.i, %325 ], [ %56, %.lr.ph159.i ], [ %119, %120 ], [ %.3.lcssa.i, %.loopexit.i ]
+  %.0 = phi i32 [ 8, %42 ], [ 20, %124 ], [ 16, %133 ], [ 16, %140 ], [ 8, %59 ], [ 12, %49 ], [ 8, %.preheader.i ], [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 4, %193 ], [ %.1.i, %325 ], [ %56, %.lr.ph159.i ], [ %119, %120 ], [ %.3.lcssa.i, %.loopexit.i ]
   tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %.0)
   ret i32 %.0
 }

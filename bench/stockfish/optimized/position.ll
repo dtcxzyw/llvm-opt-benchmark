@@ -1086,7 +1086,7 @@ _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader: ; preds = %.lr.
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %56, %59, %62, %68
-  %.0.i = phi i64 [ %69, %68 ], [ %67, %62 ], [ %61, %59 ], [ %58, %56 ]
+  %.0.i = phi i64 [ %69, %68 ], [ %58, %56 ], [ %61, %59 ], [ %67, %62 ]
   %70 = shl nuw i64 1, %indvars.iv98
   %71 = and i64 %.0.i, %70
   %.not26 = icmp eq i64 %71, 0
@@ -2726,7 +2726,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %166, %182, %198, %230
-  %.0.i = phi i64 [ %233, %230 ], [ %229, %198 ], [ %197, %182 ], [ %181, %166 ]
+  %.0.i = phi i64 [ %233, %230 ], [ %181, %166 ], [ %197, %182 ], [ %229, %198 ]
   %234 = and i64 %.0.i, %119
   %.not40 = icmp eq i64 %234, 0
   br i1 %.not40, label %265, label %235
@@ -2934,7 +2934,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %49, %65, %81, %113
-  %.0.i = phi i64 [ %115, %113 ], [ %112, %81 ], [ %80, %65 ], [ %64, %49 ]
+  %.0.i = phi i64 [ %115, %113 ], [ %64, %49 ], [ %80, %65 ], [ %112, %81 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %117 = getelementptr inbounds nuw [2 x i64], ptr %116, i64 0, i64 %24
   %118 = load i64, ptr %117, align 8
@@ -3030,7 +3030,7 @@ default.unreachable:                              ; preds = %43, %41
   br label %200
 
 200:                                              ; preds = %29, %41, %2, %189, %125, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
-  %.0 = phi i1 [ %199, %189 ], [ %188, %125 ], [ %124, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ true, %2 ], [ false, %41 ], [ %spec.select, %29 ]
+  %.0 = phi i1 [ %199, %189 ], [ %124, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ %188, %125 ], [ true, %2 ], [ false, %41 ], [ %spec.select, %29 ]
   ret i1 %.0
 }
 

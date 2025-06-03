@@ -7985,8 +7985,8 @@ PyStgInfo_Init.exit.thread:                       ; preds = %64, %59, %50, %29, 
   store i32 %137, ptr %135, align 8, !tbaa !34
   br label %168
 
-138:                                              ; preds = %130, %133, %132
-  %.080.ph = phi ptr [ @c_wchar_p_methods, %132 ], [ @c_void_p_methods, %133 ], [ @c_char_p_methods, %130 ]
+138:                                              ; preds = %130, %132, %133
+  %.080.ph = phi ptr [ @c_void_p_methods, %133 ], [ @c_wchar_p_methods, %132 ], [ @c_char_p_methods, %130 ]
   %139 = getelementptr inbounds nuw i8, ptr %57, i64 128
   %140 = load i32, ptr %139, align 8, !tbaa !34
   %141 = or i32 %140, 256
@@ -8352,7 +8352,7 @@ define internal fastcc ptr @_ctypes_alloc_format_string_for_type(i8 noundef sign
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i8 [ 81, %3 ], [ 113, %2 ], [ %0, %1 ]
+  %.0 = phi i8 [ 113, %2 ], [ 81, %3 ], [ %0, %1 ]
   %5 = tail call ptr @PyMem_Malloc(i64 noundef 3) #17
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -12468,8 +12468,8 @@ Py_INCREF.exit88.i:                               ; preds = %94, %90
   br label %102
 
 102:                                              ; preds = %97, %.thread.i, %.thread.i
-  %.4135 = phi i32 [ %.2133, %.thread.i ], [ %.2133, %.thread.i ], [ %100, %97 ]
-  %.4 = phi i32 [ %.2, %.thread.i ], [ %.2, %.thread.i ], [ %101, %97 ]
+  %.4135 = phi i32 [ %100, %97 ], [ %.2133, %.thread.i ], [ %.2133, %.thread.i ]
+  %.4 = phi i32 [ %101, %97 ], [ %.2, %.thread.i ], [ %.2, %.thread.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   %103 = sext i32 %.0539.i to i64
   %.val.i.i = load i64, ptr %69, align 8, !tbaa !94
@@ -12671,10 +12671,10 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br label %.thread12.i
 
 197:                                              ; preds = %188, %Py_INCREF.exit.i, %134, %Py_INCREF.exit88.i
-  %.3134 = phi i32 [ %.2133, %188 ], [ %.2133, %Py_INCREF.exit.i ], [ %.4135, %134 ], [ %.2133, %Py_INCREF.exit88.i ]
-  %.3129 = phi i32 [ %192, %188 ], [ %145, %Py_INCREF.exit.i ], [ %.2128, %134 ], [ %.2128, %Py_INCREF.exit88.i ]
-  %.3125 = phi i32 [ %193, %188 ], [ %146, %Py_INCREF.exit.i ], [ %.4, %134 ], [ %.2, %Py_INCREF.exit88.i ]
-  %.2.i = phi i32 [ %.0539.i, %188 ], [ %.0539.i, %Py_INCREF.exit.i ], [ %.1.ph.i, %134 ], [ %.0539.i, %Py_INCREF.exit88.i ]
+  %.3134 = phi i32 [ %.2133, %Py_INCREF.exit88.i ], [ %.4135, %134 ], [ %.2133, %188 ], [ %.2133, %Py_INCREF.exit.i ]
+  %.3129 = phi i32 [ %.2128, %Py_INCREF.exit88.i ], [ %.2128, %134 ], [ %192, %188 ], [ %145, %Py_INCREF.exit.i ]
+  %.3125 = phi i32 [ %.2, %Py_INCREF.exit88.i ], [ %.4, %134 ], [ %193, %188 ], [ %146, %Py_INCREF.exit.i ]
+  %.2.i = phi i32 [ %.0539.i, %Py_INCREF.exit88.i ], [ %.1.ph.i, %134 ], [ %.0539.i, %188 ], [ %.0539.i, %Py_INCREF.exit.i ]
   %198 = add nuw nsw i64 %.07340.i, 1
   %exitcond.not.i = icmp eq i64 %198, %.val94.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %72, !llvm.loop !198
@@ -14939,7 +14939,7 @@ define internal i32 @StructParam_traverse(ptr noundef readonly captures(none) %0
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

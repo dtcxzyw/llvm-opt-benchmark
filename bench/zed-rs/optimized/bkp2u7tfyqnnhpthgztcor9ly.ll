@@ -9546,7 +9546,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i: ; preds = %
   br label %54
 
 54:                                               ; preds = %48, %45
-  %.sroa.04.0 = phi ptr [ %51, %48 ], [ %47, %45 ]
+  %.sroa.04.0 = phi ptr [ %47, %45 ], [ %51, %48 ]
   invoke void @_ZN7globset7GlobSet22matches_candidate_into17hda74ba32fc3dd07eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.04.0)
           to label %57 unwind label %55
 
@@ -9576,7 +9576,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i: ; preds = %
   br label %68
 
 68:                                               ; preds = %62, %59
-  %.sroa.05.0 = phi ptr [ %65, %62 ], [ %61, %59 ]
+  %.sroa.05.0 = phi ptr [ %61, %59 ], [ %65, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 8
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 16
@@ -19034,8 +19034,8 @@ common.ret:                                       ; preds = %129, %94, %68
   br label %99
 
 94:                                               ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit", %167, %166, %95
-  %.sroa.067.0 = phi ptr [ %.sroa.067.1, %166 ], [ %.sroa.087.0.copyload, %167 ], [ %96, %95 ], [ undef, %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit" ]
-  %.sroa.673.0 = phi i64 [ %.sroa.673.1, %166 ], [ %.sroa.085.0.copyload, %167 ], [ -9223372036854775807, %95 ], [ -9223372036854775808, %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit" ]
+  %.sroa.067.0 = phi ptr [ %96, %95 ], [ %.sroa.067.1, %166 ], [ %.sroa.087.0.copyload, %167 ], [ undef, %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit" ]
+  %.sroa.673.0 = phi i64 [ -9223372036854775807, %95 ], [ %.sroa.673.1, %166 ], [ %.sroa.085.0.copyload, %167 ], [ -9223372036854775808, %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit" ]
   store ptr %.sroa.067.0, ptr %0, align 8
   %.sroa.671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.671.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.671, i64 32, i1 false)
@@ -19056,9 +19056,9 @@ common.ret:                                       ; preds = %129, %94, %68
   unreachable
 
 .body:                                            ; preds = %11, %44, %60, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i1.i.i", %.body45
-  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %.body45 ], [ %45, %44 ], [ %12, %11 ], [ %61, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i1.i.i" ], [ %61, %60 ]
+  %.pn23.pn = phi { ptr, i32 } [ %.pn20.pn, %.body45 ], [ %45, %44 ], [ %12, %11 ], [ %61, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i1.i.i" ], [ %61, %60 ]
   store i8 2, ptr %7, align 8
-  resume { ptr, i32 } %.pn20.pn.pn
+  resume { ptr, i32 } %.pn23.pn
 
 99:                                               ; preds = %10, %89
   %100 = phi ptr [ %.pre102, %10 ], [ %91, %89 ]

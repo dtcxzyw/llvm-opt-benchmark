@@ -2141,7 +2141,7 @@ define noundef nonnull ptr @file_open_error_message(i32 noundef %0, i1 noundef z
   br label %14
 
 14:                                               ; preds = %9, %2, %4, %3, %10, %8, %7, %6, %5
-  %.0 = phi ptr [ @file_open_error_message.errmsg_errno, %10 ], [ @.str.19, %8 ], [ @.str.18, %7 ], [ @.str.17, %6 ], [ @.str.16, %5 ], [ %.str.11..str.12, %3 ], [ %.str.13..str.14, %4 ], [ @.str.15, %2 ], [ %.str.20..str.21, %9 ]
+  %.0 = phi ptr [ @file_open_error_message.errmsg_errno, %10 ], [ @.str.16, %5 ], [ @.str.17, %6 ], [ @.str.18, %7 ], [ @.str.19, %8 ], [ %.str.11..str.12, %3 ], [ %.str.13..str.14, %4 ], [ @.str.15, %2 ], [ %.str.20..str.21, %9 ]
   ret ptr %.0
 }
 

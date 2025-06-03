@@ -2731,8 +2731,8 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   br label %170
 
 170:                                              ; preds = %166, %23, %._crit_edge197, %36, %19
-  %.1152 = phi i32 [ -1, %19 ], [ 0, %23 ], [ -1, %36 ], [ -1, %166 ], [ 0, %._crit_edge197 ]
-  %.0143 = phi ptr [ null, %19 ], [ null, %23 ], [ null, %36 ], [ %34, %166 ], [ %34, %._crit_edge197 ]
+  %.1152 = phi i32 [ -1, %19 ], [ 0, %23 ], [ -1, %36 ], [ 0, %._crit_edge197 ], [ -1, %166 ]
+  %.0143 = phi ptr [ null, %19 ], [ null, %23 ], [ null, %36 ], [ %34, %._crit_edge197 ], [ %34, %166 ]
   %171 = call ptr @H5MM_xfree(ptr noundef %.0143) #18
   br label %172
 

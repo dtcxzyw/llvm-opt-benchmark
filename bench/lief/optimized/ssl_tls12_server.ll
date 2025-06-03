@@ -997,7 +997,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %379
 
 379:                                              ; preds = %377, %373, %371, %369, %367, %364, %361, %354, %351, %344, %340
-  %.2457.i = phi i32 [ %.0455637.ph.i, %377 ], [ %.0455637.ph.i, %373 ], [ %.0455637.ph.i, %371 ], [ %.0455637.ph.i, %369 ], [ %.0455637.ph.i, %367 ], [ %.0455637.ph.i, %364 ], [ %.0455637.ph.i, %361 ], [ %.0455637.ph.i, %354 ], [ %.0455637.ph.i, %351 ], [ 1, %344 ], [ %.0455637.ph.i, %340 ]
+  %.2457.i = phi i32 [ %.0455637.ph.i, %377 ], [ %.0455637.ph.i, %340 ], [ 1, %344 ], [ %.0455637.ph.i, %351 ], [ %.0455637.ph.i, %354 ], [ %.0455637.ph.i, %361 ], [ %.0455637.ph.i, %364 ], [ %.0455637.ph.i, %367 ], [ %.0455637.ph.i, %369 ], [ %.0455637.ph.i, %371 ], [ %.0455637.ph.i, %373 ]
   %380 = sub i64 %.1444639.i, %334
   %381 = getelementptr inbounds nuw i8, ptr %.0449638.i, i64 %334
   %.not520.i = icmp eq i64 %380, 0
@@ -3462,7 +3462,7 @@ ssl_write_new_session_ticket.exit:                ; preds = %1521, %1522
   br label %ssl_write_certificate_request.exit
 
 ssl_write_certificate_request.exit:               ; preds = %1247, %1246, %1238, %.critedge.i, %mbedtls_ssl_get_sig_algs.exit.i, %mbedtls_ssl_ciphersuite_cert_req_allowed.exit.thread.i, %20, %ssl_parse_client_hello.exit, %ssl_write_server_hello.exit, %851, %ssl_write_server_key_exchange.exit, %1248, %ssl_parse_client_key_exchange.exit, %ssl_parse_certificate_verify.exit, %1479, %1481, %1525, %1527, %1528, %1523, %ssl_write_new_session_ticket.exit, %1, %1529
-  %.025 = phi i32 [ -28928, %1529 ], [ -27264, %1 ], [ 0, %1528 ], [ 0, %1527 ], [ %1526, %1525 ], [ %1520, %ssl_write_new_session_ticket.exit ], [ %1524, %1523 ], [ %1482, %1481 ], [ %1480, %1479 ], [ %.074.i, %ssl_parse_certificate_verify.exit ], [ %.0.i48, %ssl_parse_client_key_exchange.exit ], [ %1249, %1248 ], [ %.0.i31, %ssl_write_server_key_exchange.exit ], [ %852, %851 ], [ %.0.i26, %ssl_write_server_hello.exit ], [ %.0.i, %ssl_parse_client_hello.exit ], [ 0, %20 ], [ 0, %mbedtls_ssl_ciphersuite_cert_req_allowed.exit.thread.i ], [ %1223, %.critedge.i ], [ -24192, %mbedtls_ssl_get_sig_algs.exit.i ], [ %1237, %1238 ], [ %1245, %1246 ], [ 0, %1247 ]
+  %.025 = phi i32 [ -28928, %1529 ], [ -27264, %1 ], [ 0, %20 ], [ %.0.i, %ssl_parse_client_hello.exit ], [ %.0.i26, %ssl_write_server_hello.exit ], [ %852, %851 ], [ %.0.i31, %ssl_write_server_key_exchange.exit ], [ %1249, %1248 ], [ %.0.i48, %ssl_parse_client_key_exchange.exit ], [ %.074.i, %ssl_parse_certificate_verify.exit ], [ %1480, %1479 ], [ %1482, %1481 ], [ %1520, %ssl_write_new_session_ticket.exit ], [ %1524, %1523 ], [ %1526, %1525 ], [ 0, %1527 ], [ 0, %1528 ], [ 0, %mbedtls_ssl_ciphersuite_cert_req_allowed.exit.thread.i ], [ %1223, %.critedge.i ], [ -24192, %mbedtls_ssl_get_sig_algs.exit.i ], [ %1237, %1238 ], [ %1245, %1246 ], [ 0, %1247 ]
   ret i32 %.025
 }
 

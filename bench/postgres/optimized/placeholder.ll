@@ -722,7 +722,7 @@ define dso_local zeroext i1 @contain_placeholder_references_to(ptr noundef reado
   br label %contain_placeholder_references_walker.exit
 
 contain_placeholder_references_walker.exit:       ; preds = %.thread.i, %23, %19, %10, %3
-  %.0 = phi i1 [ false, %3 ], [ %22, %19 ], [ %25, %.thread.i ], [ %24, %23 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %3 ], [ %25, %.thread.i ], [ %22, %19 ], [ %24, %23 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret i1 %.0
 }
@@ -770,7 +770,7 @@ define internal zeroext i1 @contain_placeholder_references_walker(ptr noundef %0
   br label %25
 
 25:                                               ; preds = %12, %2, %.thread, %17
-  %.0 = phi i1 [ %16, %12 ], [ %24, %.thread ], [ %21, %17 ], [ false, %2 ]
+  %.0 = phi i1 [ %24, %.thread ], [ %16, %12 ], [ %21, %17 ], [ false, %2 ]
   ret i1 %.0
 }
 

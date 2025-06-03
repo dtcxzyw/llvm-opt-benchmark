@@ -1348,7 +1348,7 @@ switch.lookup2115:                                ; preds = %sw.bb7.i
   br label %sw.epilog14.i
 
 sw.epilog14.i:                                    ; preds = %switch.lookup2115, %sw.bb7.i, %switch.lookup, %sw.bb.i, %if.then142
-  %arch.0.i = phi i32 [ 0, %if.then142 ], [ 0, %sw.bb7.i ], [ 0, %sw.bb.i ], [ %switch.load, %switch.lookup ], [ %switch.load2118, %switch.lookup2115 ]
+  %arch.0.i = phi i32 [ 0, %if.then142 ], [ 0, %sw.bb.i ], [ 0, %sw.bb7.i ], [ %switch.load, %switch.lookup ], [ %switch.load2118, %switch.lookup2115 ]
   %call16.i = tail call { ptr, i64 } @_ZN4llvh3ARM20getCanonicalArchNameENS_9StringRefE(ptr nonnull %ArchName.coerce0, i64 %ArchName.coerce1) #13
   %91 = extractvalue { ptr, i64 } %call16.i, 0
   %92 = extractvalue { ptr, i64 } %call16.i, 1
@@ -2893,7 +2893,7 @@ if.end66:                                         ; preds = %land.lhs.true, %for
   %Comp.sroa.8.0.arrayidx.i540.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i540, i64 8
   %Comp.sroa.8.0.copyload = load i64, ptr %Comp.sroa.8.0.arrayidx.i540.sroa_idx, align 8
   switch i32 %11, label %sw.default [
-    i32 0, label %sw.epilog
+    i32 0, label %sw.bb
     i32 1, label %sw.bb73
     i32 2, label %sw.bb78
     i32 3, label %sw.bb91
@@ -2901,6 +2901,15 @@ if.end66:                                         ; preds = %land.lhs.true, %for
 
 sw.default:                                       ; preds = %if.end66
   unreachable
+
+sw.bb:                                            ; preds = %if.end66
+  %call70 = call fastcc noundef i32 @_ZL9parseArchN4llvh9StringRefE(ptr %Comp.sroa.0.0.copyload, i64 %Comp.sroa.8.0.copyload)
+  %cmp71.not = icmp eq i32 %call70, 0
+  br i1 %cmp71.not, label %sw.bb.for.inc169_crit_edge, label %if.end105
+
+sw.bb.for.inc169_crit_edge:                       ; preds = %sw.bb
+  %.pre400 = load i32, ptr %Size.i.i.i.i.i, align 8
+  br label %for.inc169
 
 sw.bb73:                                          ; preds = %if.end66
   %call75 = call fastcc noundef i32 @_ZL11parseVendorN4llvh9StringRefE(ptr %Comp.sroa.0.0.copyload, i64 %Comp.sroa.8.0.copyload)
@@ -2943,29 +2952,20 @@ _ZNK4llvh9StringRef10startswithES0_.exit590:      ; preds = %if.end.i680, %_ZNK4
 sw.bb91:                                          ; preds = %if.end66
   %call93 = call fastcc noundef i32 @_ZL16parseEnvironmentN4llvh9StringRefE(ptr %Comp.sroa.0.0.copyload, i64 %Comp.sroa.8.0.copyload)
   %cmp94.not = icmp eq i32 %call93, 0
-  br i1 %cmp94.not, label %if.then97, label %if.end105
+  br i1 %cmp94.not, label %sw.epilog, label %if.end105
 
-if.then97:                                        ; preds = %sw.bb91
+sw.epilog:                                        ; preds = %sw.bb91
   %call99 = call fastcc noundef i32 @_ZL11parseFormatN4llvh9StringRefE(ptr %Comp.sroa.0.0.copyload, i64 %Comp.sroa.8.0.copyload)
   %cmp100.not = icmp eq i32 %call99, 0
   br i1 %cmp100.not, label %for.inc169, label %if.end105
 
-sw.epilog:                                        ; preds = %if.end66
-  %call70 = call fastcc noundef i32 @_ZL9parseArchN4llvh9StringRefE(ptr %Comp.sroa.0.0.copyload, i64 %Comp.sroa.8.0.copyload)
-  %cmp71.not = icmp eq i32 %call70, 0
-  br i1 %cmp71.not, label %sw.epilog.for.inc169_crit_edge, label %if.end105
-
-sw.epilog.for.inc169_crit_edge:                   ; preds = %sw.epilog
-  %.pre400 = load i32, ptr %Size.i.i.i.i.i, align 8
-  br label %for.inc169
-
-if.end105:                                        ; preds = %sw.bb91, %sw.bb73, %_ZNK4llvh9StringRef10startswithES0_.exit590, %if.then97, %sw.epilog
-  %IsMinGW32.5291 = phi i8 [ %IsMinGW32.3338, %sw.epilog ], [ %IsMinGW32.3338, %if.then97 ], [ %frombool86, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %IsMinGW32.3338, %sw.bb73 ], [ %IsMinGW32.3338, %sw.bb91 ]
-  %IsCygwin.5290 = phi i8 [ %IsCygwin.3337, %sw.epilog ], [ %IsCygwin.3337, %if.then97 ], [ %frombool83277, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %IsCygwin.3337, %sw.bb73 ], [ %IsCygwin.3337, %sw.bb91 ]
-  %Vendor.5289 = phi i32 [ %Vendor.3336, %sw.epilog ], [ %Vendor.3336, %if.then97 ], [ %Vendor.3336, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %call75, %sw.bb73 ], [ %Vendor.3336, %sw.bb91 ]
-  %OS.5288 = phi i32 [ %OS.3335, %sw.epilog ], [ %OS.3335, %if.then97 ], [ %call80, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %OS.3335, %sw.bb73 ], [ %OS.3335, %sw.bb91 ]
-  %Environment.5287 = phi i32 [ %Environment.3334, %sw.epilog ], [ 0, %if.then97 ], [ %Environment.3334, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %Environment.3334, %sw.bb73 ], [ %call93, %sw.bb91 ]
-  %ObjectFormat.5286 = phi i32 [ %ObjectFormat.3333, %sw.epilog ], [ %call99, %if.then97 ], [ %ObjectFormat.3333, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %ObjectFormat.3333, %sw.bb73 ], [ %ObjectFormat.3333, %sw.bb91 ]
+if.end105:                                        ; preds = %sw.bb91, %_ZNK4llvh9StringRef10startswithES0_.exit590, %sw.bb73, %sw.bb, %sw.epilog
+  %IsMinGW32.5291 = phi i8 [ %IsMinGW32.3338, %sw.epilog ], [ %IsMinGW32.3338, %sw.bb ], [ %IsMinGW32.3338, %sw.bb73 ], [ %frombool86, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %IsMinGW32.3338, %sw.bb91 ]
+  %IsCygwin.5290 = phi i8 [ %IsCygwin.3337, %sw.epilog ], [ %IsCygwin.3337, %sw.bb ], [ %IsCygwin.3337, %sw.bb73 ], [ %frombool83277, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %IsCygwin.3337, %sw.bb91 ]
+  %Vendor.5289 = phi i32 [ %Vendor.3336, %sw.epilog ], [ %Vendor.3336, %sw.bb ], [ %call75, %sw.bb73 ], [ %Vendor.3336, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %Vendor.3336, %sw.bb91 ]
+  %OS.5288 = phi i32 [ %OS.3335, %sw.epilog ], [ %OS.3335, %sw.bb ], [ %OS.3335, %sw.bb73 ], [ %call80, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %OS.3335, %sw.bb91 ]
+  %Environment.5287 = phi i32 [ 0, %sw.epilog ], [ %Environment.3334, %sw.bb ], [ %Environment.3334, %sw.bb73 ], [ %Environment.3334, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %call93, %sw.bb91 ]
+  %ObjectFormat.5286 = phi i32 [ %call99, %sw.epilog ], [ %ObjectFormat.3333, %sw.bb ], [ %ObjectFormat.3333, %sw.bb73 ], [ %ObjectFormat.3333, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %ObjectFormat.3333, %sw.bb91 ]
   %21 = zext i32 %Idx.0332 to i64
   %cmp106 = icmp samesign ult i64 %indvars.iv388, %21
   br i1 %cmp106, label %if.then107, label %if.else
@@ -3131,14 +3131,14 @@ if.end166:                                        ; preds = %do.cond, %while.end
   store i8 1, ptr %arrayidx51, align 1
   br label %for.inc172
 
-for.inc169:                                       ; preds = %sw.epilog.for.inc169_crit_edge, %sw.bb73, %_ZNK4llvh9StringRef10startswithES0_.exit590, %if.then97, %land.lhs.true
-  %42 = phi i32 [ %12, %land.lhs.true ], [ %.pre400, %sw.epilog.for.inc169_crit_edge ], [ %12, %if.then97 ], [ %12, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %12, %sw.bb73 ]
-  %ObjectFormat.4 = phi i32 [ %ObjectFormat.3333, %land.lhs.true ], [ %ObjectFormat.3333, %sw.epilog.for.inc169_crit_edge ], [ 0, %if.then97 ], [ %ObjectFormat.3333, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %ObjectFormat.3333, %sw.bb73 ]
-  %Environment.4 = phi i32 [ %Environment.3334, %land.lhs.true ], [ %Environment.3334, %sw.epilog.for.inc169_crit_edge ], [ 0, %if.then97 ], [ %Environment.3334, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %Environment.3334, %sw.bb73 ]
-  %OS.4 = phi i32 [ %OS.3335, %land.lhs.true ], [ %OS.3335, %sw.epilog.for.inc169_crit_edge ], [ %OS.3335, %if.then97 ], [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %OS.3335, %sw.bb73 ]
-  %Vendor.4 = phi i32 [ %Vendor.3336, %land.lhs.true ], [ %Vendor.3336, %sw.epilog.for.inc169_crit_edge ], [ %Vendor.3336, %if.then97 ], [ %Vendor.3336, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ 0, %sw.bb73 ]
-  %IsCygwin.4 = phi i8 [ %IsCygwin.3337, %land.lhs.true ], [ %IsCygwin.3337, %sw.epilog.for.inc169_crit_edge ], [ %IsCygwin.3337, %if.then97 ], [ %frombool83277, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %IsCygwin.3337, %sw.bb73 ]
-  %IsMinGW32.4 = phi i8 [ %IsMinGW32.3338, %land.lhs.true ], [ %IsMinGW32.3338, %sw.epilog.for.inc169_crit_edge ], [ %IsMinGW32.3338, %if.then97 ], [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %IsMinGW32.3338, %sw.bb73 ]
+for.inc169:                                       ; preds = %sw.bb.for.inc169_crit_edge, %_ZNK4llvh9StringRef10startswithES0_.exit590, %sw.bb73, %sw.epilog, %land.lhs.true
+  %42 = phi i32 [ %12, %land.lhs.true ], [ %12, %sw.epilog ], [ %.pre400, %sw.bb.for.inc169_crit_edge ], [ %12, %sw.bb73 ], [ %12, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
+  %ObjectFormat.4 = phi i32 [ %ObjectFormat.3333, %land.lhs.true ], [ 0, %sw.epilog ], [ %ObjectFormat.3333, %sw.bb.for.inc169_crit_edge ], [ %ObjectFormat.3333, %sw.bb73 ], [ %ObjectFormat.3333, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
+  %Environment.4 = phi i32 [ %Environment.3334, %land.lhs.true ], [ 0, %sw.epilog ], [ %Environment.3334, %sw.bb.for.inc169_crit_edge ], [ %Environment.3334, %sw.bb73 ], [ %Environment.3334, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
+  %OS.4 = phi i32 [ %OS.3335, %land.lhs.true ], [ %OS.3335, %sw.epilog ], [ %OS.3335, %sw.bb.for.inc169_crit_edge ], [ %OS.3335, %sw.bb73 ], [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
+  %Vendor.4 = phi i32 [ %Vendor.3336, %land.lhs.true ], [ %Vendor.3336, %sw.epilog ], [ %Vendor.3336, %sw.bb.for.inc169_crit_edge ], [ 0, %sw.bb73 ], [ %Vendor.3336, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
+  %IsCygwin.4 = phi i8 [ %IsCygwin.3337, %land.lhs.true ], [ %IsCygwin.3337, %sw.epilog ], [ %IsCygwin.3337, %sw.bb.for.inc169_crit_edge ], [ %IsCygwin.3337, %sw.bb73 ], [ %frombool83277, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
+  %IsMinGW32.4 = phi i8 [ %IsMinGW32.3338, %land.lhs.true ], [ %IsMinGW32.3338, %sw.epilog ], [ %IsMinGW32.3338, %sw.bb.for.inc169_crit_edge ], [ %IsMinGW32.3338, %sw.bb73 ], [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
   %inc170 = add i32 %Idx.0332, 1
   %conv55 = zext i32 %inc170 to i64
   %cmp57.not = icmp eq i32 %42, %inc170
@@ -4935,8 +4935,8 @@ sw.epilog.i6:                                     ; preds = %entry
   unreachable
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %_ZN4llvh9StringRefC2EPKc.exit198.i, %_ZN4llvh9StringRefC2EPKc.exit188.i, %_ZN4llvh9StringRefC2EPKc.exit178.i, %_ZN4llvh9StringRefC2EPKc.exit168.i, %_ZN4llvh9StringRefC2EPKc.exit158.i, %_ZN4llvh9StringRefC2EPKc.exit148.i, %_ZN4llvh9StringRefC2EPKc.exit138.i, %_ZN4llvh9StringRefC2EPKc.exit128.i, %_ZN4llvh9StringRefC2EPKc.exit118.i, %_ZN4llvh9StringRefC2EPKc.exit108.i, %_ZN4llvh9StringRefC2EPKc.exit98.i, %_ZN4llvh9StringRefC2EPKc.exit88.i, %_ZN4llvh9StringRefC2EPKc.exit78.i, %_ZN4llvh9StringRefC2EPKc.exit68.i, %_ZN4llvh9StringRefC2EPKc.exit58.i, %_ZN4llvh9StringRefC2EPKc.exit48.i, %_ZN4llvh9StringRefC2EPKc.exit38.i
-  %retval.sroa.20.0.i = phi i64 [ 9, %_ZN4llvh9StringRefC2EPKc.exit198.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit188.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit178.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit168.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit158.i ], [ 10, %_ZN4llvh9StringRefC2EPKc.exit148.i ], [ 8, %_ZN4llvh9StringRefC2EPKc.exit138.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit128.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit118.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit108.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit98.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit88.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit78.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit68.i ], [ 9, %_ZN4llvh9StringRefC2EPKc.exit58.i ], [ 8, %_ZN4llvh9StringRefC2EPKc.exit48.i ], [ 9, %_ZN4llvh9StringRefC2EPKc.exit38.i ], [ 3, %entry ]
-  %retval.sroa.0.0.i3 = phi ptr [ @.str.123, %_ZN4llvh9StringRefC2EPKc.exit198.i ], [ @.str.122, %_ZN4llvh9StringRefC2EPKc.exit188.i ], [ @.str.121, %_ZN4llvh9StringRefC2EPKc.exit178.i ], [ @.str.120, %_ZN4llvh9StringRefC2EPKc.exit168.i ], [ @.str.119, %_ZN4llvh9StringRefC2EPKc.exit158.i ], [ @.str.118, %_ZN4llvh9StringRefC2EPKc.exit148.i ], [ @.str.117, %_ZN4llvh9StringRefC2EPKc.exit138.i ], [ @.str.116, %_ZN4llvh9StringRefC2EPKc.exit128.i ], [ @.str.115, %_ZN4llvh9StringRefC2EPKc.exit118.i ], [ @.str.114, %_ZN4llvh9StringRefC2EPKc.exit108.i ], [ @.str.113, %_ZN4llvh9StringRefC2EPKc.exit98.i ], [ @.str.112, %_ZN4llvh9StringRefC2EPKc.exit88.i ], [ @.str.111, %_ZN4llvh9StringRefC2EPKc.exit78.i ], [ @.str.110, %_ZN4llvh9StringRefC2EPKc.exit68.i ], [ @.str.109, %_ZN4llvh9StringRefC2EPKc.exit58.i ], [ @.str.108, %_ZN4llvh9StringRefC2EPKc.exit48.i ], [ @.str.107, %_ZN4llvh9StringRefC2EPKc.exit38.i ], [ @.str.106, %entry ]
+  %retval.sroa.20.0.i = phi i64 [ 9, %_ZN4llvh9StringRefC2EPKc.exit38.i ], [ 8, %_ZN4llvh9StringRefC2EPKc.exit48.i ], [ 9, %_ZN4llvh9StringRefC2EPKc.exit58.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit68.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit78.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit88.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit98.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit108.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit118.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit128.i ], [ 8, %_ZN4llvh9StringRefC2EPKc.exit138.i ], [ 10, %_ZN4llvh9StringRefC2EPKc.exit148.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit158.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit168.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit178.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit188.i ], [ 9, %_ZN4llvh9StringRefC2EPKc.exit198.i ], [ 3, %entry ]
+  %retval.sroa.0.0.i3 = phi ptr [ @.str.107, %_ZN4llvh9StringRefC2EPKc.exit38.i ], [ @.str.108, %_ZN4llvh9StringRefC2EPKc.exit48.i ], [ @.str.109, %_ZN4llvh9StringRefC2EPKc.exit58.i ], [ @.str.110, %_ZN4llvh9StringRefC2EPKc.exit68.i ], [ @.str.111, %_ZN4llvh9StringRefC2EPKc.exit78.i ], [ @.str.112, %_ZN4llvh9StringRefC2EPKc.exit88.i ], [ @.str.113, %_ZN4llvh9StringRefC2EPKc.exit98.i ], [ @.str.114, %_ZN4llvh9StringRefC2EPKc.exit108.i ], [ @.str.115, %_ZN4llvh9StringRefC2EPKc.exit118.i ], [ @.str.116, %_ZN4llvh9StringRefC2EPKc.exit128.i ], [ @.str.117, %_ZN4llvh9StringRefC2EPKc.exit138.i ], [ @.str.118, %_ZN4llvh9StringRefC2EPKc.exit148.i ], [ @.str.119, %_ZN4llvh9StringRefC2EPKc.exit158.i ], [ @.str.120, %_ZN4llvh9StringRefC2EPKc.exit168.i ], [ @.str.121, %_ZN4llvh9StringRefC2EPKc.exit178.i ], [ @.str.122, %_ZN4llvh9StringRefC2EPKc.exit188.i ], [ @.str.123, %_ZN4llvh9StringRefC2EPKc.exit198.i ], [ @.str.106, %entry ]
   store ptr %retval.sroa.0.0.i3, ptr %ref.tmp6, align 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   store i64 %retval.sroa.20.0.i, ptr %3, align 8

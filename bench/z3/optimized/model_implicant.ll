@@ -7782,7 +7782,7 @@ _ZN8rationalD2Ev.exit349:                         ; preds = %.noexc.i348
   ret void
 
 1174:                                             ; preds = %1163, %1148, %.body310, %.body290, %.body268, %.body, %731, %654, %572, %503, %54, %32
-  %.pn100 = phi { ptr, i32 } [ %33, %32 ], [ %.pn98, %1148 ], [ %.pn96, %1163 ], [ %.pn, %.body310 ], [ %.pn90, %.body290 ], [ %eh.lpad-body269, %.body268 ], [ %.pn92, %.body ], [ %.pn94, %731 ], [ %655, %654 ], [ %573, %572 ], [ %504, %503 ], [ %55, %54 ]
+  %.pn100 = phi { ptr, i32 } [ %33, %32 ], [ %.pn98, %1148 ], [ %.pn96, %1163 ], [ %504, %503 ], [ %573, %572 ], [ %655, %654 ], [ %.pn94, %731 ], [ %.pn92, %.body ], [ %eh.lpad-body269, %.body268 ], [ %.pn90, %.body290 ], [ %.pn, %.body310 ], [ %55, %54 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
@@ -18466,7 +18466,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %195, %198
   ret void
 
 203:                                              ; preds = %165, %186, %67, %91, %111, %41
-  %.pn51.pn = phi { ptr, i32 } [ %42, %41 ], [ %68, %67 ], [ %112, %111 ], [ %92, %91 ], [ %187, %186 ], [ %166, %165 ]
+  %.pn51.pn = phi { ptr, i32 } [ %42, %41 ], [ %68, %67 ], [ %92, %91 ], [ %112, %111 ], [ %187, %186 ], [ %166, %165 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #22
   resume { ptr, i32 } %.pn51.pn

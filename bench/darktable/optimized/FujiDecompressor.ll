@@ -4036,7 +4036,7 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; pr
   unreachable
 
 1563:                                             ; preds = %1561, %1560, %1556
-  %.0.i.i.i.i.i13 = phi i32 [ %1532, %1561 ], [ %1553, %1560 ], [ %1533, %1556 ]
+  %.0.i.i.i.i.i13 = phi i32 [ %1553, %1560 ], [ %1532, %1561 ], [ %1533, %1556 ]
   %.tr.i.i.i.i.i = trunc i64 %1557 to i32
   %1564 = shl i32 %.tr.i.i.i.i.i, 1
   %1565 = udiv i32 %1564, 3
@@ -4237,7 +4237,7 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i148.i.i.i: ;
   unreachable
 
 1668:                                             ; preds = %1666, %1665, %1662
-  %.0.i.i153.i.i.i = phi i32 [ %1631, %1666 ], [ %1659, %1665 ], [ %1634, %1662 ]
+  %.0.i.i153.i.i.i = phi i32 [ %1659, %1665 ], [ %1631, %1666 ], [ %1634, %1662 ]
   call void @llvm.assume(i1 %1640)
   call void @llvm.assume(i1 %1642)
   call void @llvm.assume(i1 %1644)

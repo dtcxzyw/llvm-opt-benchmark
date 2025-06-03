@@ -126,7 +126,7 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   br label %83
 
 83:                                               ; preds = %57, %42, %.loopexit
-  %.2 = phi ptr [ %82, %57 ], [ %56, %42 ], [ %.045, %.loopexit ]
+  %.2 = phi ptr [ %82, %57 ], [ %.045, %.loopexit ], [ %56, %42 ]
   store i8 0, ptr %.2, align 1, !tbaa !3
   %84 = ptrtoint ptr %.2 to i64
   %85 = ptrtoint ptr %0 to i64
@@ -312,8 +312,8 @@ default.unreachable:                              ; preds = %._crit_edge
   br label %104
 
 104:                                              ; preds = %90, %83, %82
-  %.sroa.21.0.in.in = phi i32 [ %102, %90 ], [ %89, %83 ], [ %56, %82 ]
-  %.sroa.16.0 = phi i32 [ %.sroa.16.0.extract.shift43, %90 ], [ %.sroa.16.0.extract.shift41, %83 ], [ %.sroa.16.0.extract.shift39, %82 ]
+  %.sroa.21.0.in.in = phi i32 [ %102, %90 ], [ %56, %82 ], [ %89, %83 ]
+  %.sroa.16.0 = phi i32 [ %.sroa.16.0.extract.shift43, %90 ], [ %.sroa.16.0.extract.shift39, %82 ], [ %.sroa.16.0.extract.shift41, %83 ]
   %.sroa.16.0.insert.ext46 = shl nuw i32 %.sroa.16.0, 8
   %.sroa.16.0.insert.shift47 = and i32 %.sroa.16.0.insert.ext46, 65280
   %105 = and i32 %.sroa.21.0.in.in, -65281

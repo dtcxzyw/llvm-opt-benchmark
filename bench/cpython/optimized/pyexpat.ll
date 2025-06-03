@@ -6930,7 +6930,7 @@ define internal i32 @xmlparse_traverse(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %19, %21
-  %.4 = phi i32 [ %20, %19 ], [ 0, %21 ], [ %12, %11 ]
+  %.4 = phi i32 [ 0, %21 ], [ %20, %19 ], [ %12, %11 ]
   ret i32 %.4
 }
 

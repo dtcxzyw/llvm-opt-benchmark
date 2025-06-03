@@ -3657,7 +3657,7 @@ lean_alloc_ctor.exit88:                           ; preds = %lean_dec.exit
   br label %187
 
 187:                                              ; preds = %lean_alloc_ctor.exit88, %lean_alloc_closure.exit, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %177, %lean_alloc_ctor.exit88 ], [ %120, %lean_alloc_closure.exit ], [ %93, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %177, %lean_alloc_ctor.exit88 ], [ %93, %lean_alloc_ctor.exit ], [ %120, %lean_alloc_closure.exit ]
   ret ptr %.0
 }
 

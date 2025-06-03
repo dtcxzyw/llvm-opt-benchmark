@@ -6593,8 +6593,8 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #18
   br label %._crit_edge678
 
-.lr.ph677:                                        ; preds = %919, %919, %926, %925
-  %.0.i.ph = phi i32 [ 6, %925 ], [ 3, %926 ], [ 1, %919 ], [ 1, %919 ]
+.lr.ph677:                                        ; preds = %919, %919, %925, %926
+  %.0.i.ph = phi i32 [ 3, %926 ], [ 6, %925 ], [ 1, %919 ], [ 1, %919 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #18
   %928 = getelementptr inbounds nuw i8, ptr %921, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %928, i64 16, i1 false)
@@ -7076,8 +7076,8 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300: ; preds =
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %1180, i64 16, i1 false)
   br label %._crit_edge664
 
-.lr.ph663.preheader:                              ; preds = %.lr.ph672, %.lr.ph672, %1177, %1176
-  %.0.i299.ph = phi i32 [ 6, %1176 ], [ 3, %1177 ], [ 1, %.lr.ph672 ], [ 1, %.lr.ph672 ]
+.lr.ph663.preheader:                              ; preds = %.lr.ph672, %.lr.ph672, %1176, %1177
+  %.0.i299.ph = phi i32 [ 3, %1177 ], [ 6, %1176 ], [ 1, %.lr.ph672 ], [ 1, %.lr.ph672 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #18
   %1181 = getelementptr inbounds nuw i8, ptr %1117, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %1181, i64 16, i1 false)

@@ -394,7 +394,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re217EmptyStringWalker9PostVisitEP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader23, %.preheader, %6, %19, %22, %16, %9
-  %.018 = phi i1 [ %18, %16 ], [ true, %9 ], [ true, %19 ], [ %25, %22 ], [ false, %6 ], [ false, %.preheader ], [ true, %.preheader23 ], [ %15, %.lr.ph31 ], [ %12, %.lr.ph ]
+  %.018 = phi i1 [ true, %9 ], [ %18, %16 ], [ true, %19 ], [ %25, %22 ], [ false, %6 ], [ false, %.preheader ], [ true, %.preheader23 ], [ %15, %.lr.ph31 ], [ %12, %.lr.ph ]
   ret i1 %.018
 }
 
@@ -1343,7 +1343,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit75: ;
   br label %166
 
 166:                                              ; preds = %100, %146, %165, %162, %70
-  %.265 = phi i8 [ %78, %70 ], [ %88, %100 ], [ %159, %162 ], [ %159, %165 ], [ %159, %146 ]
+  %.265 = phi i8 [ %78, %70 ], [ %159, %162 ], [ %159, %165 ], [ %159, %146 ], [ %88, %100 ]
   %167 = load ptr, ptr %36, align 8, !tbaa !62
   %168 = load ptr, ptr %45, align 8, !tbaa !71
   %.not.i.i = icmp eq ptr %167, %168

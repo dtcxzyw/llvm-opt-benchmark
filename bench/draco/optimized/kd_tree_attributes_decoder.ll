@@ -2375,12 +2375,12 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodePointsINS_34PointAttri
   br label %.critedge232thread-pre-split
 
 454:                                              ; preds = %452, %444, %436, %428, %420, %412, %404
-  %.pn182.pn = phi { ptr, i32 } [ %.pn182, %452 ], [ %.pn184, %444 ], [ %.pn186, %436 ], [ %.pn188, %428 ], [ %.pn190, %420 ], [ %.pn192, %412 ], [ %.pn194, %404 ]
+  %.pn194.pn = phi { ptr, i32 } [ %.pn194, %404 ], [ %.pn192, %412 ], [ %.pn190, %420 ], [ %.pn188, %428 ], [ %.pn186, %436 ], [ %.pn184, %444 ], [ %.pn182, %452 ]
   call void @_ZN5draco34PointAttributeVectorOutputIteratorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #23
   br label %455
 
 455:                                              ; preds = %454, %395
-  %.pn182.pn.pn = phi { ptr, i32 } [ %.pn182.pn, %454 ], [ %396, %395 ]
+  %.pn194.pn.pn = phi { ptr, i32 } [ %.pn194.pn, %454 ], [ %396, %395 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23
   br label %464
 
@@ -2414,7 +2414,7 @@ _ZNSt6vectorISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjEESaIS5_EED2Ev.
 
 464:                                              ; preds = %328, %348, %455, %392, %390, %263, %265, %308, %310, %261
   %465 = phi ptr [ %235, %261 ], [ %278, %308 ], [ %278, %310 ], [ %235, %265 ], [ %235, %263 ], [ %278, %348 ], [ %278, %328 ], [ %278, %455 ], [ %278, %392 ], [ %278, %390 ]
-  %.pn204.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %262, %261 ], [ %309, %308 ], [ %311, %310 ], [ %266, %265 ], [ %264, %263 ], [ %.pn204.pn, %348 ], [ %329, %328 ], [ %.pn182.pn.pn, %455 ], [ %393, %392 ], [ %391, %390 ]
+  %.pn204.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %262, %261 ], [ %309, %308 ], [ %311, %310 ], [ %266, %265 ], [ %264, %263 ], [ %.pn204.pn, %348 ], [ %329, %328 ], [ %.pn194.pn.pn, %455 ], [ %393, %392 ], [ %391, %390 ]
   %466 = load ptr, ptr %5, align 8, !tbaa !48
   %.not.i.i.i280 = icmp eq ptr %466, null
   br i1 %.not.i.i.i280, label %_ZNSt6vectorISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjEESaIS5_EED2Ev.exit281, label %467

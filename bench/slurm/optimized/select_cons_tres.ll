@@ -2139,7 +2139,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_select_nodeinfo_get(ptr noundef 
   br label %32
 
 32:                                               ; preds = %19, %20, %23, %27, %30, %18, %15, %10, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %30 ], [ 0, %27 ], [ 0, %23 ], [ 0, %20 ], [ 0, %19 ], [ 0, %15 ], [ 0, %18 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %30 ], [ 0, %15 ], [ 0, %18 ], [ 0, %19 ], [ 0, %20 ], [ 0, %23 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -2198,7 +2198,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_get_info_from_plugin(i32 noundef
   br label %8
 
 8:                                                ; preds = %6, %5, %4
-  %.0 = phi i32 [ -1, %6 ], [ 0, %5 ], [ 0, %4 ]
+  %.0 = phi i32 [ -1, %6 ], [ 0, %4 ], [ 0, %5 ]
   ret i32 %.0
 }
 

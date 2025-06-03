@@ -1805,9 +1805,9 @@ define hidden void @_ZN12futures_util6future12try_join_all12try_join_all17hd0487
   br label %17
 
 17:                                               ; preds = %12, %13
-  %.sroa.4.0 = phi i64 [ %.sroa.534.0.copyload, %12 ], [ %16, %13 ]
-  %.sroa.3.0 = phi ptr [ %.sroa.433.0.copyload, %12 ], [ %15, %13 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.032.0.copyload, %12 ], [ -9223372036854775808, %13 ]
+  %.sroa.4.0 = phi i64 [ %16, %13 ], [ %.sroa.534.0.copyload, %12 ]
+  %.sroa.3.0 = phi ptr [ %15, %13 ], [ %.sroa.433.0.copyload, %12 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775808, %13 ], [ %.sroa.032.0.copyload, %12 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
@@ -2462,7 +2462,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb68308d49818c4fE.exit"
 
 "_ZN69_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb68308d49818c4fE.exit": ; preds = %7, %10, %13
-  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %7 ], [ %12, %10 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -3399,7 +3399,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h1bcf106e0bc8151cE.exit.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h1bcf106e0bc8151cE.exit.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hfe106df39aede4f0E.llvm.7674728272632859446.exit.i", label %_ZN4core3str7pattern8Searcher11next_reject17hc4d68d6566dd5df6E.llvm.7674728272632859446.exit
 
@@ -3552,7 +3552,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hc4d68d6566dd5df
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h1bcf106e0bc8151cE.exit.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h1bcf106e0bc8151cE.exit.i": ; preds = %68, %63, %60, %57
-  %.sroa.0.0.i.i.i.i = phi i8 [ %62, %60 ], [ %73, %68 ], [ %59, %57 ], [ %67, %63 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ %67, %63 ], [ %59, %57 ], [ %73, %68 ], [ %62, %60 ]
   %74 = trunc i8 %.sroa.0.0.i.i.i.i to i1
   br i1 %74, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hfe106df39aede4f0E.llvm.7674728272632859446.exit", label %75
 
@@ -11920,8 +11920,8 @@ define hidden void @"_ZN7bincode2de25Deserializer$LT$R$C$O$GT$11read_string17hcb
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i
 
 _ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i: ; preds = %15, %10
-  %18 = phi i64 [ %8, %15 ], [ %13, %10 ]
-  %.merged.i.i = phi { i64, ptr } [ %17, %15 ], [ %14, %10 ]
+  %18 = phi i64 [ %13, %10 ], [ %8, %15 ]
+  %.merged.i.i = phi { i64, ptr } [ %14, %10 ], [ %17, %15 ]
   %19 = extractvalue { i64, ptr } %.merged.i.i, 0
   %20 = extractvalue { i64, ptr } %.merged.i.i, 1
   %21 = ptrtoint ptr %20 to i64
@@ -12320,7 +12320,7 @@ define hidden { i64, ptr } @_ZN7bincode6config3int11IntEncoding15deserialize_len
   br label %13
 
 13:                                               ; preds = %10, %5
-  %.merged = phi { i64, ptr } [ %12, %10 ], [ %9, %5 ]
+  %.merged = phi { i64, ptr } [ %9, %5 ], [ %12, %10 ]
   ret { i64, ptr } %.merged
 }
 
@@ -13457,8 +13457,8 @@ define internal fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serial
   br label %28
 
 28:                                               ; preds = %"_ZN7bincode3ser23Serializer$LT$W$C$O$GT$21serialize_literal_u6417h3ff227fac0825267E.llvm.7674728272632859446.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h991070e36d22039aE.llvm.7674728272632859446.exit"
-  %.sroa.4.0 = phi ptr [ %0, %"_ZN7bincode3ser23Serializer$LT$W$C$O$GT$21serialize_literal_u6417h3ff227fac0825267E.llvm.7674728272632859446.exit" ], [ %7, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h991070e36d22039aE.llvm.7674728272632859446.exit" ]
-  %.sroa.01.0 = phi i64 [ 0, %"_ZN7bincode3ser23Serializer$LT$W$C$O$GT$21serialize_literal_u6417h3ff227fac0825267E.llvm.7674728272632859446.exit" ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h991070e36d22039aE.llvm.7674728272632859446.exit" ]
+  %.sroa.4.0 = phi ptr [ %7, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h991070e36d22039aE.llvm.7674728272632859446.exit" ], [ %0, %"_ZN7bincode3ser23Serializer$LT$W$C$O$GT$21serialize_literal_u6417h3ff227fac0825267E.llvm.7674728272632859446.exit" ]
+  %.sroa.01.0 = phi i64 [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h991070e36d22039aE.llvm.7674728272632859446.exit" ], [ 0, %"_ZN7bincode3ser23Serializer$LT$W$C$O$GT$21serialize_literal_u6417h3ff227fac0825267E.llvm.7674728272632859446.exit" ]
   %29 = insertvalue { i64, ptr } poison, i64 %.sroa.01.0, 0
   %30 = insertvalue { i64, ptr } %29, ptr %.sroa.4.0, 1
   ret { i64, ptr } %30
@@ -13824,7 +13824,7 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit
 
 _ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit: ; preds = %6, %11
-  %.merged.i = phi { i64, ptr } [ %13, %11 ], [ %10, %6 ]
+  %.merged.i = phi { i64, ptr } [ %10, %6 ], [ %13, %11 ]
   %14 = extractvalue { i64, ptr } %.merged.i, 0
   %15 = extractvalue { i64, ptr } %.merged.i, 1
   %switch = icmp eq i64 %14, 0
@@ -13871,7 +13871,7 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit
 
 _ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit: ; preds = %6, %11
-  %.merged.i = phi { i64, ptr } [ %13, %11 ], [ %10, %6 ]
+  %.merged.i = phi { i64, ptr } [ %10, %6 ], [ %13, %11 ]
   %14 = extractvalue { i64, ptr } %.merged.i, 0
   %15 = extractvalue { i64, ptr } %.merged.i, 1
   %switch = icmp eq i64 %14, 0
@@ -14184,7 +14184,7 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i
 
 _ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i: ; preds = %14, %9
-  %.merged.i.i.i = phi { i64, ptr } [ %16, %14 ], [ %13, %9 ]
+  %.merged.i.i.i = phi { i64, ptr } [ %13, %9 ], [ %16, %14 ]
   %17 = extractvalue { i64, ptr } %.merged.i.i.i, 0
   %18 = extractvalue { i64, ptr } %.merged.i.i.i, 1
   %switch.i.i = icmp eq i64 %17, 0
@@ -14364,7 +14364,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h1bcf106e0bc8151cE.exit"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h1bcf106e0bc8151cE.exit": ; preds = %57, %60, %63, %68
-  %.sroa.0.0.i.i.i = phi i8 [ %62, %60 ], [ %73, %68 ], [ %59, %57 ], [ %67, %63 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %67, %63 ], [ %59, %57 ], [ %73, %68 ], [ %62, %60 ]
   %74 = trunc i8 %.sroa.0.0.i.i.i to i1
   br i1 %74, label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h1bcf106e0bc8151cE.exit.thread", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread.sink.split"
 
@@ -16835,7 +16835,7 @@ define hidden void @"_ZN181_$LT$semantic_index..embedding.._..$LT$impl$u20$serde
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i
 
 _ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i: ; preds = %12, %7
-  %.merged.i.i = phi { i64, ptr } [ %14, %12 ], [ %11, %7 ]
+  %.merged.i.i = phi { i64, ptr } [ %11, %7 ], [ %14, %12 ]
   %15 = extractvalue { i64, ptr } %.merged.i.i, 0
   %16 = extractvalue { i64, ptr } %.merged.i.i, 1
   %switch.i = icmp eq i64 %15, 0
@@ -17245,7 +17245,7 @@ define hidden void @"_ZN197_$LT$semantic_index..embedding_index.._..$LT$impl$u20
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i.i.i.i.i.i
 
 _ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i.i.i.i.i.i: ; preds = %41, %36
-  %.merged.i.i.i.i.i.i.i.i = phi { i64, ptr } [ %43, %41 ], [ %40, %36 ]
+  %.merged.i.i.i.i.i.i.i.i = phi { i64, ptr } [ %40, %36 ], [ %43, %41 ]
   %44 = extractvalue { i64, ptr } %.merged.i.i.i.i.i.i.i.i, 0
   %45 = extractvalue { i64, ptr } %.merged.i.i.i.i.i.i.i.i, 1
   %switch.i.i.i.i.i.i.i = icmp eq i64 %44, 0
@@ -17392,8 +17392,8 @@ define hidden void @"_ZN190_$LT$semantic_index..summary_index.._..$LT$impl$u20$s
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i.i.i.i
 
 _ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i.i.i.i: ; preds = %30, %25
-  %33 = phi i64 [ %23, %30 ], [ %28, %25 ]
-  %.merged.i.i.i.i.i.i = phi { i64, ptr } [ %32, %30 ], [ %29, %25 ]
+  %33 = phi i64 [ %28, %25 ], [ %23, %30 ]
+  %.merged.i.i.i.i.i.i = phi { i64, ptr } [ %29, %25 ], [ %32, %30 ]
   %34 = extractvalue { i64, ptr } %.merged.i.i.i.i.i.i, 0
   %35 = extractvalue { i64, ptr } %.merged.i.i.i.i.i.i, 1
   %36 = ptrtoint ptr %35 to i64

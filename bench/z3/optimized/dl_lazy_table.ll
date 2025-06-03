@@ -2714,7 +2714,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvP
   ret ptr %.0
 
 202:                                              ; preds = %199, %160, %122, %72
-  %.pn = phi { ptr, i32 } [ %200, %199 ], [ %161, %160 ], [ %123, %122 ], [ %73, %72 ]
+  %.pn = phi { ptr, i32 } [ %200, %199 ], [ %73, %72 ], [ %123, %122 ], [ %161, %160 ]
   resume { ptr, i32 } %.pn
 }
 

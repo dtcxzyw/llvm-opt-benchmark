@@ -758,8 +758,8 @@ _ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us: ; preds = %430, %4
   br label %440
 
 440:                                              ; preds = %438, %435, %433, %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us
-  %.091.i.us = phi i32 [ %.081.i.us, %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us ], [ %.081.i.us, %433 ], [ %437, %435 ], [ %439, %438 ]
-  %.090.i.us = phi i32 [ %.0.i.us, %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us ], [ %434, %433 ], [ %436, %435 ], [ %.0.i.us, %438 ]
+  %.091.i.us = phi i32 [ %.081.i.us, %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us ], [ %439, %438 ], [ %437, %435 ], [ %.081.i.us, %433 ]
+  %.090.i.us = phi i32 [ %.0.i.us, %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us ], [ %.0.i.us, %438 ], [ %436, %435 ], [ %434, %433 ]
   br i1 %.not.i.i.us, label %.thread.i.us, label %441
 
 441:                                              ; preds = %440

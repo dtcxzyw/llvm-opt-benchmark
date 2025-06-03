@@ -4279,7 +4279,7 @@ get_integer_property.exit:                        ; preds = %56, %.sink.split.i.
   br label %82
 
 82:                                               ; preds = %2, %get_integer_property.exit, %get_boolean_property.exit, %20, %11
-  %.0 = phi ptr [ %.0.i.i.i11, %get_integer_property.exit ], [ %.0.i.i.i, %get_boolean_property.exit ], [ %26, %20 ], [ %17, %11 ], [ null, %2 ]
+  %.0 = phi ptr [ %17, %11 ], [ %26, %20 ], [ %.0.i.i.i, %get_boolean_property.exit ], [ %.0.i.i.i11, %get_integer_property.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -4403,8 +4403,8 @@ gtk3_get_arrow.exit:                              ; preds = %10, %13
   br label %61
 
 61:                                               ; preds = %49, %22, %.fold.split, %52, %45, %40, %35, %30, %25
-  %.064 = phi double [ 0.000000e+00, %52 ], [ 0x400921FB54442D18, %45 ], [ 0x400921FB54442D18, %40 ], [ 0.000000e+00, %35 ], [ 0x3FF921FB54442D18, %30 ], [ 0x4012D97C7F3321D2, %25 ], [ 0.000000e+00, %22 ], [ 0x400921FB54442D18, %.fold.split ], [ 0x400921FB54442D18, %49 ]
-  %.063.in.in = phi double [ %51, %52 ], [ %48, %45 ], [ %44, %40 ], [ %39, %35 ], [ %34, %30 ], [ %29, %25 ], [ %24, %22 ], [ %24, %.fold.split ], [ %51, %49 ]
+  %.064 = phi double [ 0x4012D97C7F3321D2, %25 ], [ 0x3FF921FB54442D18, %30 ], [ 0.000000e+00, %35 ], [ 0x400921FB54442D18, %40 ], [ 0x400921FB54442D18, %45 ], [ 0.000000e+00, %52 ], [ 0.000000e+00, %22 ], [ 0x400921FB54442D18, %.fold.split ], [ 0x400921FB54442D18, %49 ]
+  %.063.in.in = phi double [ %29, %25 ], [ %34, %30 ], [ %39, %35 ], [ %44, %40 ], [ %48, %45 ], [ %51, %52 ], [ %24, %22 ], [ %24, %.fold.split ], [ %51, %49 ]
   %.063.in = fptosi double %.063.in.in to i32
   %.063 = add nsw i32 %.063.in, 1
   %62 = icmp slt i32 %.063, %6

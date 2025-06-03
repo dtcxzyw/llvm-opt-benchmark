@@ -3394,7 +3394,7 @@ _ZN3nla18const_iterator_monD2Ev.exit66:           ; preds = %_ZN3nla18const_iter
   br label %135
 
 135:                                              ; preds = %_ZN3nla18const_iterator_monD2Ev.exit66, %_ZN3nla18const_iterator_monD2Ev.exit57, %134
-  %.3 = phi i1 [ true, %_ZN3nla18const_iterator_monD2Ev.exit57 ], [ false, %134 ], [ true, %_ZN3nla18const_iterator_monD2Ev.exit66 ]
+  %.3 = phi i1 [ false, %134 ], [ true, %_ZN3nla18const_iterator_monD2Ev.exit57 ], [ true, %_ZN3nla18const_iterator_monD2Ev.exit66 ]
   ret i1 %.3
 
 136:                                              ; preds = %133, %74

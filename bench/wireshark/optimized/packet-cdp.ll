@@ -1509,8 +1509,8 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   ]
 
 ._crit_edge.i:                                    ; preds = %686
-  %.pre122.i = add i32 %.089111.i, 10
-  %.pre124.i = add i32 %.089111.i, 12
+  %.pre124.i = add i32 %.089111.i, 10
+  %.pre126.i = add i32 %.089111.i, 12
   br label %706
 
 691:                                              ; preds = %686
@@ -1535,16 +1535,16 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   br label %726
 
 706:                                              ; preds = %._crit_edge.i, %.thread.i
-  %.pre-phi125.i = phi i32 [ %.pre124.i, %._crit_edge.i ], [ %673, %.thread.i ]
-  %.pre-phi123.i = phi i32 [ %.pre122.i, %._crit_edge.i ], [ %675, %.thread.i ]
+  %.pre-phi127.i = phi i32 [ %.pre126.i, %._crit_edge.i ], [ %673, %.thread.i ]
+  %.pre-phi125.i = phi i32 [ %.pre124.i, %._crit_edge.i ], [ %675, %.thread.i ]
   %.097.i = phi ptr [ %.0.i, %._crit_edge.i ], [ %678, %.thread.i ]
   %707 = load i32, ptr @hf_cdp_nrgyz_reply_to_unknown_field, align 4
   %708 = add i32 %.089111.i, 8
   %709 = call ptr @proto_tree_add_item(ptr noundef %.097.i, i32 noundef %707, ptr noundef %0, i32 noundef %708, i32 noundef 2, i32 noundef 0)
   %710 = load i32, ptr @hf_cdp_nrgyz_reply_to_port, align 4
-  %711 = call ptr @proto_tree_add_item(ptr noundef %.097.i, i32 noundef %710, ptr noundef %0, i32 noundef %.pre-phi123.i, i32 noundef 2, i32 noundef 0)
+  %711 = call ptr @proto_tree_add_item(ptr noundef %.097.i, i32 noundef %710, ptr noundef %0, i32 noundef %.pre-phi125.i, i32 noundef 2, i32 noundef 0)
   %712 = load i32, ptr @hf_cdp_nrgyz_reply_to_ip_address, align 4
-  %713 = call ptr @proto_tree_add_item(ptr noundef %.097.i, i32 noundef %712, ptr noundef %0, i32 noundef %.pre-phi125.i, i32 noundef 4, i32 noundef 0)
+  %713 = call ptr @proto_tree_add_item(ptr noundef %.097.i, i32 noundef %712, ptr noundef %0, i32 noundef %.pre-phi127.i, i32 noundef 4, i32 noundef 0)
   %714 = load i32, ptr @hf_cdp_nrgyz_reply_to_backup_server_port, align 4
   %715 = add i32 %.089111.i, 16
   %716 = call ptr @proto_tree_add_item(ptr noundef %.097.i, i32 noundef %714, ptr noundef %0, i32 noundef %715, i32 noundef 2, i32 noundef 0)
@@ -1932,7 +1932,7 @@ dissect_spare_poe_tlv.exit:                       ; preds = %741, %746
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph1145, %245, %234, %974, %958, %942, %926, %910, %894, %878, %862, %846, %830, %814, %790, %774, %dissect_spare_poe_tlv.exit, %dissect_nrgyz_tlv.exit, %._crit_edge, %591, %._crit_edge1126, %559, %539, %._crit_edge1135, %492, %478, %462, %447, %432, %418, %403, %380, %357, %342, %327, %311, %217, %201, %dissect_capabilities.exit, %._crit_edge1153, %114, %86
-  %.21029 = phi i32 [ %975, %974 ], [ %959, %958 ], [ %943, %942 ], [ %927, %926 ], [ %911, %910 ], [ %895, %894 ], [ %879, %878 ], [ %863, %862 ], [ %847, %846 ], [ %831, %830 ], [ %815, %814 ], [ %791, %790 ], [ %775, %774 ], [ %759, %dissect_spare_poe_tlv.exit ], [ %732, %dissect_nrgyz_tlv.exit ], [ %592, %591 ], [ %604, %._crit_edge ], [ %560, %559 ], [ %572, %._crit_edge1126 ], [ %540, %539 ], [ %521, %._crit_edge1135 ], [ %493, %492 ], [ %479, %478 ], [ %463, %462 ], [ %448, %447 ], [ %433, %432 ], [ %419, %418 ], [ %404, %403 ], [ %381, %380 ], [ %358, %357 ], [ %343, %342 ], [ %328, %327 ], [ %312, %311 ], [ %235, %234 ], [ %218, %217 ], [ %202, %201 ], [ %181, %dissect_capabilities.exit ], [ %140, %._crit_edge1153 ], [ %115, %114 ], [ %87, %86 ], [ %246, %245 ], [ %256, %.lr.ph1145 ]
+  %.21029 = phi i32 [ %975, %974 ], [ %87, %86 ], [ %115, %114 ], [ %140, %._crit_edge1153 ], [ %181, %dissect_capabilities.exit ], [ %202, %201 ], [ %218, %217 ], [ %235, %234 ], [ %312, %311 ], [ %328, %327 ], [ %343, %342 ], [ %358, %357 ], [ %381, %380 ], [ %404, %403 ], [ %419, %418 ], [ %433, %432 ], [ %448, %447 ], [ %463, %462 ], [ %479, %478 ], [ %493, %492 ], [ %521, %._crit_edge1135 ], [ %540, %539 ], [ %560, %559 ], [ %572, %._crit_edge1126 ], [ %592, %591 ], [ %604, %._crit_edge ], [ %732, %dissect_nrgyz_tlv.exit ], [ %759, %dissect_spare_poe_tlv.exit ], [ %775, %774 ], [ %791, %790 ], [ %815, %814 ], [ %831, %830 ], [ %847, %846 ], [ %863, %862 ], [ %879, %878 ], [ %895, %894 ], [ %911, %910 ], [ %927, %926 ], [ %943, %942 ], [ %959, %958 ], [ %246, %245 ], [ %256, %.lr.ph1145 ]
   %976 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.21029)
   %.not1048 = icmp eq i32 %976, 0
   br i1 %.not1048, label %.loopexit1101, label %51, !llvm.loop !14

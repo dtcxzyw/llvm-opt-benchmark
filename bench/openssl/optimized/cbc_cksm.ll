@@ -52,8 +52,8 @@ define i32 @DES_cbc_cksum(ptr noundef readonly captures(none) %0, ptr noundef wr
   br label %26
 
 26:                                               ; preds = %21, %19
-  %.282 = phi i32 [ 0, %19 ], [ %25, %21 ]
-  %.3 = phi ptr [ %20, %19 ], [ %22, %21 ]
+  %.282 = phi i32 [ %25, %21 ], [ 0, %19 ]
+  %.3 = phi ptr [ %22, %21 ], [ %20, %19 ]
   %27 = getelementptr inbounds i8, ptr %.3, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !3
   %29 = zext i8 %28 to i32
@@ -62,8 +62,8 @@ define i32 @DES_cbc_cksum(ptr noundef readonly captures(none) %0, ptr noundef wr
   br label %32
 
 32:                                               ; preds = %26, %19
-  %.383 = phi i32 [ 0, %19 ], [ %31, %26 ]
-  %.4 = phi ptr [ %20, %19 ], [ %27, %26 ]
+  %.383 = phi i32 [ %31, %26 ], [ 0, %19 ]
+  %.4 = phi ptr [ %27, %26 ], [ %20, %19 ]
   %33 = getelementptr inbounds i8, ptr %.4, i64 -1
   %34 = load i8, ptr %33, align 1, !tbaa !3
   %35 = zext i8 %34 to i32
@@ -71,8 +71,8 @@ define i32 @DES_cbc_cksum(ptr noundef readonly captures(none) %0, ptr noundef wr
   br label %37
 
 37:                                               ; preds = %32, %19
-  %.484 = phi i32 [ 0, %19 ], [ %36, %32 ]
-  %.5 = phi ptr [ %20, %19 ], [ %33, %32 ]
+  %.484 = phi i32 [ %36, %32 ], [ 0, %19 ]
+  %.5 = phi ptr [ %33, %32 ], [ %20, %19 ]
   %38 = getelementptr inbounds i8, ptr %.5, i64 -1
   %39 = load i8, ptr %38, align 1, !tbaa !3
   %40 = zext i8 %39 to i32
@@ -80,9 +80,9 @@ define i32 @DES_cbc_cksum(ptr noundef readonly captures(none) %0, ptr noundef wr
   br label %42
 
 42:                                               ; preds = %37, %19
-  %.189 = phi i32 [ 0, %19 ], [ %41, %37 ]
-  %.585 = phi i32 [ 0, %19 ], [ %.484, %37 ]
-  %.6 = phi ptr [ %20, %19 ], [ %38, %37 ]
+  %.189 = phi i32 [ %41, %37 ], [ 0, %19 ]
+  %.585 = phi i32 [ %.484, %37 ], [ 0, %19 ]
+  %.6 = phi ptr [ %38, %37 ], [ %20, %19 ]
   %43 = getelementptr inbounds i8, ptr %.6, i64 -1
   %44 = load i8, ptr %43, align 1, !tbaa !3
   %45 = zext i8 %44 to i32
@@ -91,9 +91,9 @@ define i32 @DES_cbc_cksum(ptr noundef readonly captures(none) %0, ptr noundef wr
   br label %48
 
 48:                                               ; preds = %42, %19
-  %.290 = phi i32 [ 0, %19 ], [ %47, %42 ]
-  %.686 = phi i32 [ 0, %19 ], [ %.585, %42 ]
-  %.7 = phi ptr [ %20, %19 ], [ %43, %42 ]
+  %.290 = phi i32 [ %47, %42 ], [ 0, %19 ]
+  %.686 = phi i32 [ %.585, %42 ], [ 0, %19 ]
+  %.7 = phi ptr [ %43, %42 ], [ %20, %19 ]
   %49 = getelementptr inbounds i8, ptr %.7, i64 -1
   %50 = load i8, ptr %49, align 1, !tbaa !3
   %51 = zext i8 %50 to i32
@@ -102,9 +102,9 @@ define i32 @DES_cbc_cksum(ptr noundef readonly captures(none) %0, ptr noundef wr
   br label %54
 
 54:                                               ; preds = %19, %48
-  %.391 = phi i32 [ 0, %19 ], [ %53, %48 ]
-  %.787 = phi i32 [ 0, %19 ], [ %.686, %48 ]
-  %.8 = phi ptr [ %20, %19 ], [ %49, %48 ]
+  %.391 = phi i32 [ %53, %48 ], [ 0, %19 ]
+  %.787 = phi i32 [ %.686, %48 ], [ 0, %19 ]
+  %.8 = phi ptr [ %49, %48 ], [ %20, %19 ]
   %55 = getelementptr inbounds i8, ptr %.8, i64 -1
   %56 = load i8, ptr %55, align 1, !tbaa !3
   %57 = zext i8 %56 to i32

@@ -827,7 +827,7 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd3NILItE7computeERKNS_3MatERS3_(ptr 
           to label %_ZN2cv4Mat_ItEC2ERKNS_3MatE.exit unwind label %16
 
 common.resume:                                    ; preds = %26, %35, %45, %42, %32, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %43, %42 ], [ %46, %45 ], [ %36, %35 ], [ %.pn.pn, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %43, %42 ], [ %.pn.pn, %26 ], [ %36, %35 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %11
@@ -973,7 +973,7 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd3NILIfE7computeERKNS_3MatERS3_(ptr 
           to label %_ZN2cv4Mat_ItEC2ERKNS_3MatE.exit unwind label %16
 
 common.resume:                                    ; preds = %26, %35, %45, %42, %32, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %43, %42 ], [ %46, %45 ], [ %36, %35 ], [ %.pn.pn, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %43, %42 ], [ %.pn.pn, %26 ], [ %36, %35 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %11
@@ -1119,7 +1119,7 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd3NILIdE7computeERKNS_3MatERS3_(ptr 
           to label %_ZN2cv4Mat_ItEC2ERKNS_3MatE.exit unwind label %16
 
 common.resume:                                    ; preds = %26, %35, %45, %42, %32, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %43, %42 ], [ %46, %45 ], [ %36, %35 ], [ %.pn.pn, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %43, %42 ], [ %.pn.pn, %26 ], [ %36, %35 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %11

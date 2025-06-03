@@ -5819,9 +5819,9 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$alloc..v
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i": ; preds = %188, %183, %177
-  %.sroa.9.0.i.i = phi i64 [ %.sroa.9.1.copyload.i.i, %188 ], [ %187, %183 ], [ %.val1.i.i.i, %177 ]
-  %.sroa.7.0.i.i = phi ptr [ %.sroa.7.1.copyload.i.i, %188 ], [ %185, %183 ], [ %.val.i.i.i48, %177 ]
-  %.sroa.02.0.i.i = phi i8 [ %175, %188 ], [ 25, %183 ], [ 24, %177 ]
+  %.sroa.9.0.i.i = phi i64 [ %187, %183 ], [ %.sroa.9.1.copyload.i.i, %188 ], [ %.val1.i.i.i, %177 ]
+  %.sroa.7.0.i.i = phi ptr [ %185, %183 ], [ %.sroa.7.1.copyload.i.i, %188 ], [ %.val.i.i.i48, %177 ]
+  %.sroa.02.0.i.i = phi i8 [ 25, %183 ], [ %175, %188 ], [ 24, %177 ]
   store i8 %.sroa.02.0.i.i, ptr %14, align 8, !noalias !1994
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i.i, i64 7, i1 false), !noalias !1994
   store ptr %.sroa.7.0.i.i, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !1994
@@ -6096,7 +6096,7 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$alloc..v
   br label %.body17.i
 
 .body17.i:                                        ; preds = %270, %267, %259
-  %eh.lpad-body18.i = phi { ptr, i32 } [ %271, %270 ], [ %268, %267 ], [ %260, %259 ]
+  %eh.lpad-body18.i = phi { ptr, i32 } [ %271, %270 ], [ %260, %259 ], [ %268, %267 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$base_db..input..Dependency$GT$$GT$17h74b3ab9b3a2e65d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #49
           to label %234 unwind label %272, !noalias !1984
 
@@ -6280,8 +6280,8 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$alloc..v
   br label %.loopexit306
 
 358:                                              ; preds = %269, %258, %249, %.noexc15.i
-  %.sroa.11.0.i = phi i64 [ undef, %249 ], [ %.sroa.11.32.copyload.i, %269 ], [ %.sroa.0.0.i.i, %258 ], [ undef, %.noexc15.i ]
-  %.sroa.7.0.i = phi i8 [ %251, %249 ], [ undef, %269 ], [ undef, %258 ], [ undef, %.noexc15.i ]
+  %.sroa.11.0.i = phi i64 [ undef, %.noexc15.i ], [ %.sroa.0.0.i.i, %258 ], [ %.sroa.11.32.copyload.i, %269 ], [ undef, %249 ]
+  %.sroa.7.0.i = phi i8 [ undef, %.noexc15.i ], [ undef, %258 ], [ undef, %269 ], [ %251, %249 ]
   %359 = getelementptr inbounds nuw i8, ptr %111, i64 204
   %360 = load i8, ptr %359, align 4, !range !689, !alias.scope !1987, !noalias !1984, !noundef !16
   store i32 %161, ptr %56, align 8, !alias.scope !1984, !noalias !1987
@@ -8369,8 +8369,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %80
 
 80:                                               ; preds = %62, %58
-  %.sroa.3.0 = phi i32 [ undef, %62 ], [ %61, %58 ]
-  %.sroa.0.0 = phi i32 [ 0, %62 ], [ 1, %58 ]
+  %.sroa.3.0 = phi i32 [ %61, %58 ], [ undef, %62 ]
+  %.sroa.0.0 = phi i32 [ 1, %58 ], [ 0, %62 ]
   %81 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %82 = insertvalue { i32, i32 } %81, i32 %.sroa.3.0, 1
   ret { i32, i32 } %82
@@ -9147,8 +9147,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %81
 
 81:                                               ; preds = %63, %59
-  %.sroa.3.0 = phi i32 [ undef, %63 ], [ %62, %59 ]
-  %.sroa.0.0 = phi i32 [ 0, %63 ], [ 1, %59 ]
+  %.sroa.3.0 = phi i32 [ %62, %59 ], [ undef, %63 ]
+  %.sroa.0.0 = phi i32 [ 1, %59 ], [ 0, %63 ]
   %82 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %83 = insertvalue { i32, i32 } %82, i32 %.sroa.3.0, 1
   ret { i32, i32 } %83
@@ -10276,8 +10276,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %81
 
 81:                                               ; preds = %63, %59
-  %.sroa.3.0 = phi i32 [ undef, %63 ], [ %62, %59 ]
-  %.sroa.0.0 = phi i32 [ 0, %63 ], [ 1, %59 ]
+  %.sroa.3.0 = phi i32 [ %62, %59 ], [ undef, %63 ]
+  %.sroa.0.0 = phi i32 [ 1, %59 ], [ 0, %63 ]
   %82 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %83 = insertvalue { i32, i32 } %82, i32 %.sroa.3.0, 1
   ret { i32, i32 } %83

@@ -268,7 +268,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %26
   unreachable
 
 46:                                               ; preds = %41, %33, %select.unfold
-  %.0 = phi ptr [ %31, %select.unfold ], [ %42, %41 ], [ %34, %33 ]
+  %.0 = phi ptr [ %31, %select.unfold ], [ %34, %33 ], [ %42, %41 ]
   %.not12 = icmp eq ptr %.0, null
   br i1 %.not12, label %.thread, label %47
 

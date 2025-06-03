@@ -522,7 +522,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
   unreachable
 
 common.resume:                                    ; preds = %111, %.body, %.body.i.i
-  %common.resume.op = phi { ptr, i32 } [ %31, %.body.i.i ], [ %eh.lpad-body, %.body ], [ %112, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %.body.i.i ], [ %112, %111 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h90062e39dff4d34eE.exit.i": ; preds = %.lr.ph.i
@@ -1391,7 +1391,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha82a008e7d158dd4E.exit"
 
 "_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha82a008e7d158dd4E.exit": ; preds = %15, %17, %19, %21, %24, %26, %28, %30, %33, %35, %37, %39, %41, %43, %45, %47, %50, %53, %55
-  %.sroa.0.0.in.i.i = phi i1 [ %56, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %49, %47 ], [ %52, %50 ], [ %54, %53 ], [ %56, %55 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -1986,7 +1986,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hc9213e316b314099E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -4885,7 +4885,7 @@ define noundef zeroext i1 @"_ZN86_$LT$live_kit_server..proto..auto_track_egress.
   br label %25
 
 25:                                               ; preds = %21, %17, %14
-  %.sroa.0.0.in = phi i1 [ %24, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in = phi i1 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ]
   ret i1 %.sroa.0.0.in
 }
 

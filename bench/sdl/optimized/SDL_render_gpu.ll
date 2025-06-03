@@ -1513,7 +1513,7 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   br label %199
 
 199:                                              ; preds = %147, %.thread, %.thread165, %GetDrawCmdColor.exit157, %110, %97, %GetDrawCmdColor.exit, %83
-  %.1 = phi ptr [ %.0113215, %83 ], [ %.0121.lcssa, %.thread165 ], [ %.0113215, %GetDrawCmdColor.exit157 ], [ %.0113215, %110 ], [ %.0113215, %97 ], [ %.0113215, %GetDrawCmdColor.exit ], [ %.0113215, %147 ], [ %.0127.lcssa, %.thread ]
+  %.1 = phi ptr [ %.0113215, %83 ], [ %.0113215, %GetDrawCmdColor.exit ], [ %.0113215, %97 ], [ %.0113215, %110 ], [ %.0113215, %GetDrawCmdColor.exit157 ], [ %.0121.lcssa, %.thread165 ], [ %.0113215, %147 ], [ %.0127.lcssa, %.thread ]
   %200 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %201 = load ptr, ptr %200, align 8
   %.not138 = icmp eq ptr %201, null
@@ -1648,9 +1648,9 @@ TexFormatToPixFormat.exit.thread:                 ; preds = %2
   %32 = select i1 %31, i32 2, i32 1
   br label %34
 
-TexFormatToPixFormat.exit.thread.thread:          ; preds = %23, %22, %21, %20, %19, %18, %17, %16, %11, %11, %11, %11, %TexFormatToPixFormat.exit.thread
-  %.06793 = phi ptr [ %27, %TexFormatToPixFormat.exit.thread ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %16 ], [ %13, %17 ], [ %13, %18 ], [ %13, %19 ], [ %13, %20 ], [ %13, %21 ], [ %13, %22 ], [ %13, %23 ]
-  %.06891 = phi i32 [ %28, %TexFormatToPixFormat.exit.thread ], [ 376840196, %11 ], [ 376840196, %11 ], [ 376840196, %11 ], [ 376840196, %11 ], [ 372645892, %16 ], [ 357896194, %17 ], [ 360976386, %18 ], [ 360845314, %19 ], [ 376905732, %20 ], [ 404766728, %21 ], [ 438321160, %22 ], [ 455114768, %23 ]
+TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, %20, %21, %22, %23, %11, %11, %11, %11, %TexFormatToPixFormat.exit.thread
+  %.06793 = phi ptr [ %27, %TexFormatToPixFormat.exit.thread ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %23 ], [ %13, %22 ], [ %13, %21 ], [ %13, %20 ], [ %13, %19 ], [ %13, %18 ], [ %13, %17 ], [ %13, %16 ]
+  %.06891 = phi i32 [ %28, %TexFormatToPixFormat.exit.thread ], [ 376840196, %11 ], [ 376840196, %11 ], [ 376840196, %11 ], [ 376840196, %11 ], [ 455114768, %23 ], [ 438321160, %22 ], [ 404766728, %21 ], [ 376905732, %20 ], [ 360845314, %19 ], [ 360976386, %18 ], [ 357896194, %17 ], [ 372645892, %16 ]
   %33 = and i32 %.06891, 255
   br label %34
 

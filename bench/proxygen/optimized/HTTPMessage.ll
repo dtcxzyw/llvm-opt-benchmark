@@ -7566,7 +7566,7 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.epilog, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi ptr [ @.str.84, %sw.epilog ], [ @.str.83, %sw.bb45 ], [ @.str.82, %sw.bb44 ], [ @.str.81, %sw.bb43 ], [ @.str.80, %sw.bb42 ], [ @.str.79, %sw.bb41 ], [ @.str.78, %sw.bb40 ], [ @.str.77, %sw.bb39 ], [ @.str.76, %sw.bb38 ], [ @.str.75, %sw.bb37 ], [ @.str.74, %sw.bb36 ], [ @.str.73, %sw.bb35 ], [ @.str.72, %sw.bb34 ], [ @.str.71, %sw.bb33 ], [ @.str.70, %sw.bb32 ], [ @.str.69, %sw.bb31 ], [ @.str.68, %sw.bb30 ], [ @.str.67, %sw.bb29 ], [ @.str.66, %sw.bb28 ], [ @.str.65, %sw.bb27 ], [ @.str.64, %sw.bb26 ], [ @.str.63, %sw.bb25 ], [ @.str.62, %sw.bb24 ], [ @.str.61, %sw.bb23 ], [ @.str.60, %sw.bb22 ], [ @.str.59, %sw.bb21 ], [ @.str.58, %sw.bb20 ], [ @.str.57, %sw.bb19 ], [ @.str.56, %sw.bb18 ], [ @.str.55, %sw.bb17 ], [ @.str.54, %sw.bb16 ], [ @.str.53, %sw.bb15 ], [ @.str.52, %sw.bb14 ], [ @.str.51, %sw.bb13 ], [ @.str.50, %sw.bb12 ], [ @.str.49, %sw.bb11 ], [ @.str.48, %sw.bb10 ], [ @.str.47, %sw.bb9 ], [ @.str.46, %sw.bb8 ], [ @.str.45, %sw.bb7 ], [ @.str.44, %sw.bb6 ], [ @.str.43, %sw.bb5 ], [ @.str.42, %sw.bb4 ], [ @.str.41, %sw.bb3 ], [ @.str.40, %sw.bb2 ], [ @.str.39, %sw.bb1 ], [ @.str.38, %entry ]
+  %retval.0 = phi ptr [ @.str.84, %sw.epilog ], [ @.str.39, %sw.bb1 ], [ @.str.40, %sw.bb2 ], [ @.str.41, %sw.bb3 ], [ @.str.42, %sw.bb4 ], [ @.str.43, %sw.bb5 ], [ @.str.44, %sw.bb6 ], [ @.str.45, %sw.bb7 ], [ @.str.46, %sw.bb8 ], [ @.str.47, %sw.bb9 ], [ @.str.48, %sw.bb10 ], [ @.str.49, %sw.bb11 ], [ @.str.50, %sw.bb12 ], [ @.str.51, %sw.bb13 ], [ @.str.52, %sw.bb14 ], [ @.str.53, %sw.bb15 ], [ @.str.54, %sw.bb16 ], [ @.str.55, %sw.bb17 ], [ @.str.56, %sw.bb18 ], [ @.str.57, %sw.bb19 ], [ @.str.58, %sw.bb20 ], [ @.str.59, %sw.bb21 ], [ @.str.60, %sw.bb22 ], [ @.str.61, %sw.bb23 ], [ @.str.62, %sw.bb24 ], [ @.str.63, %sw.bb25 ], [ @.str.64, %sw.bb26 ], [ @.str.65, %sw.bb27 ], [ @.str.66, %sw.bb28 ], [ @.str.67, %sw.bb29 ], [ @.str.68, %sw.bb30 ], [ @.str.69, %sw.bb31 ], [ @.str.70, %sw.bb32 ], [ @.str.71, %sw.bb33 ], [ @.str.72, %sw.bb34 ], [ @.str.73, %sw.bb35 ], [ @.str.74, %sw.bb36 ], [ @.str.75, %sw.bb37 ], [ @.str.76, %sw.bb38 ], [ @.str.77, %sw.bb39 ], [ @.str.78, %sw.bb40 ], [ @.str.79, %sw.bb41 ], [ @.str.80, %sw.bb42 ], [ @.str.81, %sw.bb43 ], [ @.str.82, %sw.bb44 ], [ @.str.83, %sw.bb45 ], [ @.str.38, %entry ]
   ret ptr %retval.0
 }
 
@@ -14390,8 +14390,8 @@ sw.default.us:                                    ; preds = %while.body.us
   br label %sw.epilog.us
 
 sw.epilog.us:                                     ; preds = %sw.default.us, %if.end19.us, %sw.bb24.us
-  %last.1.us = phi ptr [ %last.038.us, %sw.default.us ], [ %incdec.ptr.us, %sw.bb24.us ], [ %add.ptr.us, %if.end19.us ]
-  %p.1.us = phi ptr [ %incdec.ptr32.us, %sw.default.us ], [ %incdec.ptr.us, %sw.bb24.us ], [ %add.ptr.us, %if.end19.us ]
+  %last.1.us = phi ptr [ %last.038.us, %sw.default.us ], [ %add.ptr.us, %if.end19.us ], [ %incdec.ptr.us, %sw.bb24.us ]
+  %p.1.us = phi ptr [ %incdec.ptr32.us, %sw.default.us ], [ %add.ptr.us, %if.end19.us ], [ %incdec.ptr.us, %sw.bb24.us ]
   %cmp.not.us = icmp eq ptr %p.1.us, %str.coerce1
   br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !182
 

@@ -1711,7 +1711,7 @@ define i32 @cli_ac_chklsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %.critedge228
 
 152:                                              ; preds = %148, %144
-  %.1170.in = phi i1 [ %150, %148 ], [ %147, %144 ]
+  %.1170.in = phi i1 [ %147, %144 ], [ %150, %148 ]
   %.not218 = icmp eq i8 %.1262376387, 0
   br i1 %.not218, label %153, label %165
 
@@ -6139,11 +6139,11 @@ define internal fastcc range(i32 -2147483648, 2) i32 @ac_forward_match_branch(pt
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.85, i32 noundef %63) #19
   br label %.loopexit
 
-select.unfold:                                    ; preds = %55, %48, %30, %25, %44, %.lr.ph
-  %64 = phi i16 [ %19, %.lr.ph ], [ %.pre, %44 ], [ %19, %25 ], [ %19, %30 ], [ %19, %48 ], [ %19, %55 ]
-  %.1145.ph = phi i32 [ %.0144245, %.lr.ph ], [ %42, %44 ], [ %.0144245, %25 ], [ %.0144245, %30 ], [ %.0144245, %48 ], [ %.0144245, %55 ]
-  %.1141.ph = phi i16 [ %.0140246, %.lr.ph ], [ %47, %44 ], [ %.0140246, %25 ], [ %.0140246, %30 ], [ %.0140246, %48 ], [ %.0140246, %55 ]
-  %.1.ph = phi i32 [ %.0139247, %.lr.ph ], [ %46, %44 ], [ %.0139247, %25 ], [ %.0139247, %30 ], [ %.0139247, %48 ], [ %.0139247, %55 ]
+select.unfold:                                    ; preds = %55, %48, %30, %25, %.lr.ph, %44
+  %64 = phi i16 [ %.pre, %44 ], [ %19, %.lr.ph ], [ %19, %25 ], [ %19, %30 ], [ %19, %48 ], [ %19, %55 ]
+  %.1145.ph = phi i32 [ %42, %44 ], [ %.0144245, %.lr.ph ], [ %.0144245, %25 ], [ %.0144245, %30 ], [ %.0144245, %48 ], [ %.0144245, %55 ]
+  %.1141.ph = phi i16 [ %47, %44 ], [ %.0140246, %.lr.ph ], [ %.0140246, %25 ], [ %.0140246, %30 ], [ %.0140246, %48 ], [ %.0140246, %55 ]
+  %.1.ph = phi i32 [ %46, %44 ], [ %.0139247, %.lr.ph ], [ %.0139247, %25 ], [ %.0139247, %30 ], [ %.0139247, %48 ], [ %.0139247, %55 ]
   %65 = add i32 %.1.ph, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -6781,7 +6781,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @ac_findmatch_special(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %134, %.backedge, %.backedge.us, %67, %38, %.preheader163, %52, %.preheader, %170, %36, %44, %47, %65, %124, %145, %148, %153, %143, %159, %155, %168, %161, %142
-  %.0 = phi i32 [ 0, %170 ], [ %22, %161 ], [ %169, %168 ], [ %160, %159 ], [ %22, %155 ], [ %144, %143 ], [ %154, %153 ], [ %22, %148 ], [ %22, %145 ], [ %125, %124 ], [ %22, %47 ], [ %66, %65 ], [ %22, %44 ], [ %37, %36 ], [ %22, %142 ], [ %22, %.preheader ], [ %53, %52 ], [ %22, %.preheader163 ], [ %22, %38 ], [ %53, %67 ], [ %.1.ph190, %.backedge.us ], [ %.1.ph190, %.backedge ], [ 0, %.outer ], [ -1, %134 ]
+  %.0 = phi i32 [ 0, %170 ], [ %37, %36 ], [ %22, %47 ], [ %66, %65 ], [ %22, %44 ], [ %125, %124 ], [ %144, %143 ], [ %154, %153 ], [ %22, %148 ], [ %22, %145 ], [ %160, %159 ], [ %22, %155 ], [ %22, %161 ], [ %169, %168 ], [ %22, %142 ], [ %22, %.preheader ], [ %53, %52 ], [ %22, %.preheader163 ], [ %22, %38 ], [ %53, %67 ], [ %.1.ph190, %.backedge.us ], [ %.1.ph190, %.backedge ], [ 0, %.outer ], [ -1, %134 ]
   ret i32 %.0
 }
 
@@ -6880,10 +6880,10 @@ define internal fastcc range(i32 -1, 2) i32 @ac_backward_match_branch(ptr nounde
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.85, i32 noundef %63) #19
   br label %.loopexit
 
-select.unfold:                                    ; preds = %55, %48, %29, %24, %44, %19
-  %.1141.ph = phi i32 [ %.0140, %19 ], [ %42, %44 ], [ %.0140, %24 ], [ %.0140, %29 ], [ %.0140, %48 ], [ %.0140, %55 ]
-  %.1136.ph = phi i16 [ %.0135, %19 ], [ %47, %44 ], [ %.0135, %24 ], [ %.0135, %29 ], [ %.0135, %48 ], [ %.0135, %55 ]
-  %.1.ph = phi i32 [ %.0134, %19 ], [ %46, %44 ], [ %.0134, %24 ], [ %.0134, %29 ], [ %.0134, %48 ], [ %.0134, %55 ]
+select.unfold:                                    ; preds = %55, %48, %29, %24, %19, %44
+  %.1141.ph = phi i32 [ %42, %44 ], [ %.0140, %19 ], [ %.0140, %24 ], [ %.0140, %29 ], [ %.0140, %48 ], [ %.0140, %55 ]
+  %.1136.ph = phi i16 [ %47, %44 ], [ %.0135, %19 ], [ %.0135, %24 ], [ %.0135, %29 ], [ %.0135, %48 ], [ %.0135, %55 ]
+  %.1.ph = phi i32 [ %46, %44 ], [ %.0134, %19 ], [ %.0134, %24 ], [ %.0134, %29 ], [ %.0134, %48 ], [ %.0134, %55 ]
   %64 = icmp eq i64 %indvars.iv, 0
   %65 = icmp eq i32 %.1.ph, 0
   %or.cond = select i1 %64, i1 true, i1 %65
@@ -7412,9 +7412,9 @@ find_paren_end.exit147:                           ; preds = %71
   br label %.outer
 
 .outer:                                           ; preds = %.outer.preheader, %.outer.backedge
-  %.4196.lcssa240.sink.sink = phi ptr [ %.4196, %.outer.backedge ], [ %77, %.outer.preheader ]
+  %.4196.lcssa239.sink.sink = phi ptr [ %.4196, %.outer.backedge ], [ %77, %.outer.preheader ]
   %.088195.ph = phi i32 [ %80, %.outer.backedge ], [ 0, %.outer.preheader ]
-  %.4226 = getelementptr inbounds nuw i8, ptr %.4196.lcssa240.sink.sink, i64 1
+  %.4226 = getelementptr inbounds nuw i8, ptr %.4196.lcssa239.sink.sink, i64 1
   %.not124.not = icmp eq i32 %.088195.ph, 0
   br label %.backedge
 
@@ -7424,8 +7424,8 @@ find_paren_end.exit147:                           ; preds = %71
   switch i8 %78, label %81 [
     i8 0, label %.sink.split
     i8 124, label %79
-    i8 40, label %.outer.backedge
-    i8 41, label %.outer.backedge.loopexit280
+    i8 40, label %.outer.backedge.loopexit280
+    i8 41, label %.outer.backedge
   ]
 
 79:                                               ; preds = %.backedge
@@ -7440,7 +7440,7 @@ find_paren_end.exit147:                           ; preds = %71
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.backedge, %.outer.backedge.loopexit280
-  %.sink = phi i32 [ -1, %.outer.backedge.loopexit280 ], [ 1, %.backedge ]
+  %.sink = phi i32 [ 1, %.outer.backedge.loopexit280 ], [ -1, %.backedge ]
   %80 = add nsw i32 %.088195.ph, %.sink
   br label %.outer
 
@@ -7734,12 +7734,12 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   br i1 %110, label %select.unfold.i, label %.thread.i
 
 select.unfold.i:                                  ; preds = %114, %112, %105, %97, %89, %83, %75, %67
-  %.1.i = phi i16 [ %84, %83 ], [ %76, %75 ], [ %68, %67 ], [ %106, %105 ], [ %98, %97 ], [ %90, %89 ], [ %113, %112 ], [ %115, %114 ]
+  %.1.i = phi i16 [ %68, %67 ], [ %76, %75 ], [ %84, %83 ], [ %90, %89 ], [ %98, %97 ], [ %106, %105 ], [ %113, %112 ], [ %115, %114 ]
   %116 = icmp eq i16 %.1.i, 3
   br i1 %116, label %ac_uicmp.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %select.unfold.i, %114, %60, %57, %54, %52
-  %.1116.i = phi i16 [ %.1.i, %select.unfold.i ], [ %.094161.i, %60 ], [ %.094161.i, %57 ], [ %.094161.i, %52 ], [ %.094161.i, %54 ], [ %.094161.i, %114 ]
+  %.1116.i = phi i16 [ %.1.i, %select.unfold.i ], [ %.094161.i, %54 ], [ %.094161.i, %52 ], [ %.094161.i, %57 ], [ %.094161.i, %60 ], [ %.094161.i, %114 ]
   %117 = add nuw nsw i64 %.093162.i, 1
   %exitcond.not.i = icmp eq i64 %117, %42
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
@@ -7749,7 +7749,7 @@ select.unfold.i:                                  ; preds = %114, %112, %105, %9
   br label %ac_uicmp.exit.thread84
 
 ac_uicmp.exit:                                    ; preds = %72, %80, %94, %102
-  %.0.i = phi i32 [ %82, %80 ], [ %74, %72 ], [ %104, %102 ], [ %96, %94 ]
+  %.0.i = phi i32 [ %74, %72 ], [ %82, %80 ], [ %96, %94 ], [ %104, %102 ]
   %119 = icmp eq i32 %.0.i, 0
   br i1 %119, label %ac_uicmp.exit.thread84, label %ac_uicmp.exit.thread
 

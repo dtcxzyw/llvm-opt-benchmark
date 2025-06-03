@@ -887,7 +887,7 @@ dsm_impl_mmap.exit:                               ; preds = %340, %342, %329, %e
   unreachable
 
 349:                                              ; preds = %dsm_impl_mmap.exit, %dsm_impl_sysv.exit, %dsm_impl_posix.exit
-  %.0 = phi i1 [ %.0.i31, %dsm_impl_mmap.exit ], [ %.0.i23, %dsm_impl_sysv.exit ], [ %.0.i, %dsm_impl_posix.exit ]
+  %.0 = phi i1 [ %.0.i, %dsm_impl_posix.exit ], [ %.0.i23, %dsm_impl_sysv.exit ], [ %.0.i31, %dsm_impl_mmap.exit ]
   ret i1 %.0
 }
 

@@ -1426,8 +1426,8 @@ define i32 @SetKeysSide(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %8, %6, %4
-  %.026 = phi ptr [ %9, %8 ], [ null, %6 ], [ %5, %4 ]
-  %.025 = phi ptr [ %10, %8 ], [ %7, %6 ], [ null, %4 ]
+  %.026 = phi ptr [ %5, %4 ], [ null, %6 ], [ %9, %8 ]
+  %.025 = phi ptr [ null, %4 ], [ %7, %6 ], [ %10, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %14 = load i8, ptr %13, align 8, !tbaa !67

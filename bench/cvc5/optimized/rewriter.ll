@@ -663,7 +663,7 @@ define hidden void @_ZN4cvc58internal6theory8Rewriter18getPreRewriteCacheENS1_8T
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   unreachable
 
-55:                                               ; preds = %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46
+55:                                               ; preds = %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20
   ret void
 }
 
@@ -4771,7 +4771,7 @@ define hidden void @_ZN4cvc58internal6theory8Rewriter19getPostRewriteCacheENS1_8
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   unreachable
 
-55:                                               ; preds = %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46
+55:                                               ; preds = %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20
   ret void
 }
 
@@ -8903,7 +8903,7 @@ define hidden void @_ZN4cvc58internal6theory8Rewriter18setPreRewriteCacheENS1_8T
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   unreachable
 
-83:                                               ; preds = %34, %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %70, %73
+83:                                               ; preds = %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34
   ret void
 }
 
@@ -11537,7 +11537,7 @@ define hidden void @_ZN4cvc58internal6theory8Rewriter19setPostRewriteCacheENS1_8
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   unreachable
 
-83:                                               ; preds = %34, %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %70, %73
+83:                                               ; preds = %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34
   ret void
 }
 

@@ -5195,8 +5195,8 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11string_pathINSt7__cxx
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge._crit_edge.i.i.i
-  %48 = phi i8 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %43, %45 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %46, %45 ]
+  %48 = phi i8 [ %43, %45 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %49 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !27
   %50 = icmp eq i8 %49, %48
   br i1 %50, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit, label %51
@@ -5206,8 +5206,8 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11string_pathINSt7__cxx
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge57.i.i.i
-  %54 = phi i8 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %48, %51 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %52, %51 ]
+  %54 = phi i8 [ %48, %51 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %55 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !27
   %56 = icmp eq i8 %55, %54
   %spec.select.i.i.i = select i1 %56, ptr %.sroa.032.2.i.i.i, ptr %12
@@ -5574,8 +5574,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge.i.i.i.i
-  %49 = phi i8 [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %44, %46 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %49 = phi i8 [ %44, %46 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %50 = load i8, ptr %.sroa.032.1.i.i.i.i, align 1, !tbaa !27
   %51 = icmp eq i8 %50, %49
   br i1 %51, label %_ZNK5boost13property_tree11string_pathINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13id_translatorIS7_EEE6singleEv.exit, label %52
@@ -5585,8 +5585,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge._crit_edge57.i.i.i.i
-  %55 = phi i8 [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %49, %52 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %53, %52 ]
+  %55 = phi i8 [ %49, %52 ], [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %53, %52 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %56 = load i8, ptr %.sroa.032.2.i.i.i.i, align 1, !tbaa !27
   %57 = icmp eq i8 %56, %55
   %spec.select.i.i.i.i = select i1 %57, ptr %.sroa.032.2.i.i.i.i, ptr %13
@@ -13210,8 +13210,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge.i.i.i.i
-  %49 = phi i8 [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %44, %46 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %49 = phi i8 [ %44, %46 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %50 = load i8, ptr %.sroa.032.1.i.i.i.i, align 1, !tbaa !27
   %51 = icmp eq i8 %50, %49
   br i1 %51, label %_ZNK5boost13property_tree11string_pathINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13id_translatorIS7_EEE6singleEv.exit, label %52
@@ -13221,8 +13221,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge._crit_edge57.i.i.i.i
-  %55 = phi i8 [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %49, %52 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %53, %52 ]
+  %55 = phi i8 [ %49, %52 ], [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %53, %52 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %56 = load i8, ptr %.sroa.032.2.i.i.i.i, align 1, !tbaa !27
   %57 = icmp eq i8 %56, %55
   %spec.select.i.i.i.i = select i1 %57, ptr %.sroa.032.2.i.i.i.i, ptr %13

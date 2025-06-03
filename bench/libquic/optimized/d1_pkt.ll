@@ -151,8 +151,8 @@ dtls1_get_record.exit:                            ; preds = %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %73
 
-.loopexit:                                        ; preds = %35, %64, %60, %57
-  %.3.i.ph = phi i32 [ -1, %57 ], [ -1, %60 ], [ -1, %64 ], [ %36, %35 ]
+.loopexit:                                        ; preds = %35, %64, %57, %60
+  %.3.i.ph = phi i32 [ -1, %60 ], [ -1, %57 ], [ -1, %64 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -600,7 +600,7 @@ define internal fastcc i32 @do_dtls1_write(ptr noundef %0, i32 noundef %1, ptr n
   br label %39
 
 39:                                               ; preds = %12, %22, %38, %21
-  %.1 = phi i32 [ %17, %12 ], [ -1, %21 ], [ %.2, %38 ], [ 0, %22 ]
+  %.1 = phi i32 [ -1, %21 ], [ %.2, %38 ], [ %17, %12 ], [ 0, %22 ]
   ret i32 %.1
 }
 

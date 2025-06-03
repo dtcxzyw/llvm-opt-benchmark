@@ -1186,46 +1186,46 @@ define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6copie
   %13 = icmp ult i64 %12, 6
   %14 = select i1 %13, i64 %12, i64 3
   switch i64 %14, label %15 [
-    i64 0, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i
+    i64 0, label %16
     i64 1, label %.backedge.i
     i64 2, label %.backedge.i
-    i64 3, label %16
+    i64 3, label %23
     i64 4, label %.backedge.i
-    i64 5, label %18
+    i64 5, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i
   ]
 
 15:                                               ; preds = %8
   unreachable
 
 16:                                               ; preds = %8
-  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionNtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i), !noalias !171
-  br i1 %17, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit, label %.backedge.i
+  %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  %18 = load ptr, ptr %17, align 8, !alias.scope !189, !noalias !171, !nonnull !7, !noundef !7
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !189, !noalias !171, !noundef !7
+  %21 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %18, i64 %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !190
+  store ptr %18, ptr %3, align 8, !noalias !190
+  store ptr %21, ptr %6, align 8, !noalias !190
+  %22 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1Z_8adapters3map12map_try_foldRBJ_NtNtB1j_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1j_RNtB1j_11AlternativeNtB3s_9UnitDepth10unit_depth0NCIB2L_B3q_B3q_uB3V_NvYB3q_B58_10unit_depthNCINvNvB1T_3any5checkB3q_NCNvXs2_B3s_INtB2N_3MapB3_B4C_ENtB3s_14CompositeDepth15composite_depth0E0E0E0B3V_EB1l_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !190
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !190
+  br i1 %22, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit, label %.backedge.i
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %20 = load i8, ptr %19, align 8, !range !190, !alias.scope !191, !noalias !171, !noundef !7
-  %21 = icmp eq i8 %20, 2
-  br i1 %21, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit, label %.backedge.i
+23:                                               ; preds = %8
+  %24 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionNtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i), !noalias !171
+  br i1 %24, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit, label %.backedge.i
 
 _RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i: ; preds = %8
-  %22 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %23 = load ptr, ptr %22, align 8, !alias.scope !189, !noalias !171, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %25 = load i64, ptr %24, align 8, !alias.scope !189, !noalias !171, !noundef !7
-  %26 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %23, i64 %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !194
-  store ptr %23, ptr %3, align 8, !noalias !194
-  store ptr %26, ptr %6, align 8, !noalias !194
-  %27 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1Z_8adapters3map12map_try_foldRBJ_NtNtB1j_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1j_RNtB1j_11AlternativeNtB3s_9UnitDepth10unit_depth0NCIB2L_B3q_B3q_uB3V_NvYB3q_B58_10unit_depthNCINvNvB1T_3any5checkB3q_NCNvXs2_B3s_INtB2N_3MapB3_B4C_ENtB3s_14CompositeDepth15composite_depth0E0E0E0B3V_EB1l_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !194
+  %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %26 = load i8, ptr %25, align 8, !range !191, !alias.scope !192, !noalias !171, !noundef !7
+  %27 = icmp eq i8 %26, 2
   br i1 %27, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit, label %.backedge.i
 
-.backedge.i:                                      ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i, %18, %16, %8, %8, %8
+.backedge.i:                                      ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i, %23, %16, %8, %8, %8
   %.not10.i = icmp eq ptr %10, %5
   br i1 %.not10.i, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit, label %8
 
-_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit: ; preds = %16, %18, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i, %.backedge.i, %2
-  %.lcssa.i = phi i1 [ false, %2 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i ], [ false, %.backedge.i ], [ true, %18 ], [ true, %16 ]
+_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2i_3map12map_try_foldBJ_NtNtBN_8variance11BoundednessuB2X_NvYBJ_NtB4c_9UnitDepth10unit_depthNCINvNvB1m_3any5checkB4a_NCNvXs2_B4c_INtB2g_6CopiedB3_ENtB4c_14CompositeDepth15composite_depth0E0E0E0B2X_EBP_.llvm.15969390215716056838.exit: ; preds = %16, %23, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i, %.backedge.i, %2
+  %.lcssa.i = phi i1 [ false, %2 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i ], [ false, %.backedge.i ], [ true, %16 ], [ true, %23 ]
   ret i1 %.lcssa.i
 }
 
@@ -1331,46 +1331,46 @@ define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6copie
   %13 = icmp ult i64 %12, 6
   %14 = select i1 %13, i64 %12, i64 3
   switch i64 %14, label %15 [
-    i64 0, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i
+    i64 0, label %16
     i64 1, label %.backedge.i
     i64 2, label %.backedge.i
-    i64 3, label %16
+    i64 3, label %23
     i64 4, label %.backedge.i
-    i64 5, label %18
+    i64 5, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i
   ]
 
 15:                                               ; preds = %8
   unreachable
 
 16:                                               ; preds = %8
-  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val.i), !noalias !210
-  br i1 %17, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit, label %.backedge.i
+  %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  %18 = load ptr, ptr %17, align 8, !alias.scope !228, !noalias !210, !nonnull !7, !noundef !7
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !228, !noalias !210, !noundef !7
+  %21 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %18, i64 %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !229
+  store ptr %18, ptr %3, align 8, !noalias !229
+  store ptr %21, ptr %6, align 8, !noalias !229
+  %22 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1W_8adapters3map12map_try_foldRBJ_NtNtB1i_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1i_RINtB1i_11AlternativeTjjEENtB3p_9UnitDepth10unit_depth0NCIB2I_B3n_B3n_uB3S_NvYB3n_B5b_10unit_depthNCINvNvB1Q_3any5checkB3n_NCNvXs2_B3p_INtB2K_3MapB3_B4z_ENtB3p_14CompositeDepth15composite_depth0E0E0E0B3S_EB1k_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !229
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !229
+  br i1 %22, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit, label %.backedge.i
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %20 = load i8, ptr %19, align 8, !range !190, !alias.scope !229, !noalias !210, !noundef !7
-  %21 = icmp eq i8 %20, 2
-  br i1 %21, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit, label %.backedge.i
+23:                                               ; preds = %8
+  %24 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val.i), !noalias !210
+  br i1 %24, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit, label %.backedge.i
 
 _RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i: ; preds = %8
-  %22 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %23 = load ptr, ptr %22, align 8, !alias.scope !228, !noalias !210, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %25 = load i64, ptr %24, align 8, !alias.scope !228, !noalias !210, !noundef !7
-  %26 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %23, i64 %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !232
-  store ptr %23, ptr %3, align 8, !noalias !232
-  store ptr %26, ptr %6, align 8, !noalias !232
-  %27 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1W_8adapters3map12map_try_foldRBJ_NtNtB1i_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1i_RINtB1i_11AlternativeTjjEENtB3p_9UnitDepth10unit_depth0NCIB2I_B3n_B3n_uB3S_NvYB3n_B5b_10unit_depthNCINvNvB1Q_3any5checkB3n_NCNvXs2_B3p_INtB2K_3MapB3_B4z_ENtB3p_14CompositeDepth15composite_depth0E0E0E0B3S_EB1k_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !232
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !232
+  %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %26 = load i8, ptr %25, align 8, !range !191, !alias.scope !230, !noalias !210, !noundef !7
+  %27 = icmp eq i8 %26, 2
   br i1 %27, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit, label %.backedge.i
 
-.backedge.i:                                      ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i, %18, %16, %8, %8, %8
+.backedge.i:                                      ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i, %23, %16, %8, %8, %8
   %.not10.i = icmp eq ptr %10, %5
   br i1 %.not10.i, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit, label %8
 
-_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit: ; preds = %16, %18, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i, %.backedge.i, %2
-  %.lcssa.i = phi i1 [ false, %2 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i ], [ false, %.backedge.i ], [ true, %18 ], [ true, %16 ]
+_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit: ; preds = %16, %23, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i, %.backedge.i, %2
+  %.lcssa.i = phi i1 [ false, %2 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i ], [ false, %.backedge.i ], [ true, %16 ], [ true, %23 ]
   ret i1 %.lcssa.i
 }
 
@@ -1588,7 +1588,7 @@ define hidden noundef zeroext i1 @_RINvYINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEN
 
 _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_22has_component_boundary0E0B1g_.llvm.15969390215716056838.exit: ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 8
-  %7 = load i8, ptr %6, align 8, !range !190, !noalias !312, !noundef !7
+  %7 = load i8, ptr %6, align 8, !range !191, !noalias !312, !noundef !7
   %.not = icmp eq i8 %7, 2
   br i1 %.not, label %._crit_edge, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_22has_component_boundary0E0B1g_.llvm.15969390215716056838.exit.thread
 
@@ -1691,7 +1691,7 @@ _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtN
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %26 = load i8, ptr %25, align 8, !range !190, !noalias !338, !noundef !7
+  %26 = load i8, ptr %25, align 8, !range !191, !noalias !338, !noundef !7
   %27 = icmp eq i8 %26, 2
   br i1 %27, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_8has_root0E0B1g_.llvm.15969390215716056838.exit, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_8has_root0E0B1g_.llvm.15969390215716056838.exit.thread.backedge
 
@@ -1734,46 +1734,46 @@ define hidden noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4It
   %13 = icmp ult i64 %12, 6
   %14 = select i1 %13, i64 %12, i64 3
   switch i64 %14, label %15 [
-    i64 0, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit
+    i64 0, label %16
     i64 1, label %.backedge
     i64 2, label %.backedge
-    i64 3, label %16
+    i64 3, label %23
     i64 4, label %.backedge
-    i64 5, label %18
+    i64 5, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit
   ]
 
 15:                                               ; preds = %8
   unreachable
 
 16:                                               ; preds = %8
-  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionNtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val)
-  br i1 %17, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit, label %.backedge
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %18 = load ptr, ptr %17, align 8, !alias.scope !359, !nonnull !7, !noundef !7
+  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !359, !noundef !7
+  %21 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %18, i64 %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !359
+  store ptr %18, ptr %3, align 8, !noalias !359
+  store ptr %21, ptr %6, align 8, !noalias !359
+  %22 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1Z_8adapters3map12map_try_foldRBJ_NtNtB1j_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1j_RNtB1j_11AlternativeNtB3s_9UnitDepth10unit_depth0NCIB2L_B3q_B3q_uB3V_NvYB3q_B58_10unit_depthNCINvNvB1T_3any5checkB3q_NCNvXs2_B3s_INtB2N_3MapB3_B4C_ENtB3s_14CompositeDepth15composite_depth0E0E0E0B3V_EB1l_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !359
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !359
+  br i1 %22, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit, label %.backedge
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %20 = load i8, ptr %19, align 8, !range !190, !alias.scope !360, !noundef !7
-  %21 = icmp eq i8 %20, 2
-  br i1 %21, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit, label %.backedge
+23:                                               ; preds = %8
+  %24 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionNtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val)
+  br i1 %24, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit, label %.backedge
 
 _RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit: ; preds = %8
-  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %23 = load ptr, ptr %22, align 8, !alias.scope !359, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %25 = load i64, ptr %24, align 8, !alias.scope !359, !noundef !7
-  %26 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %23, i64 %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !359
-  store ptr %23, ptr %3, align 8, !noalias !359
-  store ptr %26, ptr %6, align 8, !noalias !359
-  %27 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1Z_8adapters3map12map_try_foldRBJ_NtNtB1j_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1j_RNtB1j_11AlternativeNtB3s_9UnitDepth10unit_depth0NCIB2L_B3q_B3q_uB3V_NvYB3q_B58_10unit_depthNCINvNvB1T_3any5checkB3q_NCNvXs2_B3s_INtB2N_3MapB3_B4C_ENtB3s_14CompositeDepth15composite_depth0E0E0E0B3V_EB1l_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !359
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !359
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %26 = load i8, ptr %25, align 8, !range !191, !alias.scope !360, !noundef !7
+  %27 = icmp eq i8 %26, 2
   br i1 %27, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit, label %.backedge
 
-.backedge:                                        ; preds = %16, %18, %8, %8, %8, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit
+.backedge:                                        ; preds = %23, %16, %8, %8, %8, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit
   %.not10 = icmp eq ptr %10, %5
   br i1 %.not10, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit, label %8
 
-_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit: ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit, %.backedge, %18, %16, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %16 ], [ true, %18 ], [ false, %.backedge ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit ]
+_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838.exit: ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit, %.backedge, %16, %23, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %23 ], [ true, %16 ], [ false, %.backedge ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit ]
   ret i1 %.lcssa
 }
 
@@ -1805,46 +1805,46 @@ define hidden noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4It
   %13 = icmp ult i64 %12, 6
   %14 = select i1 %13, i64 %12, i64 3
   switch i64 %14, label %15 [
-    i64 0, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit
+    i64 0, label %16
     i64 1, label %.backedge
     i64 2, label %.backedge
-    i64 3, label %16
+    i64 3, label %23
     i64 4, label %.backedge
-    i64 5, label %18
+    i64 5, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit
   ]
 
 15:                                               ; preds = %8
   unreachable
 
 16:                                               ; preds = %8
-  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val)
-  br i1 %17, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit, label %.backedge
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %18 = load ptr, ptr %17, align 8, !alias.scope !378, !nonnull !7, !noundef !7
+  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !378, !noundef !7
+  %21 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %18, i64 %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !378
+  store ptr %18, ptr %3, align 8, !noalias !378
+  store ptr %21, ptr %6, align 8, !noalias !378
+  %22 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1W_8adapters3map12map_try_foldRBJ_NtNtB1i_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1i_RINtB1i_11AlternativeTjjEENtB3p_9UnitDepth10unit_depth0NCIB2I_B3n_B3n_uB3S_NvYB3n_B5b_10unit_depthNCINvNvB1Q_3any5checkB3n_NCNvXs2_B3p_INtB2K_3MapB3_B4z_ENtB3p_14CompositeDepth15composite_depth0E0E0E0B3S_EB1k_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !378
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !378
+  br i1 %22, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit, label %.backedge
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %20 = load i8, ptr %19, align 8, !range !190, !alias.scope !379, !noundef !7
-  %21 = icmp eq i8 %20, 2
-  br i1 %21, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit, label %.backedge
+23:                                               ; preds = %8
+  %24 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val)
+  br i1 %24, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit, label %.backedge
 
 _RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit: ; preds = %8
-  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %23 = load ptr, ptr %22, align 8, !alias.scope !378, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %25 = load i64, ptr %24, align 8, !alias.scope !378, !noundef !7
-  %26 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %23, i64 %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !378
-  store ptr %23, ptr %3, align 8, !noalias !378
-  store ptr %26, ptr %6, align 8, !noalias !378
-  %27 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1W_8adapters3map12map_try_foldRBJ_NtNtB1i_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1i_RINtB1i_11AlternativeTjjEENtB3p_9UnitDepth10unit_depth0NCIB2I_B3n_B3n_uB3S_NvYB3n_B5b_10unit_depthNCINvNvB1Q_3any5checkB3n_NCNvXs2_B3p_INtB2K_3MapB3_B4z_ENtB3p_14CompositeDepth15composite_depth0E0E0E0B3S_EB1k_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull align 1 %7), !noalias !378
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !378
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %26 = load i8, ptr %25, align 8, !range !191, !alias.scope !379, !noundef !7
+  %27 = icmp eq i8 %26, 2
   br i1 %27, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit, label %.backedge
 
-.backedge:                                        ; preds = %16, %18, %8, %8, %8, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit
+.backedge:                                        ; preds = %23, %16, %8, %8, %8, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit
   %.not10 = icmp eq ptr %10, %5
   br i1 %.not10, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit, label %8
 
-_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit: ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit, %.backedge, %18, %16, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %16 ], [ true, %18 ], [ false, %.backedge ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit ]
+_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit: ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit, %.backedge, %16, %23, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %23 ], [ true, %16 ], [ false, %.backedge ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit ]
   ret i1 %.lcssa
 }
 
@@ -2079,12 +2079,12 @@ define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6trai
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  %7 = load i8, ptr %6, align 8, !range !190, !noalias !438, !noundef !7
+  %7 = load i8, ptr %6, align 8, !range !191, !noalias !438, !noundef !7
   %8 = icmp eq i8 %7, 2
   br label %_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token22has_component_boundary0B9_.llvm.15969390215716056838.exit
 
 _RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token22has_component_boundary0B9_.llvm.15969390215716056838.exit: ; preds = %2, %4, %5
-  %.sroa.0.0.i = phi i1 [ %8, %5 ], [ true, %4 ], [ false, %2 ]
+  %.sroa.0.0.i = phi i1 [ true, %4 ], [ %8, %5 ], [ false, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2103,7 +2103,7 @@ define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6trai
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  %7 = load i8, ptr %6, align 8, !range !190, !noalias !441, !noundef !7
+  %7 = load i8, ptr %6, align 8, !range !191, !noalias !441, !noundef !7
   %8 = icmp eq i8 %7, 2
   br i1 %8, label %9, label %_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token8has_root0B9_.llvm.15969390215716056838.exit
 
@@ -2114,7 +2114,7 @@ define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6trai
   br label %_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token8has_root0B9_.llvm.15969390215716056838.exit
 
 _RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token8has_root0B9_.llvm.15969390215716056838.exit: ; preds = %2, %4, %5, %9
-  %.sroa.0.0.i = phi i1 [ %12, %9 ], [ true, %4 ], [ false, %5 ], [ false, %2 ]
+  %.sroa.0.0.i = phi i1 [ true, %4 ], [ %12, %9 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2731,12 +2731,12 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noalias !567, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noalias !567, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBX_5slice4iter4IterNtB8_5TokenEEE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBX_5slice4iter4IterNtB8_5TokenEEE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2755,12 +2755,12 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noalias !570, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noalias !570, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecNtB8_5TokenEE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecNtB8_5TokenEE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2779,12 +2779,12 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noalias !573, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noalias !573, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERSNtB8_5TokenE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERSNtB8_5TokenE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2803,12 +2803,12 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noalias !576, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noalias !576, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsuINtNtCs1LoaDTb72WA_4core6option6OptionRINtB8_5TokenuEEE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsuINtNtCs1LoaDTb72WA_4core6option6OptionRINtB8_5TokenuEEE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -3943,46 +3943,46 @@ define noundef zeroext i1 @_RNvXs2_NtNtCseG2FYMysgNb_3wax5token8varianceINtNtNtN
   %12 = icmp ult i64 %11, 6
   %13 = select i1 %12, i64 %11, i64 3
   switch i64 %13, label %14 [
-    i64 0, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i
+    i64 0, label %15
     i64 1, label %.backedge.i.i
     i64 2, label %.backedge.i.i
-    i64 3, label %15
+    i64 3, label %22
     i64 4, label %.backedge.i.i
-    i64 5, label %17
+    i64 5, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i
   ]
 
 14:                                               ; preds = %7
   unreachable
 
 15:                                               ; preds = %7
-  %16 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionNtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i), !noalias !848
-  br i1 %16, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
+  %17 = load ptr, ptr %16, align 8, !alias.scope !865, !noalias !848, !nonnull !7, !noundef !7
+  %18 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
+  %19 = load i64, ptr %18, align 8, !alias.scope !865, !noalias !848, !noundef !7
+  %20 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %17, i64 %19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !866
+  store ptr %17, ptr %3, align 8, !noalias !866
+  store ptr %20, ptr %5, align 8, !noalias !866
+  %21 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1Z_8adapters3map12map_try_foldRBJ_NtNtB1j_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1j_RNtB1j_11AlternativeNtB3s_9UnitDepth10unit_depth0NCIB2L_B3q_B3q_uB3V_NvYB3q_B58_10unit_depthNCINvNvB1T_3any5checkB3q_NCNvXs2_B3s_INtB2N_3MapB3_B4C_ENtB3s_14CompositeDepth15composite_depth0E0E0E0B3V_EB1l_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %6, ptr noalias noundef nonnull align 1 %6), !noalias !866
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !866
+  br i1 %21, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %19 = load i8, ptr %18, align 8, !range !190, !alias.scope !866, !noalias !848, !noundef !7
-  %20 = icmp eq i8 %19, 2
-  br i1 %20, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
+22:                                               ; preds = %7
+  %23 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionNtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i), !noalias !848
+  br i1 %23, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
 
 _RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i: ; preds = %7
-  %21 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
-  %22 = load ptr, ptr %21, align 8, !alias.scope !865, !noalias !848, !nonnull !7, !noundef !7
-  %23 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
-  %24 = load i64, ptr %23, align 8, !alias.scope !865, !noalias !848, !noundef !7
-  %25 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %22, i64 %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !869
-  store ptr %22, ptr %3, align 8, !noalias !869
-  store ptr %25, ptr %5, align 8, !noalias !869
-  %26 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1Z_8adapters3map12map_try_foldRBJ_NtNtB1j_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1j_RNtB1j_11AlternativeNtB3s_9UnitDepth10unit_depth0NCIB2L_B3q_B3q_uB3V_NvYB3q_B58_10unit_depthNCINvNvB1T_3any5checkB3q_NCNvXs2_B3s_INtB2N_3MapB3_B4C_ENtB3s_14CompositeDepth15composite_depth0E0E0E0B3V_EB1l_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %6, ptr noalias noundef nonnull align 1 %6), !noalias !869
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !869
+  %24 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
+  %25 = load i8, ptr %24, align 8, !range !191, !alias.scope !867, !noalias !848, !noundef !7
+  %26 = icmp eq i8 %25, 2
   br i1 %26, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i, %17, %15, %7, %7, %7
+.backedge.i.i:                                    ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i, %22, %15, %7, %7, %7
   %.not10.i.i = icmp eq ptr %9, %1
   br i1 %.not10.i.i, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %7
 
-_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit: ; preds = %15, %17, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i, %.backedge.i.i, %2
-  %.lcssa.i.i4 = phi i1 [ false, %2 ], [ true, %15 ], [ true, %17 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i ], [ false, %.backedge.i.i ]
+_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit: ; preds = %22, %15, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i, %.backedge.i.i, %2
+  %.lcssa.i.i4 = phi i1 [ false, %2 ], [ true, %22 ], [ true, %15 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuEuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB17_8variance11BoundednessuB1G_NvYB13_NtB2V_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2T_NCNvXs2_B2V_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2V_14CompositeDepth15composite_depth0E0E0E0B19_.exit.i.i ], [ false, %.backedge.i.i ]
   ret i1 %.lcssa.i.i4
 }
 
@@ -4012,46 +4012,46 @@ define noundef zeroext i1 @_RNvXs2_NtNtCseG2FYMysgNb_3wax5token8varianceINtNtNtN
   %12 = icmp ult i64 %11, 6
   %13 = select i1 %12, i64 %11, i64 3
   switch i64 %13, label %14 [
-    i64 0, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i
+    i64 0, label %15
     i64 1, label %.backedge.i.i
     i64 2, label %.backedge.i.i
-    i64 3, label %15
+    i64 3, label %22
     i64 4, label %.backedge.i.i
-    i64 5, label %17
+    i64 5, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i
   ]
 
 14:                                               ; preds = %7
   unreachable
 
 15:                                               ; preds = %7
-  %16 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val.i.i), !noalias !870
-  br i1 %16, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
+  %17 = load ptr, ptr %16, align 8, !alias.scope !887, !noalias !870, !nonnull !7, !noundef !7
+  %18 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
+  %19 = load i64, ptr %18, align 8, !alias.scope !887, !noalias !870, !noundef !7
+  %20 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %17, i64 %19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !888
+  store ptr %17, ptr %3, align 8, !noalias !888
+  store ptr %20, ptr %5, align 8, !noalias !888
+  %21 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1W_8adapters3map12map_try_foldRBJ_NtNtB1i_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1i_RINtB1i_11AlternativeTjjEENtB3p_9UnitDepth10unit_depth0NCIB2I_B3n_B3n_uB3S_NvYB3n_B5b_10unit_depthNCINvNvB1Q_3any5checkB3n_NCNvXs2_B3p_INtB2K_3MapB3_B4z_ENtB3p_14CompositeDepth15composite_depth0E0E0E0B3S_EB1k_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %6, ptr noalias noundef nonnull align 1 %6), !noalias !888
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !888
+  br i1 %21, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %19 = load i8, ptr %18, align 8, !range !190, !alias.scope !888, !noalias !870, !noundef !7
-  %20 = icmp eq i8 %19, 2
-  br i1 %20, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
+22:                                               ; preds = %7
+  %23 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val.i.i), !noalias !870
+  br i1 %23, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
 
 _RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i: ; preds = %7
-  %21 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
-  %22 = load ptr, ptr %21, align 8, !alias.scope !887, !noalias !870, !nonnull !7, !noundef !7
-  %23 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
-  %24 = load i64, ptr %23, align 8, !alias.scope !887, !noalias !870, !noundef !7
-  %25 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %22, i64 %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !891
-  store ptr %22, ptr %3, align 8, !noalias !891
-  store ptr %25, ptr %5, align 8, !noalias !891
-  %26 = call noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1W_8adapters3map12map_try_foldRBJ_NtNtB1i_8variance11BoundednessuINtNtNtBa_3ops12control_flow11ControlFlowuENCNvXsl_B1i_RINtB1i_11AlternativeTjjEENtB3p_9UnitDepth10unit_depth0NCIB2I_B3n_B3n_uB3S_NvYB3n_B5b_10unit_depthNCINvNvB1Q_3any5checkB3n_NCNvXs2_B3p_INtB2K_3MapB3_B4z_ENtB3p_14CompositeDepth15composite_depth0E0E0E0B3S_EB1k_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %6, ptr noalias noundef nonnull align 1 %6), !noalias !891
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !891
+  %24 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
+  %25 = load i8, ptr %24, align 8, !range !191, !alias.scope !889, !noalias !870, !noundef !7
+  %26 = icmp eq i8 %25, 2
   br i1 %26, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i, %17, %15, %7, %7, %7
+.backedge.i.i:                                    ; preds = %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i, %22, %15, %7, %7, %7
   %.not10.i.i = icmp eq ptr %9, %1
   br i1 %.not10.i.i, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %7
 
-_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit: ; preds = %15, %17, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i, %.backedge.i.i, %2
-  %.lcssa.i.i4 = phi i1 [ false, %2 ], [ true, %15 ], [ true, %17 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i ], [ false, %.backedge.i.i ]
+_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit: ; preds = %22, %15, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i, %.backedge.i.i, %2
+  %.lcssa.i.i4 = phi i1 [ false, %2 ], [ true, %22 ], [ true, %15 ], [ true, %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied13copy_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenuINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB6_3map12map_try_foldB13_NtNtB16_8variance11BoundednessuB1D_NvYB13_NtB2S_9UnitDepth10unit_depthNCINvNvNtNtNtB8_6traits8iterator8Iterator3any5checkB2Q_NCNvXs2_B2S_INtB4_6CopiedINtNtNtBa_5slice4iter4IterB13_EENtB2S_14CompositeDepth15composite_depth0E0E0E0B18_.exit.i.i ], [ false, %.backedge.i.i ]
   ret i1 %.lcssa.i.i4
 }
 
@@ -4179,7 +4179,7 @@ define noundef zeroext i1 @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB5_5Token6unrootB
   %2 = load i64, ptr %0, align 8, !range !103, !noundef !7
   %3 = icmp eq i64 %2, 7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i8, ptr %4, align 8, !range !190
+  %5 = load i8, ptr %4, align 8, !range !191
   %6 = icmp eq i8 %5, 2
   %or.cond = select i1 %3, i1 %6, i1 false
   br i1 %or.cond, label %7, label %11
@@ -4330,7 +4330,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %31 = load i8, ptr %30, align 8, !range !190, !noalias !935, !noundef !7
+  %31 = load i8, ptr %30, align 8, !range !191, !noalias !935, !noundef !7
   %32 = icmp eq i8 %31, 2
   br i1 %32, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_8has_root0E0B1g_.llvm.15969390215716056838.exit.i, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_8has_root0E0B1g_.llvm.15969390215716056838.exit.thread.i
 
@@ -4434,12 +4434,12 @@ define hidden noundef zeroext i1 @_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Toke
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i8, ptr %8, align 8, !range !190, !noundef !7
+  %9 = load i8, ptr %8, align 8, !range !191, !noundef !7
   %10 = icmp eq i8 %9, 2
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %2, %7, %12, %6
-  %.sroa.0.0 = phi i1 [ %15, %12 ], [ true, %6 ], [ false, %7 ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ true, %6 ], [ %15, %12 ], [ false, %7 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 
 12:                                               ; preds = %7
@@ -4502,7 +4502,7 @@ define noundef zeroext i1 @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB5_5Token22has_co
 
 _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_22has_component_boundary0E0B1g_.llvm.15969390215716056838.exit.i: ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 8
-  %12 = load i8, ptr %11, align 8, !range !190, !noalias !980, !noundef !7
+  %12 = load i8, ptr %11, align 8, !range !191, !noalias !980, !noundef !7
   %.not.i = icmp eq i8 %12, 2
   br i1 %.not.i, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvMs1_B1e_B1O_22has_component_boundary0E0B1g_.llvm.15969390215716056838.exit.thread.i
 
@@ -4606,12 +4606,12 @@ define hidden noundef zeroext i1 @_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Toke
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i8, ptr %8, align 8, !range !190, !noundef !7
+  %9 = load i8, ptr %8, align 8, !range !191, !noundef !7
   %10 = icmp eq i8 %9, 2
   br label %11
 
 11:                                               ; preds = %2, %7, %6
-  %.sroa.0.0 = phi i1 [ %10, %7 ], [ true, %6 ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ true, %6 ], [ %10, %7 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -4656,12 +4656,12 @@ define noundef zeroext i1 @_RNvXs8_NtCseG2FYMysgNb_3wax5tokenRINtB5_5TokenuENtNt
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !190, !alias.scope !1003, !noundef !7
+  %21 = load i8, ptr %20, align 8, !range !191, !alias.scope !1003, !noundef !7
   %22 = icmp eq i8 %21, 2
   br label %_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_.exit
 
 _RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_.exit: ; preds = %1, %1, %1, %8, %17, %19
-  %.sroa.0.0.shrunk.i = phi i1 [ %22, %19 ], [ %18, %17 ], [ %16, %8 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4706,12 +4706,12 @@ define noundef zeroext i1 @_RNvXs8_NtCseG2FYMysgNb_3wax5tokenRNtB5_5TokenNtNtB5_
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !190, !alias.scope !1009, !noundef !7
+  %21 = load i8, ptr %20, align 8, !range !191, !alias.scope !1009, !noundef !7
   %22 = icmp eq i8 %21, 2
   br label %_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_.exit
 
 _RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_.exit: ; preds = %1, %1, %1, %8, %17, %19
-  %.sroa.0.0.shrunk.i = phi i1 [ %22, %19 ], [ %18, %17 ], [ %16, %8 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -5143,7 +5143,7 @@ define void @_RNvMsa_NtCseG2FYMysgNb_3wax5tokenINtB5_9TokenKindTjjEE10into_owned
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load i8, ptr %31, align 8, !range !190, !noundef !7
+  %32 = load i8, ptr %31, align 8, !range !191, !noundef !7
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5241,12 +5241,12 @@ define noundef zeroext i1 @_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTj
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !190, !alias.scope !1126, !noundef !7
+  %21 = load i8, ptr %20, align 8, !range !191, !alias.scope !1126, !noundef !7
   %22 = icmp eq i8 %21, 2
   br label %23
 
 23:                                               ; preds = %1, %1, %1, %19, %17, %8
-  %.sroa.0.0.shrunk = phi i1 [ %22, %19 ], [ %18, %17 ], [ %16, %8 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -5290,12 +5290,12 @@ define noundef zeroext i1 @_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtN
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i8, ptr %20, align 8, !range !190, !alias.scope !1129, !noundef !7
+  %21 = load i8, ptr %20, align 8, !range !191, !alias.scope !1129, !noundef !7
   %22 = icmp eq i8 %21, 2
   br label %23
 
 23:                                               ; preds = %1, %1, %1, %19, %17, %8
-  %.sroa.0.0.shrunk = phi i1 [ %22, %19 ], [ %18, %17 ], [ %16, %8 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -6191,7 +6191,7 @@ define noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10Repetition
 
 _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvXsD_B1e_RINtB1e_10RepetitionTjjEENtNtB1e_8variance9UnitDepth10unit_depth0E0B1g_.exit.i: ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 8
-  %18 = load i8, ptr %17, align 8, !range !190, !noalias !1318, !noundef !7
+  %18 = load i8, ptr %17, align 8, !range !191, !noalias !1318, !noundef !7
   %.not.i = icmp eq i8 %18, 2
   br i1 %.not.i, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNvXsD_B1e_RINtB1e_10RepetitionTjjEENtNtB1e_8variance9UnitDepth10unit_depth0E0B1g_.exit.thread.i
 
@@ -6340,7 +6340,7 @@ define noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionN
 
 _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1e_5TokenuEENCNvXsD_B1e_RNtB1e_10RepetitionNtNtB1e_8variance9UnitDepth10unit_depth0E0B1g_.exit.i: ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 8
-  %18 = load i8, ptr %17, align 8, !range !190, !noalias !1347, !noundef !7
+  %18 = load i8, ptr %17, align 8, !range !191, !noalias !1347, !noundef !7
   %.not.i = icmp eq i8 %18, 2
   br i1 %.not.i, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit, label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1e_5TokenuEENCNvXsD_B1e_RNtB1e_10RepetitionNtNtB1e_8variance9UnitDepth10unit_depth0E0B1g_.exit.thread.i
 
@@ -7909,12 +7909,12 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7932,12 +7932,12 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7955,12 +7955,12 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7978,12 +7978,12 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8, !range !190, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !191, !noundef !7
   %9 = icmp ne i8 %8, 2
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -8812,11 +8812,11 @@ attributes #37 = { noreturn }
 !187 = distinct !{!187, !188, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_: argument 0"}
 !188 = distinct !{!188, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_"}
 !189 = !{!187, !184, !181, !178}
-!190 = !{i8 0, i8 3}
-!191 = !{!192, !187, !184, !181, !178}
-!192 = distinct !{!192, !193, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
-!193 = distinct !{!193, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
-!194 = !{!187, !184, !181, !178, !172}
+!190 = !{!187, !184, !181, !178, !172}
+!191 = !{i8 0, i8 3}
+!192 = !{!193, !187, !184, !181, !178}
+!193 = distinct !{!193, !194, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
+!194 = distinct !{!194, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
 !195 = !{!196}
 !196 = distinct !{!196, !197, !"_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBb_4iter6traits8iterator8Iterator4foldINtNtBT_8variance8VarianceNtB2d_13InvariantTextENCINvNtNtB1w_8adapters6copied9copy_foldBQ_B2a_NCINvNtB33_3map8map_foldBQ_B2a_B2a_NvYBQ_INtB2d_12UnitVarianceB2A_E13unit_varianceNvYB2a_NtNtNtBb_3ops5arith3Add3addE0E0EBV_.llvm.15969390215716056838: argument 0"}
 !197 = distinct !{!197, !"_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBb_4iter6traits8iterator8Iterator4foldINtNtBT_8variance8VarianceNtB2d_13InvariantTextENCINvNtNtB1w_8adapters6copied9copy_foldBQ_B2a_NCINvNtB33_3map8map_foldBQ_B2a_B2a_NvYBQ_INtB2d_12UnitVarianceB2A_E13unit_varianceNvYB2a_NtNtNtBb_3ops5arith3Add3addE0E0EBV_.llvm.15969390215716056838"}
@@ -8851,10 +8851,10 @@ attributes #37 = { noreturn }
 !226 = distinct !{!226, !227, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_: argument 0"}
 !227 = distinct !{!227, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_"}
 !228 = !{!226, !223, !220, !217}
-!229 = !{!230, !226, !223, !220, !217}
-!230 = distinct !{!230, !231, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
-!231 = distinct !{!231, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
-!232 = !{!226, !223, !220, !217, !211}
+!229 = !{!226, !223, !220, !217, !211}
+!230 = !{!231, !226, !223, !220, !217}
+!231 = distinct !{!231, !232, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
+!232 = distinct !{!232, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
 !233 = !{!234, !236}
 !234 = distinct !{!234, !235, !"_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter6traits7collectINtNtNtB8_8adapters5chain5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB1m_EQINtNtBS_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1R_8PositionINtB1R_4WalkTjjEENCNvNtB1T_4rule8boundary0ENCNCB44_s_00EENtB4_12IntoIterator9into_iterB1T_.llvm.15969390215716056838: argument 0"}
 !235 = distinct !{!235, !"_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter6traits7collectINtNtNtB8_8adapters5chain5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB1m_EQINtNtBS_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1R_8PositionINtB1R_4WalkTjjEENCNvNtB1T_4rule8boundary0ENCNCB44_s_00EENtB4_12IntoIterator9into_iterB1T_.llvm.15969390215716056838"}
@@ -9488,10 +9488,10 @@ attributes #37 = { noreturn }
 !863 = distinct !{!863, !864, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_: argument 0"}
 !864 = distinct !{!864, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_"}
 !865 = !{!863, !860, !857, !854}
-!866 = !{!867, !863, !860, !857, !854}
-!867 = distinct !{!867, !868, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
-!868 = distinct !{!868, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
-!869 = !{!863, !860, !857, !854, !849, !851}
+!866 = !{!863, !860, !857, !854, !849, !851}
+!867 = !{!868, !863, !860, !857, !854}
+!868 = distinct !{!868, !869, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
+!869 = distinct !{!869, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
 !870 = !{!871, !873}
 !871 = distinct !{!871, !872, !"_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838: argument 0"}
 !872 = distinct !{!872, !"_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838"}
@@ -9510,10 +9510,10 @@ attributes #37 = { noreturn }
 !885 = distinct !{!885, !886, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_: argument 0"}
 !886 = distinct !{!886, !"_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_"}
 !887 = !{!885, !882, !879, !876}
-!888 = !{!889, !885, !882, !879, !876}
-!889 = distinct !{!889, !890, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
-!890 = distinct !{!890, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
-!891 = !{!885, !882, !879, !876, !871, !873}
+!888 = !{!885, !882, !879, !876, !871, !873}
+!889 = !{!890, !885, !882, !879, !876}
+!890 = distinct !{!890, !891, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth: argument 0"}
+!891 = distinct !{!891, !"_RNvXsL_NtCseG2FYMysgNb_3wax5tokenRNtB5_8WildcardNtNtB5_8variance9UnitDepth10unit_depth"}
 !892 = !{!893, !895}
 !893 = distinct !{!893, !894, !"_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.llvm.15969390215716056838: argument 0"}
 !894 = distinct !{!894, !"_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.llvm.15969390215716056838"}

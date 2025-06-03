@@ -730,7 +730,7 @@ define range(i32 -1, 1) i32 @H5O_refresh_metadata_reopen(i64 noundef %0, i64 nou
   br label %79
 
 72:                                               ; preds = %56, %57, %31, %24
-  %.021 = phi ptr [ %50, %56 ], [ %50, %57 ], [ %32, %31 ], [ %25, %24 ]
+  %.021 = phi ptr [ %25, %24 ], [ %32, %31 ], [ %50, %56 ], [ %50, %57 ]
   %73 = call i32 @H5VL_register_using_existing_id(i32 noundef %23, ptr noundef nonnull %.021, ptr noundef %3, i1 noundef zeroext true, i64 noundef %0) #3
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %79
@@ -742,7 +742,7 @@ define range(i32 -1, 1) i32 @H5O_refresh_metadata_reopen(i64 noundef %0, i64 nou
   br label %79
 
 79:                                               ; preds = %15, %27, %34, %41, %52, %60, %64, %68, %75, %72, %19
-  %.0 = phi i32 [ -1, %15 ], [ -1, %68 ], [ -1, %64 ], [ -1, %41 ], [ -1, %52 ], [ -1, %75 ], [ 0, %72 ], [ -1, %60 ], [ -1, %34 ], [ -1, %27 ], [ 0, %19 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %68 ], [ -1, %27 ], [ -1, %75 ], [ 0, %72 ], [ -1, %34 ], [ -1, %41 ], [ -1, %52 ], [ -1, %60 ], [ -1, %64 ], [ 0, %19 ]
   ret i32 %.0
 }
 

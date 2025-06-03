@@ -3858,7 +3858,7 @@ _ZN4ncnn3Mat7releaseEv.exit:                      ; preds = %238, %237, %226, %2
   br label %247
 
 247:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit41.thread, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %243, %239
-  %.2 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit41.thread ], [ 0, %239 ], [ 0, %243 ]
+  %.2 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit41.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ 0, %239 ], [ 0, %243 ]
   ret i32 %.2
 }
 

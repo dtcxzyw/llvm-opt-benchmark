@@ -1474,8 +1474,8 @@ _ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread: ; preds = %227, %_ZNK6
   br label %249
 
 249:                                              ; preds = %236, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread, %218, %209, %200
-  %.sroa.9.0 = phi double [ %240, %236 ], [ %.sroa.9.0.copyload99, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.9.0.copyload97, %218 ], [ %.sroa.9.0.copyload95, %209 ], [ %.sroa.9.0.copyload, %200 ]
-  %.sroa.0.0 = phi <2 x double> [ %238, %236 ], [ %.sroa.0.0.copyload93, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.0.0.copyload92, %218 ], [ %.sroa.0.0.copyload91, %209 ], [ %.sroa.0.0.copyload, %200 ]
+  %.sroa.9.0 = phi double [ %240, %236 ], [ %.sroa.9.0.copyload99, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.9.0.copyload, %200 ], [ %.sroa.9.0.copyload95, %209 ], [ %.sroa.9.0.copyload97, %218 ]
+  %.sroa.0.0 = phi <2 x double> [ %238, %236 ], [ %.sroa.0.0.copyload93, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.0.0.copyload, %200 ], [ %.sroa.0.0.copyload91, %209 ], [ %.sroa.0.0.copyload92, %218 ]
   %250 = load ptr, ptr %6, align 8, !tbaa !51
   %251 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %250, i64 %.047101
   %.sroa.0.0.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 0
@@ -2344,8 +2344,8 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread: ; preds = %273, %_
   br label %291
 
 291:                                              ; preds = %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread, %284, %264, %255, %246
-  %.sroa.9.0 = phi double [ %290, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %288, %284 ], [ %.sroa.9.0.copyload128, %264 ], [ %.sroa.9.0.copyload126, %255 ], [ %.sroa.9.0.copyload, %246 ]
-  %.sroa.0.0 = phi <2 x double> [ %289, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %286, %284 ], [ %.sroa.0.0.copyload124, %264 ], [ %.sroa.0.0.copyload123, %255 ], [ %.sroa.0.0.copyload, %246 ]
+  %.sroa.9.0 = phi double [ %290, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %.sroa.9.0.copyload, %246 ], [ %.sroa.9.0.copyload126, %255 ], [ %.sroa.9.0.copyload128, %264 ], [ %288, %284 ]
+  %.sroa.0.0 = phi <2 x double> [ %289, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %.sroa.0.0.copyload, %246 ], [ %.sroa.0.0.copyload123, %255 ], [ %.sroa.0.0.copyload124, %264 ], [ %286, %284 ]
   %292 = load ptr, ptr %6, align 8, !tbaa !51
   %293 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %292, i64 %227
   %.sroa.0.0.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 0

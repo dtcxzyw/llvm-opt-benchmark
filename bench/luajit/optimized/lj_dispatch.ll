@@ -899,7 +899,7 @@ define hidden void @lj_dispatch_ins(ptr noundef initializes((40, 48)) %0, ptr no
   br label %cur_topslot.exit
 
 cur_topslot.exit:                                 ; preds = %44, %52, %59, %64
-  %.014.i = phi i32 [ %67, %64 ], [ %63, %59 ], [ %58, %52 ], [ %51, %44 ]
+  %.014.i = phi i32 [ %67, %64 ], [ %51, %44 ], [ %58, %52 ], [ %63, %59 ]
   %68 = zext i32 %.014.i to i64
   %69 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1527,7 +1527,7 @@ define hidden void @lj_dispatch_stitch(ptr noundef %0, ptr noundef %1) local_unn
   br label %cur_topslot.exit
 
 cur_topslot.exit:                                 ; preds = %38, %46, %53, %58
-  %.014.i = phi i32 [ %61, %58 ], [ %57, %53 ], [ %52, %46 ], [ %45, %38 ]
+  %.014.i = phi i32 [ %61, %58 ], [ %45, %38 ], [ %52, %46 ], [ %57, %53 ]
   %62 = zext i32 %.014.i to i64
   %63 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1624,7 +1624,7 @@ define hidden void @lj_dispatch_profile(ptr noundef initializes((40, 48)) %0, pt
   br label %cur_topslot.exit
 
 cur_topslot.exit:                                 ; preds = %36, %44, %51, %56
-  %.014.i = phi i32 [ %59, %56 ], [ %55, %51 ], [ %50, %44 ], [ %43, %36 ]
+  %.014.i = phi i32 [ %59, %56 ], [ %43, %36 ], [ %50, %44 ], [ %55, %51 ]
   %60 = zext i32 %.014.i to i64
   %61 = getelementptr inbounds nuw %union.TValue, ptr %6, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40

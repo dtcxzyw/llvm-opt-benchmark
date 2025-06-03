@@ -9521,22 +9521,22 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h634c407cd799e7c1E.exit.i19
 197:                                              ; preds = %196
   %198 = load i8, ptr %33, align 8, !range !1716, !noundef !3
   %trunc116 = trunc nuw i8 %198 to i1
-  %199 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %200 = load ptr, ptr %199, align 8, !nonnull !3, !align !42
-  %201 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %202 = load i8, ptr %201, align 1, !range !1717
+  %199 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %200 = load i8, ptr %199, align 1, !range !1717
+  %201 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %202 = load ptr, ptr %201, align 8, !nonnull !3, !align !42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   br i1 %trunc116, label %204, label %203
 
 203:                                              ; preds = %197
   store i64 -9223372036854775802, ptr %0, align 8
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %202, ptr %.sroa.570.0..sroa_idx, align 8
+  store i8 %200, ptr %.sroa.570.0..sroa_idx, align 8
   br label %66
 
 204:                                              ; preds = %197
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %200, ptr %205, align 8
+  store ptr %202, ptr %205, align 8
   store i64 -9223372036854775801, ptr %0, align 8
   br label %66
 
@@ -9942,7 +9942,7 @@ define noundef align 8 ptr @"_ZN68_$LT$uv_dev..Cli$u20$as$u20$clap_builder..deri
   unreachable
 
 common.resume:                                    ; preds = %343, %348, %290, %295, %258, %263, %226, %231, %194, %199, %162, %167, %130, %135, %91, %125, %157, %189, %221, %253, %285, %325, %338, %96, %101
-  %common.resume.op = phi { ptr, i32 } [ %97, %101 ], [ %97, %96 ], [ %339, %338 ], [ %326, %325 ], [ %286, %285 ], [ %254, %253 ], [ %222, %221 ], [ %190, %189 ], [ %158, %157 ], [ %126, %125 ], [ %92, %91 ], [ %131, %135 ], [ %131, %130 ], [ %163, %167 ], [ %163, %162 ], [ %195, %199 ], [ %195, %194 ], [ %227, %231 ], [ %227, %226 ], [ %259, %263 ], [ %259, %258 ], [ %291, %295 ], [ %291, %290 ], [ %344, %348 ], [ %344, %343 ]
+  %common.resume.op = phi { ptr, i32 } [ %97, %101 ], [ %97, %96 ], [ %92, %91 ], [ %326, %325 ], [ %126, %125 ], [ %158, %157 ], [ %190, %189 ], [ %222, %221 ], [ %254, %253 ], [ %286, %285 ], [ %339, %338 ], [ %131, %135 ], [ %131, %130 ], [ %163, %167 ], [ %163, %162 ], [ %195, %199 ], [ %195, %194 ], [ %227, %231 ], [ %227, %226 ], [ %259, %263 ], [ %259, %258 ], [ %291, %295 ], [ %291, %290 ], [ %344, %348 ], [ %344, %343 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h2f42d74a54392b81E.exit": ; preds = %102, %106

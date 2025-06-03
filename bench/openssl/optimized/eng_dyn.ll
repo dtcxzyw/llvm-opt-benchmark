@@ -619,7 +619,7 @@ dynamic_load.exit:                                ; preds = %90, %95, %.loopexit
   br label %.thread82
 
 .thread82:                                        ; preds = %192, %199, %195, %200, %191, %184, %183, %dynamic_load.exit, %87, %86, %82, %69, %66, %55, %dynamic_get_data_ctx.exit.thread
-  %.0 = phi i32 [ 0, %55 ], [ 0, %200 ], [ 0, %191 ], [ 0, %183 ], [ 1, %184 ], [ %.048.i, %dynamic_load.exit ], [ 0, %86 ], [ 1, %87 ], [ %84, %82 ], [ 1, %69 ], [ %68, %66 ], [ 0, %dynamic_get_data_ctx.exit.thread ], [ 1, %195 ], [ 0, %199 ], [ 0, %192 ]
+  %.0 = phi i32 [ 0, %55 ], [ 0, %200 ], [ %68, %66 ], [ 1, %69 ], [ %84, %82 ], [ 0, %86 ], [ 1, %87 ], [ %.048.i, %dynamic_load.exit ], [ 0, %183 ], [ 1, %184 ], [ 0, %191 ], [ 0, %dynamic_get_data_ctx.exit.thread ], [ 1, %195 ], [ 0, %199 ], [ 0, %192 ]
   ret i32 %.0
 }
 

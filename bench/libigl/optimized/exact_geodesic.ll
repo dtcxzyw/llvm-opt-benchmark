@@ -1182,13 +1182,13 @@ thread-pre-split.thread.i151:                     ; preds = %441
   br label %.thread.i137
 
 .thread.i137:                                     ; preds = %thread-pre-split.thread.i151, %..thread_crit_edge.i135, %444, %440
-  %460 = phi double [ %433, %thread-pre-split.thread.i151 ], [ %457, %..thread_crit_edge.i135 ], [ %433, %440 ], [ %433, %444 ]
-  %461 = phi double [ %432, %thread-pre-split.thread.i151 ], [ %456, %..thread_crit_edge.i135 ], [ %432, %440 ], [ %432, %444 ]
-  %462 = phi i1 [ %431, %thread-pre-split.thread.i151 ], [ %455, %..thread_crit_edge.i135 ], [ %431, %440 ], [ %431, %444 ]
-  %.1 = phi i32 [ 2, %thread-pre-split.thread.i151 ], [ 1, %..thread_crit_edge.i135 ], [ 1, %440 ], [ 1, %444 ]
-  %463 = phi double [ %459, %thread-pre-split.thread.i151 ], [ %.pre.i136, %..thread_crit_edge.i135 ], [ %435, %440 ], [ %435, %444 ]
-  %.088.i138 = phi ptr [ %..i152, %thread-pre-split.thread.i151 ], [ %5, %..thread_crit_edge.i135 ], [ %5, %440 ], [ %5, %444 ]
-  %.0.i139 = phi ptr [ %.93.i153, %thread-pre-split.thread.i151 ], [ %5, %..thread_crit_edge.i135 ], [ %5, %440 ], [ %5, %444 ]
+  %460 = phi double [ %433, %thread-pre-split.thread.i151 ], [ %433, %440 ], [ %433, %444 ], [ %457, %..thread_crit_edge.i135 ]
+  %461 = phi double [ %432, %thread-pre-split.thread.i151 ], [ %432, %440 ], [ %432, %444 ], [ %456, %..thread_crit_edge.i135 ]
+  %462 = phi i1 [ %431, %thread-pre-split.thread.i151 ], [ %431, %440 ], [ %431, %444 ], [ %455, %..thread_crit_edge.i135 ]
+  %.1 = phi i32 [ 2, %thread-pre-split.thread.i151 ], [ 1, %440 ], [ 1, %444 ], [ 1, %..thread_crit_edge.i135 ]
+  %463 = phi double [ %459, %thread-pre-split.thread.i151 ], [ %435, %440 ], [ %435, %444 ], [ %.pre.i136, %..thread_crit_edge.i135 ]
+  %.088.i138 = phi ptr [ %..i152, %thread-pre-split.thread.i151 ], [ %5, %440 ], [ %5, %444 ], [ %5, %..thread_crit_edge.i135 ]
+  %.0.i139 = phi ptr [ %.93.i153, %thread-pre-split.thread.i151 ], [ %5, %440 ], [ %5, %444 ], [ %5, %..thread_crit_edge.i135 ]
   %464 = fcmp olt double %463, %460
   br i1 %464, label %465, label %466
 

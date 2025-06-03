@@ -1005,7 +1005,7 @@ _ZN5clang12ast_matchers10BoundNodesC2ERKS1_.exit: ; preds = %314, %_ZNSt8_Rb_tre
   br label %_ZL16getLoopConditionPKN5clang4StmtE.exit
 
 _ZL16getLoopConditionPKN5clang4StmtE.exit:        ; preds = %336, %340, %343, %349, %352
-  %.0.i = phi ptr [ %354, %352 ], [ %351, %349 ], [ %348, %343 ], [ %342, %340 ], [ null, %336 ]
+  %.0.i = phi ptr [ %342, %340 ], [ %348, %343 ], [ %351, %349 ], [ %354, %352 ], [ null, %336 ]
   call void @_ZNK5clang4ento12ProgramState17invalidateRegionsEN4llvm8ArrayRefIPKNS0_9MemRegionEEEPKNS_4StmtEjPKNS_15LocationContextEbPNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISH_vEEEEPKNS0_9CallEventEPNS0_33RegionAndSymbolInvalidationTraitsE(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.749") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %337, ptr nonnull %18, i64 3, ptr noundef %.0.i, i32 noundef %3, ptr noundef nonnull %2, i1 noundef zeroext true, ptr noundef null, ptr noundef null, ptr noundef nonnull %19) #15
   %355 = load ptr, ptr %20, align 8, !tbaa !211
   %356 = load i32, ptr %294, align 8, !tbaa !212

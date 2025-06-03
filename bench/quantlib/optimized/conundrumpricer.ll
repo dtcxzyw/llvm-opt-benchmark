@@ -4870,7 +4870,7 @@ ehcleanup369:                                     ; preds = %lpad355.body, %clea
   br label %ehcleanup377
 
 ehcleanup377:                                     ; preds = %lpad171, %lpad184, %lpad218, %ehcleanup236, %lpad260, %lpad270, %ehcleanup296, %lpad300, %ehcleanup342, %ehcleanup369, %ehcleanup255, %lpad238, %ehcleanup216, %lpad190, %lpad179, %lpad161
-  %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %136, %lpad161 ], [ %137, %lpad171 ], [ %138, %lpad179 ], [ %139, %lpad184 ], [ %.pn26.pn, %ehcleanup216 ], [ %140, %lpad190 ], [ %.pn29, %ehcleanup236 ], [ %144, %lpad218 ], [ %.pn31, %ehcleanup255 ], [ %147, %lpad238 ], [ %.pn39.pn.pn.pn.pn, %ehcleanup342 ], [ %.pn37, %ehcleanup369 ], [ %245, %lpad300 ], [ %.pn35, %ehcleanup296 ], [ %185, %lpad270 ], [ %167, %lpad260 ]
+  %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %136, %lpad161 ], [ %137, %lpad171 ], [ %138, %lpad179 ], [ %139, %lpad184 ], [ %.pn26.pn, %ehcleanup216 ], [ %140, %lpad190 ], [ %.pn29, %ehcleanup236 ], [ %144, %lpad218 ], [ %.pn31, %ehcleanup255 ], [ %147, %lpad238 ], [ %.pn39.pn.pn.pn.pn, %ehcleanup342 ], [ %.pn37, %ehcleanup369 ], [ %167, %lpad260 ], [ %185, %lpad270 ], [ %.pn35, %ehcleanup296 ], [ %245, %lpad300 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib11VanillaSwapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %swap) #36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %swap) #36
   br label %common.resume

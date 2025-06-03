@@ -4581,7 +4581,7 @@ ehcleanup77:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 sw.epilog:                                        ; preds = %cond.end, %land.lhs.true, %if.then47, %sw.bb13, %sw.bb7, %sw.bb
-  %x.0 = phi double [ %call18, %sw.bb13 ], [ %call12, %sw.bb7 ], [ %call6, %sw.bb ], [ %call51, %if.then47 ], [ %.sroa.speculated, %land.lhs.true ], [ %.sroa.speculated, %cond.end ]
+  %x.0 = phi double [ %call6, %sw.bb ], [ %call12, %sw.bb7 ], [ %call18, %sw.bb13 ], [ %call51, %if.then47 ], [ %.sroa.speculated, %land.lhs.true ], [ %.sroa.speculated, %cond.end ]
   %nrEvaluations.i64 = getelementptr inbounds nuw i8, ptr %eval, i64 240
   %60 = load i64, ptr %nrEvaluations.i64, align 8, !tbaa !154
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %eval) #33

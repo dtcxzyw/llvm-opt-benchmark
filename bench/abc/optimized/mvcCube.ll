@@ -47,7 +47,7 @@ define ptr @Mvc_CubeAlloc(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %27
 
 27:                                               ; preds = %21, %15, %9, %3
-  %.0 = phi ptr [ %26, %21 ], [ %20, %15 ], [ %14, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ %26, %21 ], [ %8, %3 ], [ %14, %9 ], [ %20, %15 ]
   %28 = load i32, ptr %0, align 8, !tbaa !3
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %34

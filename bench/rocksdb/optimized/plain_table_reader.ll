@@ -5733,8 +5733,8 @@ define void @_ZNK7rocksdb16PlainTableReader9GetOffsetEPNS_20PlainTableKeyDecoder
   br label %41
 
 41:                                               ; preds = %.thread.i.i, %36
-  %42 = phi i32 [ %37, %36 ], [ %.pre, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %38, %36 ], [ %40, %.thread.i.i ]
+  %42 = phi i32 [ %.pre, %.thread.i.i ], [ %37, %36 ]
+  %.1.i.i = phi ptr [ %40, %.thread.i.i ], [ %38, %36 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #32
   store ptr @.str, ptr %11, align 8, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 8

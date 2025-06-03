@@ -780,7 +780,7 @@ thread-pre-split.i:                               ; preds = %189, %186
   br label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit92.i
 
 205:                                              ; preds = %202, %201, %200, %200, %200, %200, %200, %200, %200
-  %.sroa.023.1.i = phi i8 [ 6, %202 ], [ 1, %201 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ]
+  %.sroa.023.1.i = phi i8 [ 1, %201 ], [ 6, %202 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ]
   br i1 %193, label %.thread136.i, label %.thread
 
 .thread136.i:                                     ; preds = %205, %200, %197
@@ -1477,7 +1477,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   br label %486
 
 486:                                              ; preds = %481, %485, %484, %483
-  %.0170 = phi ptr [ @.str.18, %485 ], [ @.str.17, %484 ], [ @.str.16, %483 ], [ @.str.15, %481 ]
+  %.0170 = phi ptr [ @.str.16, %483 ], [ @.str.17, %484 ], [ @.str.18, %485 ], [ @.str.15, %481 ]
   %487 = zext i8 %.sroa.5.0.copyload to i32
   %488 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 11, ptr noundef nonnull @.str.19, ptr noundef nonnull %.0170, i32 noundef %487) #19
   br label %489
@@ -3136,8 +3136,8 @@ _ZN8nanobind6objectD2Ev.exit137:                  ; preds = %_ZN8nanobind6detail
 119:                                              ; preds = %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit119
   br label %120
 
-120:                                              ; preds = %119, %118, %117, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit119
-  %.055.ph = phi ptr [ @.str.9, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit119 ], [ @.str.7, %117 ], [ @.str.11, %118 ], [ @.str.21, %119 ]
+120:                                              ; preds = %117, %118, %119, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit119
+  %.055.ph = phi ptr [ @.str.9, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit119 ], [ @.str.21, %119 ], [ @.str.11, %118 ], [ @.str.7, %117 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #19
   %121 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef nonnull %.055.ph)
@@ -3786,8 +3786,8 @@ switch.lookup78:                                  ; preds = %19
   %switch.load83 = load ptr, ptr %switch.gep82, align 8
   br label %37
 
-37:                                               ; preds = %switch.lookup78, %switch.lookup, %9, %31, %26, %34, %30, %29
-  %.050.ph = phi ptr [ @.str.49, %29 ], [ @.str.50, %30 ], [ @.str.52, %34 ], [ @.str.48, %26 ], [ @.str.51, %31 ], [ @.str.53, %9 ], [ %switch.load, %switch.lookup ], [ %switch.load83, %switch.lookup78 ]
+37:                                               ; preds = %switch.lookup78, %switch.lookup, %9, %31, %26, %29, %30, %34
+  %.050.ph = phi ptr [ @.str.52, %34 ], [ @.str.50, %30 ], [ @.str.49, %29 ], [ @.str.48, %26 ], [ @.str.51, %31 ], [ @.str.53, %9 ], [ %switch.load, %switch.lookup ], [ %switch.load83, %switch.lookup78 ]
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %39 = load i16, ptr %38, align 2
   %.not52 = icmp eq i16 %39, 1

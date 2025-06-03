@@ -1379,7 +1379,7 @@ sanitize_cookie_path.exit.i96:                    ; preds = %.thread.i.i99, %400
   br i1 %.not96.i, label %parse_cookie_header.exit.thread, label %453
 
 453:                                              ; preds = %451, %448, %445, %442, %.critedge115.i, %426, %418, %sanitize_cookie_path.exit.i96, %sanitize_cookie_path.exit.thread.i98, %368, %363, %357
-  %.2.i = phi i32 [ %.082132.i, %357 ], [ 6, %451 ], [ 5, %442 ], [ 5, %448 ], [ 5, %445 ], [ 3, %426 ], [ 3, %418 ], [ 2, %sanitize_cookie_path.exit.i96 ], [ 1, %368 ], [ 0, %363 ], [ 4, %.critedge115.i ], [ 2, %sanitize_cookie_path.exit.thread.i98 ]
+  %.2.i = phi i32 [ %.082132.i, %357 ], [ 0, %363 ], [ 1, %368 ], [ 2, %sanitize_cookie_path.exit.i96 ], [ 3, %426 ], [ 3, %418 ], [ 5, %442 ], [ 5, %448 ], [ 5, %445 ], [ 6, %451 ], [ 4, %.critedge115.i ], [ 2, %sanitize_cookie_path.exit.thread.i98 ]
   %454 = add i32 %.2.i, 1
   %.not137.i = icmp eq ptr %362, null
   %.not.i87 = or i1 %361, %.not137.i

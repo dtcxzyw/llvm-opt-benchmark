@@ -377,7 +377,7 @@ define void @_ZNK5arrow11SparseIndex13ValidateShapeERKSt6vectorIlSaIlEE(ptr dead
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %36, %35 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %38 = load i64, ptr %.sroa.025.1.i.i.i.i, align 8, !tbaa !8
   %39 = icmp slt i64 %38, 0
   br i1 %39, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZNK5arrow11SparseIndex13ValidateShapeERKS6_E3$_0EbT_SD_T0_.exit", label %40
@@ -387,7 +387,7 @@ define void @_ZNK5arrow11SparseIndex13ValidateShapeERKSt6vectorIlSaIlEE(ptr dead
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %43 = load i64, ptr %.sroa.025.2.i.i.i.i, align 8, !tbaa !8
   %44 = icmp slt i64 %43, 0
   %spec.select.i.i.i.i = select i1 %44, ptr %.sroa.025.2.i.i.i.i, ptr %6
@@ -511,7 +511,7 @@ define void @_ZN5arrow8internal28CheckSparseIndexMaximumValueERKSt10shared_ptrIN
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %38, %37 ]
+  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %40 = load i64, ptr %.sroa.025.1.i.i.i.i.i.i, align 8, !tbaa !8, !noalias !39
   %41 = icmp sgt i64 %40, 127
   br i1 %41, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_8Int8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i, label %42
@@ -521,7 +521,7 @@ define void @_ZN5arrow8internal28CheckSparseIndexMaximumValueERKSt10shared_ptrIN
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %43, %42 ]
+  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %45 = load i64, ptr %.sroa.025.2.i.i.i.i.i.i, align 8, !tbaa !8, !noalias !39
   %46 = icmp sgt i64 %45, 127
   %spec.select.i.i.i.i.i.i = select i1 %46, ptr %.sroa.025.2.i.i.i.i.i.i, ptr %.val9
@@ -625,7 +625,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge.i.i.i.i.i.i20
-  %.sroa.025.1.i.i.i.i.i.i27 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i22, %._crit_edge.i.i.i.i.i.i20 ], [ %82, %81 ]
+  %.sroa.025.1.i.i.i.i.i.i27 = phi ptr [ %82, %81 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i22, %._crit_edge.i.i.i.i.i.i20 ]
   %84 = load i64, ptr %.sroa.025.1.i.i.i.i.i.i27, align 8, !tbaa !8, !noalias !46
   %85 = icmp sgt i64 %84, 255
   br i1 %85, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9UInt8TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i, label %86
@@ -635,7 +635,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge.i.i.i.i.i.i20
-  %.sroa.025.2.i.i.i.i.i.i23 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i22, %._crit_edge.i.i.i.i.i.i20 ], [ %87, %86 ]
+  %.sroa.025.2.i.i.i.i.i.i23 = phi ptr [ %87, %86 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i22, %._crit_edge.i.i.i.i.i.i20 ]
   %89 = load i64, ptr %.sroa.025.2.i.i.i.i.i.i23, align 8, !tbaa !8, !noalias !46
   %90 = icmp sgt i64 %89, 255
   %spec.select.i.i.i.i.i.i24 = select i1 %90, ptr %.sroa.025.2.i.i.i.i.i.i23, ptr %.val11
@@ -739,7 +739,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %127
 
 127:                                              ; preds = %125, %._crit_edge.i.i.i.i.i.i36
-  %.sroa.025.1.i.i.i.i.i.i43 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i38, %._crit_edge.i.i.i.i.i.i36 ], [ %126, %125 ]
+  %.sroa.025.1.i.i.i.i.i.i43 = phi ptr [ %126, %125 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i38, %._crit_edge.i.i.i.i.i.i36 ]
   %128 = load i64, ptr %.sroa.025.1.i.i.i.i.i.i43, align 8, !tbaa !8, !noalias !53
   %129 = icmp sgt i64 %128, 32767
   br i1 %129, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i, label %130
@@ -749,7 +749,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge.i.i.i.i.i.i36
-  %.sroa.025.2.i.i.i.i.i.i39 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i38, %._crit_edge.i.i.i.i.i.i36 ], [ %131, %130 ]
+  %.sroa.025.2.i.i.i.i.i.i39 = phi ptr [ %131, %130 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i38, %._crit_edge.i.i.i.i.i.i36 ]
   %133 = load i64, ptr %.sroa.025.2.i.i.i.i.i.i39, align 8, !tbaa !8, !noalias !53
   %134 = icmp sgt i64 %133, 32767
   %spec.select.i.i.i.i.i.i40 = select i1 %134, ptr %.sroa.025.2.i.i.i.i.i.i39, ptr %.val13
@@ -853,7 +853,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %171
 
 171:                                              ; preds = %169, %._crit_edge.i.i.i.i.i.i52
-  %.sroa.025.1.i.i.i.i.i.i59 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i54, %._crit_edge.i.i.i.i.i.i52 ], [ %170, %169 ]
+  %.sroa.025.1.i.i.i.i.i.i59 = phi ptr [ %170, %169 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i54, %._crit_edge.i.i.i.i.i.i52 ]
   %172 = load i64, ptr %.sroa.025.1.i.i.i.i.i.i59, align 8, !tbaa !8, !noalias !60
   %173 = icmp sgt i64 %172, 65535
   br i1 %173, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt16TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i, label %174
@@ -863,7 +863,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %176
 
 176:                                              ; preds = %174, %._crit_edge.i.i.i.i.i.i52
-  %.sroa.025.2.i.i.i.i.i.i55 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i54, %._crit_edge.i.i.i.i.i.i52 ], [ %175, %174 ]
+  %.sroa.025.2.i.i.i.i.i.i55 = phi ptr [ %175, %174 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i54, %._crit_edge.i.i.i.i.i.i52 ]
   %177 = load i64, ptr %.sroa.025.2.i.i.i.i.i.i55, align 8, !tbaa !8, !noalias !60
   %178 = icmp sgt i64 %177, 65535
   %spec.select.i.i.i.i.i.i56 = select i1 %178, ptr %.sroa.025.2.i.i.i.i.i.i55, ptr %.val15
@@ -967,7 +967,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %215
 
 215:                                              ; preds = %213, %._crit_edge.i.i.i.i.i.i68
-  %.sroa.025.1.i.i.i.i.i.i75 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i70, %._crit_edge.i.i.i.i.i.i68 ], [ %214, %213 ]
+  %.sroa.025.1.i.i.i.i.i.i75 = phi ptr [ %214, %213 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i70, %._crit_edge.i.i.i.i.i.i68 ]
   %216 = load i64, ptr %.sroa.025.1.i.i.i.i.i.i75, align 8, !tbaa !8, !noalias !67
   %217 = icmp sgt i64 %216, 2147483647
   br i1 %217, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_9Int32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i, label %218
@@ -977,7 +977,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %220
 
 220:                                              ; preds = %218, %._crit_edge.i.i.i.i.i.i68
-  %.sroa.025.2.i.i.i.i.i.i71 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i70, %._crit_edge.i.i.i.i.i.i68 ], [ %219, %218 ]
+  %.sroa.025.2.i.i.i.i.i.i71 = phi ptr [ %219, %218 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i70, %._crit_edge.i.i.i.i.i.i68 ]
   %221 = load i64, ptr %.sroa.025.2.i.i.i.i.i.i71, align 8, !tbaa !8, !noalias !67
   %222 = icmp sgt i64 %221, 2147483647
   %spec.select.i.i.i.i.i.i72 = select i1 %222, ptr %.sroa.025.2.i.i.i.i.i.i71, ptr %.val17
@@ -1081,7 +1081,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %259
 
 259:                                              ; preds = %257, %._crit_edge.i.i.i.i.i.i84
-  %.sroa.025.1.i.i.i.i.i.i91 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i86, %._crit_edge.i.i.i.i.i.i84 ], [ %258, %257 ]
+  %.sroa.025.1.i.i.i.i.i.i91 = phi ptr [ %258, %257 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i86, %._crit_edge.i.i.i.i.i.i84 ]
   %260 = load i64, ptr %.sroa.025.1.i.i.i.i.i.i91, align 8, !tbaa !8, !noalias !74
   %261 = icmp sgt i64 %260, 4294967295
   br i1 %261, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8internal12_GLOBAL__N_128CheckSparseIndexMaximumValueINS8_10UInt32TypeEEENS8_6StatusERKS6_EUllE_EbT_SH_T0_.exit.i, label %262
@@ -1091,7 +1091,7 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow8intern
   br label %264
 
 264:                                              ; preds = %262, %._crit_edge.i.i.i.i.i.i84
-  %.sroa.025.2.i.i.i.i.i.i87 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i86, %._crit_edge.i.i.i.i.i.i84 ], [ %263, %262 ]
+  %.sroa.025.2.i.i.i.i.i.i87 = phi ptr [ %263, %262 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i86, %._crit_edge.i.i.i.i.i.i84 ]
   %265 = load i64, ptr %.sroa.025.2.i.i.i.i.i.i87, align 8, !tbaa !8, !noalias !74
   %266 = icmp sgt i64 %265, 4294967295
   %spec.select.i.i.i.i.i.i88 = select i1 %266, ptr %.sroa.025.2.i.i.i.i.i.i87, ptr %.val19
@@ -6751,7 +6751,7 @@ define linkonce_odr void @_ZNK5arrow14SparseCOOIndex13ValidateShapeERKSt6vectorI
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %37, %36 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %39 = load i64, ptr %.sroa.025.1.i.i.i.i.i, align 8, !tbaa !8, !noalias !319
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZNK5arrow11SparseIndex13ValidateShapeERKS6_E3$_0EbT_SD_T0_.exit.i", label %41
@@ -6761,7 +6761,7 @@ define linkonce_odr void @_ZNK5arrow14SparseCOOIndex13ValidateShapeERKSt6vectorI
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %42, %41 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %44 = load i64, ptr %.sroa.025.2.i.i.i.i.i, align 8, !tbaa !8, !noalias !319
   %45 = icmp slt i64 %44, 0
   %spec.select.i.i.i.i.i = select i1 %45, ptr %.sroa.025.2.i.i.i.i.i, ptr %7

@@ -36510,8 +36510,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZN3ade6HandleINS_4EdgeEED2Ev.exit48
 
 35:                                               ; preds = %_ZN3ade6HandleINS_4EdgeEED2Ev.exit, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21
-  %.sroa.0.0 = phi ptr [ %19, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21 ], [ %14, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit ]
-  %.sroa.8.1 = phi ptr [ %21, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21 ], [ %16, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit ]
+  %.sroa.0.0 = phi ptr [ %14, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit ], [ %19, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21 ]
+  %.sroa.8.1 = phi ptr [ %16, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit ], [ %21, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21 ]
   %.not.i.i.i.i.i.i22 = icmp eq ptr %.sroa.8.1, null
   br i1 %.not.i.i.i.i.i.i22, label %_ZN3adeneERKNS_6HandleINS_4EdgeEEEDn.exit.thread, label %36
 

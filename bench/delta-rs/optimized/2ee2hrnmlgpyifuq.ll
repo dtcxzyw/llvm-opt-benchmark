@@ -594,11 +594,11 @@ default.unreachable:                              ; preds = %123, %67
   br label %"_ZN15deltalake_mount5error126_$LT$impl$u20$core..convert..From$LT$deltalake_mount..error..Error$GT$$u20$for$u20$deltalake_core..errors..DeltaTableError$GT$4from17h30817d42675acc25E.exit"
 
 "_ZN15deltalake_mount5error126_$LT$impl$u20$core..convert..From$LT$deltalake_mount..error..Error$GT$$u20$for$u20$deltalake_core..errors..DeltaTableError$GT$4from17h30817d42675acc25E.exit": ; preds = %70, %72, %74, %79
-  %.sroa.4262.0 = phi i64 [ %.sroa.0258.0.copyload, %79 ], [ %76, %74 ], [ %.sroa.4259.sroa.0.0.copyload, %72 ], [ %.sroa.4259.sroa.0.0.copyload, %70 ]
-  %.sroa.8264.0 = phi ptr [ %80, %79 ], [ %77, %74 ], [ %73, %72 ], [ %71, %70 ]
-  %.sroa.10267.0 = phi i64 [ %.sroa.4259.sroa.4.0.copyload, %79 ], [ 53, %74 ], [ %.sroa.4259.sroa.5.0.copyload, %72 ], [ %.sroa.4259.sroa.5.0.copyload, %70 ]
-  %.sroa.11270.sroa.0.0 = phi i64 [ %.sroa.4259.sroa.5.0.copyload, %79 ], [ undef, %74 ], [ undef, %72 ], [ undef, %70 ]
-  %.sink.i = phi i64 [ 13, %79 ], [ 40, %74 ], [ 40, %72 ], [ 40, %70 ]
+  %.sroa.4262.0 = phi i64 [ %.sroa.4259.sroa.0.0.copyload, %70 ], [ %.sroa.4259.sroa.0.0.copyload, %72 ], [ %76, %74 ], [ %.sroa.0258.0.copyload, %79 ]
+  %.sroa.8264.0 = phi ptr [ %71, %70 ], [ %73, %72 ], [ %77, %74 ], [ %80, %79 ]
+  %.sroa.10267.0 = phi i64 [ %.sroa.4259.sroa.5.0.copyload, %70 ], [ %.sroa.4259.sroa.5.0.copyload, %72 ], [ 53, %74 ], [ %.sroa.4259.sroa.4.0.copyload, %79 ]
+  %.sroa.11270.sroa.0.0 = phi i64 [ undef, %70 ], [ undef, %72 ], [ undef, %74 ], [ %.sroa.4259.sroa.5.0.copyload, %79 ]
+  %.sink.i = phi i64 [ 40, %70 ], [ 40, %72 ], [ 40, %74 ], [ 13, %79 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.4262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4262.0, ptr %.sroa.4262.0..sroa_idx, align 8
@@ -759,11 +759,11 @@ default.unreachable:                              ; preds = %123, %67
   br label %"_ZN15deltalake_mount5error126_$LT$impl$u20$core..convert..From$LT$deltalake_mount..error..Error$GT$$u20$for$u20$deltalake_core..errors..DeltaTableError$GT$4from17h30817d42675acc25E.exit158"
 
 "_ZN15deltalake_mount5error126_$LT$impl$u20$core..convert..From$LT$deltalake_mount..error..Error$GT$$u20$for$u20$deltalake_core..errors..DeltaTableError$GT$4from17h30817d42675acc25E.exit158": ; preds = %126, %128, %130, %135
-  %.sroa.4282.0 = phi i64 [ %64, %135 ], [ %132, %130 ], [ %.sroa.072.sroa.0.0.copyload, %128 ], [ %.sroa.072.sroa.0.0.copyload, %126 ]
-  %.sroa.8284.0 = phi ptr [ %136, %135 ], [ %133, %130 ], [ %129, %128 ], [ %127, %126 ]
-  %.sroa.10287.0 = phi i64 [ %.sroa.072.sroa.4.0.copyload, %135 ], [ 53, %130 ], [ %.sroa.072.sroa.5.0.copyload, %128 ], [ %.sroa.072.sroa.5.0.copyload, %126 ]
-  %.sroa.11290.sroa.0.0 = phi i64 [ %.sroa.072.sroa.5.0.copyload, %135 ], [ undef, %130 ], [ undef, %128 ], [ undef, %126 ]
-  %.sink.i154 = phi i64 [ 13, %135 ], [ 40, %130 ], [ 40, %128 ], [ 40, %126 ]
+  %.sroa.4282.0 = phi i64 [ %.sroa.072.sroa.0.0.copyload, %126 ], [ %.sroa.072.sroa.0.0.copyload, %128 ], [ %132, %130 ], [ %64, %135 ]
+  %.sroa.8284.0 = phi ptr [ %127, %126 ], [ %129, %128 ], [ %133, %130 ], [ %136, %135 ]
+  %.sroa.10287.0 = phi i64 [ %.sroa.072.sroa.5.0.copyload, %126 ], [ %.sroa.072.sroa.5.0.copyload, %128 ], [ 53, %130 ], [ %.sroa.072.sroa.4.0.copyload, %135 ]
+  %.sroa.11290.sroa.0.0 = phi i64 [ undef, %126 ], [ undef, %128 ], [ undef, %130 ], [ %.sroa.072.sroa.5.0.copyload, %135 ]
+  %.sink.i154 = phi i64 [ 40, %126 ], [ 40, %128 ], [ 40, %130 ], [ 13, %135 ]
   store i64 %.sink.i154, ptr %0, align 8
   %.sroa.4282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4282.0, ptr %.sroa.4282.0..sroa_idx, align 8

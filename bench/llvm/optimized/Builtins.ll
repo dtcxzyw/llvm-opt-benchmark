@@ -3509,7 +3509,7 @@ define linkonce_odr hidden void @_ZN5clang7Builtin14TargetFeatures14getAndFeatur
   br label %15
 
 15:                                               ; preds = %13, %6, %6
-  %.1 = phi i32 [ %.093, %6 ], [ %.093, %6 ], [ %14, %13 ]
+  %.1 = phi i32 [ %14, %13 ], [ %.093, %6 ], [ %.093, %6 ]
   %16 = icmp eq i32 %.1, 0
   br i1 %16, label %17, label %42
 
@@ -3577,9 +3577,9 @@ _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit: ; preds 
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread, %15, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit, %6, %9
-  %.441.ph = phi i64 [ %spec.select, %9 ], [ %.03791, %15 ], [ %40, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.03791, %6 ], [ %39, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ]
-  %.4.ph = phi i8 [ %.03392, %9 ], [ %.03392, %15 ], [ %.336, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.03392, %6 ], [ %.336.ph, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ]
-  %.3.ph = phi i32 [ %12, %9 ], [ %.1, %15 ], [ 0, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.093, %6 ], [ 0, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ]
+  %.441.ph = phi i64 [ %.03791, %15 ], [ %40, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %spec.select, %9 ], [ %.03791, %6 ], [ %39, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ]
+  %.4.ph = phi i8 [ %.03392, %15 ], [ %.336, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.03392, %9 ], [ %.03392, %6 ], [ %.336.ph, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ]
+  %.3.ph = phi i32 [ %.1, %15 ], [ 0, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %12, %9 ], [ %.093, %6 ], [ 0, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ]
   %43 = add nuw i64 %.04289, 1
   %exitcond.not = icmp eq i64 %43, %3
   br i1 %exitcond.not, label %.thread78, label %6, !llvm.loop !109

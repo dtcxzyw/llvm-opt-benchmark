@@ -434,7 +434,7 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   br label %145
 
 145:                                              ; preds = %143, %131, %124, %120
-  %.057.i = phi i32 [ %113, %143 ], [ %142, %131 ], [ %123, %120 ], [ %130, %124 ]
+  %.057.i = phi i32 [ %113, %143 ], [ %123, %120 ], [ %130, %124 ], [ %142, %131 ]
   %146 = load ptr, ptr %5, align 8
   %147 = load i32, ptr @hf_elasticsearch_address_port, align 4
   %148 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %0, i32 noundef %.057.i, i32 noundef 4, i32 noundef 0)

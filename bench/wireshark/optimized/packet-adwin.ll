@@ -1236,7 +1236,7 @@ dissect_GDSHP.exit:                               ; preds = %proto_item_set_hidd
   br label %364
 
 364:                                              ; preds = %361, %358, %354, %351
-  %.0.i = phi ptr [ %363, %361 ], [ %360, %358 ], [ %357, %354 ], [ %353, %351 ]
+  %.0.i = phi ptr [ %363, %361 ], [ %353, %351 ], [ %357, %354 ], [ %360, %358 ]
   tail call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef 12)
   %365 = load i32, ptr @hf_adwin_unused, align 4
   %366 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %365, ptr noundef %0, i32 noundef 24, i32 noundef 40, i32 noundef 0)

@@ -67,7 +67,7 @@ define hidden noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noun
   br label %38
 
 38:                                               ; preds = %16, %31, %34, %27, %20, %11
-  %.0 = phi i32 [ %15, %11 ], [ %37, %34 ], [ %30, %27 ], [ %23, %20 ], [ -1, %31 ], [ -1, %16 ]
+  %.0 = phi i32 [ %15, %11 ], [ %23, %20 ], [ %30, %27 ], [ %37, %34 ], [ -1, %31 ], [ -1, %16 ]
   ret i32 %.0
 }
 

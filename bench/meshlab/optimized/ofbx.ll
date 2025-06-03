@@ -7323,7 +7323,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit401.thread510.i:     ; preds = %.lr.ph.i389.i, %.lr
   br label %_ZN4ofbxL24getFramerateFromTimeModeENS_9FrameRateEf.exit.i
 
 _ZN4ofbxL24getFramerateFromTimeModeENS_9FrameRateEf.exit.i: ; preds = %831, %829, %828, %827, %826, %825, %824, %823, %822, %821, %820, %819, %818, %_ZNK4ofbx8DataVieweqEPKc.exit401.thread510.i
-  %.0.i.i = phi float [ -1.000000e+00, %831 ], [ %830, %829 ], [ 0x4037F9DB20000000, %828 ], [ 1.000000e+03, %827 ], [ 2.400000e+01, %826 ], [ 2.500000e+01, %825 ], [ 0x403DF853A0000000, %824 ], [ 3.000000e+01, %823 ], [ 4.800000e+01, %822 ], [ 5.000000e+01, %821 ], [ 6.000000e+01, %820 ], [ 1.000000e+02, %819 ], [ 1.200000e+02, %818 ], [ 1.000000e+00, %_ZNK4ofbx8DataVieweqEPKc.exit401.thread510.i ]
+  %.0.i.i = phi float [ -1.000000e+00, %831 ], [ 1.200000e+02, %818 ], [ 1.000000e+02, %819 ], [ 6.000000e+01, %820 ], [ 5.000000e+01, %821 ], [ 4.800000e+01, %822 ], [ 3.000000e+01, %823 ], [ 0x403DF853A0000000, %824 ], [ 2.500000e+01, %825 ], [ 2.400000e+01, %826 ], [ 1.000000e+03, %827 ], [ 0x4037F9DB20000000, %828 ], [ %830, %829 ], [ 1.000000e+00, %_ZNK4ofbx8DataVieweqEPKc.exit401.thread510.i ]
   store float %.0.i.i, ptr %22, align 8
   br label %832
 
@@ -12743,7 +12743,7 @@ _ZNSt6vectorIPKN4ofbx8MaterialESaIS3_EE9push_backEOS3_.exit: ; preds = %.lr.ph.i
   br i1 %.not836, label %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.thread, label %.lr.ph939
 
 _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.thread: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i, %_ZNSt6vectorIPN4ofbx14AnimationStackESaIS2_EE9push_backEOS2_.exit, %2119, %_ZNSt6vectorIPN4ofbx14AnimationStackESaIS2_EE9push_backEOS2_.exit.thread1027, %.preheader, %2, %2118, %2108, %2050, %1992, %1924, %1901, %_ZN4ofbxL6isLongEPKNS_8PropertyE.exit.thread
-  %.0 = phi i1 [ false, %_ZN4ofbxL6isLongEPKNS_8PropertyE.exit.thread ], [ false, %2108 ], [ false, %2050 ], [ false, %1992 ], [ false, %1924 ], [ false, %1901 ], [ false, %2118 ], [ true, %2 ], [ true, %.preheader ], [ false, %_ZNSt6vectorIPN4ofbx14AnimationStackESaIS2_EE9push_backEOS2_.exit.thread1027 ], [ true, %2119 ], [ false, %_ZNSt6vectorIPN4ofbx14AnimationStackESaIS2_EE9push_backEOS2_.exit ], [ true, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN4ofbxL6isLongEPKNS_8PropertyE.exit.thread ], [ false, %1924 ], [ false, %1992 ], [ false, %2050 ], [ false, %2108 ], [ false, %1901 ], [ false, %2118 ], [ true, %2 ], [ true, %.preheader ], [ false, %_ZNSt6vectorIPN4ofbx14AnimationStackESaIS2_EE9push_backEOS2_.exit.thread1027 ], [ true, %2119 ], [ false, %_ZNSt6vectorIPN4ofbx14AnimationStackESaIS2_EE9push_backEOS2_.exit ], [ true, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i ]
   ret i1 %.0
 }
 

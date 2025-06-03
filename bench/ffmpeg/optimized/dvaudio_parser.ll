@@ -40,7 +40,7 @@ define internal noundef i32 @dvaudio_parse(ptr noundef writeonly captures(none) 
   br label %dv_get_audio_sample_count.exit
 
 dv_get_audio_sample_count.exit:                   ; preds = %15, %17, %19
-  %.pn.i = phi i32 [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
+  %.pn.i = phi i32 [ %20, %19 ], [ %16, %15 ], [ %18, %17 ]
   %21 = and i8 %.val, 63
   %22 = zext nneg i8 %21 to i32
   %.0.i = add nuw nsw i32 %.pn.i, %22

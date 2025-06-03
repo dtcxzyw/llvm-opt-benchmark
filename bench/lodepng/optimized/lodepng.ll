@@ -1868,9 +1868,9 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit205.i.i, %.loopexit.loopexit202.i.i, %.loopexit.loopexit.i.i, %299
-  %.sroa.42.14 = phi i64 [ %297, %299 ], [ %346, %.loopexit.loopexit205.i.i ], [ %331, %.loopexit.loopexit202.i.i ], [ %309, %.loopexit.loopexit.i.i ]
-  %.3131.i.i = phi i32 [ %.1129.i.i, %299 ], [ %.3131.ph206.i.i, %.loopexit.loopexit205.i.i ], [ %.3131.ph203.i.i, %.loopexit.loopexit202.i.i ], [ %.3131.ph.i.i, %.loopexit.loopexit.i.i ]
-  %.3.i.i = phi i32 [ %304, %299 ], [ %.3.ph207.i.i, %.loopexit.loopexit205.i.i ], [ %.3.ph204.i.i, %.loopexit.loopexit202.i.i ], [ %.3.ph.i.i, %.loopexit.loopexit.i.i ]
+  %.sroa.42.14 = phi i64 [ %297, %299 ], [ %309, %.loopexit.loopexit.i.i ], [ %331, %.loopexit.loopexit202.i.i ], [ %346, %.loopexit.loopexit205.i.i ]
+  %.3131.i.i = phi i32 [ %.1129.i.i, %299 ], [ %.3131.ph.i.i, %.loopexit.loopexit.i.i ], [ %.3131.ph203.i.i, %.loopexit.loopexit202.i.i ], [ %.3131.ph206.i.i, %.loopexit.loopexit205.i.i ]
+  %.3.i.i = phi i32 [ %304, %299 ], [ %.3.ph.i.i, %.loopexit.loopexit.i.i ], [ %.3.ph204.i.i, %.loopexit.loopexit202.i.i ], [ %.3.ph207.i.i, %.loopexit.loopexit205.i.i ]
   %359 = icmp ugt i64 %.sroa.42.14, %mul.val.i.i
   br i1 %359, label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread.i.i, label %216
 
@@ -6793,7 +6793,7 @@ _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i: ; preds = %96, %.prehead
   br i1 %.not.i81, label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit, label %89, !llvm.loop !282
 
 _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit:      ; preds = %24, %42, %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i, %89, %70, %58, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
-  %.1 = phi i32 [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ %66, %58 ], [ 83, %70 ], [ 83, %89 ], [ 0, %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i ], [ %55, %42 ], [ %31, %24 ]
+  %.1 = phi i32 [ %66, %58 ], [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ 83, %70 ], [ 83, %89 ], [ 0, %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.i ], [ %55, %42 ], [ %31, %24 ]
   ret i32 %.1
 }
 
@@ -18169,8 +18169,8 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
   store i8 %179, ptr %180, align 1, !tbaa !18
   br label %181
 
-181:                                              ; preds = %161, %111, %69, %28
-  %.0122.ph = phi ptr [ %31, %28 ], [ %72, %69 ], [ %114, %111 ], [ %164, %161 ]
+181:                                              ; preds = %28, %69, %111, %161
+  %.0122.ph = phi ptr [ %164, %161 ], [ %114, %111 ], [ %72, %69 ], [ %31, %28 ]
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %.0122.ph)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
@@ -18604,13 +18604,13 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %20, %.thread.i.i.i
   store i8 %132, ptr %133, align 1, !tbaa !18
   br label %.thread101
 
-.thread101:                                       ; preds = %45, %69, %102
-  %.1104 = phi ptr [ %72, %69 ], [ %105, %102 ], [ %32, %45 ]
+.thread101:                                       ; preds = %45, %102, %69
+  %.1104 = phi ptr [ %105, %102 ], [ %72, %69 ], [ %32, %45 ]
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %.1104)
   br label %.thread105
 
-.thread105:                                       ; preds = %12, %4, %52, %85, %2, %98, %91, %88, %65, %58, %55, %24, %17, %._crit_edge, %.thread101
-  %.3 = phi i32 [ 0, %.thread101 ], [ 83, %24 ], [ 77, %17 ], [ 77, %._crit_edge ], [ 83, %65 ], [ 77, %58 ], [ 77, %55 ], [ 83, %98 ], [ 77, %91 ], [ 77, %88 ], [ 0, %2 ], [ 0, %85 ], [ 0, %52 ], [ 0, %4 ], [ 0, %12 ]
+.thread105:                                       ; preds = %12, %4, %85, %52, %2, %98, %91, %88, %65, %58, %55, %24, %17, %._crit_edge, %.thread101
+  %.3 = phi i32 [ 0, %.thread101 ], [ 83, %24 ], [ 77, %17 ], [ 77, %._crit_edge ], [ 83, %65 ], [ 77, %58 ], [ 77, %55 ], [ 83, %98 ], [ 77, %91 ], [ 77, %88 ], [ 0, %2 ], [ 0, %52 ], [ 0, %85 ], [ 0, %4 ], [ 0, %12 ]
   ret i32 %.3
 }
 
@@ -18809,8 +18809,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
   store i8 %105, ptr %106, align 1, !tbaa !18
   br label %107
 
-107:                                              ; preds = %95, %49, %19
-  %.0.ph = phi ptr [ %22, %19 ], [ %52, %49 ], [ %98, %95 ]
+107:                                              ; preds = %19, %49, %95
+  %.0.ph = phi ptr [ %98, %95 ], [ %52, %49 ], [ %22, %19 ]
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %.0.ph)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 

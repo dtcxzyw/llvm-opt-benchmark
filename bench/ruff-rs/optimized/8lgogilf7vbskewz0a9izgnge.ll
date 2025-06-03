@@ -1061,7 +1061,7 @@ define hidden void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h1f24c03677
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.i: ; preds = %19, %14, %11, %8
-  %.sroa.0.0.i.i = phi i8 [ %13, %11 ], [ %24, %19 ], [ %10, %8 ], [ %18, %14 ]
+  %.sroa.0.0.i.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ]
   %25 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %25, label %"_ZN7ty_test6parser6Parser15skip_whitespace28_$u7b$$u7b$closure$u7d$$u7d$17h7d253b287ee64205E.exit.thread2", label %"_ZN7ty_test6parser6Parser15skip_whitespace28_$u7b$$u7b$closure$u7d$$u7d$17h7d253b287ee64205E.exit.thread"
 
@@ -1131,7 +1131,7 @@ define hidden void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h920628566d
   br label %_ZN4core3ops8function5FnMut8call_mut17h6701eb4fb23acf89E.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h6701eb4fb23acf89E.exit: ; preds = %8, %11, %14, %19
-  %.sroa.0.0.i.i.i = phi i8 [ %13, %11 ], [ %24, %19 ], [ %10, %8 ], [ %18, %14 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ]
   %25 = trunc i8 %.sroa.0.0.i.i.i to i1
   br i1 %25, label %_ZN4core3ops8function5FnMut8call_mut17h6701eb4fb23acf89E.exit.thread, label %_ZN4core3ops8function5FnMut8call_mut17h6701eb4fb23acf89E.exit.thread2
 
@@ -1201,7 +1201,7 @@ define hidden void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17hc02dd1c587
   br label %"_ZN7ty_test9assertion20ErrorAssertionParser5parse28_$u7b$$u7b$closure$u7d$$u7d$17h2ba1728a6ec385c4E.exit"
 
 "_ZN7ty_test9assertion20ErrorAssertionParser5parse28_$u7b$$u7b$closure$u7d$$u7d$17h2ba1728a6ec385c4E.exit": ; preds = %8, %11, %14, %19
-  %.sroa.0.0.i.i = phi i8 [ %13, %11 ], [ %24, %19 ], [ %10, %8 ], [ %18, %14 ]
+  %.sroa.0.0.i.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ]
   %25 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %25, label %"_ZN7ty_test9assertion20ErrorAssertionParser5parse28_$u7b$$u7b$closure$u7d$$u7d$17h2ba1728a6ec385c4E.exit.thread2", label %"_ZN7ty_test9assertion20ErrorAssertionParser5parse28_$u7b$$u7b$closure$u7d$$u7d$17h2ba1728a6ec385c4E.exit.thread"
 
@@ -1482,7 +1482,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6b0c9a5603d976adE.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6b0c9a5603d976adE.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h25976a8ab0a42aacE.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h47f15af12c639f85E.exit"
 
@@ -1612,7 +1612,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6b0c9a5603d976adE.exit.i.i.i6"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6b0c9a5603d976adE.exit.i.i.i6": ; preds = %130, %125, %122, %119
-  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %124, %122 ], [ %135, %130 ], [ %121, %119 ], [ %129, %125 ]
+  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %129, %125 ], [ %121, %119 ], [ %135, %130 ], [ %124, %122 ]
   %136 = trunc i8 %.sroa.0.0.i.i.i.i.i.i7 to i1
   br i1 %136, label %137, label %139
 

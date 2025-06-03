@@ -6215,7 +6215,7 @@ default.unreachable:                              ; preds = %31
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17h79ef296b2bbd0556E.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17h79ef296b2bbd0556E.exit": ; preds = %.noexc2, %.noexc1, %.noexc, %38, %35, %31
-  %.sroa.9.1 = phi i8 [ %.sroa.9.034, %.noexc2 ], [ %.sroa.9.034, %.noexc1 ], [ %.sroa.9.034, %.noexc ], [ %.sroa.9.034, %38 ], [ %37, %35 ], [ %.sroa.9.034, %31 ]
+  %.sroa.9.1 = phi i8 [ %37, %35 ], [ %.sroa.9.034, %38 ], [ %.sroa.9.034, %.noexc ], [ %.sroa.9.034, %.noexc1 ], [ %.sroa.9.034, %.noexc2 ], [ %.sroa.9.034, %31 ]
   %56 = getelementptr inbounds nuw { [4 x i64] }, ptr %21, i64 %.sroa.7.031
   store i8 %34, ptr %56, align 8, !noalias !712
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 1

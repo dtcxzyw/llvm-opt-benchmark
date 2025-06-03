@@ -1532,7 +1532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207: ; preds = %_Z
   br label %564
 
 564:                                              ; preds = %562, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %563, %562 ]
+  %.1.i.i.i.i = phi ptr [ %563, %562 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %565 = getelementptr i8, ptr %.1.i.i.i.i, i64 8
   %.1.val.i.i.i.i = load i32, ptr %565, align 8, !tbaa !150
   %566 = icmp eq i32 %.1.val.i.i.i.i, 1
@@ -1543,7 +1543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207: ; preds = %_Z
   br label %569
 
 569:                                              ; preds = %567, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %568, %567 ]
+  %.2.i.i.i.i = phi ptr [ %568, %567 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %570 = getelementptr i8, ptr %.2.i.i.i.i, i64 8
   %.2.val.i.i.i.i = load i32, ptr %570, align 8, !tbaa !150
   %571 = icmp eq i32 %.2.val.i.i.i.i, 1
@@ -2020,8 +2020,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !158
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -5958,7 +5958,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5:  ; preds = %1
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit:            ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %1
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 144115188075855872, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5 ], [ 288230376151711744, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 288230376151711744, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ], [ 144115188075855872, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7435,7 +7435,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang6driver8M
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %30, %29 ]
+  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %32 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5clang6driver10toolchains7FuchsiaC1ERKNS3_6DriverERKN4llvm6TripleERKNS9_3opt7ArgListEENK3$_1clERKNS3_8MultilibEEUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_EclINS_17__normal_iteratorIPSQ_St6vectorISQ_SaISQ_EEEEEEbT_"(ptr %.val1, ptr %.sroa.032.1.i.i.i.i.i.i)
   br i1 %32, label %"_ZN4llvm6all_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZN5clang6driver10toolchains7FuchsiaC1ERKNSC_6DriverERKNS_6TripleERKNS_3opt7ArgListEENK3$_1clERKNSC_8MultilibEEUlS7_E_EEbOT_T0_.exit.i", label %33
 
@@ -7444,7 +7444,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang6driver8M
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %34, %33 ]
+  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %36 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5clang6driver10toolchains7FuchsiaC1ERKNS3_6DriverERKN4llvm6TripleERKNS9_3opt7ArgListEENK3$_1clERKNS3_8MultilibEEUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_EclINS_17__normal_iteratorIPSQ_St6vectorISQ_SaISQ_EEEEEEbT_"(ptr %.val1, ptr %.sroa.032.2.i.i.i.i.i.i)
   %spec.select.i.i.i.i.i.i = select i1 %36, ptr %.sroa.032.2.i.i.i.i.i.i, ptr %.val3.i
   br label %"_ZN4llvm6all_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZN5clang6driver10toolchains7FuchsiaC1ERKNSC_6DriverERKNS_6TripleERKNS_3opt7ArgListEENK3$_1clERKNSC_8MultilibEEUlS7_E_EEbOT_T0_.exit.i"

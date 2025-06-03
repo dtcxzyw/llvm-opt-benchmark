@@ -294,8 +294,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
 
 "_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit": ; preds = %2, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22
-  %.sroa.19.0.i = phi i64 [ 18, %22 ], [ 20, %21 ], [ 16, %20 ], [ 18, %19 ], [ 14, %18 ], [ 16, %17 ], [ 12, %16 ], [ 14, %15 ], [ 17, %14 ], [ 11, %13 ], [ 15, %12 ], [ 9, %11 ], [ 7, %10 ], [ 9, %9 ], [ 5, %8 ], [ 7, %7 ], [ 3, %6 ], [ 5, %2 ]
-  %.sroa.0.0.i = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.225, %22 ], [ @anon.451e762c733db03501c72f969938ebf7.224, %21 ], [ @anon.451e762c733db03501c72f969938ebf7.223, %20 ], [ @anon.451e762c733db03501c72f969938ebf7.222, %19 ], [ @anon.451e762c733db03501c72f969938ebf7.221, %18 ], [ @anon.451e762c733db03501c72f969938ebf7.220, %17 ], [ @anon.451e762c733db03501c72f969938ebf7.219, %16 ], [ @anon.451e762c733db03501c72f969938ebf7.218, %15 ], [ @anon.451e762c733db03501c72f969938ebf7.217, %14 ], [ @anon.451e762c733db03501c72f969938ebf7.216, %13 ], [ @anon.451e762c733db03501c72f969938ebf7.215, %12 ], [ @anon.451e762c733db03501c72f969938ebf7.214, %11 ], [ @anon.451e762c733db03501c72f969938ebf7.213, %10 ], [ @anon.451e762c733db03501c72f969938ebf7.212, %9 ], [ @anon.451e762c733db03501c72f969938ebf7.211, %8 ], [ @anon.451e762c733db03501c72f969938ebf7.210, %7 ], [ @anon.451e762c733db03501c72f969938ebf7.209, %6 ], [ @anon.451e762c733db03501c72f969938ebf7.208, %2 ]
+  %.sroa.19.0.i = phi i64 [ 3, %6 ], [ 7, %7 ], [ 5, %8 ], [ 9, %9 ], [ 7, %10 ], [ 9, %11 ], [ 15, %12 ], [ 11, %13 ], [ 17, %14 ], [ 14, %15 ], [ 12, %16 ], [ 16, %17 ], [ 14, %18 ], [ 18, %19 ], [ 16, %20 ], [ 20, %21 ], [ 18, %22 ], [ 5, %2 ]
+  %.sroa.0.0.i = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.209, %6 ], [ @anon.451e762c733db03501c72f969938ebf7.210, %7 ], [ @anon.451e762c733db03501c72f969938ebf7.211, %8 ], [ @anon.451e762c733db03501c72f969938ebf7.212, %9 ], [ @anon.451e762c733db03501c72f969938ebf7.213, %10 ], [ @anon.451e762c733db03501c72f969938ebf7.214, %11 ], [ @anon.451e762c733db03501c72f969938ebf7.215, %12 ], [ @anon.451e762c733db03501c72f969938ebf7.216, %13 ], [ @anon.451e762c733db03501c72f969938ebf7.217, %14 ], [ @anon.451e762c733db03501c72f969938ebf7.218, %15 ], [ @anon.451e762c733db03501c72f969938ebf7.219, %16 ], [ @anon.451e762c733db03501c72f969938ebf7.220, %17 ], [ @anon.451e762c733db03501c72f969938ebf7.221, %18 ], [ @anon.451e762c733db03501c72f969938ebf7.222, %19 ], [ @anon.451e762c733db03501c72f969938ebf7.223, %20 ], [ @anon.451e762c733db03501c72f969938ebf7.224, %21 ], [ @anon.451e762c733db03501c72f969938ebf7.225, %22 ], [ @anon.451e762c733db03501c72f969938ebf7.208, %2 ]
   %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.19.0.i), !noalias !11
   ret i1 %23
 }
@@ -1241,23 +1241,23 @@ define hidden void @_ZN14regex_automata3dfa7onepass15InternalBuilder3new17h00089
 
 _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.exit: ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(255) %8, i64 255, i1 false)
-  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %8, i64 255
-  %.sroa.6.0.copyload26 = load i8, ptr %.sroa.6.0..sroa_idx25, align 1
+  %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %8, i64 255
+  %.sroa.6.0.copyload27 = load i8, ptr %.sroa.6.0..sroa_idx26, align 1
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8), !noalias !187
-  %.val18.pre = load ptr, ptr %2, align 8
+  %.val19.pre = load ptr, ptr %2, align 8
   br label %29
 
 26:                                               ; preds = %3
   %27 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(255) %28, i64 255, i1 false)
-  %.sroa.6.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %27, i64 367
-  %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx22, align 1
+  %.sroa.6.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %27, i64 367
+  %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx23, align 1
   br label %29
 
 29:                                               ; preds = %26, %_ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.exit
-  %30 = phi ptr [ %27, %26 ], [ %.val18.pre, %_ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.exit ]
-  %.sroa.6.0 = phi i8 [ %.sroa.6.0.copyload, %26 ], [ %.sroa.6.0.copyload26, %_ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.exit ]
+  %30 = phi ptr [ %27, %26 ], [ %.val19.pre, %_ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.exit ]
+  %.sroa.6.0 = phi i8 [ %.sroa.6.0.copyload, %26 ], [ %.sroa.6.0.copyload27, %_ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.exit ]
   %31 = zext i8 %.sroa.6.0 to i64
   %32 = add nuw nsw i64 %31, 1
   %33 = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
@@ -1385,7 +1385,7 @@ _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.e
 70:                                               ; preds = %52
   unreachable
 
-71:                                               ; preds = %77, %112, %111, %.body20, %.body, %73, %68
+71:                                               ; preds = %77, %112, %111, %.body21, %.body, %73, %68
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
@@ -1406,8 +1406,8 @@ _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.e
           to label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit" unwind label %71
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit": ; preds = %74, %77, %112
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %112 ], [ %69, %77 ], [ %69, %74 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn17 = phi { ptr, i32 } [ %.pn, %112 ], [ %69, %77 ], [ %69, %74 ]
+  resume { ptr, i32 } %.pn17
 
 .body:                                            ; preds = %78, %64, %111
   %.pn = phi { ptr, i32 } [ %99, %111 ], [ %79, %78 ], [ %65, %64 ]
@@ -1494,7 +1494,7 @@ _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.e
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..util..sparse_set..SparseSet$GT$17h614c240b83c5a85fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6) #27
-          to label %.body20 unwind label %100, !noalias !205
+          to label %.body21 unwind label %100, !noalias !205
 
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
@@ -1502,7 +1502,7 @@ _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.e
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28, !noalias !205
   unreachable
 
-.body20:                                          ; preds = %98
+.body21:                                          ; preds = %98
   invoke void @"_ZN4core3ptr134drop_in_place$LT$alloc..vec..Vec$LT$$LP$regex_automata..util..primitives..StateID$C$regex_automata..dfa..onepass..Epsilons$RP$$GT$$GT$17h5ef94ee0b082464cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #27
           to label %111 unwind label %71
 
@@ -1535,7 +1535,7 @@ _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.e
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %13)
   ret void
 
-111:                                              ; preds = %.body20
+111:                                              ; preds = %.body21
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..primitives..StateID$GT$$GT$17hb6b242916587e3aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #27
           to label %.body unwind label %71
 
@@ -3397,7 +3397,7 @@ _ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit81.i: ; preds 
   br label %.split.i
 
 .split.i:                                         ; preds = %_ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit81.i, %68, %63, %_ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit.i
-  %.0.i = phi i32 [ %56, %_ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit.i ], [ %79, %_ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit81.i ], [ 0, %63 ], [ %72, %68 ]
+  %.0.i = phi i32 [ %79, %_ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit81.i ], [ %56, %_ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit.i ], [ 0, %63 ], [ %72, %68 ]
   %80 = icmp ult i64 %18, %20
   br i1 %80, label %.lr.ph400.i, label %.split.._crit_edge401_crit_edge.i
 
@@ -5800,8 +5800,8 @@ define { ptr, ptr } @"_ZN79_$LT$regex_automata..dfa..onepass..BuildError$u20$as$
   br label %9
 
 9:                                                ; preds = %1, %8, %7
-  %.sroa.4.0 = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.118, %8 ], [ @anon.451e762c733db03501c72f969938ebf7.116, %7 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %0, %8 ], [ %0, %7 ], [ null, %1 ]
+  %.sroa.4.0 = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.116, %7 ], [ @anon.451e762c733db03501c72f969938ebf7.118, %8 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %0, %7 ], [ %0, %8 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %11
@@ -6004,7 +6004,7 @@ define noundef zeroext i1 @"_ZN79_$LT$regex_automata..dfa..onepass..BuildError$u
   br label %86
 
 86:                                               ; preds = %74, %65, %56, %47, %38, %32, %26
-  %.0.in = phi i1 [ %85, %74 ], [ %73, %65 ], [ %64, %56 ], [ %55, %47 ], [ %46, %38 ], [ %37, %32 ], [ %31, %26 ]
+  %.0.in = phi i1 [ %31, %26 ], [ %37, %32 ], [ %46, %38 ], [ %55, %47 ], [ %64, %56 ], [ %73, %65 ], [ %85, %74 ]
   ret i1 %.0.in
 }
 
@@ -6530,7 +6530,7 @@ select.unfold24:                                  ; preds = %98, %94, %96
   br label %147
 
 147:                                              ; preds = %148, %.thread39
-  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.425.1.insert.ext.i, %148 ], [ %.sroa.422.4.insert.shift.i, %.thread39 ]
+  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.422.4.insert.shift.i, %.thread39 ], [ %.sroa.425.1.insert.ext.i, %148 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !848
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
@@ -6543,8 +6543,8 @@ select.unfold24:                                  ; preds = %98, %94, %96
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %101, %103, %147, %149
-  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %147 ], [ %.sroa.418.1.insert.ext.i, %149 ], [ %.sroa.420.4.insert.shift.i, %103 ], [ %.sroa.4.1.insert.ext.i, %101 ]
-  %.sroa.0.0.i = phi i1 [ %trunc.i18, %147 ], [ true, %149 ], [ false, %103 ], [ true, %101 ]
+  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %147 ], [ %.sroa.4.1.insert.ext.i, %101 ], [ %.sroa.418.1.insert.ext.i, %149 ], [ %.sroa.420.4.insert.shift.i, %103 ]
+  %.sroa.0.0.i = phi i1 [ %trunc.i18, %147 ], [ true, %101 ], [ true, %149 ], [ false, %103 ]
   br i1 %.sroa.0.0.i, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %150
 
 150:                                              ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
@@ -7223,8 +7223,8 @@ define internal noundef zeroext i1 @"_ZN69_$LT$regex_automata..util..look..Look$
   br label %22
 
 22:                                               ; preds = %2, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.sroa.19.0 = phi i64 [ 18, %21 ], [ 20, %20 ], [ 16, %19 ], [ 18, %18 ], [ 14, %17 ], [ 16, %16 ], [ 12, %15 ], [ 14, %14 ], [ 17, %13 ], [ 11, %12 ], [ 15, %11 ], [ 9, %10 ], [ 7, %9 ], [ 9, %8 ], [ 5, %7 ], [ 7, %6 ], [ 3, %5 ], [ 5, %2 ]
-  %.sroa.0.0 = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.225, %21 ], [ @anon.451e762c733db03501c72f969938ebf7.224, %20 ], [ @anon.451e762c733db03501c72f969938ebf7.223, %19 ], [ @anon.451e762c733db03501c72f969938ebf7.222, %18 ], [ @anon.451e762c733db03501c72f969938ebf7.221, %17 ], [ @anon.451e762c733db03501c72f969938ebf7.220, %16 ], [ @anon.451e762c733db03501c72f969938ebf7.219, %15 ], [ @anon.451e762c733db03501c72f969938ebf7.218, %14 ], [ @anon.451e762c733db03501c72f969938ebf7.217, %13 ], [ @anon.451e762c733db03501c72f969938ebf7.216, %12 ], [ @anon.451e762c733db03501c72f969938ebf7.215, %11 ], [ @anon.451e762c733db03501c72f969938ebf7.214, %10 ], [ @anon.451e762c733db03501c72f969938ebf7.213, %9 ], [ @anon.451e762c733db03501c72f969938ebf7.212, %8 ], [ @anon.451e762c733db03501c72f969938ebf7.211, %7 ], [ @anon.451e762c733db03501c72f969938ebf7.210, %6 ], [ @anon.451e762c733db03501c72f969938ebf7.209, %5 ], [ @anon.451e762c733db03501c72f969938ebf7.208, %2 ]
+  %.sroa.19.0 = phi i64 [ 3, %5 ], [ 7, %6 ], [ 5, %7 ], [ 9, %8 ], [ 7, %9 ], [ 9, %10 ], [ 15, %11 ], [ 11, %12 ], [ 17, %13 ], [ 14, %14 ], [ 12, %15 ], [ 16, %16 ], [ 14, %17 ], [ 18, %18 ], [ 16, %19 ], [ 20, %20 ], [ 18, %21 ], [ 5, %2 ]
+  %.sroa.0.0 = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.209, %5 ], [ @anon.451e762c733db03501c72f969938ebf7.210, %6 ], [ @anon.451e762c733db03501c72f969938ebf7.211, %7 ], [ @anon.451e762c733db03501c72f969938ebf7.212, %8 ], [ @anon.451e762c733db03501c72f969938ebf7.213, %9 ], [ @anon.451e762c733db03501c72f969938ebf7.214, %10 ], [ @anon.451e762c733db03501c72f969938ebf7.215, %11 ], [ @anon.451e762c733db03501c72f969938ebf7.216, %12 ], [ @anon.451e762c733db03501c72f969938ebf7.217, %13 ], [ @anon.451e762c733db03501c72f969938ebf7.218, %14 ], [ @anon.451e762c733db03501c72f969938ebf7.219, %15 ], [ @anon.451e762c733db03501c72f969938ebf7.220, %16 ], [ @anon.451e762c733db03501c72f969938ebf7.221, %17 ], [ @anon.451e762c733db03501c72f969938ebf7.222, %18 ], [ @anon.451e762c733db03501c72f969938ebf7.223, %19 ], [ @anon.451e762c733db03501c72f969938ebf7.224, %20 ], [ @anon.451e762c733db03501c72f969938ebf7.225, %21 ], [ @anon.451e762c733db03501c72f969938ebf7.208, %2 ]
   %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.19.0)
   ret i1 %23
 }

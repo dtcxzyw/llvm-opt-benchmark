@@ -2721,7 +2721,7 @@ _ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %.invoke, %119
   br label %128
 
 121:                                              ; preds = %117, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %12, %14
-  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %118, %117 ], [ %111, %110 ], [ %105, %104 ], [ %99, %98 ], [ %93, %92 ], [ %87, %86 ], [ %81, %80 ], [ %75, %74 ], [ %69, %68 ], [ %63, %62 ], [ %57, %56 ], [ %51, %50 ], [ %45, %44 ], [ %39, %38 ], [ %33, %32 ], [ %27, %26 ], [ %21, %20 ], [ %13, %12 ]
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ], [ %21, %20 ], [ %27, %26 ], [ %33, %32 ], [ %39, %38 ], [ %45, %44 ], [ %51, %50 ], [ %57, %56 ], [ %63, %62 ], [ %69, %68 ], [ %75, %74 ], [ %81, %80 ], [ %87, %86 ], [ %93, %92 ], [ %99, %98 ], [ %105, %104 ], [ %111, %110 ], [ %118, %117 ]
   %122 = load ptr, ptr %4, align 8, !tbaa !56
   %123 = icmp eq ptr %122, null
   br i1 %123, label %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit116, label %124
@@ -7025,11 +7025,11 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121: ; preds = %_ZN6ic
   %180 = load i32, ptr %179, align 4, !tbaa !12
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit124
 
-_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit124: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121, %95, %93, %91, %15, %15
-  %.0143.ph.ph = phi double [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %16, %15 ], [ %16, %15 ], [ %99, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
-  %.not82142.ph.ph = phi i1 [ true, %95 ], [ true, %93 ], [ true, %91 ], [ true, %15 ], [ true, %15 ], [ false, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
-  %.075.ph.ph = phi i32 [ 0, %95 ], [ 0, %93 ], [ 0, %91 ], [ 0, %15 ], [ 0, %15 ], [ %180, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
-  %.073.ph.ph = phi i32 [ 0, %95 ], [ 0, %93 ], [ 0, %91 ], [ 0, %15 ], [ 0, %15 ], [ %155, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
+_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit124: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121, %91, %93, %95, %15, %15
+  %.0143.ph.ph = phi double [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %16, %15 ], [ %16, %15 ], [ %99, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
+  %.not82142.ph.ph = phi i1 [ true, %91 ], [ true, %93 ], [ true, %95 ], [ true, %15 ], [ true, %15 ], [ false, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
+  %.075.ph.ph = phi i32 [ 0, %91 ], [ 0, %93 ], [ 0, %95 ], [ 0, %15 ], [ 0, %15 ], [ %180, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
+  %.073.ph.ph = phi i32 [ 0, %91 ], [ 0, %93 ], [ 0, %95 ], [ 0, %15 ], [ 0, %15 ], [ %155, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i121 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %182 = load i8, ptr %181, align 8
   %183 = trunc i8 %182 to i1
@@ -8408,7 +8408,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %6, 
   br label %.thread
 
 .thread:                                          ; preds = %36, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, %34, %45, %35
-  %.0 = phi i8 [ %49, %45 ], [ 1, %35 ], [ 0, %34 ], [ 0, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ 0, %36 ]
+  %.0 = phi i8 [ 1, %35 ], [ %49, %45 ], [ 0, %34 ], [ 0, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #25
   ret i8 %.0
 }
@@ -9877,7 +9877,7 @@ _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader: ; 
   br label %32
 
 32:                                               ; preds = %19, %.thread
-  %.1 = phi i32 [ %21, %19 ], [ %31, %.thread ]
+  %.1 = phi i32 [ %31, %.thread ], [ %21, %19 ]
   ret i32 %.1
 }
 
@@ -10734,7 +10734,7 @@ define noundef range(i32 -6, 14) i32 @_ZN6icu_778Calendar11getLocalDOWER10UError
   br label %29
 
 29:                                               ; preds = %24, %23, %18
-  %.1 = phi i32 [ %spec.select, %24 ], [ 0, %23 ], [ 0, %18 ]
+  %.1 = phi i32 [ %spec.select, %24 ], [ 0, %18 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #25
   br label %30
 
@@ -11131,7 +11131,7 @@ define noundef i32 @_ZNK6icu_778Calendar16getActualMaximumE19UCalendarDateFields
   br label %79
 
 79:                                               ; preds = %50, %69, %65, %61, %14, %35, %.thread50, %.thread, %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %.thread ], [ 0, %.thread50 ], [ %78, %69 ], [ %54, %50 ], [ %46, %35 ], [ %26, %14 ], [ %64, %61 ], [ %68, %65 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %.thread ], [ 0, %.thread50 ], [ %78, %69 ], [ %26, %14 ], [ %46, %35 ], [ %54, %50 ], [ %64, %61 ], [ %68, %65 ]
   ret i32 %.0
 }
 

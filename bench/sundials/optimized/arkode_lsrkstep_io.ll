@@ -815,7 +815,7 @@ define i32 @LSRKStepSetNumSSPStages(ptr noundef %0, i32 noundef %1) local_unname
   br label %50
 
 50:                                               ; preds = %17, %19, %21, %2, %48, %46, %44, %36, %28, %23, %10
-  %.0 = phi i32 [ -22, %23 ], [ -22, %46 ], [ -22, %44 ], [ 0, %48 ], [ -22, %36 ], [ -22, %28 ], [ -22, %10 ], [ %5, %2 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ]
+  %.0 = phi i32 [ -22, %23 ], [ -22, %46 ], [ -22, %28 ], [ 0, %48 ], [ -22, %36 ], [ -22, %44 ], [ -22, %10 ], [ %5, %2 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret i32 %.0

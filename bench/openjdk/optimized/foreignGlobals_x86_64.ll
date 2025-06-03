@@ -1152,7 +1152,7 @@ define hidden void @_ZNK15ArgumentShuffle11pd_generateEP14MacroAssembler9VMStora
   br label %62
 
 62:                                               ; preds = %61, %59
-  %.0.i = phi i32 [ 0, %59 ], [ %4, %61 ]
+  %.0.i = phi i32 [ %4, %61 ], [ 0, %59 ]
   %63 = add i32 %.0.i, %.sroa.39.0.extract.trunc.i
   store i32 4, ptr %11, align 8
   store i32 -1, ptr %47, align 4
@@ -1286,7 +1286,7 @@ _ZL8move_xmmP14MacroAssembleri11XMMRegister9VMStorage.exit: ; preds = %67, %68, 
   br label %84
 
 84:                                               ; preds = %83, %73
-  %.0.i39 = phi i32 [ 0, %73 ], [ %4, %83 ]
+  %.0.i39 = phi i32 [ %4, %83 ], [ 0, %73 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %85 = load ptr, ptr %26, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16

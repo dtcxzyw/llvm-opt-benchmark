@@ -1024,8 +1024,8 @@ define dso_local noundef nonnull ptr @_ZN5clang23CodeCompletionAllocator10CopySt
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = add i64 %.sroa.3.0.i, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load i64, ptr %29, align 8, !tbaa !66
@@ -2186,7 +2186,7 @@ define dso_local noundef ptr @_ZNK5clang20CodeCompleteConsumer17OverloadCandidat
   unreachable
 
 _ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %43, %35, %23, %21, %13, %3, %1, %1, %48, %45
-  %.0 = phi ptr [ %50, %48 ], [ %47, %45 ], [ null, %1 ], [ null, %1 ], [ %9, %3 ], [ %22, %21 ], [ null, %13 ], [ %31, %23 ], [ %44, %43 ], [ null, %35 ]
+  %.0 = phi ptr [ %47, %45 ], [ %50, %48 ], [ null, %1 ], [ null, %1 ], [ %22, %21 ], [ %9, %3 ], [ null, %13 ], [ %44, %43 ], [ %31, %23 ], [ null, %35 ]
   ret ptr %.0
 }
 
@@ -2501,7 +2501,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br label %.critedge51
 
 .critedge51:                                      ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %48, %86, %88, %91, %97, %66, %75, %64, %47, %84
-  %.sroa.068.1 = phi i64 [ %.sroa.0.0.copyload.i64, %97 ], [ %.sroa.0.0.copyload.i62, %84 ], [ %.sroa.0.0.copyload.i59, %64 ], [ %.sroa.03.0.i.i, %47 ], [ 0, %75 ], [ 0, %66 ], [ 0, %91 ], [ 0, %88 ], [ 0, %86 ], [ 0, %48 ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %.sroa.068.1 = phi i64 [ %.sroa.0.0.copyload.i64, %97 ], [ %.sroa.0.0.copyload.i59, %64 ], [ %.sroa.03.0.i.i, %47 ], [ %.sroa.0.0.copyload.i62, %84 ], [ 0, %75 ], [ 0, %66 ], [ 0, %91 ], [ 0, %88 ], [ 0, %86 ], [ 0, %48 ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   ret i64 %.sroa.068.1
 }
 
@@ -5475,7 +5475,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %18
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %24, %.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %2
-  %.0.in = phi i32 [ %17, %2 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %26, %24 ], [ 0, %.thread.i ]
+  %.0.in = phi i32 [ %17, %2 ], [ %26, %24 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
   %27 = load ptr, ptr %4, align 8, !tbaa !57
   %28 = icmp eq ptr %27, %8

@@ -221,8 +221,8 @@ define { double, double } @cwrotatepf(double %0, double %1, i32 noundef %2) loca
   unreachable
 
 12:                                               ; preds = %8, %6, %4, %3
-  %.sroa.0.0 = phi double [ %1, %8 ], [ %0, %6 ], [ %1, %4 ], [ %0, %3 ]
-  %.sroa.6.0 = phi double [ %0, %8 ], [ %7, %6 ], [ %5, %4 ], [ %1, %3 ]
+  %.sroa.0.0 = phi double [ %0, %3 ], [ %1, %4 ], [ %0, %6 ], [ %1, %8 ]
+  %.sroa.6.0 = phi double [ %1, %3 ], [ %5, %4 ], [ %7, %6 ], [ %0, %8 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.0, 1
   ret { double, double } %.fca.1.insert
@@ -261,8 +261,8 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
   unreachable
 
 12:                                               ; preds = %8, %6, %4, %3
-  %.sroa.0.0 = phi double [ %1, %8 ], [ %0, %6 ], [ %5, %4 ], [ %0, %3 ]
-  %.sroa.6.0 = phi double [ %0, %8 ], [ %7, %6 ], [ %0, %4 ], [ %1, %3 ]
+  %.sroa.0.0 = phi double [ %0, %3 ], [ %5, %4 ], [ %0, %6 ], [ %1, %8 ]
+  %.sroa.6.0 = phi double [ %1, %3 ], [ %0, %4 ], [ %7, %6 ], [ %0, %8 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.0, 1
   ret { double, double } %.fca.1.insert

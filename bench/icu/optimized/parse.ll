@@ -5061,8 +5061,8 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
 82:                                               ; preds = %60, %67, %.thread.thread, %.thread.thread, %.thread.thread, %73, %74
-  %.06064 = phi i32 [ %.0606373, %74 ], [ %.0606373, %73 ], [ %.0606373, %.thread.thread ], [ %.0606373, %.thread.thread ], [ %.0606373, %.thread.thread ], [ %.0606373, %67 ], [ %39, %60 ]
-  %.1 = phi i32 [ 1, %74 ], [ 3, %73 ], [ 6, %.thread.thread ], [ 6, %.thread.thread ], [ 6, %.thread.thread ], [ 6, %67 ], [ %33, %60 ]
+  %.06064 = phi i32 [ %.0606373, %73 ], [ %.0606373, %74 ], [ %.0606373, %.thread.thread ], [ %.0606373, %.thread.thread ], [ %.0606373, %.thread.thread ], [ %.0606373, %67 ], [ %39, %60 ]
+  %.1 = phi i32 [ 3, %73 ], [ 1, %74 ], [ 6, %.thread.thread ], [ 6, %.thread.thread ], [ 6, %.thread.thread ], [ 6, %67 ], [ %33, %60 ]
   %83 = zext i32 %.1 to i64
   %84 = getelementptr inbounds nuw [16 x %struct.anon.1], ptr @_ZL14gResourceTypes, i64 0, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -5081,7 +5081,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
 
 _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %32, %.thread, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %89, %87, %81, %78, %75, %59, %31, %30
-  %.042 = phi ptr [ null, %59 ], [ %88, %87 ], [ null, %89 ], [ null, %75 ], [ null, %78 ], [ null, %81 ], [ null, %31 ], [ null, %30 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ null, %.thread ], [ null, %32 ]
+  %.042 = phi ptr [ null, %59 ], [ null, %30 ], [ null, %31 ], [ %88, %87 ], [ null, %89 ], [ null, %75 ], [ null, %78 ], [ null, %81 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ null, %.thread ], [ null, %32 ]
   ret ptr %.042
 }
 
@@ -5764,7 +5764,7 @@ _ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7713CollationDataEaiP10UErrorCode.ex
   br label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit
 
 289:                                              ; preds = %271, %286, %284
-  %.6 = phi i32 [ %287, %286 ], [ %285, %284 ], [ %.5, %271 ]
+  %.6 = phi i32 [ %.5, %271 ], [ %285, %284 ], [ %287, %286 ]
   %290 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %5)
   %.not.i140 = icmp eq ptr %290, null
   br i1 %.not.i140, label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit, label %291

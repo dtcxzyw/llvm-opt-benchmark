@@ -682,8 +682,8 @@ sub_1127:                                         ; preds = %sub_0126
   %202 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull @.str.54)
   br label %.thread
 
-.thread:                                          ; preds = %201, %192, %183
-  %.1.ph = phi i32 [ %191, %183 ], [ %200, %192 ], [ %202, %201 ]
+.thread:                                          ; preds = %201, %183, %192
+  %.1.ph = phi i32 [ %200, %192 ], [ %191, %183 ], [ %202, %201 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   br label %225
 
@@ -743,7 +743,7 @@ sub_0135:                                         ; preds = %211
   br label %225
 
 225:                                              ; preds = %.thread, %222, %159, %154, %148, %146, %dissect_bt_dht_values.exit, %dissect_bt_dht_error.exit, %49
-  %.0100 = phi i32 [ %155, %154 ], [ %160, %159 ], [ %224, %222 ], [ %149, %148 ], [ %.0.i75, %dissect_bt_dht_error.exit ], [ %.051.i, %dissect_bt_dht_values.exit ], [ %147, %146 ], [ %50, %49 ], [ %.1.ph, %.thread ]
+  %.0100 = phi i32 [ %155, %154 ], [ %160, %159 ], [ %224, %222 ], [ %50, %49 ], [ %.0.i75, %dissect_bt_dht_error.exit ], [ %.051.i, %dissect_bt_dht_values.exit ], [ %147, %146 ], [ %149, %148 ], [ %.1.ph, %.thread ]
   %226 = icmp eq i32 %.0100, 0
   br i1 %226, label %227, label %229
 
@@ -1079,7 +1079,7 @@ define internal fastcc noundef i32 @dissect_bencoded_list(ptr noundef %0, ptr no
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21
-  %.149 = phi i32 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ]
+  %.149 = phi i32 [ %28, %27 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ]
   %.not51 = icmp ugt i32 %.149, %.048
   br i1 %.not51, label %.critedge, label %30
 

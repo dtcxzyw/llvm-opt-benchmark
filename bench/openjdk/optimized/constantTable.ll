@@ -87,7 +87,7 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %33 = load ptr, ptr %32, align 8
   %.off = add i8 %3, -4
   %switch = icmp ult i8 %.off, 8
-  br i1 %switch, label %.lr.ph.split.preheader, label %54
+  br i1 %switch, label %.lr.ph.split.preheader, label %56
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %25 to i64
@@ -103,39 +103,45 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %.sroa.0.0.copyload8 = load i32, ptr %35, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.sroa.0.0.copyload9 = load i32, ptr %.sroa_idx, align 4
-  switch i8 %3, label %52 [
-    i8 4, label %56
-    i8 8, label %36
-    i8 5, label %38
-    i8 9, label %42
-    i8 10, label %46
-    i8 11, label %48
-    i8 6, label %50
+  switch i8 %3, label %58 [
+    i8 4, label %36
+    i8 8, label %40
+    i8 5, label %42
+    i8 9, label %46
+    i8 10, label %50
+    i8 11, label %52
+    i8 6, label %54
   ]
 
 36:                                               ; preds = %.lr.ph.split
+  %37 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
+  %38 = and i32 %37, 255
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %60, label %.loopexit
+
+40:                                               ; preds = %.lr.ph.split
   %.unshifted = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
   %.mask = and i32 %.unshifted, 255
-  %37 = icmp eq i32 %.mask, 0
-  br i1 %37, label %60, label %.loopexit
-
-38:                                               ; preds = %.lr.ph.split
-  %39 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
-  %40 = and i32 %39, 65535
-  %41 = icmp eq i32 %40, 0
+  %41 = icmp eq i32 %.mask, 0
   br i1 %41, label %60, label %.loopexit
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = trunc i32 %.sroa.0.0.copyload80 to i16
-  %44 = trunc i32 %.sroa.0.0.copyload8 to i16
-  %45 = icmp eq i16 %43, %44
+  %43 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
+  %44 = and i32 %43, 65535
+  %45 = icmp eq i32 %44, 0
   br i1 %45, label %60, label %.loopexit
 
 46:                                               ; preds = %.lr.ph.split
-  %47 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
-  br i1 %47, label %60, label %.loopexit
+  %47 = trunc i32 %.sroa.0.0.copyload80 to i16
+  %48 = trunc i32 %.sroa.0.0.copyload8 to i16
+  %49 = icmp eq i16 %47, %48
+  br i1 %49, label %60, label %.loopexit
 
-48:                                               ; preds = %.lr.ph.split
+50:                                               ; preds = %.lr.ph.split
+  %51 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
+  br i1 %51, label %60, label %.loopexit
+
+52:                                               ; preds = %.lr.ph.split
   %.sroa.0.sroa.989.0.insert.ext90 = zext i32 %.sroa.0.0.copyload82 to i64
   %.sroa.0.sroa.989.0.insert.shift91 = shl nuw i64 %.sroa.0.sroa.989.0.insert.ext90, 32
   %.sroa.0.sroa.0.0.insert.ext86 = zext i32 %.sroa.0.0.copyload80 to i64
@@ -144,14 +150,20 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %.sroa.0.sroa.9.0.insert.shift14 = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext13, 32
   %.sroa.0.sroa.0.0.insert.ext10 = zext i32 %.sroa.0.0.copyload8 to i64
   %.sroa.0.sroa.0.0.insert.insert12 = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift14, %.sroa.0.sroa.0.0.insert.ext10
-  %49 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert88, %.sroa.0.sroa.0.0.insert.insert12
-  br i1 %49, label %60, label %.loopexit
+  %53 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert88, %.sroa.0.sroa.0.0.insert.insert12
+  br i1 %53, label %60, label %.loopexit
 
-50:                                               ; preds = %.lr.ph.split
-  %51 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
-  br i1 %51, label %60, label %.loopexit
+54:                                               ; preds = %.lr.ph.split
+  %55 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
+  br i1 %55, label %60, label %.loopexit
 
-52:                                               ; preds = %.lr.ph.split
+56:                                               ; preds = %.lr.ph
+  %57 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %57, align 1
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 56) #9
+  unreachable
+
+58:                                               ; preds = %.lr.ph.split
   %.sroa.0.sroa.989.0.insert.ext = zext i32 %.sroa.0.0.copyload82 to i64
   %.sroa.0.sroa.989.0.insert.shift = shl nuw i64 %.sroa.0.sroa.989.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.ext83 = zext i32 %.sroa.0.0.copyload80 to i64
@@ -160,22 +172,10 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %.sroa.0.sroa.9.0.insert.shift = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload8 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
-  %53 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert85, %.sroa.0.sroa.0.0.insert.insert
-  br i1 %53, label %60, label %.loopexit
-
-54:                                               ; preds = %.lr.ph
-  %55 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %55, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 56) #9
-  unreachable
-
-56:                                               ; preds = %.lr.ph.split
-  %57 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
-  %58 = and i32 %57, 255
-  %59 = icmp eq i32 %58, 0
+  %59 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert85, %.sroa.0.sroa.0.0.insert.insert
   br i1 %59, label %60, label %.loopexit
 
-60:                                               ; preds = %36, %38, %42, %46, %48, %50, %52, %56
+60:                                               ; preds = %54, %52, %50, %46, %42, %40, %36, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
@@ -254,8 +254,8 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 74) #9
   unreachable
 
-.loopexit:                                        ; preds = %56, %60, %52, %50, %48, %46, %42, %38, %36, %.preheader, %19, %22, %5, %2, %98, %92, %86, %80, %74, %68, %62
-  %.0175 = phi i1 [ %103, %98 ], [ %97, %92 ], [ %91, %86 ], [ %85, %80 ], [ %79, %74 ], [ %73, %68 ], [ %67, %62 ], [ false, %2 ], [ false, %5 ], [ false, %22 ], [ false, %19 ], [ true, %.preheader ], [ false, %56 ], [ true, %60 ], [ false, %52 ], [ false, %50 ], [ false, %48 ], [ false, %46 ], [ false, %42 ], [ false, %38 ], [ false, %36 ]
+.loopexit:                                        ; preds = %58, %60, %36, %40, %42, %46, %50, %52, %54, %.preheader, %19, %22, %5, %2, %98, %92, %86, %80, %74, %68, %62
+  %.0175 = phi i1 [ %67, %62 ], [ %73, %68 ], [ %79, %74 ], [ %85, %80 ], [ %91, %86 ], [ %97, %92 ], [ %103, %98 ], [ false, %2 ], [ false, %5 ], [ false, %22 ], [ false, %19 ], [ true, %.preheader ], [ false, %58 ], [ true, %60 ], [ false, %36 ], [ false, %40 ], [ false, %42 ], [ false, %46 ], [ false, %50 ], [ false, %52 ], [ false, %54 ]
   ret i1 %.0175
 }
 
@@ -1514,8 +1514,8 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   unreachable
 
 51:                                               ; preds = %37, %31, %25, %19, %14
-  %.sroa.03.sroa.0.0 = phi i32 [ %.sroa.03.sroa.0.0.extract.trunc6, %37 ], [ %.sroa.03.sroa.0.0.extract.trunc, %31 ], [ %30, %25 ], [ %24, %19 ], [ %.sroa.03.sroa.0.0.extract.trunc7, %14 ]
-  %.sroa.03.sroa.6.0 = phi i64 [ %.sroa.03.sroa.6.0.extract.shift8, %37 ], [ %.sroa.03.sroa.6.0.extract.shift, %31 ], [ 0, %25 ], [ 0, %19 ], [ %.sroa.03.sroa.6.0.extract.shift10, %14 ]
+  %.sroa.03.sroa.0.0 = phi i32 [ %.sroa.03.sroa.0.0.extract.trunc7, %14 ], [ %24, %19 ], [ %30, %25 ], [ %.sroa.03.sroa.0.0.extract.trunc, %31 ], [ %.sroa.03.sroa.0.0.extract.trunc6, %37 ]
+  %.sroa.03.sroa.6.0 = phi i64 [ %.sroa.03.sroa.6.0.extract.shift10, %14 ], [ 0, %19 ], [ 0, %25 ], [ %.sroa.03.sroa.6.0.extract.shift, %31 ], [ %.sroa.03.sroa.6.0.extract.shift8, %37 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.03.sroa.0.0 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.03.sroa.6.0, %.sroa.0.sroa.0.0.insert.ext
   tail call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2, i8 noundef zeroext %13, i64 %.sroa.0.sroa.0.0.insert.insert)

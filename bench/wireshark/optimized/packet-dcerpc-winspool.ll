@@ -1398,7 +1398,7 @@ iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDConta
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit: ; preds = %30, %38, %41, %44, %47, %50, %52, %iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i, %62, %65
-  %.1.i.i = phi i32 [ %.0.i.i, %30 ], [ %67, %65 ], [ %64, %62 ], [ %.0.i.i.i.i, %iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i ], [ %53, %52 ], [ %51, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %30 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %51, %50 ], [ %53, %52 ], [ %.0.i.i.i.i, %iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i ], [ %64, %62 ], [ %67, %65 ]
   %68 = load ptr, ptr %10, align 8
   %69 = sub i32 %.1.i.i, %25
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %69)

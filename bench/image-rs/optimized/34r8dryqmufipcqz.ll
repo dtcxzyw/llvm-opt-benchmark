@@ -5190,7 +5190,7 @@ define hidden noundef i64 @"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4load17h
   br label %_ZN4core4sync6atomic11atomic_load17h85acb266b9e56f70E.llvm.10740287948243559469.exit
 
 _ZN4core4sync6atomic11atomic_load17h85acb266b9e56f70E.llvm.10740287948243559469.exit: ; preds = %7, %14, %21
-  %.0.i = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
+  %.0.i = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
   ret i64 %.0.i
 }
 
@@ -16186,7 +16186,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h85acb266b9e56f70E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -16329,7 +16329,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %15, %12, %9, %7
-  %.0.in = phi i1 [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %7 ]
+  %.0.in = phi i1 [ %8, %7 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ]
   ret i1 %.0.in
 }
 
@@ -19244,7 +19244,7 @@ switch.lookup10:                                  ; preds = %switch.lookup
   br i1 %.041.i, label %85, label %65
 
 common.resume.i:                                  ; preds = %127, %.body.i50.i, %108, %95, %.body.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %128, %127 ], [ %109, %108 ], [ %96, %95 ], [ %121, %.body.i50.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %128, %127 ], [ %96, %95 ], [ %109, %108 ], [ %121, %.body.i50.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 65:                                               ; preds = %switch.lookup10
@@ -19516,7 +19516,7 @@ _ZN5image5error13EncodingError3new17h3bd8d82b52cc5fa8E.exit.i: ; preds = %.noexc
   br label %105
 
 _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread.i: ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.i, %70, %69, %68, %67, %65
-  %storemerge.i = phi i64 [ 1, %65 ], [ 3, %67 ], [ 6, %69 ], [ 8, %70 ], [ 4, %68 ], [ 2, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.i ]
+  %storemerge.i = phi i64 [ 1, %65 ], [ 8, %70 ], [ 6, %69 ], [ 3, %67 ], [ 4, %68 ], [ 2, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.i ]
   store i64 %storemerge.i, ptr %33, align 8, !noalias !4859
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22), !noalias !4859
   store i8 %6, ptr %22, align 1, !noalias !4859
@@ -19686,8 +19686,8 @@ select.unfold:                                    ; preds = %27, %.thread
   br i1 %35, label %41, label %58
 
 36:                                               ; preds = %20, %27
-  %.pn1.i563 = phi i32 [ %31, %27 ], [ %26, %20 ]
-  %.pn3.i562 = phi i32 [ %29, %27 ], [ %23, %20 ]
+  %.pn1.i563 = phi i32 [ %26, %20 ], [ %31, %27 ]
+  %.pn3.i562 = phi i32 [ %23, %20 ], [ %29, %27 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
@@ -22245,8 +22245,8 @@ select.unfold:                                    ; preds = %27, %.thread
   br i1 %35, label %41, label %58
 
 36:                                               ; preds = %20, %27
-  %.pn1.i562 = phi i32 [ %31, %27 ], [ %26, %20 ]
-  %.pn3.i561 = phi i32 [ %29, %27 ], [ %23, %20 ]
+  %.pn1.i562 = phi i32 [ %26, %20 ], [ %31, %27 ]
+  %.pn3.i561 = phi i32 [ %23, %20 ], [ %29, %27 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)

@@ -11084,7 +11084,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16TargetPassConfig19getOptimizeReg
   unreachable
 
 11:                                               ; preds = %1, %9, %3
-  %.0 = phi i1 [ false, %9 ], [ %8, %3 ], [ true, %1 ]
+  %.0 = phi i1 [ %8, %3 ], [ false, %9 ], [ true, %1 ]
   ret i1 %.0
 }
 

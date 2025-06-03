@@ -872,7 +872,7 @@ define internal fastcc i64 @get_size(ptr noundef %0, ptr noundef nonnull capture
   unreachable
 
 .thread32:                                        ; preds = %43, %41, %49, %51, %53
-  %.1 = phi i64 [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %.0, %41 ], [ %.0, %43 ]
+  %.1 = phi i64 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %.0, %41 ], [ %.0, %43 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   ret i64 %.1
 }

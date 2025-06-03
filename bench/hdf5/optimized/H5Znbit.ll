@@ -356,13 +356,13 @@ default.unreachable:                              ; preds = %92
   %127 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_local_nbit, i32 noundef 902, i64 noundef %125, i64 noundef %126, ptr noundef nonnull @.str.14) #8
   br label %128
 
-128:                                              ; preds = %67, %74, %81, %88, %124, %116, %112, %105, %98
-  %.1.ph = phi i32 [ -1, %98 ], [ -1, %105 ], [ -1, %112 ], [ 0, %116 ], [ -1, %124 ], [ -1, %88 ], [ -1, %81 ], [ -1, %74 ], [ -1, %67 ]
+128:                                              ; preds = %67, %74, %81, %88, %98, %124, %116, %105, %112
+  %.1.ph = phi i32 [ -1, %112 ], [ -1, %105 ], [ 0, %116 ], [ -1, %124 ], [ -1, %98 ], [ -1, %88 ], [ -1, %81 ], [ -1, %74 ], [ -1, %67 ]
   %129 = call ptr @H5MM_xfree(ptr noundef nonnull %57) #8
   br label %130
 
 130:                                              ; preds = %18, %25, %34, %41, %45, %51, %59, %128, %3
-  %.0 = phi i32 [ %.1.ph, %128 ], [ 0, %3 ], [ -1, %18 ], [ -1, %25 ], [ -1, %45 ], [ -1, %51 ], [ -1, %59 ], [ -1, %41 ], [ -1, %34 ]
+  %.0 = phi i32 [ %.1.ph, %128 ], [ 0, %3 ], [ -1, %18 ], [ -1, %25 ], [ -1, %45 ], [ -1, %51 ], [ -1, %59 ], [ -1, %34 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
@@ -783,7 +783,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef n
   br label %55
 
 48:                                               ; preds = %20, %37, %23, %30, %40, %33, %26, %16
-  %.1.ph = phi i32 [ 0, %20 ], [ 0, %23 ], [ -1, %26 ], [ 0, %30 ], [ -1, %33 ], [ 0, %37 ], [ -1, %40 ], [ -1, %16 ]
+  %.1.ph = phi i32 [ 0, %37 ], [ 0, %30 ], [ -1, %33 ], [ 0, %23 ], [ -1, %26 ], [ 0, %20 ], [ -1, %40 ], [ -1, %16 ]
   %49 = tail call i32 @H5T_close_real(ptr noundef nonnull %12) #8
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %55
@@ -925,7 +925,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__calc_parms_compound, i32 noundef 311, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.19) #8
   br label %.thread45
 
-66:                                               ; preds = %38, %45, %58, %50, %28
+66:                                               ; preds = %45, %38, %58, %50, %28
   %67 = tail call i32 @H5T_close_real(ptr noundef nonnull %23) #8
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %.thread45
@@ -1242,8 +1242,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef no
   %100 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_array, i32 noundef 584, i64 noundef %98, i64 noundef %99, ptr noundef nonnull @.str.6) #8
   br label %H5Z__set_parms_nooptype.exit.thread
 
-H5Z__set_parms_nooptype.exit.thread:              ; preds = %70, %84, %36, %97, %90, %66, %68, %57, %54, %50, %47, %43, %40
-  %.1.ph = phi i32 [ 0, %40 ], [ -1, %43 ], [ 0, %47 ], [ -1, %50 ], [ 0, %54 ], [ -1, %57 ], [ -1, %68 ], [ -1, %66 ], [ -1, %90 ], [ -1, %97 ], [ -1, %36 ], [ 0, %84 ], [ 0, %70 ]
+H5Z__set_parms_nooptype.exit.thread:              ; preds = %70, %84, %36, %97, %43, %40, %50, %47, %57, %54, %66, %68, %90
+  %.1.ph = phi i32 [ -1, %90 ], [ -1, %68 ], [ -1, %66 ], [ 0, %54 ], [ -1, %57 ], [ 0, %47 ], [ -1, %50 ], [ 0, %40 ], [ -1, %43 ], [ -1, %97 ], [ -1, %36 ], [ 0, %84 ], [ 0, %70 ]
   %101 = tail call i32 @H5T_close_real(ptr noundef nonnull %28) #8
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %107
@@ -1495,7 +1495,7 @@ H5Z__set_parms_nooptype.exit.thread:              ; preds = %H5Z__set_parms_noop
   %137 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__set_parms_compound, i32 noundef 729, i64 noundef %135, i64 noundef %136, ptr noundef nonnull @.str.21) #8
   br label %138
 
-138:                                              ; preds = %52, %124, %117, %134, %87, %80, %73, %66
+138:                                              ; preds = %52, %124, %66, %134, %73, %80, %87, %117
   %139 = tail call i32 @H5T_close_real(ptr noundef nonnull %43) #8
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %141, label %.loopexit
@@ -2162,7 +2162,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   br i1 %exitcond.not.i, label %H5Z__nbit_decompress_one_nooptype.exit, label %100, !llvm.loop !36
 
 H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %132, %95, %77, %57, %79, %61, %53, %97, %49, %73, %91, %15, %7
-  %.0 = phi i32 [ 0, %15 ], [ -1, %91 ], [ -1, %73 ], [ -1, %49 ], [ 0, %7 ], [ 0, %97 ], [ 0, %53 ], [ 0, %61 ], [ 0, %79 ], [ 0, %57 ], [ 0, %77 ], [ 0, %95 ], [ 0, %132 ]
+  %.0 = phi i32 [ 0, %15 ], [ -1, %49 ], [ -1, %73 ], [ -1, %91 ], [ 0, %7 ], [ 0, %97 ], [ 0, %53 ], [ 0, %61 ], [ 0, %79 ], [ 0, %57 ], [ 0, %77 ], [ 0, %95 ], [ 0, %132 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   ret i32 %.0
 }
@@ -2390,7 +2390,7 @@ H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %140, %104, %83, %86
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !37
 
 .loopexit:                                        ; preds = %H5Z__nbit_decompress_one_nooptype.exit, %15, %44, %49, %56, %79, %91, %100, %7
-  %.0 = phi i32 [ -1, %44 ], [ -1, %49 ], [ -1, %56 ], [ -1, %100 ], [ -1, %91 ], [ -1, %79 ], [ 0, %7 ], [ 0, %15 ], [ 0, %H5Z__nbit_decompress_one_nooptype.exit ]
+  %.0 = phi i32 [ -1, %44 ], [ -1, %49 ], [ -1, %56 ], [ -1, %79 ], [ -1, %91 ], [ -1, %100 ], [ 0, %7 ], [ 0, %15 ], [ 0, %H5Z__nbit_decompress_one_nooptype.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   ret i32 %.0
 }

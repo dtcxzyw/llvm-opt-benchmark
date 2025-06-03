@@ -4142,8 +4142,8 @@ _ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit: ; preds = %145, %156
   unreachable
 
 204:                                              ; preds = %.critedge, %.critedge73, %190, %118, %107, %19
-  %.168 = phi i32 [ %.06774, %190 ], [ %.06774, %118 ], [ %.06774, %107 ], [ %36, %.critedge ], [ %.06774, %.critedge73 ], [ %20, %19 ]
-  %.1 = phi i32 [ %.075, %190 ], [ %.075, %118 ], [ %.075, %107 ], [ %90, %.critedge ], [ %.075, %.critedge73 ], [ %.075, %19 ]
+  %.168 = phi i32 [ %20, %19 ], [ %36, %.critedge ], [ %.06774, %.critedge73 ], [ %.06774, %107 ], [ %.06774, %118 ], [ %.06774, %190 ]
+  %.1 = phi i32 [ %.075, %19 ], [ %90, %.critedge ], [ %.075, %.critedge73 ], [ %.075, %107 ], [ %.075, %118 ], [ %.075, %190 ]
   %205 = add nsw i32 %.1, 1
   %.pre = add nsw i32 %.168, 1
   br label %206
@@ -4737,8 +4737,8 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %188, %185
   unreachable
 
 280:                                              ; preds = %270, %263, %256, %249, %.thread81.i, %.thread.i, %_ZNK6HandleclEv.exit.i
-  %.2.i = phi i32 [ %.06693.i, %270 ], [ %.06693.i, %263 ], [ %.06693.i, %256 ], [ %.06693.i, %249 ], [ %.167.i, %.thread81.i ], [ %.06693.i, %.thread.i ], [ %.06693.i, %_ZNK6HandleclEv.exit.i ]
-  %.1.i = phi i32 [ %.094.i, %270 ], [ %.094.i, %263 ], [ %.094.i, %256 ], [ %.094.i, %249 ], [ %238, %.thread81.i ], [ %.094.i, %.thread.i ], [ %.094.i, %_ZNK6HandleclEv.exit.i ]
+  %.2.i = phi i32 [ %.06693.i, %_ZNK6HandleclEv.exit.i ], [ %.167.i, %.thread81.i ], [ %.06693.i, %.thread.i ], [ %.06693.i, %249 ], [ %.06693.i, %256 ], [ %.06693.i, %263 ], [ %.06693.i, %270 ]
+  %.1.i = phi i32 [ %.094.i, %_ZNK6HandleclEv.exit.i ], [ %238, %.thread81.i ], [ %.094.i, %.thread.i ], [ %.094.i, %249 ], [ %.094.i, %256 ], [ %.094.i, %263 ], [ %.094.i, %270 ]
   %281 = add nsw i32 %.1.i, 1
   %282 = add nsw i32 %.2.i, 1
   %283 = load i32, ptr %66, align 4
@@ -6971,10 +6971,10 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit282: ; preds = %475, %_ZN2
   unreachable
 
 523:                                              ; preds = %513, %520, %519, %518, %517
-  %.0206.shrunk = phi i1 [ %516, %520 ], [ %516, %519 ], [ %516, %518 ], [ %516, %513 ], [ false, %517 ]
-  %.0204 = phi i8 [ 1, %520 ], [ 1, %519 ], [ 1, %518 ], [ 0, %513 ], [ 0, %517 ]
-  %.0202 = phi i1 [ true, %520 ], [ false, %519 ], [ false, %518 ], [ false, %513 ], [ false, %517 ]
-  %.0200 = phi i1 [ false, %520 ], [ false, %519 ], [ true, %518 ], [ false, %513 ], [ false, %517 ]
+  %.0206.shrunk = phi i1 [ false, %517 ], [ %516, %513 ], [ %516, %518 ], [ %516, %519 ], [ %516, %520 ]
+  %.0204 = phi i8 [ 0, %517 ], [ 0, %513 ], [ 1, %518 ], [ 1, %519 ], [ 1, %520 ]
+  %.0202 = phi i1 [ false, %517 ], [ false, %513 ], [ false, %518 ], [ false, %519 ], [ true, %520 ]
+  %.0200 = phi i1 [ false, %517 ], [ false, %513 ], [ true, %518 ], [ false, %519 ], [ false, %520 ]
   %524 = icmp ne ptr %.0.i258, null
   %525 = getelementptr i8, ptr %.0.i258, i64 24
   %.not.i.i283330 = icmp ne ptr %525, null

@@ -20310,8 +20310,8 @@ define noundef nonnull ptr @_ZN6syntax3ast4make10token_tree17hd1e2b738756262feE(
   br label %18
 
 18:                                               ; preds = %16, %17, %2
-  %.014 = phi i32 [ 91, %17 ], [ 123, %16 ], [ 40, %2 ]
-  %.0 = phi i32 [ 93, %17 ], [ 125, %16 ], [ 41, %2 ]
+  %.014 = phi i32 [ 123, %16 ], [ 91, %17 ], [ 40, %2 ]
+  %.0 = phi i32 [ 125, %16 ], [ 93, %17 ], [ 41, %2 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 %.014, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)

@@ -2770,7 +2770,7 @@ define internal i32 @phar_stream_seek(ptr noundef readonly captures(none) %0, i6
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13, %24, %19, %14
-  %.0 = phi i64 [ %25, %24 ], [ %23, %19 ], [ %18, %14 ], [ 0, %13 ]
+  %.0 = phi i64 [ %18, %14 ], [ %23, %19 ], [ %25, %24 ], [ 0, %13 ]
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = load i32, ptr %.029, align 8, !tbaa !34
   %28 = zext i32 %27 to i64

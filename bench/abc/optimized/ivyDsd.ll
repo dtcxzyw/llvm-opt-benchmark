@@ -1184,7 +1184,7 @@ tailrecurse:                                      ; preds = %46, %2
   br label %Ivy_DecGetVar.exit
 
 Ivy_DecGetVar.exit:                               ; preds = %51, %52, %53, %54, %55, %56, %57
-  %.0.i = phi i32 [ %23, %57 ], [ %25, %56 ], [ %27, %55 ], [ %29, %54 ], [ %31, %53 ], [ %33, %52 ], [ -1, %51 ]
+  %.0.i = phi i32 [ %33, %52 ], [ %31, %53 ], [ %29, %54 ], [ %27, %55 ], [ %25, %56 ], [ %23, %57 ], [ -1, %51 ]
   %58 = ashr i32 %.0.i, 1
   %59 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %58, ptr noundef %1)
   %60 = and i32 %.0.i, 1
@@ -1233,7 +1233,7 @@ Ivy_DecGetVar.exit:                               ; preds = %51, %52, %53, %54, 
   br label %Ivy_DecGetVar.exit71
 
 Ivy_DecGetVar.exit71:                             ; preds = %65, %66, %67, %68, %69, %70, %71
-  %.0.i70 = phi i32 [ %10, %71 ], [ %12, %70 ], [ %14, %69 ], [ %16, %68 ], [ %18, %67 ], [ %20, %66 ], [ -1, %65 ]
+  %.0.i70 = phi i32 [ %20, %66 ], [ %18, %67 ], [ %16, %68 ], [ %14, %69 ], [ %12, %70 ], [ %10, %71 ], [ -1, %65 ]
   %72 = ashr i32 %.0.i70, 1
   %73 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %72, ptr noundef %1)
   %74 = xor i32 %73, %.152109
@@ -1388,7 +1388,7 @@ common.ret95:                                     ; preds = %3, %13, %._crit_edg
   br label %Ivy_DecGetVar.exit
 
 Ivy_DecGetVar.exit:                               ; preds = %39, %40, %41, %42, %43, %44, %45
-  %.0.i = phi i32 [ %27, %45 ], [ %29, %44 ], [ %31, %43 ], [ %33, %42 ], [ %35, %41 ], [ %37, %40 ], [ -1, %39 ]
+  %.0.i = phi i32 [ %37, %40 ], [ %35, %41 ], [ %33, %42 ], [ %31, %43 ], [ %29, %44 ], [ %27, %45 ], [ -1, %39 ]
   %46 = ashr i32 %.0.i, 1
   tail call void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %46, ptr noundef %2)
   %47 = and i32 %.0.i, 1
@@ -1466,7 +1466,7 @@ Ivy_DecGetVar.exit:                               ; preds = %39, %40, %41, %42, 
   br label %Ivy_DecGetVar.exit73
 
 Ivy_DecGetVar.exit73:                             ; preds = %71, %72, %73, %74, %75, %76, %77
-  %.0.i72 = phi i32 [ %59, %77 ], [ %61, %76 ], [ %63, %75 ], [ %65, %74 ], [ %67, %73 ], [ %69, %72 ], [ -1, %71 ]
+  %.0.i72 = phi i32 [ %69, %72 ], [ %67, %73 ], [ %65, %74 ], [ %63, %75 ], [ %61, %76 ], [ %59, %77 ], [ -1, %71 ]
   %78 = ashr i32 %.0.i72, 1
   tail call void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %78, ptr noundef %2)
   %.not56 = icmp eq i32 %.187, %70
@@ -1648,7 +1648,7 @@ define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %Ivy_DecGetVar.exit
 
 Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, %63, %64, %65
-  %.0.i = phi i32 [ %47, %65 ], [ %49, %64 ], [ %51, %63 ], [ %53, %62 ], [ %55, %61 ], [ %57, %60 ], [ -1, %58 ]
+  %.0.i = phi i32 [ %57, %60 ], [ %55, %61 ], [ %53, %62 ], [ %51, %63 ], [ %49, %64 ], [ %47, %65 ], [ -1, %58 ]
   %66 = ashr i32 %.0.i, 1
   %67 = tail call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef %66, ptr noundef %3)
   %68 = and i32 %.0.i, 1

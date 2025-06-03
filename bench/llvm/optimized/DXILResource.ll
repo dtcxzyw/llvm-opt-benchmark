@@ -1140,7 +1140,7 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit118:        ; preds = %_ZN4llvm15SmallVect
   unreachable
 
 276:                                              ; preds = %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit118, %215, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, %_ZNK4llvm4dxil16RawBufferExtType15getResourceTypeEv.exit, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i83, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit74, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit53, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit
-  %.0 = phi ptr [ %274, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit118 ], [ %218, %215 ], [ %214, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit ], [ %157, %_ZNK4llvm4dxil16RawBufferExtType15getResourceTypeEv.exit ], [ %119, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i83 ], [ %90, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit74 ], [ %63, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit53 ], [ %49, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit ]
+  %.0 = phi ptr [ %49, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit ], [ %63, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit53 ], [ %90, %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit74 ], [ %119, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i83 ], [ %157, %_ZNK4llvm4dxil16RawBufferExtType15getResourceTypeEv.exit ], [ %214, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit ], [ %218, %215 ], [ %274, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit118 ]
   %277 = load ptr, ptr %4, align 8, !tbaa !33
   %278 = icmp eq ptr %277, %16
   br i1 %278, label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit121, label %279
@@ -1425,7 +1425,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %10, %1
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %15, %17, %19, %21, %23, %.fold.split.i
-  %.0.i = phi i64 [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ 0, %15 ], [ %..i, %23 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ 10, %.fold.split.i ]
+  %.0.i = phi i64 [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ 0, %15 ], [ %..i, %23 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ 10, %.fold.split.i ]
   %.not = icmp eq i32 %8, 17
   br i1 %.not, label %26, label %31
 
@@ -1777,7 +1777,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %111, %102
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %124, %122, %120, %118, %116, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i = phi i32 [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ 0, %116 ], [ %..i.i, %124 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
+  %.0.i.i = phi i32 [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ 0, %116 ], [ %..i.i, %124 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
   %.not.i36 = icmp eq i32 %109, 17
   br i1 %.not.i36, label %127, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
@@ -1851,7 +1851,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i43:       ; preds = %138, %_ZNK4llvm4dxi
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46:    ; preds = %.fold.split.i.i45, %151, %149, %147, %145, %143, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
-  %.0.i.i47 = phi i32 [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ 0, %143 ], [ %..i.i51, %151 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43 ], [ 10, %.fold.split.i.i45 ]
+  %.0.i.i47 = phi i32 [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ 0, %143 ], [ %..i.i51, %151 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43 ], [ 10, %.fold.split.i.i45 ]
   %.not.i48 = icmp eq i32 %136, 17
   br i1 %.not.i48, label %154, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54
 
@@ -2586,7 +2586,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %329, %320
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %342, %340, %338, %336, %334, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i96 = phi i32 [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ 0, %334 ], [ %..i.i, %342 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
+  %.0.i.i96 = phi i32 [ %337, %336 ], [ %339, %338 ], [ %341, %340 ], [ 0, %334 ], [ %..i.i, %342 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
   %.not.i97 = icmp eq i32 %327, 17
   br i1 %.not.i97, label %345, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
@@ -3697,7 +3697,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %429, %_ZN4llvm23Sma
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %442, %440, %438, %436, %434, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i = phi i64 [ %441, %440 ], [ %439, %438 ], [ %437, %436 ], [ 0, %434 ], [ %..i.i, %442 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
+  %.0.i.i = phi i64 [ %437, %436 ], [ %439, %438 ], [ %441, %440 ], [ 0, %434 ], [ %..i.i, %442 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
   %445 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 32, ptr %445, align 8, !tbaa !193
@@ -4080,7 +4080,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %69, %60
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 _ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %82, %80, %78, %76, %74, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i = phi i32 [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ 0, %74 ], [ %..i.i, %82 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
+  %.0.i.i = phi i32 [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ 0, %74 ], [ %..i.i, %82 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
   %.not.i40 = icmp eq i32 %67, 17
   br i1 %.not.i40, label %85, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
@@ -6423,8 +6423,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

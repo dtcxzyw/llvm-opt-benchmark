@@ -7245,7 +7245,7 @@ define linkonce_odr void @_ZN5folly4test13UniformSubset14adjustPermSizeEm(ptr no
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %36, %35 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %38 = load i64, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !31
   %.not41.i.i.i.i = icmp ult i64 %38, %1
   br i1 %.not41.i.i.i.i, label %39, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops10_Iter_predIZN5folly4test13UniformSubset14adjustPermSizeEmEUlmE_EEET_SE_SE_T0_.exit.i.i
@@ -7255,7 +7255,7 @@ define linkonce_odr void @_ZN5folly4test13UniformSubset14adjustPermSizeEm(ptr no
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %39 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %42 = load i64, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !31
   %.not42.i.i.i.i = icmp ult i64 %42, %1
   %spec.select.i.i.i.i = select i1 %.not42.i.i.i.i, ptr %5, ptr %.sroa.032.2.i.i.i.i
@@ -8308,8 +8308,8 @@ _ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detai
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %42, %44 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %48 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !99
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN5folly4test9SemaphoreESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %50
@@ -8319,8 +8319,8 @@ _ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detai
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge57.i.i.i
-  %53 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %47, %50 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %51, %50 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %54 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !99
   %55 = icmp eq ptr %54, %53
   %spec.select.i.i.i = select i1 %55, ptr %.sroa.032.2.i.i.i, ptr %12

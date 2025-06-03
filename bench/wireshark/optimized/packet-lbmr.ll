@@ -1679,8 +1679,8 @@ define hidden i32 @lbmr_dissect_umq_qmgmt(ptr noundef %0, i32 noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.thread, %63, %.thread131, %103, %95, %.thread132, %87, %63, %63
-  %.0128 = phi i32 [ 44, %103 ], [ 48, %95 ], [ 52, %.thread132 ], [ 48, %87 ], [ 44, %63 ], [ 44, %63 ], [ 44, %63 ], [ 44, %.thread131 ], [ 48, %.thread ], [ %108, %.loopexit.loopexit ]
-  %.0 = phi i32 [ %39, %103 ], [ %102, %95 ], [ %62, %.thread132 ], [ %94, %87 ], [ %39, %63 ], [ %39, %63 ], [ %39, %63 ], [ %39, %.thread131 ], [ %48, %.thread ], [ %85, %.loopexit.loopexit ]
+  %.0128 = phi i32 [ 44, %103 ], [ 48, %87 ], [ 52, %.thread132 ], [ 44, %63 ], [ 44, %63 ], [ 44, %63 ], [ 48, %95 ], [ 44, %.thread131 ], [ 48, %.thread ], [ %108, %.loopexit.loopexit ]
+  %.0 = phi i32 [ %39, %103 ], [ %94, %87 ], [ %62, %.thread132 ], [ %39, %63 ], [ %39, %63 ], [ %39, %63 ], [ %102, %95 ], [ %39, %.thread131 ], [ %48, %.thread ], [ %85, %.loopexit.loopexit ]
   %109 = and i8 %6, 64
   %.not = icmp eq i8 %109, 0
   br i1 %.not, label %118, label %110
@@ -2447,7 +2447,7 @@ dissect_lbmr_tnwg_interest.exit.loopexit.i:       ; preds = %dissect_lbmr_tnwg_i
   br label %432
 
 432:                                              ; preds = %410, %391, %373, %355, %330
-  %.046.i.i = phi i32 [ %415, %410 ], [ %395, %391 ], [ 8, %373 ], [ 12, %355 ], [ 16, %330 ]
+  %.046.i.i = phi i32 [ %415, %410 ], [ 16, %330 ], [ 12, %355 ], [ 8, %373 ], [ %395, %391 ]
   %433 = add i32 %.046.i.i, %.051.i.i
   %434 = sub nsw i32 %.04849.i.i, %.046.i.i
   %435 = add i32 %.046.i.i, %.04750.i.i
@@ -2468,8 +2468,8 @@ dissect_lbmr_rctxinfo_rec.exit.i:                 ; preds = %432, %.lr.ph.i324
   br label %dissect_lbmr_pser.exit
 
 dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxinfo_rec.exit.i, %160, %.outer.i, %145, %306, %._crit_edge.loopexit.i, %286, %283, %279, %268, %264, %244, %dissect_lbmr_tnwg_interest.exit.loopexit.i, %204, %187, %._crit_edge.i, %98, %440, %192, %168
-  %.0301 = phi i32 [ 2, %440 ], [ 4, %192 ], [ %169, %168 ], [ %100, %98 ], [ %.pre.i, %._crit_edge.i ], [ %189, %187 ], [ 8, %283 ], [ %267, %264 ], [ 20, %244 ], [ %282, %279 ], [ 10, %268 ], [ 12, %204 ], [ %243, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ 16, %286 ], [ %305, %._crit_edge.loopexit.i ], [ 8, %306 ], [ %157, %145 ], [ %.1101123.i, %160 ], [ %.1101.ph.i, %.outer.i ], [ %438, %dissect_lbmr_rctxinfo_rec.exit.i ]
-  %.0291 = phi i32 [ 0, %440 ], [ 0, %192 ], [ 2, %168 ], [ 0, %98 ], [ 0, %._crit_edge.i ], [ 0, %187 ], [ 0, %283 ], [ 0, %264 ], [ 0, %244 ], [ 0, %279 ], [ 0, %268 ], [ 0, %204 ], [ 0, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ 0, %286 ], [ 0, %._crit_edge.loopexit.i ], [ 0, %306 ], [ 0, %145 ], [ 0, %.outer.i ], [ 0, %160 ], [ 0, %dissect_lbmr_rctxinfo_rec.exit.i ]
+  %.0301 = phi i32 [ 2, %440 ], [ %169, %168 ], [ 4, %192 ], [ %100, %98 ], [ %.pre.i, %._crit_edge.i ], [ %189, %187 ], [ 8, %283 ], [ %267, %264 ], [ 20, %244 ], [ %282, %279 ], [ 10, %268 ], [ 12, %204 ], [ %243, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ 16, %286 ], [ %305, %._crit_edge.loopexit.i ], [ 8, %306 ], [ %157, %145 ], [ %.1101123.i, %160 ], [ %.1101.ph.i, %.outer.i ], [ %438, %dissect_lbmr_rctxinfo_rec.exit.i ]
+  %.0291 = phi i32 [ 0, %440 ], [ 2, %168 ], [ 0, %192 ], [ 0, %98 ], [ 0, %._crit_edge.i ], [ 0, %187 ], [ 0, %283 ], [ 0, %264 ], [ 0, %244 ], [ 0, %279 ], [ 0, %268 ], [ 0, %204 ], [ 0, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ 0, %286 ], [ 0, %._crit_edge.loopexit.i ], [ 0, %306 ], [ 0, %145 ], [ 0, %.outer.i ], [ 0, %160 ], [ 0, %dissect_lbmr_rctxinfo_rec.exit.i ]
   %442 = add i32 %.0291, %.0301
   br label %dissect_lbmr_tmb.exit
 
@@ -3621,8 +3621,8 @@ lbtsmx_transport_add.exit.i.i.i:                  ; preds = %1070, %1055
   br label %dissect_lbmr_tir_entry.exit.i
 
 1095:                                             ; preds = %lbtsmx_transport_add.exit.i.i.i, %.thread297.i.i.i, %.thread.i.i.i, %951, %951, %913, %872, %872
-  %.1269.i.i.i = phi i64 [ %1079, %lbtsmx_transport_add.exit.i.i.i ], [ %.2270.i.i.i, %951 ], [ %899, %913 ], [ %.0268.i.i.i, %872 ], [ %.0268.i.i.i, %872 ], [ %.2270.i.i.i, %951 ], [ %981, %.thread.i.i.i ], [ %1033, %.thread297.i.i.i ]
-  %.2265.i.i.i = phi i32 [ 10, %lbtsmx_transport_add.exit.i.i.i ], [ %.3266.i.i.i, %951 ], [ 16, %913 ], [ %.0263.i.i.i, %872 ], [ %.0263.i.i.i, %872 ], [ %.3266.i.i.i, %951 ], [ 10, %.thread.i.i.i ], [ 10, %.thread297.i.i.i ]
+  %.1269.i.i.i = phi i64 [ %.0268.i.i.i, %872 ], [ %899, %913 ], [ %.2270.i.i.i, %951 ], [ %1079, %lbtsmx_transport_add.exit.i.i.i ], [ %.0268.i.i.i, %872 ], [ %.2270.i.i.i, %951 ], [ %981, %.thread.i.i.i ], [ %1033, %.thread297.i.i.i ]
+  %.2265.i.i.i = phi i32 [ %.0263.i.i.i, %872 ], [ 16, %913 ], [ %.3266.i.i.i, %951 ], [ 10, %lbtsmx_transport_add.exit.i.i.i ], [ %.0263.i.i.i, %872 ], [ %.3266.i.i.i, %951 ], [ 10, %.thread.i.i.i ], [ 10, %.thread297.i.i.i ]
   %.not288.i.i.i = icmp eq i64 %.1269.i.i.i, -1
   br i1 %.not288.i.i.i, label %dissect_lbmr_tir_entry.exit.i, label %1096
 
@@ -3647,7 +3647,7 @@ lbtsmx_transport_add.exit.i.i.i:                  ; preds = %1070, %1055
   br label %dissect_lbmr_tir_entry.exit.i
 
 dissect_lbmr_tir_entry.exit.i:                    ; preds = %1102, %1099, %1096, %1095, %.thread300.i.i.i, %1046, %994, %951, %872
-  %.1.i.i.i = phi i32 [ 0, %1046 ], [ 0, %994 ], [ 0, %951 ], [ 0, %872 ], [ %.2265.i.i.i, %1095 ], [ %812, %.thread300.i.i.i ], [ %.2265.i.i.i, %1096 ], [ %.2265.i.i.i, %1099 ], [ %.2265.i.i.i, %1102 ]
+  %.1.i.i.i = phi i32 [ 0, %872 ], [ 0, %951 ], [ 0, %994 ], [ 0, %1046 ], [ %.2265.i.i.i, %1095 ], [ %812, %.thread300.i.i.i ], [ %.2265.i.i.i, %1096 ], [ %.2265.i.i.i, %1099 ], [ %.2265.i.i.i, %1102 ]
   %1106 = add i32 %.1.i.i.i, %.065.i.i
   call void @proto_item_set_len(ptr noundef %814, i32 noundef %1106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #9
@@ -3735,8 +3735,8 @@ dissect_lbmr_tmb.exit.loopexit:                   ; preds = %.lr.ph.i353
   br label %dissect_lbmr_tmb.exit
 
 dissect_lbmr_tmb.exit:                            ; preds = %1111, %dissect_lbmr_tmb.exit.loopexit, %686, %1155, %1110, %687, %proto_item_set_generated.exit330, %proto_item_set_generated.exit330, %dissect_lbmr_pser.exit
-  %.1295 = phi i32 [ %442, %dissect_lbmr_pser.exit ], [ 4, %1155 ], [ 4, %proto_item_set_generated.exit330 ], [ 4, %proto_item_set_generated.exit330 ], [ 4, %687 ], [ %.6300, %1110 ], [ %.3297, %686 ], [ 8, %1111 ], [ %1154, %dissect_lbmr_tmb.exit.loopexit ]
-  %.0 = phi ptr [ %85, %dissect_lbmr_pser.exit ], [ %512, %1155 ], [ %512, %proto_item_set_generated.exit330 ], [ %512, %proto_item_set_generated.exit330 ], [ %512, %687 ], [ %512, %1110 ], [ %512, %686 ], [ %512, %1111 ], [ %512, %dissect_lbmr_tmb.exit.loopexit ]
+  %.1295 = phi i32 [ %442, %dissect_lbmr_pser.exit ], [ 4, %1155 ], [ %.3297, %686 ], [ 4, %687 ], [ %.6300, %1110 ], [ 4, %proto_item_set_generated.exit330 ], [ 4, %proto_item_set_generated.exit330 ], [ 8, %1111 ], [ %1154, %dissect_lbmr_tmb.exit.loopexit ]
+  %.0 = phi ptr [ %85, %dissect_lbmr_pser.exit ], [ %512, %1155 ], [ %512, %686 ], [ %512, %687 ], [ %512, %1110 ], [ %512, %proto_item_set_generated.exit330 ], [ %512, %proto_item_set_generated.exit330 ], [ %512, %1111 ], [ %512, %dissect_lbmr_tmb.exit.loopexit ]
   %1157 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1295)
   %1158 = icmp slt i32 %1157, 1
   %brmerge = or i1 %.not309, %1158
@@ -3875,7 +3875,7 @@ dissect_lbmr_tmb.exit:                            ; preds = %1111, %dissect_lbmr
   br label %1265
 
 1265:                                             ; preds = %1244, %1228, %1212, %1196, %1180, %1168
-  %.0.i362 = phi i32 [ %1260, %1244 ], [ 8, %1228 ], [ 8, %1212 ], [ 4, %1196 ], [ 12, %1180 ], [ 4, %1168 ]
+  %.0.i362 = phi i32 [ %1260, %1244 ], [ 4, %1168 ], [ 12, %1180 ], [ 4, %1196 ], [ 8, %1212 ], [ 8, %1228 ]
   %1266 = add i32 %.0.i362, %.03841.i
   %1267 = add i32 %.0.i362, %.03940.i
   %1268 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1267)
@@ -4999,7 +4999,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef r
   br label %102
 
 102:                                              ; preds = %84, %66, %49, %26, %9
-  %.pn = phi i32 [ %85, %84 ], [ %67, %66 ], [ %51, %49 ], [ %28, %26 ], [ %11, %9 ]
+  %.pn = phi i32 [ %85, %84 ], [ %11, %9 ], [ %28, %26 ], [ %51, %49 ], [ %67, %66 ]
   %.1 = add i32 %.pn, %.0373
   %103 = sub i32 %.0391, %.1
   %104 = add i32 %.1, %.04

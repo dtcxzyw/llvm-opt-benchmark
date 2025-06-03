@@ -614,7 +614,7 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix11expressions3aux9an
   br i1 %30, label %22, label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %29, %23, %27, %25
-  %.114.i.i = phi i32 [ %28, %27 ], [ %26, %25 ], [ %.013.ph21.i.i, %23 ], [ %.013.ph21.i.i, %29 ]
+  %.114.i.i = phi i32 [ %26, %25 ], [ %28, %27 ], [ %.013.ph21.i.i, %23 ], [ %.013.ph21.i.i, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 1
   %.not23.i.i = icmp eq i32 %.114.i.i, 0
   br i1 %.not23.i.i, label %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i, label %.outer.split.i.i, !llvm.loop !11
@@ -639,17 +639,17 @@ _ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersE
   br label %39
 
 39:                                               ; preds = %36, %18, %15
-  %.148 = phi i8 [ %.047, %18 ], [ %.047, %15 ], [ %spec.select, %36 ]
-  %.234.i = phi i1 [ %.03251.i, %18 ], [ %.03251.i, %15 ], [ %spec.select54, %36 ]
-  %.231.i = phi i32 [ %19, %18 ], [ %16, %15 ], [ %.02952.i, %36 ]
+  %.148 = phi i8 [ %.047, %15 ], [ %.047, %18 ], [ %spec.select, %36 ]
+  %.234.i = phi i1 [ %.03251.i, %15 ], [ %.03251.i, %18 ], [ %spec.select54, %36 ]
+  %.231.i = phi i32 [ %16, %15 ], [ %19, %18 ], [ %.02952.i, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %.02653.i, i64 1
   br label %41
 
 41:                                               ; preds = %39, %33, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i
-  %.249 = phi i8 [ %.148, %39 ], [ %.047, %33 ], [ %.047, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ]
-  %.133.i = phi i1 [ %.234.i, %39 ], [ %.03251.i, %33 ], [ %.03251.i, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ]
-  %.130.i = phi i32 [ %.231.i, %39 ], [ %.02952.i, %33 ], [ %.02952.i, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ]
-  %.228.i = phi ptr [ %40, %39 ], [ %35, %33 ], [ %.us-phi.i.i, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ]
+  %.249 = phi i8 [ %.148, %39 ], [ %.047, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ], [ %.047, %33 ]
+  %.133.i = phi i1 [ %.234.i, %39 ], [ %.03251.i, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ], [ %.03251.i, %33 ]
+  %.130.i = phi i32 [ %.231.i, %39 ], [ %.02952.i, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ], [ %.02952.i, %33 ]
+  %.228.i = phi ptr [ %40, %39 ], [ %.us-phi.i.i, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i ], [ %35, %33 ]
   %.not38.i = icmp eq ptr %.228.i, %.03566
   br i1 %.not38.i, label %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24find_closing_parenthesisEPKcS6_Rc.exit.loopexit, label %.lr.ph.i
 
@@ -785,7 +785,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix11expressions3
   br i1 %22, label %14, label %.outer.i
 
 .outer.i:                                         ; preds = %21, %15, %19, %17
-  %.114.i = phi i32 [ %20, %19 ], [ %18, %17 ], [ %.013.ph21.i, %15 ], [ %.013.ph21.i, %21 ]
+  %.114.i = phi i32 [ %18, %17 ], [ %20, %19 ], [ %.013.ph21.i, %15 ], [ %.013.ph21.i, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %.not23.i = icmp eq i32 %.114.i, 0
   br i1 %.not23.i, label %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit, label %.outer.split.i, !llvm.loop !11
@@ -2153,7 +2153,7 @@ _ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7
   br label %440
 
 440:                                              ; preds = %.loopexit, %.loopexit.split-lp, %438, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit115, %377, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit92, %331, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit75, %285, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit58, %239, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit40, %192, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit23, %145, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit6
-  %.pn.pn.i = phi { ptr, i32 } [ %439, %438 ], [ %430, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit115 ], [ %378, %377 ], [ %361, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit92 ], [ %332, %331 ], [ %315, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit75 ], [ %286, %285 ], [ %269, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit58 ], [ %240, %239 ], [ %222, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit40 ], [ %193, %192 ], [ %175, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit23 ], [ %146, %145 ], [ %129, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit6 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.i = phi { ptr, i32 } [ %439, %438 ], [ %430, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit115 ], [ %146, %145 ], [ %129, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit6 ], [ %193, %192 ], [ %175, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit23 ], [ %240, %239 ], [ %222, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit40 ], [ %286, %285 ], [ %269, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit58 ], [ %332, %331 ], [ %315, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit75 ], [ %378, %377 ], [ %361, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE7literalD2Ev.exit92 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %441 = load ptr, ptr %5, align 8, !tbaa !24
   %442 = icmp eq ptr %441, %19
   br i1 %442, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -3535,7 +3535,7 @@ _ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7
   br label %467
 
 467:                                              ; preds = %.loopexit, %.loopexit.split-lp, %465, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit109, %401, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit87, %351, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit71, %301, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit55, %251, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit38, %200, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit22, %149, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit6
-  %.pn.pn.i = phi { ptr, i32 } [ %466, %465 ], [ %456, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit109 ], [ %402, %401 ], [ %384, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit87 ], [ %352, %351 ], [ %334, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit71 ], [ %302, %301 ], [ %284, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit55 ], [ %252, %251 ], [ %233, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit38 ], [ %201, %200 ], [ %182, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit22 ], [ %150, %149 ], [ %132, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit6 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.i = phi { ptr, i32 } [ %466, %465 ], [ %456, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit109 ], [ %150, %149 ], [ %132, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit6 ], [ %201, %200 ], [ %182, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit22 ], [ %252, %251 ], [ %233, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit38 ], [ %302, %301 ], [ %284, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit55 ], [ %352, %351 ], [ %334, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit71 ], [ %402, %401 ], [ %384, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE7literalD2Ev.exit87 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %468 = load ptr, ptr %5, align 8, !tbaa !51
   %469 = icmp eq ptr %468, %19
   br i1 %469, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i

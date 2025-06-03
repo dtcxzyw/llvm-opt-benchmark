@@ -25757,7 +25757,7 @@ _ZNSt4pairIN16cmUVProcessChain13ExceptionCodeENSt7__cxx1112basic_stringIcSt11cha
   br label %871
 
 781:                                              ; preds = %770, %687, %673, %586
-  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %770 ], [ %.pn75.pn, %687 ], [ %674, %673 ], [ %.pn78.pn, %586 ]
+  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %770 ], [ %.pn78.pn, %586 ], [ %.pn75.pn, %687 ], [ %674, %673 ]
   %782 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %783 = load ptr, ptr %782, align 8, !tbaa !15
   %784 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -44397,7 +44397,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i31.i.i.i: ; preds = %370
   br label %378
 
 378:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7cmCTest3RunERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE3$_2EclINS_17__normal_iteratorIPKS9_SB_EEEEbT_.exit35.thread66.i.i.i", %._crit_edge.i.i.i
-  %.sroa.048.1.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %377, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7cmCTest3RunERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE3$_2EclINS_17__normal_iteratorIPKS9_SB_EEEEbT_.exit35.thread66.i.i.i" ]
+  %.sroa.048.1.i.i.i = phi ptr [ %377, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7cmCTest3RunERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE3$_2EclINS_17__normal_iteratorIPKS9_SB_EEEEbT_.exit35.thread66.i.i.i" ], [ %.sroa.048.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %379 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.1.i.i.i, ptr noundef nonnull @.str.332) #39
   %380 = icmp eq i32 %379, 0
   br i1 %380, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN7cmCTest3RunERKSC_E3$_2ET_SI_SI_T0_.exit", label %381
@@ -44422,7 +44422,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i36.i.i.i: ; preds = %381
   br label %389
 
 389:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7cmCTest3RunERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE3$_2EclINS_17__normal_iteratorIPKS9_SB_EEEEbT_.exit40.thread68.i.i.i", %._crit_edge.i.i.i
-  %.sroa.048.2.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %388, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7cmCTest3RunERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE3$_2EclINS_17__normal_iteratorIPKS9_SB_EEEEbT_.exit40.thread68.i.i.i" ]
+  %.sroa.048.2.i.i.i = phi ptr [ %388, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7cmCTest3RunERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE3$_2EclINS_17__normal_iteratorIPKS9_SB_EEEEbT_.exit40.thread68.i.i.i" ], [ %.sroa.048.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %390 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.2.i.i.i, ptr noundef nonnull @.str.332) #39
   %391 = icmp eq i32 %390, 0
   br i1 %391, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN7cmCTest3RunERKSC_E3$_2ET_SI_SI_T0_.exit", label %392
@@ -71249,8 +71249,8 @@ define linkonce_odr dso_local ptr @_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPc
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge._crit_edge.i.i.i
-  %38 = phi i8 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %33, %35 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %35 ]
+  %38 = phi i8 [ %33, %35 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %39 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !42
   %40 = icmp eq i8 %39, %38
   br i1 %40, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i, label %41
@@ -71260,8 +71260,8 @@ define linkonce_odr dso_local ptr @_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPc
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge._crit_edge57.i.i.i
-  %44 = phi i8 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %38, %41 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %42, %41 ]
+  %44 = phi i8 [ %38, %41 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %45 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !42
   %46 = icmp eq i8 %45, %44
   %spec.select.i.i.i = select i1 %46, ptr %.sroa.032.2.i.i.i, ptr %1
@@ -83762,7 +83762,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.032.1 = phi ptr [ %32, %31 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %34 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.1, ptr noundef %2) #39
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.loopexit, label %36
@@ -83772,7 +83772,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.032.2 = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.2, ptr noundef %2) #39
   %40 = icmp eq i32 %39, 0
   %spec.select = select i1 %40, ptr %.sroa.032.2, ptr %1

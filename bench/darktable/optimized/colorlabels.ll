@@ -506,7 +506,7 @@ define internal range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, 
   br label %42
 
 42:                                               ; preds = %3, %41, %17, %9
-  %.0 = phi i32 [ 0, %41 ], [ 1, %17 ], [ 1, %9 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %41 ], [ 1, %9 ], [ 1, %17 ], [ 1, %3 ]
   ret i32 %.0
 }
 

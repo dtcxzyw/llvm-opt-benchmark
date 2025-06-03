@@ -470,7 +470,7 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
   br label %26
 
 18:                                               ; preds = %7, %16, %15
-  %.024 = phi ptr [ @.str.4, %16 ], [ @.str.3, %15 ], [ @.str.2, %7 ]
+  %.024 = phi ptr [ @.str.3, %15 ], [ @.str.4, %16 ], [ @.str.2, %7 ]
   store i32 2, ptr %calloc, align 8, !tbaa !76
   %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
   %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
@@ -494,7 +494,7 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
   br label %27
 
 27:                                               ; preds = %26, %22, %8, %6, %4
-  %.0 = phi ptr [ null, %26 ], [ %calloc, %22 ], [ %calloc, %8 ], [ null, %6 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %26 ], [ %calloc, %8 ], [ %calloc, %22 ], [ null, %6 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -712,7 +712,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
   br label %37
 
 20:                                               ; preds = %8, %13, %9
-  %.0 = phi i64 [ %18, %13 ], [ %12, %9 ], [ %1, %8 ]
+  %.0 = phi i64 [ %12, %9 ], [ %18, %13 ], [ %1, %8 ]
   %21 = icmp slt i64 %.0, 0
   br i1 %21, label %28, label %22
 

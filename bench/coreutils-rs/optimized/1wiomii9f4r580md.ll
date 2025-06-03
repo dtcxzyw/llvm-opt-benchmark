@@ -2259,8 +2259,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit296: ; preds = %156
           to label %513 unwind label %.loopexit.split-lp566
 
 202:                                              ; preds = %199, %198, %197, %195, %188
-  %.sroa.8.0.i = phi i64 [ %.sroa.8436.0.copyload, %199 ], [ 2, %198 ], [ 1, %197 ], [ %.sroa.11439.0.copyload, %195 ], [ %193, %188 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.7435.0.copyload, %199 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.2, %198 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.1, %197 ], [ %.sroa.10438.0.copyload, %195 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.0, %188 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.11439.0.copyload, %195 ], [ 1, %197 ], [ 2, %198 ], [ %.sroa.8436.0.copyload, %199 ], [ %193, %188 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.10438.0.copyload, %195 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.1, %197 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.2, %198 ], [ %.sroa.7435.0.copyload, %199 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.0, %188 ]
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 19
   %204 = load i8, ptr %203, align 1, !range !385, !noundef !5
   %205 = trunc nuw i8 %204 to i1
@@ -3004,12 +3004,12 @@ _ZN3std4path7PathBuf4push17h81a38fc39ce9f2beE.exit333: ; preds = %331
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
   br label %420
 
-.thread502:                                       ; preds = %388, %400, %409, %379, %417
-  %.pn246505 = phi { ptr, i32 } [ %lpad.thr_comm508, %417 ], [ %lpad.thr_comm.split-lp509, %379 ], [ %389, %388 ], [ %401, %400 ], [ %410, %409 ]
+.thread502:                                       ; preds = %400, %388, %409, %379, %417
+  %.pn246505 = phi { ptr, i32 } [ %lpad.thr_comm508, %417 ], [ %lpad.thr_comm.split-lp509, %379 ], [ %401, %400 ], [ %389, %388 ], [ %410, %409 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #13
           to label %.thread492.thread unwind label %144
 
-417:                                              ; preds = %380, %392, %376, %394, %378, %382, %377
+417:                                              ; preds = %380, %392, %376, %382, %377, %394, %378
   %lpad.thr_comm508 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$fs_extra..error..ErrorKind$GT$17hbfe2acb8fbb8b9f1E"(ptr noalias noundef align 8 dereferenceable(24) %371) #13
@@ -4779,8 +4779,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit193: ; preds = %140
           to label %449 unwind label %.loopexit.split-lp453
 
 186:                                              ; preds = %183, %182, %181, %179, %172
-  %.sroa.8.0.i = phi i64 [ %.sroa.8338.0.copyload, %183 ], [ 2, %182 ], [ 1, %181 ], [ %.sroa.11340.0.copyload, %179 ], [ %177, %172 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.7337.0.copyload, %183 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.2, %182 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.1, %181 ], [ %.sroa.10339.0.copyload, %179 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.0, %172 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.11340.0.copyload, %179 ], [ 1, %181 ], [ 2, %182 ], [ %.sroa.8338.0.copyload, %183 ], [ %177, %172 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.10339.0.copyload, %179 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.1, %181 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.2, %182 ], [ %.sroa.7337.0.copyload, %183 ], [ @anon.304c9230a82cadb0d72cc411002bb29b.0, %172 ]
   %187 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %188 = load ptr, ptr %187, align 8, !nonnull !5, !noundef !5
   %189 = getelementptr inbounds nuw i8, ptr %70, i64 16

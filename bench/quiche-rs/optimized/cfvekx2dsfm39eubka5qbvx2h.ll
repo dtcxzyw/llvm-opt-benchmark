@@ -1474,7 +1474,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaa
   br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17h6ac25b481717cddfE.exit.thread.i
 
 _ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17h6ac25b481717cddfE.exit.thread.i: ; preds = %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit316, %select.unfold482
-  %.sroa.922.4.ph.i = phi i64 [ %.sroa.922.8.insert.insert26.i, %select.unfold482 ], [ %.sroa.922.8.insert.mask.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit316 ]
+  %.sroa.922.4.ph.i = phi i64 [ %.sroa.922.8.insert.mask.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit316 ], [ %.sroa.922.8.insert.insert26.i, %select.unfold482 ]
   %560 = trunc i64 %.sroa.922.4.ph.i to i8
   br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.thread.i.i.i.i
 
@@ -3517,7 +3517,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$quiche..h3..frame..Frame$u
   ]
 
 15:                                               ; preds = %178, %172, %158, %137, %122, %107, %92, %77, %67, %61, %55, %37, %184, %170, %152, %150, %135, %120, %105, %90, %73, %171, %151, %136, %121, %106, %91, %75, %2, %208, %202, %196, %190, %49, %43, %29, %23, %17
-  %.sroa.0.0.shrunk = phi i1 [ %213, %208 ], [ %207, %202 ], [ %201, %196 ], [ %54, %49 ], [ %48, %43 ], [ %195, %190 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ false, %2 ], [ %189, %184 ], [ false, %170 ], [ false, %152 ], [ false, %150 ], [ false, %135 ], [ false, %120 ], [ false, %105 ], [ false, %90 ], [ false, %73 ], [ false, %171 ], [ false, %151 ], [ false, %136 ], [ false, %121 ], [ false, %106 ], [ false, %91 ], [ false, %75 ], [ false, %37 ], [ false, %55 ], [ false, %61 ], [ false, %67 ], [ false, %77 ], [ false, %92 ], [ false, %107 ], [ false, %122 ], [ false, %137 ], [ false, %158 ], [ false, %172 ], [ %.mux, %178 ]
+  %.sroa.0.0.shrunk = phi i1 [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %195, %190 ], [ %48, %43 ], [ %54, %49 ], [ %201, %196 ], [ %207, %202 ], [ %213, %208 ], [ false, %2 ], [ %189, %184 ], [ false, %170 ], [ false, %152 ], [ false, %150 ], [ false, %135 ], [ false, %120 ], [ false, %105 ], [ false, %90 ], [ false, %73 ], [ false, %171 ], [ false, %151 ], [ false, %136 ], [ false, %121 ], [ false, %106 ], [ false, %91 ], [ false, %75 ], [ false, %37 ], [ false, %55 ], [ false, %61 ], [ false, %67 ], [ false, %77 ], [ false, %92 ], [ false, %107 ], [ false, %122 ], [ false, %137 ], [ false, %158 ], [ false, %172 ], [ %.mux, %178 ]
   ret i1 %.sroa.0.0.shrunk
 
 16:                                               ; preds = %14
@@ -4019,7 +4019,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %5
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %5 ]
+  %.sroa.0.0.in = phi i1 [ %7, %5 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5375,7 +5375,7 @@ define hidden noundef zeroext i1 @_ZN3h3i5frame17CloseTriggerFrame13is_equivalen
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hd052a34581a61670E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hd052a34581a61670E.exit": ; preds = %43, %40, %46, %26, %24, %22, %52, %28, %5
-  %.sroa.0.0.shrunk = phi i1 [ %14, %5 ], [ %57, %52 ], [ %29, %28 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %46 ], [ %42, %40 ], [ %42, %43 ]
+  %.sroa.0.0.shrunk = phi i1 [ %14, %5 ], [ %29, %28 ], [ %57, %52 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %46 ], [ %42, %40 ], [ %42, %43 ]
   ret i1 %.sroa.0.0.shrunk
 
 30:                                               ; preds = %24
@@ -5626,7 +5626,7 @@ define noundef zeroext i1 @"_ZN70_$LT$h3i..frame..CloseTriggerFrame$u20$as$u20$c
   br label %"_ZN61_$LT$h3i..frame..H3iFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0689d3e67d9cf4c5E.exit"
 
 "_ZN61_$LT$h3i..frame..H3iFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0689d3e67d9cf4c5E.exit": ; preds = %49, %43, %39, %33, %27, %25, %13, %7, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %54, %49 ], [ %26, %25 ], [ false, %13 ], [ false, %43 ], [ %42, %39 ], [ false, %33 ], [ false, %27 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %26, %25 ], [ %54, %49 ], [ false, %13 ], [ false, %43 ], [ %42, %39 ], [ false, %33 ], [ false, %27 ]
   ret i1 %.sroa.0.0
 }
 

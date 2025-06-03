@@ -180,9 +180,9 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
   br label %42
 
 42:                                               ; preds = %37, %35, %33, %.lr.ph.i
-  %.119.i = phi i8 [ 1, %35 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %33 ], [ 0, %37 ]
-  %.117.i = phi i1 [ false, %35 ], [ false, %.lr.ph.i ], [ %not..i, %33 ], [ %41, %37 ]
-  %.1.i = phi i32 [ %.01526.i, %35 ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %33 ], [ %38, %37 ]
+  %.119.i = phi i8 [ %.01824.i, %.lr.ph.i ], [ 1, %35 ], [ %.01824.i, %33 ], [ 0, %37 ]
+  %.117.i = phi i1 [ false, %.lr.ph.i ], [ false, %35 ], [ %not..i, %33 ], [ %41, %37 ]
+  %.1.i = phi i32 [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %35 ], [ %.01526.i, %33 ], [ %38, %37 ]
   %43 = icmp uge ptr %32, %25
   %.not22.i = select i1 %.117.i, i1 true, i1 %43
   br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !7

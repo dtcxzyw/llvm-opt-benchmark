@@ -2139,8 +2139,8 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16
   %67 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
 
-_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12: ; preds = %41, %23, %51, %59, %2, %2, %2, %20, %18, %13
-  %.1 = phi ptr [ %17, %13 ], [ null, %20 ], [ null, %18 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %41 ], [ %.3, %23 ], [ %58, %51 ], [ %67, %59 ]
+_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12: ; preds = %41, %59, %51, %23, %2, %2, %2, %20, %18, %13
+  %.1 = phi ptr [ %17, %13 ], [ null, %20 ], [ null, %18 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %41 ], [ %67, %59 ], [ %58, %51 ], [ %.3, %23 ]
   ret ptr %.1
 }
 
@@ -3060,8 +3060,8 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16
   %67 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
 
-_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12: ; preds = %41, %23, %51, %59, %2, %2, %2, %20, %18, %13
-  %.1 = phi ptr [ %17, %13 ], [ null, %20 ], [ null, %18 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %41 ], [ %.3, %23 ], [ %58, %51 ], [ %67, %59 ]
+_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12: ; preds = %41, %59, %51, %23, %2, %2, %2, %20, %18, %13
+  %.1 = phi ptr [ %17, %13 ], [ null, %20 ], [ null, %18 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %41 ], [ %67, %59 ], [ %58, %51 ], [ %.3, %23 ]
   ret ptr %.1
 }
 
@@ -3333,8 +3333,8 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %73 = call fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvRKNS0_11GlobalValueEEEEEPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISG_vEEEERKT_(ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %.thread67
 
-.thread67:                                        ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit, %47, %29, %57, %65, %26, %24, %19
-  %.1 = phi ptr [ %0, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit ], [ %23, %19 ], [ null, %26 ], [ null, %24 ], [ null, %47 ], [ %.3, %29 ], [ %64, %57 ], [ %73, %65 ]
+.thread67:                                        ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit, %47, %65, %57, %29, %26, %24, %19
+  %.1 = phi ptr [ %23, %19 ], [ %0, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit ], [ null, %26 ], [ null, %24 ], [ null, %47 ], [ %73, %65 ], [ %64, %57 ], [ %.3, %29 ]
   ret ptr %.1
 }
 

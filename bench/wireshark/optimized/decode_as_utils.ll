@@ -262,9 +262,9 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   unreachable
 
 .thread183:                                       ; preds = %81, %45, %45, %45, %45, %45
-  %.0145 = phi i64 [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ %.1146, %81 ]
-  %.0143 = phi i32 [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ %61, %81 ]
-  %.0130 = phi i8 [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ %62, %81 ]
+  %.0145 = phi i64 [ %.1146, %81 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ]
+  %.0143 = phi i32 [ %61, %81 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ]
+  %.0130 = phi i8 [ %62, %81 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ]
   %85 = icmp eq ptr %41, null
   br i1 %85, label %86, label %.preheader200.preheader
 
@@ -444,7 +444,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   br label %133
 
 133:                                              ; preds = %.thread189, %.loopexit, %.thread195, %86, %83, %82, %31
-  %.0 = phi i1 [ false, %83 ], [ false, %82 ], [ false, %86 ], [ true, %.loopexit ], [ false, %.thread195 ], [ false, %31 ], [ false, %.thread189 ]
+  %.0 = phi i1 [ false, %86 ], [ true, %.loopexit ], [ false, %.thread195 ], [ false, %82 ], [ false, %83 ], [ false, %31 ], [ false, %.thread189 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
   ret i1 %.0
 }

@@ -204,7 +204,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i13: 
           to label %_ZN5serde2de9MapAccess10next_value17h5dea298616bea054E.exit unwind label %74
 
 _ZN5serde2de9MapAccess10next_value17h5dea298616bea054E.exit.thread: ; preds = %59, %.noexc26, %.noexc27
-  %.0.i.ph.i.i = phi ptr [ %63, %.noexc26 ], [ %69, %.noexc27 ], [ %61, %59 ]
+  %.0.i.ph.i.i = phi ptr [ %69, %.noexc27 ], [ %63, %.noexc26 ], [ %61, %59 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !35
   br label %78
 
@@ -378,7 +378,7 @@ _ZN5serde2de9MapAccess10next_value17h5dea298616bea054E.exit._crit_edge: ; preds 
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h34447ead4db055a9E.exit.i.i" unwind label %.loopexit99, !noalias !79
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h34447ead4db055a9E.exit.thread.i.i": ; preds = %.noexc8.i.i, %.noexc7.i.i, %106
-  %.0.i.ph.i.i.i = phi ptr [ %110, %.noexc7.i.i ], [ %115, %.noexc8.i.i ], [ %108, %106 ]
+  %.0.i.ph.i.i.i = phi ptr [ %115, %.noexc8.i.i ], [ %110, %.noexc7.i.i ], [ %108, %106 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !78
   br label %122
 

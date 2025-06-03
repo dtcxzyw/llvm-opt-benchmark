@@ -1116,7 +1116,7 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   br label %57
 
 57:                                               ; preds = %56, %55, %54, %51
-  %.0.i.i = phi i32 [ 4, %56 ], [ 3, %55 ], [ 2, %54 ], [ 0, %51 ]
+  %.0.i.i = phi i32 [ 2, %54 ], [ 3, %55 ], [ 4, %56 ], [ 0, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %33, i64 120
   store i8 0, ptr %58, align 8, !tbaa !22
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 128
@@ -2428,7 +2428,7 @@ timelib_get_time_zone_offset_info.exit:           ; preds = %13, %19, %21
   br label %24
 
 24:                                               ; preds = %1, %timelib_get_time_zone_offset_info.exit, %5
-  %.0 = phi i64 [ %.05, %timelib_get_time_zone_offset_info.exit ], [ %12, %5 ], [ 0, %1 ]
+  %.0 = phi i64 [ %12, %5 ], [ %.05, %timelib_get_time_zone_offset_info.exit ], [ 0, %1 ]
   ret i64 %.0
 }
 

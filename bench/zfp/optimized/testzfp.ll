@@ -3412,7 +3412,7 @@ default.unreachable:                              ; preds = %192
   unreachable
 
 294:                                              ; preds = %_ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEED2Ev.exit, %_ZN3zfp6array3IfNS_5codec4zfp3IfEENS_5index8implicitEED2Ev.exit, %_ZN3zfp6array2IfNS_5codec4zfp2IfEENS_5index8implicitEED2Ev.exit, %_ZN3zfp6array1IfNS_5codec4zfp1IfEENS_5index8implicitEED2Ev.exit
-  %.pn269 = phi i32 [ %282, %_ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEED2Ev.exit ], [ %259, %_ZN3zfp6array3IfNS_5codec4zfp3IfEENS_5index8implicitEED2Ev.exit ], [ %236, %_ZN3zfp6array2IfNS_5codec4zfp2IfEENS_5index8implicitEED2Ev.exit ], [ %214, %_ZN3zfp6array1IfNS_5codec4zfp1IfEENS_5index8implicitEED2Ev.exit ]
+  %.pn269 = phi i32 [ %214, %_ZN3zfp6array1IfNS_5codec4zfp1IfEENS_5index8implicitEED2Ev.exit ], [ %236, %_ZN3zfp6array2IfNS_5codec4zfp2IfEENS_5index8implicitEED2Ev.exit ], [ %259, %_ZN3zfp6array3IfNS_5codec4zfp3IfEENS_5index8implicitEED2Ev.exit ], [ %282, %_ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEED2Ev.exit ]
   %.3 = add i32 %.pn269, %196
   %295 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !9
   %296 = getelementptr i8, ptr %295, i64 -24
@@ -3456,7 +3456,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit210: ; preds = %3
   br label %315
 
 314:                                              ; preds = %293, %270, %247, %225
-  %.pn = phi { ptr, i32 } [ %292, %293 ], [ %269, %270 ], [ %246, %247 ], [ %224, %225 ]
+  %.pn = phi { ptr, i32 } [ %224, %225 ], [ %246, %247 ], [ %269, %270 ], [ %292, %293 ]
   resume { ptr, i32 } %.pn
 
 315:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit210, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -4030,7 +4030,7 @@ default.unreachable:                              ; preds = %191
   unreachable
 
 277:                                              ; preds = %_ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEED2Ev.exit, %_ZN3zfp6array3IdNS_5codec4zfp3IdEENS_5index8implicitEED2Ev.exit, %_ZN3zfp6array2IdNS_5codec4zfp2IdEENS_5index8implicitEED2Ev.exit, %_ZN3zfp6array1IdNS_5codec4zfp1IdEENS_5index8implicitEED2Ev.exit
-  %.pn269 = phi i32 [ %265, %_ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEED2Ev.exit ], [ %246, %_ZN3zfp6array3IdNS_5codec4zfp3IdEENS_5index8implicitEED2Ev.exit ], [ %227, %_ZN3zfp6array2IdNS_5codec4zfp2IdEENS_5index8implicitEED2Ev.exit ], [ %209, %_ZN3zfp6array1IdNS_5codec4zfp1IdEENS_5index8implicitEED2Ev.exit ]
+  %.pn269 = phi i32 [ %209, %_ZN3zfp6array1IdNS_5codec4zfp1IdEENS_5index8implicitEED2Ev.exit ], [ %227, %_ZN3zfp6array2IdNS_5codec4zfp2IdEENS_5index8implicitEED2Ev.exit ], [ %246, %_ZN3zfp6array3IdNS_5codec4zfp3IdEENS_5index8implicitEED2Ev.exit ], [ %265, %_ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEED2Ev.exit ]
   %.3 = add i32 %.pn269, %195
   %278 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !9
   %279 = getelementptr i8, ptr %278, i64 -24
@@ -4074,7 +4074,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit210: ; preds = %2
   br label %298
 
 297:                                              ; preds = %276, %257, %238, %220
-  %.pn = phi { ptr, i32 } [ %275, %276 ], [ %256, %257 ], [ %237, %238 ], [ %219, %220 ]
+  %.pn = phi { ptr, i32 } [ %219, %220 ], [ %237, %238 ], [ %256, %257 ], [ %275, %276 ]
   resume { ptr, i32 } %.pn
 
 298:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit210, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit

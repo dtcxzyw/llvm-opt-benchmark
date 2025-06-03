@@ -564,7 +564,7 @@ _ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %_ZNSt11char_traitsI
   br label %53
 
 53:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13isSpecialPassENS2_9StringRefERKSt6vectorIS3_SaIS3_EEE3$_0EclINS_17__normal_iteratorIPKS3_S6_EEEEbT_.exit52.thread87.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.074.1.i.i.i.i.i.i = phi ptr [ %.sroa.074.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13isSpecialPassENS2_9StringRefERKSt6vectorIS3_SaIS3_EEE3$_0EclINS_17__normal_iteratorIPKS3_S6_EEEEbT_.exit52.thread87.i.i.i.i.i.i" ]
+  %.sroa.074.1.i.i.i.i.i.i = phi ptr [ %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13isSpecialPassENS2_9StringRefERKSt6vectorIS3_SaIS3_EEE3$_0EclINS_17__normal_iteratorIPKS3_S6_EEEEbT_.exit52.thread87.i.i.i.i.i.i" ], [ %.sroa.074.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i53.i.i.i.i.i.i = load ptr, ptr %.sroa.074.1.i.i.i.i.i.i, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx.i54.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.074.1.i.i.i.i.i.i, i64 8
   %.sroa.2.0.copyload.i55.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i54.i.i.i.i.i.i, align 8, !tbaa !16
@@ -588,7 +588,7 @@ _ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %_ZNSt11char_traitsI
   br label %61
 
 61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13isSpecialPassENS2_9StringRefERKSt6vectorIS3_SaIS3_EEE3$_0EclINS_17__normal_iteratorIPKS3_S6_EEEEbT_.exit58.thread88.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.074.2.i.i.i.i.i.i = phi ptr [ %.sroa.074.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13isSpecialPassENS2_9StringRefERKSt6vectorIS3_SaIS3_EEE3$_0EclINS_17__normal_iteratorIPKS3_S6_EEEEbT_.exit58.thread88.i.i.i.i.i.i" ]
+  %.sroa.074.2.i.i.i.i.i.i = phi ptr [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13isSpecialPassENS2_9StringRefERKSt6vectorIS3_SaIS3_EEE3$_0EclINS_17__normal_iteratorIPKS3_S6_EEEEbT_.exit58.thread88.i.i.i.i.i.i" ], [ %.sroa.074.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i59.i.i.i.i.i.i = load ptr, ptr %.sroa.074.2.i.i.i.i.i.i, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx.i60.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.074.2.i.i.i.i.i.i, i64 8
   %.sroa.2.0.copyload.i61.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i60.i.i.i.i.i.i, align 8, !tbaa !16

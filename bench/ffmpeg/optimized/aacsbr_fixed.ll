@@ -547,7 +547,7 @@ define hidden noundef i32 @ff_aac_sbr_decode_extension_fixed(ptr noundef capture
   br label %sbr_make_f_master.exit.thread.i
 
 251:                                              ; preds = %247, %246, %245, %244, %243, %240
-  %.0639.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 80), %247 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 64), %246 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 48), %245 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 32), %244 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 16), %243 ], [ @sbr_offset, %240 ]
+  %.0639.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 16), %243 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 32), %244 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 48), %245 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 64), %246 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 80), %247 ], [ @sbr_offset, %240 ]
   %252 = icmp samesign ult i32 %242, 32000
   %253 = icmp samesign ult i32 %242, 64000
   %..i.i50 = select i1 %253, i32 4000, i32 5000
@@ -9556,7 +9556,7 @@ get_bits1_vector.exit:                            ; preds = %.lr.ph226, %.lr.ph2
   br label %420
 
 420:                                              ; preds = %413, %418, %415, %373, %366, %264, %50
-  %.0184 = phi i32 [ -1, %366 ], [ -1, %373 ], [ -1, %264 ], [ -1, %50 ], [ 0, %415 ], [ 0, %418 ], [ 0, %413 ]
+  %.0184 = phi i32 [ -1, %366 ], [ -1, %373 ], [ -1, %50 ], [ -1, %264 ], [ 0, %415 ], [ 0, %418 ], [ 0, %413 ]
   ret i32 %.0184
 }
 

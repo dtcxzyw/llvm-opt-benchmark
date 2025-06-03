@@ -274,8 +274,8 @@ default.unreachable:                              ; preds = %1
   br label %11
 
 11:                                               ; preds = %1, %6, %5
-  %.sroa.4.0 = phi i64 [ %10, %6 ], [ 16, %5 ], [ 14, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %6 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %1 ]
+  %.sroa.4.0 = phi i64 [ 16, %5 ], [ %10, %6 ], [ 14, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %5 ], [ %8, %6 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %1 ]
   %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %13
@@ -310,8 +310,8 @@ default.unreachable:                              ; preds = %1
   br label %14
 
 14:                                               ; preds = %1, %6, %5
-  %.sroa.4.0 = phi i64 [ %13, %6 ], [ 16, %5 ], [ 14, %1 ]
-  %.sroa.0.0 = phi ptr [ %11, %6 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.5, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.4, %1 ]
+  %.sroa.4.0 = phi i64 [ 16, %5 ], [ %13, %6 ], [ 14, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.5, %5 ], [ %11, %6 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.4, %1 ]
   %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %16
@@ -340,7 +340,7 @@ default.unreachable:                              ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %6, %5
-  %.sroa.0.0 = phi i64 [ %8, %6 ], [ 1000000, %5 ], [ 2000000, %1 ]
+  %.sroa.0.0 = phi i64 [ 1000000, %5 ], [ %8, %6 ], [ 2000000, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -374,8 +374,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %2, %9, %10
-  %.sroa.4.0.i = phi i64 [ %14, %10 ], [ 16, %9 ], [ 14, %2 ]
-  %.sroa.0.0.i = phi ptr [ %12, %10 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %9 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %2 ]
+  %.sroa.4.0.i = phi i64 [ 16, %9 ], [ %14, %10 ], [ 14, %2 ]
+  %.sroa.0.0.i = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %9 ], [ %12, %10 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %2 ]
   store ptr %.sroa.0.0.i, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.4.0.i, ptr %15, align 8

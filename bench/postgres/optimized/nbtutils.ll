@@ -380,7 +380,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %39, %33, %30, %27, %24, %41, %54, %53
-  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %42, %41 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %40, %39 ]
+  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %42, %41 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %40, %39 ]
   ret i64 %.1
 }
 
@@ -1189,22 +1189,22 @@ select.unfold.i:                                  ; preds = %87, %50
   %91 = getelementptr inbounds nuw i8, ptr %.064.i, i64 6
   %92 = load i16, ptr %91, align 2
   switch i16 %92, label %99 [
-    i16 1, label %105
-    i16 2, label %93
-    i16 4, label %95
-    i16 5, label %97
+    i16 1, label %93
+    i16 2, label %95
+    i16 4, label %97
+    i16 5, label %105
   ]
 
 93:                                               ; preds = %89
-  %94 = icmp slt i32 %.162.ph.i, 1
+  %94 = icmp slt i32 %.162.ph.i, 0
   br i1 %94, label %.thread101, label %107
 
 95:                                               ; preds = %89
-  %96 = icmp sgt i32 %.162.ph.i, -1
+  %96 = icmp slt i32 %.162.ph.i, 1
   br i1 %96, label %.thread101, label %107
 
 97:                                               ; preds = %89
-  %98 = icmp sgt i32 %.162.ph.i, 0
+  %98 = icmp sgt i32 %.162.ph.i, -1
   br i1 %98, label %.thread101, label %107
 
 99:                                               ; preds = %89
@@ -1218,7 +1218,7 @@ select.unfold.i:                                  ; preds = %87, %50
   unreachable
 
 105:                                              ; preds = %89
-  %106 = icmp slt i32 %.162.ph.i, 0
+  %106 = icmp sgt i32 %.162.ph.i, 0
   br i1 %106, label %.thread101, label %107
 
 107:                                              ; preds = %105, %97, %95, %93
@@ -1343,7 +1343,7 @@ select.unfold.i:                                  ; preds = %87, %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
   br label %.loopexit
 
-.thread101:                                       ; preds = %34, %36, %137, %138, %105, %97, %95, %93
+.thread101:                                       ; preds = %34, %36, %137, %138, %105, %93, %95, %97
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
   br label %159
 

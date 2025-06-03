@@ -2610,7 +2610,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %75, %10, %2, %4, %88, %62, %50, %39, %32, %29, %19, %16, %11
-  %.047 = phi i32 [ %45, %39 ], [ %31, %29 ], [ %38, %32 ], [ %18, %16 ], [ %26, %19 ], [ %13, %11 ], [ %54, %50 ], [ %72, %62 ], [ %91, %88 ], [ -2, %4 ], [ -2, %2 ], [ -2, %10 ], [ -2, %73 ], [ %0, %75 ]
+  %.047 = phi i32 [ %13, %11 ], [ %18, %16 ], [ %26, %19 ], [ %31, %29 ], [ %38, %32 ], [ %45, %39 ], [ %54, %50 ], [ %72, %62 ], [ %91, %88 ], [ -2, %4 ], [ -2, %2 ], [ -2, %10 ], [ -2, %73 ], [ %0, %75 ]
   ret i32 %.047
 }
 
@@ -3161,7 +3161,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %124 = call i32 @close(i32 noundef %42) #10
   br label %_test_cpu_owner_lock.exit.thread
 
-_test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %121, %114, %47, %44
+_test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %114, %121, %47, %44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #10
   br label %194

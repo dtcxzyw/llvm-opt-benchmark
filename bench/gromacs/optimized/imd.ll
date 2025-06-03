@@ -2836,13 +2836,13 @@ _ZN3gmx14LogEntryWriterD2Ev.exit55:               ; preds = %_ZNKSt7__cxx1112bas
   br label %248
 
 248:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit45, %193, %_ZN3gmx14LogEntryWriterD2Ev.exit38, %172, %_ZN3gmx14LogEntryWriterD2Ev.exit31, %151, %_ZN3gmx14LogEntryWriterD2Ev.exit17, %100, %99, %247, %146, %145
-  %.1 = phi i1 [ %.0785, %247 ], [ %.0785, %146 ], [ %.0785, %145 ], [ %.0785, %99 ], [ %.0785, %100 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit17 ], [ false, %151 ], [ false, %_ZN3gmx14LogEntryWriterD2Ev.exit31 ], [ true, %172 ], [ true, %_ZN3gmx14LogEntryWriterD2Ev.exit38 ], [ %.0785, %193 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit45 ]
+  %.1 = phi i1 [ %.0785, %247 ], [ %.0785, %99 ], [ %.0785, %145 ], [ %.0785, %146 ], [ %.0785, %100 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit17 ], [ false, %151 ], [ false, %_ZN3gmx14LogEntryWriterD2Ev.exit31 ], [ true, %172 ], [ true, %_ZN3gmx14LogEntryWriterD2Ev.exit38 ], [ %.0785, %193 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit45 ]
   %249 = load ptr, ptr %10, align 8, !tbaa !154
   %.not = icmp eq ptr %249, null
   br i1 %.not, label %.critedge, label %48, !llvm.loop !210
 
 250:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit55, %_ZN3gmx14LogEntryWriterD2Ev.exit48, %_ZN3gmx14LogEntryWriterD2Ev.exit41, %_ZN3gmx14LogEntryWriterD2Ev.exit34, %_ZN3gmx14LogEntryWriterD2Ev.exit27, %_ZN3gmx14LogEntryWriterD2Ev.exit20, %_ZN3gmx14LogEntryWriterD2Ev.exit13
-  %.pn = phi { ptr, i32 } [ %240, %_ZN3gmx14LogEntryWriterD2Ev.exit55 ], [ %213, %_ZN3gmx14LogEntryWriterD2Ev.exit48 ], [ %165, %_ZN3gmx14LogEntryWriterD2Ev.exit34 ], [ %186, %_ZN3gmx14LogEntryWriterD2Ev.exit41 ], [ %138, %_ZN3gmx14LogEntryWriterD2Ev.exit27 ], [ %92, %_ZN3gmx14LogEntryWriterD2Ev.exit13 ], [ %114, %_ZN3gmx14LogEntryWriterD2Ev.exit20 ]
+  %.pn = phi { ptr, i32 } [ %240, %_ZN3gmx14LogEntryWriterD2Ev.exit55 ], [ %92, %_ZN3gmx14LogEntryWriterD2Ev.exit13 ], [ %114, %_ZN3gmx14LogEntryWriterD2Ev.exit20 ], [ %138, %_ZN3gmx14LogEntryWriterD2Ev.exit27 ], [ %165, %_ZN3gmx14LogEntryWriterD2Ev.exit34 ], [ %186, %_ZN3gmx14LogEntryWriterD2Ev.exit41 ], [ %213, %_ZN3gmx14LogEntryWriterD2Ev.exit48 ]
   resume { ptr, i32 } %.pn
 
 .critedge:                                        ; preds = %48, %248, %1

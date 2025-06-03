@@ -422,7 +422,7 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29: ; pre
   br label %59
 
 59:                                               ; preds = %57, %39, %37, %35, %33, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29, %30, %14
-  %.0 = phi i1 [ %42, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %31, %30 ], [ %32, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29 ], [ %15, %14 ], [ %58, %57 ]
+  %.0 = phi i1 [ %15, %14 ], [ %31, %30 ], [ %32, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %42, %39 ], [ %58, %57 ]
   ret i1 %.0
 }
 
@@ -469,7 +469,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6l
   br label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule12preferFrozenERKNS3_10UpdateInfoES7_.exit
 
 _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule12preferFrozenERKNS3_10UpdateInfoES7_.exit: ; preds = %23, %15, %25
-  %.0 = phi i1 [ %28, %25 ], [ %21, %15 ], [ %24, %23 ]
+  %.0 = phi i1 [ %28, %25 ], [ %24, %23 ], [ %21, %15 ]
   ret i1 %.0
 }
 
@@ -709,7 +709,7 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29: ; pre
   br label %59
 
 59:                                               ; preds = %57, %39, %37, %35, %33, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29, %30, %14
-  %.0 = phi i1 [ %42, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %31, %30 ], [ %32, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29 ], [ %15, %14 ], [ %58, %57 ]
+  %.0 = phi i1 [ %15, %14 ], [ %31, %30 ], [ %32, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit29 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %42, %39 ], [ %58, %57 ]
   ret i1 %.0
 }
 
@@ -10011,7 +10011,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear10BorderHe
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %43, %42 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !58
   %.not1.i.i6 = icmp ne i32 %46, 0
@@ -10026,7 +10026,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear10BorderHe
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %50, %49 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i.i.i, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !58
   %.not1.i.i3 = icmp ne i32 %53, 0
@@ -10916,7 +10916,7 @@ _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule10minProductERKNS3_1
   br label %60
 
 60:                                               ; preds = %7, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule10minProductERKNS3_10UpdateInfoES7_.exit
-  %.1 = phi i1 [ %9, %7 ], [ %.0.i, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule10minProductERKNS3_10UpdateInfoES7_.exit ]
+  %.1 = phi i1 [ %.0.i, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule10minProductERKNS3_10UpdateInfoES7_.exit ], [ %9, %7 ]
   ret i1 %.1
 }
 
@@ -12197,8 +12197,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %64
 
 64:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50
-  %65 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %65 = phi i64 [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.037.1 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.037.1, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !102
   %68 = icmp eq i64 %67, %65
@@ -12220,8 +12220,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %75
 
 75:                                               ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51
-  %76 = phi i64 [ %.pre58, %._crit_edge._crit_edge56 ], [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge56 ], [ %74, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %76 = phi i64 [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.pre58, %._crit_edge._crit_edge56 ]
+  %.sroa.037.2 = phi ptr [ %74, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge56 ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.037.2, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !102
   %79 = icmp eq i64 %78, %76

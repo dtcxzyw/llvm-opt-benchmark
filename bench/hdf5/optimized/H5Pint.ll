@@ -3267,8 +3267,8 @@ define range(i32 -1, 1) i32 @H5P_insert(ptr noundef captures(none) %0, ptr nound
   %99 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5P_genprop_t_reg_free_list, ptr noundef nonnull %51) #14
   br label %H5P__free_prop.exit
 
-H5P__free_prop.exit:                              ; preds = %47, %53, %36, %23, %69, %98, %73, %12
-  %.044 = phi i32 [ 0, %12 ], [ -1, %73 ], [ -1, %98 ], [ -1, %47 ], [ 0, %69 ], [ -1, %53 ], [ -1, %36 ], [ -1, %23 ]
+H5P__free_prop.exit:                              ; preds = %47, %36, %53, %23, %69, %98, %73, %12
+  %.044 = phi i32 [ 0, %12 ], [ -1, %73 ], [ -1, %98 ], [ -1, %47 ], [ -1, %36 ], [ 0, %69 ], [ -1, %53 ], [ -1, %23 ]
   ret i32 %.044
 }
 
@@ -7083,7 +7083,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__new_plist_of_type(i32 nound
   br label %55
 
 41:                                               ; preds = %8, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17
-  %.011.in = phi ptr [ @H5P_CLS_REFERENCE_ACCESS_ID_g, %36 ], [ @H5P_CLS_VOL_INITIALIZE_ID_g, %35 ], [ @H5P_CLS_LINK_ACCESS_ID_g, %34 ], [ @H5P_CLS_LINK_CREATE_ID_g, %33 ], [ @H5P_CLS_OBJECT_COPY_ID_g, %32 ], [ @H5P_CLS_ATTRIBUTE_ACCESS_ID_g, %31 ], [ @H5P_CLS_ATTRIBUTE_CREATE_ID_g, %30 ], [ @H5P_CLS_STRING_CREATE_ID_g, %29 ], [ @H5P_CLS_MAP_ACCESS_ID_g, %28 ], [ @H5P_CLS_MAP_CREATE_ID_g, %27 ], [ @H5P_CLS_DATATYPE_ACCESS_ID_g, %26 ], [ @H5P_CLS_DATATYPE_CREATE_ID_g, %25 ], [ @H5P_CLS_GROUP_ACCESS_ID_g, %24 ], [ @H5P_CLS_GROUP_CREATE_ID_g, %23 ], [ @H5P_CLS_FILE_MOUNT_ID_g, %22 ], [ @H5P_CLS_DATASET_XFER_ID_g, %21 ], [ @H5P_CLS_DATASET_ACCESS_ID_g, %20 ], [ @H5P_CLS_DATASET_CREATE_ID_g, %19 ], [ @H5P_CLS_FILE_ACCESS_ID_g, %18 ], [ @H5P_CLS_FILE_CREATE_ID_g, %17 ], [ @H5P_CLS_OBJECT_CREATE_ID_g, %8 ]
+  %.011.in = phi ptr [ @H5P_CLS_FILE_CREATE_ID_g, %17 ], [ @H5P_CLS_FILE_ACCESS_ID_g, %18 ], [ @H5P_CLS_DATASET_CREATE_ID_g, %19 ], [ @H5P_CLS_DATASET_ACCESS_ID_g, %20 ], [ @H5P_CLS_DATASET_XFER_ID_g, %21 ], [ @H5P_CLS_FILE_MOUNT_ID_g, %22 ], [ @H5P_CLS_GROUP_CREATE_ID_g, %23 ], [ @H5P_CLS_GROUP_ACCESS_ID_g, %24 ], [ @H5P_CLS_DATATYPE_CREATE_ID_g, %25 ], [ @H5P_CLS_DATATYPE_ACCESS_ID_g, %26 ], [ @H5P_CLS_MAP_CREATE_ID_g, %27 ], [ @H5P_CLS_MAP_ACCESS_ID_g, %28 ], [ @H5P_CLS_STRING_CREATE_ID_g, %29 ], [ @H5P_CLS_ATTRIBUTE_CREATE_ID_g, %30 ], [ @H5P_CLS_ATTRIBUTE_ACCESS_ID_g, %31 ], [ @H5P_CLS_OBJECT_COPY_ID_g, %32 ], [ @H5P_CLS_LINK_CREATE_ID_g, %33 ], [ @H5P_CLS_LINK_ACCESS_ID_g, %34 ], [ @H5P_CLS_VOL_INITIALIZE_ID_g, %35 ], [ @H5P_CLS_REFERENCE_ACCESS_ID_g, %36 ], [ @H5P_CLS_OBJECT_CREATE_ID_g, %8 ]
   %.011 = load i64, ptr %.011.in, align 8, !tbaa !10
   %42 = tail call ptr @H5I_object(i64 noundef %.011) #14
   %43 = icmp eq ptr %42, null

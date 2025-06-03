@@ -6502,7 +6502,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche3tls9Handshake14map_result_ssl17h
   ]
 
 13:                                               ; preds = %11, %1, %_ZN6quiche3tls13log_ssl_error17hcefe19f9e44d034eE.exit, %45, %46
-  %.sroa.0.0 = phi i64 [ 0, %46 ], [ 0, %45 ], [ 9, %_ZN6quiche3tls13log_ssl_error17hcefe19f9e44d034eE.exit ], [ 20, %1 ], [ 9, %11 ]
+  %.sroa.0.0 = phi i64 [ 9, %_ZN6quiche3tls13log_ssl_error17hcefe19f9e44d034eE.exit ], [ 0, %45 ], [ 0, %46 ], [ 20, %1 ], [ 9, %11 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, i64 } %14, i64 undef, 1
   ret { i64, i64 } %15

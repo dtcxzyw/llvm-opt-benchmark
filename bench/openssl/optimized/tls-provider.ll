@@ -397,8 +397,8 @@ randomize_tls_alg_id.exit73:                      ; preds = %.loopexit.i72, %ran
   br label %85
 
 85:                                               ; preds = %79, %81, %83
-  %.131 = phi ptr [ %.030, %83 ], [ %.032.val, %81 ], [ %.030, %79 ]
-  %.1 = phi ptr [ %.032.val40, %83 ], [ %.029, %81 ], [ %.029, %79 ]
+  %.131 = phi ptr [ %.032.val, %81 ], [ %.030, %83 ], [ %.030, %79 ]
+  %.1 = phi ptr [ %.029, %81 ], [ %.032.val40, %83 ], [ %.029, %79 ]
   %86 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   br label %79, !llvm.loop !22
 

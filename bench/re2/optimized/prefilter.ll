@@ -1163,7 +1163,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad10.body, %lpad15.body, %lpad19.body, %ehcleanup39, %lpad43.body, %ehcleanup90, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad ], [ %.pn.pn, %ehcleanup90 ], [ %eh.lpad-body56, %lpad43.body ], [ %.pn12.pn, %ehcleanup39 ], [ %eh.lpad-body37, %lpad19.body ], [ %eh.lpad-body28, %lpad15.body ], [ %eh.lpad-body, %lpad10.body ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad ], [ %eh.lpad-body, %lpad10.body ], [ %eh.lpad-body28, %lpad15.body ], [ %.pn12.pn, %ehcleanup39 ], [ %eh.lpad-body37, %lpad19.body ], [ %.pn.pn, %ehcleanup90 ], [ %eh.lpad-body56, %lpad43.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %sw.default
@@ -3461,7 +3461,7 @@ sw.bb103:                                         ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body81, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit, %sw.bb76, %if.else35, %if.then26, %delete.notnull.i, %invoke.cont3.i, %delete.notnull.i.i, %invoke.cont3.i.i, %if.then, %if.else, %sw.bb103, %sw.bb99, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit, %_ZN3re29Prefilter4Info4PlusEPS1_.exit, %for.end74, %if.then22, %sw.bb12, %_ZN3re29Prefilter4Info7NoMatchEv.exit, %invoke.cont8
-  %info.0 = phi ptr [ %call2, %invoke.cont8 ], [ %call102, %sw.bb99 ], [ %call.i94, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit ], [ %call.i87, %_ZN3re29Prefilter4Info4PlusEPS1_.exit ], [ %call75, %for.end74 ], [ %call23, %if.then22 ], [ %call17, %if.then ], [ %call19, %if.else ], [ %call13, %sw.bb12 ], [ %call.i, %_ZN3re29Prefilter4Info7NoMatchEv.exit ], [ %48, %sw.bb103 ], [ %call.i.i, %invoke.cont3.i.i ], [ %call.i.i, %delete.notnull.i.i ], [ %call.i77, %invoke.cont3.i ], [ %call.i77, %delete.notnull.i ], [ %call28, %if.then26 ], [ %call38, %if.else35 ], [ %31, %sw.bb76 ], [ %call.i52, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %call.i59, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call84, %for.body81 ]
+  %info.0 = phi ptr [ %call2, %invoke.cont8 ], [ %48, %sw.bb103 ], [ %call.i, %_ZN3re29Prefilter4Info7NoMatchEv.exit ], [ %call13, %sw.bb12 ], [ %call17, %if.then ], [ %call19, %if.else ], [ %call23, %if.then22 ], [ %call75, %for.end74 ], [ %call.i87, %_ZN3re29Prefilter4Info4PlusEPS1_.exit ], [ %call.i94, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit ], [ %call102, %sw.bb99 ], [ %call.i.i, %invoke.cont3.i.i ], [ %call.i.i, %delete.notnull.i.i ], [ %call.i77, %invoke.cont3.i ], [ %call.i77, %delete.notnull.i ], [ %call28, %if.then26 ], [ %call38, %if.else35 ], [ %31, %sw.bb76 ], [ %call.i52, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %call.i59, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call84, %for.body81 ]
   ret ptr %info.0
 }
 

@@ -732,7 +732,7 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
   br label %73
 
 73:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, %69, %71, %67
-  %.sroa.0.1 = phi i64 [ %.sroa.0.076, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.076, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ]
   %74 = load atomic i64, ptr %44 seq_cst, align 8
   %75 = sitofp i64 %74 to float
   %76 = load i64, ptr %0, align 8, !tbaa !19

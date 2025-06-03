@@ -1609,7 +1609,7 @@ select.unfold.i.i25:                              ; preds = %131, %135
   br label %.backedge152
 
 common.resume:                                    ; preds = %436, %450, %458, %177, %185, %194, %249
-  %common.resume.op = phi { ptr, i32 } [ %250, %249 ], [ %195, %194 ], [ %178, %177 ], [ %186, %185 ], [ %437, %436 ], [ %451, %450 ], [ %459, %458 ]
+  %common.resume.op = phi { ptr, i32 } [ %250, %249 ], [ %178, %177 ], [ %195, %194 ], [ %186, %185 ], [ %437, %436 ], [ %451, %450 ], [ %459, %458 ]
   resume { ptr, i32 } %common.resume.op
 
 179:                                              ; preds = %173
@@ -3496,10 +3496,10 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %.1 = phi i1 [ %.04, %11 ], [ %.3, %15 ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 288
   invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Optimize$GT$$GT$$GT$17h4a2ef5225975e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #17
-          to label %680 unwind label %677
+          to label %681 unwind label %678
 
-11:                                               ; preds = %651, %13, %2
-  %.04 = phi i1 [ false, %651 ], [ true, %13 ], [ true, %2 ]
+11:                                               ; preds = %652, %13, %2
+  %.04 = phi i1 [ false, %652 ], [ true, %13 ], [ true, %2 ]
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %9
@@ -3513,11 +3513,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   invoke fastcc void @_ZN18wasmtime_cli_flags13CommonOptions9configure17h4358a3bddcfbbdf0E(ptr noalias noundef align 8 dereferenceable(568) %7)
           to label %18 unwind label %16
 
-15:                                               ; preds = %648, %16
-  %.pn16 = phi { ptr, i32 } [ %17, %16 ], [ %.pn14, %648 ]
-  %.3 = phi i1 [ %.2, %16 ], [ false, %648 ]
+15:                                               ; preds = %649, %16
+  %.pn16 = phi { ptr, i32 } [ %17, %16 ], [ %.pn14, %649 ]
+  %.3 = phi i1 [ %.2, %16 ], [ false, %649 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmtime_cli_flags..CommonOptions$GT$17hd29df6720412d88aE"(ptr noalias noundef nonnull align 8 dereferenceable(568) %7) #17
-          to label %9 unwind label %677
+          to label %9 unwind label %678
 
 16:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit", %14
   %.2 = phi i1 [ false, %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit" ], [ true, %14 ]
@@ -3680,21 +3680,21 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
 30:                                               ; preds = %28, %26
   %trunc.i = trunc nuw i64 %.sroa.0.0.copyload to i1
   %31 = load i64, ptr %7, align 8, !range !66, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc.i, label %32, label %36
+  br i1 %trunc.i, label %34, label %32
 
 32:                                               ; preds = %30
+  %33 = trunc nuw i64 %31 to i1
+  br i1 %33, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %38
+
+34:                                               ; preds = %30
   %.not39.i = icmp ne i64 %31, 0
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = icmp eq i64 %.sroa.4.0.copyload, %34
-  %or.cond = select i1 %.not39.i, i1 %35, i1 false
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp eq i64 %.sroa.4.0.copyload, %36
+  %or.cond = select i1 %.not39.i, i1 %37, i1 false
   br i1 %or.cond, label %38, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-36:                                               ; preds = %30
-  %37 = trunc nuw i64 %31 to i1
-  br i1 %37, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %38
-
-38:                                               ; preds = %32, %36
+38:                                               ; preds = %34, %32
   %39 = icmp eq i8 %.sroa.25.0.copyload, 2
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %41 = load i8, ptr %40, align 8, !range !169, !alias.scope !364, !noalias !367, !noundef !14
@@ -3712,57 +3712,57 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %trunc41.i = trunc nuw i64 %.sroa.5.0.copyload to i1
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %47 = load i64, ptr %46, align 8, !range !66, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc41.i, label %48, label %52
+  br i1 %trunc41.i, label %50, label %48
 
 48:                                               ; preds = %45
+  %49 = trunc nuw i64 %47 to i1
+  br i1 %49, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %54
+
+50:                                               ; preds = %45
   %.not42.i = icmp ne i64 %47, 0
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp eq i64 %.sroa.6.0.copyload, %50
-  %or.cond84 = select i1 %.not42.i, i1 %51, i1 false
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp eq i64 %.sroa.6.0.copyload, %52
+  %or.cond84 = select i1 %.not42.i, i1 %53, i1 false
   br i1 %or.cond84, label %54, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-52:                                               ; preds = %45
-  %53 = trunc nuw i64 %47 to i1
-  br i1 %53, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %54
-
-54:                                               ; preds = %48, %52
+54:                                               ; preds = %50, %48
   %trunc43.i = trunc nuw i64 %.sroa.7.0.copyload to i1
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %56 = load i64, ptr %55, align 8, !range !66, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc43.i, label %57, label %61
+  br i1 %trunc43.i, label %59, label %57
 
 57:                                               ; preds = %54
+  %58 = trunc nuw i64 %56 to i1
+  br i1 %58, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %63
+
+59:                                               ; preds = %54
   %.not44.i = icmp ne i64 %56, 0
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %59 = load i64, ptr %58, align 8
-  %60 = icmp eq i64 %.sroa.8.0.copyload, %59
-  %or.cond87 = select i1 %.not44.i, i1 %60, i1 false
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %61 = load i64, ptr %60, align 8
+  %62 = icmp eq i64 %.sroa.8.0.copyload, %61
+  %or.cond87 = select i1 %.not44.i, i1 %62, i1 false
   br i1 %or.cond87, label %63, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-61:                                               ; preds = %54
-  %62 = trunc nuw i64 %56 to i1
-  br i1 %62, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %63
-
-63:                                               ; preds = %57, %61
+63:                                               ; preds = %59, %57
   %trunc45.i = trunc nuw i64 %.sroa.9.0.copyload to i1
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %65 = load i64, ptr %64, align 8, !range !66, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc45.i, label %66, label %70
+  br i1 %trunc45.i, label %68, label %66
 
 66:                                               ; preds = %63
+  %67 = trunc nuw i64 %65 to i1
+  br i1 %67, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %72
+
+68:                                               ; preds = %63
   %.not46.i = icmp ne i64 %65, 0
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %68 = load i64, ptr %67, align 8
-  %69 = icmp eq i64 %.sroa.10.0.copyload, %68
-  %or.cond90 = select i1 %.not46.i, i1 %69, i1 false
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp eq i64 %.sroa.10.0.copyload, %70
+  %or.cond90 = select i1 %.not46.i, i1 %71, i1 false
   br i1 %or.cond90, label %72, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-70:                                               ; preds = %63
-  %71 = trunc nuw i64 %65 to i1
-  br i1 %71, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %72
-
-72:                                               ; preds = %66, %70
+72:                                               ; preds = %68, %66
   %73 = icmp eq i8 %.sroa.26.0.copyload, 2
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 137
   %75 = load i8, ptr %74, align 1, !range !169, !alias.scope !364, !noalias !367, !noundef !14
@@ -3794,39 +3794,39 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %trunc49.i = trunc nuw i64 %.sroa.11.0.copyload to i1
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %88 = load i64, ptr %87, align 8, !range !66, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc49.i, label %89, label %93
+  br i1 %trunc49.i, label %91, label %89
 
 89:                                               ; preds = %86
+  %90 = trunc nuw i64 %88 to i1
+  br i1 %90, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %95
+
+91:                                               ; preds = %86
   %.not50.i = icmp ne i64 %88, 0
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp eq i64 %.sroa.12.0.copyload, %91
-  %or.cond93 = select i1 %.not50.i, i1 %92, i1 false
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %93 = load i64, ptr %92, align 8
+  %94 = icmp eq i64 %.sroa.12.0.copyload, %93
+  %or.cond93 = select i1 %.not50.i, i1 %94, i1 false
   br i1 %or.cond93, label %95, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-93:                                               ; preds = %86
-  %94 = trunc nuw i64 %88 to i1
-  br i1 %94, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %95
-
-95:                                               ; preds = %89, %93
+95:                                               ; preds = %91, %89
   %trunc51.i = trunc nuw i64 %.sroa.13.0.copyload to i1
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %97 = load i64, ptr %96, align 8, !range !66, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc51.i, label %98, label %102
+  br i1 %trunc51.i, label %100, label %98
 
 98:                                               ; preds = %95
+  %99 = trunc nuw i64 %97 to i1
+  br i1 %99, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %104
+
+100:                                              ; preds = %95
   %.not52.i = icmp ne i64 %97, 0
-  %99 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %100 = load i64, ptr %99, align 8
-  %101 = icmp eq i64 %.sroa.14.0.copyload, %100
-  %or.cond96 = select i1 %.not52.i, i1 %101, i1 false
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %102 = load i64, ptr %101, align 8
+  %103 = icmp eq i64 %.sroa.14.0.copyload, %102
+  %or.cond96 = select i1 %.not52.i, i1 %103, i1 false
   br i1 %or.cond96, label %104, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-102:                                              ; preds = %95
-  %103 = trunc nuw i64 %97 to i1
-  br i1 %103, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %104
-
-104:                                              ; preds = %98, %102
+104:                                              ; preds = %100, %98
   %105 = icmp eq i8 %.sroa.28.0.copyload, 2
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 139
   %107 = load i8, ptr %106, align 1, !range !169, !alias.scope !364, !noalias !367, !noundef !14
@@ -3858,1208 +3858,1208 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %trunc55.i = trunc nuw i32 %.sroa.15.0.copyload to i1
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %120 = load i32, ptr %119, align 8, !range !354, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc55.i, label %121, label %125
+  br i1 %trunc55.i, label %123, label %121
 
 121:                                              ; preds = %118
+  %122 = trunc nuw i32 %120 to i1
+  br i1 %122, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %127
+
+123:                                              ; preds = %118
   %.not56.i = icmp ne i32 %120, 0
-  %122 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp eq i32 %.sroa.16.0.copyload, %123
-  %or.cond99 = select i1 %.not56.i, i1 %124, i1 false
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 100
+  %125 = load i32, ptr %124, align 4
+  %126 = icmp eq i32 %.sroa.16.0.copyload, %125
+  %or.cond99 = select i1 %.not56.i, i1 %126, i1 false
   br i1 %or.cond99, label %127, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-125:                                              ; preds = %118
-  %126 = trunc nuw i32 %120 to i1
-  br i1 %126, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %127
-
-127:                                              ; preds = %121, %125
+127:                                              ; preds = %123, %121
   %trunc57.i = trunc nuw i32 %.sroa.17.0.copyload to i1
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %129 = load i32, ptr %128, align 8, !range !354, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc57.i, label %130, label %134
+  br i1 %trunc57.i, label %132, label %130
 
 130:                                              ; preds = %127
+  %131 = trunc nuw i32 %129 to i1
+  br i1 %131, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %136
+
+132:                                              ; preds = %127
   %.not58.i = icmp ne i32 %129, 0
-  %131 = getelementptr inbounds nuw i8, ptr %7, i64 108
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp eq i32 %.sroa.18.0.copyload, %132
-  %or.cond102 = select i1 %.not58.i, i1 %133, i1 false
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 108
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp eq i32 %.sroa.18.0.copyload, %134
+  %or.cond102 = select i1 %.not58.i, i1 %135, i1 false
   br i1 %or.cond102, label %136, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-134:                                              ; preds = %127
-  %135 = trunc nuw i32 %129 to i1
-  br i1 %135, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %136
-
-136:                                              ; preds = %130, %134
+136:                                              ; preds = %132, %130
   %trunc59.i = trunc nuw i32 %.sroa.19.0.copyload to i1
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %138 = load i32, ptr %137, align 8, !range !354, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc59.i, label %139, label %143
+  br i1 %trunc59.i, label %141, label %139
 
 139:                                              ; preds = %136
+  %140 = trunc nuw i32 %138 to i1
+  br i1 %140, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %145
+
+141:                                              ; preds = %136
   %.not60.i = icmp ne i32 %138, 0
-  %140 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  %141 = load i32, ptr %140, align 4
-  %142 = icmp eq i32 %.sroa.20.0.copyload, %141
-  %or.cond105 = select i1 %.not60.i, i1 %142, i1 false
+  %142 = getelementptr inbounds nuw i8, ptr %7, i64 116
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp eq i32 %.sroa.20.0.copyload, %143
+  %or.cond105 = select i1 %.not60.i, i1 %144, i1 false
   br i1 %or.cond105, label %145, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-143:                                              ; preds = %136
-  %144 = trunc nuw i32 %138 to i1
-  br i1 %144, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %145
-
-145:                                              ; preds = %139, %143
+145:                                              ; preds = %141, %139
   %trunc61.i = trunc nuw i32 %.sroa.21.0.copyload to i1
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %147 = load i32, ptr %146, align 8, !range !354, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc61.i, label %148, label %152
+  br i1 %trunc61.i, label %150, label %148
 
 148:                                              ; preds = %145
+  %149 = trunc nuw i32 %147 to i1
+  br i1 %149, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %154
+
+150:                                              ; preds = %145
   %.not62.i = icmp ne i32 %147, 0
-  %149 = getelementptr inbounds nuw i8, ptr %7, i64 124
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp eq i32 %.sroa.22.0.copyload, %150
-  %or.cond108 = select i1 %.not62.i, i1 %151, i1 false
+  %151 = getelementptr inbounds nuw i8, ptr %7, i64 124
+  %152 = load i32, ptr %151, align 4
+  %153 = icmp eq i32 %.sroa.22.0.copyload, %152
+  %or.cond108 = select i1 %.not62.i, i1 %153, i1 false
   br i1 %or.cond108, label %154, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-152:                                              ; preds = %145
-  %153 = trunc nuw i32 %147 to i1
-  br i1 %153, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %154
-
-154:                                              ; preds = %148, %152
+154:                                              ; preds = %150, %148
   %trunc63.i = trunc nuw i32 %.sroa.23.0.copyload to i1
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %156 = load i32, ptr %155, align 8, !range !354, !alias.scope !364, !noalias !367, !noundef !14
-  br i1 %trunc63.i, label %157, label %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit"
+  br i1 %trunc63.i, label %159, label %157
 
 157:                                              ; preds = %154
-  %.not64.i = icmp ne i32 %156, 0
-  %158 = getelementptr inbounds nuw i8, ptr %7, i64 132
-  %159 = load i32, ptr %158, align 4
-  %160 = icmp eq i32 %.sroa.24.0.copyload, %159
-  %or.cond111 = select i1 %.not64.i, i1 %160, i1 false
-  br i1 %or.cond111, label %163, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  %158 = trunc nuw i32 %156 to i1
+  br i1 %158, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %164
 
-.loopexit:                                        ; preds = %560
+159:                                              ; preds = %154
+  %.not64.i = icmp ne i32 %156, 0
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 132
+  %161 = load i32, ptr %160, align 4
+  %162 = icmp eq i32 %.sroa.24.0.copyload, %161
+  %or.cond111 = select i1 %.not64.i, i1 %162, i1 false
+  br i1 %or.cond111, label %164, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+
+.loopexit:                                        ; preds = %561
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %161
+  br label %163
 
-.loopexit.split-lp:                               ; preds = %225, %573
+.loopexit.split-lp:                               ; preds = %226, %574
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %161
+  br label %163
 
-161:                                              ; preds = %.loopexit.split-lp, %.loopexit
+163:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$wasmtime_cli_flags..WasiOptions$GT$17h2ed86d78514626aaE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4) #17
-          to label %633 unwind label %677
+          to label %634 unwind label %678
 
-"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit": ; preds = %154
-  %162 = trunc nuw i32 %156 to i1
-  br i1 %162, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %163
-
-163:                                              ; preds = %157, %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit"
+164:                                              ; preds = %159, %157
   call void @llvm.experimental.noalias.scope.decl(metadata !369)
   call void @llvm.experimental.noalias.scope.decl(metadata !372)
-  %164 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %165 = load i8, ptr %164, align 4, !range !307, !alias.scope !369, !noalias !372, !noundef !14
-  %166 = icmp eq i8 %165, 3
-  %167 = getelementptr inbounds nuw i8, ptr %7, i64 460
-  %168 = load i8, ptr %167, align 4, !range !307, !alias.scope !372, !noalias !369, !noundef !14
-  br i1 %166, label %169, label %171
+  %165 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  %166 = load i8, ptr %165, align 4, !range !307, !alias.scope !369, !noalias !372, !noundef !14
+  %167 = icmp eq i8 %166, 3
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 460
+  %169 = load i8, ptr %168, align 4, !range !307, !alias.scope !372, !noalias !369, !noundef !14
+  br i1 %167, label %170, label %172
 
-169:                                              ; preds = %163
-  %170 = icmp eq i8 %168, 3
-  br i1 %170, label %173, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+170:                                              ; preds = %164
+  %171 = icmp eq i8 %169, 3
+  br i1 %171, label %174, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-171:                                              ; preds = %163
-  %172 = icmp eq i8 %165, %168
-  br i1 %172, label %173, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+172:                                              ; preds = %164
+  %173 = icmp eq i8 %166, %169
+  br i1 %173, label %174, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-173:                                              ; preds = %171, %169
-  %174 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %175 = load i8, ptr %174, align 8, !range !169, !alias.scope !369, !noalias !372, !noundef !14
-  %176 = icmp eq i8 %175, 2
-  %177 = getelementptr inbounds nuw i8, ptr %7, i64 456
-  %178 = load i8, ptr %177, align 8, !range !169, !alias.scope !372, !noalias !369, !noundef !14
-  br i1 %176, label %179, label %181
+174:                                              ; preds = %172, %170
+  %175 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %176 = load i8, ptr %175, align 8, !range !169, !alias.scope !369, !noalias !372, !noundef !14
+  %177 = icmp eq i8 %176, 2
+  %178 = getelementptr inbounds nuw i8, ptr %7, i64 456
+  %179 = load i8, ptr %178, align 8, !range !169, !alias.scope !372, !noalias !369, !noundef !14
+  br i1 %177, label %180, label %182
 
-179:                                              ; preds = %173
-  %180 = icmp eq i8 %178, 2
-  br i1 %180, label %182, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+180:                                              ; preds = %174
+  %181 = icmp eq i8 %179, 2
+  br i1 %181, label %183, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-181:                                              ; preds = %173
-  %.not.i28 = icmp eq i8 %175, %178
-  br i1 %.not.i28, label %182, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+182:                                              ; preds = %174
+  %.not.i28 = icmp eq i8 %176, %179
+  br i1 %.not.i28, label %183, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-182:                                              ; preds = %181, %179
-  %183 = getelementptr inbounds nuw i8, ptr %6, i64 49
-  %184 = load i8, ptr %183, align 1, !range !169, !alias.scope !369, !noalias !372, !noundef !14
-  %185 = icmp eq i8 %184, 2
-  %186 = getelementptr inbounds nuw i8, ptr %7, i64 457
-  %187 = load i8, ptr %186, align 1, !range !169, !alias.scope !372, !noalias !369, !noundef !14
-  br i1 %185, label %188, label %190
+183:                                              ; preds = %182, %180
+  %184 = getelementptr inbounds nuw i8, ptr %6, i64 49
+  %185 = load i8, ptr %184, align 1, !range !169, !alias.scope !369, !noalias !372, !noundef !14
+  %186 = icmp eq i8 %185, 2
+  %187 = getelementptr inbounds nuw i8, ptr %7, i64 457
+  %188 = load i8, ptr %187, align 1, !range !169, !alias.scope !372, !noalias !369, !noundef !14
+  br i1 %186, label %189, label %191
 
-188:                                              ; preds = %182
-  %189 = icmp eq i8 %187, 2
-  br i1 %189, label %191, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+189:                                              ; preds = %183
+  %190 = icmp eq i8 %188, 2
+  br i1 %190, label %192, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-190:                                              ; preds = %182
-  %.not48.i = icmp eq i8 %184, %187
-  br i1 %.not48.i, label %191, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+191:                                              ; preds = %183
+  %.not48.i = icmp eq i8 %185, %188
+  br i1 %.not48.i, label %192, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-191:                                              ; preds = %190, %188
-  %192 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %193 = load i64, ptr %192, align 8, !range !13, !alias.scope !369, !noalias !372, !noundef !14
-  %194 = icmp eq i64 %193, -9223372036854775808
-  %195 = getelementptr inbounds nuw i8, ptr %7, i64 432
-  %196 = load i64, ptr %195, align 8, !range !13, !alias.scope !372, !noalias !369, !noundef !14
-  %197 = icmp eq i64 %196, -9223372036854775808
-  br i1 %194, label %198, label %199
+192:                                              ; preds = %191, %189
+  %193 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %194 = load i64, ptr %193, align 8, !range !13, !alias.scope !369, !noalias !372, !noundef !14
+  %195 = icmp eq i64 %194, -9223372036854775808
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 432
+  %197 = load i64, ptr %196, align 8, !range !13, !alias.scope !372, !noalias !369, !noundef !14
+  %198 = icmp eq i64 %197, -9223372036854775808
+  br i1 %195, label %199, label %200
 
-198:                                              ; preds = %191
-  br i1 %197, label %207, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+199:                                              ; preds = %192
+  br i1 %198, label %208, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-199:                                              ; preds = %191
-  br i1 %197, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %204
+200:                                              ; preds = %192
+  br i1 %198, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %205
 
-200:                                              ; preds = %204
-  %201 = getelementptr inbounds nuw i8, ptr %7, i64 440
-  %.val29.i = load ptr, ptr %201, align 8, !alias.scope !372, !noalias !369, !nonnull !14, !noundef !14
-  %202 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.val.i = load ptr, ptr %202, align 8, !alias.scope !369, !noalias !372, !nonnull !14, !noundef !14
+201:                                              ; preds = %205
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 440
+  %.val29.i = load ptr, ptr %202, align 8, !alias.scope !372, !noalias !369, !nonnull !14, !noundef !14
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.val.i = load ptr, ptr %203, align 8, !alias.scope !369, !noalias !372, !nonnull !14, !noundef !14
   %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %.val29.i, i64 %.val28.i), !alias.scope !374, !noalias !378
-  %203 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %203, label %207, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  %204 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %204, label %208, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-204:                                              ; preds = %199
-  %205 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.val28.i = load i64, ptr %205, align 8, !alias.scope !369, !noalias !372, !noundef !14
-  %206 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  %.val30.i = load i64, ptr %206, align 8, !alias.scope !372, !noalias !369, !noundef !14
+205:                                              ; preds = %200
+  %206 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.val28.i = load i64, ptr %206, align 8, !alias.scope !369, !noalias !372, !noundef !14
+  %207 = getelementptr inbounds nuw i8, ptr %7, i64 448
+  %.val30.i = load i64, ptr %207, align 8, !alias.scope !372, !noalias !369, !noundef !14
   %.not.i.i.i = icmp eq i64 %.val28.i, %.val30.i
-  br i1 %.not.i.i.i, label %200, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %.not.i.i.i, label %201, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-207:                                              ; preds = %200, %198
-  %208 = getelementptr inbounds nuw i8, ptr %6, i64 50
-  %209 = load i8, ptr %208, align 2, !range !169, !alias.scope !369, !noalias !372, !noundef !14
-  %210 = icmp eq i8 %209, 2
-  %211 = getelementptr inbounds nuw i8, ptr %7, i64 458
-  %212 = load i8, ptr %211, align 2, !range !169, !alias.scope !372, !noalias !369, !noundef !14
-  br i1 %210, label %213, label %215
+208:                                              ; preds = %201, %199
+  %209 = getelementptr inbounds nuw i8, ptr %6, i64 50
+  %210 = load i8, ptr %209, align 2, !range !169, !alias.scope !369, !noalias !372, !noundef !14
+  %211 = icmp eq i8 %210, 2
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 458
+  %213 = load i8, ptr %212, align 2, !range !169, !alias.scope !372, !noalias !369, !noundef !14
+  br i1 %211, label %214, label %216
 
-213:                                              ; preds = %207
-  %214 = icmp eq i8 %212, 2
-  br i1 %214, label %216, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+214:                                              ; preds = %208
+  %215 = icmp eq i8 %213, 2
+  br i1 %215, label %217, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-215:                                              ; preds = %207
-  %.not49.i = icmp eq i8 %209, %212
-  br i1 %.not49.i, label %216, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+216:                                              ; preds = %208
+  %.not49.i = icmp eq i8 %210, %213
+  br i1 %.not49.i, label %217, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-216:                                              ; preds = %215, %213
-  %217 = getelementptr inbounds nuw i8, ptr %6, i64 51
-  %218 = load i8, ptr %217, align 1, !range !169, !alias.scope !369, !noalias !372, !noundef !14
-  %219 = icmp eq i8 %218, 2
-  %220 = getelementptr inbounds nuw i8, ptr %7, i64 459
-  %221 = load i8, ptr %220, align 1, !range !169, !alias.scope !372, !noalias !369, !noundef !14
-  br i1 %219, label %222, label %224
+217:                                              ; preds = %216, %214
+  %218 = getelementptr inbounds nuw i8, ptr %6, i64 51
+  %219 = load i8, ptr %218, align 1, !range !169, !alias.scope !369, !noalias !372, !noundef !14
+  %220 = icmp eq i8 %219, 2
+  %221 = getelementptr inbounds nuw i8, ptr %7, i64 459
+  %222 = load i8, ptr %221, align 1, !range !169, !alias.scope !372, !noalias !369, !noundef !14
+  br i1 %220, label %223, label %225
 
-222:                                              ; preds = %216
-  %223 = icmp eq i8 %221, 2
-  br i1 %223, label %225, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+223:                                              ; preds = %217
+  %224 = icmp eq i8 %222, 2
+  br i1 %224, label %226, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-224:                                              ; preds = %216
-  %.not50.i29 = icmp eq i8 %218, %221
-  br i1 %.not50.i29, label %225, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+225:                                              ; preds = %217
+  %.not50.i29 = icmp eq i8 %219, %222
+  br i1 %.not50.i29, label %226, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-225:                                              ; preds = %224, %222
-  %226 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val31.i = load ptr, ptr %226, align 8, !alias.scope !369, !noalias !372, !nonnull !14, !noundef !14
-  %227 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val32.i = load i64, ptr %227, align 8, !alias.scope !369, !noalias !372, !noundef !14
-  %228 = getelementptr inbounds nuw i8, ptr %7, i64 416
-  %.val33.i = load ptr, ptr %228, align 8, !alias.scope !372, !noalias !369, !nonnull !14, !noundef !14
-  %229 = getelementptr inbounds nuw i8, ptr %7, i64 424
-  %.val34.i = load i64, ptr %229, align 8, !alias.scope !372, !noalias !369, !noundef !14
-  %230 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba15d8bd9e46c205E"(ptr nonnull %.val31.i, i64 %.val32.i, ptr nonnull %.val33.i, i64 %.val34.i)
+226:                                              ; preds = %225, %223
+  %227 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.val31.i = load ptr, ptr %227, align 8, !alias.scope !369, !noalias !372, !nonnull !14, !noundef !14
+  %228 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.val32.i = load i64, ptr %228, align 8, !alias.scope !369, !noalias !372, !noundef !14
+  %229 = getelementptr inbounds nuw i8, ptr %7, i64 416
+  %.val33.i = load ptr, ptr %229, align 8, !alias.scope !372, !noalias !369, !nonnull !14, !noundef !14
+  %230 = getelementptr inbounds nuw i8, ptr %7, i64 424
+  %.val34.i = load i64, ptr %230, align 8, !alias.scope !372, !noalias !369, !noundef !14
+  %231 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba15d8bd9e46c205E"(ptr nonnull %.val31.i, i64 %.val32.i, ptr nonnull %.val33.i, i64 %.val34.i)
           to label %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit" unwind label %.loopexit.split-lp
 
-"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit": ; preds = %225
-  br i1 %230, label %231, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit": ; preds = %226
+  br i1 %231, label %232, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-231:                                              ; preds = %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit"
-  %232 = getelementptr inbounds nuw i8, ptr %7, i64 528
+232:                                              ; preds = %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit"
+  %233 = getelementptr inbounds nuw i8, ptr %7, i64 528
   call void @llvm.experimental.noalias.scope.decl(metadata !379)
   call void @llvm.experimental.noalias.scope.decl(metadata !382)
-  %233 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %234 = load i8, ptr %233, align 8, !range !169, !alias.scope !379, !noalias !382, !noundef !14
-  %235 = icmp eq i8 %234, 2
-  %236 = getelementptr inbounds nuw i8, ptr %7, i64 552
-  %237 = load i8, ptr %236, align 8, !range !169, !alias.scope !382, !noalias !379, !noundef !14
-  br i1 %235, label %238, label %240
+  %234 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %235 = load i8, ptr %234, align 8, !range !169, !alias.scope !379, !noalias !382, !noundef !14
+  %236 = icmp eq i8 %235, 2
+  %237 = getelementptr inbounds nuw i8, ptr %7, i64 552
+  %238 = load i8, ptr %237, align 8, !range !169, !alias.scope !382, !noalias !379, !noundef !14
+  br i1 %236, label %239, label %241
 
-238:                                              ; preds = %231
-  %239 = icmp eq i8 %237, 2
-  br i1 %239, label %241, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+239:                                              ; preds = %232
+  %240 = icmp eq i8 %238, 2
+  br i1 %240, label %242, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-240:                                              ; preds = %231
-  %.not34.i = icmp eq i8 %234, %237
-  br i1 %.not34.i, label %241, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+241:                                              ; preds = %232
+  %.not34.i = icmp eq i8 %235, %238
+  br i1 %.not34.i, label %242, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-241:                                              ; preds = %240, %238
-  %242 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %243 = load i8, ptr %242, align 1, !range !169, !alias.scope !379, !noalias !382, !noundef !14
-  %244 = icmp eq i8 %243, 2
-  %245 = getelementptr inbounds nuw i8, ptr %7, i64 553
-  %246 = load i8, ptr %245, align 1, !range !169, !alias.scope !382, !noalias !379, !noundef !14
-  br i1 %244, label %247, label %249
+242:                                              ; preds = %241, %239
+  %243 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  %244 = load i8, ptr %243, align 1, !range !169, !alias.scope !379, !noalias !382, !noundef !14
+  %245 = icmp eq i8 %244, 2
+  %246 = getelementptr inbounds nuw i8, ptr %7, i64 553
+  %247 = load i8, ptr %246, align 1, !range !169, !alias.scope !382, !noalias !379, !noundef !14
+  br i1 %245, label %248, label %250
 
-247:                                              ; preds = %241
-  %248 = icmp eq i8 %246, 2
-  br i1 %248, label %250, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+248:                                              ; preds = %242
+  %249 = icmp eq i8 %247, 2
+  br i1 %249, label %251, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-249:                                              ; preds = %241
-  %.not.i30 = icmp eq i8 %243, %246
-  br i1 %.not.i30, label %250, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+250:                                              ; preds = %242
+  %.not.i30 = icmp eq i8 %244, %247
+  br i1 %.not.i30, label %251, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-250:                                              ; preds = %249, %247
-  %251 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  %252 = load i8, ptr %251, align 2, !range !169, !alias.scope !379, !noalias !382, !noundef !14
-  %253 = icmp eq i8 %252, 2
-  %254 = getelementptr inbounds nuw i8, ptr %7, i64 554
-  %255 = load i8, ptr %254, align 2, !range !169, !alias.scope !382, !noalias !379, !noundef !14
-  br i1 %253, label %256, label %258
+251:                                              ; preds = %250, %248
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 26
+  %253 = load i8, ptr %252, align 2, !range !169, !alias.scope !379, !noalias !382, !noundef !14
+  %254 = icmp eq i8 %253, 2
+  %255 = getelementptr inbounds nuw i8, ptr %7, i64 554
+  %256 = load i8, ptr %255, align 2, !range !169, !alias.scope !382, !noalias !379, !noundef !14
+  br i1 %254, label %257, label %259
 
-256:                                              ; preds = %250
-  %257 = icmp eq i8 %255, 2
-  br i1 %257, label %259, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+257:                                              ; preds = %251
+  %258 = icmp eq i8 %256, 2
+  br i1 %258, label %260, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-258:                                              ; preds = %250
-  %.not35.i = icmp eq i8 %252, %255
-  br i1 %.not35.i, label %259, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+259:                                              ; preds = %251
+  %.not35.i = icmp eq i8 %253, %256
+  br i1 %.not35.i, label %260, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-259:                                              ; preds = %258, %256
-  %260 = getelementptr inbounds nuw i8, ptr %5, i64 27
-  %261 = load i8, ptr %260, align 1, !range !169, !alias.scope !379, !noalias !382, !noundef !14
-  %262 = icmp eq i8 %261, 2
-  %263 = getelementptr inbounds nuw i8, ptr %7, i64 555
-  %264 = load i8, ptr %263, align 1, !range !169, !alias.scope !382, !noalias !379, !noundef !14
-  br i1 %262, label %265, label %267
+260:                                              ; preds = %259, %257
+  %261 = getelementptr inbounds nuw i8, ptr %5, i64 27
+  %262 = load i8, ptr %261, align 1, !range !169, !alias.scope !379, !noalias !382, !noundef !14
+  %263 = icmp eq i8 %262, 2
+  %264 = getelementptr inbounds nuw i8, ptr %7, i64 555
+  %265 = load i8, ptr %264, align 1, !range !169, !alias.scope !382, !noalias !379, !noundef !14
+  br i1 %263, label %266, label %268
 
-265:                                              ; preds = %259
-  %266 = icmp eq i8 %264, 2
-  br i1 %266, label %268, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+266:                                              ; preds = %260
+  %267 = icmp eq i8 %265, 2
+  br i1 %267, label %269, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-267:                                              ; preds = %259
-  %.not36.i = icmp eq i8 %261, %264
-  br i1 %.not36.i, label %268, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+268:                                              ; preds = %260
+  %.not36.i = icmp eq i8 %262, %265
+  br i1 %.not36.i, label %269, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-268:                                              ; preds = %267, %265
-  %269 = load i64, ptr %5, align 8, !range !13, !alias.scope !379, !noalias !382, !noundef !14
-  %270 = icmp eq i64 %269, -9223372036854775808
-  %271 = load i64, ptr %232, align 8, !range !13, !alias.scope !382, !noalias !379, !noundef !14
-  %272 = icmp eq i64 %271, -9223372036854775808
-  %brmerge.i = or i1 %270, %272
-  br i1 %brmerge.i, label %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", label %273
+269:                                              ; preds = %268, %266
+  %270 = load i64, ptr %5, align 8, !range !13, !alias.scope !379, !noalias !382, !noundef !14
+  %271 = icmp eq i64 %270, -9223372036854775808
+  %272 = load i64, ptr %233, align 8, !range !13, !alias.scope !382, !noalias !379, !noundef !14
+  %273 = icmp eq i64 %272, -9223372036854775808
+  %brmerge.i = or i1 %271, %273
+  br i1 %brmerge.i, label %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", label %274
 
-273:                                              ; preds = %268
-  %274 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val20.i = load i64, ptr %274, align 8, !alias.scope !379, !noalias !382, !noundef !14
-  %275 = getelementptr inbounds nuw i8, ptr %7, i64 544
-  %.val22.i = load i64, ptr %275, align 8, !alias.scope !382, !noalias !379, !noundef !14
+274:                                              ; preds = %269
+  %275 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.val20.i = load i64, ptr %275, align 8, !alias.scope !379, !noalias !382, !noundef !14
+  %276 = getelementptr inbounds nuw i8, ptr %7, i64 544
+  %.val22.i = load i64, ptr %276, align 8, !alias.scope !382, !noalias !379, !noundef !14
   %.not.i.i.i31 = icmp eq i64 %.val20.i, %.val22.i
-  br i1 %.not.i.i.i31, label %276, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %.not.i.i.i31, label %277, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-276:                                              ; preds = %273
-  %277 = getelementptr inbounds nuw i8, ptr %7, i64 536
-  %.val21.i = load ptr, ptr %277, align 8, !alias.scope !382, !noalias !379, !nonnull !14, !noundef !14
-  %278 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.val.i32 = load ptr, ptr %278, align 8, !alias.scope !379, !noalias !382, !nonnull !14, !noundef !14
+277:                                              ; preds = %274
+  %278 = getelementptr inbounds nuw i8, ptr %7, i64 536
+  %.val21.i = load ptr, ptr %278, align 8, !alias.scope !382, !noalias !379, !nonnull !14, !noundef !14
+  %279 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.val.i32 = load ptr, ptr %279, align 8, !alias.scope !379, !noalias !382, !nonnull !14, !noundef !14
   %bcmp.i.i.i33 = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i32, ptr nonnull readonly align 1 %.val21.i, i64 %.val20.i), !alias.scope !384, !noalias !388
-  %279 = icmp eq i32 %bcmp.i.i.i33, 0
-  br i1 %279, label %280, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  %280 = icmp eq i32 %bcmp.i.i.i33, 0
+  br i1 %280, label %281, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit": ; preds = %268
-  %.mux.i = and i1 %270, %272
-  br i1 %.mux.i, label %280, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit": ; preds = %269
+  %.mux.i = and i1 %271, %273
+  br i1 %.mux.i, label %281, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-280:                                              ; preds = %276, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit"
-  %281 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %282 = icmp eq i8 %.sroa.1962.0.copyload, 2
-  %283 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %284 = load i8, ptr %283, align 8, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %282, label %285, label %287
+281:                                              ; preds = %277, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit"
+  %282 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %283 = icmp eq i8 %.sroa.1962.0.copyload, 2
+  %284 = getelementptr inbounds nuw i8, ptr %7, i64 264
+  %285 = load i8, ptr %284, align 8, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %283, label %286, label %288
 
-285:                                              ; preds = %280
-  %286 = icmp eq i8 %284, 2
-  br i1 %286, label %288, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+286:                                              ; preds = %281
+  %287 = icmp eq i8 %285, 2
+  br i1 %287, label %289, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-287:                                              ; preds = %280
-  %.not225.i = icmp eq i8 %.sroa.1962.0.copyload, %284
-  br i1 %.not225.i, label %288, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+288:                                              ; preds = %281
+  %.not225.i = icmp eq i8 %.sroa.1962.0.copyload, %285
+  br i1 %.not225.i, label %289, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-288:                                              ; preds = %287, %285
+289:                                              ; preds = %288, %286
   %trunc.i35 = trunc nuw i64 %.sroa.045.0.copyload to i1
-  %289 = load i64, ptr %281, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %trunc.i35, label %290, label %294
+  %290 = load i64, ptr %282, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %trunc.i35, label %293, label %291
 
-290:                                              ; preds = %288
-  %.not79.i = icmp ne i64 %289, 0
-  %291 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %292 = load i64, ptr %291, align 8
-  %293 = icmp eq i64 %.sroa.446.0.copyload, %292
-  %or.cond114 = select i1 %.not79.i, i1 %293, i1 false
-  br i1 %or.cond114, label %296, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+291:                                              ; preds = %289
+  %292 = trunc nuw i64 %290 to i1
+  br i1 %292, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %297
 
-294:                                              ; preds = %288
-  %295 = trunc nuw i64 %289 to i1
-  br i1 %295, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %296
+293:                                              ; preds = %289
+  %.not79.i = icmp ne i64 %290, 0
+  %294 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %295 = load i64, ptr %294, align 8
+  %296 = icmp eq i64 %.sroa.446.0.copyload, %295
+  %or.cond114 = select i1 %.not79.i, i1 %296, i1 false
+  br i1 %or.cond114, label %297, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-296:                                              ; preds = %290, %294
-  %297 = icmp eq i8 %.sroa.2063.0.copyload, 2
-  %298 = getelementptr inbounds nuw i8, ptr %7, i64 265
-  %299 = load i8, ptr %298, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %297, label %300, label %302
+297:                                              ; preds = %293, %291
+  %298 = icmp eq i8 %.sroa.2063.0.copyload, 2
+  %299 = getelementptr inbounds nuw i8, ptr %7, i64 265
+  %300 = load i8, ptr %299, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %298, label %301, label %303
 
-300:                                              ; preds = %296
-  %301 = icmp eq i8 %299, 2
-  br i1 %301, label %303, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+301:                                              ; preds = %297
+  %302 = icmp eq i8 %300, 2
+  br i1 %302, label %304, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-302:                                              ; preds = %296
-  %.not.i36 = icmp eq i8 %.sroa.2063.0.copyload, %299
-  br i1 %.not.i36, label %303, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+303:                                              ; preds = %297
+  %.not.i36 = icmp eq i8 %.sroa.2063.0.copyload, %300
+  br i1 %.not.i36, label %304, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-303:                                              ; preds = %302, %300
+304:                                              ; preds = %303, %301
   %trunc81.i = trunc nuw i64 %.sroa.547.0.copyload to i1
-  %304 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  %305 = load i64, ptr %304, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %trunc81.i, label %306, label %310
+  %305 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %306 = load i64, ptr %305, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %trunc81.i, label %309, label %307
 
-306:                                              ; preds = %303
-  %.not82.i = icmp ne i64 %305, 0
-  %307 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %308 = load i64, ptr %307, align 8
-  %309 = icmp eq i64 %.sroa.648.0.copyload, %308
-  %or.cond117 = select i1 %.not82.i, i1 %309, i1 false
-  br i1 %or.cond117, label %312, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+307:                                              ; preds = %304
+  %308 = trunc nuw i64 %306 to i1
+  br i1 %308, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %313
 
-310:                                              ; preds = %303
-  %311 = trunc nuw i64 %305 to i1
-  br i1 %311, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %312
+309:                                              ; preds = %304
+  %.not82.i = icmp ne i64 %306, 0
+  %310 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %311 = load i64, ptr %310, align 8
+  %312 = icmp eq i64 %.sroa.648.0.copyload, %311
+  %or.cond117 = select i1 %.not82.i, i1 %312, i1 false
+  br i1 %or.cond117, label %313, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-312:                                              ; preds = %306, %310
-  %313 = icmp eq i8 %.sroa.2164.0.copyload, 2
-  %314 = getelementptr inbounds nuw i8, ptr %7, i64 266
-  %315 = load i8, ptr %314, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %313, label %316, label %318
+313:                                              ; preds = %309, %307
+  %314 = icmp eq i8 %.sroa.2164.0.copyload, 2
+  %315 = getelementptr inbounds nuw i8, ptr %7, i64 266
+  %316 = load i8, ptr %315, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %314, label %317, label %319
 
-316:                                              ; preds = %312
-  %317 = icmp eq i8 %315, 2
-  br i1 %317, label %319, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+317:                                              ; preds = %313
+  %318 = icmp eq i8 %316, 2
+  br i1 %318, label %320, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-318:                                              ; preds = %312
-  %.not226.i = icmp eq i8 %.sroa.2164.0.copyload, %315
-  br i1 %.not226.i, label %319, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+319:                                              ; preds = %313
+  %.not226.i = icmp eq i8 %.sroa.2164.0.copyload, %316
+  br i1 %.not226.i, label %320, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-319:                                              ; preds = %318, %316
-  %320 = icmp eq i8 %.sroa.2265.0.copyload, 2
-  %321 = getelementptr inbounds nuw i8, ptr %7, i64 267
-  %322 = load i8, ptr %321, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %320, label %323, label %325
+320:                                              ; preds = %319, %317
+  %321 = icmp eq i8 %.sroa.2265.0.copyload, 2
+  %322 = getelementptr inbounds nuw i8, ptr %7, i64 267
+  %323 = load i8, ptr %322, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %321, label %324, label %326
 
-323:                                              ; preds = %319
-  %324 = icmp eq i8 %322, 2
-  br i1 %324, label %326, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+324:                                              ; preds = %320
+  %325 = icmp eq i8 %323, 2
+  br i1 %325, label %327, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-325:                                              ; preds = %319
-  %.not227.i = icmp eq i8 %.sroa.2265.0.copyload, %322
-  br i1 %.not227.i, label %326, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+326:                                              ; preds = %320
+  %.not227.i = icmp eq i8 %.sroa.2265.0.copyload, %323
+  br i1 %.not227.i, label %327, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-326:                                              ; preds = %325, %323
-  %327 = icmp eq i8 %.sroa.2366.0.copyload, 2
-  %328 = getelementptr inbounds nuw i8, ptr %7, i64 268
-  %329 = load i8, ptr %328, align 4, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %327, label %330, label %332
+327:                                              ; preds = %326, %324
+  %328 = icmp eq i8 %.sroa.2366.0.copyload, 2
+  %329 = getelementptr inbounds nuw i8, ptr %7, i64 268
+  %330 = load i8, ptr %329, align 4, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %328, label %331, label %333
 
-330:                                              ; preds = %326
-  %331 = icmp eq i8 %329, 2
-  br i1 %331, label %333, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+331:                                              ; preds = %327
+  %332 = icmp eq i8 %330, 2
+  br i1 %332, label %334, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-332:                                              ; preds = %326
-  %.not228.i = icmp eq i8 %.sroa.2366.0.copyload, %329
-  br i1 %.not228.i, label %333, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+333:                                              ; preds = %327
+  %.not228.i = icmp eq i8 %.sroa.2366.0.copyload, %330
+  br i1 %.not228.i, label %334, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-333:                                              ; preds = %332, %330
-  %334 = icmp eq i8 %.sroa.2467.0.copyload, 2
-  %335 = getelementptr inbounds nuw i8, ptr %7, i64 269
-  %336 = load i8, ptr %335, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %334, label %337, label %339
+334:                                              ; preds = %333, %331
+  %335 = icmp eq i8 %.sroa.2467.0.copyload, 2
+  %336 = getelementptr inbounds nuw i8, ptr %7, i64 269
+  %337 = load i8, ptr %336, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %335, label %338, label %340
 
-337:                                              ; preds = %333
-  %338 = icmp eq i8 %336, 2
-  br i1 %338, label %340, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+338:                                              ; preds = %334
+  %339 = icmp eq i8 %337, 2
+  br i1 %339, label %341, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-339:                                              ; preds = %333
-  %.not229.i = icmp eq i8 %.sroa.2467.0.copyload, %336
-  br i1 %.not229.i, label %340, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+340:                                              ; preds = %334
+  %.not229.i = icmp eq i8 %.sroa.2467.0.copyload, %337
+  br i1 %.not229.i, label %341, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-340:                                              ; preds = %339, %337
+341:                                              ; preds = %340, %338
   %trunc87.i = trunc nuw i64 %.sroa.749.0.copyload to i1
-  %341 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  %342 = load i64, ptr %341, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %trunc87.i, label %343, label %347
+  %342 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %343 = load i64, ptr %342, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %trunc87.i, label %346, label %344
 
-343:                                              ; preds = %340
-  %.not88.i = icmp ne i64 %342, 0
-  %344 = getelementptr inbounds nuw i8, ptr %7, i64 184
-  %345 = load i64, ptr %344, align 8
-  %346 = icmp eq i64 %.sroa.850.0.copyload, %345
-  %or.cond120 = select i1 %.not88.i, i1 %346, i1 false
-  br i1 %or.cond120, label %349, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+344:                                              ; preds = %341
+  %345 = trunc nuw i64 %343 to i1
+  br i1 %345, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %350
 
-347:                                              ; preds = %340
-  %348 = trunc nuw i64 %342 to i1
-  br i1 %348, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %349
+346:                                              ; preds = %341
+  %.not88.i = icmp ne i64 %343, 0
+  %347 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %348 = load i64, ptr %347, align 8
+  %349 = icmp eq i64 %.sroa.850.0.copyload, %348
+  %or.cond120 = select i1 %.not88.i, i1 %349, i1 false
+  br i1 %or.cond120, label %350, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-349:                                              ; preds = %343, %347
+350:                                              ; preds = %346, %344
   %trunc89.i = trunc nuw i32 %.sroa.1557.0.copyload to i1
-  %350 = getelementptr inbounds nuw i8, ptr %7, i64 240
-  %351 = load i32, ptr %350, align 8, !range !354, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %trunc89.i, label %352, label %356
+  %351 = getelementptr inbounds nuw i8, ptr %7, i64 240
+  %352 = load i32, ptr %351, align 8, !range !354, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %trunc89.i, label %355, label %353
 
-352:                                              ; preds = %349
-  %.not90.i = icmp ne i32 %351, 0
-  %353 = getelementptr inbounds nuw i8, ptr %7, i64 244
-  %354 = load i32, ptr %353, align 4
-  %355 = icmp eq i32 %.sroa.1658.0.copyload, %354
-  %or.cond123 = select i1 %.not90.i, i1 %355, i1 false
-  br i1 %or.cond123, label %358, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+353:                                              ; preds = %350
+  %354 = trunc nuw i32 %352 to i1
+  br i1 %354, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %359
 
-356:                                              ; preds = %349
-  %357 = trunc nuw i32 %351 to i1
-  br i1 %357, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %358
+355:                                              ; preds = %350
+  %.not90.i = icmp ne i32 %352, 0
+  %356 = getelementptr inbounds nuw i8, ptr %7, i64 244
+  %357 = load i32, ptr %356, align 4
+  %358 = icmp eq i32 %.sroa.1658.0.copyload, %357
+  %or.cond123 = select i1 %.not90.i, i1 %358, i1 false
+  br i1 %or.cond123, label %359, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-358:                                              ; preds = %352, %356
+359:                                              ; preds = %355, %353
   %trunc91.i = trunc nuw i64 %.sroa.951.0.copyload to i1
-  %359 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %360 = load i64, ptr %359, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %trunc91.i, label %361, label %365
+  %360 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %361 = load i64, ptr %360, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %trunc91.i, label %364, label %362
 
-361:                                              ; preds = %358
-  %.not92.i = icmp ne i64 %360, 0
-  %362 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  %363 = load i64, ptr %362, align 8
-  %364 = icmp eq i64 %.sroa.1052.0.copyload, %363
-  %or.cond126 = select i1 %.not92.i, i1 %364, i1 false
-  br i1 %or.cond126, label %367, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+362:                                              ; preds = %359
+  %363 = trunc nuw i64 %361 to i1
+  br i1 %363, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %368
 
-365:                                              ; preds = %358
-  %366 = trunc nuw i64 %360 to i1
-  br i1 %366, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %367
+364:                                              ; preds = %359
+  %.not92.i = icmp ne i64 %361, 0
+  %365 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  %366 = load i64, ptr %365, align 8
+  %367 = icmp eq i64 %.sroa.1052.0.copyload, %366
+  %or.cond126 = select i1 %.not92.i, i1 %367, i1 false
+  br i1 %or.cond126, label %368, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-367:                                              ; preds = %361, %365
+368:                                              ; preds = %364, %362
   %trunc93.i = trunc nuw i64 %.sroa.1153.0.copyload to i1
-  %368 = getelementptr inbounds nuw i8, ptr %7, i64 208
-  %369 = load i64, ptr %368, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %trunc93.i, label %370, label %374
+  %369 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %370 = load i64, ptr %369, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %trunc93.i, label %373, label %371
 
-370:                                              ; preds = %367
-  %.not94.i = icmp ne i64 %369, 0
-  %371 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %372 = load i64, ptr %371, align 8
-  %373 = icmp eq i64 %.sroa.1254.0.copyload, %372
-  %or.cond129 = select i1 %.not94.i, i1 %373, i1 false
-  br i1 %or.cond129, label %376, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+371:                                              ; preds = %368
+  %372 = trunc nuw i64 %370 to i1
+  br i1 %372, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %377
 
-374:                                              ; preds = %367
-  %375 = trunc nuw i64 %369 to i1
-  br i1 %375, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %376
+373:                                              ; preds = %368
+  %.not94.i = icmp ne i64 %370, 0
+  %374 = getelementptr inbounds nuw i8, ptr %7, i64 216
+  %375 = load i64, ptr %374, align 8
+  %376 = icmp eq i64 %.sroa.1254.0.copyload, %375
+  %or.cond129 = select i1 %.not94.i, i1 %376, i1 false
+  br i1 %or.cond129, label %377, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-376:                                              ; preds = %370, %374
+377:                                              ; preds = %373, %371
   %trunc95.i = trunc nuw i64 %.sroa.1355.0.copyload to i1
-  %377 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %378 = load i64, ptr %377, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %trunc95.i, label %379, label %383
+  %378 = getelementptr inbounds nuw i8, ptr %7, i64 224
+  %379 = load i64, ptr %378, align 8, !range !66, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %trunc95.i, label %382, label %380
 
-379:                                              ; preds = %376
-  %.not96.i = icmp ne i64 %378, 0
-  %380 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %381 = load i64, ptr %380, align 8
-  %382 = icmp eq i64 %.sroa.1456.0.copyload, %381
-  %or.cond132 = select i1 %.not96.i, i1 %382, i1 false
-  br i1 %or.cond132, label %385, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+380:                                              ; preds = %377
+  %381 = trunc nuw i64 %379 to i1
+  br i1 %381, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %386
 
-383:                                              ; preds = %376
-  %384 = trunc nuw i64 %378 to i1
-  br i1 %384, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %385
+382:                                              ; preds = %377
+  %.not96.i = icmp ne i64 %379, 0
+  %383 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %384 = load i64, ptr %383, align 8
+  %385 = icmp eq i64 %.sroa.1456.0.copyload, %384
+  %or.cond132 = select i1 %.not96.i, i1 %385, i1 false
+  br i1 %or.cond132, label %386, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-385:                                              ; preds = %379, %383
-  %386 = icmp eq i8 %.sroa.2568.0.copyload, 2
-  %387 = getelementptr inbounds nuw i8, ptr %7, i64 270
-  %388 = load i8, ptr %387, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %386, label %389, label %391
+386:                                              ; preds = %382, %380
+  %387 = icmp eq i8 %.sroa.2568.0.copyload, 2
+  %388 = getelementptr inbounds nuw i8, ptr %7, i64 270
+  %389 = load i8, ptr %388, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %387, label %390, label %392
 
-389:                                              ; preds = %385
-  %390 = icmp eq i8 %388, 2
-  br i1 %390, label %392, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+390:                                              ; preds = %386
+  %391 = icmp eq i8 %389, 2
+  br i1 %391, label %393, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-391:                                              ; preds = %385
-  %.not230.i = icmp eq i8 %.sroa.2568.0.copyload, %388
-  br i1 %.not230.i, label %392, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+392:                                              ; preds = %386
+  %.not230.i = icmp eq i8 %.sroa.2568.0.copyload, %389
+  br i1 %.not230.i, label %393, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-392:                                              ; preds = %391, %389
-  %393 = icmp eq i32 %.sroa.1860.0.copyload, 1000000000
-  %394 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %395 = load i32, ptr %394, align 8, !range !394, !alias.scope !389, !noalias !392, !noundef !14
-  %396 = icmp eq i32 %395, 1000000000
-  br i1 %393, label %397, label %398
+393:                                              ; preds = %392, %390
+  %394 = icmp eq i32 %.sroa.1860.0.copyload, 1000000000
+  %395 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  %396 = load i32, ptr %395, align 8, !range !394, !alias.scope !389, !noalias !392, !noundef !14
+  %397 = icmp eq i32 %396, 1000000000
+  br i1 %394, label %398, label %399
 
-397:                                              ; preds = %392
-  br i1 %396, label %404, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+398:                                              ; preds = %393
+  br i1 %397, label %405, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-398:                                              ; preds = %392
-  br i1 %396, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %399
+399:                                              ; preds = %393
+  br i1 %397, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %400
 
-399:                                              ; preds = %398
-  %400 = getelementptr inbounds nuw i8, ptr %7, i64 248
-  %401 = load i64, ptr %400, align 8, !alias.scope !389, !noalias !392, !noundef !14
-  %402 = icmp eq i64 %.sroa.1759.0.copyload, %401
-  %403 = icmp eq i32 %.sroa.1860.0.copyload, %395
-  %or.cond185.i = and i1 %403, %402
-  br i1 %or.cond185.i, label %404, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+400:                                              ; preds = %399
+  %401 = getelementptr inbounds nuw i8, ptr %7, i64 248
+  %402 = load i64, ptr %401, align 8, !alias.scope !389, !noalias !392, !noundef !14
+  %403 = icmp eq i64 %.sroa.1759.0.copyload, %402
+  %404 = icmp eq i32 %.sroa.1860.0.copyload, %396
+  %or.cond185.i = and i1 %404, %403
+  br i1 %or.cond185.i, label %405, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-404:                                              ; preds = %399, %397
-  %405 = icmp eq i8 %.sroa.2669.0.copyload, 2
-  %406 = getelementptr inbounds nuw i8, ptr %7, i64 271
-  %407 = load i8, ptr %406, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %405, label %408, label %410
+405:                                              ; preds = %400, %398
+  %406 = icmp eq i8 %.sroa.2669.0.copyload, 2
+  %407 = getelementptr inbounds nuw i8, ptr %7, i64 271
+  %408 = load i8, ptr %407, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %406, label %409, label %411
 
-408:                                              ; preds = %404
-  %409 = icmp eq i8 %407, 2
-  br i1 %409, label %411, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+409:                                              ; preds = %405
+  %410 = icmp eq i8 %408, 2
+  br i1 %410, label %412, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-410:                                              ; preds = %404
-  %.not231.i = icmp eq i8 %.sroa.2669.0.copyload, %407
-  br i1 %.not231.i, label %411, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+411:                                              ; preds = %405
+  %.not231.i = icmp eq i8 %.sroa.2669.0.copyload, %408
+  br i1 %.not231.i, label %412, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-411:                                              ; preds = %410, %408
-  %412 = icmp eq i8 %.sroa.2770.0.copyload, 2
-  %413 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %414 = load i8, ptr %413, align 8, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %412, label %415, label %417
+412:                                              ; preds = %411, %409
+  %413 = icmp eq i8 %.sroa.2770.0.copyload, 2
+  %414 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %415 = load i8, ptr %414, align 8, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %413, label %416, label %418
 
-415:                                              ; preds = %411
-  %416 = icmp eq i8 %414, 2
-  br i1 %416, label %418, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+416:                                              ; preds = %412
+  %417 = icmp eq i8 %415, 2
+  br i1 %417, label %419, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-417:                                              ; preds = %411
-  %.not232.i = icmp eq i8 %.sroa.2770.0.copyload, %414
-  br i1 %.not232.i, label %418, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+418:                                              ; preds = %412
+  %.not232.i = icmp eq i8 %.sroa.2770.0.copyload, %415
+  br i1 %.not232.i, label %419, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-418:                                              ; preds = %417, %415
-  %419 = icmp eq i8 %.sroa.2871.0.copyload, 2
-  %420 = getelementptr inbounds nuw i8, ptr %7, i64 273
-  %421 = load i8, ptr %420, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %419, label %422, label %424
+419:                                              ; preds = %418, %416
+  %420 = icmp eq i8 %.sroa.2871.0.copyload, 2
+  %421 = getelementptr inbounds nuw i8, ptr %7, i64 273
+  %422 = load i8, ptr %421, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %420, label %423, label %425
 
-422:                                              ; preds = %418
-  %423 = icmp eq i8 %421, 2
-  br i1 %423, label %425, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+423:                                              ; preds = %419
+  %424 = icmp eq i8 %422, 2
+  br i1 %424, label %426, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-424:                                              ; preds = %418
-  %.not233.i = icmp eq i8 %.sroa.2871.0.copyload, %421
-  br i1 %.not233.i, label %425, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+425:                                              ; preds = %419
+  %.not233.i = icmp eq i8 %.sroa.2871.0.copyload, %422
+  br i1 %.not233.i, label %426, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-425:                                              ; preds = %424, %422
-  %426 = icmp eq i8 %.sroa.2972.0.copyload, 2
-  %427 = getelementptr inbounds nuw i8, ptr %7, i64 274
-  %428 = load i8, ptr %427, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %426, label %429, label %431
+426:                                              ; preds = %425, %423
+  %427 = icmp eq i8 %.sroa.2972.0.copyload, 2
+  %428 = getelementptr inbounds nuw i8, ptr %7, i64 274
+  %429 = load i8, ptr %428, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %427, label %430, label %432
 
-429:                                              ; preds = %425
-  %430 = icmp eq i8 %428, 2
-  br i1 %430, label %432, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+430:                                              ; preds = %426
+  %431 = icmp eq i8 %429, 2
+  br i1 %431, label %433, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-431:                                              ; preds = %425
-  %.not234.i = icmp eq i8 %.sroa.2972.0.copyload, %428
-  br i1 %.not234.i, label %432, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+432:                                              ; preds = %426
+  %.not234.i = icmp eq i8 %.sroa.2972.0.copyload, %429
+  br i1 %.not234.i, label %433, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-432:                                              ; preds = %431, %429
-  %433 = icmp eq i8 %.sroa.3073.0.copyload, 2
-  %434 = getelementptr inbounds nuw i8, ptr %7, i64 275
-  %435 = load i8, ptr %434, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %433, label %436, label %438
+433:                                              ; preds = %432, %430
+  %434 = icmp eq i8 %.sroa.3073.0.copyload, 2
+  %435 = getelementptr inbounds nuw i8, ptr %7, i64 275
+  %436 = load i8, ptr %435, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %434, label %437, label %439
 
-436:                                              ; preds = %432
-  %437 = icmp eq i8 %435, 2
-  br i1 %437, label %439, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+437:                                              ; preds = %433
+  %438 = icmp eq i8 %436, 2
+  br i1 %438, label %440, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-438:                                              ; preds = %432
-  %.not235.i = icmp eq i8 %.sroa.3073.0.copyload, %435
-  br i1 %.not235.i, label %439, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+439:                                              ; preds = %433
+  %.not235.i = icmp eq i8 %.sroa.3073.0.copyload, %436
+  br i1 %.not235.i, label %440, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-439:                                              ; preds = %438, %436
-  %440 = icmp eq i8 %.sroa.3174.0.copyload, 2
-  %441 = getelementptr inbounds nuw i8, ptr %7, i64 276
-  %442 = load i8, ptr %441, align 4, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %440, label %443, label %445
+440:                                              ; preds = %439, %437
+  %441 = icmp eq i8 %.sroa.3174.0.copyload, 2
+  %442 = getelementptr inbounds nuw i8, ptr %7, i64 276
+  %443 = load i8, ptr %442, align 4, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %441, label %444, label %446
 
-443:                                              ; preds = %439
-  %444 = icmp eq i8 %442, 2
-  br i1 %444, label %446, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+444:                                              ; preds = %440
+  %445 = icmp eq i8 %443, 2
+  br i1 %445, label %447, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-445:                                              ; preds = %439
-  %.not236.i = icmp eq i8 %.sroa.3174.0.copyload, %442
-  br i1 %.not236.i, label %446, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+446:                                              ; preds = %440
+  %.not236.i = icmp eq i8 %.sroa.3174.0.copyload, %443
+  br i1 %.not236.i, label %447, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-446:                                              ; preds = %445, %443
-  %447 = icmp eq i8 %.sroa.32.0.copyload, 2
-  %448 = getelementptr inbounds nuw i8, ptr %7, i64 277
-  %449 = load i8, ptr %448, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %447, label %450, label %452
+447:                                              ; preds = %446, %444
+  %448 = icmp eq i8 %.sroa.32.0.copyload, 2
+  %449 = getelementptr inbounds nuw i8, ptr %7, i64 277
+  %450 = load i8, ptr %449, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %448, label %451, label %453
 
-450:                                              ; preds = %446
-  %451 = icmp eq i8 %449, 2
-  br i1 %451, label %453, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+451:                                              ; preds = %447
+  %452 = icmp eq i8 %450, 2
+  br i1 %452, label %454, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-452:                                              ; preds = %446
-  %.not237.i = icmp eq i8 %.sroa.32.0.copyload, %449
-  br i1 %.not237.i, label %453, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+453:                                              ; preds = %447
+  %.not237.i = icmp eq i8 %.sroa.32.0.copyload, %450
+  br i1 %.not237.i, label %454, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-453:                                              ; preds = %452, %450
-  %454 = icmp eq i8 %.sroa.33.0.copyload, 2
-  %455 = getelementptr inbounds nuw i8, ptr %7, i64 278
-  %456 = load i8, ptr %455, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %454, label %457, label %459
+454:                                              ; preds = %453, %451
+  %455 = icmp eq i8 %.sroa.33.0.copyload, 2
+  %456 = getelementptr inbounds nuw i8, ptr %7, i64 278
+  %457 = load i8, ptr %456, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %455, label %458, label %460
 
-457:                                              ; preds = %453
-  %458 = icmp eq i8 %456, 2
-  br i1 %458, label %460, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+458:                                              ; preds = %454
+  %459 = icmp eq i8 %457, 2
+  br i1 %459, label %461, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-459:                                              ; preds = %453
-  %.not238.i = icmp eq i8 %.sroa.33.0.copyload, %456
-  br i1 %.not238.i, label %460, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+460:                                              ; preds = %454
+  %.not238.i = icmp eq i8 %.sroa.33.0.copyload, %457
+  br i1 %.not238.i, label %461, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-460:                                              ; preds = %459, %457
-  %461 = icmp eq i8 %.sroa.34.0.copyload, 2
-  %462 = getelementptr inbounds nuw i8, ptr %7, i64 279
-  %463 = load i8, ptr %462, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %461, label %464, label %466
+461:                                              ; preds = %460, %458
+  %462 = icmp eq i8 %.sroa.34.0.copyload, 2
+  %463 = getelementptr inbounds nuw i8, ptr %7, i64 279
+  %464 = load i8, ptr %463, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %462, label %465, label %467
 
-464:                                              ; preds = %460
-  %465 = icmp eq i8 %463, 2
-  br i1 %465, label %467, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+465:                                              ; preds = %461
+  %466 = icmp eq i8 %464, 2
+  br i1 %466, label %468, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-466:                                              ; preds = %460
-  %.not239.i = icmp eq i8 %.sroa.34.0.copyload, %463
-  br i1 %.not239.i, label %467, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+467:                                              ; preds = %461
+  %.not239.i = icmp eq i8 %.sroa.34.0.copyload, %464
+  br i1 %.not239.i, label %468, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-467:                                              ; preds = %466, %464
-  %468 = icmp eq i8 %.sroa.35.0.copyload, 2
-  %469 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  %470 = load i8, ptr %469, align 8, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %468, label %471, label %473
+468:                                              ; preds = %467, %465
+  %469 = icmp eq i8 %.sroa.35.0.copyload, 2
+  %470 = getelementptr inbounds nuw i8, ptr %7, i64 280
+  %471 = load i8, ptr %470, align 8, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %469, label %472, label %474
 
-471:                                              ; preds = %467
-  %472 = icmp eq i8 %470, 2
-  br i1 %472, label %474, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+472:                                              ; preds = %468
+  %473 = icmp eq i8 %471, 2
+  br i1 %473, label %475, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-473:                                              ; preds = %467
-  %.not240.i = icmp eq i8 %.sroa.35.0.copyload, %470
-  br i1 %.not240.i, label %474, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+474:                                              ; preds = %468
+  %.not240.i = icmp eq i8 %.sroa.35.0.copyload, %471
+  br i1 %.not240.i, label %475, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-474:                                              ; preds = %473, %471
-  %475 = icmp eq i8 %.sroa.36.0.copyload, 2
-  %476 = getelementptr inbounds nuw i8, ptr %7, i64 281
-  %477 = load i8, ptr %476, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %475, label %478, label %480
+475:                                              ; preds = %474, %472
+  %476 = icmp eq i8 %.sroa.36.0.copyload, 2
+  %477 = getelementptr inbounds nuw i8, ptr %7, i64 281
+  %478 = load i8, ptr %477, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %476, label %479, label %481
 
-478:                                              ; preds = %474
-  %479 = icmp eq i8 %477, 2
-  br i1 %479, label %481, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+479:                                              ; preds = %475
+  %480 = icmp eq i8 %478, 2
+  br i1 %480, label %482, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-480:                                              ; preds = %474
-  %.not241.i = icmp eq i8 %.sroa.36.0.copyload, %477
-  br i1 %.not241.i, label %481, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+481:                                              ; preds = %475
+  %.not241.i = icmp eq i8 %.sroa.36.0.copyload, %478
+  br i1 %.not241.i, label %482, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-481:                                              ; preds = %480, %478
-  %482 = icmp eq i8 %.sroa.37.0.copyload, 2
-  %483 = getelementptr inbounds nuw i8, ptr %7, i64 282
-  %484 = load i8, ptr %483, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %482, label %485, label %487
+482:                                              ; preds = %481, %479
+  %483 = icmp eq i8 %.sroa.37.0.copyload, 2
+  %484 = getelementptr inbounds nuw i8, ptr %7, i64 282
+  %485 = load i8, ptr %484, align 2, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %483, label %486, label %488
 
-485:                                              ; preds = %481
-  %486 = icmp eq i8 %484, 2
-  br i1 %486, label %488, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+486:                                              ; preds = %482
+  %487 = icmp eq i8 %485, 2
+  br i1 %487, label %489, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-487:                                              ; preds = %481
-  %.not242.i = icmp eq i8 %.sroa.37.0.copyload, %484
-  br i1 %.not242.i, label %488, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+488:                                              ; preds = %482
+  %.not242.i = icmp eq i8 %.sroa.37.0.copyload, %485
+  br i1 %.not242.i, label %489, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-488:                                              ; preds = %487, %485
-  %489 = icmp eq i8 %.sroa.38.0.copyload, 2
-  %490 = getelementptr inbounds nuw i8, ptr %7, i64 283
-  %491 = load i8, ptr %490, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %489, label %492, label %494
+489:                                              ; preds = %488, %486
+  %490 = icmp eq i8 %.sroa.38.0.copyload, 2
+  %491 = getelementptr inbounds nuw i8, ptr %7, i64 283
+  %492 = load i8, ptr %491, align 1, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %490, label %493, label %495
 
-492:                                              ; preds = %488
-  %493 = icmp eq i8 %491, 2
-  br i1 %493, label %495, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+493:                                              ; preds = %489
+  %494 = icmp eq i8 %492, 2
+  br i1 %494, label %496, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-494:                                              ; preds = %488
-  %.not243.i = icmp eq i8 %.sroa.38.0.copyload, %491
-  br i1 %.not243.i, label %495, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+495:                                              ; preds = %489
+  %.not243.i = icmp eq i8 %.sroa.38.0.copyload, %492
+  br i1 %.not243.i, label %496, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-495:                                              ; preds = %494, %492
-  %496 = icmp eq i8 %.sroa.39.0.copyload, 2
-  %497 = getelementptr inbounds nuw i8, ptr %7, i64 284
-  %498 = load i8, ptr %497, align 4, !range !169, !alias.scope !389, !noalias !392, !noundef !14
-  br i1 %496, label %499, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
+496:                                              ; preds = %495, %493
+  %497 = icmp eq i8 %.sroa.39.0.copyload, 2
+  %498 = getelementptr inbounds nuw i8, ptr %7, i64 284
+  %499 = load i8, ptr %498, align 4, !range !169, !alias.scope !389, !noalias !392, !noundef !14
+  br i1 %497, label %500, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
 
-499:                                              ; preds = %495
-  %500 = icmp eq i8 %498, 2
-  br i1 %500, label %501, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+500:                                              ; preds = %496
+  %501 = icmp eq i8 %499, 2
+  br i1 %501, label %502, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit": ; preds = %495
-  %.not244.i = icmp eq i8 %.sroa.39.0.copyload, %498
-  br i1 %.not244.i, label %501, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit": ; preds = %496
+  %.not244.i = icmp eq i8 %.sroa.39.0.copyload, %499
+  br i1 %.not244.i, label %502, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-501:                                              ; preds = %499, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
+502:                                              ; preds = %500, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
   call void @llvm.experimental.noalias.scope.decl(metadata !398)
-  %502 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %503 = load i8, ptr %502, align 8, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %504 = icmp eq i8 %503, 2
-  %505 = getelementptr inbounds nuw i8, ptr %7, i64 512
-  %506 = load i8, ptr %505, align 8, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %504, label %507, label %509
+  %503 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %504 = load i8, ptr %503, align 8, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %505 = icmp eq i8 %504, 2
+  %506 = getelementptr inbounds nuw i8, ptr %7, i64 512
+  %507 = load i8, ptr %506, align 8, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %505, label %508, label %510
 
-507:                                              ; preds = %501
-  %508 = icmp eq i8 %506, 2
-  br i1 %508, label %510, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+508:                                              ; preds = %502
+  %509 = icmp eq i8 %507, 2
+  br i1 %509, label %511, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-509:                                              ; preds = %501
-  %.not104.i = icmp eq i8 %503, %506
-  br i1 %.not104.i, label %510, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+510:                                              ; preds = %502
+  %.not104.i = icmp eq i8 %504, %507
+  br i1 %.not104.i, label %511, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-510:                                              ; preds = %509, %507
-  %511 = getelementptr inbounds nuw i8, ptr %4, i64 49
-  %512 = load i8, ptr %511, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %513 = icmp eq i8 %512, 2
-  %514 = getelementptr inbounds nuw i8, ptr %7, i64 513
-  %515 = load i8, ptr %514, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %513, label %516, label %518
+511:                                              ; preds = %510, %508
+  %512 = getelementptr inbounds nuw i8, ptr %4, i64 49
+  %513 = load i8, ptr %512, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %514 = icmp eq i8 %513, 2
+  %515 = getelementptr inbounds nuw i8, ptr %7, i64 513
+  %516 = load i8, ptr %515, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %514, label %517, label %519
 
-516:                                              ; preds = %510
-  %517 = icmp eq i8 %515, 2
-  br i1 %517, label %519, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+517:                                              ; preds = %511
+  %518 = icmp eq i8 %516, 2
+  br i1 %518, label %520, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-518:                                              ; preds = %510
-  %.not.i38 = icmp eq i8 %512, %515
-  br i1 %.not.i38, label %519, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+519:                                              ; preds = %511
+  %.not.i38 = icmp eq i8 %513, %516
+  br i1 %.not.i38, label %520, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-519:                                              ; preds = %518, %516
-  %520 = getelementptr inbounds nuw i8, ptr %4, i64 50
-  %521 = load i8, ptr %520, align 2, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %522 = icmp eq i8 %521, 2
-  %523 = getelementptr inbounds nuw i8, ptr %7, i64 514
-  %524 = load i8, ptr %523, align 2, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %522, label %525, label %527
+520:                                              ; preds = %519, %517
+  %521 = getelementptr inbounds nuw i8, ptr %4, i64 50
+  %522 = load i8, ptr %521, align 2, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %523 = icmp eq i8 %522, 2
+  %524 = getelementptr inbounds nuw i8, ptr %7, i64 514
+  %525 = load i8, ptr %524, align 2, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %523, label %526, label %528
 
-525:                                              ; preds = %519
-  %526 = icmp eq i8 %524, 2
-  br i1 %526, label %528, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+526:                                              ; preds = %520
+  %527 = icmp eq i8 %525, 2
+  br i1 %527, label %529, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-527:                                              ; preds = %519
-  %.not105.i = icmp eq i8 %521, %524
-  br i1 %.not105.i, label %528, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+528:                                              ; preds = %520
+  %.not105.i = icmp eq i8 %522, %525
+  br i1 %.not105.i, label %529, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-528:                                              ; preds = %527, %525
-  %529 = getelementptr inbounds nuw i8, ptr %4, i64 51
-  %530 = load i8, ptr %529, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %531 = icmp eq i8 %530, 2
-  %532 = getelementptr inbounds nuw i8, ptr %7, i64 515
-  %533 = load i8, ptr %532, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %531, label %534, label %536
+529:                                              ; preds = %528, %526
+  %530 = getelementptr inbounds nuw i8, ptr %4, i64 51
+  %531 = load i8, ptr %530, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %532 = icmp eq i8 %531, 2
+  %533 = getelementptr inbounds nuw i8, ptr %7, i64 515
+  %534 = load i8, ptr %533, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %532, label %535, label %537
 
-534:                                              ; preds = %528
-  %535 = icmp eq i8 %533, 2
-  br i1 %535, label %537, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+535:                                              ; preds = %529
+  %536 = icmp eq i8 %534, 2
+  br i1 %536, label %538, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-536:                                              ; preds = %528
-  %.not106.i = icmp eq i8 %530, %533
-  br i1 %.not106.i, label %537, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+537:                                              ; preds = %529
+  %.not106.i = icmp eq i8 %531, %534
+  br i1 %.not106.i, label %538, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-537:                                              ; preds = %536, %534
-  %538 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %539 = load i8, ptr %538, align 4, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %540 = icmp eq i8 %539, 2
-  %541 = getelementptr inbounds nuw i8, ptr %7, i64 516
-  %542 = load i8, ptr %541, align 4, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %540, label %543, label %545
+538:                                              ; preds = %537, %535
+  %539 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %540 = load i8, ptr %539, align 4, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %541 = icmp eq i8 %540, 2
+  %542 = getelementptr inbounds nuw i8, ptr %7, i64 516
+  %543 = load i8, ptr %542, align 4, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %541, label %544, label %546
 
-543:                                              ; preds = %537
-  %544 = icmp eq i8 %542, 2
-  br i1 %544, label %546, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+544:                                              ; preds = %538
+  %545 = icmp eq i8 %543, 2
+  br i1 %545, label %547, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-545:                                              ; preds = %537
-  %.not107.i = icmp eq i8 %539, %542
-  br i1 %.not107.i, label %546, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+546:                                              ; preds = %538
+  %.not107.i = icmp eq i8 %540, %543
+  br i1 %.not107.i, label %547, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-546:                                              ; preds = %545, %543
-  %547 = getelementptr inbounds nuw i8, ptr %4, i64 53
-  %548 = load i8, ptr %547, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %549 = icmp eq i8 %548, 2
-  %550 = getelementptr inbounds nuw i8, ptr %7, i64 517
-  %551 = load i8, ptr %550, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %549, label %552, label %554
+547:                                              ; preds = %546, %544
+  %548 = getelementptr inbounds nuw i8, ptr %4, i64 53
+  %549 = load i8, ptr %548, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %550 = icmp eq i8 %549, 2
+  %551 = getelementptr inbounds nuw i8, ptr %7, i64 517
+  %552 = load i8, ptr %551, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %550, label %553, label %555
 
-552:                                              ; preds = %546
-  %553 = icmp eq i8 %551, 2
-  br i1 %553, label %555, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+553:                                              ; preds = %547
+  %554 = icmp eq i8 %552, 2
+  br i1 %554, label %556, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-554:                                              ; preds = %546
-  %.not108.i = icmp eq i8 %548, %551
-  br i1 %.not108.i, label %555, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+555:                                              ; preds = %547
+  %.not108.i = icmp eq i8 %549, %552
+  br i1 %.not108.i, label %556, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-555:                                              ; preds = %554, %552
-  %556 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val.i39 = load ptr, ptr %556, align 8, !alias.scope !395, !noalias !398, !nonnull !14, !noundef !14
-  %557 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.val61.i = load i64, ptr %557, align 8, !alias.scope !395, !noalias !398, !noundef !14
-  %558 = getelementptr inbounds nuw i8, ptr %7, i64 472
-  %.val62.i = load ptr, ptr %558, align 8, !alias.scope !398, !noalias !395, !nonnull !14, !noundef !14
-  %559 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  %.val63.i = load i64, ptr %559, align 8, !alias.scope !398, !noalias !395, !noundef !14
+556:                                              ; preds = %555, %553
+  %557 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.val.i39 = load ptr, ptr %557, align 8, !alias.scope !395, !noalias !398, !nonnull !14, !noundef !14
+  %558 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.val61.i = load i64, ptr %558, align 8, !alias.scope !395, !noalias !398, !noundef !14
+  %559 = getelementptr inbounds nuw i8, ptr %7, i64 472
+  %.val62.i = load ptr, ptr %559, align 8, !alias.scope !398, !noalias !395, !nonnull !14, !noundef !14
+  %560 = getelementptr inbounds nuw i8, ptr %7, i64 480
+  %.val63.i = load i64, ptr %560, align 8, !alias.scope !398, !noalias !395, !noundef !14
   %.not.i.i.i40 = icmp eq i64 %.val61.i, %.val63.i
   br i1 %.not.i.i.i40, label %.preheader.split.i.i.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-.preheader.split.i.i.i:                           ; preds = %555, %.noexc42
-  %.sroa.01.0.i.i.i = phi i64 [ %564, %.noexc42 ], [ 0, %555 ]
+.preheader.split.i.i.i:                           ; preds = %556, %.noexc42
+  %.sroa.01.0.i.i.i = phi i64 [ %565, %.noexc42 ], [ 0, %556 ]
   %exitcond.not.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i, %.val61.i
-  br i1 %exitcond.not.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i", label %560
+  br i1 %exitcond.not.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i", label %561
 
-560:                                              ; preds = %.preheader.split.i.i.i
-  %561 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val.i39, i64 0, i64 %.sroa.01.0.i.i.i
-  %562 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val62.i, i64 0, i64 %.sroa.01.0.i.i.i
-  %563 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h2babe5e592d62501E.llvm.51833738392561384"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %561, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %562)
+561:                                              ; preds = %.preheader.split.i.i.i
+  %562 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val.i39, i64 0, i64 %.sroa.01.0.i.i.i
+  %563 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val62.i, i64 0, i64 %.sroa.01.0.i.i.i
+  %564 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h2babe5e592d62501E.llvm.51833738392561384"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %562, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %563)
           to label %.noexc42 unwind label %.loopexit
 
-.noexc42:                                         ; preds = %560
-  %564 = add i64 %.sroa.01.0.i.i.i, 1
-  br i1 %563, label %.preheader.split.i.i.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+.noexc42:                                         ; preds = %561
+  %565 = add i64 %.sroa.01.0.i.i.i, 1
+  br i1 %564, label %.preheader.split.i.i.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i": ; preds = %.preheader.split.i.i.i
-  %565 = getelementptr inbounds nuw i8, ptr %4, i64 54
-  %566 = load i8, ptr %565, align 2, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %567 = icmp eq i8 %566, 2
-  %568 = getelementptr inbounds nuw i8, ptr %7, i64 518
-  %569 = load i8, ptr %568, align 2, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %567, label %570, label %572
+  %566 = getelementptr inbounds nuw i8, ptr %4, i64 54
+  %567 = load i8, ptr %566, align 2, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %568 = icmp eq i8 %567, 2
+  %569 = getelementptr inbounds nuw i8, ptr %7, i64 518
+  %570 = load i8, ptr %569, align 2, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %568, label %571, label %573
 
-570:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i"
-  %571 = icmp eq i8 %569, 2
-  br i1 %571, label %573, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+571:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i"
+  %572 = icmp eq i8 %570, 2
+  br i1 %572, label %574, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-572:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i"
-  %.not109.i = icmp eq i8 %566, %569
-  br i1 %.not109.i, label %573, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+573:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i"
+  %.not109.i = icmp eq i8 %567, %570
+  br i1 %.not109.i, label %574, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-573:                                              ; preds = %572, %570
-  %574 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.val64.i = load ptr, ptr %574, align 8, !alias.scope !395, !noalias !398, !nonnull !14, !noundef !14
-  %575 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.val65.i = load i64, ptr %575, align 8, !alias.scope !395, !noalias !398, !noundef !14
-  %576 = getelementptr inbounds nuw i8, ptr %7, i64 496
-  %.val66.i = load ptr, ptr %576, align 8, !alias.scope !398, !noalias !395, !nonnull !14, !noundef !14
-  %577 = getelementptr inbounds nuw i8, ptr %7, i64 504
-  %.val67.i = load i64, ptr %577, align 8, !alias.scope !398, !noalias !395, !noundef !14
-  %578 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hafd91a7cd7d0fbfbE"(ptr nonnull %.val64.i, i64 %.val65.i, ptr nonnull %.val66.i, i64 %.val67.i)
+574:                                              ; preds = %573, %571
+  %575 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.val64.i = load ptr, ptr %575, align 8, !alias.scope !395, !noalias !398, !nonnull !14, !noundef !14
+  %576 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.val65.i = load i64, ptr %576, align 8, !alias.scope !395, !noalias !398, !noundef !14
+  %577 = getelementptr inbounds nuw i8, ptr %7, i64 496
+  %.val66.i = load ptr, ptr %577, align 8, !alias.scope !398, !noalias !395, !nonnull !14, !noundef !14
+  %578 = getelementptr inbounds nuw i8, ptr %7, i64 504
+  %.val67.i = load i64, ptr %578, align 8, !alias.scope !398, !noalias !395, !noundef !14
+  %579 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hafd91a7cd7d0fbfbE"(ptr nonnull %.val64.i, i64 %.val65.i, ptr nonnull %.val66.i, i64 %.val67.i)
           to label %.noexc43 unwind label %.loopexit.split-lp
 
-.noexc43:                                         ; preds = %573
-  br i1 %578, label %579, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+.noexc43:                                         ; preds = %574
+  br i1 %579, label %580, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-579:                                              ; preds = %.noexc43
-  %580 = getelementptr inbounds nuw i8, ptr %4, i64 55
-  %581 = load i8, ptr %580, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %582 = icmp eq i8 %581, 2
-  %583 = getelementptr inbounds nuw i8, ptr %7, i64 519
-  %584 = load i8, ptr %583, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %582, label %585, label %587
+580:                                              ; preds = %.noexc43
+  %581 = getelementptr inbounds nuw i8, ptr %4, i64 55
+  %582 = load i8, ptr %581, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %583 = icmp eq i8 %582, 2
+  %584 = getelementptr inbounds nuw i8, ptr %7, i64 519
+  %585 = load i8, ptr %584, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %583, label %586, label %588
 
-585:                                              ; preds = %579
-  %586 = icmp eq i8 %584, 2
-  br i1 %586, label %588, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+586:                                              ; preds = %580
+  %587 = icmp eq i8 %585, 2
+  br i1 %587, label %589, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-587:                                              ; preds = %579
-  %.not110.i = icmp eq i8 %581, %584
-  br i1 %.not110.i, label %588, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+588:                                              ; preds = %580
+  %.not110.i = icmp eq i8 %582, %585
+  br i1 %.not110.i, label %589, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-588:                                              ; preds = %587, %585
-  %589 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %590 = load i8, ptr %589, align 8, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %591 = icmp eq i8 %590, 2
-  %592 = getelementptr inbounds nuw i8, ptr %7, i64 520
-  %593 = load i8, ptr %592, align 8, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %591, label %594, label %596
+589:                                              ; preds = %588, %586
+  %590 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %591 = load i8, ptr %590, align 8, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %592 = icmp eq i8 %591, 2
+  %593 = getelementptr inbounds nuw i8, ptr %7, i64 520
+  %594 = load i8, ptr %593, align 8, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %592, label %595, label %597
 
-594:                                              ; preds = %588
-  %595 = icmp eq i8 %593, 2
-  br i1 %595, label %597, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+595:                                              ; preds = %589
+  %596 = icmp eq i8 %594, 2
+  br i1 %596, label %598, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-596:                                              ; preds = %588
-  %.not111.i = icmp eq i8 %590, %593
-  br i1 %.not111.i, label %597, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+597:                                              ; preds = %589
+  %.not111.i = icmp eq i8 %591, %594
+  br i1 %.not111.i, label %598, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-597:                                              ; preds = %596, %594
-  %598 = getelementptr inbounds nuw i8, ptr %4, i64 57
-  %599 = load i8, ptr %598, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %600 = icmp eq i8 %599, 2
-  %601 = getelementptr inbounds nuw i8, ptr %7, i64 521
-  %602 = load i8, ptr %601, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %600, label %603, label %605
+598:                                              ; preds = %597, %595
+  %599 = getelementptr inbounds nuw i8, ptr %4, i64 57
+  %600 = load i8, ptr %599, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %601 = icmp eq i8 %600, 2
+  %602 = getelementptr inbounds nuw i8, ptr %7, i64 521
+  %603 = load i8, ptr %602, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %601, label %604, label %606
 
-603:                                              ; preds = %597
-  %604 = icmp eq i8 %602, 2
-  br i1 %604, label %606, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+604:                                              ; preds = %598
+  %605 = icmp eq i8 %603, 2
+  br i1 %605, label %607, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-605:                                              ; preds = %597
-  %.not112.i = icmp eq i8 %599, %602
-  br i1 %.not112.i, label %606, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+606:                                              ; preds = %598
+  %.not112.i = icmp eq i8 %600, %603
+  br i1 %.not112.i, label %607, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-606:                                              ; preds = %605, %603
-  %607 = getelementptr inbounds nuw i8, ptr %4, i64 58
-  %608 = load i8, ptr %607, align 2, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %609 = icmp eq i8 %608, 2
-  %610 = getelementptr inbounds nuw i8, ptr %7, i64 522
-  %611 = load i8, ptr %610, align 2, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %609, label %612, label %614
+607:                                              ; preds = %606, %604
+  %608 = getelementptr inbounds nuw i8, ptr %4, i64 58
+  %609 = load i8, ptr %608, align 2, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %610 = icmp eq i8 %609, 2
+  %611 = getelementptr inbounds nuw i8, ptr %7, i64 522
+  %612 = load i8, ptr %611, align 2, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %610, label %613, label %615
 
-612:                                              ; preds = %606
-  %613 = icmp eq i8 %611, 2
-  br i1 %613, label %615, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+613:                                              ; preds = %607
+  %614 = icmp eq i8 %612, 2
+  br i1 %614, label %616, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-614:                                              ; preds = %606
-  %.not113.i = icmp eq i8 %608, %611
-  br i1 %.not113.i, label %615, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+615:                                              ; preds = %607
+  %.not113.i = icmp eq i8 %609, %612
+  br i1 %.not113.i, label %616, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-615:                                              ; preds = %614, %612
-  %616 = getelementptr inbounds nuw i8, ptr %4, i64 59
-  %617 = load i8, ptr %616, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %618 = icmp eq i8 %617, 2
-  %619 = getelementptr inbounds nuw i8, ptr %7, i64 523
-  %620 = load i8, ptr %619, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %618, label %621, label %623
+616:                                              ; preds = %615, %613
+  %617 = getelementptr inbounds nuw i8, ptr %4, i64 59
+  %618 = load i8, ptr %617, align 1, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %619 = icmp eq i8 %618, 2
+  %620 = getelementptr inbounds nuw i8, ptr %7, i64 523
+  %621 = load i8, ptr %620, align 1, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %619, label %622, label %624
 
-621:                                              ; preds = %615
-  %622 = icmp eq i8 %620, 2
-  br i1 %622, label %624, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+622:                                              ; preds = %616
+  %623 = icmp eq i8 %621, 2
+  br i1 %623, label %625, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-623:                                              ; preds = %615
-  %.not114.i = icmp eq i8 %617, %620
-  br i1 %.not114.i, label %624, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+624:                                              ; preds = %616
+  %.not114.i = icmp eq i8 %618, %621
+  br i1 %.not114.i, label %625, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-624:                                              ; preds = %623, %621
-  %625 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %626 = load i8, ptr %625, align 4, !range !169, !alias.scope !395, !noalias !398, !noundef !14
-  %627 = icmp eq i8 %626, 2
-  %628 = getelementptr inbounds nuw i8, ptr %7, i64 524
-  %629 = load i8, ptr %628, align 4, !range !169, !alias.scope !398, !noalias !395, !noundef !14
-  br i1 %627, label %630, label %632
+625:                                              ; preds = %624, %622
+  %626 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %627 = load i8, ptr %626, align 4, !range !169, !alias.scope !395, !noalias !398, !noundef !14
+  %628 = icmp eq i8 %627, 2
+  %629 = getelementptr inbounds nuw i8, ptr %7, i64 524
+  %630 = load i8, ptr %629, align 4, !range !169, !alias.scope !398, !noalias !395, !noundef !14
+  br i1 %628, label %631, label %633
 
-630:                                              ; preds = %624
-  %631 = icmp eq i8 %629, 2
+631:                                              ; preds = %625
+  %632 = icmp eq i8 %630, 2
   br label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-632:                                              ; preds = %624
-  %.not115.i41 = icmp eq i8 %626, %629
+633:                                              ; preds = %625
+  %.not115.i41 = icmp eq i8 %627, %630
   br label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit": ; preds = %.noexc42, %492, %485, %478, %471, %464, %457, %450, %443, %436, %429, %422, %415, %408, %397, %389, %337, %330, %323, %316, %300, %285, %398, %399, %494, %487, %480, %473, %466, %459, %452, %445, %438, %431, %424, %417, %410, %391, %379, %370, %361, %352, %343, %339, %332, %325, %318, %306, %302, %290, %294, %310, %347, %356, %365, %374, %383, %287, %273, %265, %256, %247, %238, %267, %258, %249, %240, %222, %213, %204, %198, %188, %179, %169, %224, %215, %199, %190, %181, %200, %171, %115, %108, %83, %76, %42, %26, %157, %148, %139, %130, %121, %117, %110, %98, %89, %85, %78, %66, %57, %48, %44, %32, %36, %52, %61, %70, %93, %102, %125, %134, %143, %152, %28, %632, %630, %623, %621, %614, %612, %605, %603, %596, %594, %587, %585, %.noexc43, %572, %570, %555, %554, %552, %545, %543, %536, %534, %527, %525, %518, %516, %509, %507, %499, %276, %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit", %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit", %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
-  %.0 = phi i1 [ false, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit" ], [ false, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit" ], [ false, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit" ], [ false, %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit" ], [ false, %276 ], [ false, %499 ], [ %631, %630 ], [ false, %509 ], [ false, %.noexc43 ], [ false, %518 ], [ false, %527 ], [ false, %536 ], [ false, %545 ], [ false, %554 ], [ false, %572 ], [ false, %587 ], [ false, %596 ], [ false, %605 ], [ false, %614 ], [ false, %623 ], [ false, %507 ], [ false, %516 ], [ false, %525 ], [ false, %534 ], [ false, %543 ], [ false, %552 ], [ false, %570 ], [ false, %585 ], [ false, %594 ], [ false, %603 ], [ false, %612 ], [ false, %621 ], [ false, %555 ], [ %.not115.i41, %632 ], [ false, %28 ], [ false, %152 ], [ false, %143 ], [ false, %134 ], [ false, %125 ], [ false, %102 ], [ false, %93 ], [ false, %70 ], [ false, %61 ], [ false, %52 ], [ false, %36 ], [ false, %32 ], [ false, %44 ], [ false, %48 ], [ false, %57 ], [ false, %66 ], [ false, %78 ], [ false, %85 ], [ false, %89 ], [ false, %98 ], [ false, %110 ], [ false, %117 ], [ false, %121 ], [ false, %130 ], [ false, %139 ], [ false, %148 ], [ false, %157 ], [ false, %26 ], [ false, %42 ], [ false, %76 ], [ false, %83 ], [ false, %108 ], [ false, %115 ], [ false, %171 ], [ false, %200 ], [ false, %181 ], [ false, %190 ], [ false, %199 ], [ false, %215 ], [ false, %224 ], [ false, %169 ], [ false, %179 ], [ false, %188 ], [ false, %198 ], [ false, %204 ], [ false, %213 ], [ false, %222 ], [ false, %240 ], [ false, %249 ], [ false, %258 ], [ false, %267 ], [ false, %238 ], [ false, %247 ], [ false, %256 ], [ false, %265 ], [ false, %273 ], [ false, %287 ], [ false, %383 ], [ false, %374 ], [ false, %365 ], [ false, %356 ], [ false, %347 ], [ false, %310 ], [ false, %294 ], [ false, %290 ], [ false, %302 ], [ false, %306 ], [ false, %318 ], [ false, %325 ], [ false, %332 ], [ false, %339 ], [ false, %343 ], [ false, %352 ], [ false, %361 ], [ false, %370 ], [ false, %379 ], [ false, %391 ], [ false, %410 ], [ false, %417 ], [ false, %424 ], [ false, %431 ], [ false, %438 ], [ false, %445 ], [ false, %452 ], [ false, %459 ], [ false, %466 ], [ false, %473 ], [ false, %480 ], [ false, %487 ], [ false, %494 ], [ false, %399 ], [ false, %398 ], [ false, %285 ], [ false, %300 ], [ false, %316 ], [ false, %323 ], [ false, %330 ], [ false, %337 ], [ false, %389 ], [ false, %397 ], [ false, %408 ], [ false, %415 ], [ false, %422 ], [ false, %429 ], [ false, %436 ], [ false, %443 ], [ false, %450 ], [ false, %457 ], [ false, %464 ], [ false, %471 ], [ false, %478 ], [ false, %485 ], [ false, %492 ], [ false, %.noexc42 ]
+"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit": ; preds = %.noexc42, %493, %486, %479, %472, %465, %458, %451, %444, %437, %430, %423, %416, %409, %398, %390, %380, %371, %362, %353, %344, %338, %331, %324, %317, %307, %301, %291, %286, %399, %400, %495, %488, %481, %474, %467, %460, %453, %446, %439, %432, %425, %418, %411, %392, %382, %373, %364, %355, %346, %340, %333, %326, %319, %309, %303, %293, %288, %274, %266, %257, %248, %239, %268, %259, %250, %241, %223, %214, %205, %199, %189, %180, %170, %225, %216, %200, %191, %182, %201, %172, %148, %139, %130, %121, %115, %108, %98, %89, %83, %76, %66, %57, %48, %42, %32, %26, %159, %150, %141, %132, %123, %117, %110, %100, %91, %85, %78, %68, %59, %50, %44, %34, %28, %633, %631, %624, %622, %615, %613, %606, %604, %597, %595, %588, %586, %.noexc43, %573, %571, %556, %555, %553, %546, %544, %537, %535, %528, %526, %519, %517, %510, %508, %500, %277, %157, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit", %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
+  %.0 = phi i1 [ false, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit" ], [ false, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit" ], [ false, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit" ], [ false, %157 ], [ false, %277 ], [ false, %500 ], [ %632, %631 ], [ false, %510 ], [ false, %.noexc43 ], [ false, %519 ], [ false, %528 ], [ false, %537 ], [ false, %546 ], [ false, %555 ], [ false, %573 ], [ false, %588 ], [ false, %597 ], [ false, %606 ], [ false, %615 ], [ false, %624 ], [ false, %508 ], [ false, %517 ], [ false, %526 ], [ false, %535 ], [ false, %544 ], [ false, %553 ], [ false, %571 ], [ false, %586 ], [ false, %595 ], [ false, %604 ], [ false, %613 ], [ false, %622 ], [ false, %556 ], [ %.not115.i41, %633 ], [ false, %28 ], [ false, %34 ], [ false, %44 ], [ false, %50 ], [ false, %59 ], [ false, %68 ], [ false, %78 ], [ false, %85 ], [ false, %91 ], [ false, %100 ], [ false, %110 ], [ false, %117 ], [ false, %123 ], [ false, %132 ], [ false, %141 ], [ false, %150 ], [ false, %159 ], [ false, %26 ], [ false, %32 ], [ false, %42 ], [ false, %48 ], [ false, %57 ], [ false, %66 ], [ false, %76 ], [ false, %83 ], [ false, %89 ], [ false, %98 ], [ false, %108 ], [ false, %115 ], [ false, %121 ], [ false, %130 ], [ false, %139 ], [ false, %148 ], [ false, %172 ], [ false, %201 ], [ false, %182 ], [ false, %191 ], [ false, %200 ], [ false, %216 ], [ false, %225 ], [ false, %170 ], [ false, %180 ], [ false, %189 ], [ false, %199 ], [ false, %205 ], [ false, %214 ], [ false, %223 ], [ false, %241 ], [ false, %250 ], [ false, %259 ], [ false, %268 ], [ false, %239 ], [ false, %248 ], [ false, %257 ], [ false, %266 ], [ false, %274 ], [ false, %288 ], [ false, %293 ], [ false, %303 ], [ false, %309 ], [ false, %319 ], [ false, %326 ], [ false, %333 ], [ false, %340 ], [ false, %346 ], [ false, %355 ], [ false, %364 ], [ false, %373 ], [ false, %382 ], [ false, %392 ], [ false, %411 ], [ false, %418 ], [ false, %425 ], [ false, %432 ], [ false, %439 ], [ false, %446 ], [ false, %453 ], [ false, %460 ], [ false, %467 ], [ false, %474 ], [ false, %481 ], [ false, %488 ], [ false, %495 ], [ false, %400 ], [ false, %399 ], [ false, %286 ], [ false, %291 ], [ false, %301 ], [ false, %307 ], [ false, %317 ], [ false, %324 ], [ false, %331 ], [ false, %338 ], [ false, %344 ], [ false, %353 ], [ false, %362 ], [ false, %371 ], [ false, %380 ], [ false, %390 ], [ false, %398 ], [ false, %409 ], [ false, %416 ], [ false, %423 ], [ false, %430 ], [ false, %437 ], [ false, %444 ], [ false, %451 ], [ false, %458 ], [ false, %465 ], [ false, %472 ], [ false, %479 ], [ false, %486 ], [ false, %493 ], [ false, %.noexc42 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$wasmtime_cli_flags..WasiOptions$GT$17h2ed86d78514626aaE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-          to label %636 unwind label %634
+          to label %637 unwind label %635
 
-633:                                              ; preds = %634, %161
-  %.pn = phi { ptr, i32 } [ %635, %634 ], [ %lpad.phi, %161 ]
+634:                                              ; preds = %635, %163
+  %.pn = phi { ptr, i32 } [ %636, %635 ], [ %lpad.phi, %163 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #17
-          to label %648 unwind label %677
+          to label %649 unwind label %678
 
-634:                                              ; preds = %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
-  %635 = landingpad { ptr, i32 }
+635:                                              ; preds = %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  %636 = landingpad { ptr, i32 }
           cleanup
-  br label %633
+  br label %634
 
-636:                                              ; preds = %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+637:                                              ; preds = %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
   call void @llvm.experimental.noalias.scope.decl(metadata !403)
-  %637 = load i64, ptr %5, align 8, !range !13, !alias.scope !406, !noundef !14
-  %638 = icmp eq i64 %637, -9223372036854775808
-  br i1 %638, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit", label %639
+  %638 = load i64, ptr %5, align 8, !range !13, !alias.scope !406, !noundef !14
+  %639 = icmp eq i64 %638, -9223372036854775808
+  br i1 %639, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit", label %640
 
-639:                                              ; preds = %636
+640:                                              ; preds = %637
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !407
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5cb736f9afe916c1E.llvm.3847999990672408200"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-          to label %.noexc44 unwind label %649
+          to label %.noexc44 unwind label %650
 
-.noexc44:                                         ; preds = %639
-  %640 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %641 = load i64, ptr %640, align 8, !range !13, !noalias !407, !noundef !14
-  %.not.i.i.i.i.i.i = icmp eq i64 %641, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i", label %642
+.noexc44:                                         ; preds = %640
+  %641 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %642 = load i64, ptr %641, align 8, !range !13, !noalias !407, !noundef !14
+  %.not.i.i.i.i.i.i = icmp eq i64 %642, 0
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i", label %643
 
-642:                                              ; preds = %.noexc44
-  %643 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %644 = load i64, ptr %643, align 8, !noalias !407, !noundef !14
-  %645 = icmp eq i64 %644, 0
-  br i1 %645, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i", label %646
+643:                                              ; preds = %.noexc44
+  %644 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %645 = load i64, ptr %644, align 8, !noalias !407, !noundef !14
+  %646 = icmp eq i64 %645, 0
+  br i1 %646, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i", label %647
 
-646:                                              ; preds = %642
-  %647 = load ptr, ptr %3, align 8, !noalias !407, !nonnull !14, !noundef !14
-  call void @__rust_dealloc(ptr noundef nonnull %647, i64 noundef %644, i64 noundef %641) #16
+647:                                              ; preds = %643
+  %648 = load ptr, ptr %3, align 8, !noalias !407, !nonnull !14, !noundef !14
+  call void @__rust_dealloc(ptr noundef nonnull %648, i64 noundef %645, i64 noundef %642) #16
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i": ; preds = %646, %642, %.noexc44
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i": ; preds = %647, %643, %.noexc44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !407
   br label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit"
 
-648:                                              ; preds = %649, %633
-  %.pn14 = phi { ptr, i32 } [ %650, %649 ], [ %.pn, %633 ]
+649:                                              ; preds = %650, %634
+  %.pn14 = phi { ptr, i32 } [ %651, %650 ], [ %.pn, %634 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cli_flags..CodegenOptions$GT$17h137d2343ba5b83fcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6) #17
-          to label %15 unwind label %677
+          to label %15 unwind label %678
 
-649:                                              ; preds = %639
-  %650 = landingpad { ptr, i32 }
+650:                                              ; preds = %640
+  %651 = landingpad { ptr, i32 }
           cleanup
-  br label %648
+  br label %649
 
-"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i", %636
+"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i", %637
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cli_flags..CodegenOptions$GT$17h137d2343ba5b83fcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
-          to label %651 unwind label %16
+          to label %652 unwind label %16
 
-651:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit"
+652:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmtime_cli_flags..CommonOptions$GT$17hd29df6720412d88aE"(ptr noalias noundef nonnull align 8 dereferenceable(568) %7)
-          to label %652 unwind label %11
+          to label %653 unwind label %11
 
-652:                                              ; preds = %651
+653:                                              ; preds = %652
   call void @llvm.lifetime.end.p0(i64 568, ptr nonnull %7)
-  %653 = getelementptr inbounds nuw i8, ptr %8, i64 288
-  invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Optimize$GT$$GT$$GT$17h4a2ef5225975e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %653)
-          to label %657 unwind label %654
+  %654 = getelementptr inbounds nuw i8, ptr %8, i64 288
+  invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Optimize$GT$$GT$$GT$17h4a2ef5225975e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %654)
+          to label %658 unwind label %655
 
-654:                                              ; preds = %652
-  %655 = landingpad { ptr, i32 }
+655:                                              ; preds = %653
+  %656 = landingpad { ptr, i32 }
           cleanup
-  %656 = getelementptr inbounds nuw i8, ptr %8, i64 312
-  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Codegen$GT$$GT$$GT$17h6a27775810443438E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %656) #17
-          to label %659 unwind label %677
+  %657 = getelementptr inbounds nuw i8, ptr %8, i64 312
+  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Codegen$GT$$GT$$GT$17h6a27775810443438E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %657) #17
+          to label %660 unwind label %678
 
-657:                                              ; preds = %652
-  %658 = getelementptr inbounds nuw i8, ptr %8, i64 312
-  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Codegen$GT$$GT$$GT$17h6a27775810443438E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %658)
-          to label %663 unwind label %661
+658:                                              ; preds = %653
+  %659 = getelementptr inbounds nuw i8, ptr %8, i64 312
+  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Codegen$GT$$GT$$GT$17h6a27775810443438E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %659)
+          to label %664 unwind label %662
 
-659:                                              ; preds = %661, %654
-  %.pn20 = phi { ptr, i32 } [ %662, %661 ], [ %655, %654 ]
-  %660 = getelementptr inbounds nuw i8, ptr %8, i64 336
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Debug$GT$$GT$$GT$17h5ae8d26535e8681bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %660) #17
-          to label %665 unwind label %677
+660:                                              ; preds = %662, %655
+  %.pn20 = phi { ptr, i32 } [ %663, %662 ], [ %656, %655 ]
+  %661 = getelementptr inbounds nuw i8, ptr %8, i64 336
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Debug$GT$$GT$$GT$17h5ae8d26535e8681bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %661) #17
+          to label %666 unwind label %678
 
-661:                                              ; preds = %657
-  %662 = landingpad { ptr, i32 }
+662:                                              ; preds = %658
+  %663 = landingpad { ptr, i32 }
           cleanup
-  br label %659
+  br label %660
 
-663:                                              ; preds = %657
-  %664 = getelementptr inbounds nuw i8, ptr %8, i64 336
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Debug$GT$$GT$$GT$17h5ae8d26535e8681bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %664)
-          to label %669 unwind label %667
+664:                                              ; preds = %658
+  %665 = getelementptr inbounds nuw i8, ptr %8, i64 336
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Debug$GT$$GT$$GT$17h5ae8d26535e8681bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %665)
+          to label %670 unwind label %668
 
-665:                                              ; preds = %667, %659
-  %.pn22 = phi { ptr, i32 } [ %668, %667 ], [ %.pn20, %659 ]
-  %666 = getelementptr inbounds nuw i8, ptr %8, i64 360
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %666) #17
-          to label %671 unwind label %677
+666:                                              ; preds = %668, %660
+  %.pn22 = phi { ptr, i32 } [ %669, %668 ], [ %.pn20, %660 ]
+  %667 = getelementptr inbounds nuw i8, ptr %8, i64 360
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %667) #17
+          to label %672 unwind label %678
 
-667:                                              ; preds = %663
-  %668 = landingpad { ptr, i32 }
+668:                                              ; preds = %664
+  %669 = landingpad { ptr, i32 }
           cleanup
-  br label %665
+  br label %666
 
-669:                                              ; preds = %663
-  %670 = getelementptr inbounds nuw i8, ptr %8, i64 360
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %670)
-          to label %675 unwind label %673
+670:                                              ; preds = %664
+  %671 = getelementptr inbounds nuw i8, ptr %8, i64 360
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %671)
+          to label %676 unwind label %674
 
-671:                                              ; preds = %673, %665
-  %.pn24 = phi { ptr, i32 } [ %674, %673 ], [ %.pn22, %665 ]
-  %672 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasi$GT$$GT$$GT$17hcf7a7435cf2d4af1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %672) #17
-          to label %679 unwind label %677
+672:                                              ; preds = %674, %666
+  %.pn24 = phi { ptr, i32 } [ %675, %674 ], [ %.pn22, %666 ]
+  %673 = getelementptr inbounds nuw i8, ptr %8, i64 384
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasi$GT$$GT$$GT$17hcf7a7435cf2d4af1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %673) #17
+          to label %680 unwind label %678
 
-673:                                              ; preds = %669
-  %674 = landingpad { ptr, i32 }
+674:                                              ; preds = %670
+  %675 = landingpad { ptr, i32 }
           cleanup
-  br label %671
+  br label %672
 
-675:                                              ; preds = %669
-  %676 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  call void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasi$GT$$GT$$GT$17hcf7a7435cf2d4af1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %676)
+676:                                              ; preds = %670
+  %677 = getelementptr inbounds nuw i8, ptr %8, i64 384
+  call void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasi$GT$$GT$$GT$17hcf7a7435cf2d4af1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %677)
   call void @llvm.lifetime.end.p0(i64 568, ptr nonnull %8)
   ret i1 %.0
 
-677:                                              ; preds = %.thread79, %.thread, %689, %686, %684, %682, %680, %671, %665, %659, %654, %648, %633, %161, %15, %9
-  %678 = landingpad { ptr, i32 }
+678:                                              ; preds = %.thread79, %.thread, %690, %687, %685, %683, %681, %672, %666, %660, %655, %649, %634, %163, %15, %9
+  %679 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-679:                                              ; preds = %688, %.thread79, %671
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %671 ], [ %.pn18, %.thread79 ], [ %.pn18, %688 ]
+680:                                              ; preds = %689, %.thread79, %672
+  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %672 ], [ %.pn18, %.thread79 ], [ %.pn18, %689 ]
   resume { ptr, i32 } %.pn24.pn
 
-680:                                              ; preds = %9
-  %681 = getelementptr inbounds nuw i8, ptr %8, i64 312
-  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Codegen$GT$$GT$$GT$17h6a27775810443438E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %681) #17
-          to label %682 unwind label %677
+681:                                              ; preds = %9
+  %682 = getelementptr inbounds nuw i8, ptr %8, i64 312
+  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Codegen$GT$$GT$$GT$17h6a27775810443438E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %682) #17
+          to label %683 unwind label %678
 
-682:                                              ; preds = %680
-  %683 = getelementptr inbounds nuw i8, ptr %8, i64 336
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Debug$GT$$GT$$GT$17h5ae8d26535e8681bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %683) #17
-          to label %684 unwind label %677
+683:                                              ; preds = %681
+  %684 = getelementptr inbounds nuw i8, ptr %8, i64 336
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Debug$GT$$GT$$GT$17h5ae8d26535e8681bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %684) #17
+          to label %685 unwind label %678
 
-684:                                              ; preds = %682
-  %685 = getelementptr inbounds nuw i8, ptr %8, i64 360
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %685) #17
-          to label %686 unwind label %677
+685:                                              ; preds = %683
+  %686 = getelementptr inbounds nuw i8, ptr %8, i64 360
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %686) #17
+          to label %687 unwind label %678
 
-686:                                              ; preds = %684
-  %687 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasi$GT$$GT$$GT$17hcf7a7435cf2d4af1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %687) #17
-          to label %688 unwind label %677
+687:                                              ; preds = %685
+  %688 = getelementptr inbounds nuw i8, ptr %8, i64 384
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasi$GT$$GT$$GT$17hcf7a7435cf2d4af1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %688) #17
+          to label %689 unwind label %678
 
-688:                                              ; preds = %686
-  br i1 %.1, label %689, label %679
+689:                                              ; preds = %687
+  br i1 %.1, label %690, label %680
 
-689:                                              ; preds = %688
-  %690 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cli_flags..CodegenOptions$GT$17h137d2343ba5b83fcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %690) #17
-          to label %.thread unwind label %677
+690:                                              ; preds = %689
+  %691 = getelementptr inbounds nuw i8, ptr %8, i64 408
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cli_flags..CodegenOptions$GT$17h137d2343ba5b83fcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %691) #17
+          to label %.thread unwind label %678
 
-.thread:                                          ; preds = %689
-  %691 = getelementptr inbounds nuw i8, ptr %8, i64 528
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %691) #17
-          to label %.thread79 unwind label %677
+.thread:                                          ; preds = %690
+  %692 = getelementptr inbounds nuw i8, ptr %8, i64 528
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %692) #17
+          to label %.thread79 unwind label %678
 
 .thread79:                                        ; preds = %.thread
-  %692 = getelementptr inbounds nuw i8, ptr %8, i64 464
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$wasmtime_cli_flags..WasiOptions$GT$17h2ed86d78514626aaE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %692) #17
-          to label %679 unwind label %677
+  %693 = getelementptr inbounds nuw i8, ptr %8, i64 464
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$wasmtime_cli_flags..WasiOptions$GT$17h2ed86d78514626aaE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %693) #17
+          to label %680 unwind label %678
 }
 
 ; Function Attrs: nonlazybind uwtable

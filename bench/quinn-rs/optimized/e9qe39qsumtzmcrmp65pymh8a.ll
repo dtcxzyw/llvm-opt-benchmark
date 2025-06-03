@@ -991,7 +991,7 @@ _ZN5tokio7runtime4task7harness11poll_future17ha32b5dc55c574e7fE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbaa29a4cfa594170E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbaa29a4cfa594170E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h35104ecaf027c9b0E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbaa29a4cfa594170E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbaa29a4cfa594170E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h35104ecaf027c9b0E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbaa29a4cfa594170E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h290548832e5dede9E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h9267642855b59184E.exit"
 
@@ -1313,7 +1313,7 @@ _ZN5tokio7runtime4task7harness11poll_future17h32650cf5a6739040E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hc3cdcc67af96e1a4E.exit.thread9"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hc3cdcc67af96e1a4E.exit.thread": ; preds = %80, %_ZN5tokio7runtime4task7harness11cancel_task17h0b5dad42231d0276E.exit.i, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hc3cdcc67af96e1a4E.exit.thread11"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hc3cdcc67af96e1a4E.exit.thread": ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h0b5dad42231d0276E.exit.i, %80, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hc3cdcc67af96e1a4E.exit.thread11"
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17hda2b93d885c7cebbE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17ha4049556c1444130E.exit"
 

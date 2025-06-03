@@ -1245,7 +1245,7 @@ _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %.backedge, %.loopex
   store ptr null, ptr %0, align 8, !tbaa !87
   br label %.critedge
 
-.critedge:                                        ; preds = %79, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56, %.thread, %_ZN4llvm5ErrorD2Ev.exit50, %_ZN4llvm5ErrorD2Ev.exit51, %_ZN4llvm5ErrorD2Ev.exit49, %_ZN4llvm5ErrorD2Ev.exit59
+.critedge:                                        ; preds = %79, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56, %.thread, %_ZN4llvm5ErrorD2Ev.exit51, %_ZN4llvm5ErrorD2Ev.exit50, %_ZN4llvm5ErrorD2Ev.exit49, %_ZN4llvm5ErrorD2Ev.exit59
   %212 = load ptr, ptr %10, align 8, !tbaa !91
   %213 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %214 = load i32, ptr %213, align 8, !tbaa !94

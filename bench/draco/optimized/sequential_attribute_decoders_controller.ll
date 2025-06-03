@@ -713,7 +713,7 @@ _ZNSt10unique_ptrIN5draco32SequentialNormalAttributeDecoderESt14default_deleteIS
   ret void
 
 20:                                               ; preds = %18, %14, %10, %6
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
+  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ %19, %18 ]
   resume { ptr, i32 } %.pn
 }
 

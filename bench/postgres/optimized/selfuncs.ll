@@ -2166,7 +2166,7 @@ convert_string_to_scalar.exit:                    ; preds = %113, %convert_one_s
   br label %convert_timevalue_to_scalar.exit
 
 convert_timevalue_to_scalar.exit:                 ; preds = %129, %131, %133, %136, %148, %150
-  %.0.i = phi double [ %157, %150 ], [ %149, %148 ], [ %147, %136 ], [ %135, %133 ], [ %132, %131 ], [ %130, %129 ]
+  %.0.i = phi double [ %130, %129 ], [ %132, %131 ], [ %135, %133 ], [ %147, %136 ], [ %149, %148 ], [ %157, %150 ]
   store double %.0.i, ptr %3, align 8
   switch i32 %6, label %convert_timevalue_to_scalar.exit57 [
     i32 1114, label %convert_timevalue_to_scalar.exit57.thread
@@ -2252,8 +2252,8 @@ convert_timevalue_to_scalar.exit57:               ; preds = %convert_timevalue_t
   br label %convert_timevalue_to_scalar.exit59
 
 convert_timevalue_to_scalar.exit59:               ; preds = %convert_timevalue_to_scalar.exit57.thread, %convert_timevalue_to_scalar.exit57.thread61, %convert_timevalue_to_scalar.exit57.thread63, %convert_timevalue_to_scalar.exit57.thread65, %convert_timevalue_to_scalar.exit57.thread67, %convert_timevalue_to_scalar.exit57.thread69, %convert_timevalue_to_scalar.exit57
-  %204 = phi i1 [ false, %convert_timevalue_to_scalar.exit57 ], [ true, %convert_timevalue_to_scalar.exit57.thread69 ], [ true, %convert_timevalue_to_scalar.exit57.thread67 ], [ true, %convert_timevalue_to_scalar.exit57.thread65 ], [ true, %convert_timevalue_to_scalar.exit57.thread63 ], [ true, %convert_timevalue_to_scalar.exit57.thread61 ], [ true, %convert_timevalue_to_scalar.exit57.thread ]
-  %.0.i58 = phi double [ 0.000000e+00, %convert_timevalue_to_scalar.exit57 ], [ %203, %convert_timevalue_to_scalar.exit57.thread69 ], [ %189, %convert_timevalue_to_scalar.exit57.thread67 ], [ %187, %convert_timevalue_to_scalar.exit57.thread65 ], [ %165, %convert_timevalue_to_scalar.exit57.thread63 ], [ %161, %convert_timevalue_to_scalar.exit57.thread61 ], [ %159, %convert_timevalue_to_scalar.exit57.thread ]
+  %204 = phi i1 [ false, %convert_timevalue_to_scalar.exit57 ], [ true, %convert_timevalue_to_scalar.exit57.thread ], [ true, %convert_timevalue_to_scalar.exit57.thread61 ], [ true, %convert_timevalue_to_scalar.exit57.thread63 ], [ true, %convert_timevalue_to_scalar.exit57.thread65 ], [ true, %convert_timevalue_to_scalar.exit57.thread67 ], [ true, %convert_timevalue_to_scalar.exit57.thread69 ]
+  %.0.i58 = phi double [ 0.000000e+00, %convert_timevalue_to_scalar.exit57 ], [ %159, %convert_timevalue_to_scalar.exit57.thread ], [ %161, %convert_timevalue_to_scalar.exit57.thread61 ], [ %165, %convert_timevalue_to_scalar.exit57.thread63 ], [ %187, %convert_timevalue_to_scalar.exit57.thread65 ], [ %189, %convert_timevalue_to_scalar.exit57.thread67 ], [ %203, %convert_timevalue_to_scalar.exit57.thread69 ]
   store double %.0.i58, ptr %8, align 8
   br label %213
 
@@ -2276,7 +2276,7 @@ convert_timevalue_to_scalar.exit59:               ; preds = %convert_timevalue_t
   br label %213
 
 213:                                              ; preds = %127, %212, %205, %convert_timevalue_to_scalar.exit59, %128, %126, %11
-  %.0 = phi i1 [ false, %212 ], [ %211, %205 ], [ %204, %convert_timevalue_to_scalar.exit59 ], [ true, %128 ], [ %.1, %126 ], [ %17, %11 ], [ false, %127 ]
+  %.0 = phi i1 [ false, %212 ], [ %17, %11 ], [ %.1, %126 ], [ true, %128 ], [ %204, %convert_timevalue_to_scalar.exit59 ], [ %211, %205 ], [ false, %127 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #12
   ret i1 %.0
 }
@@ -3938,7 +3938,7 @@ define dso_local double @booltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   unreachable
 
 46:                                               ; preds = %24, %41, %40, %39, %38, %36
-  %.0 = phi double [ %42, %41 ], [ %35, %40 ], [ %34, %39 ], [ %.037, %38 ], [ %37, %36 ], [ %19, %24 ]
+  %.0 = phi double [ %37, %36 ], [ %.037, %38 ], [ %34, %39 ], [ %35, %40 ], [ %42, %41 ], [ %19, %24 ]
   call void @free_attstatsslot(ptr noundef nonnull %8) #12
   br label %59
 
@@ -3974,7 +3974,7 @@ define dso_local double @booltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   unreachable
 
 59:                                               ; preds = %47, %48, %50, %53, %46
-  %.1 = phi double [ %.0, %46 ], [ %55, %53 ], [ %52, %50 ], [ %49, %48 ], [ %19, %47 ]
+  %.1 = phi double [ %.0, %46 ], [ %49, %48 ], [ %52, %50 ], [ %55, %53 ], [ %19, %47 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #12
   br label %70
 
@@ -4008,7 +4008,7 @@ define dso_local double @booltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   unreachable
 
 70:                                               ; preds = %59, %64, %62
-  %.2.ph = phi double [ %63, %62 ], [ %66, %64 ], [ %.1, %59 ]
+  %.2.ph = phi double [ %66, %64 ], [ %63, %62 ], [ %.1, %59 ]
   %.pr = load ptr, ptr %9, align 8
   %.not39 = icmp eq ptr %.pr, null
   br i1 %.not39, label %74, label %71
@@ -4794,7 +4794,7 @@ define dso_local double @estimate_array_length(ptr noundef %0, ptr noundef %1) l
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %38, %35, %65, %21, %17, %.critedge.thread
-  %.123 = phi double [ %.1.ph, %65 ], [ 1.000000e+01, %.critedge.thread ], [ %30, %21 ], [ 0.000000e+00, %17 ], [ %41, %38 ], [ 0.000000e+00, %35 ]
+  %.123 = phi double [ 1.000000e+01, %.critedge.thread ], [ %.1.ph, %65 ], [ %30, %21 ], [ 0.000000e+00, %17 ], [ %41, %38 ], [ 0.000000e+00, %35 ]
   ret double %.123
 }
 
@@ -6148,15 +6148,15 @@ get_rightop.exit:                                 ; preds = %list_length.exit.i
   br label %89
 
 89:                                               ; preds = %63, %70, %39, %44
-  %.0166 = phi i32 [ %64, %63 ], [ %76, %70 ], [ %40, %39 ], [ %50, %44 ]
-  %.0165 = phi i32 [ %64, %63 ], [ %78, %70 ], [ %40, %39 ], [ %52, %44 ]
-  %.0164 = phi i32 [ %69, %63 ], [ %80, %70 ], [ %40, %39 ], [ %50, %44 ]
-  %.0163 = phi i32 [ %69, %63 ], [ %82, %70 ], [ %40, %39 ], [ %52, %44 ]
-  %.0162 = phi i32 [ %64, %63 ], [ %71, %70 ], [ %40, %39 ], [ %45, %44 ]
-  %.0161 = phi i32 [ %67, %63 ], [ %74, %70 ], [ %43, %39 ], [ %48, %44 ]
-  %.0160 = phi i32 [ %64, %63 ], [ %85, %70 ], [ %40, %39 ], [ %55, %44 ]
-  %.0159 = phi i32 [ %67, %63 ], [ %88, %70 ], [ %43, %39 ], [ %58, %44 ]
-  %.0 = phi i1 [ true, %63 ], [ true, %70 ], [ false, %39 ], [ false, %44 ]
+  %.0166 = phi i32 [ %40, %39 ], [ %50, %44 ], [ %64, %63 ], [ %76, %70 ]
+  %.0165 = phi i32 [ %40, %39 ], [ %52, %44 ], [ %64, %63 ], [ %78, %70 ]
+  %.0164 = phi i32 [ %40, %39 ], [ %50, %44 ], [ %69, %63 ], [ %80, %70 ]
+  %.0163 = phi i32 [ %40, %39 ], [ %52, %44 ], [ %69, %63 ], [ %82, %70 ]
+  %.0162 = phi i32 [ %40, %39 ], [ %45, %44 ], [ %64, %63 ], [ %71, %70 ]
+  %.0161 = phi i32 [ %43, %39 ], [ %48, %44 ], [ %67, %63 ], [ %74, %70 ]
+  %.0160 = phi i32 [ %40, %39 ], [ %55, %44 ], [ %64, %63 ], [ %85, %70 ]
+  %.0159 = phi i32 [ %43, %39 ], [ %58, %44 ], [ %67, %63 ], [ %88, %70 ]
+  %.0 = phi i1 [ false, %39 ], [ false, %44 ], [ true, %63 ], [ true, %70 ]
   %90 = icmp ne i32 %.0166, 0
   %91 = icmp ne i32 %.0165, 0
   %or.cond = select i1 %90, i1 %91, i1 false
@@ -8631,7 +8631,7 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr noundef readonly captu
   br label %estimate_array_length.exit
 
 estimate_array_length.exit:                       ; preds = %75, %79, %93, %96, %119, %.critedge.thread.i
-  %.123.i = phi double [ %.1.ph.i, %119 ], [ 1.000000e+01, %.critedge.thread.i ], [ %88, %79 ], [ 0.000000e+00, %75 ], [ %99, %96 ], [ 0.000000e+00, %93 ]
+  %.123.i = phi double [ 1.000000e+01, %.critedge.thread.i ], [ %.1.ph.i, %119 ], [ %88, %79 ], [ 0.000000e+00, %75 ], [ %99, %96 ], [ 0.000000e+00, %93 ]
   %121 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %122 = fcmp ogt double %.123.i, 1.000000e+00
   %123 = fmul double %.3152234327, %.123.i
@@ -9731,7 +9731,7 @@ gincost_opexpr.exit:                              ; preds = %191
   br label %estimate_array_length.exit
 
 estimate_array_length.exit:                       ; preds = %231, %235, %249, %252, %275, %.critedge.thread.i
-  %.123.i = phi double [ %.1.ph.i, %275 ], [ 1.000000e+01, %.critedge.thread.i ], [ %244, %235 ], [ 0.000000e+00, %231 ], [ %255, %252 ], [ 0.000000e+00, %249 ]
+  %.123.i = phi double [ 1.000000e+01, %.critedge.thread.i ], [ %.1.ph.i, %275 ], [ %244, %235 ], [ 0.000000e+00, %231 ], [ %255, %252 ], [ 0.000000e+00, %249 ]
   %277 = load double, ptr %134, align 8
   %278 = fmul double %.123.i, %277
   br label %gincost_scalararrayopexpr.exit
@@ -10560,7 +10560,7 @@ define internal fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %27, %24, %21, %19, %15, %13, %10, %7, %4
-  %.0 = phi double [ 0.000000e+00, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %15 ], [ %14, %13 ], [ %12, %10 ], [ %9, %7 ], [ %6, %4 ]
+  %.0 = phi double [ 0.000000e+00, %27 ], [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %14, %13 ], [ %18, %15 ], [ %20, %19 ], [ %23, %21 ], [ %26, %24 ]
   ret double %.0
 }
 
@@ -10597,7 +10597,7 @@ define internal fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1,
   br label %26
 
 16:                                               ; preds = %12, %9, %5
-  %.020 = phi ptr [ %14, %12 ], [ %11, %9 ], [ %6, %5 ]
+  %.020 = phi ptr [ %6, %5 ], [ %11, %9 ], [ %14, %12 ]
   %17 = tail call ptr @pg_newlocale_from_collation(i32 noundef %2) #12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i8, ptr %18, align 2, !range !4, !noundef !5

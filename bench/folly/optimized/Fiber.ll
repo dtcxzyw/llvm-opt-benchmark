@@ -597,7 +597,7 @@ _ZN6google12Check_EQImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %100
 
 100:                                              ; preds = %98, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %99, %98 ]
+  %.1.i.i.i.i = phi ptr [ %99, %98 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i64, ptr %.1.i.i.i.i, align 8, !tbaa !114
   %.not33.i.i.i.i = icmp eq i64 %.1.val.i.i.i.i, -374168149231226868
   br i1 %.not33.i.i.i.i, label %101, label %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit
@@ -607,7 +607,7 @@ _ZN6google12Check_EQImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %103
 
 103:                                              ; preds = %101, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %102, %101 ]
+  %.2.i.i.i.i = phi ptr [ %102, %101 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i64, ptr %.2.i.i.i.i, align 8, !tbaa !114
   %.not34.i.i.i.i = icmp eq i64 %.2.val.i.i.i.i, -374168149231226868
   br i1 %.not34.i.i.i.i, label %104, label %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit

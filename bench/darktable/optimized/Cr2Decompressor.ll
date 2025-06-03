@@ -2011,9 +2011,9 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   br label %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit
 
 _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit: ; preds = %372, %367, %363, %360, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit
-  %.sroa.0116.6 = phi i64 [ %299, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %382, %372 ], [ %.sroa.0116.5, %360 ], [ %371, %367 ], [ %.sroa.0116.5, %363 ]
-  %.sroa.18.6 = phi i32 [ %297, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %380, %372 ], [ %.sroa.18.5, %360 ], [ %370, %367 ], [ %.sroa.18.5, %363 ]
-  %.0.i = phi i32 [ %294, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i67, %372 ], [ 0, %360 ], [ -32768, %367 ], [ -32768, %363 ]
+  %.sroa.0116.6 = phi i64 [ %299, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %382, %372 ], [ %371, %367 ], [ %.sroa.0116.5, %363 ], [ %.sroa.0116.5, %360 ]
+  %.sroa.18.6 = phi i32 [ %297, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %380, %372 ], [ %370, %367 ], [ %.sroa.18.5, %363 ], [ %.sroa.18.5, %360 ]
+  %.0.i = phi i32 [ %294, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i67, %372 ], [ -32768, %367 ], [ -32768, %363 ], [ 0, %360 ]
   %385 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %224
   %386 = load i16, ptr %385, align 2, !tbaa !195
   %387 = trunc i32 %.0.i to i16
@@ -2910,9 +2910,9 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   br label %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit
 
 _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit: ; preds = %373, %368, %364, %361, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit
-  %.sroa.0116.6 = phi i64 [ %300, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %383, %373 ], [ %.sroa.0116.5, %361 ], [ %372, %368 ], [ %.sroa.0116.5, %364 ]
-  %.sroa.18.6 = phi i32 [ %298, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %381, %373 ], [ %.sroa.18.5, %361 ], [ %371, %368 ], [ %.sroa.18.5, %364 ]
-  %.0.i = phi i32 [ %295, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i67, %373 ], [ 0, %361 ], [ -32768, %368 ], [ -32768, %364 ]
+  %.sroa.0116.6 = phi i64 [ %300, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %383, %373 ], [ %372, %368 ], [ %.sroa.0116.5, %364 ], [ %.sroa.0116.5, %361 ]
+  %.sroa.18.6 = phi i32 [ %298, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %381, %373 ], [ %371, %368 ], [ %.sroa.18.5, %364 ], [ %.sroa.18.5, %361 ]
+  %.0.i = phi i32 [ %295, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i67, %373 ], [ -32768, %368 ], [ -32768, %364 ], [ 0, %361 ]
   %386 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %225
   %387 = load i16, ptr %386, align 2, !tbaa !195
   %388 = trunc i32 %.0.i to i16
@@ -3789,9 +3789,9 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   br label %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit
 
 _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit: ; preds = %358, %353, %349, %346, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit
-  %.sroa.0118.6 = phi i64 [ %285, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %368, %358 ], [ %.sroa.0118.5, %346 ], [ %357, %353 ], [ %.sroa.0118.5, %349 ]
-  %.sroa.18.6 = phi i32 [ %283, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %366, %358 ], [ %.sroa.18.5, %346 ], [ %356, %353 ], [ %.sroa.18.5, %349 ]
-  %.0.i = phi i32 [ %280, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i69, %358 ], [ 0, %346 ], [ -32768, %353 ], [ -32768, %349 ]
+  %.sroa.0118.6 = phi i64 [ %285, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %368, %358 ], [ %357, %353 ], [ %.sroa.0118.5, %349 ], [ %.sroa.0118.5, %346 ]
+  %.sroa.18.6 = phi i32 [ %283, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %366, %358 ], [ %356, %353 ], [ %.sroa.18.5, %349 ], [ %.sroa.18.5, %346 ]
+  %.0.i = phi i32 [ %280, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i69, %358 ], [ -32768, %353 ], [ -32768, %349 ], [ 0, %346 ]
   %371 = load i16, ptr %indvars.iv420.sroa.phi, align 2, !tbaa !195
   %372 = trunc i32 %.0.i to i16
   %373 = add i16 %371, %372
@@ -4678,9 +4678,9 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   br label %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit
 
 _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE6decodeINS_15BitStreamerJPEGELb1EEEiRT_.exit: ; preds = %369, %364, %360, %357, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit
-  %.sroa.0116.6 = phi i64 [ %296, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %379, %369 ], [ %.sroa.0116.5, %357 ], [ %368, %364 ], [ %.sroa.0116.5, %360 ]
-  %.sroa.18.6 = phi i32 [ %294, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %377, %369 ], [ %.sroa.18.5, %357 ], [ %367, %364 ], [ %.sroa.18.5, %360 ]
-  %.0.i = phi i32 [ %291, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i67, %369 ], [ 0, %357 ], [ -32768, %364 ], [ -32768, %360 ]
+  %.sroa.0116.6 = phi i64 [ %296, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %379, %369 ], [ %368, %364 ], [ %.sroa.0116.5, %360 ], [ %.sroa.0116.5, %357 ]
+  %.sroa.18.6 = phi i32 [ %294, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %377, %369 ], [ %367, %364 ], [ %.sroa.18.5, %360 ], [ %.sroa.18.5, %357 ]
+  %.0.i = phi i32 [ %291, %_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i67, %369 ], [ -32768, %364 ], [ -32768, %360 ], [ 0, %357 ]
   %382 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %indvars.iv418
   %383 = load i16, ptr %382, align 2, !tbaa !195
   %384 = trunc i32 %.0.i to i16

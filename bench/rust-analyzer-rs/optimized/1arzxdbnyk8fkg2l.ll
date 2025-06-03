@@ -1630,7 +1630,7 @@ _ZN5serde2de9MapAccess10next_value17h43ffbbf6d769aa46E.exit._crit_edge: ; preds 
           to label %84 unwind label %.loopexit.split-lp
 
 _ZN5serde2de9MapAccess10next_value17h43ffbbf6d769aa46E.exit.thread: ; preds = %.noexc25, %.noexc24, %_ZN5serde2de9MapAccess10next_value17h43ffbbf6d769aa46E.exit._crit_edge
-  %74 = phi ptr [ %.pre, %_ZN5serde2de9MapAccess10next_value17h43ffbbf6d769aa46E.exit._crit_edge ], [ %65, %.noexc24 ], [ %67, %.noexc25 ]
+  %74 = phi ptr [ %.pre, %_ZN5serde2de9MapAccess10next_value17h43ffbbf6d769aa46E.exit._crit_edge ], [ %67, %.noexc25 ], [ %65, %.noexc24 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %74, ptr %75, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -1809,7 +1809,7 @@ _ZN5serde2de9MapAccess10next_value17h43ffbbf6d769aa46E.exit.thread: ; preds = %.
   br label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h74588a418536853bE.exit.thread.i.i"
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h74588a418536853bE.exit.thread.i.i": ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h74588a418536853bE.exit._crit_edge.i.i", %.noexc7.i.i, %.noexc.i.i
-  %116 = phi ptr [ %.pre.i.i, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h74588a418536853bE.exit._crit_edge.i.i" ], [ %109, %.noexc.i.i ], [ %111, %.noexc7.i.i ]
+  %116 = phi ptr [ %.pre.i.i, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h74588a418536853bE.exit._crit_edge.i.i" ], [ %111, %.noexc7.i.i ], [ %109, %.noexc.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !505
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !543
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd83c79f07ab86678E.llvm.9627074818807256315"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -2055,7 +2055,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h873b7474304edd6eE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h873b7474304edd6eE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -2117,7 +2117,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN70_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h42b87fb3e3bb93b3E.exit"
 
 "_ZN70_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h42b87fb3e3bb93b3E.exit": ; preds = %8, %10
-  %.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -2218,7 +2218,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h690963ef3572ec3cE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h690963ef3572ec3cE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -12348,7 +12348,7 @@ _ZN5serde2de10EnumAccess7variant17h1ad1e5e0fc690642E.exit.i: ; preds = %67
   br i1 %91, label %98, label %94
 
 92:                                               ; preds = %85, %84, %83, %82, %76, %74, %.loopexit.i.i.i.i
-  %.sroa.1028.0.ph = phi ptr [ %78, %76 ], [ %73, %.loopexit.i.i.i.i ], [ %75, %74 ], [ %80, %82 ], [ %80, %83 ], [ %80, %84 ], [ %80, %85 ]
+  %.sroa.1028.0.ph = phi ptr [ %78, %76 ], [ %75, %74 ], [ %73, %.loopexit.i.i.i.i ], [ %80, %82 ], [ %80, %83 ], [ %80, %84 ], [ %80, %85 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.1028.0.ph, ptr %93, align 8
   br label %"_ZN187_$LT$project_model..project_json.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$project_model..project_json..EditionData$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2665430048f6e144E.exit"
@@ -12546,7 +12546,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3307
   store ptr %.1.i, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12682,7 +12682,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %50
 
 48:                                               ; preds = %35, %38, %45
-  %.1.i = phi ptr [ %37, %35 ], [ %46, %45 ], [ %39, %38 ]
+  %.1.i = phi ptr [ %39, %38 ], [ %46, %45 ], [ %37, %35 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3353
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %49, align 8
@@ -12809,7 +12809,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %45
 
 45:                                               ; preds = %33, %36, %43
-  %.1.i = phi ptr [ %35, %33 ], [ %44, %43 ], [ %37, %36 ]
+  %.1.i = phi ptr [ %37, %36 ], [ %44, %43 ], [ %35, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3407
   br label %.sink.split
 
@@ -12955,7 +12955,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %52
 
 50:                                               ; preds = %36, %39, %46
-  %.1.i = phi ptr [ %38, %36 ], [ %47, %46 ], [ %40, %39 ]
+  %.1.i = phi ptr [ %40, %39 ], [ %47, %46 ], [ %38, %36 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3448
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %51, align 8
@@ -13089,7 +13089,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3494
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %48, align 8
@@ -13216,7 +13216,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %45
 
 45:                                               ; preds = %33, %36, %43
-  %.1.i = phi ptr [ %35, %33 ], [ %44, %43 ], [ %37, %36 ]
+  %.1.i = phi ptr [ %37, %36 ], [ %44, %43 ], [ %35, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3548
   br label %.sink.split
 
@@ -13356,7 +13356,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3591
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %48, align 8
@@ -13490,7 +13490,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3637
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %48, align 8
@@ -13624,7 +13624,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3683
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %48, align 8
@@ -13751,7 +13751,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %45
 
 45:                                               ; preds = %33, %36, %43
-  %.1.i = phi ptr [ %35, %33 ], [ %44, %43 ], [ %37, %36 ]
+  %.1.i = phi ptr [ %37, %36 ], [ %44, %43 ], [ %35, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3737
   br label %.sink.split
 

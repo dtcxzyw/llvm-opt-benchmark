@@ -483,7 +483,7 @@ define internal fastcc void @propagateHashFieldDeletion(ptr noundef readonly cap
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %4, %11, %14, %18, %22, %26
-  %.0.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %11 ], [ 0, %4 ]
+  %.0.i = phi i64 [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %28, %26 ], [ 0, %4 ]
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = tail call ptr @createStringObject(ptr noundef nonnull %1, i64 noundef %.0.i) #16
   store ptr %30, ptr %29, align 8, !tbaa !64
@@ -863,7 +863,7 @@ define internal fastcc void @listpackExUpdateExpiry(ptr noundef readonly capture
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %22, %30, %33, %37, %41, %45
-  %.0.i = phi i64 [ %47, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %30 ], [ 0, %22 ]
+  %.0.i = phi i64 [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ], [ 0, %22 ]
   %48 = trunc i64 %.0.i to i32
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %48, ptr %49, align 8, !tbaa !73
@@ -982,7 +982,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -1039,7 +1039,7 @@ define dso_local range(i32 0, 2) i32 @hashTypeDelete(ptr noundef captures(none) 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %26, %22, %18, %14, %11, %6, %29
-  %31 = phi i64 [ %30, %29 ], [ %28, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %11 ], [ 0, %6 ]
+  %31 = phi i64 [ %30, %29 ], [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %28, %26 ], [ 0, %6 ]
   %32 = trunc i64 %31 to i32
   %33 = load i32, ptr %0, align 8
   %34 = lshr i32 %33, 4
@@ -1305,7 +1305,7 @@ hashTypeConvert.exit:                             ; preds = %19, %20
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %38, %41, %45, %49, %53
-  %.0.i = phi i64 [ %55, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %38 ]
+  %.0.i = phi i64 [ %40, %38 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %55, %53 ]
   %.not37 = icmp ugt i64 %.0.i, %15
   br i1 %.not37, label %56, label %hashTypeConvert.exit38
 
@@ -1507,7 +1507,7 @@ define dso_local range(i32 0, 2) i32 @hashTypeGetFromListpack(ptr noundef readon
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %15, %20, %23, %27, %31, %35
-  %.0.i = phi i64 [ %37, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %20 ], [ 0, %15 ]
+  %.0.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %15 ]
   %38 = trunc i64 %.0.i to i32
   %39 = tail call ptr @lpFind(ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %1, i32 noundef %38, i32 noundef 1) #16
   %.not51 = icmp eq ptr %39, null
@@ -1576,7 +1576,7 @@ sdslen.exit:                                      ; preds = %15, %20, %23, %27, 
   br label %sdslen.exit55
 
 sdslen.exit55:                                    ; preds = %49, %55, %58, %62, %66, %70
-  %.0.i54 = phi i64 [ %72, %70 ], [ %69, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %55 ], [ 0, %49 ]
+  %.0.i54 = phi i64 [ %57, %55 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %72, %70 ], [ 0, %49 ]
   %73 = trunc i64 %.0.i54 to i32
   %74 = tail call ptr @lpFind(ptr noundef %50, ptr noundef nonnull %48, ptr noundef nonnull %1, i32 noundef %73, i32 noundef 2) #16
   %.not46 = icmp eq ptr %74, null
@@ -1828,7 +1828,7 @@ define dso_local range(i32 0, 4) i32 @hashTypeGetValue(ptr noundef %0, ptr nound
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %19, %25, %28, %32, %36, %40
-  %.0.i = phi i64 [ %42, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %25 ], [ 0, %19 ]
+  %.0.i = phi i64 [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ 0, %19 ]
   %43 = trunc i64 %.0.i to i32
   store i32 %43, ptr %4, align 4, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
@@ -2256,7 +2256,7 @@ sdslen.exit.thread:                               ; preds = %13
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %19, %22, %26, %30, %34
-  %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ]
+  %.0.i = phi i64 [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ]
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7704), align 8, !tbaa !104
   %38 = icmp ugt i64 %.0.i, %37
   br i1 %38, label %64, label %39
@@ -2304,7 +2304,7 @@ sdslen.exit:                                      ; preds = %19, %22, %26, %30, 
   br label %sdslen.exit133
 
 sdslen.exit133:                                   ; preds = %45, %48, %52, %56, %60
-  %.0.i132 = phi i64 [ %62, %60 ], [ %59, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %45 ]
+  %.0.i132 = phi i64 [ %47, %45 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %62, %60 ]
   %63 = icmp ugt i64 %.0.i132, %40
   br i1 %63, label %64, label %hashTypeConvert.exit
 
@@ -2381,7 +2381,7 @@ hashTypeConvert.exit:                             ; preds = %39, %66, %65, %5, %
   br label %sdslen.exit135
 
 sdslen.exit135:                                   ; preds = %75, %80, %83, %87, %91, %95
-  %.0.i134 = phi i64 [ %97, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %83 ], [ %82, %80 ], [ 0, %75 ]
+  %.0.i134 = phi i64 [ %82, %80 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %97, %95 ], [ 0, %75 ]
   %98 = trunc i64 %.0.i134 to i32
   %99 = tail call ptr @lpFind(ptr noundef %73, ptr noundef nonnull %74, ptr noundef nonnull %2, i32 noundef %98, i32 noundef 1) #16
   %.not129 = icmp eq ptr %99, null
@@ -2440,7 +2440,7 @@ sdslen.exit135:                                   ; preds = %75, %80, %83, %87, 
   br label %126
 
 126:                                              ; preds = %123, %119, %115, %111, %108, %103
-  %.0.i136 = phi i64 [ %125, %123 ], [ %122, %119 ], [ %118, %115 ], [ %114, %111 ], [ %110, %108 ], [ 0, %103 ]
+  %.0.i136 = phi i64 [ %110, %108 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ], [ %125, %123 ], [ 0, %103 ]
   %127 = trunc i64 %.0.i136 to i32
   %128 = call ptr @lpReplace(ptr noundef %73, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef %127) #16
   br label %178
@@ -2487,7 +2487,7 @@ sdslen.exit135:                                   ; preds = %75, %80, %83, %87, 
   br label %sdslen.exit139
 
 sdslen.exit139:                                   ; preds = %129, %134, %137, %141, %145, %149
-  %.0.i138 = phi i64 [ %151, %149 ], [ %148, %145 ], [ %144, %141 ], [ %140, %137 ], [ %136, %134 ], [ 0, %129 ]
+  %.0.i138 = phi i64 [ %136, %134 ], [ %140, %137 ], [ %144, %141 ], [ %148, %145 ], [ %151, %149 ], [ 0, %129 ]
   %152 = trunc i64 %.0.i138 to i32
   %153 = tail call ptr @lpAppend(ptr noundef %73, ptr noundef nonnull %2, i32 noundef %152) #16
   %154 = getelementptr inbounds i8, ptr %3, i64 -1
@@ -2531,7 +2531,7 @@ sdslen.exit139:                                   ; preds = %129, %134, %137, %1
   br label %sdslen.exit141
 
 sdslen.exit141:                                   ; preds = %sdslen.exit139, %158, %161, %165, %169, %173
-  %.0.i140 = phi i64 [ %175, %173 ], [ %172, %169 ], [ %168, %165 ], [ %164, %161 ], [ %160, %158 ], [ 0, %sdslen.exit139 ]
+  %.0.i140 = phi i64 [ %160, %158 ], [ %164, %161 ], [ %168, %165 ], [ %172, %169 ], [ %175, %173 ], [ 0, %sdslen.exit139 ]
   %176 = trunc i64 %.0.i140 to i32
   %177 = tail call ptr @lpAppend(ptr noundef %153, ptr noundef nonnull %3, i32 noundef %176) #16
   br label %178
@@ -2669,7 +2669,7 @@ hashTypeConvert.exit143:                          ; preds = %204, %203, %hashTyp
   br label %sdslen.exit145
 
 sdslen.exit145:                                   ; preds = %214, %220, %223, %227, %231, %235
-  %.0.i144 = phi i64 [ %237, %235 ], [ %234, %231 ], [ %230, %227 ], [ %226, %223 ], [ %222, %220 ], [ 0, %214 ]
+  %.0.i144 = phi i64 [ %222, %220 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %237, %235 ], [ 0, %214 ]
   %238 = trunc i64 %.0.i144 to i32
   %239 = tail call ptr @lpFind(ptr noundef %215, ptr noundef nonnull %213, ptr noundef nonnull %2, i32 noundef %238, i32 noundef 2) #16
   %.not123 = icmp eq ptr %239, null
@@ -2730,7 +2730,7 @@ sdslen.exit145:                                   ; preds = %214, %220, %223, %2
   br label %sdslen.exit147
 
 sdslen.exit147:                                   ; preds = %244, %250, %253, %257, %261, %265
-  %.0.i146 = phi i64 [ %267, %265 ], [ %264, %261 ], [ %260, %257 ], [ %256, %253 ], [ %252, %250 ], [ 0, %244 ]
+  %.0.i146 = phi i64 [ %252, %250 ], [ %256, %253 ], [ %260, %257 ], [ %264, %261 ], [ %267, %265 ], [ 0, %244 ]
   %268 = trunc i64 %.0.i146 to i32
   %269 = call ptr @lpReplace(ptr noundef %245, ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef %268) #16
   store ptr %269, ptr %211, align 8, !tbaa !15
@@ -2816,7 +2816,7 @@ sdslen.exit147:                                   ; preds = %244, %250, %253, %2
   br label %sdslen.exit149
 
 sdslen.exit149:                                   ; preds = %286, %291, %294, %298, %302, %306
-  %.0.i148 = phi i64 [ %308, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %294 ], [ %293, %291 ], [ 0, %286 ]
+  %.0.i148 = phi i64 [ %293, %291 ], [ %297, %294 ], [ %301, %298 ], [ %305, %302 ], [ %308, %306 ], [ 0, %286 ]
   %309 = getelementptr inbounds i8, ptr %3, i64 -1
   %310 = load i8, ptr %309, align 1, !tbaa !5
   %311 = zext i8 %310 to i32
@@ -2858,7 +2858,7 @@ sdslen.exit149:                                   ; preds = %286, %291, %294, %2
   br label %sdslen.exit151
 
 sdslen.exit151:                                   ; preds = %sdslen.exit149, %313, %316, %320, %324, %328
-  %.0.i150 = phi i64 [ %330, %328 ], [ %327, %324 ], [ %323, %320 ], [ %319, %316 ], [ %315, %313 ], [ 0, %sdslen.exit149 ]
+  %.0.i150 = phi i64 [ %315, %313 ], [ %319, %316 ], [ %323, %320 ], [ %327, %324 ], [ %330, %328 ], [ 0, %sdslen.exit149 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #16
   store ptr %2, ptr %6, align 16, !tbaa !71
   %331 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3012,7 +3012,7 @@ hashTypeConvert.exit154:                          ; preds = %371, %370, %hashTyp
   br label %sdslen.exit156
 
 sdslen.exit156:                                   ; preds = %381, %386, %389, %393, %397, %401
-  %.0.i155 = phi i64 [ %403, %401 ], [ %400, %397 ], [ %396, %393 ], [ %392, %389 ], [ %388, %386 ], [ 0, %381 ]
+  %.0.i155 = phi i64 [ %388, %386 ], [ %392, %389 ], [ %396, %393 ], [ %400, %397 ], [ %403, %401 ], [ 0, %381 ]
   %404 = tail call ptr @mstrNew(ptr noundef nonnull %2, i64 noundef %.0.i155, i32 noundef 0) #16
   %405 = getelementptr inbounds nuw i8, ptr %377, i64 48
   %406 = load i16, ptr %405, align 8
@@ -3307,7 +3307,7 @@ hfieldIsExpireAttached.exit.thread:               ; preds = %44, %hfieldIsExpire
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %50, %55, %58, %62, %66, %70
-  %.0.i66 = phi i64 [ %72, %70 ], [ %69, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %55 ], [ 0, %50 ]
+  %.0.i66 = phi i64 [ %57, %55 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %72, %70 ], [ 0, %50 ]
   %73 = tail call ptr @mstrNewWithMeta(ptr noundef nonnull @mstrFieldKind, ptr noundef nonnull %1, i64 noundef %.0.i66, i16 noundef zeroext 1, i32 noundef 0) #16
   %.not12.i.i = icmp eq ptr %73, null
   br i1 %.not12.i.i, label %hfieldNew.exit, label %74
@@ -3518,7 +3518,7 @@ define dso_local range(i32 -2, 3) i32 @hashTypeSetEx(ptr noundef readonly captur
   br label %38
 
 38:                                               ; preds = %35, %31, %27, %23, %20, %14
-  %.0.i = phi i64 [ %37, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %20 ], [ 0, %14 ]
+  %.0.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %14 ]
   %39 = trunc i64 %.0.i to i32
   %40 = tail call ptr @lpFind(ptr noundef %15, ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %39, i32 noundef 2) #16
   %.not31 = icmp eq ptr %40, null
@@ -4417,7 +4417,7 @@ define dso_local void @hashTypeCurrentFromHashTable(ptr noundef readonly capture
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %38, %34, %30, %26, %23, %17, %14
-  %storemerge = phi i64 [ %16, %14 ], [ %40, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %23 ], [ 0, %17 ]
+  %storemerge = phi i64 [ %16, %14 ], [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ], [ 0, %17 ]
   store i64 %storemerge, ptr %3, align 8, !tbaa !28
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %44, label %41
@@ -4562,8 +4562,8 @@ define dso_local ptr @hashTypeCurrentObjectNewSds(ptr noundef readonly captures(
   br label %hashTypeCurrentFromHashTable.exit
 
 hashTypeCurrentFromHashTable.exit:                ; preds = %16, %19, %25, %28, %32, %36, %40
-  %.05 = phi ptr [ %20, %19 ], [ %20, %40 ], [ %20, %36 ], [ %20, %32 ], [ %20, %28 ], [ %20, %25 ], [ %17, %16 ]
-  %storemerge.i = phi i64 [ 0, %19 ], [ %42, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %25 ], [ %18, %16 ]
+  %.05 = phi ptr [ %20, %19 ], [ %20, %25 ], [ %20, %28 ], [ %20, %32 ], [ %20, %36 ], [ %20, %40 ], [ %17, %16 ]
+  %storemerge.i = phi i64 [ 0, %19 ], [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ %18, %16 ]
   %43 = trunc i64 %storemerge.i to i32
   store i32 %43, ptr %3, align 4, !tbaa !65
   br label %hashTypeCurrentObject.exit
@@ -4574,7 +4574,7 @@ hashTypeCurrentFromHashTable.exit:                ; preds = %16, %19, %25, %28, 
   unreachable
 
 hashTypeCurrentObject.exit:                       ; preds = %7, %hashTypeCurrentFromHashTable.exit
-  %.04 = phi ptr [ %.05, %hashTypeCurrentFromHashTable.exit ], [ %11, %7 ]
+  %.04 = phi ptr [ %11, %7 ], [ %.05, %hashTypeCurrentFromHashTable.exit ]
   %.not = icmp eq ptr %.04, null
   br i1 %.not, label %49, label %45
 
@@ -4641,8 +4641,8 @@ hashTypeCurrentFromHashTable.exit:                ; preds = %1
   unreachable
 
 hashTypeCurrentObject.exit:                       ; preds = %7, %hashTypeCurrentFromHashTable.exit
-  %.1 = phi ptr [ %15, %hashTypeCurrentFromHashTable.exit ], [ %10, %7 ]
-  %.0 = phi i64 [ %18, %hashTypeCurrentFromHashTable.exit ], [ %12, %7 ]
+  %.1 = phi ptr [ %10, %7 ], [ %15, %hashTypeCurrentFromHashTable.exit ]
+  %.0 = phi i64 [ %12, %7 ], [ %18, %hashTypeCurrentFromHashTable.exit ]
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %21, label %hashTypeCurrentObject.exit._crit_edge
 
@@ -5380,7 +5380,7 @@ hfieldNew.exit:                                   ; preds = %103, %105
   br label %hashTypeCurrentFromHashTable.exit62
 
 hashTypeCurrentFromHashTable.exit62:              ; preds = %111, %117, %120, %124, %128, %132
-  %storemerge.i = phi i64 [ %134, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %117 ], [ 0, %111 ]
+  %storemerge.i = phi i64 [ %119, %117 ], [ %123, %120 ], [ %127, %124 ], [ %131, %128 ], [ %134, %132 ], [ 0, %111 ]
   %135 = tail call ptr @sdsnewlen(ptr noundef nonnull %112, i64 noundef %storemerge.i) #16
   %136 = load i16, ptr %91, align 8
   %137 = or i16 %136, -32768
@@ -5550,7 +5550,7 @@ define dso_local void @hashTypeRandomElement(ptr noundef readonly captures(none)
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %22, %25, %29, %33, %37
-  %.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %22 ], [ 0, %16 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ], [ 0, %16 ]
   %40 = trunc i64 %.0.i to i32
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %40, ptr %41, align 8, !tbaa !73
@@ -7110,7 +7110,7 @@ hashTypeLength.exit118:                           ; preds = %335, %340, %347
   call void @updateKeysizesHist(ptr noundef %371, i32 noundef %377, i32 noundef 4, i64 noundef %.0.i, i64 noundef %.0.i117) #16
   br label %hsetexParseArgs.exit.thread
 
-hsetexParseArgs.exit.thread:                      ; preds = %153, %parseExpireTime.exit.thread.i, %parseExpireTime.exit128.thread.i, %parseExpireTime.exit131.thread.i, %parseExpireTime.exit134.thread.i, %160, %158, %159, %hsetexParseArgs.exit.thread159, %369, %370, %161, %174
+hsetexParseArgs.exit.thread:                      ; preds = %153, %parseExpireTime.exit.thread.i, %parseExpireTime.exit128.thread.i, %parseExpireTime.exit131.thread.i, %parseExpireTime.exit134.thread.i, %159, %158, %160, %hsetexParseArgs.exit.thread159, %369, %370, %161, %174
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #16
   ret void
 }
@@ -9133,8 +9133,8 @@ hashTypeCurrentFromListpack.exit:                 ; preds = %3, %3
   br label %hashTypeCurrentFromHashTable.exit
 
 hashTypeCurrentFromHashTable.exit:                ; preds = %22, %25, %31, %34, %38, %42, %46
-  %.0 = phi ptr [ %26, %25 ], [ %26, %46 ], [ %26, %42 ], [ %26, %38 ], [ %26, %34 ], [ %26, %31 ], [ %23, %22 ]
-  %storemerge.i = phi i64 [ 0, %25 ], [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ], [ %24, %22 ]
+  %.0 = phi ptr [ %26, %25 ], [ %26, %31 ], [ %26, %34 ], [ %26, %38 ], [ %26, %42 ], [ %26, %46 ], [ %23, %22 ]
+  %storemerge.i = phi i64 [ 0, %25 ], [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ %24, %22 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef %.0, i64 noundef %storemerge.i) #16
   br label %50
 
@@ -9435,7 +9435,7 @@ hashTypeLength.exit:                              ; preds = %25, %30, %37
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %75, %81, %84, %88, %92, %96
-  %.0.i201 = phi i64 [ %98, %96 ], [ %95, %92 ], [ %91, %88 ], [ %87, %84 ], [ %83, %81 ], [ 0, %75 ]
+  %.0.i201 = phi i64 [ %83, %81 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %98, %96 ], [ 0, %75 ]
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %70, i64 noundef %.0.i201) #16
   br label %100
 
@@ -9704,7 +9704,7 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   br label %sdslen.exit203
 
 sdslen.exit203:                                   ; preds = %198, %205, %208, %212, %216, %220
-  %.0.i202 = phi i64 [ %222, %220 ], [ %219, %216 ], [ %215, %212 ], [ %211, %208 ], [ %207, %205 ], [ 0, %198 ]
+  %.0.i202 = phi i64 [ %207, %205 ], [ %211, %208 ], [ %215, %212 ], [ %219, %216 ], [ %222, %220 ], [ 0, %198 ]
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %200, i64 noundef %.0.i202) #16
   br label %223
 
@@ -10676,7 +10676,7 @@ define internal fastcc void @httlGenericCommand(ptr noundef %0, i64 noundef %1, 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %55, %60, %63, %67, %71, %75
-  %.0.i = phi i64 [ %77, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %60 ], [ 0, %55 ]
+  %.0.i = phi i64 [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %77, %75 ], [ 0, %55 ]
   %78 = trunc i64 %.0.i to i32
   %79 = call ptr @lpFind(ptr noundef %45, ptr noundef nonnull %54, ptr noundef nonnull %53, i32 noundef %78, i32 noundef 1) #16
   %80 = icmp eq ptr %79, null
@@ -10761,7 +10761,7 @@ sdslen.exit:                                      ; preds = %55, %60, %63, %67, 
   br label %123
 
 123:                                              ; preds = %120, %116, %112, %108, %105, %99
-  %.0.i122 = phi i64 [ %122, %120 ], [ %119, %116 ], [ %115, %112 ], [ %111, %108 ], [ %107, %105 ], [ 0, %99 ]
+  %.0.i122 = phi i64 [ %107, %105 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %122, %120 ], [ 0, %99 ]
   %124 = trunc i64 %.0.i122 to i32
   %125 = call ptr @lpFind(ptr noundef %100, ptr noundef nonnull %98, ptr noundef nonnull %96, i32 noundef %124, i32 noundef 2) #16
   %.not114 = icmp eq ptr %125, null
@@ -11072,7 +11072,7 @@ define dso_local void @hpersistCommand(ptr noundef %0) local_unnamed_addr #1 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %54, %59, %62, %66, %70, %74
-  %.0.i = phi i64 [ %76, %74 ], [ %73, %70 ], [ %69, %66 ], [ %65, %62 ], [ %61, %59 ], [ 0, %54 ]
+  %.0.i = phi i64 [ %61, %59 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %76, %74 ], [ 0, %54 ]
   %77 = trunc i64 %.0.i to i32
   %78 = call ptr @lpFind(ptr noundef %52, ptr noundef nonnull %53, ptr noundef nonnull %51, i32 noundef %77, i32 noundef 1) #16
   %79 = icmp eq ptr %78, null
@@ -11162,7 +11162,7 @@ sdslen.exit:                                      ; preds = %54, %59, %62, %66, 
   br label %121
 
 121:                                              ; preds = %118, %114, %110, %106, %103, %97
-  %.0.i126 = phi i64 [ %120, %118 ], [ %117, %114 ], [ %113, %110 ], [ %109, %106 ], [ %105, %103 ], [ 0, %97 ]
+  %.0.i126 = phi i64 [ %105, %103 ], [ %109, %106 ], [ %113, %110 ], [ %117, %114 ], [ %120, %118 ], [ 0, %97 ]
   %122 = trunc i64 %.0.i126 to i32
   %123 = call ptr @lpFind(ptr noundef %98, ptr noundef nonnull %96, ptr noundef nonnull %94, i32 noundef %122, i32 noundef 2) #16
   %.not119 = icmp eq ptr %123, null
@@ -11553,7 +11553,7 @@ define internal fastcc i64 @hashTypeExpire(ptr noundef %0, ptr noundef captures(
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %36, %41, %44, %48, %52, %56
-  %.0.i = phi i64 [ %58, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %41 ], [ 0, %36 ]
+  %.0.i = phi i64 [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ], [ 0, %36 ]
   %59 = call ptr @createStringObject(ptr noundef nonnull %.041, i64 noundef %.0.i) #16
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %61 = load i32, ptr %60, align 8, !tbaa !67

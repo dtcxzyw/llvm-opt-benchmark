@@ -903,8 +903,8 @@ qrx_validate_hdr_early.exit.thread.i.i.i.i:       ; preds = %qrx_validate_hdr_ea
   br label %qrx_determine_enc_level.exit.i.i.i.i
 
 qrx_determine_enc_level.exit.i.i.i.i:             ; preds = %164, %163, %162, %qrx_validate_hdr_early.exit.thread.i.i.i.i
-  %165 = phi i1 [ false, %164 ], [ true, %163 ], [ false, %162 ], [ false, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
-  %.0.i125.i.i.i.i = phi i32 [ 0, %164 ], [ 3, %163 ], [ 1, %162 ], [ 2, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
+  %165 = phi i1 [ false, %164 ], [ false, %162 ], [ true, %163 ], [ false, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
+  %.0.i125.i.i.i.i = phi i32 [ 0, %164 ], [ 1, %162 ], [ 3, %163 ], [ 2, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
   %166 = call i32 @ossl_qrl_enc_level_set_have_el(ptr noundef nonnull %20, i32 noundef %.0.i125.i.i.i.i) #11
   switch i32 %166, label %qrx_relocate_buffer.exit.i.i.i.i [
     i32 1, label %167

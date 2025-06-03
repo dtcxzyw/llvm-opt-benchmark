@@ -39552,8 +39552,8 @@ define internal void @_ZNK5arrow7compute8internal12_GLOBAL__N_116TakeMetaFunctio
   br label %_ZNK5arrow5Datum4kindEv.exit
 
 _ZNK5arrow5Datum4kindEv.exit:                     ; preds = %5, %64, %65, %66, %67, %68
-  %69 = phi i1 [ false, %68 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ true, %64 ], [ false, %5 ]
-  %.0.i = phi i32 [ 0, %68 ], [ 5, %67 ], [ 4, %66 ], [ 3, %65 ], [ 2, %64 ], [ 1, %5 ]
+  %69 = phi i1 [ false, %68 ], [ true, %64 ], [ false, %65 ], [ false, %66 ], [ false, %67 ], [ false, %5 ]
+  %.0.i = phi i32 [ 0, %68 ], [ 2, %64 ], [ 3, %65 ], [ 4, %66 ], [ 5, %67 ], [ 1, %5 ]
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %71 = load i8, ptr %70, align 8, !tbaa !922
   switch i8 %71, label %_ZNK5arrow5Datum4kindEv.exit47.thread [
@@ -43067,7 +43067,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i62
   br label %_ZN5arrow7compute8internal12_GLOBAL__N_116TakeMetaFunction7TakeTCTERKSt10shared_ptrINS_5TableEERKS4_INS_12ChunkedArrayEERKNS0_11TakeOptionsEPNS0_11ExecContextE.exit
 
 common.resume:                                    ; preds = %.body, %478, %.body151, %.body201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307, %1448
-  %common.resume.op = phi { ptr, i32 } [ %.pn26.i225, %1448 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307 ], [ %eh.lpad-body202, %.body201 ], [ %eh.lpad-body152, %.body151 ], [ %479, %478 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn26.i225, %1448 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307 ], [ %eh.lpad-body, %.body ], [ %479, %478 ], [ %eh.lpad-body152, %.body151 ], [ %eh.lpad-body202, %.body201 ]
   resume { ptr, i32 } %common.resume.op
 
 1448:                                             ; preds = %1412, %1273

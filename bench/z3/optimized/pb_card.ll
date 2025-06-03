@@ -269,7 +269,7 @@ define hidden noundef double @_ZNK2pb4card10get_rewardERKNS_16solver_interfaceER
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %22, %.lr.ph.split.us
-  %.330.us = phi i32 [ %.02767.us, %.lr.ph.split.us ], [ %23, %22 ]
+  %.330.us = phi i32 [ %23, %22 ], [ %.02767.us, %.lr.ph.split.us ]
   %26 = add i32 %.03166.us, 1
   br label %27
 
@@ -301,7 +301,7 @@ define hidden noundef double @_ZNK2pb4card10get_rewardERKNS_16solver_interfaceER
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %33, %.lr.ph.split
-  %.330 = phi i32 [ %.02767, %.lr.ph.split ], [ %34, %33 ]
+  %.330 = phi i32 [ %34, %33 ], [ %.02767, %.lr.ph.split ]
   %37 = load ptr, ptr %2, align 8, !tbaa !26
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef double %38(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 %.sroa.03.0.copyload)
@@ -1082,8 +1082,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERKNS_16solver_inte
   br label %19
 
 19:                                               ; preds = %.lr.ph, %17, %15
-  %.116 = phi i32 [ %.01521, %.lr.ph ], [ %18, %17 ], [ %.01521, %15 ]
-  %.1 = phi i32 [ %.01422, %.lr.ph ], [ %.01422, %17 ], [ %16, %15 ]
+  %.116 = phi i32 [ %.01521, %.lr.ph ], [ %.01521, %15 ], [ %18, %17 ]
+  %.1 = phi i32 [ %.01422, %.lr.ph ], [ %16, %15 ], [ %.01422, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %.01720, i64 4
   %.not = icmp eq ptr %20, %.ptr24
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1144,8 +1144,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERK7svectorI5lboolj
   br label %24
 
 24:                                               ; preds = %12, %22, %20
-  %.116 = phi i32 [ %.01521, %12 ], [ %23, %22 ], [ %.01521, %20 ]
-  %.1 = phi i32 [ %.01422, %12 ], [ %.01422, %22 ], [ %21, %20 ]
+  %.116 = phi i32 [ %.01521, %12 ], [ %.01521, %20 ], [ %23, %22 ]
+  %.1 = phi i32 [ %.01422, %12 ], [ %21, %20 ], [ %.01422, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %.01720, i64 4
   %.not = icmp eq ptr %25, %.ptr24
   br i1 %.not, label %._crit_edge, label %12

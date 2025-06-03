@@ -1644,7 +1644,7 @@ _process_id_rc_list.exit.i:                       ; preds = %273, %270
   br label %321
 
 321:                                              ; preds = %317, %315, %313, %_process_id_rc_list.exit.i, %254, %245
-  %.017.i = phi i32 [ -1, %245 ], [ -1, %317 ], [ %285, %313 ], [ -1, %315 ], [ -1, %254 ], [ %271, %_process_id_rc_list.exit.i ]
+  %.017.i = phi i32 [ -1, %245 ], [ -1, %317 ], [ -1, %254 ], [ %271, %_process_id_rc_list.exit.i ], [ %285, %313 ], [ -1, %315 ]
   call void @slurm_free_buf(ptr noundef nonnull %243) #13
   br label %_handle_mult_rc_ret.exit
 
@@ -2465,7 +2465,7 @@ _add_sending_script_env.exit:                     ; preds = %28
   br label %86
 
 86:                                               ; preds = %82, %83, %38, %37, %8
-  %.031 = phi i32 [ %7, %8 ], [ 0, %83 ], [ %44, %82 ], [ %17, %38 ], [ 0, %37 ]
+  %.031 = phi i32 [ %7, %8 ], [ 0, %83 ], [ %17, %38 ], [ 0, %37 ], [ %44, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   ret i32 %.031
 }

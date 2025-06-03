@@ -875,7 +875,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit": ; preds = %74, %71
-  %.0.i11 = phi ptr [ %77, %74 ], [ %73, %71 ]
+  %.0.i11 = phi ptr [ %73, %71 ], [ %77, %74 ]
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %81 = load i64, ptr %80, align 8, !range !177, !invariant.load !4
   %82 = add i64 %81, -1

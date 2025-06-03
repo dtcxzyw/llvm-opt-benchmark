@@ -2847,7 +2847,7 @@ _ZNK11QModelIndex7isValidEv.exit143:              ; preds = %_ZNK11QModelIndex6p
   br label %247
 
 246:                                              ; preds = %_ZN7QStringD2Ev.exit140, %_ZN7QStringD2Ev.exit132, %_ZN7QStringD2Ev.exit124, %_ZN7QStringD2Ev.exit107, %_ZN7QStringD2Ev.exit90, %_ZN7QStringD2Ev.exit73, %_ZN7QStringD2Ev.exit56, %_ZN7QStringD2Ev.exit48
-  %.pn42 = phi { ptr, i32 } [ %56, %_ZN7QStringD2Ev.exit48 ], [ %220, %_ZN7QStringD2Ev.exit140 ], [ %208, %_ZN7QStringD2Ev.exit132 ], [ %.pn40, %_ZN7QStringD2Ev.exit73 ], [ %.pn38, %_ZN7QStringD2Ev.exit90 ], [ %.pn36, %_ZN7QStringD2Ev.exit107 ], [ %.pn, %_ZN7QStringD2Ev.exit124 ], [ %72, %_ZN7QStringD2Ev.exit56 ]
+  %.pn42 = phi { ptr, i32 } [ %56, %_ZN7QStringD2Ev.exit48 ], [ %72, %_ZN7QStringD2Ev.exit56 ], [ %.pn40, %_ZN7QStringD2Ev.exit73 ], [ %.pn38, %_ZN7QStringD2Ev.exit90 ], [ %.pn36, %_ZN7QStringD2Ev.exit107 ], [ %.pn, %_ZN7QStringD2Ev.exit124 ], [ %208, %_ZN7QStringD2Ev.exit132 ], [ %220, %_ZN7QStringD2Ev.exit140 ]
   resume { ptr, i32 } %.pn42
 
 247:                                              ; preds = %35, %_ZN7QStringD2Ev.exit, %_ZN7QStringD2Ev.exit52, %_ZN7QStringD2Ev.exit65, %_ZN7QStringD2Ev.exit82, %_ZN7QStringD2Ev.exit99, %168, %172, %_ZN7QStringD2Ev.exit116, %196, %_ZN7QStringD2Ev.exit128, %_ZN7QStringD2Ev.exit136, %234, %238, %241, %244, %_ZNK11QModelIndex7isValidEv.exit.thread

@@ -5137,7 +5137,7 @@ lean_alloc_ctor.exit582:                          ; preds = %lean_array_get.exit
   br label %122
 
 122:                                              ; preds = %lean_alloc_ctor.exit582, %lean_alloc_ctor.exit, %12
-  %.0326 = phi ptr [ %116, %lean_alloc_ctor.exit582 ], [ %63, %lean_alloc_ctor.exit ], [ %15, %12 ]
+  %.0326 = phi ptr [ %116, %lean_alloc_ctor.exit582 ], [ %15, %12 ], [ %63, %lean_alloc_ctor.exit ]
   %123 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_PartialFixpoint_unfoldPredRel___spec__2(ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %4, i64 noundef %.val551, i64 noundef %0, ptr noundef %.0326, ptr poison, ptr poison, ptr poison, ptr poison, ptr noundef %9)
   %124 = icmp eq i8 %1, 0
   br i1 %124, label %125, label %192
@@ -9132,7 +9132,7 @@ lean_alloc_ctor.exit582:                          ; preds = %lean_array_get.exit
   br label %122
 
 122:                                              ; preds = %lean_alloc_ctor.exit582, %lean_alloc_ctor.exit, %12
-  %.0326 = phi ptr [ %116, %lean_alloc_ctor.exit582 ], [ %63, %lean_alloc_ctor.exit ], [ %15, %12 ]
+  %.0326 = phi ptr [ %116, %lean_alloc_ctor.exit582 ], [ %15, %12 ], [ %63, %lean_alloc_ctor.exit ]
   %123 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_PartialFixpoint_unfoldPredRel___spec__4(ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %4, i64 noundef %.val551, i64 noundef %0, ptr noundef %.0326, ptr poison, ptr poison, ptr poison, ptr poison, ptr noundef %9)
   %124 = icmp eq i8 %1, 0
   br i1 %124, label %125, label %192
@@ -26776,7 +26776,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %78, %76
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %91, %.thread.i
-  %.1.i68 = phi ptr [ %.0.i.i.i, %91 ], [ %92, %.thread.i ]
+  %.1.i68 = phi ptr [ %92, %.thread.i ], [ %.0.i.i.i, %91 ]
   %93 = tail call ptr @l_Lean_Expr_getAppFn(ptr noundef %2) #6
   br i1 %.not71, label %94, label %lean_dec.exit53
 
@@ -27126,7 +27126,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %100, %98
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %113, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %113 ], [ %114, %.thread.i ]
+  %.1.i = phi ptr [ %114, %.thread.i ], [ %.0.i.i.i, %113 ]
   %.val.i204 = load i64, ptr %96, align 8, !tbaa !11
   %115 = icmp ugt i64 %.val.i204, 1
   br i1 %115, label %116, label %.thread.i205
@@ -27176,7 +27176,7 @@ lean_ensure_exclusive_array.exit.i.i208:          ; preds = %118, %116
   br label %lean_array_set.exit212
 
 lean_array_set.exit212:                           ; preds = %131, %.thread.i205
-  %.1.i206 = phi ptr [ %.0.i.i.i209, %131 ], [ %132, %.thread.i205 ]
+  %.1.i206 = phi ptr [ %132, %.thread.i205 ], [ %.0.i.i.i209, %131 ]
   br i1 %.not, label %133, label %lean_inc.exit106
 
 133:                                              ; preds = %lean_array_set.exit212

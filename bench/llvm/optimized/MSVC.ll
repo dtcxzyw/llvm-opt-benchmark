@@ -4815,8 +4815,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !282
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -8912,7 +8912,7 @@ _ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit.th
   br label %185
 
 185:                                              ; preds = %180, %175, %.thread156.i, %160, %155, %150, %145, %134, %129, %124, %119, %118, %114, %112, %107, %105, %74, %68, %64
-  %.1.i = phi i64 [ %.0164.i, %64 ], [ %.0164.i, %160 ], [ %.0164.i, %155 ], [ %140, %145 ], [ %.0164.i, %150 ], [ %.0164.i, %134 ], [ %.0164.i, %114 ], [ %.0164.i, %112 ], [ %.0164.i, %68 ], [ %.0164.i, %74 ], [ %.0164.i, %107 ], [ %.0164.i, %105 ], [ %113, %129 ], [ %113, %124 ], [ %113, %119 ], [ %113, %118 ], [ %.0164.i, %.thread156.i ], [ %166, %175 ], [ %.2155.i, %180 ]
+  %.1.i = phi i64 [ %.0164.i, %64 ], [ %.0164.i, %68 ], [ %.0164.i, %74 ], [ %.0164.i, %107 ], [ %.0164.i, %114 ], [ %.0164.i, %112 ], [ %.0164.i, %134 ], [ %140, %145 ], [ %.0164.i, %150 ], [ %.0164.i, %155 ], [ %.0164.i, %160 ], [ %.0164.i, %105 ], [ %113, %129 ], [ %113, %124 ], [ %113, %119 ], [ %113, %118 ], [ %.0164.i, %.thread156.i ], [ %166, %175 ], [ %.2155.i, %180 ]
   %186 = add i64 %.1.i, 1
   %.not.i61 = icmp eq i64 %186, %62
   br i1 %.not.i61, label %_ZL15TranslateOptArgPN4llvm3opt3ArgERNS0_14DerivedArgListEbPKcRKNS0_8OptTableE.exit, label %64, !llvm.loop !485
@@ -10738,7 +10738,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cx
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.032.1 = phi ptr [ %32, %31 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %34 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.1, ptr noundef %2) #18
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.loopexit, label %36
@@ -10748,7 +10748,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cx
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.032.2 = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.2, ptr noundef %2) #18
   %40 = icmp eq i32 %39, 0
   %spec.select = select i1 %40, ptr %.sroa.032.2, ptr %1

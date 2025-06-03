@@ -497,7 +497,7 @@ lxb_html_tokenizer_temp_append_data.exit110:      ; preds = %228
   br label %247
 
 247:                                              ; preds = %243, %lxb_html_tokenizer_temp_append_data.exit110, %lxb_html_tokenizer_temp_append_data.exit106, %lxb_html_tokenizer_temp_append_data.exit102, %lxb_html_tokenizer_temp_append_data.exit98, %lxb_html_tokenizer_temp_append_data.exit94, %lxb_html_tokenizer_temp_append_data.exit, %160, %205, %200, %204, %210, %119, %89, %58
-  %.0 = phi ptr [ %2, %210 ], [ %95, %119 ], [ %66, %89 ], [ %64, %58 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit94 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit98 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit102 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit106 ], [ %2, %204 ], [ %2, %200 ], [ %2, %205 ], [ %2, %160 ], [ %.075.lcssa, %243 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ]
+  %.0 = phi ptr [ %64, %58 ], [ %66, %89 ], [ %95, %119 ], [ %2, %210 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit94 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit98 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit102 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit106 ], [ %2, %204 ], [ %2, %200 ], [ %2, %205 ], [ %2, %160 ], [ %.075.lcssa, %243 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ]
   ret ptr %.0
 }
 
@@ -873,7 +873,7 @@ lxb_html_tokenizer_temp_append_data.exit87:       ; preds = %160
   br label %179
 
 179:                                              ; preds = %175, %lxb_html_tokenizer_temp_append_data.exit87, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit81, %lxb_html_tokenizer_temp_append_data.exit77, %lxb_html_tokenizer_temp_append_data.exit, %117, %121, %122, %37
-  %.0 = phi ptr [ %2, %122 ], [ %13, %37 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit77 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit81 ], [ %2, %121 ], [ %2, %117 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.061.lcssa, %175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit87 ]
+  %.0 = phi ptr [ %13, %37 ], [ %2, %122 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit77 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit81 ], [ %2, %121 ], [ %2, %117 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.061.lcssa, %175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit87 ]
   ret ptr %.0
 }
 
@@ -1013,7 +1013,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %28
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %65, %3, %lxb_html_tokenizer_temp_append.exit, %58, %56, %49, %44, %36, %15
-  %.0 = phi ptr [ %2, %56 ], [ %.03850, %58 ], [ %.03850, %49 ], [ %.03850, %44 ], [ %2, %15 ], [ %43, %36 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %1, %3 ], [ %scevgep, %65 ]
+  %.0 = phi ptr [ %2, %56 ], [ %.03850, %58 ], [ %2, %15 ], [ %43, %36 ], [ %.03850, %44 ], [ %.03850, %49 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %1, %3 ], [ %scevgep, %65 ]
   ret ptr %.0
 }
 
@@ -1362,7 +1362,7 @@ lxb_html_tokenizer_temp_append_data.exit86:       ; preds = %173
   br label %192
 
 192:                                              ; preds = %188, %lxb_html_tokenizer_temp_append_data.exit86, %149, %lxb_html_tokenizer_temp_append_data.exit82, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit76, %47, %lxb_html_tokenizer_temp_append_data.exit, %151, %59, %49
-  %.0 = phi ptr [ %2, %149 ], [ %158, %151 ], [ %.062110, %59 ], [ %2, %47 ], [ %.062110, %49 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit76 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit82 ], [ %.062.lcssa, %188 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit86 ]
+  %.0 = phi ptr [ %.062110, %49 ], [ %2, %47 ], [ %.062110, %59 ], [ %158, %151 ], [ %2, %149 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit76 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit82 ], [ %.062.lcssa, %188 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit86 ]
   ret ptr %.0
 }
 
@@ -1489,7 +1489,7 @@ define internal ptr @lxb_html_tokenizer_state_after_attribute_name(ptr noundef %
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %61, %3, %25, %29, %54, %52, %40, %30, %10, %8
-  %.0 = phi ptr [ %2, %52 ], [ %.04152, %54 ], [ %2, %40 ], [ %35, %30 ], [ %11, %10 ], [ %9, %8 ], [ %2, %29 ], [ %2, %25 ], [ %1, %3 ], [ %scevgep, %61 ]
+  %.0 = phi ptr [ %2, %52 ], [ %.04152, %54 ], [ %9, %8 ], [ %11, %10 ], [ %35, %30 ], [ %2, %40 ], [ %2, %29 ], [ %2, %25 ], [ %1, %3 ], [ %scevgep, %61 ]
   ret ptr %.0
 }
 
@@ -1623,7 +1623,7 @@ define hidden ptr @lxb_html_tokenizer_state_self_closing_start_tag(ptr noundef %
   br label %48
 
 48:                                               ; preds = %21, %25, %44, %36, %26
-  %.0 = phi ptr [ %1, %44 ], [ %2, %36 ], [ %31, %26 ], [ %2, %25 ], [ %2, %21 ]
+  %.0 = phi ptr [ %1, %44 ], [ %31, %26 ], [ %2, %36 ], [ %2, %25 ], [ %2, %21 ]
   ret ptr %.0
 }
 
@@ -2506,7 +2506,7 @@ lxb_html_tokenizer_temp_append_data.exit126:      ; preds = %235
   br label %254
 
 254:                                              ; preds = %250, %lxb_html_tokenizer_temp_append_data.exit126, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit120, %137, %lxb_html_tokenizer_temp_append_data.exit116, %92, %lxb_html_tokenizer_temp_append_data.exit112, %47, %lxb_html_tokenizer_temp_append_data.exit, %154, %158, %166, %159, %94, %49
-  %.0 = phi ptr [ %2, %166 ], [ %2, %137 ], [ %162, %159 ], [ %2, %92 ], [ %101, %94 ], [ %2, %47 ], [ %56, %49 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit112 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ], [ %2, %158 ], [ %2, %154 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit120 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.090.lcssa, %250 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit126 ]
+  %.0 = phi ptr [ %56, %49 ], [ %2, %47 ], [ %101, %94 ], [ %2, %92 ], [ %162, %159 ], [ %2, %137 ], [ %2, %166 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit112 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ], [ %2, %158 ], [ %2, %154 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit120 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.090.lcssa, %250 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit126 ]
   ret ptr %.0
 }
 
@@ -3498,7 +3498,7 @@ lxb_html_tokenizer_temp_append_data.exit96:       ; preds = %182
   br label %201
 
 201:                                              ; preds = %197, %lxb_html_tokenizer_temp_append_data.exit96, %lxb_html_tokenizer_temp_append_data.exit92, %lxb_html_tokenizer_temp_append_data.exit88, %lxb_html_tokenizer_temp_append_data.exit84, %lxb_html_tokenizer_temp_append_data.exit, %152, %156, %165, %157, %66, %35
-  %.0 = phi ptr [ %2, %157 ], [ %2, %165 ], [ %43, %66 ], [ %41, %35 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit84 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit88 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit92 ], [ %2, %156 ], [ %2, %152 ], [ %.068.lcssa, %197 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit96 ]
+  %.0 = phi ptr [ %41, %35 ], [ %43, %66 ], [ %2, %157 ], [ %2, %165 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit84 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit88 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit92 ], [ %2, %156 ], [ %2, %152 ], [ %.068.lcssa, %197 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit96 ]
   ret ptr %.0
 }
 
@@ -4106,7 +4106,7 @@ lxb_html_tokenizer_temp_append_data.exit110:      ; preds = %202
   br label %221
 
 221:                                              ; preds = %217, %lxb_html_tokenizer_temp_append_data.exit110, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit104, %lxb_html_tokenizer_temp_append_data.exit100, %lxb_html_tokenizer_temp_append_data.exit96, %lxb_html_tokenizer_temp_append_data.exit, %161, %165, %51, %55, %166, %83, %56
-  %.0 = phi ptr [ %2, %166 ], [ %59, %83 ], [ %57, %56 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %55 ], [ %2, %51 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit96 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit100 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit104 ], [ %2, %165 ], [ %2, %161 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.078.lcssa, %217 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ]
+  %.0 = phi ptr [ %57, %56 ], [ %59, %83 ], [ %2, %166 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %55 ], [ %2, %51 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit96 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit100 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit104 ], [ %2, %165 ], [ %2, %161 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.078.lcssa, %217 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ]
   ret ptr %.0
 }
 
@@ -4201,7 +4201,7 @@ define internal ptr @lxb_html_tokenizer_state_before_attribute_value(ptr noundef
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %40, %3, %28, %32, %39, %33, %10, %8
-  %.0 = phi ptr [ %.03038, %39 ], [ %38, %33 ], [ %11, %10 ], [ %9, %8 ], [ %2, %32 ], [ %2, %28 ], [ %1, %3 ], [ %scevgep, %40 ]
+  %.0 = phi ptr [ %.03038, %39 ], [ %9, %8 ], [ %11, %10 ], [ %38, %33 ], [ %2, %32 ], [ %2, %28 ], [ %1, %3 ], [ %scevgep, %40 ]
   ret ptr %.0
 }
 
@@ -4698,7 +4698,7 @@ lxb_html_tokenizer_temp_append_data.exit119:      ; preds = %260
   br label %279
 
 279:                                              ; preds = %275, %lxb_html_tokenizer_temp_append_data.exit119, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit113, %lxb_html_tokenizer_temp_append_data.exit109, %lxb_html_tokenizer_temp_append_data.exit105, %lxb_html_tokenizer_temp_append_data.exit101, %92, %lxb_html_tokenizer_temp_append_data.exit, %._crit_edge164, %155, %125, %94
-  %.081 = phi ptr [ %2, %._crit_edge164 ], [ %131, %155 ], [ %102, %125 ], [ %2, %92 ], [ %100, %94 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit101 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit105 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit109 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit113 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.082.lcssa, %275 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit119 ]
+  %.081 = phi ptr [ %100, %94 ], [ %2, %92 ], [ %102, %125 ], [ %131, %155 ], [ %2, %._crit_edge164 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit101 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit105 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit109 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit113 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.082.lcssa, %275 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit119 ]
   ret ptr %.081
 }
 
@@ -5158,7 +5158,7 @@ lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %238
   br label %257
 
 257:                                              ; preds = %253, %lxb_html_tokenizer_temp_append_data.exit116, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit110, %lxb_html_tokenizer_temp_append_data.exit106, %lxb_html_tokenizer_temp_append_data.exit102, %lxb_html_tokenizer_temp_append_data.exit98, %70, %lxb_html_tokenizer_temp_append_data.exit, %._crit_edge157, %133, %103, %72
-  %.079 = phi ptr [ %2, %._crit_edge157 ], [ %109, %133 ], [ %80, %103 ], [ %2, %70 ], [ %78, %72 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit98 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit102 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit106 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.080.lcssa, %253 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ]
+  %.079 = phi ptr [ %78, %72 ], [ %2, %70 ], [ %80, %103 ], [ %109, %133 ], [ %2, %._crit_edge157 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit98 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit102 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit106 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.080.lcssa, %253 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ]
   ret ptr %.079
 }
 
@@ -5642,7 +5642,7 @@ lxb_html_tokenizer_temp_append_data.exit133:      ; preds = %258
   br label %277
 
 277:                                              ; preds = %273, %lxb_html_tokenizer_temp_append_data.exit133, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit127, %150, %lxb_html_tokenizer_temp_append_data.exit123, %lxb_html_tokenizer_temp_append_data.exit119, %70, %lxb_html_tokenizer_temp_append_data.exit, %169, %173, %._crit_edge168, %174, %103, %72
-  %.0 = phi ptr [ %2, %._crit_edge168 ], [ %2, %150 ], [ %177, %174 ], [ %80, %103 ], [ %2, %70 ], [ %78, %72 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit119 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit123 ], [ %2, %173 ], [ %2, %169 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit127 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0102.lcssa, %273 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit133 ]
+  %.0 = phi ptr [ %78, %72 ], [ %2, %70 ], [ %80, %103 ], [ %177, %174 ], [ %2, %150 ], [ %2, %._crit_edge168 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit119 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit123 ], [ %2, %173 ], [ %2, %169 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit127 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0102.lcssa, %273 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit133 ]
   ret ptr %.0
 }
 
@@ -5734,7 +5734,7 @@ define internal ptr @lxb_html_tokenizer_state_after_attribute_value_quoted(ptr n
   br label %47
 
 47:                                               ; preds = %22, %26, %43, %37, %27, %7, %5
-  %.0 = phi ptr [ %1, %43 ], [ %2, %37 ], [ %32, %27 ], [ %8, %7 ], [ %6, %5 ], [ %2, %26 ], [ %2, %22 ]
+  %.0 = phi ptr [ %1, %43 ], [ %6, %5 ], [ %8, %7 ], [ %32, %27 ], [ %2, %37 ], [ %2, %26 ], [ %2, %22 ]
   ret ptr %.0
 }
 

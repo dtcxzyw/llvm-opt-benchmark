@@ -58,7 +58,7 @@ define hidden i64 @SDL_iconv_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %16
 
 16:                                               ; preds = %13, %14, %15, %10, %7, %5
-  %.0 = phi i64 [ -1, %5 ], [ -1, %15 ], [ -4, %14 ], [ -3, %13 ], [ -2, %10 ], [ %8, %7 ]
+  %.0 = phi i64 [ -1, %5 ], [ -1, %15 ], [ -3, %13 ], [ -4, %14 ], [ -2, %10 ], [ %8, %7 ]
   ret i64 %.0
 }
 

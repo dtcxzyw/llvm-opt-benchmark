@@ -769,7 +769,7 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %80, %83, %86, %89, %95
-  %.0.i30 = phi i64 [ %90, %89 ], [ %88, %86 ], [ %85, %83 ], [ %82, %80 ], [ %96, %95 ]
+  %.0.i30 = phi i64 [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %90, %89 ], [ %96, %95 ]
   %97 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv183
   store i64 %.0.i30, ptr %97, align 8
   %98 = load i16, ptr %77, align 4
@@ -985,7 +985,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
   br label %fetch_att.exit33
 
 fetch_att.exit33:                                 ; preds = %203, %206, %209, %212, %218
-  %.0.i32 = phi i64 [ %213, %212 ], [ %211, %209 ], [ %208, %206 ], [ %205, %203 ], [ %219, %218 ]
+  %.0.i32 = phi i64 [ %205, %203 ], [ %208, %206 ], [ %211, %209 ], [ %213, %212 ], [ %219, %218 ]
   %220 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
   store i64 %.0.i32, ptr %220, align 8
   %221 = load i16, ptr %200, align 4
@@ -1179,7 +1179,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %156, %.
   br label %fetch_att.exit36
 
 fetch_att.exit36:                                 ; preds = %311, %314, %317, %320, %326
-  %.0.i35 = phi i64 [ %321, %320 ], [ %319, %317 ], [ %316, %314 ], [ %313, %311 ], [ %327, %326 ]
+  %.0.i35 = phi i64 [ %313, %311 ], [ %316, %314 ], [ %319, %317 ], [ %321, %320 ], [ %327, %326 ]
   %328 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv187
   store i64 %.0.i35, ptr %328, align 8
   %329 = load i16, ptr %290, align 4
@@ -1778,7 +1778,7 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %80, %83, %86, %89, %95
-  %.0.i30 = phi i64 [ %90, %89 ], [ %88, %86 ], [ %85, %83 ], [ %82, %80 ], [ %96, %95 ]
+  %.0.i30 = phi i64 [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %90, %89 ], [ %96, %95 ]
   %97 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv183
   store i64 %.0.i30, ptr %97, align 8
   %98 = load i16, ptr %77, align 4
@@ -1994,7 +1994,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
   br label %fetch_att.exit33
 
 fetch_att.exit33:                                 ; preds = %203, %206, %209, %212, %218
-  %.0.i32 = phi i64 [ %213, %212 ], [ %211, %209 ], [ %208, %206 ], [ %205, %203 ], [ %219, %218 ]
+  %.0.i32 = phi i64 [ %205, %203 ], [ %208, %206 ], [ %211, %209 ], [ %213, %212 ], [ %219, %218 ]
   %220 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
   store i64 %.0.i32, ptr %220, align 8
   %221 = load i16, ptr %200, align 4
@@ -2188,7 +2188,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %156, %.
   br label %fetch_att.exit36
 
 fetch_att.exit36:                                 ; preds = %311, %314, %317, %320, %326
-  %.0.i35 = phi i64 [ %321, %320 ], [ %319, %317 ], [ %316, %314 ], [ %313, %311 ], [ %327, %326 ]
+  %.0.i35 = phi i64 [ %313, %311 ], [ %316, %314 ], [ %319, %317 ], [ %321, %320 ], [ %327, %326 ]
   %328 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv187
   store i64 %.0.i35, ptr %328, align 8
   %329 = load i16, ptr %290, align 4
@@ -2803,7 +2803,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %80, %83, %86, %89, %95
-  %.0.i30 = phi i64 [ %90, %89 ], [ %88, %86 ], [ %85, %83 ], [ %82, %80 ], [ %96, %95 ]
+  %.0.i30 = phi i64 [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %90, %89 ], [ %96, %95 ]
   %97 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv183
   store i64 %.0.i30, ptr %97, align 8
   %98 = load i16, ptr %77, align 4
@@ -3019,7 +3019,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
   br label %fetch_att.exit33
 
 fetch_att.exit33:                                 ; preds = %203, %206, %209, %212, %218
-  %.0.i32 = phi i64 [ %213, %212 ], [ %211, %209 ], [ %208, %206 ], [ %205, %203 ], [ %219, %218 ]
+  %.0.i32 = phi i64 [ %205, %203 ], [ %208, %206 ], [ %211, %209 ], [ %213, %212 ], [ %219, %218 ]
   %220 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
   store i64 %.0.i32, ptr %220, align 8
   %221 = load i16, ptr %200, align 4
@@ -3213,7 +3213,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %156, %.
   br label %fetch_att.exit36
 
 fetch_att.exit36:                                 ; preds = %311, %314, %317, %320, %326
-  %.0.i35 = phi i64 [ %321, %320 ], [ %319, %317 ], [ %316, %314 ], [ %313, %311 ], [ %327, %326 ]
+  %.0.i35 = phi i64 [ %313, %311 ], [ %316, %314 ], [ %319, %317 ], [ %321, %320 ], [ %327, %326 ]
   %328 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv187
   store i64 %.0.i35, ptr %328, align 8
   %329 = load i16, ptr %290, align 4

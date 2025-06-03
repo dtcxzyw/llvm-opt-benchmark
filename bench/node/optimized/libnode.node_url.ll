@@ -3074,7 +3074,7 @@ do.body103:                                       ; preds = %_ZNK2v820FunctionCa
 
 do.end107:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   switch i32 %ref.tmp44.sroa.244.0.extract.trunc, label %do.body152 [
-    i32 6, label %sw.epilog
+    i32 6, label %sw.bb
     i32 8, label %sw.bb111
     i32 1, label %sw.bb114
     i32 2, label %sw.bb119
@@ -3083,8 +3083,12 @@ do.end107:                                        ; preds = %_ZNK2v820FunctionCa
     i32 3, label %sw.bb134
     i32 0, label %sw.bb139
     i32 7, label %sw.bb144
-    i32 4, label %sw.bb147
+    i32 4, label %sw.epilog
   ]
+
+sw.bb:                                            ; preds = %do.end107
+  %call110 = call noundef zeroext i1 @_ZN3ada14url_aggregator12set_pathnameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
+  br i1 %call110, label %if.end159, label %if.then155
 
 sw.bb111:                                         ; preds = %do.end107
   call void @_ZN3ada14url_aggregator8set_hashESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
@@ -3118,20 +3122,16 @@ sw.bb144:                                         ; preds = %do.end107
   call void @_ZN3ada14url_aggregator10set_searchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
   br label %if.end159
 
-sw.bb147:                                         ; preds = %do.end107
-  %call150 = call noundef zeroext i1 @_ZN3ada14url_aggregator12set_usernameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
-  br i1 %call150, label %if.end159, label %if.then155
-
 do.body152:                                       ; preds = %do.end107
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node3url11BindingData6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_3) #22
   call void @abort() #23
   unreachable
 
 sw.epilog:                                        ; preds = %do.end107
-  %call110 = call noundef zeroext i1 @_ZN3ada14url_aggregator12set_pathnameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
-  br i1 %call110, label %if.end159, label %if.then155
+  %call150 = call noundef zeroext i1 @_ZN3ada14url_aggregator12set_usernameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
+  br i1 %call150, label %if.end159, label %if.then155
 
-if.then155:                                       ; preds = %sw.bb114, %sw.bb119, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb147, %sw.epilog
+if.then155:                                       ; preds = %sw.bb139, %sw.bb134, %sw.bb129, %sw.bb124, %sw.bb119, %sw.bb114, %sw.bb, %sw.epilog
   %68 = load ptr, ptr %args, align 8
   %arrayidx.i313 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %arrayidx.i755 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -3143,7 +3143,7 @@ if.then155:                                       ; preds = %sw.bb114, %sw.bb119
   store i64 %72, ptr %arrayidx.i313, align 8
   br label %cleanup
 
-if.end159:                                        ; preds = %sw.bb114, %sw.bb119, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb147, %sw.bb144, %sw.bb111, %sw.epilog
+if.end159:                                        ; preds = %sw.bb139, %sw.bb134, %sw.bb129, %sw.bb124, %sw.bb119, %sw.bb114, %sw.bb, %sw.bb111, %sw.bb144, %sw.epilog
   %components.i = getelementptr inbounds nuw i8, ptr %out, i64 48
   %type = getelementptr inbounds nuw i8, ptr %out, i64 11
   %73 = load i8, ptr %type, align 1

@@ -1034,7 +1034,7 @@ ehcleanup143:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 return:                                           ; preds = %if.else101, %if.then98, %if.else, %if.then84, %sw.bb76, %sw.bb72, %sw.bb
-  %retval.0 = phi double [ %49, %if.then98 ], [ %call108, %if.else101 ], [ %47, %if.then84 ], [ %call93, %if.else ], [ %call79, %sw.bb76 ], [ %call75, %sw.bb72 ], [ %44, %sw.bb ]
+  %retval.0 = phi double [ %44, %sw.bb ], [ %call75, %sw.bb72 ], [ %call79, %sw.bb76 ], [ %47, %if.then84 ], [ %call93, %if.else ], [ %49, %if.then98 ], [ %call108, %if.else101 ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup143, %ehcleanup67, %ehcleanup27
@@ -1812,7 +1812,7 @@ ehcleanup194:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 if.end198:                                        ; preds = %do.body26, %sw.bb, %sw.bb115, %sw.bb121, %if.else131, %if.then128, %if.else147, %if.then144
-  %r.0 = phi double [ %div146, %if.then144 ], [ %mul154, %if.else147 ], [ %div130, %if.then128 ], [ %mul138, %if.else131 ], [ %div123, %sw.bb121 ], [ %mul120, %sw.bb115 ], [ %div, %sw.bb ], [ 0.000000e+00, %do.body26 ]
+  %r.0 = phi double [ %div, %sw.bb ], [ %mul120, %sw.bb115 ], [ %div123, %sw.bb121 ], [ %div130, %if.then128 ], [ %mul138, %if.else131 ], [ %div146, %if.then144 ], [ %mul154, %if.else147 ], [ 0.000000e+00, %do.body26 ]
   %84 = load ptr, ptr %resultDC, align 8, !tbaa !14
   store ptr %84, ptr %agg.tmp, align 8, !tbaa !14
   %pn.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
@@ -2753,7 +2753,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
   ret ptr %out
 
 eh.resume:                                        ; preds = %ehcleanup202, %ehcleanup148, %ehcleanup95, %ehcleanup47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn, %ehcleanup202 ], [ %.pn.pn.pn.pn, %ehcleanup148 ], [ %.pn27.pn.pn.pn, %ehcleanup95 ], [ %.pn32.pn.pn.pn, %ehcleanup47 ], [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ]
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn, %ehcleanup202 ], [ %.pn32.pn.pn.pn, %ehcleanup47 ], [ %.pn27.pn.pn.pn, %ehcleanup95 ], [ %.pn.pn.pn.pn, %ehcleanup148 ], [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ]
   resume { ptr, i32 } %.pn37.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont186, %invoke.cont132, %invoke.cont79, %invoke.cont37

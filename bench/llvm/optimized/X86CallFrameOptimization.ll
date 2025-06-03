@@ -2356,7 +2356,7 @@ _ZN4llvm8DebugLocD2Ev.exit116.i:                  ; preds = %847, %_ZN4llvm10MIM
   br label %848
 
 848:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit116.i, %826, %_ZN4llvm8DebugLocD2Ev.exit.i
-  %.sroa.0140.0.i = phi ptr [ %843, %_ZN4llvm8DebugLocD2Ev.exit116.i ], [ %814, %826 ], [ %717, %_ZN4llvm8DebugLocD2Ev.exit.i ]
+  %.sroa.0140.0.i = phi ptr [ %717, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %843, %_ZN4llvm8DebugLocD2Ev.exit116.i ], [ %814, %826 ]
   %849 = load ptr, ptr %27, align 8, !tbaa !192
   %850 = load ptr, ptr %1, align 8, !tbaa !221
   %851 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %850, i32 noundef 20) #18

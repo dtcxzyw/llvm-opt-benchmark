@@ -2411,7 +2411,7 @@ common.resume:                                    ; preds = %87, %45
   br label %common.resume
 
 _ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit: ; preds = %3, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41
-  %.0.i = phi i32 [ 4, %41 ], [ 3, %40 ], [ 13, %39 ], [ 12, %38 ], [ 9, %37 ], [ 10, %36 ], [ 11, %35 ], [ 18, %34 ], [ %1, %33 ], [ 2, %32 ], [ 19, %31 ], [ 1, %30 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 1, %30 ], [ 19, %31 ], [ 2, %32 ], [ %1, %33 ], [ 18, %34 ], [ 11, %35 ], [ 10, %36 ], [ 9, %37 ], [ 12, %38 ], [ 13, %39 ], [ 3, %40 ], [ 4, %41 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %47, ptr %6, align 8, !tbaa !62
@@ -2757,7 +2757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %32
   br label %45
 
 45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %24, %43
-  %.pn14 = phi { ptr, i32 } [ %44, %43 ], [ %.pn32, %40 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ], [ %.pn1229, %24 ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ]
+  %.pn14 = phi { ptr, i32 } [ %44, %43 ], [ %.pn1229, %24 ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn32, %40 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ]
   resume { ptr, i32 } %.pn14
 
 46:                                               ; preds = %30, %14

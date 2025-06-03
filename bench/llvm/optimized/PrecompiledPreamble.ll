@@ -3305,7 +3305,7 @@ _ZN4llvm3sys2fs9file_sizeERKNS_5TwineERm.exit:    ; preds = %1
   br label %20
 
 20:                                               ; preds = %_ZN4llvm3sys2fs9file_sizeERKNS_5TwineERm.exit, %6
-  %.0 = phi i64 [ %.1, %_ZN4llvm3sys2fs9file_sizeERKNS_5TwineERm.exit ], [ %8, %6 ]
+  %.0 = phi i64 [ %8, %6 ], [ %.1, %_ZN4llvm3sys2fs9file_sizeERKNS_5TwineERm.exit ]
   ret i64 %.0
 }
 

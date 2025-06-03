@@ -4341,7 +4341,7 @@ if.end20.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb22.i.i.i.i
 
 sw.bb22.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end20.i.i.i.i
-  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ]
+  %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %__first.addr.1.val.i.i.i.i = load ptr, ptr %__first.addr.1.i.i.i.i, align 8
   %tobool.not.i.i38.i.i.i.i = icmp eq ptr %__first.addr.1.val.i.i.i.i, null
   br i1 %tobool.not.i.i38.i.i.i.i, label %"_ZSt9__find_ifIPSt4pairIPN6hermes5ValueEjEN9__gnu_cxx5__ops10_Iter_predIZNS1_11Instruction12eraseOperandES3_E3$_0EEET_SC_SC_T0_.exit.i.i", label %if.end25.i.i.i.i
@@ -4351,7 +4351,7 @@ if.end25.i.i.i.i:                                 ; preds = %sw.bb22.i.i.i.i
   br label %sw.bb27.i.i.i.i
 
 sw.bb27.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end25.i.i.i.i
-  %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ]
+  %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %__first.addr.2.val.i.i.i.i = load ptr, ptr %__first.addr.2.i.i.i.i, align 8
   %tobool.not.i.i39.i.i.i.i = icmp eq ptr %__first.addr.2.val.i.i.i.i, null
   br i1 %tobool.not.i.i39.i.i.i.i, label %"_ZSt9__find_ifIPSt4pairIPN6hermes5ValueEjEN9__gnu_cxx5__ops10_Iter_predIZNS1_11Instruction12eraseOperandES3_E3$_0EEET_SC_SC_T0_.exit.i.i", label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit
@@ -7460,7 +7460,7 @@ sw.bb202:                                         ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb202, %sw.bb73, %sw.bb64, %sw.bb52, %sw.bb40, %sw.bb7
-  %retval.0 = phi i32 [ %call7.i8, %sw.bb202 ], [ %call7.i, %sw.bb73 ], [ 2, %sw.bb64 ], [ %call54, %sw.bb52 ], [ 1, %sw.bb40 ], [ 0, %sw.bb7 ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ]
+  %retval.0 = phi i32 [ 0, %sw.bb7 ], [ 1, %sw.bb40 ], [ %call54, %sw.bb52 ], [ 2, %sw.bb64 ], [ %call7.i, %sw.bb73 ], [ %call7.i8, %sw.bb202 ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ]
   ret i32 %retval.0
 }
 

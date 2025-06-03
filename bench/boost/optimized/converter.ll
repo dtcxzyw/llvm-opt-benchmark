@@ -1266,7 +1266,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54: ; preds = %_ZN
   ret void
 
 209:                                              ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36
-  %.pn26 = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54 ], [ %.pn23.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36 ]
+  %.pn26 = phi { ptr, i32 } [ %.pn23.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54 ]
   resume { ptr, i32 } %.pn26
 }
 
@@ -1544,9 +1544,9 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br label %49
 
 49:                                               ; preds = %21, %44
-  %50 = phi ptr [ %6, %21 ], [ %41, %44 ]
-  %.0.i.ph.ph51 = phi i32 [ 2, %21 ], [ %.0.i.ph.ph52, %44 ]
-  %.2 = phi i32 [ %23, %21 ], [ %48, %44 ]
+  %50 = phi ptr [ %41, %44 ], [ %6, %21 ]
+  %.0.i.ph.ph51 = phi i32 [ %.0.i.ph.ph52, %44 ], [ 2, %21 ]
+  %.2 = phi i32 [ %48, %44 ], [ %23, %21 ]
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %52, !prof !30
 

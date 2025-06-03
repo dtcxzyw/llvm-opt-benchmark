@@ -1432,8 +1432,8 @@ default.unreachable:                              ; preds = %26
   unreachable
 
 get_midi_event_size.exit.i:                       ; preds = %38, %37, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
-  %.not72.i = phi i1 [ false, %38 ], [ false, %37 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ]
-  %.0.i.i = phi i32 [ 2, %38 ], [ 1, %37 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ]
+  %.not72.i = phi i1 [ false, %37 ], [ false, %38 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ]
+  %.0.i.i = phi i32 [ 1, %37 ], [ 2, %38 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ], [ 3, %26 ]
   %39 = or disjoint i32 %.02224, 1
   %40 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %39, i32 noundef %.0.i.i)
   %41 = load i32, ptr @hf_midi_event, align 4
@@ -1864,7 +1864,7 @@ define internal i32 @dissect_usb_audio_control(ptr noundef %0, ptr noundef %1, p
   br label %45
 
 45:                                               ; preds = %41, %43, %38, %34, %21
-  %.041 = phi i32 [ 0, %38 ], [ %44, %43 ], [ %42, %41 ], [ 0, %34 ], [ 0, %21 ]
+  %.041 = phi i32 [ 0, %38 ], [ %42, %41 ], [ %44, %43 ], [ 0, %34 ], [ 0, %21 ]
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %47 = load i8, ptr %46, align 4, !range !6, !noundef !7
   %48 = trunc nuw i8 %47 to i1
@@ -2976,7 +2976,7 @@ define internal fastcc noundef i32 @dissect_as_if_format_type_body(ptr noundef %
   br i1 %.not115.i, label %dissect_as_if_format_type_ver1_body.exit, label %.preheader3.i, !llvm.loop !19
 
 dissect_as_if_format_type_ver1_body.exit:         ; preds = %.preheader3.i, %.preheader1.i, %.preheader.i, %7, %22, %40, %72
-  %.1.i = phi i32 [ 1, %7 ], [ 11, %72 ], [ 12, %40 ], [ 11, %22 ], [ %.010.i, %.preheader.i ], [ %.28.i, %.preheader1.i ], [ %.36.i, %.preheader3.i ]
+  %.1.i = phi i32 [ 1, %7 ], [ 11, %22 ], [ 12, %40 ], [ 11, %72 ], [ %.010.i, %.preheader.i ], [ %.28.i, %.preheader1.i ], [ %.36.i, %.preheader3.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -3479,10 +3479,10 @@ get_addressed_entity_type.exit.i:                 ; preds = %40
   br label %62
 
 62:                                               ; preds = %61, %57, %56, %54, %49
-  %.0100.ph.i = phi i32 [ 3, %49 ], [ 0, %54 ], [ 1, %56 ], [ 0, %57 ], [ 1, %61 ]
-  %.not105.ph.i = phi i1 [ false, %49 ], [ true, %54 ], [ false, %56 ], [ true, %57 ], [ false, %61 ]
-  %.099.ph.i = phi ptr [ @.str.825, %49 ], [ null, %54 ], [ @.str.826, %56 ], [ null, %57 ], [ @.str.827, %61 ]
-  %.098.ph.i = phi ptr [ @v2_clksrc_cs_vals, %49 ], [ @v2_clksrc_cs_vals, %54 ], [ @v2_clksrc_cs_vals, %56 ], [ @v2_clksel_cs_vals, %57 ], [ @v2_clksel_cs_vals, %61 ]
+  %.0100.ph.i = phi i32 [ 3, %49 ], [ 0, %57 ], [ 1, %61 ], [ 0, %54 ], [ 1, %56 ]
+  %.not105.ph.i = phi i1 [ false, %49 ], [ true, %57 ], [ false, %61 ], [ true, %54 ], [ false, %56 ]
+  %.099.ph.i = phi ptr [ @.str.825, %49 ], [ null, %57 ], [ @.str.827, %61 ], [ null, %54 ], [ @.str.826, %56 ]
+  %.098.ph.i = phi ptr [ @v2_clksrc_cs_vals, %49 ], [ @v2_clksel_cs_vals, %57 ], [ @v2_clksel_cs_vals, %61 ], [ @v2_clksrc_cs_vals, %54 ], [ @v2_clksrc_cs_vals, %56 ]
   %63 = tail call ptr @try_val_to_str(i32 noundef %48, ptr noundef nonnull %.098.ph.i)
   %.not104.i = icmp eq ptr %63, null
   br i1 %.not104.i, label %.thread122.i, label %64
@@ -3596,13 +3596,13 @@ default.unreachable:                              ; preds = %102
   unreachable
 
 118:                                              ; preds = %113, %108, %103, %102
-  %.096.i = phi ptr [ @.str.830, %113 ], [ @.str.829, %108 ], [ @.str.828, %103 ], [ @.str.831, %102 ]
-  %.not106.i = phi i1 [ false, %113 ], [ false, %108 ], [ false, %103 ], [ true, %102 ]
-  %.095.i = phi i32 [ 4, %113 ], [ 2, %108 ], [ 1, %103 ], [ %.0100115129.i, %102 ]
-  %.094.i = phi i32 [ %114, %113 ], [ %109, %108 ], [ %104, %103 ], [ %.0100115129.i, %102 ]
-  %.093.i = phi i32 [ %115, %113 ], [ %110, %108 ], [ %105, %103 ], [ %.0100115129.i, %102 ]
-  %.092.i = phi i32 [ %116, %113 ], [ %111, %108 ], [ %106, %103 ], [ %.0100115129.i, %102 ]
-  %.091.i = phi i32 [ %117, %113 ], [ %112, %108 ], [ %107, %103 ], [ %.0100115129.i, %102 ]
+  %.096.i = phi ptr [ @.str.828, %103 ], [ @.str.829, %108 ], [ @.str.830, %113 ], [ @.str.831, %102 ]
+  %.not106.i = phi i1 [ false, %103 ], [ false, %108 ], [ false, %113 ], [ true, %102 ]
+  %.095.i = phi i32 [ 1, %103 ], [ 2, %108 ], [ 4, %113 ], [ %.0100115129.i, %102 ]
+  %.094.i = phi i32 [ %104, %103 ], [ %109, %108 ], [ %114, %113 ], [ %.0100115129.i, %102 ]
+  %.093.i = phi i32 [ %105, %103 ], [ %110, %108 ], [ %115, %113 ], [ %.0100115129.i, %102 ]
+  %.092.i = phi i32 [ %106, %103 ], [ %111, %108 ], [ %116, %113 ], [ %.0100115129.i, %102 ]
+  %.091.i = phi i32 [ %107, %103 ], [ %112, %108 ], [ %117, %113 ], [ %.0100115129.i, %102 ]
   %119 = load i32, ptr @ett_parameter_block, align 4
   %120 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.097.i, i32 noundef -1, i32 noundef %119, ptr noundef nonnull %6, ptr noundef nonnull %.096.i)
   br i1 %.not105117128.i, label %123, label %121

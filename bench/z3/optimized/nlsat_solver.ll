@@ -11711,7 +11711,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit:    ; preds = %2
   %.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %.lr.ph.i
 
-_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread: ; preds = %.lr.ph.i, %25, %27, %29, %31, %33, %35, %37, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit
+_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread: ; preds = %.lr.ph.i, %37, %35, %33, %31, %29, %27, %25, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit
   %17 = getelementptr inbounds nuw i8, ptr %.01115.i, i64 4
   %.not.i = icmp eq ptr %17, %.ptr19.i
   br i1 %.not.i, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit, label %.lr.ph.i
@@ -11729,50 +11729,50 @@ _ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread: ; preds =
 23:                                               ; preds = %.lr.ph.i
   %24 = load i32, ptr %21, align 4, !tbaa !188
   switch i32 %24, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17 [
-    i32 0, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit
-    i32 1, label %25
-    i32 2, label %27
-    i32 10, label %29
-    i32 11, label %31
-    i32 12, label %33
-    i32 13, label %35
-    i32 14, label %37
+    i32 0, label %25
+    i32 1, label %27
+    i32 2, label %29
+    i32 10, label %31
+    i32 11, label %33
+    i32 12, label %35
+    i32 13, label %37
+    i32 14, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit
   ]
 
 25:                                               ; preds = %23
   %26 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not15.i = icmp eq i32 %26, 0
-  br i1 %.not15.i, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
+  %.not23 = icmp eq i32 %26, 0
+  br i1 %.not23, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
 
 27:                                               ; preds = %23
   %28 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not14.i15 = icmp eq i32 %28, 0
-  br i1 %.not14.i15, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
+  %.not15.i = icmp eq i32 %28, 0
+  br i1 %.not15.i, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
 
 29:                                               ; preds = %23
   %30 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not22 = icmp eq i32 %30, 0
-  br i1 %.not22, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
+  %.not14.i15 = icmp eq i32 %30, 0
+  br i1 %.not14.i15, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
 
 31:                                               ; preds = %23
   %32 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not13.i = icmp eq i32 %32, 0
-  br i1 %.not13.i, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
+  %.not22 = icmp eq i32 %32, 0
+  br i1 %.not22, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
 
 33:                                               ; preds = %23
   %34 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not.i14 = icmp eq i32 %34, 0
-  br i1 %.not.i14, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
+  %.not13.i = icmp eq i32 %34, 0
+  br i1 %.not13.i, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
 
 35:                                               ; preds = %23
   %36 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not21 = icmp eq i32 %36, 0
-  br i1 %.not21, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
+  %.not.i14 = icmp eq i32 %36, 0
+  br i1 %.not.i14, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread
 
 37:                                               ; preds = %23
   %38 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not20 = icmp eq i32 %38, 0
-  br i1 %.not20, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
+  %.not21 = icmp eq i32 %38, 0
+  br i1 %.not21, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
 
 _ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17: ; preds = %23
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 2914, ptr noundef nonnull @.str.13)
@@ -11781,16 +11781,16 @@ _ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17: ; preds
 
 _ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit: ; preds = %23
   %39 = and i32 %.sroa.01.0.copyload.i, 1
-  %.not23 = icmp eq i32 %39, 0
-  br i1 %.not23, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
+  %.not20 = icmp eq i32 %39, 0
+  br i1 %.not20, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread
 
 _ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit: ; preds = %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread, %11
   %40 = getelementptr inbounds nuw i8, ptr %.01329, i64 8
   %.not = icmp eq ptr %40, %8
   br i1 %.not, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %11
 
-_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread: ; preds = %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit, %25, %27, %29, %31, %33, %35, %37, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit, %2, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17
-  %.not27 = phi i1 [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17 ], [ true, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit ], [ true, %2 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit ], [ false, %37 ], [ false, %35 ], [ false, %33 ], [ false, %31 ], [ false, %29 ], [ false, %27 ], [ false, %25 ], [ true, %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit ]
+_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread: ; preds = %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit, %37, %35, %33, %31, %29, %27, %25, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit, %2, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17
+  %.not27 = phi i1 [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17 ], [ true, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit ], [ true, %2 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %31 ], [ false, %33 ], [ false, %35 ], [ false, %37 ], [ true, %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit ]
   ret i1 %.not27
 }
 
@@ -17417,7 +17417,7 @@ _ZN5nlsat21scoped_literal_vector9push_backEN3sat7literalE.exit: ; preds = %197, 
           to label %_ZNK5nlsat6solver3imp9is_markedEj.exit.thread unwind label %.loopexit.split-lp
 
 _ZNK5nlsat6solver3imp9is_markedEj.exit.thread:    ; preds = %100, %_ZNK6vectorIcLb0EjE3getEjRKc.exit.i, %169, %255, %_ZN5nlsat6solver3imp14resolve_clauseEjRNS_6clauseE.exit, %_ZN5nlsat21scoped_literal_vector9push_backEN3sat7literalE.exit, %_ZNK5nlsat6solver3imp9is_markedEj.exit, %93
-  %.151 = phi i1 [ %.050246, %93 ], [ %.050246, %_ZNK5nlsat6solver3imp9is_markedEj.exit ], [ %.050246, %255 ], [ true, %_ZN5nlsat21scoped_literal_vector9push_backEN3sat7literalE.exit ], [ %.050246, %169 ], [ %.050246, %_ZN5nlsat6solver3imp14resolve_clauseEjRNS_6clauseE.exit ], [ %.050246, %_ZNK6vectorIcLb0EjE3getEjRKc.exit.i ], [ %.050246, %100 ]
+  %.151 = phi i1 [ %.050246, %93 ], [ %.050246, %_ZNK5nlsat6solver3imp9is_markedEj.exit ], [ %.050246, %255 ], [ %.050246, %_ZN5nlsat6solver3imp14resolve_clauseEjRNS_6clauseE.exit ], [ %.050246, %169 ], [ true, %_ZN5nlsat21scoped_literal_vector9push_backEN3sat7literalE.exit ], [ %.050246, %_ZNK6vectorIcLb0EjE3getEjRKc.exit.i ], [ %.050246, %100 ]
   %256 = load i32, ptr %23, align 8, !tbaa !446
   %.not = icmp eq i32 %256, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !448

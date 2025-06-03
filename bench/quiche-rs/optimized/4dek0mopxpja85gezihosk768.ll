@@ -1476,7 +1476,7 @@ default.unreachable:                              ; preds = %29
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17he50afd3dabb80f20E.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17he50afd3dabb80f20E.exit": ; preds = %.noexc2, %.noexc1, %.noexc, %36, %35, %29
-  %.sroa.04.0 = phi i64 [ %.sroa.04.0.copyload5, %.noexc2 ], [ -9223372036854775804, %.noexc1 ], [ -9223372036854775805, %.noexc ], [ %32, %36 ], [ %32, %35 ], [ -9223372036854775808, %29 ]
+  %.sroa.04.0 = phi i64 [ %32, %35 ], [ %32, %36 ], [ -9223372036854775805, %.noexc ], [ -9223372036854775804, %.noexc1 ], [ %.sroa.04.0.copyload5, %.noexc2 ], [ -9223372036854775808, %29 ]
   %42 = getelementptr inbounds nuw { [9 x i64] }, ptr %20, i64 %.sroa.7.029
   store i64 %.sroa.04.0, ptr %42, align 8, !noalias !230
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -2110,7 +2110,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br label %.noexc12.i
 
 .noexc12.i:                                       ; preds = %48, %46, %.noexc.i
-  %.sroa.0.0.i.i.i = phi i64 [ %32, %48 ], [ %.sroa.0.0.copyload.i.i.i, %.noexc.i ], [ 12, %46 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %.noexc.i ], [ %32, %48 ], [ 12, %46 ]
   %.sroa.5.8.copyload.i.i = load ptr, ptr %.sroa.6.i.i.i, align 8, !noalias !356
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.8..sroa.6.i.sroa_idx.i.i, i64 88, i1 false), !noalias !356
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7.104..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7.i.i.i, i64 48, i1 false), !noalias !356

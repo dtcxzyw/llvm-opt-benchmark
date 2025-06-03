@@ -833,11 +833,11 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br label %132
 
 132:                                              ; preds = %105, %decrypt_opcua.exit.thread, %opcua_get_footer_info.exit, %130
-  %.1211 = phi i32 [ 0, %130 ], [ 0, %opcua_get_footer_info.exit ], [ %113, %105 ], [ 0, %decrypt_opcua.exit.thread ]
-  %.2194 = phi i32 [ %131, %130 ], [ %129, %opcua_get_footer_info.exit ], [ %115, %105 ], [ 0, %decrypt_opcua.exit.thread ]
-  %.2180 = phi ptr [ null, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %116, %105 ], [ null, %decrypt_opcua.exit.thread ]
-  %.2177 = phi i1 [ false, %130 ], [ false, %opcua_get_footer_info.exit ], [ true, %105 ], [ false, %decrypt_opcua.exit.thread ]
-  %.3169 = phi ptr [ %0, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %116, %105 ], [ %0, %decrypt_opcua.exit.thread ]
+  %.1211 = phi i32 [ 0, %130 ], [ %113, %105 ], [ 0, %decrypt_opcua.exit.thread ], [ 0, %opcua_get_footer_info.exit ]
+  %.2194 = phi i32 [ %131, %130 ], [ %115, %105 ], [ 0, %decrypt_opcua.exit.thread ], [ %129, %opcua_get_footer_info.exit ]
+  %.2180 = phi ptr [ null, %130 ], [ %116, %105 ], [ null, %decrypt_opcua.exit.thread ], [ %0, %opcua_get_footer_info.exit ]
+  %.2177 = phi i1 [ false, %130 ], [ true, %105 ], [ false, %decrypt_opcua.exit.thread ], [ false, %opcua_get_footer_info.exit ]
+  %.3169 = phi ptr [ %0, %130 ], [ %116, %105 ], [ %0, %decrypt_opcua.exit.thread ], [ %0, %opcua_get_footer_info.exit ]
   %133 = load i32, ptr %9, align 4
   %134 = call i32 @tvb_get_letohl(ptr noundef %.3169, i32 noundef %133)
   %135 = load i32, ptr %9, align 4

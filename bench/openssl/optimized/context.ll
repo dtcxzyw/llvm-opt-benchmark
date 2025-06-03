@@ -867,7 +867,7 @@ ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context
   br label %68
 
 68:                                               ; preds = %get_default_context.exit.i, %ossl_lib_ctx_get_concrete.exit.thread, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12
-  %.0 = phi ptr [ %67, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ null, %ossl_lib_ctx_get_concrete.exit.thread ], [ null, %get_default_context.exit.i ]
+  %.0 = phi ptr [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %67, %66 ], [ null, %ossl_lib_ctx_get_concrete.exit.thread ], [ null, %get_default_context.exit.i ]
   ret ptr %.0
 }
 

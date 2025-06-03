@@ -2233,7 +2233,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120PrintLoopPassWrapper9runO
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %27, %26 ]
+  %.1.i.i.i.i = phi ptr [ %27, %26 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !284
   %.not33.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i, null
   br i1 %.not33.i.i.i.i, label %29, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
@@ -2243,7 +2243,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120PrintLoopPassWrapper9runO
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %30, %29 ]
+  %.2.i.i.i.i = phi ptr [ %30, %29 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !284
   %.not34.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i, null
   br i1 %.not34.i.i.i.i, label %.critedge, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit

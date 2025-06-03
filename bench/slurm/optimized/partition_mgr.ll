@@ -1397,7 +1397,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   br label %255
 
 245:                                              ; preds = %.thread157, %24, %48, %35
-  %.084 = phi i32 [ 0, %24 ], [ 0, %48 ], [ 0, %35 ], [ %.185170, %.thread157 ]
+  %.084 = phi i32 [ 0, %48 ], [ 0, %35 ], [ 0, %24 ], [ %.185170, %.thread157 ]
   %246 = load i8, ptr @ignore_state_errors, align 1, !range !18, !noundef !19
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %249, label %248
@@ -1421,7 +1421,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   br label %255
 
 255:                                              ; preds = %12, %15, %254, %244, %44, %23
-  %.092 = phi i32 [ 14, %254 ], [ 14, %44 ], [ %.490, %244 ], [ 2, %23 ], [ 0, %15 ], [ 0, %12 ]
+  %.092 = phi i32 [ 14, %44 ], [ 14, %254 ], [ %.490, %244 ], [ 2, %23 ], [ 0, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16

@@ -926,7 +926,7 @@ define internal void @mov_text_style_cb(ptr noundef %0, i8 noundef signext %1, i
   br label %mov_text_style_to_flag.exit
 
 mov_text_style_to_flag.exit:                      ; preds = %3, %4, %5, %6
-  %.0.i = phi i8 [ 0, %3 ], [ 4, %6 ], [ 2, %5 ], [ 1, %4 ]
+  %.0.i = phi i8 [ 0, %3 ], [ 1, %4 ], [ 2, %5 ], [ 4, %6 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i8, ptr %7, align 4, !tbaa !96
   %9 = and i8 %8, %.0.i

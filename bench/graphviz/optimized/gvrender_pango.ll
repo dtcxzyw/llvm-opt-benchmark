@@ -263,7 +263,7 @@ define internal void @cairogen_begin_page(ptr noundef %0) #0 {
   br label %108
 
 108:                                              ; preds = %22, %50, %87, %95, %11, %21, %52
-  %.075 = phi ptr [ %90, %95 ], [ %90, %87 ], [ %59, %52 ], [ %18, %21 ], [ %18, %11 ], [ %29, %50 ], [ %29, %22 ]
+  %.075 = phi ptr [ %90, %95 ], [ %90, %87 ], [ %18, %21 ], [ %18, %11 ], [ %59, %52 ], [ %29, %50 ], [ %29, %22 ]
   %109 = call i32 @cairo_surface_status(ptr noundef %.075) #20
   %.not84 = icmp eq i32 %109, 0
   br i1 %.not84, label %118, label %110

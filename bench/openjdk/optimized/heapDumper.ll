@@ -1628,7 +1628,7 @@ define hidden noundef zeroext range(i8 2, 12) i8 @_ZN13DumperSupport7sig2tagEP6S
   unreachable
 
 14:                                               ; preds = %1, %1, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i8 [ 4, %11 ], [ 9, %10 ], [ 11, %9 ], [ 10, %8 ], [ 7, %7 ], [ 6, %6 ], [ 5, %5 ], [ 8, %4 ], [ 2, %1 ], [ 2, %1 ]
+  %.0 = phi i8 [ 8, %4 ], [ 5, %5 ], [ 6, %6 ], [ 7, %7 ], [ 10, %8 ], [ 11, %9 ], [ 9, %10 ], [ 4, %11 ], [ 2, %1 ], [ 2, %1 ]
   ret i8 %.0
 }
 
@@ -1684,7 +1684,7 @@ define hidden noundef range(i32 1, 9) i32 @_ZN13DumperSupport8sig2sizeEP6Symbol(
   unreachable
 
 9:                                                ; preds = %1, %1, %1, %1, %6, %5, %4
-  %.0 = phi i32 [ 4, %6 ], [ 2, %5 ], [ 1, %4 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
+  %.0 = phi i32 [ 1, %4 ], [ 2, %5 ], [ 4, %6 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
   ret i32 %.0
 }
 
@@ -2478,7 +2478,7 @@ _ZN23HierarchicalFieldStreamI15JavaFieldStreamEC2EP13InstanceKlass.exit: ; preds
   unreachable
 
 _ZN13DumperSupport8sig2sizeEP6Symbol.exit:        ; preds = %62, %62, %62, %62, %73, %74, %75
-  %.0.i = phi i32 [ 4, %75 ], [ 2, %74 ], [ 1, %73 ], [ 8, %62 ], [ 8, %62 ], [ 8, %62 ], [ 8, %62 ]
+  %.0.i = phi i32 [ 1, %73 ], [ 2, %74 ], [ 4, %75 ], [ 8, %62 ], [ 8, %62 ], [ 8, %62 ], [ 8, %62 ]
   %78 = add i32 %.0.i, %.09
   br label %79
 
@@ -2635,7 +2635,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   unreachable
 
 _ZN13DumperSupport8sig2sizeEP6Symbol.exit:        ; preds = %48, %48, %48, %48, %61, %62, %63
-  %.0.i = phi i32 [ 4, %63 ], [ 2, %62 ], [ 1, %61 ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ]
+  %.0.i = phi i32 [ 1, %61 ], [ 2, %62 ], [ 4, %63 ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ]
   %66 = add i32 %.0.i, %.027
   br label %67
 
@@ -2890,7 +2890,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %84, %89
   unreachable
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit:         ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %95, %96, %97, %98, %99, %100, %101, %102
-  %.0.i = phi i8 [ 4, %102 ], [ 9, %101 ], [ 11, %100 ], [ 10, %99 ], [ 7, %98 ], [ 6, %97 ], [ 5, %96 ], [ 8, %95 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ]
+  %.0.i = phi i8 [ 8, %95 ], [ 5, %96 ], [ 6, %97 ], [ 7, %98 ], [ 10, %99 ], [ 11, %100 ], [ 9, %101 ], [ 4, %102 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   store i8 %.0.i, ptr %12, align 1
   %105 = load i64, ptr %50, align 8
@@ -3034,7 +3034,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37: ; preds = %141, %147
   unreachable
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit39:       ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37, %154, %155, %156, %157, %158, %159, %160, %161
-  %.0.i38 = phi i8 [ 4, %161 ], [ 9, %160 ], [ 11, %159 ], [ 10, %158 ], [ 7, %157 ], [ 6, %156 ], [ 5, %155 ], [ 8, %154 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37 ]
+  %.0.i38 = phi i8 [ 8, %154 ], [ 5, %155 ], [ 6, %156 ], [ 7, %157 ], [ 10, %158 ], [ 11, %159 ], [ 9, %160 ], [ 4, %161 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 %.0.i38, ptr %10, align 1
   %164 = load i64, ptr %135, align 8
@@ -3185,7 +3185,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42: ; preds = %205, %210
   unreachable
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit44:       ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42, %217, %218, %219, %220, %221, %222, %223, %224
-  %.0.i43 = phi i8 [ 4, %224 ], [ 9, %223 ], [ 11, %222 ], [ 10, %221 ], [ 7, %220 ], [ 6, %219 ], [ 5, %218 ], [ 8, %217 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42 ]
+  %.0.i43 = phi i8 [ 8, %217 ], [ 5, %218 ], [ 6, %219 ], [ 7, %220 ], [ 10, %221 ], [ 11, %222 ], [ 9, %223 ], [ 4, %224 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 %.0.i43, ptr %7, align 1
   %227 = load i64, ptr %135, align 8
@@ -3331,7 +3331,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48: ; preds = %266, %272
   unreachable
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit50:       ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48, %279, %280, %281, %282, %283, %284, %285, %286
-  %.0.i49 = phi i8 [ 4, %286 ], [ 9, %285 ], [ 11, %284 ], [ 10, %283 ], [ 7, %282 ], [ 6, %281 ], [ 5, %280 ], [ 8, %279 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48 ]
+  %.0.i49 = phi i8 [ 8, %279 ], [ 5, %280 ], [ 6, %281 ], [ 7, %282 ], [ 10, %283 ], [ 11, %284 ], [ 9, %285 ], [ 4, %286 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 %.0.i49, ptr %4, align 1
   %289 = load i64, ptr %260, align 8
@@ -3692,7 +3692,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %71, %76
   unreachable
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit:         ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %82, %83, %84, %85, %86, %87, %88, %89
-  %.0.i = phi i8 [ 4, %89 ], [ 9, %88 ], [ 11, %87 ], [ 10, %86 ], [ 7, %85 ], [ 6, %84 ], [ 5, %83 ], [ 8, %82 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ]
+  %.0.i = phi i8 [ 8, %82 ], [ 5, %83 ], [ 6, %84 ], [ 7, %85 ], [ 10, %86 ], [ 11, %87 ], [ 9, %88 ], [ 4, %89 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 %.0.i, ptr %3, align 1
   %92 = load i64, ptr %41, align 8
@@ -4197,7 +4197,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %_
   unreachable
 
 _ZN13DumperSupport8sig2sizeEP6Symbol.exit:        ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit, %149, %150, %151
-  %.0.i13 = phi i32 [ 4, %151 ], [ 2, %150 ], [ 1, %149 ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ]
+  %.0.i13 = phi i32 [ 1, %149 ], [ 2, %150 ], [ 4, %151 ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ 8, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ]
   %154 = load i32, ptr %89, align 8
   %155 = add i32 %154, %.0.i13
   store i32 %155, ptr %89, align 8

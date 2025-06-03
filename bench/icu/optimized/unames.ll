@@ -394,7 +394,7 @@ define internal fastcc noundef zeroext i16 @_ZN6icu_77L10getAlgNameEPNS_16Algori
   br label %71
 
 71:                                               ; preds = %._crit_edge96, %._crit_edge, %70, %69, %8, %9
-  %.0 = phi i16 [ 0, %9 ], [ 0, %8 ], [ 0, %70 ], [ 0, %69 ], [ %68, %._crit_edge ], [ %46, %._crit_edge96 ]
+  %.0 = phi i16 [ 0, %9 ], [ 0, %8 ], [ 0, %70 ], [ 0, %69 ], [ %46, %._crit_edge96 ], [ %68, %._crit_edge ]
   ret i16 %.0
 }
 

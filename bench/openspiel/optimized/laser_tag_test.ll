@@ -9842,7 +9842,7 @@ define internal fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_te
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 49:                                               ; preds = %13, %18, %24, %30, %36
-  %.1 = phi i32 [ %37, %36 ], [ %.02232, %30 ], [ %.02232, %24 ], [ %.02232, %18 ], [ %.02232, %13 ]
+  %.1 = phi i32 [ %.02232, %13 ], [ %.02232, %18 ], [ %.02232, %24 ], [ %.02232, %30 ], [ %37, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.022.neg = sub i32 0, %.1
   %50 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19

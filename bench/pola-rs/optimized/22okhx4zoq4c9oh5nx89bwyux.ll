@@ -21475,7 +21475,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2142, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2142, !noundef !3
@@ -21489,28 +21489,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2180, !noalias !2142, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -21519,144 +21519,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2142
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2142
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2142
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2142
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2142
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2142
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2142
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -22036,7 +22048,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2221, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2221, !noundef !3
@@ -22050,28 +22062,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2258, !noalias !2221, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -22080,144 +22092,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2221
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2221
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2221
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2221
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2221
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2221
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2221
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -22597,7 +22621,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2299, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2299, !noundef !3
@@ -22611,28 +22635,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2336, !noalias !2299, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -22641,144 +22665,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2299
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2299
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2299
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2299
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2299
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2299
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2299
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -23158,7 +23194,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2377, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2377, !noundef !3
@@ -23172,28 +23208,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2414, !noalias !2377, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -23202,144 +23238,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2377
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2377
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2377
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2377
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2377
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2377
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2377
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -23719,7 +23767,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2455, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2455, !noundef !3
@@ -23733,28 +23781,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2492, !noalias !2455, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -23763,144 +23811,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2455
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2455
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2455
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2455
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2455
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2455
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2455
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -24280,7 +24340,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2533, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2533, !noundef !3
@@ -24294,28 +24354,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2570, !noalias !2533, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -24324,144 +24384,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2533
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2533
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2533
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2533
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2533
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2533
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2533
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -24841,7 +24913,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2611, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2611, !noundef !3
@@ -24855,28 +24927,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2648, !noalias !2611, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -24885,144 +24957,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2611
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2611
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2611
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2611
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2611
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2611
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2611
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -25402,7 +25486,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2689, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2689, !noundef !3
@@ -25416,28 +25500,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2726, !noalias !2689, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -25446,144 +25530,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2689
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2689
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2689
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2689
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2689
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2689
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2689
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -25963,7 +26059,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %179, label %.loopexit45.i.i.i, label %.lr.ph.i.i.i
 
 180:                                              ; preds = %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i", %.lr.ph63.i.i.i
-  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %282, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
+  %181 = phi i64 [ 1, %.lr.ph63.i.i.i ], [ %290, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %.sroa.013.062.i.i.i = phi i64 [ 0, %.lr.ph63.i.i.i ], [ %181, %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i" ]
   %182 = load ptr, ptr %41, align 8, !noalias !2767, !nonnull !3, !noundef !3
   %183 = load i64, ptr %42, align 8, !noalias !2767, !noundef !3
@@ -25977,28 +26073,28 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %190 = load i32, ptr %186, align 16, !range !2179, !alias.scope !2804, !noalias !2767, !noundef !3
   switch i32 %190, label %default.unreachable [
     i32 0, label %191
-    i32 1, label %194
-    i32 2, label %197
-    i32 3, label %201
-    i32 4, label %205
-    i32 5, label %209
-    i32 6, label %213
-    i32 7, label %217
-    i32 8, label %221
-    i32 9, label %225
-    i32 10, label %229
-    i32 11, label %233
-    i32 12, label %237
-    i32 13, label %240
-    i32 14, label %244
-    i32 15, label %248
-    i32 16, label %252
-    i32 17, label %256
-    i32 18, label %260
-    i32 19, label %264
-    i32 20, label %268
-    i32 21, label %272
-    i32 22, label %276
+    i32 1, label %196
+    i32 2, label %201
+    i32 3, label %205
+    i32 4, label %209
+    i32 5, label %213
+    i32 6, label %217
+    i32 7, label %221
+    i32 8, label %225
+    i32 9, label %229
+    i32 10, label %233
+    i32 11, label %237
+    i32 12, label %241
+    i32 13, label %246
+    i32 14, label %250
+    i32 15, label %254
+    i32 16, label %258
+    i32 17, label %262
+    i32 18, label %266
+    i32 19, label %270
+    i32 20, label %274
+    i32 21, label %278
+    i32 22, label %282
   ]
 
 default.unreachable:                              ; preds = %180
@@ -26007,144 +26103,156 @@ default.unreachable:                              ; preds = %180
 191:                                              ; preds = %180
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %193 = call { ptr, ptr } @"_ZN164_$LT$polars_pipe..executors..sinks..group_by..aggregates..first..FirstAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hb16bde5f7f4f8604E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %192), !noalias !2767
+  %194 = extractvalue { ptr, ptr } %193, 0
+  %195 = extractvalue { ptr, ptr } %193, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %196 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %195), !noalias !2767
-  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
-
-197:                                              ; preds = %180
-  %198 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %199 = insertvalue { ptr, ptr } poison, ptr %198, 0
-  %200 = insertvalue { ptr, ptr } %199, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %198 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..last..LastAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hfd534de57c716a71E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %197), !noalias !2767
+  %199 = extractvalue { ptr, ptr } %198, 0
+  %200 = extractvalue { ptr, ptr } %198, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 201:                                              ; preds = %180
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %203 = insertvalue { ptr, ptr } poison, ptr %202, 0
-  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
+  %204 = insertvalue { ptr, ptr } %203, ptr @anon.23982ffb85775334236e68999769d9e2.43, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 205:                                              ; preds = %180
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %207 = insertvalue { ptr, ptr } poison, ptr %206, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
+  %208 = insertvalue { ptr, ptr } %207, ptr @anon.23982ffb85775334236e68999769d9e2.44, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 209:                                              ; preds = %180
-  %210 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %211 = insertvalue { ptr, ptr } poison, ptr %210, 0
-  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
+  %212 = insertvalue { ptr, ptr } %211, ptr @anon.23982ffb85775334236e68999769d9e2.45, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 213:                                              ; preds = %180
-  %214 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %215 = insertvalue { ptr, ptr } poison, ptr %214, 0
-  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
+  %216 = insertvalue { ptr, ptr } %215, ptr @anon.23982ffb85775334236e68999769d9e2.46, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 217:                                              ; preds = %180
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %219 = insertvalue { ptr, ptr } poison, ptr %218, 0
-  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
+  %220 = insertvalue { ptr, ptr } %219, ptr @anon.23982ffb85775334236e68999769d9e2.47, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 221:                                              ; preds = %180
-  %222 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %223 = insertvalue { ptr, ptr } poison, ptr %222, 0
-  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
+  %224 = insertvalue { ptr, ptr } %223, ptr @anon.23982ffb85775334236e68999769d9e2.48, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 225:                                              ; preds = %180
-  %226 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %227 = insertvalue { ptr, ptr } poison, ptr %226, 0
-  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
+  %228 = insertvalue { ptr, ptr } %227, ptr @anon.23982ffb85775334236e68999769d9e2.49, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 229:                                              ; preds = %180
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %231 = insertvalue { ptr, ptr } poison, ptr %230, 0
-  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
+  %232 = insertvalue { ptr, ptr } %231, ptr @anon.23982ffb85775334236e68999769d9e2.50, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 233:                                              ; preds = %180
-  %234 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %235 = insertvalue { ptr, ptr } poison, ptr %234, 0
-  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
+  %236 = insertvalue { ptr, ptr } %235, ptr @anon.23982ffb85775334236e68999769d9e2.51, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
 237:                                              ; preds = %180
-  %238 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %239 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %238), !noalias !2767
+  %238 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %239 = insertvalue { ptr, ptr } poison, ptr %238, 0
+  %240 = insertvalue { ptr, ptr } %239, ptr @anon.23982ffb85775334236e68999769d9e2.52, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-240:                                              ; preds = %180
-  %241 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %242 = insertvalue { ptr, ptr } poison, ptr %241, 0
-  %243 = insertvalue { ptr, ptr } %242, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
+241:                                              ; preds = %180
+  %242 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %243 = call { ptr, ptr } @"_ZN162_$LT$polars_pipe..executors..sinks..group_by..aggregates..null..NullAgg$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17hab490ebb6485edb8E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %242), !noalias !2767
+  %244 = extractvalue { ptr, ptr } %243, 0
+  %245 = extractvalue { ptr, ptr } %243, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-244:                                              ; preds = %180
-  %245 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %246 = insertvalue { ptr, ptr } poison, ptr %245, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
+246:                                              ; preds = %180
+  %247 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %248 = insertvalue { ptr, ptr } poison, ptr %247, 0
+  %249 = insertvalue { ptr, ptr } %248, ptr @anon.23982ffb85775334236e68999769d9e2.53, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-248:                                              ; preds = %180
-  %249 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %250 = insertvalue { ptr, ptr } poison, ptr %249, 0
-  %251 = insertvalue { ptr, ptr } %250, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
+250:                                              ; preds = %180
+  %251 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %252 = insertvalue { ptr, ptr } poison, ptr %251, 0
+  %253 = insertvalue { ptr, ptr } %252, ptr @anon.23982ffb85775334236e68999769d9e2.54, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-252:                                              ; preds = %180
-  %253 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %254 = insertvalue { ptr, ptr } poison, ptr %253, 0
-  %255 = insertvalue { ptr, ptr } %254, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
+254:                                              ; preds = %180
+  %255 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %256 = insertvalue { ptr, ptr } poison, ptr %255, 0
+  %257 = insertvalue { ptr, ptr } %256, ptr @anon.23982ffb85775334236e68999769d9e2.55, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-256:                                              ; preds = %180
-  %257 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %258 = insertvalue { ptr, ptr } poison, ptr %257, 0
-  %259 = insertvalue { ptr, ptr } %258, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
+258:                                              ; preds = %180
+  %259 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %260 = insertvalue { ptr, ptr } poison, ptr %259, 0
+  %261 = insertvalue { ptr, ptr } %260, ptr @anon.23982ffb85775334236e68999769d9e2.56, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-260:                                              ; preds = %180
-  %261 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %262 = insertvalue { ptr, ptr } poison, ptr %261, 0
-  %263 = insertvalue { ptr, ptr } %262, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
+262:                                              ; preds = %180
+  %263 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %264 = insertvalue { ptr, ptr } poison, ptr %263, 0
+  %265 = insertvalue { ptr, ptr } %264, ptr @anon.23982ffb85775334236e68999769d9e2.57, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-264:                                              ; preds = %180
-  %265 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %266 = insertvalue { ptr, ptr } poison, ptr %265, 0
-  %267 = insertvalue { ptr, ptr } %266, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
+266:                                              ; preds = %180
+  %267 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %268 = insertvalue { ptr, ptr } poison, ptr %267, 0
+  %269 = insertvalue { ptr, ptr } %268, ptr @anon.23982ffb85775334236e68999769d9e2.58, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-268:                                              ; preds = %180
-  %269 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %270 = insertvalue { ptr, ptr } poison, ptr %269, 0
-  %271 = insertvalue { ptr, ptr } %270, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
+270:                                              ; preds = %180
+  %271 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %272 = insertvalue { ptr, ptr } poison, ptr %271, 0
+  %273 = insertvalue { ptr, ptr } %272, ptr @anon.23982ffb85775334236e68999769d9e2.59, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-272:                                              ; preds = %180
-  %273 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %274 = insertvalue { ptr, ptr } poison, ptr %273, 0
-  %275 = insertvalue { ptr, ptr } %274, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
+274:                                              ; preds = %180
+  %275 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %276 = insertvalue { ptr, ptr } poison, ptr %275, 0
+  %277 = insertvalue { ptr, ptr } %276, ptr @anon.23982ffb85775334236e68999769d9e2.60, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-276:                                              ; preds = %180
-  %277 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %278 = insertvalue { ptr, ptr } poison, ptr %277, 0
-  %279 = insertvalue { ptr, ptr } %278, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+278:                                              ; preds = %180
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %280 = insertvalue { ptr, ptr } poison, ptr %279, 0
+  %281 = insertvalue { ptr, ptr } %280, ptr @anon.23982ffb85775334236e68999769d9e2.61, 1
   br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
 
-"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %276, %272, %268, %264, %260, %256, %252, %248, %244, %240, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %197, %194, %191
-  %.merged.i.i.i.i = phi { ptr, ptr } [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %264 ], [ %263, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %191 ]
-  %280 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
-  %281 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
-  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %280, ptr noalias noundef readonly align 8 dereferenceable(32) %281), !noalias !2767
-  %282 = add nuw nsw i64 %181, 1
+282:                                              ; preds = %180
+  %283 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %284 = insertvalue { ptr, ptr } poison, ptr %283, 0
+  %285 = insertvalue { ptr, ptr } %284, ptr @anon.23982ffb85775334236e68999769d9e2.62, 1
+  br label %"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i"
+
+"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$6as_any17h25573847baa09afcE.exit.i.i.i": ; preds = %282, %278, %274, %270, %266, %262, %258, %254, %250, %246, %241, %237, %233, %229, %225, %221, %217, %213, %209, %205, %201, %196, %191
+  %.sroa.24.0.i.i.i.i = phi ptr [ %195, %191 ], [ %200, %196 ], [ @anon.23982ffb85775334236e68999769d9e2.43, %201 ], [ @anon.23982ffb85775334236e68999769d9e2.44, %205 ], [ @anon.23982ffb85775334236e68999769d9e2.45, %209 ], [ @anon.23982ffb85775334236e68999769d9e2.46, %213 ], [ @anon.23982ffb85775334236e68999769d9e2.47, %217 ], [ @anon.23982ffb85775334236e68999769d9e2.48, %221 ], [ @anon.23982ffb85775334236e68999769d9e2.49, %225 ], [ @anon.23982ffb85775334236e68999769d9e2.50, %229 ], [ @anon.23982ffb85775334236e68999769d9e2.51, %233 ], [ @anon.23982ffb85775334236e68999769d9e2.52, %237 ], [ %245, %241 ], [ @anon.23982ffb85775334236e68999769d9e2.53, %246 ], [ @anon.23982ffb85775334236e68999769d9e2.54, %250 ], [ @anon.23982ffb85775334236e68999769d9e2.55, %254 ], [ @anon.23982ffb85775334236e68999769d9e2.56, %258 ], [ @anon.23982ffb85775334236e68999769d9e2.57, %262 ], [ @anon.23982ffb85775334236e68999769d9e2.58, %266 ], [ @anon.23982ffb85775334236e68999769d9e2.59, %270 ], [ @anon.23982ffb85775334236e68999769d9e2.60, %274 ], [ @anon.23982ffb85775334236e68999769d9e2.61, %278 ], [ @anon.23982ffb85775334236e68999769d9e2.62, %282 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %194, %191 ], [ %199, %196 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %234, %233 ], [ %238, %237 ], [ %244, %241 ], [ %247, %246 ], [ %251, %250 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %267, %266 ], [ %271, %270 ], [ %275, %274 ], [ %279, %278 ], [ %283, %282 ]
+  %.merged.i.i.i.i = phi { ptr, ptr } [ %193, %191 ], [ %198, %196 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %243, %241 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %277, %274 ], [ %281, %278 ], [ %285, %282 ]
+  %286 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  call void @llvm.assume(i1 %286)
+  %287 = icmp ne ptr %.sroa.24.0.i.i.i.i, null
+  call void @llvm.assume(i1 %287)
+  %288 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 0
+  %289 = extractvalue { ptr, ptr } %.merged.i.i.i.i, 1
+  call fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef align 16 dereferenceable(128) %189, ptr noundef nonnull align 1 %288, ptr noalias noundef readonly align 8 dereferenceable(32) %289), !noalias !2767
+  %290 = add nuw nsw i64 %181, 1
   %exitcond.not.i.i.i = icmp eq i64 %181, %157
   br i1 %exitcond.not.i.i.i, label %.loopexit44.i.i.i, label %180
 
@@ -28941,7 +29049,7 @@ default.unreachable1:                             ; preds = %5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #4 {
+define internal fastcc void @"_ZN177_$LT$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFunction$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$7combine17hfb38f22dc84d78b0E"(ptr noalias noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #4 {
   %4 = load i32, ptr %0, align 16, !range !2179, !noundef !3
   switch i32 %4, label %default.unreachable3 [
     i32 0, label %5
@@ -29630,7 +29738,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 

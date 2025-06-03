@@ -326,8 +326,8 @@ define ptr @EVP_PKEY2PKCS8(ptr noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %18, %29, %34
-  %.2 = phi ptr [ null, %34 ], [ %15, %18 ], [ %20, %29 ]
-  %.1 = phi ptr [ %.016, %34 ], [ %8, %18 ], [ null, %29 ]
+  %.2 = phi ptr [ %15, %18 ], [ null, %34 ], [ %20, %29 ]
+  %.1 = phi ptr [ %8, %18 ], [ %.016, %34 ], [ null, %29 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef %.1) #3
   br label %36
 

@@ -437,7 +437,7 @@ _ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i: ; preds = %57, %54
-  %.1.i.i = phi ptr [ %45, %54 ], [ %58, %57 ]
+  %.1.i.i = phi ptr [ %58, %57 ], [ %45, %54 ]
   %59 = getelementptr inbounds i8, ptr %21, i64 -48
   %.sroa.0.0.copyload.i65.i = load i32, ptr %59, align 8, !tbaa !684
   %60 = tail call noundef ptr @_ZN5clang4Sema21lookupCoroutineTraitsENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 %.sroa.0.0.copyload.i65.i)
@@ -576,7 +576,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i.i: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i.i: ; preds = %130, %.lr.ph.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i ], [ %131, %130 ]
+  %.1.i.i.i.i.i = phi ptr [ %131, %130 ], [ %126, %.lr.ph.i.i.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 16
   %133 = load i24, ptr %132, align 16
   %134 = and i24 %133, 1048576
@@ -1452,7 +1452,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %580, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %576, %.lr.ph.i.i ], [ %581, %580 ]
+  %.1.i.i.i = phi ptr [ %581, %580 ], [ %576, %.lr.ph.i.i ]
   %582 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %583 = load i24, ptr %582, align 16
   %584 = and i24 %583, 1048576
@@ -2687,7 +2687,7 @@ _ZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefE.
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %78, %70
-  %.1.i.i.i = phi ptr [ %74, %70 ], [ %79, %78 ]
+  %.1.i.i.i = phi ptr [ %79, %78 ], [ %74, %70 ]
   %80 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i = load i64, ptr %80, align 8, !tbaa !11
   %81 = and i64 %.sroa.0.0.copyload.i1.i.i, -16
@@ -3584,7 +3584,7 @@ _ZN5clang20DependentCoawaitExprC2ENS_14SourceLocationENS_8QualTypeEPNS_4ExprEPNS
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %66, %76
-  %.1.i.i = phi ptr [ %72, %66 ], [ %77, %76 ]
+  %.1.i.i = phi ptr [ %77, %76 ], [ %72, %66 ]
   %78 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %78, align 8, !tbaa !11
   %79 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -4081,7 +4081,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %33, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %29, %.lr.ph.i.i ], [ %34, %33 ]
+  %.1.i.i.i = phi ptr [ %34, %33 ], [ %29, %.lr.ph.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %36 = load i24, ptr %35, align 16
   %37 = and i24 %36, 1048576
@@ -6704,8 +6704,8 @@ define dso_local void @_ZN5clang20CoroutineStmtBuilderC2ERNS_4SemaERNS_12Functio
   br label %_ZL18buildCoroutineBodyPN5clang4StmtERNS_10ASTContextE.exit
 
 _ZL18buildCoroutineBodyPN5clang4StmtERNS_10ASTContextE.exit: ; preds = %30, %35
-  %.pre26 = phi i32 [ 0, %30 ], [ %.pre26.pre, %35 ]
-  %.1.i = phi ptr [ %4, %30 ], [ %38, %35 ]
+  %.pre26 = phi i32 [ %.pre26.pre, %35 ], [ 0, %30 ]
+  %.1.i = phi ptr [ %38, %35 ], [ %4, %30 ]
   store ptr %.1.i, ptr %0, align 8, !tbaa !1096
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %40 = load ptr, ptr %39, align 8, !tbaa !3
@@ -8286,7 +8286,7 @@ define dso_local noundef zeroext i1 @_ZN5clang20CoroutineStmtBuilder24makeGroDec
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %1, %16
-  %.1.i.i = phi ptr [ %12, %1 ], [ %17, %16 ]
+  %.1.i.i = phi ptr [ %17, %16 ], [ %12, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %18, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -9565,7 +9565,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %226, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %222, %.lr.ph.i.i.i ], [ %227, %226 ]
+  %.1.i.i.i.i = phi ptr [ %227, %226 ], [ %222, %.lr.ph.i.i.i ]
   %228 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %229 = load i24, ptr %228, align 16
   %230 = and i24 %229, 1048576
@@ -10675,7 +10675,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %71
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %742, %749
-  %.1.i = phi ptr [ %746, %742 ], [ %750, %749 ]
+  %.1.i = phi ptr [ %750, %749 ], [ %746, %742 ]
   %751 = call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i) #21
   %752 = icmp eq i32 %751, 0
   %.pre294 = load ptr, ptr %41, align 8, !tbaa !1090
@@ -11246,8 +11246,8 @@ _ZN5clang4Sema19ActOnFinishFullExprEPNS_4ExprEb.exit: ; preds = %1013, %1026
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit150
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit150: ; preds = %1037, %1048
-  %1050 = phi i32 [ 1, %1037 ], [ %.pre297, %1048 ]
-  %.1.i149 = phi ptr [ %1045, %1037 ], [ %1049, %1048 ]
+  %1050 = phi i32 [ %.pre297, %1048 ], [ 1, %1037 ]
+  %.1.i149 = phi ptr [ %1049, %1048 ], [ %1045, %1037 ]
   %1051 = getelementptr inbounds nuw i8, ptr %.1.i149, i64 16
   %1052 = load i64, ptr %1051, align 16
   %1053 = lshr i64 %1052, 38
@@ -11964,7 +11964,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %72, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %73, %72 ]
+  %.1.i.i.i = phi ptr [ %73, %72 ], [ %68, %.lr.ph.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %75 = load i24, ptr %74, align 16
   %76 = and i24 %75, 1048576

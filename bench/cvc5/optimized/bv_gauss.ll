@@ -3181,7 +3181,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit363: ; preds = %.critedge186, %120
   br i1 %1212, label %._crit_edge457, label %61, !llvm.loop !86
 
 1213:                                             ; preds = %924, %977, %.body, %857, %869, %401, %409, %410, %403, %286, %338, %340, %453, %_ZN4cvc58internal7IntegerD2Ev.exit270, %911, %_ZN4cvc58internal7IntegerD2Ev.exit357, %1195, %756, %761, %750, %996, %245, %236, %234, %232
-  %.pn177.pn.pn = phi { ptr, i32 } [ %.pn177.pn, %245 ], [ %235, %234 ], [ %237, %236 ], [ %233, %232 ], [ %1196, %1195 ], [ %.pn121.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit357 ], [ %.pn135, %911 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit270 ], [ %.pn162, %453 ], [ %751, %750 ], [ %.pn139, %761 ], [ %.pn137, %756 ], [ %997, %996 ], [ %287, %286 ], [ %341, %340 ], [ %339, %338 ], [ %402, %401 ], [ %404, %403 ], [ %411, %410 ], [ %.pn164, %409 ], [ %.pn142.pn.pn, %869 ], [ %858, %857 ], [ %925, %924 ], [ %eh.lpad-body, %.body ], [ %978, %977 ]
+  %.pn177.pn.pn = phi { ptr, i32 } [ %.pn177.pn, %245 ], [ %235, %234 ], [ %237, %236 ], [ %233, %232 ], [ %1196, %1195 ], [ %.pn162, %453 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit270 ], [ %.pn135, %911 ], [ %.pn121.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit357 ], [ %751, %750 ], [ %.pn139, %761 ], [ %.pn137, %756 ], [ %997, %996 ], [ %287, %286 ], [ %341, %340 ], [ %339, %338 ], [ %402, %401 ], [ %404, %403 ], [ %411, %410 ], [ %.pn164, %409 ], [ %.pn142.pn.pn, %869 ], [ %858, %857 ], [ %925, %924 ], [ %eh.lpad-body, %.body ], [ %978, %977 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
   br label %1214
 

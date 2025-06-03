@@ -1076,9 +1076,9 @@ _ZL16isLabelSeparatorDs.exit34.i:                 ; preds = %.lr.ph.i, %.lr.ph.i
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSeparatorDs.exit.i, %_ZL16isLabelSeparatorDs.exit34.i, %._crit_edge.i
-  %.077 = phi ptr [ %35, %_ZL16isLabelSeparatorDs.exit.i ], [ %31, %30 ], [ %44, %._crit_edge.i ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ]
-  %.not74 = phi i1 [ true, %_ZL16isLabelSeparatorDs.exit.i ], [ false, %30 ], [ false, %._crit_edge.i ], [ true, %_ZL16isLabelSeparatorDs.exit34.i ]
-  %.1.i = phi i32 [ %34, %_ZL16isLabelSeparatorDs.exit.i ], [ %32, %30 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %40, %_ZL16isLabelSeparatorDs.exit34.i ]
+  %.077 = phi ptr [ %31, %30 ], [ %35, %_ZL16isLabelSeparatorDs.exit.i ], [ %44, %._crit_edge.i ], [ %41, %_ZL16isLabelSeparatorDs.exit34.i ]
+  %.not74 = phi i1 [ false, %30 ], [ true, %_ZL16isLabelSeparatorDs.exit.i ], [ false, %._crit_edge.i ], [ true, %_ZL16isLabelSeparatorDs.exit34.i ]
+  %.1.i = phi i32 [ %32, %30 ], [ %34, %_ZL16isLabelSeparatorDs.exit.i ], [ %.0.lcssa.i, %._crit_edge.i ], [ %40, %_ZL16isLabelSeparatorDs.exit34.i ]
   %45 = tail call fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %.062, i32 noundef %.1.i, ptr noundef %.059, i32 noundef %.0, i32 noundef %4, ptr noundef %21, ptr noundef %5, ptr noundef %6)
   %46 = load i32, ptr %6, align 4, !tbaa !3
   %47 = icmp eq i32 %46, 15

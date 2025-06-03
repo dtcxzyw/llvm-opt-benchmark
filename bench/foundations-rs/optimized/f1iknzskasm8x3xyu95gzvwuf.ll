@@ -12129,7 +12129,7 @@ default.unreachable:                              ; preds = %37
   unreachable
 
 80:                                               ; preds = %72, %67, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi25.i, %72 ], [ %68, %67 ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %68, %67 ], [ %lpad.phi25.i, %72 ], [ %lpad.loopexit.i, %.loopexit.i ]
   store i64 %.sroa.7.036.i, ptr %25, align 8, !noalias !1132
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$cf_rustracing_jaeger..thrift..jaeger..Tag$GT$$GT$17hf6e1bf5707ad0c01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #27
           to label %81 unwind label %78, !noalias !1145

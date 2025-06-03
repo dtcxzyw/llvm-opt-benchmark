@@ -1516,7 +1516,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285:   ; preds = %215, %216
   br label %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i
 
 _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i: ; preds = %222, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285
-  %.1.i.i = phi ptr [ %221, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285 ], [ %224, %222 ]
+  %.1.i.i = phi ptr [ %224, %222 ], [ %221, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285 ]
   %225 = inttoptr i64 %.sroa.0120.0549 to ptr
   %226 = load ptr, ptr %225, align 16, !tbaa !79
   %227 = call noundef ptr @_ZNK5clang4Type23getPointeeCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %226) #16
@@ -1529,7 +1529,7 @@ _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTy
   br label %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit
 
 _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit: ; preds = %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i, %228
-  %.1.i7.i = phi ptr [ %227, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i ], [ %230, %228 ]
+  %.1.i7.i = phi ptr [ %230, %228 ], [ %227, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i ]
   %231 = load ptr, ptr %177, align 8, !tbaa !78
   %232 = call noundef i32 @_ZNK5clang6interp7Context17collectBaseOffsetEPKNS_10RecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(40) %231, ptr noundef %.1.i.i, ptr noundef %.1.i7.i) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
@@ -2986,7 +2986,7 @@ _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE8classifyEPKNS_4ExprE.exit: ; 
   br label %.critedge257
 
 .critedge257:                                     ; preds = %860, %.lr.ph, %856, %801, %803, %805, %807, %809, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit278, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE13VisitCastExprEPKNS_8CastExprEENKUlNS_8QualTypeEE_clES7_.exit, %.preheader, %172, %889, %881, %879, %821, %770, %739, %575, %_ZSteqIN5clang6interp8PrimTypeES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread, %594, %592, %577, %605, %596, %590, %518, %522, %528, %335, %344, %353, %325, %331, %307, %299, %305, %261, %107, %109, %98, %102, %93, %960, %948, %938, %926, %909, %904, %896, %829, %848, %852, %778, %783, %756, %748, %746, %729, %717, %709, %546, %461, %473, %455, %451, %449, %431, %438, %445, %422, %413, %365, %359, %281, %267, %252, %170, %157, %136, %132, %111, %742, %775, %826, %892, %978, %972, %962, %950, %940, %928, %911, %817, %766, %733, %731, %725, %708, %615, %609, %556, %550, %530, %459, %409, %393, %321, %295, %283, %277, %254, %248, %166, %79
-  %.0 = phi i1 [ %981, %978 ], [ %977, %972 ], [ %971, %962 ], [ %959, %950 ], [ %947, %940 ], [ %937, %928 ], [ %925, %911 ], [ false, %892 ], [ %818, %817 ], [ false, %826 ], [ %767, %766 ], [ false, %775 ], [ false, %742 ], [ %734, %733 ], [ %728, %725 ], [ %732, %731 ], [ %618, %615 ], [ %.21, %708 ], [ %610, %609 ], [ %553, %550 ], [ %559, %556 ], [ %531, %530 ], [ %460, %459 ], [ %412, %409 ], [ %404, %393 ], [ %324, %321 ], [ %298, %295 ], [ %280, %277 ], [ %290, %283 ], [ %251, %248 ], [ %260, %254 ], [ %169, %166 ], [ %82, %79 ], [ %135, %132 ], [ false, %111 ], [ %161, %157 ], [ false, %136 ], [ false, %170 ], [ false, %252 ], [ false, %267 ], [ false, %281 ], [ false, %359 ], [ true, %365 ], [ false, %413 ], [ false, %422 ], [ %437, %431 ], [ %444, %438 ], [ %448, %445 ], [ false, %449 ], [ false, %451 ], [ true, %455 ], [ false, %461 ], [ %476, %473 ], [ false, %546 ], [ %720, %717 ], [ false, %709 ], [ false, %729 ], [ false, %746 ], [ %759, %756 ], [ false, %748 ], [ false, %778 ], [ false, %783 ], [ false, %829 ], [ false, %848 ], [ false, %852 ], [ %908, %904 ], [ false, %896 ], [ false, %909 ], [ false, %926 ], [ false, %938 ], [ false, %948 ], [ false, %960 ], [ %108, %107 ], [ %110, %109 ], [ false, %98 ], [ false, %102 ], [ false, %93 ], [ false, %261 ], [ %316, %307 ], [ false, %299 ], [ false, %305 ], [ %343, %335 ], [ %352, %344 ], [ %358, %353 ], [ false, %325 ], [ false, %331 ], [ false, %518 ], [ %529, %528 ], [ true, %522 ], [ %576, %575 ], [ %591, %590 ], [ %603, %596 ], [ %608, %605 ], [ false, %577 ], [ false, %592 ], [ true, %594 ], [ false, %_ZSteqIN5clang6interp8PrimTypeES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread ], [ false, %739 ], [ false, %770 ], [ false, %821 ], [ false, %879 ], [ %884, %881 ], [ false, %889 ], [ true, %172 ], [ true, %.preheader ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE13VisitCastExprEPKNS_8CastExprEENKUlNS_8QualTypeEE_clES7_.exit ], [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit ], [ true, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit278 ], [ false, %809 ], [ false, %807 ], [ false, %805 ], [ false, %803 ], [ true, %801 ], [ true, %856 ], [ false, %.lr.ph ], [ false, %860 ]
+  %.0 = phi i1 [ %981, %978 ], [ %82, %79 ], [ %169, %166 ], [ %251, %248 ], [ %260, %254 ], [ %280, %277 ], [ %290, %283 ], [ %298, %295 ], [ %324, %321 ], [ %404, %393 ], [ %412, %409 ], [ %460, %459 ], [ %531, %530 ], [ %553, %550 ], [ %559, %556 ], [ %610, %609 ], [ %618, %615 ], [ %.21, %708 ], [ %728, %725 ], [ %732, %731 ], [ %734, %733 ], [ false, %742 ], [ %767, %766 ], [ false, %775 ], [ %818, %817 ], [ false, %826 ], [ false, %892 ], [ %925, %911 ], [ %937, %928 ], [ %947, %940 ], [ %959, %950 ], [ %971, %962 ], [ %977, %972 ], [ %135, %132 ], [ false, %111 ], [ %161, %157 ], [ false, %136 ], [ false, %170 ], [ false, %252 ], [ false, %267 ], [ false, %281 ], [ false, %359 ], [ true, %365 ], [ false, %413 ], [ false, %422 ], [ %437, %431 ], [ %444, %438 ], [ %448, %445 ], [ false, %449 ], [ false, %451 ], [ true, %455 ], [ false, %461 ], [ %476, %473 ], [ false, %546 ], [ %720, %717 ], [ false, %709 ], [ false, %729 ], [ false, %746 ], [ %759, %756 ], [ false, %748 ], [ false, %778 ], [ false, %783 ], [ false, %829 ], [ false, %848 ], [ false, %852 ], [ %908, %904 ], [ false, %896 ], [ false, %909 ], [ false, %926 ], [ false, %938 ], [ false, %948 ], [ false, %960 ], [ %108, %107 ], [ %110, %109 ], [ false, %98 ], [ false, %102 ], [ false, %93 ], [ false, %261 ], [ %316, %307 ], [ false, %299 ], [ false, %305 ], [ %343, %335 ], [ %352, %344 ], [ %358, %353 ], [ false, %325 ], [ false, %331 ], [ false, %518 ], [ %529, %528 ], [ true, %522 ], [ %576, %575 ], [ %591, %590 ], [ %603, %596 ], [ %608, %605 ], [ false, %577 ], [ false, %592 ], [ true, %594 ], [ false, %_ZSteqIN5clang6interp8PrimTypeES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread ], [ false, %739 ], [ false, %770 ], [ false, %821 ], [ false, %879 ], [ %884, %881 ], [ false, %889 ], [ true, %172 ], [ true, %.preheader ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE13VisitCastExprEPKNS_8CastExprEENKUlNS_8QualTypeEE_clES7_.exit ], [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit ], [ true, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit278 ], [ false, %809 ], [ false, %807 ], [ false, %805 ], [ false, %803 ], [ true, %801 ], [ true, %856 ], [ false, %.lr.ph ], [ false, %860 ]
   ret i1 %.0
 }
 
@@ -3344,7 +3344,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEE
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -3363,7 +3363,7 @@ define weak_odr noundef i32 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17
   br label %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit
 
 _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit: ; preds = %3, %8
-  %.1.i = phi ptr [ %7, %3 ], [ %10, %8 ]
+  %.1.i = phi ptr [ %10, %8 ], [ %7, %3 ]
   %11 = and i64 %2, -16
   %12 = inttoptr i64 %11 to ptr
   %13 = load ptr, ptr %12, align 16, !tbaa !79
@@ -3377,7 +3377,7 @@ _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTy
   br label %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit8
 
 _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit8: ; preds = %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit, %15
-  %.1.i7 = phi ptr [ %14, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit ], [ %17, %15 ]
+  %.1.i7 = phi ptr [ %17, %15 ], [ %14, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %19 = load ptr, ptr %18, align 8, !tbaa !78
   %20 = tail call noundef i32 @_ZNK5clang6interp7Context17collectBaseOffsetEPKNS_10RecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef %.1.i, ptr noundef %.1.i7) #16
@@ -3821,7 +3821,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %2, %19
-  %.1.i.i = phi ptr [ %16, %2 ], [ %27, %19 ]
+  %.1.i.i = phi ptr [ %27, %19 ], [ %16, %2 ]
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 16, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -4008,7 +4008,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %25, %32
-  %.1.i.i = phi ptr [ %29, %25 ], [ %40, %32 ]
+  %.1.i.i = phi ptr [ %40, %32 ], [ %29, %25 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %41, align 16, !tbaa !77
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -4557,7 +4557,7 @@ _ZN5clang6interp10FixedPointD2Ev.exit:            ; preds = %_ZN5clang6interp10F
   unreachable
 
 152:                                              ; preds = %_ZN5clang6interp10FixedPointD2Ev.exit, %_ZN4llvm7APFloatD2Ev.exit, %90, %86, %78, %70, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26
-  %.0 = phi i1 [ %144, %_ZN5clang6interp10FixedPointD2Ev.exit ], [ %109, %_ZN4llvm7APFloatD2Ev.exit ], [ %93, %90 ], [ %89, %86 ], [ %85, %78 ], [ %77, %70 ], [ %69, %62 ], [ %61, %58 ], [ %57, %54 ], [ %53, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ]
+  %.0 = phi i1 [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %61, %58 ], [ %69, %62 ], [ %77, %70 ], [ %85, %78 ], [ %89, %86 ], [ %93, %90 ], [ %109, %_ZN4llvm7APFloatD2Ev.exit ], [ %144, %_ZN5clang6interp10FixedPointD2Ev.exit ]
   ret i1 %.0
 }
 
@@ -4680,7 +4680,7 @@ define weak_odr noundef i32 @_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE2
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %2, %8
-  %.1.i = phi ptr [ %5, %2 ], [ %16, %8 ]
+  %.1.i = phi ptr [ %16, %8 ], [ %5, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 16, !tbaa !77
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -4713,7 +4713,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v(
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -4922,7 +4922,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v(p
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -5035,7 +5035,7 @@ define weak_odr noundef i32 @_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE2
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %9
-  %.1.i = phi ptr [ %5, %2 ], [ %17, %9 ]
+  %.1.i = phi ptr [ %17, %9 ], [ %5, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -6652,7 +6652,7 @@ _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14B
   br label %521
 
 521:                                              ; preds = %254, %453, %451, %449, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit161, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit159, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit157, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit155, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit153, %457, %444, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit151, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit149, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit145, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit143, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit141, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit137, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit135, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit131, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit, %285, %280, %275, %270, %265, %260
-  %.5 = phi i1 [ %.0.i160, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit161 ], [ %.0.i158, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit159 ], [ %.0.i156, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit157 ], [ %.0.i154, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit155 ], [ %.0.i152, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit153 ], [ %445, %444 ], [ %460, %457 ], [ %.0.i148, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit149 ], [ %.0.i150, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit151 ], [ %.0.i144, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit145 ], [ %.0.i140, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit141 ], [ %.0.i142, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit143 ], [ %.0.i134, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit135 ], [ %.0.i136, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit137 ], [ %.0.i, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit ], [ %.0.i130, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit131 ], [ %289, %285 ], [ %284, %280 ], [ %279, %275 ], [ %274, %270 ], [ %269, %265 ], [ %264, %260 ], [ false, %449 ], [ false, %451 ], [ true, %453 ], [ false, %254 ]
+  %.5 = phi i1 [ %264, %260 ], [ %269, %265 ], [ %274, %270 ], [ %279, %275 ], [ %284, %280 ], [ %289, %285 ], [ %.0.i, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit ], [ %.0.i130, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit131 ], [ %.0.i134, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit135 ], [ %.0.i136, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit137 ], [ %.0.i140, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit141 ], [ %.0.i142, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit143 ], [ %.0.i144, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit145 ], [ %.0.i148, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit149 ], [ %.0.i150, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit151 ], [ %445, %444 ], [ %460, %457 ], [ %.0.i152, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit153 ], [ %.0.i154, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit155 ], [ %.0.i156, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit157 ], [ %.0.i158, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit159 ], [ %.0.i160, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit161 ], [ false, %449 ], [ false, %451 ], [ true, %453 ], [ false, %254 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #16
   br label %522
 
@@ -6945,7 +6945,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.i:   ; preds = %49, %39
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %72, %83
-  %.1.i.i = phi ptr [ %80, %72 ], [ %91, %83 ]
+  %.1.i.i = phi ptr [ %91, %83 ], [ %80, %72 ]
   %92 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i171 = load i64, ptr %92, align 16, !tbaa !77
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -7096,7 +7096,7 @@ _ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit180.thread: ; preds = %132, %_
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %164, %167
-  %.1.i189 = phi ptr [ %144, %164 ], [ %168, %167 ]
+  %.1.i189 = phi ptr [ %168, %167 ], [ %144, %164 ]
   %169 = getelementptr inbounds nuw i8, ptr %.1.i189, i64 32
   %.sroa.0.0.copyload.i190 = load i64, ptr %169, align 16, !tbaa !77
   %170 = load ptr, ptr %93, align 8, !tbaa !78
@@ -7137,7 +7137,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %164, %167
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit196
 
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit196: ; preds = %183, %186
-  %.1.i195 = phi ptr [ %152, %183 ], [ %187, %186 ]
+  %.1.i195 = phi ptr [ %187, %186 ], [ %152, %183 ]
   %188 = getelementptr inbounds nuw i8, ptr %.1.i195, i64 32
   %.sroa.0.0.copyload.i197 = load i64, ptr %188, align 16, !tbaa !77
   %189 = load ptr, ptr %93, align 8, !tbaa !78
@@ -7675,7 +7675,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.i:   ; preds = %57, %47
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %80, %92, %100
-  %.1.i = phi ptr [ %88, %80 ], [ %101, %100 ], [ null, %92 ]
+  %.1.i = phi ptr [ %101, %100 ], [ %88, %80 ], [ null, %92 ]
   %102 = load i32, ptr %1, align 8
   %103 = lshr i32 %102, 19
   %104 = and i32 %103, 62
@@ -7712,7 +7712,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %80, %92, %100
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit, %117
-  %.1.i.i = phi ptr [ %113, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %125, %117 ]
+  %.1.i.i = phi ptr [ %125, %117 ], [ %113, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ]
   %126 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i130 = load i64, ptr %126, align 16, !tbaa !77
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -7745,7 +7745,7 @@ _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138: ; preds = %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit, %137
-  %.1.i.i135 = phi ptr [ %133, %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit ], [ %145, %137 ]
+  %.1.i.i135 = phi ptr [ %145, %137 ], [ %133, %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit ]
   %146 = getelementptr inbounds nuw i8, ptr %.1.i.i135, i64 32
   %.sroa.0.0.copyload.i.i136 = load i64, ptr %146, align 16, !tbaa !77
   %147 = load ptr, ptr %127, align 8, !tbaa !78
@@ -7776,7 +7776,7 @@ _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit146
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit146: ; preds = %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138, %155
-  %.1.i.i143 = phi ptr [ %151, %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138 ], [ %163, %155 ]
+  %.1.i.i143 = phi ptr [ %163, %155 ], [ %151, %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138 ]
   %164 = getelementptr inbounds nuw i8, ptr %.1.i.i143, i64 32
   %.sroa.0.0.copyload.i.i144 = load i64, ptr %164, align 16, !tbaa !77
   %165 = load ptr, ptr %127, align 8, !tbaa !78
@@ -8237,7 +8237,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %37, %40
-  %.1.i.i = phi ptr [ %29, %37 ], [ %41, %40 ]
+  %.1.i.i = phi ptr [ %41, %40 ], [ %29, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %42, align 16, !tbaa !77
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -8317,7 +8317,7 @@ _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeEN
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit72
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit72: ; preds = %80, %83
-  %.1.i.i69 = phi ptr [ %72, %80 ], [ %84, %83 ]
+  %.1.i.i69 = phi ptr [ %84, %83 ], [ %72, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %.1.i.i69, i64 32
   %.sroa.0.0.copyload.i.i70 = load i64, ptr %85, align 16, !tbaa !77
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -8874,7 +8874,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit27.thread: ; preds = %61, %_ZNK5clang4Ty
   br label %132
 
 132:                                              ; preds = %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94
-  %.1 = phi i1 [ %131, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ]
+  %.1 = phi i1 [ %131, %130 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
   br label %133
@@ -9560,7 +9560,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN5clang6interp8CompilerINS0_15
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %15, %22
-  %.1.i.i = phi ptr [ %19, %15 ], [ %30, %22 ]
+  %.1.i.i = phi ptr [ %30, %22 ], [ %19, %15 ]
   %31 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %31, align 16, !tbaa !77
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 488
@@ -9904,7 +9904,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %17
 
 17:                                               ; preds = %2, %11, %13, %9
-  %.0 = phi i1 [ %16, %13 ], [ %10, %9 ], [ false, %11 ], [ false, %2 ]
+  %.0 = phi i1 [ %10, %9 ], [ %16, %13 ], [ false, %11 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -11726,7 +11726,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang6interp8InitLink4emitINS0_15By
   unreachable
 
 44:                                               ; preds = %3, %31, %39, %37, %27, %21, %15, %11
-  %.0 = phi i1 [ %42, %39 ], [ %38, %37 ], [ %30, %27 ], [ %26, %21 ], [ %20, %15 ], [ %14, %11 ], [ false, %31 ], [ true, %3 ]
+  %.0 = phi i1 [ %14, %11 ], [ %20, %15 ], [ %26, %21 ], [ %30, %27 ], [ %38, %37 ], [ %42, %39 ], [ false, %31 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -12838,7 +12838,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.thread:  ; preds = %90, %_ZNK5clang4Typ
   br label %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE28VisitFixedPointUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
 _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE28VisitFixedPointUnaryOperatorEPKNS_13UnaryOperatorE.exit: ; preds = %119, %125, %141, %156, %168, %175, %181, %197, %212, %224, %231, %237, %259, %267, %274, %312, %319, %325, %347, %355, %362, %400, %404, %412, %433, %449, %453, %467, %481, %487, %493, %502, %508, %524, %526, %534, %536, %381, %293, %129, %.critedge, %185, %.critedge4, %241, %.critedge6, %247, %249, %295, %299, %301, %303, %329, %.critedge8, %335, %337, %383, %387, %389, %391, %416, %418, %437, %457, %497, %499, %512, %528, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread, %288, %286, %279, %376, %374, %367, %430, %104, %102, %100, %96, %88, %84
-  %.0 = phi i1 [ %85, %84 ], [ %89, %88 ], [ %107, %104 ], [ %101, %100 ], [ false, %102 ], [ false, %96 ], [ %537, %536 ], [ %535, %534 ], [ %527, %526 ], [ %525, %524 ], [ %511, %508 ], [ %496, %493 ], [ %505, %502 ], [ %486, %481 ], [ %488, %487 ], [ %468, %467 ], [ %456, %453 ], [ %450, %449 ], [ %436, %433 ], [ %415, %412 ], [ %407, %404 ], [ %348, %347 ], [ %361, %355 ], [ %365, %362 ], [ %401, %400 ], [ false, %381 ], [ %328, %325 ], [ %322, %319 ], [ %260, %259 ], [ %273, %267 ], [ %277, %274 ], [ %313, %312 ], [ false, %293 ], [ %240, %237 ], [ %234, %231 ], [ %198, %197 ], [ %213, %212 ], [ %225, %224 ], [ %184, %181 ], [ %178, %175 ], [ %142, %141 ], [ %157, %156 ], [ %169, %168 ], [ %128, %125 ], [ %122, %119 ], [ false, %129 ], [ false, %.critedge ], [ false, %185 ], [ false, %.critedge4 ], [ false, %241 ], [ false, %.critedge6 ], [ false, %247 ], [ false, %249 ], [ false, %295 ], [ false, %299 ], [ false, %301 ], [ false, %303 ], [ false, %329 ], [ false, %.critedge8 ], [ false, %335 ], [ false, %337 ], [ false, %383 ], [ false, %387 ], [ false, %389 ], [ false, %391 ], [ false, %416 ], [ false, %418 ], [ %spec.select, %430 ], [ false, %437 ], [ false, %457 ], [ false, %497 ], [ true, %499 ], [ false, %512 ], [ false, %528 ], [ false, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ false, %288 ], [ false, %286 ], [ false, %279 ], [ false, %376 ], [ false, %374 ], [ false, %367 ]
+  %.0 = phi i1 [ %85, %84 ], [ %89, %88 ], [ %101, %100 ], [ %107, %104 ], [ false, %102 ], [ false, %96 ], [ %142, %141 ], [ %157, %156 ], [ %169, %168 ], [ %128, %125 ], [ %122, %119 ], [ %198, %197 ], [ %213, %212 ], [ %225, %224 ], [ %184, %181 ], [ %178, %175 ], [ %260, %259 ], [ %273, %267 ], [ %277, %274 ], [ %313, %312 ], [ false, %293 ], [ %240, %237 ], [ %234, %231 ], [ %348, %347 ], [ %361, %355 ], [ %365, %362 ], [ %401, %400 ], [ false, %381 ], [ %328, %325 ], [ %322, %319 ], [ %415, %412 ], [ %407, %404 ], [ %450, %449 ], [ %436, %433 ], [ %468, %467 ], [ %456, %453 ], [ %486, %481 ], [ %488, %487 ], [ %496, %493 ], [ %505, %502 ], [ %525, %524 ], [ %511, %508 ], [ %527, %526 ], [ %535, %534 ], [ %537, %536 ], [ false, %129 ], [ false, %.critedge ], [ false, %185 ], [ false, %.critedge4 ], [ false, %241 ], [ false, %.critedge6 ], [ false, %247 ], [ false, %249 ], [ false, %295 ], [ false, %299 ], [ false, %301 ], [ false, %303 ], [ false, %329 ], [ false, %.critedge8 ], [ false, %335 ], [ false, %337 ], [ false, %383 ], [ false, %387 ], [ false, %389 ], [ false, %391 ], [ false, %416 ], [ false, %418 ], [ %spec.select, %430 ], [ false, %437 ], [ false, %457 ], [ false, %497 ], [ true, %499 ], [ false, %512 ], [ false, %528 ], [ false, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ false, %288 ], [ false, %286 ], [ false, %279 ], [ false, %376 ], [ false, %374 ], [ false, %367 ]
   ret i1 %.0
 }
 
@@ -12921,7 +12921,7 @@ _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE8classifyEPKNS_4ExprE.exit: ; 
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE8classifyEPKNS_4ExprE.exit, %46
-  %.1.i.i = phi ptr [ %43, %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE8classifyEPKNS_4ExprE.exit ], [ %54, %46 ]
+  %.1.i.i = phi ptr [ %54, %46 ], [ %43, %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE8classifyEPKNS_4ExprE.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %55, align 16, !tbaa !77
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -13175,7 +13175,7 @@ _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPK
   br label %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread76
 
 _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread76: ; preds = %.preheader, %85, %83, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUljjE_clEjj.exit, %79, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread, %66, %87, %105, %117, %119, %142, %144, %146, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE0_clEv.exit, %89, %91, %93, %107, %113, %127, %129, %133, %135, %104, %26
-  %.0 = phi i1 [ %29, %26 ], [ %149, %146 ], [ %145, %144 ], [ %143, %142 ], [ %118, %117 ], [ %126, %119 ], [ %106, %105 ], [ %88, %87 ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE0_clEv.exit ], [ false, %89 ], [ false, %91 ], [ false, %93 ], [ %spec.select56, %104 ], [ false, %107 ], [ false, %113 ], [ false, %127 ], [ false, %129 ], [ false, %133 ], [ false, %135 ], [ false, %66 ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread ], [ false, %.preheader ], [ true, %79 ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUljjE_clEjj.exit ], [ false, %83 ], [ false, %85 ]
+  %.0 = phi i1 [ %29, %26 ], [ %149, %146 ], [ %88, %87 ], [ %106, %105 ], [ %118, %117 ], [ %126, %119 ], [ %143, %142 ], [ %145, %144 ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE0_clEv.exit ], [ false, %89 ], [ false, %91 ], [ false, %93 ], [ %spec.select56, %104 ], [ false, %107 ], [ false, %113 ], [ false, %127 ], [ false, %129 ], [ false, %133 ], [ false, %135 ], [ false, %66 ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread ], [ false, %.preheader ], [ true, %79 ], [ false, %_ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUljjE_clEjj.exit ], [ false, %83 ], [ false, %85 ]
   ret i1 %.0
 }
 
@@ -13360,7 +13360,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %67, %75, %83
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit, %89
-  %.1.i.i = phi ptr [ %85, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %97, %89 ]
+  %.1.i.i = phi ptr [ %97, %89 ], [ %85, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ]
   %98 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %98, align 16, !tbaa !77
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -15095,7 +15095,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %3, %17, %25
-  %.1.i = phi ptr [ %13, %3 ], [ %26, %25 ], [ null, %17 ]
+  %.1.i = phi ptr [ %26, %25 ], [ %13, %3 ], [ null, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %27, align 16, !tbaa !77
   %28 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
@@ -16533,7 +16533,7 @@ _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %24, %25
   br label %.thread
 
 .thread:                                          ; preds = %4, %43, %39, %41, %49, %51, %28, %_ZN5clang6interp8FloatingD2Ev.exit, %11
-  %.0 = phi i1 [ %13, %11 ], [ %22, %_ZN5clang6interp8FloatingD2Ev.exit ], [ %31, %28 ], [ %50, %49 ], [ %52, %51 ], [ false, %41 ], [ %44, %43 ], [ %40, %39 ], [ false, %4 ]
+  %.0 = phi i1 [ %13, %11 ], [ %22, %_ZN5clang6interp8FloatingD2Ev.exit ], [ %31, %28 ], [ %52, %51 ], [ %50, %49 ], [ false, %41 ], [ %44, %43 ], [ %40, %39 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -16616,7 +16616,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread150: ; preds = %15, 
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %44, %.lr.ph.i
-  %.1.i.i = phi ptr [ %40, %.lr.ph.i ], [ %45, %44 ]
+  %.1.i.i = phi ptr [ %45, %44 ], [ %40, %.lr.ph.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %47 = load i24, ptr %46, align 16
   %48 = and i24 %47, 1048576
@@ -17031,7 +17031,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread18: ; preds = %3, %_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %35, %.lr.ph.i
-  %.1.i.i = phi ptr [ %31, %.lr.ph.i ], [ %36, %35 ]
+  %.1.i.i = phi ptr [ %36, %35 ], [ %31, %.lr.ph.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %38 = load i24, ptr %37, align 16
   %39 = and i24 %38, 1048576
@@ -17471,7 +17471,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %24, %14
-  %.1.i.i = phi ptr [ %20, %14 ], [ %25, %24 ]
+  %.1.i.i = phi ptr [ %25, %24 ], [ %20, %14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !809)
   %26 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %27 = load i32, ptr %26, align 16, !noalias !812
@@ -18488,7 +18488,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %_ZNK5clang10ASTCon
   br label %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us: ; preds = %76, %72, %69
-  %.0.i.us = phi i32 [ %71, %69 ], [ %75, %72 ], [ %79, %76 ]
+  %.0.i.us = phi i32 [ %79, %76 ], [ %75, %72 ], [ %71, %69 ]
   %80 = trunc i32 %.0.i.us to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 %60, ptr %4, align 8, !tbaa !77
@@ -18535,7 +18535,7 @@ _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us: ; preds = %76, %72, %69
   br label %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us56
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us56: ; preds = %97, %93, %90
-  %.0.i.us57 = phi i32 [ %92, %90 ], [ %96, %93 ], [ %100, %97 ]
+  %.0.i.us57 = phi i32 [ %100, %97 ], [ %96, %93 ], [ %92, %90 ]
   %101 = trunc i32 %.0.i.us57 to i16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store i64 %60, ptr %6, align 8, !tbaa !77
@@ -18630,7 +18630,7 @@ _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us56: ; preds = %97, %93, %90
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit:    ; preds = %120, %124, %128
-  %.0.i = phi i32 [ %130, %128 ], [ %127, %124 ], [ %123, %120 ]
+  %.0.i = phi i32 [ %123, %120 ], [ %127, %124 ], [ %130, %128 ]
   call void @llvm.assume(i1 %61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store i64 %60, ptr %8, align 8, !tbaa !77
@@ -22496,7 +22496,7 @@ _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE9getRecordENS_8QualTypeE.exit: 
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %68, %77
-  %.1.i = phi ptr [ %73, %68 ], [ %85, %77 ]
+  %.1.i = phi ptr [ %85, %77 ], [ %73, %68 ]
   %86 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i88 = load i64, ptr %86, align 16, !tbaa !77
   %87 = load ptr, ptr %44, align 8, !tbaa !78
@@ -22906,7 +22906,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %16
-  %.1.i = phi ptr [ %12, %2 ], [ %17, %16 ]
+  %.1.i = phi ptr [ %17, %16 ], [ %12, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i40 = load i64, ptr %18, align 16, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -22944,7 +22944,7 @@ _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %16
   br label %_ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_15ByteCodeEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit, %33
-  %.1.i.i = phi ptr [ %29, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ], [ %41, %33 ]
+  %.1.i.i = phi ptr [ %41, %33 ], [ %29, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %42, align 16, !tbaa !77
   %43 = load ptr, ptr %19, align 8, !tbaa !78
@@ -23141,7 +23141,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %27
-  %.1.i = phi ptr [ %23, %2 ], [ %28, %27 ]
+  %.1.i = phi ptr [ %28, %27 ], [ %23, %2 ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i41 = load i64, ptr %29, align 16, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -23477,7 +23477,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %65, %73
-  %.1.i = phi ptr [ %69, %65 ], [ %81, %73 ]
+  %.1.i = phi ptr [ %81, %73 ], [ %69, %65 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i48 = load i64, ptr %82, align 16, !tbaa !77
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -24626,7 +24626,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE14visitBreakStmtEPKNS_9BreakStmtE.exit
 
 _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE14visitBreakStmtEPKNS_9BreakStmtE.exit: ; preds = %tailrecurse, %.critedge.i, %39, %._crit_edge.i, %24, %87, %75, %73, %58, %56, %22, %20, %18, %16, %14, %12, %10, %8
-  %.023 = phi i1 [ %78, %75 ], [ %74, %73 ], [ %69, %58 ], [ %57, %56 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %spec.select, %87 ], [ %33, %._crit_edge.i ], [ false, %24 ], [ %51, %.critedge.i ], [ false, %39 ], [ true, %tailrecurse ]
+  %.023 = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %57, %56 ], [ %69, %58 ], [ %74, %73 ], [ %78, %75 ], [ %spec.select, %87 ], [ %33, %._crit_edge.i ], [ false, %24 ], [ %51, %.critedge.i ], [ false, %39 ], [ true, %tailrecurse ]
   ret i1 %.023
 }
 
@@ -24677,7 +24677,7 @@ _ZNK5clang10CXXNewExpr14getInitializerEv.exit:    ; preds = %2, %17
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %_ZNK5clang10CXXNewExpr14getInitializerEv.exit, %30
-  %.1.i.i = phi ptr [ %27, %_ZNK5clang10CXXNewExpr14getInitializerEv.exit ], [ %31, %30 ]
+  %.1.i.i = phi ptr [ %31, %30 ], [ %27, %_ZNK5clang10CXXNewExpr14getInitializerEv.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i1.i = load i64, ptr %32, align 16, !tbaa !77
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -29777,7 +29777,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %2, %12
-  %.1.i.i = phi ptr [ %8, %2 ], [ %13, %12 ]
+  %.1.i.i = phi ptr [ %13, %12 ], [ %8, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %14, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -29877,7 +29877,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %29, %37
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit51
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit51: ; preds = %59, %66
-  %.1.i.i49 = phi ptr [ %62, %59 ], [ %67, %66 ]
+  %.1.i.i49 = phi ptr [ %67, %66 ], [ %62, %59 ]
   %68 = getelementptr inbounds nuw i8, ptr %.1.i.i49, i64 24
   %.sroa.0.0.copyload.i1.i50 = load i64, ptr %68, align 8, !tbaa !77
   %69 = and i64 %.sroa.0.0.copyload.i1.i50, -16
@@ -29916,7 +29916,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %_ZNK5clang12Functio
   br label %85
 
 85:                                               ; preds = %57, %50, %46, %24, %22, %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %82
-  %.1 = phi i1 [ %23, %22 ], [ %25, %24 ], [ %83, %82 ], [ %84, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ %51, %50 ], [ %47, %46 ], [ false, %57 ]
+  %.1 = phi i1 [ %83, %82 ], [ %84, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ %25, %24 ], [ %23, %22 ], [ %51, %50 ], [ %47, %46 ], [ false, %57 ]
   ret i1 %.1
 }
 
@@ -32709,8 +32709,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %157, %_ZN4llvm5
   %372 = tail call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE32VisitAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE.exit
 
-_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE.exit: ; preds = %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79, %81, %261, %257, %195, %191, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %270, %255, %251, %249, %242, %240, %238, %236, %234, %232, %230, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %189, %187, %152, %150, %146, %144, %142, %140, %138, %136, %134, %132, %127, %125, %123
-  %.3 = phi i1 [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %329, %328 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %271, %270 ], [ %256, %255 ], [ %254, %251 ], [ %250, %249 ], [ %248, %242 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %190, %189 ], [ %188, %187 ], [ %153, %152 ], [ %151, %150 ], [ %149, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %198, %195 ], [ true, %191 ], [ %269, %261 ], [ true, %257 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ]
+_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE.exit: ; preds = %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %261, %257, %195, %191, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %270, %255, %251, %249, %242, %240, %238, %236, %234, %232, %230, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %189, %187, %152, %150, %146, %144, %142, %140, %138, %136, %134, %132, %127, %125, %123
+  %.3 = phi i1 [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %149, %146 ], [ %151, %150 ], [ %153, %152 ], [ %188, %187 ], [ %190, %189 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %231, %230 ], [ %233, %232 ], [ %235, %234 ], [ %237, %236 ], [ %239, %238 ], [ %241, %240 ], [ %248, %242 ], [ %250, %249 ], [ %254, %251 ], [ %256, %255 ], [ %271, %270 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %337, %336 ], [ %339, %338 ], [ %341, %340 ], [ %343, %342 ], [ %345, %344 ], [ %347, %346 ], [ %349, %348 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %198, %195 ], [ true, %191 ], [ %269, %261 ], [ true, %257 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ]
   ret i1 %.3
 }
 
@@ -33681,7 +33681,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCode
   unreachable
 
 58:                                               ; preds = %52, %48, %44, %39, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %38, %34 ], [ %43, %39 ], [ %47, %44 ], [ %51, %48 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -33800,7 +33800,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCode
   unreachable
 
 58:                                               ; preds = %52, %48, %44, %39, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %38, %34 ], [ %43, %39 ], [ %47, %44 ], [ %51, %48 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -34694,7 +34694,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285:   ; preds = %215, %216
   br label %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i
 
 _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i: ; preds = %222, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285
-  %.1.i.i = phi ptr [ %221, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285 ], [ %224, %222 ]
+  %.1.i.i = phi ptr [ %224, %222 ], [ %221, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit285 ]
   %225 = inttoptr i64 %.sroa.0120.0549 to ptr
   %226 = load ptr, ptr %225, align 16, !tbaa !79
   %227 = call noundef ptr @_ZNK5clang4Type23getPointeeCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %226) #16
@@ -34707,7 +34707,7 @@ _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES
   br label %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit
 
 _ZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit: ; preds = %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i, %228
-  %.1.i7.i = phi ptr [ %227, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i ], [ %230, %228 ]
+  %.1.i7.i = phi ptr [ %230, %228 ], [ %227, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit.i ]
   %231 = load ptr, ptr %177, align 8, !tbaa !1198
   %232 = call noundef i32 @_ZNK5clang6interp7Context17collectBaseOffsetEPKNS_10RecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(40) %231, ptr noundef %.1.i.i, ptr noundef %.1.i7.i) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
@@ -36164,7 +36164,7 @@ _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE8classifyEPKNS_4ExprE.exit: ; pred
   br label %.critedge257
 
 .critedge257:                                     ; preds = %860, %.lr.ph, %856, %801, %803, %805, %807, %809, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit278, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE13VisitCastExprEPKNS_8CastExprEENKUlNS_8QualTypeEE_clES7_.exit, %.preheader, %172, %889, %881, %879, %821, %770, %739, %575, %_ZSteqIN5clang6interp8PrimTypeES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread, %594, %592, %577, %605, %596, %590, %518, %522, %528, %335, %344, %353, %325, %331, %307, %299, %305, %261, %107, %109, %98, %102, %93, %960, %948, %938, %926, %909, %904, %896, %829, %848, %852, %778, %783, %756, %748, %746, %729, %717, %709, %546, %461, %473, %455, %451, %449, %431, %438, %445, %422, %413, %365, %359, %281, %267, %252, %170, %157, %136, %132, %111, %742, %775, %826, %892, %978, %972, %962, %950, %940, %928, %911, %817, %766, %733, %731, %725, %708, %615, %609, %556, %550, %530, %459, %409, %393, %321, %295, %283, %277, %254, %248, %166, %79
-  %.0 = phi i1 [ %981, %978 ], [ %977, %972 ], [ %971, %962 ], [ %959, %950 ], [ %947, %940 ], [ %937, %928 ], [ %925, %911 ], [ false, %892 ], [ %818, %817 ], [ false, %826 ], [ %767, %766 ], [ false, %775 ], [ false, %742 ], [ %734, %733 ], [ %728, %725 ], [ %732, %731 ], [ %618, %615 ], [ %.21, %708 ], [ %610, %609 ], [ %553, %550 ], [ %559, %556 ], [ %531, %530 ], [ %460, %459 ], [ %412, %409 ], [ %404, %393 ], [ %324, %321 ], [ %298, %295 ], [ %280, %277 ], [ %290, %283 ], [ %251, %248 ], [ %260, %254 ], [ %169, %166 ], [ %82, %79 ], [ %135, %132 ], [ false, %111 ], [ %161, %157 ], [ false, %136 ], [ false, %170 ], [ false, %252 ], [ false, %267 ], [ false, %281 ], [ false, %359 ], [ true, %365 ], [ false, %413 ], [ false, %422 ], [ %437, %431 ], [ %444, %438 ], [ %448, %445 ], [ false, %449 ], [ false, %451 ], [ true, %455 ], [ false, %461 ], [ %476, %473 ], [ false, %546 ], [ %720, %717 ], [ false, %709 ], [ false, %729 ], [ false, %746 ], [ %759, %756 ], [ false, %748 ], [ false, %778 ], [ false, %783 ], [ false, %829 ], [ false, %848 ], [ false, %852 ], [ %908, %904 ], [ false, %896 ], [ false, %909 ], [ false, %926 ], [ false, %938 ], [ false, %948 ], [ false, %960 ], [ %108, %107 ], [ %110, %109 ], [ false, %98 ], [ false, %102 ], [ false, %93 ], [ false, %261 ], [ %316, %307 ], [ false, %299 ], [ false, %305 ], [ %343, %335 ], [ %352, %344 ], [ %358, %353 ], [ false, %325 ], [ false, %331 ], [ false, %518 ], [ %529, %528 ], [ true, %522 ], [ %576, %575 ], [ %591, %590 ], [ %603, %596 ], [ %608, %605 ], [ false, %577 ], [ false, %592 ], [ true, %594 ], [ false, %_ZSteqIN5clang6interp8PrimTypeES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread ], [ false, %739 ], [ false, %770 ], [ false, %821 ], [ false, %879 ], [ %884, %881 ], [ false, %889 ], [ true, %172 ], [ true, %.preheader ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE13VisitCastExprEPKNS_8CastExprEENKUlNS_8QualTypeEE_clES7_.exit ], [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit ], [ true, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit278 ], [ false, %809 ], [ false, %807 ], [ false, %805 ], [ false, %803 ], [ true, %801 ], [ true, %856 ], [ false, %.lr.ph ], [ false, %860 ]
+  %.0 = phi i1 [ %981, %978 ], [ %82, %79 ], [ %169, %166 ], [ %251, %248 ], [ %260, %254 ], [ %280, %277 ], [ %290, %283 ], [ %298, %295 ], [ %324, %321 ], [ %404, %393 ], [ %412, %409 ], [ %460, %459 ], [ %531, %530 ], [ %553, %550 ], [ %559, %556 ], [ %610, %609 ], [ %618, %615 ], [ %.21, %708 ], [ %728, %725 ], [ %732, %731 ], [ %734, %733 ], [ false, %742 ], [ %767, %766 ], [ false, %775 ], [ %818, %817 ], [ false, %826 ], [ false, %892 ], [ %925, %911 ], [ %937, %928 ], [ %947, %940 ], [ %959, %950 ], [ %971, %962 ], [ %977, %972 ], [ %135, %132 ], [ false, %111 ], [ %161, %157 ], [ false, %136 ], [ false, %170 ], [ false, %252 ], [ false, %267 ], [ false, %281 ], [ false, %359 ], [ true, %365 ], [ false, %413 ], [ false, %422 ], [ %437, %431 ], [ %444, %438 ], [ %448, %445 ], [ false, %449 ], [ false, %451 ], [ true, %455 ], [ false, %461 ], [ %476, %473 ], [ false, %546 ], [ %720, %717 ], [ false, %709 ], [ false, %729 ], [ false, %746 ], [ %759, %756 ], [ false, %748 ], [ false, %778 ], [ false, %783 ], [ false, %829 ], [ false, %848 ], [ false, %852 ], [ %908, %904 ], [ false, %896 ], [ false, %909 ], [ false, %926 ], [ false, %938 ], [ false, %948 ], [ false, %960 ], [ %108, %107 ], [ %110, %109 ], [ false, %98 ], [ false, %102 ], [ false, %93 ], [ false, %261 ], [ %316, %307 ], [ false, %299 ], [ false, %305 ], [ %343, %335 ], [ %352, %344 ], [ %358, %353 ], [ false, %325 ], [ false, %331 ], [ false, %518 ], [ %529, %528 ], [ true, %522 ], [ %576, %575 ], [ %591, %590 ], [ %603, %596 ], [ %608, %605 ], [ false, %577 ], [ false, %592 ], [ true, %594 ], [ false, %_ZSteqIN5clang6interp8PrimTypeES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread ], [ false, %739 ], [ false, %770 ], [ false, %821 ], [ false, %879 ], [ %884, %881 ], [ false, %889 ], [ true, %172 ], [ true, %.preheader ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE13VisitCastExprEPKNS_8CastExprEENKUlNS_8QualTypeEE_clES7_.exit ], [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_.exit ], [ true, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit278 ], [ false, %809 ], [ false, %807 ], [ false, %805 ], [ false, %803 ], [ true, %801 ], [ true, %856 ], [ false, %.lr.ph ], [ false, %860 ]
   ret i1 %.0
 }
 
@@ -36505,7 +36505,7 @@ define weak_odr noundef i32 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE17coll
   br label %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit
 
 _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit: ; preds = %3, %8
-  %.1.i = phi ptr [ %7, %3 ], [ %10, %8 ]
+  %.1.i = phi ptr [ %10, %8 ], [ %7, %3 ]
   %11 = and i64 %2, -16
   %12 = inttoptr i64 %11 to ptr
   %13 = load ptr, ptr %12, align 16, !tbaa !79
@@ -36519,7 +36519,7 @@ _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES
   br label %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit8
 
 _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit8: ; preds = %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit, %15
-  %.1.i7 = phi ptr [ %14, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit ], [ %17, %15 ]
+  %.1.i7 = phi ptr [ %17, %15 ], [ %14, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE17collectBaseOffsetENS_8QualTypeES4_ENKUlS4_E_clES4_.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %19 = load ptr, ptr %18, align 8, !tbaa !1198
   %20 = tail call noundef i32 @_ZNK5clang6interp7Context17collectBaseOffsetEPKNS_10RecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef %.1.i, ptr noundef %.1.i7) #16
@@ -36897,7 +36897,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %2, %19
-  %.1.i.i = phi ptr [ %16, %2 ], [ %27, %19 ]
+  %.1.i.i = phi ptr [ %27, %19 ], [ %16, %2 ]
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 16, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -37079,7 +37079,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %25, %32
-  %.1.i.i = phi ptr [ %29, %25 ], [ %40, %32 ]
+  %.1.i.i = phi ptr [ %40, %32 ], [ %29, %25 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %41, align 16, !tbaa !77
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -37628,7 +37628,7 @@ _ZN5clang6interp10FixedPointD2Ev.exit:            ; preds = %_ZN5clang6interp10F
   unreachable
 
 152:                                              ; preds = %_ZN5clang6interp10FixedPointD2Ev.exit, %_ZN4llvm7APFloatD2Ev.exit, %90, %86, %78, %70, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26
-  %.0 = phi i1 [ %144, %_ZN5clang6interp10FixedPointD2Ev.exit ], [ %109, %_ZN4llvm7APFloatD2Ev.exit ], [ %93, %90 ], [ %89, %86 ], [ %85, %78 ], [ %77, %70 ], [ %69, %62 ], [ %61, %58 ], [ %57, %54 ], [ %53, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ]
+  %.0 = phi i1 [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %61, %58 ], [ %69, %62 ], [ %77, %70 ], [ %85, %78 ], [ %89, %86 ], [ %93, %90 ], [ %109, %_ZN4llvm7APFloatD2Ev.exit ], [ %144, %_ZN5clang6interp10FixedPointD2Ev.exit ]
   ret i1 %.0
 }
 
@@ -37751,7 +37751,7 @@ define weak_odr noundef i32 @_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26cla
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %2, %8
-  %.1.i = phi ptr [ %5, %2 ], [ %16, %8 ]
+  %.1.i = phi ptr [ %16, %8 ], [ %5, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 16, !tbaa !77
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -38050,7 +38050,7 @@ define weak_odr noundef i32 @_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25cla
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %9
-  %.1.i = phi ptr [ %5, %2 ], [ %17, %9 ]
+  %.1.i = phi ptr [ %17, %9 ], [ %5, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -39606,7 +39606,7 @@ _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14Binar
   br label %521
 
 521:                                              ; preds = %254, %453, %451, %449, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit161, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit159, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit157, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit155, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit153, %457, %444, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit151, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit149, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit145, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit143, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit141, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit137, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit135, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit131, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit, %285, %280, %275, %270, %265, %260
-  %.5 = phi i1 [ %.0.i160, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit161 ], [ %.0.i158, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit159 ], [ %.0.i156, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit157 ], [ %.0.i154, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit155 ], [ %.0.i152, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit153 ], [ %445, %444 ], [ %460, %457 ], [ %.0.i148, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit149 ], [ %.0.i150, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit151 ], [ %.0.i144, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit145 ], [ %.0.i140, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit141 ], [ %.0.i142, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit143 ], [ %.0.i134, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit135 ], [ %.0.i136, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit137 ], [ %.0.i, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit ], [ %.0.i130, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit131 ], [ %289, %285 ], [ %284, %280 ], [ %279, %275 ], [ %274, %270 ], [ %269, %265 ], [ %264, %260 ], [ false, %449 ], [ false, %451 ], [ true, %453 ], [ false, %254 ]
+  %.5 = phi i1 [ %264, %260 ], [ %269, %265 ], [ %274, %270 ], [ %279, %275 ], [ %284, %280 ], [ %289, %285 ], [ %.0.i, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit ], [ %.0.i130, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit131 ], [ %.0.i134, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit135 ], [ %.0.i136, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit137 ], [ %.0.i140, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit141 ], [ %.0.i142, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit143 ], [ %.0.i144, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit145 ], [ %.0.i148, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit149 ], [ %.0.i150, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit151 ], [ %445, %444 ], [ %460, %457 ], [ %.0.i152, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit153 ], [ %.0.i154, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit155 ], [ %.0.i156, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit157 ], [ %.0.i158, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit159 ], [ %.0.i160, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE19VisitBinaryOperatorEPKNS_14BinaryOperatorEENKUlbE0_clEb.exit161 ], [ false, %449 ], [ false, %451 ], [ true, %453 ], [ false, %254 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #16
   br label %522
 
@@ -39894,7 +39894,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.i:   ; preds = %49, %39
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %72, %83
-  %.1.i.i = phi ptr [ %80, %72 ], [ %91, %83 ]
+  %.1.i.i = phi ptr [ %91, %83 ], [ %80, %72 ]
   %92 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i171 = load i64, ptr %92, align 16, !tbaa !77
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -40045,7 +40045,7 @@ _ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit180.thread: ; preds = %132, %_
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %164, %167
-  %.1.i189 = phi ptr [ %144, %164 ], [ %168, %167 ]
+  %.1.i189 = phi ptr [ %168, %167 ], [ %144, %164 ]
   %169 = getelementptr inbounds nuw i8, ptr %.1.i189, i64 32
   %.sroa.0.0.copyload.i190 = load i64, ptr %169, align 16, !tbaa !77
   %170 = load ptr, ptr %93, align 8, !tbaa !1198
@@ -40086,7 +40086,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %164, %167
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit196
 
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit196: ; preds = %183, %186
-  %.1.i195 = phi ptr [ %152, %183 ], [ %187, %186 ]
+  %.1.i195 = phi ptr [ %187, %186 ], [ %152, %183 ]
   %188 = getelementptr inbounds nuw i8, ptr %.1.i195, i64 32
   %.sroa.0.0.copyload.i197 = load i64, ptr %188, align 16, !tbaa !77
   %189 = load ptr, ptr %93, align 8, !tbaa !1198
@@ -40624,7 +40624,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.i:   ; preds = %57, %47
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %80, %92, %100
-  %.1.i = phi ptr [ %88, %80 ], [ %101, %100 ], [ null, %92 ]
+  %.1.i = phi ptr [ %101, %100 ], [ %88, %80 ], [ null, %92 ]
   %102 = load i32, ptr %1, align 8
   %103 = lshr i32 %102, 19
   %104 = and i32 %103, 62
@@ -40661,7 +40661,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %80, %92, %100
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit, %117
-  %.1.i.i = phi ptr [ %113, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %125, %117 ]
+  %.1.i.i = phi ptr [ %125, %117 ], [ %113, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ]
   %126 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i130 = load i64, ptr %126, align 16, !tbaa !77
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -40694,7 +40694,7 @@ _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8Qu
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138: ; preds = %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit, %137
-  %.1.i.i135 = phi ptr [ %133, %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit ], [ %145, %137 ]
+  %.1.i.i135 = phi ptr [ %145, %137 ], [ %133, %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit ]
   %146 = getelementptr inbounds nuw i8, ptr %.1.i.i135, i64 32
   %.sroa.0.0.copyload.i.i136 = load i64, ptr %146, align 16, !tbaa !77
   %147 = load ptr, ptr %127, align 8, !tbaa !1198
@@ -40725,7 +40725,7 @@ _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8Qu
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit146
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit146: ; preds = %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138, %155
-  %.1.i.i143 = phi ptr [ %151, %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138 ], [ %163, %155 ]
+  %.1.i.i143 = phi ptr [ %163, %155 ], [ %151, %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit138 ]
   %164 = getelementptr inbounds nuw i8, ptr %.1.i.i143, i64 32
   %.sroa.0.0.copyload.i.i144 = load i64, ptr %164, align 16, !tbaa !77
   %165 = load ptr, ptr %127, align 8, !tbaa !1198
@@ -41186,7 +41186,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %37, %40
-  %.1.i.i = phi ptr [ %29, %37 ], [ %41, %40 ]
+  %.1.i.i = phi ptr [ %41, %40 ], [ %29, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %42, align 16, !tbaa !77
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -41266,7 +41266,7 @@ _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8Q
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit72
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit72: ; preds = %80, %83
-  %.1.i.i69 = phi ptr [ %72, %80 ], [ %84, %83 ]
+  %.1.i.i69 = phi ptr [ %84, %83 ], [ %72, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %.1.i.i69, i64 32
   %.sroa.0.0.copyload.i.i70 = load i64, ptr %85, align 16, !tbaa !77
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -41823,7 +41823,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit27.thread: ; preds = %61, %_ZNK5clang4Ty
   br label %132
 
 132:                                              ; preds = %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94
-  %.1 = phi i1 [ %131, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ]
+  %.1 = phi i1 [ %131, %130 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
   br label %133
@@ -42509,7 +42509,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN5clang6interp8CompilerINS0_11
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %15, %22
-  %.1.i.i = phi ptr [ %19, %15 ], [ %30, %22 ]
+  %.1.i.i = phi ptr [ %30, %22 ], [ %19, %15 ]
   %31 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %31, align 16, !tbaa !77
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 1048
@@ -42851,7 +42851,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %17
 
 17:                                               ; preds = %2, %11, %13, %9
-  %.0 = phi i1 [ %16, %13 ], [ %10, %9 ], [ false, %11 ], [ false, %2 ]
+  %.0 = phi i1 [ %10, %9 ], [ %16, %13 ], [ false, %11 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -44635,7 +44635,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang6interp8InitLink4emitINS0_11Ev
   unreachable
 
 44:                                               ; preds = %3, %31, %39, %37, %27, %21, %15, %11
-  %.0 = phi i1 [ %42, %39 ], [ %38, %37 ], [ %30, %27 ], [ %26, %21 ], [ %20, %15 ], [ %14, %11 ], [ false, %31 ], [ true, %3 ]
+  %.0 = phi i1 [ %14, %11 ], [ %20, %15 ], [ %26, %21 ], [ %30, %27 ], [ %38, %37 ], [ %42, %39 ], [ false, %31 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -45747,7 +45747,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.thread:  ; preds = %90, %_ZNK5clang4Typ
   br label %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE28VisitFixedPointUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
 _ZN5clang6interp8CompilerINS0_11EvalEmitterEE28VisitFixedPointUnaryOperatorEPKNS_13UnaryOperatorE.exit: ; preds = %119, %125, %141, %156, %168, %175, %181, %197, %212, %224, %231, %237, %259, %267, %274, %312, %319, %325, %347, %355, %362, %400, %404, %412, %433, %449, %453, %467, %481, %487, %493, %502, %508, %524, %526, %534, %536, %381, %293, %129, %.critedge, %185, %.critedge4, %241, %.critedge6, %247, %249, %295, %299, %301, %303, %329, %.critedge8, %335, %337, %383, %387, %389, %391, %416, %418, %437, %457, %497, %499, %512, %528, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread, %288, %286, %279, %376, %374, %367, %430, %104, %102, %100, %96, %88, %84
-  %.0 = phi i1 [ %85, %84 ], [ %89, %88 ], [ %107, %104 ], [ %101, %100 ], [ false, %102 ], [ false, %96 ], [ %537, %536 ], [ %535, %534 ], [ %527, %526 ], [ %525, %524 ], [ %511, %508 ], [ %496, %493 ], [ %505, %502 ], [ %486, %481 ], [ %488, %487 ], [ %468, %467 ], [ %456, %453 ], [ %450, %449 ], [ %436, %433 ], [ %415, %412 ], [ %407, %404 ], [ %348, %347 ], [ %361, %355 ], [ %365, %362 ], [ %401, %400 ], [ false, %381 ], [ %328, %325 ], [ %322, %319 ], [ %260, %259 ], [ %273, %267 ], [ %277, %274 ], [ %313, %312 ], [ false, %293 ], [ %240, %237 ], [ %234, %231 ], [ %198, %197 ], [ %213, %212 ], [ %225, %224 ], [ %184, %181 ], [ %178, %175 ], [ %142, %141 ], [ %157, %156 ], [ %169, %168 ], [ %128, %125 ], [ %122, %119 ], [ false, %129 ], [ false, %.critedge ], [ false, %185 ], [ false, %.critedge4 ], [ false, %241 ], [ false, %.critedge6 ], [ false, %247 ], [ false, %249 ], [ false, %295 ], [ false, %299 ], [ false, %301 ], [ false, %303 ], [ false, %329 ], [ false, %.critedge8 ], [ false, %335 ], [ false, %337 ], [ false, %383 ], [ false, %387 ], [ false, %389 ], [ false, %391 ], [ false, %416 ], [ false, %418 ], [ %spec.select, %430 ], [ false, %437 ], [ false, %457 ], [ false, %497 ], [ true, %499 ], [ false, %512 ], [ false, %528 ], [ false, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ false, %288 ], [ false, %286 ], [ false, %279 ], [ false, %376 ], [ false, %374 ], [ false, %367 ]
+  %.0 = phi i1 [ %85, %84 ], [ %89, %88 ], [ %101, %100 ], [ %107, %104 ], [ false, %102 ], [ false, %96 ], [ %142, %141 ], [ %157, %156 ], [ %169, %168 ], [ %128, %125 ], [ %122, %119 ], [ %198, %197 ], [ %213, %212 ], [ %225, %224 ], [ %184, %181 ], [ %178, %175 ], [ %260, %259 ], [ %273, %267 ], [ %277, %274 ], [ %313, %312 ], [ false, %293 ], [ %240, %237 ], [ %234, %231 ], [ %348, %347 ], [ %361, %355 ], [ %365, %362 ], [ %401, %400 ], [ false, %381 ], [ %328, %325 ], [ %322, %319 ], [ %415, %412 ], [ %407, %404 ], [ %450, %449 ], [ %436, %433 ], [ %468, %467 ], [ %456, %453 ], [ %486, %481 ], [ %488, %487 ], [ %496, %493 ], [ %505, %502 ], [ %525, %524 ], [ %511, %508 ], [ %527, %526 ], [ %535, %534 ], [ %537, %536 ], [ false, %129 ], [ false, %.critedge ], [ false, %185 ], [ false, %.critedge4 ], [ false, %241 ], [ false, %.critedge6 ], [ false, %247 ], [ false, %249 ], [ false, %295 ], [ false, %299 ], [ false, %301 ], [ false, %303 ], [ false, %329 ], [ false, %.critedge8 ], [ false, %335 ], [ false, %337 ], [ false, %383 ], [ false, %387 ], [ false, %389 ], [ false, %391 ], [ false, %416 ], [ false, %418 ], [ %spec.select, %430 ], [ false, %437 ], [ false, %457 ], [ false, %497 ], [ true, %499 ], [ false, %512 ], [ false, %528 ], [ false, %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread ], [ false, %288 ], [ false, %286 ], [ false, %279 ], [ false, %376 ], [ false, %374 ], [ false, %367 ]
   ret i1 %.0
 }
 
@@ -45830,7 +45830,7 @@ _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE8classifyEPKNS_4ExprE.exit: ; pred
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE26classifyComplexElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE8classifyEPKNS_4ExprE.exit, %46
-  %.1.i.i = phi ptr [ %43, %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE8classifyEPKNS_4ExprE.exit ], [ %54, %46 ]
+  %.1.i.i = phi ptr [ %54, %46 ], [ %43, %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE8classifyEPKNS_4ExprE.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %55, align 16, !tbaa !77
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -46084,7 +46084,7 @@ _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_1
   br label %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread76
 
 _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread76: ; preds = %.preheader, %85, %83, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUljjE_clEjj.exit, %79, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread, %66, %87, %105, %117, %119, %142, %144, %146, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE0_clEv.exit, %89, %91, %93, %107, %113, %127, %129, %133, %135, %104, %26
-  %.0 = phi i1 [ %29, %26 ], [ %149, %146 ], [ %145, %144 ], [ %143, %142 ], [ %118, %117 ], [ %126, %119 ], [ %106, %105 ], [ %88, %87 ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE0_clEv.exit ], [ false, %89 ], [ false, %91 ], [ false, %93 ], [ %spec.select56, %104 ], [ false, %107 ], [ false, %113 ], [ false, %127 ], [ false, %129 ], [ false, %133 ], [ false, %135 ], [ false, %66 ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread ], [ false, %.preheader ], [ true, %79 ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUljjE_clEjj.exit ], [ false, %83 ], [ false, %85 ]
+  %.0 = phi i1 [ %29, %26 ], [ %149, %146 ], [ %88, %87 ], [ %106, %105 ], [ %118, %117 ], [ %126, %119 ], [ %143, %142 ], [ %145, %144 ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE0_clEv.exit ], [ false, %89 ], [ false, %91 ], [ false, %93 ], [ %spec.select56, %104 ], [ false, %107 ], [ false, %113 ], [ false, %127 ], [ false, %129 ], [ false, %133 ], [ false, %135 ], [ false, %66 ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUlvE_clEv.exit.thread ], [ false, %.preheader ], [ true, %79 ], [ false, %_ZZN5clang6interp8CompilerINS0_11EvalEmitterEE25VisitComplexUnaryOperatorEPKNS_13UnaryOperatorEENKUljjE_clEjj.exit ], [ false, %83 ], [ false, %85 ]
   ret i1 %.0
 }
 
@@ -46269,7 +46269,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %67, %75, %83
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit, %89
-  %.1.i.i = phi ptr [ %85, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %97, %89 ]
+  %.1.i.i = phi ptr [ %97, %89 ], [ %85, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ]
   %98 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %98, align 16, !tbaa !77
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -47984,7 +47984,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %3, %17, %25
-  %.1.i = phi ptr [ %13, %3 ], [ %26, %25 ], [ null, %17 ]
+  %.1.i = phi ptr [ %26, %25 ], [ %13, %3 ], [ null, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %27, align 16, !tbaa !77
   %28 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
@@ -49422,7 +49422,7 @@ _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %24, %25
   br label %.thread
 
 .thread:                                          ; preds = %4, %43, %39, %41, %49, %51, %28, %_ZN5clang6interp8FloatingD2Ev.exit, %11
-  %.0 = phi i1 [ %13, %11 ], [ %22, %_ZN5clang6interp8FloatingD2Ev.exit ], [ %31, %28 ], [ %50, %49 ], [ %52, %51 ], [ false, %41 ], [ %44, %43 ], [ %40, %39 ], [ false, %4 ]
+  %.0 = phi i1 [ %13, %11 ], [ %22, %_ZN5clang6interp8FloatingD2Ev.exit ], [ %31, %28 ], [ %52, %51 ], [ %50, %49 ], [ false, %41 ], [ %44, %43 ], [ %40, %39 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -49503,7 +49503,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread150: ; preds = %15, 
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %44, %.lr.ph.i
-  %.1.i.i = phi ptr [ %40, %.lr.ph.i ], [ %45, %44 ]
+  %.1.i.i = phi ptr [ %45, %44 ], [ %40, %.lr.ph.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %47 = load i24, ptr %46, align 16
   %48 = and i24 %47, 1048576
@@ -50226,7 +50226,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %24, %14
-  %.1.i.i = phi ptr [ %20, %14 ], [ %25, %24 ]
+  %.1.i.i = phi ptr [ %25, %24 ], [ %20, %14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1310)
   %26 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %27 = load i32, ptr %26, align 16, !noalias !1313
@@ -51240,7 +51240,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %_ZNK5clang10ASTCon
   br label %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us: ; preds = %76, %72, %69
-  %.0.i.us = phi i32 [ %71, %69 ], [ %75, %72 ], [ %79, %76 ]
+  %.0.i.us = phi i32 [ %79, %76 ], [ %75, %72 ], [ %71, %69 ]
   %80 = trunc i32 %.0.i.us to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 %60, ptr %4, align 8, !tbaa !77
@@ -51287,7 +51287,7 @@ _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us: ; preds = %76, %72, %69
   br label %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us56
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us56: ; preds = %97, %93, %90
-  %.0.i.us57 = phi i32 [ %92, %90 ], [ %96, %93 ], [ %100, %97 ]
+  %.0.i.us57 = phi i32 [ %100, %97 ], [ %96, %93 ], [ %92, %90 ]
   %101 = trunc i32 %.0.i.us57 to i16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store i64 %60, ptr %6, align 8, !tbaa !77
@@ -51382,7 +51382,7 @@ _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us56: ; preds = %97, %93, %90
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit:    ; preds = %120, %124, %128
-  %.0.i = phi i32 [ %130, %128 ], [ %127, %124 ], [ %123, %120 ]
+  %.0.i = phi i32 [ %123, %120 ], [ %127, %124 ], [ %130, %128 ]
   call void @llvm.assume(i1 %61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store i64 %60, ptr %8, align 8, !tbaa !77
@@ -55099,7 +55099,7 @@ _ZN5clang6interp8CompilerINS0_11EvalEmitterEE9getRecordENS_8QualTypeE.exit: ; pr
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %68, %77
-  %.1.i = phi ptr [ %73, %68 ], [ %85, %77 ]
+  %.1.i = phi ptr [ %85, %77 ], [ %73, %68 ]
   %86 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i88 = load i64, ptr %86, align 16, !tbaa !77
   %87 = load ptr, ptr %44, align 8, !tbaa !1198
@@ -55509,7 +55509,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %16
-  %.1.i = phi ptr [ %12, %2 ], [ %17, %16 ]
+  %.1.i = phi ptr [ %17, %16 ], [ %12, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i40 = load i64, ptr %18, align 16, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -55547,7 +55547,7 @@ _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %16
   br label %_ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit
 
 _ZNK5clang6interp8CompilerINS0_11EvalEmitterEE25classifyVectorElementTypeENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit, %33
-  %.1.i.i = phi ptr [ %29, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ], [ %41, %33 ]
+  %.1.i.i = phi ptr [ %41, %33 ], [ %29, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %42, align 16, !tbaa !77
   %43 = load ptr, ptr %19, align 8, !tbaa !1198
@@ -55744,7 +55744,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %27
-  %.1.i = phi ptr [ %23, %2 ], [ %28, %27 ]
+  %.1.i = phi ptr [ %28, %27 ], [ %23, %2 ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i41 = load i64, ptr %29, align 16, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -56080,7 +56080,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %65, %73
-  %.1.i = phi ptr [ %69, %65 ], [ %81, %73 ]
+  %.1.i = phi ptr [ %81, %73 ], [ %69, %65 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i48 = load i64, ptr %82, align 16, !tbaa !77
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -57178,7 +57178,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE14visitBreakStmtEPKNS_9BreakStmtE.exit
 
 _ZN5clang6interp8CompilerINS0_11EvalEmitterEE14visitBreakStmtEPKNS_9BreakStmtE.exit: ; preds = %tailrecurse, %.critedge.i, %39, %._crit_edge.i, %24, %87, %75, %73, %58, %56, %22, %20, %18, %16, %14, %12, %10, %8
-  %.023 = phi i1 [ %78, %75 ], [ %74, %73 ], [ %69, %58 ], [ %57, %56 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %spec.select, %87 ], [ %33, %._crit_edge.i ], [ false, %24 ], [ %51, %.critedge.i ], [ false, %39 ], [ true, %tailrecurse ]
+  %.023 = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %57, %56 ], [ %69, %58 ], [ %74, %73 ], [ %78, %75 ], [ %spec.select, %87 ], [ %33, %._crit_edge.i ], [ false, %24 ], [ %51, %.critedge.i ], [ false, %39 ], [ true, %tailrecurse ]
   ret i1 %.023
 }
 
@@ -57229,7 +57229,7 @@ _ZNK5clang10CXXNewExpr14getInitializerEv.exit:    ; preds = %2, %17
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %_ZNK5clang10CXXNewExpr14getInitializerEv.exit, %30
-  %.1.i.i = phi ptr [ %27, %_ZNK5clang10CXXNewExpr14getInitializerEv.exit ], [ %31, %30 ]
+  %.1.i.i = phi ptr [ %31, %30 ], [ %27, %_ZNK5clang10CXXNewExpr14getInitializerEv.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i1.i = load i64, ptr %32, align 16, !tbaa !77
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -61973,7 +61973,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %2, %12
-  %.1.i.i = phi ptr [ %8, %2 ], [ %13, %12 ]
+  %.1.i.i = phi ptr [ %13, %12 ], [ %8, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %14, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -62073,7 +62073,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %29, %37
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit51
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit51: ; preds = %59, %66
-  %.1.i.i49 = phi ptr [ %62, %59 ], [ %67, %66 ]
+  %.1.i.i49 = phi ptr [ %67, %66 ], [ %62, %59 ]
   %68 = getelementptr inbounds nuw i8, ptr %.1.i.i49, i64 24
   %.sroa.0.0.copyload.i1.i50 = load i64, ptr %68, align 8, !tbaa !77
   %69 = and i64 %.sroa.0.0.copyload.i1.i50, -16
@@ -62112,7 +62112,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %_ZNK5clang12Functio
   br label %85
 
 85:                                               ; preds = %57, %50, %46, %24, %22, %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %82
-  %.1 = phi i1 [ %23, %22 ], [ %25, %24 ], [ %83, %82 ], [ %84, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ %51, %50 ], [ %47, %46 ], [ false, %57 ]
+  %.1 = phi i1 [ %83, %82 ], [ %84, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ %25, %24 ], [ %23, %22 ], [ %51, %50 ], [ %47, %46 ], [ false, %57 ]
   ret i1 %.1
 }
 
@@ -64895,8 +64895,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %157, %_ZN4llvm5
   %372 = tail call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE32VisitAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %.tr330)
   br label %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE.exit
 
-_ZN5clang6interp8CompilerINS0_11EvalEmitterEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE.exit: ; preds = %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79, %81, %261, %257, %195, %191, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %270, %255, %251, %249, %242, %240, %238, %236, %234, %232, %230, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %189, %187, %152, %150, %146, %144, %142, %140, %138, %136, %134, %132, %127, %125, %123
-  %.3 = phi i1 [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %329, %328 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %271, %270 ], [ %256, %255 ], [ %254, %251 ], [ %250, %249 ], [ %248, %242 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %190, %189 ], [ %188, %187 ], [ %153, %152 ], [ %151, %150 ], [ %149, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %198, %195 ], [ true, %191 ], [ %269, %261 ], [ true, %257 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ]
+_ZN5clang6interp8CompilerINS0_11EvalEmitterEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE.exit: ; preds = %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %261, %257, %195, %191, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %270, %255, %251, %249, %242, %240, %238, %236, %234, %232, %230, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %189, %187, %152, %150, %146, %144, %142, %140, %138, %136, %134, %132, %127, %125, %123
+  %.3 = phi i1 [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %149, %146 ], [ %151, %150 ], [ %153, %152 ], [ %188, %187 ], [ %190, %189 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %231, %230 ], [ %233, %232 ], [ %235, %234 ], [ %237, %236 ], [ %239, %238 ], [ %241, %240 ], [ %248, %242 ], [ %250, %249 ], [ %254, %251 ], [ %256, %255 ], [ %271, %270 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %337, %336 ], [ %339, %338 ], [ %341, %340 ], [ %343, %342 ], [ %345, %344 ], [ %347, %346 ], [ %349, %348 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %198, %195 ], [ true, %191 ], [ %269, %261 ], [ true, %257 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ], [ false, %119 ]
   ret i1 %.3
 }
 
@@ -65737,7 +65737,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmit
   unreachable
 
 58:                                               ; preds = %52, %48, %44, %39, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %38, %34 ], [ %43, %39 ], [ %47, %44 ], [ %51, %48 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -65856,7 +65856,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmit
   unreachable
 
 58:                                               ; preds = %52, %48, %44, %39, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %38, %34 ], [ %43, %39 ], [ %47, %44 ], [ %51, %48 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -68729,7 +68729,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCode
   unreachable
 
 58:                                               ; preds = %52, %47, %42, %38, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %37, %34 ], [ %41, %38 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -68854,7 +68854,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCode
   unreachable
 
 58:                                               ; preds = %52, %47, %42, %38, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %37, %34 ], [ %41, %38 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -68973,7 +68973,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCode
   unreachable
 
 58:                                               ; preds = %52, %47, %42, %37, %32, %28, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %27, %24 ], [ %31, %28 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -69468,7 +69468,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCode
   unreachable
 
 58:                                               ; preds = %53, %48, %43, %38, %33, %28, %23, %19, %15
-  %.0 = phi i1 [ %56, %53 ], [ %52, %48 ], [ %47, %43 ], [ %42, %38 ], [ %37, %33 ], [ %32, %28 ], [ %27, %23 ], [ %22, %19 ], [ %18, %15 ]
+  %.0 = phi i1 [ %18, %15 ], [ %22, %19 ], [ %27, %23 ], [ %32, %28 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %56, %53 ]
   ret i1 %.0
 }
 
@@ -70520,7 +70520,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmit
   unreachable
 
 58:                                               ; preds = %52, %47, %42, %38, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %37, %34 ], [ %41, %38 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -70645,7 +70645,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmit
   unreachable
 
 58:                                               ; preds = %52, %47, %42, %38, %34, %29, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %37, %34 ], [ %41, %38 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -70764,7 +70764,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmit
   unreachable
 
 58:                                               ; preds = %52, %47, %42, %37, %32, %28, %24, %19, %14
-  %.0 = phi i1 [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %19 ], [ %18, %14 ]
+  %.0 = phi i1 [ %18, %14 ], [ %23, %19 ], [ %27, %24 ], [ %31, %28 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ]
   ret i1 %.0
 }
 
@@ -70922,7 +70922,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmit
   unreachable
 
 58:                                               ; preds = %53, %48, %43, %38, %33, %28, %23, %19, %15
-  %.0 = phi i1 [ %56, %53 ], [ %52, %48 ], [ %47, %43 ], [ %42, %38 ], [ %37, %33 ], [ %32, %28 ], [ %27, %23 ], [ %22, %19 ], [ %18, %15 ]
+  %.0 = phi i1 [ %18, %15 ], [ %22, %19 ], [ %27, %23 ], [ %32, %28 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %56, %53 ]
   ret i1 %.0
 }
 

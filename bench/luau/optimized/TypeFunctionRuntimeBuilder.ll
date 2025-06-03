@@ -4591,7 +4591,7 @@ _ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJ
   resume { ptr, i32 } %.pn104.pn
 
 694:                                              ; preds = %57, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEEEESaISH_EE12emplace_backIJRS5_RSC_EEERSH_DpOT_.exit
-  %.1 = phi ptr [ %59, %57 ], [ %692, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEEEESaISH_EE12emplace_backIJRS5_RSC_EEERSH_DpOT_.exit ]
+  %.1 = phi ptr [ %692, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEEEESaISH_EE12emplace_backIJRS5_RSC_EEERSH_DpOT_.exit ], [ %59, %57 ]
   ret ptr %.1
 }
 
@@ -10850,7 +10850,7 @@ _ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJ
   resume { ptr, i32 } %.pn27
 
 307:                                              ; preds = %41, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEEEESaISH_EE12emplace_backIJRS8_RSF_EEERSH_DpOT_.exit
-  %.1 = phi ptr [ %43, %41 ], [ %305, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEEEESaISH_EE12emplace_backIJRS8_RSF_EEERSH_DpOT_.exit ]
+  %.1 = phi ptr [ %305, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_4TypeEPKNS1_11TypePackVarEEEENS2_IJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEEEESaISH_EE12emplace_backIJRS8_RSF_EEERSH_DpOT_.exit ], [ %43, %41 ]
   ret ptr %.1
 }
 
@@ -13156,7 +13156,7 @@ _ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunc
   br label %627
 
 627:                                              ; preds = %64, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEENS2_IJPKNS1_4TypeEPKNS1_11TypePackVarEEEEEESaISH_EE12emplace_backIJRS5_RSC_EEERSH_DpOT_.exit
-  %.1 = phi ptr [ %66, %64 ], [ %.28, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEENS2_IJPKNS1_4TypeEPKNS1_11TypePackVarEEEEEESaISH_EE12emplace_backIJRS5_RSC_EEERSH_DpOT_.exit ]
+  %.1 = phi ptr [ %.28, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEENS2_IJPKNS1_4TypeEPKNS1_11TypePackVarEEEEEESaISH_EE12emplace_backIJRS5_RSC_EEERSH_DpOT_.exit ], [ %66, %64 ]
   ret ptr %.1
 }
 
@@ -22563,7 +22563,7 @@ _ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunc
   br label %160
 
 160:                                              ; preds = %39, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEENS2_IJPKNS1_4TypeEPKNS1_11TypePackVarEEEEEESaISH_EE12emplace_backIJRS8_RSF_EEERSH_DpOT_.exit
-  %.1 = phi ptr [ %41, %39 ], [ %.7, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEENS2_IJPKNS1_4TypeEPKNS1_11TypePackVarEEEEEESaISH_EE12emplace_backIJRS8_RSF_EEERSH_DpOT_.exit ]
+  %.1 = phi ptr [ %.7, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEENS2_IJPKNS1_4TypeEPKNS1_11TypePackVarEEEEEESaISH_EE12emplace_backIJRS8_RSF_EEERSH_DpOT_.exit ], [ %41, %39 ]
   ret ptr %.1
 }
 

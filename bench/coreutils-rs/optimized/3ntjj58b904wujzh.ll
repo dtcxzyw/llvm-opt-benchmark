@@ -245,7 +245,7 @@ define void @"_ZN96_$LT$uu_numfmt..format..WhitespaceSplitter$u20$as$u20$core..i
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17he1d2042113864d65E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17he1d2042113864d65E.exit.i.i.i": ; preds = %68, %63, %60, %57
-  %.0.i.i.i.i.i.i = phi i8 [ %62, %60 ], [ %73, %68 ], [ %59, %57 ], [ %67, %63 ]
+  %.0.i.i.i.i.i.i = phi i8 [ %67, %63 ], [ %59, %57 ], [ %73, %68 ], [ %62, %60 ]
   %74 = trunc i8 %.0.i.i.i.i.i.i to i1
   br i1 %74, label %75, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hf289dc0c5afd192dE.exit"
 
@@ -409,7 +409,7 @@ define void @"_ZN96_$LT$uu_numfmt..format..WhitespaceSplitter$u20$as$u20$core..i
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h35890c6d0113ff1eE.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h35890c6d0113ff1eE.exit.i.i.i": ; preds = %153, %148, %145, %142
-  %.0.i.i.i.i.i.i.i = phi i8 [ %147, %145 ], [ %158, %153 ], [ %144, %142 ], [ %152, %148 ]
+  %.0.i.i.i.i.i.i.i = phi i8 [ %152, %148 ], [ %144, %142 ], [ %158, %153 ], [ %147, %145 ]
   %159 = trunc i8 %.0.i.i.i.i.i.i.i to i1
   br i1 %159, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h014c6782e2f7e5c3E.exit", label %160
 
@@ -566,12 +566,12 @@ default.unreachable2.i3:                          ; preds = %26
   br label %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4
 
 _ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4: ; preds = %28, %30, %36, %38, %40, %42, %44
-  %.0.i2 = phi double [ %37, %36 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %31, %30 ], [ %29, %28 ]
+  %.0.i2 = phi double [ %29, %28 ], [ %31, %30 ], [ %41, %40 ], [ %39, %38 ], [ %45, %44 ], [ %43, %42 ], [ %37, %36 ]
   %46 = fdiv double %.0.i2, 1.000000e+01
   br label %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit
 
 _ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit: ; preds = %24, %22, %20, %18, %16, %10, %8, %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4
-  %.0 = phi double [ %46, %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4 ], [ %17, %16 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %11, %10 ], [ %9, %8 ]
+  %.0 = phi double [ %46, %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4 ], [ %9, %8 ], [ %11, %10 ], [ %21, %20 ], [ %19, %18 ], [ %25, %24 ], [ %23, %22 ], [ %17, %16 ]
   ret double %.0
 }
 
@@ -894,8 +894,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %167, %164, %"_ZN4c
   br label %185
 
 185:                                              ; preds = %183, %181, %179, %177, %175, %173, %171, %169, %167
-  %.sroa.035.0.i.i = phi i64 [ 7, %183 ], [ 6, %181 ], [ 5, %179 ], [ 4, %177 ], [ 3, %175 ], [ 2, %173 ], [ 1, %171 ], [ 0, %169 ], [ 0, %167 ]
-  %.sroa.10.0.i.i = phi i8 [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ 2, %167 ]
+  %.sroa.035.0.i.i = phi i64 [ 0, %169 ], [ 1, %171 ], [ 2, %173 ], [ 3, %175 ], [ 4, %177 ], [ 5, %179 ], [ 6, %181 ], [ 7, %183 ], [ 0, %167 ]
+  %.sroa.10.0.i.i = phi i8 [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ 2, %167 ]
   %186 = icmp eq i8 %.sroa.10.0.i.i, 2
   %187 = trunc nuw i8 %.sroa.10.0.i.i to i1
   %..i.i = select i1 %187, i64 -2, i64 -1
@@ -1261,7 +1261,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i: ; preds = %262
   br label %_ZN9uu_numfmt6format13remove_suffix17h37d1f30eca7f8922E.exit.thread.i
 
 _ZN9uu_numfmt6format13remove_suffix17h37d1f30eca7f8922E.exit.thread.i: ; preds = %281, %279, %277, %275, %273, %271, %269, %267, %260, %258, %256, %254, %252, %250, %248, %246, %216
-  %.sroa.25.0.ph.in.i = phi double [ %247, %246 ], [ %249, %248 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ], [ %261, %260 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %211, %216 ]
+  %.sroa.25.0.ph.in.i = phi double [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %253, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %211, %216 ]
   %.sroa.25.0.ph.i = bitcast double %.sroa.25.0.ph.in.i to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !93
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45), !noalias !93
@@ -1270,9 +1270,9 @@ _ZN9uu_numfmt6format13remove_suffix17h37d1f30eca7f8922E.exit.thread.i: ; preds =
   br label %284
 
 _ZN9uu_numfmt6format13remove_suffix17h37d1f30eca7f8922E.exit.i: ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i, %240, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i
-  %.sroa.44.0.i = phi i64 [ %.sroa.44.0.copyload22.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.44.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ 45, %240 ], [ %.sroa.44.0.copyload20.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ]
-  %.sroa.25.0.i = phi i64 [ %.sroa.25.0.copyload16.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.25.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ %245, %240 ], [ %.sroa.25.0.copyload14.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ]
-  %.sroa.09.0.i = phi i64 [ %.sroa.09.0.copyload11.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.09.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ %242, %240 ], [ %.sroa.09.0.copyload10.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ]
+  %.sroa.44.0.i = phi i64 [ %.sroa.44.0.copyload22.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ 45, %240 ], [ %.sroa.44.0.copyload20.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %.sroa.44.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ]
+  %.sroa.25.0.i = phi i64 [ %.sroa.25.0.copyload16.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %245, %240 ], [ %.sroa.25.0.copyload14.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %.sroa.25.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ]
+  %.sroa.09.0.i = phi i64 [ %.sroa.09.0.copyload11.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %242, %240 ], [ %.sroa.09.0.copyload10.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %.sroa.09.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !93
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45), !noalias !93
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !93
@@ -1678,12 +1678,12 @@ default.unreachable:                              ; preds = %520, %482, %459, %4
   br label %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4.i.i.i
 
 _ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4.i.i.i: ; preds = %477, %475, %473, %471, %469, %463, %461
-  %.0.i2.i.i.i = phi double [ %470, %469 ], [ %478, %477 ], [ %476, %475 ], [ %474, %473 ], [ %472, %471 ], [ %464, %463 ], [ %462, %461 ]
+  %.0.i2.i.i.i = phi double [ %462, %461 ], [ %464, %463 ], [ %474, %473 ], [ %472, %471 ], [ %478, %477 ], [ %476, %475 ], [ %470, %469 ]
   %479 = fdiv double %.0.i2.i.i.i, 1.000000e+01
   br label %_ZN9uu_numfmt6format9div_round17ha67a865b1f440330E.exit.i.i
 
 _ZN9uu_numfmt6format9div_round17ha67a865b1f440330E.exit.i.i: ; preds = %_ZN9uu_numfmt6format20round_with_precision17hf29d408b8a5f1e88E.exit.i.i, %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4.i.i.i, %457, %455, %453, %451, %449, %443, %441
-  %.062.i.i = phi double [ %504, %_ZN9uu_numfmt6format20round_with_precision17hf29d408b8a5f1e88E.exit.i.i ], [ %479, %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4.i.i.i ], [ %450, %449 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %452, %451 ], [ %444, %443 ], [ %442, %441 ]
+  %.062.i.i = phi double [ %504, %_ZN9uu_numfmt6format20round_with_precision17hf29d408b8a5f1e88E.exit.i.i ], [ %479, %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit4.i.i.i ], [ %442, %441 ], [ %444, %443 ], [ %454, %453 ], [ %452, %451 ], [ %458, %457 ], [ %456, %455 ], [ %450, %449 ]
   %480 = call double @llvm.fabs.f64(double %.062.i.i)
   %481 = fcmp ult double %480, %393
   br i1 %481, label %505, label %509
@@ -1737,7 +1737,7 @@ _ZN9uu_numfmt6format9div_round17ha67a865b1f440330E.exit.i.i: ; preds = %_ZN9uu_n
   br label %_ZN9uu_numfmt6format20round_with_precision17hf29d408b8a5f1e88E.exit.i.i
 
 _ZN9uu_numfmt6format20round_with_precision17hf29d408b8a5f1e88E.exit.i.i: ; preds = %502, %500, %498, %496, %494, %488, %486
-  %.0.i.i.i.i = phi double [ %495, %494 ], [ %503, %502 ], [ %501, %500 ], [ %499, %498 ], [ %497, %496 ], [ %489, %488 ], [ %487, %486 ]
+  %.0.i.i.i.i = phi double [ %487, %486 ], [ %489, %488 ], [ %499, %498 ], [ %497, %496 ], [ %503, %502 ], [ %501, %500 ], [ %495, %494 ]
   %504 = fdiv double %.0.i.i.i.i, %484
   br label %_ZN9uu_numfmt6format9div_round17ha67a865b1f440330E.exit.i.i
 
@@ -1771,9 +1771,9 @@ _ZN9uu_numfmt6format15consider_suffix17h73bc7c51bbb67cecE.exit.thread.i: ; preds
   br label %515
 
 _ZN9uu_numfmt6format15consider_suffix17h73bc7c51bbb67cecE.exit.i: ; preds = %428, %383
-  %.sroa.17.0.i = phi i64 [ 33, %428 ], [ 45, %383 ]
-  %.sroa.9.054.in.i = phi ptr [ %430, %428 ], [ %385, %383 ]
-  %.pn.i = phi { i64, ptr } [ %429, %428 ], [ %384, %383 ]
+  %.sroa.17.0.i = phi i64 [ 45, %383 ], [ 33, %428 ]
+  %.sroa.9.054.in.i = phi ptr [ %385, %383 ], [ %430, %428 ]
+  %.pn.i = phi { i64, ptr } [ %384, %383 ], [ %429, %428 ]
   %.sroa.0.0.i = extractvalue { i64, ptr } %.pn.i, 0
   %.sroa.9.054.i = ptrtoint ptr %.sroa.9.054.in.i to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !225
@@ -1845,7 +1845,7 @@ _ZN9uu_numfmt6format15consider_suffix17h73bc7c51bbb67cecE.exit.i: ; preds = %428
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %540, %538, %536, %534, %532, %526, %524
-  %.0.i.i.i187 = phi double [ %533, %532 ], [ %541, %540 ], [ %539, %538 ], [ %537, %536 ], [ %535, %534 ], [ %527, %526 ], [ %525, %524 ]
+  %.0.i.i.i187 = phi double [ %525, %524 ], [ %527, %526 ], [ %537, %536 ], [ %535, %534 ], [ %541, %540 ], [ %539, %538 ], [ %533, %532 ]
   %542 = fdiv double %.0.i.i.i187, %522
   store double %542, ptr %33, align 8, !noalias !222
   %543 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !noalias !222, !nonnull !4, !noundef !4
@@ -2136,13 +2136,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit134.i: ; preds = %548
   %.0150 = phi i8 [ 0, %574 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ]
   %576 = load i64, ptr %3, align 8, !range !75, !noundef !4
   %trunc162 = trunc nuw i64 %576 to i1
-  %577 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %577 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %578 = load i64, ptr %577, align 8
-  %579 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %580 = load i64, ptr %579, align 8
   %trunc163 = trunc nuw i64 %4 to i1
-  %spec.select176 = select i1 %trunc163, i64 %5, i64 %580
-  %.1159 = select i1 %trunc162, i64 %578, i64 %spec.select176
+  %spec.select176 = select i1 %trunc163, i64 %5, i64 %578
+  %579 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %580 = load i64, ptr %579, align 8
+  %.1159 = select i1 %trunc162, i64 %580, i64 %spec.select176
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83)
   %581 = icmp eq i64 %.1159, 0
   br i1 %581, label %590, label %591

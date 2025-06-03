@@ -12323,7 +12323,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit15.thread79: ; preds = %83, %_ZL20read_var
   br i1 %156, label %152, label %.backedge, !llvm.loop !25
 
 157:                                              ; preds = %123, %122, %119
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %123 ], [ %.sroa.0.2.insert.insert.i, %122 ], [ %.sroa.0.0.isplat.i, %119 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %119 ], [ %.sroa.0.2.insert.insert.i, %122 ], [ %.sroa.0.0.copyload2.i, %123 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -12693,7 +12693,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit7:                  ; preds = %323, %.lr.ph196, %3
   br i1 %cond.i187, label %._crit_edge, label %.lr.ph189
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread:           ; preds = %80, %_ZL20read_variable_lengthPPKhS0_i.exit15.thread79, %_ZL20read_variable_lengthPPKhS0_i.exit15, %39, %38, %_ZL20read_variable_lengthPPKhS0_i.exit.thread62, %_ZL20read_variable_lengthPPKhS0_i.exit, %.thread87, %.preheader132, %.preheader129, %.preheader123, %.preheader121, %_ZL20read_variable_lengthPPKhS0_i.exit24, %243, %197, %._crit_edge, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread94, %_ZL20read_variable_lengthPPKhS0_i.exit20, %298, %.loopexit137, %225
-  %.7 = phi ptr [ %.4, %225 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit24 ], [ %.2, %.loopexit137 ], [ %.2, %298 ], [ %.1597, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread94 ], [ %203, %_ZL20read_variable_lengthPPKhS0_i.exit20 ], [ %.lcssa150, %._crit_edge ], [ %198, %197 ], [ %245, %243 ], [ %250, %.preheader121 ], [ %203, %.preheader123 ], [ %86, %.preheader129 ], [ %45, %.preheader132 ], [ %81, %80 ], [ %86, %_ZL20read_variable_lengthPPKhS0_i.exit15 ], [ %.1382, %_ZL20read_variable_lengthPPKhS0_i.exit15.thread79 ], [ %40, %39 ], [ %32, %38 ], [ %45, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1165, %_ZL20read_variable_lengthPPKhS0_i.exit.thread62 ], [ %.8, %.thread87 ]
+  %.7 = phi ptr [ %.4, %225 ], [ %.2, %.loopexit137 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit24 ], [ %.2, %298 ], [ %.1597, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread94 ], [ %203, %_ZL20read_variable_lengthPPKhS0_i.exit20 ], [ %.lcssa150, %._crit_edge ], [ %198, %197 ], [ %245, %243 ], [ %250, %.preheader121 ], [ %203, %.preheader123 ], [ %86, %.preheader129 ], [ %45, %.preheader132 ], [ %81, %80 ], [ %86, %_ZL20read_variable_lengthPPKhS0_i.exit15 ], [ %.1382, %_ZL20read_variable_lengthPPKhS0_i.exit15.thread79 ], [ %40, %39 ], [ %32, %38 ], [ %45, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1165, %_ZL20read_variable_lengthPPKhS0_i.exit.thread62 ], [ %.8, %.thread87 ]
   %331 = ptrtoint ptr %.7 to i64
   %332 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %332, %331
@@ -13006,7 +13006,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit19.thread83: ; preds = %80, %_ZL20read_var
   br i1 %153, label %149, label %.backedge, !llvm.loop !25
 
 154:                                              ; preds = %120, %119, %116
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %120 ], [ %.sroa.0.2.insert.insert.i, %119 ], [ %.sroa.0.0.isplat.i, %116 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %116 ], [ %.sroa.0.2.insert.insert.i, %119 ], [ %.sroa.0.0.copyload2.i, %120 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -13388,7 +13388,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit11:                 ; preds = %322, %316
   br label %_ZL22LZ4_decompress_genericPKcPcii18earlyEnd_directive14dict_directivePKhS5_m.exit
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread:           ; preds = %77, %_ZL20read_variable_lengthPPKhS0_i.exit19.thread83, %_ZL20read_variable_lengthPPKhS0_i.exit19, %36, %35, %_ZL20read_variable_lengthPPKhS0_i.exit.thread66, %_ZL20read_variable_lengthPPKhS0_i.exit, %.thread91, %.preheader140, %.preheader137, %.preheader130, %.preheader128, %_ZL20read_variable_lengthPPKhS0_i.exit28, %249, %194, %._crit_edge, %_ZL20read_variable_lengthPPKhS0_i.exit24.thread98, %_ZL20read_variable_lengthPPKhS0_i.exit24, %.loopexit145
-  %.8 = phi ptr [ %.18, %_ZL20read_variable_lengthPPKhS0_i.exit28 ], [ %.2, %.loopexit145 ], [ %.16101, %_ZL20read_variable_lengthPPKhS0_i.exit24.thread98 ], [ %200, %_ZL20read_variable_lengthPPKhS0_i.exit24 ], [ %.lcssa158, %._crit_edge ], [ %195, %194 ], [ %251, %249 ], [ %256, %.preheader128 ], [ %200, %.preheader130 ], [ %83, %.preheader137 ], [ %42, %.preheader140 ], [ %78, %77 ], [ %83, %_ZL20read_variable_lengthPPKhS0_i.exit19 ], [ %.1486, %_ZL20read_variable_lengthPPKhS0_i.exit19.thread83 ], [ %37, %36 ], [ %29, %35 ], [ %42, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1269, %_ZL20read_variable_lengthPPKhS0_i.exit.thread66 ], [ %.9, %.thread91 ]
+  %.8 = phi ptr [ %.2, %.loopexit145 ], [ %.18, %_ZL20read_variable_lengthPPKhS0_i.exit28 ], [ %.16101, %_ZL20read_variable_lengthPPKhS0_i.exit24.thread98 ], [ %200, %_ZL20read_variable_lengthPPKhS0_i.exit24 ], [ %.lcssa158, %._crit_edge ], [ %195, %194 ], [ %251, %249 ], [ %256, %.preheader128 ], [ %200, %.preheader130 ], [ %83, %.preheader137 ], [ %42, %.preheader140 ], [ %78, %77 ], [ %83, %_ZL20read_variable_lengthPPKhS0_i.exit19 ], [ %.1486, %_ZL20read_variable_lengthPPKhS0_i.exit19.thread83 ], [ %37, %36 ], [ %29, %35 ], [ %42, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1269, %_ZL20read_variable_lengthPPKhS0_i.exit.thread66 ], [ %.9, %.thread91 ]
   %334 = ptrtoint ptr %.8 to i64
   %335 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %335, %334
@@ -13833,7 +13833,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit15.thread79: ; preds = %78, %_ZL20read_var
   br i1 %147, label %143, label %.backedge, !llvm.loop !25
 
 148:                                              ; preds = %114, %113, %110
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %114 ], [ %.sroa.0.2.insert.insert.i, %113 ], [ %.sroa.0.0.isplat.i, %110 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %110 ], [ %.sroa.0.2.insert.insert.i, %113 ], [ %.sroa.0.0.copyload2.i, %114 ]
   store i32 %.sroa.9.0.i, ptr %.3.i.ptr.ptr, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -14206,7 +14206,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit7:                  ; preds = %303, %.lr.ph212, %2
   br i1 %cond.i201, label %._crit_edge, label %.lr.ph204
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread:           ; preds = %75, %_ZL20read_variable_lengthPPKhS0_i.exit15.thread79, %_ZL20read_variable_lengthPPKhS0_i.exit15, %38, %37, %_ZL20read_variable_lengthPPKhS0_i.exit.thread62, %_ZL20read_variable_lengthPPKhS0_i.exit, %.thread87, %.preheader146, %.preheader143, %.preheader137, %.preheader135, %_ZL20read_variable_lengthPPKhS0_i.exit24, %224, %183, %._crit_edge, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread94, %_ZL20read_variable_lengthPPKhS0_i.exit20, %278, %.loopexit151, %210
-  %.7 = phi ptr [ %.4, %210 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit24 ], [ %.2, %.loopexit151 ], [ %.2, %278 ], [ %.1597, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread94 ], [ %189, %_ZL20read_variable_lengthPPKhS0_i.exit20 ], [ %.lcssa164, %._crit_edge ], [ %184, %183 ], [ %226, %224 ], [ %231, %.preheader135 ], [ %189, %.preheader137 ], [ %81, %.preheader143 ], [ %44, %.preheader146 ], [ %76, %75 ], [ %81, %_ZL20read_variable_lengthPPKhS0_i.exit15 ], [ %.1382, %_ZL20read_variable_lengthPPKhS0_i.exit15.thread79 ], [ %39, %38 ], [ %31, %37 ], [ %44, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1165, %_ZL20read_variable_lengthPPKhS0_i.exit.thread62 ], [ %.8, %.thread87 ]
+  %.7 = phi ptr [ %.4, %210 ], [ %.2, %.loopexit151 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit24 ], [ %.2, %278 ], [ %.1597, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread94 ], [ %189, %_ZL20read_variable_lengthPPKhS0_i.exit20 ], [ %.lcssa164, %._crit_edge ], [ %184, %183 ], [ %226, %224 ], [ %231, %.preheader135 ], [ %189, %.preheader137 ], [ %81, %.preheader143 ], [ %44, %.preheader146 ], [ %76, %75 ], [ %81, %_ZL20read_variable_lengthPPKhS0_i.exit15 ], [ %.1382, %_ZL20read_variable_lengthPPKhS0_i.exit15.thread79 ], [ %39, %38 ], [ %31, %37 ], [ %44, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1165, %_ZL20read_variable_lengthPPKhS0_i.exit.thread62 ], [ %.8, %.thread87 ]
   %311 = ptrtoint ptr %.7 to i64
   %312 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %312, %311
@@ -14702,7 +14702,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit17.thread81: ; preds = %90, %_ZL20read_var
   br i1 %187, label %183, label %.backedge, !llvm.loop !25
 
 188:                                              ; preds = %154, %153, %150
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %154 ], [ %.sroa.0.2.insert.insert.i, %153 ], [ %.sroa.0.0.isplat.i, %150 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %150 ], [ %.sroa.0.2.insert.insert.i, %153 ], [ %.sroa.0.0.copyload2.i, %154 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -15124,7 +15124,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit9:                  ; preds = %379, %.lr.ph206, %3
   br i1 %cond.i196, label %._crit_edge, label %.lr.ph198
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread:           ; preds = %87, %_ZL20read_variable_lengthPPKhS0_i.exit17.thread81, %_ZL20read_variable_lengthPPKhS0_i.exit17, %46, %45, %_ZL20read_variable_lengthPPKhS0_i.exit.thread64, %_ZL20read_variable_lengthPPKhS0_i.exit, %126, %.thread89, %.preheader138, %.preheader135, %.preheader126, %.preheader124, %_ZL20read_variable_lengthPPKhS0_i.exit26, %274, %228, %._crit_edge, %_ZL20read_variable_lengthPPKhS0_i.exit22.thread96, %_ZL20read_variable_lengthPPKhS0_i.exit22, %354, %301, %.loopexit143, %256
-  %.7 = phi ptr [ %.4, %256 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit26 ], [ %.2, %.loopexit143 ], [ %.2, %301 ], [ %.2, %354 ], [ %.1599, %_ZL20read_variable_lengthPPKhS0_i.exit22.thread96 ], [ %234, %_ZL20read_variable_lengthPPKhS0_i.exit22 ], [ %.lcssa156, %._crit_edge ], [ %229, %228 ], [ %276, %274 ], [ %281, %.preheader124 ], [ %234, %.preheader126 ], [ %93, %.preheader135 ], [ %52, %.preheader138 ], [ %88, %87 ], [ %93, %_ZL20read_variable_lengthPPKhS0_i.exit17 ], [ %.1384, %_ZL20read_variable_lengthPPKhS0_i.exit17.thread81 ], [ %47, %46 ], [ %39, %45 ], [ %52, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1167, %_ZL20read_variable_lengthPPKhS0_i.exit.thread64 ], [ %.8, %126 ], [ %.8, %.thread89 ]
+  %.7 = phi ptr [ %.4, %256 ], [ %.2, %.loopexit143 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit26 ], [ %.2, %301 ], [ %.2, %354 ], [ %.1599, %_ZL20read_variable_lengthPPKhS0_i.exit22.thread96 ], [ %234, %_ZL20read_variable_lengthPPKhS0_i.exit22 ], [ %.lcssa156, %._crit_edge ], [ %229, %228 ], [ %276, %274 ], [ %281, %.preheader124 ], [ %234, %.preheader126 ], [ %93, %.preheader135 ], [ %52, %.preheader138 ], [ %88, %87 ], [ %93, %_ZL20read_variable_lengthPPKhS0_i.exit17 ], [ %.1384, %_ZL20read_variable_lengthPPKhS0_i.exit17.thread81 ], [ %47, %46 ], [ %39, %45 ], [ %52, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1167, %_ZL20read_variable_lengthPPKhS0_i.exit.thread64 ], [ %.8, %126 ], [ %.8, %.thread89 ]
   %387 = ptrtoint ptr %.7 to i64
   %388 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %388, %387
@@ -15502,7 +15502,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit21.thread85: ; preds = %87, %_ZL20read_var
   br i1 %191, label %187, label %.backedge, !llvm.loop !25
 
 192:                                              ; preds = %158, %157, %154
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %158 ], [ %.sroa.0.2.insert.insert.i, %157 ], [ %.sroa.0.0.isplat.i, %154 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %154 ], [ %.sroa.0.2.insert.insert.i, %157 ], [ %.sroa.0.0.copyload2.i, %158 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -15949,7 +15949,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit13:                 ; preds = %392, %386
   br label %_ZL22LZ4_decompress_genericPKcPcii18earlyEnd_directive14dict_directivePKhS5_m.exit
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread:           ; preds = %84, %_ZL20read_variable_lengthPPKhS0_i.exit21.thread85, %_ZL20read_variable_lengthPPKhS0_i.exit21, %43, %42, %_ZL20read_variable_lengthPPKhS0_i.exit.thread68, %_ZL20read_variable_lengthPPKhS0_i.exit, %.thread93, %.preheader144, %.preheader141, %.preheader133, %.preheader131, %_ZL20read_variable_lengthPPKhS0_i.exit30, %287, %232, %._crit_edge, %_ZL20read_variable_lengthPPKhS0_i.exit26.thread100, %_ZL20read_variable_lengthPPKhS0_i.exit26, %.loopexit149
-  %.8 = phi ptr [ %.18, %_ZL20read_variable_lengthPPKhS0_i.exit30 ], [ %.2, %.loopexit149 ], [ %.16103, %_ZL20read_variable_lengthPPKhS0_i.exit26.thread100 ], [ %238, %_ZL20read_variable_lengthPPKhS0_i.exit26 ], [ %.lcssa162, %._crit_edge ], [ %233, %232 ], [ %289, %287 ], [ %294, %.preheader131 ], [ %238, %.preheader133 ], [ %90, %.preheader141 ], [ %49, %.preheader144 ], [ %85, %84 ], [ %90, %_ZL20read_variable_lengthPPKhS0_i.exit21 ], [ %.1488, %_ZL20read_variable_lengthPPKhS0_i.exit21.thread85 ], [ %44, %43 ], [ %36, %42 ], [ %49, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1271, %_ZL20read_variable_lengthPPKhS0_i.exit.thread68 ], [ %.9, %.thread93 ]
+  %.8 = phi ptr [ %.2, %.loopexit149 ], [ %.18, %_ZL20read_variable_lengthPPKhS0_i.exit30 ], [ %.16103, %_ZL20read_variable_lengthPPKhS0_i.exit26.thread100 ], [ %238, %_ZL20read_variable_lengthPPKhS0_i.exit26 ], [ %.lcssa162, %._crit_edge ], [ %233, %232 ], [ %289, %287 ], [ %294, %.preheader131 ], [ %238, %.preheader133 ], [ %90, %.preheader141 ], [ %49, %.preheader144 ], [ %85, %84 ], [ %90, %_ZL20read_variable_lengthPPKhS0_i.exit21 ], [ %.1488, %_ZL20read_variable_lengthPPKhS0_i.exit21.thread85 ], [ %44, %43 ], [ %36, %42 ], [ %49, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1271, %_ZL20read_variable_lengthPPKhS0_i.exit.thread68 ], [ %.9, %.thread93 ]
   %404 = ptrtoint ptr %.8 to i64
   %405 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %405, %404
@@ -16414,7 +16414,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit77.thread143: ; preds = %118, %_ZL20read_v
   br i1 %215, label %211, label %.backedge, !llvm.loop !25
 
 216:                                              ; preds = %182, %181, %178
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %182 ], [ %.sroa.0.2.insert.insert.i, %181 ], [ %.sroa.0.0.isplat.i, %178 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %178 ], [ %.sroa.0.2.insert.insert.i, %181 ], [ %.sroa.0.0.copyload2.i, %182 ]
   store i32 %.sroa.9.0.i, ptr %.3.i.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -16837,7 +16837,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit69:                 ; preds = %408, %.lr.ph272, %3
   br i1 %cond.i.i262, label %._crit_edge, label %.lr.ph264
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread:           ; preds = %115, %_ZL20read_variable_lengthPPKhS0_i.exit77.thread143, %_ZL20read_variable_lengthPPKhS0_i.exit77, %74, %73, %_ZL20read_variable_lengthPPKhS0_i.exit.thread126, %_ZL20read_variable_lengthPPKhS0_i.exit, %154, %.thread151, %.preheader204, %.preheader201, %.preheader192, %.preheader190, %_ZL20read_variable_lengthPPKhS0_i.exit86, %302, %256, %._crit_edge, %_ZL20read_variable_lengthPPKhS0_i.exit82.thread158, %_ZL20read_variable_lengthPPKhS0_i.exit82, %383, %329, %.loopexit209, %284
-  %.7 = phi ptr [ %.4, %284 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit86 ], [ %.2, %.loopexit209 ], [ %.2, %329 ], [ %.2, %383 ], [ %.15161, %_ZL20read_variable_lengthPPKhS0_i.exit82.thread158 ], [ %262, %_ZL20read_variable_lengthPPKhS0_i.exit82 ], [ %.lcssa222, %._crit_edge ], [ %257, %256 ], [ %304, %302 ], [ %309, %.preheader190 ], [ %262, %.preheader192 ], [ %121, %.preheader201 ], [ %80, %.preheader204 ], [ %116, %115 ], [ %121, %_ZL20read_variable_lengthPPKhS0_i.exit77 ], [ %.13146, %_ZL20read_variable_lengthPPKhS0_i.exit77.thread143 ], [ %75, %74 ], [ %67, %73 ], [ %80, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.11129, %_ZL20read_variable_lengthPPKhS0_i.exit.thread126 ], [ %.8, %154 ], [ %.8, %.thread151 ]
+  %.7 = phi ptr [ %.4, %284 ], [ %.2, %.loopexit209 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit86 ], [ %.2, %329 ], [ %.2, %383 ], [ %.15161, %_ZL20read_variable_lengthPPKhS0_i.exit82.thread158 ], [ %262, %_ZL20read_variable_lengthPPKhS0_i.exit82 ], [ %.lcssa222, %._crit_edge ], [ %257, %256 ], [ %304, %302 ], [ %309, %.preheader190 ], [ %262, %.preheader192 ], [ %121, %.preheader201 ], [ %80, %.preheader204 ], [ %116, %115 ], [ %121, %_ZL20read_variable_lengthPPKhS0_i.exit77 ], [ %.13146, %_ZL20read_variable_lengthPPKhS0_i.exit77.thread143 ], [ %75, %74 ], [ %67, %73 ], [ %80, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.11129, %_ZL20read_variable_lengthPPKhS0_i.exit.thread126 ], [ %.8, %154 ], [ %.8, %.thread151 ]
   %416 = ptrtoint ptr %.7 to i64
   %417 = ptrtoint ptr %1 to i64
   %.neg.i.i = sub i64 %417, %416
@@ -17192,7 +17192,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit16.thread80: ; preds = %86, %_ZL20read_var
   br i1 %159, label %155, label %.backedge, !llvm.loop !25
 
 160:                                              ; preds = %126, %125, %122
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %126 ], [ %.sroa.0.2.insert.insert.i, %125 ], [ %.sroa.0.0.isplat.i, %122 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %122 ], [ %.sroa.0.2.insert.insert.i, %125 ], [ %.sroa.0.0.copyload2.i, %126 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -17562,7 +17562,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit8:                  ; preds = %325, %.lr.ph199, %3
   br i1 %cond.i190, label %._crit_edge, label %.lr.ph192
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread:           ; preds = %83, %_ZL20read_variable_lengthPPKhS0_i.exit16.thread80, %_ZL20read_variable_lengthPPKhS0_i.exit16, %42, %41, %_ZL20read_variable_lengthPPKhS0_i.exit.thread63, %_ZL20read_variable_lengthPPKhS0_i.exit, %.thread88, %.preheader135, %.preheader132, %.preheader126, %.preheader124, %_ZL20read_variable_lengthPPKhS0_i.exit25, %246, %200, %._crit_edge, %_ZL20read_variable_lengthPPKhS0_i.exit21.thread95, %_ZL20read_variable_lengthPPKhS0_i.exit21, %300, %.loopexit140, %228
-  %.7 = phi ptr [ %.4, %228 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit25 ], [ %.2, %.loopexit140 ], [ %.2, %300 ], [ %.1598, %_ZL20read_variable_lengthPPKhS0_i.exit21.thread95 ], [ %206, %_ZL20read_variable_lengthPPKhS0_i.exit21 ], [ %.lcssa153, %._crit_edge ], [ %201, %200 ], [ %248, %246 ], [ %253, %.preheader124 ], [ %206, %.preheader126 ], [ %89, %.preheader132 ], [ %48, %.preheader135 ], [ %84, %83 ], [ %89, %_ZL20read_variable_lengthPPKhS0_i.exit16 ], [ %.1383, %_ZL20read_variable_lengthPPKhS0_i.exit16.thread80 ], [ %43, %42 ], [ %35, %41 ], [ %48, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1166, %_ZL20read_variable_lengthPPKhS0_i.exit.thread63 ], [ %.8, %.thread88 ]
+  %.7 = phi ptr [ %.4, %228 ], [ %.2, %.loopexit140 ], [ %.17, %_ZL20read_variable_lengthPPKhS0_i.exit25 ], [ %.2, %300 ], [ %.1598, %_ZL20read_variable_lengthPPKhS0_i.exit21.thread95 ], [ %206, %_ZL20read_variable_lengthPPKhS0_i.exit21 ], [ %.lcssa153, %._crit_edge ], [ %201, %200 ], [ %248, %246 ], [ %253, %.preheader124 ], [ %206, %.preheader126 ], [ %89, %.preheader132 ], [ %48, %.preheader135 ], [ %84, %83 ], [ %89, %_ZL20read_variable_lengthPPKhS0_i.exit16 ], [ %.1383, %_ZL20read_variable_lengthPPKhS0_i.exit16.thread80 ], [ %43, %42 ], [ %35, %41 ], [ %48, %_ZL20read_variable_lengthPPKhS0_i.exit ], [ %.1166, %_ZL20read_variable_lengthPPKhS0_i.exit.thread63 ], [ %.8, %.thread88 ]
   %333 = ptrtoint ptr %.7 to i64
   %334 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %334, %333
@@ -18397,7 +18397,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit19.thread83.i: ; preds = %_ZL20read_variab
   br i1 %156, label %152, label %.backedge.i, !llvm.loop !25
 
 157:                                              ; preds = %123, %122, %119
-  %.sroa.9.0.i.i = phi i32 [ %.sroa.0.0.copyload2.i.i, %123 ], [ %.sroa.0.2.insert.insert.i.i, %122 ], [ %.sroa.0.0.isplat.i.i, %119 ]
+  %.sroa.9.0.i.i = phi i32 [ %.sroa.0.0.isplat.i.i, %119 ], [ %.sroa.0.2.insert.insert.i.i, %122 ], [ %.sroa.0.0.copyload2.i.i, %123 ]
   store i32 %.sroa.9.0.i.i, ptr %.3.i.ptr.ptr.i, align 1
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr.i, i64 4
   store i32 %.sroa.9.0.i.i, ptr %.sroa.9.0..sroa_idx.i.i, align 1
@@ -18783,7 +18783,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit11.i:               ; preds = %309, %303
   br label %_ZL41LZ4_decompress_safe_partial_withPrefix64kPKcPciii.exit
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread.i:         ; preds = %.thread91.i, %_ZL20read_variable_lengthPPKhS0_i.exit19.thread83.i, %_ZL20read_variable_lengthPPKhS0_i.exit19.i, %84, %_ZL20read_variable_lengthPPKhS0_i.exit.thread66.i, %_ZL20read_variable_lengthPPKhS0_i.exit.i, %47, %46, %.preheader160.i, %.preheader157.i, %.preheader150.i, %.preheader148.i, %.loopexit165.i, %_ZL20read_variable_lengthPPKhS0_i.exit28.i, %240, %_ZL20read_variable_lengthPPKhS0_i.exit24.thread98.i, %_ZL20read_variable_lengthPPKhS0_i.exit24.i, %192, %._crit_edge.i
-  %.8.i = phi ptr [ %.18.i, %_ZL20read_variable_lengthPPKhS0_i.exit28.i ], [ %.2.i, %.loopexit165.i ], [ %.16101.i, %_ZL20read_variable_lengthPPKhS0_i.exit24.thread98.i ], [ %198, %_ZL20read_variable_lengthPPKhS0_i.exit24.i ], [ %.lcssa178.i, %._crit_edge.i ], [ %193, %192 ], [ %242, %240 ], [ %247, %.preheader148.i ], [ %198, %.preheader150.i ], [ %90, %.preheader157.i ], [ %53, %.preheader160.i ], [ %.9.i, %.thread91.i ], [ %.1269.i, %_ZL20read_variable_lengthPPKhS0_i.exit.thread66.i ], [ %53, %_ZL20read_variable_lengthPPKhS0_i.exit.i ], [ %40, %46 ], [ %48, %47 ], [ %.1486.i, %_ZL20read_variable_lengthPPKhS0_i.exit19.thread83.i ], [ %90, %_ZL20read_variable_lengthPPKhS0_i.exit19.i ], [ %85, %84 ]
+  %.8.i = phi ptr [ %.2.i, %.loopexit165.i ], [ %.18.i, %_ZL20read_variable_lengthPPKhS0_i.exit28.i ], [ %.16101.i, %_ZL20read_variable_lengthPPKhS0_i.exit24.thread98.i ], [ %198, %_ZL20read_variable_lengthPPKhS0_i.exit24.i ], [ %.lcssa178.i, %._crit_edge.i ], [ %193, %192 ], [ %242, %240 ], [ %247, %.preheader148.i ], [ %198, %.preheader150.i ], [ %90, %.preheader157.i ], [ %53, %.preheader160.i ], [ %.9.i, %.thread91.i ], [ %.1269.i, %_ZL20read_variable_lengthPPKhS0_i.exit.thread66.i ], [ %53, %_ZL20read_variable_lengthPPKhS0_i.exit.i ], [ %40, %46 ], [ %48, %47 ], [ %.1486.i, %_ZL20read_variable_lengthPPKhS0_i.exit19.thread83.i ], [ %90, %_ZL20read_variable_lengthPPKhS0_i.exit19.i ], [ %85, %84 ]
   %321 = ptrtoint ptr %.8.i to i64
   %322 = ptrtoint ptr %0 to i64
   %.neg.i.i = sub i64 %322, %321
@@ -19091,7 +19091,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit20.thread84.i: ; preds = %_ZL20read_variab
   br i1 %474, label %470, label %.backedge.i75, !llvm.loop !25
 
 475:                                              ; preds = %441, %440, %437
-  %.sroa.9.0.i.i78 = phi i32 [ %.sroa.0.0.copyload2.i.i77, %441 ], [ %.sroa.0.2.insert.insert.i.i86, %440 ], [ %.sroa.0.0.isplat.i.i87, %437 ]
+  %.sroa.9.0.i.i78 = phi i32 [ %.sroa.0.0.isplat.i.i87, %437 ], [ %.sroa.0.2.insert.insert.i.i86, %440 ], [ %.sroa.0.0.copyload2.i.i77, %441 ]
   store i32 %.sroa.9.0.i.i78, ptr %.3.i.i, align 1
   %.sroa.9.0..sroa_idx.i.i79 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   store i32 %.sroa.9.0.i.i78, ptr %.sroa.9.0..sroa_idx.i.i79, align 1
@@ -19473,7 +19473,7 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit12.i:               ; preds = %642, %636
   br label %_ZL41LZ4_decompress_safe_partial_withPrefix64kPKcPciii.exit
 
 _ZL14LZ4_wildCopy32PvPKvS_.exit.thread.i55:       ; preds = %.thread92.i, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread84.i, %_ZL20read_variable_lengthPPKhS0_i.exit20.i, %398, %_ZL20read_variable_lengthPPKhS0_i.exit.thread67.i, %_ZL20read_variable_lengthPPKhS0_i.exit.i99, %357, %356, %.preheader143.i, %.preheader140.i, %.preheader133.i, %.preheader131.i, %.loopexit148.i, %_ZL20read_variable_lengthPPKhS0_i.exit29.i, %570, %_ZL20read_variable_lengthPPKhS0_i.exit25.thread99.i, %_ZL20read_variable_lengthPPKhS0_i.exit25.i, %515, %._crit_edge.i67
-  %.8.i56 = phi ptr [ %.18.i53, %_ZL20read_variable_lengthPPKhS0_i.exit29.i ], [ %.2.i36, %.loopexit148.i ], [ %.16102.i, %_ZL20read_variable_lengthPPKhS0_i.exit25.thread99.i ], [ %521, %_ZL20read_variable_lengthPPKhS0_i.exit25.i ], [ %.lcssa161.i, %._crit_edge.i67 ], [ %516, %515 ], [ %572, %570 ], [ %577, %.preheader131.i ], [ %521, %.preheader133.i ], [ %404, %.preheader140.i ], [ %363, %.preheader143.i ], [ %.9.i73, %.thread92.i ], [ %.1270.i, %_ZL20read_variable_lengthPPKhS0_i.exit.thread67.i ], [ %363, %_ZL20read_variable_lengthPPKhS0_i.exit.i99 ], [ %350, %356 ], [ %358, %357 ], [ %.1487.i, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread84.i ], [ %404, %_ZL20read_variable_lengthPPKhS0_i.exit20.i ], [ %399, %398 ]
+  %.8.i56 = phi ptr [ %.2.i36, %.loopexit148.i ], [ %.18.i53, %_ZL20read_variable_lengthPPKhS0_i.exit29.i ], [ %.16102.i, %_ZL20read_variable_lengthPPKhS0_i.exit25.thread99.i ], [ %521, %_ZL20read_variable_lengthPPKhS0_i.exit25.i ], [ %.lcssa161.i, %._crit_edge.i67 ], [ %516, %515 ], [ %572, %570 ], [ %577, %.preheader131.i ], [ %521, %.preheader133.i ], [ %404, %.preheader140.i ], [ %363, %.preheader143.i ], [ %.9.i73, %.thread92.i ], [ %.1270.i, %_ZL20read_variable_lengthPPKhS0_i.exit.thread67.i ], [ %363, %_ZL20read_variable_lengthPPKhS0_i.exit.i99 ], [ %350, %356 ], [ %358, %357 ], [ %.1487.i, %_ZL20read_variable_lengthPPKhS0_i.exit20.thread84.i ], [ %404, %_ZL20read_variable_lengthPPKhS0_i.exit20.i ], [ %399, %398 ]
   %654 = ptrtoint ptr %.8.i56 to i64
   %655 = ptrtoint ptr %0 to i64
   %.neg.i.i57 = sub i64 %655, %654

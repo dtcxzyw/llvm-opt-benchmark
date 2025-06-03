@@ -1269,8 +1269,8 @@ default.unreachable:                              ; preds = %49, %26
   br label %tls1_get_supported_groups.exit
 
 tls1_get_supported_groups.exit:                   ; preds = %26, %33, %34, %39, %44
-  %.179 = phi ptr [ %41, %39 ], [ %37, %44 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %34 ], [ @suiteb_curves, %33 ], [ @suiteb_curves, %26 ]
-  %.sink.i = phi i64 [ %43, %39 ], [ %46, %44 ], [ 1, %34 ], [ 1, %33 ], [ 2, %26 ]
+  %.179 = phi ptr [ @suiteb_curves, %33 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %34 ], [ %41, %39 ], [ %37, %44 ], [ @suiteb_curves, %26 ]
+  %.sink.i = phi i64 [ 1, %33 ], [ 1, %34 ], [ %43, %39 ], [ %46, %44 ], [ 2, %26 ]
   %47 = getelementptr i8, ptr %0, i64 2712
   %.val = load i64, ptr %47, align 8, !tbaa !156
   %48 = getelementptr i8, ptr %0, i64 2720
@@ -1977,9 +1977,9 @@ tls1_get_supported_groups.exit:                   ; preds = %29, %33
   %.not.i = icmp eq i64 %.sink.i, 0
   br i1 %.not.i, label %tls1_in_list.exit35, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %20, %23, %24, %tls1_get_supported_groups.exit
-  %.sink.i57 = phi i64 [ %.sink.i, %tls1_get_supported_groups.exit ], [ 2, %20 ], [ 1, %23 ], [ 1, %24 ]
-  %.03856 = phi ptr [ %.038, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %20 ], [ @suiteb_curves, %23 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %24 ]
+.lr.ph.i.preheader:                               ; preds = %20, %24, %23, %tls1_get_supported_groups.exit
+  %.sink.i57 = phi i64 [ %.sink.i, %tls1_get_supported_groups.exit ], [ 2, %20 ], [ 1, %24 ], [ 1, %23 ]
+  %.03856 = phi ptr [ %.038, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %20 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %24 ], [ @suiteb_curves, %23 ]
   br label %.lr.ph.i
 
 35:                                               ; preds = %.lr.ph.i
@@ -2796,7 +2796,7 @@ default.unreachable:                              ; preds = %3
   br label %36
 
 36:                                               ; preds = %29, %26, %20, %12, %11, %10
-  %.0 = phi i64 [ %22, %20 ], [ %28, %26 ], [ %35, %29 ], [ 1, %12 ], [ 1, %11 ], [ 2, %10 ]
+  %.0 = phi i64 [ 2, %10 ], [ 1, %11 ], [ 1, %12 ], [ %22, %20 ], [ %28, %26 ], [ %35, %29 ]
   ret i64 %.0
 }
 
@@ -3681,9 +3681,9 @@ tls12_get_psigalgs.exit:                          ; preds = %19, %24, %26
   %.not30 = icmp eq i64 %.0.i, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %10, %11, %tls12_get_psigalgs.exit
-  %.0.i37 = phi i64 [ %.0.i, %tls12_get_psigalgs.exit ], [ 2, %3 ], [ 1, %10 ], [ 1, %11 ]
-  %.12436 = phi ptr [ %.124, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %3 ], [ @suiteb_sigalgs, %10 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %11 ]
+.lr.ph:                                           ; preds = %3, %11, %10, %tls12_get_psigalgs.exit
+  %.0.i37 = phi i64 [ %.0.i, %tls12_get_psigalgs.exit ], [ 2, %3 ], [ 1, %11 ], [ 1, %10 ]
+  %.12436 = phi ptr [ %.124, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %3 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %11 ], [ @suiteb_sigalgs, %10 ]
   %32 = getelementptr i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !126
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1632
@@ -3983,8 +3983,8 @@ default.unreachable:                              ; preds = %23
   br label %tls12_get_psigalgs.exit
 
 tls12_get_psigalgs.exit:                          ; preds = %23, %30, %31, %39, %45, %48
-  %.035 = phi ptr [ %52, %48 ], [ %44, %45 ], [ %38, %39 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %31 ], [ @suiteb_sigalgs, %30 ], [ @suiteb_sigalgs, %23 ]
-  %.0.i = phi i64 [ %54, %48 ], [ %47, %45 ], [ %41, %39 ], [ 1, %31 ], [ 1, %30 ], [ 2, %23 ]
+  %.035 = phi ptr [ @suiteb_sigalgs, %30 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %31 ], [ %52, %48 ], [ %44, %45 ], [ %38, %39 ], [ @suiteb_sigalgs, %23 ]
+  %.0.i = phi i64 [ 1, %30 ], [ 1, %31 ], [ %54, %48 ], [ %47, %45 ], [ %41, %39 ], [ 2, %23 ]
   %.0.i.fr = freeze i64 %.0.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %56 = load i64, ptr %55, align 8, !tbaa !197
@@ -4169,8 +4169,8 @@ default.unreachable:                              ; preds = %30
   br label %tls12_get_psigalgs.exit.i
 
 tls12_get_psigalgs.exit.i:                        ; preds = %51, %48, %42, %37, %36, %30, %27, %19
-  %.090.i = phi ptr [ %24, %27 ], [ %16, %19 ], [ %55, %51 ], [ %47, %48 ], [ %41, %42 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %37 ], [ @suiteb_sigalgs, %36 ], [ @suiteb_sigalgs, %30 ]
-  %.048.i = phi i64 [ %29, %27 ], [ %21, %19 ], [ %57, %51 ], [ %50, %48 ], [ %44, %42 ], [ 1, %37 ], [ 1, %36 ], [ 2, %30 ]
+  %.090.i = phi ptr [ %24, %27 ], [ %16, %19 ], [ @suiteb_sigalgs, %36 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %37 ], [ %55, %51 ], [ %47, %48 ], [ %41, %42 ], [ @suiteb_sigalgs, %30 ]
+  %.048.i = phi i64 [ %29, %27 ], [ %21, %19 ], [ 1, %36 ], [ 1, %37 ], [ %57, %51 ], [ %50, %48 ], [ %44, %42 ], [ 2, %30 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %59 = load i64, ptr %58, align 8, !tbaa !155
   %60 = and i64 %59, 4194304
@@ -4882,8 +4882,8 @@ ssl_hmac_free.exit:                               ; preds = %159, %.thread202
   br label %175
 
 175:                                              ; preds = %169, %170, %172, %173, %165, %ssl_hmac_free.exit
-  %.3146 = phi i32 [ %.0143224, %ssl_hmac_free.exit ], [ %spec.store.select10, %170 ], [ 2, %169 ], [ 1, %172 ], [ %.193, %173 ], [ 1, %165 ]
-  %.1139 = phi ptr [ %.0138226, %ssl_hmac_free.exit ], [ null, %170 ], [ null, %169 ], [ %.0138226, %172 ], [ %.0138226, %173 ], [ %.0138226, %165 ]
+  %.3146 = phi i32 [ %.0143224, %ssl_hmac_free.exit ], [ 2, %169 ], [ %spec.store.select10, %170 ], [ 1, %172 ], [ %.193, %173 ], [ 1, %165 ]
+  %.1139 = phi ptr [ %.0138226, %ssl_hmac_free.exit ], [ null, %169 ], [ null, %170 ], [ %.0138226, %172 ], [ %.0138226, %173 ], [ %.0138226, %165 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 2784
   %177 = load ptr, ptr %176, align 8, !tbaa !253
   %178 = icmp eq ptr %177, null
@@ -6981,9 +6981,9 @@ ssl_check_ca_name.exit:                           ; preds = %.lr.ph.i288
   br label %.thread318
 
 .thread318:                                       ; preds = %202, %.loopexit345, %._crit_edge.thread, %.loopexit344, %182, %169, %.thread335, %102, %191, %tls12_rpk_and_privkey.exit.thread
-  %.0207 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %spec.select, %102 ], [ 0, %._crit_edge.thread ], [ 0, %191 ], [ %spec.select282, %.thread335 ], [ 0, %169 ], [ 0, %182 ], [ 0, %.loopexit344 ], [ %.4211, %.loopexit345 ], [ %.4211, %202 ]
-  %.0195 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %.3198, %102 ], [ %.1196, %._crit_edge.thread ], [ %.7202, %191 ], [ %spec.select283, %.thread335 ], [ %.1196, %169 ], [ %173, %182 ], [ %.15, %.loopexit344 ], [ %.12, %.loopexit345 ], [ %.11, %202 ]
-  %.0192 = phi ptr [ %30, %tls12_rpk_and_privkey.exit.thread ], [ %.1193, %102 ], [ %.1193, %._crit_edge.thread ], [ %.1193, %191 ], [ %.1193, %.thread335 ], [ %.1193, %169 ], [ %.1193, %182 ], [ %.1193, %.loopexit344 ], [ %.1193, %.loopexit345 ], [ %.1193, %202 ]
+  %.0207 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ 0, %191 ], [ 0, %._crit_edge.thread ], [ %spec.select, %102 ], [ %spec.select282, %.thread335 ], [ 0, %169 ], [ 0, %182 ], [ 0, %.loopexit344 ], [ %.4211, %.loopexit345 ], [ %.4211, %202 ]
+  %.0195 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %.7202, %191 ], [ %.1196, %._crit_edge.thread ], [ %.3198, %102 ], [ %spec.select283, %.thread335 ], [ %.1196, %169 ], [ %173, %182 ], [ %.15, %.loopexit344 ], [ %.12, %.loopexit345 ], [ %.11, %202 ]
+  %.0192 = phi ptr [ %30, %tls12_rpk_and_privkey.exit.thread ], [ %.1193, %191 ], [ %.1193, %._crit_edge.thread ], [ %.1193, %102 ], [ %.1193, %.thread335 ], [ %.1193, %169 ], [ %.1193, %182 ], [ %.1193, %.loopexit344 ], [ %.1193, %.loopexit345 ], [ %.1193, %202 ]
   %266 = call i32 @SSL_version(ptr noundef %0) #14
   %.mask255 = and i32 %266, -256
   %267 = icmp eq i32 %.mask255, 768
@@ -8392,7 +8392,7 @@ rsa_pss_check_min_key_size.exit:                  ; preds = %198
   br i1 %209, label %._crit_edge, label %tls12_get_cert_sigalg_idx.exit.thread
 
 tls12_get_cert_sigalg_idx.exit.thread:            ; preds = %147, %190, %193, %198, %182, %ssl_has_cert_type.exit.thread.i.i, %.thread, %151, %ssl_has_cert.exit.i, %.sink.split.i, %93, %99, %110, %rsa_pss_check_min_key_size.exit, %135, %206, %has_usable_cert.exit
-  %.397 = phi i32 [ %.498175, %rsa_pss_check_min_key_size.exit ], [ %.498175, %206 ], [ %.498175, %has_usable_cert.exit ], [ %146, %135 ], [ -1, %110 ], [ -1, %99 ], [ -1, %93 ], [ -1, %.sink.split.i ], [ %.498175, %ssl_has_cert.exit.i ], [ %.498175, %151 ], [ %.498175, %.thread ], [ %.498175, %ssl_has_cert_type.exit.thread.i.i ], [ %.498175, %182 ], [ %.498175, %198 ], [ %.498175, %193 ], [ %.498175, %190 ], [ -1, %147 ]
+  %.397 = phi i32 [ %.498175, %206 ], [ %.498175, %rsa_pss_check_min_key_size.exit ], [ %.498175, %has_usable_cert.exit ], [ %146, %135 ], [ -1, %110 ], [ -1, %99 ], [ -1, %93 ], [ -1, %.sink.split.i ], [ %.498175, %ssl_has_cert.exit.i ], [ %.498175, %151 ], [ %.498175, %.thread ], [ %.498175, %ssl_has_cert_type.exit.thread.i.i ], [ %.498175, %182 ], [ %.498175, %198 ], [ %.498175, %193 ], [ %.498175, %190 ], [ -1, %147 ]
   %210 = add nuw i64 %.0107208, 1
   %211 = load i64, ptr %80, align 8, !tbaa !239
   %212 = icmp ult i64 %210, %211
@@ -8530,9 +8530,9 @@ tls12_get_psigalgs.exit:                          ; preds = %250, %255, %257
   %.not226 = icmp eq i64 %.0.i145, 0
   br i1 %.not226, label %has_usable_cert.exit166._crit_edge, label %.lr.ph221
 
-.lr.ph221:                                        ; preds = %235, %242, %243, %tls12_get_psigalgs.exit
-  %.0.i145246 = phi i64 [ %.0.i145, %tls12_get_psigalgs.exit ], [ 2, %235 ], [ 1, %242 ], [ 1, %243 ]
-  %.1169245 = phi ptr [ %.1169, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %235 ], [ @suiteb_sigalgs, %242 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %243 ]
+.lr.ph221:                                        ; preds = %235, %243, %242, %tls12_get_psigalgs.exit
+  %.0.i145246 = phi i64 [ %.0.i145, %tls12_get_psigalgs.exit ], [ 2, %235 ], [ 1, %243 ], [ 1, %242 ]
+  %.1169245 = phi ptr [ %.1169, %tls12_get_psigalgs.exit ], [ @suiteb_sigalgs, %235 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %243 ], [ @suiteb_sigalgs, %242 ]
   %263 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %264 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -8832,7 +8832,7 @@ define i32 @tls13_set_encoded_pub_key(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %18
 
 18:                                               ; preds = %12, %14, %5, %16
-  %.1 = phi i32 [ 0, %5 ], [ %17, %16 ], [ 0, %14 ], [ 0, %12 ]
+  %.1 = phi i32 [ %17, %16 ], [ 0, %5 ], [ 0, %14 ], [ 0, %12 ]
   ret i32 %.1
 }
 

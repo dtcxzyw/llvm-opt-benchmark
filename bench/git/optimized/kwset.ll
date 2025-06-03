@@ -515,7 +515,7 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
   unreachable
 
 185:                                              ; preds = %165, %170, %141, %146
-  %.0210 = phi ptr [ %173, %170 ], [ %167, %165 ], [ %149, %146 ], [ %142, %141 ]
+  %.0210 = phi ptr [ %142, %141 ], [ %149, %146 ], [ %167, %165 ], [ %173, %170 ]
   %186 = shl i64 %indvars.iv308, 32
   %sext315 = add i64 %186, -4294967296
   %187 = ashr exact i64 %sext315, 32

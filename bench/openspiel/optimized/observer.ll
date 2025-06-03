@@ -3314,7 +3314,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %39, %38 ]
+  %.sroa.031.1.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %41 = load float, ptr %.sroa.031.1.i.i.i.i.i, align 4
   %42 = fcmp une float %41, 0.000000e+00
   %43 = fcmp une float %41, 1.000000e+00
@@ -3326,7 +3326,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %45, %44 ]
+  %.sroa.031.2.i.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %47 = load float, ptr %.sroa.031.2.i.i.i.i.i, align 4
   %48 = fcmp une float %47, 0.000000e+00
   %49 = fcmp une float %47, 1.000000e+00

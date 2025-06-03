@@ -11424,7 +11424,7 @@ _ZNSt4pairIN16cmUVProcessChain13ExceptionCodeENSt7__cxx1112basic_stringIcSt11cha
   br label %1240
 
 1147:                                             ; preds = %1136, %1047, %794, %755, %694
-  %.pn125.pn.pn = phi { ptr, i32 } [ %.pn125.pn, %1136 ], [ %.pn105.pn.pn, %1047 ], [ %.pn118.pn.pn.pn.pn, %755 ], [ %.pn114, %794 ], [ %.pn110.pn, %694 ]
+  %.pn125.pn.pn = phi { ptr, i32 } [ %.pn125.pn, %1136 ], [ %.pn118.pn.pn.pn.pn, %755 ], [ %.pn114, %794 ], [ %.pn110.pn, %694 ], [ %.pn105.pn.pn, %1047 ]
   %1148 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %1149 = load ptr, ptr %1148, align 8, !tbaa !77
   %1150 = getelementptr inbounds nuw i8, ptr %36, i64 24

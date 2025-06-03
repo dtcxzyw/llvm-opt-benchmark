@@ -910,7 +910,7 @@ define range(i32 0, 2) i32 @ossl_default_provider_init(ptr noundef %0, ptr nound
   br label %15
 
 15:                                               ; preds = %.preheader, %9, %11, %13
-  %.1 = phi ptr [ %.022.val28, %13 ], [ %.021, %11 ], [ %.021, %9 ], [ %.021, %.preheader ]
+  %.1 = phi ptr [ %.021, %9 ], [ %.021, %11 ], [ %.022.val28, %13 ], [ %.021, %.preheader ]
   %16 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   br label %.preheader, !llvm.loop !11
 

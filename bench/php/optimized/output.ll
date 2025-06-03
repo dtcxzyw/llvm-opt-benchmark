@@ -1940,7 +1940,7 @@ zend_string_copy.exit.i:                          ; preds = %36, %28
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %62, %17, %8
-  %.0 = phi ptr [ %.1, %62 ], [ %23, %17 ], [ %9, %8 ], [ %.1, %64 ], [ %.1, %68 ], [ %.1, %73 ]
+  %.0 = phi ptr [ %.1, %62 ], [ %9, %8 ], [ %23, %17 ], [ %.1, %64 ], [ %.1, %68 ], [ %.1, %73 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   ret ptr %.0
@@ -2448,7 +2448,7 @@ define dso_local range(i32 -1, 1) i32 @php_output_handler_hook(i32 noundef %0, p
   br label %21
 
 21:                                               ; preds = %2, %4, %17, %13, %10, %7, %5
-  %.0 = phi i32 [ 0, %17 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ -1, %4 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ 0, %17 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 

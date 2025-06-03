@@ -938,7 +938,7 @@ _ZN6icu_775MutexD2Ev.exit.i:                      ; preds = %.noexc46
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc47, %_ZN6icu_775MutexD2Ev.exit.i
-  %.1.i = phi ptr [ %56, %_ZN6icu_775MutexD2Ev.exit.i ], [ %61, %.noexc47 ]
+  %.1.i = phi ptr [ %61, %.noexc47 ], [ %56, %_ZN6icu_775MutexD2Ev.exit.i ]
   %62 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %43, ptr noundef nonnull align 8 dereferenceable(217) %.1.i)
           to label %68 unwind label %48
 
@@ -1134,7 +1134,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %7
   br label %_ZN6icu_776Locale10getDefaultEv.exit
 
 _ZN6icu_776Locale10getDefaultEv.exit:             ; preds = %_ZN6icu_775MutexD2Ev.exit, %12
-  %.1.i = phi ptr [ %8, %_ZN6icu_775MutexD2Ev.exit ], [ %13, %12 ]
+  %.1.i = phi ptr [ %13, %12 ], [ %8, %_ZN6icu_775MutexD2Ev.exit ]
   %14 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(217) %.1.i)
   br label %20
 
@@ -1189,7 +1189,7 @@ _ZN6icu_775MutexD2Ev.exit.i:                      ; preds = %0
   br label %_ZN6icu_776Locale10getDefaultEv.exit
 
 _ZN6icu_776Locale10getDefaultEv.exit:             ; preds = %_ZN6icu_775MutexD2Ev.exit.i, %6
-  %.1.i = phi ptr [ %2, %_ZN6icu_775MutexD2Ev.exit.i ], [ %7, %6 ]
+  %.1.i = phi ptr [ %7, %6 ], [ %2, %_ZN6icu_775MutexD2Ev.exit.i ]
   %8 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   ret ptr %9
@@ -1222,7 +1222,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %0
   br label %8
 
 8:                                                ; preds = %_ZN6icu_775MutexD2Ev.exit, %6
-  %.1 = phi ptr [ %2, %_ZN6icu_775MutexD2Ev.exit ], [ %7, %6 ]
+  %.1 = phi ptr [ %7, %6 ], [ %2, %_ZN6icu_775MutexD2Ev.exit ]
   ret ptr %.1
 }
 
@@ -1332,7 +1332,7 @@ _ZN6icu_775MutexD2Ev.exit.i:                      ; preds = %.noexc
   br label %_ZN6icu_776Locale10getDefaultEv.exit.i
 
 _ZN6icu_776Locale10getDefaultEv.exit.i:           ; preds = %.noexc2, %_ZN6icu_775MutexD2Ev.exit.i
-  %.1.i.i = phi ptr [ %6, %_ZN6icu_775MutexD2Ev.exit.i ], [ %11, %.noexc2 ]
+  %.1.i.i = phi ptr [ %11, %.noexc2 ], [ %6, %_ZN6icu_775MutexD2Ev.exit.i ]
   %12 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(217) %.1.i.i)
           to label %_ZN6icu_776Locale4initEPKca.exit unwind label %13
 
@@ -1489,7 +1489,7 @@ _ZN6icu_775MutexD2Ev.exit.i:                      ; preds = %.noexc
   br label %_ZN6icu_776Locale10getDefaultEv.exit.i
 
 _ZN6icu_776Locale10getDefaultEv.exit.i:           ; preds = %.noexc85, %_ZN6icu_775MutexD2Ev.exit.i
-  %.1.i.i = phi ptr [ %18, %_ZN6icu_775MutexD2Ev.exit.i ], [ %23, %.noexc85 ]
+  %.1.i.i = phi ptr [ %23, %.noexc85 ], [ %18, %_ZN6icu_775MutexD2Ev.exit.i ]
   %24 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(217) %.1.i.i)
           to label %_ZN6icu_776Locale4initEPKca.exit unwind label %25
 
@@ -3317,7 +3317,7 @@ _ZN6icu_775MutexD2Ev.exit.i8:                     ; preds = %12
   br label %_ZN6icu_776Locale10getDefaultEv.exit
 
 _ZN6icu_776Locale10getDefaultEv.exit:             ; preds = %_ZN6icu_775MutexD2Ev.exit.i8, %17
-  %.1.i = phi ptr [ %13, %_ZN6icu_775MutexD2Ev.exit.i8 ], [ %18, %17 ]
+  %.1.i = phi ptr [ %18, %17 ], [ %13, %_ZN6icu_775MutexD2Ev.exit.i8 ]
   call void @_ZN6icu_776LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(217) %.1.i)
   br label %19
 

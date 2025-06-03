@@ -3268,7 +3268,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i: ; preds = %.thre
   br label %151
 
 151:                                              ; preds = %150, %141
-  %.021.i = phi i1 [ %84, %141 ], [ false, %150 ]
+  %.021.i = phi i1 [ false, %150 ], [ %84, %141 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %153 = load ptr, ptr %152, align 8, !tbaa !10
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 477
@@ -3282,7 +3282,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i: ; preds = %.thre
   br i1 %84, label %160, label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 160:                                              ; preds = %159, %151, %148, %146, %142
-  %.sroa.05.026.i = phi i32 [ %158, %151 ], [ %145, %159 ], [ %149, %148 ], [ %147, %146 ], [ %143, %142 ]
+  %.sroa.05.026.i = phi i32 [ %143, %142 ], [ %145, %159 ], [ %147, %146 ], [ %149, %148 ], [ %158, %151 ]
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %162 = load ptr, ptr %161, align 8, !tbaa !710
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3301,7 +3301,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i: ; preds = %.thre
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %167, %165, %159, %151, %148, %146, %142
-  %.sroa.05.025.i = phi i32 [ %158, %151 ], [ %145, %159 ], [ %149, %148 ], [ %147, %146 ], [ %143, %142 ], [ %.sroa.05.026.i, %165 ], [ %.sroa.05.026.i, %167 ]
+  %.sroa.05.025.i = phi i32 [ %143, %142 ], [ %145, %159 ], [ %147, %146 ], [ %149, %148 ], [ %158, %151 ], [ %.sroa.05.026.i, %165 ], [ %.sroa.05.026.i, %167 ]
   %169 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %.sroa.05.025.i) #17
   %.not.i.i32.i = icmp eq ptr %169, null
   br i1 %.not.i.i32.i, label %_ZN4llvm11raw_ostreamlsEc.exit76.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
@@ -3407,8 +3407,8 @@ _ZN4llvm11raw_ostreamlsEc.exit76:                 ; preds = %217, %219, %6, %5
   tail call void @_ZN4llvm13X86AsmPrinter12PrintOperandEPKNS_12MachineInstrEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(888) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %_ZN4llvm11raw_ostreamlsEc.exit76.thread
 
-_ZN4llvm11raw_ostreamlsEc.exit76.thread:          ; preds = %182, %181, %179, %_ZN4llvm11raw_ostreamlsEc.exit.i, %144, %141, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i, %.thread23.i, %80, %49, %47, %198, %195, %63, %54, %55, %59, %25, %34, %18, %21, %_ZN4llvm11raw_ostreamlsEc.exit79, %185, %194, %190, %202, %207, %16, %8, %_ZN4llvm11raw_ostreamlsEc.exit76
-  %.0 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEc.exit76 ], [ true, %8 ], [ true, %80 ], [ true, %.thread23.i ], [ false, %182 ], [ false, %181 ], [ false, %179 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ true, %144 ], [ true, %141 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i ], [ false, %49 ], [ false, %47 ], [ false, %198 ], [ true, %195 ], [ true, %63 ], [ false, %54 ], [ false, %55 ], [ false, %59 ], [ false, %25 ], [ false, %34 ], [ true, %18 ], [ false, %21 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit79 ], [ false, %185 ], [ false, %194 ], [ %193, %190 ], [ false, %202 ], [ false, %207 ], [ %17, %16 ]
+_ZN4llvm11raw_ostreamlsEc.exit76.thread:          ; preds = %182, %181, %179, %_ZN4llvm11raw_ostreamlsEc.exit.i, %144, %141, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i, %.thread23.i, %80, %49, %47, %198, %195, %63, %54, %55, %59, %25, %34, %18, %207, %202, %194, %190, %185, %_ZN4llvm11raw_ostreamlsEc.exit79, %21, %16, %8, %_ZN4llvm11raw_ostreamlsEc.exit76
+  %.0 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEc.exit76 ], [ true, %8 ], [ true, %80 ], [ true, %.thread23.i ], [ false, %182 ], [ false, %181 ], [ false, %179 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ true, %144 ], [ true, %141 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i ], [ false, %49 ], [ false, %47 ], [ false, %198 ], [ true, %195 ], [ true, %63 ], [ false, %54 ], [ false, %55 ], [ false, %59 ], [ false, %25 ], [ false, %34 ], [ true, %18 ], [ false, %207 ], [ false, %202 ], [ false, %194 ], [ %193, %190 ], [ false, %185 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit79 ], [ false, %21 ], [ %17, %16 ]
   ret i1 %.0
 }
 

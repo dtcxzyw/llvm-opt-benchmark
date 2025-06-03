@@ -8000,7 +8000,7 @@ _ZN3gmx5RangeIiEC2Eii.exit581:                    ; preds = %3130
   br label %3215
 
 3215:                                             ; preds = %3202, %3206, %3192, %3193, %3195
-  %.1405 = phi i32 [ %3214, %3206 ], [ %.0404748, %3202 ], [ %3196, %3195 ], [ %.0404748, %3193 ], [ %.0404748, %3192 ]
+  %.1405 = phi i32 [ %3196, %3195 ], [ %.0404748, %3193 ], [ %.0404748, %3192 ], [ %3214, %3206 ], [ %.0404748, %3202 ]
   %3216 = load i32, ptr %3170, align 4
   %3217 = sext i32 %3216 to i64
   %3218 = icmp sgt i64 %indvars.iv820, %3217
@@ -12945,8 +12945,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i.i.i61.i.i.i.i.i.i.i: ; preds = %521, %
   br label %548
 
 548:                                              ; preds = %546, %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %549 = phi i8 [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %514, %546 ]
-  %.sroa.093.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.093.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %547, %546 ]
+  %549 = phi i8 [ %514, %546 ], [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
+  %.sroa.093.1.i.i.i.i.i.i.i = phi ptr [ %547, %546 ], [ %.sroa.093.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
   %550 = load i32, ptr %.sroa.093.1.i.i.i.i.i.i.i, align 4, !tbaa !208
   br label %551
 
@@ -13017,8 +13017,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i.i.i72.i.i.i.i.i.i.i: ; preds = %557, %
   br label %584
 
 584:                                              ; preds = %582, %._crit_edge._crit_edge191.i.i.i.i.i.i.i
-  %585 = phi i8 [ %.pre193.i.i.i.i.i.i.i, %._crit_edge._crit_edge191.i.i.i.i.i.i.i ], [ %549, %582 ]
-  %.sroa.093.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.093.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge191.i.i.i.i.i.i.i ], [ %583, %582 ]
+  %585 = phi i8 [ %549, %582 ], [ %.pre193.i.i.i.i.i.i.i, %._crit_edge._crit_edge191.i.i.i.i.i.i.i ]
+  %.sroa.093.2.i.i.i.i.i.i.i = phi ptr [ %583, %582 ], [ %.sroa.093.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge191.i.i.i.i.i.i.i ]
   %586 = load i32, ptr %.sroa.093.2.i.i.i.i.i.i.i, align 4, !tbaa !208
   br label %587
 

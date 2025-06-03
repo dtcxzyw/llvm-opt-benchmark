@@ -1450,12 +1450,12 @@ default.unreachable:                              ; preds = %122
   unreachable
 
 160:                                              ; preds = %114, %127, %158, %139, %124, %107
-  %.2123 = phi i32 [ %102, %158 ], [ %140, %139 ], [ %102, %127 ], [ %102, %124 ], [ %120, %114 ], [ %112, %107 ]
-  %.sroa.0.2 = phi i8 [ %.sroa.0.0134, %158 ], [ %150, %139 ], [ %131, %127 ], [ %.sroa.0.0.copyload, %124 ], [ %117, %114 ], [ %110, %107 ]
-  %.sroa.13.2 = phi i8 [ %.sroa.13.0135, %158 ], [ %153, %139 ], [ %135, %127 ], [ %.sroa.13.0.copyload, %124 ], [ %118, %114 ], [ %111, %107 ]
-  %.sroa.22.2 = phi i8 [ %.sroa.22.0136, %158 ], [ %157, %139 ], [ %138, %127 ], [ %.sroa.22.0.copyload, %124 ], [ %119, %114 ], [ %113, %107 ]
-  %.2 = phi i32 [ %159, %158 ], [ 0, %139 ], [ 0, %127 ], [ 0, %124 ], [ 0, %114 ], [ 0, %107 ]
-  %.sroa.31.2 = phi i8 [ %.sroa.31.0139, %158 ], [ %.sroa.31.0139, %139 ], [ %.sroa.31.0139, %127 ], [ %.sroa.31.0.copyload, %124 ], [ %121, %114 ], [ %.sroa.31.0139, %107 ]
+  %.2123 = phi i32 [ %102, %124 ], [ %102, %127 ], [ %140, %139 ], [ %102, %158 ], [ %112, %107 ], [ %120, %114 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.0.copyload, %124 ], [ %131, %127 ], [ %150, %139 ], [ %.sroa.0.0134, %158 ], [ %110, %107 ], [ %117, %114 ]
+  %.sroa.13.2 = phi i8 [ %.sroa.13.0.copyload, %124 ], [ %135, %127 ], [ %153, %139 ], [ %.sroa.13.0135, %158 ], [ %111, %107 ], [ %118, %114 ]
+  %.sroa.22.2 = phi i8 [ %.sroa.22.0.copyload, %124 ], [ %138, %127 ], [ %157, %139 ], [ %.sroa.22.0136, %158 ], [ %113, %107 ], [ %119, %114 ]
+  %.2 = phi i32 [ 0, %124 ], [ 0, %127 ], [ 0, %139 ], [ %159, %158 ], [ 0, %107 ], [ 0, %114 ]
+  %.sroa.31.2 = phi i8 [ %.sroa.31.0.copyload, %124 ], [ %.sroa.31.0139, %127 ], [ %.sroa.31.0139, %139 ], [ %.sroa.31.0139, %158 ], [ %.sroa.31.0139, %107 ], [ %121, %114 ]
   %161 = zext i8 %.sroa.0.2 to i64
   %162 = mul nuw nsw i64 %161, 3
   %163 = zext i8 %.sroa.13.2 to i64
@@ -1978,7 +1978,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %81, %77, %75
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %89
-  %.0.i = phi float [ %97, %89 ], [ %88, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %61, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
+  %.0.i = phi float [ %61, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %88, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %97, %89 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
   %99 = call float @llvm.fabs.f32(float %.0.i)
   %100 = fcmp oeq float %99, 0x7FF0000000000000
   br i1 %100, label %.loopexit, label %22
@@ -2155,7 +2155,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 
@@ -2377,7 +2377,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %79, %75, %73
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %87
-  %.0.i = phi float [ %95, %87 ], [ %86, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %59, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ]
+  %.0.i = phi float [ %59, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %86, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %95, %87 ]
   %97 = fcmp uno float %.0.i, 0.000000e+00
   br i1 %97, label %.loopexit, label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit._crit_edge
 
@@ -4778,7 +4778,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %103, %99, %97
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %111, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %.noexc
-  %.0.i = phi float [ %119, %111 ], [ %110, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %83, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %.noexc ]
+  %.0.i = phi float [ %83, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %110, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %119, %111 ], [ 0.000000e+00, %.noexc ]
   %122 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 %.sroa.025.0.insert.insert, i32 noundef %122, float noundef %.0.i)
           to label %123 unwind label %.loopexit
@@ -23016,7 +23016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230.i: ; preds = %
   unreachable
 
 3318:                                             ; preds = %3315, %.thread278.i, %3119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130.i, %2976
-  %.pn125.i = phi { ptr, i32 } [ %2977, %2976 ], [ %.pn103.pn.pn.pn.pn.i, %3315 ], [ %3172, %.thread278.i ], [ %.pn118.pn.pn.i, %3119 ], [ %3014, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130.i ]
+  %.pn125.i = phi { ptr, i32 } [ %2977, %2976 ], [ %3014, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130.i ], [ %.pn118.pn.pn.i, %3119 ], [ %3172, %.thread278.i ], [ %.pn103.pn.pn.pn.pn.i, %3315 ]
   call void @_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #35, !noalias !418
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #35, !noalias !418
@@ -24767,7 +24767,7 @@ _ZN4pstd6vectorIhNS_3pmr21polymorphic_allocatorIhEEED2Ev.exit: ; preds = %_ZNSt7
   br label %3926
 
 3924:                                             ; preds = %3921, %.loopexit949, %3746, %.loopexit, %3635
-  %.pn143 = phi { ptr, i32 } [ %3636, %3635 ], [ %.pn121.pn.pn.pn.pn, %3921 ], [ %.pn127.pn.pn930, %.loopexit949 ], [ %.pn136.pn.pn, %3746 ], [ %.pn140, %.loopexit ]
+  %.pn143 = phi { ptr, i32 } [ %3636, %3635 ], [ %.pn140, %.loopexit ], [ %.pn136.pn.pn, %3746 ], [ %.pn127.pn.pn930, %.loopexit949 ], [ %.pn121.pn.pn.pn.pn, %3921 ]
   call void @_ZN4pstd6vectorIhNS_3pmr21polymorphic_allocatorIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %125) #35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %124) #35
@@ -28187,7 +28187,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %1004
 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i, %121, %1002, %591, %369, %257
-  %.pn169.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn169.pn.pn.pn.pn.pn, %591 ], [ %.pn161.pn.pn.pn.pn.pn.pn, %1002 ], [ %.pn133.pn.pn, %369 ], [ %.pn141.pn.pn, %257 ], [ %122, %121 ], [ %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
+  %.pn169.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn169.pn.pn.pn.pn.pn, %591 ], [ %.pn161.pn.pn.pn.pn.pn.pn, %1002 ], [ %.pn141.pn.pn, %257 ], [ %.pn133.pn.pn, %369 ], [ %122, %121 ], [ %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %21) #35
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %21) #35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188
@@ -30213,7 +30213,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %217, %213, %211
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %225, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %.noexc
-  %.0.i = phi float [ %235, %225 ], [ %224, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %195, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %.noexc ]
+  %.0.i = phi float [ %195, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %224, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %235, %225 ], [ 0.000000e+00, %.noexc ]
   %gep150 = getelementptr inbounds nuw float, ptr %invariant.gep149, i64 %indvars.iv
   store float %.0.i, ptr %gep150, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -30369,7 +30369,7 @@ define dso_local noundef zeroext i1 @_ZNK4pbrt5Image8WritePNGERKNSt7__cxx1112bas
   unreachable
 
 22:                                               ; preds = %3, %20, %19
-  %.016 = phi i32 [ 6, %20 ], [ 2, %19 ], [ 0, %3 ]
+  %.016 = phi i32 [ 2, %19 ], [ 6, %20 ], [ 0, %3 ]
   %23 = load i32, ptr %0, align 8, !tbaa !40
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %33
@@ -32438,7 +32438,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 102:                                              ; preds = %88, %70, %52
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %89, %88 ], [ %71, %70 ]
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %71, %70 ], [ %89, %88 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #35
   br label %.body
 
@@ -32944,7 +32944,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %111, %107, %105
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %119, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %.noexc
-  %.0.i = phi float [ %127, %119 ], [ %118, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %91, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %.noexc ]
+  %.0.i = phi float [ %91, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %118, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %127, %119 ], [ 0.000000e+00, %.noexc ]
   %.sroa.068.0.insert.ext = and i64 %56, 4294967295
   %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext.i49, %.sroa.068.0.insert.ext
   %130 = trunc nuw nsw i64 %indvars.iv to i32
@@ -33465,7 +33465,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %109, %105, %103
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %117, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %.noexc31
-  %.0.i = phi float [ %125, %117 ], [ %116, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %89, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %.noexc31 ]
+  %.0.i = phi float [ %89, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %116, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %125, %117 ], [ 0.000000e+00, %.noexc31 ]
   %128 = fcmp olt float %.0.i, 0.000000e+00
   %129 = fcmp ogt float %.0.i, 1.000000e+00
   %or.cond = or i1 %128, %129

@@ -1257,7 +1257,7 @@ ir_gvn_lookup.exit.thread.i:                      ; preds = %467, %.lr.ph.i.i, %
   br label %596
 
 596:                                              ; preds = %594, %ir_gvn_lookup.exit.i
-  %.1.i395 = phi i32 [ %595, %594 ], [ %.2.i.i, %ir_gvn_lookup.exit.i ]
+  %.1.i395 = phi i32 [ %.2.i.i, %ir_gvn_lookup.exit.i ], [ %595, %594 ]
   %597 = icmp sgt i32 %.1.i395, 0
   br i1 %597, label %598, label %ir_sccp_identity.exit38.i.i396
 
@@ -3527,7 +3527,7 @@ ir_bitqueue_add.exit:                             ; preds = %57, %45, %43
   br label %ir_ext_const.exit121
 
 ir_ext_const.exit121:                             ; preds = %200, %202, %207, %209, %214, %216
-  %.sroa.0.0.i120 = phi i64 [ %201, %200 ], [ %203, %202 ], [ %208, %207 ], [ %210, %209 ], [ %215, %214 ], [ %217, %216 ]
+  %.sroa.0.0.i120 = phi i64 [ %201, %200 ], [ %203, %202 ], [ %215, %214 ], [ %217, %216 ], [ %208, %207 ], [ %210, %209 ]
   %218 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %.sroa.0.0.i120, i8 noundef zeroext %100) #13
   br label %.sink.split.i
 
@@ -3611,7 +3611,7 @@ ir_ext_const.exit121:                             ; preds = %200, %202, %207, %2
   br label %ir_ext_const.exit
 
 ir_ext_const.exit:                                ; preds = %239, %241, %246, %248, %253, %255
-  %.sroa.0.0.i = phi i64 [ %240, %239 ], [ %242, %241 ], [ %247, %246 ], [ %249, %248 ], [ %254, %253 ], [ %256, %255 ]
+  %.sroa.0.0.i = phi i64 [ %240, %239 ], [ %242, %241 ], [ %254, %253 ], [ %256, %255 ], [ %247, %246 ], [ %249, %248 ]
   %257 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %.sroa.0.0.i, i8 noundef zeroext %100) #13
   br label %.sink.split178.i
 
@@ -6047,7 +6047,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
   br label %common.ret73
 
 common.ret73:                                     ; preds = %13, %60, %.loopexit72, %.loopexit, %8, %45
-  %common.ret73.op = phi i32 [ %1, %45 ], [ %12, %8 ], [ %1, %60 ], [ %32, %.loopexit ], [ %44, %.loopexit72 ], [ %1, %13 ]
+  %common.ret73.op = phi i32 [ %1, %45 ], [ %12, %8 ], [ %32, %.loopexit ], [ %44, %.loopexit72 ], [ %1, %60 ], [ %1, %13 ]
   ret i32 %common.ret73.op
 
 45:                                               ; preds = %13, %13
@@ -6593,7 +6593,7 @@ ir_find1.exit.thread:                             ; preds = %65, %45, %ir_find1.
   br label %common.ret102
 
 common.ret102:                                    ; preds = %13, %89, %ir_find1.exit.thread, %69, %.loopexit95, %.loopexit, %8, %74
-  %common.ret102.op = phi i32 [ %1, %74 ], [ %12, %8 ], [ %1, %89 ], [ %61, %69 ], [ %1, %ir_find1.exit.thread ], [ %32, %.loopexit ], [ %44, %.loopexit95 ], [ %1, %13 ]
+  %common.ret102.op = phi i32 [ %1, %74 ], [ %12, %8 ], [ %32, %.loopexit ], [ %44, %.loopexit95 ], [ %61, %69 ], [ %1, %ir_find1.exit.thread ], [ %1, %89 ], [ %1, %13 ]
   ret i32 %common.ret102.op
 
 74:                                               ; preds = %13, %13
@@ -6799,7 +6799,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
   br label %common.ret80
 
 common.ret80:                                     ; preds = %14, %62, %.loopexit79, %.loopexit, %9, %46
-  %common.ret80.op = phi i32 [ %2, %46 ], [ %13, %9 ], [ %2, %62 ], [ %33, %.loopexit ], [ %45, %.loopexit79 ], [ %2, %14 ]
+  %common.ret80.op = phi i32 [ %2, %46 ], [ %13, %9 ], [ %33, %.loopexit ], [ %45, %.loopexit79 ], [ %2, %62 ], [ %2, %14 ]
   ret i32 %common.ret80.op
 
 46:                                               ; preds = %14, %14, %14
@@ -6894,7 +6894,7 @@ define internal fastcc i32 @ir_ext_const(ptr noundef %0, ptr noundef readonly ca
   br label %31
 
 31:                                               ; preds = %27, %29, %19, %21, %11, %13
-  %.sroa.0.0 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %20, %19 ], [ %22, %21 ], [ %28, %27 ], [ %30, %29 ]
+  %.sroa.0.0 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %28, %27 ], [ %30, %29 ], [ %20, %19 ], [ %22, %21 ]
   %32 = trunc nuw i32 %3 to i8
   %33 = tail call i32 @ir_const(ptr noundef %0, i64 %.sroa.0.0, i8 noundef zeroext %32) #13
   ret i32 %33

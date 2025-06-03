@@ -89,7 +89,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %57
 
 57:                                               ; preds = %51, %._crit_edge
-  %.1 = phi i64 [ %14, %._crit_edge ], [ %56, %51 ]
+  %.1 = phi i64 [ %56, %51 ], [ %14, %._crit_edge ]
   %58 = getelementptr i8, ptr %.0.lcssa, i64 5
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
@@ -98,7 +98,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %63
 
 63:                                               ; preds = %57, %._crit_edge
-  %.2 = phi i64 [ %14, %._crit_edge ], [ %62, %57 ]
+  %.2 = phi i64 [ %62, %57 ], [ %14, %._crit_edge ]
   %64 = getelementptr i8, ptr %.0.lcssa, i64 4
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
@@ -107,7 +107,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %69
 
 69:                                               ; preds = %63, %._crit_edge
-  %.3 = phi i64 [ %14, %._crit_edge ], [ %68, %63 ]
+  %.3 = phi i64 [ %68, %63 ], [ %14, %._crit_edge ]
   %70 = getelementptr i8, ptr %.0.lcssa, i64 3
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
@@ -116,7 +116,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %75
 
 75:                                               ; preds = %69, %._crit_edge
-  %.4 = phi i64 [ %14, %._crit_edge ], [ %74, %69 ]
+  %.4 = phi i64 [ %74, %69 ], [ %14, %._crit_edge ]
   %76 = getelementptr i8, ptr %.0.lcssa, i64 2
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
@@ -125,7 +125,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %81
 
 81:                                               ; preds = %75, %._crit_edge
-  %.5 = phi i64 [ %14, %._crit_edge ], [ %80, %75 ]
+  %.5 = phi i64 [ %80, %75 ], [ %14, %._crit_edge ]
   %82 = getelementptr i8, ptr %.0.lcssa, i64 1
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i64
@@ -134,7 +134,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %87
 
 87:                                               ; preds = %81, %._crit_edge
-  %.6 = phi i64 [ %14, %._crit_edge ], [ %86, %81 ]
+  %.6 = phi i64 [ %86, %81 ], [ %14, %._crit_edge ]
   %88 = load i8, ptr %.0.lcssa, align 1
   %89 = zext i8 %88 to i64
   %90 = or i64 %.6, %89

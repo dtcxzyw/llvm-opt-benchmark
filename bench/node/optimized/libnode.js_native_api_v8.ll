@@ -13590,7 +13590,7 @@ do.end413:                                        ; preds = %do.body402
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.end413, %do.end375, %do.end337, %do.end299, %do.end261, %do.end223, %do.end185, %do.end147, %do.end110, %do.end81, %do.end54
-  %typedArray.sroa.0.0 = phi ptr [ %call420, %do.end413 ], [ %call382, %do.end375 ], [ %call344, %do.end337 ], [ %call306, %do.end299 ], [ %call268, %do.end261 ], [ %call230, %do.end223 ], [ %call192, %do.end185 ], [ %call154, %do.end147 ], [ %call117, %do.end110 ], [ %call88, %do.end81 ], [ %call59, %do.end54 ]
+  %typedArray.sroa.0.0 = phi ptr [ %call59, %do.end54 ], [ %call88, %do.end81 ], [ %call117, %do.end110 ], [ %call154, %do.end147 ], [ %call192, %do.end185 ], [ %call230, %do.end223 ], [ %call268, %do.end261 ], [ %call306, %do.end299 ], [ %call344, %do.end337 ], [ %call382, %do.end375 ], [ %call420, %do.end413 ]
   store ptr %typedArray.sroa.0.0, ptr %result, align 8
   %call439 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call439, label %cleanup.sink.split, label %cleanup

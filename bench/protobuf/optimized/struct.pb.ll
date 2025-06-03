@@ -2479,7 +2479,7 @@ sw.bb23:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end.i, %if.then.i42, %entry, %sw.bb23, %sw.bb19, %26, %11, %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
-  %target.addr.0 = phi ptr [ %target, %entry ], [ %call27, %sw.bb23 ], [ %call22, %sw.bb19 ], [ %incdec.ptr2.i.i52, %26 ], [ %add.ptr.i, %11 ], [ %incdec.ptr2.i.i.i, %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit ], [ %call6.i, %if.then.i42 ], [ %add.ptr.i40, %if.end.i ]
+  %target.addr.0 = phi ptr [ %target, %entry ], [ %incdec.ptr2.i.i.i, %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit ], [ %add.ptr.i, %11 ], [ %incdec.ptr2.i.i52, %26 ], [ %call22, %sw.bb19 ], [ %call27, %sw.bb23 ], [ %call6.i, %if.then.i42 ], [ %add.ptr.i40, %if.end.i ]
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %34 = load i64, ptr %_internal_metadata_, align 8
   %and.i51 = and i64 %34, 1
@@ -2623,7 +2623,7 @@ _ZNK6google8protobuf9ListValue12ByteSizeLongEv.exit: ; preds = %for.body.i, %sw.
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZNK6google8protobuf9ListValue12ByteSizeLongEv.exit, %sw.bb14, %sw.bb12, %sw.bb7, %sw.bb5, %sw.bb, %entry
-  %total_size.0 = phi i64 [ 0, %entry ], [ %add21, %_ZNK6google8protobuf9ListValue12ByteSizeLongEv.exit ], [ %add16, %sw.bb14 ], [ 2, %sw.bb12 ], [ %add10, %sw.bb7 ], [ 9, %sw.bb5 ], [ %add, %sw.bb ]
+  %total_size.0 = phi i64 [ 0, %entry ], [ %add, %sw.bb ], [ 9, %sw.bb5 ], [ %add10, %sw.bb7 ], [ 2, %sw.bb12 ], [ %add16, %sw.bb14 ], [ %add21, %_ZNK6google8protobuf9ListValue12ByteSizeLongEv.exit ]
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call24 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.0, ptr noundef nonnull %_cached_size_)
   ret i64 %call24
@@ -3518,7 +3518,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE13mutable_valueEv.exit, %if.end21, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %call.i28, %_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE13mutable_valueEv.exit ], [ %retval.0.i15, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i15, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ %call.i28, %_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE13mutable_valueEv.exit ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !19
 

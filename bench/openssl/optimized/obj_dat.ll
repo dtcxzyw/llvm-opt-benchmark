@@ -3875,7 +3875,7 @@ define internal i64 @added_obj_hash(ptr noundef readonly captures(none) %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %29, %25, %22
-  %.1 = phi i64 [ %32, %29 ], [ %28, %25 ], [ %24, %22 ], [ %9, %5 ], [ %21, %.lr.ph ]
+  %.1 = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %9, %5 ], [ %21, %.lr.ph ]
   %33 = and i64 %.1, 1073741823
   %34 = load i32, ptr %0, align 8, !tbaa !17
   %35 = sext i32 %34 to i64
@@ -3965,7 +3965,7 @@ define internal i32 @added_obj_cmp(ptr noundef readonly captures(none) %0, ptr n
   br label %48
 
 48:                                               ; preds = %6, %36, %32, %27, %24, %11, %2, %42, %40, %30, %17
-  %.0 = phi i32 [ %47, %42 ], [ %41, %40 ], [ %31, %30 ], [ %23, %17 ], [ %5, %2 ], [ %16, %11 ], [ -1, %24 ], [ 1, %27 ], [ -1, %32 ], [ 1, %36 ], [ 0, %6 ]
+  %.0 = phi i32 [ %23, %17 ], [ %31, %30 ], [ %41, %40 ], [ %47, %42 ], [ %5, %2 ], [ %16, %11 ], [ -1, %24 ], [ 1, %27 ], [ -1, %32 ], [ 1, %36 ], [ 0, %6 ]
   ret i32 %.0
 }
 

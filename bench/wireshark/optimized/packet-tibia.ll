@@ -841,7 +841,7 @@ define internal noundef zeroext i1 @rsakeys_uat_fld_fileopen_chk_cb(ptr readnone
   br label %17
 
 17:                                               ; preds = %12, %16, %14
-  %.1 = phi i1 [ false, %12 ], [ true, %16 ], [ false, %14 ]
+  %.1 = phi i1 [ true, %16 ], [ false, %12 ], [ false, %14 ]
   ret i1 %.1
 }
 
@@ -935,7 +935,7 @@ define internal noundef zeroext i1 @rsakeys_uat_fld_password_chk_cb(ptr noundef 
   br label %25
 
 25:                                               ; preds = %19, %.thread, %24
-  %.2 = phi i1 [ false, %19 ], [ true, %24 ], [ false, %.thread ]
+  %.2 = phi i1 [ true, %24 ], [ false, %19 ], [ false, %.thread ]
   ret i1 %.2
 }
 
@@ -1866,9 +1866,9 @@ get_version_traits.exit:                          ; preds = %75, %80, %82, %84, 
   br label %148
 
 148:                                              ; preds = %144, %119, %112, %143, %131, %71
-  %149 = phi i1 [ false, %71 ], [ false, %144 ], [ true, %143 ], [ false, %131 ], [ true, %119 ], [ false, %112 ]
-  %150 = phi i1 [ true, %71 ], [ true, %144 ], [ false, %143 ], [ true, %131 ], [ false, %119 ], [ true, %112 ]
-  %.0367 = phi i1 [ false, %71 ], [ %147, %144 ], [ false, %143 ], [ false, %131 ], [ false, %119 ], [ false, %112 ]
+  %149 = phi i1 [ false, %71 ], [ false, %144 ], [ true, %119 ], [ false, %112 ], [ true, %143 ], [ false, %131 ]
+  %150 = phi i1 [ true, %71 ], [ true, %144 ], [ false, %119 ], [ true, %112 ], [ false, %143 ], [ true, %131 ]
+  %.0367 = phi i1 [ false, %71 ], [ %147, %144 ], [ false, %119 ], [ false, %112 ], [ false, %143 ], [ false, %131 ]
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %152 = load ptr, ptr %151, align 8
   call void @col_set_str(ptr noundef %152, i32 noundef 35, ptr noundef nonnull @.str.217)

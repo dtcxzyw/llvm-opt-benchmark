@@ -2889,7 +2889,7 @@ dissect_l2cap_credit_based_connresponse.exit:     ; preds = %1133, %1062
   br label %dissect_comrej.exit
 
 dissect_comrej.exit:                              ; preds = %569, %548, %526, %487, %470, %.thread67.i546, %380, %.sink.split.i, %293, %1137, %dissect_l2cap_credit_based_connresponse.exit, %dissect_l2cap_credit_based_connrequest.exit, %894, %dissect_le_credit_based_connresponse.exit, %dissect_le_credit_based_connrequest.exit, %661, %dissect_connparamrequest.exit, %617, %604, %591, %578, %576, %574, %462, %458, %454, %452, %450, %dissect_configrequest.exit, %307, %305
-  %.1 = phi i32 [ %1140, %1137 ], [ %.0.lcssa.i570, %dissect_l2cap_credit_based_connresponse.exit ], [ %.0.lcssa.i, %dissect_l2cap_credit_based_connrequest.exit ], [ %900, %894 ], [ %888, %dissect_le_credit_based_connresponse.exit ], [ %815, %dissect_le_credit_based_connrequest.exit ], [ %665, %661 ], [ %660, %dissect_connparamrequest.exit ], [ %621, %617 ], [ %612, %604 ], [ %599, %591 ], [ %586, %578 ], [ %577, %576 ], [ %575, %574 ], [ %466, %462 ], [ %461, %458 ], [ %457, %454 ], [ %453, %452 ], [ %451, %450 ], [ %.0.i541, %dissect_configrequest.exit ], [ %308, %307 ], [ %306, %305 ], [ %297, %293 ], [ %304, %.sink.split.i ], [ %449, %.thread67.i546 ], [ %393, %380 ], [ %478, %470 ], [ %573, %569 ], [ %568, %548 ], [ %547, %526 ], [ %490, %487 ]
+  %.1 = phi i32 [ %1140, %1137 ], [ %306, %305 ], [ %308, %307 ], [ %.0.i541, %dissect_configrequest.exit ], [ %451, %450 ], [ %453, %452 ], [ %457, %454 ], [ %461, %458 ], [ %466, %462 ], [ %575, %574 ], [ %577, %576 ], [ %586, %578 ], [ %599, %591 ], [ %612, %604 ], [ %621, %617 ], [ %660, %dissect_connparamrequest.exit ], [ %665, %661 ], [ %815, %dissect_le_credit_based_connrequest.exit ], [ %888, %dissect_le_credit_based_connresponse.exit ], [ %900, %894 ], [ %.0.lcssa.i, %dissect_l2cap_credit_based_connrequest.exit ], [ %.0.lcssa.i570, %dissect_l2cap_credit_based_connresponse.exit ], [ %297, %293 ], [ %304, %.sink.split.i ], [ %449, %.thread67.i546 ], [ %393, %380 ], [ %478, %470 ], [ %573, %569 ], [ %490, %487 ], [ %547, %526 ], [ %568, %548 ]
   %1141 = icmp slt i32 %.1, %161
   br i1 %1141, label %271, label %.loopexit, !llvm.loop !11
 
@@ -5793,7 +5793,7 @@ define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef range(i3
   br label %109
 
 109:                                              ; preds = %27, %31, %35, %62, %80, %84, %103, %107, %11
-  %.1 = phi i32 [ %108, %107 ], [ %106, %103 ], [ %102, %84 ], [ %83, %80 ], [ %79, %62 ], [ %56, %35 ], [ %34, %31 ], [ %30, %27 ], [ %25, %11 ]
+  %.1 = phi i32 [ %108, %107 ], [ %30, %27 ], [ %34, %31 ], [ %56, %35 ], [ %79, %62 ], [ %83, %80 ], [ %102, %84 ], [ %106, %103 ], [ %25, %11 ]
   %110 = sub nsw i32 %.01331, %17
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %11, label %._crit_edge, !llvm.loop !12

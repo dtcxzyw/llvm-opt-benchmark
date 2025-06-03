@@ -3203,7 +3203,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN60_$LT$salsa..event..EventKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h01d5d4573f25880fE.exit"
 
 "_ZN60_$LT$salsa..event..EventKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h01d5d4573f25880fE.exit": ; preds = %14, %17, %21, %24, %29, %31, %33, %37, %40, %44, %48
-  %.sroa.0.0.in.i = phi i1 [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %24 ], [ %23, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %20, %17 ], [ %23, %21 ], [ %28, %24 ], [ %30, %29 ], [ %32, %31 ], [ %36, %33 ], [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -12781,7 +12781,7 @@ define hidden noundef ptr @_ZN9ty_server6server6Server10event_loop17h354b45f376a
   unreachable
 
 .thread318:                                       ; preds = %.loopexit, %.loopexit.split-lp, %324, %.thread322, %468, %467, %466, %465, %464, %463, %462, %187
-  %.pn192.pn.pn = phi { ptr, i32 } [ %.pn192.pn, %187 ], [ %lpad.thr_comm.split-lp, %468 ], [ %427, %467 ], [ %427, %462 ], [ %427, %466 ], [ %427, %464 ], [ %427, %465 ], [ %427, %463 ], [ %lpad.thr_comm, %.thread322 ], [ %325, %324 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn192.pn.pn = phi { ptr, i32 } [ %.pn192.pn, %187 ], [ %lpad.thr_comm.split-lp, %468 ], [ %427, %467 ], [ %427, %462 ], [ %427, %465 ], [ %427, %463 ], [ %427, %466 ], [ %427, %464 ], [ %lpad.thr_comm, %.thread322 ], [ %325, %324 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$ty_server..server..schedule..Scheduler$GT$17hebf988a224a0cb7bE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %62) #28
           to label %64 unwind label %416
 
@@ -13845,9 +13845,9 @@ define hidden noundef ptr @_ZN9ty_server6server6Server10event_loop17h354b45f376a
           to label %461 unwind label %65
 
 426:                                              ; preds = %459, %458, %457, %456, %425
-  %.sroa.094.0 = phi i1 [ %.sroa.094.1, %459 ], [ true, %458 ], [ true, %457 ], [ false, %456 ], [ true, %425 ]
-  %.sroa.095.0 = phi i1 [ %.sroa.095.1, %459 ], [ false, %458 ], [ true, %457 ], [ true, %456 ], [ true, %425 ]
-  %.sroa.096.0 = phi i1 [ %.sroa.096.1, %459 ], [ true, %458 ], [ false, %457 ], [ true, %456 ], [ true, %425 ]
+  %.sroa.094.0 = phi i1 [ %.sroa.094.1, %459 ], [ false, %456 ], [ true, %457 ], [ true, %458 ], [ true, %425 ]
+  %.sroa.095.0 = phi i1 [ %.sroa.095.1, %459 ], [ true, %456 ], [ true, %457 ], [ false, %458 ], [ true, %425 ]
+  %.sroa.096.0 = phi i1 [ %.sroa.096.1, %459 ], [ true, %456 ], [ false, %457 ], [ true, %458 ], [ true, %425 ]
   %427 = landingpad { ptr, i32 }
           cleanup
   %428 = load i64, ptr %26, align 8, !range !661, !noundef !3
@@ -13938,9 +13938,9 @@ define hidden noundef ptr @_ZN9ty_server6server6Server10event_loop17h354b45f376a
           to label %459 unwind label %426
 
 459:                                              ; preds = %458, %457, %456
-  %.sroa.094.1 = phi i1 [ true, %458 ], [ true, %457 ], [ false, %456 ]
-  %.sroa.095.1 = phi i1 [ false, %458 ], [ true, %457 ], [ true, %456 ]
-  %.sroa.096.1 = phi i1 [ true, %458 ], [ false, %457 ], [ true, %456 ]
+  %.sroa.094.1 = phi i1 [ false, %456 ], [ true, %457 ], [ true, %458 ]
+  %.sroa.095.1 = phi i1 [ true, %456 ], [ true, %457 ], [ false, %458 ]
+  %.sroa.096.1 = phi i1 [ true, %456 ], [ false, %457 ], [ true, %458 ]
   invoke void @_ZN9ty_server6server8schedule9Scheduler8dispatch17haf12adc20298c78cE(ptr noalias noundef nonnull align 8 dereferenceable(168) %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21)
           to label %460 unwind label %426
 

@@ -7045,7 +7045,7 @@ _ZN11colvarvaluepLERKS_.exit:                     ; preds = %106, %.noexc37, %80
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %127, %134, %135, %136, %137
-  %.0.i = phi i64 [ 4, %136 ], [ 3, %135 ], [ 1, %134 ], [ %145, %137 ], [ 0, %127 ]
+  %.0.i = phi i64 [ %145, %137 ], [ 1, %134 ], [ 3, %135 ], [ 4, %136 ], [ 0, %127 ]
   %146 = icmp ult i64 %.031, %.0.i
   br i1 %146, label %.preheader49, label %152
 
@@ -12330,7 +12330,7 @@ _ZN11colvarvaluepLERKS_.exit:                     ; preds = %106, %.noexc37, %80
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %127, %134, %135, %136, %137
-  %.0.i = phi i64 [ 4, %136 ], [ 3, %135 ], [ 1, %134 ], [ %145, %137 ], [ 0, %127 ]
+  %.0.i = phi i64 [ %145, %137 ], [ 1, %134 ], [ 3, %135 ], [ 4, %136 ], [ 0, %127 ]
   %146 = icmp ult i64 %.031, %.0.i
   br i1 %146, label %.preheader49, label %152
 
@@ -23695,7 +23695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %_Z
   br label %_ZN12colvarmodule7rvectorixEi.exit
 
 _ZN12colvarmodule7rvectorixEi.exit:               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %47, %45, %43, %41, %38, %36, %34, %70, %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.07 = phi ptr [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %33, %32 ], [ %74, %70 ], [ %37, %36 ], [ %40, %38 ], [ %35, %34 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ]
+  %.07 = phi ptr [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %74, %70 ], [ %33, %32 ], [ %37, %36 ], [ %40, %38 ], [ %35, %34 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %42, %41 ]
   ret ptr %.07
 }
 
@@ -25748,7 +25748,7 @@ _ZN18ArithmeticPathImplC2ERKS_.exit117:           ; preds = %163
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %_ZN18ArithmeticPathImplC2ERKS_.exit117, %178, %179, %180, %181
-  %.0.i = phi i64 [ 4, %180 ], [ 3, %179 ], [ 1, %178 ], [ %189, %181 ], [ 0, %_ZN18ArithmeticPathImplC2ERKS_.exit117 ]
+  %.0.i = phi i64 [ %189, %181 ], [ 1, %178 ], [ 3, %179 ], [ 4, %180 ], [ 0, %_ZN18ArithmeticPathImplC2ERKS_.exit117 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #23
   store i32 %177, ptr %19, align 4, !tbaa !128
   invoke void @_ZN11colvarvalueC1ERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 4 dereferenceable(4) %19)
@@ -29362,7 +29362,7 @@ _ZN18ArithmeticPathImplC2ERKS_.exit117:           ; preds = %163
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %_ZN18ArithmeticPathImplC2ERKS_.exit117, %178, %179, %180, %181
-  %.0.i = phi i64 [ 4, %180 ], [ 3, %179 ], [ 1, %178 ], [ %189, %181 ], [ 0, %_ZN18ArithmeticPathImplC2ERKS_.exit117 ]
+  %.0.i = phi i64 [ %189, %181 ], [ 1, %178 ], [ 3, %179 ], [ 4, %180 ], [ 0, %_ZN18ArithmeticPathImplC2ERKS_.exit117 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #23
   store i32 %177, ptr %19, align 4, !tbaa !128
   invoke void @_ZN11colvarvalueC1ERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 4 dereferenceable(4) %19)

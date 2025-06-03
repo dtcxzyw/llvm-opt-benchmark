@@ -1513,7 +1513,7 @@ if.end28.i:                                       ; preds = %call5.i.i.i27.i.noe
   br label %sw.bb30.i
 
 sw.bb30.i:                                        ; preds = %if.end28.i, %for.end.i
-  %__first.sroa.0.1.i = phi ptr [ %__first.sroa.0.0.lcssa.i, %for.end.i ], [ %incdec.ptr.i28.i, %if.end28.i ]
+  %__first.sroa.0.1.i = phi ptr [ %incdec.ptr.i28.i, %if.end28.i ], [ %__first.sroa.0.0.lcssa.i, %for.end.i ]
   %6 = load ptr, ptr %agg.tmp3, align 8
   %call5.i.i.i31.i7 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(24) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.1.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
           to label %call5.i.i.i31.i.noexc unwind label %lpad.loopexit.split-lp
@@ -1526,7 +1526,7 @@ if.end35.i:                                       ; preds = %call5.i.i.i31.i.noe
   br label %sw.bb37.i
 
 sw.bb37.i:                                        ; preds = %if.end35.i, %for.end.i
-  %__first.sroa.0.2.i = phi ptr [ %__first.sroa.0.0.lcssa.i, %for.end.i ], [ %incdec.ptr.i32.i, %if.end35.i ]
+  %__first.sroa.0.2.i = phi ptr [ %incdec.ptr.i32.i, %if.end35.i ], [ %__first.sroa.0.0.lcssa.i, %for.end.i ]
   %7 = load ptr, ptr %agg.tmp3, align 8
   %call5.i.i.i35.i8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(24) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.2.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
           to label %call5.i.i.i35.i.noexc unwind label %lpad.loopexit.split-lp

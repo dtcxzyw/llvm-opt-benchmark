@@ -3426,8 +3426,8 @@ define hidden { ptr, ptr } @_ZN2bv6solver20get_justification_eqEm(ptr noundef no
   br label %23
 
 23:                                               ; preds = %2, %22, %21, %8, %7, %6
-  %.sroa.7.0 = phi ptr [ null, %22 ], [ null, %21 ], [ %20, %8 ], [ null, %7 ], [ null, %6 ], [ null, %2 ]
-  %.sroa.0.0 = phi ptr [ null, %22 ], [ null, %21 ], [ %15, %8 ], [ null, %7 ], [ null, %6 ], [ null, %2 ]
+  %.sroa.7.0 = phi ptr [ null, %6 ], [ null, %7 ], [ %20, %8 ], [ null, %21 ], [ null, %22 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ null, %6 ], [ null, %7 ], [ %15, %8 ], [ null, %21 ], [ null, %22 ], [ null, %2 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5053,7 +5053,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit198:      ; preds = %_ZN7obj_refI4expr11
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %475, %477, %345, %188, %186
-  %.pn.pn = phi { ptr, i32 } [ %346, %345 ], [ %189, %188 ], [ %187, %186 ], [ %478, %477 ], [ %476, %475 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit242, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit245, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit249, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit253, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %189, %188 ], [ %187, %186 ], [ %346, %345 ], [ %478, %477 ], [ %476, %475 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit242, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit245, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit249, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit253, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6vectorIN3sat7literalELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   br label %479
@@ -8410,7 +8410,7 @@ _ZN3euflsERSoRKNS_6egraph4b_ppE.exit91:           ; preds = %243, %253
   br label %_ZN3satlsERSoNS_7literalE.exit62
 
 _ZN3satlsERSoNS_7literalE.exit62:                 ; preds = %269, %259, %157, %155, %271, %_ZN3satlsERSoRK7svectorINS_7literalEjE.exit86, %_ZN3satlsERSoRK7svectorINS_7literalEjE.exit52, %_ZN3satlsERSoNS_7literalE.exit
-  %.0 = phi ptr [ %1, %271 ], [ %217, %_ZN3satlsERSoRK7svectorINS_7literalEjE.exit86 ], [ %84, %_ZN3satlsERSoRK7svectorINS_7literalEjE.exit52 ], [ %30, %_ZN3satlsERSoNS_7literalE.exit ], [ %129, %155 ], [ %129, %157 ], [ %265, %259 ], [ %255, %269 ]
+  %.0 = phi ptr [ %1, %271 ], [ %30, %_ZN3satlsERSoNS_7literalE.exit ], [ %84, %_ZN3satlsERSoRK7svectorINS_7literalEjE.exit52 ], [ %217, %_ZN3satlsERSoRK7svectorINS_7literalEjE.exit86 ], [ %129, %155 ], [ %129, %157 ], [ %265, %259 ], [ %255, %269 ]
   ret ptr %.0
 }
 

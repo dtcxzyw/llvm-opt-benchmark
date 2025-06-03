@@ -3520,8 +3520,8 @@ _ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerCon
   %177 = call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
   br label %.thread
 
-.thread:                                          ; preds = %39, %36, %_ZN13CompileBroker10queue_sizeEi.exit58, %124, %_ZN13CompileBroker10queue_sizeEi.exit54, %110, %126, %32, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
-  %178 = phi i8 [ %177, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 3, %126 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 0, %36 ], [ 0, %39 ]
+.thread:                                          ; preds = %126, %_ZN13CompileBroker10queue_sizeEi.exit58, %124, %_ZN13CompileBroker10queue_sizeEi.exit54, %110, %39, %36, %32, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
+  %178 = phi i8 [ %177, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 0, %36 ], [ 0, %39 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 3, %126 ]
   ret i8 %178
 }
 
@@ -3865,8 +3865,8 @@ _ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerCon
   %177 = call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
   br label %.thread
 
-.thread:                                          ; preds = %39, %36, %_ZN13CompileBroker10queue_sizeEi.exit58, %124, %_ZN13CompileBroker10queue_sizeEi.exit54, %110, %126, %32, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
-  %178 = phi i8 [ %177, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 3, %126 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 0, %36 ], [ 0, %39 ]
+.thread:                                          ; preds = %126, %_ZN13CompileBroker10queue_sizeEi.exit58, %124, %_ZN13CompileBroker10queue_sizeEi.exit54, %110, %39, %36, %32, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
+  %178 = phi i8 [ %177, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 0, %36 ], [ 0, %39 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 3, %126 ]
   ret i8 %178
 }
 
@@ -4778,7 +4778,7 @@ _ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit: ; preds = %4, %4
   br label %_ZN13LoopPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
 
 _ZN13LoopPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit, %35, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread
-  %.07.i = phi i1 [ %30, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread ], [ %42, %35 ], [ true, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit ]
+  %.07.i = phi i1 [ %42, %35 ], [ %30, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread ], [ true, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %43
 

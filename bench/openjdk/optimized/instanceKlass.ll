@@ -7168,7 +7168,7 @@ define hidden noundef ptr @_ZN13InstanceKlass11array_klassEiP10JavaThread(ptr no
   br label %25
 
 25:                                               ; preds = %18, %19
-  %.1 = phi ptr [ null, %18 ], [ %24, %19 ]
+  %.1 = phi ptr [ %24, %19 ], [ null, %18 ]
   ret ptr %.1
 }
 

@@ -371,8 +371,8 @@ define internal fastcc void @mi_option_init(ptr noundef captures(none) %0) unnam
   br label %56
 
 thread-pre-split:                                 ; preds = %39, %46, %49, %43
-  %.0.ph = phi i64 [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %40, %39 ]
-  %.0.shrunk.ph = phi i1 [ %44, %43 ], [ %47, %46 ], [ %50, %49 ], [ false, %39 ]
+  %.0.ph = phi i64 [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %40, %39 ]
+  %.0.shrunk.ph = phi i1 [ %50, %49 ], [ %47, %46 ], [ %44, %43 ], [ false, %39 ]
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %55, ptr %4, align 8, !tbaa !21
   %.pr = load i8, ptr %55, align 1, !tbaa !3

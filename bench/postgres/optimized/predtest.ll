@@ -436,7 +436,7 @@ default.unreachable85:                            ; preds = %96, %14, %11
   unreachable
 
 predicate_implied_by_simple_clause.exit:          ; preds = %.thread.i, %170, %158, %149, %124, %.thread, %118, %106, %93, %.loopexit, %61, %49, %24
-  %.0 = phi i1 [ %.not.not.not.not.not.not, %118 ], [ %.not67, %106 ], [ %.not68, %93 ], [ %.not6982, %.loopexit ], [ %.not71.not.not.not.not.not, %61 ], [ %.not73.not.not.not.not.not, %49 ], [ %.not74, %24 ], [ true, %.thread ], [ %174, %.thread.i ], [ true, %124 ], [ true, %158 ], [ true, %149 ], [ true, %170 ]
+  %.0 = phi i1 [ %.not74, %24 ], [ %.not73.not.not.not.not.not, %49 ], [ %.not71.not.not.not.not.not, %61 ], [ %.not6982, %.loopexit ], [ %.not68, %93 ], [ %.not67, %106 ], [ %.not.not.not.not.not.not, %118 ], [ true, %.thread ], [ %174, %.thread.i ], [ true, %124 ], [ true, %158 ], [ true, %149 ], [ true, %170 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
   ret i1 %.0
@@ -1086,7 +1086,7 @@ default.unreachable135:                           ; preds = %extract_strong_not_
   unreachable
 
 predicate_refuted_by_simple_clause.exit:          ; preds = %276, %275, %271, %265, %257, %249, %246, %242, %235, %227, %219, %215, %.thread, %211, %167, %136, %69, %191, %179, %146, %.loopexit, %92, %79, %49, %37
-  %.0 = phi i1 [ %.not95, %191 ], [ %.not96.not.not.not.not.not, %179 ], [ %.not98, %146 ], [ %.not99131, %.loopexit ], [ %.not101, %92 ], [ %.not103.not.not.not.not.not, %79 ], [ %.not104, %49 ], [ %.not106.not.not.not.not.not, %37 ], [ true, %69 ], [ true, %136 ], [ true, %167 ], [ true, %211 ], [ true, %.thread ], [ %277, %276 ], [ false, %215 ], [ false, %275 ], [ false, %249 ], [ true, %271 ], [ true, %242 ], [ false, %219 ], [ false, %246 ], [ true, %235 ], [ false, %227 ], [ true, %265 ], [ false, %257 ]
+  %.0 = phi i1 [ %.not106.not.not.not.not.not, %37 ], [ %.not104, %49 ], [ %.not103.not.not.not.not.not, %79 ], [ %.not101, %92 ], [ %.not99131, %.loopexit ], [ %.not98, %146 ], [ %.not96.not.not.not.not.not, %179 ], [ %.not95, %191 ], [ true, %69 ], [ true, %136 ], [ true, %167 ], [ true, %211 ], [ true, %.thread ], [ %277, %276 ], [ false, %215 ], [ false, %275 ], [ false, %249 ], [ true, %271 ], [ true, %242 ], [ false, %219 ], [ false, %246 ], [ true, %235 ], [ false, %227 ], [ true, %265 ], [ false, %257 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
   ret i1 %.0

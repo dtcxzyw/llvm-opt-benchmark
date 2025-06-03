@@ -422,7 +422,7 @@ define weak_odr noundef i32 @_ZNK6open3d8geometry11KDTreeFlann6SearchIN5Eigen6Ma
   br label %22
 
 22:                                               ; preds = %5, %16, %12, %8
-  %.0 = phi i32 [ %21, %16 ], [ %15, %12 ], [ %11, %8 ], [ -1, %5 ]
+  %.0 = phi i32 [ %11, %8 ], [ %15, %12 ], [ %21, %16 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -2782,7 +2782,7 @@ define weak_odr noundef i32 @_ZNK6open3d8geometry11KDTreeFlann6SearchIN5Eigen6Ma
   br label %22
 
 22:                                               ; preds = %5, %16, %12, %8
-  %.0 = phi i32 [ %21, %16 ], [ %15, %12 ], [ %11, %8 ], [ -1, %5 ]
+  %.0 = phi i32 [ %11, %8 ], [ %15, %12 ], [ %21, %16 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -3835,7 +3835,7 @@ define noundef zeroext i1 @_ZN6open3d8geometry11KDTreeFlann11SetGeometryERKNS0_8
   br label %32
 
 32:                                               ; preds = %31, %19, %7
-  %.0 = phi i1 [ false, %31 ], [ %30, %19 ], [ %18, %7 ]
+  %.0 = phi i1 [ false, %31 ], [ %18, %7 ], [ %30, %19 ]
   ret i1 %.0
 }
 

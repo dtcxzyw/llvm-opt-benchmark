@@ -485,7 +485,7 @@ switch.lookup:                                    ; preds = %if.end28
   br label %return
 
 return:                                           ; preds = %for.body, %if.end28, %switch.lookup, %sw.bb2, %if.end12, %if.then7, %sw.bb23, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %invoke.cont39, %sw.bb33, %sw.bb19
-  %retval.0 = phi i1 [ false, %invoke.cont39 ], [ false, %sw.bb33 ], [ %cmp.i18, %sw.bb19 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ false, %sw.bb23 ], [ %spec.select, %if.then7 ], [ %spec.select25, %if.end12 ], [ true, %sw.bb2 ], [ %switch.masked, %switch.lookup ], [ true, %if.end28 ], [ %cmp.i6.not.not, %for.body ]
+  %retval.0 = phi i1 [ false, %invoke.cont39 ], [ %cmp.i18, %sw.bb19 ], [ false, %sw.bb33 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ false, %sw.bb23 ], [ %spec.select, %if.then7 ], [ %spec.select25, %if.end12 ], [ true, %sw.bb2 ], [ %switch.masked, %switch.lookup ], [ true, %if.end28 ], [ %cmp.i6.not.not, %for.body ]
   ret i1 %retval.0
 }
 
@@ -1884,7 +1884,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad29, %lpad61, %lpad85, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %46, %lpad.i ], [ %48, %lpad85 ], [ %39, %lpad61 ], [ %28, %lpad29 ], [ %17, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %lpad.i ], [ %48, %lpad85 ], [ %17, %lpad ], [ %28, %lpad29 ], [ %39, %lpad61 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %sw.epilog
@@ -1915,7 +1915,7 @@ lpad85:                                           ; preds = %invoke.cont88, %_ZN
   br label %common.resume
 
 return:                                           ; preds = %sw.bb70, %land.lhs.true, %sw.bb37, %invoke.cont92, %sw.bb81, %if.end76, %invoke.cont66, %if.then47, %invoke.cont32, %if.then23, %for.end, %if.then, %sw.bb
-  %retval.0 = phi ptr [ %call94, %invoke.cont92 ], [ %call83, %sw.bb81 ], [ %call79, %if.end76 ], [ %call49, %if.then47 ], [ %call60, %invoke.cont66 ], [ %call25, %if.then23 ], [ %call28, %invoke.cont32 ], [ %call7, %for.end ], [ %call6, %if.then ], [ %call2, %sw.bb ], [ %29, %sw.bb37 ], [ %29, %land.lhs.true ], [ %40, %sw.bb70 ]
+  %retval.0 = phi ptr [ %call94, %invoke.cont92 ], [ %call2, %sw.bb ], [ %call7, %for.end ], [ %call6, %if.then ], [ %call25, %if.then23 ], [ %call28, %invoke.cont32 ], [ %call49, %if.then47 ], [ %call60, %invoke.cont66 ], [ %call79, %if.end76 ], [ %call83, %sw.bb81 ], [ %29, %sw.bb37 ], [ %29, %land.lhs.true ], [ %40, %sw.bb70 ]
   ret ptr %retval.0
 }
 
@@ -2017,7 +2017,7 @@ if.end19.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb21.i.i.i.i
 
 sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %for.end.i.i.i.i
-  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ]
+  %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %22 = load ptr, ptr %__first.addr.1.i.i.i.i, align 8
   %23 = load i8, ptr %22, align 8
   %24 = add i8 %23, -14
@@ -2029,7 +2029,7 @@ if.end24.i.i.i.i:                                 ; preds = %sw.bb21.i.i.i.i
   br label %sw.bb26.i.i.i.i
 
 sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %for.end.i.i.i.i
-  %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ]
+  %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %25 = load ptr, ptr %__first.addr.2.i.i.i.i, align 8
   %26 = load i8, ptr %25, align 8
   %27 = add i8 %26, -14

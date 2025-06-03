@@ -2303,7 +2303,7 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   br label %29
 
 29:                                               ; preds = %26, %13
-  %.0128 = phi i64 [ %1, %13 ], [ %28, %26 ]
+  %.0128 = phi i64 [ %28, %26 ], [ %1, %13 ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %31 = load ptr, ptr %30, align 8, !tbaa !119
   %32 = load i64, ptr %31, align 8, !tbaa !52
@@ -2684,7 +2684,7 @@ client_seek_proxy.exit173:                        ; preds = %client_switch_proxy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %client_seek_proxy.exit173, %client_seek_proxy.exit, %client_seek_proxy.exit173.thread, %client_seek_proxy.exit.thread, %199, %206, %13, %194, %109, %107, %9, %3, %6, %192, %152, %83
-  %.0127 = phi i64 [ %153, %152 ], [ %193, %192 ], [ %84, %83 ], [ -30, %6 ], [ -30, %3 ], [ -25, %9 ], [ -30, %107 ], [ %110, %109 ], [ %197, %194 ], [ -30, %13 ], [ %204, %206 ], [ %204, %199 ], [ -25, %client_seek_proxy.exit.thread ], [ -25, %client_seek_proxy.exit173.thread ], [ %90, %client_seek_proxy.exit ], [ %159, %client_seek_proxy.exit173 ]
+  %.0127 = phi i64 [ %84, %83 ], [ %153, %152 ], [ %193, %192 ], [ -30, %6 ], [ -30, %3 ], [ -25, %9 ], [ -30, %107 ], [ %110, %109 ], [ %197, %194 ], [ -30, %13 ], [ %204, %206 ], [ %204, %199 ], [ -25, %client_seek_proxy.exit.thread ], [ -25, %client_seek_proxy.exit173.thread ], [ %90, %client_seek_proxy.exit ], [ %159, %client_seek_proxy.exit173 ]
   ret i64 %.0127
 }
 

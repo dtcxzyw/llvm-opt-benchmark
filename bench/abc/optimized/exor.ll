@@ -364,7 +364,7 @@ define i32 @ToffoliGateCount(i32 noundef %0, i32 noundef %1) local_unnamed_addr 
   br label %16
 
 16:                                               ; preds = %2, %2, %8, %5, %4, %3
-  %.0 = phi i32 [ %15, %8 ], [ %7, %5 ], [ 4, %4 ], [ 1, %3 ], [ 0, %2 ], [ 0, %2 ]
+  %.0 = phi i32 [ %15, %8 ], [ 1, %3 ], [ 4, %4 ], [ %7, %5 ], [ 0, %2 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -404,7 +404,7 @@ define i32 @ComputeQCostTcount(ptr noundef readonly captures(none) %0) local_unn
   br label %ToffoliGateCount.exit
 
 ToffoliGateCount.exit:                            ; preds = %1, %1, %4, %5, %6, %9
-  %.0.i = phi i32 [ %16, %9 ], [ %8, %6 ], [ 4, %5 ], [ 1, %4 ], [ 0, %1 ], [ 0, %1 ]
+  %.0.i = phi i32 [ %16, %9 ], [ 1, %4 ], [ 4, %5 ], [ %8, %6 ], [ 0, %1 ], [ 0, %1 ]
   %17 = mul nsw i32 %.0.i, 7
   ret i32 %17
 }
@@ -459,7 +459,7 @@ define i32 @ComputeQCostTcountBits(ptr noundef %0) local_unnamed_addr #5 {
   br label %ToffoliGateCount.exit
 
 ToffoliGateCount.exit:                            ; preds = %1, %._crit_edge, %._crit_edge, %9, %10, %11, %14
-  %.0.i = phi i32 [ %21, %14 ], [ %13, %11 ], [ 4, %10 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %1 ]
+  %.0.i = phi i32 [ %21, %14 ], [ 1, %9 ], [ 4, %10 ], [ %13, %11 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %1 ]
   %22 = mul nsw i32 %.0.i, 7
   ret i32 %22
 }

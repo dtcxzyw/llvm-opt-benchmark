@@ -1872,10 +1872,10 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   call void @_ZN14cap_primitives6rustix5linux2fs9open_impl9open_impl17h6d5e1e8619c5afc8E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %19), !noalias !375
   %65 = load i32, ptr %13, align 8, !range !376, !noalias !364, !noundef !4
   %trunc.i.i = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %67 = load ptr, ptr %66, align 8, !noalias !364, !nonnull !4
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %69 = load i32, ptr %68, align 4, !range !278, !noalias !364
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %67 = load i32, ptr %66, align 4, !range !278, !noalias !364
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %69 = load ptr, ptr %68, align 8, !noalias !364, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !364
   br i1 %trunc.i.i, label %84, label %83
 
@@ -1924,13 +1924,13 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   br label %120
 
 83:                                               ; preds = %64
-  store i32 %69, ptr %18, align 4
+  store i32 %67, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %17)
   invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias noundef align 8 captures(none) dereferenceable(192) %17, ptr noalias noundef readonly align 4 dereferenceable(4) %18)
           to label %87 unwind label %122
 
 84:                                               ; preds = %64
-  %85 = call noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %67)
+  %85 = call noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %69)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %85, ptr %86, align 8
   store i32 1, ptr %0, align 8
@@ -1962,7 +1962,7 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %69, ptr %98, align 8
+  store i32 %67, ptr %98, align 8
   store i32 0, ptr %0, align 8
   br label %.critedge
 
@@ -1988,7 +1988,7 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   br label %107
 
 107:                                              ; preds = %._crit_edge, %99
-  %108 = phi i32 [ %.pre, %._crit_edge ], [ %69, %99 ]
+  %108 = phi i32 [ %.pre, %._crit_edge ], [ %67, %99 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %109, align 4
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2095,23 +2095,23 @@ define hidden void @_ZN11wasi_common4sync4file12get_fd_flags17h29b9e4fe343d0a2aE
   call void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetSetFdFlags$GT$12get_fd_flags17h0dff3ba4c3e7f1b9E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
   %6 = load i32, ptr %4, align 8, !range !376, !noundef !4
   %trunc = trunc nuw i32 %6 to i1
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !4
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %10 = load i32, ptr %9, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %13, label %11
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %.4 = and i32 %10, 31
+  %.4 = and i32 %8, 31
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.4, ptr %12, align 4
   br label %15
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %14, align 8
+  store ptr %10, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %15
 
@@ -4079,9 +4079,9 @@ default.unreachable59:                            ; preds = %3
   br label %7
 
 "_ZN4core3ptr50drop_in_place$LT$wasi_common..sync..file..File$GT$17haa1287bcca3c729bE.exit25": ; preds = %41, %48, %27
-  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %49, %48 ], [ %42, %41 ]
+  %.pn9.pn = phi { ptr, i32 } [ %28, %27 ], [ %49, %48 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn9.pn
 
 58:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e3d9daafcce16016cc0c68d602f6e14.63) #25
@@ -5678,17 +5678,17 @@ define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8, !range !443, !noundef !4
-  switch i8 %8, label %default.unreachable18 [
+  switch i8 %8, label %default.unreachable19 [
     i8 0, label %10
     i8 1, label %61
     i8 2, label %62
   ]
 
-default.unreachable18:                            ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
-_ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit: ; preds = %.noexc11, %56, %58
-  %.0 = phi ptr [ %36, %58 ], [ null, %.noexc11 ], [ %57, %56 ]
+_ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit: ; preds = %.noexc12, %56, %58
+  %.0 = phi ptr [ %36, %58 ], [ null, %.noexc12 ], [ %57, %56 ]
   store i8 1, ptr %7, align 8
   %9 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   ret { i64, ptr } %9
@@ -5792,13 +5792,13 @@ _ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit: ; preds = %.noex
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load i64, ptr %52, align 8, !noundef !4
   %54 = invoke noundef ptr @_ZN14cap_primitives2fs10via_parent6rename6rename17hbe8ae4523987c4d3E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %49, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %22, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %53)
-          to label %.noexc11 unwind label %59
+          to label %.noexc12 unwind label %59
 
-.noexc11:                                         ; preds = %45
+.noexc12:                                         ; preds = %45
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit, label %56
 
-56:                                               ; preds = %.noexc11
+56:                                               ; preds = %.noexc12
   %57 = invoke noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %54)
           to label %_ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit unwind label %59
 
@@ -5807,9 +5807,9 @@ _ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit: ; preds = %.noex
   br label %_ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit
 
 .body:                                            ; preds = %37, %28, %43, %19, %59
-  %.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ]
+  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ]
   store i8 2, ptr %7, align 8
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn5
 
 59:                                               ; preds = %56, %45
   %60 = landingpad { ptr, i32 }
@@ -5865,17 +5865,17 @@ define internal { i64, ptr } @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8, !range !443, !noundef !4
-  switch i8 %8, label %default.unreachable18 [
+  switch i8 %8, label %default.unreachable19 [
     i8 0, label %10
     i8 1, label %61
     i8 2, label %62
   ]
 
-default.unreachable18:                            ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
-_ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit: ; preds = %.noexc11, %56, %58
-  %.0 = phi ptr [ %36, %58 ], [ null, %.noexc11 ], [ %57, %56 ]
+_ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit: ; preds = %.noexc12, %56, %58
+  %.0 = phi ptr [ %36, %58 ], [ null, %.noexc12 ], [ %57, %56 ]
   store i8 1, ptr %7, align 8
   %9 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   ret { i64, ptr } %9
@@ -5979,13 +5979,13 @@ _ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit: ; preds = %.
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load i64, ptr %52, align 8, !noundef !4
   %54 = invoke noundef ptr @_ZN14cap_primitives2fs10via_parent9hard_link9hard_link17h4a9ccf7eae9a460aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %49, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %22, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %53)
-          to label %.noexc11 unwind label %59
+          to label %.noexc12 unwind label %59
 
-.noexc11:                                         ; preds = %45
+.noexc12:                                         ; preds = %45
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit, label %56
 
-56:                                               ; preds = %.noexc11
+56:                                               ; preds = %.noexc12
   %57 = invoke noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %54)
           to label %_ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit unwind label %59
 
@@ -5994,9 +5994,9 @@ _ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit: ; preds = %.
   br label %_ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit
 
 .body:                                            ; preds = %37, %28, %43, %19, %59
-  %.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ]
+  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ]
   store i8 2, ptr %7, align 8
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn5
 
 59:                                               ; preds = %56, %45
   %60 = landingpad { ptr, i32 }
@@ -7127,7 +7127,7 @@ default.unreachable36:                            ; preds = %3
           to label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h69206ffe8ac7d2d2E.exit" unwind label %64
 
 61:                                               ; preds = %18, %62, %49, %28
-  %.pn3.pn = phi { ptr, i32 } [ %50, %49 ], [ %29, %28 ], [ %63, %62 ], [ %19, %18 ]
+  %.pn5.pn = phi { ptr, i32 } [ %50, %49 ], [ %29, %28 ], [ %63, %62 ], [ %19, %18 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h69206ffe8ac7d2d2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
           to label %66 unwind label %47
 
@@ -7142,10 +7142,10 @@ default.unreachable36:                            ; preds = %3
   br label %66
 
 66:                                               ; preds = %11, %61, %64, %45
-  %.pn8.pn = phi { ptr, i32 } [ %46, %45 ], [ %65, %64 ], [ %.pn3.pn, %61 ], [ %12, %11 ]
+  %.pn13.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %65, %64 ], [ %.pn5.pn, %61 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn8.pn
+  resume { ptr, i32 } %.pn13.pn.pn
 
 67:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e3d9daafcce16016cc0c68d602f6e14.123) #25
@@ -7682,7 +7682,7 @@ default.unreachable36:                            ; preds = %3
           to label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StderrLock$GT$17habd9d9ecff3009eeE.exit" unwind label %64
 
 61:                                               ; preds = %18, %62, %49, %28
-  %.pn3.pn = phi { ptr, i32 } [ %50, %49 ], [ %29, %28 ], [ %63, %62 ], [ %19, %18 ]
+  %.pn5.pn = phi { ptr, i32 } [ %50, %49 ], [ %29, %28 ], [ %63, %62 ], [ %19, %18 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StderrLock$GT$17habd9d9ecff3009eeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
           to label %66 unwind label %47
 
@@ -7697,10 +7697,10 @@ default.unreachable36:                            ; preds = %3
   br label %66
 
 66:                                               ; preds = %11, %61, %64, %45
-  %.pn8.pn = phi { ptr, i32 } [ %46, %45 ], [ %65, %64 ], [ %.pn3.pn, %61 ], [ %12, %11 ]
+  %.pn13.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %65, %64 ], [ %.pn5.pn, %61 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn8.pn
+  resume { ptr, i32 } %.pn13.pn.pn
 
 67:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e3d9daafcce16016cc0c68d602f6e14.132) #25

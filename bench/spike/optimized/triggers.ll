@@ -1199,7 +1199,7 @@ _ZL3ctom.exit:                                    ; preds = %_ZL3ctom.exit.loope
   unreachable
 
 42:                                               ; preds = %33, %24, %22, %20, %_ZL3ctom.exit, %8
-  %.0 = phi i1 [ %40, %33 ], [ %32, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %_ZL3ctom.exit ], [ %9, %8 ]
+  %.0 = phi i1 [ %9, %8 ], [ %19, %_ZL3ctom.exit ], [ %21, %20 ], [ %23, %22 ], [ %32, %24 ], [ %40, %33 ]
   ret i1 %.0
 }
 
@@ -1253,81 +1253,81 @@ define { i64, i8 } @_ZN8triggers17mcontrol_common_t26detect_memory_access_matchE
   %35 = load i32, ptr %34, align 8, !tbaa !174
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !3
-  switch i32 %35, label %68 [
-    i32 0, label %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
-    i32 1, label %38
-    i32 2, label %48
-    i32 3, label %49
-    i32 4, label %51
-    i32 5, label %60
+  switch i32 %35, label %62 [
+    i32 0, label %38
+    i32 1, label %40
+    i32 2, label %50
+    i32 3, label %51
+    i32 4, label %53
+    i32 5, label %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
   ]
 
 38:                                               ; preds = %29
-  %39 = and i64 %37, 1
-  %.not5.i.i = icmp eq i64 %39, 0
+  %39 = icmp eq i64 %spec.select, %37
+  br i1 %39, label %70, label %82
+
+40:                                               ; preds = %29
+  %41 = and i64 %37, 1
+  %.not5.i.i = icmp eq i64 %41, 0
   br i1 %.not5.i.i, label %_ZL3ctom.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
-  %.07.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %38 ]
-  %.046.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ %37, %38 ]
-  %40 = lshr i64 %.046.i.i, 1
-  %41 = add nuw nsw i32 %.07.i.i, 1
-  %42 = and i64 %.046.i.i, 2
-  %.not.i.i = icmp eq i64 %42, 0
+.lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
+  %.07.i.i = phi i32 [ %43, %.lr.ph.i.i ], [ 0, %40 ]
+  %.046.i.i = phi i64 [ %42, %.lr.ph.i.i ], [ %37, %40 ]
+  %42 = lshr i64 %.046.i.i, 1
+  %43 = add nuw nsw i32 %.07.i.i, 1
+  %44 = and i64 %.046.i.i, 2
+  %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZL3ctom.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !181
 
 _ZL3ctom.exit.loopexit.i:                         ; preds = %.lr.ph.i.i
-  %43 = add nuw nsw i32 %.07.i.i, 2
+  %45 = add nuw nsw i32 %.07.i.i, 2
   br label %_ZL3ctom.exit.i
 
-_ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loopexit.i, %38
-  %.0.lcssa.i.i = phi i32 [ 1, %38 ], [ %43, %_ZL3ctom.exit.loopexit.i ]
+_ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loopexit.i, %40
+  %.0.lcssa.i.i = phi i32 [ 1, %40 ], [ %45, %_ZL3ctom.exit.loopexit.i ]
   %notmask22.i = shl nsw i32 -1, %.0.lcssa.i.i
-  %44 = sext i32 %notmask22.i to i64
-  %45 = xor i64 %37, %spec.select
-  %46 = and i64 %45, %44
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %70, label %82
+  %46 = sext i32 %notmask22.i to i64
+  %47 = xor i64 %37, %spec.select
+  %48 = and i64 %47, %46
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %70, label %82
 
-48:                                               ; preds = %29
+50:                                               ; preds = %29
   %.not = icmp ult i64 %spec.select, %37
   br i1 %.not, label %82, label %70
 
-49:                                               ; preds = %29
-  %50 = icmp ult i64 %spec.select, %37
-  br i1 %50, label %70, label %82
-
 51:                                               ; preds = %29
-  %52 = lshr i32 %31, 1
-  %53 = zext nneg i32 %52 to i64
-  %54 = lshr i64 %37, %53
-  %notmask21.i = shl nsw i64 -1, %53
-  %55 = xor i64 %notmask21.i, -1
-  %56 = and i64 %37, %55
-  %57 = and i64 %54, %55
-  %58 = and i64 %57, %spec.select
-  %59 = icmp eq i64 %58, %56
-  br i1 %59, label %70, label %82
+  %52 = icmp ult i64 %spec.select, %37
+  br i1 %52, label %70, label %82
 
-60:                                               ; preds = %29
-  %61 = lshr i32 %31, 1
-  %62 = zext nneg i32 %61 to i64
-  %notmask.i = shl nsw i64 -1, %62
-  %63 = xor i64 %notmask.i, -1
-  %64 = and i64 %37, %63
-  %65 = and i64 %37, %spec.select
-  %66 = lshr i64 %65, %62
-  %67 = icmp eq i64 %66, %64
-  br i1 %67, label %70, label %82
+53:                                               ; preds = %29
+  %54 = lshr i32 %31, 1
+  %55 = zext nneg i32 %54 to i64
+  %56 = lshr i64 %37, %55
+  %notmask21.i = shl nsw i64 -1, %55
+  %57 = xor i64 %notmask21.i, -1
+  %58 = and i64 %37, %57
+  %59 = and i64 %56, %57
+  %60 = and i64 %59, %spec.select
+  %61 = icmp eq i64 %60, %58
+  br i1 %61, label %70, label %82
 
-68:                                               ; preds = %29
+62:                                               ; preds = %29
   unreachable
 
 _ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit: ; preds = %29
-  %69 = icmp eq i64 %spec.select, %37
+  %63 = lshr i32 %31, 1
+  %64 = zext nneg i32 %63 to i64
+  %notmask.i = shl nsw i64 -1, %64
+  %65 = xor i64 %notmask.i, -1
+  %66 = and i64 %37, %65
+  %67 = and i64 %37, %spec.select
+  %68 = lshr i64 %67, %64
+  %69 = icmp eq i64 %68, %66
   br i1 %69, label %70, label %82
 
-70:                                               ; preds = %_ZL3ctom.exit.i, %48, %49, %51, %60, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
+70:                                               ; preds = %53, %51, %50, %_ZL3ctom.exit.i, %38, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %72 = load i8, ptr %71, align 1, !tbaa !171, !range !14, !noundef !15
   %73 = trunc nuw i8 %72 to i1
@@ -1348,9 +1348,9 @@ _ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit: ; preds = %29
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   br label %82
 
-82:                                               ; preds = %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit, %60, %51, %49, %48, %_ZL3ctom.exit.i, %27, %21, %6, %11, %16, %78
-  %.sroa.019.0 = phi i64 [ %.sroa.0.0.insert.insert, %78 ], [ undef, %16 ], [ undef, %11 ], [ undef, %6 ], [ undef, %21 ], [ undef, %27 ], [ undef, %_ZL3ctom.exit.i ], [ undef, %48 ], [ undef, %49 ], [ undef, %51 ], [ undef, %60 ], [ undef, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
-  %.sroa.220.0 = phi i8 [ 1, %78 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %21 ], [ 0, %27 ], [ 0, %_ZL3ctom.exit.i ], [ 0, %48 ], [ 0, %49 ], [ 0, %51 ], [ 0, %60 ], [ 0, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
+82:                                               ; preds = %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit, %38, %_ZL3ctom.exit.i, %50, %51, %53, %27, %21, %6, %11, %16, %78
+  %.sroa.019.0 = phi i64 [ %.sroa.0.0.insert.insert, %78 ], [ undef, %16 ], [ undef, %11 ], [ undef, %6 ], [ undef, %21 ], [ undef, %27 ], [ undef, %53 ], [ undef, %51 ], [ undef, %50 ], [ undef, %_ZL3ctom.exit.i ], [ undef, %38 ], [ undef, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
+  %.sroa.220.0 = phi i8 [ 1, %78 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %21 ], [ 0, %27 ], [ 0, %53 ], [ 0, %51 ], [ 0, %50 ], [ 0, %_ZL3ctom.exit.i ], [ 0, %38 ], [ 0, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.220.0, 1
   ret { i64, i8 } %.fca.1.insert

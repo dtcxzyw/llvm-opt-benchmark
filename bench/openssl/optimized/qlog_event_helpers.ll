@@ -195,8 +195,8 @@ define void @ossl_qlog_event_connectivity_connection_state_updated(ptr noundef %
 11:                                               ; preds = %7
   br label %12
 
-12:                                               ; preds = %7, %10, %11, %8, %9
-  %.0.i.ph = phi ptr [ %.str.31..str.30.i, %9 ], [ @.str.29, %8 ], [ @.str.34, %11 ], [ @.str.33, %10 ], [ @.str.32, %7 ]
+12:                                               ; preds = %7, %11, %10, %8, %9
+  %.0.i.ph = phi ptr [ %.str.31..str.30.i, %9 ], [ @.str.29, %8 ], [ @.str.33, %10 ], [ @.str.34, %11 ], [ @.str.32, %7 ]
   tail call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0.i.ph) #3
   br label %map_state_to_qlog.exit
 
@@ -1042,7 +1042,7 @@ log_frame_actual.exit.i.i:                        ; preds = %97
   br label %log_frame.exit.i
 
 249:                                              ; preds = %PACKET_forward.exit.i.i.i, %243, %236, %231, %227, %223, %216, %213, %208, %189, %186, %181, %174, %170, %163, %147, %142, %136, %._crit_edge.i.i.i, %105, %101
-  %.2.i = phi i64 [ 0, %PACKET_forward.exit.i.i.i ], [ 0, %243 ], [ 0, %236 ], [ 0, %231 ], [ 0, %227 ], [ 0, %223 ], [ 0, %216 ], [ 0, %213 ], [ 0, %208 ], [ 0, %189 ], [ 0, %186 ], [ 0, %181 ], [ 0, %174 ], [ 0, %170 ], [ %167, %163 ], [ %150, %147 ], [ 0, %142 ], [ 0, %136 ], [ 0, %._crit_edge.i.i.i ], [ 0, %105 ], [ 0, %101 ]
+  %.2.i = phi i64 [ 0, %PACKET_forward.exit.i.i.i ], [ 0, %101 ], [ 0, %105 ], [ 0, %._crit_edge.i.i.i ], [ 0, %136 ], [ 0, %142 ], [ %150, %147 ], [ %167, %163 ], [ 0, %170 ], [ 0, %174 ], [ 0, %181 ], [ 0, %186 ], [ 0, %189 ], [ 0, %208 ], [ 0, %213 ], [ 0, %216 ], [ 0, %223 ], [ 0, %227 ], [ 0, %231 ], [ 0, %236 ], [ 0, %243 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #3

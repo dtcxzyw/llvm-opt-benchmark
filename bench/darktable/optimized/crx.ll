@@ -20917,8 +20917,8 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %51
   br label %112
 
 112:                                              ; preds = %._crit_edge185, %_ZN13libraw_memmgr6mallocEm.exit
-  %.0148 = phi ptr [ %62, %_ZN13libraw_memmgr6mallocEm.exit ], [ %.2.lcssa, %._crit_edge185 ]
-  %.0146 = phi ptr [ %46, %_ZN13libraw_memmgr6mallocEm.exit ], [ %111, %._crit_edge185 ]
+  %.0148 = phi ptr [ %.2.lcssa, %._crit_edge185 ], [ %62, %_ZN13libraw_memmgr6mallocEm.exit ]
+  %.0146 = phi ptr [ %111, %._crit_edge185 ], [ %46, %_ZN13libraw_memmgr6mallocEm.exit ]
   store ptr %.0148, ptr %.0146, align 8, !tbaa !77
   %113 = getelementptr inbounds nuw i8, ptr %.0146, i64 8
   store i32 %16, ptr %113, align 8, !tbaa !79
@@ -21002,8 +21002,8 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %51
   br label %149
 
 149:                                              ; preds = %._crit_edge195, %_ZN13libraw_memmgr6mallocEm.exit
-  %.1149 = phi ptr [ %62, %_ZN13libraw_memmgr6mallocEm.exit ], [ %.4.lcssa, %._crit_edge195 ]
-  %.1147 = phi ptr [ %46, %_ZN13libraw_memmgr6mallocEm.exit ], [ %148, %._crit_edge195 ]
+  %.1149 = phi ptr [ %.4.lcssa, %._crit_edge195 ], [ %62, %_ZN13libraw_memmgr6mallocEm.exit ]
+  %.1147 = phi ptr [ %148, %._crit_edge195 ], [ %46, %_ZN13libraw_memmgr6mallocEm.exit ]
   store ptr %.1149, ptr %.1147, align 8, !tbaa !77
   %150 = getelementptr inbounds nuw i8, ptr %.1147, i64 8
   store i32 %16, ptr %150, align 8, !tbaa !79

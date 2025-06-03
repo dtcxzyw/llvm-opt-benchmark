@@ -3020,8 +3020,8 @@ _Py_NewRef.exit56.thread.i:                       ; preds = %_Py_NewRef.exit56.i
   br label %_ssl_get_default_verify_paths_impl.exit
 
 44:                                               ; preds = %_Py_NewRef.exit56.i, %_Py_NewRef.exit55.i, %_Py_NewRef.exit54.i
-  %.032.ph.i = phi ptr [ %.13312.i, %_Py_NewRef.exit56.i ], [ null, %_Py_NewRef.exit55.i ], [ null, %_Py_NewRef.exit54.i ]
-  %.029.ph.i = phi ptr [ %.19.i, %_Py_NewRef.exit56.i ], [ %.19.i, %_Py_NewRef.exit55.i ], [ null, %_Py_NewRef.exit54.i ]
+  %.032.ph.i = phi ptr [ null, %_Py_NewRef.exit54.i ], [ null, %_Py_NewRef.exit55.i ], [ %.13312.i, %_Py_NewRef.exit56.i ]
+  %.029.ph.i = phi ptr [ null, %_Py_NewRef.exit54.i ], [ %.19.i, %_Py_NewRef.exit55.i ], [ %.19.i, %_Py_NewRef.exit56.i ]
   %45 = load i32, ptr %.0283.i, align 8, !tbaa !25
   %.not.i.i.i = icmp sgt i32 %45, -1
   br i1 %.not.i.i.i, label %46, label %Py_XDECREF.exit.i
@@ -5155,7 +5155,7 @@ Py_DECREF.exit127:                                ; preds = %30, %35, %38
   br label %_Py_NewRef.exit.thread
 
 _Py_NewRef.exit:                                  ; preds = %68, %62, %58
-  %.3 = phi ptr [ %69, %68 ], [ %65, %62 ], [ %61, %58 ]
+  %.3 = phi ptr [ %69, %68 ], [ %61, %58 ], [ %65, %62 ]
   %75 = icmp eq ptr %.3, null
   br i1 %75, label %Py_XDECREF.exit.thread172, label %_Py_NewRef.exit.thread
 
@@ -6477,7 +6477,7 @@ define internal range(i32 -1, 1) i32 @sslmodule_init_constants(ptr noundef %0) #
   br label %314
 
 314:                                              ; preds = %312, %309, %306, %303, %300, %297, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %227, %223, %219, %215, %211, %207, %203, %199, %195, %191, %187, %183, %179, %175, %171, %167, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %276 ], [ -1, %279 ], [ -1, %282 ], [ -1, %285 ], [ -1, %288 ], [ -1, %291 ], [ -1, %294 ], [ -1, %297 ], [ -1, %300 ], [ -1, %303 ], [ -1, %306 ], [ -1, %309 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ -1, %76 ], [ -1, %79 ], [ -1, %82 ], [ -1, %85 ], [ -1, %88 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %100 ], [ -1, %103 ], [ -1, %106 ], [ -1, %109 ], [ -1, %112 ], [ -1, %115 ], [ -1, %118 ], [ -1, %121 ], [ -1, %124 ], [ -1, %127 ], [ -1, %130 ], [ -1, %133 ], [ -1, %136 ], [ -1, %139 ], [ -1, %142 ], [ -1, %145 ], [ -1, %148 ], [ -1, %151 ], [ -1, %154 ], [ -1, %157 ], [ -1, %160 ], [ -1, %163 ], [ -1, %167 ], [ -1, %171 ], [ -1, %175 ], [ -1, %179 ], [ -1, %183 ], [ -1, %187 ], [ -1, %191 ], [ -1, %195 ], [ -1, %199 ], [ -1, %203 ], [ -1, %207 ], [ -1, %211 ], [ -1, %215 ], [ -1, %219 ], [ -1, %223 ], [ -1, %227 ], [ -1, %231 ], [ -1, %234 ], [ -1, %237 ], [ -1, %240 ], [ -1, %243 ], [ -1, %246 ], [ -1, %249 ], [ -1, %252 ], [ -1, %255 ], [ -1, %258 ], [ -1, %261 ], [ -1, %264 ], [ -1, %267 ], [ -1, %270 ], [ -1, %273 ], [ %.lobit, %312 ]
+  %.0 = phi i32 [ -1, %309 ], [ -1, %306 ], [ -1, %303 ], [ -1, %300 ], [ -1, %297 ], [ -1, %294 ], [ -1, %291 ], [ -1, %288 ], [ -1, %285 ], [ -1, %282 ], [ -1, %279 ], [ -1, %276 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ -1, %76 ], [ -1, %79 ], [ -1, %82 ], [ -1, %85 ], [ -1, %88 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %100 ], [ -1, %103 ], [ -1, %106 ], [ -1, %109 ], [ -1, %112 ], [ -1, %115 ], [ -1, %118 ], [ -1, %121 ], [ -1, %124 ], [ -1, %127 ], [ -1, %130 ], [ -1, %133 ], [ -1, %136 ], [ -1, %139 ], [ -1, %142 ], [ -1, %145 ], [ -1, %148 ], [ -1, %151 ], [ -1, %154 ], [ -1, %157 ], [ -1, %160 ], [ -1, %163 ], [ -1, %167 ], [ -1, %171 ], [ -1, %175 ], [ -1, %179 ], [ -1, %183 ], [ -1, %187 ], [ -1, %191 ], [ -1, %195 ], [ -1, %199 ], [ -1, %203 ], [ -1, %207 ], [ -1, %211 ], [ -1, %215 ], [ -1, %219 ], [ -1, %223 ], [ -1, %227 ], [ -1, %231 ], [ -1, %234 ], [ -1, %237 ], [ -1, %240 ], [ -1, %243 ], [ -1, %246 ], [ -1, %249 ], [ -1, %252 ], [ -1, %255 ], [ -1, %258 ], [ -1, %261 ], [ -1, %264 ], [ -1, %267 ], [ -1, %270 ], [ -1, %273 ], [ %.lobit, %312 ]
   ret i32 %.0
 }
 
@@ -6728,7 +6728,7 @@ define internal i32 @context_traverse(ptr noundef readonly captures(none) %0, pt
   br label %18
 
 18:                                               ; preds = %15, %11, %6, %17
-  %.1 = phi i32 [ %7, %6 ], [ %12, %11 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %12, %11 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -10311,7 +10311,7 @@ define internal ptr @x509_object_dup(ptr noundef %0) #0 {
   br label %12
 
 12:                                               ; preds = %9, %6
-  %.09 = phi i32 [ %11, %9 ], [ %8, %6 ]
+  %.09 = phi i32 [ %8, %6 ], [ %11, %9 ]
   %.not = icmp eq i32 %.09, 0
   br i1 %.not, label %13, label %.thread
 
@@ -11447,7 +11447,7 @@ default.unreachable:                              ; preds = %2
   br label %_ssl__SSLContext_verify_mode_get_impl.exit
 
 _ssl__SSLContext_verify_mode_get_impl.exit:       ; preds = %7, %9, %11, %13
-  %.0.i = phi ptr [ null, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0.i = phi ptr [ null, %13 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret ptr %.0.i
 }
 
@@ -11814,8 +11814,8 @@ _Py_NewRef.exit:                                  ; preds = %27, %30
   br label %55
 
 55:                                               ; preds = %32, %54, %51, %40, %37, %33
-  %.026 = phi i32 [ %1, %54 ], [ %1, %51 ], [ %48, %40 ], [ %1, %37 ], [ %1, %33 ], [ %1, %32 ]
-  %.0 = phi i32 [ -1, %54 ], [ %53, %51 ], [ %50, %40 ], [ %39, %37 ], [ %36, %33 ], [ 257, %32 ]
+  %.026 = phi i32 [ %1, %54 ], [ %1, %33 ], [ %1, %37 ], [ %48, %40 ], [ %1, %51 ], [ %1, %32 ]
+  %.0 = phi i32 [ -1, %54 ], [ %36, %33 ], [ %39, %37 ], [ %50, %40 ], [ %53, %51 ], [ 257, %32 ]
   %56 = load ptr, ptr %11, align 8, !tbaa !123
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !101
@@ -12214,7 +12214,7 @@ define internal fastcc ptr @_ssl__SSLContext_impl(ptr noundef %0, i32 noundef %1
   br label %36
 
 36:                                               ; preds = %34, %32, %30, %24, %18, %12
-  %.064 = phi ptr [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %25, %24 ], [ %19, %18 ], [ %13, %12 ]
+  %.064 = phi ptr [ %13, %12 ], [ %19, %18 ], [ %25, %24 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   %37 = icmp eq ptr %.064, null
   br i1 %37, label %.thread, label %40
 
@@ -12517,7 +12517,7 @@ define internal i32 @PySSL_traverse(ptr noundef readonly captures(none) %0, ptr 
   br label %13
 
 13:                                               ; preds = %10, %6, %12
-  %.1 = phi i32 [ %7, %6 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -13786,7 +13786,7 @@ _ssl__SSLSocket_read_impl.exit:                   ; preds = %34, %.thread152.i, 
   br label %202
 
 202:                                              ; preds = %13, %11, %_ssl__SSLSocket_read_impl.exit, %15
-  %.05 = phi ptr [ null, %15 ], [ %.0.i, %_ssl__SSLSocket_read_impl.exit ], [ null, %13 ], [ null, %11 ]
+  %.05 = phi ptr [ null, %15 ], [ %.0.i, %_ssl__SSLSocket_read_impl.exit ], [ null, %11 ], [ null, %13 ]
   %203 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %204 = load ptr, ptr %203, align 8, !tbaa !50
   %.not7 = icmp eq ptr %204, null
@@ -14903,9 +14903,9 @@ define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null)
   br label %.thread
 
 .thread:                                          ; preds = %.split39.thread, %34, %56, %58, %38, %40, %12, %14, %17, %20, %23, %65, %31, %2
-  %.035 = phi ptr [ @.str.254, %65 ], [ @.str.252, %31 ], [ @.str.251, %23 ], [ @.str.249, %20 ], [ @.str.248, %17 ], [ @.str.247, %14 ], [ null, %2 ], [ @.str.250, %12 ], [ null, %40 ], [ null, %38 ], [ %.1364, %56 ], [ @.str.252, %58 ], [ null, %34 ], [ %.1364, %.split39.thread ]
-  %.033 = phi ptr [ %8, %65 ], [ %33, %31 ], [ %8, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %8, %2 ], [ %8, %12 ], [ %42, %40 ], [ %8, %38 ], [ %.2, %56 ], [ %60, %58 ], [ %8, %34 ], [ %.2, %.split39.thread ]
-  %.032 = phi i32 [ 10, %65 ], [ 8, %31 ], [ %.sroa.0.0.copyload, %23 ], [ 3, %20 ], [ 2, %17 ], [ 6, %14 ], [ 0, %2 ], [ %.sroa.0.0.copyload, %12 ], [ 5, %40 ], [ 5, %38 ], [ 1, %56 ], [ 8, %58 ], [ 5, %34 ], [ 1, %.split39.thread ]
+  %.035 = phi ptr [ @.str.254, %65 ], [ @.str.247, %14 ], [ @.str.248, %17 ], [ @.str.249, %20 ], [ @.str.251, %23 ], [ @.str.252, %31 ], [ null, %2 ], [ @.str.250, %12 ], [ null, %40 ], [ null, %38 ], [ %.1364, %56 ], [ @.str.252, %58 ], [ null, %34 ], [ %.1364, %.split39.thread ]
+  %.033 = phi ptr [ %8, %65 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %8, %23 ], [ %33, %31 ], [ %8, %2 ], [ %8, %12 ], [ %42, %40 ], [ %8, %38 ], [ %.2, %56 ], [ %60, %58 ], [ %8, %34 ], [ %.2, %.split39.thread ]
+  %.032 = phi i32 [ 10, %65 ], [ 6, %14 ], [ 2, %17 ], [ 3, %20 ], [ %.sroa.0.0.copyload, %23 ], [ 8, %31 ], [ 0, %2 ], [ %.sroa.0.0.copyload, %12 ], [ 5, %40 ], [ 5, %38 ], [ 1, %56 ], [ 8, %58 ], [ 5, %34 ], [ 1, %.split39.thread ]
   tail call fastcc void @fill_and_set_sslerror(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef %.033, i32 noundef %.032, ptr noundef %.035, i32 noundef %1, i64 noundef %9)
   tail call void @ERR_clear_error() #11
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -14919,7 +14919,7 @@ define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null)
   br label %PySSL_ChainExceptions.exit
 
 PySSL_ChainExceptions.exit:                       ; preds = %69, %.thread, %61, %43, %27
-  %.0 = phi ptr [ %64, %61 ], [ %30, %27 ], [ %46, %43 ], [ null, %.thread ], [ null, %69 ]
+  %.0 = phi ptr [ %30, %27 ], [ %46, %43 ], [ %64, %61 ], [ null, %.thread ], [ null, %69 ]
   ret ptr %.0
 }
 
@@ -15478,7 +15478,7 @@ define internal i32 @memory_bio_traverse(ptr noundef readonly captures(none) %0,
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -15905,7 +15905,7 @@ define internal i32 @PySSLSession_traverse(ptr noundef readonly captures(none) %
   br label %13
 
 13:                                               ; preds = %10, %6, %12
-  %.1 = phi i32 [ %7, %6 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -16264,7 +16264,7 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
   br label %_ssl_Certificate_public_bytes_impl.exit
 
 45:                                               ; preds = %38, %34
-  %.022.i = phi i32 [ %41, %38 ], [ %37, %34 ]
+  %.022.i = phi i32 [ %37, %34 ], [ %41, %38 ]
   %.not.i = icmp eq i32 %.022.i, 1
   br i1 %.not.i, label %56, label %49
 

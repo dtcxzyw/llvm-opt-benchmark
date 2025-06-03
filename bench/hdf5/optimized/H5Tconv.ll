@@ -302,7 +302,7 @@ define range(i32 -1, 1) i32 @H5T__conv_noop(ptr noundef readnone captures(none) 
   br label %24
 
 24:                                               ; preds = %20, %18, %16, %16, %9
-  %.0 = phi i32 [ -1, %20 ], [ 0, %16 ], [ 0, %16 ], [ 0, %18 ], [ 0, %9 ]
+  %.0 = phi i32 [ -1, %20 ], [ 0, %18 ], [ 0, %16 ], [ 0, %16 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -709,7 +709,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge216.us.us, %.preheader207, %204, %170, %9, %16, %.thread, %223, %181, %174, %122, %75, %65, %58, %46, %34, %21
-  %.0 = phi i32 [ -1, %223 ], [ 0, %16 ], [ -1, %181 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %174 ], [ -1, %170 ], [ 0, %.thread ], [ -1, %122 ], [ -1, %75 ], [ 0, %9 ], [ 0, %204 ], [ 0, %.preheader207 ], [ 0, %._crit_edge216.us.us ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ -1, %223 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %174 ], [ 0, %.thread ], [ -1, %122 ], [ -1, %170 ], [ -1, %75 ], [ -1, %181 ], [ 0, %16 ], [ 0, %9 ], [ 0, %204 ], [ 0, %.preheader207 ], [ 0, %._crit_edge216.us.us ], [ 0, %._crit_edge.us ]
   ret i32 %.0
 }
 
@@ -2387,7 +2387,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph1288, %.lr.ph1296.lver.orig, %.lr.ph1296, %.lr.ph1304.lver.orig, %.lr.ph1304, %.lr.ph1312.lver.orig, %.lr.ph1312, %.preheader1280, %.preheader1277, %.preheader1274, %.preheader, %21, %34, %46, %58, %65, %.thread1271, %84, %89, %134, %138, %147, %162, %996, %1000, %169, %166, %142, %16, %9
-  %.01240 = phi i32 [ -1, %1000 ], [ 0, %16 ], [ -1, %147 ], [ -1, %162 ], [ 0, %166 ], [ -1, %996 ], [ 0, %169 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %.thread1271 ], [ -1, %89 ], [ -1, %138 ], [ -1, %134 ], [ 0, %142 ], [ -1, %84 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %.preheader1274 ], [ 0, %.preheader1277 ], [ 0, %.preheader1280 ], [ 0, %.lr.ph1312 ], [ 0, %.lr.ph1312.lver.orig ], [ 0, %.lr.ph1304 ], [ 0, %.lr.ph1304.lver.orig ], [ 0, %.lr.ph1296 ], [ 0, %.lr.ph1296.lver.orig ], [ 0, %.lr.ph1288 ]
+  %.01240 = phi i32 [ -1, %1000 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %.thread1271 ], [ -1, %89 ], [ -1, %138 ], [ 0, %142 ], [ -1, %134 ], [ -1, %84 ], [ -1, %147 ], [ -1, %162 ], [ 0, %166 ], [ -1, %996 ], [ 0, %169 ], [ 0, %16 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %.preheader1274 ], [ 0, %.preheader1277 ], [ 0, %.preheader1280 ], [ 0, %.lr.ph1312 ], [ 0, %.lr.ph1312.lver.orig ], [ 0, %.lr.ph1304 ], [ 0, %.lr.ph1304.lver.orig ], [ 0, %.lr.ph1296 ], [ 0, %.lr.ph1296.lver.orig ], [ 0, %.lr.ph1288 ]
   ret i32 %.01240
 }
 

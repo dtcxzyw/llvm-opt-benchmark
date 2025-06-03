@@ -4761,8 +4761,8 @@ default.unreachable:                              ; preds = %_ZN5bytes3buf8buf_i
   br label %"_ZN74_$LT$quinn_proto..varint..VarInt$u20$as$u20$quinn_proto..coding..Codec$GT$6decode17hafcdfefda899e54cE.exit.thread"
 
 "_ZN74_$LT$quinn_proto..varint..VarInt$u20$as$u20$quinn_proto..coding..Codec$GT$6decode17hafcdfefda899e54cE.exit.thread": ; preds = %8, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit.i", %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$13copy_to_slice17h66db73024d6aff2bE.exit22.i", %10, %12, %14, %1
-  %.sroa.3.0 = phi i64 [ undef, %1 ], [ undef, %14 ], [ undef, %12 ], [ undef, %10 ], [ %27, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$13copy_to_slice17h66db73024d6aff2bE.exit22.i" ], [ %24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit.i" ], [ %20, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit.i" ], [ %9, %8 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %14 ], [ 1, %12 ], [ 1, %10 ], [ 0, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$13copy_to_slice17h66db73024d6aff2bE.exit22.i" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit.i" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit.i" ], [ 0, %8 ]
+  %.sroa.3.0 = phi i64 [ undef, %1 ], [ undef, %14 ], [ undef, %12 ], [ undef, %10 ], [ %9, %8 ], [ %20, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit.i" ], [ %24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit.i" ], [ %27, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$13copy_to_slice17h66db73024d6aff2bE.exit22.i" ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %14 ], [ 1, %12 ], [ 1, %10 ], [ 0, %8 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit.i" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit.i" ], [ 0, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$13copy_to_slice17h66db73024d6aff2bE.exit22.i" ]
   %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %29 = insertvalue { i64, i64 } %28, i64 %.sroa.3.0, 1
   ret { i64, i64 } %29
@@ -4975,8 +4975,8 @@ define hidden { i64, i64 } @"_ZN74_$LT$quinn_proto..varint..VarInt$u20$as$u20$qu
   ], !prof !572
 
 .sink.split:                                      ; preds = %13, %17, %23, %11, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit", %35
-  %.sroa.6.0.ph = phi i64 [ %37, %35 ], [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ %12, %11 ], [ undef, %23 ], [ undef, %17 ], [ undef, %13 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %35 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ 0, %11 ], [ 1, %23 ], [ 1, %17 ], [ 1, %13 ]
+  %.sroa.6.0.ph = phi i64 [ %12, %11 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ %37, %35 ], [ undef, %23 ], [ undef, %17 ], [ undef, %13 ]
+  %.sroa.0.0.ph = phi i64 [ 0, %11 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ 0, %35 ], [ 1, %23 ], [ 1, %17 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %8
 
@@ -5065,8 +5065,8 @@ define hidden { i64, i64 } @"_ZN74_$LT$quinn_proto..varint..VarInt$u20$as$u20$qu
   ], !prof !572
 
 .sink.split:                                      ; preds = %13, %17, %23, %11, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit", %35
-  %.sroa.6.0.ph = phi i64 [ %37, %35 ], [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ %12, %11 ], [ undef, %23 ], [ undef, %17 ], [ undef, %13 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %35 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ 0, %11 ], [ 1, %23 ], [ 1, %17 ], [ 1, %13 ]
+  %.sroa.6.0.ph = phi i64 [ %12, %11 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ %37, %35 ], [ undef, %23 ], [ undef, %17 ], [ undef, %13 ]
+  %.sroa.0.0.ph = phi i64 [ 0, %11 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ 0, %35 ], [ 1, %23 ], [ 1, %17 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %8
 
@@ -5155,8 +5155,8 @@ define hidden { i64, i64 } @"_ZN74_$LT$quinn_proto..varint..VarInt$u20$as$u20$qu
   ], !prof !572
 
 .sink.split:                                      ; preds = %13, %16, %19, %11, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit", %28
-  %.sroa.6.0.ph = phi i64 [ %30, %28 ], [ %27, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ %24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ %12, %11 ], [ undef, %19 ], [ undef, %16 ], [ undef, %13 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %28 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ 0, %11 ], [ 1, %19 ], [ 1, %16 ], [ 1, %13 ]
+  %.sroa.6.0.ph = phi i64 [ %12, %11 ], [ %24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ %27, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ %30, %28 ], [ undef, %19 ], [ undef, %16 ], [ undef, %13 ]
+  %.sroa.0.0.ph = phi i64 [ 0, %11 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ddac0e9ef061128E.exit" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6920e024dda89ee5E.exit" ], [ 0, %28 ], [ 1, %19 ], [ 1, %16 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %8
 

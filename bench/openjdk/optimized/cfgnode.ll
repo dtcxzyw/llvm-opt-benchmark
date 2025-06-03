@@ -10819,8 +10819,8 @@ define internal fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr nou
   br label %52
 
 52:                                               ; preds = %48, %48, %32, %43, %51, %35, %36, %37
-  %.072 = phi i32 [ %4, %37 ], [ %2, %36 ], [ %4, %35 ], [ %2, %51 ], [ 0, %43 ], [ %2, %32 ], [ %4, %48 ], [ %4, %48 ]
-  %.068 = phi i32 [ 1, %37 ], [ 2, %36 ], [ 2, %35 ], [ 2, %51 ], [ 0, %43 ], [ 1, %32 ], [ 2, %48 ], [ 2, %48 ]
+  %.072 = phi i32 [ %4, %35 ], [ %2, %36 ], [ %4, %37 ], [ %2, %51 ], [ 0, %43 ], [ %2, %32 ], [ %4, %48 ], [ %4, %48 ]
+  %.068 = phi i32 [ 2, %35 ], [ 2, %36 ], [ 1, %37 ], [ 2, %51 ], [ 0, %43 ], [ 1, %32 ], [ 2, %48 ], [ 2, %48 ]
   %53 = load ptr, ptr %22, align 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(52) %22) #10

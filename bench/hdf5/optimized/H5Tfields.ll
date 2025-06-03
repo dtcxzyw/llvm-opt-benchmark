@@ -449,7 +449,7 @@ define noalias ptr @H5T__get_member_name(ptr noundef readonly captures(none) %0,
   br label %46
 
 46:                                               ; preds = %17, %31, %42, %35, %21, %2
-  %.0 = phi ptr [ null, %42 ], [ null, %31 ], [ %41, %35 ], [ null, %17 ], [ %27, %21 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %42 ], [ null, %17 ], [ %27, %21 ], [ null, %31 ], [ %41, %35 ], [ null, %2 ]
   ret ptr %.0
 }
 

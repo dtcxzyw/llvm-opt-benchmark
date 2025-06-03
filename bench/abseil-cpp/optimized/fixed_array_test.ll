@@ -53575,8 +53575,8 @@ _ZN7testing7MessageD2Ev.exit678:                  ; preds = %2543, %_ZNKSt14defa
   ret void
 
 2548:                                             ; preds = %_ZN7testing7MessageD2Ev.exit678, %.body671, %_ZN7testing7MessageD2Ev.exit393, %.body386, %_ZN7testing7MessageD2Ev.exit108, %.body101, %_ZN7testing7MessageD2Ev.exit34, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit34 ], [ %.pn22, %_ZN7testing7MessageD2Ev.exit108 ], [ %.pn24, %_ZN7testing7MessageD2Ev.exit393 ], [ %.pn26, %_ZN7testing7MessageD2Ev.exit678 ], [ %eh.lpad-body672, %.body671 ], [ %eh.lpad-body387, %.body386 ], [ %eh.lpad-body102, %.body101 ], [ %eh.lpad-body, %.body ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %_ZN7testing7MessageD2Ev.exit678 ], [ %eh.lpad-body672, %.body671 ], [ %.pn24, %_ZN7testing7MessageD2Ev.exit393 ], [ %eh.lpad-body387, %.body386 ], [ %.pn22, %_ZN7testing7MessageD2Ev.exit108 ], [ %eh.lpad-body102, %.body101 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit34 ], [ %eh.lpad-body, %.body ]
+  resume { ptr, i32 } %.pn26.pn
 }
 
 declare void @_ZN7testing8internal24HasNewFatalFailureHelperC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
@@ -79850,8 +79850,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit732: ; preds = %_Z
   br label %1682
 
 1640:                                             ; preds = %1062, %_ZN7testing15AssertionResultD2Ev.exit726, %_ZN7testing15AssertionResultD2Ev.exit615, %_ZN7testing15AssertionResultD2Ev.exit508
-  %cond = phi i1 [ false, %_ZN7testing15AssertionResultD2Ev.exit726 ], [ false, %_ZN7testing15AssertionResultD2Ev.exit615 ], [ false, %_ZN7testing15AssertionResultD2Ev.exit508 ], [ true, %1062 ]
-  %.9 = phi i32 [ 1, %_ZN7testing15AssertionResultD2Ev.exit726 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit615 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit508 ], [ 0, %1062 ]
+  %cond = phi i1 [ false, %_ZN7testing15AssertionResultD2Ev.exit508 ], [ false, %_ZN7testing15AssertionResultD2Ev.exit615 ], [ false, %_ZN7testing15AssertionResultD2Ev.exit726 ], [ true, %1062 ]
+  %.9 = phi i32 [ 1, %_ZN7testing15AssertionResultD2Ev.exit508 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit615 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit726 ], [ 0, %1062 ]
   %1641 = load ptr, ptr %344, align 8, !tbaa !1701
   %.not.i.i.i733 = icmp eq ptr %1641, null
   br i1 %.not.i.i.i733, label %_ZNSt12__shared_ptrISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i737, label %1642
@@ -79958,12 +79958,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not863, label %.critedge174.loopexit, label %.lr.ph890
 
 1682:                                             ; preds = %1639, %1438, %1237, %1065
-  %.pn146.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn.pn.pn, %1639 ], [ %.pn152.pn.pn.pn.pn, %1438 ], [ %.pn158.pn.pn.pn.pn, %1237 ], [ %1066, %1065 ]
+  %.pn158.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn.pn.pn.pn, %1237 ], [ %.pn152.pn.pn.pn.pn, %1438 ], [ %.pn146.pn.pn.pn.pn, %1639 ], [ %1066, %1065 ]
   call void @_ZN4absl13hash_internal16SpyHashStateImplIvED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %75) #27
   br label %1683
 
 1683:                                             ; preds = %1682, %1063
-  %.pn146.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn.pn.pn.pn, %1682 ], [ %1064, %1063 ]
+  %.pn158.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn.pn.pn.pn.pn, %1682 ], [ %1064, %1063 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %75) #27
   br label %1724
 
@@ -80075,12 +80075,12 @@ _ZN4absl13hash_internal16SpyHashStateImplIvED2Ev.exit766: ; preds = %_ZSt8_Destr
   br i1 %.6, label %382, label %.loopexit
 
 1724:                                             ; preds = %.body771, %686, %.body814, %1050, %1683
-  %.pn146.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn.pn.pn.pn.pn, %1683 ], [ %.pn141.pn.pn, %686 ], [ %.pn133.pn.pn.pn.pn.pn.pn, %1050 ], [ %.pn131, %.body814 ], [ %.pn128.pn, %.body771 ]
+  %.pn158.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn.pn.pn.pn.pn.pn, %1683 ], [ %.pn141.pn.pn, %686 ], [ %.pn133.pn.pn.pn.pn.pn.pn, %1050 ], [ %.pn131, %.body814 ], [ %.pn128.pn, %.body771 ]
   call void @_ZN4absl13hash_internal16SpyHashStateImplIvED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %65) #27
   br label %1725
 
 1725:                                             ; preds = %1724, %392
-  %.pn146.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn.pn.pn.pn.pn.pn, %1724 ], [ %393, %392 ]
+  %.pn158.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn.pn.pn.pn.pn.pn.pn, %1724 ], [ %393, %392 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %65) #27
   br label %1746
 
@@ -80143,7 +80143,7 @@ _ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_
   ret void
 
 1746:                                             ; preds = %.loopexit866, %.loopexit.split-lp, %127, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit186, %1726, %1725, %381
-  %.pn168.pn = phi { ptr, i32 } [ %.pn168, %381 ], [ %1727, %1726 ], [ %.pn146.pn.pn.pn.pn.pn.pn.pn.pn, %1725 ], [ %.pn124.pn, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit186 ], [ %128, %127 ], [ %lpad.loopexit, %.loopexit866 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn168.pn = phi { ptr, i32 } [ %.pn168, %381 ], [ %1727, %1726 ], [ %.pn158.pn.pn.pn.pn.pn.pn.pn.pn, %1725 ], [ %.pn124.pn, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit186 ], [ %128, %127 ], [ %lpad.loopexit, %.loopexit866 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_10FixedArrayIiLm18446744073709551615ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60) #27
   resume { ptr, i32 } %.pn168.pn

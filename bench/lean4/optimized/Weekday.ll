@@ -152,7 +152,7 @@ define noundef nonnull ptr @l_Std_Time_Weekday_toCtorIdx(i8 noundef zeroext %0) 
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -212,7 +212,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Std_Time_Weekday_toCtorIdx.exit
 
 l_Std_Time_Weekday_toCtorIdx.exit:                ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18
-  %.0.i = phi ptr [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -693,7 +693,7 @@ define zeroext range(i8 0, 2) i8 @l_Std_Time_instDecidableEqWeekday(i8 noundef z
   br label %l_Std_Time_Weekday_toCtorIdx.exit
 
 l_Std_Time_Weekday_toCtorIdx.exit:                ; preds = %2, %3, %4, %5, %6, %7, %8
-  %.0.i9 = phi ptr [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %14 [
     i8 0, label %lean_dec.exit
     i8 1, label %9
@@ -722,7 +722,7 @@ l_Std_Time_Weekday_toCtorIdx.exit:                ; preds = %2, %3, %4, %5, %6, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %13, %12, %11, %10, %9, %l_Std_Time_Weekday_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 13 to ptr), %14 ], [ inttoptr (i64 11 to ptr), %13 ], [ inttoptr (i64 9 to ptr), %12 ], [ inttoptr (i64 7 to ptr), %11 ], [ inttoptr (i64 5 to ptr), %10 ], [ inttoptr (i64 3 to ptr), %9 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 13 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %9 ], [ inttoptr (i64 5 to ptr), %10 ], [ inttoptr (i64 7 to ptr), %11 ], [ inttoptr (i64 9 to ptr), %12 ], [ inttoptr (i64 11 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit ]
   %15 = icmp eq ptr %.0.i9, %.0.i10
   %16 = zext i1 %15 to i8
   ret i8 %16
@@ -810,7 +810,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Std_Time_Weekday_toCtorIdx.exit.i
 
 l_Std_Time_Weekday_toCtorIdx.exit.i:              ; preds = %30, %29, %28, %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %36 [
     i8 0, label %l_Std_Time_instDecidableEqWeekday.exit
     i8 1, label %31
@@ -839,7 +839,7 @@ l_Std_Time_Weekday_toCtorIdx.exit.i:              ; preds = %30, %29, %28, %27, 
   br label %l_Std_Time_instDecidableEqWeekday.exit
 
 l_Std_Time_instDecidableEqWeekday.exit:           ; preds = %l_Std_Time_Weekday_toCtorIdx.exit.i, %31, %32, %33, %34, %35, %36
-  %.0.i10.i = phi ptr [ inttoptr (i64 13 to ptr), %36 ], [ inttoptr (i64 11 to ptr), %35 ], [ inttoptr (i64 9 to ptr), %34 ], [ inttoptr (i64 7 to ptr), %33 ], [ inttoptr (i64 5 to ptr), %32 ], [ inttoptr (i64 3 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 13 to ptr), %36 ], [ inttoptr (i64 3 to ptr), %31 ], [ inttoptr (i64 5 to ptr), %32 ], [ inttoptr (i64 7 to ptr), %33 ], [ inttoptr (i64 9 to ptr), %34 ], [ inttoptr (i64 11 to ptr), %35 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit.i ]
   %37 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %38 = select i1 %37, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %38
@@ -2376,7 +2376,7 @@ define noundef nonnull ptr @l_Std_Time_Weekday_toNat(i8 noundef zeroext %0) loca
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %2 ], [ inttoptr (i64 3 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %7 ], [ inttoptr (i64 5 to ptr), %2 ], [ inttoptr (i64 7 to ptr), %3 ], [ inttoptr (i64 9 to ptr), %4 ], [ inttoptr (i64 11 to ptr), %5 ], [ inttoptr (i64 13 to ptr), %6 ], [ inttoptr (i64 3 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -2436,7 +2436,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Std_Time_Weekday_toNat.exit
 
 l_Std_Time_Weekday_toNat.exit:                    ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18
-  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %18 ], [ inttoptr (i64 13 to ptr), %17 ], [ inttoptr (i64 11 to ptr), %16 ], [ inttoptr (i64 9 to ptr), %15 ], [ inttoptr (i64 7 to ptr), %14 ], [ inttoptr (i64 5 to ptr), %13 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %18 ], [ inttoptr (i64 5 to ptr), %13 ], [ inttoptr (i64 7 to ptr), %14 ], [ inttoptr (i64 9 to ptr), %15 ], [ inttoptr (i64 11 to ptr), %16 ], [ inttoptr (i64 13 to ptr), %17 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 

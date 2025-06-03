@@ -207,8 +207,8 @@ default.unreachable:                              ; preds = %1
   br label %24
 
 24:                                               ; preds = %22, %17, %15, %10, %5
-  %.sroa.6.0 = phi ptr [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.3, %22 ], [ %21, %17 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.1, %15 ], [ %14, %10 ], [ %9, %5 ]
-  %.sroa.0.0 = phi ptr [ %23, %22 ], [ %19, %17 ], [ %16, %15 ], [ %12, %10 ], [ %7, %5 ]
+  %.sroa.6.0 = phi ptr [ %9, %5 ], [ %14, %10 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.1, %15 ], [ %21, %17 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.3, %22 ]
+  %.sroa.0.0 = phi ptr [ %7, %5 ], [ %12, %10 ], [ %16, %15 ], [ %19, %17 ], [ %23, %22 ]
   %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.6.0, 1
   ret { ptr, ptr } %26
@@ -1007,7 +1007,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN73_$LT$aws_smithy_types..document..Document$u20$as$u20$core..fmt..Debug$GT$3fmt17hf992ef84b065d69cE.exit"
 
 "_ZN73_$LT$aws_smithy_types..document..Document$u20$as$u20$core..fmt..Debug$GT$3fmt17hf992ef84b065d69cE.exit": ; preds = %10, %13, %16, %19, %22, %25
-  %.0.in.i = phi i1 [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.0.in.i = phi i1 [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %26, %25 ]
   ret i1 %.0.in.i
 }
 
@@ -1372,7 +1372,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN68_$LT$aws_sdk_glue..error_meta..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h868e6b67543fd6f4E.exit"
 
 "_ZN68_$LT$aws_sdk_glue..error_meta..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h868e6b67543fd6f4E.exit": ; preds = %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112
-  %.0.in.i = phi i1 [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ]
+  %.0.in.i = phi i1 [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ]
   ret i1 %.0.in.i
 }
 
@@ -2823,8 +2823,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h8430b7381392e57fE(ptr n
   br label %"_ZN88_$LT$aws_sdk_glue..operation..get_table..GetTableError$u20$as$u20$core..error..Error$GT$6source17h3b9723d34ff55dedE.exit"
 
 "_ZN88_$LT$aws_sdk_glue..operation..get_table..GetTableError$u20$as$u20$core..error..Error$GT$6source17h3b9723d34ff55dedE.exit": ; preds = %1, %7, %9, %11, %13, %15, %17, %19, %21
-  %.sroa.10.0.i = phi ptr [ %25, %21 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.134, %19 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.132, %17 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.130, %15 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.128, %13 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.126, %11 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.124, %9 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.120, %7 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.122, %1 ]
-  %.sroa.0.0.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %0, %1 ]
+  %.sroa.10.0.i = phi ptr [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.120, %7 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.124, %9 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.126, %11 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.128, %13 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.130, %15 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.132, %17 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.134, %19 ], [ %25, %21 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.122, %1 ]
+  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %0, %1 ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.10.0.i, 1
   ret { ptr, ptr } %27
@@ -3216,7 +3216,7 @@ define internal noundef zeroext i1 @"_ZN86_$LT$aws_sdk_glue..operation..get_tabl
   br label %43
 
 43:                                               ; preds = %40, %37, %34, %31, %28, %25, %22, %20, %17
-  %.0.in = phi i1 [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %17 ]
+  %.0.in = phi i1 [ %19, %17 ], [ %21, %20 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ]
   ret i1 %.0.in
 }
 
@@ -3277,8 +3277,8 @@ define internal { ptr, ptr } @"_ZN88_$LT$aws_sdk_glue..operation..get_table..Get
   br label %26
 
 26:                                               ; preds = %1, %21, %19, %17, %15, %13, %11, %9, %7
-  %.sroa.10.0 = phi ptr [ %25, %21 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.134, %19 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.132, %17 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.130, %15 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.128, %13 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.126, %11 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.124, %9 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.120, %7 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.122, %1 ]
-  %.sroa.0.0 = phi ptr [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %0, %1 ]
+  %.sroa.10.0 = phi ptr [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.120, %7 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.124, %9 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.126, %11 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.128, %13 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.130, %15 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.132, %17 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.134, %19 ], [ %25, %21 ], [ @anon.b104ed89325d1be2d44684ba2b5b6ba2.122, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %0, %1 ]
   %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %28
@@ -3447,7 +3447,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %6
-  %.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.0.in
 }
 
@@ -3512,7 +3512,7 @@ default.unreachable:                              ; preds = %2
   br label %25
 
 25:                                               ; preds = %23, %20, %17, %14, %11
-  %.0.in = phi i1 [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.0.in = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ]
   ret i1 %.0.in
 }
 

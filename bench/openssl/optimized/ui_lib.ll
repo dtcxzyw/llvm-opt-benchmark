@@ -1135,7 +1135,7 @@ define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef captures(address_is_null) %0, i
   br label %19
 
 19:                                               ; preds = %18, %14, %9, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %18 ], [ %17, %14 ], [ %.lobit, %9 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %18 ], [ %.lobit, %9 ], [ %17, %14 ]
   ret i32 %.0
 }
 

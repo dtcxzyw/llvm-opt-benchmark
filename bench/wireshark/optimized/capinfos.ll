@@ -1141,7 +1141,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %130, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %126, %127, %118, %107, %100, %99, %97
-  %.0 = phi i32 [ 1, %100 ], [ 0, %99 ], [ 0, %97 ], [ 1, %107 ], [ 0, %118 ], [ %125, %126 ], [ %.2, %127 ]
+  %.0 = phi i32 [ 0, %97 ], [ 0, %99 ], [ 1, %100 ], [ 1, %107 ], [ 0, %118 ], [ %125, %126 ], [ %.2, %127 ]
   %131 = load ptr, ptr @hash_buf, align 8
   call void @g_free(ptr noundef %131)
   %132 = load ptr, ptr @hd, align 8

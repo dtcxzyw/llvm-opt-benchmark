@@ -6267,7 +6267,7 @@ _ZN11PhaseValues13find_long_conEP4Nodel.exit:     ; preds = %52
   br label %76
 
 76:                                               ; preds = %66, %6, %_ZN11PhaseValues13find_long_conEP4Nodel.exit, %71, %.critedge, %8
-  %.0 = phi i1 [ true, %71 ], [ false, %.critedge ], [ true, %8 ], [ true, %_ZN11PhaseValues13find_long_conEP4Nodel.exit ], [ false, %6 ], [ false, %66 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %.critedge ], [ true, %71 ], [ true, %_ZN11PhaseValues13find_long_conEP4Nodel.exit ], [ false, %6 ], [ false, %66 ]
   ret i1 %.0
 }
 
@@ -6444,7 +6444,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC222escape_add_final
   br label %62
 
 62:                                               ; preds = %5, %44, %26, %24
-  %.0 = phi i1 [ true, %44 ], [ true, %26 ], [ %25, %24 ], [ false, %5 ]
+  %.0 = phi i1 [ %25, %24 ], [ true, %26 ], [ true, %44 ], [ false, %5 ]
   ret i1 %.0
 }
 

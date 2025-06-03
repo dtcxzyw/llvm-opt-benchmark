@@ -3358,7 +3358,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %129
 
 129:                                              ; preds = %127, %._crit_edge.i.i.i.i.i.i
-  %.sroa.037.1.i.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %128, %127 ]
+  %.sroa.037.1.i.i.i.i.i.i = phi ptr [ %128, %127 ], [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i24.i.i.i.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i.i.i.i, align 8, !tbaa !7
   %130 = getelementptr i8, ptr %.sroa.037.1.i.i.i.i.i.i, i64 8
   %.val1.i25.i.i.i.i.i.i = load i64, ptr %130, align 8, !tbaa !15
@@ -3373,7 +3373,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %137
 
 137:                                              ; preds = %135, %._crit_edge.i.i.i.i.i.i
-  %.sroa.037.2.i.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %136, %135 ]
+  %.sroa.037.2.i.i.i.i.i.i = phi ptr [ %136, %135 ], [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i26.i.i.i.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i.i.i.i, align 8, !tbaa !7
   %138 = getelementptr i8, ptr %.sroa.037.2.i.i.i.i.i.i, i64 8
   %.val1.i27.i.i.i.i.i.i = load i64, ptr %138, align 8, !tbaa !15
@@ -4244,7 +4244,7 @@ _ZN5vcpkg4PathD2Ev.exit30.i:                      ; preds = %_ZNKSt7__cxx1112bas
   br label %159
 
 159:                                              ; preds = %157, %._crit_edge.i.i.i.i.i.i
-  %.sroa.037.1.i.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %158, %157 ]
+  %.sroa.037.1.i.i.i.i.i.i = phi ptr [ %158, %157 ], [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i24.i.i.i.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i.i.i.i, align 8, !tbaa !7
   %160 = getelementptr i8, ptr %.sroa.037.1.i.i.i.i.i.i, i64 8
   %.val1.i25.i.i.i.i.i.i = load i64, ptr %160, align 8, !tbaa !15
@@ -4259,7 +4259,7 @@ _ZN5vcpkg4PathD2Ev.exit30.i:                      ; preds = %_ZNKSt7__cxx1112bas
   br label %167
 
 167:                                              ; preds = %165, %._crit_edge.i.i.i.i.i.i
-  %.sroa.037.2.i.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %166, %165 ]
+  %.sroa.037.2.i.i.i.i.i.i = phi ptr [ %166, %165 ], [ %.sroa.037.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i26.i.i.i.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i.i.i.i, align 8, !tbaa !7
   %168 = getelementptr i8, ptr %.sroa.037.2.i.i.i.i.i.i, i64 8
   %.val1.i27.i.i.i.i.i.i = load i64, ptr %168, align 8, !tbaa !15
@@ -4917,7 +4917,7 @@ _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit58:   ; preds = %32
   br label %35
 
 35:                                               ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit58, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit58 ]
+  %.1.i.i.i = phi ptr [ %34, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit58 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = load i8, ptr %.1.i.i.i, align 1, !tbaa !16
   switch i8 %36, label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit57 [
     i8 32, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit
@@ -4931,7 +4931,7 @@ _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit57:   ; preds = %35
   br label %38
 
 38:                                               ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit57, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit57 ]
+  %.2.i.i.i = phi ptr [ %37, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit57 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i8, ptr %.2.i.i.i, align 1, !tbaa !16
   switch i8 %39, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit [
     i8 32, label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread
@@ -5093,7 +5093,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   br label %91
 
 91:                                               ; preds = %89, %._crit_edge.i.i.i30
-  %.1.i.i.i35 = phi ptr [ %.029.lcssa.i.i.i32, %._crit_edge.i.i.i30 ], [ %90, %89 ]
+  %.1.i.i.i35 = phi ptr [ %90, %89 ], [ %.029.lcssa.i.i.i32, %._crit_edge.i.i.i30 ]
   %92 = load i8, ptr %.1.i.i.i35, align 1, !tbaa !16
   switch i8 %92, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge [
     i8 32, label %93
@@ -5107,7 +5107,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   br label %95
 
 95:                                               ; preds = %93, %._crit_edge.i.i.i30
-  %.2.i.i.i33 = phi ptr [ %.029.lcssa.i.i.i32, %._crit_edge.i.i.i30 ], [ %94, %93 ]
+  %.2.i.i.i33 = phi ptr [ %94, %93 ], [ %.029.lcssa.i.i.i32, %._crit_edge.i.i.i30 ]
   %96 = load i8, ptr %.2.i.i.i33, align 1, !tbaa !16
   switch i8 %96, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge [
     i8 32, label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit63.thread

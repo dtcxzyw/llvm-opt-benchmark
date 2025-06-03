@@ -889,7 +889,7 @@ define internal zeroext i1 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noun
   br label %78
 
 78:                                               ; preds = %50, %5, %.thread72, %71, %65, %47
-  %.061 = phi i1 [ %49, %47 ], [ %77, %.thread72 ], [ %76, %71 ], [ %70, %65 ], [ false, %5 ], [ false, %50 ]
+  %.061 = phi i1 [ %49, %47 ], [ %70, %65 ], [ %76, %71 ], [ %77, %.thread72 ], [ false, %5 ], [ false, %50 ]
   ret i1 %.061
 }
 

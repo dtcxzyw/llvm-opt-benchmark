@@ -1320,7 +1320,7 @@ define noundef ptr @ures_getNextString_77(ptr noundef captures(address) %0, ptr 
   br label %47
 
 47:                                               ; preds = %20, %46, %4, %6, %19, %44, %37, %30, %25, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %19 ], [ %45, %44 ], [ %43, %37 ], [ %36, %30 ], [ %29, %25 ], [ null, %6 ], [ null, %4 ], [ null, %46 ], [ null, %20 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %19 ], [ %29, %25 ], [ %36, %30 ], [ %43, %37 ], [ %45, %44 ], [ null, %6 ], [ null, %4 ], [ null, %46 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -1463,7 +1463,7 @@ define noundef ptr @ures_getNextResource_77(ptr noundef captures(address) %0, pt
   br label %48
 
 48:                                               ; preds = %20, %3, %6, %19, %38, %27, %25, %11
-  %.0 = phi ptr [ %1, %11 ], [ %1, %19 ], [ %47, %38 ], [ %37, %27 ], [ %26, %25 ], [ %1, %6 ], [ %1, %3 ], [ %1, %20 ]
+  %.0 = phi ptr [ %1, %11 ], [ %1, %19 ], [ %26, %25 ], [ %37, %27 ], [ %47, %38 ], [ %1, %6 ], [ %1, %3 ], [ %1, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   ret ptr %.0
 }
@@ -1552,7 +1552,7 @@ define noundef ptr @ures_getByIndex_77(ptr noundef readonly captures(address) %0
   br label %45
 
 45:                                               ; preds = %19, %4, %7, %44, %35, %25, %23, %12
-  %.0 = phi ptr [ %2, %12 ], [ %43, %35 ], [ %34, %25 ], [ %24, %23 ], [ %2, %44 ], [ %2, %7 ], [ %2, %4 ], [ %2, %19 ]
+  %.0 = phi ptr [ %2, %12 ], [ %24, %23 ], [ %34, %25 ], [ %43, %35 ], [ %2, %44 ], [ %2, %7 ], [ %2, %4 ], [ %2, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   ret ptr %.0
 }
@@ -1646,7 +1646,7 @@ define noundef ptr @ures_getStringByIndex_77(ptr noundef readonly captures(addre
   br label %45
 
 45:                                               ; preds = %44, %43, %42, %4, %7, %40, %34, %28, %23, %12
-  %.0 = phi ptr [ null, %12 ], [ %41, %40 ], [ %39, %34 ], [ %33, %28 ], [ %27, %23 ], [ null, %7 ], [ null, %4 ], [ null, %42 ], [ null, %43 ], [ null, %44 ]
+  %.0 = phi ptr [ null, %12 ], [ %27, %23 ], [ %33, %28 ], [ %39, %34 ], [ %41, %40 ], [ null, %7 ], [ null, %4 ], [ null, %42 ], [ null, %43 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   ret ptr %.0
 }
@@ -3200,7 +3200,7 @@ define noundef ptr @ures_getStringByKey_77(ptr noundef readonly captures(address
   br label %54
 
 52:                                               ; preds = %49, %45, %40, %37
-  %.1 = phi ptr [ %42, %40 ], [ %39, %37 ], [ %51, %49 ], [ %48, %45 ]
+  %.1 = phi ptr [ %39, %37 ], [ %42, %40 ], [ %48, %45 ], [ %51, %49 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
   br label %54
 
@@ -3325,7 +3325,7 @@ define ptr @ures_getLocaleByType_77(ptr noundef readonly captures(address_is_nul
   br label %20
 
 20:                                               ; preds = %3, %5, %19, %15, %11, %9
-  %.0 = phi ptr [ null, %19 ], [ %18, %15 ], [ %14, %11 ], [ null, %9 ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %19 ], [ %14, %11 ], [ %18, %15 ], [ null, %9 ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 

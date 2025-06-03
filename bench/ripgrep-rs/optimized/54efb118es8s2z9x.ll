@@ -276,7 +276,7 @@ define noundef zeroext i1 @"_ZN70_$LT$grep_cli..human..ParseSizeError$u20$as$u20
   br label %38
 
 38:                                               ; preds = %31, %22, %15
-  %.0.in = phi i1 [ %37, %31 ], [ %30, %22 ], [ %21, %15 ]
+  %.0.in = phi i1 [ %21, %15 ], [ %30, %22 ], [ %37, %31 ]
   ret i1 %.0.in
 }
 

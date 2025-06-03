@@ -14656,7 +14656,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
   resume { ptr, i32 } %23
 
 25:                                               ; preds = %21, %14, %11, %8, %5, %3
-  %.0 = phi ptr [ null, %21 ], [ %15, %14 ], [ %12, %11 ], [ %9, %8 ], [ %6, %5 ], [ %4, %3 ]
+  %.0 = phi ptr [ null, %21 ], [ %4, %3 ], [ %6, %5 ], [ %9, %8 ], [ %12, %11 ], [ %15, %14 ]
   ret ptr %.0
 
 26:                                               ; preds = %22

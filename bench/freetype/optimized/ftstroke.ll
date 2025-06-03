@@ -3591,7 +3591,7 @@ FT_Stroker_GetCounts.exit:                        ; preds = %16, %ft_stroke_bord
   br label %55
 
 55:                                               ; preds = %.sink.split, %10, %3, %7, %5, %54
-  %.0 = phi i32 [ 6, %7 ], [ %11, %10 ], [ %.1.ph, %54 ], [ 6, %5 ], [ 6, %3 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 6, %7 ], [ %.1.ph, %54 ], [ %11, %10 ], [ 6, %5 ], [ 6, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3724,7 +3724,7 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
   br label %46
 
 46:                                               ; preds = %.sink.split, %11, %4, %8, %6, %45
-  %.0 = phi i32 [ 6, %8 ], [ %12, %11 ], [ %.1.ph, %45 ], [ 6, %6 ], [ 6, %4 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 6, %8 ], [ %.1.ph, %45 ], [ %12, %11 ], [ 6, %6 ], [ 6, %4 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

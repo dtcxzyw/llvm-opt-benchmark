@@ -3234,7 +3234,7 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItem6updateEPK17rlc_3gpp_tap_info(
   br label %131
 
 129:                                              ; preds = %103, %122, %80, %96, %64, %77
-  %.040 = phi ptr [ %113, %122 ], [ %110, %103 ], [ %90, %96 ], [ %87, %80 ], [ %69, %77 ], [ %66, %64 ]
+  %.040 = phi ptr [ %69, %77 ], [ %66, %64 ], [ %90, %96 ], [ %87, %80 ], [ %113, %122 ], [ %110, %103 ]
   tail call void @_ZN24RlcChannelTreeWidgetItem6updateEPK17rlc_3gpp_tap_info(ptr noundef align 8 dereferenceable_or_null(248) %.040, ptr noundef %1)
   br label %130
 
@@ -9167,7 +9167,7 @@ _ZN7QStringD2Ev.exit138:                          ; preds = %230, %_ZN17QArrayDa
   br label %.body132
 
 .body132:                                         ; preds = %235, %228, %_ZN7QStringD2Ev.exit130, %_ZN7QStringD2Ev.exit116, %_ZN7QStringD2Ev.exit92, %_ZN7QStringD2Ev.exit68, %_ZN7QStringD2Ev.exit59, %94, %78, %62, %46
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %_ZN7QStringD2Ev.exit130 ], [ %.pn20.pn, %_ZN7QStringD2Ev.exit116 ], [ %.pn23.pn, %_ZN7QStringD2Ev.exit92 ], [ %.pn26, %_ZN7QStringD2Ev.exit68 ], [ %.pn, %_ZN7QStringD2Ev.exit59 ], [ %95, %94 ], [ %79, %78 ], [ %63, %62 ], [ %47, %46 ], [ %236, %235 ], [ %229, %228 ]
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %_ZN7QStringD2Ev.exit130 ], [ %.pn26, %_ZN7QStringD2Ev.exit68 ], [ %.pn23.pn, %_ZN7QStringD2Ev.exit92 ], [ %.pn20.pn, %_ZN7QStringD2Ev.exit116 ], [ %.pn, %_ZN7QStringD2Ev.exit59 ], [ %47, %46 ], [ %63, %62 ], [ %79, %78 ], [ %95, %94 ], [ %236, %235 ], [ %229, %228 ]
   %237 = load ptr, ptr %13, align 8
   %.not.i.i.i139 = icmp eq ptr %237, null
   br i1 %.not.i.i.i139, label %_ZN7QStringD2Ev.exit142, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i140
@@ -9397,7 +9397,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK24RlcChannelTreeWidgetItemltERK15QTr
   br label %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit
 
 _ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit: ; preds = %11, %14, %17
-  %.0.i = phi i32 [ %20, %17 ], [ %16, %14 ], [ 0, %11 ]
+  %.0.i = phi i32 [ %16, %14 ], [ %20, %17 ], [ 0, %11 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %22 = load i32, ptr %21, align 4
   switch i32 %22, label %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit10 [
@@ -9417,7 +9417,7 @@ _ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit: ; preds = %11, %14, %17
   br label %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit10
 
 _ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit10: ; preds = %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit, %23, %26
-  %.0.i9 = phi i32 [ %29, %26 ], [ %25, %23 ], [ 0, %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit ]
+  %.0.i9 = phi i32 [ %25, %23 ], [ %29, %26 ], [ 0, %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit ]
   %30 = icmp ult i32 %.0.i, %.0.i9
   br label %45
 
@@ -9442,7 +9442,7 @@ _ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit10: ; preds = %_ZNK24RlcChanne
   br label %45
 
 45:                                               ; preds = %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit10, %31, %37, %43, %5
-  %.0 = phi i1 [ %6, %5 ], [ %44, %43 ], [ %42, %37 ], [ %36, %31 ], [ %30, %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit10 ]
+  %.0 = phi i1 [ %6, %5 ], [ %44, %43 ], [ %30, %_ZNK24RlcChannelTreeWidgetItem11channelRankEv.exit10 ], [ %36, %31 ], [ %42, %37 ]
   ret i1 %.0
 }
 

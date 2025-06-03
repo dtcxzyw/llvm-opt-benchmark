@@ -8565,7 +8565,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge193, %.p
   br i1 %exitcond.not, label %._crit_edge, label %268, !llvm.loop !157
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %254, %.noexc62, %.noexc61, %109, %.noexc60, %99, %._crit_edge
-  %.0.i = phi nsz <4 x float> [ %267, %254 ], [ %253, %.noexc62 ], [ %152, %.noexc61 ], [ %119, %109 ], [ %108, %.noexc60 ], [ %100, %99 ], [ %.1.lcssa, %._crit_edge ]
+  %.0.i = phi nsz <4 x float> [ %100, %99 ], [ %108, %.noexc60 ], [ %119, %109 ], [ %152, %.noexc61 ], [ %253, %.noexc62 ], [ %267, %254 ], [ %.1.lcssa, %._crit_edge ]
   %.idx213 = shl nsw i64 %indvars.iv205, 4
   %279 = getelementptr inbounds nuw i8, ptr %.042196, i64 %.idx213
   store <4 x float> %.0.i, ptr %279, align 1, !tbaa !156
@@ -11825,8 +11825,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread404: ; preds = %152
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %152, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread404, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread401, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread398, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread395, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread392, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread
-  %.0.i117391 = phi <4 x float> [ %460, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread404 ], [ %346, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread401 ], [ %212, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread398 ], [ %177, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread395 ], [ %163, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread392 ], [ %154, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread ], [ %.0388, %152 ]
-  %.0.i = phi nsz <4 x float> [ %465, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread404 ], [ %447, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread401 ], [ %245, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread398 ], [ %179, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread395 ], [ %167, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread392 ], [ %155, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread ], [ %.0387, %152 ]
+  %.0.i117391 = phi <4 x float> [ %154, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread ], [ %163, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread392 ], [ %177, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread395 ], [ %212, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread398 ], [ %346, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread401 ], [ %460, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread404 ], [ %.0388, %152 ]
+  %.0.i = phi nsz <4 x float> [ %155, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread ], [ %167, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread392 ], [ %179, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread395 ], [ %245, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread398 ], [ %447, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread401 ], [ %465, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit121.thread404 ], [ %.0387, %152 ]
   %466 = load i8, ptr %10, align 1, !tbaa !92, !range !50, !noundef !51
   %467 = trunc nuw i8 %466 to i1
   br i1 %467, label %468, label %489
@@ -12401,7 +12401,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %168, %164, %150, %143, %142, %135, %129, %127, %125, %156
-  %.1131 = phi nsz float [ %.056, %125 ], [ %.056, %164 ], [ %171, %168 ], [ %155, %150 ], [ %149, %143 ], [ %139, %142 ], [ %.0130, %135 ], [ %134, %129 ], [ %128, %127 ], [ 0.000000e+00, %156 ]
+  %.1131 = phi nsz float [ %.056, %125 ], [ %128, %127 ], [ %134, %129 ], [ %139, %142 ], [ %.0130, %135 ], [ %149, %143 ], [ %155, %150 ], [ %.056, %164 ], [ %171, %168 ], [ 0.000000e+00, %156 ]
   %172 = load i8, ptr %9, align 1, !tbaa !92, !range !50, !noundef !51
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %174, label %182

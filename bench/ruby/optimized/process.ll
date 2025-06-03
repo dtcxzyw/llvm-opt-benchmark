@@ -5493,7 +5493,7 @@ thread-pre-split:                                 ; preds = %17, %20
   unreachable
 
 36:                                               ; preds = %31, %thread-pre-split, %16, %12
-  %.0 = phi i32 [ 0, %16 ], [ 0, %12 ], [ 0, %thread-pre-split ], [ -1, %31 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %thread-pre-split ], [ -1, %31 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
   ret i32 %.0
 }

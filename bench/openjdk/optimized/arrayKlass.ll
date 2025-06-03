@@ -545,7 +545,7 @@ define hidden noundef ptr @_ZN10ArrayKlass11array_klassEiP10JavaThread(ptr nound
   br label %30
 
 30:                                               ; preds = %23, %3, %24
-  %.0 = phi ptr [ null, %23 ], [ %29, %24 ], [ %0, %3 ]
+  %.0 = phi ptr [ %29, %24 ], [ null, %23 ], [ %0, %3 ]
   ret ptr %.0
 }
 

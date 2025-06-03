@@ -69,7 +69,7 @@ define hidden noundef zeroext range(i8 6, 13) i8 @_ZNK11constantTag10basic_typeE
   unreachable
 
 9:                                                ; preds = %1, %6, %5, %4, %3
-  %.0 = phi i8 [ 12, %6 ], [ 7, %5 ], [ 11, %4 ], [ 6, %3 ], [ 10, %1 ]
+  %.0 = phi i8 [ 6, %3 ], [ 11, %4 ], [ 7, %5 ], [ 12, %6 ], [ 10, %1 ]
   ret i8 %.0
 }
 
@@ -115,7 +115,7 @@ define hidden noundef signext range(i8 103, 107) i8 @_ZNK11constantTag11error_va
   unreachable
 
 8:                                                ; preds = %1, %5, %4, %3
-  %.0 = phi i8 [ 106, %5 ], [ 105, %4 ], [ 104, %3 ], [ 103, %1 ]
+  %.0 = phi i8 [ 104, %3 ], [ 105, %4 ], [ 106, %5 ], [ 103, %1 ]
   ret i8 %.0
 }
 
@@ -221,7 +221,7 @@ define hidden noundef nonnull ptr @_ZNK11constantTag13internal_nameEv(ptr nounde
   unreachable
 
 27:                                               ; preds = %1, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.26, %24 ], [ @.str.25, %23 ], [ @.str.24, %22 ], [ @.str.23, %21 ], [ @.str.22, %20 ], [ @.str.21, %19 ], [ @.str.20, %18 ], [ @.str.19, %17 ], [ @.str.18, %16 ], [ @.str.17, %15 ], [ @.str.16, %14 ], [ @.str.15, %13 ], [ @.str.14, %12 ], [ @.str.13, %11 ], [ @.str.12, %10 ], [ @.str.11, %9 ], [ @.str.10, %8 ], [ @.str.9, %7 ], [ @.str.8, %6 ], [ @.str.7, %5 ], [ @.str.6, %4 ], [ @.str.5, %3 ], [ @.str.4, %1 ]
+  %.0 = phi ptr [ @.str.5, %3 ], [ @.str.6, %4 ], [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.12, %10 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.18, %16 ], [ @.str.19, %17 ], [ @.str.20, %18 ], [ @.str.21, %19 ], [ @.str.22, %20 ], [ @.str.23, %21 ], [ @.str.24, %22 ], [ @.str.25, %23 ], [ @.str.26, %24 ], [ @.str.4, %1 ]
   ret ptr %.0
 }
 

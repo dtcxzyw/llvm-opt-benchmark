@@ -591,7 +591,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl7debian214flags_internal7Flag
   br label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %7, %16, %4, %25, %24, %21, %19, %15, %14, %12, %10, %9
-  %.0 = phi ptr [ null, %25 ], [ inttoptr (i64 80 to ptr), %24 ], [ null, %21 ], [ %2, %19 ], [ @_ZTIi, %15 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIiE9dummy_varE, %14 ], [ null, %12 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 4 to ptr), %4 ], [ null, %16 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIiE9dummy_varE, %14 ], [ @_ZTIi, %15 ], [ %2, %19 ], [ null, %21 ], [ inttoptr (i64 80 to ptr), %24 ], [ inttoptr (i64 4 to ptr), %4 ], [ null, %16 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -669,7 +669,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl7debian214flags_internal7Flag
   br label %_ZNSt16allocator_traitsISaIbEE8allocateERS0_m.exit
 
 _ZNSt16allocator_traitsISaIbEE8allocateERS0_m.exit: ; preds = %7, %18, %4, %30, %29, %25, %22, %17, %16, %13, %10, %9
-  %.0 = phi ptr [ null, %30 ], [ inttoptr (i64 80 to ptr), %29 ], [ null, %25 ], [ %2, %22 ], [ @_ZTIb, %17 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIbE9dummy_varE, %16 ], [ null, %13 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 1 to ptr), %4 ], [ null, %18 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %30 ], [ null, %9 ], [ null, %10 ], [ null, %13 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIbE9dummy_varE, %16 ], [ @_ZTIb, %17 ], [ %2, %22 ], [ null, %25 ], [ inttoptr (i64 80 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %4 ], [ null, %18 ], [ %8, %7 ]
   ret ptr %.0
 }
 

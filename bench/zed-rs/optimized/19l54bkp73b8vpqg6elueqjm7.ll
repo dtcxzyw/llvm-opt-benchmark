@@ -2749,7 +2749,7 @@ default.unreachable:                              ; preds = %3
   br label %"_ZN14theme_selector21ThemeSelectorDelegate3new28_$u7b$$u7b$closure$u7d$$u7d$17h727067e6ea4fb2a7E.llvm.671758490681625350.exit"
 
 "_ZN14theme_selector21ThemeSelectorDelegate3new28_$u7b$$u7b$closure$u7d$$u7d$17h727067e6ea4fb2a7E.llvm.671758490681625350.exit": ; preds = %3, %10, %22
-  %.sroa.0.0.i = phi i1 [ false, %22 ], [ %21, %10 ], [ true, %3 ]
+  %.sroa.0.0.i = phi i1 [ %21, %10 ], [ false, %22 ], [ true, %3 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2900,7 +2900,7 @@ default.unreachable:                              ; preds = %58, %"_ZN4core5slic
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit": ; preds = %20, %27, %39
-  %.sroa.0.0.i.i = phi i1 [ false, %39 ], [ %38, %27 ], [ true, %20 ]
+  %.sroa.0.0.i.i = phi i1 [ %38, %27 ], [ false, %39 ], [ true, %20 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !961)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !964)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
@@ -2996,7 +2996,7 @@ default.unreachable:                              ; preds = %58, %"_ZN4core5slic
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit39"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit39": ; preds = %58, %63, %75
-  %.sroa.0.0.i.i27 = phi i1 [ false, %75 ], [ %74, %63 ], [ true, %58 ]
+  %.sroa.0.0.i.i27 = phi i1 [ %74, %63 ], [ false, %75 ], [ true, %58 ]
   %76 = xor i1 %.sroa.0.0.i.i, %.sroa.0.0.i.i27
   %..i = select i1 %76, ptr %.sroa.08.0, ptr %.sroa.04.0
   br label %_ZN4core5slice4sort6shared5pivot7median317h22b100ba320caba0E.llvm.671758490681625350.exit
@@ -3582,7 +3582,7 @@ default.unreachable:                              ; preds = %51, %"_ZN4core5slic
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit": ; preds = %13, %20, %32
-  %.sroa.0.0.i.i = phi i1 [ false, %32 ], [ %31, %20 ], [ true, %13 ]
+  %.sroa.0.0.i.i = phi i1 [ %31, %20 ], [ false, %32 ], [ true, %13 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1365)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1368)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1370)
@@ -3678,7 +3678,7 @@ default.unreachable:                              ; preds = %51, %"_ZN4core5slic
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit29"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit29": ; preds = %51, %56, %68
-  %.sroa.0.0.i.i17 = phi i1 [ false, %68 ], [ %67, %56 ], [ true, %51 ]
+  %.sroa.0.0.i.i17 = phi i1 [ %67, %56 ], [ false, %68 ], [ true, %51 ]
   %69 = xor i1 %.sroa.0.0.i.i, %.sroa.0.0.i.i17
   %..i = select i1 %69, ptr %8, ptr %7
   br label %_ZN4core5slice4sort6shared5pivot7median317h22b100ba320caba0E.llvm.671758490681625350.exit
@@ -3744,7 +3744,7 @@ default.unreachable:                              ; preds = %42, %"_ZN4core5slic
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit": ; preds = %4, %11, %23
-  %.sroa.0.0.i.i = phi i1 [ false, %23 ], [ %22, %11 ], [ true, %4 ]
+  %.sroa.0.0.i.i = phi i1 [ %22, %11 ], [ false, %23 ], [ true, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1434)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1439)
@@ -3840,7 +3840,7 @@ default.unreachable:                              ; preds = %42, %"_ZN4core5slic
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit28"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.llvm.671758490681625350.exit28": ; preds = %42, %47, %59
-  %.sroa.0.0.i.i16 = phi i1 [ false, %59 ], [ %58, %47 ], [ true, %42 ]
+  %.sroa.0.0.i.i16 = phi i1 [ %58, %47 ], [ false, %59 ], [ true, %42 ]
   %60 = xor i1 %.sroa.0.0.i.i, %.sroa.0.0.i.i16
   %. = select i1 %60, ptr %2, ptr %1
   br label %61

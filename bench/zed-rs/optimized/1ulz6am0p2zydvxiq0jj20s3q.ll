@@ -564,17 +564,17 @@ define hidden void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d
   br label %30
 
 30:                                               ; preds = %24, %3, %3, %47, %46, %29, %11
-  %.sroa.40.sroa.0.sroa.0.0 = phi i32 [ %.sroa.40.sroa.0.sroa.0.0.copyload, %29 ], [ 0, %47 ], [ %.sroa.0137.0, %46 ], [ 2, %11 ], [ 2, %3 ], [ 2, %3 ], [ 2, %24 ]
-  %.sroa.46.sroa.0.0 = phi i32 [ %.sroa.46.sroa.0.0.copyload, %29 ], [ 2, %47 ], [ %.sroa.0142.0, %46 ], [ 2, %11 ], [ 2, %3 ], [ 2, %3 ], [ 2, %24 ]
-  %.sroa.0.sroa.0.0 = phi i32 [ %7, %29 ], [ 0, %47 ], [ %.sroa.0132.0, %46 ], [ 0, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %24 ]
-  %.sroa.40.sroa.11.0 = phi i8 [ %.sroa.40.sroa.11.0.copyload, %29 ], [ 0, %47 ], [ %.sroa.5140.0, %46 ], [ undef, %11 ], [ undef, %3 ], [ undef, %3 ], [ undef, %24 ]
-  %.sroa.40.sroa.10.0 = phi float [ %.sroa.40.sroa.10.0.copyload, %29 ], [ %48, %47 ], [ %.sroa.4139.0, %46 ], [ undef, %11 ], [ undef, %3 ], [ undef, %3 ], [ undef, %24 ]
-  %.sroa.22.sroa.0.0 = phi i32 [ %.sroa.22.sroa.0.0.copyload, %29 ], [ 1, %47 ], [ 1, %46 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 1, %24 ]
-  %.sroa.52.0 = phi i8 [ %.sroa.52.0.copyload, %29 ], [ 3, %47 ], [ %.sroa.0136.0, %46 ], [ 3, %11 ], [ 3, %3 ], [ 3, %3 ], [ 3, %24 ]
-  %.sroa.34.0 = phi float [ %.sroa.34.0.copyload, %29 ], [ undef, %47 ], [ %.sroa.3145.0, %46 ], [ undef, %11 ], [ undef, %3 ], [ undef, %3 ], [ undef, %24 ]
-  %.sroa.28.0 = phi i32 [ %.sroa.28.0.copyload, %29 ], [ 0, %47 ], [ %.sroa.0144.0, %46 ], [ 0, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %24 ]
-  %.sroa.16.0 = phi float [ %.sroa.16.0.copyload, %29 ], [ undef, %47 ], [ %.sroa.3135.0, %46 ], [ undef, %11 ], [ 7.000000e+02, %3 ], [ 7.000000e+02, %3 ], [ undef, %24 ]
-  %.sroa.10.0 = phi i32 [ %.sroa.10.0.copyload, %29 ], [ 0, %47 ], [ %.sroa.0134.0, %46 ], [ 0, %11 ], [ 1, %3 ], [ 1, %3 ], [ 0, %24 ]
+  %.sroa.40.sroa.0.sroa.0.0 = phi i32 [ 2, %11 ], [ %.sroa.0137.0, %46 ], [ 0, %47 ], [ %.sroa.40.sroa.0.sroa.0.0.copyload, %29 ], [ 2, %3 ], [ 2, %3 ], [ 2, %24 ]
+  %.sroa.46.sroa.0.0 = phi i32 [ 2, %11 ], [ %.sroa.0142.0, %46 ], [ 2, %47 ], [ %.sroa.46.sroa.0.0.copyload, %29 ], [ 2, %3 ], [ 2, %3 ], [ 2, %24 ]
+  %.sroa.0.sroa.0.0 = phi i32 [ 0, %11 ], [ %.sroa.0132.0, %46 ], [ 0, %47 ], [ %7, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %24 ]
+  %.sroa.40.sroa.11.0 = phi i8 [ undef, %11 ], [ %.sroa.5140.0, %46 ], [ 0, %47 ], [ %.sroa.40.sroa.11.0.copyload, %29 ], [ undef, %3 ], [ undef, %3 ], [ undef, %24 ]
+  %.sroa.40.sroa.10.0 = phi float [ undef, %11 ], [ %.sroa.4139.0, %46 ], [ %48, %47 ], [ %.sroa.40.sroa.10.0.copyload, %29 ], [ undef, %3 ], [ undef, %3 ], [ undef, %24 ]
+  %.sroa.22.sroa.0.0 = phi i32 [ 1, %11 ], [ 1, %46 ], [ 1, %47 ], [ %.sroa.22.sroa.0.0.copyload, %29 ], [ 0, %3 ], [ 0, %3 ], [ 1, %24 ]
+  %.sroa.52.0 = phi i8 [ 3, %11 ], [ %.sroa.0136.0, %46 ], [ 3, %47 ], [ %.sroa.52.0.copyload, %29 ], [ 3, %3 ], [ 3, %3 ], [ 3, %24 ]
+  %.sroa.34.0 = phi float [ undef, %11 ], [ %.sroa.3145.0, %46 ], [ undef, %47 ], [ %.sroa.34.0.copyload, %29 ], [ undef, %3 ], [ undef, %3 ], [ undef, %24 ]
+  %.sroa.28.0 = phi i32 [ 0, %11 ], [ %.sroa.0144.0, %46 ], [ 0, %47 ], [ %.sroa.28.0.copyload, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %24 ]
+  %.sroa.16.0 = phi float [ undef, %11 ], [ %.sroa.3135.0, %46 ], [ undef, %47 ], [ %.sroa.16.0.copyload, %29 ], [ 7.000000e+02, %3 ], [ 7.000000e+02, %3 ], [ undef, %24 ]
+  %.sroa.10.0 = phi i32 [ 0, %11 ], [ %.sroa.0134.0, %46 ], [ 0, %47 ], [ %.sroa.10.0.copyload, %29 ], [ 1, %3 ], [ 1, %3 ], [ 0, %24 ]
   store i64 %.val, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val146, ptr %31, align 8

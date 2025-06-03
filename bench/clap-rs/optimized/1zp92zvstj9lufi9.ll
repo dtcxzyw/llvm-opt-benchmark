@@ -8106,9 +8106,9 @@ default.unreachable:                              ; preds = %11
   br label %27
 
 27:                                               ; preds = %24, %18, %15
-  %.sroa.5.0.i = phi i64 [ %26, %24 ], [ %23, %18 ], [ undef, %15 ]
-  %.sroa.4.0.i = phi i32 [ undef, %24 ], [ undef, %18 ], [ %17, %15 ]
-  %.sroa.7.0.i = phi i64 [ undef, %24 ], [ %22, %18 ], [ undef, %15 ]
+  %.sroa.5.0.i = phi i64 [ undef, %15 ], [ %23, %18 ], [ %26, %24 ]
+  %.sroa.4.0.i = phi i32 [ %17, %15 ], [ undef, %18 ], [ undef, %24 ]
+  %.sroa.7.0.i = phi i64 [ undef, %15 ], [ %22, %18 ], [ undef, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.013.031, i64 24
   %29 = load i64, ptr %28, align 8, !alias.scope !2332, !noalias !2333, !noundef !28
   %30 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %6, i64 0, i64 %.sroa.7.030
@@ -10195,9 +10195,9 @@ default.unreachable:                              ; preds = %274
   br label %290
 
 290:                                              ; preds = %287, %281, %278
-  %.sroa.5.0.i.i.i.i = phi i64 [ %289, %287 ], [ %286, %281 ], [ undef, %278 ]
-  %.sroa.4.0.i.i.i.i = phi i32 [ undef, %287 ], [ undef, %281 ], [ %280, %278 ]
-  %.sroa.7.0.i.i.i.i = phi i64 [ undef, %287 ], [ %285, %281 ], [ undef, %278 ]
+  %.sroa.5.0.i.i.i.i = phi i64 [ undef, %278 ], [ %286, %281 ], [ %289, %287 ]
+  %.sroa.4.0.i.i.i.i = phi i32 [ %280, %278 ], [ undef, %281 ], [ undef, %287 ]
+  %.sroa.7.0.i.i.i.i = phi i64 [ undef, %278 ], [ %285, %281 ], [ undef, %287 ]
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.013.031.i.i.i, i64 24
   %292 = load i64, ptr %291, align 8, !alias.scope !2668, !noalias !2669, !noundef !28
   %293 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %269, i64 0, i64 %.sroa.7.030.i.i.i23
@@ -11068,7 +11068,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hacbd61dea109
   resume { ptr, i32 } %.pn
 
 45:                                               ; preds = %11, %20
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h413591363c8236ceE.llvm.7780793174254504545"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #22
           to label %44 unwind label %42
 }
@@ -13005,9 +13005,9 @@ default.unreachable:                              ; preds = %14
   br label %30
 
 30:                                               ; preds = %27, %21, %18
-  %.sroa.5.0.i.i = phi i64 [ %29, %27 ], [ %26, %21 ], [ undef, %18 ]
-  %.sroa.4.0.i.i = phi i32 [ undef, %27 ], [ undef, %21 ], [ %20, %18 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %27 ], [ %25, %21 ], [ undef, %18 ]
+  %.sroa.5.0.i.i = phi i64 [ undef, %18 ], [ %26, %21 ], [ %29, %27 ]
+  %.sroa.4.0.i.i = phi i32 [ %20, %18 ], [ undef, %21 ], [ undef, %27 ]
+  %.sroa.7.0.i.i = phi i64 [ undef, %18 ], [ %25, %21 ], [ undef, %27 ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.013.031.i, i64 24
   %32 = load i64, ptr %31, align 8, !alias.scope !3076, !noalias !3077, !noundef !28
   %33 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %9, i64 0, i64 %.sroa.7.030.i

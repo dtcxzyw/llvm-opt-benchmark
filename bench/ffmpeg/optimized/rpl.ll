@@ -582,8 +582,8 @@ read_line.exit232:                                ; preds = %.thread.i226, %209
   br i1 %exitcond.not, label %.loopexit499, label %.preheader497, !llvm.loop !46
 
 .loopexit499:                                     ; preds = %read_line.exit232, %189, %191, %193
-  %.0454 = phi i32 [ %.19, %193 ], [ %.19, %191 ], [ %.19, %189 ], [ %212, %read_line.exit232 ]
-  %.0121 = phi ptr [ %104, %193 ], [ %104, %191 ], [ %104, %189 ], [ null, %read_line.exit232 ]
+  %.0454 = phi i32 [ %.19, %193 ], [ %.19, %189 ], [ %.19, %191 ], [ %212, %read_line.exit232 ]
+  %.0121 = phi ptr [ %104, %193 ], [ %104, %189 ], [ %104, %191 ], [ null, %read_line.exit232 ]
   br label %214
 
 214:                                              ; preds = %220, %.loopexit499

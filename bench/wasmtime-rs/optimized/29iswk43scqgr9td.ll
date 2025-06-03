@@ -27,10 +27,10 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   call void @_ZN10wasmparser13binary_reader12BinaryReader7read_u717h1dd0a7f519a13bd4E(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !5
   %12 = load i8, ptr %5, align 8, !range !10, !noalias !8, !noundef !4
   %trunc.i = trunc nuw i8 %12 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !noalias !8, !nonnull !4, !align !11
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %16 = load i8, ptr %15, align 1, !noalias !8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %14 = load i8, ptr %13, align 1, !noalias !8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = load ptr, ptr %15, align 8, !noalias !8, !nonnull !4, !align !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !8
   br i1 %trunc.i, label %22, label %17
 
@@ -45,7 +45,7 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
 
 22:                                               ; preds = %11
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %14, ptr %23, align 8, !alias.scope !5, !noalias !13
+  store ptr %16, ptr %23, align 8, !alias.scope !5, !noalias !13
   store i8 12, ptr %6, align 8, !alias.scope !5, !noalias !13
   br label %"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit"
 
@@ -60,7 +60,7 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   store ptr %21, ptr %3, align 8, !noalias !8
   %.sroa.75.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %19, ptr %.sroa.75.0..sroa_idx6.i, align 8, !noalias !8
-  call void @"_ZN90_$LT$wasmparser..readers..core..names..Name$u20$as$u20$wasmparser..readers..Subsection$GT$11from_reader17hdc488886eebd226eE"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %6, i8 noundef %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
+  call void @"_ZN90_$LT$wasmparser..readers..core..names..Name$u20$as$u20$wasmparser..readers..Subsection$GT$11from_reader17hdc488886eebd226eE"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %6, i8 noundef %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
   br label %"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit"
 
 25:                                               ; preds = %17
@@ -93,10 +93,10 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
   call void @_ZN10wasmparser13binary_reader12BinaryReader7read_u717h1dd0a7f519a13bd4E(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %6 = load i8, ptr %5, align 8, !range !10, !noundef !4
   %trunc = trunc nuw i8 %6 to i1
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !11
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %10 = load i8, ptr %9, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %16, label %11
 
@@ -111,7 +111,7 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %17, align 8
+  store ptr %10, ptr %17, align 8
   store i8 12, ptr %0, align 8
   br label %21
 
@@ -126,7 +126,7 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
   store ptr %15, ptr %3, align 8
   %.sroa.75.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %13, ptr %.sroa.75.0..sroa_idx6, align 8
-  call void @"_ZN90_$LT$wasmparser..readers..core..names..Name$u20$as$u20$wasmparser..readers..Subsection$GT$11from_reader17hdc488886eebd226eE"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %0, i8 noundef %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
+  call void @"_ZN90_$LT$wasmparser..readers..core..names..Name$u20$as$u20$wasmparser..readers..Subsection$GT$11from_reader17hdc488886eebd226eE"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %0, i8 noundef %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
   br label %21
 
 19:                                               ; preds = %11

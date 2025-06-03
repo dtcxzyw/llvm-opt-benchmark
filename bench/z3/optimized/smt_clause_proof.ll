@@ -4775,7 +4775,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %213, %214, %219
   br i1 %.not, label %._crit_edge, label %37
 
 224:                                              ; preds = %211, %186, %153, %120, %87
-  %.pn = phi { ptr, i32 } [ %212, %211 ], [ %187, %186 ], [ %154, %153 ], [ %121, %120 ], [ %88, %87 ]
+  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %121, %120 ], [ %154, %153 ], [ %187, %186 ], [ %212, %211 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %225

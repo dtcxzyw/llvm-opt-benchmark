@@ -18892,7 +18892,7 @@ _ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit100: ; pred
   unreachable
 
 404:                                              ; preds = %55, %64, %91, %97, %103, %_ZN4llvm15TreePatternNode14UpdateNodeTypeEjRKNS_15TypeSetByHwModeERNS_11TreePatternE.exit81, %.critedge, %211, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit88, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit91, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit94, %328, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit97, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit100, %4
-  %.0 = phi i1 [ false, %4 ], [ %402, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit100 ], [ %370, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit97 ], [ %336, %328 ], [ %327, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit94 ], [ %295, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit91 ], [ %263, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit88 ], [ false, %.critedge ], [ %227, %211 ], [ %188, %_ZN4llvm15TreePatternNode14UpdateNodeTypeEjRKNS_15TypeSetByHwModeERNS_11TreePatternE.exit81 ], [ %108, %103 ], [ %102, %97 ], [ %96, %91 ], [ %89, %64 ], [ %61, %55 ]
+  %.0 = phi i1 [ false, %4 ], [ %61, %55 ], [ %89, %64 ], [ %96, %91 ], [ %102, %97 ], [ %108, %103 ], [ %188, %_ZN4llvm15TreePatternNode14UpdateNodeTypeEjRKNS_15TypeSetByHwModeERNS_11TreePatternE.exit81 ], [ false, %.critedge ], [ %227, %211 ], [ %263, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit88 ], [ %295, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit91 ], [ %327, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit94 ], [ %336, %328 ], [ %370, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit97 ], [ %402, %_ZL13getOperandNumjRN4llvm15TreePatternNodeERKNS_10SDNodeInfoERj.exit100 ]
   ret i1 %.0
 }
 
@@ -19134,7 +19134,7 @@ _ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_I
   br label %_ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit.thread
 
 _ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit.thread: ; preds = %2, %10, %_ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit, %15, %11
-  %.0 = phi i1 [ %20, %15 ], [ %14, %11 ], [ false, %_ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit ], [ true, %10 ], [ false, %2 ]
+  %.0 = phi i1 [ %14, %11 ], [ %20, %15 ], [ false, %_ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit ], [ true, %10 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -19197,7 +19197,7 @@ _ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_I
   br label %_ZStltIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit
 
 _ZStltIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit: ; preds = %13, %11, %_ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit.thread, %17, %22, %18
-  %.0 = phi i1 [ %27, %22 ], [ %21, %18 ], [ false, %17 ], [ true, %_ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit.thread ], [ false, %11 ], [ %16, %13 ]
+  %.0 = phi i1 [ %21, %18 ], [ %27, %22 ], [ false, %17 ], [ true, %_ZStneIJRKjRKN4llvm16SDTypeConstraint6KindTyEEJS1_S6_EEbRKSt5tupleIJDpT_EERKS7_IJDpT0_EE.exit.thread ], [ false, %11 ], [ %16, %13 ]
   ret i1 %.0
 }
 
@@ -23886,7 +23886,7 @@ _ZNK4llvm18CodeGenDAGPatterns13getSDNodeInfoEPKNS_6RecordE.exit: ; preds = %75, 
   br label %101
 
 101:                                              ; preds = %68, %35, %12, %6, %.thread36, %_ZNK4llvm18CodeGenDAGPatterns13getSDNodeInfoEPKNS_6RecordE.exit
-  %.1 = phi i1 [ %73, %68 ], [ %100, %_ZNK4llvm18CodeGenDAGPatterns13getSDNodeInfoEPKNS_6RecordE.exit ], [ false, %.thread36 ], [ %40, %35 ], [ false, %12 ], [ false, %6 ]
+  %.1 = phi i1 [ %100, %_ZNK4llvm18CodeGenDAGPatterns13getSDNodeInfoEPKNS_6RecordE.exit ], [ %73, %68 ], [ false, %.thread36 ], [ %40, %35 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.1
 }
 
@@ -39531,7 +39531,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit95: ; preds = %_ZN4l
   br label %258
 
 258:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenDAGPatterns23parseInstructionPatternERNS2_18CodeGenInstructionEPKNS2_8ListInitERSt3mapIPKNS2_6RecordENS2_14DAGInstructionENS2_14LessRecordByIDESaISt4pairIKSC_SD_EEEE3$_0EclIPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_18IntrusiveRefCntPtrINS2_15TreePatternNodeEEEEEEbT_.exit44.i.i.i.i", %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %257, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenDAGPatterns23parseInstructionPatternERNS2_18CodeGenInstructionEPKNS2_8ListInitERSt3mapIPKNS2_6RecordENS2_14DAGInstructionENS2_14LessRecordByIDESaISt4pairIKSC_SD_EEEE3$_0EclIPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_18IntrusiveRefCntPtrINS2_15TreePatternNodeEEEEEEbT_.exit44.i.i.i.i" ]
+  %.1.i.i.i.i = phi ptr [ %257, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenDAGPatterns23parseInstructionPatternERNS2_18CodeGenInstructionEPKNS2_8ListInitERSt3mapIPKNS2_6RecordENS2_14DAGInstructionENS2_14LessRecordByIDESaISt4pairIKSC_SD_EEEE3$_0EclIPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_18IntrusiveRefCntPtrINS2_15TreePatternNodeEEEEEEbT_.exit44.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %259 = getelementptr i8, ptr %.1.i.i.i.i, i64 32
   %.1.val.i.i.i.i = load ptr, ptr %259, align 8, !tbaa !337
   %.not.i.i.i.i45.not.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i, null
@@ -39547,7 +39547,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit95: ; preds = %_ZN4l
   br label %263
 
 263:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenDAGPatterns23parseInstructionPatternERNS2_18CodeGenInstructionEPKNS2_8ListInitERSt3mapIPKNS2_6RecordENS2_14DAGInstructionENS2_14LessRecordByIDESaISt4pairIKSC_SD_EEEE3$_0EclIPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_18IntrusiveRefCntPtrINS2_15TreePatternNodeEEEEEEbT_.exit47.i.i.i.i", %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %262, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenDAGPatterns23parseInstructionPatternERNS2_18CodeGenInstructionEPKNS2_8ListInitERSt3mapIPKNS2_6RecordENS2_14DAGInstructionENS2_14LessRecordByIDESaISt4pairIKSC_SD_EEEE3$_0EclIPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_18IntrusiveRefCntPtrINS2_15TreePatternNodeEEEEEEbT_.exit47.i.i.i.i" ]
+  %.2.i.i.i.i = phi ptr [ %262, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm18CodeGenDAGPatterns23parseInstructionPatternERNS2_18CodeGenInstructionEPKNS2_8ListInitERSt3mapIPKNS2_6RecordENS2_14DAGInstructionENS2_14LessRecordByIDESaISt4pairIKSC_SD_EEEE3$_0EclIPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_18IntrusiveRefCntPtrINS2_15TreePatternNodeEEEEEEbT_.exit47.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %264 = getelementptr i8, ptr %.2.i.i.i.i, i64 32
   %.2.val.i.i.i.i = load ptr, ptr %264, align 8, !tbaa !337
   %.not.i.i.i.i48.not.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i, null
@@ -49820,7 +49820,7 @@ _ZN4llvm15TreePatternNode7setTypeEjRKNS_15TypeSetByHwModeE.exit: ; preds = %.lr.
   br label %240
 
 240:                                              ; preds = %238, %._crit_edge.i.i.i.i.i
-  %.sroa.056.1.i.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %239, %238 ]
+  %.sroa.056.1.i.i.i.i.i = phi ptr [ %239, %238 ], [ %.sroa.056.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %241 = load ptr, ptr %.sroa.056.1.i.i.i.i.i, align 8, !tbaa !337
   %.not.i.i.i45.i.i.i.i.i = icmp eq ptr %241, null
   br i1 %.not.i.i.i45.i.i.i.i.i, label %245, label %242
@@ -49853,7 +49853,7 @@ _ZN4llvm15TreePatternNode7setTypeEjRKNS_15TypeSetByHwModeE.exit: ; preds = %.lr.
   br label %252
 
 252:                                              ; preds = %250, %._crit_edge.i.i.i.i.i
-  %.sroa.056.2.i.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %251, %250 ]
+  %.sroa.056.2.i.i.i.i.i = phi ptr [ %251, %250 ], [ %.sroa.056.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %253 = load ptr, ptr %.sroa.056.2.i.i.i.i.i, align 8, !tbaa !337
   %.not.i.i.i49.i.i.i.i.i = icmp eq ptr %253, null
   br i1 %.not.i.i.i49.i.i.i.i.i, label %257, label %254

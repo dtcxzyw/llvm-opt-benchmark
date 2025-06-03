@@ -3388,8 +3388,8 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i
-  %155 = phi double [ %.pre57.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i ], [ %153, %if.end36.i.i.i ]
-  %__first.sroa.0.2.i.i.i = phi ptr [ %133, %for.end.sw.bb38_crit_edge.i.i.i ], [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ]
+  %155 = phi double [ %153, %if.end36.i.i.i ], [ %.pre57.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ], [ %133, %for.end.sw.bb38_crit_edge.i.i.i ]
   %156 = load double, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !69
   %cmp.i23.i.i.i = fcmp oeq double %156, %155
   br i1 %cmp.i23.i.i.i, label %invoke.cont264, label %if.end43.i.i.i

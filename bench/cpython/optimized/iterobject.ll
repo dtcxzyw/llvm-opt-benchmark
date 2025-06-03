@@ -1091,7 +1091,7 @@ define internal i32 @iter_traverse(ptr noundef readonly captures(none) %0, ptr n
   br label %9
 
 9:                                                ; preds = %6, %8
-  %.1 = phi i32 [ %7, %6 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -1320,7 +1320,7 @@ define internal i32 @calliter_traverse(ptr noundef readonly captures(none) %0, p
   br label %14
 
 14:                                               ; preds = %11, %6, %13
-  %.1 = phi i32 [ %7, %6 ], [ %12, %11 ], [ 0, %13 ]
+  %.1 = phi i32 [ 0, %13 ], [ %12, %11 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -1590,7 +1590,7 @@ define internal i32 @anextawaitable_traverse(ptr noundef readonly captures(none)
   br label %14
 
 14:                                               ; preds = %11, %6, %13
-  %.1 = phi i32 [ %7, %6 ], [ %12, %11 ], [ 0, %13 ]
+  %.1 = phi i32 [ 0, %13 ], [ %12, %11 ], [ %7, %6 ]
   ret i32 %.1
 }
 

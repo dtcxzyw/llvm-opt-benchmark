@@ -367,7 +367,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11
 
 _ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11:  ; preds = %76, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10"
-  %.0.i.i.i8 = phi i32 [ %99, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10" ], [ %77, %76 ]
+  %.0.i.i.i8 = phi i32 [ %77, %76 ], [ %99, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10" ]
   %101 = zext i32 %.0.i.i.i8 to i64
   %102 = mul nuw i64 %101, %46
   %103 = trunc i64 %102 to i32
@@ -382,7 +382,7 @@ _ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11:  ; preds = %76, %"_ZN74_$LT$ran
   br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit
 
 _ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit:    ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i", %13, %.split14.us
-  %.0 = phi i32 [ %106, %.split14.us ], [ %38, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i" ], [ %15, %13 ]
+  %.0 = phi i32 [ %106, %.split14.us ], [ %15, %13 ], [ %38, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i" ]
   ret i32 %.0
 }
 
@@ -592,7 +592,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   br label %_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit10
 
 _ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit10:  ; preds = %76, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9"
-  %.0.i.i.i7 = phi i32 [ %99, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9" ], [ %77, %76 ]
+  %.0.i.i.i7 = phi i32 [ %77, %76 ], [ %99, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9" ]
   %101 = zext i32 %.0.i.i.i7 to i64
   %102 = mul nuw i64 %101, %46
   %103 = trunc i64 %102 to i32
@@ -607,7 +607,7 @@ _ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit10:  ; preds = %76, %"_ZN74_$LT$ran
   br label %_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit
 
 _ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit:    ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i", %13, %.split13.us
-  %.0 = phi i32 [ %106, %.split13.us ], [ %38, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i" ], [ %15, %13 ]
+  %.0 = phi i32 [ %106, %.split13.us ], [ %15, %13 ], [ %38, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i" ]
   ret i32 %.0
 }
 
@@ -734,7 +734,7 @@ _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8.us: ; preds = %_ZN4rand3rng3Rng3g
   br label %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8
 
 _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8:   ; preds = %39, %41
-  %.0.i.i.i7 = phi i64 [ %44, %41 ], [ %40, %39 ]
+  %.0.i.i.i7 = phi i64 [ %40, %39 ], [ %44, %41 ]
   %45 = zext i64 %.0.i.i.i7 to i128
   %46 = mul nuw i128 %45, %29
   %47 = trunc i128 %46 to i64
@@ -757,7 +757,7 @@ _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8:   ; preds = %39, %41
   br label %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit
 
 _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit:    ; preds = %18, %15, %.split11.us
-  %.0 = phi i64 [ %48, %.split11.us ], [ %22, %18 ], [ %17, %15 ]
+  %.0 = phi i64 [ %48, %.split11.us ], [ %17, %15 ], [ %22, %18 ]
   ret i64 %.0
 }
 
@@ -848,7 +848,7 @@ _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9.us: ; preds = %_ZN4rand3rng3Rng3g
   br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9
 
 _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9:   ; preds = %37, %39
-  %.0.i.i.i8 = phi i64 [ %42, %39 ], [ %38, %37 ]
+  %.0.i.i.i8 = phi i64 [ %38, %37 ], [ %42, %39 ]
   %43 = zext i64 %.0.i.i.i8 to i128
   %44 = mul nuw i128 %43, %27
   %45 = trunc i128 %44 to i64
@@ -871,7 +871,7 @@ _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9:   ; preds = %37, %39
   br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit
 
 _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit:    ; preds = %16, %13, %.split12.us
-  %.0 = phi i64 [ %46, %.split12.us ], [ %20, %16 ], [ %15, %13 ]
+  %.0 = phi i64 [ %46, %.split12.us ], [ %15, %13 ], [ %20, %16 ]
   ret i64 %.0
 }
 
@@ -966,7 +966,7 @@ _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8.us: ; preds = %_ZN4rand3rng3Rng3g
   br label %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8
 
 _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8:   ; preds = %37, %39
-  %.0.i.i.i7 = phi i64 [ %42, %39 ], [ %38, %37 ]
+  %.0.i.i.i7 = phi i64 [ %38, %37 ], [ %42, %39 ]
   %43 = zext i64 %.0.i.i.i7 to i128
   %44 = mul nuw i128 %43, %27
   %45 = trunc i128 %44 to i64
@@ -989,7 +989,7 @@ _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8:   ; preds = %37, %39
   br label %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit
 
 _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit:    ; preds = %16, %13, %.split11.us
-  %.0 = phi i64 [ %46, %.split11.us ], [ %20, %16 ], [ %15, %13 ]
+  %.0 = phi i64 [ %46, %.split11.us ], [ %15, %13 ], [ %20, %16 ]
   ret i64 %.0
 }
 

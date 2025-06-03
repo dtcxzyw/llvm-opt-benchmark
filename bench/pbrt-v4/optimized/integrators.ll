@@ -2203,7 +2203,7 @@ _ZNSt14_Function_baseD2Ev.exit123:                ; preds = %141, %143
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %176, %178, %180, %185, %187, %189, %191, %195, %197
-  %.0.i.i.i = phi i32 [ %198, %197 ], [ %196, %195 ], [ %194, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %180 ], [ %179, %178 ], [ %177, %176 ]
+  %.0.i.i.i = phi i32 [ %198, %197 ], [ %177, %176 ], [ %179, %178 ], [ %184, %180 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %194, %191 ], [ %196, %195 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %20) #38
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
   %199 = sub i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, %.sroa.0.0.copyload.i.i12.pn.i.i.i
@@ -6121,7 +6121,7 @@ _ZN4pbrt15GetCameraSampleINS_7SamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6Fi
   br label %_ZNK4pbrt7Sampler15SamplesPerPixelEv.exit
 
 _ZNK4pbrt7Sampler15SamplesPerPixelEv.exit:        ; preds = %121, %119, %115, %113, %111, %109, %104, %102, %100
-  %.0.i.i.i = phi i32 [ %122, %121 ], [ %120, %119 ], [ %118, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %104 ], [ %103, %102 ], [ %101, %100 ]
+  %.0.i.i.i = phi i32 [ %122, %121 ], [ %101, %100 ], [ %103, %102 ], [ %108, %104 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %118, %115 ], [ %120, %119 ]
   %123 = sitofp i32 %.0.i.i.i to float
   %124 = call noundef float @sqrtf(float noundef %123) #38, !tbaa !15
   %125 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8, !tbaa !38
@@ -9727,9 +9727,9 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i336.i.i.i: ; preds = 
   br label %1355
 
 1355:                                             ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i"
-  %.sroa.0182.25 = phi i64 [ %.sroa.0182.21, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.6, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.8, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.13, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.19, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ]
-  %.fca.0.load.i.i306.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i306.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i222.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i112.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i29.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ]
-  %.fca.1.load.i.i309.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i309.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i225.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i115.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i32.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ]
+  %.sroa.0182.25 = phi i64 [ %.sroa.0182.21, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.19, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.13, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.8, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.sroa.0182.6, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ]
+  %.fca.0.load.i.i306.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i306.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i29.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i112.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i222.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ]
+  %.fca.1.load.i.i309.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i309.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i32.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i115.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i225.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118) #38
   %.sroa.0174.0.vec.extract = extractelement <2 x float> %.fca.0.load.i.i306.pn.i.i.i, i64 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #38
@@ -15412,7 +15412,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   br label %_ZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightE.exit
 
 _ZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightE.exit: ; preds = %200, %206, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i.i, %.noexc379, %.noexc380
-  %.0.i377 = phi float [ %257, %.noexc380 ], [ %255, %.noexc379 ], [ %.0.i.i.i.i, %200 ], [ %253, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i.i ], [ 0.000000e+00, %206 ]
+  %.0.i377 = phi float [ %257, %.noexc380 ], [ %.0.i.i.i.i, %200 ], [ %255, %.noexc379 ], [ %253, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i.i ], [ 0.000000e+00, %206 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 4 dereferenceable(48) %39, i64 48, i1 false)
   %.sroa.071.0.copyload = load <2 x float>, ptr %71, align 4
@@ -24999,8 +24999,8 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i328.i.i.i: ; preds = 
   br label %1540
 
 1540:                                             ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i"
-  %.fca.0.load.i.i298.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i298.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i216.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i107.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i27.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i" ]
-  %.fca.1.load.i.i301.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i301.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i219.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i110.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i30.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i" ]
+  %.fca.0.load.i.i298.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i298.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i27.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i107.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i216.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i" ]
+  %.fca.1.load.i.i301.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i301.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i30.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i110.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i219.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %171)
   %1541 = load i8, ptr %185, align 1, !tbaa !538, !range !116, !noundef !117
   %1542 = trunc nuw i8 %1541 to i1
@@ -25561,7 +25561,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %1749, %1745, %1743
   unreachable
 
 .noexc782:                                        ; preds = %1757, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
-  %.0.i788 = phi float [ %1767, %1757 ], [ %1756, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %1727, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ]
+  %.0.i788 = phi float [ %1727, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %1756, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %1767, %1757 ]
   %1769 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %1769, label %1771 [
     i32 0, label %_ZN4pbrt3RGBixEi.exit.i.i
@@ -25839,7 +25839,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   br label %_ZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightE.exit
 
 _ZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightE.exit: ; preds = %1817, %1823, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i.i, %.noexc786, %.noexc787
-  %.0.i783 = phi float [ %1874, %.noexc787 ], [ %1872, %.noexc786 ], [ %.0.i.i.i.i, %1817 ], [ %1870, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i.i ], [ 0.000000e+00, %1823 ]
+  %.0.i783 = phi float [ %1874, %.noexc787 ], [ %.0.i.i.i.i, %1817 ], [ %1872, %.noexc786 ], [ %1870, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i.i ], [ 0.000000e+00, %1823 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %55)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 4 dereferenceable(48) %182, i64 48, i1 false)
   %.sroa.0122.0.copyload = load <2 x float>, ptr %.sroa.4847.0..sroa_idx, align 4
@@ -31651,8 +31651,8 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i328.i.i.i: ; preds = 
   br label %1638
 
 1638:                                             ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i"
-  %.fca.0.load.i.i298.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i298.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i216.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i107.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i27.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i" ]
-  %.fca.1.load.i.i301.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i301.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i219.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i110.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i30.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i" ]
+  %.fca.0.load.i.i298.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i298.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i27.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i107.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i216.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i" ]
+  %.fca.1.load.i.i301.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i301.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i30.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i110.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i219.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %169) #38
   %.sroa.0483.0.vec.extract = extractelement <2 x float> %.fca.0.load.i.i298.pn.i.i.i, i64 0
@@ -37000,8 +37000,8 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i328.i.i.i: ; preds = 
   br label %1340
 
 1340:                                             ; preds = %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i"
-  %.fca.0.load.i.i298.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i298.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i216.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i107.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i27.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i" ]
-  %.fca.1.load.i.i301.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i301.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i219.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i110.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i30.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i" ]
+  %.fca.0.load.i.i298.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i298.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i27.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i107.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i216.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i" ]
+  %.fca.1.load.i.i301.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i301.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i30.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i110.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i219.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %140)
   %1341 = load i8, ptr %148, align 1, !tbaa !538, !range !116, !noundef !117
   %1342 = trunc nuw i8 %1341 to i1
@@ -40629,7 +40629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   br label %_ZNK4pbrt7Sampler15SamplesPerPixelEv.exit
 
 _ZNK4pbrt7Sampler15SamplesPerPixelEv.exit:        ; preds = %224, %226, %228, %233, %235, %237, %239, %243, %245
-  %.0.i.i.i70 = phi i32 [ %246, %245 ], [ %244, %243 ], [ %242, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %228 ], [ %227, %226 ], [ %225, %224 ]
+  %.0.i.i.i70 = phi i32 [ %246, %245 ], [ %225, %224 ], [ %227, %226 ], [ %232, %228 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %242, %239 ], [ %244, %243 ]
   %247 = sitofp i32 %.0.i.i.i70 to float
   %248 = fdiv float 1.000000e+00, %247
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -41617,40 +41617,40 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %90
   %100 = getelementptr %"struct.pbrt::Vertex", ptr %2, i64 %99
   %101 = getelementptr i8, ptr %100, i64 -336
   %102 = load i32, ptr %101, align 8, !tbaa !966
-  switch i32 %102, label %113 [
+  switch i32 %102, label %109 [
     i32 3, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit.thread
-    i32 1, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit
+    i32 1, label %103
     i32 0, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit.thread
-    i32 2, label %103
+    i32 2, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit
   ]
 
 103:                                              ; preds = %98
-  %104 = getelementptr i8, ptr %100, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #38
-  %105 = load i64, ptr %104, align 8, !tbaa !529
+  %104 = getelementptr i8, ptr %100, i64 -232
+  %105 = load i64, ptr %104, align 8, !tbaa !29
   %106 = and i64 %105, 144115188075855871
   %107 = inttoptr i64 %106 to ptr
-  %108 = lshr i64 %105, 57
-  %109 = trunc nuw nsw i64 %108 to i32
-  %110 = add nsw i32 %109, -1
-  %111 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef %107, i32 noundef %110)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #38
-  %112 = and i32 %111, 12
-  %.not475 = icmp eq i32 %112, 0
-  br i1 %.not475, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit.thread
+  %108 = load i32, ptr %107, align 8, !tbaa !676
+  %.not476 = icmp eq i32 %108, 1
+  br i1 %.not476, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit.thread
 
-113:                                              ; preds = %98
+109:                                              ; preds = %98
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 1656, ptr noundef nonnull @.str.169) #41
   unreachable
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit:           ; preds = %98
-  %114 = getelementptr i8, ptr %100, i64 -232
-  %115 = load i64, ptr %114, align 8, !tbaa !29
-  %116 = and i64 %115, 144115188075855871
-  %117 = inttoptr i64 %116 to ptr
-  %118 = load i32, ptr %117, align 8, !tbaa !676
-  %.not476 = icmp eq i32 %118, 1
-  br i1 %.not476, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit.thread
+  %110 = getelementptr i8, ptr %100, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #38
+  %111 = load i64, ptr %110, align 8, !tbaa !529
+  %112 = and i64 %111, 144115188075855871
+  %113 = inttoptr i64 %112 to ptr
+  %114 = lshr i64 %111, 57
+  %115 = trunc nuw nsw i64 %114 to i32
+  %116 = add nsw i32 %115, -1
+  %117 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef %113, i32 noundef %116)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #38
+  %118 = and i32 %117, 12
+  %.not475 = icmp eq i32 %118, 0
+  br i1 %.not475, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit.thread
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit.thread:    ; preds = %98, %98, %103, %_ZNK4pbrt6Vertex13IsConnectibleEv.exit
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %38) #38
@@ -41989,40 +41989,40 @@ _ZN4pstd8optionalIN4pbrt14CameraWiSampleEED2Ev.exit223: ; preds = %235, %195, %1
   %241 = getelementptr %"struct.pbrt::Vertex", ptr %3, i64 %240
   %242 = getelementptr i8, ptr %241, i64 -336
   %243 = load i32, ptr %242, align 8, !tbaa !966
-  switch i32 %243, label %254 [
+  switch i32 %243, label %250 [
     i32 3, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225.thread
-    i32 1, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225
+    i32 1, label %244
     i32 0, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225.thread
-    i32 2, label %244
+    i32 2, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225
   ]
 
 244:                                              ; preds = %239
-  %245 = getelementptr i8, ptr %241, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #38
-  %246 = load i64, ptr %245, align 8, !tbaa !529
+  %245 = getelementptr i8, ptr %241, i64 -232
+  %246 = load i64, ptr %245, align 8, !tbaa !29
   %247 = and i64 %246, 144115188075855871
   %248 = inttoptr i64 %247 to ptr
-  %249 = lshr i64 %246, 57
-  %250 = trunc nuw nsw i64 %249 to i32
-  %251 = add nsw i32 %250, -1
-  %252 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %248, i32 noundef %251)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #38
-  %253 = and i32 %252, 12
-  %.not470 = icmp eq i32 %253, 0
-  br i1 %.not470, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225.thread
+  %249 = load i32, ptr %248, align 8, !tbaa !676
+  %.not471 = icmp eq i32 %249, 1
+  br i1 %.not471, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225.thread
 
-254:                                              ; preds = %239
+250:                                              ; preds = %239
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 1656, ptr noundef nonnull @.str.169) #41
   unreachable
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit225:        ; preds = %239
-  %255 = getelementptr i8, ptr %241, i64 -232
-  %256 = load i64, ptr %255, align 8, !tbaa !29
-  %257 = and i64 %256, 144115188075855871
-  %258 = inttoptr i64 %257 to ptr
-  %259 = load i32, ptr %258, align 8, !tbaa !676
-  %.not471 = icmp eq i32 %259, 1
-  br i1 %.not471, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225.thread
+  %251 = getelementptr i8, ptr %241, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #38
+  %252 = load i64, ptr %251, align 8, !tbaa !529
+  %253 = and i64 %252, 144115188075855871
+  %254 = inttoptr i64 %253 to ptr
+  %255 = lshr i64 %252, 57
+  %256 = trunc nuw nsw i64 %255 to i32
+  %257 = add nsw i32 %256, -1
+  %258 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %254, i32 noundef %257)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #38
+  %259 = and i32 %258, 12
+  %.not470 = icmp eq i32 %259, 0
+  br i1 %.not470, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225.thread
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit225.thread: ; preds = %239, %239, %244, %_ZNK4pbrt6Vertex13IsConnectibleEv.exit225
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41) #38
@@ -42547,77 +42547,77 @@ _ZN4pstd8optionalIN4pbrt12SampledLightEED2Ev.exit316: ; preds = %.thread497, %_Z
   %446 = getelementptr %"struct.pbrt::Vertex", ptr %3, i64 %445
   %447 = getelementptr i8, ptr %446, i64 -336
   %448 = load i32, ptr %444, align 8, !tbaa !966
-  switch i32 %448, label %459 [
+  switch i32 %448, label %455 [
     i32 3, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
-    i32 1, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318
+    i32 1, label %449
     i32 0, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
-    i32 2, label %449
+    i32 2, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318
   ]
 
 449:                                              ; preds = %441
-  %450 = getelementptr i8, ptr %443, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #38
-  %451 = load i64, ptr %450, align 8, !tbaa !529
+  %450 = getelementptr i8, ptr %443, i64 -232
+  %451 = load i64, ptr %450, align 8, !tbaa !29
   %452 = and i64 %451, 144115188075855871
   %453 = inttoptr i64 %452 to ptr
-  %454 = lshr i64 %451, 57
-  %455 = trunc nuw nsw i64 %454 to i32
-  %456 = add nsw i32 %455, -1
-  %457 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %453, i32 noundef %456)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #38
-  %458 = and i32 %457, 12
-  %.not466 = icmp eq i32 %458, 0
-  br i1 %.not466, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
+  %454 = load i32, ptr %453, align 8, !tbaa !676
+  %.not467 = icmp eq i32 %454, 1
+  br i1 %.not467, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
 
-459:                                              ; preds = %441
+455:                                              ; preds = %441
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 1656, ptr noundef nonnull @.str.169) #41
   unreachable
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit318:        ; preds = %441
-  %460 = getelementptr i8, ptr %443, i64 -232
-  %461 = load i64, ptr %460, align 8, !tbaa !29
-  %462 = and i64 %461, 144115188075855871
-  %463 = inttoptr i64 %462 to ptr
-  %464 = load i32, ptr %463, align 8, !tbaa !676
-  %.not467 = icmp eq i32 %464, 1
-  br i1 %.not467, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
+  %456 = getelementptr i8, ptr %443, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #38
+  %457 = load i64, ptr %456, align 8, !tbaa !529
+  %458 = and i64 %457, 144115188075855871
+  %459 = inttoptr i64 %458 to ptr
+  %460 = lshr i64 %457, 57
+  %461 = trunc nuw nsw i64 %460 to i32
+  %462 = add nsw i32 %461, -1
+  %463 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %459, i32 noundef %462)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #38
+  %464 = and i32 %463, 12
+  %.not466 = icmp eq i32 %464, 0
+  br i1 %.not466, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread: ; preds = %441, %441, %449, %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318
   %465 = load i32, ptr %447, align 8, !tbaa !966
-  switch i32 %465, label %476 [
+  switch i32 %465, label %472 [
     i32 3, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320.thread
-    i32 1, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320
+    i32 1, label %466
     i32 0, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320.thread
-    i32 2, label %466
+    i32 2, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320
   ]
 
 466:                                              ; preds = %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
-  %467 = getelementptr i8, ptr %446, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #38
-  %468 = load i64, ptr %467, align 8, !tbaa !529
+  %467 = getelementptr i8, ptr %446, i64 -232
+  %468 = load i64, ptr %467, align 8, !tbaa !29
   %469 = and i64 %468, 144115188075855871
   %470 = inttoptr i64 %469 to ptr
-  %471 = lshr i64 %468, 57
-  %472 = trunc nuw nsw i64 %471 to i32
-  %473 = add nsw i32 %472, -1
-  %474 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %470, i32 noundef %473)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #38
-  %475 = and i32 %474, 12
-  %.not468 = icmp eq i32 %475, 0
-  br i1 %.not468, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320.thread
+  %471 = load i32, ptr %470, align 8, !tbaa !676
+  %.not469 = icmp eq i32 %471, 1
+  br i1 %.not469, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320.thread
 
-476:                                              ; preds = %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
+472:                                              ; preds = %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
   call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 1656, ptr noundef nonnull @.str.169) #41
   unreachable
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit320:        ; preds = %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread
-  %477 = getelementptr i8, ptr %446, i64 -232
-  %478 = load i64, ptr %477, align 8, !tbaa !29
-  %479 = and i64 %478, 144115188075855871
-  %480 = inttoptr i64 %479 to ptr
-  %481 = load i32, ptr %480, align 8, !tbaa !676
-  %.not469 = icmp eq i32 %481, 1
-  br i1 %.not469, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320.thread
+  %473 = getelementptr i8, ptr %446, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #38
+  %474 = load i64, ptr %473, align 8, !tbaa !529
+  %475 = and i64 %474, 144115188075855871
+  %476 = inttoptr i64 %475 to ptr
+  %477 = lshr i64 %474, 57
+  %478 = trunc nuw nsw i64 %477 to i32
+  %479 = add nsw i32 %478, -1
+  %480 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %476, i32 noundef %479)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #38
+  %481 = and i32 %480, 12
+  %.not468 = icmp eq i32 %481, 0
+  br i1 %.not468, label %_ZNK4pbrt6Vertex7IsLightEv.exit.thread460, label %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320.thread
 
 _ZNK4pbrt6Vertex13IsConnectibleEv.exit320.thread: ; preds = %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread, %_ZNK4pbrt6Vertex13IsConnectibleEv.exit318.thread, %466, %_ZNK4pbrt6Vertex13IsConnectibleEv.exit320
   %482 = getelementptr i8, ptr %443, i64 -332
@@ -43102,7 +43102,7 @@ _ZNK4pbrt6Vertex15IsInfiniteLightEv.exit.thread:  ; preds = %38, %_ZNK4pbrt6Vert
   br label %_ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit
 
 _ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit: ; preds = %55, %55, %55, %55, %55, %55, %67, %69, %71
-  %.pn.i.i.i = phi { <2 x float>, <2 x float> } [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ]
+  %.pn.i.i.i = phi { <2 x float>, <2 x float> } [ %72, %71 ], [ %68, %67 ], [ %70, %69 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ], [ zeroinitializer, %55 ]
   %73 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i, 0
   store <2 x float> %73, ptr %6, align 8
   %74 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i, 1
@@ -47023,7 +47023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %_Z
   br label %_ZNK4pbrt7Sampler15SamplesPerPixelEv.exit
 
 _ZNK4pbrt7Sampler15SamplesPerPixelEv.exit:        ; preds = %113, %115, %117, %122, %124, %126, %128, %132, %134
-  %.0.i.i.i = phi i32 [ %135, %134 ], [ %133, %132 ], [ %131, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %117 ], [ %116, %115 ], [ %114, %113 ]
+  %.0.i.i.i = phi i32 [ %135, %134 ], [ %114, %113 ], [ %116, %115 ], [ %121, %117 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %131, %128 ], [ %133, %132 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %11) #38
   %136 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %136, ptr %12, align 8, !tbaa !4
@@ -53581,7 +53581,7 @@ _ZN4pbrt7Array2DIdEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE
   br label %_ZNK4pbrt7Sampler15SamplesPerPixelEv.exit
 
 _ZNK4pbrt7Sampler15SamplesPerPixelEv.exit:        ; preds = %94, %92, %88, %86, %84, %82, %77, %75, %73
-  %.0.i.i.i = phi i32 [ %95, %94 ], [ %93, %92 ], [ %91, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %77 ], [ %76, %75 ], [ %74, %73 ]
+  %.0.i.i.i = phi i32 [ %95, %94 ], [ %74, %73 ], [ %76, %75 ], [ %81, %77 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %91, %88 ], [ %93, %92 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %98 = load i64, ptr %97, align 8, !tbaa !10
@@ -60568,7 +60568,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Samp
   br label %58
 
 58:                                               ; preds = %43, %41, %39, %33, %31, %25, %23, %6, %4
-  %.0 = phi float [ %57, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %33 ], [ %32, %31 ], [ %30, %25 ], [ %24, %23 ], [ %.sroa.speculated.i.i.i, %6 ], [ %5, %4 ]
+  %.0 = phi float [ %57, %43 ], [ %5, %4 ], [ %.sroa.speculated.i.i.i, %6 ], [ %24, %23 ], [ %30, %25 ], [ %32, %31 ], [ %38, %33 ], [ %40, %39 ], [ %42, %41 ]
   ret float %.0
 }
 
@@ -64198,7 +64198,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 
@@ -65062,7 +65062,7 @@ _ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; preds = 
   br label %84
 
 84:                                               ; preds = %63, %61, %59, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit, %45, %37, %35, %6, %4
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %63 ], [ %62, %61 ], [ %60, %59 ], [ %.sroa.0.4.vec.insert.i.i22, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %46, %45 ], [ %.sroa.0.4.vec.insert.i.i20, %37 ], [ %36, %35 ], [ %.sroa.0.4.vec.insert.i.i, %6 ], [ %5, %4 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %63 ], [ %5, %4 ], [ %.sroa.0.4.vec.insert.i.i, %6 ], [ %36, %35 ], [ %.sroa.0.4.vec.insert.i.i20, %37 ], [ %46, %45 ], [ %.sroa.0.4.vec.insert.i.i22, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %60, %59 ], [ %62, %61 ]
   ret <2 x float> %.sroa.0.0
 }
 
@@ -67404,7 +67404,7 @@ _ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_11Diffus
   br label %_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEET0_OS6_PKvi.exit
 
 _ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEET0_OS6_PKvi.exit: ; preds = %85, %83, %3, %67, %59, %51, %43, %35, %_ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_11DiffuseBxDFEEENS_15SampledSpectrumES4_.exit, %_ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEENS_15SampledSpectrumES4_.exit
-  %.pn = phi { <2 x float>, <2 x float> } [ %74, %67 ], [ %66, %59 ], [ %58, %51 ], [ %50, %43 ], [ %42, %35 ], [ %.fca.1.insert.i.i, %_ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_11DiffuseBxDFEEENS_15SampledSpectrumES4_.exit ], [ %.pn.i.i, %_ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEENS_15SampledSpectrumES4_.exit ], [ zeroinitializer, %3 ], [ %84, %83 ], [ %86, %85 ]
+  %.pn = phi { <2 x float>, <2 x float> } [ %.pn.i.i, %_ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEENS_15SampledSpectrumES4_.exit ], [ %.fca.1.insert.i.i, %_ZZNK4pbrt4BxDF1fENS_7Vector3IfEES2_NS_13TransportModeEENKUlT_E_clIPKNS_11DiffuseBxDFEEENS_15SampledSpectrumES4_.exit ], [ %42, %35 ], [ %50, %43 ], [ %58, %51 ], [ %66, %59 ], [ %74, %67 ], [ zeroinitializer, %3 ], [ %84, %83 ], [ %86, %85 ]
   ret { <2 x float>, <2 x float> } %.pn
 }
 
@@ -69046,7 +69046,7 @@ _ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.sp
   br label %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit
 
 _ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit: ; preds = %3, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.split, %78, %41, %39, %77, %64, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_19CoatedConductorBxDFEEEDaS1_.exit, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit
-  %.0 = phi i32 [ 9, %77 ], [ %76, %64 ], [ %.1.i.i33, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_19CoatedConductorBxDFEEEDaS1_.exit ], [ %18, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit ], [ %14, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit ], [ %40, %39 ], [ %spec.select14.i.i, %41 ], [ 19, %3 ], [ %85, %78 ], [ 5, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.split ]
+  %.0 = phi i32 [ %14, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit ], [ %18, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit ], [ %.1.i.i33, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_19CoatedConductorBxDFEEEDaS1_.exit ], [ %76, %64 ], [ 9, %77 ], [ %40, %39 ], [ %spec.select14.i.i, %41 ], [ 19, %3 ], [ %85, %78 ], [ 5, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit.fold.split ]
   ret i32 %.0
 }
 
@@ -70092,7 +70092,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Lig
   br label %74
 
 74:                                               ; preds = %3, %3, %65, %56, %47, %38, %29, %20, %11
-  %.0 = phi float [ %73, %65 ], [ %64, %56 ], [ %55, %47 ], [ %46, %38 ], [ %37, %29 ], [ %28, %20 ], [ %19, %11 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %3 ]
+  %.0 = phi float [ %73, %65 ], [ %19, %11 ], [ %28, %20 ], [ %37, %29 ], [ %46, %38 ], [ %55, %47 ], [ %64, %56 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %3 ]
   ret float %.0
 }
 
@@ -71156,7 +71156,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   br label %_ZZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightEENKUlT_E_clIPKNS_17PowerLightSamplerEEEDaS5_.exit
 
 _ZZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightEENKUlT_E_clIPKNS_17PowerLightSamplerEEEDaS5_.exit: ; preds = %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i, %12, %69, %63, %6
-  %.0 = phi float [ %74, %69 ], [ %68, %63 ], [ %.0.i.i.i, %6 ], [ %62, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i ], [ 0.000000e+00, %12 ]
+  %.0 = phi float [ %74, %69 ], [ %.0.i.i.i, %6 ], [ %68, %63 ], [ %62, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i ], [ 0.000000e+00, %12 ]
   ret float %.0
 }
 
@@ -72070,7 +72070,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit43.i.i: ; preds = %18
   br label %_ZZNK4pbrt4BxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsEENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS5_.exit
 
 _ZZNK4pbrt4BxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsEENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS5_.exit: ; preds = %118, %108, %3, %35, %32, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit43.i.i, %94, %83, %72, %61, %50, %38
-  %.0 = phi float [ %104, %94 ], [ %93, %83 ], [ %82, %72 ], [ %71, %61 ], [ %60, %50 ], [ %.0.i.i26, %38 ], [ %34, %32 ], [ %37, %35 ], [ 0.000000e+00, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit43.i.i ], [ 0.000000e+00, %3 ], [ %117, %108 ], [ %.0.i.i.i, %118 ]
+  %.0 = phi float [ %.0.i.i26, %38 ], [ %60, %50 ], [ %71, %61 ], [ %82, %72 ], [ %93, %83 ], [ %104, %94 ], [ %34, %32 ], [ %37, %35 ], [ 0.000000e+00, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit43.i.i ], [ 0.000000e+00, %3 ], [ %117, %108 ], [ %.0.i.i.i, %118 ]
   ret float %.0
 }
 
@@ -75626,7 +75626,7 @@ _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnbou
   br label %90
 
 90:                                               ; preds = %88, %86, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS4_.exit, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbedoSpectrumEEEDaS4_.exit, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23PiecewiseLinearSpectrumEEEDaS4_.exit, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS4_.exit, %9
-  %.pn = phi { <2 x float>, <2 x float> } [ %89, %88 ], [ %87, %86 ], [ %.fca.1.insert.i.i41, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i30, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbedoSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i22, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23PiecewiseLinearSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS4_.exit ], [ %10, %9 ]
+  %.pn = phi { <2 x float>, <2 x float> } [ %89, %88 ], [ %10, %9 ], [ %.fca.1.insert.i.i, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i22, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23PiecewiseLinearSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i30, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbedoSpectrumEEEDaS4_.exit ], [ %.fca.1.insert.i.i41, %_ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS4_.exit ], [ %87, %86 ]
   ret { <2 x float>, <2 x float> } %.pn
 }
 
@@ -77663,7 +77663,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   br label %_ZZNK4pbrt12LightSampler3PMFENS_5LightEENKUlT_E_clIPKNS_17PowerLightSamplerEEEDaS2_.exit
 
 _ZZNK4pbrt12LightSampler3PMFENS_5LightEENKUlT_E_clIPKNS_17PowerLightSamplerEEEDaS2_.exit: ; preds = %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i, %10, %66, %60, %4
-  %.0 = phi float [ %.0.i.i11, %66 ], [ %.0.i.i10, %60 ], [ %.0.i.i, %4 ], [ %59, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i ], [ 0.000000e+00, %10 ]
+  %.0 = phi float [ %.0.i.i11, %66 ], [ %.0.i.i, %4 ], [ %.0.i.i10, %60 ], [ %59, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i ], [ 0.000000e+00, %10 ]
   ret float %.0
 }
 
@@ -95952,7 +95952,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEN4pstd4spanI
   br label %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i
 
 _ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i: ; preds = %33, %31, %29
-  %.pn.i.i.i.i.i.i = phi { <2 x float>, float } [ %34, %33 ], [ %32, %31 ], [ %30, %29 ]
+  %.pn.i.i.i.i.i.i = phi { <2 x float>, float } [ %34, %33 ], [ %30, %29 ], [ %32, %31 ]
   %.fca.0.extract.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i.i.i.i, 0
   %.fca.1.extract.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i.i.i.i, 1
   %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %.fca.0.extract.i.i.i, i64 0
@@ -100761,7 +100761,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZN4pbrt6detail8DispatchIR
   br label %88
 
 88:                                               ; preds = %86, %65, %44, %23, %11
-  %.pn = phi { <2 x float>, float } [ %87, %86 ], [ %.fca.1.insert.i.i.i44, %65 ], [ %.fca.1.insert.i.i.i37, %44 ], [ %.fca.1.insert.i.i.i, %23 ], [ %.fca.1.insert.i.i, %11 ]
+  %.pn = phi { <2 x float>, float } [ %87, %86 ], [ %.fca.1.insert.i.i, %11 ], [ %.fca.1.insert.i.i.i, %23 ], [ %.fca.1.insert.i.i.i37, %44 ], [ %.fca.1.insert.i.i.i44, %65 ]
   ret { <2 x float>, float } %.pn
 }
 
@@ -101259,7 +101259,7 @@ _ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; pr
   br label %164
 
 164:                                              ; preds = %143, %141, %139, %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit, %100, %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_13HaltonSamplerEEEDaS1_.exit, %55, %26, %4
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i, %143 ], [ %142, %141 ], [ %140, %139 ], [ %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i, %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %101, %100 ], [ %.sroa.0.4.vec.insert.i.i, %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_13HaltonSamplerEEEDaS1_.exit ], [ %56, %55 ], [ %.sroa.0.4.vec.insert.i.i.i, %26 ], [ %.sroa.0.0.copyload.i.i, %4 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i, %143 ], [ %.sroa.0.0.copyload.i.i, %4 ], [ %.sroa.0.4.vec.insert.i.i.i, %26 ], [ %56, %55 ], [ %.sroa.0.4.vec.insert.i.i, %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_13HaltonSamplerEEEDaS1_.exit ], [ %101, %100 ], [ %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i, %_ZZN4pbrt7Sampler10GetPixel2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %140, %139 ], [ %142, %141 ]
   ret <2 x float> %.sroa.0.0
 }
 
@@ -130549,7 +130549,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEN4pstd4spanI
   br label %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i
 
 _ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i: ; preds = %41, %39, %37
-  %.pn.i.i.i20.i.i.i = phi { <2 x float>, float } [ %42, %41 ], [ %40, %39 ], [ %38, %37 ]
+  %.pn.i.i.i20.i.i.i = phi { <2 x float>, float } [ %42, %41 ], [ %38, %37 ], [ %40, %39 ]
   %.fca.0.extract.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i20.i.i.i, 0
   %.fca.1.extract.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i20.i.i.i, 1
   %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %.fca.0.extract.i.i.i, i64 0
@@ -137174,7 +137174,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i.i.i.i:                 ; preds = %513, %509, %507
   unreachable
 
 .noexc444.i.i.i:                                  ; preds = %521, %_ZNK4pbrt4HalfcvfEv.exit.i.i.i.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i.i.i
-  %.0.i445.i.i.i = phi float [ %531, %521 ], [ %520, %_ZNK4pbrt4HalfcvfEv.exit.i.i.i.i ], [ %491, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i.i.i ]
+  %.0.i445.i.i.i = phi float [ %491, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i.i.i ], [ %520, %_ZNK4pbrt4HalfcvfEv.exit.i.i.i.i ], [ %531, %521 ]
   %533 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   switch i32 %533, label %535 [
     i32 0, label %_ZN4pbrt3RGBixEi.exit.i.i.i.i.i
@@ -138651,8 +138651,8 @@ _ZZNK4pbrt4Film11ToOutputRGBENS_15SampledSpectrumERKNS_18SampledWavelengthsEENKU
   %.pn50 = phi float [ %34, %.split.i.i.i.i ], [ %75, %.split.i.i.i.i32 ]
   %87 = insertelement <2 x float> poison, float %.lcssa95.sink, i64 0
   %.sroa.014.i.0.vec.insert8.i.i.i35 = insertelement <2 x float> %87, float %.lcssa94.sink, i64 1
-  %.fca.0.insert.i.i.i.i36.pn = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.014.i.0.vec.insert8.i.i.i35, 0
-  %.pn = insertvalue { <2 x float>, float } %.fca.0.insert.i.i.i.i36.pn, float %.pn50, 1
+  %.fca.0.insert.i.i.i.i.pn = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.014.i.0.vec.insert8.i.i.i35, 0
+  %.pn = insertvalue { <2 x float>, float } %.fca.0.insert.i.i.i.i.pn, float %.pn50, 1
   ret { <2 x float>, float } %.pn
 }
 
@@ -148206,7 +148206,7 @@ _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit150.i.i.i: ; preds = %367
   br label %410
 
 410:                                              ; preds = %398, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit150.i.i.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit118.i.i.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit93.i.i.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit68.i.i.i, %157, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit50.i.i.i, %_ZN4pbrt14RadicalInverseEim.exit39.i.i.i
-  %.sroa.0183.1.i.i.i = phi <2 x float> [ %.sroa.0183.4.vec.insert205.i.i.i, %157 ], [ %.sroa.0183.4.vec.insert207.i.i.i, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit50.i.i.i ], [ %.sroa.0183.4.vec.insert209.i.i.i, %_ZN4pbrt14RadicalInverseEim.exit39.i.i.i ], [ %.sroa.0183.4.vec.insert.i.i.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit150.i.i.i ], [ %.sroa.0183.4.vec.insert199.i.i.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit118.i.i.i ], [ %.sroa.0183.4.vec.insert201.i.i.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit93.i.i.i ], [ %.sroa.0183.4.vec.insert203.i.i.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit68.i.i.i ], [ %409, %398 ]
+  %.sroa.0183.1.i.i.i = phi <2 x float> [ %.sroa.0183.4.vec.insert209.i.i.i, %_ZN4pbrt14RadicalInverseEim.exit39.i.i.i ], [ %.sroa.0183.4.vec.insert207.i.i.i, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit50.i.i.i ], [ %.sroa.0183.4.vec.insert205.i.i.i, %157 ], [ %.sroa.0183.4.vec.insert203.i.i.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit68.i.i.i ], [ %.sroa.0183.4.vec.insert201.i.i.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit93.i.i.i ], [ %.sroa.0183.4.vec.insert199.i.i.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit118.i.i.i ], [ %.sroa.0183.4.vec.insert.i.i.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit150.i.i.i ], [ %409, %398 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store <2 x float> %.sroa.0183.1.i.i.i, ptr %3, align 8
   %411 = load ptr, ptr %38, align 8, !tbaa !67

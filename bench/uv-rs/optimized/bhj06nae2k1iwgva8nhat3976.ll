@@ -439,7 +439,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.llvm.8769610265116901195.exit"
 
 "_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.llvm.8769610265116901195.exit": ; preds = %2, %10, %12, %19, %21, %22, %28, %34, %38, %44, %48, %54, %58, %64
-  %.sroa.0.0.i = phi i1 [ %67, %64 ], [ %57, %54 ], [ %47, %44 ], [ %37, %34 ], [ %27, %22 ], [ %20, %19 ], [ false, %2 ], [ true, %10 ], [ false, %12 ], [ false, %21 ], [ false, %28 ], [ false, %38 ], [ false, %48 ], [ false, %58 ]
+  %.sroa.0.0.i = phi i1 [ %20, %19 ], [ %27, %22 ], [ %37, %34 ], [ %47, %44 ], [ %57, %54 ], [ %67, %64 ], [ false, %2 ], [ true, %10 ], [ false, %12 ], [ false, %21 ], [ false, %28 ], [ false, %38 ], [ false, %48 ], [ false, %58 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -613,7 +613,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_platform_tags..language_tag..Lan
   ]
 
 11:                                               ; preds = %59, %49, %39, %29, %22, %13, %10, %2, %65, %55, %45, %35, %20, %23
-  %.sroa.0.0 = phi i1 [ %68, %65 ], [ %58, %55 ], [ %48, %45 ], [ %38, %35 ], [ %28, %23 ], [ %21, %20 ], [ false, %2 ], [ true, %10 ], [ false, %13 ], [ false, %22 ], [ false, %29 ], [ false, %39 ], [ false, %49 ], [ false, %59 ]
+  %.sroa.0.0 = phi i1 [ %21, %20 ], [ %28, %23 ], [ %38, %35 ], [ %48, %45 ], [ %58, %55 ], [ %68, %65 ], [ false, %2 ], [ true, %10 ], [ false, %13 ], [ false, %22 ], [ false, %29 ], [ false, %39 ], [ false, %49 ], [ false, %59 ]
   ret i1 %.sroa.0.0
 
 12:                                               ; preds = %10

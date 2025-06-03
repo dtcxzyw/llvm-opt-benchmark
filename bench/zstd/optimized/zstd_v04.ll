@@ -518,7 +518,7 @@ ZSTD_copyRawBlock.exit:                           ; preds = %64, %59
   br label %ZSTD_decodeFrameHeader_Part2.exit.thread68
 
 ZSTD_decodeFrameHeader_Part2.exit.thread68:       ; preds = %28, %ZSTD_copyRawBlock.exit.thread76, %ZSTD_checkContinuity.exit, %66, %56, %ZSTD_copyRawBlock.exit, %ZSTD_decodeFrameHeader_Part2.exit.thread, %ZSTD_decodeFrameHeader_Part2.exit, %21, %5, %55, %24
-  %.049 = phi i64 [ 0, %55 ], [ -10, %24 ], [ -72, %5 ], [ -72, %21 ], [ 0, %ZSTD_decodeFrameHeader_Part2.exit.thread ], [ -14, %ZSTD_decodeFrameHeader_Part2.exit ], [ %.075, %66 ], [ -1, %56 ], [ %.0, %ZSTD_copyRawBlock.exit ], [ -1, %ZSTD_checkContinuity.exit ], [ -70, %ZSTD_copyRawBlock.exit.thread76 ], [ -10, %28 ]
+  %.049 = phi i64 [ -10, %24 ], [ 0, %55 ], [ -72, %5 ], [ -72, %21 ], [ 0, %ZSTD_decodeFrameHeader_Part2.exit.thread ], [ -14, %ZSTD_decodeFrameHeader_Part2.exit ], [ %.075, %66 ], [ -1, %56 ], [ %.0, %ZSTD_copyRawBlock.exit ], [ -1, %ZSTD_checkContinuity.exit ], [ -70, %ZSTD_copyRawBlock.exit.thread76 ], [ -10, %28 ]
   ret i64 %.049
 }
 
@@ -869,9 +869,9 @@ ZSTD_getFrameParams.exit228.i:                    ; preds = %54
   br label %121
 
 121:                                              ; preds = %120, %._crit_edge320.i
-  %.pre.pre1620 = phi ptr [ %.pre321.i, %._crit_edge320.i ], [ %98, %120 ]
-  %.val219.i = phi i64 [ %.val219.pre.i, %._crit_edge320.i ], [ %.val220.i, %120 ]
-  %.3175.i = phi ptr [ %.0172318.i.ph, %._crit_edge320.i ], [ %.2174.i, %120 ]
+  %.pre.pre1620 = phi ptr [ %98, %120 ], [ %.pre321.i, %._crit_edge320.i ]
+  %.val219.i = phi i64 [ %.val220.i, %120 ], [ %.val219.pre.i, %._crit_edge320.i ]
+  %.3175.i = phi ptr [ %.2174.i, %120 ], [ %.0172318.i.ph, %._crit_edge320.i ]
   %122 = load i64, ptr %22, align 8, !tbaa !31
   %123 = sub i64 %.val219.i, %122
   %124 = load i64, ptr %16, align 8, !tbaa !39
@@ -931,9 +931,9 @@ ZBUFF_limitCopy.exit230.i:                        ; preds = %131, %127
   br label %152
 
 152:                                              ; preds = %149, %._crit_edge324.i
-  %153 = phi i64 [ %.pre326.i, %._crit_edge324.i ], [ %150, %149 ]
-  %154 = phi i64 [ %.pre325.i, %._crit_edge324.i ], [ %151, %149 ]
-  %.4176.i = phi ptr [ %.0172318.i.ph, %._crit_edge324.i ], [ %135, %149 ]
+  %153 = phi i64 [ %150, %149 ], [ %.pre326.i, %._crit_edge324.i ]
+  %154 = phi i64 [ %151, %149 ], [ %.pre325.i, %._crit_edge324.i ]
+  %.4176.i = phi ptr [ %135, %149 ], [ %.0172318.i.ph, %._crit_edge324.i ]
   %155 = sub i64 %154, %153
   %156 = ptrtoint ptr %.0181317.i.ph.ph to i64
   %157 = sub i64 %26, %156

@@ -2631,8 +2631,8 @@ clear_midx_files.exit:                            ; preds = %1114, %1118
   br label %1124
 
 1124:                                             ; preds = %979, %306, %.thread428, %.critedge, %226, %227, %clear_midx_files.exit, %_.exit350
-  %.0228 = phi ptr [ null, %306 ], [ null, %.critedge ], [ null, %_.exit350 ], [ null, %979 ], [ %986, %clear_midx_files.exit ], [ null, %227 ], [ null, %226 ], [ null, %.thread428 ]
-  %.0213 = phi i32 [ 1, %306 ], [ 1, %.critedge ], [ 1, %_.exit350 ], [ 1, %979 ], [ 0, %clear_midx_files.exit ], [ 0, %227 ], [ 0, %226 ], [ 0, %.thread428 ]
+  %.0228 = phi ptr [ null, %_.exit350 ], [ %986, %clear_midx_files.exit ], [ null, %979 ], [ null, %.critedge ], [ null, %306 ], [ null, %227 ], [ null, %226 ], [ null, %.thread428 ]
+  %.0213 = phi i32 [ 1, %_.exit350 ], [ 0, %clear_midx_files.exit ], [ 1, %979 ], [ 1, %.critedge ], [ 1, %306 ], [ 0, %227 ], [ 0, %226 ], [ 0, %.thread428 ]
   %1125 = load i64, ptr %71, align 8, !tbaa !43
   %.not551 = icmp eq i64 %1125, 0
   br i1 %.not551, label %._crit_edge540, label %.lr.ph539

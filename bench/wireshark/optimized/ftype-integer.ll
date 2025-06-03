@@ -335,7 +335,7 @@ define internal noundef ptr @char_to_repr(ptr noundef %0, ptr noundef readonly c
   br label %58
 
 58:                                               ; preds = %22, %24, %26, %28, %30, %32, %34, %36, %44, %40, %17
-  %.1 = phi ptr [ %19, %17 ], [ %43, %40 ], [ %57, %44 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ]
+  %.1 = phi ptr [ %19, %17 ], [ %43, %40 ], [ %57, %44 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
   %59 = getelementptr i8, ptr %.1, i64 1
   store i8 39, ptr %.1, align 1
   store i8 0, ptr %59, align 1
@@ -699,7 +699,7 @@ define internal noundef ptr @uinteger64_to_repr(ptr noundef %0, ptr noundef read
   br label %31
 
 31:                                               ; preds = %29, %26, %19, %16, %13
-  %.0 = phi ptr [ %30, %29 ], [ %28, %26 ], [ %25, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.0 = phi ptr [ %30, %29 ], [ %15, %13 ], [ %18, %16 ], [ %25, %19 ], [ %28, %26 ]
   store i8 0, ptr %.0, align 1
   br label %35
 
@@ -2074,7 +2074,7 @@ define internal noalias ptr @boolean_to_repr(ptr noundef %0, ptr noundef readonl
   br label %11
 
 11:                                               ; preds = %9, %7, %4
-  %.0 = phi ptr [ null, %4 ], [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %4 ], [ %8, %7 ], [ %10, %9 ]
   %12 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0)
   ret ptr %12
 }

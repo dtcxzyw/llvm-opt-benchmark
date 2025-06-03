@@ -248,7 +248,7 @@ _ZN14regex_automata4util6search5Input8set_span17h92e7cb23660e5151E.exit: ; preds
   br label %48
 
 48:                                               ; preds = %39, %42
-  %.0.i.i = phi ptr [ %45, %42 ], [ %41, %39 ]
+  %.0.i.i = phi ptr [ %41, %39 ], [ %45, %42 ]
   %.val.i = load ptr, ptr %3, align 8, !noalias !47, !nonnull !11, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)

@@ -2637,7 +2637,7 @@ define range(i32 -2147483647, -2147483648) i32 @init_report(ptr noundef %0, ptr 
   br label %.backedge
 
 .backedge:                                        ; preds = %73, %72, %63, %62, %59
-  %.0.i.be = phi ptr [ %60, %72 ], [ %60, %63 ], [ %60, %62 ], [ %57, %73 ], [ %60, %59 ]
+  %.0.i.be = phi ptr [ %60, %62 ], [ %60, %63 ], [ %60, %72 ], [ %57, %73 ], [ %60, %59 ]
   br label %56, !llvm.loop !117
 
 expand_filename_template.exit:                    ; preds = %56, %59

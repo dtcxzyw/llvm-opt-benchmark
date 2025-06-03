@@ -228,7 +228,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   unreachable
 
 22:                                               ; preds = %18, %12, %8
-  %.0 = phi nsz double [ %20, %18 ], [ %17, %12 ], [ %11, %8 ]
+  %.0 = phi nsz double [ %11, %8 ], [ %17, %12 ], [ %20, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store double %.0, ptr %23, align 8, !tbaa !57
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -378,7 +378,7 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
   unreachable
 
 56:                                               ; preds = %38, %45, %43, %52, %50, %47, %32
-  %.0 = phi nsz double [ %54, %52 ], [ %51, %50 ], [ %49, %47 ], [ %40, %38 ], [ %44, %43 ], [ %46, %45 ], [ %35, %32 ]
+  %.0 = phi nsz double [ %35, %32 ], [ %40, %38 ], [ %44, %43 ], [ %46, %45 ], [ %49, %47 ], [ %51, %50 ], [ %54, %52 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load double, ptr %57, align 8, !tbaa !77
   %59 = fmul nsz double %.0, %58

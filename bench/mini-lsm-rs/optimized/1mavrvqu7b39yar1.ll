@@ -3465,7 +3465,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -6424,7 +6424,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3ma
   br label %108
 
 108:                                              ; preds = %90, %86
-  %.0 = phi ptr [ null, %90 ], [ %89, %86 ]
+  %.0 = phi ptr [ %89, %86 ], [ null, %90 ]
   ret ptr %.0
 }
 
@@ -10031,7 +10031,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h74c112339ec57080E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17he669e812e8425e9eE.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17he669e812e8425e9eE.exit: ; preds = %18, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h74c112339ec57080E.exit.i
-  %.merged.i = phi { i64, i64 } [ %173, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h74c112339ec57080E.exit.i ], [ %19, %18 ]
+  %.merged.i = phi { i64, i64 } [ %19, %18 ], [ %173, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h74c112339ec57080E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   ret { i64, i64 } %.merged.i
 }

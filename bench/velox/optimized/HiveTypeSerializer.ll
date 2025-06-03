@@ -577,7 +577,7 @@ return:                                           ; preds = %invoke.cont63, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad66, %ehcleanup65, %ehcleanup55, %ehcleanup, %lpad36.body, %lpad32.body, %lpad28.body, %lpad24.body, %lpad20.body, %lpad16.body, %lpad12.body, %lpad8.body, %lpad4.body, %lpad.body
-  %.pn9 = phi { ptr, i32 } [ %33, %lpad66 ], [ %.pn, %ehcleanup65 ], [ %.pn5, %ehcleanup55 ], [ %.pn7, %ehcleanup ], [ %eh.lpad-body82, %lpad36.body ], [ %eh.lpad-body74, %lpad32.body ], [ %eh.lpad-body66, %lpad28.body ], [ %eh.lpad-body58, %lpad24.body ], [ %eh.lpad-body50, %lpad20.body ], [ %eh.lpad-body42, %lpad16.body ], [ %eh.lpad-body34, %lpad12.body ], [ %eh.lpad-body26, %lpad8.body ], [ %eh.lpad-body18, %lpad4.body ], [ %eh.lpad-body, %lpad.body ]
+  %.pn9 = phi { ptr, i32 } [ %33, %lpad66 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body18, %lpad4.body ], [ %eh.lpad-body26, %lpad8.body ], [ %eh.lpad-body34, %lpad12.body ], [ %eh.lpad-body42, %lpad16.body ], [ %eh.lpad-body50, %lpad20.body ], [ %eh.lpad-body58, %lpad24.body ], [ %eh.lpad-body66, %lpad28.body ], [ %eh.lpad-body74, %lpad32.body ], [ %eh.lpad-body82, %lpad36.body ], [ %.pn7, %ehcleanup ], [ %.pn5, %ehcleanup55 ], [ %.pn, %ehcleanup65 ]
   resume { ptr, i32 } %.pn9
 }
 

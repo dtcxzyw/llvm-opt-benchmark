@@ -5052,7 +5052,7 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
   br label %375
 
 375:                                              ; preds = %373, %371, %369
-  %.0.i = phi ptr [ %374, %373 ], [ %372, %371 ], [ %370, %369 ]
+  %.0.i = phi ptr [ %374, %373 ], [ %370, %369 ], [ %372, %371 ]
   %376 = call ptr @wmem_file_scope()
   %377 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %376, i64 noundef 8) #7
   %378 = load i32, ptr %17, align 4
@@ -7212,7 +7212,7 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
   br label %36
 
 36:                                               ; preds = %30, %27, %24, %21, %18
-  %.1.i = phi i32 [ %35, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ]
+  %.1.i = phi i32 [ %35, %30 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ]
   %37 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %37, %11
   br i1 %exitcond.not.i, label %dissect_ansi_map_win_trigger_list.exit, label %.lr.ph.i, !llvm.loop !9

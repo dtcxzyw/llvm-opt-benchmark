@@ -6838,7 +6838,7 @@ if.end28:                                         ; preds = %if.end19
   unreachable
 
 return:                                           ; preds = %cleanup, %if.then5, %_ZN8facebook5velox6memory14MemoryPoolImpl25maybeIncrementReservationEm.exit
-  %retval.0 = phi i1 [ true, %cleanup ], [ %call.i, %_ZN8facebook5velox6memory14MemoryPoolImpl25maybeIncrementReservationEm.exit ], [ false, %if.then5 ]
+  %retval.0 = phi i1 [ %call.i, %_ZN8facebook5velox6memory14MemoryPoolImpl25maybeIncrementReservationEm.exit ], [ true, %cleanup ], [ false, %if.then5 ]
   ret i1 %retval.0
 }
 

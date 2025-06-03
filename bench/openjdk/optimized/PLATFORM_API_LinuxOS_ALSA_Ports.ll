@@ -1090,7 +1090,7 @@ define hidden float @PORT_GetFloatValue(ptr noundef readonly captures(address_is
   br label %getFakeBalance.exit
 
 getFakeBalance.exit:                              ; preds = %30, %28, %25, %2, %15, %10, %8, %17, %1
-  %.0 = phi float [ %16, %15 ], [ %14, %10 ], [ %9, %8 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %2 ], [ %27, %25 ], [ %32, %30 ], [ 0.000000e+00, %28 ]
+  %.0 = phi float [ %16, %15 ], [ %9, %8 ], [ %14, %10 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %2 ], [ %27, %25 ], [ %32, %30 ], [ 0.000000e+00, %28 ]
   ret float %.0
 }
 

@@ -551,7 +551,7 @@ default.unreachable:                              ; preds = %116
   unreachable
 
 _ZNK4goal4sizeEv.exit.i:                          ; preds = %89, %85, %81, %73
-  %.07.i.i.i.i = phi i32 [ %91, %89 ], [ %88, %85 ], [ %84, %81 ], [ 0, %73 ]
+  %.07.i.i.i.i = phi i32 [ %84, %81 ], [ %88, %85 ], [ %91, %89 ], [ 0, %73 ]
   %92 = zext i32 %.07.i.i.i.i to i64
   %93 = icmp samesign ult i64 %indvars.iv.i, %92
   br i1 %93, label %103, label %94
@@ -648,7 +648,7 @@ _ZNK4goal4sizeEv.exit.i:                          ; preds = %89, %85, %81, %73
   br i1 %exitcond.i.i.i.i, label %111, label %116, !llvm.loop !68
 
 131:                                              ; preds = %126, %124, %.noexc.i, %107
-  %.in.i.i = phi ptr [ %108, %107 ], [ %115, %.noexc.i ], [ %129, %126 ], [ %125, %124 ]
+  %.in.i.i = phi ptr [ %108, %107 ], [ %115, %.noexc.i ], [ %125, %124 ], [ %129, %126 ]
   %132 = load ptr, ptr %.in.i.i, align 8, !tbaa !69
   %133 = load i32, ptr %132, align 4, !tbaa !70
   %134 = load i32, ptr %67, align 8, !tbaa !72
@@ -1332,7 +1332,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i: ; preds = %405, %402
   br label %_Z13for_each_exprIN12_GLOBAL__N_118arith_degree_probe4procEEvRT_R8obj_markI4expr10bit_vector14default_t2uintIS6_EEPS6_.exit.i
 
 409:                                              ; preds = %394, %373, %275, %215, %191, %189, %162
-  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %163, %162 ], [ %190, %189 ], [ %192, %191 ], [ %276, %275 ], [ %216, %215 ], [ %395, %394 ], [ %374, %373 ]
+  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %163, %162 ], [ %190, %189 ], [ %192, %191 ], [ %216, %215 ], [ %276, %275 ], [ %395, %394 ], [ %374, %373 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %3) #22
   br label %.body.i
@@ -1819,7 +1819,7 @@ default.unreachable82:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
-  %.07.i = phi i32 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.07.i = phi i32 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %27 = lshr i32 %.07.i, 1
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
@@ -2021,8 +2021,8 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit: ; 
   br label %134
 
 134:                                              ; preds = %76, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit, %124, %133
-  %.062 = phi ptr [ %73, %133 ], [ %73, %124 ], [ %.163, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %73, %76 ]
-  %.0 = phi i32 [ %71, %133 ], [ %128, %124 ], [ %123, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %71, %76 ]
+  %.062 = phi ptr [ %73, %76 ], [ %.163, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %73, %124 ], [ %73, %133 ]
+  %.0 = phi i32 [ %71, %76 ], [ %123, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %128, %124 ], [ %71, %133 ]
   %135 = load i32, ptr %69, align 8
   %136 = add i32 %135, 1
   %137 = and i32 %136, 1073741823
@@ -2673,7 +2673,7 @@ default.unreachable40:                            ; preds = %.lr.ph36
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit: ; preds = %93, %88, %81, %135, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
-  %.1 = phi i32 [ %.03035, %135 ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %83, %81 ], [ %83, %88 ], [ %83, %93 ]
+  %.1 = phi i32 [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %.03035, %135 ], [ %83, %81 ], [ %83, %88 ], [ %83, %93 ]
   %.not16.wide = icmp eq i64 %54, 0
   br i1 %.not16.wide, label %._crit_edge37, label %.lr.ph36, !llvm.loop !147
 }
@@ -2900,7 +2900,7 @@ default.unreachable:                              ; preds = %74
   unreachable
 
 _ZNK4goal4sizeEv.exit.i:                          ; preds = %47, %43, %39, %31
-  %.07.i.i.i.i = phi i32 [ %49, %47 ], [ %46, %43 ], [ %42, %39 ], [ 0, %31 ]
+  %.07.i.i.i.i = phi i32 [ %42, %39 ], [ %46, %43 ], [ %49, %47 ], [ 0, %31 ]
   %50 = zext i32 %.07.i.i.i.i to i64
   %51 = icmp samesign ult i64 %indvars.iv.i, %50
   br i1 %51, label %61, label %52
@@ -2995,7 +2995,7 @@ _ZNK4goal4sizeEv.exit.i:                          ; preds = %47, %43, %39, %31
   br i1 %exitcond.i.i.i.i, label %69, label %74, !llvm.loop !68
 
 89:                                               ; preds = %84, %82, %.noexc.i, %65
-  %.in.i.i = phi ptr [ %66, %65 ], [ %73, %.noexc.i ], [ %87, %84 ], [ %83, %82 ]
+  %.in.i.i = phi ptr [ %66, %65 ], [ %73, %.noexc.i ], [ %83, %82 ], [ %87, %84 ]
   %90 = load ptr, ptr %.in.i.i, align 8, !tbaa !69
   %91 = load i32, ptr %90, align 4, !tbaa !70
   %92 = load i32, ptr %15, align 8, !tbaa !72
@@ -3698,7 +3698,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i: ; preds = %347, %344
   br label %_Z13for_each_exprIN12_GLOBAL__N_114arith_bw_probe4procEEvRT_R8obj_markI4expr10bit_vector14default_t2uintIS6_EEPS6_.exit.i
 
 .body.i.i.i:                                      ; preds = %335, %314, %266, %226, %211, %171, %147, %121
-  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %122, %121 ], [ %227, %226 ], [ %172, %171 ], [ %148, %147 ], [ %.pn.i.i.i.i, %211 ], [ %.pn.i100.i.i.i, %266 ], [ %336, %335 ], [ %315, %314 ]
+  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %122, %121 ], [ %172, %171 ], [ %227, %226 ], [ %148, %147 ], [ %.pn.i.i.i.i, %211 ], [ %.pn.i100.i.i.i, %266 ], [ %336, %335 ], [ %315, %314 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %7) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %7) #22
   br label %.body.i
@@ -3843,7 +3843,7 @@ default.unreachable:                              ; preds = %44
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %16, %20, %24
-  %.07.i.i.i = phi i32 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.07.i.i.i = phi i32 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %.not = icmp eq i32 %.07.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -3920,7 +3920,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %16, %20, %24
   br i1 %exitcond.i.i.i, label %39, label %44, !llvm.loop !68
 
 59:                                               ; preds = %54, %52, %.noexc, %35
-  %.in.i = phi ptr [ %36, %35 ], [ %43, %.noexc ], [ %57, %54 ], [ %53, %52 ]
+  %.in.i = phi ptr [ %36, %35 ], [ %43, %.noexc ], [ %53, %52 ], [ %57, %54 ]
   %60 = load ptr, ptr %.in.i, align 8, !tbaa !69
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 4, !tbaa !138
@@ -4622,7 +4622,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i: ; preds = %287, %284
   br label %_Z19quick_for_each_exprIN12_GLOBAL__N_121is_non_qflira_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit
 
 291:                                              ; preds = %273, %236, %234, %189, %182, %161, %.loopexit.split-lp.i.i, %.loopexit.i.i, %.loopexit.split-lp212.i.i, %.loopexit211.i.i
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %190, %189 ], [ %235, %234 ], [ %183, %182 ], [ %162, %161 ], [ %274, %273 ], [ %237, %236 ], [ %lpad.loopexit213.i.i, %.loopexit211.i.i ], [ %lpad.loopexit.split-lp214.i.i, %.loopexit.split-lp212.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %190, %189 ], [ %235, %234 ], [ %162, %161 ], [ %183, %182 ], [ %274, %273 ], [ %237, %236 ], [ %lpad.loopexit213.i.i, %.loopexit211.i.i ], [ %lpad.loopexit.split-lp214.i.i, %.loopexit.split-lp212.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %292 = load ptr, ptr %3, align 8, !tbaa !74
   %.not.i.i.i = icmp eq ptr %292, %28
   %293 = icmp eq ptr %292, null
@@ -5046,7 +5046,7 @@ default.unreachable:                              ; preds = %50
   unreachable
 
 _ZNK4goal4sizeEv.exit.i.i:                        ; preds = %30, %26, %22
-  %.07.i.i.i.i.i = phi i32 [ %32, %30 ], [ %29, %26 ], [ %25, %22 ]
+  %.07.i.i.i.i.i = phi i32 [ %25, %22 ], [ %29, %26 ], [ %32, %30 ]
   %.not.i.i = icmp eq i32 %.07.i.i.i.i.i, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
@@ -5123,7 +5123,7 @@ _ZNK4goal4sizeEv.exit.i.i:                        ; preds = %30, %26, %22
   br i1 %exitcond.i.i.i.i.i, label %45, label %50, !llvm.loop !68
 
 65:                                               ; preds = %60, %58, %.noexc.i.i, %41
-  %.in.i.i.i = phi ptr [ %42, %41 ], [ %49, %.noexc.i.i ], [ %63, %60 ], [ %59, %58 ]
+  %.in.i.i.i = phi ptr [ %42, %41 ], [ %49, %.noexc.i.i ], [ %59, %58 ], [ %63, %60 ]
   %66 = load ptr, ptr %.in.i.i.i, align 8, !tbaa !69
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !138
@@ -5825,7 +5825,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i.i: ; preds = %293, %290
   br label %_Z19quick_for_each_exprIN12_GLOBAL__N_124is_non_qfauflira_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit.i.i
 
 297:                                              ; preds = %279, %242, %240, %195, %188, %167, %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.split-lp212.i.i.i.i, %.loopexit211.i.i.i.i
-  %.pn53.pn.i.i.i.i = phi { ptr, i32 } [ %196, %195 ], [ %241, %240 ], [ %189, %188 ], [ %168, %167 ], [ %280, %279 ], [ %243, %242 ], [ %lpad.loopexit213.i.i.i.i, %.loopexit211.i.i.i.i ], [ %lpad.loopexit.split-lp214.i.i.i.i, %.loopexit.split-lp212.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
+  %.pn53.pn.i.i.i.i = phi { ptr, i32 } [ %196, %195 ], [ %241, %240 ], [ %168, %167 ], [ %189, %188 ], [ %280, %279 ], [ %243, %242 ], [ %lpad.loopexit213.i.i.i.i, %.loopexit211.i.i.i.i ], [ %lpad.loopexit.split-lp214.i.i.i.i, %.loopexit.split-lp212.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
   %298 = load ptr, ptr %3, align 8, !tbaa !74
   %.not.i.i.i.i.i = icmp eq ptr %298, %34
   %299 = icmp eq ptr %298, null
@@ -6276,7 +6276,7 @@ default.unreachable:                              ; preds = %37
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %12, %16, %20
-  %.07.i.i.i = phi i32 [ %22, %20 ], [ %19, %16 ], [ %15, %12 ]
+  %.07.i.i.i = phi i32 [ %15, %12 ], [ %19, %16 ], [ %22, %20 ]
   %.not2173 = icmp eq i32 %.07.i.i.i, 0
   br i1 %.not2173, label %.critedge25, label %.lr.ph76
 
@@ -6346,7 +6346,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %12, %16, %20
   br i1 %exitcond.i.i.i, label %32, label %37, !llvm.loop !68
 
 _ZNK4goal4formEj.exit:                            ; preds = %28, %32, %45, %47
-  %.in.i = phi ptr [ %29, %28 ], [ %36, %32 ], [ %50, %47 ], [ %46, %45 ]
+  %.in.i = phi ptr [ %29, %28 ], [ %36, %32 ], [ %46, %45 ], [ %50, %47 ]
   %.03761 = load ptr, ptr %.in.i, align 8, !tbaa !69
   %52 = getelementptr inbounds nuw i8, ptr %.03761, i64 4
   %53 = load i32, ptr %52, align 4
@@ -6619,7 +6619,7 @@ default.unreachable:                              ; preds = %47
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %16, %20, %24
-  %.07.i.i.i = phi i32 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.07.i.i.i = phi i32 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %.not = icmp eq i32 %.07.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -6699,7 +6699,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %16, %20, %24
   br i1 %exitcond.i.i.i, label %42, label %47, !llvm.loop !68
 
 62:                                               ; preds = %57, %55, %.noexc, %38
-  %.in.i = phi ptr [ %39, %38 ], [ %46, %.noexc ], [ %60, %57 ], [ %56, %55 ]
+  %.in.i = phi ptr [ %39, %38 ], [ %46, %.noexc ], [ %56, %55 ], [ %60, %57 ]
   %63 = load ptr, ptr %.in.i, align 8, !tbaa !69
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !138
@@ -7530,7 +7530,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i: ; preds = %349, %346
   br label %_Z19quick_for_each_exprIN12_GLOBAL__N_119is_non_nira_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit
 
 353:                                              ; preds = %335, %298, %296, %251, %245, %224, %.loopexit.split-lp.i.i, %.loopexit.i.i, %.loopexit.split-lp219.i.i, %.loopexit218.i.i
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %252, %251 ], [ %297, %296 ], [ %246, %245 ], [ %225, %224 ], [ %336, %335 ], [ %299, %298 ], [ %lpad.loopexit220.i.i, %.loopexit218.i.i ], [ %lpad.loopexit.split-lp221.i.i, %.loopexit.split-lp219.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %252, %251 ], [ %297, %296 ], [ %225, %224 ], [ %246, %245 ], [ %336, %335 ], [ %299, %298 ], [ %lpad.loopexit220.i.i, %.loopexit218.i.i ], [ %lpad.loopexit.split-lp221.i.i, %.loopexit.split-lp219.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %354 = load ptr, ptr %3, align 8, !tbaa !74
   %.not.i.i.i = icmp eq ptr %354, %28
   %355 = icmp eq ptr %354, null
@@ -7697,7 +7697,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 _ZNK4goal4sizeEv.exit.i:                          ; preds = %26, %22, %18
-  %.07.i.i.i.i = phi i32 [ %28, %26 ], [ %25, %22 ], [ %21, %18 ]
+  %.07.i.i.i.i = phi i32 [ %21, %18 ], [ %25, %22 ], [ %28, %26 ]
   %.not.i = icmp eq i32 %.07.i.i.i.i, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -7774,7 +7774,7 @@ _ZNK4goal4sizeEv.exit.i:                          ; preds = %26, %22, %18
   br i1 %exitcond.i.i.i.i, label %41, label %46, !llvm.loop !68
 
 61:                                               ; preds = %56, %54, %.noexc.i, %37
-  %.in.i.i = phi ptr [ %38, %37 ], [ %45, %.noexc.i ], [ %59, %56 ], [ %55, %54 ]
+  %.in.i.i = phi ptr [ %38, %37 ], [ %45, %.noexc.i ], [ %55, %54 ], [ %59, %56 ]
   %62 = load ptr, ptr %.in.i.i, align 8, !tbaa !69
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 4, !tbaa !138
@@ -8588,7 +8588,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i: ; preds = %357, %354
   br label %_Z19quick_for_each_exprIN12_GLOBAL__N_19has_nlmulEEvRT_R13ast_fast_markILj1EEP4expr.exit.i
 
 361:                                              ; preds = %346, %309, %264, %210, %162, %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i, %102
-  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %103, %102 ], [ %265, %264 ], [ %211, %210 ], [ %163, %162 ], [ %347, %346 ], [ %310, %309 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %103, %102 ], [ %265, %264 ], [ %163, %162 ], [ %211, %210 ], [ %347, %346 ], [ %310, %309 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %2) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %2) #22
   br label %.body.i
@@ -9398,7 +9398,7 @@ default.unreachable:                              ; preds = %51
   unreachable
 
 _ZNK4goal4sizeEv.exit.i.i:                        ; preds = %32, %28, %24
-  %.07.i.i.i.i.i = phi i32 [ %34, %32 ], [ %31, %28 ], [ %27, %24 ]
+  %.07.i.i.i.i.i = phi i32 [ %27, %24 ], [ %31, %28 ], [ %34, %32 ]
   %.not.i.i = icmp eq i32 %.07.i.i.i.i.i, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
@@ -9474,7 +9474,7 @@ _ZNK4goal4sizeEv.exit.i.i:                        ; preds = %32, %28, %24
   br i1 %exitcond.i.i.i.i.i, label %46, label %51, !llvm.loop !68
 
 66:                                               ; preds = %61, %59, %.noexc.i.i, %42
-  %.in.i.i.i = phi ptr [ %43, %42 ], [ %50, %.noexc.i.i ], [ %64, %61 ], [ %60, %59 ]
+  %.in.i.i.i = phi ptr [ %43, %42 ], [ %50, %.noexc.i.i ], [ %60, %59 ], [ %64, %61 ]
   %67 = load ptr, ptr %.in.i.i.i, align 8, !tbaa !69
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !138
@@ -10170,7 +10170,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i.i: ; preds = %291, %288
   br label %_Z19quick_for_each_exprIN12_GLOBAL__N_122is_non_qfufnra_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit.i.i
 
 295:                                              ; preds = %278, %241, %239, %194, %187, %166, %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.split-lp212.i.i.i.i, %.loopexit211.i.i.i.i
-  %.pn53.pn.i.i.i.i = phi { ptr, i32 } [ %195, %194 ], [ %240, %239 ], [ %188, %187 ], [ %167, %166 ], [ %279, %278 ], [ %242, %241 ], [ %lpad.loopexit213.i.i.i.i, %.loopexit211.i.i.i.i ], [ %lpad.loopexit.split-lp214.i.i.i.i, %.loopexit.split-lp212.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
+  %.pn53.pn.i.i.i.i = phi { ptr, i32 } [ %195, %194 ], [ %240, %239 ], [ %167, %166 ], [ %188, %187 ], [ %279, %278 ], [ %242, %241 ], [ %lpad.loopexit213.i.i.i.i, %.loopexit211.i.i.i.i ], [ %lpad.loopexit.split-lp214.i.i.i.i, %.loopexit.split-lp212.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
   %296 = load ptr, ptr %3, align 8, !tbaa !74
   %.not.i.i.i.i.i = icmp eq ptr %296, %35
   %297 = icmp eq ptr %296, null

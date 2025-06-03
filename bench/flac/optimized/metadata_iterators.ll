@@ -2053,7 +2053,7 @@ read_metadata_block_data_.exit.thread101:         ; preds = %98
   br label %603
 
 read_metadata_block_data_.exit:                   ; preds = %read_metadata_block_data_streaminfo_cb_.exit.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i, %read_metadata_block_data_picture_cb_.exit.i.i
-  %.0.i.i = phi i32 [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ]
+  %.0.i.i = phi i32 [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ]
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.0.i.i, ptr %601, align 8, !tbaa !30
   %.not26 = icmp eq i32 %.0.i.i, 0
@@ -6111,7 +6111,7 @@ write_metadata_block_data_picture_cb_.exit.i.i:   ; preds = %500, %pack_uint32_.
   br label %write_metadata_block_data_cb_.exit.i
 
 write_metadata_block_data_cb_.exit.i:             ; preds = %508, %write_metadata_block_data_picture_cb_.exit.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i, %237, %write_metadata_block_data_padding_cb_.exit.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i
-  %.0.i7.i = phi i32 [ %..i103.i.i, %508 ], [ %.0.i75.i.i, %write_metadata_block_data_picture_cb_.exit.i.i ], [ %.0.i51.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i46.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.011.i42.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i ], [ %.011.i.i.i, %write_metadata_block_data_padding_cb_.exit.i.i ], [ %..i.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %..i32.i.i, %237 ]
+  %.0.i7.i = phi i32 [ %..i103.i.i, %508 ], [ %..i.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.011.i.i.i, %write_metadata_block_data_padding_cb_.exit.i.i ], [ %.011.i42.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i46.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i51.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i75.i.i, %write_metadata_block_data_picture_cb_.exit.i.i ], [ %..i32.i.i, %237 ]
   %.not19.i.i = icmp eq i32 %.0.i7.i, 0
   br i1 %.not19.i.i, label %chain_rewrite_metadata_in_place_.exit, label %144, !llvm.loop !129
 
@@ -6511,9 +6511,9 @@ define internal fastcc range(i32 0, 2) i32 @chain_rewrite_file_(ptr noundef capt
   br i1 %23, label %.thread, label %open_tempfile_.exit
 
 .thread:                                          ; preds = %.thread.i, %16
-  %storemerge = phi i32 [ 2, %.thread.i ], [ 11, %16 ]
+  %.0.i = phi i32 [ 2, %.thread.i ], [ 11, %16 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %storemerge, ptr %24, align 4, !tbaa !108
+  store i32 %.0.i, ptr %24, align 4, !tbaa !108
   %25 = tail call i32 @fclose(ptr noundef nonnull %10)
   br label %95
 
@@ -9391,7 +9391,7 @@ read_metadata_block_data_picture_cb_.exit.i:      ; preds = %unpack_uint32_.exit
   br i1 %.not.i81.i, label %read_metadata_block_data_cb_.exit.thread, label %.loopexit
 
 read_metadata_block_data_cb_.exit:                ; preds = %read_metadata_block_data_streaminfo_cb_.exit.i, %read_metadata_block_data_seektable_cb_.exit.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i, %read_metadata_block_data_cuesheet_cb_.exit.i, %read_metadata_block_data_picture_cb_.exit.i
-  %.0.i62 = phi i32 [ %.0.i64.i, %read_metadata_block_data_picture_cb_.exit.i ], [ %.0.i49.i, %read_metadata_block_data_cuesheet_cb_.exit.i ], [ %.0.i42.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %.018.i.i, %read_metadata_block_data_seektable_cb_.exit.i ], [ %.0.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i ]
+  %.0.i62 = phi i32 [ %.0.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i ], [ %.018.i.i, %read_metadata_block_data_seektable_cb_.exit.i ], [ %.0.i42.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %.0.i49.i, %read_metadata_block_data_cuesheet_cb_.exit.i ], [ %.0.i64.i, %read_metadata_block_data_picture_cb_.exit.i ]
   %switch = icmp eq i32 %.0.i62, 0
   br i1 %switch, label %read_metadata_block_data_cb_.exit.thread, label %.loopexit
 
@@ -9492,7 +9492,7 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i
   br label %.critedge
 
 .critedge:                                        ; preds = %153, %node_delete_.exit61, %node_delete_.exit66, %node_delete_.exit, %578, %52, %chain_calculate_length_.exit, %584, %47, %45, %.loopexit103
-  %.0 = phi i32 [ 0, %47 ], [ 0, %45 ], [ 0, %.loopexit103 ], [ 0, %584 ], [ 1, %chain_calculate_length_.exit ], [ 0, %578 ], [ 0, %52 ], [ 0, %node_delete_.exit ], [ 0, %node_delete_.exit66 ], [ 0, %node_delete_.exit61 ], [ 0, %153 ]
+  %.0 = phi i32 [ 0, %584 ], [ 1, %chain_calculate_length_.exit ], [ 0, %578 ], [ 0, %52 ], [ 0, %.loopexit103 ], [ 0, %45 ], [ 0, %47 ], [ 0, %node_delete_.exit ], [ 0, %node_delete_.exit66 ], [ 0, %node_delete_.exit61 ], [ 0, %153 ]
   ret i32 %.0
 }
 
@@ -10968,7 +10968,7 @@ write_metadata_block_data_picture_cb_.exit.i:     ; preds = %448, %pack_uint32_.
   br label %write_metadata_block_data_cb_.exit
 
 write_metadata_block_data_cb_.exit:               ; preds = %write_metadata_block_data_streaminfo_cb_.exit.i, %write_metadata_block_data_padding_cb_.exit.i, %87, %95, %write_metadata_block_data_seektable_cb_.exit.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i, %write_metadata_block_data_cuesheet_cb_.exit.i, %write_metadata_block_data_picture_cb_.exit.i, %456
-  %.0.i = phi i32 [ %..i103.i, %456 ], [ %.0.i75.i, %write_metadata_block_data_picture_cb_.exit.i ], [ %.0.i51.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ %.0.i46.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %.011.i42.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %.011.i.i, %write_metadata_block_data_padding_cb_.exit.i ], [ %..i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ 0, %87 ], [ %..i32.i, %95 ]
+  %.0.i = phi i32 [ %..i103.i, %456 ], [ %..i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ %.011.i.i, %write_metadata_block_data_padding_cb_.exit.i ], [ %.011.i42.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %.0.i46.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %.0.i51.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ %.0.i75.i, %write_metadata_block_data_picture_cb_.exit.i ], [ 0, %87 ], [ %..i32.i, %95 ]
   %.not = icmp ne i32 %.0.i, 0
   %. = select i1 %.not, i32 0, i32 8
   %.4 = zext i1 %.not to i32
@@ -12299,7 +12299,7 @@ write_metadata_block_data_picture_cb_.exit:       ; preds = %pack_uint32_.exit.i
   br label %write_metadata_block_data_application_cb_.exit
 
 write_metadata_block_data_application_cb_.exit:   ; preds = %95, %87, %456, %write_metadata_block_data_picture_cb_.exit, %write_metadata_block_data_cuesheet_cb_.exit, %write_metadata_block_data_vorbis_comment_cb_.exit, %write_metadata_block_data_seektable_cb_.exit, %write_metadata_block_data_padding_cb_.exit, %write_metadata_block_data_streaminfo_cb_.exit
-  %.0 = phi i32 [ %..i103, %456 ], [ %.0.i75, %write_metadata_block_data_picture_cb_.exit ], [ %.0.i51, %write_metadata_block_data_cuesheet_cb_.exit ], [ %.0.i46, %write_metadata_block_data_vorbis_comment_cb_.exit ], [ %.011.i42, %write_metadata_block_data_seektable_cb_.exit ], [ %.011.i, %write_metadata_block_data_padding_cb_.exit ], [ %..i, %write_metadata_block_data_streaminfo_cb_.exit ], [ 0, %87 ], [ %..i32, %95 ]
+  %.0 = phi i32 [ %..i103, %456 ], [ %..i, %write_metadata_block_data_streaminfo_cb_.exit ], [ %.011.i, %write_metadata_block_data_padding_cb_.exit ], [ %.011.i42, %write_metadata_block_data_seektable_cb_.exit ], [ %.0.i46, %write_metadata_block_data_vorbis_comment_cb_.exit ], [ %.0.i51, %write_metadata_block_data_cuesheet_cb_.exit ], [ %.0.i75, %write_metadata_block_data_picture_cb_.exit ], [ 0, %87 ], [ %..i32, %95 ]
   ret i32 %.0
 }
 

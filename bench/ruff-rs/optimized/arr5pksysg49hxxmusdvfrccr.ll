@@ -2777,7 +2777,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN72_$LT$ty_python_semantic..lint..LintEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ac692c26ad7bbe0E.exit"
 
 "_ZN72_$LT$ty_python_semantic..lint..LintEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ac692c26ad7bbe0E.exit": ; preds = %9, %11, %13
-  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -12110,8 +12110,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %14 = icmp eq i32 %narrow.i.i, %narrow2.i.i
   br i1 %14, label %15, label %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit, %.lr.ph, %39, %37, %23, %18, %35, %.preheader.split.preheader, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %35 ], [ false, %18 ], [ false, %23 ], [ false, %37 ], [ false, %39 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit ], [ true, %.preheader.split.backedge ]
+_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit, %.lr.ph, %23, %37, %39, %18, %35, %.preheader.split.preheader, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %35 ], [ false, %18 ], [ false, %39 ], [ false, %37 ], [ false, %23 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit ], [ true, %.preheader.split.backedge ]
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %.lr.ph
@@ -12172,7 +12172,7 @@ _ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit: ; preds = %31
   %41 = icmp eq i32 %32, %34
   br i1 %41, label %.preheader.split.backedge, label %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit.thread
 
-.preheader.split.backedge:                        ; preds = %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit, %39, %37, %23, %18, %35
+.preheader.split.backedge:                        ; preds = %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit, %23, %37, %39, %18, %35
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %_ZN4core3cmp9PartialEq2ne17h13111e78a6298841E.exit.thread, label %.lr.ph
 }
@@ -12208,8 +12208,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %15 = icmp eq i32 %narrow.i.i.i, %narrow2.i.i.i
   br i1 %15, label %16, label %_ZN4core3cmp9PartialEq2ne17h6f6d989fe58d3cc5E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h6f6d989fe58d3cc5E.exit.thread: ; preds = %5, %36, %19, %24, %38, %40, %"_ZN89_$LT$ty_python_semantic..types..class_base..ClassBase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9ed373e982402f3fE.exit.i.i", %43, %_ZN4core3cmp9PartialEq2ne17h6f6d989fe58d3cc5E.exit, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17h6f6d989fe58d3cc5E.exit ], [ %exitcond.not, %43 ], [ %exitcond.not, %"_ZN89_$LT$ty_python_semantic..types..class_base..ClassBase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9ed373e982402f3fE.exit.i.i" ], [ %exitcond.not, %40 ], [ %exitcond.not, %38 ], [ %exitcond.not, %24 ], [ %exitcond.not, %19 ], [ %exitcond.not, %36 ], [ %exitcond.not, %5 ]
+_ZN4core3cmp9PartialEq2ne17h6f6d989fe58d3cc5E.exit.thread: ; preds = %5, %36, %19, %40, %38, %24, %"_ZN89_$LT$ty_python_semantic..types..class_base..ClassBase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9ed373e982402f3fE.exit.i.i", %43, %_ZN4core3cmp9PartialEq2ne17h6f6d989fe58d3cc5E.exit, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17h6f6d989fe58d3cc5E.exit ], [ %exitcond.not, %43 ], [ %exitcond.not, %"_ZN89_$LT$ty_python_semantic..types..class_base..ClassBase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9ed373e982402f3fE.exit.i.i" ], [ %exitcond.not, %24 ], [ %exitcond.not, %38 ], [ %exitcond.not, %40 ], [ %exitcond.not, %19 ], [ %exitcond.not, %36 ], [ %exitcond.not, %5 ]
   ret i1 %.sroa.0.0
 
 16:                                               ; preds = %5
@@ -30738,8 +30738,8 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17h3a76449dd1555d5dE.exit.i.i.
   br label %_ZN18ty_python_semantic5types7builder12UnionElement10try_reduce17h47a4f15373ea7f2dE.exit
 
 _ZN18ty_python_semantic5types7builder12UnionElement10try_reduce17h47a4f15373ea7f2dE.exit: ; preds = %654, %.noexc68, %523, %.noexc62, %392, %.noexc56, %259
-  %.sroa.13.4 = phi i8 [ %.sroa.13.0.copyload92, %259 ], [ %.sroa.13.1, %654 ], [ %530, %.noexc68 ], [ %.sroa.13.2, %523 ], [ %399, %.noexc62 ], [ %.sroa.13.3, %392 ], [ %267, %.noexc56 ]
-  %.sroa.089.0 = phi i8 [ %.sroa.089.0.copyload90, %259 ], [ %storemerge.i, %654 ], [ 29, %.noexc68 ], [ %storemerge26.i, %523 ], [ 29, %.noexc62 ], [ %storemerge27.i, %392 ], [ 29, %.noexc56 ]
+  %.sroa.13.4 = phi i8 [ %.sroa.13.3, %392 ], [ %267, %.noexc56 ], [ %.sroa.13.2, %523 ], [ %399, %.noexc62 ], [ %.sroa.13.1, %654 ], [ %530, %.noexc68 ], [ %.sroa.13.0.copyload92, %259 ]
+  %.sroa.089.0 = phi i8 [ %storemerge27.i, %392 ], [ 29, %.noexc56 ], [ %storemerge26.i, %523 ], [ 29, %.noexc62 ], [ %storemerge.i, %654 ], [ 29, %.noexc68 ], [ %.sroa.089.0.copyload90, %259 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   %655 = add nsw i8 %.sroa.089.0, -29
   %narrow = call i8 @llvm.umin.i8(i8 %655, i8 2)
@@ -31693,7 +31693,7 @@ define hidden void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder12
           cleanup
   br label %72
 
-.loopexit.split-lp:                               ; preds = %10, %27, %44, %52
+.loopexit.split-lp:                               ; preds = %27, %44, %52, %10
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %72
@@ -34563,7 +34563,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h2668feeaa4640619E.exit.i: ; pre
   invoke void @"_ZN4core3ptr99drop_in_place$LT$smallvec..SmallVec$LT$$u5b$ty_python_semantic..types..Type$u3b$$u20$1$u5d$$GT$$GT$17h8ca654dee1e44e80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #27
           to label %.body.thread unwind label %144
 
-.body.thread26:                                   ; preds = %329, %327, %123, %.thread199.i, %253, %286, %316, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$9shrink_to17hde5f41bd8a4296daE.exit.i", %343, %364, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$9shrink_to17hde5f41bd8a4296daE.exit.i14"
+.body.thread26:                                   ; preds = %327, %329, %123, %.thread199.i, %253, %286, %316, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$9shrink_to17hde5f41bd8a4296daE.exit.i", %343, %364, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$9shrink_to17hde5f41bd8a4296daE.exit.i14"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -35117,7 +35117,7 @@ define noundef zeroext i1 @"_ZN105_$LT$ty_python_semantic..types..class_base..Cl
   br i1 %32, label %33, label %58
 
 33:                                               ; preds = %59, %52, %29, %58, %25, %51, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit21, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit, %19
-  %.sroa.0.0.shrunk = phi i1 [ %41, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit21 ], [ %22, %19 ], [ false, %51 ], [ true, %25 ], [ false, %58 ], [ true, %29 ], [ %57, %52 ], [ %64, %59 ]
+  %.sroa.0.0.shrunk = phi i1 [ %22, %19 ], [ %41, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit21 ], [ false, %51 ], [ true, %25 ], [ false, %58 ], [ true, %29 ], [ %57, %52 ], [ %64, %59 ]
   ret i1 %.sroa.0.0.shrunk
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %23
@@ -35265,8 +35265,8 @@ switch.lookup:                                    ; preds = %3
   br label %15
 
 15:                                               ; preds = %switch.lookup, %3, %14, %9
-  %.sroa.04.0 = phi ptr [ @anon.d97261724ce1fa66ecdc8f9dbb5efb85.331, %14 ], [ %12, %9 ], [ @anon.d97261724ce1fa66ecdc8f9dbb5efb85.330, %3 ], [ %switch.load, %switch.lookup ]
-  %.sroa.7.0 = phi i64 [ 7, %14 ], [ %13, %9 ], [ 8, %3 ], [ %switch.load6, %switch.lookup ]
+  %.sroa.04.0 = phi ptr [ %12, %9 ], [ @anon.d97261724ce1fa66ecdc8f9dbb5efb85.331, %14 ], [ @anon.d97261724ce1fa66ecdc8f9dbb5efb85.330, %3 ], [ %switch.load, %switch.lookup ]
+  %.sroa.7.0 = phi i64 [ %13, %9 ], [ 7, %14 ], [ 8, %3 ], [ %switch.load6, %switch.lookup ]
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.04.0, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %17
@@ -35493,8 +35493,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb34974f04ffaf589E.exit: ; pred
   br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h026f04cf894f8c6bE.exit.thread", label %136
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h026f04cf894f8c6bE.exit.thread": ; preds = %73, %57, %129, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb34974f04ffaf589E.exit, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %111, %112, %114, %115, %118, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %39, %28, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %138, %139, %133, %85, %81, %87, %35, %32, %25
-  %.sroa.35.0 = phi i32 [ undef, %139 ], [ %.sroa.2.0.extract.trunc, %138 ], [ %.sroa.498.4.insert.ext, %133 ], [ %.sroa.4124.0.extract.trunc, %87 ], [ %.sroa.35.1, %35 ], [ %34, %32 ], [ %.sroa.4119.0.extract.trunc, %85 ], [ %84, %81 ], [ %.sroa.4.4.insert.ext, %25 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ 0, %28 ], [ undef, %39 ], [ %.sroa.4152.0.extract.trunc, %118 ], [ %.sroa.4150.0.extract.trunc, %115 ], [ 1, %114 ], [ %.sroa.4146.0.extract.trunc, %112 ], [ %.sroa.4100.0.copyload, %111 ], [ %.sroa.4100.0.copyload, %110 ], [ %.sroa.4144.0.extract.trunc, %108 ], [ %.sroa.4142.0.extract.trunc, %106 ], [ %.sroa.4140.0.extract.trunc, %104 ], [ %.sroa.4138.0.extract.trunc, %102 ], [ %.sroa.4136.0.extract.trunc, %100 ], [ %.sroa.4134.0.extract.trunc, %98 ], [ %.sroa.4132.0.extract.trunc, %96 ], [ %.sroa.4130.0.extract.trunc, %94 ], [ %.sroa.4128.0.extract.trunc, %92 ], [ %.sroa.4126.0.extract.trunc, %90 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb34974f04ffaf589E.exit ], [ undef, %129 ], [ undef, %57 ], [ undef, %73 ]
-  %.sroa.0.0 = phi i32 [ 6, %139 ], [ %.sroa.0153.0.extract.trunc, %138 ], [ 2, %133 ], [ %.sroa.0123.0.extract.trunc, %87 ], [ %.sroa.0.1, %35 ], [ 1, %32 ], [ %.sroa.0118.0.extract.trunc, %85 ], [ %83, %81 ], [ 2, %25 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 2, %28 ], [ 6, %39 ], [ %.sroa.0151.0.extract.trunc, %118 ], [ %.sroa.0149.0.extract.trunc, %115 ], [ 2, %114 ], [ %.sroa.0145.0.extract.trunc, %112 ], [ 5, %111 ], [ 4, %110 ], [ %.sroa.0143.0.extract.trunc, %108 ], [ %.sroa.0141.0.extract.trunc, %106 ], [ %.sroa.0139.0.extract.trunc, %104 ], [ %.sroa.0137.0.extract.trunc, %102 ], [ %.sroa.0135.0.extract.trunc, %100 ], [ %.sroa.0133.0.extract.trunc, %98 ], [ %.sroa.0131.0.extract.trunc, %96 ], [ %.sroa.0129.0.extract.trunc, %94 ], [ %.sroa.0127.0.extract.trunc, %92 ], [ %.sroa.0125.0.extract.trunc, %90 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb34974f04ffaf589E.exit ], [ 6, %129 ], [ 6, %57 ], [ 6, %73 ]
+  %.sroa.35.0 = phi i32 [ %.sroa.4.4.insert.ext, %25 ], [ %.sroa.4119.0.extract.trunc, %85 ], [ %84, %81 ], [ %34, %32 ], [ %.sroa.35.1, %35 ], [ %.sroa.4124.0.extract.trunc, %87 ], [ %.sroa.498.4.insert.ext, %133 ], [ undef, %139 ], [ %.sroa.2.0.extract.trunc, %138 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ], [ 0, %28 ], [ undef, %39 ], [ %.sroa.4126.0.extract.trunc, %90 ], [ %.sroa.4128.0.extract.trunc, %92 ], [ %.sroa.4130.0.extract.trunc, %94 ], [ %.sroa.4132.0.extract.trunc, %96 ], [ %.sroa.4134.0.extract.trunc, %98 ], [ %.sroa.4136.0.extract.trunc, %100 ], [ %.sroa.4138.0.extract.trunc, %102 ], [ %.sroa.4140.0.extract.trunc, %104 ], [ %.sroa.4142.0.extract.trunc, %106 ], [ %.sroa.4144.0.extract.trunc, %108 ], [ %.sroa.4100.0.copyload, %110 ], [ %.sroa.4100.0.copyload, %111 ], [ %.sroa.4146.0.extract.trunc, %112 ], [ 1, %114 ], [ %.sroa.4150.0.extract.trunc, %115 ], [ %.sroa.4152.0.extract.trunc, %118 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %45 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb34974f04ffaf589E.exit ], [ undef, %129 ], [ undef, %57 ], [ undef, %73 ]
+  %.sroa.0.0 = phi i32 [ 2, %25 ], [ %.sroa.0118.0.extract.trunc, %85 ], [ %83, %81 ], [ 1, %32 ], [ %.sroa.0.1, %35 ], [ %.sroa.0123.0.extract.trunc, %87 ], [ 2, %133 ], [ 6, %139 ], [ %.sroa.0153.0.extract.trunc, %138 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 6, %3 ], [ 2, %28 ], [ 6, %39 ], [ %.sroa.0125.0.extract.trunc, %90 ], [ %.sroa.0127.0.extract.trunc, %92 ], [ %.sroa.0129.0.extract.trunc, %94 ], [ %.sroa.0131.0.extract.trunc, %96 ], [ %.sroa.0133.0.extract.trunc, %98 ], [ %.sroa.0135.0.extract.trunc, %100 ], [ %.sroa.0137.0.extract.trunc, %102 ], [ %.sroa.0139.0.extract.trunc, %104 ], [ %.sroa.0141.0.extract.trunc, %106 ], [ %.sroa.0143.0.extract.trunc, %108 ], [ 4, %110 ], [ 5, %111 ], [ %.sroa.0145.0.extract.trunc, %112 ], [ 2, %114 ], [ %.sroa.0149.0.extract.trunc, %115 ], [ %.sroa.0151.0.extract.trunc, %118 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %45 ], [ 6, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb34974f04ffaf589E.exit ], [ 6, %129 ], [ 6, %57 ], [ 6, %73 ]
   %.sroa.35.0.insert.ext = zext i32 %.sroa.35.0 to i64
   %.sroa.35.0.insert.shift = shl nuw i64 %.sroa.35.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -35979,7 +35979,7 @@ default.unreachable:                              ; preds = %1
   br label %11
 
 11:                                               ; preds = %9, %7, %5
-  %.sroa.0.0 = phi i64 [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0 = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret i64 %.sroa.0.0
 }
 
@@ -36238,7 +36238,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %18, %14, %11, %8
-  %.sroa.0.0.in = phi i1 [ %21, %18 ], [ %17, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %17, %14 ], [ %21, %18 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -36707,7 +36707,7 @@ define noundef zeroext i1 @"_ZN90_$LT$ty_python_semantic..types..class_base..Cla
   br label %22
 
 22:                                               ; preds = %33, %30, %29, %26, %25, %23, %21, %19
-  %.sroa.021.0.shrunk = phi i1 [ %32, %30 ], [ true, %33 ], [ %28, %26 ], [ true, %29 ], [ %24, %23 ], [ true, %25 ], [ %20, %19 ], [ true, %21 ]
+  %.sroa.021.0.shrunk = phi i1 [ %20, %19 ], [ true, %21 ], [ %24, %23 ], [ true, %25 ], [ %28, %26 ], [ true, %29 ], [ %32, %30 ], [ true, %33 ]
   ret i1 %.sroa.021.0.shrunk
 
 23:                                               ; preds = %10
@@ -36763,7 +36763,7 @@ define internal fastcc noundef zeroext i1 @"_ZN101_$LT$ty_python_semantic..types
   ]
 
 7:                                                ; preds = %8, %16, %11, %6, %0, %18, %13, %20
-  %.sroa.0.0.shrunk = phi i1 [ %spec.select.i, %20 ], [ %19, %18 ], [ %14, %13 ], [ false, %0 ], [ true, %6 ], [ %spec.select, %11 ], [ %spec.select6, %16 ], [ %9, %8 ]
+  %.sroa.0.0.shrunk = phi i1 [ %14, %13 ], [ %19, %18 ], [ %spec.select.i, %20 ], [ false, %0 ], [ true, %6 ], [ %spec.select, %11 ], [ %spec.select6, %16 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -36842,7 +36842,7 @@ define internal fastcc noundef zeroext i1 @"_ZN72_$LT$ty_python_semantic..types.
   ]
 
 "_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit": ; preds = %116, %111, %102, %89, %83, %74, %7, %6, %2, %180, %174, %168, %162, %156, %150, %144, %138, %132, %126, %120, %95, %68, %62, %56, %50, %44, %38, %32, %25, %19, %13
-  %.sroa.0.0.shrunk = phi i1 [ %185, %180 ], [ %179, %174 ], [ %173, %168 ], [ %167, %162 ], [ %161, %156 ], [ %155, %150 ], [ %149, %144 ], [ %143, %138 ], [ %137, %132 ], [ %131, %126 ], [ %125, %120 ], [ %spec.select.i17, %95 ], [ %73, %68 ], [ %67, %62 ], [ %61, %56 ], [ %55, %50 ], [ %49, %44 ], [ %43, %38 ], [ %37, %32 ], [ %spec.select.i, %25 ], [ %24, %19 ], [ %18, %13 ], [ false, %2 ], [ true, %6 ], [ %12, %7 ], [ %spec.select.i.i, %89 ], [ false, %74 ], [ %88, %83 ], [ %spec.select.i.i18, %116 ], [ false, %102 ], [ %spec.select.i19, %111 ]
+  %.sroa.0.0.shrunk = phi i1 [ %18, %13 ], [ %24, %19 ], [ %spec.select.i, %25 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %55, %50 ], [ %61, %56 ], [ %67, %62 ], [ %73, %68 ], [ %spec.select.i17, %95 ], [ %125, %120 ], [ %131, %126 ], [ %137, %132 ], [ %143, %138 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ %167, %162 ], [ %173, %168 ], [ %179, %174 ], [ %185, %180 ], [ false, %2 ], [ true, %6 ], [ %12, %7 ], [ %spec.select.i.i, %89 ], [ false, %74 ], [ %88, %83 ], [ %spec.select.i.i18, %116 ], [ false, %102 ], [ %spec.select.i19, %111 ]
   ret i1 %.sroa.0.0.shrunk
 
 7:                                                ; preds = %6
@@ -37193,14 +37193,14 @@ define hidden noundef zeroext i1 @"_ZN18ty_python_semantic5types1_220_$LT$impl$u
   %36 = icmp eq i32 %27, %29
   br i1 %36, label %37, label %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit.thread"
 
-37:                                               ; preds = %30, %13, %18, %32, %34, %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit"
+37:                                               ; preds = %30, %13, %34, %32, %18, %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit"
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = tail call noundef zeroext i1 @"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17h80df77c2c5eca0e1E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %38, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %39)
   br label %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit.thread"
 
-"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit.thread": ; preds = %2, %30, %13, %18, %32, %34, %37, %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit" ], [ %40, %37 ], [ false, %34 ], [ false, %32 ], [ false, %18 ], [ false, %13 ], [ false, %30 ], [ false, %2 ]
+"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit.thread": ; preds = %2, %30, %13, %34, %32, %18, %37, %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit"
+  %.sroa.0.0 = phi i1 [ false, %"_ZN58_$LT$T$u20$as$u20$salsa..interned..HashEqLike$LT$T$GT$$GT$2eq17hf3952d57d0229d4bE.exit" ], [ %40, %37 ], [ false, %18 ], [ false, %32 ], [ false, %34 ], [ false, %13 ], [ false, %30 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 

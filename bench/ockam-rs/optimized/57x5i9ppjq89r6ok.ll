@@ -8963,8 +8963,8 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %.body78 unwind label %62
 
 125:                                              ; preds = %.body, %.body78
-  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %.body78 ], [ %.pn70, %.body ]
-  resume { ptr, i32 } %.pn67.pn
+  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %.body ], [ %.pn67, %.body78 ]
+  resume { ptr, i32 } %.pn70.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -1055,7 +1055,7 @@ define noundef zeroext i1 @_ZN3net9SpdyUtils22CopyAndValidateHeadersERKNS_14Quic
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %68, %67 ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %70 = load i8, ptr %.sroa.032.1.i.i.i.i.i, align 1, !tbaa !16
   %71 = add i8 %70, -65
   %72 = icmp ult i8 %71, 26
@@ -1066,7 +1066,7 @@ define noundef zeroext i1 @_ZN3net9SpdyUtils22CopyAndValidateHeadersERKNS_14Quic
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %74, %73 ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %74, %73 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %76 = load i8, ptr %.sroa.032.2.i.i.i.i.i, align 1, !tbaa !16
   %77 = add i8 %76, -65
   %78 = icmp ult i8 %77, 26
@@ -1546,7 +1546,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %29, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %228
-  %.3 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %228 ], [ false, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit ], [ false, %29 ]
+  %.3 = phi i1 [ true, %228 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ false, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit ], [ false, %29 ]
   ret i1 %.3
 
 229:                                              ; preds = %130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %198, %208
@@ -1703,7 +1703,7 @@ define noundef zeroext i1 @_ZN3net9SpdyUtils23CopyAndValidateTrailersERKNS_14Qui
   br label %80
 
 80:                                               ; preds = %78, %._crit_edge.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %79, %78 ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %79, %78 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %81 = load i8, ptr %.sroa.032.1.i.i.i.i.i, align 1, !tbaa !16
   %82 = add i8 %81, -65
   %83 = icmp ult i8 %82, 26
@@ -1714,7 +1714,7 @@ define noundef zeroext i1 @_ZN3net9SpdyUtils23CopyAndValidateTrailersERKNS_14Qui
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %85, %84 ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %85, %84 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %87 = load i8, ptr %.sroa.032.2.i.i.i.i.i, align 1, !tbaa !16
   %88 = add i8 %87, -65
   %89 = icmp ult i8 %88, 26

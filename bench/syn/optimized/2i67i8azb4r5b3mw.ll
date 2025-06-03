@@ -3781,7 +3781,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN3syn3gen5clone76_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..generics..GenericParam$GT$5clone17hd88864f4de899141E.exit"
 
 "_ZN3syn3gen5clone76_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..generics..GenericParam$GT$5clone17hd88864f4de899141E.exit": ; preds = %7, %9, %11
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload1, %11 ], [ 18, %9 ], [ 17, %7 ]
+  %.sroa.0.0 = phi i64 [ 17, %7 ], [ 18, %9 ], [ %.sroa.0.0.copyload1, %11 ]
   store i64 %.sroa.0.0, ptr %1, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(336) %.sroa.6, i64 336, i1 false)

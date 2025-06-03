@@ -72,12 +72,12 @@ default.unreachable49:                            ; preds = %56, %29
   ]
 
 32:                                               ; preds = %68, %45, %33
-  %.pn27 = phi { ptr, i32 } [ %34, %33 ], [ %.pn, %68 ], [ %46, %45 ]
-  %.sroa.08.2 = phi i8 [ %.sroa.08.0, %33 ], [ %.sroa.08.3, %68 ], [ 1, %45 ]
-  %.sroa.06.2 = phi i8 [ %.sroa.06.0, %33 ], [ %.sroa.06.3, %68 ], [ 1, %45 ]
-  %.sroa.04.2 = phi i8 [ %.sroa.04.0, %33 ], [ %.sroa.04.3, %68 ], [ 1, %45 ]
-  %.sroa.02.2 = phi i8 [ %.sroa.02.0, %33 ], [ %.sroa.02.3, %68 ], [ 1, %45 ]
-  %.sroa.0.2 = phi i8 [ %.sroa.0.0, %33 ], [ %.sroa.0.3, %68 ], [ 1, %45 ]
+  %.pn27 = phi { ptr, i32 } [ %34, %33 ], [ %46, %45 ], [ %.pn, %68 ]
+  %.sroa.08.2 = phi i8 [ %.sroa.08.0, %33 ], [ 1, %45 ], [ %.sroa.08.3, %68 ]
+  %.sroa.06.2 = phi i8 [ %.sroa.06.0, %33 ], [ 1, %45 ], [ %.sroa.06.3, %68 ]
+  %.sroa.04.2 = phi i8 [ %.sroa.04.0, %33 ], [ 1, %45 ], [ %.sroa.04.3, %68 ]
+  %.sroa.02.2 = phi i8 [ %.sroa.02.0, %33 ], [ 1, %45 ], [ %.sroa.02.3, %68 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.0, %33 ], [ 1, %45 ], [ %.sroa.0.3, %68 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h504014d507a1f4a8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %23) #6
           to label %106 unwind label %59
 
@@ -160,11 +160,11 @@ default.unreachable49:                            ; preds = %56, %29
   br label %56
 
 56:                                               ; preds = %100, %55, %29
-  %.sroa.08.1 = phi i1 [ true, %29 ], [ %102, %100 ], [ true, %55 ]
-  %.sroa.06.1 = phi i1 [ true, %29 ], [ %101, %100 ], [ true, %55 ]
-  %.sroa.04.1 = phi i1 [ true, %29 ], [ %103, %100 ], [ true, %55 ]
-  %.sroa.02.1 = phi i1 [ true, %29 ], [ %104, %100 ], [ true, %55 ]
-  %.sroa.0.1 = phi i1 [ true, %29 ], [ %105, %100 ], [ true, %55 ]
+  %.sroa.08.1 = phi i1 [ true, %55 ], [ %102, %100 ], [ true, %29 ]
+  %.sroa.06.1 = phi i1 [ true, %55 ], [ %101, %100 ], [ true, %29 ]
+  %.sroa.04.1 = phi i1 [ true, %55 ], [ %103, %100 ], [ true, %29 ]
+  %.sroa.02.1 = phi i1 [ true, %55 ], [ %104, %100 ], [ true, %29 ]
+  %.sroa.0.1 = phi i1 [ true, %55 ], [ %105, %100 ], [ true, %29 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %23, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %23)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -197,11 +197,11 @@ default.unreachable49:                            ; preds = %56, %29
   br label %65
 
 65:                                               ; preds = %29, %64, %63, %62, %61
-  %.sroa.08.3 = phi i8 [ 1, %64 ], [ 0, %63 ], [ 1, %62 ], [ 1, %61 ], [ 1, %29 ]
-  %.sroa.06.3 = phi i8 [ 0, %64 ], [ 1, %63 ], [ 1, %62 ], [ 1, %61 ], [ 1, %29 ]
-  %.sroa.04.3 = phi i8 [ 1, %64 ], [ 1, %63 ], [ 0, %62 ], [ 1, %61 ], [ 1, %29 ]
-  %.sroa.02.3 = phi i8 [ 1, %64 ], [ 1, %63 ], [ 1, %62 ], [ 0, %61 ], [ 1, %29 ]
-  %.sroa.0.3 = phi i8 [ 1, %64 ], [ 1, %63 ], [ 1, %62 ], [ 1, %61 ], [ 0, %29 ]
+  %.sroa.08.3 = phi i8 [ 1, %61 ], [ 1, %62 ], [ 0, %63 ], [ 1, %64 ], [ 1, %29 ]
+  %.sroa.06.3 = phi i8 [ 1, %61 ], [ 1, %62 ], [ 1, %63 ], [ 0, %64 ], [ 1, %29 ]
+  %.sroa.04.3 = phi i8 [ 1, %61 ], [ 0, %62 ], [ 1, %63 ], [ 1, %64 ], [ 1, %29 ]
+  %.sroa.02.3 = phi i8 [ 0, %61 ], [ 1, %62 ], [ 1, %63 ], [ 1, %64 ], [ 1, %29 ]
+  %.sroa.0.3 = phi i8 [ 1, %61 ], [ 1, %62 ], [ 1, %63 ], [ 1, %64 ], [ 0, %29 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)

@@ -44,7 +44,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.0.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i.i, %11 ]
+  %.0.i = phi i64 [ %.fca.1.extract.i.i, %11 ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
@@ -132,7 +132,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %13
   br label %25
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %13, %16
-  %.0.i = phi i64 [ %17, %16 ], [ %.fca.1.extract.i.i, %13 ]
+  %.0.i = phi i64 [ %.fca.1.extract.i.i, %13 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %25, label %18
@@ -222,7 +222,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.0.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i.i, %11 ]
+  %.0.i = phi i64 [ %.fca.1.extract.i.i, %11 ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !26
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
@@ -307,7 +307,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.0.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i.i, %11 ]
+  %.0.i = phi i64 [ %.fca.1.extract.i.i, %11 ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !36
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16

@@ -170,7 +170,7 @@ define hidden noundef ptr @_ZN3ue218ComponentAssertion6acceptERNS_16ComponentVis
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %38, %37 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %40 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8
   %.not.i.i20.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i20.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3ue29ComponentESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SH_SH_T0_.exit.i.i, label %41
@@ -180,7 +180,7 @@ define hidden noundef ptr @_ZN3ue218ComponentAssertion6acceptERNS_16ComponentVis
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %42, %41 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8
   %.not.i.i21.i.i.i.i = icmp eq ptr %44, null
   %spec.select.i.i.i.i = select i1 %.not.i.i21.i.i.i.i, ptr %.sroa.032.2.i.i.i.i, ptr %12

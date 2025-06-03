@@ -2681,7 +2681,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %106
 
 106:                                              ; preds = %107, %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit"
-  %.sroa.0.0 = phi i1 [ false, %107 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit" ], [ false, %107 ]
   ret i1 %.sroa.0.0
 
 107:                                              ; preds = %87, %91
@@ -3060,8 +3060,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %62
 
 62:                                               ; preds = %58, %60
-  %.sroa.0.0.i10 = phi i64 [ 1, %60 ], [ 0, %58 ]
-  %.sroa.3.0 = phi ptr [ %61, %60 ], [ %59, %58 ]
+  %.sroa.0.0.i10 = phi i64 [ 0, %58 ], [ 1, %60 ]
+  %.sroa.3.0 = phi ptr [ %59, %58 ], [ %61, %60 ]
   %63 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i10, 0
   %64 = insertvalue { i64, ptr } %63, ptr %.sroa.3.0, 1
   ret { i64, ptr } %64

@@ -4112,8 +4112,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   br label %618
 
 618:                                              ; preds = %616, %._crit_edge._crit_edge.i.i.i
-  %619 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %614, %616 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %617, %616 ]
+  %619 = phi ptr [ %614, %616 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %617, %616 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %620 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !12
   %621 = icmp eq ptr %620, %619
   br i1 %621, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %622
@@ -4123,8 +4123,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   br label %624
 
 624:                                              ; preds = %622, %._crit_edge._crit_edge57.i.i.i
-  %625 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %619, %622 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %623, %622 ]
+  %625 = phi ptr [ %619, %622 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %623, %622 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %626 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !12
   %627 = icmp eq ptr %626, %625
   %spec.select.i.i.i = select i1 %627, ptr %.sroa.032.2.i.i.i, ptr %584
@@ -10833,7 +10833,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %38, %32, %28, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %149
-  %.08 = phi i1 [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ false, %149 ], [ %27, %28 ], [ %27, %32 ], [ %27, %38 ]
+  %.08 = phi i1 [ false, %149 ], [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %27, %28 ], [ %27, %32 ], [ %27, %38 ]
   ret i1 %.08
 
 150:                                              ; preds = %148, %42

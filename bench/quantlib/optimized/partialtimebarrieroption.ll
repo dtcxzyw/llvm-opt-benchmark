@@ -2704,7 +2704,7 @@ do.end286:                                        ; preds = %_ZNK5boost10shared_
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup283, %ehcleanup237, %ehcleanup193, %ehcleanup150, %ehcleanup109, %ehcleanup71, %ehcleanup25
-  %.pn31.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn.pn, %ehcleanup109 ], [ %.pn26.pn.pn.pn, %ehcleanup150 ], [ %.pn21.pn.pn.pn, %ehcleanup193 ], [ %.pn16.pn.pn.pn, %ehcleanup237 ], [ %.pn11.pn.pn.pn, %ehcleanup283 ], [ %.pn.pn.pn.pn, %ehcleanup71 ], [ %.pn6.pn.pn.pn, %ehcleanup25 ]
+  %.pn31.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn.pn, %ehcleanup109 ], [ %.pn26.pn.pn.pn, %ehcleanup150 ], [ %.pn21.pn.pn.pn, %ehcleanup193 ], [ %.pn16.pn.pn.pn, %ehcleanup237 ], [ %.pn11.pn.pn.pn, %ehcleanup283 ], [ %.pn6.pn.pn.pn, %ehcleanup25 ], [ %.pn.pn.pn.pn, %ehcleanup71 ]
   resume { ptr, i32 } %.pn31.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont267, %invoke.cont221, %invoke.cont177, %invoke.cont134, %invoke.cont93, %invoke.cont55, %invoke.cont15

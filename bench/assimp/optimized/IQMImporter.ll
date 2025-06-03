@@ -1343,7 +1343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311
 
 489:                                              ; preds = %255, %322, %359, %395, %429, %473, %287, %265, %259, %257
-  %.pn275 = phi { ptr, i32 } [ %256, %255 ], [ %288, %287 ], [ %258, %257 ], [ %.pn259, %265 ], [ %260, %259 ], [ %430, %429 ], [ %474, %473 ], [ %396, %395 ], [ %360, %359 ], [ %323, %322 ]
+  %.pn275 = phi { ptr, i32 } [ %256, %255 ], [ %288, %287 ], [ %258, %257 ], [ %.pn259, %265 ], [ %260, %259 ], [ %323, %322 ], [ %360, %359 ], [ %396, %395 ], [ %430, %429 ], [ %474, %473 ]
   call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %40) #18
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311
 

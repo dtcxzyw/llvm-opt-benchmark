@@ -72794,7 +72794,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34: ; preds = %_ZN6duck
   br label %123
 
 123:                                              ; preds = %84, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34, %43, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %84 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %84 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -73600,7 +73600,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34: ; preds = %_ZN6duck
   br label %147
 
 147:                                              ; preds = %102, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %102 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %102 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -78246,7 +78246,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35: ; preds = %_ZN6duck
   br label %122
 
 122:                                              ; preds = %84, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35, %43, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %84 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %84 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -79046,7 +79046,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35: ; preds = %_ZN6duck
   br label %143
 
 143:                                              ; preds = %101, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %101 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %101 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -82086,7 +82086,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35: ; preds = %_ZN6duck
   br label %122
 
 122:                                              ; preds = %84, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35, %43, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %84 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %84 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -82886,7 +82886,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35: ; preds = %_ZN6duck
   br label %143
 
 143:                                              ; preds = %101, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %101 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit35 ], [ true, %101 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -85880,7 +85880,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34: ; preds = %_ZN6duck
   br label %126
 
 126:                                              ; preds = %86, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34, %43, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %86 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %86 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -86687,7 +86687,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34: ; preds = %_ZN6duck
   br label %149
 
 149:                                              ; preds = %104, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %104 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit34 ], [ true, %104 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -90354,7 +90354,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24: ; preds = %88, %_ZN
   br label %117
 
 117:                                              ; preds = %79, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24, %42, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %42 ], [ true, %79 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %42 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24 ], [ true, %79 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -91072,7 +91072,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24: ; preds = %_ZN6duck
   br label %141
 
 141:                                              ; preds = %97, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24, %46, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %46 ], [ true, %97 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %46 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit24 ], [ true, %97 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -93879,7 +93879,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31: ; preds = %_ZN6duck
   br label %120
 
 120:                                              ; preds = %84, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31, %43, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %84 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %84 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -94598,7 +94598,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31: ; preds = %_ZN6duck
   br label %143
 
 143:                                              ; preds = %101, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %101 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %101 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -97327,7 +97327,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32: ; preds = %_ZN6duck
   br label %120
 
 120:                                              ; preds = %84, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32, %43, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %84 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32 ], [ true, %84 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -98046,7 +98046,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32: ; preds = %_ZN6duck
   br label %143
 
 143:                                              ; preds = %101, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %101 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit32 ], [ true, %101 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -100759,7 +100759,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31: ; preds = %_ZN6duck
   br label %125
 
 125:                                              ; preds = %86, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31, %43, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %86 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %18 ], [ true, %43 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %86 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -101506,7 +101506,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31: ; preds = %_ZN6duck
   br label %149
 
 149:                                              ; preds = %104, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %104 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %104 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -104518,7 +104518,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49: ; preds = %_ZN6duck
   br label %135
 
 135:                                              ; preds = %91, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49, %48, %26
-  %.0 = phi i1 [ true, %26 ], [ true, %48 ], [ true, %91 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %26 ], [ true, %48 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49 ], [ true, %91 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -105619,7 +105619,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49: ; preds = %_ZN6duck
   br label %157
 
 157:                                              ; preds = %108, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49, %54, %26
-  %.0 = phi i1 [ true, %26 ], [ true, %54 ], [ true, %108 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %26 ], [ true, %54 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit49 ], [ true, %108 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -108623,7 +108623,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57: ; preds = %_ZN6duck
   br label %138
 
 138:                                              ; preds = %100, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57, %50, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %50 ], [ true, %100 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %28 ], [ true, %50 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57 ], [ true, %100 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -109625,7 +109625,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57: ; preds = %_ZN6duck
   br label %165
 
 165:                                              ; preds = %121, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57, %56, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %56 ], [ true, %121 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %28 ], [ true, %56 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit57 ], [ true, %121 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -111366,7 +111366,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31: ; preds = %_ZN6duck
   br label %149
 
 149:                                              ; preds = %104, %.thread, %1, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31, %47, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %104 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %1 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %20 ], [ true, %47 ], [ true, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit31 ], [ true, %104 ], [ true, %1 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -112259,7 +112259,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %50
   resume { ptr, i32 } %.pn22
 
 60:                                               ; preds = %6, %38, %31, %23, %15, %8
-  %.015 = phi i32 [ %.0.copyload.i19, %38 ], [ %.0.insert.ext, %31 ], [ %29, %23 ], [ %21, %15 ], [ %.0.copyload.i, %8 ], [ 0, %6 ]
+  %.015 = phi i32 [ %.0.copyload.i, %8 ], [ %21, %15 ], [ %29, %23 ], [ %.0.insert.ext, %31 ], [ %.0.copyload.i19, %38 ], [ 0, %6 ]
   ret i32 %.015
 
 61:                                               ; preds = %48

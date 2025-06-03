@@ -617,13 +617,13 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   br label %78
 
 78:                                               ; preds = %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h4c6eaabfdd722ebfE.exit.i", %46
-  %.pn.i = phi ptr [ %68, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h4c6eaabfdd722ebfE.exit.i" ], [ %.sroa.032.0.copyload, %46 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 -24
-  %79 = getelementptr inbounds i8, ptr %.pn.i, i64 -8
+  %.sroa.0.sroa.0.0.copyload.pn.i = phi ptr [ %68, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h4c6eaabfdd722ebfE.exit.i" ], [ %.sroa.032.0.copyload, %46 ]
+  %.0.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.0.copyload.pn.i, i64 -24
+  %79 = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.0.copyload.pn.i, i64 -8
   %80 = load i64, ptr %79, align 8, !alias.scope !134, !noalias !139, !noundef !5
   %81 = icmp ugt i64 %80, 4
   %82 = load ptr, ptr %.0.i, align 8, !alias.scope !134, !noalias !139, !nonnull !5
-  %83 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
+  %83 = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.0.copyload.pn.i, i64 -16
   %.sink3.i.i = select i1 %81, ptr %82, ptr %.0.i
   %.sink2.i.i = select i1 %81, ptr %83, ptr %79
   %.sink.i.i = call i64 @llvm.umax.i64(i64 %80, i64 4)

@@ -427,7 +427,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @dissect_content_length_vle
   br label %20
 
 20:                                               ; preds = %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ %19, %8 ]
+  %.0 = phi i32 [ %19, %8 ], [ 0, %3 ]
   %21 = load i32, ptr %1, align 4
   %22 = add i32 %21, 1
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %22)
@@ -437,7 +437,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @dissect_content_length_vle
   br label %27
 
 27:                                               ; preds = %20, %3
-  %.1 = phi i32 [ 0, %3 ], [ %26, %20 ]
+  %.1 = phi i32 [ %26, %20 ], [ 0, %3 ]
   %28 = load i32, ptr %1, align 4
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %28)
   %30 = and i8 %29, 127

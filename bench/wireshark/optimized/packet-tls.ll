@@ -3000,7 +3000,7 @@ ssl_looks_like_sslv3.exit:                        ; preds = %142, %142, %142, %1
   br label %149
 
 149:                                              ; preds = %ssl_looks_like_sslv2.exit, %146, %ssl_looks_like_sslv3.exit, %129, %130, %118, %ssl_is_v2_client_hello.exit.thread, %111, %112, %101
-  %.1161 = phi i32 [ %.0160, %129 ], [ %131, %130 ], [ %138, %ssl_looks_like_sslv2.exit ], [ %145, %ssl_looks_like_sslv3.exit ], [ %147, %146 ], [ %.0160, %111 ], [ %113, %112 ], [ %119, %118 ], [ %120, %ssl_is_v2_client_hello.exit.thread ], [ %102, %101 ]
+  %.1161 = phi i32 [ %.0160, %129 ], [ %131, %130 ], [ %138, %ssl_looks_like_sslv2.exit ], [ %145, %ssl_looks_like_sslv3.exit ], [ %147, %146 ], [ %102, %101 ], [ %.0160, %111 ], [ %113, %112 ], [ %119, %118 ], [ %120, %ssl_is_v2_client_hello.exit.thread ]
   %150 = load i8, ptr %5, align 1, !range !10, !noundef !11
   %151 = trunc nuw i8 %150 to i1
   br i1 %151, label %152, label %95, !llvm.loop !12
@@ -3771,9 +3771,9 @@ define internal fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, 
   br label %47
 
 47:                                               ; preds = %36, %29
-  %.0145 = phi i32 [ %43, %36 ], [ %35, %29 ]
-  %.0144 = phi i32 [ %37, %36 ], [ -1, %29 ]
-  %.0143 = phi i32 [ %46, %36 ], [ -1, %29 ]
+  %.0145 = phi i32 [ %35, %29 ], [ %43, %36 ]
+  %.0144 = phi i32 [ -1, %29 ], [ %37, %36 ]
+  %.0143 = phi i32 [ -1, %29 ], [ %46, %36 ]
   %48 = add nuw nsw i32 %.0145, %11
   %49 = icmp ult i32 %12, %48
   br i1 %49, label %50, label %65
@@ -3872,7 +3872,7 @@ ssl_looks_like_valid_v2_handshake.exit:           ; preds = %82
   %.not.i.not = icmp samesign ugt i32 %104, %.0145
   br i1 %.not.i.not, label %ssl_looks_like_valid_v2_handshake.exit.thread, label %117
 
-ssl_looks_like_valid_v2_handshake.exit.thread:    ; preds = %84, %89, %82, %ssl_looks_like_valid_v2_handshake.exit, %77
+ssl_looks_like_valid_v2_handshake.exit.thread:    ; preds = %89, %84, %82, %ssl_looks_like_valid_v2_handshake.exit, %77
   %.not157 = icmp eq ptr %70, null
   br i1 %.not157, label %proto_item_set_generated.exit, label %105
 
@@ -3902,7 +3902,7 @@ proto_item_set_generated.exit:                    ; preds = %111, %108, %105, %s
   %116 = add i32 %.0145, %66
   br label %316
 
-117:                                              ; preds = %84, %89, %ssl_looks_like_valid_v2_handshake.exit
+117:                                              ; preds = %89, %84, %ssl_looks_like_valid_v2_handshake.exit
   %118 = load ptr, ptr %78, align 8
   tail call void @col_append_sep_str(ptr noundef %118, i32 noundef 25, ptr noundef null, ptr noundef nonnull %81)
   %.not178 = icmp eq ptr %70, null

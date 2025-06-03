@@ -419,7 +419,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17haa93bae3a141a246E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i32 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i32 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i32 %.0
 }
 
@@ -1051,7 +1051,7 @@ default.unreachable1:                             ; preds = %2
   br label %24
 
 24:                                               ; preds = %22, %18, %12, %8
-  %.0.in = phi i1 [ %23, %22 ], [ %21, %18 ], [ %17, %12 ], [ %11, %8 ]
+  %.0.in = phi i1 [ %11, %8 ], [ %17, %12 ], [ %21, %18 ], [ %23, %22 ]
   ret i1 %.0.in
 }
 

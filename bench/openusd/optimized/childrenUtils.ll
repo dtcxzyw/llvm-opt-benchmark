@@ -13450,8 +13450,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit292: ;
   br label %680
 
 680:                                              ; preds = %678, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %678 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %679, %678 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %678 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %679, %678 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %681 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %681, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %682
@@ -13461,8 +13461,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit292: ;
   br label %684
 
 684:                                              ; preds = %682, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %682 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %683, %682 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %682 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %683, %682 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %685 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %685, ptr %.sroa.044.2.i.i.i, ptr %653
@@ -14751,8 +14751,8 @@ define linkonce_odr ptr @_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInterna
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge._crit_edge.i.i
-  %.0.copyload.i2.i.i25.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i, %._crit_edge._crit_edge.i.i ], [ %.0.copyload.i2.i.i23.i.i, %28 ]
-  %.sroa.044.1.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ], [ %29, %28 ]
+  %.0.copyload.i2.i.i25.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i, %28 ], [ %.0.copyload.i2.i.i25.pre.i.i, %._crit_edge._crit_edge.i.i ]
+  %.sroa.044.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
   %.0.copyload.i.i.i24.i.i = load i64, ptr %.sroa.044.1.i.i, align 4
   %31 = icmp eq i64 %.0.copyload.i.i.i24.i.i, %.0.copyload.i2.i.i25.i.i
   br i1 %31, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_.exit, label %32
@@ -14762,8 +14762,8 @@ define linkonce_odr ptr @_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInterna
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge._crit_edge70.i.i
-  %.0.copyload.i2.i.i27.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i, %._crit_edge._crit_edge70.i.i ], [ %.0.copyload.i2.i.i25.i.i, %32 ]
-  %.sroa.044.2.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge70.i.i ], [ %33, %32 ]
+  %.0.copyload.i2.i.i27.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i, %32 ], [ %.0.copyload.i2.i.i27.pre.i.i, %._crit_edge._crit_edge70.i.i ]
+  %.sroa.044.2.i.i = phi ptr [ %33, %32 ], [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge70.i.i ]
   %.0.copyload.i.i.i26.i.i = load i64, ptr %.sroa.044.2.i.i, align 4
   %35 = icmp eq i64 %.0.copyload.i.i.i26.i.i, %.0.copyload.i2.i.i27.i.i
   %spec.select.i.i = select i1 %35, ptr %.sroa.044.2.i.i, ptr %1
@@ -17294,8 +17294,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit80: ; preds = %_ZN32pxrInt
   br label %200
 
 200:                                              ; preds = %198, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %198 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %199, %198 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %198 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %199, %198 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %201 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %201, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %202
@@ -17305,8 +17305,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit80: ; preds = %_ZN32pxrInt
   br label %204
 
 204:                                              ; preds = %202, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %202 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %203, %202 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %202 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %203, %202 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %205 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %205, ptr %.sroa.044.2.i.i.i, ptr %173
@@ -17632,8 +17632,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit114: ;
   br label %329
 
 329:                                              ; preds = %327, %._crit_edge._crit_edge.i.i.i125
-  %.0.copyload.i2.i.i25.i.i.i127 = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i126, %._crit_edge._crit_edge.i.i.i125 ], [ %.0.copyload.i2.i.i23.i.i.i131, %327 ]
-  %.sroa.044.1.i.i.i128 = phi ptr [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge.i.i.i125 ], [ %328, %327 ]
+  %.0.copyload.i2.i.i25.i.i.i127 = phi i64 [ %.0.copyload.i2.i.i23.i.i.i131, %327 ], [ %.0.copyload.i2.i.i25.pre.i.i.i126, %._crit_edge._crit_edge.i.i.i125 ]
+  %.sroa.044.1.i.i.i128 = phi ptr [ %328, %327 ], [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge.i.i.i125 ]
   %.0.copyload.i.i.i24.i.i.i129 = load i64, ptr %.sroa.044.1.i.i.i128, align 4
   %330 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i129, %.0.copyload.i2.i.i25.i.i.i127
   br i1 %330, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit147, label %331
@@ -17643,8 +17643,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit114: ;
   br label %333
 
 333:                                              ; preds = %331, %._crit_edge._crit_edge70.i.i.i118
-  %.0.copyload.i2.i.i27.i.i.i120 = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i119, %._crit_edge._crit_edge70.i.i.i118 ], [ %.0.copyload.i2.i.i25.i.i.i127, %331 ]
-  %.sroa.044.2.i.i.i121 = phi ptr [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge70.i.i.i118 ], [ %332, %331 ]
+  %.0.copyload.i2.i.i27.i.i.i120 = phi i64 [ %.0.copyload.i2.i.i25.i.i.i127, %331 ], [ %.0.copyload.i2.i.i27.pre.i.i.i119, %._crit_edge._crit_edge70.i.i.i118 ]
+  %.sroa.044.2.i.i.i121 = phi ptr [ %332, %331 ], [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge70.i.i.i118 ]
   %.0.copyload.i.i.i26.i.i.i122 = load i64, ptr %.sroa.044.2.i.i.i121, align 4
   %334 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i122, %.0.copyload.i2.i.i27.i.i.i120
   %spec.select.i.i.i123 = select i1 %334, ptr %.sroa.044.2.i.i.i121, ptr %302
@@ -19557,8 +19557,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %117 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %118, %117 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %117 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %118, %117 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %120 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %120, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %121
@@ -19568,8 +19568,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %121 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %122, %121 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %121 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %122, %121 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %124 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %124, ptr %.sroa.044.2.i.i.i, ptr %92
@@ -88234,8 +88234,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit295: ;
   br label %678
 
 678:                                              ; preds = %676, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %676 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %677, %676 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %676 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %677, %676 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %679 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %679, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %680
@@ -88245,8 +88245,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit295: ;
   br label %682
 
 682:                                              ; preds = %680, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %680 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %681, %680 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %680 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %681, %680 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %683 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %683, ptr %.sroa.044.2.i.i.i, ptr %651
@@ -91400,8 +91400,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit80: ; preds = %_ZN32pxrInt
   br label %200
 
 200:                                              ; preds = %198, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %198 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %199, %198 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %198 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %199, %198 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %201 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %201, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %202
@@ -91411,8 +91411,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit80: ; preds = %_ZN32pxrInt
   br label %204
 
 204:                                              ; preds = %202, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %202 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %203, %202 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %202 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %203, %202 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %205 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %205, ptr %.sroa.044.2.i.i.i, ptr %173
@@ -91738,8 +91738,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit114: ;
   br label %329
 
 329:                                              ; preds = %327, %._crit_edge._crit_edge.i.i.i125
-  %.0.copyload.i2.i.i25.i.i.i127 = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i126, %._crit_edge._crit_edge.i.i.i125 ], [ %.0.copyload.i2.i.i23.i.i.i131, %327 ]
-  %.sroa.044.1.i.i.i128 = phi ptr [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge.i.i.i125 ], [ %328, %327 ]
+  %.0.copyload.i2.i.i25.i.i.i127 = phi i64 [ %.0.copyload.i2.i.i23.i.i.i131, %327 ], [ %.0.copyload.i2.i.i25.pre.i.i.i126, %._crit_edge._crit_edge.i.i.i125 ]
+  %.sroa.044.1.i.i.i128 = phi ptr [ %328, %327 ], [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge.i.i.i125 ]
   %.0.copyload.i.i.i24.i.i.i129 = load i64, ptr %.sroa.044.1.i.i.i128, align 4
   %330 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i129, %.0.copyload.i2.i.i25.i.i.i127
   br i1 %330, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit147, label %331
@@ -91749,8 +91749,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit114: ;
   br label %333
 
 333:                                              ; preds = %331, %._crit_edge._crit_edge70.i.i.i118
-  %.0.copyload.i2.i.i27.i.i.i120 = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i119, %._crit_edge._crit_edge70.i.i.i118 ], [ %.0.copyload.i2.i.i25.i.i.i127, %331 ]
-  %.sroa.044.2.i.i.i121 = phi ptr [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge70.i.i.i118 ], [ %332, %331 ]
+  %.0.copyload.i2.i.i27.i.i.i120 = phi i64 [ %.0.copyload.i2.i.i25.i.i.i127, %331 ], [ %.0.copyload.i2.i.i27.pre.i.i.i119, %._crit_edge._crit_edge70.i.i.i118 ]
+  %.sroa.044.2.i.i.i121 = phi ptr [ %332, %331 ], [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge70.i.i.i118 ]
   %.0.copyload.i.i.i26.i.i.i122 = load i64, ptr %.sroa.044.2.i.i.i121, align 4
   %334 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i122, %.0.copyload.i2.i.i27.i.i.i120
   %spec.select.i.i.i123 = select i1 %334, ptr %.sroa.044.2.i.i.i121, ptr %302
@@ -93663,8 +93663,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %117 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %118, %117 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %117 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %118, %117 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %120 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %120, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %121
@@ -93674,8 +93674,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %121 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %122, %121 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %121 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %122, %121 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %124 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %124, ptr %.sroa.044.2.i.i.i, ptr %92
@@ -96088,8 +96088,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit295: ;
   br label %676
 
 676:                                              ; preds = %674, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %674 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %675, %674 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %674 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %675, %674 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %677 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %677, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %678
@@ -96099,8 +96099,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit295: ;
   br label %680
 
 680:                                              ; preds = %678, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %678 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %679, %678 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %678 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %679, %678 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %681 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %681, ptr %.sroa.044.2.i.i.i, ptr %649
@@ -99251,8 +99251,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit80: ; preds = %_ZN32pxrInt
   br label %199
 
 199:                                              ; preds = %197, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %197 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %198, %197 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %197 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %198, %197 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %200 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %200, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %201
@@ -99262,8 +99262,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit80: ; preds = %_ZN32pxrInt
   br label %203
 
 203:                                              ; preds = %201, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %201 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %202, %201 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %201 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %202, %201 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %204 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %204, ptr %.sroa.044.2.i.i.i, ptr %172
@@ -99588,8 +99588,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit114: ;
   br label %327
 
 327:                                              ; preds = %325, %._crit_edge._crit_edge.i.i.i125
-  %.0.copyload.i2.i.i25.i.i.i127 = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i126, %._crit_edge._crit_edge.i.i.i125 ], [ %.0.copyload.i2.i.i23.i.i.i131, %325 ]
-  %.sroa.044.1.i.i.i128 = phi ptr [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge.i.i.i125 ], [ %326, %325 ]
+  %.0.copyload.i2.i.i25.i.i.i127 = phi i64 [ %.0.copyload.i2.i.i23.i.i.i131, %325 ], [ %.0.copyload.i2.i.i25.pre.i.i.i126, %._crit_edge._crit_edge.i.i.i125 ]
+  %.sroa.044.1.i.i.i128 = phi ptr [ %326, %325 ], [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge.i.i.i125 ]
   %.0.copyload.i.i.i24.i.i.i129 = load i64, ptr %.sroa.044.1.i.i.i128, align 4
   %328 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i129, %.0.copyload.i2.i.i25.i.i.i127
   br i1 %328, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit147, label %329
@@ -99599,8 +99599,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit114: ;
   br label %331
 
 331:                                              ; preds = %329, %._crit_edge._crit_edge70.i.i.i118
-  %.0.copyload.i2.i.i27.i.i.i120 = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i119, %._crit_edge._crit_edge70.i.i.i118 ], [ %.0.copyload.i2.i.i25.i.i.i127, %329 ]
-  %.sroa.044.2.i.i.i121 = phi ptr [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge70.i.i.i118 ], [ %330, %329 ]
+  %.0.copyload.i2.i.i27.i.i.i120 = phi i64 [ %.0.copyload.i2.i.i25.i.i.i127, %329 ], [ %.0.copyload.i2.i.i27.pre.i.i.i119, %._crit_edge._crit_edge70.i.i.i118 ]
+  %.sroa.044.2.i.i.i121 = phi ptr [ %330, %329 ], [ %.sroa.044.0.lcssa.i.i.i117, %._crit_edge._crit_edge70.i.i.i118 ]
   %.0.copyload.i.i.i26.i.i.i122 = load i64, ptr %.sroa.044.2.i.i.i121, align 4
   %332 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i122, %.0.copyload.i2.i.i27.i.i.i120
   %spec.select.i.i.i123 = select i1 %332, ptr %.sroa.044.2.i.i.i121, ptr %300
@@ -101511,8 +101511,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
   br label %118
 
 118:                                              ; preds = %116, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %116 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %117, %116 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %116 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %117, %116 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %119 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %119, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %120
@@ -101522,8 +101522,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
   br label %122
 
 122:                                              ; preds = %120, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %120 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %121, %120 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %120 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %121, %120 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %123 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %123, ptr %.sroa.044.2.i.i.i, ptr %91

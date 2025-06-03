@@ -2441,7 +2441,7 @@ _ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.
   br label %1072
 
 1072:                                             ; preds = %1063, %1071, %1070, %1069, %1062, %1059
-  %.2 = phi i32 [ 5505, %1059 ], [ 5485, %1070 ], [ 5955, %1069 ], [ 5483, %1062 ], [ 5482, %1071 ], [ %., %1063 ]
+  %.2 = phi i32 [ 5505, %1059 ], [ 5482, %1071 ], [ 5483, %1062 ], [ 5955, %1069 ], [ 5485, %1070 ], [ %., %1063 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73) #20
   br label %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread
 
@@ -2466,12 +2466,12 @@ _ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread.thread142: ; pred
   br label %.thread118
 
 _ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread: ; preds = %1039, %1008, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %1072, %1056, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit
-  %.084 = phi i32 [ 0, %1056 ], [ 0, %1072 ], [ 0, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 2, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 2, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 2, %1008 ], [ 0, %1039 ]
-  %.083 = phi i32 [ 1, %1056 ], [ 1, %1072 ], [ 1, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 0, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 0, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 1, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %1008 ], [ 1, %1039 ]
-  %.sroa.0125.4 = phi i32 [ %.sroa.0125.0, %1056 ], [ %.sroa.0125.0, %1072 ], [ %.sroa.0125.0, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ %.sroa.0125.0, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.sroa.0125.0, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.sroa.0125.0, %1008 ], [ %.sroa.0125.0, %1039 ]
-  %.0178 = phi i32 [ 5505, %1056 ], [ %.2, %1072 ], [ 5505, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 5505, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 5505, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5505, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5505, %1008 ], [ 5505, %1039 ]
-  %.0177 = phi i32 [ 7111, %1056 ], [ 7111, %1072 ], [ 7111, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 6506, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 6506, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 7111, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 6506, %1008 ], [ 7111, %1039 ]
-  %.0 = phi i32 [ 5031, %1056 ], [ 5031, %1072 ], [ 5031, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 6511, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 6511, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5031, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 6511, %1008 ], [ 5031, %1039 ]
+  %.084 = phi i32 [ 2, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 0, %1056 ], [ 0, %1072 ], [ 0, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 2, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 2, %1008 ], [ 0, %1039 ]
+  %.083 = phi i32 [ 0, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 1, %1056 ], [ 1, %1072 ], [ 1, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 0, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 1, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %1008 ], [ 1, %1039 ]
+  %.sroa.0125.4 = phi i32 [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ %.sroa.0125.0, %1056 ], [ %.sroa.0125.0, %1072 ], [ %.sroa.0125.0, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ %.sroa.0125.0, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.sroa.0125.0, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.sroa.0125.0, %1008 ], [ %.sroa.0125.0, %1039 ]
+  %.0178 = phi i32 [ 5505, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 5505, %1056 ], [ %.2, %1072 ], [ 5505, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 5505, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5505, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5505, %1008 ], [ 5505, %1039 ]
+  %.0177 = phi i32 [ 6506, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 7111, %1056 ], [ 7111, %1072 ], [ 7111, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 6506, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 7111, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 6506, %1008 ], [ 7111, %1039 ]
+  %.0 = phi i32 [ 6511, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit ], [ 5031, %1056 ], [ 5031, %1072 ], [ 5031, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit ], [ 6511, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5031, %_ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 6511, %1008 ], [ 5031, %1039 ]
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %74) #20
   %1079 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr %1079, ptr %74, align 8, !tbaa !693
@@ -6360,7 +6360,7 @@ define internal fastcc noundef range(i32 6633, 7125) i32 @_ZL29getAvailabilityDi
   br label %12
 
 12:                                               ; preds = %8, %1, %1, %5, %4
-  %.sroa.010.0 = phi i64 [ -9223371981020200950, %5 ], [ 4, %4 ], [ 11, %1 ], [ 11, %1 ], [ %spec.select, %8 ]
+  %.sroa.010.0 = phi i64 [ 4, %4 ], [ -9223371981020200950, %5 ], [ 11, %1 ], [ 11, %1 ], [ %spec.select, %8 ]
   %13 = trunc i64 %.0.val to i32
   %14 = trunc i64 %.sroa.010.0 to i32
   %15 = lshr i64 %.sroa.010.0, 32
@@ -7713,7 +7713,7 @@ define internal fastcc ptr @"_ZN4llvm7find_ifIRSt6vectorINS_9StringRefESaIS2_EEZ
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge.i.i.i
-  %.sroa.039.1.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %26, %25 ]
+  %.sroa.039.1.i.i.i = phi ptr [ %26, %25 ], [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %28 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL25DoEmitAvailabilityWarningRN5clang4SemaENS2_18AvailabilityResultEPNS2_4DeclEPKNS2_9NamedDeclESA_N4llvm9StringRefENSB_8ArrayRefINS2_14SourceLocationEEEPKNS2_17ObjCInterfaceDeclEPKNS2_16ObjCPropertyDeclEbE3$_0EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %1, ptr %.sroa.039.1.i.i.i)
   br i1 %28, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm9StringRefESt6vectorIS3_SaIS3_EEEEZL25DoEmitAvailabilityWarningRN5clang4SemaENS9_18AvailabilityResultEPNS9_4DeclEPKNS9_9NamedDeclESH_S3_NS2_8ArrayRefINS9_14SourceLocationEEEPKNS9_17ObjCInterfaceDeclEPKNS9_16ObjCPropertyDeclEbE3$_0ET_SS_SS_T0_.exit", label %29
 
@@ -7722,7 +7722,7 @@ define internal fastcc ptr @"_ZN4llvm7find_ifIRSt6vectorINS_9StringRefESaIS2_EEZ
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.sroa.039.2.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %30, %29 ]
+  %.sroa.039.2.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %32 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL25DoEmitAvailabilityWarningRN5clang4SemaENS2_18AvailabilityResultEPNS2_4DeclEPKNS2_9NamedDeclESA_N4llvm9StringRefENSB_8ArrayRefINS2_14SourceLocationEEEPKNS2_17ObjCInterfaceDeclEPKNS2_16ObjCPropertyDeclEbE3$_0EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %1, ptr %.sroa.039.2.i.i.i)
   %spec.select.i.i.i = select i1 %32, ptr %.sroa.039.2.i.i.i, ptr %.8.val
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm9StringRefESt6vectorIS3_SaIS3_EEEEZL25DoEmitAvailabilityWarningRN5clang4SemaENS9_18AvailabilityResultEPNS9_4DeclEPKNS9_9NamedDeclESH_S3_NS2_8ArrayRefINS9_14SourceLocationEEEPKNS9_17ObjCInterfaceDeclEPKNS9_16ObjCPropertyDeclEbE3$_0ET_SS_SS_T0_.exit"
@@ -15862,13 +15862,13 @@ _ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit: ; preds = %1001,
   %1041 = icmp eq ptr %1040, %.0465
   br i1 %1041, label %.thread, label %.thread453
 
-.thread453:                                       ; preds = %.lr.ph, %1007, %1015, %1019, %1023, %1027, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit
+.thread453:                                       ; preds = %.lr.ph, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i, %1027, %1023, %1019, %1015, %1007, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit
   %.not = icmp eq ptr %989, %984
   br i1 %.not, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %.lr.ph, %.thread453, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i, %1027, %1023, %1019, %1015, %1007, %993
-  %.0.lcssa.ph = phi ptr [ %990, %.thread453 ], [ %.0465, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit ], [ %.0465, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i ], [ %.0465, %1027 ], [ %.0465, %1023 ], [ %.0465, %1019 ], [ %.0465, %1015 ], [ %.0465, %1007 ], [ %.0465, %993 ], [ %.0465, %.lr.ph ]
-  %.187.ph = phi ptr [ null, %.thread453 ], [ null, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit ], [ null, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i ], [ null, %1027 ], [ null, %1023 ], [ null, %1019 ], [ null, %1015 ], [ null, %1007 ], [ null, %993 ], [ %990, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.thread453, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit, %1007, %1015, %1019, %1023, %1027, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i, %993
+  %.0.lcssa.ph = phi ptr [ %990, %.thread453 ], [ %.0465, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit ], [ %.0465, %1007 ], [ %.0465, %1015 ], [ %.0465, %1019 ], [ %.0465, %1023 ], [ %.0465, %1027 ], [ %.0465, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i ], [ %.0465, %993 ], [ %.0465, %.lr.ph ]
+  %.187.ph = phi ptr [ null, %.thread453 ], [ null, %_ZN12_GLOBAL__N_119isBodyLikeChildStmtEPKN5clang4StmtES3_.exit ], [ null, %1007 ], [ null, %1015 ], [ null, %1019 ], [ null, %1023 ], [ null, %1027 ], [ null, %_ZNK5clang10SwitchCase10getSubStmtEv.exit.i ], [ null, %993 ], [ %990, %.lr.ph ]
   %1042 = load i16, ptr %.0.lcssa.ph, align 8
   %1043 = and i16 %1042, 511
   %1044 = icmp eq i16 %1043, 245

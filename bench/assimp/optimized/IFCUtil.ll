@@ -4435,7 +4435,7 @@ define hidden void @_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_
   br label %_ZN10aiVector3tIdEixEj.exit
 
 _ZN10aiVector3tIdEixEj.exit:                      ; preds = %9, %14, %15
-  %.0.i = phi ptr [ %8, %15 ], [ %7, %14 ], [ %0, %9 ]
+  %.0.i = phi ptr [ %7, %14 ], [ %8, %15 ], [ %0, %9 ]
   store double %12, ptr %.0.i, align 8
   %16 = add nuw i64 %.07, 1
   %17 = load ptr, ptr %4, align 8
@@ -4516,7 +4516,7 @@ define hidden void @_ZN6Assimp3IFC16ConvertDirectionER10aiVector3tIdERKNS0_10Sch
   br label %_ZN10aiVector3tIdEixEj.exit
 
 _ZN10aiVector3tIdEixEj.exit:                      ; preds = %19, %24, %25
-  %.0.i = phi ptr [ %9, %25 ], [ %8, %24 ], [ %0, %19 ]
+  %.0.i = phi ptr [ %8, %24 ], [ %9, %25 ], [ %0, %19 ]
   store double %22, ptr %.0.i, align 8
   %26 = add nuw i64 %.012, 1
   %27 = load ptr, ptr %5, align 8
@@ -4732,7 +4732,7 @@ define hidden void @_ZN6Assimp3IFC20ConvertAxisPlacementER12aiMatrix4x4tIdERKNS0
   br label %_ZN10aiVector3tIdEixEj.exit.i
 
 _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %19, %18, %.lr.ph.i
-  %.0.i.i = phi ptr [ %.sroa.8, %19 ], [ %.sroa.626, %18 ], [ %.sroa.025, %.lr.ph.i ]
+  %.0.i.i = phi ptr [ %.sroa.626, %18 ], [ %.sroa.8, %19 ], [ %.sroa.025, %.lr.ph.i ]
   store double %16, ptr %.0.i.i, align 8
   %20 = add nuw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %20, %umax
@@ -5104,7 +5104,7 @@ define hidden void @_ZN6Assimp3IFC20ConvertAxisPlacementER12aiMatrix4x4tIdERKNS0
   br label %_ZN10aiVector3tIdEixEj.exit.i
 
 _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %18, %17, %.lr.ph.i
-  %.0.i.i = phi ptr [ %.sroa.8, %18 ], [ %.sroa.69, %17 ], [ %.sroa.08, %.lr.ph.i ]
+  %.0.i.i = phi ptr [ %.sroa.69, %17 ], [ %.sroa.8, %18 ], [ %.sroa.08, %.lr.ph.i ]
   store double %15, ptr %.0.i.i, align 8
   %19 = add nuw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %19, %umax
@@ -5205,7 +5205,7 @@ define hidden void @_ZN6Assimp3IFC20ConvertAxisPlacementER10aiVector3tIdES3_RKNS
   br label %_ZN10aiVector3tIdEixEj.exit.i
 
 _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %18, %17, %12
-  %.0.i.i = phi ptr [ %11, %18 ], [ %10, %17 ], [ %1, %12 ]
+  %.0.i.i = phi ptr [ %10, %17 ], [ %11, %18 ], [ %1, %12 ]
   store double %15, ptr %.0.i.i, align 8
   %19 = add nuw i64 %.07.i, 1
   %20 = load ptr, ptr %7, align 8
@@ -5367,7 +5367,7 @@ define hidden void @_ZN6Assimp3IFC24ConvertTransformOperatorER12aiMatrix4x4tIdER
   br label %_ZN10aiVector3tIdEixEj.exit.i
 
 _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %20, %19, %.lr.ph.i
-  %.0.i.i = phi ptr [ %.sroa.8127, %20 ], [ %.sroa.6126, %19 ], [ %.sroa.0125, %.lr.ph.i ]
+  %.0.i.i = phi ptr [ %.sroa.6126, %19 ], [ %.sroa.8127, %20 ], [ %.sroa.0125, %.lr.ph.i ]
   store double %17, ptr %.0.i.i, align 8
   %21 = add nuw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %21, %umax

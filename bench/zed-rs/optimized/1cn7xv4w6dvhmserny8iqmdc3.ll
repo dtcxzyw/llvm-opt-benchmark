@@ -1333,7 +1333,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   br i1 %235, label %237, label %241
 
 236:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit", %._crit_edge169
-  %.sroa.0.0 = phi i32 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit" ], [ %149, %._crit_edge169 ]
+  %.sroa.0.0 = phi i32 [ %149, %._crit_edge169 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit" ]
   ret i32 %.sroa.0.0
 
 237:                                              ; preds = %.lr.ph168

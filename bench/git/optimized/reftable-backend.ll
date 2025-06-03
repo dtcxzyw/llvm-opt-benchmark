@@ -3222,7 +3222,7 @@ strbuf_setlen.exit:                               ; preds = %14, %16
   unreachable
 
 47:                                               ; preds = %40, %39, %44, %10
-  %.026 = phi ptr [ %45, %44 ], [ %.127, %39 ], [ %11, %10 ], [ %spec.select, %40 ]
+  %.026 = phi ptr [ %.127, %39 ], [ %45, %44 ], [ %11, %10 ], [ %spec.select, %40 ]
   %.not32 = icmp eq i32 %4, 0
   br i1 %.not32, label %51, label %48
 
@@ -4579,9 +4579,9 @@ st_mult.exit231:                                  ; preds = %243
   br i1 %259, label %.loopexit, label %216
 
 .loopexit:                                        ; preds = %257, %.preheader, %154, %41, %222, %209, %156, %78, %56, %_.exit219, %_.exit
-  %.0176 = phi ptr [ null, %_.exit ], [ null, %_.exit219 ], [ null, %56 ], [ null, %78 ], [ %83, %154 ], [ %.6182, %156 ], [ %.6182, %209 ], [ %.7183251, %222 ], [ null, %41 ], [ %.6182, %.preheader ], [ %.9185, %257 ]
-  %.0170 = phi i64 [ 0, %_.exit ], [ 0, %_.exit219 ], [ 0, %56 ], [ 0, %78 ], [ 1, %154 ], [ %157, %156 ], [ %157, %209 ], [ %.4174252, %222 ], [ 0, %41 ], [ %157, %.preheader ], [ %.5175, %257 ]
-  %.0165 = phi i32 [ -1, %_.exit ], [ -1, %_.exit219 ], [ %54, %56 ], [ %79, %78 ], [ %131, %154 ], [ %207, %156 ], [ %211, %209 ], [ %224, %222 ], [ 0, %41 ], [ %213, %.preheader ], [ %258, %257 ]
+  %.0176 = phi ptr [ null, %_.exit ], [ null, %_.exit219 ], [ null, %56 ], [ null, %78 ], [ %.6182, %156 ], [ %.6182, %209 ], [ %.7183251, %222 ], [ %83, %154 ], [ null, %41 ], [ %.6182, %.preheader ], [ %.9185, %257 ]
+  %.0170 = phi i64 [ 0, %_.exit ], [ 0, %_.exit219 ], [ 0, %56 ], [ 0, %78 ], [ %157, %156 ], [ %157, %209 ], [ %.4174252, %222 ], [ 1, %154 ], [ 0, %41 ], [ %157, %.preheader ], [ %.5175, %257 ]
+  %.0165 = phi i32 [ -1, %_.exit ], [ -1, %_.exit219 ], [ %54, %56 ], [ %79, %78 ], [ %207, %156 ], [ %211, %209 ], [ %224, %222 ], [ %131, %154 ], [ 0, %41 ], [ %213, %.preheader ], [ %258, %257 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %6) #20
   call void @string_list_clear(ptr noundef nonnull %7, i32 noundef 0) #20
   call void @strbuf_release(ptr noundef nonnull %9) #20

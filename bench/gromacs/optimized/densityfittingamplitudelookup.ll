@@ -101,7 +101,7 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_119ChargesAsAmplitudesESt14default_deleteIS2
   ret void
 
 _ZNSt10unique_ptrIN3gmx33DensityFittingAmplitudeLookupImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %6, %10, %14
-  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
+  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %11, %10 ], [ %15, %14 ]
   store ptr null, ptr %0, align 8, !tbaa !24
   resume { ptr, i32 } %.pn
 }

@@ -508,7 +508,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i.i.i: ; preds
   br label %119
 
 119:                                              ; preds = %113, %110
-  %.sroa.02.0.i.i = phi ptr [ %116, %113 ], [ %112, %110 ]
+  %.sroa.02.0.i.i = phi ptr [ %112, %110 ], [ %116, %113 ]
   %120 = getelementptr inbounds nuw i8, ptr %102, i64 128
   %121 = load ptr, ptr %120, align 8, !invariant.load !13, !noalias !66, !nonnull !13
   %122 = invoke { i32, i32 } %121(ptr noundef align 1 %108, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.02.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13, ptr noalias noundef nonnull align 8 %60, i64 noundef %62)
@@ -1776,8 +1776,8 @@ define noundef range(i8 -1, 2) i8 @_ZN4util5paths13compare_paths17hb855281c7e984
   br label %_ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit.i
 
 _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit.i: ; preds = %96, %95, %94, %92, %85
-  %.sroa.8.0.i.i = phi i64 [ %.sroa.630.0.copyload, %96 ], [ 2, %95 ], [ 1, %94 ], [ %.sroa.833.0.copyload, %92 ], [ %90, %85 ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.529.0.copyload, %96 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %95 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %94 ], [ %.sroa.732.0.copyload, %92 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %85 ]
+  %.sroa.8.0.i.i = phi i64 [ %.sroa.833.0.copyload, %92 ], [ 1, %94 ], [ 2, %95 ], [ %.sroa.630.0.copyload, %96 ], [ %90, %85 ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.732.0.copyload, %92 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %94 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %95 ], [ %.sroa.529.0.copyload, %96 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %85 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !281
   %98 = trunc nuw i8 %.18 to i1
   br i1 %98, label %101, label %99
@@ -1881,8 +1881,8 @@ _ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E
   br label %_ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit24.i
 
 _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit24.i: ; preds = %129, %128, %127, %125, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i
-  %.sroa.8.0.i18.i = phi i64 [ %.sroa.6.0.copyload, %129 ], [ 2, %128 ], [ 1, %127 ], [ %.sroa.8.0.copyload, %125 ], [ %123, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
-  %.sroa.0.0.i19.i = phi ptr [ %.sroa.523.0.copyload, %129 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %128 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %127 ], [ %.sroa.724.0.copyload, %125 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
+  %.sroa.8.0.i18.i = phi i64 [ %.sroa.8.0.copyload, %125 ], [ 1, %127 ], [ 2, %128 ], [ %.sroa.6.0.copyload, %129 ], [ %123, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
+  %.sroa.0.0.i19.i = phi ptr [ %.sroa.724.0.copyload, %125 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %127 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %128 ], [ %.sroa.523.0.copyload, %129 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !281
   %131 = trunc nuw i8 %storemerge17 to i1
   br i1 %131, label %134, label %132

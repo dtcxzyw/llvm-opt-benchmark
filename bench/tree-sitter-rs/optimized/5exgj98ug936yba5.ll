@@ -241,7 +241,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbced39f615cbd8a6E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbced39f615cbd8a6E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -310,7 +310,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN80_$LT$core..ffi..c_str..FromBytesWithNulErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a8f3f3e1ec14e02E.exit"
 
 "_ZN80_$LT$core..ffi..c_str..FromBytesWithNulErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a8f3f3e1ec14e02E.exit": ; preds = %6, %9
-  %.0.in.i = phi i1 [ %10, %9 ], [ %8, %6 ]
+  %.0.in.i = phi i1 [ %8, %6 ], [ %10, %9 ]
   ret i1 %.0.in.i
 }
 
@@ -1105,8 +1105,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hbbc216648a61999eE(ptr n
   br label %"_ZN63_$LT$libloading..error..Error$u20$as$u20$core..error..Error$GT$6source17he100d8fce6c79ccdE.llvm.6199602460040706727.exit"
 
 "_ZN63_$LT$libloading..error..Error$u20$as$u20$core..error..Error$GT$6source17he100d8fce6c79ccdE.llvm.6199602460040706727.exit": ; preds = %1, %6, %8, %10, %12, %13
-  %.sroa.7.0.i = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %14, %13 ], [ %0, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ null, %1 ]
+  %.sroa.7.0.i = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ %14, %13 ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.7.0.i, 1
   ret { ptr, ptr } %16
@@ -2376,7 +2376,7 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$tree_sitter_tags..Error$u20$as$u20$
   br label %23
 
 23:                                               ; preds = %20, %18, %16, %13, %11
-  %.0.in = phi i1 [ %22, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %11 ]
+  %.0.in = phi i1 [ %12, %11 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ]
   ret i1 %.0.in
 }
 
@@ -2522,7 +2522,7 @@ define hidden noundef zeroext i1 @"_ZN61_$LT$libloading..error..Error$u20$as$u20
   br label %59
 
 59:                                               ; preds = %56, %54, %52, %50, %47, %45, %42, %40, %37, %35, %32, %30, %27, %25, %22, %20, %17
-  %.0.in = phi i1 [ %58, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %47 ], [ %46, %45 ], [ %44, %42 ], [ %41, %40 ], [ %39, %37 ], [ %36, %35 ], [ %34, %32 ], [ %31, %30 ], [ %29, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %17 ]
+  %.0.in = phi i1 [ %19, %17 ], [ %21, %20 ], [ %24, %22 ], [ %26, %25 ], [ %29, %27 ], [ %31, %30 ], [ %34, %32 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %44, %42 ], [ %46, %45 ], [ %49, %47 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %58, %56 ]
   ret i1 %.0.in
 }
 
@@ -2603,8 +2603,8 @@ define hidden { ptr, ptr } @"_ZN63_$LT$libloading..error..Error$u20$as$u20$core.
   br label %15
 
 15:                                               ; preds = %1, %13, %12, %10, %8, %6
-  %.sroa.7.0 = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %14, %13 ], [ %0, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ %14, %13 ], [ null, %1 ]
   %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %17
@@ -3914,7 +3914,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !439
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %48, align 8
@@ -4048,7 +4048,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !486
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %48, align 8

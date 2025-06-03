@@ -136,8 +136,8 @@ default.unreachable:                              ; preds = %.lr.ph
   br i1 %27, label %172, label %28
 
 28:                                               ; preds = %16, %21, %18, %24, %26, %22, %19, %109, %108, %32, %31
-  %.sroa.014.1 = phi i64 [ %.sroa.014.0332, %26 ], [ %.sroa.014.0332, %22 ], [ %.sroa.014.0332, %109 ], [ %.sroa.014.0332, %108 ], [ %.sroa.014.0332, %19 ], [ %.sroa.014.0332, %32 ], [ %.sroa.014.0332, %31 ], [ %.sroa.014.0332, %24 ], [ %spec.select, %16 ], [ %.sroa.014.0332, %18 ], [ %.sroa.014.0332, %21 ]
-  %.sroa.0.1 = phi i32 [ 6, %26 ], [ 4, %22 ], [ 0, %109 ], [ 5, %108 ], [ 2, %19 ], [ 0, %32 ], [ 3, %31 ], [ %., %24 ], [ %spec.select97, %16 ], [ 2, %18 ], [ 4, %21 ]
+  %.sroa.014.1 = phi i64 [ %.sroa.014.0332, %31 ], [ %.sroa.014.0332, %32 ], [ %.sroa.014.0332, %19 ], [ %.sroa.014.0332, %108 ], [ %.sroa.014.0332, %109 ], [ %.sroa.014.0332, %22 ], [ %.sroa.014.0332, %26 ], [ %.sroa.014.0332, %24 ], [ %spec.select, %16 ], [ %.sroa.014.0332, %18 ], [ %.sroa.014.0332, %21 ]
+  %.sroa.0.1 = phi i32 [ 3, %31 ], [ 0, %32 ], [ 2, %19 ], [ 5, %108 ], [ 0, %109 ], [ 4, %22 ], [ 6, %26 ], [ %., %24 ], [ %spec.select97, %16 ], [ 2, %18 ], [ 4, %21 ]
   %29 = add nuw i64 %.sroa.043.0333, 1
   %30 = icmp eq i64 %29, %2
   br i1 %30, label %._crit_edge, label %.lr.ph
@@ -298,12 +298,12 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %101
 
 101:                                              ; preds = %93, %81
-  %.sroa.071.0 = phi i64 [ %.sroa.014.0332, %81 ], [ %100, %93 ]
+  %.sroa.071.0 = phi i64 [ %100, %93 ], [ %.sroa.014.0332, %81 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %102
 
 102:                                              ; preds = %235, %171, %101
-  %.sroa.071.1 = phi i64 [ %.sroa.071.4, %235 ], [ %.sroa.071.2, %171 ], [ %.sroa.071.0, %101 ]
+  %.sroa.071.1 = phi i64 [ %.sroa.071.0, %101 ], [ %.sroa.071.2, %171 ], [ %.sroa.071.4, %235 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %103 = add i64 %.sroa.043.0333, 1
@@ -317,7 +317,7 @@ default.unreachable:                              ; preds = %.lr.ph
   unreachable
 
 107:                                              ; preds = %243, %185, %123, %46
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %243 ], [ %186, %185 ], [ %124, %123 ], [ %47, %46 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %243 ], [ %47, %46 ], [ %124, %123 ], [ %186, %185 ]
   resume { ptr, i32 } %.pn
 
 108:                                              ; preds = %21, %21
@@ -781,9 +781,9 @@ default.unreachable260:                           ; preds = %"_ZN91_$LT$core..sl
   br i1 %275, label %407, label %.loopexit.i202.thread
 
 .loopexit.i202.thread:                            ; preds = %.lr.ph344, %.lr.ph.split.i226, %370, %368, %359, %.lr.ph.split.us.i197, %411, %411, %407, %352, %352, %348, %302, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h67c7ecd4c2289b23E.exit190", %264, %.loopexit, %465, %.loopexit.i202, %399, %269, %266, %272, %274, %270, %267, %347, %346, %279, %278
-  %.sroa.014.3 = phi i64 [ %.sroa.014.2347, %274 ], [ %.sroa.014.2347, %270 ], [ %.sroa.014.2347, %347 ], [ %.sroa.014.2347, %346 ], [ %.sroa.014.2347, %267 ], [ %.sroa.014.2347, %279 ], [ %.sroa.014.2347, %278 ], [ %.sroa.014.2347, %272 ], [ %spec.select104, %264 ], [ %.sroa.014.2347, %266 ], [ %.sroa.014.2347, %269 ], [ %.sroa.014.2347, %399 ], [ %.sroa.014.2347, %.loopexit.i202 ], [ %.sroa.014.2347, %465 ], [ %.sroa.014.2347, %.loopexit ], [ %.sroa.014.2347, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h67c7ecd4c2289b23E.exit190" ], [ %.sroa.014.2347, %302 ], [ %.sroa.014.2347, %348 ], [ %.sroa.014.2347, %352 ], [ %.sroa.014.2347, %352 ], [ %.sroa.014.2347, %407 ], [ %.sroa.014.2347, %411 ], [ %.sroa.014.2347, %411 ], [ %.sroa.014.2347, %.lr.ph.split.us.i197 ], [ %.sroa.014.2347, %359 ], [ %.sroa.014.2347, %368 ], [ %.sroa.014.2347, %370 ], [ %.sroa.014.2347, %.lr.ph.split.i226 ], [ %.sroa.014.2347, %.lr.ph344 ]
-  %.sroa.071.7 = phi i64 [ %.sroa.071.6349, %274 ], [ %.sroa.071.6349, %270 ], [ %.sroa.071.6349, %347 ], [ %.sroa.071.6349, %346 ], [ %.sroa.071.6349, %267 ], [ %.sroa.071.6349, %279 ], [ %.sroa.071.6349, %278 ], [ %.sroa.071.6349, %272 ], [ %.sroa.071.6349, %264 ], [ %.sroa.071.6349, %266 ], [ %.sroa.071.6349, %269 ], [ %406, %399 ], [ %.sroa.071.6349, %.loopexit.i202 ], [ %472, %465 ], [ %.sroa.071.6349, %.loopexit ], [ %330, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h67c7ecd4c2289b23E.exit190" ], [ %.sroa.071.6349, %302 ], [ %.sroa.071.6349, %348 ], [ %.sroa.071.6349, %352 ], [ %.sroa.071.6349, %352 ], [ %.sroa.071.6349, %407 ], [ %.sroa.071.6349, %411 ], [ %.sroa.071.6349, %411 ], [ %.sroa.071.6349, %.lr.ph.split.us.i197 ], [ %.sroa.071.6349, %359 ], [ %.sroa.071.6349, %368 ], [ %.sroa.071.6349, %370 ], [ %.sroa.071.6349, %.lr.ph.split.i226 ], [ %.sroa.071.6349, %.lr.ph344 ]
-  %.sroa.0.3 = phi i32 [ 6, %274 ], [ 4, %270 ], [ 0, %347 ], [ 5, %346 ], [ 2, %267 ], [ 0, %279 ], [ 3, %278 ], [ %.106, %272 ], [ %spec.select105, %264 ], [ 2, %266 ], [ 4, %269 ], [ 0, %399 ], [ 0, %.loopexit.i202 ], [ 0, %465 ], [ 0, %.loopexit ], [ 0, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h67c7ecd4c2289b23E.exit190" ], [ 0, %302 ], [ 0, %348 ], [ 0, %352 ], [ 0, %352 ], [ 0, %407 ], [ 0, %411 ], [ 0, %411 ], [ 0, %.lr.ph.split.us.i197 ], [ 0, %359 ], [ 0, %368 ], [ 0, %370 ], [ 0, %.lr.ph.split.i226 ], [ 0, %.lr.ph344 ]
+  %.sroa.014.3 = phi i64 [ %.sroa.014.2347, %278 ], [ %.sroa.014.2347, %279 ], [ %.sroa.014.2347, %267 ], [ %.sroa.014.2347, %346 ], [ %.sroa.014.2347, %347 ], [ %.sroa.014.2347, %270 ], [ %.sroa.014.2347, %274 ], [ %.sroa.014.2347, %272 ], [ %spec.select104, %264 ], [ %.sroa.014.2347, %266 ], [ %.sroa.014.2347, %269 ], [ %.sroa.014.2347, %399 ], [ %.sroa.014.2347, %.loopexit.i202 ], [ %.sroa.014.2347, %465 ], [ %.sroa.014.2347, %.loopexit ], [ %.sroa.014.2347, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h67c7ecd4c2289b23E.exit190" ], [ %.sroa.014.2347, %302 ], [ %.sroa.014.2347, %348 ], [ %.sroa.014.2347, %352 ], [ %.sroa.014.2347, %352 ], [ %.sroa.014.2347, %407 ], [ %.sroa.014.2347, %411 ], [ %.sroa.014.2347, %411 ], [ %.sroa.014.2347, %.lr.ph.split.us.i197 ], [ %.sroa.014.2347, %359 ], [ %.sroa.014.2347, %368 ], [ %.sroa.014.2347, %370 ], [ %.sroa.014.2347, %.lr.ph.split.i226 ], [ %.sroa.014.2347, %.lr.ph344 ]
+  %.sroa.071.7 = phi i64 [ %.sroa.071.6349, %278 ], [ %.sroa.071.6349, %279 ], [ %.sroa.071.6349, %267 ], [ %.sroa.071.6349, %346 ], [ %.sroa.071.6349, %347 ], [ %.sroa.071.6349, %270 ], [ %.sroa.071.6349, %274 ], [ %.sroa.071.6349, %272 ], [ %.sroa.071.6349, %264 ], [ %.sroa.071.6349, %266 ], [ %.sroa.071.6349, %269 ], [ %406, %399 ], [ %.sroa.071.6349, %.loopexit.i202 ], [ %472, %465 ], [ %.sroa.071.6349, %.loopexit ], [ %330, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h67c7ecd4c2289b23E.exit190" ], [ %.sroa.071.6349, %302 ], [ %.sroa.071.6349, %348 ], [ %.sroa.071.6349, %352 ], [ %.sroa.071.6349, %352 ], [ %.sroa.071.6349, %407 ], [ %.sroa.071.6349, %411 ], [ %.sroa.071.6349, %411 ], [ %.sroa.071.6349, %.lr.ph.split.us.i197 ], [ %.sroa.071.6349, %359 ], [ %.sroa.071.6349, %368 ], [ %.sroa.071.6349, %370 ], [ %.sroa.071.6349, %.lr.ph.split.i226 ], [ %.sroa.071.6349, %.lr.ph344 ]
+  %.sroa.0.3 = phi i32 [ 3, %278 ], [ 0, %279 ], [ 2, %267 ], [ 5, %346 ], [ 0, %347 ], [ 4, %270 ], [ 6, %274 ], [ %.106, %272 ], [ %spec.select105, %264 ], [ 2, %266 ], [ 4, %269 ], [ 0, %399 ], [ 0, %.loopexit.i202 ], [ 0, %465 ], [ 0, %.loopexit ], [ 0, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h67c7ecd4c2289b23E.exit190" ], [ 0, %302 ], [ 0, %348 ], [ 0, %352 ], [ 0, %352 ], [ 0, %407 ], [ 0, %411 ], [ 0, %411 ], [ 0, %.lr.ph.split.us.i197 ], [ 0, %359 ], [ 0, %368 ], [ 0, %370 ], [ 0, %.lr.ph.split.i226 ], [ 0, %.lr.ph344 ]
   %276 = add i64 %.sroa.043.1348, 1
   %277 = icmp eq ptr %244, %237
   br i1 %277, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6330e6cc218faa75E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6330e6cc218faa75E.exit"
@@ -3776,9 +3776,9 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.e
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit.thread15
 
-_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit.thread15: ; preds = %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit, %443, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit99.i, %432, %369, %361, %303, %438, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit88.i, %91, %224, %163, %155, %99, %452
-  %.sroa.5.0 = phi ptr [ %457, %452 ], [ %223, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit88.i ], [ %96, %91 ], [ %229, %224 ], [ %168, %163 ], [ %160, %155 ], [ %104, %99 ], [ undef, %438 ], [ %446, %443 ], [ %431, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit99.i ], [ %437, %432 ], [ %374, %369 ], [ %366, %361 ], [ %308, %303 ], [ %spec.select, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit ]
-  %.sroa.0.0 = phi i64 [ 1, %452 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit88.i ], [ 1, %91 ], [ 1, %224 ], [ 1, %163 ], [ 1, %155 ], [ 1, %99 ], [ 0, %438 ], [ 1, %443 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit99.i ], [ 1, %432 ], [ 1, %369 ], [ 1, %361 ], [ 1, %303 ], [ %spec.select19, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit ]
+_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit.thread15: ; preds = %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit, %443, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit99.i, %303, %361, %369, %432, %438, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit88.i, %91, %99, %155, %163, %224, %452
+  %.sroa.5.0 = phi ptr [ %457, %452 ], [ %223, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit88.i ], [ %96, %91 ], [ %104, %99 ], [ %160, %155 ], [ %168, %163 ], [ %229, %224 ], [ undef, %438 ], [ %446, %443 ], [ %431, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit99.i ], [ %308, %303 ], [ %366, %361 ], [ %374, %369 ], [ %437, %432 ], [ %spec.select, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit ]
+  %.sroa.0.0 = phi i64 [ 1, %452 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit88.i ], [ 1, %91 ], [ 1, %99 ], [ 1, %155 ], [ 1, %163 ], [ 1, %224 ], [ 0, %438 ], [ 1, %443 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h71b1dc020e5cab51E.exit99.i ], [ 1, %303 ], [ 1, %361 ], [ 1, %369 ], [ 1, %432 ], [ %spec.select19, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h3b98df238d1fe4aaE.exit ]
   %458 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %459 = insertvalue { i64, ptr } %458, ptr %.sroa.5.0, 1
   ret { i64, ptr } %459
@@ -4783,9 +4783,9 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.e
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit.thread55
 
-_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit.thread55: ; preds = %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit, %444, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit95.i, %433, %370, %362, %304, %439, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit83.i, %93, %226, %165, %157, %101, %453
-  %.sroa.5.0 = phi ptr [ %458, %453 ], [ %225, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit83.i ], [ %98, %93 ], [ %231, %226 ], [ %170, %165 ], [ %162, %157 ], [ %106, %101 ], [ undef, %439 ], [ %447, %444 ], [ %432, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit95.i ], [ %438, %433 ], [ %375, %370 ], [ %367, %362 ], [ %309, %304 ], [ %spec.select, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit ]
-  %.sroa.0.0 = phi i64 [ 1, %453 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit83.i ], [ 1, %93 ], [ 1, %226 ], [ 1, %165 ], [ 1, %157 ], [ 1, %101 ], [ 0, %439 ], [ 1, %444 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit95.i ], [ 1, %433 ], [ 1, %370 ], [ 1, %362 ], [ 1, %304 ], [ %spec.select59, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit ]
+_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit.thread55: ; preds = %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit, %444, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit95.i, %304, %362, %370, %433, %439, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit83.i, %93, %101, %157, %165, %226, %453
+  %.sroa.5.0 = phi ptr [ %458, %453 ], [ %225, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit83.i ], [ %98, %93 ], [ %106, %101 ], [ %162, %157 ], [ %170, %165 ], [ %231, %226 ], [ undef, %439 ], [ %447, %444 ], [ %432, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit95.i ], [ %309, %304 ], [ %367, %362 ], [ %375, %370 ], [ %438, %433 ], [ %spec.select, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit ]
+  %.sroa.0.0 = phi i64 [ 1, %453 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit83.i ], [ 1, %93 ], [ 1, %101 ], [ 1, %157 ], [ 1, %165 ], [ 1, %226 ], [ 0, %439 ], [ 1, %444 ], [ 1, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit95.i ], [ 1, %304 ], [ 1, %362 ], [ 1, %370 ], [ 1, %433 ], [ %spec.select59, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb668232db86df149E.exit ]
   %459 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %460 = insertvalue { i64, ptr } %459, ptr %.sroa.5.0, 1
   ret { i64, ptr } %460
@@ -4964,8 +4964,8 @@ _ZN4jiff2tz6offset6Offset11to_datetime17hd955ab1466179a3dE.exit: ; preds = %28, 
   br label %95
 
 95:                                               ; preds = %93, %91, %75
-  %.sroa.027.1.i = phi i8 [ %.sroa.027.0.i, %75 ], [ %92, %91 ], [ %.sroa.027.0.i, %93 ]
-  %.sroa.029.1.i = phi i8 [ %.sroa.029.0.i, %75 ], [ 0, %91 ], [ %94, %93 ]
+  %.sroa.027.1.i = phi i8 [ %92, %91 ], [ %.sroa.027.0.i, %93 ], [ %.sroa.027.0.i, %75 ]
+  %.sroa.029.1.i = phi i8 [ 0, %91 ], [ %94, %93 ], [ %.sroa.029.0.i, %75 ]
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %12), !noalias !1206
   %96 = sext i8 %.sroa.027.1.i to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !1222)
@@ -5227,8 +5227,8 @@ _ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit66.i: ; preds = %"_
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %11), !noalias !1206
   br label %_ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17hd7775dad8a86603aE.exit.thread
 
-_ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17hd7775dad8a86603aE.exit.thread: ; preds = %83, %152, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h1e29d9b443259ba2E.exit61.i", %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit66.i
-  %.sroa.6.0.i.ph = phi ptr [ %211, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit66.i ], [ %151, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h1e29d9b443259ba2E.exit61.i" ], [ %157, %152 ], [ %88, %83 ]
+_ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17hd7775dad8a86603aE.exit.thread: ; preds = %152, %83, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h1e29d9b443259ba2E.exit61.i", %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit66.i
+  %.sroa.6.0.i.ph = phi ptr [ %211, %_ZN4jiff3fmt8WriteExt13write_decimal17h6495cea59ce65bb2E.exit66.i ], [ %151, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h1e29d9b443259ba2E.exit61.i" ], [ %88, %83 ], [ %157, %152 ]
   %212 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.6.0.i.ph, 1
   br label %217
 
@@ -5237,8 +5237,8 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17hd7775dad8
   br label %214
 
 214:                                              ; preds = %279, %271, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_zulu17h16ae44eb93ce2870E.exit, %217, %213
-  %.sroa.7.1 = phi ptr [ %.sroa.7.0, %217 ], [ undef, %213 ], [ %280, %279 ], [ %278, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_zulu17h16ae44eb93ce2870E.exit ], [ undef, %271 ]
-  %.sroa.01.1 = phi i64 [ 1, %217 ], [ 0, %213 ], [ 1, %279 ], [ 1, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_zulu17h16ae44eb93ce2870E.exit ], [ 0, %271 ]
+  %.sroa.7.1 = phi ptr [ undef, %213 ], [ %.sroa.7.0, %217 ], [ %280, %279 ], [ %278, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_zulu17h16ae44eb93ce2870E.exit ], [ undef, %271 ]
+  %.sroa.01.1 = phi i64 [ 0, %213 ], [ 1, %217 ], [ 1, %279 ], [ 1, %_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_zulu17h16ae44eb93ce2870E.exit ], [ 0, %271 ]
   %215 = insertvalue { i64, ptr } poison, i64 %.sroa.01.1, 0
   %216 = insertvalue { i64, ptr } %215, ptr %.sroa.7.1, 1
   ret { i64, ptr } %216

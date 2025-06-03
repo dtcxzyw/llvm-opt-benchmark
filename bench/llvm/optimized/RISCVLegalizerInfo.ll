@@ -14742,7 +14742,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   br label %142
 
 142:                                              ; preds = %133, %118, %97
-  %.sroa.081.0 = phi i32 [ %141, %133 ], [ %132, %118 ], [ %117, %97 ]
+  %.sroa.081.0 = phi i32 [ %117, %97 ], [ %132, %118 ], [ %141, %133 ]
   %143 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildBrIndirectENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 %.sroa.081.0) #17
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
@@ -17690,7 +17690,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %120, %122
   br label %_ZL15getRISCVWOpcodej.exit
 
 _ZL15getRISCVWOpcodej.exit:                       ; preds = %174, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196
-  %.0.i.neg = phi i64 [ -314, %196 ], [ -315, %195 ], [ -310, %194 ], [ -309, %193 ], [ -319, %192 ], [ -318, %191 ], [ -317, %190 ], [ -311, %189 ], [ -312, %188 ], [ -320, %187 ], [ -323, %186 ], [ -322, %174 ]
+  %.0.i.neg = phi i64 [ -323, %186 ], [ -320, %187 ], [ -312, %188 ], [ -311, %189 ], [ -317, %190 ], [ -318, %191 ], [ -319, %192 ], [ -309, %193 ], [ -310, %194 ], [ -315, %195 ], [ -314, %196 ], [ -322, %174 ]
   %197 = load ptr, ptr %183, align 8, !tbaa !688
   %198 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %197, i64 %.0.i.neg
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %198) #17
@@ -17771,7 +17771,7 @@ _ZL15getRISCVWOpcodej.exit:                       ; preds = %174, %186, %187, %1
   br label %_ZL15getRISCVWOpcodej.exit172
 
 _ZL15getRISCVWOpcodej.exit172:                    ; preds = %203, %215, %216, %217, %218, %219, %220, %221, %222, %223, %224, %225
-  %.0.i171.neg = phi i64 [ -314, %225 ], [ -315, %224 ], [ -310, %223 ], [ -309, %222 ], [ -319, %221 ], [ -318, %220 ], [ -317, %219 ], [ -311, %218 ], [ -312, %217 ], [ -320, %216 ], [ -323, %215 ], [ -322, %203 ]
+  %.0.i171.neg = phi i64 [ -323, %215 ], [ -320, %216 ], [ -312, %217 ], [ -311, %218 ], [ -317, %219 ], [ -318, %220 ], [ -319, %221 ], [ -309, %222 ], [ -310, %223 ], [ -315, %224 ], [ -314, %225 ], [ -322, %203 ]
   %226 = load ptr, ptr %212, align 8, !tbaa !688
   %227 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %226, i64 %.0.i171.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %227) #17
@@ -17850,7 +17850,7 @@ _ZL15getRISCVWOpcodej.exit172:                    ; preds = %203, %215, %216, %2
   br label %_ZL15getRISCVWOpcodej.exit174
 
 _ZL15getRISCVWOpcodej.exit174:                    ; preds = %232, %244, %245, %246, %247, %248, %249, %250, %251, %252, %253, %254
-  %.0.i173.neg = phi i64 [ -314, %254 ], [ -315, %253 ], [ -310, %252 ], [ -309, %251 ], [ -319, %250 ], [ -318, %249 ], [ -317, %248 ], [ -311, %247 ], [ -312, %246 ], [ -320, %245 ], [ -323, %244 ], [ -322, %232 ]
+  %.0.i173.neg = phi i64 [ -323, %244 ], [ -320, %245 ], [ -312, %246 ], [ -311, %247 ], [ -317, %248 ], [ -318, %249 ], [ -319, %250 ], [ -309, %251 ], [ -310, %252 ], [ -315, %253 ], [ -314, %254 ], [ -322, %232 ]
   %255 = load ptr, ptr %241, align 8, !tbaa !688
   %256 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %255, i64 %.0.i173.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %256) #17
@@ -17927,7 +17927,7 @@ _ZL15getRISCVWOpcodej.exit174:                    ; preds = %232, %244, %245, %2
   br label %_ZL15getRISCVWOpcodej.exit176
 
 _ZL15getRISCVWOpcodej.exit176:                    ; preds = %261, %273, %274, %275, %276, %277, %278, %279, %280, %281, %282, %283
-  %.0.i175.neg = phi i64 [ -314, %283 ], [ -315, %282 ], [ -310, %281 ], [ -309, %280 ], [ -319, %279 ], [ -318, %278 ], [ -317, %277 ], [ -311, %276 ], [ -312, %275 ], [ -320, %274 ], [ -323, %273 ], [ -322, %261 ]
+  %.0.i175.neg = phi i64 [ -323, %273 ], [ -320, %274 ], [ -312, %275 ], [ -311, %276 ], [ -317, %277 ], [ -318, %278 ], [ -319, %279 ], [ -309, %280 ], [ -310, %281 ], [ -315, %282 ], [ -314, %283 ], [ -322, %261 ]
   %284 = load ptr, ptr %270, align 8, !tbaa !688
   %285 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %284, i64 %.0.i175.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %285) #17
@@ -18140,7 +18140,7 @@ _ZN4llvm16MachineIRBuilderD2Ev.exit:              ; preds = %_ZN4llvm5APIntD2Ev.
   br label %368
 
 368:                                              ; preds = %141, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %140, %140, %50, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread, %4, %366, %364, %362, %360, %358, %356, %354, %352, %_ZN4llvm16MachineIRBuilderD2Ev.exit, %_ZL15getRISCVWOpcodej.exit176, %_ZL15getRISCVWOpcodej.exit174, %_ZL15getRISCVWOpcodej.exit172, %_ZL15getRISCVWOpcodej.exit, %160, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %30
-  %.0 = phi i1 [ %367, %366 ], [ %365, %364 ], [ true, %362 ], [ true, %360 ], [ true, %358 ], [ %357, %356 ], [ true, %354 ], [ %353, %352 ], [ true, %_ZN4llvm16MachineIRBuilderD2Ev.exit ], [ true, %_ZL15getRISCVWOpcodej.exit176 ], [ true, %_ZL15getRISCVWOpcodej.exit174 ], [ true, %_ZL15getRISCVWOpcodej.exit172 ], [ true, %160 ], [ true, %_ZL15getRISCVWOpcodej.exit ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %32, %30 ], [ false, %4 ], [ %52, %50 ], [ true, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread ], [ %143, %141 ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ true, %140 ], [ true, %140 ]
+  %.0 = phi i1 [ %32, %30 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ true, %160 ], [ true, %_ZL15getRISCVWOpcodej.exit ], [ true, %_ZL15getRISCVWOpcodej.exit172 ], [ true, %_ZL15getRISCVWOpcodej.exit174 ], [ true, %_ZL15getRISCVWOpcodej.exit176 ], [ true, %_ZN4llvm16MachineIRBuilderD2Ev.exit ], [ %353, %352 ], [ true, %354 ], [ %357, %356 ], [ true, %358 ], [ true, %360 ], [ true, %362 ], [ %365, %364 ], [ %367, %366 ], [ false, %4 ], [ %52, %50 ], [ true, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread ], [ %143, %141 ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ true, %140 ], [ true, %140 ]
   ret i1 %.0
 }
 

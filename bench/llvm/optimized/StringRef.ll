@@ -113,7 +113,7 @@ _ZL17ascii_strncasecmpPKcS0_m.exit.thread:        ; preds = %7, %3
   br label %25
 
 25:                                               ; preds = %_ZL17ascii_strncasecmpPKcS0_m.exit, %_ZL17ascii_strncasecmpPKcS0_m.exit.thread, %22
-  %.1 = phi i32 [ %20, %_ZL17ascii_strncasecmpPKcS0_m.exit ], [ %24, %22 ], [ 0, %_ZL17ascii_strncasecmpPKcS0_m.exit.thread ]
+  %.1 = phi i32 [ %24, %22 ], [ %20, %_ZL17ascii_strncasecmpPKcS0_m.exit ], [ 0, %_ZL17ascii_strncasecmpPKcS0_m.exit.thread ]
   ret i32 %.1
 }
 

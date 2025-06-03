@@ -198,7 +198,7 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
   br label %126
 
 126:                                              ; preds = %37, %6, %125, %121, %114, %25
-  %.034 = phi ptr [ null, %25 ], [ null, %37 ], [ null, %114 ], [ null, %121 ], [ %119, %125 ], [ null, %6 ]
+  %.034 = phi ptr [ null, %25 ], [ null, %114 ], [ null, %121 ], [ %119, %125 ], [ null, %37 ], [ null, %6 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #9
   ret ptr %.034
 }

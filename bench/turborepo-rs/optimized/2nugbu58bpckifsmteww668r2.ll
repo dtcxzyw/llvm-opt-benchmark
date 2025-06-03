@@ -1090,7 +1090,7 @@ _RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit97.i: ; preds = %
           to label %60 unwind label %58
 
 .body.i:                                          ; preds = %300, %298, %.body81.i, %248, %232, %201, %.body49.i, %172, %154, %148, %96, %71, %58
-  %.pn34.i = phi { ptr, i32 } [ %299, %298 ], [ %.pn.i, %.body81.i ], [ %233, %232 ], [ %.pn32.i, %.body49.i ], [ %59, %58 ], [ %72, %71 ], [ %155, %154 ], [ %149, %148 ], [ %97, %96 ], [ %173, %172 ], [ %202, %201 ], [ %249, %248 ], [ %301, %300 ]
+  %.pn34.i = phi { ptr, i32 } [ %.pn32.i, %.body49.i ], [ %233, %232 ], [ %299, %298 ], [ %.pn.i, %.body81.i ], [ %59, %58 ], [ %72, %71 ], [ %155, %154 ], [ %149, %148 ], [ %97, %96 ], [ %173, %172 ], [ %202, %201 ], [ %249, %248 ], [ %301, %300 ]
   %52 = load i64, ptr %27, align 8, !range !100, !alias.scope !101, !noalias !97, !noundef !4
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %.body, label %54
@@ -2415,7 +2415,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token
   br label %59
 
 common.resume:                                    ; preds = %302, %250, %214, %92, %144, %150, %169, %300, %.body60, %232, %.body
-  %common.resume.op = phi { ptr, i32 } [ %301, %300 ], [ %.pn, %.body60 ], [ %233, %232 ], [ %.pn28, %.body ], [ %151, %150 ], [ %145, %144 ], [ %93, %92 ], [ %170, %169 ], [ %215, %214 ], [ %251, %250 ], [ %303, %302 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %233, %232 ], [ %301, %300 ], [ %.pn, %.body60 ], [ %151, %150 ], [ %145, %144 ], [ %93, %92 ], [ %170, %169 ], [ %215, %214 ], [ %251, %250 ], [ %303, %302 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable126:                           ; preds = %310, %200
@@ -3481,7 +3481,7 @@ define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5To
   br label %53
 
 common.resume:                                    ; preds = %300, %248, %212, %90, %142, %148, %167, %298, %.body58, %230, %.body
-  %common.resume.op = phi { ptr, i32 } [ %299, %298 ], [ %.pn, %.body58 ], [ %231, %230 ], [ %.pn28, %.body ], [ %149, %148 ], [ %143, %142 ], [ %91, %90 ], [ %168, %167 ], [ %213, %212 ], [ %249, %248 ], [ %301, %300 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %231, %230 ], [ %299, %298 ], [ %.pn, %.body58 ], [ %149, %148 ], [ %143, %142 ], [ %91, %90 ], [ %168, %167 ], [ %213, %212 ], [ %249, %248 ], [ %301, %300 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable108:                           ; preds = %198
@@ -4567,7 +4567,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token
   br label %63
 
 common.resume:                                    ; preds = %306, %254, %218, %96, %148, %154, %173, %304, %.body60, %236, %.body
-  %common.resume.op = phi { ptr, i32 } [ %305, %304 ], [ %.pn, %.body60 ], [ %237, %236 ], [ %.pn28, %.body ], [ %155, %154 ], [ %149, %148 ], [ %97, %96 ], [ %174, %173 ], [ %219, %218 ], [ %255, %254 ], [ %307, %306 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %237, %236 ], [ %305, %304 ], [ %.pn, %.body60 ], [ %155, %154 ], [ %149, %148 ], [ %97, %96 ], [ %174, %173 ], [ %219, %218 ], [ %255, %254 ], [ %307, %306 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable126:                           ; preds = %314, %204
@@ -5648,7 +5648,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RINtNtCseG2FYMysgNb_3wax5toke
   br label %59
 
 common.resume:                                    ; preds = %302, %250, %214, %92, %144, %150, %169, %300, %.body60, %232, %.body
-  %common.resume.op = phi { ptr, i32 } [ %301, %300 ], [ %.pn, %.body60 ], [ %233, %232 ], [ %.pn28, %.body ], [ %151, %150 ], [ %145, %144 ], [ %93, %92 ], [ %170, %169 ], [ %215, %214 ], [ %251, %250 ], [ %303, %302 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %233, %232 ], [ %301, %300 ], [ %.pn, %.body60 ], [ %151, %150 ], [ %145, %144 ], [ %93, %92 ], [ %170, %169 ], [ %215, %214 ], [ %251, %250 ], [ %303, %302 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable126:                           ; preds = %310, %200

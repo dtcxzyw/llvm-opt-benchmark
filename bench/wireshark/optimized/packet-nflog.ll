@@ -329,7 +329,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %114, ptr noundef %0, i32 noundef %115, i32 noundef 16, i32 noundef 16)
   br label %.thread.thread187
 
-117:                                              ; preds = %111, %105, %99, %93, %87, %81, %75, %69, %67, %52
+117:                                              ; preds = %67, %69, %75, %81, %87, %93, %99, %105, %111, %52
   %118 = load i32, ptr @hf_nflog_tlv_unknown, align 4
   %119 = add i32 %.0135169, 4
   %120 = zext i16 %53 to i32

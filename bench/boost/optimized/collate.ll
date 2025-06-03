@@ -278,7 +278,7 @@ _ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   ret void
 
 84:                                               ; preds = %.body11, %.body, %81, %43
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %.body ], [ %82, %81 ], [ %80, %.body11 ]
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %.body11 ], [ %44, %43 ], [ %42, %.body ]
   resume { ptr, i32 } %.pn
 }
 

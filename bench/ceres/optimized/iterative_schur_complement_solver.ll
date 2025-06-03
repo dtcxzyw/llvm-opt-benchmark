@@ -1728,7 +1728,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_pt
   ret void
 
 .body:                                            ; preds = %111, %105, %97, %91, %145, %139, %125, %78, %60
-  %.pn = phi { ptr, i32 } [ %146, %145 ], [ %140, %139 ], [ %126, %125 ], [ %79, %78 ], [ %61, %60 ], [ %98, %97 ], [ %92, %91 ], [ %112, %111 ], [ %106, %105 ]
+  %.pn = phi { ptr, i32 } [ %146, %145 ], [ %79, %78 ], [ %126, %125 ], [ %140, %139 ], [ %61, %60 ], [ %98, %97 ], [ %92, %91 ], [ %112, %111 ], [ %106, %105 ]
   %156 = load ptr, ptr %25, align 8, !tbaa !18
   %.not.i.i.i.i27 = icmp eq ptr %156, null
   br i1 %.not.i.i.i.i27, label %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit28, label %157

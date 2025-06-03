@@ -376,7 +376,7 @@ define dso_local noundef nonnull ptr @format_task_dist_states(i32 noundef %0) lo
   br label %30
 
 30:                                               ; preds = %1, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.37, %29 ], [ @.str.36, %28 ], [ @.str.35, %27 ], [ @.str.34, %26 ], [ @.str.33, %25 ], [ @.str.32, %24 ], [ @.str.31, %23 ], [ @.str.30, %22 ], [ @.str.29, %21 ], [ @.str.28, %20 ], [ @.str.27, %19 ], [ @.str.26, %18 ], [ @.str.25, %17 ], [ @.str.24, %16 ], [ @.str.23, %15 ], [ @.str.22, %14 ], [ @.str.21, %13 ], [ @.str.20, %12 ], [ @.str.19, %11 ], [ @.str.18, %10 ], [ @.str.17, %9 ], [ @.str.16, %8 ], [ @.str.15, %7 ], [ @.str.14, %6 ], [ @.str.13, %5 ], [ @.str.12, %4 ], [ @.str.9, %3 ], [ @.str.11, %2 ], [ @.str.10, %1 ]
+  %.0 = phi ptr [ @.str.37, %29 ], [ @.str.11, %2 ], [ @.str.9, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.14, %6 ], [ @.str.15, %7 ], [ @.str.16, %8 ], [ @.str.17, %9 ], [ @.str.18, %10 ], [ @.str.19, %11 ], [ @.str.20, %12 ], [ @.str.21, %13 ], [ @.str.22, %14 ], [ @.str.23, %15 ], [ @.str.24, %16 ], [ @.str.25, %17 ], [ @.str.26, %18 ], [ @.str.27, %19 ], [ @.str.28, %20 ], [ @.str.29, %21 ], [ @.str.30, %22 ], [ @.str.31, %23 ], [ @.str.32, %24 ], [ @.str.33, %25 ], [ @.str.34, %26 ], [ @.str.35, %27 ], [ @.str.36, %28 ], [ @.str.10, %1 ]
   ret ptr %.0
 }
 
@@ -524,7 +524,7 @@ default.unreachable.i:                            ; preds = %41
   unreachable
 
 47:                                               ; preds = %45, %44, %43, %42
-  %.1.i = phi ptr [ %.032.i, %44 ], [ @.str.11, %43 ], [ %.032.i, %42 ], [ %spec.select.i, %45 ]
+  %.1.i = phi ptr [ %.032.i, %42 ], [ @.str.11, %43 ], [ %.032.i, %44 ], [ %spec.select.i, %45 ]
   %48 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.86, ptr noundef nonnull %7) #21
   %49 = add nuw nsw i32 %.01930.i, 1
   %.not25.i = icmp eq ptr %48, null
@@ -3069,7 +3069,7 @@ define dso_local ptr @signal_opts_to_cmdline(i16 noundef zeroext %0, i16 noundef
   br label %sig_num2name.exit
 
 sig_num2name.exit:                                ; preds = %._crit_edge, %21
-  %.1.i = phi ptr [ %20, %._crit_edge ], [ %22, %21 ]
+  %.1.i = phi ptr [ %22, %21 ], [ %20, %._crit_edge ]
   store ptr %.1.i, ptr %5, align 8
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef %.1.i) #21
   call void @slurm_xfree(ptr noundef nonnull %5) #21
@@ -3123,7 +3123,7 @@ define dso_local ptr @sig_num2name(i32 noundef %0) local_unnamed_addr #2 {
   br label %14
 
 14:                                               ; preds = %10, %12
-  %.1 = phi ptr [ %11, %10 ], [ %13, %12 ]
+  %.1 = phi ptr [ %13, %12 ], [ %11, %10 ]
   ret ptr %.1
 }
 

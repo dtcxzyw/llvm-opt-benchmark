@@ -5209,7 +5209,7 @@ define i32 @pmix_server_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %290
 
 290:                                              ; preds = %287, %286, %289, %288, %283, %281, %282
-  %.0203 = phi ptr [ %271, %281 ], [ %271, %282 ], [ %267, %283 ], [ %267, %288 ], [ %267, %289 ], [ %267, %287 ], [ %267, %286 ]
+  %.0203 = phi ptr [ %271, %281 ], [ %271, %282 ], [ %267, %283 ], [ %267, %287 ], [ %267, %286 ], [ %267, %288 ], [ %267, %289 ]
   %291 = getelementptr inbounds nuw i8, ptr %.0203, i64 1360
   %292 = load ptr, ptr %291, align 8, !tbaa !186
   %293 = icmp eq ptr %292, null

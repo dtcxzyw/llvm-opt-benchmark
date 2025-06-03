@@ -365,7 +365,7 @@ _ZNK4llvm9StringRef7compareES0_.exit.loopexit:    ; preds = %_ZN4llvm9StringRef1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZNK4llvm9StringRef7compareES0_.exit.loopexit, %._crit_edge, %97, %81, %.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
-  %.2 = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %83, %81 ], [ 0, %.thread.i ], [ %100, %._crit_edge ], [ %99, %97 ], [ %spec.select.i75.le, %_ZNK4llvm9StringRef7compareES0_.exit.loopexit ]
+  %.2 = phi i32 [ %83, %81 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ], [ %100, %._crit_edge ], [ %99, %97 ], [ %spec.select.i75.le, %_ZNK4llvm9StringRef7compareES0_.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   br label %_ZNK4llvm9StringRef7compareES0_.exit119
@@ -524,7 +524,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112: ; preds = %_ZNK5clang15Decl
   unreachable
 
 _ZNK4llvm9StringRef7compareES0_.exit119:          ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit53, %175, %.thread.i118, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit90, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82, %44, %47, %46, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99, %_ZNK4llvm9StringRef7compareES0_.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit49
-  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit49 ], [ %147, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99 ], [ %.2, %_ZNK4llvm9StringRef7compareES0_.exit ], [ %59, %47 ], [ %45, %44 ], [ 1, %46 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82 ], [ %., %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit90 ], [ %spec.select.i116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112 ], [ %177, %175 ], [ 0, %.thread.i118 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit53 ]
+  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit49 ], [ %.2, %_ZNK4llvm9StringRef7compareES0_.exit ], [ %147, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99 ], [ %59, %47 ], [ %45, %44 ], [ 1, %46 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82 ], [ %., %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit90 ], [ %177, %175 ], [ %spec.select.i116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112 ], [ 0, %.thread.i118 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit53 ]
   ret i32 %.0
 }
 
@@ -558,7 +558,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %3
   br label %13
 
 13:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit, %.thread, %10
-  %.1 = phi i32 [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ %12, %10 ], [ 0, %.thread ]
+  %.1 = phi i32 [ %12, %10 ], [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ 0, %.thread ]
   ret i32 %.1
 }
 
@@ -2766,7 +2766,7 @@ define dso_local range(i64 3, 0) i64 @_ZN5clang20DeclarationNameTable17getCXXSpe
   unreachable
 
 11:                                               ; preds = %8, %6, %4
-  %.sroa.06.0 = phi i64 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.06.0 = phi i64 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret i64 %.sroa.06.0
 }
 
@@ -3373,7 +3373,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %1, %6
   unreachable
 
 32:                                               ; preds = %22, %27, %29, %16, %13, %11
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload4, %29 ], [ %18, %16 ], [ %15, %13 ], [ %.sroa.0.0.copyload, %11 ], [ %26, %22 ], [ %.sroa.0.0.copyload3, %27 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %11 ], [ %15, %13 ], [ %18, %16 ], [ %.sroa.0.0.copyload4, %29 ], [ %26, %22 ], [ %.sroa.0.0.copyload3, %27 ]
   ret i32 %.sroa.0.0
 }
 

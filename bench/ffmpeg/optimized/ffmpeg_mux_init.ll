@@ -1565,7 +1565,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   unreachable
 
 643:                                              ; preds = %635, %621, %612, %611
-  %.074.i.i = phi ptr [ null, %611 ], [ %641, %635 ], [ %627, %621 ], [ %613, %612 ]
+  %.074.i.i = phi ptr [ %613, %612 ], [ %627, %621 ], [ %641, %635 ], [ null, %611 ]
   switch i8 %587, label %674 [
     i8 103, label %644
     i8 99, label %646
@@ -1631,7 +1631,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   unreachable
 
 675:                                              ; preds = %667, %653, %644, %643
-  %.073.i.i = phi ptr [ null, %643 ], [ %673, %667 ], [ %659, %653 ], [ %645, %644 ]
+  %.073.i.i = phi ptr [ %645, %644 ], [ %659, %653 ], [ %673, %667 ], [ null, %643 ]
   br i1 %595, label %.preheader94.i.i, label %698
 
 .preheader94.i.i:                                 ; preds = %675
@@ -1745,7 +1745,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br i1 %.not63.i, label %.lr.ph.i178, label %.thread107.loopexit.i, !llvm.loop !207
 
 .thread116.i:                                     ; preds = %581, %570, %666, %652, %634, %620
-  %.076.i.ph.ph.i = phi i32 [ -22, %666 ], [ -22, %652 ], [ -22, %634 ], [ -22, %620 ], [ %582, %581 ], [ %579, %570 ]
+  %.076.i.ph.ph.i = phi i32 [ -22, %652 ], [ -22, %666 ], [ -22, %620 ], [ -22, %634 ], [ %582, %581 ], [ %579, %570 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #16
@@ -3357,7 +3357,7 @@ of_parse_iamf_submixes.exit.i:                    ; preds = %thread-pre-split.i.
   br label %.loopexit282.i
 
 1419:                                             ; preds = %of_parse_iamf_submixes.exit.i, %of_parse_iamf_audio_element_layers.exit.i
-  %.8.i.i = phi i32 [ %.9.i.i, %of_parse_iamf_submixes.exit.i ], [ %.0.i.i, %of_parse_iamf_audio_element_layers.exit.i ]
+  %.8.i.i = phi i32 [ %.0.i.i, %of_parse_iamf_audio_element_layers.exit.i ], [ %.9.i.i, %of_parse_iamf_submixes.exit.i ]
   %1420 = icmp slt i32 %.8.i.i, 0
   br i1 %1420, label %.loopexit282.i, label %1421
 
@@ -3844,8 +3844,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @of_add_metadata(ptr nounde
   %82 = tail call i32 @av_dict_set(ptr noundef nonnull %.048, ptr noundef %79, ptr noundef %81, i32 noundef 0) #16
   br label %.loopexit
 
-.thread:                                          ; preds = %23, %51, %68, %67, %61, %22
-  %.253.ph = phi i32 [ -22, %22 ], [ -22, %61 ], [ -22, %67 ], [ -22, %68 ], [ %38, %51 ], [ %28, %23 ]
+.thread:                                          ; preds = %23, %51, %68, %61, %67, %22
+  %.253.ph = phi i32 [ -22, %22 ], [ -22, %67 ], [ -22, %61 ], [ -22, %68 ], [ %38, %51 ], [ %28, %23 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
@@ -6212,7 +6212,7 @@ get_line.exit.thread:                             ; preds = %235, %get_line.exit
   br label %474
 
 474:                                              ; preds = %472, %470, %468, %465
-  %.14 = phi i32 [ %.13, %465 ], [ %473, %472 ], [ %471, %470 ], [ %469, %468 ]
+  %.14 = phi i32 [ %.13, %465 ], [ %469, %468 ], [ %471, %470 ], [ %473, %472 ]
   %475 = icmp slt i32 %.14, 0
   br i1 %475, label %542, label %476
 
@@ -6366,7 +6366,7 @@ get_line.exit.thread:                             ; preds = %235, %get_line.exit
   br label %542
 
 542:                                              ; preds = %329, %367, %.thread500, %.thread522, %541, %522, %504, %496, %478, %474, %330, %490, %392
-  %.8 = phi i32 [ %.0372, %329 ], [ -22, %367 ], [ %390, %392 ], [ %.14, %474 ], [ %482, %478 ], [ %510, %504 ], [ %523, %522 ], [ %488, %490 ], [ %500, %496 ], [ %335, %330 ], [ 0, %541 ], [ 0, %.thread522 ], [ %.0372.ph, %.thread500 ]
+  %.8 = phi i32 [ %390, %392 ], [ %.14, %474 ], [ %482, %478 ], [ %510, %504 ], [ %523, %522 ], [ %488, %490 ], [ %500, %496 ], [ -22, %367 ], [ %.0372, %329 ], [ %335, %330 ], [ 0, %541 ], [ 0, %.thread522 ], [ %.0372.ph, %.thread500 ]
   call void @av_dict_free(ptr noundef nonnull %11) #16
   br label %mux_stream_alloc.exit.thread
 
@@ -6808,8 +6808,8 @@ thread-pre-split:                                 ; preds = %79, %95, %97
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.88, ptr noundef %103) #16
   br label %.thread156
 
-.thread156:                                       ; preds = %66, %98, %102, %65
-  %.050.ph = phi i32 [ -22, %65 ], [ -22, %102 ], [ -22, %98 ], [ %70, %66 ]
+.thread156:                                       ; preds = %66, %102, %98, %65
+  %.050.ph = phi i32 [ -22, %65 ], [ -22, %98 ], [ -22, %102 ], [ %70, %66 ]
   call void @av_freep(ptr noundef nonnull %9) #16
   br label %.thread142
 
@@ -8714,7 +8714,7 @@ define internal fastcc i32 @streamcopy_init(ptr noundef %0, ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread165, %._crit_edge, %173, %156, %153, %46, %.thread
-  %.1112 = phi i32 [ %.0111142, %.thread ], [ %44, %46 ], [ %44, %._crit_edge ], [ %44, %173 ], [ %44, %156 ], [ %44, %153 ], [ %44, %.thread165 ], [ -12, %.lr.ph ]
+  %.1112 = phi i32 [ %.0111142, %.thread ], [ %44, %46 ], [ %44, %._crit_edge ], [ %44, %156 ], [ %44, %153 ], [ %44, %173 ], [ %44, %.thread165 ], [ -12, %.lr.ph ]
   call void @avcodec_free_context(ptr noundef nonnull %5) #16
   br label %182
 

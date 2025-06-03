@@ -194,10 +194,10 @@ define void @dt_gaussian_blur(ptr noundef readonly captures(none) %0, ptr nounde
   br label %_compute_gauss_params.exit
 
 _compute_gauss_params.exit:                       ; preds = %33, %49, %53
-  %.0397 = phi nsz float [ %47, %33 ], [ %52, %49 ], [ %77, %53 ]
-  %.0396 = phi nsz float [ %44, %33 ], [ 0.000000e+00, %49 ], [ %74, %53 ]
-  %.0395 = phi nsz float [ %41, %33 ], [ %51, %49 ], [ %68, %53 ]
-  %.sink.i = phi float [ %48, %33 ], [ 0.000000e+00, %49 ], [ %78, %53 ]
+  %.0397 = phi nsz float [ %47, %33 ], [ %77, %53 ], [ %52, %49 ]
+  %.0396 = phi nsz float [ %44, %33 ], [ %74, %53 ], [ 0.000000e+00, %49 ]
+  %.0395 = phi nsz float [ %41, %33 ], [ %68, %53 ], [ %51, %49 ]
+  %.sink.i = phi float [ %48, %33 ], [ %78, %53 ], [ 0.000000e+00, %49 ]
   %79 = fadd reassoc nsz arcp contract afn float %.0395, %.0396
   %80 = fadd reassoc nsz arcp contract afn float %32, 1.000000e+00
   %81 = fadd reassoc nsz arcp contract afn float %80, %31
@@ -803,10 +803,10 @@ define void @dt_gaussian_blur_4c(ptr noundef readonly captures(none) %0, ptr nou
   br label %_compute_gauss_params.exit
 
 _compute_gauss_params.exit:                       ; preds = %36, %52, %56
-  %.0337 = phi nsz float [ %50, %36 ], [ %55, %52 ], [ %80, %56 ]
-  %.0336 = phi nsz float [ %47, %36 ], [ 0.000000e+00, %52 ], [ %77, %56 ]
-  %.0335 = phi nsz float [ %44, %36 ], [ %54, %52 ], [ %71, %56 ]
-  %.sink.i = phi float [ %51, %36 ], [ 0.000000e+00, %52 ], [ %81, %56 ]
+  %.0337 = phi nsz float [ %50, %36 ], [ %80, %56 ], [ %55, %52 ]
+  %.0336 = phi nsz float [ %47, %36 ], [ %77, %56 ], [ 0.000000e+00, %52 ]
+  %.0335 = phi nsz float [ %44, %36 ], [ %71, %56 ], [ %54, %52 ]
+  %.sink.i = phi float [ %51, %36 ], [ %81, %56 ], [ 0.000000e+00, %52 ]
   %82 = fadd reassoc nsz arcp contract afn float %.0335, %.0336
   %83 = fadd reassoc nsz arcp contract afn float %35, 1.000000e+00
   %84 = fadd reassoc nsz arcp contract afn float %83, %34

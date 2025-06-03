@@ -700,7 +700,7 @@ _ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit: ; 
   unreachable
 
 125:                                              ; preds = %84, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit, %20
-  %.0 = phi float [ %123, %84 ], [ %72, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit ], [ %59, %20 ]
+  %.0 = phi float [ %59, %20 ], [ %72, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit ], [ %123, %84 ]
   ret float %.0
 }
 
@@ -1102,7 +1102,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %196, %192, %190
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %204
-  %.0.i = phi float [ %215, %204 ], [ %203, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %173, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
+  %.0.i = phi float [ %173, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %203, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %215, %204 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
   %217 = fmul float %105, %.0.i
   %218 = fadd float %.1167, %217
   %219 = fadd float %.161166, %105
@@ -2533,7 +2533,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i101:                    ; preds = %422, %418, %416
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit110: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit172, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i108, %_ZNK4pbrt4HalfcvfEv.exit.i101, %430
-  %.0.i92 = phi float [ %443, %430 ], [ %429, %_ZNK4pbrt4HalfcvfEv.exit.i101 ], [ %397, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i108 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit172 ]
+  %.0.i92 = phi float [ %397, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i108 ], [ %429, %_ZNK4pbrt4HalfcvfEv.exit.i101 ], [ %443, %430 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit172 ]
   %.sroa.029.0.vec.insert.i = insertelement <2 x float> poison, float %.0.i132, i64 0
   %.sroa.029.4.vec.insert.i = insertelement <2 x float> %.sroa.029.0.vec.insert.i, float %.0.i112, i64 1
   br label %_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_6Point2IiEE.exit
@@ -2774,7 +2774,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %529, %525, %523
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %537
-  %.0.i = phi float [ %544, %537 ], [ %536, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %510, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
+  %.0.i = phi float [ %510, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %536, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %544, %537 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
   %.sroa.029.0.vec.insert32.i = insertelement <2 x float> poison, float %.0.i, i64 0
   %.sroa.029.4.vec.insert34.i = shufflevector <2 x float> %.sroa.029.0.vec.insert32.i, <2 x float> poison, <2 x i32> zeroinitializer
   br label %_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_6Point2IiEE.exit
@@ -4144,7 +4144,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 

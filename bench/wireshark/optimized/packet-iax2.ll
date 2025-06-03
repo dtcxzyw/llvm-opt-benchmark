@@ -1731,7 +1731,7 @@ proto_item_set_url.exit.i:                        ; preds = %522, %519, %516
   br label %dissect_fullpacket.exit
 
 dissect_fullpacket.exit:                          ; preds = %dissect_iax2_command.exit.i, %400, %404, %412, %421, %452, %490, %491, %498, %504, %508, %513, %proto_item_set_url.exit.i, %527
-  %.0.i = phi i32 [ %531, %527 ], [ %511, %508 ], [ %494, %491 ], [ %476, %490 ], [ %444, %452 ], [ %416, %421 ], [ %416, %412 ], [ %407, %404 ], [ %.0.i.i, %400 ], [ %.0.i.i, %dissect_iax2_command.exit.i ], [ %507, %504 ], [ %501, %498 ], [ %526, %proto_item_set_url.exit.i ], [ %511, %513 ]
+  %.0.i = phi i32 [ %531, %527 ], [ %.0.i.i, %400 ], [ %.0.i.i, %dissect_iax2_command.exit.i ], [ %407, %404 ], [ %416, %421 ], [ %416, %412 ], [ %444, %452 ], [ %476, %490 ], [ %494, %491 ], [ %511, %508 ], [ %507, %504 ], [ %501, %498 ], [ %526, %proto_item_set_url.exit.i ], [ %511, %513 ]
   store i8 0, ptr %.0200.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #15
   br label %755
@@ -2200,7 +2200,7 @@ default.unreachable97:                            ; preds = %38
   unreachable
 
 755:                                              ; preds = %dissect_trunkpacket.exit, %dissect_minivideopacket.exit, %dissect_minipacket.exit, %dissect_fullpacket.exit
-  %.059 = phi i32 [ %.15237.i, %dissect_trunkpacket.exit ], [ %617, %dissect_minivideopacket.exit ], [ %572, %dissect_minipacket.exit ], [ %.0.i, %dissect_fullpacket.exit ]
+  %.059 = phi i32 [ %.0.i, %dissect_fullpacket.exit ], [ %572, %dissect_minipacket.exit ], [ %617, %dissect_minivideopacket.exit ], [ %.15237.i, %dissect_trunkpacket.exit ]
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %.059)
   %756 = load i32, ptr @iax2_tap, align 4
   call void @tap_queue_packet(i32 noundef %756, ptr noundef %1, ptr noundef nonnull @ii_arr)
@@ -2595,8 +2595,8 @@ default.unreachable29:                            ; preds = %16
   unreachable
 
 27:                                               ; preds = %23, %22, %18
-  %28 = phi ptr [ %10, %23 ], [ %.pre, %22 ], [ %10, %18 ]
-  %.0 = phi i32 [ %26, %23 ], [ %5, %22 ], [ %21, %18 ]
+  %28 = phi ptr [ %10, %18 ], [ %.pre, %22 ], [ %10, %23 ]
+  %.0 = phi i32 [ %21, %18 ], [ %5, %22 ], [ %26, %23 ]
   %29 = udiv i32 %.0, 1000
   %30 = zext nneg i32 %29 to i64
   store i64 %30, ptr %8, align 8
@@ -2718,7 +2718,7 @@ define internal fastcc range(i32 -1, 64) i32 @uncompress_subclass(i8 noundef zer
   br label %15
 
 15:                                               ; preds = %7, %2, %14, %13, %12, %11, %10, %9, %8, %4
-  %.0 = phi i32 [ %6, %4 ], [ -1, %14 ], [ 6, %13 ], [ 5, %12 ], [ 4, %11 ], [ 3, %10 ], [ 2, %9 ], [ 1, %8 ], [ -1, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ %6, %4 ], [ -1, %14 ], [ 1, %8 ], [ 2, %9 ], [ 3, %10 ], [ 4, %11 ], [ 5, %12 ], [ 6, %13 ], [ -1, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 

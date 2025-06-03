@@ -288,7 +288,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h6d391d615bfe66dcE.exit: ;
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h629c0ace4873a9bbE.exit
 
 _ZN10serde_json3ser10CharEscape17from_escape_table17h84ca0de8e5d8dedfE.exit.thread: ; preds = %60, %67, %66, %65, %64, %63, %62
-  %.0.i = phi ptr [ @anon.f1f17756d231d285641728d8d41bb7bc.28, %67 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.27, %66 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.26, %65 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.25, %64 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.24, %63 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.22, %62 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.21, %60 ]
+  %.0.i = phi ptr [ @anon.f1f17756d231d285641728d8d41bb7bc.22, %62 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.24, %63 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.25, %64 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.26, %65 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.27, %66 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.28, %67 ], [ @anon.f1f17756d231d285641728d8d41bb7bc.21, %60 ]
   %88 = load i64, ptr %6, align 8, !alias.scope !96, !noalias !105, !noundef !13
   %89 = load i64, ptr %.val26, align 8, !alias.scope !96, !noalias !105, !noundef !13
   %90 = sub i64 %89, %88

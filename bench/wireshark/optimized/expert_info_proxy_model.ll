@@ -696,7 +696,7 @@ _ZN7QStringD2Ev.exit132:                          ; preds = %.critedge59, %239, 
   ret i1 %.042
 
 _ZN7QStringD2Ev.exit140:                          ; preds = %_ZN7QStringD2Ev.exit124, %_ZN7QStringD2Ev.exit103, %_ZN7QStringD2Ev.exit83, %64
-  %.pn56 = phi { ptr, i32 } [ %.pn47, %_ZN7QStringD2Ev.exit124 ], [ %.pn49, %_ZN7QStringD2Ev.exit103 ], [ %.pn52, %_ZN7QStringD2Ev.exit83 ], [ %.pn, %64 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn52, %_ZN7QStringD2Ev.exit83 ], [ %.pn49, %_ZN7QStringD2Ev.exit103 ], [ %.pn47, %_ZN7QStringD2Ev.exit124 ], [ %.pn, %64 ]
   resume { ptr, i32 } %.pn56
 }
 
@@ -767,9 +767,9 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %23
 _ZNK11QModelIndex7isValidEv.exit:                 ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8
-  %.not96 = icmp eq ptr %32, null
+  %.not95 = icmp eq ptr %32, null
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
-  br i1 %.not96, label %.critedge, label %_ZNK11QModelIndex6parentEv.exit
+  br i1 %.not95, label %.critedge, label %_ZNK11QModelIndex6parentEv.exit
 
 _ZNK11QModelIndex6parentEv.exit:                  ; preds = %_ZNK11QModelIndex7isValidEv.exit
   %33 = load ptr, ptr %32, align 8, !noalias !42
@@ -781,31 +781,31 @@ _ZNK11QModelIndex6parentEv.exit:                  ; preds = %_ZNK11QModelIndex7i
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, -1
-  %or.cond77 = select i1 %36, i1 %39, i1 false
-  br i1 %or.cond77, label %_ZNK11QModelIndex7isValidEv.exit51, label %_ZNK11QModelIndex7isValidEv.exit51.thread
+  %or.cond76 = select i1 %36, i1 %39, i1 false
+  br i1 %or.cond76, label %_ZNK11QModelIndex7isValidEv.exit50, label %_ZNK11QModelIndex7isValidEv.exit50.thread
 
-_ZNK11QModelIndex7isValidEv.exit51.thread:        ; preds = %_ZNK11QModelIndex6parentEv.exit
+_ZNK11QModelIndex7isValidEv.exit50.thread:        ; preds = %_ZNK11QModelIndex6parentEv.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
   br label %44
 
-_ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6parentEv.exit
+_ZNK11QModelIndex7isValidEv.exit50:               ; preds = %_ZNK11QModelIndex6parentEv.exit
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %41 = load ptr, ptr %40, align 8
-  %.not97 = icmp eq ptr %41, null
+  %.not96 = icmp eq ptr %41, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
-  br i1 %.not97, label %44, label %42
+  br i1 %.not96, label %44, label %42
 
 .critedge:                                        ; preds = %_ZNK11QModelIndex7isValidEv.exit.thread, %_ZNK11QModelIndex7isValidEv.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
   br label %42
 
-42:                                               ; preds = %.critedge, %_ZNK11QModelIndex7isValidEv.exit51
+42:                                               ; preds = %.critedge, %_ZNK11QModelIndex7isValidEv.exit50
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %43, align 8
-  br label %.critedge48
+  br label %.critedge47
 
-44:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit51.thread, %_ZNK11QModelIndex7isValidEv.exit51
+44:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit50.thread, %_ZNK11QModelIndex7isValidEv.exit50
   %45 = load i64, ptr %22, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %49
@@ -814,7 +814,7 @@ _ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6p
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %48, align 8
-  br label %.critedge48
+  br label %.critedge47
 
 49:                                               ; preds = %44
   %50 = inttoptr i64 %45 to ptr
@@ -839,7 +839,7 @@ _ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6p
 56:                                               ; preds = %55
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  br label %.critedge48
+  br label %.critedge47
 
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
@@ -857,7 +857,7 @@ _ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6p
 60:                                               ; preds = %59
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  br label %.critedge48
+  br label %.critedge47
 
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
@@ -875,7 +875,7 @@ _ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6p
 64:                                               ; preds = %63
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  br label %.critedge48
+  br label %.critedge47
 
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
@@ -893,7 +893,7 @@ _ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6p
 68:                                               ; preds = %67
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %10) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  br label %.critedge48
+  br label %.critedge47
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
@@ -911,7 +911,7 @@ _ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6p
 72:                                               ; preds = %71
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
-  br label %.critedge48
+  br label %.critedge47
 
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
@@ -929,55 +929,55 @@ _ZNK11QModelIndex7isValidEv.exit51:               ; preds = %_ZNK11QModelIndex6p
   %80 = icmp sgt i32 %79, -1
   %81 = load i32, ptr %21, align 4
   %82 = icmp sgt i32 %81, -1
-  %or.cond79 = select i1 %80, i1 %82, i1 false
-  br i1 %or.cond79, label %_ZNK11QModelIndex7isValidEv.exit52, label %_ZNK11QModelIndex7isValidEv.exit52.thread
+  %or.cond78 = select i1 %80, i1 %82, i1 false
+  br i1 %or.cond78, label %_ZNK11QModelIndex7isValidEv.exit51, label %_ZNK11QModelIndex7isValidEv.exit51.thread
 
-_ZNK11QModelIndex7isValidEv.exit52.thread:        ; preds = %75
+_ZNK11QModelIndex7isValidEv.exit51.thread:        ; preds = %75
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
   br label %.critedge3
 
-_ZNK11QModelIndex7isValidEv.exit52:               ; preds = %75
+_ZNK11QModelIndex7isValidEv.exit51:               ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %84 = load ptr, ptr %83, align 8
-  %.not94 = icmp eq ptr %84, null
+  %.not93 = icmp eq ptr %84, null
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
-  br i1 %.not94, label %.critedge3, label %_ZNK11QModelIndex6parentEv.exit54
+  br i1 %.not93, label %.critedge3, label %_ZNK11QModelIndex6parentEv.exit53
 
-_ZNK11QModelIndex6parentEv.exit54:                ; preds = %_ZNK11QModelIndex7isValidEv.exit52
+_ZNK11QModelIndex6parentEv.exit53:                ; preds = %_ZNK11QModelIndex7isValidEv.exit51
   %85 = load ptr, ptr %84, align 8, !noalias !45
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %87 = load ptr, ptr %86, align 8, !noalias !45
   call void %87(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %12, ptr noundef nonnull align 8 dereferenceable_or_null(16) %84, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5)
-  %.pr70 = load i32, ptr %12, align 8
-  %88 = icmp sgt i32 %.pr70, -1
+  %.pr69 = load i32, ptr %12, align 8
+  %88 = icmp sgt i32 %.pr69, -1
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = icmp sgt i32 %90, -1
-  %or.cond82 = select i1 %88, i1 %91, i1 false
-  br i1 %or.cond82, label %_ZNK11QModelIndex7isValidEv.exit55, label %_ZNK11QModelIndex7isValidEv.exit55.thread
+  %or.cond81 = select i1 %88, i1 %91, i1 false
+  br i1 %or.cond81, label %_ZNK11QModelIndex7isValidEv.exit54, label %_ZNK11QModelIndex7isValidEv.exit54.thread
 
-_ZNK11QModelIndex7isValidEv.exit55.thread:        ; preds = %_ZNK11QModelIndex6parentEv.exit54
+_ZNK11QModelIndex7isValidEv.exit54.thread:        ; preds = %_ZNK11QModelIndex6parentEv.exit53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
   br label %96
 
-_ZNK11QModelIndex7isValidEv.exit55:               ; preds = %_ZNK11QModelIndex6parentEv.exit54
+_ZNK11QModelIndex7isValidEv.exit54:               ; preds = %_ZNK11QModelIndex6parentEv.exit53
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %93 = load ptr, ptr %92, align 8
-  %.not95 = icmp eq ptr %93, null
+  %.not94 = icmp eq ptr %93, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
-  br i1 %.not95, label %96, label %94
+  br i1 %.not94, label %96, label %94
 
-.critedge3:                                       ; preds = %_ZNK11QModelIndex7isValidEv.exit52.thread, %_ZNK11QModelIndex7isValidEv.exit52
+.critedge3:                                       ; preds = %_ZNK11QModelIndex7isValidEv.exit51.thread, %_ZNK11QModelIndex7isValidEv.exit51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
   br label %94
 
-94:                                               ; preds = %.critedge3, %_ZNK11QModelIndex7isValidEv.exit55
+94:                                               ; preds = %.critedge3, %_ZNK11QModelIndex7isValidEv.exit54
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %95, align 8
-  br label %.critedge48
+  br label %.critedge47
 
-96:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit55.thread, %_ZNK11QModelIndex7isValidEv.exit55
+96:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit54.thread, %_ZNK11QModelIndex7isValidEv.exit54
   %97 = load i64, ptr %22, align 8
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %99, label %101
@@ -986,7 +986,7 @@ _ZNK11QModelIndex7isValidEv.exit55:               ; preds = %_ZNK11QModelIndex6p
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %100, align 8
-  br label %.critedge48
+  br label %.critedge47
 
 101:                                              ; preds = %96
   %102 = inttoptr i64 %97 to ptr
@@ -1011,7 +1011,7 @@ _ZNK11QModelIndex7isValidEv.exit55:               ; preds = %_ZNK11QModelIndex6p
 108:                                              ; preds = %107
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %13) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #17
-  br label %.critedge48
+  br label %.critedge47
 
 109:                                              ; preds = %107
   %110 = landingpad { ptr, i32 }
@@ -1024,15 +1024,15 @@ _ZNK11QModelIndex7isValidEv.exit55:               ; preds = %_ZNK11QModelIndex6p
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %113 = load i32, ptr %112, align 4
   %cond = icmp eq i32 %113, 4
-  br i1 %cond, label %114, label %_ZNK11QModelIndex7isValidEv.exit58.thread
+  br i1 %cond, label %114, label %_ZNK11QModelIndex7isValidEv.exit57.thread
 
 114:                                              ; preds = %111
   tail call void @_ZN8QVariantC1Ei(ptr noundef align 8 dereferenceable_or_null(32) %0, i32 noundef 2)
-  br label %.critedge48
+  br label %.critedge47
 
-_ZNK11QModelIndex7isValidEv.exit58.thread:        ; preds = %111
+_ZNK11QModelIndex7isValidEv.exit57.thread:        ; preds = %111
   tail call void @_ZN8QVariantC1Ei(ptr noundef align 8 dereferenceable_or_null(32) %0, i32 noundef 1)
-  br label %.critedge48
+  br label %.critedge47
 
 115:                                              ; preds = %4
   %116 = load ptr, ptr %1, align 8
@@ -1053,34 +1053,34 @@ _ZNK11QModelIndex7isValidEv.exit58.thread:        ; preds = %111
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %123 = load ptr, ptr %122, align 8, !noalias !48
-  %.not.i59 = icmp eq ptr %123, null
-  br i1 %.not.i59, label %_ZNK11QModelIndex7isValidEv.exit61.thread, label %_ZNK11QModelIndex6parentEv.exit60
+  %.not.i58 = icmp eq ptr %123, null
+  br i1 %.not.i58, label %_ZNK11QModelIndex7isValidEv.exit60.thread, label %_ZNK11QModelIndex6parentEv.exit59
 
-_ZNK11QModelIndex6parentEv.exit60:                ; preds = %121
+_ZNK11QModelIndex6parentEv.exit59:                ; preds = %121
   %124 = load ptr, ptr %123, align 8, !noalias !48
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 104
   %126 = load ptr, ptr %125, align 8, !noalias !48
   call void %126(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %14, ptr noundef nonnull align 8 dereferenceable_or_null(16) %123, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5)
-  %.pr72 = load i32, ptr %14, align 8
-  %127 = icmp sgt i32 %.pr72, -1
+  %.pr71 = load i32, ptr %14, align 8
+  %127 = icmp sgt i32 %.pr71, -1
   %128 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = icmp sgt i32 %129, -1
-  %or.cond88 = select i1 %127, i1 %130, i1 false
-  br i1 %or.cond88, label %_ZNK11QModelIndex7isValidEv.exit61, label %_ZNK11QModelIndex7isValidEv.exit61.thread
+  %or.cond87 = select i1 %127, i1 %130, i1 false
+  br i1 %or.cond87, label %_ZNK11QModelIndex7isValidEv.exit60, label %_ZNK11QModelIndex7isValidEv.exit60.thread
 
-_ZNK11QModelIndex7isValidEv.exit61.thread:        ; preds = %121, %_ZNK11QModelIndex6parentEv.exit60
+_ZNK11QModelIndex7isValidEv.exit60.thread:        ; preds = %121, %_ZNK11QModelIndex6parentEv.exit59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
   br label %139
 
-_ZNK11QModelIndex7isValidEv.exit61:               ; preds = %_ZNK11QModelIndex6parentEv.exit60
+_ZNK11QModelIndex7isValidEv.exit60:               ; preds = %_ZNK11QModelIndex6parentEv.exit59
   %131 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %132 = load ptr, ptr %131, align 8
-  %.not92 = icmp eq ptr %132, null
+  %.not91 = icmp eq ptr %132, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
-  br i1 %.not92, label %139, label %133
+  br i1 %.not91, label %139, label %133
 
-133:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit61
+133:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit60
   %134 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #17
   %135 = load i32, ptr %5, align 8
@@ -1090,9 +1090,9 @@ _ZNK11QModelIndex7isValidEv.exit61:               ; preds = %_ZNK11QModelIndex6p
   %138 = load ptr, ptr %137, align 8
   call void %138(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %134, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #17
-  br label %.critedge48
+  br label %.critedge47
 
-139:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit61.thread, %_ZNK11QModelIndex7isValidEv.exit61
+139:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit60.thread, %_ZNK11QModelIndex7isValidEv.exit60
   %140 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17
   %141 = load i32, ptr %5, align 8
@@ -1102,7 +1102,7 @@ _ZNK11QModelIndex7isValidEv.exit61:               ; preds = %_ZNK11QModelIndex6p
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %140, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
-  br label %.critedge48
+  br label %.critedge47
 
 145:                                              ; preds = %115
   %146 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %1)
@@ -1111,8 +1111,8 @@ _ZNK11QModelIndex7isValidEv.exit61:               ; preds = %_ZNK11QModelIndex6p
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %149 = load ptr, ptr %148, align 8, !noalias !51
-  %.not.i62 = icmp eq ptr %149, null
-  br i1 %.not.i62, label %158, label %150
+  %.not.i61 = icmp eq ptr %149, null
+  br i1 %.not.i61, label %158, label %150
 
 150:                                              ; preds = %145
   %151 = load i32, ptr %21, align 4, !noalias !51
@@ -1144,7 +1144,7 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %153, %154, %158
   %163 = load ptr, ptr %162, align 8
   call void %163(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %146, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #17
-  br label %.critedge48
+  br label %.critedge47
 
 164:                                              ; preds = %115
   %165 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %1)
@@ -1153,8 +1153,8 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %153, %154, %158
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %168 = load ptr, ptr %167, align 8, !noalias !54
-  %.not.i63 = icmp eq ptr %168, null
-  br i1 %.not.i63, label %177, label %169
+  %.not.i62 = icmp eq ptr %168, null
+  br i1 %.not.i62, label %177, label %169
 
 169:                                              ; preds = %164
   %170 = load i32, ptr %21, align 4, !noalias !54
@@ -1163,14 +1163,14 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %153, %154, %158
 
 172:                                              ; preds = %169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5, i64 24, i1 false)
-  br label %_ZNK11QModelIndex7siblingEii.exit64
+  br label %_ZNK11QModelIndex7siblingEii.exit63
 
 173:                                              ; preds = %169
   %174 = load ptr, ptr %168, align 8, !noalias !54
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 112
   %176 = load ptr, ptr %175, align 8, !noalias !54
   call void %176(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %18, ptr noundef nonnull align 8 dereferenceable_or_null(16) %168, i32 noundef %166, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5)
-  br label %_ZNK11QModelIndex7siblingEii.exit64
+  br label %_ZNK11QModelIndex7siblingEii.exit63
 
 177:                                              ; preds = %164
   store i32 -1, ptr %18, align 8, !alias.scope !54
@@ -1178,15 +1178,15 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %153, %154, %158
   store i32 -1, ptr %178, align 4, !alias.scope !54
   %179 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, i8 0, i64 16, i1 false), !alias.scope !54
-  br label %_ZNK11QModelIndex7siblingEii.exit64
+  br label %_ZNK11QModelIndex7siblingEii.exit63
 
-_ZNK11QModelIndex7siblingEii.exit64:              ; preds = %172, %173, %177
+_ZNK11QModelIndex7siblingEii.exit63:              ; preds = %172, %173, %177
   %180 = load ptr, ptr %165, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 144
   %182 = load ptr, ptr %181, align 8
   call void %182(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %165, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #17
-  br label %.critedge48
+  br label %.critedge47
 
 183:                                              ; preds = %115
   %184 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %1)
@@ -1195,8 +1195,8 @@ _ZNK11QModelIndex7siblingEii.exit64:              ; preds = %172, %173, %177
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %187 = load ptr, ptr %186, align 8, !noalias !57
-  %.not.i65 = icmp eq ptr %187, null
-  br i1 %.not.i65, label %196, label %188
+  %.not.i64 = icmp eq ptr %187, null
+  br i1 %.not.i64, label %196, label %188
 
 188:                                              ; preds = %183
   %189 = load i32, ptr %21, align 4, !noalias !57
@@ -1205,14 +1205,14 @@ _ZNK11QModelIndex7siblingEii.exit64:              ; preds = %172, %173, %177
 
 191:                                              ; preds = %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5, i64 24, i1 false)
-  br label %_ZNK11QModelIndex7siblingEii.exit66
+  br label %_ZNK11QModelIndex7siblingEii.exit65
 
 192:                                              ; preds = %188
   %193 = load ptr, ptr %187, align 8, !noalias !57
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 112
   %195 = load ptr, ptr %194, align 8, !noalias !57
   call void %195(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %19, ptr noundef nonnull align 8 dereferenceable_or_null(16) %187, i32 noundef %185, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5)
-  br label %_ZNK11QModelIndex7siblingEii.exit66
+  br label %_ZNK11QModelIndex7siblingEii.exit65
 
 196:                                              ; preds = %183
   store i32 -1, ptr %19, align 8, !alias.scope !57
@@ -1220,48 +1220,48 @@ _ZNK11QModelIndex7siblingEii.exit64:              ; preds = %172, %173, %177
   store i32 -1, ptr %197, align 4, !alias.scope !57
   %198 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %198, i8 0, i64 16, i1 false), !alias.scope !57
-  br label %_ZNK11QModelIndex7siblingEii.exit66
+  br label %_ZNK11QModelIndex7siblingEii.exit65
 
-_ZNK11QModelIndex7siblingEii.exit66:              ; preds = %191, %192, %196
+_ZNK11QModelIndex7siblingEii.exit65:              ; preds = %191, %192, %196
   %199 = load ptr, ptr %184, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 144
   %201 = load ptr, ptr %200, align 8
   call void %201(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %184, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17
-  br label %.critedge48
+  br label %.critedge47
 
 202:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #17
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %204 = load ptr, ptr %203, align 8, !noalias !60
-  %.not.i67 = icmp eq ptr %204, null
-  br i1 %.not.i67, label %_ZNK11QModelIndex7isValidEv.exit69.thread, label %_ZNK11QModelIndex6parentEv.exit68
+  %.not.i66 = icmp eq ptr %204, null
+  br i1 %.not.i66, label %_ZNK11QModelIndex7isValidEv.exit68.thread, label %_ZNK11QModelIndex6parentEv.exit67
 
-_ZNK11QModelIndex6parentEv.exit68:                ; preds = %202
+_ZNK11QModelIndex6parentEv.exit67:                ; preds = %202
   %205 = load ptr, ptr %204, align 8, !noalias !60
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 104
   %207 = load ptr, ptr %206, align 8, !noalias !60
   call void %207(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %20, ptr noundef nonnull align 8 dereferenceable_or_null(16) %204, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5)
-  %.pr73 = load i32, ptr %20, align 8
-  %208 = icmp sgt i32 %.pr73, -1
+  %.pr72 = load i32, ptr %20, align 8
+  %208 = icmp sgt i32 %.pr72, -1
   %209 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %210 = load i32, ptr %209, align 4
   %211 = icmp sgt i32 %210, -1
-  %or.cond91 = select i1 %208, i1 %211, i1 false
-  br i1 %or.cond91, label %_ZNK11QModelIndex7isValidEv.exit69, label %_ZNK11QModelIndex7isValidEv.exit69.thread
+  %or.cond90 = select i1 %208, i1 %211, i1 false
+  br i1 %or.cond90, label %_ZNK11QModelIndex7isValidEv.exit68, label %_ZNK11QModelIndex7isValidEv.exit68.thread
 
-_ZNK11QModelIndex7isValidEv.exit69.thread:        ; preds = %202, %_ZNK11QModelIndex6parentEv.exit68
+_ZNK11QModelIndex7isValidEv.exit68.thread:        ; preds = %202, %_ZNK11QModelIndex6parentEv.exit67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #17
   br label %214
 
-_ZNK11QModelIndex7isValidEv.exit69:               ; preds = %_ZNK11QModelIndex6parentEv.exit68
+_ZNK11QModelIndex7isValidEv.exit68:               ; preds = %_ZNK11QModelIndex6parentEv.exit67
   %212 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %213 = load ptr, ptr %212, align 8
   %.not = icmp eq ptr %213, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #17
   br i1 %.not, label %214, label %228
 
-214:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit69.thread, %_ZNK11QModelIndex7isValidEv.exit69
+214:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit68.thread, %_ZNK11QModelIndex7isValidEv.exit68
   %215 = load i64, ptr %22, align 8
   %216 = inttoptr i64 %215 to ptr
   %217 = call noundef i32 @_ZNK16ExpertPacketItem10childCountEv(ptr noundef align 8 dereferenceable_or_null(136) %216)
@@ -1271,40 +1271,40 @@ _ZNK11QModelIndex7isValidEv.exit69:               ; preds = %_ZNK11QModelIndex6p
 ._crit_edge:                                      ; preds = %224, %214
   %.036.lcssa = phi i32 [ 0, %214 ], [ %.137, %224 ]
   call void @_ZN8QVariantC1Ej(ptr noundef align 8 dereferenceable_or_null(32) %0, i32 noundef %.036.lcssa)
-  br label %.critedge48
+  br label %.critedge47
 
 .lr.ph:                                           ; preds = %214, %224
-  %.099 = phi i32 [ %225, %224 ], [ 0, %214 ]
-  %.03698 = phi i32 [ %.137, %224 ], [ 0, %214 ]
-  %219 = call noundef ptr @_ZN16ExpertPacketItem5childEi(ptr noundef align 8 dereferenceable_or_null(136) %216, i32 noundef %.099)
+  %.098 = phi i32 [ %225, %224 ], [ 0, %214 ]
+  %.03697 = phi i32 [ %.137, %224 ], [ 0, %214 ]
+  %219 = call noundef ptr @_ZN16ExpertPacketItem5childEi(ptr noundef align 8 dereferenceable_or_null(136) %216, i32 noundef %.098)
   %220 = icmp eq ptr %219, null
   br i1 %220, label %224, label %221
 
 221:                                              ; preds = %.lr.ph
   %222 = call noundef zeroext i1 @_ZNK20ExpertInfoProxyModel16filterAcceptItemER16ExpertPacketItem(ptr noundef align 8 dereferenceable_or_null(72) %1, ptr noundef nonnull align 8 dereferenceable(136) %219)
   %223 = zext i1 %222 to i32
-  %spec.select = add i32 %.03698, %223
+  %spec.select = add i32 %.03697, %223
   br label %224
 
 224:                                              ; preds = %221, %.lr.ph
-  %.137 = phi i32 [ %.03698, %.lr.ph ], [ %spec.select, %221 ]
-  %225 = add nuw nsw i32 %.099, 1
+  %.137 = phi i32 [ %.03697, %.lr.ph ], [ %spec.select, %221 ]
+  %225 = add nuw nsw i32 %.098, 1
   %226 = call noundef i32 @_ZNK16ExpertPacketItem10childCountEv(ptr noundef align 8 dereferenceable_or_null(136) %216)
   %227 = icmp slt i32 %225, %226
   br i1 %227, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
-228:                                              ; preds = %101, %49, %115, %_ZNK11QModelIndex7isValidEv.exit69, %4
+228:                                              ; preds = %101, %49, %115, %_ZNK11QModelIndex7isValidEv.exit68, %4
   call void @_ZNK21QSortFilterProxyModel4dataERK11QModelIndexi(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 8 dereferenceable(24) %2, i32 noundef %3)
-  br label %.critedge48
+  br label %.critedge47
 
-.critedge48:                                      ; preds = %99, %108, %47, %72, %68, %64, %60, %56, %228, %._crit_edge, %_ZNK11QModelIndex7siblingEii.exit66, %_ZNK11QModelIndex7siblingEii.exit64, %_ZNK11QModelIndex7siblingEii.exit, %139, %133, %_ZNK11QModelIndex7isValidEv.exit58.thread, %114, %94, %42
+.critedge47:                                      ; preds = %99, %108, %47, %56, %60, %64, %68, %72, %228, %._crit_edge, %_ZNK11QModelIndex7siblingEii.exit65, %_ZNK11QModelIndex7siblingEii.exit63, %_ZNK11QModelIndex7siblingEii.exit, %139, %133, %_ZNK11QModelIndex7isValidEv.exit57.thread, %114, %94, %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
   ret void
 
 229:                                              ; preds = %57, %61, %65, %69, %73, %109
-  %.pn45 = phi { ptr, i32 } [ %110, %109 ], [ %74, %73 ], [ %70, %69 ], [ %66, %65 ], [ %62, %61 ], [ %58, %57 ]
+  %.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %58, %57 ], [ %62, %61 ], [ %66, %65 ], [ %70, %69 ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
-  resume { ptr, i32 } %.pn45
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2032,7 +2032,7 @@ _ZN7QStringD2Ev.exit51:                           ; preds = %85, %_ZN17QArrayDat
   ret void
 
 94:                                               ; preds = %_ZN7QStringD2Ev.exit51, %_ZN7QStringD2Ev.exit43, %_ZN7QStringD2Ev.exit35, %_ZN7QStringD2Ev.exit27, %_ZN7QStringD2Ev.exit19, %_ZN7QStringD2Ev.exit11
-  %.pn = phi { ptr, i32 } [ %86, %_ZN7QStringD2Ev.exit51 ], [ %74, %_ZN7QStringD2Ev.exit43 ], [ %62, %_ZN7QStringD2Ev.exit35 ], [ %50, %_ZN7QStringD2Ev.exit27 ], [ %26, %_ZN7QStringD2Ev.exit11 ], [ %38, %_ZN7QStringD2Ev.exit19 ]
+  %.pn = phi { ptr, i32 } [ %26, %_ZN7QStringD2Ev.exit11 ], [ %38, %_ZN7QStringD2Ev.exit19 ], [ %50, %_ZN7QStringD2Ev.exit27 ], [ %62, %_ZN7QStringD2Ev.exit35 ], [ %74, %_ZN7QStringD2Ev.exit43 ], [ %86, %_ZN7QStringD2Ev.exit51 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2894,8 +2894,8 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate20sequential_erase_oneI5QLi
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
-  %40 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %40 = phi i32 [ %35, %37 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.034.1.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %41 = load i32, ptr %.sroa.034.1.i.i.i, align 4
   %42 = icmp eq i32 %41, %40
   br i1 %42, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, label %43
@@ -2905,8 +2905,8 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate20sequential_erase_oneI5QLi
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge57.i.i.i
-  %46 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %40, %43 ]
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %44, %43 ]
+  %46 = phi i32 [ %40, %43 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.034.2.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %47 = load i32, ptr %.sroa.034.2.i.i.i, align 4
   %48 = icmp eq i32 %47, %46
   %spec.select.i.i.i = select i1 %48, ptr %.sroa.034.2.i.i.i, ptr %7

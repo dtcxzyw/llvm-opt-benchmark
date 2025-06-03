@@ -3666,7 +3666,7 @@ i_zend_is_true.exit:                              ; preds = %.preheader
   %.not.i.not = icmp eq i64 %89, 0
   br i1 %.not.i.not, label %i_zend_is_true.exit.thread47, label %i_zend_is_true.exit.thread
 
-i_zend_is_true.exit.thread47:                     ; preds = %.preheader, %59, %67, %68, %71, %57, %82, %i_zend_is_true.exit
+i_zend_is_true.exit.thread47:                     ; preds = %.preheader, %67, %68, %59, %71, %57, %82, %i_zend_is_true.exit
   %90 = load i32, ptr %0, align 4, !tbaa !41
   %91 = icmp ne i32 %90, 0
   call void @llvm.assume(i1 %91)
@@ -4017,7 +4017,7 @@ i_zend_is_true.exit45.loopexit:                   ; preds = %36
   br label %i_zend_is_true.exit45
 
 i_zend_is_true.exit45:                            ; preds = %36, %i_zend_is_true.exit45.loopexit, %39, %41, %44, %50, %51, %54, %55, %59, %66, %68
-  %.0.i38 = phi i1 [ %67, %66 ], [ true, %54 ], [ false, %51 ], [ false, %50 ], [ true, %44 ], [ false, %41 ], [ %.not16.i43, %39 ], [ %.not13.i39, %55 ], [ true, %59 ], [ %.not.i36, %68 ], [ false, %i_zend_is_true.exit45.loopexit ], [ true, %36 ]
+  %.0.i38 = phi i1 [ true, %44 ], [ false, %41 ], [ true, %54 ], [ false, %51 ], [ false, %50 ], [ %67, %66 ], [ %.not16.i43, %39 ], [ %.not13.i39, %55 ], [ true, %59 ], [ %.not.i36, %68 ], [ false, %i_zend_is_true.exit45.loopexit ], [ true, %36 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
   %75 = icmp ne i32 %2, 0
   %or.cond = select i1 %75, i1 %.0.i38, i1 false
@@ -4116,7 +4116,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %80
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %80, %i_zend_is_true.exit.loopexit, %83, %85, %88, %94, %95, %98, %99, %103, %110, %112
-  %.0.i = phi i1 [ %111, %110 ], [ true, %98 ], [ false, %95 ], [ false, %94 ], [ true, %88 ], [ false, %85 ], [ %.not16.i, %83 ], [ %.not13.i, %99 ], [ true, %103 ], [ %.not.i, %112 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %80 ]
+  %.0.i = phi i1 [ true, %88 ], [ false, %85 ], [ true, %98 ], [ false, %95 ], [ false, %94 ], [ %111, %110 ], [ %.not16.i, %83 ], [ %.not13.i, %99 ], [ true, %103 ], [ %.not.i, %112 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %80 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
   br label %119
 
@@ -7791,7 +7791,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %248
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %248, %i_zend_is_true.exit.loopexit, %251, %253, %256, %262, %263, %266, %267, %271, %278, %280
-  %.0.i140 = phi i1 [ %279, %278 ], [ true, %266 ], [ false, %263 ], [ false, %262 ], [ true, %256 ], [ false, %253 ], [ %.not16.i, %251 ], [ %.not13.i, %267 ], [ true, %271 ], [ %.not.i139, %280 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %248 ]
+  %.0.i140 = phi i1 [ true, %256 ], [ false, %253 ], [ true, %266 ], [ false, %263 ], [ false, %262 ], [ %279, %278 ], [ %.not16.i, %251 ], [ %.not13.i, %267 ], [ true, %271 ], [ %.not.i139, %280 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %248 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #18
   br label %287
 
@@ -8234,7 +8234,7 @@ zend_get_properties_no_lazy_init.exit54.thread:   ; preds = %.critedge.i50, %zen
   unreachable
 
 zend_gc_try_addref.exit38:                        ; preds = %103, %zend_get_properties_no_lazy_init.exit54.thread, %64, %zend_get_properties_no_lazy_init.exit.thread, %38, %34, %zend_get_properties_no_lazy_init.exit54, %zend_get_properties_no_lazy_init.exit, %28, %26, %zend_gc_try_addref.exit40
-  %.027 = phi ptr [ %27, %26 ], [ %10, %zend_gc_try_addref.exit40 ], [ null, %28 ], [ null, %zend_get_properties_no_lazy_init.exit ], [ null, %zend_get_properties_no_lazy_init.exit54 ], [ %33, %34 ], [ %33, %38 ], [ %.0.i57, %zend_get_properties_no_lazy_init.exit.thread ], [ %.0.i57, %64 ], [ %.060, %zend_get_properties_no_lazy_init.exit54.thread ], [ %.060, %103 ]
+  %.027 = phi ptr [ %10, %zend_gc_try_addref.exit40 ], [ %27, %26 ], [ null, %28 ], [ null, %zend_get_properties_no_lazy_init.exit ], [ null, %zend_get_properties_no_lazy_init.exit54 ], [ %33, %34 ], [ %33, %38 ], [ %.0.i57, %zend_get_properties_no_lazy_init.exit.thread ], [ %.0.i57, %64 ], [ %.060, %zend_get_properties_no_lazy_init.exit54.thread ], [ %.060, %103 ]
   ret ptr %.027
 }
 

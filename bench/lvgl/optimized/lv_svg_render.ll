@@ -3401,7 +3401,7 @@ define internal void @_set_path_attr(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %_get_path_seg_size.exit
 
 _get_path_seg_size.exit:                          ; preds = %31, %64, %95, %246, %.thread122, %.thread123
-  %.0.i = phi i64 [ 28, %.thread123 ], [ 20, %.thread122 ], [ 12, %246 ], [ 12, %95 ], [ 12, %64 ], [ 0, %31 ]
+  %.0.i = phi i64 [ 20, %.thread122 ], [ 28, %.thread123 ], [ 12, %246 ], [ 12, %95 ], [ 12, %64 ], [ 0, %31 ]
   %248 = getelementptr inbounds nuw i8, ptr %.0125, i64 %.0.i
   %249 = add nuw i32 %.093124, 1
   %exitcond.not = icmp eq i32 %249, %15
@@ -5687,10 +5687,10 @@ define internal void @_init_gradient(ptr noundef %0, ptr noundef readonly captur
   br label %40
 
 40:                                               ; preds = %35, %30, %26, %.lr.ph
-  %.149 = phi i1 [ %.04854, %.lr.ph ], [ true, %35 ], [ true, %30 ], [ true, %26 ]
-  %.sroa.08.1 = phi i24 [ %.sroa.08.055, %.lr.ph ], [ %.sroa.08.055, %35 ], [ %.sroa.08.055, %30 ], [ %29, %26 ]
-  %.147 = phi i8 [ %.04656, %.lr.ph ], [ %.04656, %35 ], [ %34, %30 ], [ %.04656, %26 ]
-  %.145 = phi i8 [ %.04457, %.lr.ph ], [ %39, %35 ], [ %.04457, %30 ], [ %.04457, %26 ]
+  %.149 = phi i1 [ %.04854, %.lr.ph ], [ true, %26 ], [ true, %30 ], [ true, %35 ]
+  %.sroa.08.1 = phi i24 [ %.sroa.08.055, %.lr.ph ], [ %29, %26 ], [ %.sroa.08.055, %30 ], [ %.sroa.08.055, %35 ]
+  %.147 = phi i8 [ %.04656, %.lr.ph ], [ %.04656, %26 ], [ %34, %30 ], [ %.04656, %35 ]
+  %.145 = phi i8 [ %.04457, %.lr.ph ], [ %.04457, %26 ], [ %.04457, %30 ], [ %39, %35 ]
   %41 = add nuw i32 %.04358, 1
   %exitcond.not = icmp eq i32 %41, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !274

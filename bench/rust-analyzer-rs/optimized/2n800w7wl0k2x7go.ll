@@ -17618,9 +17618,9 @@ default.unreachable:                              ; preds = %11
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i": ; preds = %28, %23, %17
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.1.copyload.i, %28 ], [ %27, %23 ], [ %.val1.i.i, %17 ]
-  %.sroa.7.0.i = phi ptr [ %.sroa.7.1.copyload.i, %28 ], [ %25, %23 ], [ %.val.i.i, %17 ]
-  %.sroa.0.0.i13 = phi i8 [ %15, %28 ], [ 25, %23 ], [ 24, %17 ]
+  %.sroa.9.0.i = phi i64 [ %27, %23 ], [ %.sroa.9.1.copyload.i, %28 ], [ %.val1.i.i, %17 ]
+  %.sroa.7.0.i = phi ptr [ %25, %23 ], [ %.sroa.7.1.copyload.i, %28 ], [ %.val.i.i, %17 ]
+  %.sroa.0.0.i13 = phi i8 [ 25, %23 ], [ %15, %28 ], [ 24, %17 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.035, i64 40
   %31 = load i8, ptr %30, align 8, !range !5657, !alias.scope !5796, !noalias !5809, !noundef !25
   %.val.i = load ptr, ptr %.sroa.014.035, align 8, !alias.scope !5796, !noalias !5809, !nonnull !25, !noundef !25
@@ -23680,9 +23680,9 @@ default.unreachable:                              ; preds = %14
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i": ; preds = %31, %26, %20
-  %.sroa.9.0.i.i = phi i64 [ %.sroa.9.1.copyload.i.i, %31 ], [ %30, %26 ], [ %.val1.i.i.i, %20 ]
-  %.sroa.7.0.i.i = phi ptr [ %.sroa.7.1.copyload.i.i, %31 ], [ %28, %26 ], [ %.val.i.i.i, %20 ]
-  %.sroa.0.0.i13.i = phi i8 [ %18, %31 ], [ 25, %26 ], [ 24, %20 ]
+  %.sroa.9.0.i.i = phi i64 [ %30, %26 ], [ %.sroa.9.1.copyload.i.i, %31 ], [ %.val1.i.i.i, %20 ]
+  %.sroa.7.0.i.i = phi ptr [ %28, %26 ], [ %.sroa.7.1.copyload.i.i, %31 ], [ %.val.i.i.i, %20 ]
+  %.sroa.0.0.i13.i = phi i8 [ 25, %26 ], [ %18, %31 ], [ 24, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.014.035.i, i64 40
   %34 = load i8, ptr %33, align 8, !range !5657, !alias.scope !7361, !noalias !7359, !noundef !25
   %.val.i.i = load ptr, ptr %.sroa.014.035.i, align 8, !alias.scope !7361, !noalias !7359, !nonnull !25, !noundef !25

@@ -65,7 +65,7 @@ define ptr @ff_iir_filter_init_coeffs(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %32
 
 31:                                               ; preds = %28, %26
-  %.0 = phi i32 [ %29, %28 ], [ %27, %26 ]
+  %.0 = phi i32 [ %27, %26 ], [ %29, %28 ]
   %.not24 = icmp eq i32 %.0, 0
   br i1 %.not24, label %33, label %32
 

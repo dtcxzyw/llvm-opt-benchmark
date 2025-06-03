@@ -201,7 +201,7 @@ define internal noundef i32 @pmain(ptr noundef %0) #0 {
   br label %22
 
 22:                                               ; preds = %20, %7, %7
-  %.3 = phi i32 [ %.0, %7 ], [ %.0, %7 ], [ %21, %20 ]
+  %.3 = phi i32 [ %21, %20 ], [ %.0, %7 ], [ %.0, %7 ]
   %23 = or i32 %.3, 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !9
@@ -225,14 +225,14 @@ define internal noundef i32 @pmain(ptr noundef %0) #0 {
   br label %collectargs.exit
 
 .sink.split.i:                                    ; preds = %.thread118, %18, %7
-  %.1 = phi i32 [ %.0, %7 ], [ %.0, %18 ], [ %17, %.thread118 ]
-  %.sink70.i = phi i32 [ 16, %7 ], [ 2, %18 ], [ 2, %.thread118 ]
+  %.1 = phi i32 [ %.0, %18 ], [ %.0, %7 ], [ %17, %.thread118 ]
+  %.sink70.i = phi i32 [ 2, %18 ], [ 16, %7 ], [ 2, %.thread118 ]
   %36 = or i32 %.sink70.i, %.1
   br label %37
 
 37:                                               ; preds = %.sink.split.i, %27, %22, %7
-  %.2 = phi i32 [ %36, %.sink.split.i ], [ %.0, %7 ], [ %23, %27 ], [ %23, %22 ]
-  %.1.i = phi i32 [ %.045.i, %.sink.split.i ], [ %.045.i, %7 ], [ %28, %27 ], [ %.045.i, %22 ]
+  %.2 = phi i32 [ %36, %.sink.split.i ], [ %23, %27 ], [ %23, %22 ], [ %.0, %7 ]
+  %.1.i = phi i32 [ %.045.i, %.sink.split.i ], [ %28, %27 ], [ %.045.i, %22 ], [ %.045.i, %7 ]
   %38 = add nsw i32 %.1.i, 1
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %2, i64 %39
@@ -545,7 +545,7 @@ dojitcmd.exit.i:                                  ; preds = %134, %132
   br i1 %160, label %runargs.exit.thread, label %dobytecode.exit.sink.split.i
 
 dolibrary.exit.i:                                 ; preds = %138, %dojitcmd.exit.i, %106, %95, %83, %.lr.ph.i45
-  %.143.i = phi i32 [ %.04263.i, %.lr.ph.i45 ], [ %.04263.i, %83 ], [ %.04263.i, %138 ], [ %.4.i, %dojitcmd.exit.i ], [ %.244.i, %95 ], [ %.3.i, %106 ]
+  %.143.i = phi i32 [ %.04263.i, %.lr.ph.i45 ], [ %.04263.i, %83 ], [ %.244.i, %95 ], [ %.4.i, %dojitcmd.exit.i ], [ %.04263.i, %138 ], [ %.3.i, %106 ]
   %161 = add nsw i32 %.143.i, 1
   %162 = icmp slt i32 %161, %.030.i7074
   br i1 %162, label %.lr.ph.i45, label %.loopexit, !llvm.loop !24

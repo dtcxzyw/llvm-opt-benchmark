@@ -1036,7 +1036,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %89, %81
-  %.1.i.i.i.i = phi ptr [ %85, %81 ], [ %90, %89 ]
+  %.1.i.i.i.i = phi ptr [ %90, %89 ], [ %85, %81 ]
   %91 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %91, align 8, !tbaa !10
   %92 = and i64 %.sroa.0.0.copyload.i1.i.i.i, -16
@@ -1554,7 +1554,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.sink.split.i
   br label %_ZN12_GLOBAL__N_128getOverflowBuiltinResultTypeERKN5clang4ento9CallEventERNS1_14CheckerContextEj.exit
 
 _ZN12_GLOBAL__N_128getOverflowBuiltinResultTypeERKN5clang4ento9CallEventERNS1_14CheckerContextEj.exit: ; preds = %256, %258, %260, %262, %264, %266, %268, %278
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i14.i, %278 ], [ %277, %268 ], [ %.sroa.0.0.copyload.i13.i, %266 ], [ %.sroa.0.0.copyload.i12.i, %264 ], [ %.sroa.0.0.copyload.i11.i, %262 ], [ %.sroa.0.0.copyload.i10.i, %260 ], [ %.sroa.0.0.copyload.i9.i, %258 ], [ %.sroa.0.0.copyload.i.i14, %256 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i14.i, %278 ], [ %.sroa.0.0.copyload.i.i14, %256 ], [ %.sroa.0.0.copyload.i9.i, %258 ], [ %.sroa.0.0.copyload.i10.i, %260 ], [ %.sroa.0.0.copyload.i11.i, %262 ], [ %.sroa.0.0.copyload.i12.i, %264 ], [ %.sroa.0.0.copyload.i13.i, %266 ], [ %277, %268 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
@@ -2639,7 +2639,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %42
   %48 = icmp eq i32 %47, 255328256
   br i1 %48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %36, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %28, %36, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %49 = load ptr, ptr %0, align 8, !tbaa !326
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #16
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !82

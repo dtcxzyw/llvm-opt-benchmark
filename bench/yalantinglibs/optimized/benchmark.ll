@@ -15598,12 +15598,12 @@ sw.bb8.i.i:                                       ; preds = %if.end15.i
 
 if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %.sink = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
-  %add.ptr.i144 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink
-  store ptr %add.ptr.i144, ptr %reader.i, align 8
+  %add.ptr.i162 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink
+  store ptr %add.ptr.i162, ptr %reader.i, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
-  %52 = phi ptr [ %add.ptr.i133, %if.end15.i ], [ %add.ptr.i144, %if.end23.i.sink.split ]
+  %52 = phi ptr [ %add.ptr.i133, %if.end15.i ], [ %add.ptr.i162, %if.end23.i.sink.split ]
   %53 = and i8 %metainfo.i135.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %53, 0
   br i1 %tobool26.i.not, label %if.end.i119, label %if.then27.i
@@ -16261,12 +16261,12 @@ sw.bb8.i.i:                                       ; preds = %if.end15.i
 
 if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %.sink = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
-  %add.ptr.i191 = getelementptr inbounds nuw i8, ptr %65, i64 %.sink
-  store ptr %add.ptr.i191, ptr %reader.i, align 8
+  %add.ptr.i210 = getelementptr inbounds nuw i8, ptr %65, i64 %.sink
+  store ptr %add.ptr.i210, ptr %reader.i, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
-  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i191, %if.end23.i.sink.split ]
+  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i210, %if.end23.i.sink.split ]
   %71 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %71, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -16942,12 +16942,12 @@ sw.bb8.i.i:                                       ; preds = %if.end15.i
 
 if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %.sink = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
-  %add.ptr.i191 = getelementptr inbounds nuw i8, ptr %65, i64 %.sink
-  store ptr %add.ptr.i191, ptr %reader.i, align 8
+  %add.ptr.i209 = getelementptr inbounds nuw i8, ptr %65, i64 %.sink
+  store ptr %add.ptr.i209, ptr %reader.i, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
-  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i191, %if.end23.i.sink.split ]
+  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i209, %if.end23.i.sink.split ]
   %71 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %71, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -17467,12 +17467,12 @@ sw.bb8.i.i:                                       ; preds = %if.end15.i
 
 if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %.sink213 = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
-  %add.ptr.i111 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink213
-  store ptr %add.ptr.i111, ptr %reader.i, align 8
+  %add.ptr.i129 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink213
+  store ptr %add.ptr.i129, ptr %reader.i, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
-  %59 = phi ptr [ %add.ptr.i100, %if.end15.i ], [ %add.ptr.i111, %if.end23.i.sink.split ]
+  %59 = phi ptr [ %add.ptr.i100, %if.end15.i ], [ %add.ptr.i129, %if.end23.i.sink.split ]
   %60 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %60, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -18119,12 +18119,12 @@ sw.bb8.i.i:                                       ; preds = %if.end15.i
 
 if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %.sink297 = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
-  %add.ptr.i159 = getelementptr inbounds nuw i8, ptr %84, i64 %.sink297
-  store ptr %add.ptr.i159, ptr %reader.i, align 8
+  %add.ptr.i177 = getelementptr inbounds nuw i8, ptr %84, i64 %.sink297
+  store ptr %add.ptr.i177, ptr %reader.i, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
-  %89 = phi ptr [ %add.ptr.i148, %if.end15.i ], [ %add.ptr.i159, %if.end23.i.sink.split ]
+  %89 = phi ptr [ %add.ptr.i148, %if.end15.i ], [ %add.ptr.i177, %if.end23.i.sink.split ]
   %90 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %90, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -18756,12 +18756,12 @@ sw.bb8.i.i:                                       ; preds = %if.end15.i
 
 if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %.sink299 = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
-  %add.ptr.i158 = getelementptr inbounds nuw i8, ptr %84, i64 %.sink299
-  store ptr %add.ptr.i158, ptr %reader.i, align 8
+  %add.ptr.i176 = getelementptr inbounds nuw i8, ptr %84, i64 %.sink299
+  store ptr %add.ptr.i176, ptr %reader.i, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
-  %89 = phi ptr [ %add.ptr.i147, %if.end15.i ], [ %add.ptr.i158, %if.end23.i.sink.split ]
+  %89 = phi ptr [ %add.ptr.i147, %if.end15.i ], [ %add.ptr.i176, %if.end23.i.sink.split ]
   %90 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %90, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i

@@ -1403,7 +1403,7 @@ define internal i32 @H5G__iterate_cb(ptr noundef %0, ptr noundef readonly captur
   br label %61
 
 61:                                               ; preds = %60, %32, %2, %12
-  %.024 = phi i32 [ -1, %12 ], [ %.223, %60 ], [ %.122, %32 ], [ -1, %2 ]
+  %.024 = phi i32 [ -1, %12 ], [ %.122, %32 ], [ %.223, %60 ], [ -1, %2 ]
   ret i32 %.024
 }
 
@@ -1881,8 +1881,8 @@ select.unfold:                                    ; preds = %117
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #11
   br label %.thread116
 
-.thread111:                                       ; preds = %33, %50, %72, %70, %.thread92
-  %.2.ph = phi i32 [ -1, %.thread92 ], [ %64, %70 ], [ 0, %72 ], [ -1, %50 ], [ -1, %33 ]
+.thread111:                                       ; preds = %50, %72, %70, %33, %.thread92
+  %.2.ph = phi i32 [ -1, %.thread92 ], [ -1, %33 ], [ %64, %70 ], [ 0, %72 ], [ -1, %50 ]
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %139 = load ptr, ptr %138, align 8, !tbaa !60
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 %12

@@ -31,7 +31,7 @@ define hidden noundef ptr @_ZN10__cxxabiv130__aligned_malloc_with_fallbackEm(i64
   br label %8
 
 8:                                                ; preds = %1, %6
-  %.1 = phi ptr [ %5, %1 ], [ %7, %6 ]
+  %.1 = phi ptr [ %7, %6 ], [ %5, %1 ]
   ret ptr %.1
 }
 

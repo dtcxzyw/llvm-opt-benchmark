@@ -3887,7 +3887,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$image..error..ImageFormatHint$u20$as$u20$core..fmt..Debug$GT$3fmt17h09f803378f37d64eE.exit"
 
 "_ZN66_$LT$image..error..ImageFormatHint$u20$as$u20$core..fmt..Debug$GT$3fmt17h09f803378f37d64eE.exit": ; preds = %8, %11, %14, %17
-  %.0.in.i = phi i1 [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
   ret i1 %.0.in.i
 }
 
@@ -3935,7 +3935,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN71_$LT$image..error..UnsupportedErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hb420ce53bf39293bE.exit"
 
 "_ZN71_$LT$image..error..UnsupportedErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hb420ce53bf39293bE.exit": ; preds = %11, %14, %16
-  %.0.in.i = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.0.in.i = phi i1 [ %13, %11 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.0.in.i
 }
 
@@ -4010,7 +4010,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h17dfe44da16b365fE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h17dfe44da16b365fE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -4036,7 +4036,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17haeead8e4b6197739E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17haeead8e4b6197739E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -4085,7 +4085,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN65_$LT$image..error..LimitErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h4169c3c94a9a40ebE.exit"
 
 "_ZN65_$LT$image..error..LimitErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h4169c3c94a9a40ebE.exit": ; preds = %8, %10, %12
-  %.0.in.i = phi i1 [ %14, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %14, %12 ]
   ret i1 %.0.in.i
 }
 
@@ -6184,16 +6184,16 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   %71 = landingpad { ptr, i32 }
           cleanup
   store ptr %94, ptr %0, align 8, !alias.scope !1112
-  store i64 %93, ptr %86, align 8, !alias.scope !1112
+  store i64 %93, ptr %87, align 8, !alias.scope !1112
   br label %common.resume.i.i
 
 72:                                               ; preds = %82
   %73 = load ptr, ptr %4, align 8, !noalias !1112, !nonnull !4, !noundef !4
   %74 = load i64, ptr %85, align 8, !noalias !1112, !noundef !4
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %86, i1 false)
   %76 = load i64, ptr %85, align 8, !noalias !1112, !noundef !4
-  %77 = add i64 %76, %87
+  %77 = add i64 %76, %86
   store i64 %77, ptr %85, align 8, !noalias !1112
   %.val.i19.pre.i.i = load ptr, ptr %4, align 8, !alias.scope !1120, !noalias !1112
   call void @llvm.experimental.noalias.scope.decl(metadata !1120)
@@ -6219,9 +6219,9 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   store ptr %83, ptr %4, align 8, !noalias !1112
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %84, ptr %85, align 8, !noalias !1112
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = zext nneg i8 %45 to i64
-  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h5d13bebfcf099899E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %87)
+  %86 = zext nneg i8 %45 to i64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h5d13bebfcf099899E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %86)
           to label %72 unwind label %98, !noalias !1112
 
 88:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h0c45cc14115dc747E.exit.i.i.i"
@@ -6243,7 +6243,7 @@ common.resume.i.i:                                ; preds = %98, %70, %66
 
 "_ZN4core3ptr46drop_in_place$LT$ecow..dynamic..DynamicVec$GT$17h6dee1d35489e501eE.exit.i.i": ; preds = %97, %88
   store ptr %94, ptr %0, align 8, !alias.scope !1112
-  store i64 %93, ptr %86, align 8, !alias.scope !1112
+  store i64 %93, ptr %87, align 8, !alias.scope !1112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1112
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
@@ -6289,7 +6289,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -6313,7 +6313,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -6362,7 +6362,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %7
-  %.0.in = phi i1 [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
   ret i1 %.0.in
 }
 
@@ -6642,7 +6642,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$image..error..ParameterErrorKind$
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %.0.in = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.0.in
 }
 
@@ -8511,13 +8511,13 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 15
   %32 = load i8, ptr %31, align 1, !alias.scope !1552, !noundef !4
   %33 = icmp slt i8 %32, 0
-  %34 = load ptr, ptr %12, align 8, !alias.scope !1552, !nonnull !4
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %36 = load i64, ptr %35, align 8, !alias.scope !1552
-  %37 = and i8 %32, 127
-  %38 = zext nneg i8 %37 to i64
-  %.sroa.3.0.i = select i1 %33, i64 %38, i64 %36
-  %.sroa.0.0.i = select i1 %33, ptr %12, ptr %34
+  %34 = and i8 %32, 127
+  %35 = zext nneg i8 %34 to i64
+  %36 = load ptr, ptr %12, align 8, !alias.scope !1552, !nonnull !4
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %38 = load i64, ptr %37, align 8, !alias.scope !1552
+  %.sroa.3.0.i = select i1 %33, i64 %35, i64 %38
+  %.sroa.0.0.i = select i1 %33, ptr %12, ptr %36
   call void @llvm.experimental.noalias.scope.decl(metadata !1555)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !1557
   store ptr %1, ptr %7, align 8, !noalias !1557
@@ -8803,13 +8803,13 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 15
   %32 = load i8, ptr %31, align 1, !alias.scope !1639, !noundef !4
   %33 = icmp slt i8 %32, 0
-  %34 = load ptr, ptr %12, align 8, !alias.scope !1639, !nonnull !4
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %36 = load i64, ptr %35, align 8, !alias.scope !1639
-  %37 = and i8 %32, 127
-  %38 = zext nneg i8 %37 to i64
-  %.sroa.3.0.i = select i1 %33, i64 %38, i64 %36
-  %.sroa.0.0.i = select i1 %33, ptr %12, ptr %34
+  %34 = and i8 %32, 127
+  %35 = zext nneg i8 %34 to i64
+  %36 = load ptr, ptr %12, align 8, !alias.scope !1639, !nonnull !4
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %38 = load i64, ptr %37, align 8, !alias.scope !1639
+  %.sroa.3.0.i = select i1 %33, i64 %35, i64 %38
+  %.sroa.0.0.i = select i1 %33, ptr %12, ptr %36
   call void @llvm.experimental.noalias.scope.decl(metadata !1642)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !1644
   store ptr %1, ptr %7, align 8, !noalias !1644
@@ -10343,20 +10343,20 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i49: ; preds = %.noexc60
   %454 = getelementptr inbounds nuw i8, ptr %442, i64 23
   %455 = load i8, ptr %454, align 1, !alias.scope !1886, !noalias !1846, !noundef !4
   %456 = icmp slt i8 %455, 0
-  %457 = load ptr, ptr %453, align 8, !alias.scope !1886, !noalias !1846, !nonnull !4
-  %458 = getelementptr inbounds nuw i8, ptr %442, i64 16
-  %459 = load i64, ptr %458, align 8, !alias.scope !1886, !noalias !1846
-  %460 = and i8 %455, 127
-  %461 = zext nneg i8 %460 to i64
-  %.sroa.3.0.i214.i = select i1 %456, i64 %461, i64 %459
-  %.sroa.0.0.i.i = select i1 %456, ptr %453, ptr %457
+  %457 = and i8 %455, 127
+  %458 = zext nneg i8 %457 to i64
+  %459 = load ptr, ptr %453, align 8, !alias.scope !1886, !noalias !1846, !nonnull !4
+  %460 = getelementptr inbounds nuw i8, ptr %442, i64 16
+  %461 = load i64, ptr %460, align 8, !alias.scope !1886, !noalias !1846
+  %.sroa.3.0.i214.i = select i1 %456, i64 %458, i64 %461
+  %.sroa.0.0.i.i = select i1 %456, ptr %453, ptr %459
   %462 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer9structure12DocumentInfo5title17hb677d643d859897fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %79, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i214.i)
           to label %463 unwind label %450, !noalias !1846
 
 463:                                              ; preds = %452
   %464 = load i8, ptr %454, align 1, !alias.scope !1889, !noalias !1846, !noundef !4
   %465 = load ptr, ptr %453, align 8, !alias.scope !1889, !noalias !1846, !nonnull !4
-  %466 = load i64, ptr %458, align 8, !alias.scope !1889, !noalias !1846
+  %466 = load i64, ptr %460, align 8, !alias.scope !1889, !noalias !1846
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34), !noalias !1892
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33), !noalias !1892
   store i64 1, ptr %33, align 8, !noalias !1892
@@ -10523,25 +10523,25 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i49: ; preds = %.noexc60
   %515 = getelementptr inbounds nuw i8, ptr %76, i64 15
   %516 = load i8, ptr %515, align 1, !alias.scope !1931, !noalias !1857, !noundef !4
   %517 = icmp slt i8 %516, 0
-  %518 = load ptr, ptr %76, align 8, !alias.scope !1931, !noalias !1857, !nonnull !4
-  %519 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %520 = load i64, ptr %519, align 8, !alias.scope !1931, !noalias !1857
-  %521 = and i8 %516, 127
-  %522 = zext nneg i8 %521 to i64
-  %.sroa.3.0.i223.i = select i1 %517, i64 %522, i64 %520
-  %.sroa.0.0.i224.i = select i1 %517, ptr %76, ptr %518
+  %518 = and i8 %516, 127
+  %519 = zext nneg i8 %518 to i64
+  %520 = load ptr, ptr %76, align 8, !alias.scope !1931, !noalias !1857, !nonnull !4
+  %521 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %522 = load i64, ptr %521, align 8, !alias.scope !1931, !noalias !1857
+  %.sroa.3.0.i223.i = select i1 %517, i64 %519, i64 %522
+  %.sroa.0.0.i224.i = select i1 %517, ptr %76, ptr %520
   %523 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer9structure12DocumentInfo7creator17h2edee864407f7972E(ptr noalias noundef nonnull align 8 dereferenceable(16) %79, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i224.i, i64 noundef %.sroa.3.0.i223.i)
           to label %524 unwind label %512, !noalias !1846
 
 524:                                              ; preds = %514
   %525 = load i8, ptr %515, align 1, !alias.scope !1934, !noalias !1857, !noundef !4
   %526 = icmp slt i8 %525, 0
-  %527 = load ptr, ptr %76, align 8, !alias.scope !1934, !noalias !1857, !nonnull !4
-  %528 = load i64, ptr %519, align 8, !alias.scope !1934, !noalias !1857
-  %529 = and i8 %525, 127
-  %530 = zext nneg i8 %529 to i64
-  %.sroa.3.0.i227.i = select i1 %526, i64 %530, i64 %528
-  %.sroa.0.0.i228.i = select i1 %526, ptr %76, ptr %527
+  %527 = and i8 %525, 127
+  %528 = zext nneg i8 %527 to i64
+  %529 = load ptr, ptr %76, align 8, !alias.scope !1934, !noalias !1857, !nonnull !4
+  %530 = load i64, ptr %521, align 8, !alias.scope !1934, !noalias !1857
+  %.sroa.3.0.i227.i = select i1 %526, i64 %528, i64 %530
+  %.sroa.0.0.i228.i = select i1 %526, ptr %76, ptr %529
   %531 = invoke noundef align 8 dereferenceable(48) ptr @_ZN10xmp_writer9XmpWriter12creator_tool17h2bd1221e4870b33cE(ptr noalias noundef nonnull align 8 dereferenceable(48) %78, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i228.i, i64 noundef %.sroa.3.0.i227.i)
           to label %532 unwind label %512, !noalias !1846
 

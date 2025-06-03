@@ -1221,7 +1221,7 @@ default.unreachable:                              ; preds = %.preheader.i.i.i
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %_Z11to_goal_refP8_Z3_goal.exit, %24, %28, %32
-  %.07.i.i.i = phi i32 [ %34, %32 ], [ %31, %28 ], [ %27, %24 ], [ 0, %_Z11to_goal_refP8_Z3_goal.exit ]
+  %.07.i.i.i = phi i32 [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ 0, %_Z11to_goal_refP8_Z3_goal.exit ]
   store i32 %14, ptr %13, align 8, !tbaa !213
   %35 = icmp eq i32 %14, 0
   br i1 %35, label %36, label %_ZN3refI4goalED2Ev.exit
@@ -1352,7 +1352,7 @@ default.unreachable:                              ; preds = %67
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %33, %29, %25, %_Z11to_goal_refP8_Z3_goal.exit
-  %.07.i.i.i = phi i32 [ %35, %33 ], [ %32, %29 ], [ %28, %25 ], [ 0, %_Z11to_goal_refP8_Z3_goal.exit ]
+  %.07.i.i.i = phi i32 [ %28, %25 ], [ %32, %29 ], [ %35, %33 ], [ 0, %_Z11to_goal_refP8_Z3_goal.exit ]
   %.not = icmp ult i32 %2, %.07.i.i.i
   store i32 %15, ptr %14, align 8, !tbaa !213
   %36 = icmp eq i32 %15, 0
@@ -1471,7 +1471,7 @@ _Z11to_goal_refP8_Z3_goal.exit36:                 ; preds = %48, %46
   br i1 %exitcond.i.i.i, label %61, label %67, !llvm.loop !259
 
 82:                                               ; preds = %56, %.noexc, %74, %76
-  %.in.i = phi ptr [ %57, %56 ], [ %66, %.noexc ], [ %80, %76 ], [ %75, %74 ]
+  %.in.i = phi ptr [ %57, %56 ], [ %66, %.noexc ], [ %75, %74 ], [ %80, %76 ]
   %83 = load ptr, ptr %.in.i, align 8, !tbaa !260
   %84 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %85 = load i32, ptr %84, align 8, !tbaa !213
@@ -3536,7 +3536,7 @@ default.unreachable82:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
-  %.07.i = phi i32 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.07.i = phi i32 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %27 = lshr i32 %.07.i, 1
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
@@ -3738,8 +3738,8 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit: ; 
   br label %134
 
 134:                                              ; preds = %76, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit, %124, %133
-  %.062 = phi ptr [ %73, %133 ], [ %73, %124 ], [ %.163, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %73, %76 ]
-  %.0 = phi i32 [ %71, %133 ], [ %128, %124 ], [ %123, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %71, %76 ]
+  %.062 = phi ptr [ %73, %76 ], [ %.163, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %73, %124 ], [ %73, %133 ]
+  %.0 = phi i32 [ %71, %76 ], [ %123, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %128, %124 ], [ %71, %133 ]
   %135 = load i32, ptr %69, align 8
   %136 = add i32 %135, 1
   %137 = and i32 %136, 1073741823
@@ -4393,7 +4393,7 @@ default.unreachable40:                            ; preds = %.lr.ph36
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit: ; preds = %93, %88, %81, %135, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
-  %.1 = phi i32 [ %.03035, %135 ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %83, %81 ], [ %83, %88 ], [ %83, %93 ]
+  %.1 = phi i32 [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %.03035, %135 ], [ %83, %81 ], [ %83, %88 ], [ %83, %93 ]
   %.not16.wide = icmp eq i64 %54, 0
   br i1 %.not16.wide, label %._crit_edge37, label %.lr.ph36, !llvm.loop !358
 }

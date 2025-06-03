@@ -5076,7 +5076,7 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %14
   br label %_curses_newwin_impl.exit
 
 _curses_newwin_impl.exit:                         ; preds = %27, %25, %_PyCursesStatefulCheckFunction.exit.thread.i, %10, %8, %12
-  %.05 = phi ptr [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %25 ], [ %28, %27 ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
+  %.05 = phi ptr [ null, %12 ], [ null, %8 ], [ null, %10 ], [ null, %25 ], [ %28, %27 ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -9690,7 +9690,7 @@ define internal i32 @PyCursesWindow_traverse(ptr noundef readonly captures(none)
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -9910,7 +9910,7 @@ _curses_window_addch_impl.exit:                   ; preds = %PyCurses_ConvertToC
   br label %99
 
 99:                                               ; preds = %18, %16, %14, %12, %_curses_window_addch_impl.exit, %20
-  %.09 = phi ptr [ null, %20 ], [ %.024.i, %_curses_window_addch_impl.exit ], [ null, %18 ], [ null, %16 ], [ null, %14 ], [ null, %12 ]
+  %.09 = phi ptr [ null, %20 ], [ %.024.i, %_curses_window_addch_impl.exit ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
@@ -10104,7 +10104,7 @@ _curses_window_addnstr_impl.exit:                 ; preds = %21, %77, %78
   br label %83
 
 83:                                               ; preds = %17, %15, %13, %11, %_curses_window_addnstr_impl.exit, %19
-  %.09 = phi ptr [ null, %19 ], [ %.0.i, %_curses_window_addnstr_impl.exit ], [ null, %17 ], [ null, %15 ], [ null, %13 ], [ null, %11 ]
+  %.09 = phi ptr [ null, %19 ], [ %.0.i, %_curses_window_addnstr_impl.exit ], [ null, %11 ], [ null, %13 ], [ null, %15 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
@@ -10296,7 +10296,7 @@ _curses_window_addstr_impl.exit:                  ; preds = %20, %75, %76
   br label %81
 
 81:                                               ; preds = %16, %14, %12, %10, %_curses_window_addstr_impl.exit, %18
-  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_addstr_impl.exit ], [ null, %16 ], [ null, %14 ], [ null, %12 ], [ null, %10 ]
+  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_addstr_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
@@ -11127,7 +11127,7 @@ define internal ptr @_curses_window_derwin(ptr noundef readonly captures(none) %
   br label %_curses_window_derwin_impl.exit
 
 _curses_window_derwin_impl.exit:                  ; preds = %27, %25, %10, %8, %12
-  %.05 = phi ptr [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %25 ], [ %28, %27 ]
+  %.05 = phi ptr [ null, %12 ], [ null, %8 ], [ null, %10 ], [ null, %25 ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -11750,7 +11750,7 @@ define internal ptr @PyCursesWindow_GetStr(ptr noundef readonly captures(none) %
   br label %67
 
 67:                                               ; preds = %40, %27, %13, %65, %60, %45, %18
-  %.0 = phi ptr [ null, %60 ], [ null, %45 ], [ %66, %65 ], [ null, %18 ], [ null, %13 ], [ null, %27 ], [ null, %40 ]
+  %.0 = phi ptr [ null, %60 ], [ %66, %65 ], [ null, %18 ], [ null, %45 ], [ null, %13 ], [ null, %27 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -11877,7 +11877,7 @@ _curses_window_hline_impl.exit:                   ; preds = %20, %33, %PyCursesC
   br label %44
 
 44:                                               ; preds = %16, %14, %12, %10, %_curses_window_hline_impl.exit, %18
-  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_hline_impl.exit ], [ null, %16 ], [ null, %14 ], [ null, %12 ], [ null, %10 ]
+  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_hline_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
@@ -12115,7 +12115,7 @@ _curses_window_insch_impl.exit:                   ; preds = %19, %33, %.thread.i
   br label %42
 
 42:                                               ; preds = %15, %13, %11, %9, %_curses_window_insch_impl.exit, %17
-  %.09 = phi ptr [ null, %17 ], [ %.012.i, %_curses_window_insch_impl.exit ], [ null, %15 ], [ null, %13 ], [ null, %11 ], [ null, %9 ]
+  %.09 = phi ptr [ null, %17 ], [ %.012.i, %_curses_window_insch_impl.exit ], [ null, %9 ], [ null, %11 ], [ null, %13 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
@@ -12360,7 +12360,7 @@ _curses_window_insnstr_impl.exit:                 ; preds = %21, %77, %78
   br label %83
 
 83:                                               ; preds = %17, %15, %13, %11, %_curses_window_insnstr_impl.exit, %19
-  %.09 = phi ptr [ null, %19 ], [ %.0.i, %_curses_window_insnstr_impl.exit ], [ null, %17 ], [ null, %15 ], [ null, %13 ], [ null, %11 ]
+  %.09 = phi ptr [ null, %19 ], [ %.0.i, %_curses_window_insnstr_impl.exit ], [ null, %11 ], [ null, %13 ], [ null, %15 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
@@ -12552,7 +12552,7 @@ _curses_window_insstr_impl.exit:                  ; preds = %20, %75, %76
   br label %81
 
 81:                                               ; preds = %16, %14, %12, %10, %_curses_window_insstr_impl.exit, %18
-  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_insstr_impl.exit ], [ null, %16 ], [ null, %14 ], [ null, %12 ], [ null, %10 ]
+  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_insstr_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
@@ -12662,7 +12662,7 @@ define internal ptr @PyCursesWindow_InStr(ptr noundef readonly captures(none) %0
   br label %61
 
 57:                                               ; preds = %50, %33, %19, %8
-  %.0 = phi i32 [ %23, %19 ], [ %11, %8 ], [ %35, %33 ], [ %54, %50 ]
+  %.0 = phi i32 [ %11, %8 ], [ %23, %19 ], [ %35, %33 ], [ %54, %50 ]
   %58 = icmp eq i32 %.0, -1
   br i1 %58, label %.thread, label %59
 
@@ -12675,7 +12675,7 @@ define internal ptr @PyCursesWindow_InStr(ptr noundef readonly captures(none) %0
   br label %61
 
 61:                                               ; preds = %36, %24, %12, %59, %55, %41, %17
-  %.012 = phi ptr [ null, %55 ], [ null, %41 ], [ %60, %59 ], [ null, %17 ], [ null, %12 ], [ null, %24 ], [ null, %36 ]
+  %.012 = phi ptr [ null, %55 ], [ %60, %59 ], [ null, %17 ], [ null, %41 ], [ null, %12 ], [ null, %24 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -13185,7 +13185,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %38, %25
   br label %_curses_window_overlay_impl.exit
 
 _curses_window_overlay_impl.exit:                 ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %38, %25, %17, %11, %23
-  %.07 = phi ptr [ null, %23 ], [ null, %17 ], [ null, %11 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.07 = phi ptr [ null, %23 ], [ null, %11 ], [ null, %17 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
@@ -13286,7 +13286,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %38, %25
   br label %_curses_window_overwrite_impl.exit
 
 _curses_window_overwrite_impl.exit:               ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %38, %25, %17, %11, %23
-  %.07 = phi ptr [ null, %23 ], [ null, %17 ], [ null, %11 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.07 = phi ptr [ null, %23 ], [ null, %11 ], [ null, %17 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
@@ -13878,7 +13878,7 @@ define internal ptr @_curses_window_subwin(ptr noundef readonly captures(none) %
   br label %_curses_window_subwin_impl.exit
 
 _curses_window_subwin_impl.exit:                  ; preds = %35, %33, %10, %8, %12
-  %.05 = phi ptr [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %33 ], [ %38, %35 ]
+  %.05 = phi ptr [ null, %12 ], [ null, %8 ], [ null, %10 ], [ null, %33 ], [ %38, %35 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -14013,7 +14013,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %19, %13
   br label %_curses_window_touchline_impl.exit
 
 _curses_window_touchline_impl.exit:               ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %19, %13, %9, %7, %11
-  %.05 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %7 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %19 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.05 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %9 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %19 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
@@ -14183,7 +14183,7 @@ _curses_window_vline_impl.exit:                   ; preds = %20, %33, %PyCursesC
   br label %44
 
 44:                                               ; preds = %16, %14, %12, %10, %_curses_window_vline_impl.exit, %18
-  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_vline_impl.exit ], [ null, %16 ], [ null, %14 ], [ null, %12 ], [ null, %10 ]
+  %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_vline_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9

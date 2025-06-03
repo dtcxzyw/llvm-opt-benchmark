@@ -6666,7 +6666,7 @@ _Z17qRegisterMetaTypeI17splitter_layout_eEiPKc.exit: ; preds = %27, %_ZN17QArray
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 

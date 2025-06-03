@@ -2968,7 +2968,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$erased_serde..error..ErrorIm
   unreachable
 
 69:                                               ; preds = %70, %54
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %71, %70 ]
   resume { ptr, i32 } %.pn
 
 70:                                               ; preds = %22
@@ -7257,7 +7257,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$toml_edit..parser..error..CustomE
   br label %21
 
 21:                                               ; preds = %19, %17, %13, %10
-  %.sroa.0.0.in = phi i1 [ %20, %19 ], [ %18, %17 ], [ %16, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in = phi i1 [ %12, %10 ], [ %16, %13 ], [ %18, %17 ], [ %20, %19 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -9752,7 +9752,7 @@ default.unreachable:                              ; preds = %360
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #38
           to label %.body223.thread unwind label %143
 
-.body228.thread392:                               ; preds = %306, %288, %"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h62a683859f15ed09E.exit151", %"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h62a683859f15ed09E.exit130", %"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h62a683859f15ed09E.exit"
+.body228.thread392:                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h62a683859f15ed09E.exit", %"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h62a683859f15ed09E.exit151", %"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h62a683859f15ed09E.exit130", %306, %288
   %lpad.thr_comm390 = landingpad { ptr, i32 }
           cleanup
   br label %.body228.thread
@@ -9761,8 +9761,8 @@ default.unreachable:                              ; preds = %360
   %.pn102382 = phi { ptr, i32 } [ %.pn102383, %424 ], [ %.pn102383, %427 ], [ %.pn102383, %.body228.thread ], [ %403, %402 ], [ %.pn100, %.body223.thread ]
   resume { ptr, i32 } %.pn102382
 
-.body228.thread:                                  ; preds = %.body209, %.body209.thread, %.thread363, %323, %248, %147, %148, %138, %240, %247, %235, %322, %356, %.body228.thread392
-  %.pn102383 = phi { ptr, i32 } [ %lpad.thr_comm390, %.body228.thread392 ], [ %lpad.thr_comm361, %.thread363 ], [ %.pn92, %323 ], [ %.pn95, %248 ], [ %.pn98, %147 ], [ %.pn98, %148 ], [ %139, %138 ], [ %241, %240 ], [ %.pn95, %247 ], [ %236, %235 ], [ %.pn92, %322 ], [ %lpad.thr_comm.split-lp362, %356 ], [ %lpad.thr_comm.split-lp370, %.body209 ], [ %eh.lpad-body210367, %.body209.thread ]
+.body228.thread:                                  ; preds = %.body209, %.body209.thread, %.thread363, %323, %248, %356, %322, %240, %247, %235, %147, %148, %138, %.body228.thread392
+  %.pn102383 = phi { ptr, i32 } [ %lpad.thr_comm390, %.body228.thread392 ], [ %lpad.thr_comm361, %.thread363 ], [ %.pn92, %323 ], [ %.pn95, %248 ], [ %lpad.thr_comm.split-lp362, %356 ], [ %.pn92, %322 ], [ %241, %240 ], [ %.pn95, %247 ], [ %236, %235 ], [ %.pn98, %147 ], [ %.pn98, %148 ], [ %139, %138 ], [ %lpad.thr_comm.split-lp370, %.body209 ], [ %eh.lpad-body210367, %.body209.thread ]
   %419 = load i64, ptr %1, align 8, !range !310, !noundef !3
   %420 = add nsw i64 %419, -8
   %421 = icmp ugt i64 %420, 3

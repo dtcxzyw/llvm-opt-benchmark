@@ -697,7 +697,7 @@ define dso_local noundef i32 @_ZN5clang7CodeGen12CodeGenTypes27ClangCallConvToLL
   br label %31
 
 31:                                               ; preds = %2, %30, %29, %28, %27, %26, %25, %24, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ 110, %30 ], [ 21, %29 ], [ 106, %28 ], [ 20, %27 ], [ 16, %26 ], [ 15, %25 ], [ 14, %24 ], [ %23, %17 ], [ 75, %16 ], [ 91, %15 ], [ 98, %14 ], [ 97, %13 ], [ 80, %12 ], [ 77, %11 ], [ 68, %10 ], [ 67, %9 ], [ 78, %8 ], [ 79, %7 ], [ 70, %6 ], [ 92, %5 ], [ 65, %4 ], [ 64, %3 ], [ 0, %2 ]
+  %.0 = phi i32 [ 64, %3 ], [ 65, %4 ], [ 92, %5 ], [ 70, %6 ], [ 79, %7 ], [ 78, %8 ], [ 67, %9 ], [ 68, %10 ], [ 77, %11 ], [ 80, %12 ], [ 97, %13 ], [ 98, %14 ], [ 91, %15 ], [ 75, %16 ], [ %23, %17 ], [ 14, %24 ], [ 15, %25 ], [ 16, %26 ], [ 20, %27 ], [ 106, %28 ], [ 21, %29 ], [ 110, %30 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -746,7 +746,7 @@ define dso_local i64 @_ZN5clang7CodeGen12CodeGenTypes14DeriveThisTypeEPKNS_13CXX
   br label %_ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit
 
 _ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit: ; preds = %15, %24
-  %.1.i.i = phi ptr [ %21, %15 ], [ %25, %24 ]
+  %.1.i.i = phi ptr [ %25, %24 ], [ %21, %15 ]
   %26 = tail call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i)
   %27 = lshr i64 %26, 9
   %28 = trunc i64 %27 to i32
@@ -930,7 +930,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7Code
   br label %_ZN5clang7CodeGen12CodeGenTypes27ClangCallConvToLLVMCallConvENS_11CallingConvE.exit
 
 _ZN5clang7CodeGen12CodeGenTypes27ClangCallConvToLLVMCallConvENS_11CallingConvE.exit: ; preds = %25, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %49, %50, %51, %52, %53, %54, %55
-  %.0.i = phi i32 [ 110, %55 ], [ 21, %54 ], [ 106, %53 ], [ 20, %52 ], [ 16, %51 ], [ 15, %50 ], [ 14, %49 ], [ %48, %42 ], [ 75, %41 ], [ 91, %40 ], [ 98, %39 ], [ 97, %38 ], [ 80, %37 ], [ 77, %36 ], [ 68, %35 ], [ 67, %34 ], [ 78, %33 ], [ 79, %32 ], [ 70, %31 ], [ 92, %30 ], [ 65, %29 ], [ 64, %28 ], [ 0, %25 ]
+  %.0.i = phi i32 [ 64, %28 ], [ 65, %29 ], [ 92, %30 ], [ 70, %31 ], [ 79, %32 ], [ 78, %33 ], [ 67, %34 ], [ 68, %35 ], [ 77, %36 ], [ 80, %37 ], [ 97, %38 ], [ 98, %39 ], [ 91, %40 ], [ 75, %41 ], [ %48, %42 ], [ 14, %49 ], [ 15, %50 ], [ 16, %51 ], [ 20, %52 ], [ 106, %53 ], [ 21, %54 ], [ 110, %55 ], [ 0, %25 ]
   store ptr %3, ptr %13, align 8, !tbaa !42
   %.sroa.3.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %4, ptr %.sroa.3.0..sroa_idx45, align 8, !tbaa !44
@@ -1356,7 +1356,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7Code
   br label %_ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit.i
 
 _ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit.i: ; preds = %27, %20
-  %.1.i.i.i = phi ptr [ %24, %20 ], [ %28, %27 ]
+  %.1.i.i.i = phi ptr [ %28, %27 ], [ %24, %20 ]
   %29 = call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i.i)
   %30 = lshr i64 %29, 9
   %31 = trunc i64 %30 to i32
@@ -1779,7 +1779,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7Code
   br label %_ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit.i
 
 _ZNK5clang13CXXMethodDecl19getMethodQualifiersEv.exit.i: ; preds = %38, %31
-  %.1.i.i.i = phi ptr [ %35, %31 ], [ %39, %38 ]
+  %.1.i.i.i = phi ptr [ %39, %38 ], [ %35, %31 ]
   %40 = call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i.i)
   %41 = lshr i64 %40, 9
   %42 = trunc i64 %41 to i32
@@ -3607,7 +3607,7 @@ _ZNK5clang4Decl7hasAttrINS_10PascalAttrEEEbv.exit.thread: ; preds = %92, %81, %_
   br label %126
 
 126:                                              ; preds = %95, %124, %122, %120, %118, %116, %106, %104, %102, %100, %_ZNK5clang4Decl7hasAttrINS_10PascalAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_14VectorCallAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_12ThisCallAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_11RegCallAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_12FastCallAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_11StdCallAttrEEEbv.exit, %114, %110
-  %.023 = phi i32 [ %99, %95 ], [ %111, %110 ], [ %115, %114 ], [ 1, %_ZNK5clang4Decl7hasAttrINS_11StdCallAttrEEEbv.exit ], [ 2, %_ZNK5clang4Decl7hasAttrINS_12FastCallAttrEEEbv.exit ], [ 8, %_ZNK5clang4Decl7hasAttrINS_11RegCallAttrEEEbv.exit ], [ 3, %_ZNK5clang4Decl7hasAttrINS_12ThisCallAttrEEEbv.exit ], [ 4, %_ZNK5clang4Decl7hasAttrINS_14VectorCallAttrEEEbv.exit ], [ 5, %_ZNK5clang4Decl7hasAttrINS_10PascalAttrEEEbv.exit ], [ 18, %100 ], [ 19, %102 ], [ 20, %104 ], [ 11, %106 ], [ 16, %116 ], [ 17, %118 ], [ 21, %120 ], [ 22, %122 ], [ %., %124 ]
+  %.023 = phi i32 [ %111, %110 ], [ %115, %114 ], [ %99, %95 ], [ 1, %_ZNK5clang4Decl7hasAttrINS_11StdCallAttrEEEbv.exit ], [ 2, %_ZNK5clang4Decl7hasAttrINS_12FastCallAttrEEEbv.exit ], [ 8, %_ZNK5clang4Decl7hasAttrINS_11RegCallAttrEEEbv.exit ], [ 3, %_ZNK5clang4Decl7hasAttrINS_12ThisCallAttrEEEbv.exit ], [ 4, %_ZNK5clang4Decl7hasAttrINS_14VectorCallAttrEEEbv.exit ], [ 5, %_ZNK5clang4Decl7hasAttrINS_10PascalAttrEEEbv.exit ], [ 18, %100 ], [ 19, %102 ], [ 20, %104 ], [ 11, %106 ], [ 16, %116 ], [ 17, %118 ], [ 21, %120 ], [ 22, %122 ], [ %., %124 ]
   ret i32 %.023
 }
 
@@ -3787,7 +3787,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZL13GetFormalTypeP
   br label %_ZN5clang7CodeGen12CodeGenTypes14DeriveThisTypeEPKNS_13CXXRecordDeclEPKNS_13CXXMethodDeclE.exit
 
 _ZN5clang7CodeGen12CodeGenTypes14DeriveThisTypeEPKNS_13CXXRecordDeclEPKNS_13CXXMethodDeclE.exit: ; preds = %30, %37
-  %.1.i.i.i = phi ptr [ %34, %30 ], [ %38, %37 ]
+  %.1.i.i.i = phi ptr [ %38, %37 ], [ %34, %30 ]
   %39 = and i64 %.sroa.0.0.copyload.i.i.i, -16
   %40 = inttoptr i64 %39 to ptr
   %41 = tail call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i.i)
@@ -3886,7 +3886,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZL13GetFormalTypeP
   br label %_ZN5clang7CodeGen12CodeGenTypes14DeriveThisTypeEPKNS_13CXXRecordDeclEPKNS_13CXXMethodDeclE.exit
 
 _ZN5clang7CodeGen12CodeGenTypes14DeriveThisTypeEPKNS_13CXXRecordDeclEPKNS_13CXXMethodDeclE.exit: ; preds = %36, %43
-  %.1.i.i.i = phi ptr [ %40, %36 ], [ %44, %43 ]
+  %.1.i.i.i = phi ptr [ %44, %43 ], [ %40, %36 ]
   %45 = call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i.i)
   %46 = lshr i64 %45, 9
   %47 = trunc i64 %46 to i32
@@ -7542,7 +7542,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateLShrEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateLShrEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %65, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %76, %65 ], [ %79, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %79, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %76, %65 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #25
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #25
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -7814,7 +7814,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit:
   br label %54
 
 54:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %12, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %12, %5 ]
   ret ptr %.1
 }
 
@@ -8119,7 +8119,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE6insertES5_.exit: ;
   br label %56
 
 56:                                               ; preds = %33, %43, %53, %48, %26, %_ZN4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE6insertES5_.exit
-  %.0 = phi ptr [ null, %_ZN4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE6insertES5_.exit ], [ %42, %33 ], [ %47, %43 ], [ %28, %26 ], [ %52, %48 ], [ %55, %53 ]
+  %.0 = phi ptr [ null, %_ZN4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE6insertES5_.exit ], [ %55, %53 ], [ %28, %26 ], [ %42, %33 ], [ %47, %43 ], [ %52, %48 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !30
@@ -8787,7 +8787,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12CodeGenTypes24GetFunctionTypeFo
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %12
-  %.1.i = phi ptr [ %9, %3 ], [ %13, %12 ]
+  %.1.i = phi ptr [ %13, %12 ], [ %9, %3 ]
   %14 = tail call noundef zeroext i1 @_ZN5clang7CodeGen12CodeGenTypes21isFuncTypeConvertibleEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %.1.i) #25
   br i1 %14, label %20, label %15
 
@@ -11083,7 +11083,7 @@ _ZNK5clang4Decl7hasAttrINS_14ConvergentAttrEEEbv.exit.thread: ; preds = %248, %2
   br label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %256, %263, %271
-  %.1.i = phi ptr [ %260, %256 ], [ %272, %271 ], [ null, %263 ]
+  %.1.i = phi ptr [ %272, %271 ], [ %260, %256 ], [ null, %263 ]
   call fastcc void @_ZL34AddAttributesFromFunctionProtoTypeRN5clang10ASTContextERN4llvm11AttrBuilderEPKNS_17FunctionProtoTypeE(ptr noundef nonnull align 8 dereferenceable(88) %20, ptr noundef %.1.i)
   br i1 %7, label %273, label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit.thread
 
@@ -12773,7 +12773,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread848: ; preds = %1045
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %1071, %.lr.ph.i
-  %.1.i.i = phi ptr [ %1067, %.lr.ph.i ], [ %1072, %1071 ]
+  %.1.i.i = phi ptr [ %1072, %1071 ], [ %1067, %.lr.ph.i ]
   %1073 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %1074 = load i24, ptr %1073, align 16
   %1075 = and i24 %1074, 1048576
@@ -12811,7 +12811,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6cas
   br label %_ZN5clang7CodeGen13CodeGenModule20getMinimumObjectSizeENS_8QualTypeE.exit
 
 _ZN5clang7CodeGen13CodeGenModule20getMinimumObjectSizeENS_8QualTypeE.exit: ; preds = %1087, %1089
-  %.sroa.03.1.i = phi i64 [ %1088, %1087 ], [ %1091, %1089 ]
+  %.sroa.03.1.i = phi i64 [ %1091, %1089 ], [ %1088, %1087 ]
   %1092 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder22addDereferenceableAttrEm(ptr noundef nonnull align 8 dereferenceable(88) %21, i64 noundef %.sroa.03.1.i) #25
   br label %1093
 
@@ -13094,7 +13094,7 @@ _ZN4llvm11AttrBuilderD2Ev.exit483:                ; preds = %1167, %1183
   br label %_ZN5clang7CodeGen13CodeGenModule20getMinimumObjectSizeENS_8QualTypeE.exit493
 
 _ZN5clang7CodeGen13CodeGenModule20getMinimumObjectSizeENS_8QualTypeE.exit493: ; preds = %1230, %1232
-  %.sroa.03.1.i492 = phi i64 [ %1231, %1230 ], [ %1234, %1232 ]
+  %.sroa.03.1.i492 = phi i64 [ %1234, %1232 ], [ %1231, %1230 ]
   %1235 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder28addDereferenceableOrNullAttrEm(ptr noundef nonnull align 8 dereferenceable(88) %27, i64 noundef %.sroa.03.1.i492) #25
   br label %1236
 
@@ -13431,7 +13431,7 @@ _ZN4llvm10MaybeAlignC2Em.exit:                    ; preds = %_ZN4llvm10MaybeAlig
   br label %1389
 
 1389:                                             ; preds = %1387, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %1388, %1387 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %1388, %1387 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !895
   %1390 = call noundef zeroext i1 @_ZN4llvm14AttributeFuncs25isNoFPClassCompatibleTypeEPNS_4TypeE(ptr noundef %.1.val.i.i.i.i.i.i) #25
   br i1 %1390, label %1391, label %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508
@@ -13441,7 +13441,7 @@ _ZN4llvm10MaybeAlignC2Em.exit:                    ; preds = %_ZN4llvm10MaybeAlig
   br label %1393
 
 1393:                                             ; preds = %1391, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %1392, %1391 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %1392, %1391 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !895
   %1394 = call noundef zeroext i1 @_ZN4llvm14AttributeFuncs25isNoFPClassCompatibleTypeEPNS_4TypeE(ptr noundef %.2.val.i.i.i.i.i.i) #25
   br i1 %1394, label %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508.thread, label %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508
@@ -13594,7 +13594,7 @@ _ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508.threa
   br label %.loopexit
 
 _ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508.thread855: ; preds = %1357, %1352, %_ZN4llvm10MaybeAlignC2Em.exit, %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508, %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508.thread, %1453, %"_ZZN5clang7CodeGen13CodeGenModule22ConstructAttributeListEN4llvm9StringRefERKNS0_14CGFunctionInfoENS0_12CGCalleeInfoERNS2_13AttributeListERjbbENK3$_0clEv.exit517", %1320
-  %.sroa.0604.1 = phi i8 [ %.sroa.0604.0989, %1320 ], [ %.sroa.0604.0989, %1453 ], [ %.sroa.0604.0989, %"_ZZN5clang7CodeGen13CodeGenModule22ConstructAttributeListEN4llvm9StringRefERKNS0_14CGFunctionInfoENS0_12CGCalleeInfoERNS2_13AttributeListERjbbENK3$_0clEv.exit517" ], [ %.sroa.0604.3, %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508.thread ], [ %.sroa.0604.3, %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508 ], [ %.sroa.0604.3, %_ZN4llvm10MaybeAlignC2Em.exit ], [ %.sroa.0604.3, %1352 ], [ %.sroa.0604.3, %1357 ]
+  %.sroa.0604.1 = phi i8 [ %.sroa.0604.0989, %1320 ], [ %.sroa.0604.3, %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508.thread ], [ %.sroa.0604.3, %_ZL17canApplyNoFPClassRKN5clang7CodeGen10ABIArgInfoENS_8QualTypeEb.exit508 ], [ %.sroa.0604.0989, %"_ZZN5clang7CodeGen13CodeGenModule22ConstructAttributeListEN4llvm9StringRefERKNS0_14CGFunctionInfoENS0_12CGCalleeInfoERNS2_13AttributeListERjbbENK3$_0clEv.exit517" ], [ %.sroa.0604.0989, %1453 ], [ %.sroa.0604.3, %_ZN4llvm10MaybeAlignC2Em.exit ], [ %.sroa.0604.3, %1352 ], [ %.sroa.0604.3, %1357 ]
   %1470 = and i64 %.sroa.0.0.copyload.i497, -16
   %1471 = inttoptr i64 %1470 to ptr
   %1472 = load ptr, ptr %1471, align 16, !tbaa !31
@@ -13647,7 +13647,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit527.thread863: ; preds = %_
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i533
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i533: ; preds = %1495, %.lr.ph.i529
-  %.1.i.i534 = phi ptr [ %1491, %.lr.ph.i529 ], [ %1496, %1495 ]
+  %.1.i.i534 = phi ptr [ %1496, %1495 ], [ %1491, %.lr.ph.i529 ]
   %1497 = getelementptr inbounds nuw i8, ptr %.1.i.i534, i64 16
   %1498 = load i24, ptr %1497, align 16
   %1499 = and i24 %1498, 1048576
@@ -13685,7 +13685,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit538: ; preds = %_ZNK5clang4Type6
   br label %_ZN5clang7CodeGen13CodeGenModule20getMinimumObjectSizeENS_8QualTypeE.exit543
 
 _ZN5clang7CodeGen13CodeGenModule20getMinimumObjectSizeENS_8QualTypeE.exit543: ; preds = %1511, %1513
-  %.sroa.03.1.i542 = phi i64 [ %1512, %1511 ], [ %1515, %1513 ]
+  %.sroa.03.1.i542 = phi i64 [ %1515, %1513 ], [ %1512, %1511 ]
   %1516 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder22addDereferenceableAttrEm(ptr noundef nonnull align 8 dereferenceable(88) %28, i64 noundef %.sroa.03.1.i542) #25
   br label %1517
 
@@ -13911,7 +13911,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit569.thread:     ; preds = %1594, %1606, %_ZNK5
   br label %1635
 
 1635:                                             ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit569.thread, %1617, %1620, %1633, %1631, %1629, %1591, %_ZNK5clang7CodeGen14CGFunctionInfo19getExtParameterInfoEj.exit
-  %.3.ph = phi i1 [ %.4, %_ZNK5clang4Type10isVoidTypeEv.exit569.thread ], [ %.4, %1617 ], [ %.4, %1620 ], [ %.1167995, %1591 ], [ %.1167995, %1633 ], [ %.1167995, %1629 ], [ %.1167995, %1631 ], [ %.1167995, %_ZNK5clang7CodeGen14CGFunctionInfo19getExtParameterInfoEj.exit ]
+  %.3.ph = phi i1 [ %.4, %_ZNK5clang4Type10isVoidTypeEv.exit569.thread ], [ %.4, %1617 ], [ %.4, %1620 ], [ %.1167995, %1631 ], [ %.1167995, %1629 ], [ %.1167995, %1633 ], [ %.1167995, %1591 ], [ %.1167995, %_ZNK5clang7CodeGen14CGFunctionInfo19getExtParameterInfoEj.exit ]
   %.pr = load i32, ptr %1265, align 8
   %.not.i573 = icmp sgt i32 %.pr, -1
   br i1 %.not.i573, label %_ZNK5clang7CodeGen14CGFunctionInfo19getExtParameterInfoEj.exit575.thread, label %_ZNK5clang7CodeGen14CGFunctionInfo19getExtParameterInfoEj.exit575
@@ -14316,7 +14316,7 @@ define linkonce_odr hidden i64 @_ZN5clang7CodeGen13CodeGenModule20getMinimumObje
   br label %13
 
 13:                                               ; preds = %7, %9
-  %.sroa.03.1 = phi i64 [ %8, %7 ], [ %12, %9 ]
+  %.sroa.03.1 = phi i64 [ %12, %9 ], [ %8, %7 ]
   ret i64 %.sroa.03.1
 }
 
@@ -14502,7 +14502,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %96, %104
-  %.1.i.i = phi ptr [ %100, %96 ], [ %105, %104 ]
+  %.1.i.i = phi ptr [ %105, %104 ], [ %100, %96 ]
   %106 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %106, align 8, !tbaa !37
   %107 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -17184,17 +17184,17 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueEL
   br label %.loopexit1362
 
 .loopexit1362:                                    ; preds = %1255, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593, %895, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688, %._crit_edge, %484, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit, %304
-  %.sroa.01441.1 = phi ptr [ %.sroa.01441.0, %304 ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.01441.0, %._crit_edge ], [ %.sroa.01441.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.01441.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.01441.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.01441.0, %895 ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.01441.0, %484 ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.01441.0, %1255 ]
-  %.sroa.01447.1 = phi ptr [ %.sroa.01447.0, %304 ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.01447.0, %._crit_edge ], [ %.sroa.01447.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.01447.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.01447.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.01447.0, %895 ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.01447.0, %484 ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.01447.0, %1255 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %304 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.0.0, %895 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.0.0, %484 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.0.0, %1255 ]
-  %.sroa.15.sroa.0.1 = phi i8 [ %.sroa.15.sroa.0.01389, %304 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.15.sroa.0.01389, %._crit_edge ], [ %1162, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.15.sroa.0.01389, %895 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.15.sroa.0.01389, %484 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %1162, %1255 ]
-  %.sroa.9953.1 = phi i8 [ %.sroa.9953.01392, %304 ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.9953.01392, %._crit_edge ], [ %.sroa.9953.01392, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %925, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %925, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.9953.01392, %895 ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.9953.01392, %484 ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.9953.01392, %1255 ]
-  %.sroa.61039.1 = phi i8 [ %.sroa.61039.01394, %304 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.61039.01394, %._crit_edge ], [ %.sroa.61039.01394, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.61039.01394, %895 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.61039.3, %484 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.61039.01394, %1255 ]
-  %.sroa.61051.1 = phi i8 [ %.sroa.61051.01395, %304 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.61051.01395, %._crit_edge ], [ %.sroa.61051.01395, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.61051.01395, %895 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.61051.01395, %484 ], [ %.sroa.61051.2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.61051.01395, %1255 ]
-  %.sroa.7706.1 = phi i8 [ %.sroa.7706.01396, %304 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %1263, %._crit_edge ], [ %.sroa.7706.01396, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.7706.01396, %895 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.7706.01396, %484 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.7706.01396, %1255 ]
-  %.sroa.101063.1 = phi i8 [ %.sroa.101063.01397, %304 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.101063.01397, %._crit_edge ], [ %.sroa.101063.01397, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.101063.01397, %895 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.101063.01397, %484 ], [ %.sroa.101063.2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.101063.01397, %1255 ]
-  %.sroa.7.1 = phi i8 [ %.sroa.7.01398, %304 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %1284, %._crit_edge ], [ %.sroa.7.01398, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.7.01398, %895 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.7.01398, %484 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.7.01398, %1255 ]
-  %.sroa.4.1 = phi i8 [ %.sroa.4.01399, %304 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %1340, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.4.01399, %._crit_edge ], [ %.sroa.4.01399, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.4.01399, %895 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.4.01399, %484 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.4.01399, %1255 ]
+  %.sroa.01441.1 = phi ptr [ %.sroa.01441.0, %304 ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.01441.0, %484 ], [ %.sroa.01441.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.01441.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.01441.0, %895 ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.01441.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.01441.0, %._crit_edge ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.01441.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.01441.0, %1255 ]
+  %.sroa.01447.1 = phi ptr [ %.sroa.01447.0, %304 ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.01447.0, %484 ], [ %.sroa.01447.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.01447.4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.01447.0, %895 ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.01447.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.01447.0, %._crit_edge ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.01447.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.01447.0, %1255 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %304 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.0.0, %484 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.0.0, %895 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.0.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.0.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.0.0, %1255 ]
+  %.sroa.15.sroa.0.1 = phi i8 [ %.sroa.15.sroa.0.01389, %304 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.15.sroa.0.01389, %484 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.15.sroa.0.01389, %895 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %1162, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.15.sroa.0.01389, %._crit_edge ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.15.sroa.0.01389, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %1162, %1255 ]
+  %.sroa.9953.1 = phi i8 [ %.sroa.9953.01392, %304 ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.9953.01392, %484 ], [ %925, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %925, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.9953.01392, %895 ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.9953.01392, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.9953.01392, %._crit_edge ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.9953.01392, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.9953.01392, %1255 ]
+  %.sroa.61039.1 = phi i8 [ %.sroa.61039.01394, %304 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.61039.3, %484 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.61039.01394, %895 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.61039.01394, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.61039.01394, %._crit_edge ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.61039.01394, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.61039.01394, %1255 ]
+  %.sroa.61051.1 = phi i8 [ %.sroa.61051.01395, %304 ], [ %.sroa.61051.2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.61051.01395, %484 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.61051.01395, %895 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.61051.01395, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.61051.01395, %._crit_edge ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.61051.01395, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.61051.01395, %1255 ]
+  %.sroa.7706.1 = phi i8 [ %.sroa.7706.01396, %304 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.7706.01396, %484 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.7706.01396, %895 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.7706.01396, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %1263, %._crit_edge ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.7706.01396, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.7706.01396, %1255 ]
+  %.sroa.101063.1 = phi i8 [ %.sroa.101063.01397, %304 ], [ %.sroa.101063.2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.101063.01397, %484 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.101063.01397, %895 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.101063.01397, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.101063.01397, %._crit_edge ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.101063.01397, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.101063.01397, %1255 ]
+  %.sroa.7.1 = phi i8 [ %.sroa.7.01398, %304 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.7.01398, %484 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.7.01398, %895 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.7.01398, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %1284, %._crit_edge ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %.sroa.7.01398, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.7.01398, %1255 ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.01399, %304 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit ], [ %.sroa.4.01399, %484 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit587 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit593 ], [ %.sroa.4.01399, %895 ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit463 ], [ %.sroa.4.01399, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit615 ], [ %.sroa.4.01399, %._crit_edge ], [ %.sroa.4.01399, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit688 ], [ %1340, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen15CodeGenFunction10ParamValueELb1EE9push_backERKS4_.exit681 ], [ %.sroa.4.01399, %1255 ]
   %1385 = getelementptr inbounds nuw i8, ptr %.02831400, i64 8
   %1386 = getelementptr inbounds nuw i8, ptr %.02821401, i64 40
   %indvars.iv.next1431 = add nuw nsw i64 %indvars.iv1430, 1
@@ -17751,7 +17751,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit: 
   br label %38
 
 38:                                               ; preds = %6, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %6 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %6 ]
   ret ptr %.1
 }
 
@@ -18326,7 +18326,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %14, %4 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %14, %4 ]
   ret ptr %.1.i
 }
 
@@ -19634,12 +19634,12 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %529, %532
   br label %_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit
 
 _ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit: ; preds = %_ZL31tryEmitFusedAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.thread.i, %238, %_ZN4llvm8Function7arg_endEv.exit, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
-  %.0 = phi ptr [ %.3, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit ], [ %.2, %238 ], [ %141, %_ZN4llvm8Function7arg_endEv.exit ], [ %438, %_ZL31tryEmitFusedAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.thread.i ]
+  %.0 = phi ptr [ %141, %_ZN4llvm8Function7arg_endEv.exit ], [ %.2, %238 ], [ %.3, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit ], [ %438, %_ZL31tryEmitFusedAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.thread.i ]
   %.not93 = icmp eq ptr %.0, null
   br i1 %.not93, label %_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.thread, label %_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.thread273
 
-_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.thread273: ; preds = %_ZL31tryEmitFusedAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i, %_ZL21tryRemoveRetainOfSelfRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i, %_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit
-  %.0276 = phi ptr [ %.0, %_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit ], [ %.3.i.i, %_ZL31tryEmitFusedAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i ], [ %293, %_ZL21tryRemoveRetainOfSelfRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i ]
+_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.thread273: ; preds = %_ZL21tryRemoveRetainOfSelfRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i, %_ZL31tryEmitFusedAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i, %_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit
+  %.0276 = phi ptr [ %.0, %_ZL23emitAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit ], [ %293, %_ZL21tryRemoveRetainOfSelfRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i ], [ %.3.i.i, %_ZL31tryEmitFusedAutoreleaseOfResultRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE.exit.i ]
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %534 = load ptr, ptr %533, align 8, !tbaa !1737
   %.not94 = icmp eq ptr %534, null
@@ -20755,7 +20755,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %125, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %132, %125 ], [ %135, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %135, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %132, %125 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #25
   br label %151
 
@@ -21808,7 +21808,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitNonNullArgCheckEN
   br label %_ZNK5clang7CodeGen15CodeGenFunction14AbstractCallee12getNumParamsEv.exit
 
 _ZNK5clang7CodeGen15CodeGenFunction14AbstractCallee12getNumParamsEv.exit: ; preds = %21, %23
-  %.1.i = phi i32 [ %22, %21 ], [ %25, %23 ]
+  %.1.i = phi i32 [ %25, %23 ], [ %22, %21 ]
   %26 = icmp ult i32 %5, %.1.i
   br i1 %26, label %27, label %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit
 
@@ -22336,7 +22336,7 @@ _ZN4llvm10drop_beginIRNS_14iterator_rangeIN5clang4Stmt12CastIteratorINS2_4ExprEK
   br label %153
 
 153:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL15hasInAllocaArgsRN5clang7CodeGen13CodeGenModuleENS2_11CallingConvEN4llvm8ArrayRefINS2_8QualTypeEEEE3$_0EclIPKS9_EEbT_.exit47.thread.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %152, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL15hasInAllocaArgsRN5clang7CodeGen13CodeGenModuleENS2_11CallingConvEN4llvm8ArrayRefINS2_8QualTypeEEEE3$_0EclIPKS9_EEbT_.exit47.thread.i.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %152, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL15hasInAllocaArgsRN5clang7CodeGen13CodeGenModuleENS2_11CallingConvEN4llvm8ArrayRefINS2_8QualTypeEEEE3$_0EclIPKS9_EEbT_.exit47.thread.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load i64, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !37
   %154 = getelementptr inbounds nuw i8, ptr %84, i64 224
   %.val38.val.i.i.i.i.i.i.i = load ptr, ptr %154, align 8, !tbaa !1796
@@ -22360,7 +22360,7 @@ _ZN4llvm10drop_beginIRNS_14iterator_rangeIN5clang4Stmt12CastIteratorINS2_4ExprEK
   br label %165
 
 165:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL15hasInAllocaArgsRN5clang7CodeGen13CodeGenModuleENS2_11CallingConvEN4llvm8ArrayRefINS2_8QualTypeEEEE3$_0EclIPKS9_EEbT_.exit49.thread.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %164, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL15hasInAllocaArgsRN5clang7CodeGen13CodeGenModuleENS2_11CallingConvEN4llvm8ArrayRefINS2_8QualTypeEEEE3$_0EclIPKS9_EEbT_.exit49.thread.i.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %164, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL15hasInAllocaArgsRN5clang7CodeGen13CodeGenModuleENS2_11CallingConvEN4llvm8ArrayRefINS2_8QualTypeEEEE3$_0EclIPKS9_EEbT_.exit49.thread.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load i64, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !37
   %166 = getelementptr inbounds nuw i8, ptr %84, i64 224
   %.val39.val.i.i.i.i.i.i.i = load ptr, ptr %166, align 8, !tbaa !1796
@@ -23073,7 +23073,7 @@ _ZL26maybeGetUnaryAddrOfOperandPKN5clang4ExprE.exit.thread.i: ; preds = %_ZL26ma
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit.i: ; preds = %69, %_ZL26maybeGetUnaryAddrOfOperandPKN5clang4ExprE.exit.thread.i
-  %.1.i.i = phi ptr [ %66, %_ZL26maybeGetUnaryAddrOfOperandPKN5clang4ExprE.exit.thread.i ], [ %70, %69 ]
+  %.1.i.i = phi ptr [ %70, %69 ], [ %66, %_ZL26maybeGetUnaryAddrOfOperandPKN5clang4ExprE.exit.thread.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i90.i = load i64, ptr %71, align 16, !tbaa !37
   %.sroa.0239.0.copyload.i = load i64, ptr %15, align 8, !tbaa !37
@@ -29041,18 +29041,18 @@ _ZN4llvm13IRBuilderBase12CreateFreezeEPNS_5ValueERKNS_5TwineE.exit912: ; preds =
   br label %.loopexit2487
 
 .loopexit2487:                                    ; preds = %1172, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836, %1217, %._crit_edge2518, %.critedge527, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit, %640, %1371, %1370, %1007, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit, %823, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.0.0, %1370 ], [ %.sroa.0.0, %1217 ], [ %.sroa.0.2, %._crit_edge2518 ], [ %.sroa.0.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.0.0, %1007 ], [ %.sroa.0.0, %1371 ], [ %.sroa.0.0, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.0.0, %.critedge527 ], [ %.sroa.0.0, %823 ], [ %.sroa.0.0, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.0.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.0.0, %640 ], [ %.sroa.0.0, %1172 ]
-  %.sroa.61492.1 = phi i8 [ %.sroa.61492.02524, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.61492.02524, %1370 ], [ %.sroa.61492.2, %1217 ], [ %.sroa.61492.2, %._crit_edge2518 ], [ %.sroa.61492.2, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.61492.02524, %1007 ], [ %.sroa.61492.02524, %1371 ], [ %.sroa.61492.02524, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.61492.02524, %.critedge527 ], [ %.sroa.61492.02524, %823 ], [ %.sroa.61492.02524, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.61492.02524, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.61492.02524, %640 ], [ %.sroa.61492.2, %1172 ]
-  %.sroa.41738.1 = phi i8 [ %.sroa.41738.02530, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.41738.02530, %1370 ], [ %.sroa.41738.02530, %1217 ], [ %.sroa.41738.02530, %._crit_edge2518 ], [ %.sroa.41738.02530, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.41738.02530, %1007 ], [ %.sroa.41738.02530, %1371 ], [ %834, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.41738.02530, %.critedge527 ], [ %.sroa.41738.02530, %823 ], [ %.sroa.41738.02530, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.41738.02530, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.41738.02530, %640 ], [ %.sroa.41738.02530, %1172 ]
-  %.sroa.61295.1 = phi i8 [ %.sroa.61295.02532, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.61295.2.lcssa, %1370 ], [ %.sroa.61295.02532, %1217 ], [ %.sroa.61295.02532, %._crit_edge2518 ], [ %.sroa.61295.02532, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.61295.02532, %1007 ], [ %.sroa.61295.02532, %1371 ], [ %.sroa.61295.02532, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.61295.02532, %.critedge527 ], [ %.sroa.61295.02532, %823 ], [ %.sroa.61295.02532, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.61295.02532, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.61295.02532, %640 ], [ %.sroa.61295.02532, %1172 ]
-  %.sroa.14.sroa.0.1 = phi i8 [ %.sroa.14.sroa.0.02536, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.14.sroa.0.02536, %1370 ], [ %.sroa.14.sroa.0.02536, %1217 ], [ %.sroa.14.sroa.0.02536, %._crit_edge2518 ], [ %.sroa.14.sroa.0.02536, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.14.sroa.0.02536, %1007 ], [ %.sroa.14.sroa.0.02536, %1371 ], [ %.sroa.14.sroa.0.02536, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.14.sroa.0.02536, %.critedge527 ], [ %.sroa.14.sroa.0.02536, %823 ], [ %.sroa.14.sroa.0.02536, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %685, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.14.sroa.0.02536, %640 ], [ %.sroa.14.sroa.0.02536, %1172 ]
-  %.sroa.71861.1 = phi i64 [ %.sroa.71861.02550, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.71861.02550, %1370 ], [ %.sroa.71861.02550, %1217 ], [ %.sroa.71861.02550, %._crit_edge2518 ], [ %.sroa.71861.02550, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.71861.2, %1007 ], [ %.sroa.71861.02550, %1371 ], [ %.sroa.71861.02550, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.71861.02550, %.critedge527 ], [ %.sroa.71861.02550, %823 ], [ %.sroa.71861.02550, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.71861.02550, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.71861.02550, %640 ], [ %.sroa.71861.02550, %1172 ]
-  %.sroa.01856.1 = phi i64 [ %.sroa.01856.02552, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.01856.02552, %1370 ], [ %.sroa.01856.02552, %1217 ], [ %.sroa.01856.02552, %._crit_edge2518 ], [ %.sroa.01856.02552, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.01856.2, %1007 ], [ %.sroa.01856.02552, %1371 ], [ %.sroa.01856.02552, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.01856.02552, %.critedge527 ], [ %.sroa.01856.02552, %823 ], [ %.sroa.01856.02552, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.01856.02552, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.01856.02552, %640 ], [ %.sroa.01856.02552, %1172 ]
-  %.sroa.01894.1 = phi i64 [ %.sroa.01894.02554, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.01894.02554, %1370 ], [ %.sroa.01894.02554, %1217 ], [ %.sroa.01894.02554, %._crit_edge2518 ], [ %.sroa.01894.02554, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.01894.2, %1007 ], [ %.sroa.01894.02554, %1371 ], [ %.sroa.01894.02554, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.01894.02554, %.critedge527 ], [ %.sroa.01894.02554, %823 ], [ %.sroa.01894.02554, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.01894.02554, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.01894.02554, %640 ], [ %.sroa.01894.02554, %1172 ]
-  %.sroa.81897.sroa.6.1 = phi i64 [ %.sroa.81897.sroa.6.02556, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.81897.sroa.6.02556, %1370 ], [ %.sroa.81897.sroa.6.02556, %1217 ], [ %.sroa.81897.sroa.6.02556, %._crit_edge2518 ], [ %.sroa.81897.sroa.6.02556, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.81897.sroa.6.2, %1007 ], [ %.sroa.81897.sroa.6.02556, %1371 ], [ %.sroa.81897.sroa.6.02556, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.81897.sroa.6.02556, %.critedge527 ], [ %.sroa.81897.sroa.6.02556, %823 ], [ %.sroa.81897.sroa.6.02556, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.81897.sroa.6.02556, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.81897.sroa.6.02556, %640 ], [ %.sroa.81897.sroa.6.02556, %1172 ]
-  %.sroa.81897.sroa.0.1 = phi ptr [ %.sroa.81897.sroa.0.02558, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.81897.sroa.0.02558, %1370 ], [ %.sroa.81897.sroa.0.02558, %1217 ], [ %.sroa.81897.sroa.0.02558, %._crit_edge2518 ], [ %.sroa.81897.sroa.0.02558, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.81897.sroa.0.2, %1007 ], [ %.sroa.81897.sroa.0.02558, %1371 ], [ %.sroa.81897.sroa.0.02558, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.81897.sroa.0.02558, %.critedge527 ], [ %.sroa.81897.sroa.0.02558, %823 ], [ %.sroa.81897.sroa.0.02558, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.81897.sroa.0.02558, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.81897.sroa.0.02558, %640 ], [ %.sroa.81897.sroa.0.02558, %1172 ]
-  %1373 = phi i8 [ %505, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %505, %1370 ], [ %505, %1217 ], [ %505, %._crit_edge2518 ], [ %505, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %505, %1007 ], [ %505, %1371 ], [ %505, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %505, %.critedge527 ], [ %505, %823 ], [ %505, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %505, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %648, %640 ], [ %505, %1172 ]
-  %1374 = phi i8 [ %504, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %504, %1370 ], [ %504, %1217 ], [ %504, %._crit_edge2518 ], [ %504, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %504, %1007 ], [ %504, %1371 ], [ %889, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %504, %.critedge527 ], [ %504, %823 ], [ %504, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %504, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %504, %640 ], [ %504, %1172 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.0.0, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.0.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.0.0, %640 ], [ %.sroa.0.0, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.0.0, %.critedge527 ], [ %.sroa.0.0, %823 ], [ %.sroa.0.0, %1371 ], [ %.sroa.0.0, %1217 ], [ %.sroa.0.2, %._crit_edge2518 ], [ %.sroa.0.0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.0.0, %1007 ], [ %.sroa.0.0, %1370 ], [ %.sroa.0.0, %1172 ]
+  %.sroa.61492.1 = phi i8 [ %.sroa.61492.02524, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.61492.02524, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.61492.02524, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.61492.02524, %640 ], [ %.sroa.61492.02524, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.61492.02524, %.critedge527 ], [ %.sroa.61492.02524, %823 ], [ %.sroa.61492.02524, %1371 ], [ %.sroa.61492.2, %1217 ], [ %.sroa.61492.2, %._crit_edge2518 ], [ %.sroa.61492.2, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.61492.02524, %1007 ], [ %.sroa.61492.02524, %1370 ], [ %.sroa.61492.2, %1172 ]
+  %.sroa.41738.1 = phi i8 [ %.sroa.41738.02530, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.41738.02530, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.41738.02530, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.41738.02530, %640 ], [ %834, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.41738.02530, %.critedge527 ], [ %.sroa.41738.02530, %823 ], [ %.sroa.41738.02530, %1371 ], [ %.sroa.41738.02530, %1217 ], [ %.sroa.41738.02530, %._crit_edge2518 ], [ %.sroa.41738.02530, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.41738.02530, %1007 ], [ %.sroa.41738.02530, %1370 ], [ %.sroa.41738.02530, %1172 ]
+  %.sroa.61295.1 = phi i8 [ %.sroa.61295.02532, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.61295.02532, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.61295.02532, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.61295.02532, %640 ], [ %.sroa.61295.02532, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.61295.02532, %.critedge527 ], [ %.sroa.61295.02532, %823 ], [ %.sroa.61295.02532, %1371 ], [ %.sroa.61295.02532, %1217 ], [ %.sroa.61295.02532, %._crit_edge2518 ], [ %.sroa.61295.02532, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.61295.02532, %1007 ], [ %.sroa.61295.2.lcssa, %1370 ], [ %.sroa.61295.02532, %1172 ]
+  %.sroa.14.sroa.0.1 = phi i8 [ %.sroa.14.sroa.0.02536, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.14.sroa.0.02536, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %685, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.14.sroa.0.02536, %640 ], [ %.sroa.14.sroa.0.02536, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.14.sroa.0.02536, %.critedge527 ], [ %.sroa.14.sroa.0.02536, %823 ], [ %.sroa.14.sroa.0.02536, %1371 ], [ %.sroa.14.sroa.0.02536, %1217 ], [ %.sroa.14.sroa.0.02536, %._crit_edge2518 ], [ %.sroa.14.sroa.0.02536, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.14.sroa.0.02536, %1007 ], [ %.sroa.14.sroa.0.02536, %1370 ], [ %.sroa.14.sroa.0.02536, %1172 ]
+  %.sroa.71861.1 = phi i64 [ %.sroa.71861.02550, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.71861.02550, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.71861.02550, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.71861.02550, %640 ], [ %.sroa.71861.02550, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.71861.02550, %.critedge527 ], [ %.sroa.71861.02550, %823 ], [ %.sroa.71861.02550, %1371 ], [ %.sroa.71861.02550, %1217 ], [ %.sroa.71861.02550, %._crit_edge2518 ], [ %.sroa.71861.02550, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.71861.2, %1007 ], [ %.sroa.71861.02550, %1370 ], [ %.sroa.71861.02550, %1172 ]
+  %.sroa.01856.1 = phi i64 [ %.sroa.01856.02552, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.01856.02552, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.01856.02552, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.01856.02552, %640 ], [ %.sroa.01856.02552, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.01856.02552, %.critedge527 ], [ %.sroa.01856.02552, %823 ], [ %.sroa.01856.02552, %1371 ], [ %.sroa.01856.02552, %1217 ], [ %.sroa.01856.02552, %._crit_edge2518 ], [ %.sroa.01856.02552, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.01856.2, %1007 ], [ %.sroa.01856.02552, %1370 ], [ %.sroa.01856.02552, %1172 ]
+  %.sroa.01894.1 = phi i64 [ %.sroa.01894.02554, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.01894.02554, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.01894.02554, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.01894.02554, %640 ], [ %.sroa.01894.02554, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.01894.02554, %.critedge527 ], [ %.sroa.01894.02554, %823 ], [ %.sroa.01894.02554, %1371 ], [ %.sroa.01894.02554, %1217 ], [ %.sroa.01894.02554, %._crit_edge2518 ], [ %.sroa.01894.02554, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.01894.2, %1007 ], [ %.sroa.01894.02554, %1370 ], [ %.sroa.01894.02554, %1172 ]
+  %.sroa.81897.sroa.6.1 = phi i64 [ %.sroa.81897.sroa.6.02556, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.81897.sroa.6.02556, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.81897.sroa.6.02556, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.81897.sroa.6.02556, %640 ], [ %.sroa.81897.sroa.6.02556, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.81897.sroa.6.02556, %.critedge527 ], [ %.sroa.81897.sroa.6.02556, %823 ], [ %.sroa.81897.sroa.6.02556, %1371 ], [ %.sroa.81897.sroa.6.02556, %1217 ], [ %.sroa.81897.sroa.6.02556, %._crit_edge2518 ], [ %.sroa.81897.sroa.6.02556, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.81897.sroa.6.2, %1007 ], [ %.sroa.81897.sroa.6.02556, %1370 ], [ %.sroa.81897.sroa.6.02556, %1172 ]
+  %.sroa.81897.sroa.0.1 = phi ptr [ %.sroa.81897.sroa.0.02558, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %.sroa.81897.sroa.0.02558, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %.sroa.81897.sroa.0.02558, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %.sroa.81897.sroa.0.02558, %640 ], [ %.sroa.81897.sroa.0.02558, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %.sroa.81897.sroa.0.02558, %.critedge527 ], [ %.sroa.81897.sroa.0.02558, %823 ], [ %.sroa.81897.sroa.0.02558, %1371 ], [ %.sroa.81897.sroa.0.02558, %1217 ], [ %.sroa.81897.sroa.0.02558, %._crit_edge2518 ], [ %.sroa.81897.sroa.0.02558, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %.sroa.81897.sroa.0.2, %1007 ], [ %.sroa.81897.sroa.0.02558, %1370 ], [ %.sroa.81897.sroa.0.02558, %1172 ]
+  %1373 = phi i8 [ %505, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %505, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %505, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %648, %640 ], [ %505, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %505, %.critedge527 ], [ %505, %823 ], [ %505, %1371 ], [ %505, %1217 ], [ %505, %._crit_edge2518 ], [ %505, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %505, %1007 ], [ %505, %1370 ], [ %505, %1172 ]
+  %1374 = phi i8 [ %504, %_ZL20IsArgumentMaybeUndefPKN5clang4DeclEjj.exit ], [ %504, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ], [ %504, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ], [ %504, %640 ], [ %889, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction15CallLifetimeEndEE12emplace_backIJRNS2_10RawAddressERPNS_5ValueEEEERS4_DpOT_.exit ], [ %504, %.critedge527 ], [ %504, %823 ], [ %504, %1371 ], [ %504, %1217 ], [ %504, %._crit_edge2518 ], [ %504, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit836 ], [ %504, %1007 ], [ %504, %1370 ], [ %504, %1172 ]
   %1375 = getelementptr inbounds nuw i8, ptr %.04302560, i64 152
   %1376 = getelementptr inbounds nuw i8, ptr %.04292564, i64 40
   %indvars.iv.next2611 = add nuw nsw i64 %indvars.iv2610, 1
@@ -31033,7 +31033,7 @@ unreachable.i:                                    ; preds = %2314
   unreachable
 
 _ZN5clang7CodeGen12EHScopeStack8iteratorppEv.exit: ; preds = %2314, %2317, %2323, %2328
-  %.0.i1130 = phi i64 [ %2333, %2328 ], [ %2327, %2323 ], [ %2322, %2317 ], [ 32, %2314 ]
+  %.0.i1130 = phi i64 [ %2322, %2317 ], [ %2327, %2323 ], [ %2333, %2328 ], [ 32, %2314 ]
   %2334 = add nsw i64 %.0.i1130, -1
   %2335 = and i64 %2334, -8
   %2336 = getelementptr i8, ptr %.sroa.01221.02583, i64 %2335
@@ -34337,8 +34337,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -35438,7 +35438,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit65.th
   br label %50
 
 50:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103 ]
+  %.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103 ], [ %.029.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i66 = load ptr, ptr %.1, align 8, !tbaa !1391
   %.sroa.2.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.2.0.copyload.i68 = load i64, ptr %.sroa.2.0..sroa_idx.i67, align 8, !tbaa !44
@@ -35468,7 +35468,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit74.th
   br label %58
 
 58:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106 ]
+  %.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA2_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106 ], [ %.029.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i75 = load ptr, ptr %.2, align 8, !tbaa !1391
   %.sroa.2.0..sroa_idx.i76 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.2.0.copyload.i77 = load i64, ptr %.sroa.2.0..sroa_idx.i76, align 8, !tbaa !44
@@ -35765,7 +35765,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPN5clang8ParamIdxEN9__gnu
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %58, %57 ]
+  %.1 = phi ptr [ %58, %57 ], [ %.029.lcssa, %._crit_edge ]
   %60 = load i32, ptr %.1, align 4
   %61 = and i32 %60, 1073741823
   %62 = add nsw i32 %61, -1
@@ -35780,7 +35780,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPN5clang8ParamIdxEN9__gnu
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %68, %67 ]
+  %.2 = phi ptr [ %68, %67 ], [ %.029.lcssa, %._crit_edge ]
   %70 = load i32, ptr %.2, align 4
   %71 = and i32 %70, 1073741823
   %72 = add nsw i32 %71, -1
@@ -35883,7 +35883,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %34
 
 34:                                               ; preds = %7, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %15, %7 ], [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ], [ %15, %7 ]
   ret ptr %.1
 }
 
@@ -36240,7 +36240,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -36455,7 +36455,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !1277
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -36465,7 +36465,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !1277
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
@@ -36989,9 +36989,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi i32 [ %.pre52, %._crit_edge._crit_edge ], [ %56, %59 ]
-  %63 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %51, %59 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi i32 [ %56, %59 ], [ %.pre52, %._crit_edge._crit_edge ]
+  %63 = phi ptr [ %51, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %60, %59 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %64 = load ptr, ptr %.1, align 8, !tbaa !2187
   %65 = icmp eq ptr %64, %63
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -37005,9 +37005,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN5clang12FunctionDecl
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge53, %70
-  %73 = phi i32 [ %.pre56, %._crit_edge._crit_edge53 ], [ %62, %70 ]
-  %74 = phi ptr [ %.pre54, %._crit_edge._crit_edge53 ], [ %63, %70 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge53 ], [ %71, %70 ]
+  %73 = phi i32 [ %62, %70 ], [ %.pre56, %._crit_edge._crit_edge53 ]
+  %74 = phi ptr [ %63, %70 ], [ %.pre54, %._crit_edge._crit_edge53 ]
+  %.2 = phi ptr [ %71, %70 ], [ %.029.lcssa, %._crit_edge._crit_edge53 ]
   %75 = load ptr, ptr %.2, align 8, !tbaa !2187
   %76 = icmp eq ptr %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.2, i64 8

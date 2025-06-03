@@ -384,8 +384,8 @@ r_remove_particle.exit.sink.split:                ; preds = %167, %162, %167, %1
   store i32 %75, ptr %5, align 8
   br label %r_remove_particle.exit
 
-r_remove_particle.exit:                           ; preds = %.critedge, %r_remove_particle.exit.sink.split, %149, %102, %98, %95, %92, %117, %114, %131, %128, %158, %.thread211, %63, %37, %73, %47, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %73 ], [ %40, %37 ], [ %66, %63 ], [ %104, %102 ], [ %100, %98 ], [ %96, %95 ], [ %93, %92 ], [ %118, %117 ], [ %115, %114 ], [ %132, %131 ], [ %129, %128 ], [ %.9, %158 ], [ %160, %.thread211 ], [ %147, %149 ], [ %spec.select, %.critedge ], [ 1, %r_remove_particle.exit.sink.split ]
+r_remove_particle.exit:                           ; preds = %.critedge, %r_remove_particle.exit.sink.split, %149, %92, %95, %98, %102, %117, %114, %131, %128, %158, %.thread211, %63, %37, %73, %47, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %73 ], [ %40, %37 ], [ %66, %63 ], [ %93, %92 ], [ %96, %95 ], [ %100, %98 ], [ %104, %102 ], [ %118, %117 ], [ %115, %114 ], [ %132, %131 ], [ %129, %128 ], [ %.9, %158 ], [ %160, %.thread211 ], [ %147, %149 ], [ %spec.select, %.critedge ], [ 1, %r_remove_particle.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -436,7 +436,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_suffix(ptr nounde
   br label %26
 
 26:                                               ; preds = %15, %13, %1, %7, %20
-  %.016 = phi i32 [ %18, %15 ], [ 1, %20 ], [ 0, %7 ], [ 0, %1 ], [ 0, %13 ]
+  %.016 = phi i32 [ 1, %20 ], [ %18, %15 ], [ 0, %7 ], [ 0, %1 ], [ 0, %13 ]
   ret i32 %.016
 }
 
@@ -528,7 +528,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
   br label %44
 
 44:                                               ; preds = %.sink.split, %15, %13, %1, %8, %18, %24, %29, %35
-  %.0 = phi i32 [ %36, %35 ], [ %30, %29 ], [ %25, %24 ], [ %19, %18 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ], [ 1, %15 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ %19, %18 ], [ %25, %24 ], [ %30, %29 ], [ %36, %35 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ], [ 1, %15 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

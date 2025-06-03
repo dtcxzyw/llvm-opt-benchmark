@@ -1148,8 +1148,8 @@ define hidden i32 @_PyLong_FormatAdvancedWriter(ptr noundef %0, ptr noundef %1, 
   br label %64
 
 64:                                               ; preds = %63, %62, %61, %40
-  %.071.i = phi i32 [ 10, %63 ], [ 16, %62 ], [ 8, %61 ], [ 2, %40 ]
-  %.070.i = phi i32 [ 0, %63 ], [ 2, %62 ], [ 2, %61 ], [ 2, %40 ]
+  %.071.i = phi i32 [ 10, %63 ], [ 8, %61 ], [ 16, %62 ], [ 2, %40 ]
+  %.070.i = phi i32 [ 0, %63 ], [ 2, %61 ], [ 2, %62 ], [ 2, %40 ]
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !19
   switch i32 %66, label %67 [
@@ -1457,8 +1457,8 @@ format_long_internal.exit:                        ; preds = %.thread114.i, %free
   tail call void @_Py_Dealloc(ptr noundef nonnull %173) #12
   br label %format_obj.exit
 
-format_obj.exit:                                  ; preds = %25, %format_long_internal.exit, %172, %175, %188, %185, %182, %24, %21, %18, %15, %13
-  %.021 = phi i32 [ %14, %13 ], [ -1, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %24 ], [ %183, %182 ], [ %183, %185 ], [ %183, %188 ], [ -1, %25 ], [ %.173.i, %format_long_internal.exit ], [ -1, %172 ], [ -1, %175 ]
+format_obj.exit:                                  ; preds = %25, %172, %format_long_internal.exit, %175, %188, %185, %182, %24, %21, %18, %15, %13
+  %.021 = phi i32 [ %14, %13 ], [ -1, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %24 ], [ %183, %182 ], [ %183, %185 ], [ %183, %188 ], [ -1, %25 ], [ -1, %172 ], [ %.173.i, %format_long_internal.exit ], [ -1, %175 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #12
   ret i32 %.021
 }

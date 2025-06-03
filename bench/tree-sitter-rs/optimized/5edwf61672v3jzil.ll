@@ -92,8 +92,8 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   br label %29
 
 26:                                               ; preds = %64, %.thread187, %27
-  %.0 = phi i1 [ %.2191, %.thread187 ], [ false, %64 ], [ true, %27 ]
-  %.pn134.pn = phi { ptr, i32 } [ %.pn134192, %.thread187 ], [ %lpad.thr_comm.split-lp, %64 ], [ %28, %27 ]
+  %.0 = phi i1 [ true, %27 ], [ %.2191, %.thread187 ], [ false, %64 ]
+  %.pn135 = phi { ptr, i32 } [ %28, %27 ], [ %.pn133192, %.thread187 ], [ %lpad.thr_comm.split-lp, %64 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h26eb43a31b673935E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #15
           to label %163 unwind label %128
 
@@ -611,7 +611,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   br i1 %exitcond301.not, label %._crit_edge269, label %.lr.ph268
 
 149:                                              ; preds = %.thread207, %.noexc149
-  %.pn132214 = phi { ptr, i32 } [ %73, %.thread207 ], [ %.pn.pn, %.noexc149 ]
+  %.pn.pn.pn214 = phi { ptr, i32 } [ %73, %.thread207 ], [ %.pn.pn, %.noexc149 ]
   %.3212 = phi i1 [ true, %.thread207 ], [ %.4, %.noexc149 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$tree_sitter..Query$GT$17h4e0e39bae36bfaafE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %20) #15
           to label %.thread187 unwind label %128
@@ -648,7 +648,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .thread187:                                       ; preds = %.thread194.loopexit, %.thread194.loopexit.split-lp, %.noexc149, %149
-  %.pn134192 = phi { ptr, i32 } [ %.pn.pn, %.noexc149 ], [ %.pn132214, %149 ], [ %lpad.loopexit, %.thread194.loopexit ], [ %lpad.loopexit.split-lp, %.thread194.loopexit.split-lp ]
+  %.pn133192 = phi { ptr, i32 } [ %.pn.pn, %.noexc149 ], [ %.pn.pn.pn214, %149 ], [ %lpad.loopexit, %.thread194.loopexit ], [ %lpad.loopexit.split-lp, %.thread194.loopexit.split-lp ]
   %.2191 = phi i1 [ %.4, %.noexc149 ], [ %.3212, %149 ], [ true, %.thread194.loopexit ], [ true, %.thread194.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$tree_sitter..Query$GT$17h4e0e39bae36bfaafE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %22) #15
           to label %26 unwind label %128
@@ -663,11 +663,11 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   br i1 %.0, label %164, label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit182"
 
 "_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit182": ; preds = %164, %163
-  %.pn137305 = phi { ptr, i32 } [ %.pn137306, %164 ], [ %.pn134.pn, %163 ]
+  %.pn137305 = phi { ptr, i32 } [ %.pn137306, %164 ], [ %.pn135, %163 ]
   resume { ptr, i32 } %.pn137305
 
 164:                                              ; preds = %.thread, %163
-  %.pn137306 = phi { ptr, i32 } [ %.pn134.pn, %163 ], [ %lpad.thr_comm, %.thread ]
+  %.pn137306 = phi { ptr, i32 } [ %.pn135, %163 ], [ %lpad.thr_comm, %.thread ]
   invoke void @"_ZN63_$LT$tree_sitter..Language$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16817d4e8c1c3e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %24)
           to label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit182" unwind label %128
 }
@@ -2294,7 +2294,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i: ; preds = %16
   br label %37
 
 41:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i, %25, %21, %19, %13
-  %.1.i = phi ptr [ @anon.2bbaa2f851beb268aa52e57a167039f6.14, %13 ], [ %.val.i, %19 ], [ %.val.i, %21 ], [ %.val.i, %25 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i ]
+  %.1.i = phi ptr [ @anon.2bbaa2f851beb268aa52e57a167039f6.14, %13 ], [ %.val.i, %25 ], [ %.val.i, %21 ], [ %.val.i, %19 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !481
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !496)
@@ -2459,7 +2459,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit30: ; preds = %22, %16, %.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 
-.critedge:                                        ; preds = %13, %15
+.critedge:                                        ; preds = %15, %13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !530
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5107a898055359bfE.llvm.6766350830065688733"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8

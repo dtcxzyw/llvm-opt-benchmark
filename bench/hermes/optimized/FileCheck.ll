@@ -981,7 +981,7 @@ if.end19:                                         ; preds = %sw.bb9
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %if.end19, %sw.bb
-  %BracketDepth.2 = phi i64 [ %dec, %if.end19 ], [ %inc, %sw.bb ], [ %BracketDepth.0, %if.end ]
+  %BracketDepth.2 = phi i64 [ %inc, %sw.bb ], [ %dec, %if.end19 ], [ %BracketDepth.0, %if.end ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %Str.sroa.0.0, i64 1
   %sub.i = add i64 %Str.sroa.9.0, -1
   br label %if.end23

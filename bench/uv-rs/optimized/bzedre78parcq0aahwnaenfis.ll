@@ -365,7 +365,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hf609fb17369f52d9E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hf609fb17369f52d9E.exit: ; preds = %switch.lookup, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %48, %45
-  %.sroa.0.0 = phi i8 [ %52, %48 ], [ %47, %45 ], [ 41, %43 ], [ 13, %44 ], [ 1, %42 ], [ 39, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ %47, %45 ], [ %52, %48 ], [ 41, %43 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 39, %41 ], [ 1, %42 ], [ 13, %44 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -1645,7 +1645,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$reqwest_middleware..error..Error$
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5921,8 +5921,8 @@ _ZN18reqwest_middleware6client13ClientBuilder4with17h7b6809a6ff3e367dE.exit: ; p
 126:                                              ; preds = %.loopexit, %_ZN18reqwest_middleware6client13ClientBuilder4with17h7b6809a6ff3e367dE.exit
   ret void
 
-.thread:                                          ; preds = %102, %.body29, %75, %.body24, %.body24.thread, %79, %.body29.thread, %107, %40
-  %.pn47 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %70, %.body24 ], [ %eh.lpad-body2557, %.body24.thread ], [ %76, %75 ], [ %80, %79 ], [ %97, %.body29 ], [ %eh.lpad-body3064, %.body29.thread ], [ %103, %102 ], [ %108, %107 ]
+.thread:                                          ; preds = %102, %.body29, %75, %.body24, %.body29.thread, %107, %.body24.thread, %79, %40
+  %.pn47 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %97, %.body29 ], [ %eh.lpad-body3064, %.body29.thread ], [ %103, %102 ], [ %108, %107 ], [ %70, %.body24 ], [ %eh.lpad-body2557, %.body24.thread ], [ %76, %75 ], [ %80, %79 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$reqwest_middleware..client..ClientBuilder$GT$17h42c50c601b1bc2eeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %22) #27
           to label %common.resume unwind label %81
 }

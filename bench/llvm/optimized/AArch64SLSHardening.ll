@@ -825,7 +825,7 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineMod
   br label %_ZL12getThunkKindj.exit.i.i.i.i.i
 
 _ZL12getThunkKindj.exit.i.i.i.i.i:                ; preds = %264, %263, %262, %261, %260, %259, %259
-  %.0.i.i.i.i.i.i = phi ptr [ null, %264 ], [ @_ZN12_GLOBAL__N_19ThunkKind5BRABZE, %263 ], [ @_ZN12_GLOBAL__N_19ThunkKind5BRAAZE, %262 ], [ @_ZN12_GLOBAL__N_19ThunkKind4BRABE, %261 ], [ @_ZN12_GLOBAL__N_19ThunkKind4BRAAE, %260 ], [ @_ZN12_GLOBAL__N_19ThunkKind2BRE, %259 ], [ @_ZN12_GLOBAL__N_19ThunkKind2BRE, %259 ]
+  %.0.i.i.i.i.i.i = phi ptr [ null, %264 ], [ @_ZN12_GLOBAL__N_19ThunkKind4BRAAE, %260 ], [ @_ZN12_GLOBAL__N_19ThunkKind4BRABE, %261 ], [ @_ZN12_GLOBAL__N_19ThunkKind5BRAAZE, %262 ], [ @_ZN12_GLOBAL__N_19ThunkKind5BRABZE, %263 ], [ @_ZN12_GLOBAL__N_19ThunkKind2BRE, %259 ], [ @_ZN12_GLOBAL__N_19ThunkKind2BRE, %259 ]
   %265 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   %266 = load i8, ptr %265, align 8, !tbaa !370, !range !291, !noalias !296, !noundef !292
   %267 = trunc nuw i8 %266 to i1
@@ -1010,7 +1010,7 @@ _ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i
   unreachable
 
 _ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i: ; preds = %316, %310, %309, %308, %_ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i.i
-  %.0.i5.i.i.i.i.i.i = phi ptr [ %321, %316 ], [ %315, %310 ], [ %118, %309 ], [ %119, %308 ], [ %38, %_ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i.i ]
+  %.0.i5.i.i.i.i.i.i = phi ptr [ %119, %308 ], [ %118, %309 ], [ %315, %310 ], [ %321, %316 ], [ %38, %_ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i.i ]
   %323 = shl nuw i32 1, %291
   %324 = select i1 %292, i32 -2147483648, i32 %323
   %325 = select i1 %290, i32 536870912, i32 %324
@@ -1061,7 +1061,7 @@ _ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.e
   unreachable
 
 _ZN12_GLOBAL__N_19ThunksSet3setENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i: ; preds = %340, %334, %333, %332, %328
-  %.0.i5.i65.i.i.i.i.i = phi ptr [ %345, %340 ], [ %339, %334 ], [ %118, %333 ], [ %119, %332 ], [ %38, %328 ]
+  %.0.i5.i65.i.i.i.i.i = phi ptr [ %119, %332 ], [ %118, %333 ], [ %339, %334 ], [ %345, %340 ], [ %38, %328 ]
   %347 = load i32, ptr %.0.i5.i65.i.i.i.i.i, align 4, !tbaa !379, !noalias !296
   %348 = or i32 %347, %325
   store i32 %348, ptr %.0.i5.i65.i.i.i.i.i, align 4, !tbaa !379, !noalias !296

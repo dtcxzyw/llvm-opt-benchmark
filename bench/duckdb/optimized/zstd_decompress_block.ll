@@ -161,10 +161,10 @@ _ZN11duckdb_zstdL17ZSTD_blockSizeMaxEPKNS_11ZSTD_DCtx_sE.exit: ; preds = %8, %13
   br label %55
 
 55:                                               ; preds = %34, %40, %45
-  %.0215 = phi i1 [ %.not224, %34 ], [ true, %40 ], [ true, %45 ]
-  %.0214 = phi i64 [ %39, %34 ], [ %44, %40 ], [ %54, %45 ]
-  %.0210.in = phi i32 [ %36, %34 ], [ %42, %40 ], [ %47, %45 ]
-  %.0209 = phi i64 [ 3, %34 ], [ 4, %40 ], [ 5, %45 ]
+  %.0215 = phi i1 [ %.not224, %34 ], [ true, %45 ], [ true, %40 ]
+  %.0214 = phi i64 [ %39, %34 ], [ %54, %45 ], [ %44, %40 ]
+  %.0210.in = phi i32 [ %36, %34 ], [ %47, %45 ], [ %42, %40 ]
+  %.0209 = phi i64 [ 3, %34 ], [ 5, %45 ], [ 4, %40 ]
   %.0210 = zext nneg i32 %.0210.in to i64
   %56 = icmp ne i32 %.0210.in, 0
   %57 = icmp eq ptr %3, null
@@ -379,8 +379,8 @@ _ZN11duckdb_zstdL27ZSTD_allocateLiteralsBufferEPNS_11ZSTD_DCtx_sEPvmmNS_19stream
   br label %172
 
 172:                                              ; preds = %157, %160, %165
-  %.0212 = phi i64 [ %159, %157 ], [ %162, %160 ], [ %171, %165 ]
-  %.0211 = phi i64 [ 1, %157 ], [ 2, %160 ], [ 3, %165 ]
+  %.0212 = phi i64 [ %159, %157 ], [ %171, %165 ], [ %162, %160 ]
+  %.0211 = phi i64 [ 1, %157 ], [ 3, %165 ], [ 2, %160 ]
   %173 = icmp ne i64 %.0212, 0
   %174 = icmp eq ptr %3, null
   %or.cond5 = and i1 %174, %173
@@ -540,8 +540,8 @@ _ZN11duckdb_zstdL27ZSTD_allocateLiteralsBufferEPNS_11ZSTD_DCtx_sEPvmmNS_19stream
   br label %258
 
 258:                                              ; preds = %241, %246, %251
-  %.0208 = phi i64 [ %243, %241 ], [ %248, %246 ], [ %257, %251 ]
-  %.0207 = phi i64 [ 1, %241 ], [ 2, %246 ], [ 3, %251 ]
+  %.0208 = phi i64 [ %243, %241 ], [ %257, %251 ], [ %248, %246 ]
+  %.0207 = phi i64 [ 1, %241 ], [ 3, %251 ], [ 2, %246 ]
   %259 = icmp ne i64 %.0208, 0
   %260 = icmp eq ptr %3, null
   %or.cond7 = and i1 %260, %259
@@ -1268,9 +1268,9 @@ default.unreachable:                              ; preds = %91, %43
   unreachable
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread.sink.split: ; preds = %43, %61
-  %_ZN11duckdb_zstdL16LL_defaultDTableE.sink = phi ptr [ %49, %61 ], [ @_ZN11duckdb_zstdL16LL_defaultDTableE, %43 ]
+  %.sink = phi ptr [ %49, %61 ], [ @_ZN11duckdb_zstdL16LL_defaultDTableE, %43 ]
   %.0.i.ph.ph = phi i64 [ 1, %61 ], [ 0, %43 ]
-  store ptr %_ZN11duckdb_zstdL16LL_defaultDTableE.sink, ptr %0, align 8, !tbaa !69
+  store ptr %.sink, ptr %0, align 8, !tbaa !69
   br label %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread: ; preds = %78, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread.sink.split, %73
@@ -1382,9 +1382,9 @@ _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEnco
   br i1 %128, label %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread141, label %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread.sink.split: ; preds = %91, %100
-  %_ZN11duckdb_zstdL16OF_defaultDTableE.sink = phi ptr [ %94, %100 ], [ @_ZN11duckdb_zstdL16OF_defaultDTableE, %91 ]
+  %.sink153 = phi ptr [ %94, %100 ], [ @_ZN11duckdb_zstdL16OF_defaultDTableE, %91 ]
   %.0.i104.ph.ph = phi i64 [ 1, %100 ], [ 0, %91 ]
-  store ptr %_ZN11duckdb_zstdL16OF_defaultDTableE.sink, ptr %95, align 8, !tbaa !69
+  store ptr %.sink153, ptr %95, align 8, !tbaa !69
   br label %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread: ; preds = %117, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread.sink.split, %112
@@ -1540,7 +1540,7 @@ default.unreachable47:                            ; preds = %15
   unreachable
 
 .loopexit:                                        ; preds = %45, %37, %36, %20, %19, %57, %35, %24
-  %.0 = phi i64 [ %.1, %57 ], [ 0, %35 ], [ 1, %24 ], [ -72, %19 ], [ -20, %20 ], [ -20, %36 ], [ 0, %37 ], [ 0, %45 ]
+  %.0 = phi i64 [ 1, %24 ], [ 0, %35 ], [ %.1, %57 ], [ -72, %19 ], [ -20, %20 ], [ -20, %36 ], [ 0, %37 ], [ 0, %45 ]
   ret i64 %.0
 }
 

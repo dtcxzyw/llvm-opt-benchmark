@@ -112,7 +112,7 @@ _ZN14regex_automata4util6search5Input8set_span17h4cafe4b6edcc2417E.exit: ; preds
   br i1 %45, label %55, label %._crit_edge.i
 
 46:                                               ; preds = %35, %38
-  %.sroa.0.0.i = phi ptr [ %41, %38 ], [ %37, %35 ]
+  %.sroa.0.0.i = phi ptr [ %37, %35 ], [ %41, %38 ]
   %47 = load ptr, ptr %3, align 8, !noalias !11, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
