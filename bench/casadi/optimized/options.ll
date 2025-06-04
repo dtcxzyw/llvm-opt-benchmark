@@ -518,12 +518,14 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %16
   %21 = shl nuw nsw i64 %7, 3
   %22 = add nuw nsw i64 %21, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, i8 0, i64 %22, i1 false), !tbaa !54
-  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %17
+  %.idx192 = shl nuw nsw i64 %17, 3
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx192
   %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #28
           to label %.lr.ph.preheader unwind label %.thread121
 
 .lr.ph.preheader:                                 ; preds = %.noexc56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, i8 0, i64 %22, i1 false), !tbaa !54
+  %.idx = shl nuw nsw i64 %17, 3
   %25 = getelementptr inbounds nuw i64, ptr %24, i64 %17
   %26 = ptrtoint ptr %25 to i64
   br label %.lr.ph
@@ -611,7 +613,6 @@ _ZSt7tolowerIcET_S0_RKSt6locale.exit73.us:        ; preds = %.noexc71.us
           cleanup
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %.idx = shl nuw nsw i64 %17, 3
   call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %.idx) #25
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit78
 
@@ -660,7 +661,6 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %.preheader, %.loope
 
 _ZNSt6vectorIxSaIxEED2Ev.exit78:                  ; preds = %.thread121, %.split.us
   %.pn128 = phi { ptr, i32 } [ %61, %.thread121 ], [ %60, %.split.us ]
-  %.idx192 = shl nuw nsw i64 %17, 3
   call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %.idx192) #25
   resume { ptr, i32 } %.pn128
 
@@ -717,7 +717,8 @@ _ZNSt16allocator_traitsISaISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIc
 _ZNSt12_Vector_baseISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEC2EmRKS8_.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERS8_m.exit.i.i.i.i, %_ZNSt6vectorISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %14 = phi ptr [ null, %_ZNSt6vectorISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i ], [ %13, %_ZNSt16allocator_traitsISaISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERS8_m.exit.i.i.i.i ]
   store ptr %14, ptr %5, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw %"struct.std::pair.21", ptr %14, i64 %3
+  %.idx = mul nuw nsw i64 %3, 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !66
   %17 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEmS7_ET_S9_T0_RKT1_(ptr noundef %14, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %6)
@@ -730,7 +731,6 @@ _ZNSt12_Vector_baseISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br i1 %.not.i.i.i, label %.body, label %20
 
 20:                                               ; preds = %18
-  %.idx = mul nuw nsw i64 %3, 40
   call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %.idx) #25
   br label %.body
 
@@ -5619,7 +5619,8 @@ common.ret17:                                     ; preds = %7, %common.ret
 7:                                                ; preds = %2
   %8 = udiv exact i64 %5, 40
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"struct.std::pair.21", ptr %0, i64 %9
+  %.idx = mul nuw nsw i64 %9, 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_(ptr %0, ptr %10)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_(ptr %10, ptr %1)
   %11 = ptrtoint ptr %10 to i64
@@ -5637,7 +5638,8 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__nor
   %8 = sdiv exact i64 %7, 40
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.21", ptr %0, i64 %10
+  %.idx = mul nsw i64 %10, 40
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 

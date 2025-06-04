@@ -922,30 +922,32 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder24remove_block_predec
 
 "_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit": ; preds = %28
   %32 = getelementptr inbounds nuw i32, ptr %24, i64 %21
-  %33 = getelementptr inbounds i32, ptr %32, i64 %20
-  %34 = icmp eq i64 %20, 0
-  br i1 %34, label %.loopexit, label %.lr.ph.i
+  %33 = shl nsw i64 %20, 2
+  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %35 = icmp eq i64 %20, 0
+  br i1 %35, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit", %37
-  %.011.i = phi i64 [ %39, %37 ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit" ]
-  %35 = phi ptr [ %38, %37 ], [ %32, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit" ]
-  %.val7.i = load i32, ptr %35, align 4, !noalias !115, !noundef !4
-  %36 = icmp eq i32 %.val7.i, %2
-  br i1 %36, label %41, label %37
+.lr.ph.i:                                         ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit", %38
+  %.011.i = phi i64 [ %40, %38 ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit" ]
+  %36 = phi ptr [ %39, %38 ], [ %32, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit" ]
+  %.val7.i = load i32, ptr %36, align 4, !noalias !115, !noundef !4
+  %37 = icmp eq i32 %.val7.i, %2
+  br i1 %37, label %42, label %38
 
-37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %39 = add nuw nsw i64 %.011.i, 1
-  %40 = icmp eq ptr %38, %33
-  br i1 %40, label %.loopexit, label %.lr.ph.i
+38:                                               ; preds = %.lr.ph.i
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %40 = add nuw nsw i64 %.011.i, 1
+  %41 = icmp eq ptr %39, %34
+  br i1 %41, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %37, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit", %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit"
+.loopexit:                                        ; preds = %38, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit", %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit"
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.f378413b6247863a529c4dab6769c8f0.38.llvm.1812094323767051342, i64 noundef 56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f378413b6247863a529c4dab6769c8f0.39.llvm.1812094323767051342) #21
   unreachable
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = icmp ult i64 %.011.i, %20
-  tail call void @llvm.assume(i1 %42)
+42:                                               ; preds = %.lr.ph.i
+  %43 = and i64 %20, 4611686018427387903
+  %44 = icmp samesign ult i64 %.011.i, %43
+  tail call void @llvm.assume(i1 %44)
   tail call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11swap_remove17h586b3bdc56054161E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %14, i64 noundef %.011.i, ptr noalias noundef nonnull align 8 dereferenceable(48) %15)
   ret void
 }

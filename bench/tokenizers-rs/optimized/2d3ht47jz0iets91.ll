@@ -627,7 +627,8 @@ define hidden void @"_ZN102_$LT$rayon..iter..enumerate..EnumerateProducer$LT$P$G
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %5
+  %.idx = mul nsw i64 %5, 24
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = add i64 %8, %5
@@ -11608,7 +11609,8 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h4ef10939ac39bdf
   %6 = load ptr, ptr %1, align 8, !alias.scope !2602, !noalias !2605, !nonnull !4, !align !17, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !2602, !noalias !2605, !noundef !4
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %6, i64 %8
+  %.idx.i = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !2602, !noalias !2605, !noundef !4
   %12 = add i64 %11, %8
@@ -20477,22 +20479,25 @@ define hidden void @_ZN10tokenizers9tokenizer8encoding8Encoding31process_tokens_
   %9 = load ptr, ptr %8, align 8, !alias.scope !4329, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i64, ptr %10, align 8, !alias.scope !4329, !noundef !4
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %5, i64 %7
-  %13 = getelementptr inbounds { i64, i64 }, ptr %9, i64 %11
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %11)
+  %.idx = mul nsw i64 %7, 24
+  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %.idx12 = shl nsw i64 %11, 4
+  %13 = getelementptr inbounds i8, ptr %9, i64 %.idx12
+  %14 = and i64 %11, 1152921504606846975
+  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %14)
   store ptr %5, ptr %3, align 8, !alias.scope !4332
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %12, ptr %14, align 8, !alias.scope !4332
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %9, ptr %15, align 8, !alias.scope !4332
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %13, ptr %16, align 8, !alias.scope !4332
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 0, ptr %17, align 8, !alias.scope !4332
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 %.0.sroa.speculated.i.i.i, ptr %18, align 8, !alias.scope !4332
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 %7, ptr %19, align 8, !alias.scope !4332
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %12, ptr %15, align 8, !alias.scope !4332
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %9, ptr %16, align 8, !alias.scope !4332
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %13, ptr %17, align 8, !alias.scope !4332
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 0, ptr %18, align 8, !alias.scope !4332
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 %.0.sroa.speculated.i.i.i, ptr %19, align 8, !alias.scope !4332
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 %7, ptr %20, align 8, !alias.scope !4332
   call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h1f8319afe11eb6f9E.llvm.14140520316429159617"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, i64 noundef 0)
   ret void
 }

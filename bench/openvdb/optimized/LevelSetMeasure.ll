@@ -5391,7 +5391,8 @@ entry:
   %2 = load i64, ptr %mLeafCount.i, align 8
   %mul = mul i64 %2, %conv
   %add.ptr = getelementptr inbounds double, ptr %0, i64 %mul
-  %add.ptr7 = getelementptr inbounds double, ptr %add.ptr, i64 %2
+  %add.ptr7.idx = shl nsw i64 %2, 3
+  %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr7.idx
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %cmp.i.i = icmp sgt i64 %2, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit
@@ -9350,7 +9351,8 @@ entry:
   %2 = load i64, ptr %mLeafCount.i, align 8
   %mul = mul i64 %2, %conv
   %add.ptr = getelementptr inbounds double, ptr %0, i64 %mul
-  %add.ptr7 = getelementptr inbounds double, ptr %add.ptr, i64 %2
+  %add.ptr7.idx = shl nsw i64 %2, 3
+  %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr7.idx
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %cmp.i.i = icmp sgt i64 %2, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit
@@ -16081,7 +16083,8 @@ entry:
   %4 = load ptr, ptr %mLeafs.i.i, align 8
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %3, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
@@ -16188,7 +16191,8 @@ entry:
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds double, ptr %3, i64 %5
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %add.ptr.i.i, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
@@ -18991,7 +18995,8 @@ entry:
   %4 = load ptr, ptr %mLeafs.i.i, align 8
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %3, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
@@ -19098,7 +19103,8 @@ entry:
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds double, ptr %3, i64 %5
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %add.ptr.i.i, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
@@ -27284,7 +27290,8 @@ entry:
   %4 = load ptr, ptr %mLeafs.i.i, align 8
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %3, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
@@ -27391,7 +27398,8 @@ entry:
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds double, ptr %3, i64 %5
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %add.ptr.i.i, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
@@ -29808,7 +29816,8 @@ entry:
   %4 = load ptr, ptr %mLeafs.i.i, align 8
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %3, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
@@ -29915,7 +29924,8 @@ entry:
   %mLeafCount.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %mLeafCount.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds double, ptr %3, i64 %5
-  %add.ptr7.i.i = getelementptr inbounds double, ptr %add.ptr.i.i, i64 %5
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr7.idx.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i

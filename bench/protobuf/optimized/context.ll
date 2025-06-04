@@ -875,10 +875,8 @@ if.then.i.i.i:                                    ; preds = %entry
   %2 = lshr i64 %sub.i.i.i.i.i, 3
   %mul.i.i.i.i.i.i = and i64 %2, 2305843009213693944
   %call5.i.i.i.i1.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #23
-  %div1.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i1.i.i, i64 %div1.i.i.i.i
-  %add.ptr.i.idx.i.i = shl nuw nsw i64 %div1.i.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i, i8 0, i64 %add.ptr.i.idx.i.i, i1 false)
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i, i64 %mul.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i, 288230376151711743
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
 

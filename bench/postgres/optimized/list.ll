@@ -1537,7 +1537,8 @@ define dso_local noundef ptr @list_delete_ptr(ptr noundef %0, ptr noundef readno
 
 9:                                                ; preds = %.lr.ph29, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.split, label %8
@@ -1560,11 +1561,11 @@ list_free.exit.i.i:                               ; preds = %16, %14
   br label %list_delete_cell.exit
 
 17:                                               ; preds = %.split
-  %.idx = shl i64 %indvars.iv, 32
   %18 = trunc i64 %indvars.iv to i32
-  %19 = ashr exact i64 %.idx, 29
+  %sext.i = shl i64 %indvars.iv, 32
+  %19 = ashr exact i64 %sext.i, 29
   %20 = getelementptr inbounds i8, ptr %7, i64 %19
-  %sext3.i = add i64 %.idx, 4294967296
+  %sext3.i = add i64 %sext.i, 4294967296
   %21 = ashr exact i64 %sext3.i, 29
   %22 = getelementptr inbounds i8, ptr %7, i64 %21
   %23 = xor i32 %18, -1
@@ -1606,7 +1607,8 @@ define dso_local noundef ptr @list_delete_int(ptr noundef %0, i32 noundef %1) lo
 
 9:                                                ; preds = %.lr.ph29, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %.split, label %8
@@ -1629,11 +1631,11 @@ list_free.exit.i.i:                               ; preds = %16, %14
   br label %list_delete_cell.exit
 
 17:                                               ; preds = %.split
-  %.idx = shl i64 %indvars.iv, 32
   %18 = trunc i64 %indvars.iv to i32
-  %19 = ashr exact i64 %.idx, 29
+  %sext.i = shl i64 %indvars.iv, 32
+  %19 = ashr exact i64 %sext.i, 29
   %20 = getelementptr inbounds i8, ptr %7, i64 %19
-  %sext3.i = add i64 %.idx, 4294967296
+  %sext3.i = add i64 %sext.i, 4294967296
   %21 = ashr exact i64 %sext3.i, 29
   %22 = getelementptr inbounds i8, ptr %7, i64 %21
   %23 = xor i32 %18, -1
@@ -1675,7 +1677,8 @@ define dso_local noundef ptr @list_delete_oid(ptr noundef %0, i32 noundef %1) lo
 
 9:                                                ; preds = %.lr.ph29, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %.split, label %8
@@ -1698,11 +1701,11 @@ list_free.exit.i.i:                               ; preds = %16, %14
   br label %list_delete_cell.exit
 
 17:                                               ; preds = %.split
-  %.idx = shl i64 %indvars.iv, 32
   %18 = trunc i64 %indvars.iv to i32
-  %19 = ashr exact i64 %.idx, 29
+  %sext.i = shl i64 %indvars.iv, 32
+  %19 = ashr exact i64 %sext.i, 29
   %20 = getelementptr inbounds i8, ptr %7, i64 %19
-  %sext3.i = add i64 %.idx, 4294967296
+  %sext3.i = add i64 %sext.i, 4294967296
   %21 = ashr exact i64 %sext3.i, 29
   %22 = getelementptr inbounds i8, ptr %7, i64 %21
   %23 = xor i32 %18, -1

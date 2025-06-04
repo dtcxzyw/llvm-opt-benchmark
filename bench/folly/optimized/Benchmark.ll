@@ -51703,7 +51703,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_s
   %.01953.i.i.i = phi i64 [ %.2.i.i.i, %60 ], [ %21, %11 ]
   %.sroa.036.052.i.i.i = phi ptr [ %.sroa.036.1.i.i.i, %60 ], [ %15, %11 ]
   %23 = lshr i64 %.01953.i.i.i, 1
-  %24 = getelementptr inbounds nuw %"struct.boost::re_detail_107400::named_subexpressions::name", ptr %.sroa.036.052.i.i.i, i64 %23
+  %.idx = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.036.052.i.i.i, i64 %.idx
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !904
   %27 = icmp slt i32 %26, %9
@@ -53872,7 +53873,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_s
   %.01953.i.i.i = phi i64 [ %.2.i.i.i, %62 ], [ %23, %13 ]
   %.sroa.036.052.i.i.i = phi ptr [ %.sroa.036.1.i.i.i, %62 ], [ %17, %13 ]
   %25 = lshr i64 %.01953.i.i.i, 1
-  %26 = getelementptr inbounds nuw %"struct.boost::re_detail_107400::named_subexpressions::name", ptr %.sroa.036.052.i.i.i, i64 %25
+  %.idx127 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.036.052.i.i.i, i64 %.idx127
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !904
   %29 = icmp slt i32 %28, %7
@@ -53889,8 +53891,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_s
   br i1 %35, label %62, label %36
 
 36:                                               ; preds = %34
-  %.not127 = icmp samesign ult i64 %.01953.i.i.i, 2
-  br i1 %.not127, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i
+  %.not128 = icmp samesign ult i64 %.01953.i.i.i, 2
+  br i1 %.not128, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i: ; preds = %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i
   %.013.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i ], [ %25, %36 ]
@@ -54094,7 +54096,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_s
   %.01953.i.i.i31 = phi i64 [ %.2.i.i.i54, %178 ], [ %139, %129 ]
   %.sroa.036.052.i.i.i32 = phi ptr [ %.sroa.036.1.i.i.i53, %178 ], [ %133, %129 ]
   %141 = lshr i64 %.01953.i.i.i31, 1
-  %142 = getelementptr inbounds nuw %"struct.boost::re_detail_107400::named_subexpressions::name", ptr %.sroa.036.052.i.i.i32, i64 %141
+  %.idx = shl nuw nsw i64 %141, 3
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.036.052.i.i.i32, i64 %.idx
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i32, ptr %143, align 4, !tbaa !904
   %145 = icmp slt i32 %144, %127
@@ -54189,8 +54192,8 @@ _ZNK5boost16re_detail_10740020named_subexpressions11equal_rangeEi.exit55: ; pred
   %.not = icmp eq i32 %189, %190
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.078, i64 8
   %.not62 = icmp eq ptr %191, %.sroa.3.2.i.i.i27
-  %or.cond128 = select i1 %.not, i1 true, i1 %.not62
-  br i1 %or.cond128, label %.loopexit, label %.lr.ph, !llvm.loop !1226
+  %or.cond129 = select i1 %.not, i1 true, i1 %.not62
+  br i1 %or.cond129, label %.loopexit, label %.lr.ph, !llvm.loop !1226
 
 192:                                              ; preds = %126
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 184

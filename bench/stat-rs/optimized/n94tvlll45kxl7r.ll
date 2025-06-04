@@ -180,7 +180,8 @@ define void @_ZN6statrs12distribution11categorical11Categorical3new17hb6428a3b27
   %6 = alloca [8 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %9 = getelementptr inbounds double, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %9 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread23, label %.lr.ph.split.us.i
 
@@ -248,7 +249,7 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
 32:                                               ; preds = %35, %33
   %.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h6cda13727dc6c8d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #20
-          to label %53 unwind label %51
+          to label %54 unwind label %52
 
 33:                                               ; preds = %24, %23
   %34 = landingpad { ptr, i32 }
@@ -259,7 +260,7 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h6cda13727dc6c8d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #20
-          to label %32 unwind label %51
+          to label %32 unwind label %52
 
 37:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !31
@@ -288,20 +289,22 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
 45:                                               ; preds = %.noexc15
   %46 = load ptr, ptr %42, align 8, !noalias !34, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !34
-  br label %.lr.ph.i18
+  %47 = and i64 %2, 2305843009213693951
+  %.not.i17 = icmp eq i64 %47, 0
+  br i1 %.not.i17, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfb06541eeab8be9bE.exit", label %.lr.ph.i18
 
 .lr.ph.i18:                                       ; preds = %45, %.lr.ph.i18
-  %.sroa.01.015.i = phi i64 [ %47, %.lr.ph.i18 ], [ 0, %45 ]
-  %47 = add nuw i64 %.sroa.01.015.i, 1
-  %48 = getelementptr inbounds double, ptr %46, i64 %.sroa.01.015.i
-  %49 = getelementptr inbounds double, ptr %1, i64 %.sroa.01.015.i
-  %.val13.i = load double, ptr %49, align 8, !noalias !39, !noundef !4
-  %50 = fdiv double %.val13.i, %38
-  store double %50, ptr %48, align 8, !alias.scope !43, !noalias !39
-  %exitcond.not.i = icmp eq i64 %47, %2
+  %.sroa.01.015.i = phi i64 [ %48, %.lr.ph.i18 ], [ 0, %45 ]
+  %48 = add nuw nsw i64 %.sroa.01.015.i, 1
+  %49 = getelementptr inbounds nuw double, ptr %46, i64 %.sroa.01.015.i
+  %50 = getelementptr inbounds nuw double, ptr %1, i64 %.sroa.01.015.i
+  %.val13.i = load double, ptr %50, align 8, !noalias !39, !noundef !4
+  %51 = fdiv double %.val13.i, %38
+  store double %51, ptr %49, align 8, !alias.scope !43, !noalias !39
+  %exitcond.not.i = icmp eq i64 %48, %47
   br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfb06541eeab8be9bE.exit", label %.lr.ph.i18
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfb06541eeab8be9bE.exit": ; preds = %.lr.ph.i18
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfb06541eeab8be9bE.exit": ; preds = %.lr.ph.i18, %45
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -315,13 +318,13 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %31
 
-51:                                               ; preds = %35, %32
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %35, %32
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #21
   unreachable
 
-53:                                               ; preds = %32
+54:                                               ; preds = %32
   resume { ptr, i32 } %.pn.pn
 }
 

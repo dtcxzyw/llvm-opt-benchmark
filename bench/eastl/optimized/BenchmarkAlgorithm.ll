@@ -4976,7 +4976,8 @@ while.body.i.i.i1267:                             ; preds = %if.end31.i.i.i, %wh
   %__len.057.i.i.i = phi i64 [ %sub.ptr.div.i1198, %while.body.lr.ph.i.i.i1266 ], [ %__len.1.i.i.i1281, %if.end31.i.i.i ]
   %__first.sroa.0.056.i.i.i = phi ptr [ %stdVectorUint64.sroa.0.4, %while.body.lr.ph.i.i.i1266 ], [ %__first.sroa.0.1.i.i.i1280, %if.end31.i.i.i ]
   %shr.i.i.i1268 = lshr i64 %__len.057.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i1271 = getelementptr inbounds nuw i64, ptr %__first.sroa.0.056.i.i.i, i64 %shr.i.i.i1268
+  %add.ptr.i.i.i.i.i.i1271.idx = shl nuw nsw i64 %shr.i.i.i1268, 3
+  %add.ptr.i.i.i.i.i.i1271 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.056.i.i.i, i64 %add.ptr.i.i.i.i.i.i1271.idx
   %339 = load i64, ptr %add.ptr.i.i.i.i.i.i1271, align 8
   %cmp.i.i.i4.i1274 = icmp ult i64 %339, %338
   br i1 %cmp.i.i.i4.i1274, label %if.then.i.i.i1283, label %if.else.i.i5.i
@@ -5118,7 +5119,8 @@ while.body.i.i1322:                               ; preds = %if.end9.i.i, %while
   %d.038.i.i = phi i64 [ %sub.ptr.div.i1296, %while.body.lr.ph.i.i1321 ], [ %d.1.i.i1335, %if.end9.i.i ]
   %first.addr.037.i.i = phi ptr [ %eaVectorUint64.sroa.0.8, %while.body.lr.ph.i.i1321 ], [ %first.addr.1.i.i1334, %if.end9.i.i ]
   %shr.i.i1323 = lshr i64 %d.038.i.i, 1
-  %add.ptr.i.i.i.i1324 = getelementptr inbounds nuw i64, ptr %first.addr.037.i.i, i64 %shr.i.i1323
+  %add.ptr.i.i.idx.i.i = shl nuw nsw i64 %shr.i.i1323, 3
+  %add.ptr.i.i.i.i1324 = getelementptr inbounds nuw i8, ptr %first.addr.037.i.i, i64 %add.ptr.i.i.idx.i.i
   %352 = load i64, ptr %add.ptr.i.i.i.i1324, align 8
   %cmp1.i.i1325 = icmp ult i64 %352, %351
   br i1 %cmp1.i.i1325, label %if.then.i.i1337, label %if.else.i.i1326

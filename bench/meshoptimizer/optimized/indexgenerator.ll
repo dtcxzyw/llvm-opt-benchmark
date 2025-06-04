@@ -1368,11 +1368,11 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %19
   br label %.preheader101
 
 .preheader101:                                    ; preds = %.preheader101.lr.ph, %48
-  %.066113 = phi i64 [ 0, %.preheader101.lr.ph ], [ %49, %48 ]
-  %40 = getelementptr i32, ptr %1, i64 %.066113
+  %.066114 = phi i64 [ 0, %.preheader101.lr.ph ], [ %49, %48 ]
+  %40 = getelementptr i32, ptr %1, i64 %.066114
   br label %51
 
-.lr.ph119:                                        ; preds = %48
+.lr.ph122:                                        ; preds = %48
   %41 = add i64 %.0.i, -1
   br label %113
 
@@ -1392,9 +1392,9 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %19
   br label %179
 
 48:                                               ; preds = %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit
-  %49 = add i64 %.066113, 3
+  %49 = add i64 %.066114, 3
   %50 = icmp ult i64 %49, %2
-  br i1 %50, label %.preheader101, label %.lr.ph119, !llvm.loop !33
+  br i1 %50, label %.preheader101, label %.lr.ph122, !llvm.loop !33
 
 51:                                               ; preds = %.preheader101, %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit
   %52 = phi i32 [ 1, %.preheader101 ], [ %59, %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit ]
@@ -1432,7 +1432,8 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %19
   %82 = mul i32 %81, 1540483477
   %83 = zext i32 %82 to i64
   %84 = and i64 %39, %83
-  %85 = getelementptr inbounds nuw i64, ptr %26, i64 %84
+  %.idx100108 = shl nuw nsw i64 %84, 3
+  %85 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx100108
   %86 = load i64, ptr %85, align 8, !tbaa !34
   %87 = icmp eq i64 %86, -1
   br i1 %87, label %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.thread, label %.lr.ph
@@ -1460,16 +1461,18 @@ _ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i:  ; preds = %_ZNK7meshopt10EdgeH
   %98 = and i64 %97, %39
   %.not.i = icmp ule i64 %96, %39
   tail call void @llvm.assume(i1 %.not.i)
-  %99 = getelementptr inbounds nuw i64, ptr %26, i64 %98
+  %.idx100 = shl nuw nsw i64 %98, 3
+  %99 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx100
   %100 = load i64, ptr %99, align 8, !tbaa !34
   %101 = icmp eq i64 %100, -1
   br i1 %101, label %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.thread, label %.lr.ph
 
 _ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.thread: ; preds = %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i, %51
-  %.02513.i.lcssa108 = phi i64 [ %84, %51 ], [ %98, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i ]
-  %102 = getelementptr inbounds nuw i64, ptr %26, i64 %.02513.i.lcssa108
+  %.idx100.lcssa107 = phi i64 [ %.idx100108, %51 ], [ %.idx100, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i ]
+  %.02513.i.lcssa = phi i64 [ %84, %51 ], [ %98, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i ]
+  %102 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx100.lcssa107
   store i64 %66, ptr %102, align 8, !tbaa !34
-  %103 = shl nuw nsw i64 %.02513.i.lcssa108, 2
+  %103 = shl nuw nsw i64 %.02513.i.lcssa, 2
   %104 = getelementptr inbounds nuw i8, ptr %35, i64 %103
   store i32 %62, ptr %104, align 4, !tbaa !10
   br label %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit
@@ -1502,26 +1505,26 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #13
   ret void
 
-113:                                              ; preds = %.lr.ph119, %115
-  %.068118 = phi i64 [ 0, %.lr.ph119 ], [ %117, %115 ]
+113:                                              ; preds = %.lr.ph122, %115
+  %.068121 = phi i64 [ 0, %.lr.ph122 ], [ %117, %115 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #13
-  %114 = getelementptr i32, ptr %1, i64 %.068118
+  %114 = getelementptr i32, ptr %1, i64 %.068121
   br label %119
 
 115:                                              ; preds = %173
-  %.idx = shl i64 %.068118, 3
+  %.idx = shl i64 %.068121, 3
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %116, ptr noundef nonnull align 16 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #13
-  %117 = add i64 %.068118, 3
+  %117 = add i64 %.068121, 3
   %118 = icmp ult i64 %117, %2
   br i1 %118, label %113, label %._crit_edge.preheader, !llvm.loop !37
 
 119:                                              ; preds = %113, %173
-  %indvars.iv124 = phi i64 [ 0, %113 ], [ %indvars.iv.next125, %173 ]
-  %120 = getelementptr i32, ptr %114, i64 %indvars.iv124
+  %indvars.iv129 = phi i64 [ 0, %113 ], [ %indvars.iv.next130, %173 ]
+  %120 = getelementptr i32, ptr %114, i64 %indvars.iv129
   %121 = load i32, ptr %120, align 4, !tbaa !10
-  %122 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ36meshopt_generateAdjacencyIndexBufferE4next, i64 0, i64 %indvars.iv124
+  %122 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ36meshopt_generateAdjacencyIndexBufferE4next, i64 0, i64 %indvars.iv129
   %123 = load i32, ptr %122, align 4, !tbaa !10
   %124 = sext i32 %123 to i64
   %125 = getelementptr i32, ptr %114, i64 %124
@@ -1546,51 +1549,53 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge
   %144 = mul i32 %143, 1540483477
   %145 = zext i32 %144 to i64
   %146 = and i64 %41, %145
-  %147 = getelementptr inbounds nuw i64, ptr %26, i64 %146
+  %.idx99115 = shl nuw nsw i64 %146, 3
+  %147 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx99115
   %148 = load i64, ptr %147, align 8, !tbaa !34
   %149 = icmp eq i64 %148, -1
-  br i1 %149, label %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit90.thread, label %.lr.ph116
+  br i1 %149, label %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit90.thread, label %.lr.ph119
 
 _ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit90.thread: ; preds = %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84, %119
-  %150 = shl nuw nsw i64 %indvars.iv124, 1
+  %150 = shl nuw nsw i64 %indvars.iv129, 1
   %151 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %150
   store i32 %121, ptr %151, align 8, !tbaa !10
   br label %173
 
-.lr.ph116:                                        ; preds = %119, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84
+.lr.ph119:                                        ; preds = %119, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84
   %.pr97 = phi i64 [ %164, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84 ], [ %148, %119 ]
-  %.02513.i83115 = phi i64 [ %162, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84 ], [ %146, %119 ]
-  %.02414.i82114 = phi i64 [ %160, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84 ], [ 0, %119 ]
+  %.02513.i83117 = phi i64 [ %162, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84 ], [ %146, %119 ]
+  %.02414.i82116 = phi i64 [ %160, %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84 ], [ 0, %119 ]
   %152 = lshr i64 %.pr97, 32
   %153 = getelementptr inbounds nuw i32, ptr %13, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !10
   %155 = icmp eq i32 %154, %130
   br i1 %155, label %_ZNK7meshopt10EdgeHasher5equalEyy.exit.i87, label %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84
 
-_ZNK7meshopt10EdgeHasher5equalEyy.exit.i87:       ; preds = %.lr.ph116
+_ZNK7meshopt10EdgeHasher5equalEyy.exit.i87:       ; preds = %.lr.ph119
   %156 = and i64 %.pr97, 4294967295
   %157 = getelementptr inbounds nuw i32, ptr %13, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !10
   %159 = icmp eq i32 %158, %132
   br i1 %159, label %166, label %_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84
 
-_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84: ; preds = %_ZNK7meshopt10EdgeHasher5equalEyy.exit.i87, %.lr.ph116
-  %160 = add i64 %.02414.i82114, 1
-  %161 = add i64 %160, %.02513.i83115
+_ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84: ; preds = %_ZNK7meshopt10EdgeHasher5equalEyy.exit.i87, %.lr.ph119
+  %160 = add i64 %.02414.i82116, 1
+  %161 = add i64 %160, %.02513.i83117
   %162 = and i64 %161, %41
   %.not.i85 = icmp ule i64 %160, %41
   tail call void @llvm.assume(i1 %.not.i85)
-  %163 = getelementptr inbounds nuw i64, ptr %26, i64 %162
+  %.idx99 = shl nuw nsw i64 %162, 3
+  %163 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx99
   %164 = load i64, ptr %163, align 8, !tbaa !34
   %165 = icmp eq i64 %164, -1
-  br i1 %165, label %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit90.thread, label %.lr.ph116
+  br i1 %165, label %_ZN7meshoptL10hashLookupIyNS_10EdgeHasherEEEPT_S3_mRKT0_RKS2_S8_.exit90.thread, label %.lr.ph119
 
 166:                                              ; preds = %_ZNK7meshopt10EdgeHasher5equalEyy.exit.i87
-  %167 = shl nuw nsw i64 %indvars.iv124, 1
-  %168 = shl nuw i64 %indvars.iv124, 1
+  %167 = shl nuw nsw i64 %indvars.iv129, 1
+  %168 = shl nuw i64 %indvars.iv129, 1
   %169 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %167
   store i32 %121, ptr %169, align 8, !tbaa !10
-  %170 = shl nuw nsw i64 %.02513.i83115, 2
+  %170 = shl nuw nsw i64 %.02513.i83117, 2
   %171 = getelementptr inbounds nuw i8, ptr %35, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !10
   br label %173
@@ -1602,9 +1607,9 @@ _ZNK7meshopt10EdgeHasher5equalEyy.exit.thread.i84: ; preds = %_ZNK7meshopt10Edge
   %177 = or disjoint i64 %176, 1
   %178 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %177
   store i32 %175, ptr %178, align 4, !tbaa !10
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next125, 3
-  br i1 %exitcond127.not, label %115, label %119, !llvm.loop !38
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next130, 3
+  br i1 %exitcond132.not, label %115, label %119, !llvm.loop !38
 
 179:                                              ; preds = %44, %46, %42
   %.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %47, %46 ]

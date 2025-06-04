@@ -3244,8 +3244,8 @@ define noalias noundef nonnull ptr @llama_sampler_init_logit_bias(i32 noundef %0
   store i32 %0, ptr %4, align 16, !tbaa !174
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.idx = shl nsw i64 %6, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = icmp ugt i64 %.idx, 9223372036854775800
   br i1 %7, label %8, label %_ZNSt6vectorI16llama_logit_biasSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
 
@@ -9382,7 +9382,8 @@ define internal void @_ZL31llama_sampler_mirostat_v2_applyP13llama_samplerP22lla
   %5 = load ptr, ptr %1, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !22
-  %8 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = ptrtoint ptr %8 to i64
   %10 = ashr i64 %7, 2
   %11 = icmp sgt i64 %10, 0

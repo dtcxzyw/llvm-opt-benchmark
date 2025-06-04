@@ -4350,7 +4350,8 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
 "_ZN8indexmap3map4iter112_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$GT$9into_iter17h48dabba2df713607E.llvm.16978709814855407318.exit": ; preds = %2, %7
   %19 = icmp ne ptr %.sroa.4.0.copyload.i, null
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds { { i8, [31 x i8] }, i64, { { { { [2 x i64] } } } } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 56
+  %20 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   store ptr %.sroa.4.0.copyload.i, ptr %5, align 8, !alias.scope !575, !noalias !578
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !575, !noalias !578
@@ -85423,7 +85424,8 @@ _ZN9hayagriva3csl24disambiguate_with_choose17h3c7531279b8cbc54E.exit.thread: ; p
   %2365 = load ptr, ptr %2259, align 8, !nonnull !4, !align !493, !noundef !4
   %2366 = load ptr, ptr %237, align 8, !noalias !17794, !nonnull !4, !noundef !4
   %2367 = load i64, ptr %239, align 8, !noalias !17794, !noundef !4
-  %2368 = getelementptr inbounds { { i64, [2 x i64] }, { [16 x i8], i8, [7 x i8] }, ptr, i64, i8, i8, [6 x i8] }, ptr %2366, i64 %2367
+  %.idx.i = mul nsw i64 %2367, 72
+  %2368 = getelementptr inbounds i8, ptr %2366, i64 %.idx.i
   %2369 = icmp eq i64 %2367, 0
   br i1 %2369, label %.loopexit.i1004, label %.lr.ph.i.i1003
 
@@ -105818,7 +105820,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.16978
 251:                                              ; preds = %.noexc151, %.noexc150
   %252 = icmp ne ptr %.sroa.4.0.copyload.i, null
   call void @llvm.assume(i1 %252)
-  %253 = getelementptr inbounds { { i8, [31 x i8] }, i64, { { { { [2 x i64] } } } } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 56
+  %253 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %16), !noalias !20817
   call void @llvm.experimental.noalias.scope.decl(metadata !20836)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !20816

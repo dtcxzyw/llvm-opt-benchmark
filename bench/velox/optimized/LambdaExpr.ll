@@ -3940,7 +3940,9 @@ if.else.i:                                        ; preds = %land.rhs.i.i.i, %if
   %23 = load ptr, ptr %shadowedNames, align 8, !nonnull !31, !noundef !31
   %24 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i = zext i32 %24 to i64
-  %second = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %idx.ext8.i, i32 1
+  %add.ptr9.i.idx = mul nuw nsw i64 %idx.ext8.i, 40
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %23, i64 %add.ptr9.i.idx
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i, i64 32
   %25 = load i32, ptr %second, align 8
   %dec = add nsw i32 %25, -1
   store i32 %dec, ptr %second, align 8

@@ -35317,6 +35317,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   %13 = shl nuw nsw i64 %11, 5
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #28
+  %.idx = shl nuw nsw i64 %11, 5
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
@@ -35358,7 +35359,6 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %.not.i.i.i.i112, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !244
 
 .loopexit:                                        ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
-  %.idx = shl nuw nsw i64 %11, 5
   tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %.idx) #27
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
@@ -104799,7 +104799,8 @@ _ZN4absleqIKaEEbNS_4SpanIT_EES4_.exit.thread.i.i.i: ; preds = %_ZN4absleqIKaEEbN
   %.val6.i.i.i = load i64, ptr %9, align 8, !tbaa !71, !noalias !1645
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val8.i.i.i = load i64, ptr %10, align 8, !tbaa !71, !noalias !1645
-  %11 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int64", ptr %.val.i.i.i, i64 %.val6.i.i.i
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.val6.i.i.i, 3
+  %11 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i, %.val8.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %12, label %.loopexit.i
 
@@ -104969,7 +104970,8 @@ _ZN4absleqIKaEEbNS_4SpanIT_EES4_.exit.thread.i.i.i: ; preds = %_ZN4absleqIKaEEbN
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1652
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1652
-  %10 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int64", ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.22.0.copyload.i.i.i.i, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %11, label %_ZSteqIJN4absl4SpanIKaEENS1_IKNS0_18container_internal12_GLOBAL__N_15Int64EEENS1_IKiEEEJS3_S8_SA_EEbRKSt5tupleIJDpT_EERKSB_IJDpT0_EE.exit.thread.i
 
@@ -105160,7 +105162,8 @@ _ZN4absleqIKaEEbNS_4SpanIT_EES4_.exit.thread.i.i.i: ; preds = %_ZN4absleqIKaEEbN
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1658
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1658
-  %10 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int64", ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.22.0.copyload.i.i.i.i, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %11, label %.loopexit.i
 
@@ -105215,7 +105218,8 @@ _ZN4absleqIKiEEbNS_4SpanIT_EES4_.exit.thread.i.i.i.i.i: ; preds = %_ZN4absleqIKi
   %.val6.i.i.i.i.i = load i64, ptr %20, align 8, !tbaa !71, !noalias !1658
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val8.i.i.i.i.i = load i64, ptr %21, align 8, !tbaa !71, !noalias !1658
-  %22 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int128", ptr %.val.i.i.i.i.i, i64 %.val6.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.val6.i.i.i.i.i, 4
+  %22 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i.i.i, %.val8.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %23, label %.loopexit.i
 

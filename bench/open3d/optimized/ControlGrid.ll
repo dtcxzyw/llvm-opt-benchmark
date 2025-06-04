@@ -36974,7 +36974,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0E
 245:                                              ; preds = %35
   %246 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit100
+  br label %.loopexit99
 
 247:                                              ; preds = %51
   %248 = landingpad { ptr, i32 }
@@ -36985,17 +36985,17 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0E
 .body:                                            ; preds = %45, %42, %247
   %.pn = phi { ptr, i32 } [ %248, %247 ], [ %43, %45 ], [ %43, %42 ]
   call void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #38
-  br label %.loopexit100
+  br label %.loopexit99
 
-.loopexit100:                                     ; preds = %.body, %245
+.loopexit99:                                      ; preds = %.body, %245
   %.pn.pn = phi { ptr, i32 } [ %246, %245 ], [ %.pn, %.body ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #38
   call void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %10) #38
   br label %249
 
-249:                                              ; preds = %.loopexit100, %243
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit100 ], [ %244, %243 ]
+249:                                              ; preds = %.loopexit99, %243
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit99 ], [ %244, %243 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10) #38
   br label %399
 
@@ -37010,10 +37010,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0E
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EED2Ev.exit79
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.024101 = phi i64 [ %265, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %254 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %134, i64 %.024101
+  %.024100 = phi i64 [ %265, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %254 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %134, i64 %.024100
   %255 = load i32, ptr %254, align 4, !tbaa !28
-  %256 = getelementptr inbounds nuw %"class.Eigen::Matrix.250", ptr %142, i64 %.024101
+  %256 = getelementptr inbounds nuw %"class.Eigen::Matrix.250", ptr %142, i64 %.024100
   store i32 %255, ptr %256, align 4, !tbaa !28
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %258 = load i32, ptr %257, align 4, !tbaa !28
@@ -37024,17 +37024,18 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0E
   %262 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i32 %261, ptr %262, align 4, !tbaa !28
   %263 = getelementptr inbounds nuw i8, ptr %256, i64 12
-  %264 = trunc i64 %.024101 to i32
+  %264 = trunc i64 %.024100 to i32
   store i32 %264, ptr %263, align 4, !tbaa !28
-  %265 = add nuw i64 %.024101, 1
+  %265 = add nuw i64 %.024100, 1
   %exitcond.not = icmp eq i64 %265, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !728
 
 .loopexit:                                        ; preds = %240, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i", %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.preheader.i26.i.i.i
-  %.pre-phi.i108113 = phi i64 [ 16, %.preheader.i26.i.i.i ], [ 0, %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %141, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %141, %240 ]
+  %.idx.pre-phi108117 = phi i64 [ %141, %.preheader.i26.i.i.i ], [ 0, %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %141, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %141, %240 ]
+  %.pre-phi.i110116 = phi i64 [ 16, %.preheader.i26.i.i.i ], [ 0, %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %141, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %141, %240 ]
   %266 = phi ptr [ %142, %.preheader.i26.i.i.i ], [ null, %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %142, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %142, %240 ]
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %14) #38
-  %267 = lshr i64 %.pre-phi.i108113, 5
+  %267 = lshr i64 %.pre-phi.i110116, 5
   %268 = getelementptr inbounds nuw %"class.Eigen::Matrix.250", ptr %266, i64 %267, i32 0, i32 0, i32 0, i32 0, i64 3
   %269 = load i32, ptr %268, align 4, !tbaa !28
   %270 = sext i32 %269 to i64
@@ -37156,8 +37157,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i60: ; preds = %312, %_ZNSt12__shar
 
 _ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EED2Ev.exit: ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i60, %316
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14) #38
-  %.idx98 = shl nuw nsw i64 %138, 4
-  call void @_ZdlPvm(ptr noundef nonnull %266, i64 noundef %.idx98) #35
+  call void @_ZdlPvm(ptr noundef nonnull %266, i64 noundef %.idx.pre-phi108117) #35
   %317 = load ptr, ptr %13, align 8, !tbaa !723
   %.not.i.i.i63 = icmp eq ptr %317, null
   br i1 %.not.i.i.i63, label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit, label %318
@@ -37335,8 +37335,7 @@ _ZN6open3d4core6TensorD2Ev.exit77:                ; preds = %_ZN6open3d4core11Sm
 .thread:                                          ; preds = %388, %390
   %.pn29 = phi { ptr, i32 } [ %391, %390 ], [ %389, %388 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14) #38
-  %.idx = shl nuw nsw i64 %138, 4
-  call void @_ZdlPvm(ptr noundef nonnull %266, i64 noundef %.idx) #35
+  call void @_ZdlPvm(ptr noundef nonnull %266, i64 noundef %.idx.pre-phi108117) #35
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EED2Ev.exit79
 
 _ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EED2Ev.exit79: ; preds = %.thread, %252

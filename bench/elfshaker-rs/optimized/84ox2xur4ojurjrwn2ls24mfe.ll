@@ -8130,8 +8130,8 @@ common.resume:                                    ; preds = %29
 
 _ZN9elfshaker4repo4pack33compute_frame_decompressed_offset17h1135e6ec2f68aedcE.exit: ; preds = %.lr.ph.preheader.i.preheader, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hc47c44f9b8000c9eE.exit.i"
   store i64 %16, ptr %12, align 8, !noalias !1167
-  %.sroa.4.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %20, ptr %.sroa.4.0..sroa_idx97, align 8, !noalias !1167
+  %.sroa.4.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %20, ptr %.sroa.4.0..sroa_idx98, align 8, !noalias !1167
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1167
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -8169,7 +8169,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hef4c7ffa1dd67b1bE.exit: ; preds
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.026.049, i64 64
   %44 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   %45 = load i64, ptr %35, align 8, !noundef !3
-  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
+  %.idx = shl nuw nsw i64 %45, 3
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.026.049, i64 24
   br label %48
 

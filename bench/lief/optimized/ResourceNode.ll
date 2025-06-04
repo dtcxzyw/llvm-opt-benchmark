@@ -2719,59 +2719,58 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceN
 23:                                               ; preds = %21
   %24 = load ptr, ptr %15, align 8, !tbaa !62
   %25 = load i64, ptr %16, align 8, !tbaa !48
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i, i64 24
-  %30 = load i64, ptr %29, align 8, !tbaa !48
-  %31 = getelementptr inbounds nuw i16, ptr %28, i64 %30
-  %.idx3.i.i.i.i = shl nuw nsw i64 %30, 1
-  %32 = icmp ult i64 %30, %25
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx3.i.i.i.i
-  %34 = select i1 %32, ptr %33, ptr %26
-  %.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, %34
+  %.idx.i.i.i.i = shl nuw nsw i64 %25, 1
+  %26 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !62
+  %28 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i, i64 24
+  %29 = load i64, ptr %28, align 8, !tbaa !48
+  %.idx3.i.i.i.i = shl nuw nsw i64 %29, 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx3.i.i.i.i
+  %.v.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx3.i.i.i.i, i64 %.idx.i.i.i.i)
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.v.i.i.i.i
+  %.not22.i.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.v.i.i.i.i, 0
   br i1 %.not22.i.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %23, %40
-  %.01924.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %40 ], [ %28, %23 ]
-  %.02023.i.i.i.i.i.i.i.i.i = phi ptr [ %41, %40 ], [ %24, %23 ]
-  %35 = load i16, ptr %.02023.i.i.i.i.i.i.i.i.i, align 2, !tbaa !49
-  %36 = load i16, ptr %.01924.i.i.i.i.i.i.i.i.i, align 2, !tbaa !49
-  %37 = icmp ult i16 %35, %36
-  br i1 %37, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i", label %38
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %23, %37
+  %.01924.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %37 ], [ %27, %23 ]
+  %.02023.i.i.i.i.i.i.i.i.i = phi ptr [ %38, %37 ], [ %24, %23 ]
+  %32 = load i16, ptr %.02023.i.i.i.i.i.i.i.i.i, align 2, !tbaa !49
+  %33 = load i16, ptr %.01924.i.i.i.i.i.i.i.i.i, align 2, !tbaa !49
+  %34 = icmp ult i16 %32, %33
+  br i1 %34, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i", label %35
 
-38:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %39 = icmp ult i16 %36, %35
-  br i1 %39, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i", label %40
+35:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %36 = icmp ult i16 %33, %32
+  br i1 %36, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i", label %37
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i.i.i.i, i64 2
-  %42 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i.i.i.i, i64 2
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, %34
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i.i.i.i, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i.i.i.i, i64 2
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %38, %31
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !187
 
-.critedge.i.i.i.i.i.i.i.i.i:                      ; preds = %40, %23
-  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %28, %23 ], [ %42, %40 ]
-  %.not.i.i = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i.i, %31
+.critedge.i.i.i.i.i.i.i.i.i:                      ; preds = %37, %23
+  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %27, %23 ], [ %39, %37 ]
+  %.not.i.i = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i.i, %30
   br i1 %.not.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i
-  %43 = icmp sgt i32 %20, -1
-  %44 = icmp samesign ult i32 %13, %20
-  %spec.select.i.i.i.i = select i1 %43, i1 %44, i1 false
+  %40 = icmp sgt i32 %20, -1
+  %41 = icmp samesign ult i32 %13, %20
+  %spec.select.i.i.i.i = select i1 %40, i1 %41, i1 false
   br i1 %spec.select.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i": ; preds = %38, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i", %.critedge.i.i.i.i.i.i.i.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %46 = xor i64 %17, -1
-  %47 = add nsw i64 %.07.i.i, %46
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i": ; preds = %35, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i", %.critedge.i.i.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %43 = xor i64 %17, -1
+  %44 = add nsw i64 %.07.i.i, %43
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i", %.critedge.i.i.i.i.i.i.i.i.i, %21
-  %.sroa.02.1.i.i = phi ptr [ %.sroa.02.06.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i" ], [ %45, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i" ], [ %.sroa.02.06.i.i, %.critedge.i.i.i.i.i.i.i.i.i ], [ %.sroa.02.06.i.i, %21 ], [ %.sroa.02.06.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.1.i.i = phi i64 [ %17, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i" ], [ %47, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i" ], [ %17, %.critedge.i.i.i.i.i.i.i.i.i ], [ %17, %21 ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %48 = icmp sgt i64 %.1.i.i, 0
-  br i1 %48, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !188
+  %.sroa.02.1.i.i = phi ptr [ %.sroa.02.06.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i" ], [ %42, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i" ], [ %.sroa.02.06.i.i, %.critedge.i.i.i.i.i.i.i.i.i ], [ %.sroa.02.06.i.i, %21 ], [ %.sroa.02.06.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.1.i.i = phi i64 [ %17, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i.i" ], [ %44, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread4.i.i" ], [ %17, %.critedge.i.i.i.i.i.i.i.i.i ], [ %17, %21 ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %45 = icmp sgt i64 %.1.i.i, 0
+  br i1 %45, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !188
 
 "_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4LIEF2PE12ResourceNode12insert_childESt10unique_ptrIS4_St14default_deleteIS4_EEE3$_0EclIKS8_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i"
   %.pre = ptrtoint ptr %.sroa.02.1.i.i to i64
@@ -2780,87 +2779,87 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceN
 "_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit.loopexit", %2
   %.pre-phi = phi i64 [ %.pre, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %8, %2 ]
   %.sroa.02.0.lcssa.i.i = phi ptr [ %.sroa.02.1.i.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %4, %2 ]
-  %49 = sub i64 %.pre-phi, %8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %51 = load ptr, ptr %50, align 8, !tbaa !98
-  %.not.i.i3 = icmp eq ptr %6, %51
-  br i1 %.not.i.i3, label %80, label %52
+  %46 = sub i64 %.pre-phi, %8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %48 = load ptr, ptr %47, align 8, !tbaa !98
+  %.not.i.i3 = icmp eq ptr %6, %48
+  br i1 %.not.i.i3, label %77, label %49
 
-52:                                               ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit"
-  %53 = icmp eq ptr %.sroa.02.0.lcssa.i.i, %6
-  br i1 %53, label %54, label %57
+49:                                               ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit"
+  %50 = icmp eq ptr %.sroa.02.0.lcssa.i.i, %6
+  br i1 %50, label %51, label %54
 
-54:                                               ; preds = %52
-  %55 = load i64, ptr %1, align 8, !tbaa !99
-  store i64 %55, ptr %6, align 8, !tbaa !99
+51:                                               ; preds = %49
+  %52 = load i64, ptr %1, align 8, !tbaa !99
+  store i64 %52, ptr %6, align 8, !tbaa !99
   store ptr null, ptr %1, align 8, !tbaa !99
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %56, ptr %5, align 8, !tbaa !97
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %53, ptr %5, align 8, !tbaa !97
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEOS6_.exit
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %4, i64 %49
-  %59 = getelementptr inbounds i8, ptr %6, i64 -8
-  %60 = load i64, ptr %59, align 8, !tbaa !99
-  store i64 %60, ptr %6, align 8, !tbaa !99
-  store ptr null, ptr %59, align 8, !tbaa !99
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %61, ptr %5, align 8, !tbaa !97
-  %62 = ptrtoint ptr %59 to i64
-  %63 = sub i64 %62, %.pre-phi
-  %64 = ashr exact i64 %63, 3
-  %65 = icmp sgt i64 %64, 0
-  br i1 %65, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %4, i64 %46
+  %56 = getelementptr inbounds i8, ptr %6, i64 -8
+  %57 = load i64, ptr %56, align 8, !tbaa !99
+  store i64 %57, ptr %6, align 8, !tbaa !99
+  store ptr null, ptr %56, align 8, !tbaa !99
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %58, ptr %5, align 8, !tbaa !97
+  %59 = ptrtoint ptr %56 to i64
+  %60 = sub i64 %59, %.pre-phi
+  %61 = ashr exact i64 %60, 3
+  %62 = icmp sgt i64 %61, 0
+  br i1 %62, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %57, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i.i = phi i64 [ %73, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i ], [ %64, %57 ]
-  %.069.i.i.i.i.i.i.i.i = phi ptr [ %67, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i ], [ %6, %57 ]
-  %.078.i.i.i.i.i.i.i.i = phi ptr [ %66, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i ], [ %59, %57 ]
-  %66 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i, i64 -8
-  %67 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i, i64 -8
-  %68 = load ptr, ptr %66, align 8, !tbaa !99
-  store ptr null, ptr %66, align 8, !tbaa !99
-  %69 = load ptr, ptr %67, align 8, !tbaa !99
-  store ptr %68, ptr %67, align 8, !tbaa !99
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %69, null
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %54, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i
+  %.010.i.i.i.i.i.i.i.i = phi i64 [ %70, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i ], [ %61, %54 ]
+  %.069.i.i.i.i.i.i.i.i = phi ptr [ %64, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i ], [ %6, %54 ]
+  %.078.i.i.i.i.i.i.i.i = phi ptr [ %63, %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i ], [ %56, %54 ]
+  %63 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i, i64 -8
+  %64 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i, i64 -8
+  %65 = load ptr, ptr %63, align 8, !tbaa !99
+  store ptr null, ptr %63, align 8, !tbaa !99
+  %66 = load ptr, ptr %64, align 8, !tbaa !99
+  store ptr %65, ptr %64, align 8, !tbaa !99
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4LIEF2PE12ResourceNodeEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF2PE12ResourceNodeEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %70 = load ptr, ptr %69, align 8, !tbaa !30
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(76) %69) #26
+  %67 = load ptr, ptr %66, align 8, !tbaa !30
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(76) %66) #26
   br label %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4LIEF2PE12ResourceNodeEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %73 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %74 = icmp sgt i64 %.010.i.i.i.i.i.i.i.i, 1
-  br i1 %74, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i, !llvm.loop !189
+  %70 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
+  %71 = icmp sgt i64 %.010.i.i.i.i.i.i.i.i, 1
+  br i1 %71, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i, !llvm.loop !189
 
-_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i, %57
-  %75 = load ptr, ptr %1, align 8, !tbaa !99
+_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i, %54
+  %72 = load ptr, ptr %1, align 8, !tbaa !99
   store ptr null, ptr %1, align 8, !tbaa !99
-  %76 = load ptr, ptr %58, align 8, !tbaa !99
-  store ptr %75, ptr %58, align 8, !tbaa !99
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %76, null
+  %73 = load ptr, ptr %55, align 8, !tbaa !99
+  store ptr %72, ptr %55, align 8, !tbaa !99
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEOS6_.exit, label %_ZNKSt14default_deleteIN4LIEF2PE12ResourceNodeEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF2PE12ResourceNodeEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i
-  %77 = load ptr, ptr %76, align 8, !tbaa !30
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(76) %76) #26
+  %74 = load ptr, ptr %73, align 8, !tbaa !30
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(76) %73) #26
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEOS6_.exit
 
-80:                                               ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit"
-  %81 = getelementptr inbounds i8, ptr %4, i64 %49
-  tail call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %81, ptr noundef nonnull align 8 dereferenceable(8) %1)
+77:                                               ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ZNS5_12insert_childES8_E3$_0ET_SF_SF_RKT0_T1_.exit"
+  %78 = getelementptr inbounds i8, ptr %4, i64 %46
+  tail call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %78, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEOS6_.exit
 
-_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEOS6_.exit: ; preds = %54, %_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i, %_ZNKSt14default_deleteIN4LIEF2PE12ResourceNodeEEclEPS2_.exit.i.i.i.i.i.i.i, %80
-  %82 = load ptr, ptr %3, align 8, !tbaa !101
-  %83 = getelementptr inbounds i8, ptr %82, i64 %49
-  ret ptr %83
+_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEOS6_.exit: ; preds = %51, %_ZSt13move_backwardIPSt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i, %_ZNKSt14default_deleteIN4LIEF2PE12ResourceNodeEEclEPS2_.exit.i.i.i.i.i.i.i, %77
+  %79 = load ptr, ptr %3, align 8, !tbaa !101
+  %80 = getelementptr inbounds i8, ptr %79, i64 %46
+  ret ptr %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1661,7 +1661,8 @@ _ZNSt15__new_allocatorISt6vectorIlSaIlEEE8allocateEmPKv.exit.i.i.i.i: ; preds = 
 _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt15__new_allocatorISt6vectorIlSaIlEEE8allocateEmPKv.exit.i.i.i.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %.pr.i = phi ptr [ null, %_ZNSt6vectorIS_IlSaIlEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %413, %_ZNSt15__new_allocatorISt6vectorIlSaIlEEE8allocateEmPKv.exit.i.i.i.i ]
   store ptr %.pr.i, ptr %31, align 8, !tbaa !57
-  %414 = getelementptr inbounds nuw %"class.std::vector", ptr %.pr.i, i64 %387
+  %.idx = mul nuw nsw i64 %387, 24
+  %414 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 %.idx
   %415 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %414, ptr %415, align 8, !tbaa !59
   %416 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIlSaIlEEmS2_ET_S4_T0_RKT1_(ptr noundef %.pr.i, i64 noundef %387, ptr noundef nonnull align 8 dereferenceable(24) %32)
@@ -1674,7 +1675,6 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   br i1 %.not.i.i.i72, label %.body, label %419
 
 419:                                              ; preds = %417
-  %.idx = mul nuw nsw i64 %387, 24
   call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx) #33
   br label %.body
 
@@ -1730,8 +1730,7 @@ _ZSt8_DestroyIPSt6vectorIlSaIlEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   br i1 %.not.i.i1.i, label %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit, label %439
 
 439:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIlSaIlEES2_EvT_S4_RSaIT0_E.exit.i
-  %.idx127 = mul nuw nsw i64 %387, 24
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx127) #33
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx) #33
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6vectorIlSaIlEES2_EvT_S4_RSaIT0_E.exit.i, %439

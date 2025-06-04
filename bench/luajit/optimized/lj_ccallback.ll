@@ -500,21 +500,23 @@ define hidden ptr @lj_ccallback_new(ptr noundef %0, ptr noundef readonly capture
   br label %10
 
 10:                                               ; preds = %10, %.preheader63.i
-  %11 = phi i32 [ %15, %10 ], [ %4, %.preheader63.i ]
+  %11 = phi i32 [ %14, %10 ], [ %4, %.preheader63.i ]
   %12 = and i32 %11, 65535
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %13
-  %15 = load i32, ptr %14, align 8, !tbaa !62
-  %16 = icmp slt i32 %15, -1879048192
-  br i1 %16, label %10, label %ctype_rawchild.exit.i, !llvm.loop !71
+  %narrow = mul nuw nsw i32 %12, 24
+  %.idx = zext nneg i32 %narrow to i64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %14 = load i32, ptr %13, align 8, !tbaa !62
+  %15 = icmp slt i32 %14, -1879048192
+  br i1 %15, label %10, label %ctype_rawchild.exit.i, !llvm.loop !71
 
 ctype_rawchild.exit.i:                            ; preds = %10
-  %.mask43.i = and i32 %15, -268435456
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %.mask43.i = and i32 %14, -268435456
   %17 = icmp eq i32 %.mask43.i, 1610612736
   br i1 %17, label %.preheader62.i, label %callback_checkfunc.exit.thread
 
 .preheader62.i:                                   ; preds = %ctype_rawchild.exit.i, %.preheader62.i
-  %18 = phi i32 [ %22, %.preheader62.i ], [ %15, %ctype_rawchild.exit.i ]
+  %18 = phi i32 [ %22, %.preheader62.i ], [ %14, %ctype_rawchild.exit.i ]
   %19 = and i32 %18, 65535
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw %struct.CType, ptr %9, i64 %20
@@ -523,7 +525,7 @@ ctype_rawchild.exit.i:                            ; preds = %10
   br i1 %23, label %.preheader62.i, label %ctype_rawchild.exit48.i, !llvm.loop !71
 
 ctype_rawchild.exit48.i:                          ; preds = %.preheader62.i
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %25 = load i16, ptr %24, align 8, !tbaa !70
   %26 = lshr i32 %22, 28
   switch i32 %26, label %27 [
@@ -540,13 +542,13 @@ ctype_rawchild.exit48.i:                          ; preds = %.preheader62.i
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !73
   %32 = icmp ult i32 %31, 9
-  %33 = and i32 %15, 8388608
+  %33 = and i32 %14, 8388608
   %.not44.i = icmp eq i32 %33, 0
   %or.cond.i = and i1 %.not44.i, %32
   br i1 %or.cond.i, label %.preheader61.i, label %callback_checkfunc.exit.thread
 
 34:                                               ; preds = %ctype_rawchild.exit48.i, %ctype_rawchild.exit48.i, %ctype_rawchild.exit48.i
-  %.old.i = and i32 %15, 8388608
+  %.old.i = and i32 %14, 8388608
   %.not44.old.i = icmp eq i32 %.old.i, 0
   br i1 %.not44.old.i, label %.preheader61.i, label %callback_checkfunc.exit.thread
 

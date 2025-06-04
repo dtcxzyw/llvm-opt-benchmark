@@ -9602,6 +9602,7 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i93:              ; preds = %.noexc91
 
 _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %151
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %155, i8 0, i64 %154, i1 false), !tbaa !24
+  %.idx = shl nuw nsw i64 %153, 1
   %.pre = load i64, ptr %137, align 8
   %gep220.phi.trans.insert = getelementptr i8, ptr %invariant.gep, i64 %.pre
   %.pre233 = load i32, ptr %gep220.phi.trans.insert, align 8, !tbaa !12
@@ -9645,7 +9646,6 @@ _ZN9SampleICC6Read16ERSiPvi.exit105:              ; preds = %.lr.ph.i.i101, %.no
   br i1 %.not61, label %178, label %_ZNSt6vectorItSaItEED2Ev.exit.thread
 
 _ZNSt6vectorItSaItEED2Ev.exit.thread:             ; preds = %_ZN9SampleICC6Read16ERSiPvi.exit105
-  %.idx = shl nuw nsw i64 %153, 1
   call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %.idx) #35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit121
 
@@ -9776,8 +9776,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #33
-  %.idx259 = shl nuw nsw i64 %153, 1
-  call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %.idx259) #35
+  call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %.idx) #35
   br i1 %switch, label %94, label %.thread189
 
 218:                                              ; preds = %182, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -9787,8 +9786,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
 
 219:                                              ; preds = %218, %.thread
   %.pn.pn183 = phi { ptr, i32 } [ %177, %.thread ], [ %.pn, %218 ]
-  %.idx258 = shl nuw nsw i64 %153, 1
-  call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %.idx258) #35
+  call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %.idx) #35
   br label %_ZNSt6vectorItSaItEED2Ev.exit119
 
 .thread189:                                       ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %94

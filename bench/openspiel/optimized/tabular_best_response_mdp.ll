@@ -5843,7 +5843,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 .noexc24:                                         ; preds = %23
   store ptr %26, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %28 = getelementptr inbounds nuw double, ptr %26, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %28, ptr %29, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %5, i1 false)
@@ -5889,7 +5890,6 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i32: ; preds = %_ZNSt6vectorIdS
 41:                                               ; preds = %.noexc24
   %42 = landingpad { ptr, i32 }
           cleanup
-  %.idx = shl nuw nsw i64 %3, 3
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %.idx) #24
   br label %43
 
@@ -6290,7 +6290,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %82
 .noexc29:                                         ; preds = %93
   store ptr %95, ptr %7, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %97 = getelementptr inbounds nuw double, ptr %95, i64 %90
+  %.idx = shl nuw nsw i64 %90, 3
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %97, ptr %98, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i24
@@ -6396,8 +6397,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %_ZNSt6vectorIPN10open_spiel10algorithms7MDPNodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN10open_spiel10algorithms7MDPNodeESaIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit, %135
-  %.idx61 = shl nuw nsw i64 %90, 3
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %.idx61) #24
+  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %.idx) #24
   %139 = ptrtoint ptr %66 to i64
   %140 = ptrtoint ptr %64 to i64
   %141 = sub i64 %139, %140
@@ -6456,7 +6456,6 @@ _ZNSt6vectorIlSaIlEED2Ev.exit43:                  ; preds = %104
 
 _ZNSt6vectorIlSaIlEED2Ev.exit43.thread:           ; preds = %155, %154, %_ZNSt6vectorIlSaIlEED2Ev.exit43
   %.pn.pn55 = phi { ptr, i32 } [ %159, %_ZNSt6vectorIlSaIlEED2Ev.exit43 ], [ %.pn, %154 ], [ %.pn, %155 ]
-  %.idx = shl nuw nsw i64 %90, 3
   call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %.idx) #24
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit45.thread
 

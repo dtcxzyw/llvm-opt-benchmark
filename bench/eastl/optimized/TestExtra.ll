@@ -16240,7 +16240,8 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit
   %swapIter.08 = phi i64 [ %add, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit ], [ 1, %for.body.preheader ]
-  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %swapIter.08
+  %add.ptr.idx = mul nuw nsw i64 %swapIter.08, 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %first, i64 %add.ptr.idx
   %add = add nuw nsw i64 %swapIter.08, 1
   %1 = load i64, ptr %rng, align 8
   %cmp.i.i.i = icmp eq i64 %1, 0
@@ -16253,7 +16254,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %xor.i.i.i = xor i64 %add5.i.i.i, %shr.i.i.i
   store i64 %xor.i.i.i, ptr %rng, align 8
   %rem.i.i = urem i64 %xor.i.i.i, %add
-  %add.ptr2 = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %rem.i.i
+  %add.ptr2.idx = mul nuw nsw i64 %rem.i.i, 24
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %first, i64 %add.ptr2.idx
   %4 = load i32, ptr %add.ptr, align 8
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %5 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
@@ -16273,7 +16275,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %10 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i3.i.i.i = add nsw i64 %10, 1
   store i64 %inc.i3.i.i.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i.i.i.i = icmp samesign eq i64 %rem.i.i, %swapIter.08
+  %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i, %swapIter.08
   br i1 %cmp.not.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
@@ -17891,8 +17893,10 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.then4
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
+  %add.ptr.idx = shl nsw i64 %idx.neg, 2
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  %diff.neg = sub nsw i64 0, %add.ptr.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %diff.neg, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
   %add.ptr18 = getelementptr inbounds i32, ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr18, %position
@@ -20647,8 +20651,10 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.then4
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds float, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
+  %add.ptr.idx = shl nsw i64 %idx.neg, 2
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  %diff.neg = sub nsw i64 0, %add.ptr.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %diff.neg, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
   %add.ptr18 = getelementptr inbounds float, ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr18, %position

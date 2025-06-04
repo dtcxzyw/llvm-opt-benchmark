@@ -923,11 +923,12 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h0e
   br label %10
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds { i64, i64 }, ptr %9, i64 %18
+  %.idx = shl nsw i64 %18, 4
+  %30 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %.idx.neg = shl i64 %17, 4
-  %31 = ashr exact i64 %.idx.neg, 4
+  %diff.neg = sub i64 0, %.idx
+  %31 = ashr exact i64 %diff.neg, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %32 = add nsw i64 %31, -16
   %33 = and i64 %32, %8
@@ -1031,11 +1032,12 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h21
   br label %10
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds { i64, { { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] } }, ptr %9, i64 %18
+  %.idx = mul i64 %17, -120
+  %30 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  %.idx.neg = mul i64 %17, 120
-  %31 = sdiv exact i64 %.idx.neg, 120
+  %diff.neg = sub i64 0, %.idx
+  %31 = sdiv exact i64 %diff.neg, 120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %32 = add nsw i64 %31, -16
   %33 = and i64 %32, %8
@@ -1136,11 +1138,12 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h74
   br label %10
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, { [1 x i8], i8 }, [6 x i8] } }, ptr %9, i64 %18
+  %.idx = mul i64 %17, -72
+  %30 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %.idx.neg = mul i64 %17, 72
-  %31 = sdiv exact i64 %.idx.neg, 72
+  %diff.neg = sub i64 0, %.idx
+  %31 = sdiv exact i64 %diff.neg, 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %32 = add nsw i64 %31, -16
   %33 = and i64 %32, %8
@@ -1241,11 +1244,12 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h8d
   br label %10
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %9, i64 %18
+  %.idx = shl nsw i64 %18, 5
+  %30 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  %.idx.neg = shl i64 %17, 5
-  %31 = ashr exact i64 %.idx.neg, 5
+  %diff.neg = sub i64 0, %.idx
+  %31 = ashr exact i64 %diff.neg, 5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   %32 = add nsw i64 %31, -16
   %33 = and i64 %32, %8
@@ -1346,11 +1350,12 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h93
   br label %10
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds { i64, { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] } }, ptr %9, i64 %18
+  %.idx = mul i64 %17, -376
+  %30 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %.idx.neg = mul i64 %17, 376
-  %31 = sdiv exact i64 %.idx.neg, 376
+  %diff.neg = sub i64 0, %.idx
+  %31 = sdiv exact i64 %diff.neg, 376
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %32 = add nsw i64 %31, -16
   %33 = and i64 %32, %8

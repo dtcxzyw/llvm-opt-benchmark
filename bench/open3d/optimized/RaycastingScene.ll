@@ -6249,7 +6249,8 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %2
 .noexc34:                                         ; preds = %_ZNSt6vectorI9RTCRayHitSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %10 = mul nuw nsw i64 %8, 96
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #45
-  %12 = getelementptr %struct.RTCRayHit, ptr %11, i64 %8
+  %.idx58 = mul nuw i64 %8, 96
+  %12 = getelementptr i8, ptr %11, i64 %.idx58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %11, i8 0, i64 96, i1 false)
   %13 = icmp eq i64 %8, 1
   br i1 %13, label %_ZNSt6vectorI9RTCRayHitSaIS0_EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader
@@ -6275,8 +6276,7 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EEC2EmRKS1_.exit:    ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %19
 
 ._crit_edge:                                      ; preds = %52, %_ZNSt6vectorI9RTCRayHitSaIS0_EEC2EmRKS1_.exit
-  %.idx59 = mul nuw i64 %8, 96
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %.idx59) #43
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %.idx58) #43
   br label %_ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit:         ; preds = %_ZNSt6vectorI9RTCRayHitSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %._crit_edge
@@ -6342,7 +6342,6 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit:         ; preds = %_ZNSt6vectorI9RTCRa
 _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit36:       ; preds = %19
   %56 = landingpad { ptr, i32 }
           cleanup
-  %.idx58 = mul nuw i64 %8, 96
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %.idx58) #43
   resume { ptr, i32 } %56
 }
@@ -7042,7 +7041,8 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %2
 .noexc34:                                         ; preds = %_ZNSt6vectorI9RTCRayHitSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %10 = mul nuw nsw i64 %8, 96
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #45
-  %12 = getelementptr %struct.RTCRayHit, ptr %11, i64 %8
+  %.idx58 = mul nuw i64 %8, 96
+  %12 = getelementptr i8, ptr %11, i64 %.idx58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %11, i8 0, i64 96, i1 false)
   %13 = icmp eq i64 %8, 1
   br i1 %13, label %_ZNSt6vectorI9RTCRayHitSaIS0_EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader
@@ -7068,8 +7068,7 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EEC2EmRKS1_.exit:    ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %19
 
 ._crit_edge:                                      ; preds = %52, %_ZNSt6vectorI9RTCRayHitSaIS0_EEC2EmRKS1_.exit
-  %.idx59 = mul nuw i64 %8, 96
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %.idx59) #43
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %.idx58) #43
   br label %_ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit:         ; preds = %_ZNSt6vectorI9RTCRayHitSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %._crit_edge
@@ -7135,7 +7134,6 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit:         ; preds = %_ZNSt6vectorI9RTCRa
 _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit36:       ; preds = %19
   %56 = landingpad { ptr, i32 }
           cleanup
-  %.idx58 = mul nuw i64 %8, 96
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %.idx58) #43
   resume { ptr, i32 } %56
 }

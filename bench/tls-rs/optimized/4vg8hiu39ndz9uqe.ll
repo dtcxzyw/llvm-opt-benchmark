@@ -4586,11 +4586,12 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6re
 
 .loopexit.i.i:                                    ; preds = %55, %36
   %.pre-phi.i.i.i = phi i64 [ %30, %36 ], [ %50, %55 ]
-  %61 = getelementptr inbounds { { i8, [31 x i8] }, { { { i64, ptr }, i64, i64 }, { i64, [17 x i64] }, { i16, i16 }, [2 x i16] } }, ptr %12, i64 %.pre-phi.i.i.i
+  %.idx.i.i = mul nsw i64 %.pre-phi.i.i.i, 216
+  %61 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
-  %.idx.neg.i.i = mul i64 %.pre-phi.i.i.i, -216
-  %62 = sdiv exact i64 %.idx.neg.i.i, 216
+  %diff.neg.i.i = sub i64 0, %.idx.i.i
+  %62 = sdiv exact i64 %diff.neg.i.i, 216
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
   %63 = add nsw i64 %62, -16
   %64 = and i64 %63, %11
@@ -13525,13 +13526,13 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   %308 = and i16 %307, %.02236.i.i.i.i.i
   %309 = add i64 %.sroa.01.0.i.i.i.i.i.i, %306
   %310 = and i64 %309, %297
-  %311 = sub nsw i64 0, %310
-  %312 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5b794293e8eb3abbE.llvm.9964311202002838858"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1999028bedf5954d5357d45af324ffb9.22.llvm.9964311202002838858)
+  %311 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5b794293e8eb3abbE.llvm.9964311202002838858"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1999028bedf5954d5357d45af324ffb9.22.llvm.9964311202002838858)
           to label %.noexc54.i unwind label %.loopexit.i, !noalias !2517
 
 .noexc54.i:                                       ; preds = %.lr.ph.i.i.i.i.i
-  %gep.i.i.i.i.i = getelementptr { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, ptr %invariant.gep.i.i.i.i.i, i64 %311
-  %313 = extractvalue { ptr, i64 } %312, 1
+  %312 = sub nsw i64 0, %310
+  %gep.i.i.i.i.i = getelementptr { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, ptr %invariant.gep.i.i.i.i.i, i64 %312
+  %313 = extractvalue { ptr, i64 } %311, 1
   %314 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5b794293e8eb3abbE.llvm.9964311202002838858"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %gep.i.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1999028bedf5954d5357d45af324ffb9.22.llvm.9964311202002838858)
           to label %.noexc55.i unwind label %.loopexit.i, !noalias !2517
 
@@ -13542,7 +13543,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 
 316:                                              ; preds = %.noexc55.i
   %317 = extractvalue { ptr, i64 } %314, 0
-  %318 = extractvalue { ptr, i64 } %312, 0
+  %318 = extractvalue { ptr, i64 } %311, 0
   %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %318, ptr nonnull readonly align 1 %317, i64 %313), !alias.scope !2703, !noalias !2707
   %319 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %319, label %323, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h744e0e1ed72beb97E.exit.backedge.i.i.i.i.i"
@@ -13557,11 +13558,12 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   br label %299
 
 323:                                              ; preds = %316
-  %324 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, ptr %298, i64 %311
+  %.idx.i.i.i.i = mul i64 %310, -48
+  %324 = getelementptr inbounds i8, ptr %298, i64 %.idx.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2710)
   call void @llvm.experimental.noalias.scope.decl(metadata !2713)
-  %.idx.neg.i.i.i.i = mul i64 %310, 48
-  %325 = sdiv exact i64 %.idx.neg.i.i.i.i, 48
+  %diff.neg.i.i.i.i = sub i64 0, %.idx.i.i.i.i
+  %325 = sdiv exact i64 %diff.neg.i.i.i.i, 48
   call void @llvm.experimental.noalias.scope.decl(metadata !2716)
   %326 = add nsw i64 %325, -16
   %327 = and i64 %326, %297
@@ -14282,11 +14284,12 @@ common.resume:                                    ; preds = %.body, %32
   br label %74
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, ptr %73, i64 %86
+  %.idx.i.i.i.i = mul i64 %85, -48
+  %95 = getelementptr inbounds i8, ptr %73, i64 %.idx.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2931)
   call void @llvm.experimental.noalias.scope.decl(metadata !2934)
-  %.idx.neg.i.i.i.i = mul i64 %85, 48
-  %96 = sdiv exact i64 %.idx.neg.i.i.i.i, 48
+  %diff.neg.i.i.i.i = sub i64 0, %.idx.i.i.i.i
+  %96 = sdiv exact i64 %diff.neg.i.i.i.i, 48
   call void @llvm.experimental.noalias.scope.decl(metadata !2937)
   %97 = add nsw i64 %96, -16
   %98 = and i64 %97, %72
