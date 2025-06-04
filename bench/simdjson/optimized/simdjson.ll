@@ -3248,19 +3248,19 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_1
   %602 = add nuw nsw i64 %601, %499
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %602, i64 %312)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.41.0.lcssa.i, ptr nonnull align 16 %7, i64 %spec.select.i, i1 false)
-  %603 = getelementptr inbounds nuw i8, ptr %.sroa.41.0.lcssa.i, i64 %spec.select.i
+  %606 = getelementptr inbounds nuw i8, ptr %.sroa.41.0.lcssa.i, i64 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #45
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit: ; preds = %._crit_edge.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i
-  %.sroa.41.1.i = phi ptr [ %603, %_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.41.0.lcssa.i, %._crit_edge.i ]
+  %.sroa.41.1.i = phi ptr [ %606, %_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.41.0.lcssa.i, %._crit_edge.i ]
   %.sroa.32.1.i = phi i64 [ %388, %_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.32.0.lcssa.i, %._crit_edge.i ]
   %.not.i144.i = icmp eq i64 %.sroa.32.1.i, 0
   %..i.i = select i1 %.not.i144.i, i32 0, i32 15
-  %604 = ptrtoint ptr %.sroa.41.1.i to i64
-  %605 = ptrtoint ptr %3 to i64
-  %606 = sub i64 %604, %605
-  %storemerge.i.i = select i1 %.not.i144.i, i64 %606, i64 0
+  %607 = ptrtoint ptr %.sroa.41.1.i to i64
+  %608 = ptrtoint ptr %3 to i64
+  %609 = sub i64 %607, %608
+  %storemerge.i.i = select i1 %.not.i144.i, i64 %609, i64 0
   store i64 %storemerge.i.i, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   ret i32 %..i.i
@@ -13265,19 +13265,19 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_1
   %134 = add nuw nsw i64 %133, %128
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %134, i64 %76)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.41.0.lcssa.i, ptr nonnull align 16 %7, i64 %spec.select.i, i1 false)
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.41.0.lcssa.i, i64 %spec.select.i
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.41.0.lcssa.i, i64 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #45
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10error_codeEPKhmPhRm.exit: ; preds = %._crit_edge.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i
-  %.sroa.41.1.i = phi ptr [ %135, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.41.0.lcssa.i, %._crit_edge.i ]
+  %.sroa.41.1.i = phi ptr [ %138, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.41.0.lcssa.i, %._crit_edge.i ]
   %.sroa.32.1.i = phi i64 [ %121, %_ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit14.i ], [ %.sroa.32.0.lcssa.i, %._crit_edge.i ]
   %.not.i87.i = icmp eq i64 %.sroa.32.1.i, 0
   %..i.i = select i1 %.not.i87.i, i32 0, i32 15
-  %136 = ptrtoint ptr %.sroa.41.1.i to i64
-  %137 = ptrtoint ptr %3 to i64
-  %138 = sub i64 %136, %137
-  %storemerge.i.i = select i1 %.not.i87.i, i64 %138, i64 0
+  %139 = ptrtoint ptr %.sroa.41.1.i to i64
+  %140 = ptrtoint ptr %3 to i64
+  %141 = sub i64 %139, %140
+  %storemerge.i.i = select i1 %.not.i87.i, i64 %141, i64 0
   store i64 %storemerge.i.i, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   ret i32 %..i.i

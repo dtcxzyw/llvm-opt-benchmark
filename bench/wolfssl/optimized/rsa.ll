@@ -465,9 +465,9 @@ define i32 @wc_RsaPad_ex(ptr noundef readonly captures(address_is_null) %0, i32 
   %89 = getelementptr inbounds i8, ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %90, i8 0, i64 %87, i1 false)
-  %.neg34 = add i32 %78, 2
+  %.neg35 = add i32 %78, 2
   %91 = add i32 %56, %75
-  %92 = sub i32 %.neg34, %91
+  %92 = sub i32 %.neg35, %91
   %93 = zext i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr nonnull align 16 %16, i64 %59, i1 false)
@@ -545,8 +545,8 @@ RsaPad_OAEP.exit:                                 ; preds = %52, %55, %58, %61, 
 125:                                              ; preds = %123
   %126 = icmp eq i32 %12, 1024
   %127 = icmp eq i32 %1, 64
-  %or.cond.i31 = and i1 %127, %126
-  %spec.store.select.i = select i1 %or.cond.i31, i32 62, i32 %1
+  %or.cond.i32 = and i1 %127, %126
+  %spec.store.select.i = select i1 %or.cond.i32, i32 62, i32 %1
   br label %130
 
 128:                                              ; preds = %123
@@ -578,19 +578,19 @@ RsaPad_OAEP.exit:                                 ; preds = %52, %55, %58, %61, 
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 %144
   %146 = ptrtoint ptr %140 to i64
   %.not10.i = icmp eq i32 %.078.i, 0
-  br i1 %.not10.i, label %153, label %147
+  br i1 %.not10.i, label %153, label %149
 
-147:                                              ; preds = %142
-  %148 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %5, ptr noundef nonnull %145, i32 noundef %.078.i) #12
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %.thread7.i
+149:                                              ; preds = %142
+  %150 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %5, ptr noundef nonnull %145, i32 noundef %.078.i) #12
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %152, label %.thread7.i
 
-150:                                              ; preds = %147
-  %151 = zext nneg i32 %.078.i to i64
-  %152 = getelementptr inbounds nuw i8, ptr %145, i64 %151
+152:                                              ; preds = %149
+  %153 = zext nneg i32 %.078.i to i64
+  %154 = getelementptr inbounds nuw i8, ptr %145, i64 %153
   br label %153
 
-153:                                              ; preds = %150, %142
+153:; preds = %150, %142
   %.077.ph.i = phi ptr [ %145, %142 ], [ %152, %150 ]
   %154 = ptrtoint ptr %.077.ph.i to i64
   %155 = sub i64 %154, %146
@@ -634,8 +634,8 @@ RsaPad_OAEP.exit:                                 ; preds = %52, %55, %58, %61, 
   tail call fastcc void @xorbuf(ptr noundef %175, ptr noundef nonnull %180, i32 noundef %.078.i)
   br label %.thread7.i
 
-.thread7.i:                                       ; preds = %172, %161, %153, %147
-  %.29.i = phi i32 [ 0, %172 ], [ %164, %161 ], [ %159, %153 ], [ %148, %147 ]
+.thread7.i:                                       ; preds = %172, %161, %153, %149
+  %.29.i = phi i32 [ 0, %172 ], [ %164, %161 ], [ %159, %153 ], [ %150, %147 ]
   tail call void @wolfSSL_Free(ptr noundef nonnull %140) #12
   br label %RsaPad.exit
 

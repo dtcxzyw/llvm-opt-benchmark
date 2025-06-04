@@ -795,21 +795,21 @@ _ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit: ; preds = %_ZN11hb_vecto
   %.not35 = icmp samesign ult i64 %85, %.0.in.i.i
   br i1 %.not35, label %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread, label %95
 
-95:                                               ; preds = %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit
+95:; preds = %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit
   %.val.i = load i32, ptr %4, align 4, !tbaa !95
-  %96 = mul i32 %.val.i, -1640531535
-  %97 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE13set_with_hashIRKjRS2_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %96, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true)
+  %99 = mul i32 %.val.i, -1640531535
+  %100 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE13set_with_hashIRKjRS2_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %99, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true)
   br label %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread
 
 _ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread: ; preds = %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit29, %_ZNK5graph7graph_t16index_for_offsetEjPKv.exit, %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i16, ptr %36, align 1, !tbaa !48
-  %99 = call noundef i16 @llvm.bswap.i16(i16 %98)
-  %100 = zext i16 %99 to i64
-  %101 = icmp samesign ult i64 %indvars.iv.next, %100
-  br i1 %101, label %51, label %_ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_tE.exit.thread, !llvm.loop !96
+  %101 = load i16, ptr %36, align 1, !tbaa !48
+  %102 = call noundef i16 @llvm.bswap.i16(i16 %101)
+  %103 = zext i16 %102 to i64
+  %104 = icmp samesign ult i64 %indvars.iv.next, %103
+  br i1 %104, label %51, label %_ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_tE.exit.thread, !llvm.loop !96
 
 _ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_tE.exit.thread: ; preds = %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit, %_ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit, %_ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_tE.exit
   ret void

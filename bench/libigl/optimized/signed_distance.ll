@@ -15603,8 +15603,8 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exi
   %.069.i.i.i.i.i110 = phi <4 x float> [ %262, %261 ], [ %279, %276 ], [ %268, %._crit_edge.i.i.i.i.i117 ]
   %281 = shufflevector <4 x float> %.069.i.i.i.i.i110, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %282 = fadd <4 x float> %.069.i.i.i.i.i110, %281
-  %shift293 = shufflevector <4 x float> %282, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %283 = fadd <4 x float> %282, %shift293
+  %shift294 = shufflevector <4 x float> %282, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %283 = fadd <4 x float> %282, %shift294
   %284 = extractelement <4 x float> %283, i64 0
   %285 = icmp slt i64 %260, %254
   br i1 %285, label %.lr.ph82.i.i.i.i.i112, label %.loopexit

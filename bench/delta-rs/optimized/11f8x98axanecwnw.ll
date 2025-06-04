@@ -55570,7 +55570,7 @@ define internal fastcc void @"_ZN7parquet5arrow12async_reader16InMemoryRowGroup5
     i8 4, label %37
   ]
 
-default.unreachable430:                           ; preds = %3
+default.unreachable428:                           ; preds = %3
   unreachable
 
 23:                                               ; preds = %3
@@ -55598,16 +55598,16 @@ default.unreachable430:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val104.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert423 = getelementptr i8, ptr %1, i64 88
-  %.val105.pre = load ptr, ptr %.phi.trans.insert423, align 8
+  %.phi.trans.insert421 = getelementptr i8, ptr %1, i64 88
+  %.val105.pre = load ptr, ptr %.phi.trans.insert421, align 8
   br label %91
 
 37:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %.phi.trans.insert426 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val102.pre = load ptr, ptr %.phi.trans.insert426, align 8
-  %.phi.trans.insert428 = getelementptr i8, ptr %1, i64 64
-  %.val103.pre = load ptr, ptr %.phi.trans.insert428, align 8
+  %.phi.trans.insert424 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.val102.pre = load ptr, ptr %.phi.trans.insert424, align 8
+  %.phi.trans.insert426 = getelementptr i8, ptr %1, i64 64
+  %.val103.pre = load ptr, ptr %.phi.trans.insert426, align 8
   br label %230
 
 38:                                               ; preds = %228, %67, %40
@@ -55998,8 +55998,8 @@ common.ret:                                       ; preds = %268, %247, %108
   store i64 %160, ptr %15, align 8, !alias.scope !12240
   store ptr %161, ptr %132, align 8, !alias.scope !12240
   store i64 0, ptr %133, align 8, !alias.scope !12240
-  %.not402 = icmp eq i64 %.val113, 0
-  br i1 %.not402, label %._crit_edge, label %.lr.ph
+  %.not401 = icmp eq i64 %.val113, 0
+  br i1 %.not401, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %217, %159
   %162 = load ptr, ptr %124, align 8, !nonnull !4, !align !5, !noundef !4
@@ -56406,8 +56406,8 @@ common.ret:                                       ; preds = %268, %247, %108
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbd5404bd8b90c0eE.exit166": ; preds = %279
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 32
   store ptr %283, ptr %255, align 8, !alias.scope !12306, !noalias !12309
-  %.sroa.0476.0.copyload = load ptr, ptr %281, align 8, !noalias !12306
-  %.not41 = icmp eq ptr %.sroa.0476.0.copyload, null
+  %.sroa.0474.0.copyload = load ptr, ptr %281, align 8, !noalias !12306
+  %.not41 = icmp eq ptr %.sroa.0474.0.copyload, null
   br i1 %.not41, label %.backedge, label %284
 
 284:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbd5404bd8b90c0eE.exit166"

@@ -656,7 +656,7 @@ _.exit:                                           ; preds = %14, %17
   %.0.idx34 = phi i64 [ %.0.add, %30 ], [ %6, %20 ]
   %21 = load i8, ptr %.0.ptr35, align 1, !tbaa !14
   %.not27 = icmp eq i8 %21, 0
-  br i1 %.not27, label %.critedge.loopexit, label %22
+  br i1 %.not27, label %.critedge, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = zext i8 %21 to i64
@@ -677,10 +677,10 @@ _.exit:                                           ; preds = %14, %17
   %.0.add = add nuw nsw i64 %.0.idx34, 1
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add
   %.not = icmp eq i64 %.0.add, 4095
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !17
 
-.critedge.loopexit:                               ; preds = %30, %.lr.ph
-  %.0.idx.lcssa.ph = phi i64 [ %.0.idx34, %.lr.ph ], [ 4095, %30 ]
+.critedge:                                        ; preds = %30, %.lr.ph
+  %.0.ptr.lcssa = phi i64 [ %.0.idx34, %.lr.ph ], [ 4095, %30 ]
   %.0.ptr.lcssa.ph = phi ptr [ %.0.ptr35, %.lr.ph ], [ %.0.ptr, %30 ]
   %31 = add nuw i64 %.0.idx.lcssa.ph, 1
   br label %.critedge

@@ -28490,7 +28490,7 @@ _ZN6duckdb13ZSTDScanState19UseVectorStateCacheEmm.exit: ; preds = %8
 
 14:                                               ; preds = %_ZN6duckdb13ZSTDScanState19UseVectorStateCacheEmm.exit
   %15 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZNK6duckdb10unique_ptrINS_19ZSTDVectorScanStateESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br label %144
+  br label %146
 
 _ZN6duckdb13ZSTDScanState19UseVectorStateCacheEmm.exit.threadthread-pre-split: ; preds = %_ZN6duckdb13ZSTDScanState19UseVectorStateCacheEmm.exit, %8
   %.pr = load ptr, ptr %6, align 8, !tbaa !916
@@ -28728,30 +28728,30 @@ _ZN6duckdb10shared_ptrINS_11BlockHandleELb1EED2Ev.exit: ; preds = %_ZNSt6vectorI
   store ptr %128, ptr %123, align 8, !tbaa !1221
   %129 = getelementptr inbounds nuw i8, ptr %51, i64 104
   store ptr %128, ptr %129, align 8, !tbaa !1222
-  %130 = getelementptr inbounds nuw i8, ptr %51, i64 120
-  store i64 0, ptr %130, align 8, !tbaa !1223
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %132 = load ptr, ptr %131, align 8, !tbaa !1216
+  %131 = getelementptr inbounds nuw i8, ptr %51, i64 120
+  store i64 0, ptr %131, align 8, !tbaa !1223
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %132 = load ptr, ptr %132, align 8, !tbaa !1216
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 120
   %134 = call noundef i64 @_ZNK6duckdb12optional_idx8GetIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %133)
   %135 = add i64 %127, %121
   %reass.sub = sub i64 %134, %135
-  %136 = add i64 %reass.sub, -16
+  %137 = add i64 %reass.sub, -16
   %137 = getelementptr inbounds nuw i8, ptr %51, i64 112
   store i64 %136, ptr %137, align 8, !tbaa !1224
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %139 = load ptr, ptr %138, align 8, !tbaa !894
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %139 = load ptr, ptr %139, align 8, !tbaa !894
   %140 = call noundef i64 @_ZN11duckdb_zstd15ZSTD_DCtx_resetEPNS_11ZSTD_DCtx_sENS_19ZSTD_ResetDirectiveE(ptr noundef %139, i32 noundef 1)
   %141 = load ptr, ptr %138, align 8, !tbaa !894
   %142 = call noundef i64 @_ZN11duckdb_zstd18ZSTD_DCtx_refDDictEPNS_11ZSTD_DCtx_sEPKNS_12ZSTD_DDict_sE(ptr noundef %141, ptr noundef null)
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %144, label %143
+  br i1 %.not, label %146, label %145
 
-143:                                              ; preds = %116
+145:                                              ; preds = %116
   call void @_ZN6duckdb13ZSTDScanState4SkipERNS_19ZSTDVectorScanStateEm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(128) %51, i64 noundef %2)
-  br label %144
+  br label %146
 
-144:                                              ; preds = %116, %143, %14
+146:                                              ; preds = %116, %145, %14
   %.0 = phi ptr [ %15, %14 ], [ %51, %143 ], [ %51, %116 ]
   ret ptr %.0
 }

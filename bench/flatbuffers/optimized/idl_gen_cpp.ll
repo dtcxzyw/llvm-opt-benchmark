@@ -55725,12 +55725,12 @@ common.ret:                                       ; preds = %2
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %0, ptr %1)
   br label %common.ret17
 
-common.ret17:                                     ; preds = %7, %common.ret
+common.ret17:                                     ; preds = %8, %common.ret
   ret void
 
-7:                                                ; preds = %2
-  %8 = lshr exact i64 %5, 1
-  %.idx = and i64 %8, 4611686018427387840
+8:                                                ; preds = %2
+  %9 = lshr exact i64 %5, 1
+  %.idx = and i64 %9, 4611686018427387840
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %0, ptr %9)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %9, ptr %1)

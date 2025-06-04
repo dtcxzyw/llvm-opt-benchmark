@@ -1960,28 +1960,28 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %11
   %62 = icmp ult ptr %46, %61
   br i1 %62, label %63, label %65
 
-63:                                               ; preds = %59
+66:                                               ; preds = %59
   %64 = add nuw nsw i64 %41, 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.054.0, ptr noundef nonnull align 1 dereferenceable(1) %46, i64 %64, i1 false)
   %.pre83 = load i64, ptr %3, align 8, !tbaa !46
-  br label %65
+  br label %._crit_edge
 
-65:                                               ; preds = %63, %59
-  %66 = phi i64 [ %.pre83, %63 ], [ %60, %59 ]
-  %67 = sub i64 %66, %41
-  %68 = add i64 %67, -6
+._crit_edge:                                      ; preds = %63, %59
+  %67 = phi i64 [ %.pre83, %63 ], [ %60, %59 ]
+  %reass.sub = sub i64 %67, %41
+  %68 = add i64 %reass.sub, -6
   %69 = lshr i64 %68, 8
   %70 = trunc i64 %69 to i8
   store i8 %70, ptr %2, align 1, !tbaa !56
   %71 = trunc i64 %68 to i8
   store i8 %71, ptr %15, align 1, !tbaa !56
-  %72 = add i64 %67, -4
+  %72 = add i64 %reass.sub, -4
   store i64 %72, ptr %3, align 8, !tbaa !46
   %73 = add nuw nsw i64 %41, 8
   %74 = icmp ugt i64 %73, %9
   br i1 %74, label %PACKET_buf_init.exit.thread, label %75
 
-75:                                               ; preds = %65
+75:; preds = %65
   %76 = sub nuw i64 %9, %73
   %77 = add nuw i64 %76, 4
   %78 = load i64, ptr %8, align 8, !tbaa !81
@@ -2021,7 +2021,7 @@ qtest_fault_resize_message.exit:                  ; preds = %82, %84
   store i8 %98, ptr %100, align 1, !tbaa !56
   br label %PACKET_buf_init.exit.thread
 
-PACKET_buf_init.exit.thread:                      ; preds = %33, %23, %21, %11, %5, %qtest_fault_resize_message.exit, %75, %65, %49, %55
+PACKET_buf_init.exit.thread:                      ; preds = %33, %23, %21, %11, %5, %qtest_fault_resize_message.exit, %75, %._crit_edge, %49, %55
   %.0 = phi i32 [ 0, %55 ], [ 0, %49 ], [ 0, %65 ], [ 1, %qtest_fault_resize_message.exit ], [ 0, %75 ], [ 0, %5 ], [ 0, %11 ], [ 0, %21 ], [ 0, %23 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10

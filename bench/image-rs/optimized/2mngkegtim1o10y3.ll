@@ -29292,7 +29292,7 @@ _ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.
 _ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit.thread", %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit"
   %30 = phi ptr [ %22, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.i ], [ %22, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit" ], [ %15, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit.thread" ]
   %31 = phi ptr [ %21, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.i ], [ %21, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit" ], [ %14, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit.thread" ]
-  %.sink3.i.i7 = phi ptr [ %18, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.i ], [ %18, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit" ], [ %13, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit.thread" ]
+  %.sink3.i.i6 = phi ptr [ %18, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.i ], [ %18, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit" ], [ %13, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit.thread" ]
   %32 = phi i64 [ %.pre.i.i.i, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.i ], [ 0, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit" ], [ 0, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit.thread" ]
   %33 = phi i64 [ %.pre102.i.i.i, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.i.i ], [ 0, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit" ], [ 0, %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17hbe53beaa673c3291E.exit.thread" ]
   %34 = icmp eq i64 %33, 0
@@ -29312,7 +29312,7 @@ _ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.th
 "_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hdbe5d751f366d644E.llvm.15361875792781664197.exit.i.i.i": ; preds = %36, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i
   %41 = phi ptr [ %22, %36 ], [ %30, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i ]
   %42 = phi ptr [ %21, %36 ], [ %31, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i ]
-  %.sink3.i.i6 = phi ptr [ %18, %36 ], [ %.sink3.i.i7, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i ]
+  %.sink3.i.i5 = phi ptr [ %18, %36 ], [ %.sink3.i.i6, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i ]
   %43 = phi i64 [ %.pre103.i.i.i, %36 ], [ %32, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i ]
   %.sink3.i.i.i.i = phi ptr [ %39, %36 ], [ %35, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i ]
   %.sink2.i.i.i.i = phi ptr [ %40, %36 ], [ %30, %_ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.thread.i.i ]
@@ -29330,7 +29330,7 @@ _ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.th
 
 ._crit_edge.i.i.i:                                ; preds = %126, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hdbe5d751f366d644E.llvm.15361875792781664197.exit.i.i.i"
   %.sroa.7.0.lcssa.i.i.i = phi i64 [ %43, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hdbe5d751f366d644E.llvm.15361875792781664197.exit.i.i.i" ], [ %.sink.i.i.i.i, %126 ]
-  %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sink3.i.i6, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hdbe5d751f366d644E.llvm.15361875792781664197.exit.i.i.i" ], [ %53, %126 ]
+  %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sink3.i.i5, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hdbe5d751f366d644E.llvm.15361875792781664197.exit.i.i.i" ], [ %53, %126 ]
   store i64 %.sroa.7.0.lcssa.i.i.i, ptr %.sink2.i.i.i.i, align 8, !alias.scope !3757, !noalias !3755
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.756.i.i.i)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.1161.i.i.i)
@@ -29351,7 +29351,7 @@ _ZN8smallvec10infallible17h453760a7cfc0967cE.llvm.15361875792781664197.exit.i.th
   br label %72
 
 50:                                               ; preds = %126, %.lr.ph.i.i.i
-  %.sroa.0.093.i.i.i = phi ptr [ %.sink3.i.i6, %.lr.ph.i.i.i ], [ %53, %126 ]
+  %.sroa.0.093.i.i.i = phi ptr [ %.sink3.i.i5, %.lr.ph.i.i.i ], [ %53, %126 ]
   %.sroa.7.092.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i ], [ %136, %126 ]
   %51 = icmp eq ptr %.sroa.0.093.i.i.i, %42
   br i1 %51, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h314996fa17a15a40E.exit.thread.i.i.i", label %52

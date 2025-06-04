@@ -974,7 +974,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder16parseColorMatrixEv(ptr noundef no
   br i1 %exitcond.not.i.i, label %_ZNK8rawspeed9TiffEntry17getSRationalArrayEj.exit, label %25, !llvm.loop !158
 
 common.resume:                                    ; preds = %.loopexit, %.loopexit.split-lp, %55, %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EED2Ev.exit.i.i
-  %common.resume.op = phi { ptr, i32 } [ %30, %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EED2Ev.exit.i.i ], [ %56, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sink = phi { ptr, i32 } [ %30, %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EED2Ev.exit.i.i ], [ %56, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %18) #32
   resume { ptr, i32 } %common.resume.op
 
@@ -5948,8 +5948,8 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeMaskedAreasEP
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %12
   br i1 %exitcond.not.i.i, label %.lr.ph.preheader, label %17, !llvm.loop !140
 
-common.resume:                                    ; preds = %48, %.loopexit.split-lp, %.loopexit, %.loopexit.split-lp103, %.loopexit102, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i ], [ %49, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit104, %.loopexit102 ], [ %lpad.loopexit.split-lp105, %.loopexit.split-lp103 ]
+common.resume:                                    ; preds = %48, %.loopexit.split-lp, %.loopexit, %.loopexit.split-lp104, %.loopexit103, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i
+  %common.resume.op = phi { ptr, i32 } [ %22, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i ], [ %49, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit105, %.loopexit102 ], [ %lpad.loopexit.split-lp106, %.loopexit.split-lp103 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %13) #32
   resume { ptr, i32 } %common.resume.op
 
@@ -5969,18 +5969,18 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i.i:                ; preds = %17
   %.sroa.0.0.extract.trunc = trunc i64 %26 to i32
   %.sroa.6.0.extract.shift = lshr i64 %26, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
-  %invariant.gep108 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %invariant.gep110 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %invariant.gep109 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %invariant.gep111 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12emplace_backIJRiibEEERS1_DpOT_.exit
   %.pre = load ptr, ptr %23, align 8, !tbaa !73
-  %.phi.trans.insert116 = getelementptr inbounds nuw i8, ptr %.pre, i64 176
-  %.pre117 = load ptr, ptr %.phi.trans.insert116, align 8, !tbaa !305
+  %.phi.trans.insert117 = getelementptr inbounds nuw i8, ptr %.pre, i64 176
+  %.pre118 = load ptr, ptr %.phi.trans.insert117, align 8, !tbaa !305
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 168
-  %.pre115 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !305
-  %27 = icmp ne ptr %.pre115, %.pre117
+  %.pre116 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !305
+  %27 = icmp ne ptr %.pre116, %.pre118
   tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %13) #32
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
@@ -5991,10 +5991,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i.i:                ; preds = %17
   %29 = load i32, ptr %gep, align 4, !tbaa !139
   %30 = getelementptr inbounds nuw i32, ptr %14, i64 %28
   %31 = load i32, ptr %30, align 4, !tbaa !139
-  %gep109 = getelementptr inbounds nuw i32, ptr %invariant.gep108, i64 %28
-  %32 = load i32, ptr %gep109, align 4, !tbaa !139
-  %gep111 = getelementptr inbounds nuw i32, ptr %invariant.gep110, i64 %28
-  %33 = load i32, ptr %gep111, align 4, !tbaa !139
+  %gep110 = getelementptr inbounds nuw i32, ptr %invariant.gep109, i64 %28
+  %32 = load i32, ptr %gep110, align 4, !tbaa !139
+  %gep112 = getelementptr inbounds nuw i32, ptr %invariant.gep111, i64 %28
+  %33 = load i32, ptr %gep112, align 4, !tbaa !139
   %.not.i.i = icmp sgt i32 %29, -1
   %34 = icmp sgt i32 %31, -1
   %35 = select i1 %.not.i.i, i1 %34, i1 false
@@ -6184,7 +6184,7 @@ _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE17_M_realloc_insertIJRiibEEEvN9__gnu_c
 
 112:                                              ; preds = %106
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.48) #30
-          to label %.noexc57 unwind label %.loopexit.split-lp103
+          to label %.noexc57 unwind label %.loopexit.split-lp104
 
 .noexc57:                                         ; preds = %112
   unreachable
@@ -6200,7 +6200,7 @@ _ZNKSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12_M_check_lenEmPKc.exit.i.i45: ; pre
   tail call void @llvm.assume(i1 %.not.i.i.i47)
   %118 = mul nuw nsw i64 %117, 12
   %119 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %118) #31
-          to label %.noexc58 unwind label %.loopexit102
+          to label %.noexc58 unwind label %.loopexit103
 
 .noexc58:                                         ; preds = %_ZNKSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12_M_check_lenEmPKc.exit.i.i45
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 %110
@@ -6238,13 +6238,13 @@ _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE17_M_realloc_insertIJRiibEEEvN9__gnu_c
   store ptr %127, ptr %100, align 8, !tbaa !306
   br label %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12emplace_backIJRiibEEERS1_DpOT_.exit
 
-.loopexit102:                                     ; preds = %_ZNKSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12_M_check_lenEmPKc.exit.i.i45
-  %lpad.loopexit104 = landingpad { ptr, i32 }
+.loopexit103:                                     ; preds = %_ZNKSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12_M_check_lenEmPKc.exit.i.i45
+  %lpad.loopexit105 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-.loopexit.split-lp103:                            ; preds = %112
-  %lpad.loopexit.split-lp105 = landingpad { ptr, i32 }
+.loopexit.split-lp104:                            ; preds = %112
+  %lpad.loopexit.split-lp106 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 

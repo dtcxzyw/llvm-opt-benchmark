@@ -5050,8 +5050,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %6 = load ptr, ptr %errors_.i.i, align 8
   %_M_finish.i8.i = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %_M_finish.i8.i, align 8
-  %cmp.i.not21.i = icmp eq ptr %6, %7
-  br i1 %cmp.i.not21.i, label %for.end.i, label %for.body.lr.ph.i
+  %cmp.i.not22.i = icmp eq ptr %6, %7
+  br i1 %cmp.i.not22.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
   %args_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5059,7 +5059,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorINSt7__
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.i, %for.body.lr.ph.i
-  %__begin1.sroa.0.022.i = phi ptr [ %6, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.i ]
+  %__begin1.sroa.0.023.i = phi ptr [ %6, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.i ]
   %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %9 = load ptr, ptr %args_.i.i, align 8
   %cmp.not.i.i.not.i = icmp eq ptr %8, %9
@@ -5071,8 +5071,8 @@ if.then.i.i.i:                                    ; preds = %for.body.i
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.i: ; preds = %for.body.i
   %10 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %10, ptr noundef nonnull @.str.189, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.022.i) #26
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.022.i, i64 32
+  call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %10, ptr noundef nonnull @.str.189, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.023.i) #26
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.023.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 

@@ -167,7 +167,7 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_14UniqueInstance5Val
 18:                                               ; preds = %13
   %19 = load i8, ptr %.val, align 1, !tbaa !23
   %.not.i.i = icmp eq i8 %19, 42
-  br i1 %.not.i.i, label %.loopexit95.invoke, label %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit
+  br i1 %.not.i.i, label %.loopexit94.invoke, label %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit
 
 _ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit: ; preds = %18
   %20 = load i8, ptr %.val25, align 1, !tbaa !23
@@ -176,7 +176,7 @@ _ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit: ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.val25, i64 %.idx.i.i.i
   %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull readonly dereferenceable(1) %22) #28
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread, label %.loopexit95.invoke
+  br i1 %24, label %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread, label %.loopexit94.invoke
 
 _ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread: ; preds = %13, %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit
   %.sroa.184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -217,7 +217,7 @@ _ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread: ; preds = %1
 35:                                               ; preds = %.lr.ph.i.i.i.i
   %36 = load i8, ptr %.val.i.i.i.i, align 1, !tbaa !23
   %.not.i.i.i.i.i.i.i = icmp eq i8 %36, 42
-  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit95.invoke, label %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit94.invoke, label %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.i.i.i.i"
 
 "_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.i.i.i.i": ; preds = %35
   %37 = load i8, ptr %.val9.i.i.i.i, align 1, !tbaa !23
@@ -226,7 +226,7 @@ _ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread: ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %.val9.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i
   %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %39) #28
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.thread.i.i.i.i", label %.loopexit95.invoke
+  br i1 %41, label %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.thread.i.i.i.i", label %.loopexit94.invoke
 
 "_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.i.i.i.i", %.lr.ph.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i.i, i64 8
@@ -234,11 +234,11 @@ _ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread: ; preds = %1
   %.not.i.i.i.i = icmp eq ptr %42, %26
   br i1 %.not.i.i.i.i, label %_ZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !24
 
-.loopexit95.invoke:                               ; preds = %35, %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.i.i.i.i", %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread, %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit, %18
+.loopexit94.invoke:                               ; preds = %35, %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.i.i.i.i", %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread, %_ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit, %18
   invoke void @_ZN5folly6detail16throw_exception_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str) #13
           to label %.loopexit95.cont unwind label %85
 
-.loopexit95.cont:                                 ; preds = %.loopexit95.invoke
+.loopexit94.cont:                                 ; preds = %.loopexit94.invoke
   unreachable
 
 _ZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_.exit: ; preds = %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.thread.i.i.i.i", %29
@@ -368,7 +368,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 _ZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_.exit52: ; preds = %"_ZZN5folly6detail12_GLOBAL__N_15equalENS1_8PtrRangeES2_ENK3$_0clIPKSt9type_infoS7_EEDaT_T0_.exit.thread.i.i.i.i50", %46, %12
   ret void
 
-85:                                               ; preds = %.loopexit95.invoke, %78, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit64, %71, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit, %63, %61, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.loopexit
+85:                                               ; preds = %.loopexit94.invoke, %78, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit64, %71, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit, %63, %61, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.loopexit
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0

@@ -60925,7 +60925,7 @@ define linkonce_odr hidden void @_ZZN8pybind116detail16vector_modifiersISt6vecto
 _ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS6_EENS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit: ; preds = %4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #35
   %.idx = mul nuw nsw i64 %spec.select.i, 136
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d9pipelines12registration13PoseGraphNodeE, i64 16), ptr %5, align 8, !tbaa !537
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -60935,72 +60935,72 @@ _ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registratio
   %.not.i.i = icmp eq ptr %25, %7
   br i1 %.not.i.i, label %59, label %26
 
-26:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS6_EENS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %9, %27
-  %29 = icmp sgt i64 %28, 0
-  br i1 %29, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %59
+25:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS6_EENS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit
+  %26 = ptrtoint ptr %25 to i64
+  %27 = sub i64 %9, %26
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %58
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %26
-  %30 = udiv exact i64 %28, 136
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %25
+  %29 = udiv exact i64 %27, 136
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %57, %.lr.ph.i.i.i.i.i.i.i ], [ %30, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i.i.i ], [ %24, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i.i.i ], [ %25, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %33 = load <2 x double>, ptr %32, align 1, !tbaa !132
-  store <2 x double> %33, ptr %31, align 1, !tbaa !132
-  %34 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 24
-  %36 = load <2 x double>, ptr %35, align 1, !tbaa !132
-  store <2 x double> %36, ptr %34, align 1, !tbaa !132
-  %37 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 40
-  %38 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 40
-  %39 = load <2 x double>, ptr %38, align 1, !tbaa !132
-  store <2 x double> %39, ptr %37, align 1, !tbaa !132
-  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
-  %41 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
-  %42 = load <2 x double>, ptr %41, align 1, !tbaa !132
-  store <2 x double> %42, ptr %40, align 1, !tbaa !132
-  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 72
-  %44 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 72
-  %45 = load <2 x double>, ptr %44, align 1, !tbaa !132
-  store <2 x double> %45, ptr %43, align 1, !tbaa !132
-  %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 88
-  %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 88
-  %48 = load <2 x double>, ptr %47, align 1, !tbaa !132
-  store <2 x double> %48, ptr %46, align 1, !tbaa !132
-  %49 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 104
-  %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 104
-  %51 = load <2 x double>, ptr %50, align 1, !tbaa !132
-  store <2 x double> %51, ptr %49, align 1, !tbaa !132
-  %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 120
-  %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 120
-  %54 = load <2 x double>, ptr %53, align 1, !tbaa !132
-  store <2 x double> %54, ptr %52, align 1, !tbaa !132
-  %55 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 136
-  %56 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 136
-  %57 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %58, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6open3d9pipelines12registration13PoseGraphNodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.loopexit.i.i, !llvm.loop !1962
+  %.012.i.i.i.i.i.i.i = phi i64 [ %56, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i.i.i ], [ %24, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0910.i.i.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i.i ], [ %25, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
+  %32 = load <2 x double>, ptr %31, align 1, !tbaa !132
+  store <2 x double> %32, ptr %30, align 1, !tbaa !132
+  %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 24
+  %35 = load <2 x double>, ptr %34, align 1, !tbaa !132
+  store <2 x double> %35, ptr %33, align 1, !tbaa !132
+  %36 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 40
+  %38 = load <2 x double>, ptr %37, align 1, !tbaa !132
+  store <2 x double> %38, ptr %36, align 1, !tbaa !132
+  %39 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
+  %41 = load <2 x double>, ptr %40, align 1, !tbaa !132
+  store <2 x double> %41, ptr %39, align 1, !tbaa !132
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 72
+  %44 = load <2 x double>, ptr %43, align 1, !tbaa !132
+  store <2 x double> %44, ptr %42, align 1, !tbaa !132
+  %45 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 88
+  %47 = load <2 x double>, ptr %46, align 1, !tbaa !132
+  store <2 x double> %47, ptr %45, align 1, !tbaa !132
+  %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 104
+  %50 = load <2 x double>, ptr %49, align 1, !tbaa !132
+  store <2 x double> %50, ptr %48, align 1, !tbaa !132
+  %51 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 120
+  %53 = load <2 x double>, ptr %52, align 1, !tbaa !132
+  store <2 x double> %53, ptr %51, align 1, !tbaa !132
+  %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 136
+  %56 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %57, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6open3d9pipelines12registration13PoseGraphNodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.loopexit.i.i, !llvm.loop !1962
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6open3d9pipelines12registration13PoseGraphNodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !1668
-  br label %59
+  br label %58
 
-59:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS6_EENS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit, %26, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6open3d9pipelines12registration13PoseGraphNodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.loopexit.i.i
-  %60 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6open3d9pipelines12registration13PoseGraphNodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.loopexit.i.i ], [ %7, %26 ], [ %7, %_ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS6_EENS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 -136
-  store ptr %61, ptr %6, align 8, !tbaa !1668
-  %62 = load ptr, ptr %61, align 8, !tbaa !537
-  %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(136) %61) #35
+58:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS6_EENS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit, %25, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6open3d9pipelines12registration13PoseGraphNodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.loopexit.i.i
+  %59 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6open3d9pipelines12registration13PoseGraphNodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.loopexit.i.i ], [ %7, %26 ], [ %7, %_ZZN8pybind116detail16vector_modifiersISt6vectorIN6open3d9pipelines12registration13PoseGraphNodeESaIS6_EENS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit ]
+  %60 = getelementptr inbounds i8, ptr %59, i64 -136
+  store ptr %60, ptr %6, align 8, !tbaa !1668
+  %61 = load ptr, ptr %60, align 8, !tbaa !537
+  %62 = load ptr, ptr %61, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(136) %60) #35
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d9pipelines12registration13PoseGraphNodeE, i64 16), ptr %0, align 8, !tbaa !537
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %64, ptr noundef nonnull align 8 dereferenceable(128) %22, i64 128, i1 false), !tbaa.struct !1734
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %63, ptr noundef nonnull align 8 dereferenceable(128) %22, i64 128, i1 false), !tbaa.struct !1734
   call void @_ZN6open3d9pipelines12registration13PoseGraphNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %5) #35
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #35
   ret void

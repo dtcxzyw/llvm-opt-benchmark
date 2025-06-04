@@ -197,10 +197,10 @@ _ZNSt12_Vector_baseIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightEL
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %._crit_edge
   %31 = phi i32 [ %9, %.lr.ph121.preheader ], [ %41, %._crit_edge ]
   %32 = phi ptr [ %24, %.lr.ph121.preheader ], [ %42, %._crit_edge ]
-  %indvars.iv160 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next161, %._crit_edge ]
+  %indvars.iv158 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next159, %._crit_edge ]
   %.0118 = phi i64 [ 0, %.lr.ph121.preheader ], [ %.1.lcssa, %._crit_edge ]
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv160
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv158
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1028
   %37 = load i32, ptr %36, align 4
@@ -209,21 +209,21 @@ _ZNSt12_Vector_baseIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightEL
 
 .lr.ph:                                           ; preds = %.lr.ph121
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 1048
-  %39 = trunc nuw i64 %indvars.iv160 to i32
-  %40 = trunc nuw i64 %indvars.iv160 to i32
+  %39 = trunc nuw i64 %indvars.iv158 to i32
+  %40 = trunc nuw i64 %indvars.iv158 to i32
   br label %45
 
 ._crit_edge.loopexit:                             ; preds = %89
-  %.pre166 = load i32, ptr %8, align 8
+  %.pre164 = load i32, ptr %8, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph121
-  %41 = phi i32 [ %31, %.lr.ph121 ], [ %.pre166, %._crit_edge.loopexit ]
+  %41 = phi i32 [ %31, %.lr.ph121 ], [ %.pre164, %._crit_edge.loopexit ]
   %42 = phi ptr [ %32, %.lr.ph121 ], [ %91, %._crit_edge.loopexit ]
   %.1.lcssa = phi i64 [ %.0118, %.lr.ph121 ], [ %.2, %._crit_edge.loopexit ]
-  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %43 = zext i32 %41 to i64
-  %44 = icmp samesign ult i64 %indvars.iv.next161, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next159, %43
   br i1 %44, label %.lr.ph121, label %._crit_edge122, !llvm.loop !6
 
 45:                                               ; preds = %.lr.ph, %89
@@ -339,14 +339,14 @@ _ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE9push_backERKS2
   br i1 %.not109136, label %.preheader110, label %.lr.ph139
 
 .preheader110.loopexit:                           ; preds = %.loopexit
-  %.pre169 = load i32, ptr %8, align 8
+  %.pre167 = load i32, ptr %8, align 8
   br label %.preheader110
 
 .preheader110:                                    ; preds = %.preheader110.loopexit, %96
   %97 = phi ptr [ %147, %.preheader110.loopexit ], [ %25, %96 ]
-  %98 = phi i32 [ %.pre169, %.preheader110.loopexit ], [ %41, %96 ]
-  %.not153 = icmp eq i32 %98, 0
-  br i1 %.not153, label %.preheader, label %.lr.ph141
+  %98 = phi i32 [ %.pre167, %.preheader110.loopexit ], [ %41, %96 ]
+  %.not152 = icmp eq i32 %98, 0
+  br i1 %.not152, label %.preheader, label %.lr.ph141
 
 .lr.ph139:                                        ; preds = %96, %.loopexit
   %99 = phi i32 [ %146, %.loopexit ], [ 0, %96 ]
@@ -384,7 +384,7 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit: ; preds = %.no
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.086.0137, i64 16
   %116 = load i64, ptr %115, align 8
   %117 = icmp ult i64 %116, %114
-  %.pre168 = load ptr, ptr %.sroa.086.0137, align 8
+  %.pre166 = load ptr, ptr %.sroa.086.0137, align 8
   br i1 %117, label %.loopexit.i.i, label %125
 
 .loopexit.i.i:                                    ; preds = %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit
@@ -396,22 +396,22 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit: ; preds = %.no
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %119, i8 0, i64 %118, i1 false)
   %120 = load i64, ptr %100, align 8
   %121 = shl i64 %120, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr align 4 %.pre168, i64 %121, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr align 4 %.pre166, i64 %121, i1 false)
   store ptr %119, ptr %.sroa.086.0137, align 8
   store i64 %114, ptr %115, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.086.0137, i64 24
-  %.not.i.i79 = icmp eq ptr %.pre168, %122
-  %123 = icmp eq ptr %.pre168, null
+  %.not.i.i79 = icmp eq ptr %.pre166, %122
+  %123 = icmp eq ptr %.pre166, null
   %or.cond.i.i = or i1 %.not.i.i79, %123
   br i1 %or.cond.i.i, label %125, label %124
 
 124:                                              ; preds = %.noexc80
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre168) #18
-  %.pre167 = load ptr, ptr %.sroa.086.0137, align 8
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre166) #18
+  %.pre165 = load ptr, ptr %.sroa.086.0137, align 8
   br label %125
 
 125:                                              ; preds = %124, %.noexc80, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit
-  %126 = phi ptr [ %.pre167, %124 ], [ %119, %.noexc80 ], [ %.pre168, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit ]
+  %126 = phi ptr [ %.pre165, %124 ], [ %119, %.noexc80 ], [ %.pre166, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit ]
   store i64 %114, ptr %100, align 8
   %127 = trunc i64 %112 to i32
   %128 = sub i32 %127, %113
@@ -466,8 +466,8 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit: ; preds = %.no
 
 .preheader:                                       ; preds = %.lr.ph141, %.preheader110
   %149 = load ptr, ptr %3, align 8
-  %.not154 = icmp eq ptr %97, %149
-  br i1 %.not154, label %._crit_edge149, label %.lr.ph148.preheader
+  %.not153 = icmp eq ptr %97, %149
+  br i1 %.not153, label %._crit_edge149, label %.lr.ph148.preheader
 
 .lr.ph148.preheader:                              ; preds = %.preheader
   %150 = ptrtoint ptr %97 to i64
@@ -477,16 +477,16 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit: ; preds = %.no
   br label %.lr.ph148
 
 .lr.ph141:                                        ; preds = %.preheader110, %.lr.ph141
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph141 ], [ 0, %.preheader110 ]
+  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.lr.ph141 ], [ 0, %.preheader110 ]
   %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv163
+  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv161
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 1028
   store i32 0, ptr %157, align 4
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %158 = load i32, ptr %8, align 8
   %159 = zext i32 %158 to i64
-  %160 = icmp samesign ult i64 %indvars.iv.next164, %159
+  %160 = icmp samesign ult i64 %indvars.iv.next162, %159
   br i1 %160, label %.lr.ph141, label %.preheader, !llvm.loop !11
 
 ._crit_edge149:                                   ; preds = %._crit_edge146, %.preheader

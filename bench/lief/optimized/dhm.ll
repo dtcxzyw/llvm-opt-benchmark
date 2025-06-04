@@ -294,12 +294,12 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
 
 39:                                               ; preds = %24, %16, %8, %6
   %.0 = phi i32 [ %7, %6 ], [ %15, %8 ], [ %23, %16 ], [ %31, %24 ]
-  %40 = icmp sgt i32 %.0, -128
-  %41 = add nsw i32 %.0, -12672
-  %spec.select = select i1 %40, i32 %41, i32 %.0
-  br label %42
+  %41 = icmp sgt i32 %.0, -128
+  %42 = add nsw i32 %.0, -12672
+  %spec.select = select i1 %41, i32 %42, i32 %.0
+  br label %43
 
-42:                                               ; preds = %39, %.thread
+43:                                               ; preds = %39, %.thread
   %.1 = phi i32 [ 0, %.thread ], [ %spec.select, %39 ]
   ret i32 %.1
 }

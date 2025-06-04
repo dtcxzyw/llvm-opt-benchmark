@@ -2799,7 +2799,7 @@ define internal fastcc noundef ptr @_ZL27dot_concat_and_free_stringsPcS_(ptr nou
   %.not = icmp ult ptr %11, %8
   br i1 %.not, label %12, label %.critedge, !prof !28
 
-12:                                               ; preds = %2
+14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #30
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.1, i32 noundef 224, i64 17, ptr nonnull @.str.24) #32
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #34

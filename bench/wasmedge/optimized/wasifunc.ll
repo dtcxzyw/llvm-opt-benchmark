@@ -2951,66 +2951,66 @@ define internal fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBu
   %4 = icmp slt i64 %3, 0
   br i1 %4, label %5, label %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
 
-5:                                                ; preds = %0
+6:                                                ; preds = %0
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #20
-          to label %.noexc unwind label %21
+          to label %.noexc unwind label %22
 
-.noexc:                                           ; preds = %5
+.noexc:                                           ; preds = %6
   unreachable
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %0
   %.not.i.i.i.i = icmp eq ptr %.8.val, %.0.val
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %6
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %7
 
-6:                                                ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
+7:                                                ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = lshr exact i64 %3, 3
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #21
-          to label %.noexc8 unwind label %21
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #21
+          to label %.noexc8 unwind label %22
 
-.noexc8:                                          ; preds = %6
+.noexc8:                                          ; preds = %7
   %.idx = lshr exact i64 %3, 3
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %9, align 4
   %9 = getelementptr i8, ptr %8, i64 4
   %10 = icmp eq i64 %3, 32
   br i1 %10, label %.lr.ph.i.preheader, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc8
-  %11 = getelementptr i8, ptr %8, i64 %.idx
-  %12 = add nsw i64 %7, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %12, i1 false)
+  %12 = getelementptr i8, ptr %9, i64 %.idx
+  %13 = add nsw i64 %7, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %13, i1 false)
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc8
-  %.0.i.i.i.i.i.ph = phi ptr [ %11, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc8 ]
+  %.0.i.i.i.i.i.ph = phi ptr [ %12, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc8 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.0.08.i = phi ptr [ %17, %.lr.ph.i ], [ %8, %.lr.ph.i.preheader ]
-  %.sroa.03.07.i = phi ptr [ %16, %.lr.ph.i ], [ %.0.val, %.lr.ph.i.preheader ]
-  %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.07.i) #19
-  %14 = trunc i64 %13 to i32
-  %15 = add i32 %14, 1
-  store i32 %15, ptr %.sroa.0.08.i, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 4
-  %.not.i = icmp eq ptr %16, %.8.val
+  %.sroa.0.08.i = phi ptr [ %18, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %.sroa.03.07.i = phi ptr [ %17, %.lr.ph.i ], [ %.0.val, %.lr.ph.i.preheader ]
+  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.07.i) #19
+  %15 = trunc i64 %14 to i32
+  %16 = add i32 %15, 1
+  store i32 %16, ptr %.sroa.0.08.i, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 4
+  %.not.i = icmp eq ptr %17, %.8.val
   br i1 %.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit: ; preds = %.lr.ph.i
-  %.not5.i = icmp eq ptr %8, %.0.i.i.i.i.i.ph
+  %.not5.i = icmp eq ptr %9, %.0.i.i.i.i.i.ph
   br i1 %.not5.i, label %.loopexit, label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit, %.lr.ph.i9
-  %.07.i = phi i32 [ %19, %.lr.ph.i9 ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit ]
-  %.sroa.02.06.i = phi ptr [ %20, %.lr.ph.i9 ], [ %8, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit ]
-  %18 = load i32, ptr %.sroa.02.06.i, align 4
-  %19 = add i32 %18, %.07.i
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
-  %.not.i10 = icmp eq ptr %20, %.0.i.i.i.i.i.ph
+  %.07.i = phi i32 [ %20, %.lr.ph.i9 ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit ]
+  %.sroa.02.06.i = phi ptr [ %21, %.lr.ph.i9 ], [ %9, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit ]
+  %19 = load i32, ptr %.sroa.02.06.i, align 4
+  %20 = add i32 %19, %.07.i
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
+  %.not.i10 = icmp eq ptr %21, %.0.i.i.i.i.i.ph
   br i1 %.not.i10, label %.loopexit, label %.lr.ph.i9, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph.i9, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit
-  %.0.lcssa.i.ph = phi i32 [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit ], [ %19, %.lr.ph.i9 ]
+  %.0.lcssa.i.ph = phi i32 [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit ], [ %20, %.lr.ph.i9 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %.idx) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
@@ -3018,11 +3018,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjE
   %.0.lcssa.i28 = phi i32 [ %.0.lcssa.i.ph, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
   ret i32 %.0.lcssa.i28
 
-21:                                               ; preds = %6, %5
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %7, %6
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #18
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #18
   unreachable
 }
 

@@ -2412,7 +2412,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL14utf8TextLen
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8, !tbaa !47
   %4 = icmp slt i32 %3, 0
-  br i1 %4, label %5, label %16
+  br i1 %4, label %5, label %19
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2426,16 +2426,16 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL14utf8TextLen
   %storemerge14 = tail call i64 @llvm.smin.i64(i64 %12, i64 2147483647)
   %storemerge = trunc i64 %storemerge14 to i32
   store i32 %storemerge, ptr %2, align 8, !tbaa !47
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !25
-  %15 = and i32 %14, -3
-  store i32 %15, ptr %13, align 8, !tbaa !25
-  br label %16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i32, ptr %16, align 8, !tbaa !25
+  %18 = and i32 %17, -3
+  store i32 %18, ptr %16, align 8, !tbaa !25
+  br label %19
 
-16:                                               ; preds = %5, %1
-  %17 = phi i32 [ %storemerge, %5 ], [ %3, %1 ]
-  %18 = sext i32 %17 to i64
-  ret i64 %18
+19:                                               ; preds = %5, %1
+  %20 = phi i32 [ %storemerge, %5 ], [ %3, %1 ]
+  %21 = sext i32 %20 to i64
+  ret i64 %21
 }
 
 ; Function Attrs: mustprogress uwtable

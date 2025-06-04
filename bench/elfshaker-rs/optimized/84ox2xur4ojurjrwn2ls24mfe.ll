@@ -8130,8 +8130,8 @@ common.resume:                                    ; preds = %29
 
 _ZN9elfshaker4repo4pack33compute_frame_decompressed_offset17h1135e6ec2f68aedcE.exit: ; preds = %.lr.ph.preheader.i.preheader, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hc47c44f9b8000c9eE.exit.i"
   store i64 %16, ptr %12, align 8, !noalias !1167
-  %.sroa.4.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %20, ptr %.sroa.4.0..sroa_idx98, align 8, !noalias !1167
+  %.sroa.4.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %20, ptr %.sroa.4.0..sroa_idx97, align 8, !noalias !1167
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1167
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)

@@ -2061,12 +2061,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10LineReader8ReadLineEPPcS1
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 1 %20, i64 %23, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %23
-  %29 = sub i64 262144, %23
-  %30 = load ptr, ptr %0, align 8, !tbaa !81
-  %31 = tail call i64 @fread(ptr noundef nonnull %28, i64 noundef 1, i64 noundef %29, ptr noundef %30)
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
-  store ptr %32, ptr %6, align 8, !tbaa !83
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %23
+  %30 = sub i64 262144, %23
+  %31 = load ptr, ptr %0, align 8, !tbaa !81
+  %32 = tail call i64 @fread(ptr noundef nonnull %29, i64 noundef 1, i64 noundef %30, ptr noundef %31)
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
+  store ptr %33, ptr %6, align 8, !tbaa !83
   store ptr %27, ptr %4, align 8, !tbaa !84
   %33 = add i64 %31, %23
   %34 = tail call noundef ptr @memchr(ptr noundef nonnull %27, i32 noundef 10, i64 noundef %33) #33

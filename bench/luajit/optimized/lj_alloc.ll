@@ -57,16 +57,16 @@ init_bins.exit:                                   ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %29, ptr %31, align 8, !tbaa !25
   %32 = or i64 %29, 1
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %32, ptr %33, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 %32, ptr %34, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 %23
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 64, ptr %35, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 2097152, ptr %36, align 8, !tbaa !26
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 64, ptr %36, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i64 2097152, ptr %37, align 8, !tbaa !26
   br label %37
 
-37:                                               ; preds = %1, %init_bins.exit
+37:; preds = %1, %init_bins.exit
   %.0 = phi ptr [ %9, %init_bins.exit ], [ null, %1 ]
   ret ptr %.0
 }

@@ -3076,9 +3076,9 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIlEENS_6S
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i7
   br label %.lr.ph.i.i.i.i.i.i8
 
-.lr.ph.i.i.i.i.i.i8:                              ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.preheader.i6
-  %.010.i.i.i.i.i.i9 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i8 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %.069.i.i.i.i.i.i10 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i8 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+.lr.ph.i.i.i.i.i.i8: ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.preheader.i6
+  %.069.i.i.i.i.i.i9 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i8 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %.078.i.i.i.i.i.i10 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i8 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
   %.078.i.i.i.i.i.i11 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i8 ], [ %75, %.lr.ph.i.i.i.i.i.preheader.i6 ]
   %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i11, i64 -4
   %77 = load i32, ptr %76, align 4, !tbaa !67, !noalias !268
@@ -4159,9 +4159,9 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNImEENS_6
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i7
   br label %.lr.ph.i.i.i.i.i.i8
 
-.lr.ph.i.i.i.i.i.i8:                              ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.preheader.i6
-  %.010.i.i.i.i.i.i9 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i8 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %.069.i.i.i.i.i.i10 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i8 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+.lr.ph.i.i.i.i.i.i8: ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.preheader.i6
+  %.069.i.i.i.i.i.i9 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i8 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %.078.i.i.i.i.i.i10 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i8 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
   %.078.i.i.i.i.i.i11 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i8 ], [ %75, %.lr.ph.i.i.i.i.i.preheader.i6 ]
   %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i11, i64 -4
   %77 = load i32, ptr %76, align 4, !tbaa !67, !noalias !354

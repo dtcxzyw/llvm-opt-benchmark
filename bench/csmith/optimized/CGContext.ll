@@ -2639,9 +2639,9 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17:         ; preds = %25, %_ZNKSt6vectorI
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit32, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread:  ; preds = %97, %94, %67, %64, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
-  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %lpad.thr_comm, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %95, %97 ], [ %95, %94 ], [ %65, %67 ], [ %65, %64 ]
-  %.sroa.22.151 = phi ptr [ %19, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %39, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %39, %97 ], [ %39, %94 ], [ %39, %67 ], [ %39, %64 ]
-  %.sroa.0.150 = phi ptr [ %20, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %32, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %32, %97 ], [ %32, %94 ], [ %32, %67 ], [ %32, %64 ]
+  %.pre-phi = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %lpad.thr_comm, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %95, %97 ], [ %95, %94 ], [ %65, %67 ], [ %65, %64 ]
+  %.pn52 = phi ptr [ %19, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %39, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %39, %97 ], [ %39, %94 ], [ %39, %67 ], [ %39, %64 ]
+  %.sroa.22.151 = phi ptr [ %20, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %32, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %32, %97 ], [ %32, %94 ], [ %32, %67 ], [ %32, %64 ]
   %102 = ptrtoint ptr %.sroa.22.151 to i64
   %103 = ptrtoint ptr %.sroa.0.150 to i64
   %104 = sub i64 %102, %103
