@@ -1415,7 +1415,7 @@ _ZNSolsEPFRSoS_E.exit282:                         ; preds = %.noexc411
 
 _ZNSolsEPFRSoS_E.exit352.outer:                   ; preds = %.noexc444, %_ZNSolsEPFRSoS_E.exit282
   %.081.ph = phi i8 [ %820, %.noexc444 ], [ %151, %_ZNSolsEPFRSoS_E.exit282 ]
-  %547 = trunc i8 %.081.ph to i1
+  %547 = trunc nuw i8 %.081.ph to i1
   %.str.21..str.22 = select i1 %547, ptr @.str.21, ptr @.str.22
   br label %_ZNSolsEPFRSoS_E.exit352
 
@@ -2430,7 +2430,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i428: ; preds = %.noexc431, %
   br label %.body293
 
 818:                                              ; preds = %795
-  %819 = trunc i8 %.081.ph to i1
+  %819 = trunc nuw i8 %.081.ph to i1
   %820 = xor i8 %.081.ph, 1
   invoke void @_ZN2cv3ocl12setUseOpenCLEb(i1 noundef zeroext %819)
           to label %821 unwind label %.loopexit469.loopexit.split-lp

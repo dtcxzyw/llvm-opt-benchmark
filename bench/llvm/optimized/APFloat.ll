@@ -4856,11 +4856,11 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm6detail9IEEEFloat21addOrSu
   %44 = lshr i32 %43, 6
   %.sroa.speculated.i.i.i.i = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %44, i32 1)
   tail call void @_ZN4llvm5APInt8tcAssignEPmPKmj(ptr noundef %.0.i.i.i, ptr noundef %.0.i.i.i.i, i32 noundef %.sroa.speculated.i.i.i.i) #27
-  %.pre27 = load i8, ptr %4, align 4
+  %.pre26 = load i8, ptr %4, align 4
   br label %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit
 
 _ZN4llvm6detail9IEEEFloat6assignERKS1_.exit:      ; preds = %28, %12, %3, %3, %3, %3
-  %45 = phi i8 [ %.pre27, %28 ], [ %19, %12 ], [ %5, %3 ], [ %5, %3 ], [ %5, %3 ], [ %5, %3 ]
+  %45 = phi i8 [ %.pre26, %28 ], [ %19, %12 ], [ %5, %3 ], [ %5, %3 ], [ %5, %3 ], [ %5, %3 ]
   %46 = and i8 %45, 7
   %47 = icmp eq i8 %46, 1
   br i1 %47, label %48, label %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread
@@ -4880,9 +4880,9 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit:   ; preds = %48
   %55 = icmp ult i32 %54, -128
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
-  %.0.i.i.i13 = select i1 %55, ptr %57, ptr %56
+  %.0.i.i.i12 = select i1 %55, ptr %57, ptr %56
   %58 = add i32 %53, -2
-  %59 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i13, i32 noundef %58) #27
+  %59 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i12, i32 noundef %58) #27
   %.not.i = icmp eq i32 %59, 0
   br i1 %.not.i, label %60, label %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread
 
@@ -4890,8 +4890,8 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit:   ; preds = %48
   %61 = load ptr, ptr %0, align 8, !tbaa !19
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 4, !tbaa !18
-  %.not.i14 = icmp eq i32 %63, 1
-  br i1 %.not.i14, label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit, label %64
+  %.not.i13 = icmp eq i32 %63, 1
+  br i1 %.not.i13, label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -4914,9 +4914,9 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %48, %_ZN4llvm6
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 4, !tbaa !18
-  %.off.i16 = add i32 %77, -1
-  %switch.i17 = icmp ult i32 %.off.i16, 2
-  br i1 %switch.i17, label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit, label %78
+  %.off.i15 = add i32 %77, -1
+  %switch.i16 = icmp ult i32 %.off.i15, 2
+  br i1 %switch.i16, label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -4925,21 +4925,20 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %48, %_ZN4llvm6
   %82 = icmp ult i32 %81, -128
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
-  %.0.i.i.i18 = select i1 %82, ptr %84, ptr %83
+  %.0.i.i.i17 = select i1 %82, ptr %84, ptr %83
   %85 = add i32 %80, -2
-  %86 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i18, i32 noundef %85) #27
-  %.not.i19 = icmp eq i32 %86, 0
-  %87 = zext i1 %.not.i19 to i32
+  %86 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i17, i32 noundef %85) #27
+  %.not.i18 = icmp eq i32 %86, 0
+  %87 = zext i1 %.not.i18 to i32
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
 88:                                               ; preds = %3, %3
   %89 = and i8 %5, -8
   store i8 %89, ptr %4, align 4
   %90 = load i8, ptr %8, align 4
-  %91 = and i8 %90, 8
-  %.tr11 = icmp ne i8 %91, 0
-  %.narrow12 = xor i1 %2, %.tr11
-  %92 = select i1 %.narrow12, i8 8, i8 0
+  %91 = select i1 %2, i8 8, i8 0
+  %.mask11 = and i8 %90, 8
+  %92 = xor i8 %.mask11, %91
   %93 = and i8 %5, -16
   %94 = or disjoint i8 %92, %93
   store i8 %94, ptr %4, align 4
@@ -4964,8 +4963,8 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %48, %_ZN4llvm6
   %108 = icmp ne i8 %100, 3
   %109 = and i1 %107, %108
   %110 = icmp eq i8 %100, 1
-  %or.cond.i21 = or i1 %110, %109
-  br i1 %or.cond.i21, label %111, label %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25
+  %or.cond.i20 = or i1 %110, %109
+  br i1 %or.cond.i20, label %111, label %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit24
 
 111:                                              ; preds = %95
   %112 = load ptr, ptr %0, align 8, !tbaa !19
@@ -4975,7 +4974,7 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %48, %_ZN4llvm6
   %116 = icmp ult i32 %115, -128
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %118 = load ptr, ptr %117, align 8
-  %.0.i.i.i22 = select i1 %116, ptr %118, ptr %117
+  %.0.i.i.i21 = select i1 %116, ptr %118, ptr %117
   %119 = load ptr, ptr %1, align 8, !tbaa !19
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 4, !tbaa !12
@@ -4983,23 +4982,22 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %48, %_ZN4llvm6
   %123 = icmp ult i32 %122, -128
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %125 = load ptr, ptr %124, align 8
-  %.0.i.i.i.i23 = select i1 %123, ptr %125, ptr %124
+  %.0.i.i.i.i22 = select i1 %123, ptr %125, ptr %124
   %126 = add i32 %114, 64
   %127 = lshr i32 %126, 6
-  %.sroa.speculated.i.i.i.i24 = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %127, i32 1)
-  tail call void @_ZN4llvm5APInt8tcAssignEPmPKmj(ptr noundef %.0.i.i.i22, ptr noundef %.0.i.i.i.i23, i32 noundef %.sroa.speculated.i.i.i.i24) #27
+  %.sroa.speculated.i.i.i.i23 = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %127, i32 1)
+  tail call void @_ZN4llvm5APInt8tcAssignEPmPKmj(ptr noundef %.0.i.i.i21, ptr noundef %.0.i.i.i.i22, i32 noundef %.sroa.speculated.i.i.i.i23) #27
   %.pre = load i8, ptr %4, align 4
-  br label %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25
+  br label %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit24
 
-_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25:    ; preds = %95, %111
+_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit24:    ; preds = %95, %111
   %128 = phi i8 [ %102, %95 ], [ %.pre, %111 ]
   %129 = load i8, ptr %8, align 4
-  %130 = and i8 %129, 8
-  %.tr = icmp ne i8 %130, 0
-  %.narrow = xor i1 %2, %.tr
-  %131 = select i1 %.narrow, i8 8, i8 0
+  %130 = select i1 %2, i8 8, i8 0
+  %.mask = and i8 %129, 8
+  %131 = xor i8 %.mask, %130
   %132 = and i8 %128, -9
-  %133 = or disjoint i8 %131, %132
+  %133 = or disjoint i8 %132, %131
   store i8 %133, ptr %4, align 4
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
@@ -5017,8 +5015,8 @@ _ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25:    ; preds = %95, %111
 139:                                              ; preds = %3
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
-_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %78, %74, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %64, %60, %134, %3, %3, %3, %3, %139, %138, %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25, %88
-  %.0 = phi i32 [ 0, %88 ], [ 0, %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25 ], [ 1, %138 ], [ 2, %139 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %134 ], [ 1, %60 ], [ 1, %64 ], [ %87, %78 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %74 ]
+_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %78, %74, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %64, %60, %134, %3, %3, %3, %3, %139, %138, %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit24, %88
+  %.0 = phi i32 [ 0, %88 ], [ 0, %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit24 ], [ 1, %138 ], [ 2, %139 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %134 ], [ 1, %60 ], [ 1, %64 ], [ %87, %78 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %74 ]
   ret i32 %.0
 }
 

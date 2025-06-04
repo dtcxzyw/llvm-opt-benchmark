@@ -163,7 +163,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %227, label %5
+  br i1 %4, label %226, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7932
@@ -534,18 +534,17 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br label %219
 
 219:                                              ; preds = %214, %212
-  %220 = and i8 %213, 1
-  %221 = icmp eq i8 %220, 0
-  br i1 %221, label %227, label %222
+  %220 = icmp eq i8 %213, 0
+  br i1 %220, label %226, label %221
 
-222:                                              ; preds = %219
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 8096
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 6040
-  %226 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %224, ptr noundef nonnull %225, i64 noundef 0) #8
-  br label %227
+221:                                              ; preds = %219
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8096
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 6040
+  %225 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %223, ptr noundef nonnull %224, i64 noundef 0) #8
+  br label %226
 
-227:                                              ; preds = %222, %219, %3
+226:                                              ; preds = %221, %219, %3
   ret void
 }
 

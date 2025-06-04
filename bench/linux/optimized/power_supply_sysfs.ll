@@ -720,27 +720,26 @@ define dso_local i64 @power_supply_charge_behaviour_show(ptr noundef %0, i32 nou
   br i1 %28, label %29, label %7, !llvm.loop !17
 
 29:                                               ; preds = %24
-  %30 = and i8 %25, 1
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %32, label %33
+  %30 = icmp eq i8 %25, 0
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %29
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.5) #8
+  br label %37
 
 32:                                               ; preds = %29
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.5) #8
-  br label %38
+  %33 = icmp eq i64 %26, 0
+  br i1 %33, label %37, label %34
 
-33:                                               ; preds = %29
-  %34 = icmp eq i64 %26, 0
-  br i1 %34, label %38, label %35
+34:                                               ; preds = %32
+  %35 = getelementptr i8, ptr %3, i64 %26
+  %36 = getelementptr i8, ptr %35, i64 -1
+  store i8 10, ptr %36, align 1
+  br label %37
 
-35:                                               ; preds = %33
-  %36 = getelementptr i8, ptr %3, i64 %26
-  %37 = getelementptr i8, ptr %36, i64 -1
-  store i8 10, ptr %37, align 1
-  br label %38
-
-38:                                               ; preds = %35, %33, %32
-  %39 = phi i64 [ -22, %32 ], [ %26, %35 ], [ 0, %33 ]
-  ret i64 %39
+37:                                               ; preds = %34, %32, %31
+  %38 = phi i64 [ -22, %31 ], [ %26, %34 ], [ 0, %32 ]
+  ret i64 %38
 }
 
 ; Function Attrs: null_pointer_is_valid

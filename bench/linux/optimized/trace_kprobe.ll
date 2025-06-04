@@ -2869,7 +2869,7 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
   store i32 2, ptr %13, align 8
   %14 = load ptr, ptr %1, align 8
   %15 = load i8, ptr %14, align 1
-  switch i8 %15, label %220 [
+  switch i8 %15, label %219 [
     i8 114, label %16
     i8 112, label %17
   ]
@@ -2881,7 +2881,7 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
   %18 = phi i1 [ true, %2 ], [ false, %16 ]
   %19 = phi i8 [ 0, %2 ], [ 1, %16 ]
   %20 = icmp slt i32 %0, 2
-  br i1 %20, label %220, label %21
+  br i1 %20, label %219, label %21
 
 21:                                               ; preds = %17
   tail call void @trace_probe_log_init(ptr noundef nonnull @.str.18, i32 noundef %0, ptr noundef %1) #18
@@ -2977,7 +2977,7 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
 73:                                               ; preds = %70, %66
   %74 = call noalias ptr @kstrdup(ptr noundef %67, i32 noundef 3264) #18
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %220, label %76
+  br i1 %75, label %219, label %76
 
 76:                                               ; preds = %73
   %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %74, i32 noundef 37) #18
@@ -3150,115 +3150,114 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
   %167 = load ptr, ptr %8, align 8
   %168 = load i64, ptr %7, align 8
   %169 = load i32, ptr %6, align 4
-  %170 = and i8 %120, 1
-  %171 = icmp ne i8 %170, 0
-  %172 = call fastcc ptr @alloc_trace_kprobe(ptr noundef %165, ptr noundef %166, ptr noundef %167, ptr noundef %119, i64 noundef %168, i32 noundef %169, i32 noundef %164, i1 noundef zeroext %171)
-  %173 = icmp ugt ptr %172, inttoptr (i64 -4096 to ptr)
-  br i1 %173, label %183, label %174
+  %170 = icmp ne i8 %120, 0
+  %171 = call fastcc ptr @alloc_trace_kprobe(ptr noundef %165, ptr noundef %166, ptr noundef %167, ptr noundef %119, i64 noundef %168, i32 noundef %169, i32 noundef %164, i1 noundef zeroext %170)
+  %172 = icmp ugt ptr %171, inttoptr (i64 -4096 to ptr)
+  br i1 %172, label %182, label %173
 
-174:                                              ; preds = %160
-  %175 = icmp sgt i32 %164, 0
-  br i1 %175, label %176, label %.loopexit29
+173:                                              ; preds = %160
+  %174 = icmp sgt i32 %164, 0
+  br i1 %174, label %175, label %.loopexit29
 
-176:                                              ; preds = %174
-  %177 = getelementptr inbounds nuw i8, ptr %12, i64 68
-  %178 = getelementptr inbounds nuw i8, ptr %172, i64 208
-  %179 = add nsw i32 %164, -1
-  %180 = call i32 @llvm.umin.i32(i32 %179, i32 127)
-  %181 = add nuw nsw i32 %180, 1
-  %182 = zext nneg i32 %181 to i64
-  br label %191
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 68
+  %177 = getelementptr inbounds nuw i8, ptr %171, i64 208
+  %178 = add nsw i32 %164, -1
+  %179 = call i32 @llvm.umin.i32(i32 %178, i32 127)
+  %180 = add nuw nsw i32 %179, 1
+  %181 = zext nneg i32 %180 to i64
+  br label %190
 
-183:                                              ; preds = %160
-  %184 = ptrtoint ptr %172 to i64
-  %185 = trunc i64 %184 to i32
-  %186 = icmp eq i32 %185, -12
-  br i1 %186, label %.thread28, label %187, !prof !17
+182:                                              ; preds = %160
+  %183 = ptrtoint ptr %171 to i64
+  %184 = trunc i64 %183 to i32
+  %185 = icmp eq i32 %184, -12
+  br i1 %185, label %.thread28, label %186, !prof !17
 
-187:                                              ; preds = %183
+186:                                              ; preds = %182
   call void asm sideeffect "727: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 727b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 727) #18, !srcloc !43
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 939, i32 2307, i64 12) #18, !srcloc !44
   call void asm sideeffect "728: nop\0A\09.pushsection .discard.instr_end\0A\09.long 728b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 728) #18, !srcloc !45
   br label %.thread28
 
-188:                                              ; preds = %191
-  %189 = add nuw nsw i64 %192, 1
-  %190 = icmp eq i64 %189, %182
-  br i1 %190, label %.loopexit29, label %191, !llvm.loop !46
+187:                                              ; preds = %190
+  %188 = add nuw nsw i64 %191, 1
+  %189 = icmp eq i64 %188, %181
+  br i1 %189, label %.loopexit29, label %190, !llvm.loop !46
 
-191:                                              ; preds = %188, %176
-  %192 = phi i64 [ 0, %176 ], [ %189, %188 ]
-  %193 = trunc i64 %192 to i32
-  %194 = add i32 %193, 2
-  call void @trace_probe_log_set_index(i32 noundef %194) #18
-  store i32 0, ptr %177, align 4
-  %195 = getelementptr ptr, ptr %163, i64 %192
-  %196 = load ptr, ptr %195, align 8
-  %197 = call i32 @traceprobe_parse_probe_arg(ptr noundef nonnull %178, i32 noundef %193, ptr noundef %196, ptr noundef nonnull %12) #18
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %188, label %.loopexit
+190:                                              ; preds = %187, %175
+  %191 = phi i64 [ 0, %175 ], [ %188, %187 ]
+  %192 = trunc i64 %191 to i32
+  %193 = add i32 %192, 2
+  call void @trace_probe_log_set_index(i32 noundef %193) #18
+  store i32 0, ptr %176, align 4
+  %194 = getelementptr ptr, ptr %163, i64 %191
+  %195 = load ptr, ptr %194, align 8
+  %196 = call i32 @traceprobe_parse_probe_arg(ptr noundef nonnull %177, i32 noundef %192, ptr noundef %195, ptr noundef nonnull %12) #18
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %187, label %.loopexit
 
-.loopexit29:                                      ; preds = %188, %174
-  %199 = zext nneg i8 %170 to i32
-  %200 = getelementptr inbounds nuw i8, ptr %172, i64 208
-  %201 = call i32 @traceprobe_set_print_fmt(ptr noundef nonnull %200, i32 noundef %199) #18
-  %202 = icmp slt i32 %201, 0
-  br i1 %202, label %.loopexit, label %203
+.loopexit29:                                      ; preds = %187, %173
+  %198 = zext nneg i8 %120 to i32
+  %199 = getelementptr inbounds nuw i8, ptr %171, i64 208
+  %200 = call i32 @traceprobe_set_print_fmt(ptr noundef nonnull %199, i32 noundef %198) #18
+  %201 = icmp slt i32 %200, 0
+  br i1 %201, label %.loopexit, label %202
 
-203:                                              ; preds = %.loopexit29
-  %204 = call fastcc i32 @register_trace_kprobe(ptr noundef %172)
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %.thread28, label %206
+202:                                              ; preds = %.loopexit29
+  %203 = call fastcc i32 @register_trace_kprobe(ptr noundef %171)
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %.thread28, label %205
 
-206:                                              ; preds = %203
+205:                                              ; preds = %202
   call void @trace_probe_log_set_index(i32 noundef 1) #18
-  switch i32 %204, label %208 [
+  switch i32 %203, label %207 [
     i32 -84, label %.loopexit.sink.split
-    i32 -2, label %207
+    i32 -2, label %206
     i32 -12, label %.loopexit
     i32 -17, label %.loopexit
   ]
 
-207:                                              ; preds = %206
+206:                                              ; preds = %205
   br label %.loopexit.sink.split
 
-208:                                              ; preds = %206
+207:                                              ; preds = %205
   br label %.loopexit.sink.split
 
-.thread28:                                        ; preds = %33, %47, %57, %60, %83, %95, %108, %123, %70, %116, %214, %.loopexit, %203, %187, %183, %157
-  %209 = phi i32 [ %159, %157 ], [ 0, %203 ], [ %185, %187 ], [ -12, %183 ], [ %212, %.loopexit ], [ %212, %214 ], [ -22, %33 ], [ -22, %47 ], [ -22, %57 ], [ -22, %60 ], [ -22, %83 ], [ -22, %95 ], [ -22, %108 ], [ -22, %123 ], [ -125, %70 ], [ %118, %116 ]
-  %210 = phi ptr [ %119, %157 ], [ %119, %203 ], [ %119, %187 ], [ %119, %183 ], [ %119, %.loopexit ], [ %119, %214 ], [ null, %33 ], [ null, %47 ], [ null, %57 ], [ null, %60 ], [ %74, %83 ], [ %74, %95 ], [ %74, %108 ], [ %119, %123 ], [ null, %70 ], [ %74, %116 ]
-  %211 = phi ptr [ null, %157 ], [ %155, %203 ], [ %155, %187 ], [ %155, %183 ], [ %155, %.loopexit ], [ %155, %214 ], [ null, %33 ], [ null, %47 ], [ null, %57 ], [ null, %60 ], [ null, %83 ], [ null, %95 ], [ null, %108 ], [ null, %123 ], [ null, %70 ], [ null, %116 ]
+.thread28:                                        ; preds = %33, %47, %57, %60, %83, %95, %108, %123, %70, %116, %213, %.loopexit, %202, %186, %182, %157
+  %208 = phi i32 [ %159, %157 ], [ 0, %202 ], [ %184, %186 ], [ -12, %182 ], [ %211, %.loopexit ], [ %211, %213 ], [ -22, %33 ], [ -22, %47 ], [ -22, %57 ], [ -22, %60 ], [ -22, %83 ], [ -22, %95 ], [ -22, %108 ], [ -22, %123 ], [ -125, %70 ], [ %118, %116 ]
+  %209 = phi ptr [ %119, %157 ], [ %119, %202 ], [ %119, %186 ], [ %119, %182 ], [ %119, %.loopexit ], [ %119, %213 ], [ null, %33 ], [ null, %47 ], [ null, %57 ], [ null, %60 ], [ %74, %83 ], [ %74, %95 ], [ %74, %108 ], [ %119, %123 ], [ null, %70 ], [ %74, %116 ]
+  %210 = phi ptr [ null, %157 ], [ %155, %202 ], [ %155, %186 ], [ %155, %182 ], [ %155, %.loopexit ], [ %155, %213 ], [ null, %33 ], [ null, %47 ], [ null, %57 ], [ null, %60 ], [ null, %83 ], [ null, %95 ], [ null, %108 ], [ null, %123 ], [ null, %70 ], [ null, %116 ]
   call void @traceprobe_finish_parse(ptr noundef nonnull %12) #18
   call void @trace_probe_log_clear() #18
-  call void @kfree(ptr noundef %211) #18
   call void @kfree(ptr noundef %210) #18
-  br label %220
+  call void @kfree(ptr noundef %209) #18
+  br label %219
 
-.loopexit.sink.split:                             ; preds = %206, %207, %208
-  %.sink = phi i32 [ 54, %208 ], [ 9, %207 ], [ 53, %206 ]
+.loopexit.sink.split:                             ; preds = %205, %206, %207
+  %.sink = phi i32 [ 54, %207 ], [ 9, %206 ], [ 53, %205 ]
   call void @__trace_probe_log_err(i32 noundef 0, i32 noundef %.sink) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %191, %.loopexit.sink.split, %206, %206, %.loopexit29
-  %212 = phi i32 [ %201, %.loopexit29 ], [ %204, %206 ], [ %204, %206 ], [ %204, %.loopexit.sink.split ], [ %197, %191 ]
-  %213 = icmp eq ptr %172, null
-  br i1 %213, label %.thread28, label %214
+.loopexit:                                        ; preds = %190, %.loopexit.sink.split, %205, %205, %.loopexit29
+  %211 = phi i32 [ %200, %.loopexit29 ], [ %203, %205 ], [ %203, %205 ], [ %203, %.loopexit.sink.split ], [ %196, %190 ]
+  %212 = icmp eq ptr %171, null
+  br i1 %212, label %.thread28, label %213
 
-214:                                              ; preds = %.loopexit
-  %215 = getelementptr inbounds nuw i8, ptr %172, i64 208
-  call void @trace_probe_cleanup(ptr noundef nonnull %215) #18
-  %216 = getelementptr inbounds nuw i8, ptr %172, i64 200
-  %217 = load ptr, ptr %216, align 8
-  call void @kfree(ptr noundef %217) #18
-  %218 = getelementptr inbounds nuw i8, ptr %172, i64 192
-  %219 = load ptr, ptr %218, align 8
-  call void @free_percpu(ptr noundef %219) #18
-  call void @kfree(ptr noundef nonnull %172) #18
+213:                                              ; preds = %.loopexit
+  %214 = getelementptr inbounds nuw i8, ptr %171, i64 208
+  call void @trace_probe_cleanup(ptr noundef nonnull %214) #18
+  %215 = getelementptr inbounds nuw i8, ptr %171, i64 200
+  %216 = load ptr, ptr %215, align 8
+  call void @kfree(ptr noundef %216) #18
+  %217 = getelementptr inbounds nuw i8, ptr %171, i64 192
+  %218 = load ptr, ptr %217, align 8
+  call void @free_percpu(ptr noundef %218) #18
+  call void @kfree(ptr noundef nonnull %171) #18
   br label %.thread28
 
-220:                                              ; preds = %.thread28, %73, %17, %2
-  %221 = phi i32 [ %209, %.thread28 ], [ -125, %2 ], [ -125, %17 ], [ -12, %73 ]
+219:                                              ; preds = %.thread28, %73, %17, %2
+  %220 = phi i32 [ %208, %.thread28 ], [ -125, %2 ], [ -125, %17 ], [ -12, %73 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #18
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #18
@@ -3269,7 +3268,7 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  ret i32 %221
+  ret i32 %220
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4238,61 +4237,60 @@ define internal fastcc i32 @enable_trace_kprobe(ptr noundef %0, ptr noundef %1) 
   br i1 %51, label %.thread9, label %.preheader10, !llvm.loop !74
 
 52:                                               ; preds = %44
-  %53 = and i8 %30, 1
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %.loopexit, label %55
+  %53 = icmp eq i8 %30, 0
+  br i1 %53, label %.loopexit, label %54
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 224
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, %57
-  br i1 %59, label %.loopexit, label %.preheader
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 224
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, %56
+  br i1 %58, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %55, %72
-  %60 = phi ptr [ %73, %72 ], [ %56, %55 ]
-  %61 = phi ptr [ %74, %72 ], [ %58, %55 ]
-  %62 = getelementptr i8, ptr %61, i64 -168
-  %63 = load volatile ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %62
-  br i1 %64, label %65, label %69
+.preheader:                                       ; preds = %54, %71
+  %59 = phi ptr [ %72, %71 ], [ %55, %54 ]
+  %60 = phi ptr [ %73, %71 ], [ %57, %54 ]
+  %61 = getelementptr i8, ptr %60, i64 -168
+  %62 = load volatile ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, %61
+  br i1 %63, label %64, label %68
 
-65:                                               ; preds = %.preheader
-  %66 = getelementptr i8, ptr %61, i64 -176
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %72, label %69
+64:                                               ; preds = %.preheader
+  %65 = getelementptr i8, ptr %60, i64 -176
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %71, label %68
 
-69:                                               ; preds = %65, %.preheader
-  %70 = getelementptr i8, ptr %61, i64 -184
-  %71 = tail call i32 @disable_kprobe(ptr noundef %70) #18
+68:                                               ; preds = %64, %.preheader
+  %69 = getelementptr i8, ptr %60, i64 -184
+  %70 = tail call i32 @disable_kprobe(ptr noundef %69) #18
   %.pre = load ptr, ptr %10, align 8
-  br label %72
+  br label %71
 
-72:                                               ; preds = %69, %65
-  %73 = phi ptr [ %.pre, %69 ], [ %60, %65 ]
-  %74 = load ptr, ptr %61, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 224
-  %76 = icmp eq ptr %74, %75
-  br i1 %76, label %.loopexit, label %.preheader, !llvm.loop !58
+71:                                               ; preds = %68, %64
+  %72 = phi ptr [ %.pre, %68 ], [ %59, %64 ]
+  %73 = load ptr, ptr %60, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 224
+  %75 = icmp eq ptr %73, %74
+  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !58
 
-.loopexit:                                        ; preds = %72, %55, %52
-  br i1 %16, label %79, label %77
+.loopexit:                                        ; preds = %71, %54, %52
+  br i1 %16, label %78, label %76
 
-77:                                               ; preds = %.loopexit
-  %78 = tail call i32 @trace_probe_remove_file(ptr noundef nonnull %4, ptr noundef nonnull %1) #18
+76:                                               ; preds = %.loopexit
+  %77 = tail call i32 @trace_probe_remove_file(ptr noundef nonnull %4, ptr noundef nonnull %1) #18
   br label %.thread9
 
-79:                                               ; preds = %.loopexit
-  %80 = load ptr, ptr %10, align 8
-  %81 = load i32, ptr %80, align 8
-  %82 = and i32 %81, -3
-  store i32 %82, ptr %80, align 8
+78:                                               ; preds = %.loopexit
+  %79 = load ptr, ptr %10, align 8
+  %80 = load i32, ptr %79, align 8
+  %81 = and i32 %80, -3
+  store i32 %81, ptr %79, align 8
   br label %.thread9
 
-.thread9:                                         ; preds = %.thread, %23, %79, %77, %21, %17, %8
-  %83 = phi i32 [ -19, %8 ], [ %18, %17 ], [ 0, %21 ], [ %45, %77 ], [ %45, %79 ], [ 0, %23 ], [ 0, %.thread ]
-  ret i32 %83
+.thread9:                                         ; preds = %.thread, %23, %78, %76, %21, %17, %8
+  %82 = phi i32 [ -19, %8 ], [ %18, %17 ], [ 0, %21 ], [ %45, %76 ], [ %45, %78 ], [ 0, %23 ], [ 0, %.thread ]
+  ret i32 %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

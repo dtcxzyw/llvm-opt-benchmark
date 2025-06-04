@@ -46,15 +46,15 @@ define i32 @Cec_ManPatComputePattern_rec(ptr noundef %0, ptr noundef %1, ptr nou
   %20 = load i64, ptr %2, align 4
   %21 = and i32 %19, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = shl nuw nsw i64 %22, 62
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %26, %18
+  %.sink29 = phi i64 [ %22, %18 ], [ %55, %26 ]
   %.sink = phi i64 [ %20, %18 ], [ %38, %26 ]
-  %.sink27 = phi i64 [ %23, %18 ], [ %56, %26 ]
   %common.ret.op.ph = phi i32 [ 1, %18 ], [ %37, %26 ]
+  %23 = shl nuw nsw i64 %.sink29, 62
   %24 = and i64 %.sink, -4611686018427387905
-  %25 = or disjoint i64 %.sink27, %24
+  %25 = or disjoint i64 %23, %24
   store i64 %25, ptr %2, align 4
   br label %common.ret
 
@@ -90,9 +90,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %51 = lshr i64 %50, 62
   %52 = lshr i64 %38, 61
   %53 = xor i64 %51, %52
-  %54 = and i64 %53, %45
-  %55 = shl i64 %54, 62
-  %56 = and i64 %55, 4611686018427387904
+  %54 = and i64 %45, 1
+  %55 = and i64 %54, %53
   br label %common.ret.sink.split
 }
 

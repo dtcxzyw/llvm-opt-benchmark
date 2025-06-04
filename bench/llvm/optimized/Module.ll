@@ -3717,7 +3717,7 @@ define dso_local void @_ZN5clang6Module15markUnavailableEb(ptr noundef nonnull a
   %6 = and i16 %.val10, 1
   %.not3.i = icmp eq i16 %6, 0
   %spec.select.i = and i1 %1, %.not3.i
-  br i1 %spec.select.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit, label %76
+  br i1 %spec.select.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit, label %78
 
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit: ; preds = %2, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
@@ -3728,144 +3728,146 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit: ; pr
   store i32 2, ptr %9, align 4, !tbaa !141
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %7, align 8
+  %11 = zext i1 %1 to i16
   br i1 %1, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split.us, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split
 
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split.us: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit, %.loopexit.us
-  %11 = phi i32 [ %.pr.us, %.loopexit.us ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit ]
-  %12 = load ptr, ptr %3, align 8, !tbaa !139
-  %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 -8
-  %16 = load ptr, ptr %15, align 8, !tbaa !149
-  %17 = add i32 %11, -1
-  store i32 %17, ptr %8, align 8, !tbaa !140
-  %18 = getelementptr i8, ptr %16, i64 904
-  %.val12.us = load i16, ptr %18, align 8
-  %19 = and i16 %.val12.us, 5
-  %or.cond.not = icmp eq i16 %19, 1
+  %12 = phi i32 [ %.pr.us, %.loopexit.us ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit ]
+  %13 = load ptr, ptr %3, align 8, !tbaa !139
+  %14 = zext i32 %12 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = load ptr, ptr %16, align 8, !tbaa !149
+  %18 = add i32 %12, -1
+  store i32 %18, ptr %8, align 8, !tbaa !140
+  %19 = getelementptr i8, ptr %17, i64 904
+  %.val12.us = load i16, ptr %19, align 8
+  %20 = and i16 %.val12.us, 5
+  %or.cond.not = icmp eq i16 %20, 1
   br i1 %or.cond.not, label %.loopexit.us, label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us", !llvm.loop !285
 
 "_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split.us
-  %20 = and i16 %.val12.us, -6
-  %21 = or disjoint i16 %20, 1
-  store i16 %21, ptr %18, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 256
-  %23 = load ptr, ptr %22, align 8, !tbaa !286
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 264
-  %25 = load ptr, ptr %24, align 8, !tbaa !286
-  %.not35.us = icmp eq ptr %23, %25
+  %21 = and i16 %.val12.us, -5
+  %22 = or i16 %21, %11
+  store i16 %22, ptr %19, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 256
+  %24 = load ptr, ptr %23, align 8, !tbaa !286
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 264
+  %26 = load ptr, ptr %25, align 8, !tbaa !286
+  %.not35.us = icmp eq ptr %24, %26
   br i1 %.not35.us, label %.loopexit.usthread-pre-split, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us", %41
-  %.sroa.028.036.us37 = phi ptr [ %42, %41 ], [ %23, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us" ]
-  %26 = load ptr, ptr %.sroa.028.036.us37, align 8, !tbaa !149
-  %27 = getelementptr i8, ptr %26, i64 904
-  %.val14.us38 = load i16, ptr %27, align 8
-  %28 = and i16 %.val14.us38, 5
-  %or.cond48.not = icmp eq i16 %28, 1
-  br i1 %or.cond48.not, label %41, label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41"
+.lr.ph.us:                                        ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us", %42
+  %.sroa.028.036.us37 = phi ptr [ %43, %42 ], [ %24, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us" ]
+  %27 = load ptr, ptr %.sroa.028.036.us37, align 8, !tbaa !149
+  %28 = getelementptr i8, ptr %27, i64 904
+  %.val14.us38 = load i16, ptr %28, align 8
+  %29 = and i16 %.val14.us38, 5
+  %or.cond48.not = icmp eq i16 %29, 1
+  br i1 %or.cond48.not, label %42, label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41"
 
 "_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41": ; preds = %.lr.ph.us
-  %29 = load i32, ptr %8, align 8, !tbaa !140
-  %30 = load i32, ptr %9, align 4, !tbaa !141
-  %.not.i.i.not.i25.us42 = icmp ult i32 %29, %30
-  br i1 %.not.i.i.not.i25.us42, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us44, label %31, !prof !252
+  %30 = load i32, ptr %8, align 8, !tbaa !140
+  %31 = load i32, ptr %9, align 4, !tbaa !141
+  %.not.i.i.not.i25.us42 = icmp ult i32 %30, %31
+  br i1 %.not.i.i.not.i25.us42, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us44, label %32, !prof !252
 
-31:                                               ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41"
-  %32 = zext i32 %29 to i64
-  %33 = add nuw nsw i64 %32, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %33, i64 noundef 8) #19
+32:                                               ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41"
+  %33 = zext i32 %30 to i64
+  %34 = add nuw nsw i64 %33, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %34, i64 noundef 8) #19
   %.pre.i26.us43 = load i32, ptr %8, align 8, !tbaa !140
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us44
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us44: ; preds = %31, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41"
-  %34 = phi i32 [ %29, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41" ], [ %.pre.i26.us43, %31 ]
-  %35 = load ptr, ptr %3, align 8, !tbaa !139
-  %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
-  %38 = ptrtoint ptr %26 to i64
-  store i64 %38, ptr %37, align 1
-  %39 = load i32, ptr %8, align 8, !tbaa !140
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %8, align 8, !tbaa !140
-  br label %41
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us44: ; preds = %32, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41"
+  %35 = phi i32 [ %30, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us41" ], [ %.pre.i26.us43, %32 ]
+  %36 = load ptr, ptr %3, align 8, !tbaa !139
+  %37 = zext i32 %35 to i64
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %39 = ptrtoint ptr %27 to i64
+  store i64 %39, ptr %38, align 1
+  %40 = load i32, ptr %8, align 8, !tbaa !140
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %8, align 8, !tbaa !140
+  br label %42
 
-41:                                               ; preds = %.lr.ph.us, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us44
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.028.036.us37, i64 8
-  %.not.us45 = icmp eq ptr %42, %25
+42:                                               ; preds = %.lr.ph.us, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us44
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.028.036.us37, i64 8
+  %.not.us45 = icmp eq ptr %43, %26
   br i1 %.not.us45, label %.loopexit.usthread-pre-split, label %.lr.ph.us
 
-.loopexit.usthread-pre-split:                     ; preds = %41, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us"
+.loopexit.usthread-pre-split:                     ; preds = %42, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread.us"
   %.pr.us.pr = load i32, ptr %8, align 8, !tbaa !140
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.loopexit.usthread-pre-split, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split.us
-  %.pr.us = phi i32 [ %.pr.us.pr, %.loopexit.usthread-pre-split ], [ %17, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split.us ]
+  %.pr.us = phi i32 [ %.pr.us.pr, %.loopexit.usthread-pre-split ], [ %18, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split.us ]
   %.not.i15.us = icmp eq i32 %.pr.us, 0
   br i1 %.not.i15.us, label %.split.us, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split.us
 
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19"
-  %43 = phi i32 [ %.pr, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19" ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit ]
-  %44 = load ptr, ptr %3, align 8, !tbaa !139
-  %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 -8
-  %48 = load ptr, ptr %47, align 8, !tbaa !149
-  %49 = add i32 %43, -1
-  store i32 %49, ptr %8, align 8, !tbaa !140
-  %50 = getelementptr i8, ptr %48, i64 904
-  %.val12 = load i16, ptr %50, align 8
-  %51 = and i16 %.val12, 4
-  %.not.i16 = icmp eq i16 %51, 0
+  %44 = phi i32 [ %.pr, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19" ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit ]
+  %45 = load ptr, ptr %3, align 8, !tbaa !139
+  %46 = zext i32 %44 to i64
+  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %48 = getelementptr inbounds i8, ptr %47, i64 -8
+  %49 = load ptr, ptr %48, align 8, !tbaa !149
+  %50 = add i32 %44, -1
+  store i32 %50, ptr %8, align 8, !tbaa !140
+  %51 = getelementptr i8, ptr %49, i64 904
+  %.val12 = load i16, ptr %51, align 8
+  %52 = and i16 %.val12, 4
+  %.not.i16 = icmp eq i16 %52, 0
   br i1 %.not.i16, label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19", label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread"
 
 "_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split
-  %52 = and i16 %.val12, -5
-  store i16 %52, ptr %50, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 256
-  %54 = load ptr, ptr %53, align 8, !tbaa !286
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 264
+  %53 = and i16 %.val12, -5
+  %54 = or i16 %53, %11
+  store i16 %54, ptr %51, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 256
   %56 = load ptr, ptr %55, align 8, !tbaa !286
-  %.not35 = icmp eq ptr %54, %56
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 264
+  %58 = load ptr, ptr %57, align 8, !tbaa !286
+  %.not35 = icmp eq ptr %56, %58
   br i1 %.not35, label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19thread-pre-split", label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread", %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.us"
-  %.sroa.028.036.us = phi ptr [ %72, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.us" ], [ %54, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread" ]
-  %57 = load ptr, ptr %.sroa.028.036.us, align 8, !tbaa !149
-  %58 = getelementptr i8, ptr %57, i64 904
-  %.val14.us = load i16, ptr %58, align 8
-  %59 = and i16 %.val14.us, 4
-  %.not.i21.us = icmp eq i16 %59, 0
+  %.sroa.028.036.us = phi ptr [ %74, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.us" ], [ %56, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread" ]
+  %59 = load ptr, ptr %.sroa.028.036.us, align 8, !tbaa !149
+  %60 = getelementptr i8, ptr %59, i64 904
+  %.val14.us = load i16, ptr %60, align 8
+  %61 = and i16 %.val14.us, 4
+  %.not.i21.us = icmp eq i16 %61, 0
   br i1 %.not.i21.us, label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.us", label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us"
 
 "_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us": ; preds = %.lr.ph
-  %60 = load i32, ptr %8, align 8, !tbaa !140
-  %61 = load i32, ptr %9, align 4, !tbaa !141
-  %.not.i.i.not.i25.us = icmp ult i32 %60, %61
-  br i1 %.not.i.i.not.i25.us, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us, label %62, !prof !252
+  %62 = load i32, ptr %8, align 8, !tbaa !140
+  %63 = load i32, ptr %9, align 4, !tbaa !141
+  %.not.i.i.not.i25.us = icmp ult i32 %62, %63
+  br i1 %.not.i.i.not.i25.us, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us, label %64, !prof !252
 
-62:                                               ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us"
-  %63 = zext i32 %60 to i64
-  %64 = add nuw nsw i64 %63, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %64, i64 noundef 8) #19
+64:                                               ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us"
+  %65 = zext i32 %62 to i64
+  %66 = add nuw nsw i64 %65, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %66, i64 noundef 8) #19
   %.pre.i26.us = load i32, ptr %8, align 8, !tbaa !140
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us: ; preds = %62, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us"
-  %65 = phi i32 [ %60, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us" ], [ %.pre.i26.us, %62 ]
-  %66 = load ptr, ptr %3, align 8, !tbaa !139
-  %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
-  %69 = ptrtoint ptr %57 to i64
-  store i64 %69, ptr %68, align 1
-  %70 = load i32, ptr %8, align 8, !tbaa !140
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %8, align 8, !tbaa !140
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us: ; preds = %64, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us"
+  %67 = phi i32 [ %62, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.thread.us" ], [ %.pre.i26.us, %64 ]
+  %68 = load ptr, ptr %3, align 8, !tbaa !139
+  %69 = zext i32 %67 to i64
+  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
+  %71 = ptrtoint ptr %59 to i64
+  store i64 %71, ptr %70, align 1
+  %72 = load i32, ptr %8, align 8, !tbaa !140
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %8, align 8, !tbaa !140
   br label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.us"
 
 "_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.us": ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.028.036.us, i64 8
-  %.not.us = icmp eq ptr %72, %56
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.028.036.us, i64 8
+  %.not.us = icmp eq ptr %74, %58
   br i1 %.not.us, label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19thread-pre-split", label %.lr.ph
 
 "_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19thread-pre-split": ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit24.us", %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19.thread"
@@ -3873,24 +3875,24 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit27.us:
   br label %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19"
 
 "_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19": ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19thread-pre-split", %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split
-  %.pr = phi i32 [ %.pr.pr, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19thread-pre-split" ], [ %49, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split ]
+  %.pr = phi i32 [ %.pr.pr, %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19thread-pre-split" ], [ %50, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split ]
   %.not.i15 = icmp eq i32 %.pr, 0
   br i1 %.not.i15, label %.split.us, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.split
 
 .split.us:                                        ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit19", %.loopexit.us
-  %73 = load ptr, ptr %3, align 8, !tbaa !139
-  %74 = icmp eq ptr %73, %7
-  br i1 %74, label %_ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit, label %75
+  %75 = load ptr, ptr %3, align 8, !tbaa !139
+  %76 = icmp eq ptr %75, %7
+  br i1 %76, label %_ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit, label %77
 
-75:                                               ; preds = %.split.us
-  call void @free(ptr noundef %73) #19
+77:                                               ; preds = %.split.us
+  call void @free(ptr noundef %75) #19
   br label %_ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit: ; preds = %.split.us, %75
+_ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit: ; preds = %.split.us, %77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
-  br label %76
+  br label %78
 
-76:                                               ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit", %_ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit
+78:                                               ; preds = %"_ZZN5clang6Module15markUnavailableEbENK3$_0clEPS0_.exit", %_ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit
   ret void
 }
 

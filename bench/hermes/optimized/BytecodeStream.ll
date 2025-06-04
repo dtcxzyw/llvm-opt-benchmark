@@ -1211,12 +1211,12 @@ if.then:                                          ; preds = %entry
   %2 = load i32, ptr %infoOffset, align 1
   %bf.set.i = or i8 %0, 32
   store i8 %bf.set.i, ptr %flags, align 1
-  %3 = and i32 %2, 65535
-  %bf.value.i = zext nneg i32 %3 to i120
+  %and.i = and i32 %2, 65535
+  %3 = zext nneg i32 %and.i to i120
   %shr.i = lshr i32 %2, 16
   %4 = zext nneg i32 %shr.i to i120
   %bf.shl.i = shl nuw nsw i120 %4, 64
-  %bf.set8.i = or disjoint i120 %bf.shl.i, %bf.value.i
+  %bf.set8.i = or disjoint i120 %bf.shl.i, %3
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1232,12 +1232,12 @@ if.then6:                                         ; preds = %if.end
   %7 = load i32, ptr %infoOffset7, align 1
   %bf.set.i36 = or i8 %0, 32
   store i8 %bf.set.i36, ptr %flags, align 1
-  %8 = and i32 %7, 65535
-  %bf.value.i38 = zext nneg i32 %8 to i120
+  %and.i37 = and i32 %7, 65535
+  %8 = zext nneg i32 %and.i37 to i120
   %shr.i41 = lshr i32 %7, 16
   %9 = zext nneg i32 %shr.i41 to i120
   %bf.shl.i42 = shl nuw nsw i120 %9, 64
-  %bf.set8.i43 = or disjoint i120 %bf.shl.i42, %bf.value.i38
+  %bf.set8.i43 = or disjoint i120 %bf.shl.i42, %8
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -1255,10 +1255,10 @@ if.then15:                                        ; preds = %if.end8
   %12 = load i32, ptr %infoOffset16, align 1
   %bf.set.i46 = or i8 %0, 32
   store i8 %bf.set.i46, ptr %flags, align 1
-  %13 = and i32 %12, 65535
-  %bf.value.i48 = zext nneg i32 %13 to i120
+  %and.i47 = and i32 %12, 65535
+  %13 = zext nneg i32 %and.i47 to i120
   %bf.clear3.i49 = and i120 %bf.set13, 4261412864
-  %bf.set4.i50 = or disjoint i120 %bf.clear3.i49, %bf.value.i48
+  %bf.set4.i50 = or disjoint i120 %bf.clear3.i49, %13
   %shr.i51 = lshr i32 %12, 16
   %14 = zext nneg i32 %shr.i51 to i120
   %bf.shl.i52 = shl nuw nsw i120 %14, 64
@@ -1280,10 +1280,10 @@ if.then25:                                        ; preds = %if.end17
   %17 = load i32, ptr %infoOffset26, align 1
   %bf.set.i56 = or i8 %0, 32
   store i8 %bf.set.i56, ptr %flags, align 1
-  %18 = and i32 %17, 65535
-  %bf.value.i58 = zext nneg i32 %18 to i120
+  %and.i57 = and i32 %17, 65535
+  %18 = zext nneg i32 %and.i57 to i120
   %bf.clear3.i59 = and i120 %bf.set23, 140737454800896
-  %bf.set4.i60 = or disjoint i120 %bf.clear3.i59, %bf.value.i58
+  %bf.set4.i60 = or disjoint i120 %bf.clear3.i59, %18
   %shr.i61 = lshr i32 %17, 16
   %19 = zext nneg i32 %shr.i61 to i120
   %bf.shl.i62 = shl nuw nsw i120 %19, 64
@@ -1303,10 +1303,10 @@ if.end27:                                         ; preds = %if.end17
 if.then36:                                        ; preds = %if.end27
   %bf.set.i66 = or i8 %0, 32
   store i8 %bf.set.i66, ptr %flags, align 1
-  %22 = and i32 %21, 65535
-  %bf.value.i68 = zext nneg i32 %22 to i120
+  %and.i67 = and i32 %21, 65535
+  %22 = zext nneg i32 %and.i67 to i120
   %bf.clear3.i69 = and i120 %bf.set33, 18446744073675997184
-  %bf.set4.i70 = or disjoint i120 %bf.clear3.i69, %bf.value.i68
+  %bf.set4.i70 = or disjoint i120 %bf.clear3.i69, %22
   %shr.i71 = lshr i32 %21, 16
   %23 = zext nneg i32 %shr.i71 to i120
   %bf.shl.i72 = shl nuw nsw i120 %23, 64
@@ -1327,10 +1327,10 @@ if.then46:                                        ; preds = %if.end38
   %26 = load i32, ptr %infoOffset34, align 1
   %bf.set.i76 = or i8 %0, 32
   store i8 %bf.set.i76, ptr %flags, align 1
-  %27 = and i32 %26, 65535
-  %bf.value.i78 = zext nneg i32 %27 to i120
+  %and.i77 = and i32 %26, 65535
+  %27 = zext nneg i32 %and.i77 to i120
   %bf.clear3.i79 = and i120 %bf.set33, 18446744073675997184
-  %bf.set4.i80 = or disjoint i120 %bf.clear3.i79, %bf.value.i78
+  %bf.set4.i80 = or disjoint i120 %bf.clear3.i79, %27
   %shr.i81 = lshr i32 %26, 16
   %28 = zext nneg i32 %shr.i81 to i120
   %bf.shl.i82 = shl nuw nsw i120 %28, 64
@@ -1351,10 +1351,10 @@ if.then56:                                        ; preds = %if.end48
   %31 = load i32, ptr %infoOffset34, align 1
   %bf.set.i86 = or i8 %0, 32
   store i8 %bf.set.i86, ptr %flags, align 1
-  %32 = and i32 %31, 65535
-  %bf.value.i88 = zext nneg i32 %32 to i120
+  %and.i87 = and i32 %31, 65535
+  %32 = zext nneg i32 %and.i87 to i120
   %bf.clear3.i89 = and i120 %bf.set54, 664613997273487935255957466366607360
-  %bf.set4.i90 = or disjoint i120 %bf.clear3.i89, %bf.value.i88
+  %bf.set4.i90 = or disjoint i120 %bf.clear3.i89, %32
   %shr.i91 = lshr i32 %31, 16
   %33 = zext nneg i32 %shr.i91 to i120
   %bf.shl.i92 = shl nuw nsw i120 %33, 64

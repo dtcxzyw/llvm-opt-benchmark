@@ -388,13 +388,13 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 2
   %12 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv
-  %13 = load i16, ptr %12, align 8
-  %14 = and i8 %.sroa.3.0.copyload, 1
-  %15 = zext nneg i8 %14 to i16
-  %16 = and i16 %13, -32
+  %13 = and i8 %.sroa.3.0.copyload, 1
+  %14 = zext nneg i8 %13 to i16
+  %15 = load i16, ptr %12, align 8
+  %16 = and i16 %15, -32
   %17 = and i8 %.sroa.3.0.copyload, 6
   %18 = zext nneg i8 %17 to i16
-  %19 = or disjoint i16 %16, %15
+  %19 = or disjoint i16 %16, %14
   %20 = zext i16 %.sroa.0.0.copyload to i32
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %20, ptr %21, align 8
@@ -406,7 +406,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
   %26 = zext nneg i8 %25 to i16
   %27 = or disjoint i16 %19, %26
   %28 = or disjoint i16 %27, %18
-  %29 = zext nneg i8 %14 to i32
+  %29 = zext nneg i8 %13 to i32
   %30 = add nuw nsw i32 %29, %20
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %30, ptr %31, align 4
@@ -429,7 +429,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
   br label %51
 
 42:                                               ; preds = %10
-  %.not113 = icmp eq i8 %14, 0
+  %.not113 = icmp eq i8 %13, 0
   %43 = select i1 %.not113, float 0x401921FB60000000, float 0x400921FB60000000
   %44 = uitofp i16 %.sroa.0.0.copyload to float
   %45 = fdiv float %43, %44
@@ -6390,13 +6390,13 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 2
   %12 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv
-  %13 = load i16, ptr %12, align 8
-  %14 = and i8 %.sroa.3.0.copyload, 1
-  %15 = zext nneg i8 %14 to i16
-  %16 = and i16 %13, -32
+  %13 = and i8 %.sroa.3.0.copyload, 1
+  %14 = zext nneg i8 %13 to i16
+  %15 = load i16, ptr %12, align 8
+  %16 = and i16 %15, -32
   %17 = and i8 %.sroa.3.0.copyload, 6
   %18 = zext nneg i8 %17 to i16
-  %19 = or disjoint i16 %16, %15
+  %19 = or disjoint i16 %16, %14
   %20 = zext i16 %.sroa.0.0.copyload to i32
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %20, ptr %21, align 8
@@ -6408,7 +6408,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
   %26 = zext nneg i8 %25 to i16
   %27 = or disjoint i16 %19, %26
   %28 = or disjoint i16 %27, %18
-  %29 = zext nneg i8 %14 to i32
+  %29 = zext nneg i8 %13 to i32
   %30 = add nuw nsw i32 %29, %20
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %30, ptr %31, align 4
@@ -6431,7 +6431,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
   br label %51
 
 42:                                               ; preds = %10
-  %.not113 = icmp eq i8 %14, 0
+  %.not113 = icmp eq i8 %13, 0
   %43 = select i1 %.not113, double 0x401921FB54442D18, double 0x400921FB54442D18
   %44 = uitofp i16 %.sroa.0.0.copyload to double
   %45 = fdiv double %43, %44

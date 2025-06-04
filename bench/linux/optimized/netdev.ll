@@ -6231,10 +6231,10 @@ define dso_local i64 @e1000e_read_systim(ptr noundef readonly captures(none) %0,
   %67 = zext i32 %66 to i64
   %68 = shl nuw i64 %67, 32
   %69 = or disjoint i64 %68, %63
-  %.not14 = icmp eq i64 %69, %58
+  %.not.us.us = icmp eq i64 %69, %58
   %70 = add nuw nsw i32 %59, 1
   %71 = icmp eq i32 %70, 50
-  %72 = select i1 %.not14, i1 true, i1 %71
+  %72 = select i1 %.not.us.us, i1 true, i1 %71
   br i1 %72, label %.loopexit, label %.thread8.us.us, !llvm.loop !44
 
 .thread8.us:                                      ; preds = %.split.us, %.thread8.us
@@ -6252,9 +6252,9 @@ define dso_local i64 @e1000e_read_systim(ptr noundef readonly captures(none) %0,
   %84 = or disjoint i64 %83, %78
   %85 = sub i64 %84, %73
   %86 = urem i64 %85, %57
-  %87 = icmp ult i64 %85, 34359738368
-  %88 = icmp eq i64 %86, 0
-  %89 = select i1 %87, i1 %88, i1 false
+  %87 = icmp eq i64 %86, 0
+  %88 = icmp ult i64 %85, 34359738368
+  %89 = select i1 %88, i1 %87, i1 false
   %90 = add nuw nsw i32 %74, 1
   %91 = icmp eq i32 %90, 50
   %92 = select i1 %89, i1 true, i1 %91
@@ -6278,10 +6278,10 @@ define dso_local i64 @e1000e_read_systim(ptr noundef readonly captures(none) %0,
   %102 = zext i32 %101 to i64
   %103 = shl nuw i64 %102, 32
   %104 = or disjoint i64 %103, %98
-  %.not = icmp eq i64 %104, %93
+  %.not.us9 = icmp eq i64 %104, %93
   %105 = add nuw nsw i32 %94, 1
   %106 = icmp eq i32 %105, 50
-  %107 = select i1 %.not, i1 true, i1 %106
+  %107 = select i1 %.not.us9, i1 true, i1 %106
   br i1 %107, label %.loopexit, label %.split.split.us, !llvm.loop !44
 
 .split.split:                                     ; preds = %.split, %.split.split
@@ -6301,9 +6301,9 @@ define dso_local i64 @e1000e_read_systim(ptr noundef readonly captures(none) %0,
   %119 = or disjoint i64 %118, %113
   %120 = sub i64 %119, %108
   %121 = urem i64 %120, %57
-  %122 = icmp ult i64 %120, 34359738368
-  %123 = icmp eq i64 %121, 0
-  %124 = select i1 %122, i1 %123, i1 false
+  %122 = icmp eq i64 %121, 0
+  %123 = icmp ult i64 %120, 34359738368
+  %124 = select i1 %123, i1 %122, i1 false
   %125 = add nuw nsw i32 %109, 1
   %126 = icmp eq i32 %125, 50
   %127 = select i1 %124, i1 true, i1 %126
@@ -16936,10 +16936,10 @@ define internal i64 @e1000e_cyclecounter_read(ptr noundef readonly captures(none
   %46 = zext i32 %45 to i64
   %47 = shl nuw i64 %46, 32
   %48 = or disjoint i64 %47, %42
-  %.not = icmp eq i64 %48, %37
+  %.not.us = icmp eq i64 %48, %37
   %49 = add nuw nsw i32 %38, 1
   %50 = icmp eq i32 %49, 50
-  %51 = select i1 %.not, i1 true, i1 %50
+  %51 = select i1 %.not.us, i1 true, i1 %50
   br i1 %51, label %.loopexit, label %.split.us, !llvm.loop !44
 
 .split:                                           ; preds = %30, %.split
@@ -16957,9 +16957,9 @@ define internal i64 @e1000e_cyclecounter_read(ptr noundef readonly captures(none
   %63 = or disjoint i64 %62, %57
   %64 = sub i64 %63, %52
   %65 = urem i64 %64, %36
-  %66 = icmp ult i64 %64, 34359738368
-  %67 = icmp eq i64 %65, 0
-  %68 = select i1 %66, i1 %67, i1 false
+  %66 = icmp eq i64 %65, 0
+  %67 = icmp ult i64 %64, 34359738368
+  %68 = select i1 %67, i1 %66, i1 false
   %69 = add nuw nsw i32 %53, 1
   %70 = icmp eq i32 %69, 50
   %71 = select i1 %68, i1 true, i1 %70

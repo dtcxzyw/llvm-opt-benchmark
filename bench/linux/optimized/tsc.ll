@@ -2264,13 +2264,13 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #6 alig
   %4 = select i1 %3, ptr @.str.31, ptr @.str.24
   br label %5
 
-5:                                                ; preds = %201, %0
-  %6 = phi i64 [ -1, %0 ], [ %151, %201 ]
-  %7 = phi i64 [ -1, %0 ], [ %.ph12, %201 ]
-  %8 = phi i64 [ 11931, %0 ], [ %.ph11, %201 ]
-  %9 = phi i64 [ 10, %0 ], [ %.ph10, %201 ]
-  %10 = phi i32 [ 0, %0 ], [ %202, %201 ]
-  %11 = phi i32 [ 1000, %0 ], [ %.ph9, %201 ]
+5:                                                ; preds = %200, %0
+  %6 = phi i64 [ -1, %0 ], [ %150, %200 ]
+  %7 = phi i64 [ -1, %0 ], [ %.ph12, %200 ]
+  %8 = phi i64 [ 11931, %0 ], [ %.ph11, %200 ]
+  %9 = phi i64 [ 10, %0 ], [ %.ph10, %200 ]
+  %10 = phi i32 [ 0, %0 ], [ %201, %200 ]
+  %11 = phi i32 [ 1000, %0 ], [ %.ph9, %200 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
   store i64 0, ptr %1, align 8, !annotation !30
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1) #20, !srcloc !31
@@ -2352,7 +2352,7 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #6 alig
   call void @__const_udelay(i64 noundef 42950000) #20
   call void @__const_udelay(i64 noundef 42950000) #20
   call void @__const_udelay(i64 noundef 42950000) #20
-  br label %110
+  br label %109
 
 62:                                               ; preds = %.split26.us
   %63 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 97) #20, !srcloc !33
@@ -2409,210 +2409,209 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #6 alig
   %103 = icmp slt i32 %101, %11
   %104 = icmp ugt i64 %100, %99
   %105 = select i1 %103, i1 true, i1 %104
-  br i1 %105, label %110, label %106
+  br i1 %105, label %109, label %106
 
 106:                                              ; preds = %98
   %107 = sub i64 %102, %73
-  %108 = and i64 %9, 4294967295
-  %109 = udiv i64 %107, %108
-  br label %110
+  %108 = udiv i64 %107, %9
+  br label %109
 
-110:                                              ; preds = %106, %98, %61
-  %111 = phi i64 [ %109, %106 ], [ -1, %61 ], [ -1, %98 ]
-  %112 = load i32, ptr @tsc_khz, align 4
-  %113 = icmp eq i32 %112, 0
-  %114 = lshr i32 %112, 5
-  %115 = select i1 %113, i32 131072, i32 %114
-  %116 = zext nneg i32 %115 to i64
-  br label %120
+109:                                              ; preds = %106, %98, %61
+  %110 = phi i64 [ %108, %106 ], [ -1, %61 ], [ -1, %98 ]
+  %111 = load i32, ptr @tsc_khz, align 4
+  %112 = icmp eq i32 %111, 0
+  %113 = lshr i32 %111, 5
+  %114 = select i1 %112, i32 131072, i32 %113
+  %115 = zext nneg i32 %114 to i64
+  br label %119
 
-117:                                              ; preds = %135
-  %118 = add nuw nsw i32 %121, 1
-  %119 = icmp eq i32 %118, 5
-  br i1 %119, label %144, label %120, !llvm.loop !64
+116:                                              ; preds = %134
+  %117 = add nuw nsw i32 %120, 1
+  %118 = icmp eq i32 %117, 5
+  br i1 %118, label %143, label %119, !llvm.loop !64
 
-120:                                              ; preds = %117, %110
-  %121 = phi i32 [ 0, %110 ], [ %118, %117 ]
-  %122 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %123 = extractvalue { i64, i64 } %122, 0
-  %124 = extractvalue { i64, i64 } %122, 1
-  %125 = shl i64 %124, 32
-  %126 = or i64 %125, %123
-  br i1 %3, label %129, label %127
+119:                                              ; preds = %116, %109
+  %120 = phi i32 [ 0, %109 ], [ %117, %116 ]
+  %121 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  %122 = extractvalue { i64, i64 } %121, 0
+  %123 = extractvalue { i64, i64 } %121, 1
+  %124 = shl i64 %123, 32
+  %125 = or i64 %124, %122
+  br i1 %3, label %128, label %126
 
-127:                                              ; preds = %120
-  %128 = call i32 @hpet_readl(i32 noundef 240) #20
-  br label %135
+126:                                              ; preds = %119
+  %127 = call i32 @hpet_readl(i32 noundef 240) #20
+  br label %134
 
-129:                                              ; preds = %120
-  %130 = load i32, ptr @pmtmr_ioport, align 4
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %135, label %132
+128:                                              ; preds = %119
+  %129 = load i32, ptr @pmtmr_ioport, align 4
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %134, label %131
 
-132:                                              ; preds = %129
-  %133 = call i32 @acpi_pm_read_verified() #20
-  %134 = and i32 %133, 16777215
-  br label %135
+131:                                              ; preds = %128
+  %132 = call i32 @acpi_pm_read_verified() #20
+  %133 = and i32 %132, 16777215
+  br label %134
 
-135:                                              ; preds = %132, %129, %127
-  %136 = phi i32 [ %128, %127 ], [ %134, %132 ], [ 0, %129 ]
-  %137 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %138 = extractvalue { i64, i64 } %137, 0
-  %139 = extractvalue { i64, i64 } %137, 1
-  %140 = shl i64 %139, 32
-  %141 = or i64 %140, %138
-  %142 = sub i64 %141, %126
-  %143 = icmp ult i64 %142, %116
-  br i1 %143, label %144, label %117
+134:                                              ; preds = %131, %128, %126
+  %135 = phi i32 [ %127, %126 ], [ %133, %131 ], [ 0, %128 ]
+  %136 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  %137 = extractvalue { i64, i64 } %136, 0
+  %138 = extractvalue { i64, i64 } %136, 1
+  %139 = shl i64 %138, 32
+  %140 = or i64 %139, %137
+  %141 = sub i64 %140, %125
+  %142 = icmp ult i64 %141, %115
+  br i1 %142, label %143, label %116
 
-144:                                              ; preds = %135, %117
-  %145 = phi i64 [ %141, %135 ], [ -1, %117 ]
-  %146 = zext i32 %136 to i64
-  %147 = and i64 %12, 512
-  %148 = icmp eq i64 %147, 0
-  br i1 %148, label %150, label %149
+143:                                              ; preds = %134, %116
+  %144 = phi i64 [ %140, %134 ], [ -1, %116 ]
+  %145 = zext i32 %135 to i64
+  %146 = and i64 %12, 512
+  %147 = icmp eq i64 %146, 0
+  br i1 %147, label %149, label %148
 
-149:                                              ; preds = %144
+148:                                              ; preds = %143
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !37
-  br label %150
+  br label %149
 
-150:                                              ; preds = %149, %144
-  %151 = call i64 @llvm.umin.i64(i64 %6, i64 %111)
-  %152 = icmp eq i32 %.us-phi, %136
-  br i1 %152, label %201, label %153
+149:                                              ; preds = %148, %143
+  %150 = call i64 @llvm.umin.i64(i64 %6, i64 %110)
+  %151 = icmp eq i32 %.us-phi, %135
+  br i1 %151, label %200, label %152
 
-153:                                              ; preds = %150
-  %154 = icmp eq i64 %.us-phi27, -1
-  %155 = icmp eq i64 %145, -1
-  %156 = or i1 %154, %155
-  br i1 %156, label %201, label %157
+152:                                              ; preds = %149
+  %153 = icmp eq i64 %.us-phi27, -1
+  %154 = icmp eq i64 %144, -1
+  %155 = or i1 %153, %154
+  br i1 %155, label %200, label %156
 
-157:                                              ; preds = %153
-  %158 = sub i64 %145, %.us-phi27
-  %159 = mul i64 %158, 1000000
-  br i1 %3, label %169, label %160
+156:                                              ; preds = %152
+  %157 = sub i64 %144, %.us-phi27
+  %158 = mul i64 %157, 1000000
+  br i1 %3, label %168, label %159
 
-160:                                              ; preds = %157
-  %161 = icmp ult i32 %136, %.us-phi
-  %162 = or disjoint i64 %146, 4294967296
-  %163 = select i1 %161, i64 %162, i64 %146
-  %164 = sub nsw i64 %163, %58
-  %165 = call i32 @hpet_readl(i32 noundef 4) #20
-  %166 = zext i32 %165 to i64
-  %167 = mul i64 %164, %166
-  %168 = udiv i64 %167, 1000000
-  br label %180
+159:                                              ; preds = %156
+  %160 = icmp ult i32 %135, %.us-phi
+  %161 = or disjoint i64 %145, 4294967296
+  %162 = select i1 %160, i64 %161, i64 %145
+  %163 = sub nsw i64 %162, %58
+  %164 = call i32 @hpet_readl(i32 noundef 4) #20
+  %165 = zext i32 %164 to i64
+  %166 = mul i64 %163, %165
+  %167 = udiv i64 %166, 1000000
+  br label %179
 
-169:                                              ; preds = %157
-  %170 = or i64 %146, %58
-  %171 = icmp eq i64 %170, 0
-  br i1 %171, label %183, label %172
+168:                                              ; preds = %156
+  %169 = or i64 %145, %58
+  %170 = icmp eq i64 %169, 0
+  br i1 %170, label %182, label %171
 
-172:                                              ; preds = %169
-  %173 = icmp ult i32 %136, %.us-phi
-  %174 = add nuw nsw i64 %146, 16777216
-  %175 = select i1 %173, i64 %174, i64 %146
-  %176 = sub nsw i64 %175, %58
-  %177 = mul nsw i64 %176, 1000000000
-  %178 = udiv i64 %177, 3579545
-  %179 = and i64 %178, 4294967295
-  br label %180
+171:                                              ; preds = %168
+  %172 = icmp ult i32 %135, %.us-phi
+  %173 = add nuw nsw i64 %145, 16777216
+  %174 = select i1 %172, i64 %173, i64 %145
+  %175 = sub nsw i64 %174, %58
+  %176 = mul nsw i64 %175, 1000000000
+  %177 = udiv i64 %176, 3579545
+  %178 = and i64 %177, 4294967295
+  br label %179
 
-180:                                              ; preds = %172, %160
-  %181 = phi i64 [ %179, %172 ], [ %168, %160 ]
-  %182 = udiv i64 %159, %181
-  br label %183
+179:                                              ; preds = %171, %159
+  %180 = phi i64 [ %178, %171 ], [ %167, %159 ]
+  %181 = udiv i64 %158, %180
+  br label %182
 
-183:                                              ; preds = %180, %169
-  %184 = phi i64 [ -1, %169 ], [ %182, %180 ]
-  %185 = call i64 @llvm.umin.i64(i64 %7, i64 %184)
-  %186 = mul i64 %151, 100
-  %187 = and i64 %185, 4294967295
-  %188 = udiv i64 %186, %187
-  %189 = add i64 %188, -90
-  %190 = icmp ult i64 %189, 21
-  br i1 %190, label %198, label %191
+182:                                              ; preds = %179, %168
+  %183 = phi i64 [ -1, %168 ], [ %181, %179 ]
+  %184 = call i64 @llvm.umin.i64(i64 %7, i64 %183)
+  %185 = mul i64 %150, 100
+  %186 = and i64 %184, 4294967295
+  %187 = udiv i64 %185, %186
+  %188 = add i64 %187, -90
+  %189 = icmp ult i64 %188, 21
+  br i1 %189, label %197, label %190
 
-191:                                              ; preds = %183
-  %192 = icmp eq i32 %10, 1
-  %193 = icmp eq i64 %151, -1
-  %194 = select i1 %192, i1 %193, i1 false
-  %195 = select i1 %194, i32 5000, i32 %11
-  %196 = select i1 %194, i64 50, i64 %9
-  %197 = select i1 %194, i64 59659, i64 %8
-  br label %201
+190:                                              ; preds = %182
+  %191 = icmp eq i32 %10, 1
+  %192 = icmp eq i64 %150, -1
+  %193 = select i1 %191, i1 %192, i1 false
+  %194 = select i1 %193, i32 5000, i32 %11
+  %195 = select i1 %193, i64 50, i64 %9
+  %196 = select i1 %193, i64 59659, i64 %8
+  br label %200
 
-198:                                              ; preds = %183
-  %199 = add nuw nsw i32 %10, 1
-  %200 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, ptr noundef nonnull %4, i32 noundef %199) #21
-  br label %236
+197:                                              ; preds = %182
+  %198 = add nuw nsw i32 %10, 1
+  %199 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, ptr noundef nonnull %4, i32 noundef %198) #21
+  br label %235
 
-201:                                              ; preds = %191, %150, %153
-  %.ph9 = phi i32 [ %11, %153 ], [ %11, %150 ], [ %195, %191 ]
-  %.ph10 = phi i64 [ %9, %153 ], [ %9, %150 ], [ %196, %191 ]
-  %.ph11 = phi i64 [ %8, %153 ], [ %8, %150 ], [ %197, %191 ]
-  %.ph12 = phi i64 [ %7, %153 ], [ %7, %150 ], [ %185, %191 ]
-  %202 = add nuw nsw i32 %10, 1
-  %203 = icmp eq i32 %202, 3
-  br i1 %203, label %204, label %5, !llvm.loop !67
+200:                                              ; preds = %190, %149, %152
+  %.ph9 = phi i32 [ %11, %152 ], [ %11, %149 ], [ %194, %190 ]
+  %.ph10 = phi i64 [ %9, %152 ], [ %9, %149 ], [ %195, %190 ]
+  %.ph11 = phi i64 [ %8, %152 ], [ %8, %149 ], [ %196, %190 ]
+  %.ph12 = phi i64 [ %7, %152 ], [ %7, %149 ], [ %184, %190 ]
+  %201 = add nuw nsw i32 %10, 1
+  %202 = icmp eq i32 %201, 3
+  br i1 %202, label %203, label %5, !llvm.loop !67
 
-204:                                              ; preds = %201
-  %205 = icmp eq i64 %151, -1
-  br i1 %205, label %206, label %221
+203:                                              ; preds = %200
+  %204 = icmp eq i64 %150, -1
+  br i1 %204, label %205, label %220
 
-206:                                              ; preds = %204
-  %207 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32) #21
-  %208 = icmp ne i32 %.fr28, 0
-  %209 = icmp ne i32 %.us-phi, 0
-  %210 = select i1 %208, i1 true, i1 %209
-  %211 = icmp ne i32 %136, 0
-  %212 = select i1 %210, i1 true, i1 %211
-  br i1 %212, label %215, label %213
+205:                                              ; preds = %203
+  %206 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32) #21
+  %207 = icmp ne i32 %.fr28, 0
+  %208 = icmp ne i32 %.us-phi, 0
+  %209 = select i1 %207, i1 true, i1 %208
+  %210 = icmp ne i32 %135, 0
+  %211 = select i1 %209, i1 true, i1 %210
+  br i1 %211, label %214, label %212
 
-213:                                              ; preds = %206
-  %214 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.33) #21
-  br label %236
+212:                                              ; preds = %205
+  %213 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.33) #21
+  br label %235
 
-215:                                              ; preds = %206
-  %216 = icmp eq i64 %.ph12, -1
-  br i1 %216, label %217, label %219
+214:                                              ; preds = %205
+  %215 = icmp eq i64 %.ph12, -1
+  br i1 %215, label %216, label %218
 
-217:                                              ; preds = %215
-  %218 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34) #21
-  br label %236
+216:                                              ; preds = %214
+  %217 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34) #21
+  br label %235
 
-219:                                              ; preds = %215
-  %220 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull %4) #21
-  br label %236
+218:                                              ; preds = %214
+  %219 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull %4) #21
+  br label %235
 
-221:                                              ; preds = %204
-  %222 = icmp ne i32 %.fr28, 0
-  %223 = icmp ne i32 %.us-phi, 0
-  %224 = select i1 %222, i1 true, i1 %223
-  %225 = icmp ne i32 %136, 0
-  %226 = select i1 %224, i1 true, i1 %225
-  br i1 %226, label %229, label %227
+220:                                              ; preds = %203
+  %221 = icmp ne i32 %.fr28, 0
+  %222 = icmp ne i32 %.us-phi, 0
+  %223 = select i1 %221, i1 true, i1 %222
+  %224 = icmp ne i32 %135, 0
+  %225 = select i1 %223, i1 true, i1 %224
+  br i1 %225, label %228, label %226
 
-227:                                              ; preds = %221
-  %228 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #21
-  br label %236
+226:                                              ; preds = %220
+  %227 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #21
+  br label %235
 
-229:                                              ; preds = %221
-  %230 = icmp eq i64 %.ph12, -1
-  br i1 %230, label %231, label %233
+228:                                              ; preds = %220
+  %229 = icmp eq i64 %.ph12, -1
+  br i1 %229, label %230, label %232
 
-231:                                              ; preds = %229
-  %232 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #21
-  br label %236
+230:                                              ; preds = %228
+  %231 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #21
+  br label %235
 
-233:                                              ; preds = %229
-  %234 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, ptr noundef nonnull %4, i64 noundef %151, i64 noundef %.ph12) #21
-  %235 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #21
-  br label %236
+232:                                              ; preds = %228
+  %233 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, ptr noundef nonnull %4, i64 noundef %150, i64 noundef %.ph12) #21
+  %234 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #21
+  br label %235
 
-236:                                              ; preds = %198, %233, %231, %227, %219, %217, %213
-  %237 = phi i64 [ 0, %217 ], [ %.ph12, %219 ], [ 0, %213 ], [ %151, %231 ], [ %151, %233 ], [ %151, %227 ], [ %185, %198 ]
-  ret i64 %237
+235:                                              ; preds = %197, %232, %230, %226, %218, %216, %212
+  %236 = phi i64 [ 0, %216 ], [ %.ph12, %218 ], [ 0, %212 ], [ %150, %230 ], [ %150, %232 ], [ %150, %226 ], [ %184, %197 ]
+  ret i64 %236
 }
 
 ; Function Attrs: null_pointer_is_valid

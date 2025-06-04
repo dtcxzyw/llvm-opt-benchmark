@@ -26218,8 +26218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_Z
   br i1 %.not538586, label %._crit_edge591, label %.lr.ph590
 
 .lr.ph590:                                        ; preds = %._crit_edge584.thread
-  %.0105.lcssa629.masked = and i8 %.0105.lcssa629, 1
-  %376 = or i8 %.0105.lcssa629.masked, %.0108.lcssa628
+  %376 = or i8 %.0105.lcssa629, %.0108.lcssa628
   %or.cond.not = icmp eq i8 %376, 0
   %377 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %17, i64 16

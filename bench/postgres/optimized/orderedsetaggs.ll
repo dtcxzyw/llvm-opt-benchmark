@@ -1713,8 +1713,7 @@ define dso_local i64 @mode_final(ptr noundef captures(none) %0) local_unnamed_ad
   br label %.outer, !llvm.loop !15
 
 82:                                               ; preds = %42
-  %.046.masked = and i8 %.046.ph, 1
-  %83 = or i8 %.046.masked, %30
+  %83 = or i8 %.046.ph, %30
   %or.cond4.not = icmp eq i8 %83, 0
   br i1 %or.cond4.not, label %84, label %86
 

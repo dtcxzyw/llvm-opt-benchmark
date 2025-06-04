@@ -283,9 +283,8 @@ bloom_add_value.exit:                             ; preds = %145, %bloom_get_pro
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %149 = load ptr, ptr %148, align 8
   store i64 %147, ptr %149, align 8
-  %150 = and i8 %.3, 1
-  %151 = zext nneg i8 %150 to i64
-  ret i64 %151
+  %150 = zext nneg i8 %.3 to i64
+  ret i64 %150
 }
 
 declare ptr @get_fn_opclass_options(ptr noundef) local_unnamed_addr #2

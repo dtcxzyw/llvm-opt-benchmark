@@ -2720,48 +2720,47 @@ define internal fastcc void @check_xtile_data_against_struct(i32 noundef %0) unn
   %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 29, i32 0) #15, !srcloc !24
   %3 = extractvalue { i32, i32, i32, i32 } %2, 0
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %22, label %.preheader
+  br i1 %4, label %21, label %.preheader
 
 5:                                                ; preds = %.preheader
-  %6 = extractvalue { i32, i32, i32, i32 } %14, 1
+  %6 = extractvalue { i32, i32, i32, i32 } %13, 1
   %7 = lshr i32 %6, 16
-  %8 = and i32 %13, 65535
-  %9 = tail call i32 @llvm.umax.i32(i32 %7, i32 %8)
-  %10 = add i32 %12, 1
-  %11 = icmp ugt i32 %10, %3
-  br i1 %11, label %20, label %.preheader, !llvm.loop !174
+  %8 = tail call i32 @llvm.umax.i32(i32 %7, i32 %12)
+  %9 = add i32 %11, 1
+  %10 = icmp ugt i32 %9, %3
+  br i1 %10, label %19, label %.preheader, !llvm.loop !174
 
 .preheader:                                       ; preds = %1, %5
-  %12 = phi i32 [ %10, %5 ], [ 1, %1 ]
-  %13 = phi i32 [ %9, %5 ], [ 0, %1 ]
-  %14 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 29, i32 %12) #15, !srcloc !24
-  %15 = extractvalue { i32, i32, i32, i32 } %14, 0
-  %16 = lshr i32 %15, 16
-  %17 = icmp eq i32 %16, 1024
-  br i1 %17, label %5, label %18
+  %11 = phi i32 [ %9, %5 ], [ 1, %1 ]
+  %12 = phi i32 [ %8, %5 ], [ 0, %1 ]
+  %13 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 29, i32 %11) #15, !srcloc !24
+  %14 = extractvalue { i32, i32, i32, i32 } %13, 0
+  %15 = lshr i32 %14, 16
+  %16 = icmp eq i32 %15, 1024
+  br i1 %16, label %5, label %17
 
-18:                                               ; preds = %.preheader
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef 1024, i32 noundef %16) #16
+17:                                               ; preds = %.preheader
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef 1024, i32 noundef %15) #16
   br label %.sink.split
 
-20:                                               ; preds = %5
-  %21 = shl nuw nsw i32 %9, 10
-  br label %22
+19:                                               ; preds = %5
+  %20 = shl nuw nsw i32 %8, 10
+  br label %21
 
-22:                                               ; preds = %20, %1
-  %23 = phi i32 [ 0, %1 ], [ %21, %20 ]
-  %24 = icmp eq i32 %23, %0
-  br i1 %24, label %27, label %25
+21:                                               ; preds = %19, %1
+  %22 = phi i32 [ 0, %1 ], [ %20, %19 ]
+  %23 = icmp eq i32 %22, %0
+  br i1 %23, label %26, label %24
 
-25:                                               ; preds = %22
-  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43, i32 noundef %23, i32 noundef %0) #16
+24:                                               ; preds = %21
+  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43, i32 noundef %22, i32 noundef %0) #16
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %18
+.sink.split:                                      ; preds = %24, %17
   tail call fastcc void @__xstate_dump_leaves() #17
-  br label %27
+  br label %26
 
-27:                                               ; preds = %.sink.split, %22
+26:                                               ; preds = %.sink.split, %21
   ret void
 }
 

@@ -428,18 +428,18 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
 
 .preheader116:                                    ; preds = %75, %.preheader116
   %.1122 = phi i64 [ %76, %.preheader116 ], [ %., %75 ]
-  %.079121 = phi i32 [ %85, %.preheader116 ], [ 0, %75 ]
+  %.079121 = phi i16 [ %85, %.preheader116 ], [ 0, %75 ]
   %76 = add i64 %.1122, -1
   %77 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !16
-  %79 = zext i8 %78 to i32
+  %79 = zext i8 %78 to i16
   %80 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %76
   %81 = load i8, ptr %80, align 1, !tbaa !16
-  %82 = zext i8 %81 to i32
-  %83 = add nuw nsw i32 %.079121, %79
-  %84 = add nuw nsw i32 %83, %82
-  %85 = lshr i32 %84, 8
-  %86 = trunc i32 %84 to i8
+  %82 = zext i8 %81 to i16
+  %83 = add nuw nsw i16 %.079121, %79
+  %84 = add nuw nsw i16 %83, %82
+  %85 = lshr i16 %84, 8
+  %86 = trunc i16 %84 to i8
   store i8 %86, ptr %77, align 1, !tbaa !16
   %.not92 = icmp eq i64 %76, 0
   br i1 %.not92, label %.loopexit117, label %.preheader116, !llvm.loop !21
@@ -449,18 +449,18 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
 
 .preheader:                                       ; preds = %.loopexit117, %.preheader
   %.2124 = phi i64 [ %87, %.preheader ], [ %., %.loopexit117 ]
-  %.180123 = phi i32 [ %96, %.preheader ], [ 0, %.loopexit117 ]
+  %.180123 = phi i16 [ %96, %.preheader ], [ 0, %.loopexit117 ]
   %87 = add i64 %.2124, -1
   %88 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !16
-  %90 = zext i8 %89 to i32
+  %90 = zext i8 %89 to i16
   %91 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %87
   %92 = load i8, ptr %91, align 1, !tbaa !16
-  %93 = zext i8 %92 to i32
-  %94 = add nuw nsw i32 %.180123, %90
-  %95 = add nuw nsw i32 %94, %93
-  %96 = lshr i32 %95, 8
-  %97 = trunc i32 %95 to i8
+  %93 = zext i8 %92 to i16
+  %94 = add nuw nsw i16 %.180123, %90
+  %95 = add nuw nsw i16 %94, %93
+  %96 = lshr i16 %95, 8
+  %97 = trunc i16 %95 to i8
   store i8 %97, ptr %88, align 1, !tbaa !16
   %.not93 = icmp eq i64 %87, 0
   br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !22

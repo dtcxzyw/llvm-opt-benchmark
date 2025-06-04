@@ -5286,18 +5286,18 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %5 = icmp ugt i64 %1, 18
   br i1 %5, label %9, label %6
 
-_ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i", %.critedge.backedge.us.i.i, %7, %6, %.lr.ph.split.us.i.i, %66
-  %.sroa.011.0 = phi i1 [ %67, %66 ], [ true, %.lr.ph.split.us.i.i ], [ %8, %7 ], [ false, %6 ], [ %.not25.i.i, %.critedge.backedge.us.i.i ], [ %.not25.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i" ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i", %.critedge.backedge.us.i.i, %.lr.ph.split.us.i.i, %66, %7, %6
+  %.sroa.011.0 = phi i1 [ %8, %7 ], [ false, %6 ], [ %67, %66 ], [ true, %.lr.ph.split.us.i.i ], [ %.not25.i.i, %.critedge.backedge.us.i.i ], [ %.not25.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i" ]
   ret i1 %.sroa.011.0
 
 6:                                                ; preds = %2
   %.not.i = icmp eq i64 %1, 18
-  br i1 %.not.i, label %7, label %_ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit
+  br i1 %.not.i, label %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit"
 
 7:                                                ; preds = %6
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @anon.aa72cd09675a613f70bae4f22405c9d0.243, ptr noundef nonnull readonly align 1 dereferenceable(18) %0, i64 18), !alias.scope !868
   %8 = icmp eq i32 %bcmp.i, 0
-  br label %_ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit
+  br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit"
 
 9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !872)
@@ -5307,20 +5307,20 @@ _ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit: ; preds = %"_ZN4co
 .lr.ph.split.us.i.i:                              ; preds = %9
   %bcmp.i.i.i.us19.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(18) %0, ptr noundef nonnull readonly align 1 dereferenceable(18) @anon.aa72cd09675a613f70bae4f22405c9d0.243, i64 18), !alias.scope !875, !noalias !879
   %.not24.i.i = icmp eq i32 %bcmp.i.i.i.us19.i.i, 0
-  br i1 %.not24.i.i, label %_ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit, label %.critedge.backedge.us.i.i
+  br i1 %.not24.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit", label %.critedge.backedge.us.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i": ; preds = %.critedge.backedge.us.i.i
   %11 = add i64 %.in.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %bcmp.i.i.i.us.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(18) %12, ptr noundef nonnull readonly align 1 dereferenceable(18) @anon.aa72cd09675a613f70bae4f22405c9d0.243, i64 18), !alias.scope !875, !noalias !879
   %.not26.i.i = icmp eq i32 %bcmp.i.i.i.us.i.i, 0
-  br i1 %.not26.i.i, label %_ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit, label %.critedge.backedge.us.i.i
+  br i1 %.not26.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit", label %.critedge.backedge.us.i.i
 
 .critedge.backedge.us.i.i:                        ; preds = %.lr.ph.split.us.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i"
   %.pn.i = phi ptr [ %12, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i" ], [ %0, %.lr.ph.split.us.i.i ]
   %.in.i = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i" ], [ %1, %.lr.ph.split.us.i.i ]
   %.not25.i.i = icmp ugt i64 %.in.i, 18
-  br i1 %.not25.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i", label %_ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit
+  br i1 %.not25.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38d728b282770ba2E.exit.i": ; preds = %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !872
@@ -5444,7 +5444,7 @@ _ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit: ; preds = %"_ZN4co
   %.sroa.014.4.i = phi i8 [ %.sroa.014.1.lcssa.i, %._crit_edge.i ], [ %71, %68 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !872
   %67 = trunc nuw i8 %.sroa.014.4.i to i1
-  br label %_ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit
+  br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit"
 
 68:                                               ; preds = %._crit_edge.i
   %69 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %4, i64 noundef %46, i16 noundef %51, i1 noundef zeroext %.lcssa.i)

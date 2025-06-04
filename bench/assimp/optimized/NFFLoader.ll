@@ -14750,8 +14750,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4132 = getelementptr inbounds nuw i8, ptr %4128, i64 14
   store i8 0, ptr %4132, align 1
   %4133 = trunc nuw i8 %.2609 to i1
-  %.mask = and i8 %.2609, 1
-  %4134 = zext nneg i8 %.mask to i32
+  %4134 = zext nneg i8 %.2609 to i32
   %4135 = add i32 %.0649.lcssa, %4134
   %4136 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %4137 = load ptr, ptr %4136, align 8

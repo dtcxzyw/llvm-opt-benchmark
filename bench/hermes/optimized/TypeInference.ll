@@ -1748,9 +1748,8 @@ _ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i:    ; preds = %if.then.i.i.i, %_ZL
 if.end.i.i:                                       ; preds = %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i, %if.then.i.i, %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i
   %localChanged.2.i.i = phi i8 [ %or3316.i.i, %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i ], [ %or3316.i.i, %if.then.i.i ], [ %or5017.i.i, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i ]
   %tobool55.i.i = trunc nuw i8 %localChanged.2.i.i to i1
-  %tobool55.mask.i.i = and i8 %localChanged.2.i.i, 1
   %166 = zext i1 %changed.0.in.i.i to i8
-  %or5918.i.i = or i8 %tobool55.mask.i.i, %166
+  %or5918.i.i = or i8 %localChanged.2.i.i, %166
   %tobool60.i.i = icmp ne i8 %or5918.i.i, 0
   br i1 %tobool55.i.i, label %do.body4.i.i, label %_ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i, !llvm.loop !15
 

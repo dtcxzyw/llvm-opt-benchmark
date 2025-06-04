@@ -265,7 +265,7 @@ hwloc_diff_read.exit:                             ; preds = %.tail.thread.i, %._
 hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_diff_read.exit
   %85 = load ptr, ptr @stderr, align 8, !tbaa !11
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.15, ptr noundef nonnull %52) #15
-  br label %148
+  br label %147
 
 87:                                               ; preds = %hwloc_diff_read.exit
   %88 = call i32 @hwloc_topology_init(ptr noundef nonnull %3) #13
@@ -285,7 +285,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
 96:                                               ; preds = %94
   %97 = load ptr, ptr @stderr, align 8, !tbaa !11
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.17, ptr noundef nonnull %52) #15
-  br label %144
+  br label %143
 
 99:                                               ; preds = %94
   %100 = load ptr, ptr %3, align 8, !tbaa !16
@@ -297,7 +297,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   %104 = load ptr, ptr @stderr, align 8, !tbaa !11
   %105 = load ptr, ptr %5, align 8, !tbaa !9
   %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.18, ptr noundef %105, ptr noundef nonnull %52) #15
-  br label %144
+  br label %143
 
 107:                                              ; preds = %87
   %108 = load ptr, ptr %3, align 8, !tbaa !16
@@ -308,7 +308,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
 111:                                              ; preds = %107
   %112 = load ptr, ptr @stderr, align 8, !tbaa !11
   %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.19, ptr noundef nonnull %.lcssa) #15
-  br label %144
+  br label %143
 
 114:                                              ; preds = %107, %99
   %115 = load ptr, ptr %3, align 8, !tbaa !16
@@ -319,53 +319,52 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
 118:                                              ; preds = %114
   %119 = load ptr, ptr @stderr, align 8, !tbaa !11
   %120 = call i64 @fwrite(ptr nonnull @.str.20, i64 24, i64 1, ptr %119) #20
-  br label %144
+  br label %143
 
 121:                                              ; preds = %114
   %122 = load ptr, ptr %3, align 8, !tbaa !16
   %123 = load ptr, ptr %4, align 8, !tbaa !4
   %124 = call i32 @hwloc_topology_diff_apply(ptr noundef %122, ptr noundef %123, i64 noundef %.05592.lcssa) #13
   %125 = icmp slt i32 %124, 0
-  br i1 %125, label %126, label %132
+  br i1 %125, label %126, label %131
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %128 = and i64 %.05592.lcssa, 1
-  %.not65 = icmp eq i64 %128, 0
-  %129 = select i1 %.not65, ptr @.str.23, ptr @.str.22
-  %130 = sub nsw i32 0, %124
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.21, ptr noundef nonnull %129, ptr noundef nonnull %52, i32 noundef %130) #15
-  br label %144
+  %.not65 = icmp eq i64 %.05592.lcssa, 0
+  %128 = select i1 %.not65, ptr @.str.23, ptr @.str.22
+  %129 = sub nsw i32 0, %124
+  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.21, ptr noundef nonnull %128, ptr noundef nonnull %52, i32 noundef %129) #15
+  br label %143
 
-132:                                              ; preds = %121
-  %133 = load ptr, ptr %3, align 8, !tbaa !16
+131:                                              ; preds = %121
+  %132 = load ptr, ptr %3, align 8, !tbaa !16
   %.not64 = icmp eq ptr %.0, null
-  %134 = select i1 %.not64, ptr %.lcssa, ptr %.0
-  %135 = call i32 @hwloc_topology_export_xml(ptr noundef %133, ptr noundef nonnull %134, i64 noundef 0) #13
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %137, label %140
+  %133 = select i1 %.not64, ptr %.lcssa, ptr %.0
+  %134 = call i32 @hwloc_topology_export_xml(ptr noundef %132, ptr noundef nonnull %133, i64 noundef 0) #13
+  %135 = icmp slt i32 %134, 0
+  br i1 %135, label %136, label %139
 
-137:                                              ; preds = %132
-  %138 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.24, ptr noundef %.0) #15
-  br label %144
+136:                                              ; preds = %131
+  %137 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.24, ptr noundef %.0) #15
+  br label %143
 
-140:                                              ; preds = %132
-  %141 = load ptr, ptr %3, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %141) #13
-  %142 = load ptr, ptr %4, align 8, !tbaa !4
-  %143 = call i32 @hwloc_topology_diff_destroy(ptr noundef %142) #13
+139:                                              ; preds = %131
+  %140 = load ptr, ptr %3, align 8, !tbaa !16
+  call void @hwloc_topology_destroy(ptr noundef %140) #13
+  %141 = load ptr, ptr %4, align 8, !tbaa !4
+  %142 = call i32 @hwloc_topology_diff_destroy(ptr noundef %141) #13
   call void @exit(i32 noundef 0) #17
   unreachable
 
-144:                                              ; preds = %137, %126, %118, %111, %103, %96
-  %145 = load ptr, ptr %3, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %145) #13
-  %146 = load ptr, ptr %4, align 8, !tbaa !4
-  %147 = call i32 @hwloc_topology_diff_destroy(ptr noundef %146) #13
-  br label %148
+143:                                              ; preds = %136, %126, %118, %111, %103, %96
+  %144 = load ptr, ptr %3, align 8, !tbaa !16
+  call void @hwloc_topology_destroy(ptr noundef %144) #13
+  %145 = load ptr, ptr %4, align 8, !tbaa !4
+  %146 = call i32 @hwloc_topology_diff_destroy(ptr noundef %145) #13
+  br label %147
 
-148:                                              ; preds = %144, %hwloc_diff_read.exit.thread
+147:                                              ; preds = %143, %hwloc_diff_read.exit.thread
   call void @exit(i32 noundef 1) #16
   unreachable
 }

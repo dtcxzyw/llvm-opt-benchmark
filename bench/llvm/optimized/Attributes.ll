@@ -5601,7 +5601,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i3667:        ; preds = %_ZNK4llvm6Triple18h
   br i1 %600, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i3669, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3672
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i3669: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3667
-  %.sroa.0.0.insert.insert.i.i3671 = or i64 %597, 4294967296
+  %.sroa.0.0.insert.insert.i.i3671 = or disjoint i64 %597, 4294967296
   br i1 %598, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3694, label %603
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3672: ; preds = %_ZNK4llvm6Triple18hasDLLImportExportEv.exit3662, %_ZNK4llvm6Triple18hasDLLImportExportEv.exit3662.thread13071, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3667

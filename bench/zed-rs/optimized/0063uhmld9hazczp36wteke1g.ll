@@ -35048,8 +35048,8 @@ common.ret:                                       ; preds = %1626, %866, %60
 118:                                              ; preds = %._crit_edge184, %.thread.i
   %119 = phi ptr [ %643, %.thread.i ], [ %107, %._crit_edge184 ]
   %120 = phi ptr [ %644, %.thread.i ], [ %106, %._crit_edge184 ]
-  %121 = phi i32 [ %.sroa.03.0.sink.i9.i.i, %.thread.i ], [ %.pre187, %._crit_edge184 ]
-  %122 = phi i64 [ %.sroa.0.08.i.i, %.thread.i ], [ %.pre185, %._crit_edge184 ]
+  %121 = phi i32 [ %.sroa.03.0.sink.i.ph.i.i, %.thread.i ], [ %.pre187, %._crit_edge184 ]
+  %122 = phi i64 [ %.sroa.0.0.ph.i.i, %.thread.i ], [ %.pre185, %._crit_edge184 ]
   %123 = phi ptr [ %.sroa.975.0..sroa_idx.i, %.thread.i ], [ %.phi.trans.insert93.i, %._crit_edge184 ]
   %124 = phi ptr [ %838, %.thread.i ], [ %117, %._crit_edge184 ]
   %125 = invoke noundef nonnull ptr @_ZN16async_dispatcher5sleep17h30bae6897561e211E(i64 noundef %122, i32 noundef %121)
@@ -36773,7 +36773,7 @@ _ZN4rand3rng3Rng9gen_range17he59a14bed96378efE.exit.i: ; preds = %761
   %779 = fadd double %766, %765
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49), !noalias !12675
   %780 = fcmp olt double %779, 0.000000e+00
-  br i1 %780, label %.thread20.i.i, label %781
+  br i1 %780, label %834, label %781
 
 781:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h63a45b46247e24efE.exit.i"
   %782 = bitcast double %779 to i64
@@ -36782,7 +36782,7 @@ _ZN4rand3rng3Rng9gen_range17he59a14bed96378efE.exit.i: ; preds = %761
   %785 = lshr i64 %782, 52
   %786 = trunc nuw nsw i64 %785 to i16
   %787 = and i16 %786, 2047
-  %788 = add nuw nsw i64 %785, 1
+  %788 = add nsw i16 %787, -1023
   %789 = icmp samesign ult i16 %787, 992
   br i1 %789, label %.thread.i, label %790
 
@@ -36792,72 +36792,71 @@ _ZN4rand3rng3Rng9gen_range17he59a14bed96378efE.exit.i: ; preds = %761
 
 792:                                              ; preds = %790
   %793 = icmp samesign ult i16 %787, 1075
-  br i1 %793, label %812, label %810
+  br i1 %793, label %811, label %809
 
 794:                                              ; preds = %790
   %795 = zext nneg i64 %784 to i128
-  %796 = add nuw nsw i16 %786, 45
-  %797 = and i16 %796, 127
-  %798 = zext nneg i16 %797 to i128
-  %799 = shl nuw nsw i128 %795, %798
-  %800 = mul nuw nsw i128 %799, 1000000000
-  %801 = lshr i128 %800, 96
-  %802 = trunc nuw nsw i128 %801 to i32
-  %803 = and i128 %800, 79228162514264337593543949824
-  %804 = icmp ne i128 %803, 39614081257132168796771975168
-  %805 = and i128 %800, 39614081257132168796771975168
-  %806 = icmp ne i128 %805, 0
-  %807 = and i32 %802, 1
-  %808 = icmp ne i32 %807, 0
-  %narrow13.i.i.i = select i1 %808, i1 true, i1 %804
-  %narrow14.i.i.i = select i1 %806, i1 %narrow13.i.i.i, i1 false
+  %796 = add nsw i16 %787, -979
+  %797 = zext nneg i16 %796 to i128
+  %798 = shl nuw nsw i128 %795, %797
+  %799 = mul nuw nsw i128 %798, 1000000000
+  %800 = lshr i128 %799, 96
+  %801 = trunc nuw nsw i128 %800 to i32
+  %802 = and i128 %799, 79228162514264337593543949824
+  %803 = icmp ne i128 %802, 39614081257132168796771975168
+  %804 = and i128 %799, 39614081257132168796771975168
+  %805 = icmp ne i128 %804, 0
+  %806 = and i32 %801, 1
+  %807 = icmp ne i32 %806, 0
+  %narrow13.i.i.i = select i1 %807, i1 true, i1 %803
+  %narrow14.i.i.i = select i1 %805, i1 %narrow13.i.i.i, i1 false
   %.sroa.0.0.i.i.i = zext i1 %narrow14.i.i.i to i32
-  %809 = add nuw nsw i32 %.sroa.0.0.i.i.i, %802
-  %.not7.i.i.i = icmp eq i32 %809, 1000000000
-  %spec.select25.i.i = select i1 %.not7.i.i.i, i32 0, i32 %809
-  %spec.select26.i.i = zext i1 %.not7.i.i.i to i64
+  %808 = add nuw nsw i32 %.sroa.0.0.i.i.i, %801
+  %.not7.i.i.i = icmp eq i32 %808, 1000000000
+  %spec.select.i.i = zext i1 %.not7.i.i.i to i64
+  %spec.select16.i.i = select i1 %.not7.i.i.i, i32 0, i32 %808
   br label %.thread.i
 
-810:                                              ; preds = %792
-  %811 = icmp samesign ult i16 %787, 1087
-  br i1 %811, label %831, label %.thread20.i.i
+809:                                              ; preds = %792
+  %810 = icmp samesign ult i16 %787, 1087
+  br i1 %810, label %830, label %834
 
-812:                                              ; preds = %792
-  %813 = sub nsw i64 51, %785
-  %814 = and i64 %813, 63
-  %815 = lshr i64 %784, %814
-  %816 = and i64 %788, 63
-  %817 = shl i64 %782, %816
-  %818 = and i64 %817, 4503599627370495
-  %819 = zext nneg i64 %818 to i128
-  %820 = mul nuw nsw i128 %819, 1000000000
-  %821 = lshr i128 %820, 52
-  %822 = trunc nuw nsw i128 %821 to i32
-  %823 = and i128 %820, 4503599627369984
-  %824 = icmp ne i128 %823, 2251799813685248
-  %825 = and i128 %820, 2251799813685248
-  %826 = icmp ne i128 %825, 0
-  %827 = and i32 %822, 1
-  %828 = icmp ne i32 %827, 0
-  %narrow.i.i.i = select i1 %828, i1 true, i1 %824
-  %narrow12.i.i.i = select i1 %826, i1 %narrow.i.i.i, i1 false
+811:                                              ; preds = %792
+  %812 = sub nuw nsw i16 1075, %787
+  %813 = zext nneg i16 %812 to i64
+  %814 = lshr i64 %784, %813
+  %815 = zext nneg i16 %788 to i64
+  %816 = shl i64 %782, %815
+  %817 = and i64 %816, 4503599627370495
+  %818 = zext nneg i64 %817 to i128
+  %819 = mul nuw nsw i128 %818, 1000000000
+  %820 = lshr i128 %819, 52
+  %821 = trunc nuw nsw i128 %820 to i32
+  %822 = and i128 %819, 4503599627369984
+  %823 = icmp ne i128 %822, 2251799813685248
+  %824 = and i128 %819, 2251799813685248
+  %825 = icmp ne i128 %824, 0
+  %826 = and i32 %821, 1
+  %827 = icmp ne i32 %826, 0
+  %narrow.i.i.i = select i1 %827, i1 true, i1 %823
+  %narrow12.i.i.i = select i1 %825, i1 %narrow.i.i.i, i1 false
   %.sroa.01.0.i.i.i = zext i1 %narrow12.i.i.i to i32
-  %829 = add nuw nsw i32 %.sroa.01.0.i.i.i, %822
-  %.not.i.i.i = icmp eq i32 %829, 1000000000
-  %830 = zext i1 %.not.i.i.i to i64
-  %spec.select10.i.i.i = add nuw nsw i64 %815, %830
-  %spec.select.i.i = select i1 %.not.i.i.i, i32 0, i32 %829
+  %828 = add nuw nsw i32 %.sroa.01.0.i.i.i, %821
+  %.not.i.i.i = icmp eq i32 %828, 1000000000
+  %829 = zext i1 %.not.i.i.i to i64
+  %spec.select10.i.i.i = add nuw nsw i64 %814, %829
+  %spec.select17.i.i = select i1 %.not.i.i.i, i32 0, i32 %828
   br label %.thread.i
 
-831:                                              ; preds = %810
-  %832 = add nuw nsw i64 %785, 13
-  %833 = and i64 %832, 63
-  %834 = shl nuw i64 %784, %833
+830:                                              ; preds = %809
+  %831 = add nsw i16 %787, -1075
+  %832 = zext nneg i16 %831 to i64
+  %833 = shl nuw i64 %784, %832
   br label %.thread.i
 
-.thread20.i.i:                                    ; preds = %810, %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h63a45b46247e24efE.exit.i"
-  %anon.8a58ca14b8540b50fa38bce56da43586.146.sink.i.i = phi ptr [ @anon.8a58ca14b8540b50fa38bce56da43586.145, %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h63a45b46247e24efE.exit.i" ], [ @anon.8a58ca14b8540b50fa38bce56da43586.146, %810 ]
-  %.sink.i.i = phi i64 [ 59, %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h63a45b46247e24efE.exit.i" ], [ 72, %810 ]
+834:                                              ; preds = %809, %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h63a45b46247e24efE.exit.i"
+  %anon.8a58ca14b8540b50fa38bce56da43586.146.sink.i.i = phi ptr [ @anon.8a58ca14b8540b50fa38bce56da43586.145, %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h63a45b46247e24efE.exit.i" ], [ @anon.8a58ca14b8540b50fa38bce56da43586.146, %809 ]
+  %.sink.i.i = phi i64 [ 59, %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h63a45b46247e24efE.exit.i" ], [ 72, %809 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !12675
   store ptr %anon.8a58ca14b8540b50fa38bce56da43586.146.sink.i.i, ptr %28, align 8, !noalias !12675
   %835 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -36865,21 +36864,21 @@ _ZN4rand3rng3Rng9gen_range17he59a14bed96378efE.exit.i: ; preds = %761
   invoke void @_ZN4core4time8Duration13from_secs_f6418panic_cold_display17h6c2062cbdf1e0f1dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a58ca14b8540b50fa38bce56da43586.148) #47
           to label %.noexc50.i unwind label %836, !noalias !12684
 
-.noexc50.i:                                       ; preds = %.thread20.i.i
+.noexc50.i:                                       ; preds = %834
   unreachable
 
-836:                                              ; preds = %.thread20.i.i
+836:                                              ; preds = %834
   %837 = landingpad { ptr, i32 }
           cleanup
   br label %841
 
-.thread.i:                                        ; preds = %831, %812, %794, %781
-  %.sroa.03.0.sink.i9.i.i = phi i32 [ 0, %781 ], [ 0, %831 ], [ %spec.select.i.i, %812 ], [ %spec.select25.i.i, %794 ]
-  %.sroa.0.08.i.i = phi i64 [ 0, %781 ], [ %834, %831 ], [ %spec.select10.i.i.i, %812 ], [ %spec.select26.i.i, %794 ]
+.thread.i:                                        ; preds = %830, %811, %794, %781
+  %.sroa.0.0.ph.i.i = phi i64 [ 0, %781 ], [ %833, %830 ], [ %spec.select.i.i, %794 ], [ %spec.select10.i.i.i, %811 ]
+  %.sroa.03.0.sink.i.ph.i.i = phi i32 [ 0, %781 ], [ 0, %830 ], [ %spec.select16.i.i, %794 ], [ %spec.select17.i.i, %811 ]
   %838 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  store i64 %.sroa.0.08.i.i, ptr %838, align 8, !noalias !12675
+  store i64 %.sroa.0.0.ph.i.i, ptr %838, align 8, !noalias !12675
   %.sroa.773.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 648
-  store i32 %.sroa.03.0.sink.i9.i.i, ptr %.sroa.773.0..sroa_idx.i, align 8, !noalias !12675
+  store i32 %.sroa.03.0.sink.i.ph.i.i, ptr %.sroa.773.0..sroa_idx.i, align 8, !noalias !12675
   %.sroa.975.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 664
   store i8 0, ptr %.sroa.975.0..sroa_idx.i, align 8, !noalias !12675
   br label %118

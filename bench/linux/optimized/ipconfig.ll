@@ -1140,7 +1140,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ic_dynamic() unnamed_addr #
 
 7:                                                ; preds = %0
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34) #19
-  br label %134
+  br label %133
 
 9:                                                ; preds = %0
   %10 = xor i32 %5, %2
@@ -1170,7 +1170,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ic_dynamic() unnamed_addr #
 21:                                               ; preds = %19, %15
   %22 = phi i32 [ %.pr, %19 ], [ %16, %15 ]
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %134, label %24
+  br i1 %23, label %133, label %24
 
 24:                                               ; preds = %21
   %25 = icmp eq i32 %3, 0
@@ -1198,176 +1198,175 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ic_dynamic() unnamed_addr #
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %34, ptr @.str.18, ptr @.str.17
   %36 = select i1 %25, ptr @.str.38, ptr %35
-  %37 = and i32 %2, 3
-  %38 = icmp eq i32 %37, 3
-  %39 = select i1 %38, ptr @.str.39, ptr @.str.38
-  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37, ptr noundef nonnull %36, ptr noundef nonnull %39, ptr noundef nonnull %31) #19
-  %41 = load volatile i64, ptr @jiffies, align 64
-  %42 = load ptr, ptr @ic_first_dev, align 8
+  %37 = icmp eq i32 %2, 3
+  %38 = select i1 %37, ptr @.str.39, ptr @.str.38
+  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37, ptr noundef nonnull %36, ptr noundef nonnull %38, ptr noundef nonnull %31) #19
+  %40 = load volatile i64, ptr @jiffies, align 64
+  %41 = load ptr, ptr @ic_first_dev, align 8
   call void @get_random_bytes(ptr noundef nonnull %1, i64 noundef 8) #17
-  %43 = load i64, ptr %1, align 8
-  %44 = urem i64 %43, 1000
-  %45 = add nuw nsw i64 %44, 2000
-  store i64 %45, ptr %1, align 8
-  br label %46
+  %42 = load i64, ptr %1, align 8
+  %43 = urem i64 %42, 1000
+  %44 = add nuw nsw i64 %43, 2000
+  store i64 %44, ptr %1, align 8
+  br label %45
 
-46:                                               ; preds = %108, %30
-  %47 = phi ptr [ %109, %108 ], [ %42, %30 ]
-  %48 = phi i32 [ %106, %108 ], [ 6, %30 ]
-  br label %49
+45:                                               ; preds = %107, %30
+  %46 = phi ptr [ %108, %107 ], [ %41, %30 ]
+  %47 = phi i32 [ %105, %107 ], [ 6, %30 ]
+  br label %48
 
-49:                                               ; preds = %.backedge, %46
-  %50 = phi ptr [ %47, %46 ], [ %.be, %.backedge ]
-  br i1 %25, label %59, label %51
+48:                                               ; preds = %.backedge, %45
+  %49 = phi ptr [ %46, %45 ], [ %.be, %.backedge ]
+  br i1 %25, label %58, label %50
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 18
-  %53 = load i16, ptr %52, align 2
-  %54 = and i16 %53, 1
-  %55 = icmp eq i16 %54, 0
-  br i1 %55, label %59, label %56
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 18
+  %52 = load i16, ptr %51, align 2
+  %53 = and i16 %52, 1
+  %54 = icmp eq i16 %53, 0
+  br i1 %54, label %58, label %55
 
-56:                                               ; preds = %51
-  %57 = load volatile i64, ptr @jiffies, align 64
-  %58 = sub i64 %57, %41
-  call fastcc void @ic_bootp_send_if(ptr noundef %50, i64 noundef %58) #18
-  br label %59
+55:                                               ; preds = %50
+  %56 = load volatile i64, ptr @jiffies, align 64
+  %57 = sub i64 %56, %40
+  call fastcc void @ic_bootp_send_if(ptr noundef %49, i64 noundef %57) #18
+  br label %58
 
-59:                                               ; preds = %56, %51, %49
-  br i1 %28, label %69, label %60
+58:                                               ; preds = %55, %50, %48
+  br i1 %28, label %68, label %59
 
-60:                                               ; preds = %59
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 18
-  %62 = load i16, ptr %61, align 2
-  %63 = and i16 %62, 2
-  %64 = icmp eq i16 %63, 0
-  br i1 %64, label %69, label %65
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 18
+  %61 = load i16, ptr %60, align 2
+  %62 = and i16 %61, 2
+  %63 = icmp eq i16 %62, 0
+  br i1 %63, label %68, label %64
 
-65:                                               ; preds = %60
-  %66 = getelementptr i8, ptr %50, i64 8
-  %.val = load ptr, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %.val, i64 968
-  %68 = load ptr, ptr %67, align 8
-  call void @arp_send(i32 noundef 3, i32 noundef 32821, i32 noundef 0, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef %68, ptr noundef %68) #17
-  br label %69
+64:                                               ; preds = %59
+  %65 = getelementptr i8, ptr %49, i64 8
+  %.val = load ptr, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %.val, i64 968
+  %67 = load ptr, ptr %66, align 8
+  call void @arp_send(i32 noundef 3, i32 noundef 32821, i32 noundef 0, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef %67, ptr noundef %67) #17
+  br label %68
 
-69:                                               ; preds = %65, %60, %59
-  %70 = load ptr, ptr %50, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %.loopexit
+68:                                               ; preds = %64, %59, %58
+  %69 = load ptr, ptr %49, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %.loopexit
 
-72:                                               ; preds = %69
-  %73 = load volatile i64, ptr @jiffies, align 64
-  %74 = load i64, ptr %1, align 8
-  %75 = add i64 %74, %73
-  %76 = load volatile i64, ptr @jiffies, align 64
-  %77 = sub i64 %76, %75
-  %78 = icmp slt i64 %77, 0
-  br i1 %78, label %.preheader, label %.loopexit
+71:                                               ; preds = %68
+  %72 = load volatile i64, ptr @jiffies, align 64
+  %73 = load i64, ptr %1, align 8
+  %74 = add i64 %73, %72
+  %75 = load volatile i64, ptr @jiffies, align 64
+  %76 = sub i64 %75, %74
+  %77 = icmp slt i64 %76, 0
+  br i1 %77, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %72, %81
-  %79 = load volatile i32, ptr @ic_got_reply, align 4
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %.loopexit
+.preheader:                                       ; preds = %71, %80
+  %78 = load volatile i32, ptr @ic_got_reply, align 4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %.loopexit
 
-81:                                               ; preds = %.preheader
-  %82 = call i64 @schedule_timeout_uninterruptible(i64 noundef 1) #17
-  %83 = load volatile i64, ptr @jiffies, align 64
-  %84 = sub i64 %83, %75
-  %85 = icmp slt i64 %84, 0
-  br i1 %85, label %.preheader, label %.loopexit, !llvm.loop !24
+80:                                               ; preds = %.preheader
+  %81 = call i64 @schedule_timeout_uninterruptible(i64 noundef 1) #17
+  %82 = load volatile i64, ptr @jiffies, align 64
+  %83 = sub i64 %82, %74
+  %84 = icmp slt i64 %83, 0
+  br i1 %84, label %.preheader, label %.loopexit, !llvm.loop !24
 
-.loopexit:                                        ; preds = %81, %.preheader, %72, %69
-  %86 = load volatile i32, ptr @ic_got_reply, align 4
-  %87 = and i32 %86, 1
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %99, label %89
+.loopexit:                                        ; preds = %80, %.preheader, %71, %68
+  %85 = load volatile i32, ptr @ic_got_reply, align 4
+  %86 = and i32 %85, 1
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %98, label %88
 
-89:                                               ; preds = %.loopexit
-  %90 = load i32, ptr @ic_proto_enabled, align 4
-  %91 = and i32 %90, 256
-  %92 = icmp ne i32 %91, 0
-  %93 = load i32, ptr @ic_dhcp_msgtype, align 4
-  %94 = icmp ne i32 %93, 5
-  %95 = select i1 %92, i1 %94, i1 false
-  br i1 %95, label %96, label %99
+88:                                               ; preds = %.loopexit
+  %89 = load i32, ptr @ic_proto_enabled, align 4
+  %90 = and i32 %89, 256
+  %91 = icmp ne i32 %90, 0
+  %92 = load i32, ptr @ic_dhcp_msgtype, align 4
+  %93 = icmp ne i32 %92, 5
+  %94 = select i1 %91, i1 %93, i1 false
+  br i1 %94, label %95, label %98
 
-96:                                               ; preds = %89
+95:                                               ; preds = %88
   store volatile i32 0, ptr @ic_got_reply, align 4
-  %97 = load ptr, ptr @ic_dev, align 8
-  %98 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.40) #19
+  %96 = load ptr, ptr @ic_dev, align 8
+  %97 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.40) #19
   br label %.backedge
 
-99:                                               ; preds = %89, %.loopexit
-  %100 = load volatile i32, ptr @ic_got_reply, align 4
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %.loopexit3
+98:                                               ; preds = %88, %.loopexit
+  %99 = load volatile i32, ptr @ic_got_reply, align 4
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %.loopexit3
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %50, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %.backedge
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %49, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %104, label %.backedge
 
-.backedge:                                        ; preds = %102, %96
-  %.be = phi ptr [ %97, %96 ], [ %103, %102 ]
-  br label %49, !llvm.loop !25
+.backedge:                                        ; preds = %101, %95
+  %.be = phi ptr [ %96, %95 ], [ %102, %101 ]
+  br label %48, !llvm.loop !25
 
-105:                                              ; preds = %102
-  %106 = add nsw i32 %48, -1
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %.loopexit3, label %108
+104:                                              ; preds = %101
+  %105 = add nsw i32 %47, -1
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %.loopexit3, label %107
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr @ic_first_dev, align 8
-  %110 = load i64, ptr %1, align 8
-  %111 = mul i64 %110, 7
-  %112 = lshr i64 %111, 2
-  %113 = call i64 @llvm.umin.i64(i64 %112, i64 30000)
-  store i64 %113, ptr %1, align 8
-  %114 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43) #19
-  br label %46, !llvm.loop !25
+107:                                              ; preds = %104
+  %108 = load ptr, ptr @ic_first_dev, align 8
+  %109 = load i64, ptr %1, align 8
+  %110 = mul i64 %109, 7
+  %111 = lshr i64 %110, 2
+  %112 = call i64 @llvm.umin.i64(i64 %111, i64 30000)
+  store i64 %112, ptr %1, align 8
+  %113 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43) #19
+  br label %45, !llvm.loop !25
 
-.loopexit3:                                       ; preds = %105, %99
-  %115 = phi ptr [ @.str.41, %99 ], [ @.str.42, %105 ]
-  %116 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %115) #19
-  br i1 %25, label %118, label %117
+.loopexit3:                                       ; preds = %104, %98
+  %114 = phi ptr [ @.str.41, %98 ], [ @.str.42, %104 ]
+  %115 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %114) #19
+  br i1 %25, label %117, label %116
 
-117:                                              ; preds = %.loopexit3
+116:                                              ; preds = %.loopexit3
   call void @dev_remove_pack(ptr noundef nonnull @bootp_packet_type) #17
-  br label %118
+  br label %117
 
-118:                                              ; preds = %117, %.loopexit3
-  br i1 %28, label %120, label %119
+117:                                              ; preds = %116, %.loopexit3
+  br i1 %28, label %119, label %118
 
-119:                                              ; preds = %118
+118:                                              ; preds = %117
   call void @dev_remove_pack(ptr noundef nonnull @rarp_packet_type) #17
-  br label %120
+  br label %119
 
-120:                                              ; preds = %119, %118
-  %121 = load volatile i32, ptr @ic_got_reply, align 4
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %124
+119:                                              ; preds = %118, %117
+  %120 = load volatile i32, ptr @ic_got_reply, align 4
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %122, label %123
 
-123:                                              ; preds = %120
+122:                                              ; preds = %119
   store i32 -1, ptr @ic_myaddr, align 4
-  br label %134
+  br label %133
 
-124:                                              ; preds = %120
-  %125 = load volatile i32, ptr @ic_got_reply, align 4
-  %126 = and i32 %125, 2
-  %127 = icmp eq i32 %126, 0
-  %128 = load i32, ptr @ic_proto_enabled, align 4
-  %129 = and i32 %128, 256
-  %130 = icmp eq i32 %129, 0
-  %131 = select i1 %130, ptr @.str.18, ptr @.str.17
-  %132 = select i1 %127, ptr %131, ptr @.str.16
-  %133 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44, ptr noundef nonnull %132, ptr noundef nonnull @ic_addrservaddr, ptr noundef nonnull @ic_myaddr) #19
-  br label %134
+123:                                              ; preds = %119
+  %124 = load volatile i32, ptr @ic_got_reply, align 4
+  %125 = and i32 %124, 2
+  %126 = icmp eq i32 %125, 0
+  %127 = load i32, ptr @ic_proto_enabled, align 4
+  %128 = and i32 %127, 256
+  %129 = icmp eq i32 %128, 0
+  %130 = select i1 %129, ptr @.str.18, ptr @.str.17
+  %131 = select i1 %126, ptr %130, ptr @.str.16
+  %132 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44, ptr noundef nonnull %131, ptr noundef nonnull @ic_addrservaddr, ptr noundef nonnull @ic_myaddr) #19
+  br label %133
 
-134:                                              ; preds = %124, %123, %21, %7
-  %135 = phi i32 [ 0, %124 ], [ -1, %123 ], [ -1, %7 ], [ -1, %21 ]
+133:                                              ; preds = %123, %122, %21, %7
+  %134 = phi i32 [ 0, %123 ], [ -1, %122 ], [ -1, %7 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
-  ret i32 %135
+  ret i32 %134
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

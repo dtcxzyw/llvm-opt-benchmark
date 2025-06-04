@@ -2133,7 +2133,7 @@ define range(i32 0, 2) i32 @Saig_RefManSetPhases(ptr noundef readonly captures(n
   br i1 %119, label %.lr.ph.split, label %.critedge.preheader, !llvm.loop !79
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
-  %120 = phi ptr [ %59, %.critedge.preheader ], [ %164, %.critedge ]
+  %120 = phi ptr [ %59, %.critedge.preheader ], [ %163, %.critedge ]
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !53
   %123 = getelementptr i8, ptr %122, i64 4
@@ -2142,9 +2142,9 @@ define range(i32 0, 2) i32 @Saig_RefManSetPhases(ptr noundef readonly captures(n
   br i1 %124, label %.critedge2, label %.critedge4
 
 .lr.ph74:                                         ; preds = %.critedge.preheader, %.critedge
-  %125 = phi ptr [ %164, %.critedge ], [ %59, %.critedge.preheader ]
+  %125 = phi ptr [ %163, %.critedge ], [ %59, %.critedge.preheader ]
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.critedge ], [ 0, %.critedge.preheader ]
-  %126 = phi ptr [ %166, %.critedge ], [ %61, %.critedge.preheader ]
+  %126 = phi ptr [ %165, %.critedge ], [ %61, %.critedge.preheader ]
   %127 = getelementptr i8, ptr %126, i64 8
   %.val65 = load ptr, ptr %127, align 8, !tbaa !49
   %128 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %indvars.iv85
@@ -2183,72 +2183,71 @@ define range(i32 0, 2) i32 @Saig_RefManSetPhases(ptr noundef readonly captures(n
   %153 = trunc i64 %152 to i32
   %154 = lshr i32 %153, 3
   %155 = trunc i64 %148 to i32
-  %156 = and i32 %155, 1
-  %157 = xor i32 %154, %156
-  %158 = and i32 %157, %146
-  %159 = shl nuw i32 %158, 3
-  %160 = and i32 %159, 8
-  %161 = zext nneg i32 %160 to i64
-  %162 = and i64 %.val67, -9
-  %163 = or disjoint i64 %162, %161
-  store i64 %163, ptr %132, align 8
+  %156 = xor i32 %154, %155
+  %157 = and i32 %146, 1
+  %158 = and i32 %157, %156
+  %159 = shl nuw nsw i32 %158, 3
+  %160 = zext nneg i32 %159 to i64
+  %161 = and i64 %.val67, -9
+  %162 = or disjoint i64 %161, %160
+  store i64 %162, ptr %132, align 8
   %.pre = load ptr, ptr %4, align 8, !tbaa !43
   br label %.critedge
 
 .critedge:                                        ; preds = %136, %131, %.lr.ph74
-  %164 = phi ptr [ %.pre, %136 ], [ %125, %131 ], [ %125, %.lr.ph74 ]
+  %163 = phi ptr [ %.pre, %136 ], [ %125, %131 ], [ %125, %.lr.ph74 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
-  %166 = load ptr, ptr %165, align 8, !tbaa !44
-  %167 = getelementptr i8, ptr %166, i64 4
-  %.val61 = load i32, ptr %167, align 4, !tbaa !45
-  %168 = sext i32 %.val61 to i64
-  %169 = icmp slt i64 %indvars.iv.next86, %168
-  br i1 %169, label %.lr.ph74, label %.critedge2.preheader, !llvm.loop !80
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
+  %165 = load ptr, ptr %164, align 8, !tbaa !44
+  %166 = getelementptr i8, ptr %165, i64 4
+  %.val61 = load i32, ptr %166, align 4, !tbaa !45
+  %167 = sext i32 %.val61 to i64
+  %168 = icmp slt i64 %indvars.iv.next86, %167
+  br i1 %168, label %.lr.ph74, label %.critedge2.preheader, !llvm.loop !80
 
 .critedge2:                                       ; preds = %.critedge2.preheader, %.critedge2
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.critedge2 ], [ 0, %.critedge2.preheader ]
-  %170 = phi ptr [ %188, %.critedge2 ], [ %122, %.critedge2.preheader ]
-  %171 = getelementptr i8, ptr %170, i64 8
-  %.val64 = load ptr, ptr %171, align 8, !tbaa !49
-  %172 = getelementptr inbounds nuw ptr, ptr %.val64, i64 %indvars.iv88
-  %173 = load ptr, ptr %172, align 8, !tbaa !50
-  %174 = getelementptr i8, ptr %173, i64 8
-  %.val54 = load ptr, ptr %174, align 8, !tbaa !40
-  %175 = ptrtoint ptr %.val54 to i64
-  %176 = and i64 %175, -2
-  %177 = inttoptr i64 %176 to ptr
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %179 = load i64, ptr %178, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  %181 = load i64, ptr %180, align 8
-  %182 = shl i64 %175, 3
-  %.mask69 = xor i64 %182, %179
-  %183 = and i64 %.mask69, 8
-  %184 = and i64 %181, -9
-  %185 = or disjoint i64 %183, %184
-  store i64 %185, ptr %180, align 8
+  %169 = phi ptr [ %187, %.critedge2 ], [ %122, %.critedge2.preheader ]
+  %170 = getelementptr i8, ptr %169, i64 8
+  %.val64 = load ptr, ptr %170, align 8, !tbaa !49
+  %171 = getelementptr inbounds nuw ptr, ptr %.val64, i64 %indvars.iv88
+  %172 = load ptr, ptr %171, align 8, !tbaa !50
+  %173 = getelementptr i8, ptr %172, i64 8
+  %.val54 = load ptr, ptr %173, align 8, !tbaa !40
+  %174 = ptrtoint ptr %.val54 to i64
+  %175 = and i64 %174, -2
+  %176 = inttoptr i64 %175 to ptr
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
+  %178 = load i64, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 24
+  %180 = load i64, ptr %179, align 8
+  %181 = shl i64 %174, 3
+  %.mask69 = xor i64 %181, %178
+  %182 = and i64 %.mask69, 8
+  %183 = and i64 %180, -9
+  %184 = or disjoint i64 %182, %183
+  store i64 %184, ptr %179, align 8
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %186 = load ptr, ptr %4, align 8, !tbaa !43
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %188 = load ptr, ptr %187, align 8, !tbaa !53
-  %189 = getelementptr i8, ptr %188, i64 4
-  %.val60 = load i32, ptr %189, align 4, !tbaa !45
-  %190 = sext i32 %.val60 to i64
-  %191 = icmp slt i64 %indvars.iv.next89, %190
-  br i1 %191, label %.critedge2, label %.critedge4, !llvm.loop !81
+  %185 = load ptr, ptr %4, align 8, !tbaa !43
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  %187 = load ptr, ptr %186, align 8, !tbaa !53
+  %188 = getelementptr i8, ptr %187, i64 4
+  %.val60 = load i32, ptr %188, align 4, !tbaa !45
+  %189 = sext i32 %.val60 to i64
+  %190 = icmp slt i64 %indvars.iv.next89, %189
+  br i1 %190, label %.critedge2, label %.critedge4, !llvm.loop !81
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  %.lcssa = phi ptr [ %122, %.critedge2.preheader ], [ %188, %.critedge2 ]
-  %192 = getelementptr i8, ptr %.lcssa, i64 8
-  %.val68.val = load ptr, ptr %192, align 8, !tbaa !49
-  %193 = load ptr, ptr %.val68.val, align 8, !tbaa !50
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  %195 = load i64, ptr %194, align 8
-  %196 = trunc i64 %195 to i32
-  %197 = lshr i32 %196, 3
-  %198 = and i32 %197, 1
-  ret i32 %198
+  %.lcssa = phi ptr [ %122, %.critedge2.preheader ], [ %187, %.critedge2 ]
+  %191 = getelementptr i8, ptr %.lcssa, i64 8
+  %.val68.val = load ptr, ptr %191, align 8, !tbaa !49
+  %192 = load ptr, ptr %.val68.val, align 8, !tbaa !50
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %194 = load i64, ptr %193, align 8
+  %195 = trunc i64 %194 to i32
+  %196 = lshr i32 %195, 3
+  %197 = and i32 %196, 1
+  ret i32 %197
 }
 
 ; Function Attrs: nounwind uwtable

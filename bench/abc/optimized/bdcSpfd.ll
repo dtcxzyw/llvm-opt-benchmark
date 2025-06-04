@@ -2350,90 +2350,90 @@ Abc_Clock.exit197:                                ; preds = %154, %173
   %196 = sext i32 %sext to i64
   %197 = xor i64 %194, %196
   %198 = lshr i32 %.0157260.us, 1
-  %199 = load i64, ptr %313, align 8, !tbaa !50
-  %200 = shl i32 %.0157260.us, 30
-  %sext319 = ashr i32 %200, 31
-  %201 = sext i32 %sext319 to i64
-  %202 = xor i64 %199, %201
-  %203 = lshr i32 %.0157260.us, 2
+  %199 = and i32 %198, 1
+  %200 = load i64, ptr %313, align 8, !tbaa !50
+  %201 = and i32 %198, 1
+  %sext319 = sub nsw i32 0, %201
+  %202 = sext i32 %sext319 to i64
+  %203 = xor i64 %200, %202
+  %204 = lshr i32 %.0157260.us, 2
   %.not166.not.us = icmp eq i32 %.0157260.us, 4
-  %204 = xor i64 %202, %197
-  %205 = and i64 %202, %197
-  %206 = select i1 %.not166.not.us, i64 %204, i64 %205
-  %207 = and i64 %206, 1
-  %sext.us = sub nsw i64 0, %207
-  %.0151.us = xor i64 %206, %sext.us
-  %208 = icmp eq i64 %206, %sext.us
-  br i1 %208, label %Bdc_SpfdHashLookup.exit209.us, label %209
+  %205 = xor i64 %203, %197
+  %206 = and i64 %203, %197
+  %207 = select i1 %.not166.not.us, i64 %205, i64 %206
+  %208 = and i64 %207, 1
+  %sext.us = sub nsw i64 0, %208
+  %.0151.us = xor i64 %207, %sext.us
+  %209 = icmp eq i64 %207, %sext.us
+  br i1 %209, label %Bdc_SpfdHashLookup.exit209.us, label %210
 
-209:                                              ; preds = %193
+210:                                              ; preds = %193
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.0151.us, ptr %4, align 8, !tbaa !3
-  br label %210
+  br label %211
 
-210:                                              ; preds = %210, %209
-  %indvars.iv.i.i198.us = phi i64 [ 0, %209 ], [ %indvars.iv.next.i.i200.us, %210 ]
-  %.09.i.i199.us = phi i32 [ 0, %209 ], [ %217, %210 ]
-  %211 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i198.us
-  %212 = load i32, ptr %211, align 4, !tbaa !28
-  %213 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i198.us
-  %214 = load i8, ptr %213, align 1, !tbaa !43
-  %215 = zext i8 %214 to i32
-  %216 = mul i32 %212, %215
-  %217 = xor i32 %216, %.09.i.i199.us
+211:                                              ; preds = %211, %210
+  %indvars.iv.i.i198.us = phi i64 [ 0, %210 ], [ %indvars.iv.next.i.i200.us, %211 ]
+  %.09.i.i199.us = phi i32 [ 0, %210 ], [ %218, %211 ]
+  %212 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i198.us
+  %213 = load i32, ptr %212, align 4, !tbaa !28
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i198.us
+  %215 = load i8, ptr %214, align 1, !tbaa !43
+  %216 = zext i8 %215 to i32
+  %217 = mul i32 %213, %216
+  %218 = xor i32 %217, %.09.i.i199.us
   %indvars.iv.next.i.i200.us = add nuw nsw i64 %indvars.iv.i.i198.us, 1
   %exitcond.not.i.i201.us = icmp eq i64 %indvars.iv.next.i.i200.us, 8
-  br i1 %exitcond.not.i.i201.us, label %Bdc_SpfdHashValue.exit.i202.us, label %210, !llvm.loop !47
+  br i1 %exitcond.not.i.i201.us, label %Bdc_SpfdHashValue.exit.i202.us, label %211, !llvm.loop !47
 
-Bdc_SpfdHashValue.exit.i202.us:                   ; preds = %210
-  %218 = urem i32 %217, 201326611
+Bdc_SpfdHashValue.exit.i202.us:                   ; preds = %211
+  %219 = urem i32 %218, 201326611
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %15, i64 %219, i32 2
-  %221 = load i32, ptr %220, align 4, !tbaa !48
-  %222 = icmp eq i32 %221, 0
-  br i1 %222, label %.loopexit.us, label %.preheader.i203.us
+  %220 = zext nneg i32 %219 to i64
+  %221 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %15, i64 %220, i32 2
+  %222 = load i32, ptr %221, align 4, !tbaa !48
+  %223 = icmp eq i32 %222, 0
+  br i1 %223, label %.loopexit.us, label %.preheader.i203.us
 
-.preheader.i203.us:                               ; preds = %Bdc_SpfdHashValue.exit.i202.us, %226
-  %.pn.in.i204.us = phi i32 [ %228, %226 ], [ %221, %Bdc_SpfdHashValue.exit.i202.us ]
+.preheader.i203.us:                               ; preds = %Bdc_SpfdHashValue.exit.i202.us, %227
+  %.pn.in.i204.us = phi i32 [ %229, %227 ], [ %222, %Bdc_SpfdHashValue.exit.i202.us ]
   %.pn.i205.us = sext i32 %.pn.in.i204.us to i64
   %.0.i206.us = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %15, i64 %.pn.i205.us
-  %223 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 16
-  %224 = load i64, ptr %223, align 8, !tbaa !50
-  %225 = icmp eq i64 %224, %.0151.us
-  br i1 %225, label %Bdc_SpfdHashLookup.exit209.us, label %226
+  %224 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 16
+  %225 = load i64, ptr %224, align 8, !tbaa !50
+  %226 = icmp eq i64 %225, %.0151.us
+  br i1 %226, label %Bdc_SpfdHashLookup.exit209.us, label %227
 
-226:                                              ; preds = %.preheader.i203.us
-  %227 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 8
-  %228 = load i32, ptr %227, align 8, !tbaa !51
-  %229 = icmp eq i32 %228, 0
-  br i1 %229, label %.loopexit.us.loopexit, label %.preheader.i203.us
+227:                                              ; preds = %.preheader.i203.us
+  %228 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 8
+  %229 = load i32, ptr %228, align 8, !tbaa !51
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %.loopexit.us.loopexit, label %.preheader.i203.us
 
-.loopexit.us.loopexit:                            ; preds = %226
-  %230 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 8
+.loopexit.us.loopexit:                            ; preds = %227
+  %231 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 8
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %Bdc_SpfdHashValue.exit.i202.us
-  %.013.i208.ph.us = phi ptr [ %220, %Bdc_SpfdHashValue.exit.i202.us ], [ %230, %.loopexit.us.loopexit ]
-  %231 = load i64, ptr %.8259.us, align 8
-  %232 = and i64 %231, -9223372034707292160
-  %233 = or disjoint i64 %232, %188
-  %234 = shl nuw i32 %.0157260.us, 29
-  %235 = and i32 %234, 536870912
-  %236 = zext nneg i32 %235 to i64
-  %237 = and i32 %198, 1
-  %238 = zext nneg i32 %237 to i64
+  %.013.i208.ph.us = phi ptr [ %221, %Bdc_SpfdHashValue.exit.i202.us ], [ %231, %.loopexit.us.loopexit ]
+  %232 = load i64, ptr %.8259.us, align 8
+  %233 = and i64 %232, -9223372034707292160
+  %234 = or disjoint i64 %233, %188
+  %235 = shl i32 %.0157260.us, 29
+  %236 = and i32 %235, 536870912
+  %237 = zext nneg i32 %236 to i64
+  %238 = zext nneg i32 %199 to i64
   %239 = shl nuw nsw i64 %238, 61
-  %240 = zext nneg i32 %203 to i64
+  %240 = zext nneg i32 %204 to i64
   %241 = shl nuw nsw i64 %240, 62
-  %242 = or disjoint i64 %318, %236
+  %242 = or disjoint i64 %318, %237
   %243 = or disjoint i64 %242, %241
   %244 = or disjoint i64 %243, %239
   %245 = getelementptr inbounds nuw i8, ptr %.8259.us, i64 16
   store i64 %.0151.us, ptr %245, align 8, !tbaa !50
-  %246 = shl i64 %206, 30
+  %246 = shl i64 %207, 30
   %247 = and i64 %246, 1073741824
-  %248 = or disjoint i64 %244, %233
+  %248 = or disjoint i64 %244, %234
   %249 = or disjoint i64 %248, %247
   store i64 %249, ptr %.8259.us, align 8
   %250 = ptrtoint ptr %.8259.us to i64

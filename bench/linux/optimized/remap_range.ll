@@ -301,11 +301,11 @@ define internal fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 no
   %9 = icmp eq i64 %4, 0
   br i1 %9, label %.thread5, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %141
-  %10 = phi i64 [ %142, %141 ], [ %1, %6 ]
-  %11 = phi i64 [ %143, %141 ], [ %3, %6 ]
-  %12 = phi i64 [ %144, %141 ], [ %4, %6 ]
-  %13 = phi i8 [ %124, %141 ], [ 1, %6 ]
+.lr.ph:                                           ; preds = %6, %140
+  %10 = phi i64 [ %141, %140 ], [ %1, %6 ]
+  %11 = phi i64 [ %142, %140 ], [ %3, %6 ]
+  %12 = phi i64 [ %143, %140 ], [ %4, %6 ]
+  %13 = phi i8 [ %124, %140 ], [ 1, %6 ]
   %14 = and i64 %10, 4095
   %15 = sub nuw nsw i64 4096, %14
   %16 = and i64 %11, 4095
@@ -497,29 +497,24 @@ define internal fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 no
   br label %138
 
 138:                                              ; preds = %137, %132
-  %139 = and i8 %124, 1
-  %140 = icmp eq i8 %139, 0
-  br i1 %140, label %.thread5.loopexit, label %141
+  %139 = icmp eq i8 %124, 0
+  br i1 %139, label %.thread5, label %140
 
-141:                                              ; preds = %138
-  %142 = add i64 %19, %10
-  %143 = add i64 %19, %11
-  %144 = sub i64 %12, %19
-  %145 = icmp eq i64 %144, 0
-  br i1 %145, label %.thread5.loopexit, label %.lr.ph
+140:                                              ; preds = %138
+  %141 = add i64 %19, %10
+  %142 = add i64 %19, %11
+  %143 = sub i64 %12, %19
+  %144 = icmp eq i64 %143, 0
+  br i1 %144, label %.thread5, label %.lr.ph
 
-.thread5.loopexit:                                ; preds = %138, %141
-  %146 = and i8 %124, 1
-  br label %.thread5
-
-.thread5:                                         ; preds = %6, %.thread5.loopexit
-  %147 = phi i8 [ %146, %.thread5.loopexit ], [ 1, %6 ]
-  store i8 %147, ptr %5, align 1
+.thread5:                                         ; preds = %140, %138, %6
+  %145 = phi i8 [ 1, %6 ], [ 0, %138 ], [ %124, %140 ]
+  store i8 %145, ptr %5, align 1
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %41, %34, %26, %.thread5
-  %148 = phi i32 [ 0, %.thread5 ], [ %36, %41 ], [ %36, %34 ], [ %28, %26 ], [ -22, %.lr.ph ]
-  ret i32 %148
+  %146 = phi i32 [ 0, %.thread5 ], [ %36, %41 ], [ %36, %34 ], [ %28, %26 ], [ -22, %.lr.ph ]
+  ret i32 %146
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

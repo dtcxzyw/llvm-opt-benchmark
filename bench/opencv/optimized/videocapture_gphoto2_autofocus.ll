@@ -1684,7 +1684,7 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndR
           to label %529 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 529:                                              ; preds = %527, %524
-  %530 = trunc i8 %.039 to i1
+  %530 = trunc nuw i8 %.039 to i1
   %.not = xor i1 %530, true
   %531 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 76), align 4, !range !55
   %532 = trunc nuw i8 %531 to i1
@@ -1996,7 +1996,7 @@ _ZNSolsEPFRSoS_E.exit114:                         ; preds = %.noexc220, %628, %6
   %.sroa.55.1 = phi double [ %.sroa.55.0, %621 ], [ %534, %597 ], [ %534, %620 ], [ %534, %.noexc209 ], [ %.sroa.55.0, %628 ], [ %.sroa.55.0, %.noexc220 ]
   %.241 = phi i8 [ %.039, %621 ], [ 1, %597 ], [ 1, %620 ], [ 0, %.noexc209 ], [ %.039, %628 ], [ %.039, %.noexc220 ]
   %.138 = phi i1 [ %.037, %621 ], [ %594, %597 ], [ true, %620 ], [ %594, %.noexc209 ], [ %.037, %628 ], [ %.037, %.noexc220 ]
-  %653 = trunc i8 %.241 to i1
+  %653 = trunc nuw i8 %.241 to i1
   %654 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 76), align 4, !range !55
   %655 = trunc nuw i8 %654 to i1
   %or.cond3 = select i1 %653, i1 true, i1 %655

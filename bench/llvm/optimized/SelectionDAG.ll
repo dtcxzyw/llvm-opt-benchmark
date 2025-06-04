@@ -22581,7 +22581,7 @@ _ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm3EVTneES0_.exit, %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit
-  %.023.lcssa = phi i1 [ false, %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit ], [ %.1, %_ZNK4llvm3EVTneES0_.exit ]
+  %.023.lcssa = phi i8 [ 0, %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit ], [ %.1, %_ZNK4llvm3EVTneES0_.exit ]
   %41 = trunc i64 %3 to i16
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i16 %41, ptr %42, align 8, !tbaa !117
@@ -22593,12 +22593,12 @@ _ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1808
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(412423) %45, ptr noundef %1) #34
-  br i1 %49, label %90, label %75
+  br i1 %49, label %92, label %75
 
 .lr.ph:                                           ; preds = %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit, %_ZNK4llvm3EVTneES0_.exit
   %50 = phi i64 [ %74, %_ZNK4llvm3EVTneES0_.exit ], [ 0, %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit ]
   %.045 = phi i32 [ %73, %_ZNK4llvm3EVTneES0_.exit ], [ 0, %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit ]
-  %.02344 = phi i1 [ %.1, %_ZNK4llvm3EVTneES0_.exit ], [ false, %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit ]
+  %.02344 = phi i8 [ %.1, %_ZNK4llvm3EVTneES0_.exit ], [ 0, %_ZN4llvm13ArrayRecyclerINS_5SDUseELm8EE8allocateINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEEPS1_NS2_8CapacityERT_.exit ]
   %51 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.1.i, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %1, ptr %52, align 8, !tbaa !180
@@ -22645,12 +22645,12 @@ _ZNK4llvm3EVTneES0_.exit29.thread:                ; preds = %_ZN4llvm5SDUse10set
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %71 = load i8, ptr %70, align 8
   %72 = and i8 %71, 4
-  %.not42 = icmp ne i8 %72, 0
-  %spec.select = select i1 %.not42, i1 true, i1 %.02344
+  %.not42 = icmp eq i8 %72, 0
+  %spec.select = select i1 %.not42, i8 %.02344, i8 1
   br label %_ZNK4llvm3EVTneES0_.exit
 
 _ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZN4llvm5SDUse10setInitialERKNS_7SDValueE.exit, %_ZNK4llvm3EVTneES0_.exit29.thread, %_ZNK4llvm3EVTneES0_.exit29
-  %.1 = phi i1 [ %.02344, %_ZNK4llvm3EVTneES0_.exit29 ], [ %spec.select, %_ZNK4llvm3EVTneES0_.exit29.thread ], [ %.02344, %_ZN4llvm5SDUse10setInitialERKNS_7SDValueE.exit ]
+  %.1 = phi i8 [ %.02344, %_ZNK4llvm3EVTneES0_.exit29 ], [ %spec.select, %_ZNK4llvm3EVTneES0_.exit29.thread ], [ %.02344, %_ZN4llvm5SDUse10setInitialERKNS_7SDValueE.exit ]
   %73 = add i32 %.045, 1
   %74 = zext i32 %73 to i64
   %.not = icmp eq i64 %3, %74
@@ -22666,16 +22666,17 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZN4llvm5SDUse10set
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1784
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(412423) %76, ptr noundef nonnull %1, ptr noundef %78, ptr noundef %80) #34
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %86 = load i8, ptr %85, align 8
-  %.narrow = or i1 %.023.lcssa, %84
-  %87 = select i1 %.narrow, i8 4, i8 0
-  %88 = and i8 %86, -5
-  %89 = or disjoint i8 %88, %87
-  store i8 %89, ptr %85, align 8
-  br label %90
+  %85 = zext i1 %84 to i8
+  %86 = or i8 %.023.lcssa, %85
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %88 = load i8, ptr %87, align 8
+  %89 = shl nuw nsw i8 %86, 2
+  %90 = and i8 %88, -5
+  %91 = or disjoint i8 %89, %90
+  store i8 %91, ptr %87, align 8
+  br label %92
 
-90:                                               ; preds = %75, %._crit_edge
+92:                                               ; preds = %75, %._crit_edge
   ret void
 }
 

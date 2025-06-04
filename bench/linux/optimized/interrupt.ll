@@ -1219,17 +1219,16 @@ define dso_local void @mei_timer(ptr noundef %0) local_unnamed_addr #0 align 16 
   %38 = phi i8 [ %25, %32 ], [ 1, %14 ], [ %35, %34 ]
   %39 = load i32, ptr %4, align 8
   %40 = icmp eq i32 %39, 4
-  %41 = and i8 %38, 1
-  %42 = icmp eq i8 %41, 0
-  %43 = select i1 %40, i1 true, i1 %42
-  br i1 %43, label %.thread7, label %44
+  %41 = icmp eq i8 %38, 0
+  %42 = select i1 %40, i1 true, i1 %41
+  br i1 %42, label %.thread7, label %43
 
-44:                                               ; preds = %.thread
-  %45 = load ptr, ptr @system_wq, align 8
-  %46 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %45, ptr noundef %0, i64 noundef 2000) #6
+43:                                               ; preds = %.thread
+  %44 = load ptr, ptr @system_wq, align 8
+  %45 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %44, ptr noundef %0, i64 noundef 2000) #6
   br label %.thread7
 
-.thread7:                                         ; preds = %1, %10, %6, %20, %17, %44, %.thread
+.thread7:                                         ; preds = %1, %10, %6, %20, %17, %43, %.thread
   tail call void @mutex_unlock(ptr noundef %3) #6
   ret void
 }

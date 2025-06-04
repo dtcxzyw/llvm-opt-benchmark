@@ -3280,15 +3280,15 @@ define dso_local void @_ZN4Json5Value11swapPayloadERS0_(ptr noundef nonnull alig
   store i64 %14, ptr %0, align 8, !tbaa !17
   store i64 %.sroa.0.0.copyload.i, ptr %1, align 8, !tbaa !17
   %15 = load i16, ptr %3, align 8
-  %16 = load i16, ptr %6, align 8
-  %17 = and i16 %16, 256
-  %18 = and i16 %15, -257
-  %19 = or disjoint i16 %17, %18
-  store i16 %19, ptr %3, align 8
-  %20 = and i16 %15, 256
+  %16 = and i16 %15, 256
+  %17 = load i16, ptr %6, align 8
+  %18 = and i16 %17, 256
+  %19 = and i16 %15, -257
+  %20 = or disjoint i16 %18, %19
+  store i16 %20, ptr %3, align 8
   %21 = load i16, ptr %6, align 8
   %22 = and i16 %21, -257
-  %23 = or disjoint i16 %22, %20
+  %23 = or disjoint i16 %22, %16
   store i16 %23, ptr %6, align 8
   ret void
 }
@@ -21761,15 +21761,15 @@ define dso_local void @_ZN4Json5Value4swapERS0_(ptr noundef nonnull align 8 capt
   store i64 %14, ptr %0, align 8, !tbaa !17
   store i64 %.sroa.0.0.copyload.i.i, ptr %1, align 8, !tbaa !17
   %15 = load i16, ptr %3, align 8
-  %16 = load i16, ptr %6, align 8
-  %17 = and i16 %16, 256
-  %18 = and i16 %15, -257
-  %19 = or disjoint i16 %17, %18
-  store i16 %19, ptr %3, align 8
-  %20 = and i16 %15, 256
+  %16 = and i16 %15, 256
+  %17 = load i16, ptr %6, align 8
+  %18 = and i16 %17, 256
+  %19 = and i16 %15, -257
+  %20 = or disjoint i16 %18, %19
+  store i16 %20, ptr %3, align 8
   %21 = load i16, ptr %6, align 8
   %22 = and i16 %21, -257
-  %23 = or disjoint i16 %22, %20
+  %23 = or disjoint i16 %22, %16
   store i16 %23, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16

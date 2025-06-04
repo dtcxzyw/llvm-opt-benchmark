@@ -2554,10 +2554,8 @@ _ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_
 .loopexit:                                        ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55, %90, %97, %100, %105, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
   %.045 = phi i8 [ %84, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.146, %105 ], [ %.146, %100 ], [ %127, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %.146, %97 ], [ %.146, %90 ]
   %.044 = phi i8 [ %82, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.1, %105 ], [ %.1, %100 ], [ %125, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %.1, %97 ], [ %.1, %90 ]
-  %130 = and i8 %.044, 1
-  store i8 %130, ptr %58, align 4, !tbaa !29
-  %131 = and i8 %.045, 1
-  store i8 %131, ptr %60, align 1, !tbaa !30
+  store i8 %.044, ptr %58, align 4, !tbaa !29
+  store i8 %.045, ptr %60, align 1, !tbaa !30
   br label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit
 
 _ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit: ; preds = %.sink.split.i, %46, %32, %_ZL8is_equalPKSt9type_infoS1_b.exit.thread, %.loopexit

@@ -31855,7 +31855,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or
   br i1 %116, label %12, label %._crit_edge.loopexit, !llvm.loop !369
 
 ._crit_edge.loopexit:                             ; preds = %.critedge.i
-  %117 = trunc i8 %.110.i to i1
+  %117 = trunc nuw i8 %.110.i to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4

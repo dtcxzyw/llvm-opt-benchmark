@@ -48640,9 +48640,9 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %11 = icmp ult i64 %1, %3
   br i1 %11, label %13, label %15
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ed76a8916a06aefE.exit.us.i.i", %.critedge.backedge.us.i.i, %32, %.lr.ph.i, %24, %16, %15, %.lr.ph.split.us.i.i, %116, %_ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit, %4
-  %.sroa.011.0 = phi i8 [ 1, %4 ], [ %trunc, %_ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit ], [ 1, %.lr.ph.split.us.i.i ], [ %.sroa.014.4.i, %116 ], [ %18, %16 ], [ 0, %15 ], [ %28, %24 ], [ 0, %32 ], [ 1, %.lr.ph.i ], [ 0, %.critedge.backedge.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ed76a8916a06aefE.exit.us.i.i" ]
-  %12 = trunc i8 %.sroa.011.0 to i1
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ed76a8916a06aefE.exit.us.i.i", %.critedge.backedge.us.i.i, %32, %.lr.ph.i, %.lr.ph.split.us.i.i, %116, %24, %16, %15, %_ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit, %4
+  %.sroa.011.0 = phi i8 [ 1, %4 ], [ %trunc, %_ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit ], [ %18, %16 ], [ 0, %15 ], [ %28, %24 ], [ 1, %.lr.ph.split.us.i.i ], [ %.sroa.014.4.i, %116 ], [ 0, %32 ], [ 1, %.lr.ph.i ], [ 0, %.critedge.backedge.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ed76a8916a06aefE.exit.us.i.i" ]
+  %12 = trunc nuw i8 %.sroa.011.0 to i1
   ret i1 %12
 
 13:                                               ; preds = %10

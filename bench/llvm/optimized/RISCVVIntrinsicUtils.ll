@@ -7793,8 +7793,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread153: ; preds = %_ZN4llvmeqENS_9S
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.0 to i32
   %.sroa.3.0.insert.shift = shl nuw nsw i32 %.sroa.3.0.insert.ext, 8
   %.sroa.5.0.insert.insert = or disjoint i32 %.sroa.5.0, %.sroa.3.0.insert.shift
-  %.sroa.0144.0.insert.ext = and i32 %.sroa.0144.0, 255
-  %.sroa.3.0.insert.insert = or disjoint i32 %.sroa.5.0.insert.insert, %.sroa.0144.0.insert.ext
+  %.sroa.3.0.insert.insert = or disjoint i32 %.sroa.5.0.insert.insert, %.sroa.0144.0
   %.sroa.0144.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, 16777216
   ret i32 %.sroa.0144.0.insert.insert
 }

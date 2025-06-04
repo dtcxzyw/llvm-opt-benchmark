@@ -663,7 +663,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
 
 58:                                               ; preds = %.preheader
   %59 = icmp ne i8 %55, 44
-  %60 = trunc i8 %.283 to i1
+  %60 = trunc nuw i8 %.283 to i1
   %or.cond3 = select i1 %59, i1 true, i1 %60
   %61 = icmp ne i32 %.087, 0
   %or.cond5.not = select i1 %or.cond3, i1 true, i1 %61
@@ -696,7 +696,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   br label %.preheader, !llvm.loop !10
 
 .thread102:                                       ; preds = %.preheader
-  %70 = trunc i8 %.283 to i1
+  %70 = trunc nuw i8 %.283 to i1
   %71 = icmp ne i32 %.087, 0
   %or.cond7103 = select i1 %70, i1 true, i1 %71
   br i1 %or.cond7103, label %72, label %.thread104

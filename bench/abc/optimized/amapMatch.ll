@@ -834,11 +834,11 @@ Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %A
   %269 = load i32, ptr %268, align 8
   %270 = xor i32 %269, %266
   %271 = lshr i32 %270, 16
-  %272 = load i64, ptr %1, align 8
-  %273 = and i32 %271, 1
-  %274 = zext nneg i32 %273 to i64
-  %275 = shl nuw i64 %274, 63
-  %276 = and i64 %272, 9223372036854775807
+  %272 = and i32 %271, 1
+  %273 = zext nneg i32 %272 to i64
+  %274 = load i64, ptr %1, align 8
+  %275 = shl nuw i64 %273, 63
+  %276 = and i64 %274, 9223372036854775807
   %277 = or disjoint i64 %275, %276
   store i64 %277, ptr %1, align 8
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 64

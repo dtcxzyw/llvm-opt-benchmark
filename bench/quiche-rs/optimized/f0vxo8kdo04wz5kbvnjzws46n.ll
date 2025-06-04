@@ -3736,7 +3736,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3ee0776929817141E.exit.i.i: ; 
           to label %341 unwind label %346
 
 .loopexit:                                        ; preds = %45, %.lr.ph.i.i, %336, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3ee0776929817141E.exit.i.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h45b6fe7b2ee2b133E.exit.i", %.noexc3, %.noexc, %15
-  %.sroa.011.0.i = phi i8 [ 1, %15 ], [ %.sroa.0.0.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h45b6fe7b2ee2b133E.exit.i" ], [ %31, %.noexc ], [ %274, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3ee0776929817141E.exit.i.i ], [ %.sroa.014.4.i.i, %336 ], [ %41, %.noexc3 ], [ 1, %.lr.ph.i.i ], [ 0, %45 ]
+  %.sroa.011.0.i = phi i8 [ 1, %15 ], [ %.sroa.0.0.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h45b6fe7b2ee2b133E.exit.i" ], [ %31, %.noexc ], [ %41, %.noexc3 ], [ %274, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3ee0776929817141E.exit.i.i ], [ %.sroa.014.4.i.i, %336 ], [ 1, %.lr.ph.i.i ], [ 0, %45 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha362250438a746d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
           to label %344 unwind label %342
 

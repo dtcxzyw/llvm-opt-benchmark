@@ -1499,26 +1499,25 @@ mi_os_prim_free.exit.thread:                      ; preds = %.split.us, %.split1
 
 67:                                               ; preds = %65, %64
   %.not72 = icmp eq i64 %.151, 0
-  br i1 %.not72, label %70, label %68
+  br i1 %.not72, label %69, label %68
 
 68:                                               ; preds = %67
-  %69 = and i8 %.153, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 1, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i8 %69, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !24
+  store i8 %.153, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 19
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 4, ptr %.sroa.774.0..sroa_idx, align 4, !tbaa !18
-  br label %70
+  br label %69
 
-70:                                               ; preds = %67, %68
-  %71 = phi ptr [ null, %67 ], [ %30, %68 ]
-  ret ptr %71
+69:                                               ; preds = %67, %68
+  %70 = phi ptr [ null, %67 ], [ %30, %68 ]
+  ret ptr %70
 }
 
 declare i64 @_mi_clock_start() local_unnamed_addr #2

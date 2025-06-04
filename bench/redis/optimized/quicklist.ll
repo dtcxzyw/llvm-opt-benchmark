@@ -196,33 +196,37 @@ define dso_local void @quicklistRelease(ptr noundef %0) local_unnamed_addr #1 {
 ._crit_edge:                                      ; preds = %6, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
-  %22 = and i64 %21, 64424509440
-  %.not3.i = icmp eq i64 %22, 0
+  %22 = lshr i64 %21, 32
+  %23 = trunc nuw i64 %22 to i32
+  %24 = and i32 %23, 15
+  %.not3.i = icmp eq i32 %24, 0
   br i1 %.not3.i, label %quicklistBookmarksClear.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %23 = getelementptr i8, ptr %0, i64 48
-  br label %24
+  %25 = getelementptr i8, ptr %0, i64 48
+  br label %26
 
-24:                                               ; preds = %24, %.lr.ph.i
-  %25 = phi i64 [ %21, %.lr.ph.i ], [ %34, %24 ]
-  %26 = lshr i64 %25, 32
-  %27 = add nuw nsw i64 %26, 15
-  %28 = and i64 %27, 15
-  %29 = shl nuw nsw i64 %28, 32
-  %30 = and i64 %25, -64424509441
-  %31 = or disjoint i64 %29, %30
-  store i64 %31, ptr %20, align 8
-  %.idx.i = shl nuw nsw i64 %28, 4
-  %32 = getelementptr i8, ptr %23, i64 %.idx.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
-  tail call void @zfree(ptr noundef %33) #23
-  %34 = load i64, ptr %20, align 8
-  %35 = and i64 %34, 64424509440
-  %.not.i = icmp eq i64 %35, 0
-  br i1 %.not.i, label %quicklistBookmarksClear.exit, label %24, !llvm.loop !22
+26:                                               ; preds = %26, %.lr.ph.i
+  %27 = phi i32 [ %24, %.lr.ph.i ], [ %39, %26 ]
+  %28 = phi i64 [ %21, %.lr.ph.i ], [ %36, %26 ]
+  %29 = add nsw i32 %27, -1
+  %30 = zext nneg i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 32
+  %32 = and i64 %28, -64424509441
+  %33 = or i64 %31, %32
+  store i64 %33, ptr %20, align 8
+  %.idx.i = shl nuw nsw i64 %30, 4
+  %34 = getelementptr i8, ptr %25, i64 %.idx.i
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  tail call void @zfree(ptr noundef %35) #23
+  %36 = load i64, ptr %20, align 8
+  %37 = lshr i64 %36, 32
+  %38 = trunc nuw i64 %37 to i32
+  %39 = and i32 %38, 15
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %quicklistBookmarksClear.exit, label %26, !llvm.loop !22
 
-quicklistBookmarksClear.exit:                     ; preds = %24, %._crit_edge
+quicklistBookmarksClear.exit:                     ; preds = %26, %._crit_edge
   tail call void @zfree(ptr noundef nonnull %0) #23
   ret void
 }
@@ -233,33 +237,37 @@ declare void @zfree(ptr noundef) local_unnamed_addr #6
 define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = and i64 %3, 64424509440
-  %.not3 = icmp eq i64 %4, 0
+  %4 = lshr i64 %3, 32
+  %5 = trunc nuw i64 %4 to i32
+  %6 = and i32 %5, 15
+  %.not3 = icmp eq i32 %6, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr i8, ptr %0, i64 48
-  br label %6
+  %7 = getelementptr i8, ptr %0, i64 48
+  br label %8
 
-6:                                                ; preds = %.lr.ph, %6
-  %7 = phi i64 [ %3, %.lr.ph ], [ %16, %6 ]
-  %8 = lshr i64 %7, 32
-  %9 = add nuw nsw i64 %8, 15
-  %10 = and i64 %9, 15
-  %11 = shl nuw nsw i64 %10, 32
-  %12 = and i64 %7, -64424509441
-  %13 = or disjoint i64 %11, %12
-  store i64 %13, ptr %2, align 8
-  %.idx = shl nuw nsw i64 %10, 4
-  %14 = getelementptr i8, ptr %5, i64 %.idx
-  %15 = load ptr, ptr %14, align 8, !tbaa !20
-  tail call void @zfree(ptr noundef %15) #23
-  %16 = load i64, ptr %2, align 8
-  %17 = and i64 %16, 64424509440
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !22
+8:                                                ; preds = %.lr.ph, %8
+  %9 = phi i32 [ %6, %.lr.ph ], [ %21, %8 ]
+  %10 = phi i64 [ %3, %.lr.ph ], [ %18, %8 ]
+  %11 = add nsw i32 %9, -1
+  %12 = zext nneg i32 %11 to i64
+  %13 = shl nuw nsw i64 %12, 32
+  %14 = and i64 %10, -64424509441
+  %15 = or i64 %13, %14
+  store i64 %15, ptr %2, align 8
+  %.idx = shl nuw nsw i64 %12, 4
+  %16 = getelementptr i8, ptr %7, i64 %.idx
+  %17 = load ptr, ptr %16, align 8, !tbaa !20
+  tail call void @zfree(ptr noundef %17) #23
+  %18 = load i64, ptr %2, align 8
+  %19 = lshr i64 %18, 32
+  %20 = trunc nuw i64 %19 to i32
+  %21 = and i32 %20, 15
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %6, %1
+._crit_edge:                                      ; preds = %8, %1
   ret void
 }
 

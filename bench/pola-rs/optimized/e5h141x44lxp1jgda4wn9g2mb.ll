@@ -33051,8 +33051,8 @@ define i16 @_ZN12polars_arrow5types6native3f168from_f3217h800e71f1c5bcfa5dE(floa
   %18 = icmp samesign ugt i32 %4, 1191182336
   br i1 %18, label %22, label %20
 
-19:                                               ; preds = %25, %49, %57, %22, %7
-  %.sroa.0.0 = phi i16 [ %14, %7 ], [ %24, %22 ], [ %50, %49 ], [ %59, %57 ], [ %spec.select7, %25 ]
+19:                                               ; preds = %25, %48, %56, %22, %7
+  %.sroa.0.0 = phi i16 [ %14, %7 ], [ %24, %22 ], [ %49, %48 ], [ %58, %56 ], [ %spec.select7, %25 ]
   ret i16 %.sroa.0.0
 
 20:                                               ; preds = %15
@@ -33082,37 +33082,36 @@ define i16 @_ZN12polars_arrow5types6native3f168from_f3217h800e71f1c5bcfa5dE(floa
 
 37:                                               ; preds = %20
   %38 = icmp samesign ult i32 %4, 855638016
-  br i1 %38, label %49, label %39
+  br i1 %38, label %48, label %39
 
 39:                                               ; preds = %37
-  %40 = sub nsw i32 30, %17
+  %40 = sub nsw i32 126, %17
   %41 = or disjoint i32 %5, 8388608
-  %42 = and i32 %40, 31
-  %43 = lshr i32 %41, %42
-  %44 = sub nsw i32 29, %17
-  %45 = and i32 %44, 31
-  %46 = shl nuw i32 1, %45
-  %47 = and i32 %46, %41
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %57, label %51
+  %42 = lshr i32 %41, %40
+  %43 = sub nsw i32 29, %17
+  %44 = and i32 %43, 31
+  %45 = shl nuw i32 1, %44
+  %46 = and i32 %45, %41
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %56, label %50
 
-49:                                               ; preds = %37
-  %50 = trunc nuw i32 %16 to i16
+48:                                               ; preds = %37
+  %49 = trunc nuw i32 %16 to i16
   br label %19
 
-51:                                               ; preds = %39
-  %52 = shl i32 3, %45
-  %53 = add nuw i32 %52, 16777215
-  %54 = and i32 %53, %41
-  %55 = icmp ne i32 %54, 0
-  %56 = zext i1 %55 to i32
-  %spec.select = add nuw nsw i32 %43, %56
-  br label %57
+50:                                               ; preds = %39
+  %51 = shl i32 3, %44
+  %52 = add nuw i32 %51, 16777215
+  %53 = and i32 %52, %41
+  %54 = icmp ne i32 %53, 0
+  %55 = zext i1 %54 to i32
+  %spec.select = add nuw nsw i32 %42, %55
+  br label %56
 
-57:                                               ; preds = %51, %39
-  %.sroa.03.0 = phi i32 [ %43, %39 ], [ %spec.select, %51 ]
-  %58 = or i32 %.sroa.03.0, %16
-  %59 = trunc nuw i32 %58 to i16
+56:                                               ; preds = %50, %39
+  %.sroa.03.0 = phi i32 [ %42, %39 ], [ %spec.select, %50 ]
+  %57 = or i32 %.sroa.03.0, %16
+  %58 = trunc nuw i32 %57 to i16
   br label %19
 }
 

@@ -170,7 +170,7 @@ define internal fastcc ptr @__fsnotify_recalc_mask(ptr noundef nonnull %0) unnam
   %7 = load i16, ptr %6, align 4
   %.fr7 = freeze i16 %7
   %8 = icmp ult i16 %.fr7, 3
-  br i1 %8, label %9, label %114
+  br i1 %8, label %9, label %113
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -271,74 +271,73 @@ define internal fastcc ptr @__fsnotify_recalc_mask(ptr noundef nonnull %0) unnam
   br i1 %80, label %.split5.us, label %.split, !llvm.loop !16
 
 .split5.us.loopexit:                              ; preds = %43
-  %81 = and i8 %44, 1
-  %82 = icmp ne i8 %81, 0
+  %81 = icmp ne i8 %44, 0
   br label %.split5.us
 
 .split5.us:                                       ; preds = %73, %.split5.us.loopexit, %9
-  %83 = phi i1 [ false, %9 ], [ %82, %.split5.us.loopexit ], [ false, %73 ]
-  %84 = phi i32 [ 0, %9 ], [ %45, %.split5.us.loopexit ], [ %74, %73 ]
+  %82 = phi i1 [ false, %9 ], [ %81, %.split5.us.loopexit ], [ false, %73 ]
+  %83 = phi i32 [ 0, %9 ], [ %45, %.split5.us.loopexit ], [ %74, %73 ]
   switch i16 %.fr7, label %default.unreachable [
-    i16 0, label %87
-    i16 1, label %85
-    i16 2, label %86
+    i16 0, label %86
+    i16 1, label %84
+    i16 2, label %85
   ]
 
-85:                                               ; preds = %.split5.us
-  br label %87
+84:                                               ; preds = %.split5.us
+  br label %86
 
-86:                                               ; preds = %.split5.us
-  br label %87
+85:                                               ; preds = %.split5.us
+  br label %86
 
 default.unreachable:                              ; preds = %.split5.us
   unreachable
 
-87:                                               ; preds = %.split5.us, %85, %86
-  %88 = phi i64 [ 8, %85 ], [ -8, %86 ], [ -4, %.split5.us ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr i8, ptr %90, i64 %88
-  store i32 %84, ptr %91, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %93 = load i16, ptr %6, align 4
-  %94 = icmp eq i16 %93, 0
-  br i1 %94, label %95, label %114
+86:                                               ; preds = %.split5.us, %84, %85
+  %87 = phi i64 [ 8, %84 ], [ -8, %85 ], [ -4, %.split5.us ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr i8, ptr %89, i64 %87
+  store i32 %83, ptr %90, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %92 = load i16, ptr %6, align 4
+  %93 = icmp eq i16 %92, 0
+  br i1 %93, label %94, label %113
 
-95:                                               ; preds = %87
-  %96 = load i16, ptr %92, align 2
-  %97 = and i16 %96, 2
-  %98 = icmp eq i16 %97, 0
-  %99 = xor i1 %83, %98
-  br i1 %99, label %114, label %100
+94:                                               ; preds = %86
+  %95 = load i16, ptr %91, align 2
+  %96 = and i16 %95, 2
+  %97 = icmp eq i16 %96, 0
+  %98 = xor i1 %82, %97
+  br i1 %98, label %113, label %99
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %89, align 8
-  %102 = getelementptr i8, ptr %101, i64 -584
-  br i1 %83, label %103, label %109
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %88, align 8
+  %101 = getelementptr i8, ptr %100, i64 -584
+  br i1 %82, label %102, label %108
 
-103:                                              ; preds = %100
-  tail call void @ihold(ptr noundef %102) #6
-  %104 = getelementptr i8, ptr %101, i64 -544
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1040
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %106, ptr nonnull elementtype(i64) %106) #6, !srcloc !19
-  %107 = load i16, ptr %92, align 2
-  %108 = or i16 %107, 2
-  br label %111
+102:                                              ; preds = %99
+  tail call void @ihold(ptr noundef %101) #6
+  %103 = getelementptr i8, ptr %100, i64 -544
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1040
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %105, ptr nonnull elementtype(i64) %105) #6, !srcloc !19
+  %106 = load i16, ptr %91, align 2
+  %107 = or i16 %106, 2
+  br label %110
 
-109:                                              ; preds = %100
-  %110 = and i16 %96, -3
-  br label %111
+108:                                              ; preds = %99
+  %109 = and i16 %95, -3
+  br label %110
 
-111:                                              ; preds = %109, %103
-  %112 = phi i16 [ %110, %109 ], [ %108, %103 ]
-  %113 = phi ptr [ %102, %109 ], [ null, %103 ]
-  store i16 %112, ptr %92, align 2
-  br label %114
+110:                                              ; preds = %108, %102
+  %111 = phi i16 [ %109, %108 ], [ %107, %102 ]
+  %112 = phi ptr [ %101, %108 ], [ null, %102 ]
+  store i16 %111, ptr %91, align 2
+  br label %113
 
-114:                                              ; preds = %111, %95, %87, %5
-  %115 = phi ptr [ null, %5 ], [ %113, %111 ], [ null, %95 ], [ null, %87 ]
-  ret ptr %115
+113:                                              ; preds = %110, %94, %86, %5
+  %114 = phi ptr [ null, %5 ], [ %112, %110 ], [ null, %94 ], [ null, %86 ]
+  ret ptr %114
 }
 
 ; Function Attrs: null_pointer_is_valid

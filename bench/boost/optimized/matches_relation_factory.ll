@@ -22332,58 +22332,57 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   %1672 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %147, ptr %1672, align 8, !tbaa !291
   store i64 %149, ptr %148, align 8, !tbaa !256
-  %1673 = and i8 %.0139, 1
-  store i8 %1673, ptr %156, align 8, !tbaa !283
-  %1674 = load i32, ptr %160, align 8, !tbaa !56
-  %1675 = load i32, ptr %162, align 8, !tbaa !232
-  %1676 = icmp ugt i32 %1674, %1675
-  br i1 %1676, label %1677, label %1678
+  store i8 %.0139, ptr %156, align 8, !tbaa !283
+  %1673 = load i32, ptr %160, align 8, !tbaa !56
+  %1674 = load i32, ptr %162, align 8, !tbaa !232
+  %1675 = icmp ugt i32 %1673, %1674
+  br i1 %1675, label %1676, label %1677
 
-1677:                                             ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit605
-  store i32 %1674, ptr %162, align 8, !tbaa !232
-  br label %1678
+1676:                                             ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit605
+  store i32 %1673, ptr %162, align 8, !tbaa !232
+  br label %1677
 
-1678:                                             ; preds = %1677, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit605
+1677:                                             ; preds = %1676, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit605
   store i32 %159, ptr %158, align 4, !tbaa !44
   store i32 %161, ptr %160, align 8, !tbaa !56
-  %1679 = icmp slt i32 %.0128, 1
-  %1680 = and i32 %1667, 8388608
-  %.not400 = icmp eq i32 %1680, 0
-  %or.cond623 = select i1 %1679, i1 true, i1 %.not400
-  br i1 %or.cond623, label %.critedge, label %1681
+  %1678 = icmp slt i32 %.0128, 1
+  %1679 = and i32 %1667, 8388608
+  %.not400 = icmp eq i32 %1679, 0
+  %or.cond623 = select i1 %1678, i1 true, i1 %.not400
+  br i1 %or.cond623, label %.critedge, label %1680
 
-1681:                                             ; preds = %1678
-  %1682 = getelementptr inbounds nuw i8, ptr %1665, i64 376
-  %1683 = zext nneg i32 %.0128 to i64
-  %1684 = add nsw i64 %1683, -1
-  %1685 = getelementptr inbounds nuw i8, ptr %1665, i64 384
-  %1686 = load ptr, ptr %1685, align 8, !tbaa !277
-  %1687 = load ptr, ptr %1682, align 8, !tbaa !195
+1680:                                             ; preds = %1677
+  %1681 = getelementptr inbounds nuw i8, ptr %1665, i64 376
+  %1682 = zext nneg i32 %.0128 to i64
+  %1683 = add nsw i64 %1682, -1
+  %1684 = getelementptr inbounds nuw i8, ptr %1665, i64 384
+  %1685 = load ptr, ptr %1684, align 8, !tbaa !277
+  %1686 = load ptr, ptr %1681, align 8, !tbaa !195
+  %1687 = ptrtoint ptr %1685 to i64
   %1688 = ptrtoint ptr %1686 to i64
-  %1689 = ptrtoint ptr %1687 to i64
-  %1690 = sub i64 %1688, %1689
-  %1691 = ashr exact i64 %1690, 4
-  %.not.i.i = icmp ult i64 %1684, %1691
-  br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, label %1692
+  %1689 = sub i64 %1687, %1688
+  %1690 = ashr exact i64 %1689, 4
+  %.not.i.i = icmp ult i64 %1683, %1690
+  br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, label %1691
 
-1692:                                             ; preds = %1681
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %1684, i64 noundef %1691) #30
+1691:                                             ; preds = %1680
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %1683, i64 noundef %1690) #30
   unreachable
 
-_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %1681
-  %1693 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %1694 = load ptr, ptr %1693, align 8, !tbaa !212
-  %1695 = ptrtoint ptr %1694 to i64
-  %1696 = load ptr, ptr %26, align 8, !tbaa !213
-  %1697 = ptrtoint ptr %1696 to i64
-  %1698 = xor i64 %1695, -1
-  %1699 = add i64 %1697, %1698
-  %1700 = getelementptr inbounds nuw %"struct.std::pair.117", ptr %1687, i64 %1684, i32 1
-  store i64 %1699, ptr %1700, align 8, !tbaa !289
+_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %1680
+  %1692 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %1693 = load ptr, ptr %1692, align 8, !tbaa !212
+  %1694 = ptrtoint ptr %1693 to i64
+  %1695 = load ptr, ptr %26, align 8, !tbaa !213
+  %1696 = ptrtoint ptr %1695 to i64
+  %1697 = xor i64 %1694, -1
+  %1698 = add i64 %1696, %1697
+  %1699 = getelementptr inbounds nuw %"struct.std::pair.117", ptr %1686, i64 %1683, i32 1
+  store i64 %1698, ptr %1699, align 8, !tbaa !289
   br label %.critedge
 
-.critedge:                                        ; preds = %80, %.preheader647, %1196, %1244, %731, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573, %1263, %1308, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit473, %562, %653, %674, %694, %996, %1010, %1029, %1044, %1056, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit534, %1165, %1212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit566, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %1678, %775, %760, %882, %868, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit525, %792, %940, %925, %905, %979, %964, %1144, %1126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit585, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit579, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
-  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1165 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit566 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573 ], [ false, %1196 ], [ false, %1212 ], [ false, %1244 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit473 ], [ false, %562 ], [ false, %653 ], [ false, %674 ], [ false, %694 ], [ false, %731 ], [ false, %996 ], [ false, %1010 ], [ false, %1029 ], [ false, %1044 ], [ false, %1056 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit534 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ true, %1678 ], [ false, %775 ], [ false, %760 ], [ false, %882 ], [ false, %868 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit525 ], [ false, %792 ], [ false, %940 ], [ false, %925 ], [ false, %905 ], [ false, %979 ], [ false, %964 ], [ false, %1144 ], [ false, %1126 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit585 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit579 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591 ], [ false, %1308 ], [ false, %1263 ], [ true, %.preheader647 ], [ true, %80 ]
+.critedge:                                        ; preds = %80, %.preheader647, %1196, %1244, %731, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573, %1263, %1308, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit473, %562, %653, %674, %694, %996, %1010, %1029, %1044, %1056, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit534, %1165, %1212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit566, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %1677, %775, %760, %882, %868, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit525, %792, %940, %925, %905, %979, %964, %1144, %1126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit585, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit579, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
+  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1165 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit566 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573 ], [ false, %1196 ], [ false, %1212 ], [ false, %1244 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit473 ], [ false, %562 ], [ false, %653 ], [ false, %674 ], [ false, %694 ], [ false, %731 ], [ false, %996 ], [ false, %1010 ], [ false, %1029 ], [ false, %1044 ], [ false, %1056 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit534 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ true, %1677 ], [ false, %775 ], [ false, %760 ], [ false, %882 ], [ false, %868 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit525 ], [ false, %792 ], [ false, %940 ], [ false, %925 ], [ false, %905 ], [ false, %979 ], [ false, %964 ], [ false, %1144 ], [ false, %1126 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit585 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit579 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591 ], [ false, %1308 ], [ false, %1263 ], [ true, %.preheader647 ], [ true, %80 ]
   ret i1 %.0
 }
 
@@ -59516,59 +59515,58 @@ _ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex
   %1977 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %169, ptr %1977, align 8, !tbaa !859
   store i64 %171, ptr %170, align 8, !tbaa !838
-  %1978 = and i8 %.0139, 1
-  store i8 %1978, ptr %178, align 8, !tbaa !855
-  %1979 = load i32, ptr %182, align 8, !tbaa !694
-  %1980 = load i32, ptr %184, align 8, !tbaa !813
-  %1981 = icmp ugt i32 %1979, %1980
-  br i1 %1981, label %1982, label %1983
+  store i8 %.0139, ptr %178, align 8, !tbaa !855
+  %1978 = load i32, ptr %182, align 8, !tbaa !694
+  %1979 = load i32, ptr %184, align 8, !tbaa !813
+  %1980 = icmp ugt i32 %1978, %1979
+  br i1 %1980, label %1981, label %1982
 
-1982:                                             ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE12append_stateENS0_19syntax_element_typeEm.exit965
-  store i32 %1979, ptr %184, align 8, !tbaa !813
-  br label %1983
+1981:                                             ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE12append_stateENS0_19syntax_element_typeEm.exit965
+  store i32 %1978, ptr %184, align 8, !tbaa !813
+  br label %1982
 
-1983:                                             ; preds = %1982, %_ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE12append_stateENS0_19syntax_element_typeEm.exit965
+1982:                                             ; preds = %1981, %_ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE12append_stateENS0_19syntax_element_typeEm.exit965
   store i32 %181, ptr %180, align 4, !tbaa !691
   store i32 %183, ptr %182, align 8, !tbaa !694
-  %1984 = icmp slt i32 %.0128, 1
-  %1985 = and i32 %1972, 8388608
-  %.not400 = icmp eq i32 %1985, 0
-  %or.cond998 = select i1 %1984, i1 true, i1 %.not400
-  br i1 %or.cond998, label %.critedge, label %1986
+  %1983 = icmp slt i32 %.0128, 1
+  %1984 = and i32 %1972, 8388608
+  %.not400 = icmp eq i32 %1984, 0
+  %or.cond998 = select i1 %1983, i1 true, i1 %.not400
+  br i1 %or.cond998, label %.critedge, label %1985
 
-1986:                                             ; preds = %1983
-  %1987 = getelementptr inbounds nuw i8, ptr %1970, i64 376
-  %1988 = zext nneg i32 %.0128 to i64
-  %1989 = add nsw i64 %1988, -1
-  %1990 = getelementptr inbounds nuw i8, ptr %1970, i64 384
-  %1991 = load ptr, ptr %1990, align 8, !tbaa !277
-  %1992 = load ptr, ptr %1987, align 8, !tbaa !195
+1985:                                             ; preds = %1982
+  %1986 = getelementptr inbounds nuw i8, ptr %1970, i64 376
+  %1987 = zext nneg i32 %.0128 to i64
+  %1988 = add nsw i64 %1987, -1
+  %1989 = getelementptr inbounds nuw i8, ptr %1970, i64 384
+  %1990 = load ptr, ptr %1989, align 8, !tbaa !277
+  %1991 = load ptr, ptr %1986, align 8, !tbaa !195
+  %1992 = ptrtoint ptr %1990 to i64
   %1993 = ptrtoint ptr %1991 to i64
-  %1994 = ptrtoint ptr %1992 to i64
-  %1995 = sub i64 %1993, %1994
-  %1996 = ashr exact i64 %1995, 4
-  %.not.i.i = icmp ult i64 %1989, %1996
-  br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, label %1997
+  %1994 = sub i64 %1992, %1993
+  %1995 = ashr exact i64 %1994, 4
+  %.not.i.i = icmp ult i64 %1988, %1995
+  br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, label %1996
 
-1997:                                             ; preds = %1986
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %1989, i64 noundef %1996) #30
+1996:                                             ; preds = %1985
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %1988, i64 noundef %1995) #30
   unreachable
 
-_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %1986
-  %1998 = load ptr, ptr %26, align 8, !tbaa !805
-  %1999 = ptrtoint ptr %1998 to i64
-  %2000 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2001 = load ptr, ptr %2000, align 8, !tbaa !804
-  %2002 = ptrtoint ptr %2001 to i64
-  %2003 = sub i64 %1999, %2002
-  %2004 = ashr exact i64 %2003, 2
-  %2005 = add nsw i64 %2004, -1
-  %2006 = getelementptr inbounds nuw %"struct.std::pair.117", ptr %1992, i64 %1989, i32 1
-  store i64 %2005, ptr %2006, align 8, !tbaa !289
+_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %1985
+  %1997 = load ptr, ptr %26, align 8, !tbaa !805
+  %1998 = ptrtoint ptr %1997 to i64
+  %1999 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2000 = load ptr, ptr %1999, align 8, !tbaa !804
+  %2001 = ptrtoint ptr %2000 to i64
+  %2002 = sub i64 %1998, %2001
+  %2003 = ashr exact i64 %2002, 2
+  %2004 = add nsw i64 %2003, -1
+  %2005 = getelementptr inbounds nuw %"struct.std::pair.117", ptr %1991, i64 %1988, i32 1
+  store i64 %2004, ptr %2005, align 8, !tbaa !289
   br label %.critedge
 
-.critedge:                                        ; preds = %.backedge1080, %_ZNK5boost16cpp_regex_traitsIwE11syntax_typeEw.exit456, %1401, %1466, %._crit_edge1126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit897, %1493, %1557, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit521, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit545, %628, %727, %754, %783, %1120, %._crit_edge1132, %._crit_edge1129, %1185, %1209, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit702, %1360, %1423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit857, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit878, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %1983, %._crit_edge1122, %848, %._crit_edge1112, %975, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669, %894, %._crit_edge, %1045, %1029, %._crit_edge1135, %1086, %1329, %1303, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit933, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit915, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit951, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit
-  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1360 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit857 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit878 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit897 ], [ false, %1401 ], [ false, %1423 ], [ false, %1466 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit521 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit545 ], [ false, %628 ], [ false, %727 ], [ false, %754 ], [ false, %783 ], [ false, %._crit_edge1126 ], [ false, %1120 ], [ false, %._crit_edge1132 ], [ false, %._crit_edge1129 ], [ false, %1185 ], [ false, %1209 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit702 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ true, %1983 ], [ false, %._crit_edge1122 ], [ false, %848 ], [ false, %._crit_edge1112 ], [ false, %975 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669 ], [ false, %894 ], [ false, %._crit_edge ], [ false, %1045 ], [ false, %1029 ], [ false, %._crit_edge1135 ], [ false, %1086 ], [ false, %1329 ], [ false, %1303 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit933 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit915 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit951 ], [ false, %1557 ], [ false, %1493 ], [ true, %_ZNK5boost16cpp_regex_traitsIwE11syntax_typeEw.exit456 ], [ true, %.backedge1080 ]
+.critedge:                                        ; preds = %.backedge1080, %_ZNK5boost16cpp_regex_traitsIwE11syntax_typeEw.exit456, %1401, %1466, %._crit_edge1126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit897, %1493, %1557, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit521, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit545, %628, %727, %754, %783, %1120, %._crit_edge1132, %._crit_edge1129, %1185, %1209, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit702, %1360, %1423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit857, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit878, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %1982, %._crit_edge1122, %848, %._crit_edge1112, %975, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669, %894, %._crit_edge, %1045, %1029, %._crit_edge1135, %1086, %1329, %1303, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit933, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit915, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit951, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit
+  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1360 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit857 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit878 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit897 ], [ false, %1401 ], [ false, %1423 ], [ false, %1466 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit521 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit545 ], [ false, %628 ], [ false, %727 ], [ false, %754 ], [ false, %783 ], [ false, %._crit_edge1126 ], [ false, %1120 ], [ false, %._crit_edge1132 ], [ false, %._crit_edge1129 ], [ false, %1185 ], [ false, %1209 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit702 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ true, %1982 ], [ false, %._crit_edge1122 ], [ false, %848 ], [ false, %._crit_edge1112 ], [ false, %975 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669 ], [ false, %894 ], [ false, %._crit_edge ], [ false, %1045 ], [ false, %1029 ], [ false, %._crit_edge1135 ], [ false, %1086 ], [ false, %1329 ], [ false, %1303 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit933 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit915 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit951 ], [ false, %1557 ], [ false, %1493 ], [ true, %_ZNK5boost16cpp_regex_traitsIwE11syntax_typeEw.exit456 ], [ true, %.backedge1080 ]
   ret i1 %.0
 }
 

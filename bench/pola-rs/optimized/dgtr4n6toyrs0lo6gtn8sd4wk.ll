@@ -101206,8 +101206,8 @@ define hidden void @_ZN11polars_plan5plans9optimizer9set_order15set_order_flags1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %18
 
-thread-pre-split:                                 ; preds = %94, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i", %120, %123, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i", %98, %42, %31, %45, %129, %50, %132, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12", %69, %81, %76, %72
-  %.sroa.01.0.ph = phi i8 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12" ], [ 1, %69 ], [ 1, %81 ], [ 1, %76 ], [ 1, %72 ], [ %.sroa.01.020, %42 ], [ 1, %31 ], [ %spec.select, %50 ], [ 1, %45 ], [ 1, %129 ], [ %spec.select10, %132 ], [ 1, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i" ], [ 0, %98 ], [ %.sroa.01.020, %120 ], [ 1, %123 ], [ 0, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i" ], [ 1, %94 ]
+thread-pre-split:                                 ; preds = %93, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i", %119, %122, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i", %97, %42, %31, %44, %128, %49, %131, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12", %68, %80, %75, %71
+  %.sroa.01.0.ph = phi i8 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12" ], [ 1, %68 ], [ 1, %80 ], [ 1, %75 ], [ 1, %71 ], [ %.sroa.01.020, %42 ], [ 1, %31 ], [ %spec.select, %49 ], [ 1, %44 ], [ 1, %128 ], [ %spec.select10, %131 ], [ 1, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i" ], [ 0, %97 ], [ %.sroa.01.020, %119 ], [ 1, %122 ], [ 0, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i" ], [ 1, %93 ]
   %.pr = load i64, ptr %6, align 8
   %.not = icmp eq i64 %.pr, 0
   br i1 %.not, label %29, label %18
@@ -101244,163 +101244,162 @@ thread-pre-split:                                 ; preds = %94, %"_ZN11polars_p
   %35 = icmp ne i64 %34, 21
   call void @llvm.assume(i1 %35)
   switch i64 %34, label %thread-pre-split [
-    i64 10, label %45
+    i64 10, label %44
     i64 11, label %36
     i64 13, label %38
-    i64 15, label %45
+    i64 15, label %44
     i64 16, label %40
     i64 18, label %42
   ]
 
 36:                                               ; preds = %31
   %37 = trunc nuw i8 %.sroa.01.020 to i1
-  br i1 %37, label %50, label %47
+  br i1 %37, label %49, label %46
 
 38:                                               ; preds = %31
   %39 = trunc nuw i8 %.sroa.01.020 to i1
-  br i1 %39, label %69, label %67
+  br i1 %39, label %68, label %66
 
 40:                                               ; preds = %31
   %41 = trunc nuw i8 %.sroa.01.020 to i1
-  br i1 %41, label %129, label %127
+  br i1 %41, label %128, label %126
 
 42:                                               ; preds = %31
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 60
-  %44 = and i8 %.sroa.01.020, 1
-  store i8 %44, ptr %43, align 4
+  store i8 %.sroa.01.020, ptr %43, align 4
   br label %thread-pre-split
 
-45:                                               ; preds = %31, %31
-  %46 = trunc nuw i8 %.sroa.01.020 to i1
-  br i1 %46, label %thread-pre-split, label %114
+44:                                               ; preds = %31, %31
+  %45 = trunc nuw i8 %.sroa.01.020 to i1
+  br i1 %45, label %thread-pre-split, label %113
 
-47:                                               ; preds = %36
-  %48 = load i64, ptr %6, align 8, !noundef !4
-  %49 = icmp eq i64 %48, 0
+46:                                               ; preds = %36
+  %47 = load i64, ptr %6, align 8, !noundef !4
+  %48 = icmp eq i64 %47, 0
   %.pre = load i64, ptr %3, align 8, !range !34, !alias.scope !9810, !noalias !9813
-  br i1 %49, label %58, label %54
+  br i1 %48, label %57, label %53
 
-50:                                               ; preds = %36
-  %51 = getelementptr inbounds nuw i8, ptr %33, i64 113
-  %52 = load i8, ptr %51, align 1, !range !3, !noundef !4
-  %53 = trunc nuw i8 %52 to i1
-  %spec.select = select i1 %53, i8 %.sroa.01.020, i8 0
+49:                                               ; preds = %36
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 113
+  %51 = load i8, ptr %50, align 1, !range !3, !noundef !4
+  %52 = trunc nuw i8 %51 to i1
+  %spec.select = select i1 %52, i8 %.sroa.01.020, i8 0
   br label %thread-pre-split
 
-54:                                               ; preds = %47
-  %55 = add nsw i64 %48, -1
-  store i64 %55, ptr %6, align 8
-  %56 = icmp samesign ult i64 %55, %.pre
+53:                                               ; preds = %46
+  %54 = add nsw i64 %47, -1
+  store i64 %54, ptr %6, align 8
+  %55 = icmp samesign ult i64 %54, %.pre
+  call void @llvm.assume(i1 %55)
+  %56 = icmp ult i64 %47, 1152921504606846977
   call void @llvm.assume(i1 %56)
-  %57 = icmp ult i64 %48, 1152921504606846977
-  call void @llvm.assume(i1 %57)
-  br label %58
+  br label %57
 
-58:                                               ; preds = %47, %54
-  %59 = phi i64 [ 0, %47 ], [ %55, %54 ]
-  %60 = icmp eq i64 %59, %.pre
-  br i1 %60, label %61, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12"
+57:                                               ; preds = %46, %53
+  %58 = phi i64 [ 0, %46 ], [ %54, %53 ]
+  %59 = icmp eq i64 %58, %.pre
+  br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12"
 
-61:                                               ; preds = %58
+60:                                               ; preds = %57
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h2d56a006f0acdb0dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6051c3b956c33ba23e1cc7c69c835a57.617)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12": ; preds = %58, %61
-  %62 = load ptr, ptr %10, align 8, !alias.scope !9810, !noalias !9813, !nonnull !4, !noundef !4
-  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %59
-  store i64 %26, ptr %63, align 8
-  %64 = add nuw nsw i64 %59, 1
-  store i64 %64, ptr %6, align 8, !alias.scope !9810, !noalias !9813
-  %65 = getelementptr inbounds nuw i8, ptr %33, i64 120
-  %66 = load i64, ptr %65, align 8, !noundef !4
-  call void @"_ZN12polars_utils5arena14Arena$LT$T$GT$4swap17hd9702bdb052eece2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %26, i64 noundef %66)
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha369d14d9523d1efE.exit12": ; preds = %57, %60
+  %61 = load ptr, ptr %10, align 8, !alias.scope !9810, !noalias !9813, !nonnull !4, !noundef !4
+  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %58
+  store i64 %26, ptr %62, align 8
+  %63 = add nuw nsw i64 %58, 1
+  store i64 %63, ptr %6, align 8, !alias.scope !9810, !noalias !9813
+  %64 = getelementptr inbounds nuw i8, ptr %33, i64 120
+  %65 = load i64, ptr %64, align 8, !noundef !4
+  call void @"_ZN12polars_utils5arena14Arena$LT$T$GT$4swap17hd9702bdb052eece2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %26, i64 noundef %65)
   br label %thread-pre-split
 
-67:                                               ; preds = %38
-  %68 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  store i8 0, ptr %68, align 16
-  br label %69
+66:                                               ; preds = %38
+  %67 = getelementptr inbounds nuw i8, ptr %33, i64 96
+  store i8 0, ptr %67, align 16
+  br label %68
 
-69:                                               ; preds = %67, %38
-  %70 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %71 = load ptr, ptr %70, align 16, !noundef !4
-  %.not9 = icmp eq ptr %71, null
-  br i1 %.not9, label %72, label %thread-pre-split
+68:                                               ; preds = %66, %38
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %70 = load ptr, ptr %69, align 16, !noundef !4
+  %.not9 = icmp eq ptr %70, null
+  br i1 %.not9, label %71, label %thread-pre-split
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  %74 = load i8, ptr %73, align 16, !range !3, !noundef !4
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %thread-pre-split, label %76
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %33, i64 96
+  %73 = load i8, ptr %72, align 16, !range !3, !noundef !4
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %thread-pre-split, label %75
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %78 = load ptr, ptr %77, align 16, !nonnull !4, !noundef !4
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = call noundef zeroext i1 @_ZN11polars_plan3dsl7options14GroupbyOptions10is_rolling17h7b9983afafe56382E(ptr noalias noundef nonnull readonly align 8 dereferenceable(288) %79)
-  br i1 %80, label %thread-pre-split, label %81
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %77 = load ptr, ptr %76, align 16, !nonnull !4, !noundef !4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = call noundef zeroext i1 @_ZN11polars_plan3dsl7options14GroupbyOptions10is_rolling17h7b9983afafe56382E(ptr noalias noundef nonnull readonly align 8 dereferenceable(288) %78)
+  br i1 %79, label %thread-pre-split, label %80
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %77, align 16, !nonnull !4, !noundef !4
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = call noundef zeroext i1 @_ZN11polars_plan3dsl7options14GroupbyOptions10is_dynamic17ha3f09a61dac23d42E(ptr noalias noundef nonnull readonly align 8 dereferenceable(288) %83)
-  br i1 %84, label %thread-pre-split, label %85
+80:                                               ; preds = %75
+  %81 = load ptr, ptr %76, align 16, !nonnull !4, !noundef !4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = call noundef zeroext i1 @_ZN11polars_plan3dsl7options14GroupbyOptions10is_dynamic17ha3f09a61dac23d42E(ptr noalias noundef nonnull readonly align 8 dereferenceable(288) %82)
+  br i1 %83, label %thread-pre-split, label %84
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %87 = load ptr, ptr %86, align 8, !nonnull !4, !noundef !4
-  %88 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %89 = load i64, ptr %88, align 8, !noundef !4
-  %90 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %87, i64 %89
-  br label %91
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %86 = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
+  %87 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %88 = load i64, ptr %87, align 8, !noundef !4
+  %89 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %86, i64 %88
+  br label %90
 
-91:                                               ; preds = %94, %85
-  %92 = phi ptr [ %95, %94 ], [ %87, %85 ]
-  %93 = icmp eq ptr %92, %90
-  br i1 %93, label %98, label %94
+90:                                               ; preds = %93, %84
+  %91 = phi ptr [ %94, %93 ], [ %86, %84 ]
+  %92 = icmp eq ptr %91, %89
+  br i1 %92, label %97, label %93
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 112
-  %96 = call noundef i64 @"_ZN11polars_plan5plans7expr_ir122_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..expr_ir..ExprIR$GT$$u20$for$u20$polars_utils..arena..Node$GT$4from17hbd4b11e08b9ac6eaE"(ptr noundef nonnull align 16 %92), !noalias !9815
-  %97 = call noundef zeroext i1 @_ZN11polars_plan5plans5aexpr10properties18is_elementwise_rec17hc29f0ac791702300E(i64 noundef %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !9815
-  br i1 %97, label %91, label %thread-pre-split
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 112
+  %95 = call noundef i64 @"_ZN11polars_plan5plans7expr_ir122_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..expr_ir..ExprIR$GT$$u20$for$u20$polars_utils..arena..Node$GT$4from17hbd4b11e08b9ac6eaE"(ptr noundef nonnull align 16 %91), !noalias !9815
+  %96 = call noundef zeroext i1 @_ZN11polars_plan5plans5aexpr10properties18is_elementwise_rec17hc29f0ac791702300E(i64 noundef %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !9815
+  br i1 %96, label %90, label %thread-pre-split
 
-98:                                               ; preds = %91
-  %99 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %100 = load ptr, ptr %99, align 8, !nonnull !4, !noundef !4
-  %101 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %102 = load i64, ptr %101, align 16, !noundef !4
-  %103 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %100, i64 %102
-  %.not.i.i = icmp eq i64 %102, 0
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
+  %100 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %101 = load i64, ptr %100, align 16, !noundef !4
+  %102 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %99, i64 %101
+  %.not.i.i = icmp eq i64 %101, 0
   br i1 %.not.i.i, label %thread-pre-split, label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %98, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i"
-  %104 = phi ptr [ %105, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i" ], [ %100, %98 ]
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 112
-  %106 = call noundef i64 @"_ZN11polars_plan5plans7expr_ir122_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..expr_ir..ExprIR$GT$$u20$for$u20$polars_utils..arena..Node$GT$4from17hbd4b11e08b9ac6eaE"(ptr noundef nonnull align 16 %104), !noalias !9818
-  %107 = icmp ult i64 %106, %.val11
-  br i1 %107, label %.split.i.i.i.i, label %.split.us.i.i, !prof !233
+.lr.ph.split.i.i:                                 ; preds = %97, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i"
+  %103 = phi ptr [ %104, %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i" ], [ %99, %97 ]
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 112
+  %105 = call noundef i64 @"_ZN11polars_plan5plans7expr_ir122_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..expr_ir..ExprIR$GT$$u20$for$u20$polars_utils..arena..Node$GT$4from17hbd4b11e08b9ac6eaE"(ptr noundef nonnull align 16 %103), !noalias !9818
+  %106 = icmp ult i64 %105, %.val11
+  br i1 %106, label %.split.i.i.i.i, label %.split.us.i.i, !prof !233
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6051c3b956c33ba23e1cc7c69c835a57.569) #34, !noalias !9818
   unreachable
 
 .split.i.i.i.i:                                   ; preds = %.lr.ph.split.i.i
-  %108 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %.val, i64 %106
+  %107 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %.val, i64 %105
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !9818
   store i32 0, ptr %16, align 8, !noalias !9818
   store i32 1, ptr %17, align 4, !noalias !9818
   store ptr null, ptr %5, align 8, !noalias !9818
-  %109 = load i64, ptr %108, align 16, !range !3904, !noalias !9818, !noundef !4
-  %110 = icmp ne i64 %109, -9223372036854775796
-  call void @llvm.assume(i1 %110)
-  %cond.i.i.i.i = icmp eq i64 %109, -9223372036854775798
-  br i1 %cond.i.i.i.i, label %111, label %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i"
+  %108 = load i64, ptr %107, align 16, !range !3904, !noalias !9818, !noundef !4
+  %109 = icmp ne i64 %108, -9223372036854775796
+  call void @llvm.assume(i1 %109)
+  %cond.i.i.i.i = icmp eq i64 %108, -9223372036854775798
+  br i1 %cond.i.i.i.i, label %110, label %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i"
 
-111:                                              ; preds = %.split.i.i.i.i
-  %112 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %113 = load i8, ptr %112, align 8, !range !4154, !noalias !9818, !noundef !4
-  switch i8 %113, label %default.unreachable [
+110:                                              ; preds = %.split.i.i.i.i
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %112 = load i8, ptr %111, align 8, !range !4154, !noalias !9818, !noundef !4
+  switch i8 %112, label %default.unreachable [
     i8 0, label %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i"
     i8 1, label %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i"
     i8 2, label %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i"
@@ -101417,55 +101416,55 @@ thread-pre-split:                                 ; preds = %94, %"_ZN11polars_p
     i8 13, label %"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i"
   ]
 
-default.unreachable:                              ; preds = %111
+default.unreachable:                              ; preds = %110
   unreachable
 
-"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i": ; preds = %111, %111, %111, %111, %.split.i.i.i.i
+"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.thread.i.i": ; preds = %110, %110, %110, %110, %.split.i.i.i.i
   call void @"_ZN4core3ptr84drop_in_place$LT$polars_utils..idx_vec..UnitVec$LT$polars_utils..arena..Node$GT$$GT$17h812d599b08de0b36E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !9818
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !9818
   br label %thread-pre-split
 
-"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i": ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
+"_ZN11polars_plan5plans9optimizer9set_order21all_order_independent28_$u7b$$u7b$closure$u7d$$u7d$17h28d3167a4b2aef95E.exit.i.i": ; preds = %110, %110, %110, %110, %110, %110, %110, %110, %110, %110
   call void @"_ZN4core3ptr84drop_in_place$LT$polars_utils..idx_vec..UnitVec$LT$polars_utils..arena..Node$GT$$GT$17h812d599b08de0b36E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !9818
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !9818
-  %.not20.i.i = icmp eq ptr %105, %103
+  %.not20.i.i = icmp eq ptr %104, %102
   br i1 %.not20.i.i, label %thread-pre-split, label %.lr.ph.split.i.i
 
-114:                                              ; preds = %45
-  %115 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %116 = load ptr, ptr %115, align 8, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %118 = load i64, ptr %117, align 8, !noundef !4
-  %119 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %116, i64 %118
-  br label %120
+113:                                              ; preds = %44
+  %114 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %115 = load ptr, ptr %114, align 8, !nonnull !4, !noundef !4
+  %116 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %117 = load i64, ptr %116, align 8, !noundef !4
+  %118 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %115, i64 %117
+  br label %119
 
-120:                                              ; preds = %123, %114
-  %121 = phi ptr [ %124, %123 ], [ %116, %114 ]
-  %122 = icmp eq ptr %121, %119
-  br i1 %122, label %thread-pre-split, label %123
+119:                                              ; preds = %122, %113
+  %120 = phi ptr [ %123, %122 ], [ %115, %113 ]
+  %121 = icmp eq ptr %120, %118
+  br i1 %121, label %thread-pre-split, label %122
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 112
-  %125 = call noundef i64 @"_ZN11polars_plan5plans7expr_ir122_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..expr_ir..ExprIR$GT$$u20$for$u20$polars_utils..arena..Node$GT$4from17hbd4b11e08b9ac6eaE"(ptr noundef nonnull align 16 %121), !noalias !9823
-  %126 = call noundef zeroext i1 @_ZN11polars_plan5plans5aexpr10properties18is_elementwise_rec17hc29f0ac791702300E(i64 noundef %125, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !9823
-  br i1 %126, label %120, label %thread-pre-split
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 112
+  %124 = call noundef i64 @"_ZN11polars_plan5plans7expr_ir122_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..expr_ir..ExprIR$GT$$u20$for$u20$polars_utils..arena..Node$GT$4from17hbd4b11e08b9ac6eaE"(ptr noundef nonnull align 16 %120), !noalias !9823
+  %125 = call noundef zeroext i1 @_ZN11polars_plan5plans5aexpr10properties18is_elementwise_rec17hc29f0ac791702300E(i64 noundef %124, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !9823
+  br i1 %125, label %119, label %thread-pre-split
 
-127:                                              ; preds = %40
-  %128 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store i8 0, ptr %128, align 8
-  br label %129
+126:                                              ; preds = %40
+  %127 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i8 0, ptr %127, align 8
+  br label %128
 
-129:                                              ; preds = %127, %40
-  %130 = getelementptr inbounds nuw i8, ptr %33, i64 49
-  %131 = load i8, ptr %130, align 1, !range !2987, !noundef !4
-  %switch = icmp samesign ult i8 %131, 2
-  br i1 %switch, label %thread-pre-split, label %132
+128:                                              ; preds = %126, %40
+  %129 = getelementptr inbounds nuw i8, ptr %33, i64 49
+  %130 = load i8, ptr %129, align 1, !range !2987, !noundef !4
+  %switch = icmp samesign ult i8 %130, 2
+  br i1 %switch, label %thread-pre-split, label %131
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %134 = load i8, ptr %133, align 8, !range !3, !noundef !4
-  %135 = trunc nuw i8 %134 to i1
-  %spec.select10 = select i1 %135, i8 %.sroa.01.020, i8 0
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %133 = load i8, ptr %132, align 8, !range !3, !noundef !4
+  %134 = trunc nuw i8 %133 to i1
+  %spec.select10 = select i1 %134, i8 %.sroa.01.020, i8 0
   br label %thread-pre-split
 }
 

@@ -684,7 +684,7 @@ define internal fastcc void @nfs_free_delegation(ptr noundef nonnull %0) unnamed
 define dso_local i32 @nfs_client_return_marked_delegations(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @nfs_client_for_each_server(ptr noundef %0, ptr noundef nonnull @nfs_server_return_marked_delegations, ptr noundef null) #12
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %44
+  br i1 %3, label %4, label %43
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -692,14 +692,14 @@ define dso_local i32 @nfs_client_return_marked_delegations(ptr noundef %0) local
   %7 = icmp ult i8 %6, 2
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i8 %6, 0
-  br i1 %8, label %44, label %9
+  br i1 %8, label %43, label %9
 
 9:                                                ; preds = %4
   tail call void @__rcu_read_lock() #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
-  br i1 %12, label %43, label %.preheader5
+  br i1 %12, label %42, label %.preheader5
 
 .preheader5:                                      ; preds = %9, %35
   %13 = phi ptr [ %37, %35 ], [ %11, %9 ]
@@ -746,22 +746,21 @@ define dso_local i32 @nfs_client_return_marked_delegations(ptr noundef %0) local
   br i1 %38, label %39, label %.preheader5, !llvm.loop !37
 
 39:                                               ; preds = %35
-  %40 = and i8 %36, 1
-  %41 = icmp eq i8 %40, 0
+  %40 = icmp eq i8 %36, 0
   tail call void @__rcu_read_unlock() #12
-  br i1 %41, label %44, label %42
+  br i1 %40, label %43, label %41
 
-42:                                               ; preds = %39
+41:                                               ; preds = %39
   tail call void @msleep(i32 noundef 1000) #12
-  br label %44
+  br label %43
 
-43:                                               ; preds = %9
+42:                                               ; preds = %9
   tail call void @__rcu_read_unlock() #12
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %42, %39, %4, %1
-  %45 = phi i32 [ %2, %1 ], [ 0, %42 ], [ 0, %39 ], [ 0, %4 ], [ 0, %43 ]
-  ret i32 %45
+43:                                               ; preds = %42, %41, %39, %4, %1
+  %44 = phi i32 [ %2, %1 ], [ 0, %41 ], [ 0, %39 ], [ 0, %4 ], [ 0, %42 ]
+  ret i32 %44
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -858,7 +857,7 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr re
   %49 = load volatile i64, ptr %20, align 8
   %50 = and i64 %49, 32
   %51 = icmp ne i64 %50, 0
-  %or.cond = or i1 %51, %40
+  %or.cond = or i1 %40, %51
   br i1 %or.cond, label %.thread15, label %62
 
 .thread15:                                        ; preds = %48, %44, %.thread12

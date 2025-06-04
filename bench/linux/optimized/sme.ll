@@ -1495,7 +1495,7 @@ define internal void @disconnect_work(ptr readnone captures(none) %0) #0 align 1
 7:                                                ; preds = %6, %1
   %8 = load ptr, ptr @cfg80211_rdev_list, align 8
   %9 = icmp eq ptr %8, @cfg80211_rdev_list
-  br i1 %9, label %40, label %.preheader4
+  br i1 %9, label %39, label %.preheader4
 
 .preheader4:                                      ; preds = %7, %.loopexit
   %10 = phi ptr [ %35, %.loopexit ], [ %8, %7 ]
@@ -1544,15 +1544,14 @@ define internal void @disconnect_work(ptr readnone captures(none) %0) #0 align 1
   br i1 %36, label %37, label %.preheader4, !llvm.loop !64
 
 37:                                               ; preds = %.loopexit
-  %38 = and i8 %34, 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %41, label %40
+  %38 = icmp eq i8 %34, 0
+  br i1 %38, label %40, label %39
 
-40:                                               ; preds = %37, %7
+39:                                               ; preds = %37, %7
   tail call void @regulatory_hint_disconnect() #12
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %37
+40:                                               ; preds = %39, %37
   tail call void @rtnl_unlock() #12
   ret void
 }

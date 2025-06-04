@@ -2123,9 +2123,8 @@ select.unfold:                                    ; preds = %.split50, %.split
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 96
   tail call void @_raw_spin_unlock(ptr noundef nonnull %157) #17
   tail call void @__rcu_read_unlock() #17
-  %158 = and i8 %155, 1
-  %159 = icmp eq i8 %158, 0
-  br i1 %159, label %.loopexit19, label %5
+  %158 = icmp eq i8 %155, 0
+  br i1 %158, label %.loopexit19, label %5
 
 .loopexit19:                                      ; preds = %.loopexit11.split.us.split.us.split.us, %154, %.loopexit18
   ret void

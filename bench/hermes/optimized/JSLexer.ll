@@ -3543,7 +3543,7 @@ land.lhs.true214:                                 ; preds = %if.else210
   %sub.ptr.rhs.cast217 = ptrtoint ptr %start.3 to i64
   %sub.ptr.sub218 = sub i64 %sub.ptr.lhs.cast216, %sub.ptr.rhs.cast217
   %cmp219 = icmp sgt i64 %sub.ptr.sub218, 9
-  %tobool221 = trunc i8 %seenSeparator.3 to i1
+  %tobool221 = trunc nuw i8 %seenSeparator.3 to i1
   %or.cond4.not = select i1 %cmp219, i1 true, i1 %tobool221
   br i1 %or.cond4.not, label %if.then238, label %if.then223
 
@@ -3698,7 +3698,7 @@ if.then.i:                                        ; preds = %if.end273
   br label %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
 
 _ZN4llvh15SmallVectorImplIcE7reserveEm.exit:      ; preds = %if.end273, %if.then.i
-  %tobool279 = trunc i8 %seenSeparator.3 to i1
+  %tobool279 = trunc nuw i8 %seenSeparator.3 to i1
   %55 = load ptr, ptr %curCharPtr_, align 8
   br i1 %tobool279, label %for.cond.preheader, label %if.else338
 
@@ -4054,7 +4054,7 @@ if.then11.i216:                                   ; preds = %if.end.i212
   %.pre323 = phi ptr [ %.pre323.pre, %if.then11.i216 ], [ %102, %for.body.i210 ], [ %102, %for.body.i210 ], [ %102, %for.cond.i221 ]
   %radix.7 = phi i32 [ 10, %if.then11.i216 ], [ %radix.3, %for.body.i210 ], [ %radix.3, %for.body.i210 ], [ %radix.3, %for.cond.i221 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i207)
-  %tobool400 = trunc i8 %seenSeparator.3 to i1
+  %tobool400 = trunc nuw i8 %seenSeparator.3 to i1
   br i1 %tobool400, label %if.then402, label %if.end411
 
 if.then402:                                       ; preds = %"_ZZN6hermes6parser7JSLexer10scanNumberENS1_14GrammarContextEENK3$_1clEv.exit224"
@@ -6907,8 +6907,7 @@ if.end82:                                         ; preds = %for.inc.us, %for.en
   %incdec.ptr84 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store ptr %incdec.ptr84, ptr %curCharPtr_, align 8
   %tobool85 = trunc nuw i8 %failed.0.lcssa108 to i1
-  %not.tobool85 = and i8 %failed.0.lcssa108, 1
-  %spec.select = xor i8 %not.tobool85, 1
+  %spec.select = xor i8 %failed.0.lcssa108, 1
   %34 = zext nneg i8 %spec.select to i64
   %35 = shl nuw nsw i64 %34, 32
   %36 = zext i32 %cp.0.lcssa107 to i64
@@ -7084,7 +7083,7 @@ if.end82.i:                                       ; preds = %for.inc.us.i
   store ptr %incdec.ptr84.i, ptr %curCharPtr_, align 8
   %tobool85.i = trunc nuw i8 %failed.1.us.i to i1
   %spec.select.i = xor i8 %failed.1.us.i, 1
-  %10 = zext i8 %spec.select.i to i64
+  %10 = zext nneg i8 %spec.select.i to i64
   %11 = shl nuw nsw i64 %10, 32
   %12 = zext i32 %cp.1.us.i to i64
   %13 = select i1 %tobool85.i, i64 0, i64 %12
@@ -17684,12 +17683,11 @@ breakLoop:                                        ; preds = %if.then, %_ZN6herme
   %151 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %151 to i64
   %call193 = call noundef ptr @_ZN6hermes6parser7JSLexer16getStringLiteralEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr %150, i64 %conv.i.i)
-  %frombool.i = and i8 %escapes.1, 1
   store i32 112, ptr %token_189, align 8
   %stringLiteral_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %call193, ptr %stringLiteral_.i, align 8
   %stringLiteralContainsEscapes_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store i8 %frombool.i, ptr %stringLiteralContainsEscapes_.i, align 8
+  store i8 %escapes.1, ptr %stringLiteralContainsEscapes_.i, align 8
   ret void
 }
 

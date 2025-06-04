@@ -3114,11 +3114,11 @@ define internal fastcc void @aim_get_message(ptr noundef %0, ptr noundef %1, i32
   %33 = load ptr, ptr @g_ascii_table, align 8
   br label %34
 
-34:                                               ; preds = %.lr.ph145, %74
-  %.2143 = phi i32 [ 0, %.lr.ph145 ], [ %.3, %74 ]
-  %.0117142 = phi i8 [ 0, %.lr.ph145 ], [ %.2119, %74 ]
-  %.0120141 = phi i32 [ 0, %.lr.ph145 ], [ %75, %74 ]
-  %.0121140 = phi i32 [ 0, %.lr.ph145 ], [ %.1122, %74 ]
+34:                                               ; preds = %.lr.ph145, %73
+  %.2143 = phi i32 [ 0, %.lr.ph145 ], [ %.3, %73 ]
+  %.0117142 = phi i8 [ 0, %.lr.ph145 ], [ %.2119, %73 ]
+  %.0120141 = phi i32 [ 0, %.lr.ph145 ], [ %74, %73 ]
+  %.0121140 = phi i32 [ 0, %.lr.ph145 ], [ %.1122, %73 ]
   %35 = add i32 %.0120141, %.0115.lcssa
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %35)
   %37 = icmp eq i8 %36, 60
@@ -3177,31 +3177,30 @@ define internal fastcc void @aim_get_message(ptr noundef %0, ptr noundef %1, i32
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 64
   %.not = icmp eq i16 %65, 0
-  br i1 %.not, label %74, label %66
+  br i1 %.not, label %73, label %66
 
 66:                                               ; preds = %60
-  %67 = and i8 %.2119, 1
-  %68 = icmp eq i8 %67, 0
-  %69 = icmp ne i8 %36, 62
-  %or.cond43 = and i1 %69, %68
-  br i1 %or.cond43, label %70, label %74
+  %67 = icmp eq i8 %.2119, 0
+  %68 = icmp ne i8 %36, 62
+  %or.cond43 = and i1 %68, %67
+  br i1 %or.cond43, label %69, label %73
 
-70:                                               ; preds = %66
-  %71 = sext i32 %.0121140 to i64
-  %72 = getelementptr i8, ptr %0, i64 %71
-  store i8 %36, ptr %72, align 1
-  %73 = add i32 %.0121140, 1
-  br label %74
+69:                                               ; preds = %66
+  %70 = sext i32 %.0121140 to i64
+  %71 = getelementptr i8, ptr %0, i64 %70
+  store i8 %36, ptr %71, align 1
+  %72 = add i32 %.0121140, 1
+  br label %73
 
-74:                                               ; preds = %70, %66, %60
-  %.1122 = phi i32 [ %73, %70 ], [ %.0121140, %66 ], [ %.0121140, %60 ]
-  %75 = add nuw nsw i32 %.0120141, 1
-  %76 = icmp slt i32 %75, %31
-  %77 = icmp slt i32 %.3, 7
-  %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %34, label %.loopexit, !llvm.loop !22
+73:                                               ; preds = %69, %66, %60
+  %.1122 = phi i32 [ %72, %69 ], [ %.0121140, %66 ], [ %.0121140, %60 ]
+  %74 = add nuw nsw i32 %.0120141, 1
+  %75 = icmp slt i32 %74, %31
+  %76 = icmp slt i32 %.3, 7
+  %77 = select i1 %75, i1 %76, i1 false
+  br i1 %77, label %34, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %74, %._crit_edge, %4
+.loopexit:                                        ; preds = %73, %._crit_edge, %4
   ret void
 }
 

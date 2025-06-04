@@ -1988,7 +1988,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %16
 
-11:                                               ; preds = %58, %53
+11:                                               ; preds = %57, %52
   %12 = add nuw nsw i64 %17, 1
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
@@ -1997,8 +1997,8 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
 
 16:                                               ; preds = %11, %7
   %17 = phi i64 [ 0, %7 ], [ %12, %11 ]
-  %18 = phi i8 [ 0, %7 ], [ %55, %11 ]
-  %19 = phi i32 [ 0, %7 ], [ %54, %11 ]
+  %18 = phi i8 [ 0, %7 ], [ %54, %11 ]
+  %19 = phi i32 [ 0, %7 ], [ %53, %11 ]
   %20 = load ptr, ptr %8, align 8
   %21 = getelementptr %struct.dm_target, ptr %20, i64 %17
   call void @blk_set_stacking_limits(ptr noundef nonnull %4) #22
@@ -2013,221 +2013,219 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %53, label %31
+  br i1 %30, label %52, label %31
 
 31:                                               ; preds = %27
   call void %29(ptr noundef %21, ptr noundef nonnull %4) #22
-  br label %53
+  br label %52
 
 32:                                               ; preds = %16
   %33 = call i32 %25(ptr noundef %21, ptr noundef nonnull @dm_set_device_limits, ptr noundef nonnull %4) #22
-  %34 = and i8 %18, 1
-  %35 = icmp ne i8 %34, 0
-  %36 = load i8, ptr %9, align 1, !range !47
-  %37 = icmp eq i8 %36, 0
-  %38 = select i1 %35, i1 true, i1 %37
-  %39 = load i32, ptr %10, align 8
-  %40 = select i1 %38, i32 %19, i32 %39
-  %41 = select i1 %38, i8 %18, i8 1
-  %42 = load ptr, ptr %22, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 184
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %47, label %46
+  %34 = icmp ne i8 %18, 0
+  %35 = load i8, ptr %9, align 1, !range !47
+  %36 = icmp eq i8 %35, 0
+  %37 = select i1 %34, i1 true, i1 %36
+  %38 = load i32, ptr %10, align 8
+  %39 = select i1 %37, i32 %19, i32 %38
+  %40 = select i1 %37, i8 %18, i8 1
+  %41 = load ptr, ptr %22, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %46, label %45
 
-46:                                               ; preds = %32
-  call void %44(ptr noundef %21, ptr noundef nonnull %4) #22
+45:                                               ; preds = %32
+  call void %43(ptr noundef %21, ptr noundef nonnull %4) #22
   %.pre = load ptr, ptr %22, align 8
-  br label %47
+  br label %46
 
-47:                                               ; preds = %46, %32
-  %48 = phi ptr [ %.pre, %46 ], [ %42, %32 ]
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 176
-  %50 = load ptr, ptr %49, align 8
-  %51 = call i32 %50(ptr noundef %21, ptr noundef nonnull @device_area_is_invalid, ptr noundef nonnull %4) #22
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.loopexit22
+46:                                               ; preds = %45, %32
+  %47 = phi ptr [ %.pre, %45 ], [ %41, %32 ]
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 176
+  %49 = load ptr, ptr %48, align 8
+  %50 = call i32 %49(ptr noundef %21, ptr noundef nonnull @device_area_is_invalid, ptr noundef nonnull %4) #22
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %.loopexit22
 
-53:                                               ; preds = %47, %31, %27
-  %54 = phi i32 [ %40, %47 ], [ %19, %31 ], [ %19, %27 ]
-  %55 = phi i8 [ %41, %47 ], [ %18, %31 ], [ %18, %27 ]
-  %56 = call i32 @blk_stack_limits(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 0) #22
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %58, label %11
+52:                                               ; preds = %46, %31, %27
+  %53 = phi i32 [ %39, %46 ], [ %19, %31 ], [ %19, %27 ]
+  %54 = phi i8 [ %40, %46 ], [ %18, %31 ], [ %18, %27 ]
+  %55 = call i32 @blk_stack_limits(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 0) #22
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %11
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %0, align 8
-  %60 = call ptr @dm_device_name(ptr noundef %59) #22
-  %61 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %64 = load i64, ptr %63, align 8
-  %65 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %60, i64 noundef %62, i64 noundef %64) #24
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %0, align 8
+  %59 = call ptr @dm_device_name(ptr noundef %58) #22
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %63 = load i64, ptr %62, align 8
+  %64 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %59, i64 noundef %61, i64 noundef %63) #24
   br label %11
 
 .loopexit23:                                      ; preds = %11
-  %66 = icmp eq i32 %13, 0
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 109
-  %68 = load i8, ptr %67, align 1, !range !47, !noundef !48
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %77, label %.thread17
+  %65 = icmp eq i32 %13, 0
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 109
+  %67 = load i8, ptr %66, align 1, !range !47, !noundef !48
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %76, label %.thread17
 
 .loopexit23.thread:                               ; preds = %2
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 109
-  %71 = load i8, ptr %70, align 1, !range !47, !noundef !48
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %.thread54, label %.thread17.thread
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 109
+  %70 = load i8, ptr %69, align 1, !range !47, !noundef !48
+  %71 = icmp eq i8 %70, 0
+  br i1 %71, label %.thread54, label %.thread17.thread
 
 .thread17.thread:                                 ; preds = %.loopexit23.thread
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = load i32, ptr %73, align 8
-  br label %93
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %73 = load i32, ptr %72, align 8
+  br label %91
 
 .thread54:                                        ; preds = %.loopexit23.thread
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #22
   br label %.thread21
 
 .thread17:                                        ; preds = %.loopexit23
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %76 = load i32, ptr %75, align 8
-  br i1 %66, label %93, label %81
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %75 = load i32, ptr %74, align 8
+  br i1 %65, label %91, label %79
 
-77:                                               ; preds = %.loopexit23
-  %78 = and i8 %55, 1
-  %79 = icmp eq i8 %78, 0
-  br i1 %79, label %97, label %80
+76:                                               ; preds = %.loopexit23
+  %77 = icmp eq i8 %54, 0
+  br i1 %77, label %95, label %78
 
-80:                                               ; preds = %77
-  br i1 %66, label %93, label %81
+78:                                               ; preds = %76
+  br i1 %65, label %91, label %79
 
-81:                                               ; preds = %.thread17, %80
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 224
+79:                                               ; preds = %.thread17, %78
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i64, ptr %85, align 8
-  %87 = and i64 %86, 8
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %161, label %89
+  %84 = load i64, ptr %83, align 8
+  %85 = and i64 %84, 8
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %159, label %87
 
-89:                                               ; preds = %81
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 176
-  %91 = load ptr, ptr %90, align 8
-  %92 = call i32 %91(ptr noundef %83, ptr noundef nonnull @device_is_zoned_model, ptr noundef null) #22
-  br label %161
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 176
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i32 %89(ptr noundef %81, ptr noundef nonnull @device_is_zoned_model, ptr noundef null) #22
+  br label %159
 
-93:                                               ; preds = %.thread17.thread, %.thread17, %80
-  %94 = phi i32 [ %76, %.thread17 ], [ %54, %80 ], [ %74, %.thread17.thread ]
-  %95 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %94), !range !49
-  %96 = icmp eq i32 %95, 1
-  br i1 %96, label %.thread18, label %.loopexit22
+91:                                               ; preds = %.thread17.thread, %.thread17, %78
+  %92 = phi i32 [ %75, %.thread17 ], [ %53, %78 ], [ %73, %.thread17.thread ]
+  %93 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %92), !range !49
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %.thread18, label %.loopexit22
 
-.thread18:                                        ; preds = %93
+.thread18:                                        ; preds = %91
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #22
   br label %.thread21
 
-97:                                               ; preds = %77
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %99 = load i32, ptr %98, align 4
-  %100 = lshr i32 %99, 9
+95:                                               ; preds = %76
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %97 = load i32, ptr %96, align 4
+  %98 = lshr i32 %97, 9
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 120, i1 false), !annotation !12
-  br i1 %66, label %.thread21, label %101
+  br i1 %65, label %.thread21, label %99
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %104 = add nsw i32 %100, -1
-  %105 = zext i32 %104 to i64
-  br label %106
+99:                                               ; preds = %95
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %102 = add nsw i32 %98, -1
+  %103 = zext i32 %102 to i64
+  br label %104
 
-106:                                              ; preds = %132, %101
-  %107 = phi i64 [ 0, %101 ], [ %141, %132 ]
-  %108 = phi i32 [ 0, %101 ], [ %142, %132 ]
-  %109 = phi i16 [ 0, %101 ], [ %140, %132 ]
-  %110 = phi i64 [ 0, %101 ], [ %134, %132 ]
-  %111 = load ptr, ptr %102, align 8
-  %112 = getelementptr %struct.dm_target, ptr %111, i64 %107
+104:                                              ; preds = %130, %99
+  %105 = phi i64 [ 0, %99 ], [ %139, %130 ]
+  %106 = phi i32 [ 0, %99 ], [ %140, %130 ]
+  %107 = phi i16 [ 0, %99 ], [ %138, %130 ]
+  %108 = phi i64 [ 0, %99 ], [ %132, %130 ]
+  %109 = load ptr, ptr %100, align 8
+  %110 = getelementptr %struct.dm_target, ptr %109, i64 %105
   call void @blk_set_stacking_limits(ptr noundef nonnull %3) #22
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 176
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 176
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %120, label %118
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %118, label %116
 
-118:                                              ; preds = %106
-  %119 = call i32 %116(ptr noundef %112, ptr noundef nonnull @dm_set_device_limits, ptr noundef nonnull %3) #22
-  br label %120
+116:                                              ; preds = %104
+  %117 = call i32 %114(ptr noundef %110, ptr noundef nonnull @dm_set_device_limits, ptr noundef nonnull %3) #22
+  br label %118
 
-120:                                              ; preds = %118, %106
-  %121 = zext i16 %109 to i64
-  %122 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %123 = load i64, ptr %122, align 8
-  %124 = icmp ugt i64 %123, %121
-  br i1 %124, label %125, label %132
+118:                                              ; preds = %116, %104
+  %119 = zext i16 %107 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %121 = load i64, ptr %120, align 8
+  %122 = icmp ugt i64 %121, %119
+  br i1 %122, label %123, label %130
 
-125:                                              ; preds = %120
-  %126 = zext i16 %109 to i32
-  %127 = load i32, ptr %103, align 4
-  %128 = lshr i32 %127, 9
-  %129 = add nuw nsw i32 %128, 65535
-  %130 = and i32 %129, %126
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %146
+123:                                              ; preds = %118
+  %124 = zext i16 %107 to i32
+  %125 = load i32, ptr %101, align 4
+  %126 = lshr i32 %125, 9
+  %127 = add nuw nsw i32 %126, 65535
+  %128 = and i32 %127, %124
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %144
 
-132:                                              ; preds = %125, %120
-  %133 = add i64 %123, %110
-  %134 = and i64 %133, %105
-  %135 = trunc nuw i64 %134 to i32
-  %136 = and i32 %135, 65535
-  %137 = icmp eq i32 %136, 0
-  %138 = sub i32 %100, %135
-  %139 = trunc i32 %138 to i16
-  %140 = select i1 %137, i16 0, i16 %139
-  %141 = add nuw nsw i64 %107, 1
-  %142 = add nuw i32 %108, 1
-  %143 = load i32, ptr %5, align 8
-  %144 = zext i32 %143 to i64
-  %145 = icmp samesign ult i64 %141, %144
-  br i1 %145, label %106, label %.loopexit, !llvm.loop !50
+130:                                              ; preds = %123, %118
+  %131 = add i64 %121, %108
+  %132 = and i64 %131, %103
+  %133 = trunc nuw i64 %132 to i32
+  %134 = and i32 %133, 65535
+  %135 = icmp eq i32 %134, 0
+  %136 = sub i32 %98, %133
+  %137 = trunc i32 %136 to i16
+  %138 = select i1 %135, i16 0, i16 %137
+  %139 = add nuw nsw i64 %105, 1
+  %140 = add nuw i32 %106, 1
+  %141 = load i32, ptr %5, align 8
+  %142 = zext i32 %141 to i64
+  %143 = icmp samesign ult i64 %139, %142
+  br i1 %143, label %104, label %.loopexit, !llvm.loop !50
 
-146:                                              ; preds = %125
-  %147 = trunc nuw i64 %107 to i32
+144:                                              ; preds = %123
+  %145 = trunc nuw i64 %105 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %132, %146
-  %148 = phi i16 [ %109, %146 ], [ %140, %132 ]
-  %149 = phi i32 [ %147, %146 ], [ %142, %132 ]
-  %150 = icmp eq i16 %148, 0
-  br i1 %150, label %.thread21, label %151
+.loopexit:                                        ; preds = %130, %144
+  %146 = phi i16 [ %107, %144 ], [ %138, %130 ]
+  %147 = phi i32 [ %145, %144 ], [ %140, %130 ]
+  %148 = icmp eq i16 %146, 0
+  br i1 %148, label %.thread21, label %149
 
-151:                                              ; preds = %.loopexit
-  %152 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %153 = load ptr, ptr %0, align 8
-  %154 = call ptr @dm_device_name(ptr noundef %153) #22
-  %155 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %156 = load i64, ptr %155, align 8
-  %157 = load i64, ptr %152, align 8
-  %158 = load i32, ptr %98, align 4
-  %159 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, ptr noundef %154, i32 noundef %149, i64 noundef %156, i64 noundef %157, i32 noundef %158) #24
+149:                                              ; preds = %.loopexit
+  %150 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %151 = load ptr, ptr %0, align 8
+  %152 = call ptr @dm_device_name(ptr noundef %151) #22
+  %153 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %154 = load i64, ptr %153, align 8
+  %155 = load i64, ptr %150, align 8
+  %156 = load i32, ptr %96, align 4
+  %157 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, ptr noundef %152, i32 noundef %147, i64 noundef %154, i64 noundef %155, i32 noundef %156) #24
   br label %.thread21
 
-.thread21:                                        ; preds = %.thread54, %.thread18, %97, %151, %.loopexit
-  %160 = phi i32 [ -22, %151 ], [ 0, %.loopexit ], [ 0, %97 ], [ 0, %.thread18 ], [ 0, %.thread54 ]
+.thread21:                                        ; preds = %.thread54, %.thread18, %95, %149, %.loopexit
+  %158 = phi i32 [ -22, %149 ], [ 0, %.loopexit ], [ 0, %95 ], [ 0, %.thread18 ], [ 0, %.thread54 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #22
   br label %.loopexit22
 
-161:                                              ; preds = %89, %81
-  %162 = load ptr, ptr %0, align 8
-  %163 = call ptr @dm_device_name(ptr noundef %162) #22
-  %164 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41, ptr noundef %163) #24
+159:                                              ; preds = %87, %79
+  %160 = load ptr, ptr %0, align 8
+  %161 = call ptr @dm_device_name(ptr noundef %160) #22
+  %162 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41, ptr noundef %161) #24
   br label %.loopexit22
 
-.loopexit22:                                      ; preds = %47, %93, %161, %.thread21
-  %165 = phi i32 [ %160, %.thread21 ], [ -22, %161 ], [ -22, %93 ], [ -22, %47 ]
+.loopexit22:                                      ; preds = %46, %91, %159, %.thread21
+  %163 = phi i32 [ %158, %.thread21 ], [ -22, %159 ], [ -22, %91 ], [ -22, %46 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #22
-  ret i32 %165
+  ret i32 %163
 }
 
 ; Function Attrs: null_pointer_is_valid

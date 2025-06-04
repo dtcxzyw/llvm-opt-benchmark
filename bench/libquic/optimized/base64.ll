@@ -733,33 +733,33 @@ thread-pre-split:                                 ; preds = %33
   %61 = shl nuw nsw i32 %59, 12
   %62 = or i32 %61, %60
   %63 = shl nuw nsw i32 %.03975, 6
-  %64 = lshr i32 %62, 16
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %.04078, i64 1
-  store i8 %65, ptr %.04078, align 1, !tbaa !14
-  br i1 %55, label %67, label %72
+  %64 = or i32 %.038, %63
+  %65 = lshr i32 %62, 16
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %.04078, i64 1
+  store i8 %66, ptr %.04078, align 1, !tbaa !14
+  br i1 %55, label %68, label %73
 
-67:                                               ; preds = %58
-  %68 = or i32 %63, %61
-  %69 = lshr i32 %68, 8
-  %70 = trunc i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %.04078, i64 2
-  store i8 %70, ptr %66, align 1, !tbaa !14
-  br label %72
+68:                                               ; preds = %58
+  %69 = or i32 %63, %61
+  %70 = lshr i32 %69, 8
+  %71 = trunc i32 %70 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %.04078, i64 2
+  store i8 %71, ptr %67, align 1, !tbaa !14
+  br label %73
 
-72:                                               ; preds = %67, %58
-  %.141 = phi ptr [ %71, %67 ], [ %66, %58 ]
-  br i1 %54, label %73, label %77
+73:                                               ; preds = %68, %58
+  %.141 = phi ptr [ %72, %68 ], [ %67, %58 ]
+  br i1 %54, label %74, label %77
 
-73:                                               ; preds = %72
-  %74 = or i32 %.038, %63
-  %75 = trunc i32 %74 to i8
+74:                                               ; preds = %73
+  %75 = trunc i32 %64 to i8
   %76 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   store i8 %75, ptr %.141, align 1, !tbaa !14
   br label %77
 
-77:                                               ; preds = %73, %72
-  %.2 = phi ptr [ %76, %73 ], [ %.141, %72 ]
+77:                                               ; preds = %74, %73
+  %.2 = phi ptr [ %76, %74 ], [ %.141, %73 ]
   %78 = xor i64 %.16674, 3
   %79 = add i64 %78, %.03680
   %80 = icmp ult i64 %24, %4

@@ -932,7 +932,7 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %3
   br label %43
 
 ._crit_edge.loopexit:                             ; preds = %_ZN8rationalD2Ev.exit54
-  %40 = trunc i8 %.117 to i1
+  %40 = trunc nuw i8 %.117 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %._crit_edge.loopexit, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
@@ -1143,7 +1143,7 @@ _ZN8rationalC2ERKS_.exit38:                       ; preds = %121, %125
   br label %184
 
 133:                                              ; preds = %75
-  %134 = trunc i8 %.01691 to i1
+  %134 = trunc nuw i8 %.01691 to i1
   %135 = load i32, ptr %29, align 8, !tbaa !41
   %.not.i39 = icmp eq i32 %135, 0
   br i1 %.not.i39, label %136, label %141

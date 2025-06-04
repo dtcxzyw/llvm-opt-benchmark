@@ -7548,7 +7548,7 @@ define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull readonly captu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %7 = load i8, ptr %6, align 1
   %8 = lshr i8 %7, 6
-  switch i8 %8, label %.thread145 [
+  switch i8 %8, label %.thread144 [
     i8 2, label %.lr.ph.preheader.i.i
     i8 3, label %9
   ]
@@ -7556,7 +7556,7 @@ define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull readonly captu
 9:                                                ; preds = %3
   br label %.lr.ph.preheader.i.i
 
-.thread145:                                       ; preds = %3
+.thread144:                                       ; preds = %3
   %10 = and i8 %7, 127
   %11 = zext nneg i8 %10 to i32
   br label %60
@@ -7581,9 +7581,9 @@ define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull readonly captu
 
 DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   %.not = icmp ult i32 %14, 16777216
-  br i1 %.not, label %30, label %.thread139
+  br i1 %.not, label %30, label %.thread138
 
-.thread139:                                       ; preds = %DOFObjectID_GetIDClass.exit
+.thread138:                                       ; preds = %DOFObjectID_GetIDClass.exit
   %19 = lshr i32 %14, 28
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %20
@@ -7597,20 +7597,20 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   %28 = load i8, ptr %27, align 1
   %29 = getelementptr i8, ptr %1, i64 3
   store i8 %28, ptr %29, align 1
-  br label %.thread150
+  br label %.thread149
 
 30:                                               ; preds = %DOFObjectID_GetIDClass.exit
   %.not92 = icmp samesign ult i32 %14, 65536
-  br i1 %.not92, label %45, label %.thread150
+  br i1 %.not92, label %45, label %.thread149
 
-.thread150:                                       ; preds = %30, %.thread139
-  %.088144 = phi i32 [ 4, %.thread139 ], [ 2, %30 ]
+.thread149:                                       ; preds = %30, %.thread138
+  %.088143 = phi i32 [ 4, %.thread138 ], [ 2, %30 ]
   %31 = lshr i32 %14, 20
   %32 = and i32 %31, 15
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
-  %36 = zext nneg i32 %.088144 to i64
+  %36 = zext nneg i32 %.088143 to i64
   %37 = getelementptr i8, ptr %1, i64 %36
   store i8 %35, ptr %37, align 1
   %38 = lshr i32 %14, 16
@@ -7618,7 +7618,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
-  %43 = add nuw nsw i32 %.088144, 2
+  %43 = add nuw nsw i32 %.088143, 2
   %44 = getelementptr i8, ptr %37, i64 1
   store i8 %42, ptr %44, align 1
   br label %46
@@ -7627,29 +7627,29 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   %.not93 = icmp eq i32 %14, 0
   br i1 %.not93, label %60, label %46
 
-46:                                               ; preds = %.thread150, %45
-  %.1155 = phi i32 [ %43, %.thread150 ], [ 2, %45 ]
+46:                                               ; preds = %.thread149, %45
+  %.1154 = phi i32 [ %43, %.thread149 ], [ 2, %45 ]
   %47 = lshr i32 %14, 12
   %48 = and i32 %47, 15
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
-  %52 = zext nneg i32 %.1155 to i64
+  %52 = zext nneg i32 %.1154 to i64
   %53 = getelementptr i8, ptr %1, i64 %52
   store i8 %51, ptr %53, align 1
   %54 = and i32 %.01923.i.i, 15
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
-  %58 = add nuw nsw i32 %.1155, 2
+  %58 = add nuw nsw i32 %.1154, 2
   %59 = getelementptr i8, ptr %53, i64 1
   store i8 %57, ptr %59, align 1
   br label %60
 
-60:                                               ; preds = %.thread145, %46, %45
-  %.019.lcssa.i.i134138149 = phi i32 [ %18, %46 ], [ %18, %45 ], [ %11, %.thread145 ]
-  %.2 = phi i32 [ %58, %46 ], [ 2, %45 ], [ 2, %.thread145 ]
-  %61 = lshr i32 %.019.lcssa.i.i134138149, 4
+60:                                               ; preds = %.thread144, %46, %45
+  %.019.lcssa.i.i133137148 = phi i32 [ %18, %46 ], [ %18, %45 ], [ %11, %.thread144 ]
+  %.2 = phi i32 [ %58, %46 ], [ 2, %45 ], [ 2, %.thread144 ]
+  %61 = lshr i32 %.019.lcssa.i.i133137148, 4
   %62 = and i32 %61, 15
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %63
@@ -7657,7 +7657,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   %66 = zext nneg i32 %.2 to i64
   %67 = getelementptr i8, ptr %1, i64 %66
   store i8 %65, ptr %67, align 1
-  %68 = and i32 %.019.lcssa.i.i134138149, 15
+  %68 = and i32 %.019.lcssa.i.i133137148, 15
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1
@@ -7730,7 +7730,7 @@ DOFObjectID_GetClassSize.exit.i:                  ; preds = %.thread.i.i.i, %92
 
 DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetDataSize.exit.i, %DOFObjectID_GetClassSize.exit.i
   %.0.i = phi ptr [ %96, %DOFObjectID_GetClassSize.exit.i ], [ null, %DOFObjectID_GetDataSize.exit.i ]
-  switch i8 %82, label %.thread.i.i.i101 [
+  switch i8 %82, label %.thread.i.i.i100 [
     i8 2, label %98
     i8 3, label %97
   ]
@@ -7739,18 +7739,18 @@ DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetData
   br label %98
 
 98:                                               ; preds = %97, %DOFObjectID_GetData.exit
-  %.017.i.i.i97 = phi i32 [ 4, %97 ], [ 2, %DOFObjectID_GetData.exit ]
-  %spec.select4.i.i98 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i97, i32 %80)
+  %.017.i.i.i96 = phi i32 [ 4, %97 ], [ 2, %DOFObjectID_GetData.exit ]
+  %spec.select4.i.i97 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i96, i32 %80)
   br label %DOFObjectID_GetDataSize.exit
 
-.thread.i.i.i101:                                 ; preds = %DOFObjectID_GetData.exit
+.thread.i.i.i100:                                 ; preds = %DOFObjectID_GetData.exit
   %99 = icmp ne i16 %79, 0
-  %spec.select.i.i102 = zext i1 %99 to i32
+  %spec.select.i.i101 = zext i1 %99 to i32
   br label %DOFObjectID_GetDataSize.exit
 
-DOFObjectID_GetDataSize.exit:                     ; preds = %98, %.thread.i.i.i101
-  %.0.i.i100 = phi i32 [ %spec.select.i.i102, %.thread.i.i.i101 ], [ %spec.select4.i.i98, %98 ]
-  %100 = zext nneg i32 %.0.i.i100 to i64
+DOFObjectID_GetDataSize.exit:                     ; preds = %98, %.thread.i.i.i100
+  %.0.i.i99 = phi i32 [ %spec.select.i.i101, %.thread.i.i.i100 ], [ %spec.select4.i.i97, %98 ]
+  %100 = zext nneg i32 %.0.i.i99 to i64
   %101 = getelementptr i8, ptr %6, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = and i8 %102, 63
@@ -7763,7 +7763,7 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %98, %.thread.i.i.i1
   %110 = zext i16 %109 to i32
   %111 = load i8, ptr %6, align 1
   %112 = lshr i8 %111, 6
-  switch i8 %112, label %.thread.i.i.i107 [
+  switch i8 %112, label %.thread.i.i.i106 [
     i8 2, label %114
     i8 3, label %113
   ]
@@ -7772,25 +7772,25 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %98, %.thread.i.i.i1
   br label %114
 
 114:                                              ; preds = %113, %DOFObjectID_GetDataSize.exit
-  %.017.i.i.i103 = phi i32 [ 4, %113 ], [ 2, %DOFObjectID_GetDataSize.exit ]
-  %spec.select4.i.i104 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i103, i32 %110)
+  %.017.i.i.i102 = phi i32 [ 4, %113 ], [ 2, %DOFObjectID_GetDataSize.exit ]
+  %spec.select4.i.i103 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i102, i32 %110)
   br label %DOFObjectID_HasAttributes.exit
 
-.thread.i.i.i107:                                 ; preds = %DOFObjectID_GetDataSize.exit
+.thread.i.i.i106:                                 ; preds = %DOFObjectID_GetDataSize.exit
   %115 = icmp ne i16 %109, 0
-  %spec.select.i.i108 = zext i1 %115 to i32
+  %spec.select.i.i107 = zext i1 %115 to i32
   br label %DOFObjectID_HasAttributes.exit
 
-DOFObjectID_HasAttributes.exit:                   ; preds = %114, %.thread.i.i.i107
-  %.0.i.i106 = phi i32 [ %spec.select.i.i108, %.thread.i.i.i107 ], [ %spec.select4.i.i104, %114 ]
-  %116 = zext nneg i32 %.0.i.i106 to i64
+DOFObjectID_HasAttributes.exit:                   ; preds = %114, %.thread.i.i.i106
+  %.0.i.i105 = phi i32 [ %spec.select.i.i107, %.thread.i.i.i106 ], [ %spec.select4.i.i103, %114 ]
+  %116 = zext nneg i32 %.0.i.i105 to i64
   %117 = getelementptr i8, ptr %6, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = icmp slt i8 %118, 0
-  br i1 %119, label %120, label %254
+  br i1 %119, label %120, label %256
 
 120:                                              ; preds = %DOFObjectID_HasAttributes.exit
-  switch i8 %112, label %.thread.i.i.i.i113 [
+  switch i8 %112, label %.thread.i.i.i.i112 [
     i8 2, label %122
     i8 3, label %121
   ]
@@ -7799,18 +7799,18 @@ DOFObjectID_HasAttributes.exit:                   ; preds = %114, %.thread.i.i.i
   br label %122
 
 122:                                              ; preds = %121, %120
-  %.017.i.i.i.i109 = phi i32 [ 4, %121 ], [ 2, %120 ]
-  %spec.select4.i.i.i110 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i109, i32 %110)
+  %.017.i.i.i.i108 = phi i32 [ 4, %121 ], [ 2, %120 ]
+  %spec.select4.i.i.i109 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i108, i32 %110)
   br label %DOFObjectID_HasAttributes.exit.i
 
-.thread.i.i.i.i113:                               ; preds = %120
+.thread.i.i.i.i112:                               ; preds = %120
   %123 = icmp ne i16 %109, 0
-  %spec.select.i.i.i114 = zext i1 %123 to i32
+  %spec.select.i.i.i113 = zext i1 %123 to i32
   br label %DOFObjectID_HasAttributes.exit.i
 
-DOFObjectID_HasAttributes.exit.i:                 ; preds = %.thread.i.i.i.i113, %122
-  %.0.i.i.i111 = phi i32 [ %spec.select.i.i.i114, %.thread.i.i.i.i113 ], [ %spec.select4.i.i.i110, %122 ]
-  %124 = zext nneg i32 %.0.i.i.i111 to i64
+DOFObjectID_HasAttributes.exit.i:                 ; preds = %.thread.i.i.i.i112, %122
+  %.0.i.i.i110 = phi i32 [ %spec.select.i.i.i113, %.thread.i.i.i.i112 ], [ %spec.select4.i.i.i109, %122 ]
+  %124 = zext nneg i32 %.0.i.i.i110 to i64
   %125 = getelementptr i8, ptr %6, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = icmp slt i8 %126, 0
@@ -7875,9 +7875,9 @@ DOFObjectID_GetBaseSize.exit.i:                   ; preds = %.thread.i.i.i.i.i, 
   %146 = getelementptr i8, ptr %6, i64 %145
   %147 = load i8, ptr %146, align 1
   %.not16.i = icmp sgt i8 %147, -1
-  br i1 %.not16.i, label %DOFObjectID_GetAttributeCount.exit.thread176, label %.lr.ph.i
+  br i1 %.not16.i, label %DOFObjectID_GetAttributeCount.exit.thread175, label %.lr.ph.i
 
-DOFObjectID_GetAttributeCount.exit.thread176:     ; preds = %DOFObjectID_GetBaseSize.exit.i
+DOFObjectID_GetAttributeCount.exit.thread175:     ; preds = %DOFObjectID_GetBaseSize.exit.i
   %148 = add i32 %108, 1
   %149 = zext i32 %108 to i64
   %150 = getelementptr i8, ptr %1, i64 %149
@@ -7894,26 +7894,26 @@ DOFObjectID_GetAttributeCount.exit.thread176:     ; preds = %DOFObjectID_GetBase
   %155 = getelementptr i8, ptr %.018.i, i64 %154
   %156 = getelementptr i8, ptr %155, i64 2
   %157 = load i8, ptr %156, align 1
-  %.not.i112 = icmp sgt i8 %157, -1
-  br i1 %.not.i112, label %DOFObjectID_GetAttributeCount.exit, label %.lr.ph.i, !llvm.loop !45
+  %.not.i111 = icmp sgt i8 %157, -1
+  br i1 %.not.i111, label %DOFObjectID_GetAttributeCount.exit, label %.lr.ph.i, !llvm.loop !45
 
 DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i
   %158 = add i32 %108, 1
   %159 = zext i32 %108 to i64
   %160 = getelementptr i8, ptr %1, i64 %159
   store i8 40, ptr %160, align 1
-  %.not170 = icmp eq i8 %151, 0
-  br i1 %.not170, label %DOFObjectID_GetAttributeAtIndex.exit._crit_edge, label %.lr.ph.preheader
+  %.not169 = icmp eq i8 %151, 0
+  br i1 %.not169, label %DOFObjectID_GetAttributeAtIndex.exit._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %DOFObjectID_GetAttributeCount.exit.thread176, %DOFObjectID_GetAttributeCount.exit
-  %161 = phi i32 [ %148, %DOFObjectID_GetAttributeCount.exit.thread176 ], [ %158, %DOFObjectID_GetAttributeCount.exit ]
-  %.09.i179 = phi i8 [ 1, %DOFObjectID_GetAttributeCount.exit.thread176 ], [ %151, %DOFObjectID_GetAttributeCount.exit ]
+.lr.ph.preheader:                                 ; preds = %DOFObjectID_GetAttributeCount.exit.thread175, %DOFObjectID_GetAttributeCount.exit
+  %161 = phi i32 [ %148, %DOFObjectID_GetAttributeCount.exit.thread175 ], [ %158, %DOFObjectID_GetAttributeCount.exit ]
+  %.09.i178 = phi i8 [ 1, %DOFObjectID_GetAttributeCount.exit.thread175 ], [ %151, %DOFObjectID_GetAttributeCount.exit ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %249
-  %.4168 = phi i32 [ %.8, %249 ], [ %161, %.lr.ph.preheader ]
-  %.089166 = phi i8 [ %250, %249 ], [ 0, %.lr.ph.preheader ]
-  %162 = icmp sgt i8 %.089166, -1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %251
+  %.4167 = phi i32 [ %.8, %251 ], [ %161, %.lr.ph.preheader ]
+  %.089165 = phi i8 [ %252, %251 ], [ 0, %.lr.ph.preheader ]
+  %162 = icmp sgt i8 %.089165, -1
   br i1 %162, label %163, label %DOFObjectID_GetAttributeAtIndex.exit
 
 163:                                              ; preds = %.lr.ph
@@ -7921,7 +7921,7 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i
   %165 = zext i16 %164 to i32
   %166 = load i8, ptr %6, align 1
   %167 = lshr i8 %166, 6
-  switch i8 %167, label %.thread.i.i.i.i128 [
+  switch i8 %167, label %.thread.i.i.i.i127 [
     i8 2, label %169
     i8 3, label %168
   ]
@@ -7930,24 +7930,24 @@ DOFObjectID_GetAttributeCount.exit:               ; preds = %.lr.ph.i
   br label %169
 
 169:                                              ; preds = %168, %163
-  %.017.i.i.i.i115 = phi i32 [ 4, %168 ], [ 2, %163 ]
-  %spec.select4.i.i.i116 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i115, i32 %165)
-  br label %DOFObjectID_HasAttributes.exit.i117
+  %.017.i.i.i.i114 = phi i32 [ 4, %168 ], [ 2, %163 ]
+  %spec.select4.i.i.i115 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i114, i32 %165)
+  br label %DOFObjectID_HasAttributes.exit.i116
 
-.thread.i.i.i.i128:                               ; preds = %163
+.thread.i.i.i.i127:                               ; preds = %163
   %170 = icmp ne i16 %164, 0
-  %spec.select.i.i.i129 = zext i1 %170 to i32
-  br label %DOFObjectID_HasAttributes.exit.i117
+  %spec.select.i.i.i128 = zext i1 %170 to i32
+  br label %DOFObjectID_HasAttributes.exit.i116
 
-DOFObjectID_HasAttributes.exit.i117:              ; preds = %.thread.i.i.i.i128, %169
-  %.0.i.i.i118 = phi i32 [ %spec.select.i.i.i129, %.thread.i.i.i.i128 ], [ %spec.select4.i.i.i116, %169 ]
-  %171 = zext nneg i32 %.0.i.i.i118 to i64
+DOFObjectID_HasAttributes.exit.i116:              ; preds = %.thread.i.i.i.i127, %169
+  %.0.i.i.i117 = phi i32 [ %spec.select.i.i.i128, %.thread.i.i.i.i127 ], [ %spec.select4.i.i.i115, %169 ]
+  %171 = zext nneg i32 %.0.i.i.i117 to i64
   %172 = getelementptr i8, ptr %6, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = icmp slt i8 %173, 0
   br i1 %174, label %175, label %DOFObjectID_GetAttributeAtIndex.exit
 
-175:                                              ; preds = %DOFObjectID_HasAttributes.exit.i117
+175:                                              ; preds = %DOFObjectID_HasAttributes.exit.i116
   switch i8 %167, label %.thread.i.i.i20.i [
     i8 2, label %177
     i8 3, label %176
@@ -7959,36 +7959,36 @@ DOFObjectID_HasAttributes.exit.i117:              ; preds = %.thread.i.i.i.i128,
 177:                                              ; preds = %176, %175
   %.017.i.i.i17.i = phi i32 [ 4, %176 ], [ 2, %175 ]
   %spec.select4.i.i18.i = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i17.i, i32 %165)
-  br label %DOFObjectID_GetClassSize.exit.i.i119
+  br label %DOFObjectID_GetClassSize.exit.i.i118
 
 .thread.i.i.i20.i:                                ; preds = %175
   %178 = icmp ne i16 %164, 0
   %spec.select.i.i21.i = zext i1 %178 to i32
-  br label %DOFObjectID_GetClassSize.exit.i.i119
+  br label %DOFObjectID_GetClassSize.exit.i.i118
 
-DOFObjectID_GetClassSize.exit.i.i119:             ; preds = %.thread.i.i.i20.i, %177
+DOFObjectID_GetClassSize.exit.i.i118:             ; preds = %.thread.i.i.i20.i, %177
   %.0.i.i19.i = phi i32 [ %spec.select.i.i21.i, %.thread.i.i.i20.i ], [ %spec.select4.i.i18.i, %177 ]
-  switch i8 %167, label %.thread.i.i.i.i.i126 [
+  switch i8 %167, label %.thread.i.i.i.i.i125 [
     i8 2, label %180
     i8 3, label %179
   ]
 
-179:                                              ; preds = %DOFObjectID_GetClassSize.exit.i.i119
+179:                                              ; preds = %DOFObjectID_GetClassSize.exit.i.i118
   br label %180
 
-180:                                              ; preds = %179, %DOFObjectID_GetClassSize.exit.i.i119
-  %.017.i.i.i.i.i120 = phi i32 [ 4, %179 ], [ 2, %DOFObjectID_GetClassSize.exit.i.i119 ]
-  %spec.select4.i.i.i.i121 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i120, i32 %165)
-  br label %DOFObjectID_GetBaseSize.exit.i122
+180:                                              ; preds = %179, %DOFObjectID_GetClassSize.exit.i.i118
+  %.017.i.i.i.i.i119 = phi i32 [ 4, %179 ], [ 2, %DOFObjectID_GetClassSize.exit.i.i118 ]
+  %spec.select4.i.i.i.i120 = tail call i32 @llvm.umin.i32(i32 %.017.i.i.i.i.i119, i32 %165)
+  br label %DOFObjectID_GetBaseSize.exit.i121
 
-.thread.i.i.i.i.i126:                             ; preds = %DOFObjectID_GetClassSize.exit.i.i119
+.thread.i.i.i.i.i125:                             ; preds = %DOFObjectID_GetClassSize.exit.i.i118
   %181 = icmp ne i16 %164, 0
-  %spec.select.i.i.i.i127 = zext i1 %181 to i32
-  br label %DOFObjectID_GetBaseSize.exit.i122
+  %spec.select.i.i.i.i126 = zext i1 %181 to i32
+  br label %DOFObjectID_GetBaseSize.exit.i121
 
-DOFObjectID_GetBaseSize.exit.i122:                ; preds = %.thread.i.i.i.i.i126, %180
-  %.0.i.i.i.i123 = phi i32 [ %spec.select.i.i.i.i127, %.thread.i.i.i.i.i126 ], [ %spec.select4.i.i.i.i121, %180 ]
-  %182 = zext nneg i32 %.0.i.i.i.i123 to i64
+DOFObjectID_GetBaseSize.exit.i121:                ; preds = %.thread.i.i.i.i.i125, %180
+  %.0.i.i.i.i122 = phi i32 [ %spec.select.i.i.i.i126, %.thread.i.i.i.i.i125 ], [ %spec.select4.i.i.i.i120, %180 ]
+  %182 = zext nneg i32 %.0.i.i.i.i122 to i64
   %183 = getelementptr i8, ptr %6, i64 %182
   %184 = load i8, ptr %183, align 1
   %185 = and i8 %184, 63
@@ -7997,11 +7997,11 @@ DOFObjectID_GetBaseSize.exit.i122:                ; preds = %.thread.i.i.i.i.i12
   %188 = add nuw nsw i8 %187, %185
   %189 = zext nneg i8 %188 to i64
   %190 = getelementptr i8, ptr %6, i64 %189
-  %191 = icmp eq i8 %.089166, 0
-  br i1 %191, label %._crit_edge.i, label %.lr.ph.i124
+  %191 = icmp eq i8 %.089165, 0
+  br i1 %191, label %._crit_edge.i, label %.lr.ph.i123
 
-._crit_edge.i:                                    ; preds = %202, %DOFObjectID_GetBaseSize.exit.i122
-  %.0.lcssa.i = phi ptr [ %190, %DOFObjectID_GetBaseSize.exit.i122 ], [ %207, %202 ]
+._crit_edge.i:                                    ; preds = %202, %DOFObjectID_GetBaseSize.exit.i121
+  %.0.lcssa.i = phi ptr [ %190, %DOFObjectID_GetBaseSize.exit.i121 ], [ %207, %202 ]
   %192 = load i8, ptr %.0.lcssa.i, align 1
   %193 = and i8 %192, 127
   %194 = getelementptr i8, ptr %.0.lcssa.i, i64 1
@@ -8012,119 +8012,120 @@ DOFObjectID_GetBaseSize.exit.i122:                ; preds = %.thread.i.i.i.i.i12
   %199 = zext nneg i8 %193 to i64
   br label %DOFObjectID_GetAttributeAtIndex.exit
 
-.lr.ph.i124:                                      ; preds = %DOFObjectID_GetBaseSize.exit.i122, %202
-  %200 = phi i8 [ %208, %202 ], [ 1, %DOFObjectID_GetBaseSize.exit.i122 ]
-  %.023.i = phi ptr [ %207, %202 ], [ %190, %DOFObjectID_GetBaseSize.exit.i122 ]
+.lr.ph.i123:                                      ; preds = %DOFObjectID_GetBaseSize.exit.i121, %202
+  %200 = phi i8 [ %208, %202 ], [ 1, %DOFObjectID_GetBaseSize.exit.i121 ]
+  %.023.i = phi ptr [ %207, %202 ], [ %190, %DOFObjectID_GetBaseSize.exit.i121 ]
   %201 = load i8, ptr %.023.i, align 1
-  %.not.i125 = icmp sgt i8 %201, -1
-  br i1 %.not.i125, label %DOFObjectID_GetAttributeAtIndex.exit, label %202
+  %.not.i124 = icmp sgt i8 %201, -1
+  br i1 %.not.i124, label %DOFObjectID_GetAttributeAtIndex.exit, label %202
 
-202:                                              ; preds = %.lr.ph.i124
+202:                                              ; preds = %.lr.ph.i123
   %203 = getelementptr i8, ptr %.023.i, i64 1
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i64
   %206 = getelementptr i8, ptr %.023.i, i64 %205
   %207 = getelementptr i8, ptr %206, i64 2
   %208 = add nuw i8 %200, 1
-  %209 = icmp eq i8 %.089166, %200
-  br i1 %209, label %._crit_edge.i, label %.lr.ph.i124
+  %209 = icmp eq i8 %.089165, %200
+  br i1 %209, label %._crit_edge.i, label %.lr.ph.i123
 
-DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %.lr.ph.i124, %.lr.ph, %DOFObjectID_HasAttributes.exit.i117, %._crit_edge.i
-  %.sroa.4.0.i = phi ptr [ null, %DOFObjectID_HasAttributes.exit.i117 ], [ null, %.lr.ph ], [ %196, %._crit_edge.i ], [ null, %.lr.ph.i124 ]
-  %.sroa.0.sroa.0.0.i = phi i64 [ 128, %DOFObjectID_HasAttributes.exit.i117 ], [ 128, %.lr.ph ], [ %199, %._crit_edge.i ], [ 128, %.lr.ph.i124 ]
-  %.sroa.0.sroa.3.0.i = phi i64 [ 0, %DOFObjectID_HasAttributes.exit.i117 ], [ 0, %.lr.ph ], [ %198, %._crit_edge.i ], [ 0, %.lr.ph.i124 ]
+DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %.lr.ph.i123, %.lr.ph, %DOFObjectID_HasAttributes.exit.i116, %._crit_edge.i
+  %.sroa.4.0.i = phi ptr [ null, %DOFObjectID_HasAttributes.exit.i116 ], [ null, %.lr.ph ], [ %196, %._crit_edge.i ], [ null, %.lr.ph.i123 ]
+  %.sroa.0.sroa.0.0.i = phi i64 [ 128, %DOFObjectID_HasAttributes.exit.i116 ], [ 128, %.lr.ph ], [ %199, %._crit_edge.i ], [ 128, %.lr.ph.i123 ]
+  %.sroa.0.sroa.3.0.i = phi i64 [ 0, %DOFObjectID_HasAttributes.exit.i116 ], [ 0, %.lr.ph ], [ %198, %._crit_edge.i ], [ 0, %.lr.ph.i123 ]
   %.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.sroa.3.0.i, %.sroa.0.sroa.0.0.i
   %.sroa.0.0.extract.trunc = trunc nuw nsw i64 %.sroa.0.sroa.0.0.insert.insert.i to i32
-  %210 = and i32 %.sroa.0.0.extract.trunc, 128
-  %.not95.not = icmp eq i32 %210, 0
-  br i1 %.not95.not, label %211, label %DOFObjectID_GetAttributeAtIndex.exit._crit_edge
+  %210 = and i32 %.sroa.0.0.extract.trunc, 255
+  %211 = icmp samesign ult i32 %210, 128
+  br i1 %211, label %212, label %DOFObjectID_GetAttributeAtIndex.exit._crit_edge
 
-211:                                              ; preds = %DOFObjectID_GetAttributeAtIndex.exit
-  %.not94 = icmp eq i8 %.089166, 0
-  br i1 %.not94, label %216, label %212
+212:                                              ; preds = %DOFObjectID_GetAttributeAtIndex.exit
+  %.not94 = icmp eq i8 %.089165, 0
+  br i1 %.not94, label %217, label %213
 
-212:                                              ; preds = %211
-  %213 = add i32 %.4168, 1
-  %214 = zext i32 %.4168 to i64
-  %215 = getelementptr i8, ptr %1, i64 %214
-  store i8 124, ptr %215, align 1
-  br label %216
+213:                                              ; preds = %212
+  %214 = add i32 %.4167, 1
+  %215 = zext i32 %.4167 to i64
+  %216 = getelementptr i8, ptr %1, i64 %215
+  store i8 124, ptr %216, align 1
+  br label %217
 
-216:                                              ; preds = %212, %211
-  %.7 = phi i32 [ %213, %212 ], [ %.4168, %211 ]
-  %217 = add i32 %.7, 1
-  %218 = zext i32 %.7 to i64
-  %219 = getelementptr i8, ptr %1, i64 %218
-  store i8 123, ptr %219, align 1
-  %220 = lshr i64 %.sroa.0.sroa.0.0.i, 4
-  %221 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %220
-  %222 = load i8, ptr %221, align 1
-  %223 = add i32 %.7, 2
-  %224 = zext i32 %217 to i64
-  %225 = getelementptr i8, ptr %1, i64 %224
-  store i8 %222, ptr %225, align 1
-  %226 = and i64 %.sroa.0.sroa.0.0.i, 15
-  %227 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %226
-  %228 = load i8, ptr %227, align 1
-  %229 = add i32 %.7, 3
-  %230 = zext i32 %223 to i64
-  %231 = getelementptr i8, ptr %1, i64 %230
-  store i8 %228, ptr %231, align 1
-  %232 = add i32 %.7, 4
-  %233 = zext i32 %229 to i64
-  %234 = getelementptr i8, ptr %1, i64 %233
-  store i8 125, ptr %234, align 1
-  %235 = add i32 %.7, 5
-  %236 = zext i32 %232 to i64
-  %237 = getelementptr i8, ptr %1, i64 %236
-  store i8 58, ptr %237, align 1
-  %238 = lshr i32 %.sroa.0.0.extract.trunc, 8
+217:                                              ; preds = %213, %212
+  %.7 = phi i32 [ %214, %213 ], [ %.4167, %212 ]
+  %218 = add i32 %.7, 1
+  %219 = zext i32 %.7 to i64
+  %220 = getelementptr i8, ptr %1, i64 %219
+  store i8 123, ptr %220, align 1
+  %221 = lshr i32 %210, 4
+  %222 = zext nneg i32 %221 to i64
+  %223 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %222
+  %224 = load i8, ptr %223, align 1
+  %225 = add i32 %.7, 2
+  %226 = zext i32 %218 to i64
+  %227 = getelementptr i8, ptr %1, i64 %226
+  store i8 %224, ptr %227, align 1
+  %228 = and i64 %.sroa.0.sroa.0.0.i, 15
+  %229 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %228
+  %230 = load i8, ptr %229, align 1
+  %231 = add i32 %.7, 3
+  %232 = zext i32 %225 to i64
+  %233 = getelementptr i8, ptr %1, i64 %232
+  store i8 %230, ptr %233, align 1
+  %234 = add i32 %.7, 4
+  %235 = zext i32 %231 to i64
+  %236 = getelementptr i8, ptr %1, i64 %235
+  store i8 125, ptr %236, align 1
+  %237 = add i32 %.7, 5
+  %238 = zext i32 %234 to i64
+  %239 = getelementptr i8, ptr %1, i64 %238
+  store i8 58, ptr %239, align 1
+  %240 = lshr i32 %.sroa.0.0.extract.trunc, 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
-  store i32 %238, ptr %4, align 4
-  %239 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %4, ptr noundef readonly %.sroa.4.0.i)
-  %.not.i130 = icmp eq ptr %239, null
-  %240 = load i32, ptr %4, align 4
-  %.not6.i = icmp ne i32 %240, %238
+  store i32 %240, ptr %4, align 4
+  %241 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %4, ptr noundef readonly %.sroa.4.0.i)
+  %.not.i129 = icmp eq ptr %241, null
+  %242 = load i32, ptr %4, align 4
+  %.not6.i = icmp ne i32 %242, %240
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
-  %.not96 = select i1 %.not.i130, i1 true, i1 %.not6.i
-  br i1 %.not96, label %245, label %241
+  %.not95 = select i1 %.not.i129, i1 true, i1 %.not6.i
+  br i1 %.not95, label %247, label %243
 
-241:                                              ; preds = %216
+243:                                              ; preds = %217
   tail call void @increment_dissection_depth(ptr noundef %2)
-  %242 = zext i32 %235 to i64
-  %243 = getelementptr i8, ptr %1, i64 %242
-  %244 = tail call fastcc i32 @ObjectID_ToString(ptr noundef %239, ptr noundef %243, ptr noundef %2)
+  %244 = zext i32 %237 to i64
+  %245 = getelementptr i8, ptr %1, i64 %244
+  %246 = tail call fastcc i32 @ObjectID_ToString(ptr noundef %241, ptr noundef %245, ptr noundef %2)
   tail call void @decrement_dissection_depth(ptr noundef %2)
-  br label %249
+  br label %251
 
-245:                                              ; preds = %216
-  %246 = zext i32 %235 to i64
-  %247 = getelementptr i8, ptr %1, i64 %246
-  %248 = tail call fastcc i32 @ObjectID_DataToString(ptr noundef %.sroa.4.0.i, i32 noundef %238, ptr noundef %247)
-  br label %249
+247:                                              ; preds = %217
+  %248 = zext i32 %237 to i64
+  %249 = getelementptr i8, ptr %1, i64 %248
+  %250 = tail call fastcc i32 @ObjectID_DataToString(ptr noundef %.sroa.4.0.i, i32 noundef %240, ptr noundef %249)
+  br label %251
 
-249:                                              ; preds = %241, %245
-  %.pn = phi i32 [ %244, %241 ], [ %248, %245 ]
-  %.8 = add i32 %.pn, %235
-  %250 = add nuw i8 %.089166, 1
-  %exitcond.not = icmp eq i8 %250, %.09.i179
+251:                                              ; preds = %243, %247
+  %.pn = phi i32 [ %246, %243 ], [ %250, %247 ]
+  %.8 = add i32 %.pn, %237
+  %252 = add nuw i8 %.089165, 1
+  %exitcond.not = icmp eq i8 %252, %.09.i178
   br i1 %exitcond.not, label %DOFObjectID_GetAttributeAtIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !47
 
-DOFObjectID_GetAttributeAtIndex.exit._crit_edge:  ; preds = %249, %DOFObjectID_GetAttributeAtIndex.exit, %DOFObjectID_GetAttributeCount.exit.thread, %DOFObjectID_GetAttributeCount.exit
-  %.4.lcssa = phi i32 [ %158, %DOFObjectID_GetAttributeCount.exit ], [ %128, %DOFObjectID_GetAttributeCount.exit.thread ], [ %.4168, %DOFObjectID_GetAttributeAtIndex.exit ], [ %.8, %249 ]
-  %251 = add i32 %.4.lcssa, 1
-  %252 = zext i32 %.4.lcssa to i64
-  %253 = getelementptr i8, ptr %1, i64 %252
-  store i8 41, ptr %253, align 1
-  br label %254
+DOFObjectID_GetAttributeAtIndex.exit._crit_edge:  ; preds = %251, %DOFObjectID_GetAttributeAtIndex.exit, %DOFObjectID_GetAttributeCount.exit.thread, %DOFObjectID_GetAttributeCount.exit
+  %.4.lcssa = phi i32 [ %158, %DOFObjectID_GetAttributeCount.exit ], [ %128, %DOFObjectID_GetAttributeCount.exit.thread ], [ %.4167, %DOFObjectID_GetAttributeAtIndex.exit ], [ %.8, %251 ]
+  %253 = add i32 %.4.lcssa, 1
+  %254 = zext i32 %.4.lcssa to i64
+  %255 = getelementptr i8, ptr %1, i64 %254
+  store i8 41, ptr %255, align 1
+  br label %256
 
-254:                                              ; preds = %DOFObjectID_GetAttributeAtIndex.exit._crit_edge, %DOFObjectID_HasAttributes.exit
-  %.3 = phi i32 [ %251, %DOFObjectID_GetAttributeAtIndex.exit._crit_edge ], [ %108, %DOFObjectID_HasAttributes.exit ]
-  %255 = add i32 %.3, 1
-  %256 = zext i32 %.3 to i64
-  %257 = getelementptr i8, ptr %1, i64 %256
-  store i8 93, ptr %257, align 1
-  ret i32 %255
+256:                                              ; preds = %DOFObjectID_GetAttributeAtIndex.exit._crit_edge, %DOFObjectID_HasAttributes.exit
+  %.3 = phi i32 [ %253, %DOFObjectID_GetAttributeAtIndex.exit._crit_edge ], [ %108, %DOFObjectID_HasAttributes.exit ]
+  %257 = add i32 %.3, 1
+  %258 = zext i32 %.3 to i64
+  %259 = getelementptr i8, ptr %1, i64 %258
+  store i8 93, ptr %259, align 1
+  ret i32 %257
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable

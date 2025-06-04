@@ -40,32 +40,31 @@ define dso_local ptr @__genradix_ptr(ptr noundef %0, i64 noundef %1) #0 align 16
 
 17:                                               ; preds = %22, %14
   %18 = phi i64 [ %16, %14 ], [ %23, %22 ]
-  %19 = phi ptr [ %15, %14 ], [ %29, %22 ]
-  %20 = phi i64 [ %1, %14 ], [ %32, %22 ]
+  %19 = phi ptr [ %15, %14 ], [ %28, %22 ]
+  %20 = phi i64 [ %1, %14 ], [ %31, %22 ]
   %21 = icmp eq i64 %18, 0
-  br i1 %21, label %34, label %22
+  br i1 %21, label %33, label %22
 
 22:                                               ; preds = %17
   %23 = add nsw i64 %18, -1
   %24 = mul nuw nsw i64 %23, 9
   %25 = add nuw nsw i64 %24, 12
-  %26 = and i64 %25, 4294967295
-  %27 = lshr i64 %20, %26
-  %28 = getelementptr [512 x ptr], ptr %19, i64 0, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %30 = shl nsw i64 -1, %26
-  %31 = xor i64 %30, -1
-  %32 = and i64 %20, %31
-  %33 = icmp eq ptr %29, null
-  br i1 %33, label %.loopexit, label %17, !llvm.loop !6
+  %26 = lshr i64 %20, %25
+  %27 = getelementptr [512 x ptr], ptr %19, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = shl nsw i64 -4096, %24
+  %30 = xor i64 %29, -1
+  %31 = and i64 %20, %30
+  %32 = icmp eq ptr %28, null
+  br i1 %32, label %.loopexit, label %17, !llvm.loop !6
 
-34:                                               ; preds = %17
-  %35 = getelementptr [4096 x i8], ptr %19, i64 0, i64 %20
+33:                                               ; preds = %17
+  %34 = getelementptr [4096 x i8], ptr %19, i64 0, i64 %20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %34, %2
-  %36 = phi ptr [ %35, %34 ], [ null, %2 ], [ null, %22 ]
-  ret ptr %36
+.loopexit:                                        ; preds = %22, %33, %2
+  %35 = phi ptr [ %34, %33 ], [ null, %2 ], [ null, %22 ]
+  ret ptr %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

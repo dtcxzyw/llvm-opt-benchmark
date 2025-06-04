@@ -13514,66 +13514,65 @@ define internal range(i32 -2147483648, 1) i32 @rtl_set_coalesce(ptr noundef capt
   %78 = and i32 %77, 3840
   %79 = add nuw nsw i32 %65, 3
   %80 = lshr i32 %79, 2
-  %81 = and i32 %80, 15
-  %82 = or disjoint i32 %81, %78
-  %83 = trunc nuw nsw i32 %82 to i16
-  %84 = mul i32 %21, 1000
-  %85 = add i32 %84, -1
-  %86 = add i32 %85, %61
-  %87 = udiv i32 %86, %61
-  %88 = mul i32 %19, 1000
-  %89 = add i32 %88, -1
-  %90 = add i32 %89, %61
-  %91 = udiv i32 %90, %61
-  %92 = trunc i32 %87 to i16
-  %93 = shl i16 %92, 12
-  %94 = trunc i32 %91 to i16
-  %95 = shl i16 %94, 4
-  %96 = and i16 %95, 240
-  %97 = or disjoint i16 %93, %83
-  %98 = or disjoint i16 %96, %97
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr i8, ptr %99, i64 226
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %98, ptr elementtype(i16) %100) #19, !srcloc !13
-  %101 = load i32, ptr %10, align 8
-  %102 = icmp ne i32 %101, 32
-  %103 = add i32 %101, -27
-  %104 = icmp ult i32 %103, 15
-  %105 = and i1 %102, %104
-  br i1 %105, label %106, label %._crit_edge
+  %81 = or disjoint i32 %80, %78
+  %82 = trunc nuw nsw i32 %81 to i16
+  %83 = mul i32 %21, 1000
+  %84 = add i32 %83, -1
+  %85 = add i32 %84, %61
+  %86 = udiv i32 %85, %61
+  %87 = mul i32 %19, 1000
+  %88 = add i32 %87, -1
+  %89 = add i32 %88, %61
+  %90 = udiv i32 %89, %61
+  %91 = trunc i32 %86 to i16
+  %92 = shl i16 %91, 12
+  %93 = trunc i32 %90 to i16
+  %94 = shl i16 %93, 4
+  %95 = and i16 %94, 240
+  %96 = or disjoint i16 %92, %82
+  %97 = add nuw nsw i16 %95, %96
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr i8, ptr %98, i64 226
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %97, ptr elementtype(i16) %99) #19, !srcloc !13
+  %100 = load i32, ptr %10, align 8
+  %101 = icmp ne i32 %100, 32
+  %102 = add i32 %100, -27
+  %103 = icmp ult i32 %102, 15
+  %104 = and i1 %101, %103
+  br i1 %104, label %105, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %75
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 8936
   %.pre = load i16, ptr %.phi.trans.insert, align 8
-  br label %114
+  br label %113
 
-106:                                              ; preds = %75
-  %107 = or i32 %65, %67
-  %108 = icmp eq i32 %107, 0
-  %109 = getelementptr i8, ptr %0, i64 8936
-  %110 = load i16, ptr %109, align 8
-  %111 = and i16 %110, -129
-  %112 = select i1 %108, i16 128, i16 0
-  %113 = or disjoint i16 %111, %112
-  br label %114
+105:                                              ; preds = %75
+  %106 = or i32 %65, %67
+  %107 = icmp eq i32 %106, 0
+  %108 = getelementptr i8, ptr %0, i64 8936
+  %109 = load i16, ptr %108, align 8
+  %110 = and i16 %109, -129
+  %111 = select i1 %107, i16 128, i16 0
+  %112 = or disjoint i16 %110, %111
+  br label %113
 
-114:                                              ; preds = %._crit_edge, %106
-  %115 = phi i16 [ %.pre, %._crit_edge ], [ %113, %106 ]
-  %116 = getelementptr i8, ptr %0, i64 8936
-  %117 = and i16 %115, -4
-  %118 = or i16 %117, %60
-  store i16 %118, ptr %116, align 8
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr i8, ptr %119, i64 224
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %118, ptr elementtype(i16) %120) #19, !srcloc !13
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr i8, ptr %121, i64 55
-  %123 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %122) #19, !srcloc !24
+113:                                              ; preds = %._crit_edge, %105
+  %114 = phi i16 [ %.pre, %._crit_edge ], [ %112, %105 ]
+  %115 = getelementptr i8, ptr %0, i64 8936
+  %116 = and i16 %114, -4
+  %117 = or i16 %116, %60
+  store i16 %117, ptr %115, align 8
+  %118 = load ptr, ptr %5, align 8
+  %119 = getelementptr i8, ptr %118, i64 224
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %117, ptr elementtype(i16) %119) #19, !srcloc !13
+  %120 = load ptr, ptr %5, align 8
+  %121 = getelementptr i8, ptr %120, i64 55
+  %122 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %121) #19, !srcloc !24
   br label %.thread10
 
-.thread10:                                        ; preds = %56, %114, %71, %63, %59, %13, %4
-  %124 = phi i32 [ 0, %114 ], [ -95, %4 ], [ -34, %13 ], [ %61, %59 ], [ -22, %63 ], [ -22, %71 ], [ -34, %56 ]
-  ret i32 %124
+.thread10:                                        ; preds = %56, %113, %71, %63, %59, %13, %4
+  %123 = phi i32 [ 0, %113 ], [ -95, %4 ], [ -34, %13 ], [ %61, %59 ], [ -22, %63 ], [ -22, %71 ], [ -34, %56 ]
+  ret i32 %123
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)

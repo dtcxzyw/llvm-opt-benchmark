@@ -2817,15 +2817,15 @@ define dso_local noundef range(i32 -2, 1) i32 @fib6_del(ptr noundef readonly cap
   br label %27
 
 27:                                               ; preds = %.thread, %20
-  %28 = phi ptr [ null, %20 ], [ %186, %.thread ]
-  %29 = phi ptr [ %21, %20 ], [ %186, %.thread ]
+  %28 = phi ptr [ null, %20 ], [ %185, %.thread ]
+  %29 = phi ptr [ %21, %20 ], [ %185, %.thread ]
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit10, label %32
 
 32:                                               ; preds = %27
   %33 = icmp eq ptr %30, %0
-  br i1 %33, label %34, label %184
+  br i1 %33, label %34, label %183
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %5, align 8
@@ -3017,87 +3017,86 @@ define dso_local noundef range(i32 -2, 1) i32 @fib6_del(ptr noundef readonly cap
   %148 = load i8, ptr %23, align 4
   %149 = and i8 %148, 2
   %150 = icmp eq i8 %149, 0
-  br i1 %150, label %151, label %170
+  br i1 %150, label %151, label %169
 
 151:                                              ; preds = %146
-  %152 = and i8 %112, 1
-  %153 = icmp eq i8 %152, 0
-  br i1 %153, label %160, label %154
+  %152 = icmp eq i8 %112, 0
+  br i1 %152, label %159, label %153
 
-154:                                              ; preds = %151
+153:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr %30, ptr %24, align 8
-  %155 = load ptr, ptr %30, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 116
-  %157 = load i32, ptr %156, align 4
-  %158 = add i32 %157, 1
-  store i32 %158, ptr %156, align 4
-  %159 = call i32 @call_fib6_notifiers(ptr noundef %35, i32 noundef 3, ptr noundef nonnull %4) #13
+  %154 = load ptr, ptr %30, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 116
+  %156 = load i32, ptr %155, align 4
+  %157 = add i32 %156, 1
+  store i32 %157, ptr %155, align 4
+  %158 = call i32 @call_fib6_notifiers(ptr noundef %35, i32 noundef 3, ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
-  br label %170
+  br label %169
 
-160:                                              ; preds = %151
-  %161 = icmp eq ptr %49, null
-  br i1 %161, label %170, label %162
+159:                                              ; preds = %151
+  %160 = icmp eq ptr %49, null
+  br i1 %160, label %169, label %161
 
-162:                                              ; preds = %160
+161:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   store ptr %49, ptr %25, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %164 = load i32, ptr %163, align 8
-  store i32 %164, ptr %26, align 8
-  %165 = load ptr, ptr %49, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 116
-  %167 = load i32, ptr %166, align 4
-  %168 = add i32 %167, 1
-  store i32 %168, ptr %166, align 4
-  %169 = call i32 @call_fib6_notifiers(ptr noundef %35, i32 noundef 0, ptr noundef nonnull %3) #13
+  %162 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %163 = load i32, ptr %162, align 8
+  store i32 %163, ptr %26, align 8
+  %164 = load ptr, ptr %49, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 116
+  %166 = load i32, ptr %165, align 4
+  %167 = add i32 %166, 1
+  store i32 %167, ptr %165, align 4
+  %168 = call i32 @call_fib6_notifiers(ptr noundef %35, i32 noundef 0, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
-  br label %170
+  br label %169
 
-170:                                              ; preds = %162, %160, %154, %146
-  %171 = load i8, ptr %23, align 4
-  %172 = and i8 %171, 1
-  %173 = icmp eq i8 %172, 0
-  br i1 %173, label %174, label %175
+169:                                              ; preds = %161, %159, %153, %146
+  %170 = load i8, ptr %23, align 4
+  %171 = and i8 %170, 1
+  %172 = icmp eq i8 %171, 0
+  br i1 %172, label %173, label %174
 
-174:                                              ; preds = %170
+173:                                              ; preds = %169
   call void @inet6_rt_notify(i32 noundef 25, ptr noundef nonnull %30, ptr noundef %1, i32 noundef 0) #13
-  br label %175
+  br label %174
 
-175:                                              ; preds = %174, %170
-  %176 = getelementptr inbounds nuw i8, ptr %30, i64 44
-  %177 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %176, i32 -1, ptr nonnull elementtype(i32) %176) #13, !srcloc !15
-  %178 = icmp eq i32 %177, 1
-  br i1 %178, label %182, label %179
+174:                                              ; preds = %173, %169
+  %175 = getelementptr inbounds nuw i8, ptr %30, i64 44
+  %176 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %175, i32 -1, ptr nonnull elementtype(i32) %175) #13, !srcloc !15
+  %177 = icmp eq i32 %176, 1
+  br i1 %177, label %181, label %178
 
-179:                                              ; preds = %175
-  %180 = icmp sgt i32 %177, 0
-  br i1 %180, label %.thread, label %181, !prof !11
+178:                                              ; preds = %174
+  %179 = icmp sgt i32 %176, 0
+  br i1 %179, label %.thread, label %180, !prof !11
 
-181:                                              ; preds = %179
-  call void @refcount_warn_saturate(ptr noundef nonnull %176, i32 noundef 3) #13
+180:                                              ; preds = %178
+  call void @refcount_warn_saturate(ptr noundef nonnull %175, i32 noundef 3) #13
   br label %.thread
 
-182:                                              ; preds = %175
+181:                                              ; preds = %174
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
-  %183 = getelementptr inbounds nuw i8, ptr %30, i64 144
-  call void @call_rcu(ptr noundef nonnull %183, ptr noundef nonnull @fib6_info_destroy_rcu) #13
+  %182 = getelementptr inbounds nuw i8, ptr %30, i64 144
+  call void @call_rcu(ptr noundef nonnull %182, ptr noundef nonnull @fib6_info_destroy_rcu) #13
   br label %.thread
 
-184:                                              ; preds = %32
-  %185 = getelementptr inbounds nuw i8, ptr %30, i64 8
+183:                                              ; preds = %32
+  %184 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %.thread
 
-.thread:                                          ; preds = %179, %181, %184, %182
-  %186 = phi ptr [ %185, %184 ], [ %28, %182 ], [ %28, %181 ], [ %28, %179 ]
+.thread:                                          ; preds = %178, %180, %183, %181
+  %185 = phi ptr [ %184, %183 ], [ %28, %181 ], [ %28, %180 ], [ %28, %178 ]
   br i1 %33, label %.loopexit10, label %27, !llvm.loop !88
 
 .loopexit10:                                      ; preds = %.thread, %27, %10, %2
-  %187 = phi i32 [ -2, %2 ], [ -2, %10 ], [ -2, %27 ], [ 0, %.thread ]
-  ret i32 %187
+  %186 = phi i32 [ -2, %2 ], [ -2, %10 ], [ -2, %27 ], [ 0, %.thread ]
+  ret i32 %186
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

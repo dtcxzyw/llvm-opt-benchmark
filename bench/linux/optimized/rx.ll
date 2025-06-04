@@ -11691,26 +11691,27 @@ define internal fastcc noundef zeroext i1 @ieee80211_rx_for_interface(ptr nounde
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %45, align 8
   %46 = icmp slt i32 %30, 0
-  br i1 %46, label %50, label %74
+  %.pre = load ptr, ptr %6, align 8
+  br i1 %46, label %51, label %74
 
 .thread:                                          ; preds = %34, %42
-  %47 = getelementptr inbounds nuw i8, ptr %29, i64 1640
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %47, ptr %48, align 8
-  %49 = icmp slt i32 %30, 0
-  br i1 %49, label %50, label %54
+  %47 = phi ptr [ %40, %34 ], [ %43, %42 ]
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 1640
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %48, ptr %49, align 8
+  %50 = icmp slt i32 %30, 0
+  br i1 %50, label %51, label %55
 
-50:                                               ; preds = %.thread, %44
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 3176
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %52, ptr %53, align 8
-  br label %81
+51:                                               ; preds = %.thread, %44
+  %52 = phi ptr [ %47, %.thread ], [ %.pre, %44 ]
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 3176
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %53, ptr %54, align 8
+  br label %80
 
-54:                                               ; preds = %.thread
+55:                                               ; preds = %.thread
   store i32 %30, ptr %31, align 4
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 3904
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 3904
   %57 = zext nneg i32 %30 to i64
   %58 = getelementptr [15 x ptr], ptr %56, i64 0, i64 %57
   %59 = load volatile ptr, ptr %58, align 8
@@ -11722,37 +11723,36 @@ define internal fastcc noundef zeroext i1 @ieee80211_rx_for_interface(ptr nounde
   %64 = shl nuw i64 1, %57
   %65 = and i64 %64, %63
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %83, label %67
+  br i1 %66, label %82, label %67
 
-67:                                               ; preds = %54
+67:                                               ; preds = %55
   %68 = getelementptr inbounds nuw i8, ptr %29, i64 2560
   %69 = getelementptr [15 x ptr], ptr %68, i64 0, i64 %57
   %70 = load volatile ptr, ptr %69, align 8
-  store ptr %70, ptr %48, align 8
+  store ptr %70, ptr %49, align 8
   %71 = icmp ne ptr %59, null
   %72 = icmp ne ptr %70, null
   %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %81, label %83
+  br i1 %73, label %80, label %82
 
 74:                                               ; preds = %44
   store i32 %30, ptr %31, align 4
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 3904
-  %77 = zext nneg i32 %30 to i64
-  %78 = getelementptr [15 x ptr], ptr %76, i64 0, i64 %77
-  %79 = load volatile ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %79, ptr %80, align 8
-  %.not = icmp eq ptr %79, null
-  br i1 %.not, label %83, label %81
+  %75 = getelementptr inbounds nuw i8, ptr %.pre, i64 3904
+  %76 = zext nneg i32 %30 to i64
+  %77 = getelementptr [15 x ptr], ptr %75, i64 0, i64 %76
+  %78 = load volatile ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %78, ptr %79, align 8
+  %.not = icmp eq ptr %78, null
+  br i1 %.not, label %82, label %80
 
-81:                                               ; preds = %67, %74, %50
-  %82 = tail call fastcc zeroext i1 @ieee80211_prepare_and_rx_handle(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
-  br label %83
+80:                                               ; preds = %67, %74, %51
+  %81 = tail call fastcc zeroext i1 @ieee80211_prepare_and_rx_handle(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
+  br label %82
 
-83:                                               ; preds = %67, %81, %74, %54
-  %84 = phi i1 [ %82, %81 ], [ false, %54 ], [ false, %74 ], [ false, %67 ]
-  ret i1 %84
+82:                                               ; preds = %67, %80, %74, %55
+  %83 = phi i1 [ %81, %80 ], [ false, %55 ], [ false, %74 ], [ false, %67 ]
+  ret i1 %83
 }
 
 ; Function Attrs: cold null_pointer_is_valid

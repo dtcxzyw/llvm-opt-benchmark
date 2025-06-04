@@ -4978,15 +4978,14 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
 
 77:                                               ; preds = %76, %74
   %78 = load i32, ptr %3, align 4
-  %79 = and i32 %.2.lcssa, 1
-  %80 = shl nuw nsw i32 %79, 6
-  %81 = and i32 %78, -65
-  %82 = or disjoint i32 %81, %80
-  store i32 %82, ptr %3, align 4
+  %79 = shl nuw nsw i32 %.2.lcssa, 6
+  %80 = and i32 %78, -65
+  %81 = or i32 %80, %79
+  store i32 %81, ptr %3, align 4
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %6, %._crit_edge, %2, %.critedge, %77, %.thread81
-  %.042 = phi i32 [ %79, %77 ], [ 0, %.thread81 ], [ -1, %.critedge ], [ -1, %2 ], [ -1, %._crit_edge ], [ -1, %6 ]
+  %.042 = phi i32 [ %.2.lcssa, %77 ], [ 0, %.thread81 ], [ -1, %.critedge ], [ -1, %2 ], [ -1, %._crit_edge ], [ -1, %6 ]
   ret i32 %.042
 }
 

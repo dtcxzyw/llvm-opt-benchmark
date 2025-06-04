@@ -3942,10 +3942,10 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE10In
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 2
   %12 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv
-  %13 = load i16, ptr %12, align 8
-  %14 = and i8 %.sroa.4.0.copyload, 1
-  %15 = zext nneg i8 %14 to i16
-  %16 = and i16 %13, -64
+  %13 = and i8 %.sroa.4.0.copyload, 1
+  %14 = zext nneg i8 %13 to i16
+  %15 = load i16, ptr %12, align 8
+  %16 = and i16 %15, -64
   %17 = and i8 %.sroa.4.0.copyload, 2
   %18 = zext nneg i8 %17 to i16
   %19 = and i8 %.sroa.4.0.copyload, 4
@@ -3954,7 +3954,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE10In
   %22 = icmp eq i16 %.sroa.0.0.copyload, 1
   %23 = select i1 %22, i16 32, i16 0
   %24 = or disjoint i16 %23, %20
-  %25 = or disjoint i16 %24, %15
+  %25 = or disjoint i16 %24, %14
   %26 = or disjoint i16 %25, %16
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %21, ptr %27, align 8
@@ -3965,7 +3965,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE10In
   %31 = and i8 %30, 16
   %32 = zext nneg i8 %31 to i16
   %33 = or disjoint i16 %26, %32
-  %34 = zext nneg i8 %14 to i32
+  %34 = zext nneg i8 %13 to i32
   %35 = add nuw nsw i32 %34, %21
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %35, ptr %36, align 4
@@ -3986,7 +3986,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE10In
   br label %52
 
 46:                                               ; preds = %10
-  %.not112 = icmp eq i8 %14, 0
+  %.not112 = icmp eq i8 %13, 0
   %47 = select i1 %.not112, float 0x401921FB60000000, float 0x400921FB60000000
   %48 = uitofp i16 %.sroa.0.0.copyload to float
   %49 = fdiv float %47, %48
@@ -9548,10 +9548,10 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE10In
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 2
   %12 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv
-  %13 = load i16, ptr %12, align 8
-  %14 = and i8 %.sroa.4.0.copyload, 1
-  %15 = zext nneg i8 %14 to i16
-  %16 = and i16 %13, -64
+  %13 = and i8 %.sroa.4.0.copyload, 1
+  %14 = zext nneg i8 %13 to i16
+  %15 = load i16, ptr %12, align 8
+  %16 = and i16 %15, -64
   %17 = and i8 %.sroa.4.0.copyload, 2
   %18 = zext nneg i8 %17 to i16
   %19 = and i8 %.sroa.4.0.copyload, 4
@@ -9560,7 +9560,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE10In
   %22 = icmp eq i16 %.sroa.0.0.copyload, 1
   %23 = select i1 %22, i16 32, i16 0
   %24 = or disjoint i16 %23, %20
-  %25 = or disjoint i16 %24, %15
+  %25 = or disjoint i16 %24, %14
   %26 = or disjoint i16 %25, %16
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %21, ptr %27, align 8
@@ -9571,7 +9571,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE10In
   %31 = and i8 %30, 16
   %32 = zext nneg i8 %31 to i16
   %33 = or disjoint i16 %26, %32
-  %34 = zext nneg i8 %14 to i32
+  %34 = zext nneg i8 %13 to i32
   %35 = add nuw nsw i32 %34, %21
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %35, ptr %36, align 4
@@ -9592,7 +9592,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE10In
   br label %52
 
 46:                                               ; preds = %10
-  %.not112 = icmp eq i8 %14, 0
+  %.not112 = icmp eq i8 %13, 0
   %47 = select i1 %.not112, double 0x401921FB54442D18, double 0x400921FB54442D18
   %48 = uitofp i16 %.sroa.0.0.copyload to double
   %49 = fdiv double %47, %48

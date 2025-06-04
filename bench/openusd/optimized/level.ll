@@ -2812,17 +2812,18 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel20findVertexValueIndexEii.exit: ; 
   %94 = or disjoint i16 %90, %93
   %95 = or disjoint i16 %91, %94
   %96 = lshr i8 %.sroa.0.0.copyload.i, 2
-  %97 = zext nneg i8 %96 to i16
-  %98 = or i16 %.sroa.0.2.i, %97
-  %99 = and i16 %98, 1
-  %100 = or disjoint i16 %95, %99
-  %101 = or disjoint i16 %100, 8196
+  %97 = and i8 %96, 1
+  %98 = and i16 %.sroa.0.2.i, 1
+  %99 = zext nneg i8 %97 to i16
+  %100 = or i16 %98, %99
+  %101 = or disjoint i16 %95, %100
+  %102 = or disjoint i16 %101, 8196
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit
 
 _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel20findVertexValueIndexEii.exit, %87
-  %.sroa.0.0.i = phi i16 [ %101, %87 ], [ %.sroa.0.0.copyload, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel20findVertexValueIndexEii.exit ]
-  %102 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %2, i64 %indvars.iv
-  store i16 %.sroa.0.0.i, ptr %102, align 2
+  %.sroa.0.0.i = phi i16 [ %102, %87 ], [ %.sroa.0.0.copyload, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel20findVertexValueIndexEii.exit ]
+  %103 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %2, i64 %indvars.iv
+  store i16 %.sroa.0.0.i, ptr %103, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !39
@@ -3069,7 +3070,7 @@ define i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagEii(
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel8ValueTagELj64ELb0EEC2Ej.exit: ; preds = %30, %41
   %44 = phi ptr [ %36, %30 ], [ %43, %41 ]
   invoke void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel16getFaceValueTagsEiPNS3_8ValueTagE(ptr noundef nonnull align 8 dereferenceable(216) %35, i32 noundef %1, ptr noundef nonnull %44)
-          to label %45 unwind label %119
+          to label %45 unwind label %121
 
 45:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel8ValueTagELj64ELb0EEC2Ej.exit
   %46 = load ptr, ptr %4, align 8
@@ -3118,17 +3119,18 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel8ValueTagELj64ELb
   %74 = or disjoint i16 %70, %73
   %75 = or disjoint i16 %71, %74
   %76 = lshr i8 %52, 2
-  %77 = zext nneg i8 %76 to i16
-  %78 = or i16 %.sroa.0.2.i, %77
-  %79 = and i16 %78, 1
-  %80 = or disjoint i16 %75, %79
-  %81 = or disjoint i16 %80, 8196
+  %77 = and i8 %76, 1
+  %78 = and i16 %.sroa.0.2.i, 1
+  %79 = zext nneg i8 %77 to i16
+  %80 = or i16 %78, %79
+  %81 = or disjoint i16 %75, %80
+  %82 = or disjoint i16 %81, 8196
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit
 
 _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit: ; preds = %67, %45
-  %.sroa.0.0.i = phi i16 [ %81, %67 ], [ %.sroa.04.0.copyload, %45 ]
-  %82 = icmp sgt i32 %16, 1
-  br i1 %82, label %.lr.ph.preheader, label %._crit_edge
+  %.sroa.0.0.i = phi i16 [ %82, %67 ], [ %.sroa.04.0.copyload, %45 ]
+  %83 = icmp sgt i32 %16, 1
+  br i1 %83, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit
   %wide.trip.count = zext nneg i32 %16 to i64
@@ -3136,77 +3138,78 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24 ]
-  %.034 = phi i16 [ %.sroa.0.0.i, %.lr.ph.preheader ], [ %118, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24 ]
-  %83 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %46, i64 %indvars.iv
-  %84 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %85 = load i32, ptr %84, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %50, i64 %86
-  %.sroa.0.0.copyload = load i16, ptr %87, align 2
-  %88 = load i8, ptr %83, align 1
-  %89 = and i8 %88, 1
-  %.not.i17 = icmp eq i8 %89, 0
-  br i1 %.not.i17, label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24, label %90
+  %.034 = phi i16 [ %.sroa.0.0.i, %.lr.ph.preheader ], [ %120, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24 ]
+  %84 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %46, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %86 = load i32, ptr %85, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %50, i64 %87
+  %.sroa.0.0.copyload = load i16, ptr %88, align 2
+  %89 = load i8, ptr %84, align 1
+  %90 = and i8 %89, 1
+  %.not.i17 = icmp eq i8 %90, 0
+  br i1 %.not.i17, label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24, label %91
 
-90:                                               ; preds = %.lr.ph
-  %91 = and i16 %.sroa.0.0.copyload, -1921
-  %92 = or disjoint i16 %91, 1024
-  %93 = and i8 %88, 24
-  %or.cond.not.i18 = icmp eq i8 %93, 0
-  br i1 %or.cond.not.i18, label %99, label %94
+91:                                               ; preds = %.lr.ph
+  %92 = and i16 %.sroa.0.0.copyload, -1921
+  %93 = or disjoint i16 %92, 1024
+  %94 = and i8 %89, 24
+  %or.cond.not.i18 = icmp eq i8 %94, 0
+  br i1 %or.cond.not.i18, label %100, label %95
 
-94:                                               ; preds = %90
-  %95 = and i8 %88, 8
-  %.not.i.i19 = icmp eq i8 %95, 0
-  %96 = or disjoint i16 %91, 512
-  %.sroa.0.1.i20 = select i1 %.not.i.i19, i16 %92, i16 %96
-  %97 = and i16 %.sroa.0.1.i20, -16793
-  %98 = or disjoint i16 %97, 16384
-  br label %103
+95:                                               ; preds = %91
+  %96 = and i8 %89, 8
+  %.not.i.i19 = icmp eq i8 %96, 0
+  %97 = or disjoint i16 %92, 512
+  %.sroa.0.1.i20 = select i1 %.not.i.i19, i16 %93, i16 %97
+  %98 = and i16 %.sroa.0.1.i20, -16793
+  %99 = or disjoint i16 %98, 16384
+  br label %104
 
-99:                                               ; preds = %90
-  %100 = and i16 %92, -17305
-  %.not16.i23 = icmp ult i8 %88, 64
-  %101 = select i1 %.not16.i23, i16 24, i16 16
-  %102 = or disjoint i16 %101, %100
-  br label %103
+100:                                              ; preds = %91
+  %101 = and i16 %93, -17305
+  %.not16.i23 = icmp ult i8 %89, 64
+  %102 = select i1 %.not16.i23, i16 24, i16 16
+  %103 = or disjoint i16 %102, %101
+  br label %104
 
-103:                                              ; preds = %99, %94
-  %.sroa.0.2.i21 = phi i16 [ %98, %94 ], [ %102, %99 ]
-  %104 = lshr i8 %88, 7
-  %105 = zext nneg i8 %104 to i16
-  %106 = shl nuw i16 %105, 15
-  %107 = and i16 %.sroa.0.2.i21, 24568
-  %108 = and i8 %88, 2
-  %109 = zext nneg i8 %108 to i16
-  %110 = or disjoint i16 %106, %109
+104:                                              ; preds = %100, %95
+  %.sroa.0.2.i21 = phi i16 [ %99, %95 ], [ %103, %100 ]
+  %105 = lshr i8 %89, 7
+  %106 = zext nneg i8 %105 to i16
+  %107 = shl nuw i16 %106, 15
+  %108 = and i16 %.sroa.0.2.i21, 24568
+  %109 = and i8 %89, 2
+  %110 = zext nneg i8 %109 to i16
   %111 = or disjoint i16 %107, %110
-  %112 = lshr i8 %88, 2
-  %113 = zext nneg i8 %112 to i16
-  %114 = or i16 %.sroa.0.2.i21, %113
-  %115 = and i16 %114, 1
-  %116 = or disjoint i16 %111, %115
-  %117 = or disjoint i16 %116, 8196
+  %112 = or disjoint i16 %108, %111
+  %113 = lshr i8 %89, 2
+  %114 = and i8 %113, 1
+  %115 = and i16 %.sroa.0.2.i21, 1
+  %116 = zext nneg i8 %114 to i16
+  %117 = or i16 %115, %116
+  %118 = or disjoint i16 %112, %117
+  %119 = or disjoint i16 %118, 8196
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24
 
-_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24: ; preds = %103, %.lr.ph
-  %.sroa.0.0.i22 = phi i16 [ %117, %103 ], [ %.sroa.0.0.copyload, %.lr.ph ]
-  %118 = or i16 %.sroa.0.0.i22, %.034
+_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24: ; preds = %104, %.lr.ph
+  %.sroa.0.0.i22 = phi i16 [ %119, %104 ], [ %.sroa.0.0.copyload, %.lr.ph ]
+  %120 = or i16 %.sroa.0.0.i22, %.034
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-119:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel8ValueTagELj64ELb0EEC2Ej.exit
-  %120 = landingpad { ptr, i32 }
+121:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel8ValueTagELj64ELb0EEC2Ej.exit
+  %122 = landingpad { ptr, i32 }
           cleanup
-  %121 = load ptr, ptr %39, align 8
-  call void @_ZdlPv(ptr noundef %121) #25
-  resume { ptr, i32 } %120
+  %123 = load ptr, ptr %39, align 8
+  call void @_ZdlPv(ptr noundef %123) #25
+  resume { ptr, i32 } %122
 
 ._crit_edge:                                      ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit
-  %.0.lcssa = phi i16 [ %.sroa.0.0.i, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit ], [ %118, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24 ]
-  %122 = load ptr, ptr %39, align 8
-  call void @_ZdlPv(ptr noundef %122) #25
+  %.0.lcssa = phi i16 [ %.sroa.0.0.i, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit ], [ %120, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit24 ]
+  %124 = load ptr, ptr %39, align 8
+  call void @_ZdlPv(ptr noundef %124) #25
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArrayIiEE.exit
 
 _ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level20getFaceCompositeVTagERNS1_10ConstArrayIiEE.exit: ; preds = %.lr.ph.i, %18, %._crit_edge
@@ -3279,76 +3282,78 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
   %46 = or disjoint i16 %42, %45
   %47 = or disjoint i16 %43, %46
   %48 = lshr i8 %25, 2
-  %49 = zext nneg i8 %48 to i16
-  %50 = or i16 %.sroa.0.2.i, %49
-  %51 = and i16 %50, 1
-  %52 = or disjoint i16 %47, %51
-  %53 = or disjoint i16 %52, 8196
-  %54 = icmp ugt i16 %13, 1
-  br i1 %54, label %.lr.ph, label %.loopexit
+  %49 = and i8 %48, 1
+  %50 = and i16 %.sroa.0.2.i, 1
+  %51 = zext nneg i8 %49 to i16
+  %52 = or i16 %50, %51
+  %53 = or disjoint i16 %47, %52
+  %54 = or disjoint i16 %53, 8196
+  %55 = icmp ugt i16 %13, 1
+  br i1 %55, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit
-  %55 = or disjoint i16 %28, 512
-  %56 = and i16 %29, -17305
+  %56 = or disjoint i16 %28, 512
+  %57 = and i16 %29, -17305
   %wide.trip.count = zext i16 %13 to i64
-  %invariant.op = or disjoint i16 %56, 16
-  br label %57
+  %invariant.op = or disjoint i16 %57, 16
+  br label %58
 
-57:                                               ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22
+58:                                               ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
-  %.030 = phi i16 [ %53, %.lr.ph ], [ %84, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
-  %58 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %21, i64 %indvars.iv
-  %59 = load i8, ptr %58, align 1
-  %60 = and i8 %59, 1
-  %.not.i15 = icmp eq i8 %60, 0
-  br i1 %.not.i15, label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22, label %61
+  %.030 = phi i16 [ %54, %.lr.ph ], [ %86, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
+  %59 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %21, i64 %indvars.iv
+  %60 = load i8, ptr %59, align 1
+  %61 = and i8 %60, 1
+  %.not.i15 = icmp eq i8 %61, 0
+  br i1 %.not.i15, label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22, label %62
 
-61:                                               ; preds = %57
-  %62 = and i8 %59, 24
-  %or.cond.not.i16 = icmp eq i8 %62, 0
-  br i1 %or.cond.not.i16, label %67, label %63
+62:                                               ; preds = %58
+  %63 = and i8 %60, 24
+  %or.cond.not.i16 = icmp eq i8 %63, 0
+  br i1 %or.cond.not.i16, label %68, label %64
 
-63:                                               ; preds = %61
-  %64 = and i8 %59, 8
-  %.not.i.i17 = icmp eq i8 %64, 0
-  %.sroa.0.1.i18 = select i1 %.not.i.i17, i16 %29, i16 %55
-  %65 = and i16 %.sroa.0.1.i18, -16793
-  %66 = or disjoint i16 %65, 16384
-  br label %69
+64:                                               ; preds = %62
+  %65 = and i8 %60, 8
+  %.not.i.i17 = icmp eq i8 %65, 0
+  %.sroa.0.1.i18 = select i1 %.not.i.i17, i16 %29, i16 %56
+  %66 = and i16 %.sroa.0.1.i18, -16793
+  %67 = or disjoint i16 %66, 16384
+  br label %70
 
-67:                                               ; preds = %61
-  %.not16.i21 = icmp ult i8 %59, 64
-  %68 = select i1 %.not16.i21, i16 8, i16 0
-  %.reass = or disjoint i16 %68, %invariant.op
-  br label %69
+68:                                               ; preds = %62
+  %.not16.i21 = icmp ult i8 %60, 64
+  %69 = select i1 %.not16.i21, i16 8, i16 0
+  %.reass = or disjoint i16 %69, %invariant.op
+  br label %70
 
-69:                                               ; preds = %67, %63
-  %.sroa.0.2.i19 = phi i16 [ %66, %63 ], [ %.reass, %67 ]
-  %70 = lshr i8 %59, 7
-  %71 = zext nneg i8 %70 to i16
-  %72 = shl nuw i16 %71, 15
-  %73 = and i16 %.sroa.0.2.i19, 24568
-  %74 = and i8 %59, 2
-  %75 = zext nneg i8 %74 to i16
-  %76 = or disjoint i16 %72, %75
+70:                                               ; preds = %68, %64
+  %.sroa.0.2.i19 = phi i16 [ %67, %64 ], [ %.reass, %68 ]
+  %71 = lshr i8 %60, 7
+  %72 = zext nneg i8 %71 to i16
+  %73 = shl nuw i16 %72, 15
+  %74 = and i16 %.sroa.0.2.i19, 24568
+  %75 = and i8 %60, 2
+  %76 = zext nneg i8 %75 to i16
   %77 = or disjoint i16 %73, %76
-  %78 = lshr i8 %59, 2
-  %79 = zext nneg i8 %78 to i16
-  %80 = or i16 %.sroa.0.2.i19, %79
-  %81 = and i16 %80, 1
-  %82 = or disjoint i16 %77, %81
-  %83 = or disjoint i16 %82, 8196
+  %78 = or disjoint i16 %74, %77
+  %79 = lshr i8 %60, 2
+  %80 = and i8 %79, 1
+  %81 = and i16 %.sroa.0.2.i19, 1
+  %82 = zext nneg i8 %80 to i16
+  %83 = or i16 %81, %82
+  %84 = or disjoint i16 %78, %83
+  %85 = or disjoint i16 %84, 8196
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22
 
-_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22: ; preds = %57, %69
-  %.sroa.0.0.i20 = phi i16 [ %83, %69 ], [ %.sroa.06.0.copyload, %57 ]
-  %84 = or i16 %.sroa.0.0.i20, %.030
+_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22: ; preds = %58, %70
+  %.sroa.0.0.i20 = phi i16 [ %85, %70 ], [ %.sroa.06.0.copyload, %58 ]
+  %86 = or i16 %.sroa.0.0.i20, %.030
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !46
 
 .loopexit:                                        ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit, %3
-  %.sroa.028.0 = phi i16 [ %.sroa.06.0.copyload, %3 ], [ %53, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit ], [ %84, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
+  %.sroa.028.0 = phi i16 [ %.sroa.06.0.copyload, %3 ], [ %54, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit ], [ %86, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
   ret i16 %.sroa.028.0
 }
 

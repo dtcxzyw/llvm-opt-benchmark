@@ -5315,7 +5315,7 @@ define dso_local void @tcp_xmit_retransmit_queue(ptr noundef %0) local_unnamed_a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1676
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %265, label %5
+  br i1 %4, label %264, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -5379,7 +5379,7 @@ define dso_local void @tcp_xmit_retransmit_queue(ptr noundef %0) local_unnamed_a
   %53 = zext i16 %52 to i32
   %54 = tail call i32 @llvm.umin.i32(i32 %50, i32 %53)
   %55 = icmp eq ptr %11, null
-  br i1 %55, label %265, label %56
+  br i1 %55, label %264, label %56
 
 56:                                               ; preds = %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 396
@@ -5660,38 +5660,37 @@ define dso_local void @tcp_xmit_retransmit_queue(ptr noundef %0) local_unnamed_a
 
 .thread:                                          ; preds = %178, %209, %111, %100, %239, %.thread.sink.split, %93, %86
   %244 = phi i8 [ %79, %86 ], [ %79, %93 ], [ %79, %.thread.sink.split ], [ %79, %178 ], [ %79, %209 ], [ %79, %111 ], [ %79, %100 ], [ %240, %239 ]
-  %245 = and i8 %244, 1
-  %246 = icmp eq i8 %245, 0
-  br i1 %246, label %265, label %247
+  %245 = icmp eq i8 %244, 0
+  br i1 %245, label %264, label %246
 
-247:                                              ; preds = %.thread
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %249 = load i32, ptr %248, align 8
-  %250 = zext i32 %249 to i64
-  %251 = load i64, ptr %58, align 8
-  %252 = load i64, ptr %59, align 64
-  %253 = sub i64 %251, %252
-  %254 = icmp sgt i64 %253, 0
-  br i1 %254, label %255, label %257
+246:                                              ; preds = %.thread
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %248 = load i32, ptr %247, align 8
+  %249 = zext i32 %248 to i64
+  %250 = load i64, ptr %58, align 8
+  %251 = load i64, ptr %59, align 64
+  %252 = sub i64 %250, %251
+  %253 = icmp sgt i64 %252, 0
+  br i1 %253, label %254, label %256
 
-255:                                              ; preds = %247
-  %256 = tail call i64 @nsecs_to_jiffies(i64 noundef %253) #18
-  br label %257
+254:                                              ; preds = %246
+  %255 = tail call i64 @nsecs_to_jiffies(i64 noundef %252) #18
+  br label %256
 
-257:                                              ; preds = %255, %247
-  %258 = phi i64 [ %256, %255 ], [ 0, %247 ]
-  %259 = add i64 %258, %250
-  %260 = tail call i64 @llvm.umin.i64(i64 %259, i64 120000)
+256:                                              ; preds = %254, %246
+  %257 = phi i64 [ %255, %254 ], [ 0, %246 ]
+  %258 = add i64 %257, %249
+  %259 = tail call i64 @llvm.umin.i64(i64 %258, i64 120000)
   store i8 1, ptr %72, align 2
-  %261 = load volatile i64, ptr @jiffies, align 64
-  %262 = add i64 %261, %260
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store i64 %262, ptr %263, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  tail call void @sk_reset_timer(ptr noundef %0, ptr noundef nonnull %264, i64 noundef %262) #18
-  br label %265
+  %260 = load volatile i64, ptr @jiffies, align 64
+  %261 = add i64 %260, %259
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  store i64 %261, ptr %262, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  tail call void @sk_reset_timer(ptr noundef %0, ptr noundef nonnull %263, i64 noundef %261) #18
+  br label %264
 
-265:                                              ; preds = %257, %.thread, %._crit_edge, %1
+264:                                              ; preds = %256, %.thread, %._crit_edge, %1
   ret void
 }
 

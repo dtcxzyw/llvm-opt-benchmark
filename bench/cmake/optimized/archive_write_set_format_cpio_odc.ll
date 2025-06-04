@@ -350,7 +350,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 
 23:                                               ; preds = %19
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.7) #12
-  br label %157
+  br label %158
 
 24:                                               ; preds = %19
   %25 = call ptr @archive_entry_pathname(ptr noundef %1) #12
@@ -369,7 +369,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %32 = call fastcc i64 @format_octal_recursive(i64 noundef %..i, ptr noundef nonnull %31, i32 noundef 6)
   %33 = call i64 @archive_entry_ino64(ptr noundef %1) #12
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.thread113, label %35
 
 35:                                               ; preds = %27
   %36 = call i32 @archive_entry_nlink(ptr noundef %1) #12
@@ -463,166 +463,166 @@ synthesize_ino_value.exit:                        ; preds = %42, %53, %70
 
 synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino_value.exit
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.11) #12
-  br label %157
+  br label %158
 
 77:                                               ; preds = %synthesize_ino_value.exit
-  %78 = icmp samesign ugt i32 %.0.i65, 262143
-  br i1 %78, label %79, label %.thread
+  %78 = zext nneg i32 %.0.i65 to i64
+  %79 = icmp samesign ugt i32 %.0.i65, 262143
+  br i1 %79, label %80, label %.thread113
 
-79:                                               ; preds = %77
+80:                                               ; preds = %77
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.12) #12
-  br label %157
+  br label %158
 
-.thread:                                          ; preds = %27, %77
-  %.0.i65111113 = phi i32 [ %.0.i65, %77 ], [ 0, %27 ]
-  %80 = zext nneg i32 %.0.i65111113 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %82 = call fastcc i64 @format_octal_recursive(i64 noundef %80, ptr noundef nonnull %81, i32 noundef 6)
-  %83 = call i32 @archive_entry_mode(ptr noundef %1) #12
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  %85 = call i32 @llvm.umin.i32(i32 %83, i32 262143)
-  %..i74 = zext nneg i32 %85 to i64
-  %86 = call fastcc i64 @format_octal_recursive(i64 noundef %..i74, ptr noundef nonnull %84, i32 noundef 6)
-  %87 = call i64 @archive_entry_uid(ptr noundef %1) #12
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %..i78 = call i64 @llvm.umin.i64(i64 %87, i64 262143)
-  %89 = call fastcc i64 @format_octal_recursive(i64 noundef %..i78, ptr noundef nonnull %88, i32 noundef 6)
-  %90 = call i64 @archive_entry_gid(ptr noundef %1) #12
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 30
-  %..i82 = call i64 @llvm.umin.i64(i64 %90, i64 262143)
-  %92 = call fastcc i64 @format_octal_recursive(i64 noundef %..i82, ptr noundef nonnull %91, i32 noundef 6)
-  %93 = call i32 @archive_entry_nlink(ptr noundef %1) #12
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %95 = call i32 @llvm.umin.i32(i32 %93, i32 262143)
-  %..i86 = zext nneg i32 %95 to i64
-  %96 = call fastcc i64 @format_octal_recursive(i64 noundef %..i86, ptr noundef nonnull %94, i32 noundef 6)
-  %97 = call i32 @archive_entry_filetype(ptr noundef %1) #12
-  %98 = icmp eq i32 %97, 24576
-  br i1 %98, label %102, label %99
+.thread113:                                       ; preds = %77, %27
+  %81 = phi i64 [ 0, %27 ], [ %78, %77 ]
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %83 = call fastcc i64 @format_octal_recursive(i64 noundef %81, ptr noundef nonnull %82, i32 noundef 6)
+  %84 = call i32 @archive_entry_mode(ptr noundef %1) #12
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %86 = call i32 @llvm.umin.i32(i32 %84, i32 262143)
+  %..i74 = zext nneg i32 %86 to i64
+  %87 = call fastcc i64 @format_octal_recursive(i64 noundef %..i74, ptr noundef nonnull %85, i32 noundef 6)
+  %88 = call i64 @archive_entry_uid(ptr noundef %1) #12
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %..i78 = call i64 @llvm.umin.i64(i64 %88, i64 262143)
+  %90 = call fastcc i64 @format_octal_recursive(i64 noundef %..i78, ptr noundef nonnull %89, i32 noundef 6)
+  %91 = call i64 @archive_entry_gid(ptr noundef %1) #12
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 30
+  %..i82 = call i64 @llvm.umin.i64(i64 %91, i64 262143)
+  %93 = call fastcc i64 @format_octal_recursive(i64 noundef %..i82, ptr noundef nonnull %92, i32 noundef 6)
+  %94 = call i32 @archive_entry_nlink(ptr noundef %1) #12
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %96 = call i32 @llvm.umin.i32(i32 %94, i32 262143)
+  %..i86 = zext nneg i32 %96 to i64
+  %97 = call fastcc i64 @format_octal_recursive(i64 noundef %..i86, ptr noundef nonnull %95, i32 noundef 6)
+  %98 = call i32 @archive_entry_filetype(ptr noundef %1) #12
+  %99 = icmp eq i32 %98, 24576
+  br i1 %99, label %103, label %100
 
-99:                                               ; preds = %.thread
-  %100 = call i32 @archive_entry_filetype(ptr noundef %1) #12
-  %101 = icmp eq i32 %100, 8192
-  br i1 %101, label %102, label %106
+100:                                              ; preds = %.thread113
+  %101 = call i32 @archive_entry_filetype(ptr noundef %1) #12
+  %102 = icmp eq i32 %101, 8192
+  br i1 %102, label %103, label %107
 
-102:                                              ; preds = %99, %.thread
-  %103 = call i64 @archive_entry_rdev(ptr noundef %1) #12
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 42
-  %..i90 = call i64 @llvm.umin.i64(i64 %103, i64 262143)
-  %105 = call fastcc i64 @format_octal_recursive(i64 noundef %..i90, ptr noundef nonnull %104, i32 noundef 6)
-  br label %109
+103:                                              ; preds = %100, %.thread113
+  %104 = call i64 @archive_entry_rdev(ptr noundef %1) #12
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 42
+  %..i90 = call i64 @llvm.umin.i64(i64 %104, i64 262143)
+  %106 = call fastcc i64 @format_octal_recursive(i64 noundef %..i90, ptr noundef nonnull %105, i32 noundef 6)
+  br label %110
 
-106:                                              ; preds = %99
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 42
-  %108 = call fastcc i64 @format_octal_recursive(i64 noundef 0, ptr noundef nonnull %107, i32 noundef 6)
-  br label %109
+107:                                              ; preds = %100
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 42
+  %109 = call fastcc i64 @format_octal_recursive(i64 noundef 0, ptr noundef nonnull %108, i32 noundef 6)
+  br label %110
 
-109:                                              ; preds = %106, %102
-  %110 = call i64 @archive_entry_mtime(ptr noundef %1) #12
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %..i94 = call i64 @llvm.umin.i64(i64 %110, i64 8589934591)
-  %112 = call fastcc i64 @format_octal_recursive(i64 noundef %..i94, ptr noundef nonnull %111, i32 noundef 11)
-  %113 = shl i64 %28, 32
-  %sext = add i64 %113, 4294967296
-  %114 = ashr exact i64 %sext, 32
-  %115 = getelementptr inbounds nuw i8, ptr %5, i64 59
-  %..i98 = call i64 @llvm.umin.i64(i64 %114, i64 262143)
-  %116 = call fastcc i64 @format_octal_recursive(i64 noundef %..i98, ptr noundef nonnull %115, i32 noundef 6)
-  %117 = call i32 @archive_entry_filetype(ptr noundef %1) #12
-  %.not53 = icmp eq i32 %117, 32768
-  br i1 %.not53, label %119, label %118
+110:                                              ; preds = %107, %103
+  %111 = call i64 @archive_entry_mtime(ptr noundef %1) #12
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %..i94 = call i64 @llvm.umin.i64(i64 %111, i64 8589934591)
+  %113 = call fastcc i64 @format_octal_recursive(i64 noundef %..i94, ptr noundef nonnull %112, i32 noundef 11)
+  %114 = shl i64 %28, 32
+  %sext = add i64 %114, 4294967296
+  %115 = ashr exact i64 %sext, 32
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 59
+  %..i98 = call i64 @llvm.umin.i64(i64 %115, i64 262143)
+  %117 = call fastcc i64 @format_octal_recursive(i64 noundef %..i98, ptr noundef nonnull %116, i32 noundef 6)
+  %118 = call i32 @archive_entry_filetype(ptr noundef %1) #12
+  %.not53 = icmp eq i32 %118, 32768
+  br i1 %.not53, label %120, label %119
 
-118:                                              ; preds = %109
+119:                                              ; preds = %110
   call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #12
-  br label %119
+  br label %120
 
-119:                                              ; preds = %118, %109
-  %120 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef %.0.i) #12
-  %.not54 = icmp eq i32 %120, 0
-  br i1 %.not54, label %129, label %121
+120:                                              ; preds = %119, %110
+  %121 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef %.0.i) #12
+  %.not54 = icmp eq i32 %121, 0
+  br i1 %.not54, label %130, label %122
 
-121:                                              ; preds = %119
-  %122 = tail call ptr @__errno_location() #15
-  %123 = load i32, ptr %122, align 4, !tbaa !31
-  %124 = icmp eq i32 %123, 12
-  br i1 %124, label %125, label %126
+122:                                              ; preds = %120
+  %123 = tail call ptr @__errno_location() #15
+  %124 = load i32, ptr %123, align 4, !tbaa !31
+  %125 = icmp eq i32 %124, 12
+  br i1 %125, label %126, label %127
 
-125:                                              ; preds = %121
+126:                                              ; preds = %122
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.13) #12
-  br label %157
+  br label %158
 
-126:                                              ; preds = %121
-  %127 = call ptr @archive_entry_symlink(ptr noundef %1) #12
-  %128 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0.i) #12
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14, ptr noundef %127, ptr noundef %128) #12
-  br label %129
+127:                                              ; preds = %122
+  %128 = call ptr @archive_entry_symlink(ptr noundef %1) #12
+  %129 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0.i) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14, ptr noundef %128, ptr noundef %129) #12
+  br label %130
 
-129:                                              ; preds = %126, %119
-  %.2 = phi i32 [ -20, %126 ], [ %.049, %119 ]
-  %130 = load i64, ptr %6, align 8, !tbaa !32
-  %131 = icmp ne i64 %130, 0
-  %132 = load ptr, ptr %3, align 8
-  %133 = icmp ne ptr %132, null
-  %or.cond = select i1 %131, i1 %133, i1 false
-  br i1 %or.cond, label %134, label %138
+130:                                              ; preds = %127, %120
+  %.2 = phi i32 [ -20, %127 ], [ %.049, %120 ]
+  %131 = load i64, ptr %6, align 8, !tbaa !32
+  %132 = icmp ne i64 %131, 0
+  %133 = load ptr, ptr %3, align 8
+  %134 = icmp ne ptr %133, null
+  %or.cond = select i1 %132, i1 %134, i1 false
+  br i1 %or.cond, label %135, label %139
 
-134:                                              ; preds = %129
-  %135 = load i8, ptr %132, align 1, !tbaa !26
-  %.not55 = icmp eq i8 %135, 0
-  br i1 %.not55, label %138, label %136
+135:                                              ; preds = %130
+  %136 = load i8, ptr %133, align 1, !tbaa !26
+  %.not55 = icmp eq i8 %136, 0
+  br i1 %.not55, label %139, label %137
 
-136:                                              ; preds = %134
-  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %132) #14
-  br label %140
+137:                                              ; preds = %135
+  %138 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %133) #14
+  br label %141
 
-138:                                              ; preds = %134, %129
-  %139 = call i64 @archive_entry_size(ptr noundef %1) #12
-  br label %140
+139:                                              ; preds = %135, %130
+  %140 = call i64 @archive_entry_size(ptr noundef %1) #12
+  br label %141
 
-140:                                              ; preds = %138, %136
-  %.sink117 = phi i64 [ %139, %138 ], [ %137, %136 ]
-  %141 = getelementptr inbounds nuw i8, ptr %5, i64 65
-  %..i106 = call i64 @llvm.umin.i64(i64 %.sink117, i64 8589934591)
-  %142 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %141, i32 noundef 11)
-  %.0.in = icmp ult i64 %.sink117, 8589934592
-  br i1 %.0.in, label %144, label %143
+141:                                              ; preds = %139, %137
+  %.sink119 = phi i64 [ %140, %139 ], [ %138, %137 ]
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 65
+  %..i106 = call i64 @llvm.umin.i64(i64 %.sink119, i64 8589934591)
+  %143 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %142, i32 noundef 11)
+  %.0.in = icmp ult i64 %.sink119, 8589934592
+  br i1 %.0.in, label %145, label %144
 
-143:                                              ; preds = %140
+144:                                              ; preds = %141
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.15) #12
-  br label %157
+  br label %158
 
-144:                                              ; preds = %140
-  %145 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 76) #12
-  %.not57 = icmp eq i32 %145, 0
-  br i1 %.not57, label %146, label %157
+145:                                              ; preds = %141
+  %146 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 76) #12
+  %.not57 = icmp eq i32 %146, 0
+  br i1 %.not57, label %147, label %158
 
-146:                                              ; preds = %144
-  %147 = load ptr, ptr %4, align 8, !tbaa !43
-  %148 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %147, i64 noundef %114) #12
-  %.not58 = icmp eq i32 %148, 0
-  br i1 %.not58, label %149, label %157
+147:                                              ; preds = %145
+  %148 = load ptr, ptr %4, align 8, !tbaa !43
+  %149 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %148, i64 noundef %115) #12
+  %.not58 = icmp eq i32 %149, 0
+  br i1 %.not58, label %150, label %158
 
-149:                                              ; preds = %146
-  %150 = call i64 @archive_entry_size(ptr noundef %1) #12
-  store i64 %150, ptr %8, align 8, !tbaa !33
-  %151 = load ptr, ptr %3, align 8, !tbaa !43
-  %.not59 = icmp eq ptr %151, null
-  br i1 %.not59, label %157, label %152
+150:                                              ; preds = %147
+  %151 = call i64 @archive_entry_size(ptr noundef %1) #12
+  store i64 %151, ptr %8, align 8, !tbaa !33
+  %152 = load ptr, ptr %3, align 8, !tbaa !43
+  %.not59 = icmp eq ptr %152, null
+  br i1 %.not59, label %158, label %153
 
-152:                                              ; preds = %149
-  %153 = load i8, ptr %151, align 1, !tbaa !26
-  %.not60 = icmp eq i8 %153, 0
-  br i1 %.not60, label %157, label %154
+153:                                              ; preds = %150
+  %154 = load i8, ptr %152, align 1, !tbaa !26
+  %.not60 = icmp eq i8 %154, 0
+  br i1 %.not60, label %158, label %155
 
-154:                                              ; preds = %152
-  %155 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %151) #14
-  %156 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %151, i64 noundef %155) #12
-  %.not61 = icmp eq i32 %156, 0
+155:                                              ; preds = %153
+  %156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #14
+  %157 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %152, i64 noundef %156) #12
+  %.not61 = icmp eq i32 %157, 0
   %spec.select = select i1 %.not61, i32 %.2, i32 -30
-  br label %157
+  br label %158
 
-157:                                              ; preds = %154, %146, %144, %149, %152, %143, %125, %79, %synthesize_ino_value.exit.thread, %23
-  %.1 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %79 ], [ -30, %125 ], [ -25, %143 ], [ %.2, %152 ], [ %.2, %149 ], [ -30, %144 ], [ -30, %146 ], [ %spec.select, %154 ]
+158:                                              ; preds = %155, %147, %145, %150, %153, %144, %126, %80, %synthesize_ino_value.exit.thread, %23
+  %.1 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %80 ], [ -30, %126 ], [ -25, %144 ], [ %.2, %153 ], [ %.2, %150 ], [ -30, %145 ], [ -30, %147 ], [ %spec.select, %155 ]
   call void @archive_entry_free(ptr noundef null) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %5) #12

@@ -5605,7 +5605,7 @@ define dso_local void @fib_select_multipath(ptr noundef captures(none) %0, i32 n
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  br label %120
+  br label %119
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5617,11 +5617,11 @@ define dso_local void @fib_select_multipath(ptr noundef captures(none) %0, i32 n
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %21
 
-21:                                               ; preds = %116, %13
-  %22 = phi ptr [ null, %13 ], [ %.pre, %116 ]
-  %23 = phi i8 [ 0, %13 ], [ %117, %116 ]
-  %24 = phi i32 [ 0, %13 ], [ %119, %116 ]
-  %25 = phi ptr [ %16, %13 ], [ %118, %116 ]
+21:                                               ; preds = %115, %13
+  %22 = phi ptr [ null, %13 ], [ %.pre, %115 ]
+  %23 = phi i8 [ 0, %13 ], [ %116, %115 ]
+  %24 = phi i32 [ 0, %13 ], [ %118, %115 ]
+  %25 = phi ptr [ %16, %13 ], [ %117, %115 ]
   %26 = icmp eq ptr %22, null
   br i1 %26, label %41, label %27, !prof !14
 
@@ -5657,7 +5657,7 @@ define dso_local void @fib_select_multipath(ptr noundef captures(none) %0, i32 n
 46:                                               ; preds = %43
   %47 = load volatile i8, ptr %18, align 4
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %109, label %49
+  br i1 %48, label %108, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %25, i64 12
@@ -5735,49 +5735,48 @@ define dso_local void @fib_select_multipath(ptr noundef captures(none) %0, i32 n
   %102 = and i8 %101, -34
   %103 = icmp eq i8 %102, 0
   tail call void @__rcu_read_unlock() #16
-  br i1 %103, label %116, label %104
+  br i1 %103, label %115, label %104
 
 .thread:                                          ; preds = %91, %56, %53, %94
   tail call void @__rcu_read_unlock() #16
   br label %104
 
 104:                                              ; preds = %.thread, %.thread6, %49
-  %105 = and i8 %23, 1
-  %106 = icmp eq i8 %105, 0
-  br i1 %106, label %107, label %109
+  %105 = icmp eq i8 %23, 0
+  br i1 %105, label %106, label %108
 
-107:                                              ; preds = %104
-  %108 = trunc i32 %24 to i8
-  store i8 %108, ptr %19, align 1
+106:                                              ; preds = %104
+  %107 = trunc i32 %24 to i8
+  store i8 %107, ptr %19, align 1
   store ptr %25, ptr %20, align 8
-  br label %109
+  br label %108
 
-109:                                              ; preds = %107, %104, %46
-  %110 = phi i8 [ %23, %104 ], [ 1, %107 ], [ %23, %46 ]
-  %111 = getelementptr inbounds nuw i8, ptr %25, i64 44
-  %112 = load volatile i32, ptr %111, align 4
-  %113 = icmp slt i32 %112, %1
-  br i1 %113, label %116, label %114
+108:                                              ; preds = %106, %104, %46
+  %109 = phi i8 [ %23, %104 ], [ 1, %106 ], [ %23, %46 ]
+  %110 = getelementptr inbounds nuw i8, ptr %25, i64 44
+  %111 = load volatile i32, ptr %110, align 4
+  %112 = icmp slt i32 %111, %1
+  br i1 %112, label %115, label %113
 
-114:                                              ; preds = %109
-  %115 = trunc i32 %24 to i8
-  store i8 %115, ptr %19, align 1
-  br label %120
+113:                                              ; preds = %108
+  %114 = trunc i32 %24 to i8
+  store i8 %114, ptr %19, align 1
+  br label %119
 
-116:                                              ; preds = %109, %.thread6
-  %117 = phi i8 [ %110, %109 ], [ %23, %.thread6 ]
-  %118 = getelementptr i8, ptr %25, i64 104
-  %119 = add i32 %24, 1
+115:                                              ; preds = %108, %.thread6
+  %116 = phi i8 [ %109, %108 ], [ %23, %.thread6 ]
+  %117 = getelementptr i8, ptr %25, i64 104
+  %118 = add i32 %24, 1
   %.pre = load ptr, ptr %5, align 8
   br label %21, !llvm.loop !73
 
-120:                                              ; preds = %114, %8
-  %121 = phi ptr [ %25, %114 ], [ %12, %8 ]
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %121, ptr %122, align 8
+119:                                              ; preds = %113, %8
+  %120 = phi ptr [ %25, %113 ], [ %12, %8 ]
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %120, ptr %121, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %120
+.loopexit:                                        ; preds = %43, %119
   ret void
 }
 

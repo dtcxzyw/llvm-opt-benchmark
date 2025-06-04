@@ -1418,7 +1418,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 
 8:                                                ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i, %88, %10, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit"
   %.sroa.011.0 = phi i8 [ %.sroa.0.0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit" ], [ %12, %10 ], [ %28, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i ], [ %.sroa.014.4.i, %88 ]
-  %9 = trunc i8 %.sroa.011.0 to i1
+  %9 = trunc nuw i8 %.sroa.011.0 to i1
   ret i1 %9
 
 10:                                               ; preds = %3

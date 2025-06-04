@@ -243,7 +243,7 @@ define dso_local noundef range(i32 0, 14) i32 @acpi_ds_obj_stack_pop(i32 noundef
 
 9:                                                ; preds = %14, %4
   %10 = phi i64 [ %8, %4 ], [ %15, %14 ]
-  %11 = phi i32 [ 0, %4 ], [ %19, %14 ]
+  %11 = phi i32 [ 0, %4 ], [ %18, %14 ]
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %13, label %14
 
@@ -255,16 +255,15 @@ define dso_local noundef range(i32 0, 14) i32 @acpi_ds_obj_stack_pop(i32 noundef
   %15 = add nsw i64 %10, -1
   %16 = trunc nuw i64 %15 to i8
   store i8 %16, ptr %5, align 1
-  %17 = and i64 %15, 255
-  %18 = getelementptr [9 x ptr], ptr %6, i64 0, i64 %17
-  store ptr null, ptr %18, align 8
-  %19 = add nuw nsw i32 %11, 1
-  %20 = icmp eq i32 %19, %0
-  br i1 %20, label %.loopexit, label %9, !llvm.loop !5
+  %17 = getelementptr [9 x ptr], ptr %6, i64 0, i64 %15
+  store ptr null, ptr %17, align 8
+  %18 = add nuw nsw i32 %11, 1
+  %19 = icmp eq i32 %18, %0
+  br i1 %19, label %.loopexit, label %9, !llvm.loop !5
 
 .loopexit:                                        ; preds = %14, %13, %2
-  %21 = phi i32 [ 13, %13 ], [ 0, %2 ], [ 0, %14 ]
-  ret i32 %21
+  %20 = phi i32 [ 13, %13 ], [ 0, %2 ], [ 0, %14 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

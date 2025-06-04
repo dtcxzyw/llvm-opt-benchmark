@@ -890,7 +890,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr noundef readonly 
   br label %12
 
 12:                                               ; preds = %.thread, %5
-  %13 = phi i64 [ %1, %5 ], [ %116, %.thread ]
+  %13 = phi i64 [ %1, %5 ], [ %115, %.thread ]
   %14 = load i32, ptr %10, align 8
   %15 = icmp slt i32 %14, 6
   %16 = mul i32 %14, 9
@@ -1024,43 +1024,42 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
 
 .loopexit:                                        ; preds = %.preheader15, %88, %.preheader
   %98 = phi i8 [ %96, %.preheader ], [ 1, %.preheader15 ], [ 0, %88 ]
-  %99 = and i8 %98, 1
-  %100 = icmp eq i8 %99, 0
-  br i1 %100, label %.thread, label %101
+  %99 = icmp eq i8 %98, 0
+  br i1 %99, label %.thread, label %100
 
-101:                                              ; preds = %.loopexit
-  %102 = load ptr, ptr %9, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread, label %104
+100:                                              ; preds = %.loopexit
+  %101 = load ptr, ptr %9, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %.thread, label %103
 
-104:                                              ; preds = %101
-  %105 = add i64 %13, -1
-  %106 = add i64 %105, %.2
-  %107 = load i64, ptr %102, align 8
-  %108 = icmp ugt i64 %107, %13
-  br i1 %108, label %109, label %110
+103:                                              ; preds = %100
+  %104 = add i64 %13, -1
+  %105 = add i64 %104, %.2
+  %106 = load i64, ptr %101, align 8
+  %107 = icmp ugt i64 %106, %13
+  br i1 %107, label %108, label %109
 
-109:                                              ; preds = %104
-  store i64 %13, ptr %102, align 8
-  br label %110
+108:                                              ; preds = %103
+  store i64 %13, ptr %101, align 8
+  br label %109
 
-110:                                              ; preds = %109, %104
-  %111 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %112 = load i64, ptr %111, align 8
-  %113 = icmp ult i64 %112, %106
-  br i1 %113, label %114, label %.thread
+109:                                              ; preds = %108, %103
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %111 = load i64, ptr %110, align 8
+  %112 = icmp ult i64 %111, %105
+  br i1 %112, label %113, label %.thread
 
-114:                                              ; preds = %110
-  store i64 %106, ptr %111, align 8
+113:                                              ; preds = %109
+  store i64 %105, ptr %110, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.preheader.i, %42, %fetch_pte.exit, %74, %12, %.loopexit, %101, %110, %114
-  %115 = phi i64 [ %.2, %114 ], [ %.2, %110 ], [ %.2, %101 ], [ %.2, %.loopexit ], [ 4096, %12 ], [ %.2, %fetch_pte.exit ], [ %.2, %74 ], [ %.1, %42 ], [ %.1, %.preheader.i ]
-  %116 = add i64 %115, %13
-  %117 = icmp ult i64 %116, %7
-  br i1 %117, label %12, label %118, !llvm.loop !42
+.thread:                                          ; preds = %.preheader.i, %42, %fetch_pte.exit, %74, %12, %.loopexit, %100, %109, %113
+  %114 = phi i64 [ %.2, %113 ], [ %.2, %109 ], [ %.2, %100 ], [ %.2, %.loopexit ], [ 4096, %12 ], [ %.2, %fetch_pte.exit ], [ %.2, %74 ], [ %.1, %42 ], [ %.1, %.preheader.i ]
+  %115 = add i64 %114, %13
+  %116 = icmp ult i64 %115, %7
+  br i1 %116, label %12, label %117, !llvm.loop !42
 
-118:                                              ; preds = %.thread
+117:                                              ; preds = %.thread
   ret i32 0
 }
 

@@ -22504,23 +22504,23 @@ define internal fastcc void @_ZN5clang9api_notes12_GLOBAL__N_116ReadFunctionInfo
 18:                                               ; preds = %._crit_edge61, %11
   %19 = phi i16 [ %.pre, %._crit_edge61 ], [ %17, %11 ]
   %20 = lshr i8 %.0.copyload.i.i.i, 3
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %22 = and i8 %20, 1
-  %23 = zext nneg i8 %22 to i16
+  %21 = and i8 %20, 1
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %23 = zext nneg i8 %21 to i16
   %24 = and i16 %19, -2
   %25 = or disjoint i16 %24, %23
-  store i16 %25, ptr %21, align 8
+  store i16 %25, ptr %22, align 8
   %26 = load ptr, ptr %0, align 8, !tbaa !47
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i35 = load i8, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %27, ptr %0, align 8, !tbaa !47
   %28 = zext i8 %.0.copyload.i.i.i35 to i16
-  %29 = load i16, ptr %21, align 8
+  %29 = load i16, ptr %22, align 8
   %30 = shl nuw nsw i16 %28, 1
   %31 = and i16 %29, -511
   %32 = or disjoint i16 %31, %30
-  store i16 %32, ptr %21, align 8
+  store i16 %32, ptr %22, align 8
   %33 = load ptr, ptr %0, align 8, !tbaa !47
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i36 = load i64, ptr %33, align 1

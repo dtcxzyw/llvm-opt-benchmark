@@ -1382,7 +1382,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm29thinLTOPropagateFunctionAttrsERNS
   %7 = alloca %"class.llvm::scc_iterator", align 8
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL25DisableThinLTOPropagation, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %327, label %10
+  br i1 %9, label %326, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #23
@@ -1412,7 +1412,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm29thinLTOPropagateFunctionAttrsERNS
   br label %55
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit, %10
-  %22 = phi ptr [ %16, %10 ], [ %324, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
+  %22 = phi ptr [ %16, %10 ], [ %323, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
   %.019.lcssa = phi i1 [ false, %10 ], [ %.157, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !140
@@ -1472,11 +1472,11 @@ _ZN4llvm12scc_iteratorIPNS_18ModuleSummaryIndexENS_11GraphTraitsIS2_EEED2Ev.exit
   %54 = shl nuw nsw i64 %53, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %50, i64 noundef %54, i64 noundef 8) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #23
-  br label %327
+  br label %326
 
 55:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit
-  %56 = phi ptr [ %17, %.lr.ph ], [ %325, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
-  %57 = phi ptr [ %16, %.lr.ph ], [ %324, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
+  %56 = phi ptr [ %17, %.lr.ph ], [ %324, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
+  %57 = phi ptr [ %16, %.lr.ph ], [ %323, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
   %.01979 = phi i1 [ false, %.lr.ph ], [ %.157, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
   %58 = ptrtoint ptr %56 to i64
   %59 = ptrtoint ptr %57 to i64
@@ -1989,7 +1989,7 @@ _ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionS
   %.not76.i = icmp eq i32 %265, 0
   %266 = and i16 %spec.select84.i, -65
   %.sroa.050.8.i = select i1 %.not76.i, i16 %266, i16 %spec.select84.i
-  %267 = and i16 %.sroa.050.8.i, 68
+  %267 = and i16 %.sroa.050.8.i, -60
   %or.cond.not.i = icmp eq i16 %267, 0
   %268 = getelementptr inbounds nuw i8, ptr %.067161.i, i64 16
   %.not73.i = icmp eq ptr %268, %137
@@ -2004,138 +2004,137 @@ _ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionS
   br i1 %.not142.i, label %.thread138.i, label %73
 
 .thread138.i:                                     ; preds = %.thread129.i
-  %270 = and i16 %.sroa.050.0.lcssa.fr.i, 64
-  %.not79.i = icmp eq i16 %270, 0
-  %271 = and i16 %.sroa.050.0.lcssa.fr.i, 68
-  %or.cond85.i = icmp eq i16 %271, 0
+  %.not79.i = icmp ult i16 %.sroa.050.0.lcssa.fr.i, 64
+  %270 = and i16 %.sroa.050.0.lcssa.fr.i, -60
+  %or.cond85.i = icmp eq i16 %270, 0
   br i1 %or.cond85.i, label %.loopexit, label %.lr.ph181.i
 
 .lr.ph181.i:                                      ; preds = %.thread138.i
-  %272 = and i16 %.sroa.050.0.lcssa.fr.i, 4
-  %.not80.i = icmp eq i16 %272, 0
+  %271 = and i16 %.sroa.050.0.lcssa.fr.i, 4
+  %.not80.i = icmp eq i16 %271, 0
   br i1 %.not80.i, label %.lr.ph181.split.us.i, label %.lr.ph181.split.i
 
 .lr.ph181.split.us.i:                             ; preds = %.lr.ph181.i
   br i1 %.not79.i, label %.loopexit, label %.lr.ph181.split.us.split.i
 
 .lr.ph181.split.us.split.i:                       ; preds = %.lr.ph181.split.us.i, %._crit_edge.split.us.split.us186.i
-  %.sroa.0104.0179.us.i = phi ptr [ %279, %._crit_edge.split.us.split.us186.i ], [ %64, %.lr.ph181.split.us.i ]
+  %.sroa.0104.0179.us.i = phi ptr [ %278, %._crit_edge.split.us.split.us186.i ], [ %64, %.lr.ph181.split.us.i ]
   %.0.copyload.i.i.i.i.i.us.i = load i64, ptr %.sroa.0104.0179.us.i, align 8
-  %273 = and i64 %.0.copyload.i.i.i.i.i.us.i, -8
-  %274 = inttoptr i64 %273 to ptr
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 24
-  %276 = load ptr, ptr %275, align 8, !tbaa !158
-  %277 = getelementptr inbounds nuw i8, ptr %274, i64 32
-  %278 = load ptr, ptr %277, align 8, !tbaa !161
-  %.not82170.us.i = icmp eq ptr %276, %278
+  %272 = and i64 %.0.copyload.i.i.i.i.i.us.i, -8
+  %273 = inttoptr i64 %272 to ptr
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
+  %275 = load ptr, ptr %274, align 8, !tbaa !158
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 32
+  %277 = load ptr, ptr %276, align 8, !tbaa !161
+  %.not82170.us.i = icmp eq ptr %275, %277
   br i1 %.not82170.us.i, label %._crit_edge.split.us.split.us186.i, label %.lr.ph172.us.i
 
-._crit_edge.split.us.split.us186.i:               ; preds = %288, %.lr.ph181.split.us.split.i
-  %279 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0179.us.i, i64 8
+._crit_edge.split.us.split.us186.i:               ; preds = %287, %.lr.ph181.split.us.split.i
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0179.us.i, i64 8
   %.not143.us.i = icmp eq ptr %.sroa.0104.0179.us.i, %.09.i.i.i.i.i
   br i1 %.not143.us.i, label %.loopexit, label %.lr.ph181.split.us.split.i
 
-.lr.ph172.us.i:                                   ; preds = %.lr.ph181.split.us.split.i, %288
-  %.068171.us.us182.i = phi ptr [ %289, %288 ], [ %276, %.lr.ph181.split.us.split.i ]
-  %280 = load ptr, ptr %.068171.us.us182.i, align 8, !tbaa !162
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %282 = load i32, ptr %281, align 8, !tbaa !164
-  %283 = icmp ne i32 %282, 1
-  %.not83144.us.us183.i = icmp eq ptr %280, null
-  %.not83.us.us184.i = or i1 %.not83144.us.us183.i, %283
-  br i1 %.not83.us.us184.i, label %288, label %284
+.lr.ph172.us.i:                                   ; preds = %.lr.ph181.split.us.split.i, %287
+  %.068171.us.us182.i = phi ptr [ %288, %287 ], [ %275, %.lr.ph181.split.us.split.i ]
+  %279 = load ptr, ptr %.068171.us.us182.i, align 8, !tbaa !162
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  %281 = load i32, ptr %280, align 8, !tbaa !164
+  %282 = icmp ne i32 %281, 1
+  %.not83144.us.us183.i = icmp eq ptr %279, null
+  %.not83.us.us184.i = or i1 %.not83144.us.us183.i, %282
+  br i1 %.not83.us.us184.i, label %287, label %283
 
-284:                                              ; preds = %.lr.ph172.us.i
-  %285 = getelementptr inbounds nuw i8, ptr %280, i64 60
-  %286 = load i16, ptr %285, align 4
-  %287 = or i16 %286, 64
-  store i16 %287, ptr %285, align 4
-  br label %288
+283:                                              ; preds = %.lr.ph172.us.i
+  %284 = getelementptr inbounds nuw i8, ptr %279, i64 60
+  %285 = load i16, ptr %284, align 4
+  %286 = or i16 %285, 64
+  store i16 %286, ptr %284, align 4
+  br label %287
 
-288:                                              ; preds = %284, %.lr.ph172.us.i
-  %289 = getelementptr inbounds nuw i8, ptr %.068171.us.us182.i, i64 8
-  %.not82.us.us185.i = icmp eq ptr %289, %278
+287:                                              ; preds = %283, %.lr.ph172.us.i
+  %288 = getelementptr inbounds nuw i8, ptr %.068171.us.us182.i, i64 8
+  %.not82.us.us185.i = icmp eq ptr %288, %277
   br i1 %.not82.us.us185.i, label %._crit_edge.split.us.split.us186.i, label %.lr.ph172.us.i
 
 .lr.ph181.split.i:                                ; preds = %.lr.ph181.i
   br i1 %.not79.i, label %.lr.ph181.split.split.us.i, label %.lr.ph181.split.split.i
 
 .lr.ph181.split.split.us.i:                       ; preds = %.lr.ph181.split.i, %._crit_edge.split.split.us.us.i
-  %.sroa.0104.0179.us188.i = phi ptr [ %296, %._crit_edge.split.split.us.us.i ], [ %64, %.lr.ph181.split.i ]
+  %.sroa.0104.0179.us188.i = phi ptr [ %295, %._crit_edge.split.split.us.us.i ], [ %64, %.lr.ph181.split.i ]
   %.0.copyload.i.i.i.i.i.us189.i = load i64, ptr %.sroa.0104.0179.us188.i, align 8
-  %290 = and i64 %.0.copyload.i.i.i.i.i.us189.i, -8
-  %291 = inttoptr i64 %290 to ptr
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
-  %293 = load ptr, ptr %292, align 8, !tbaa !158
-  %294 = getelementptr inbounds nuw i8, ptr %291, i64 32
-  %295 = load ptr, ptr %294, align 8, !tbaa !161
-  %.not82170.us190.i = icmp eq ptr %293, %295
+  %289 = and i64 %.0.copyload.i.i.i.i.i.us189.i, -8
+  %290 = inttoptr i64 %289 to ptr
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
+  %292 = load ptr, ptr %291, align 8, !tbaa !158
+  %293 = getelementptr inbounds nuw i8, ptr %290, i64 32
+  %294 = load ptr, ptr %293, align 8, !tbaa !161
+  %.not82170.us190.i = icmp eq ptr %292, %294
   br i1 %.not82170.us190.i, label %._crit_edge.split.split.us.us.i, label %.lr.ph172.us192.i
 
-._crit_edge.split.split.us.us.i:                  ; preds = %305, %.lr.ph181.split.split.us.i
-  %296 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0179.us188.i, i64 8
+._crit_edge.split.split.us.us.i:                  ; preds = %304, %.lr.ph181.split.split.us.i
+  %295 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0179.us188.i, i64 8
   %.not143.us191.i = icmp eq ptr %.sroa.0104.0179.us188.i, %.09.i.i.i.i.i
   br i1 %.not143.us191.i, label %.loopexit, label %.lr.ph181.split.split.us.i
 
-.lr.ph172.us192.i:                                ; preds = %.lr.ph181.split.split.us.i, %305
-  %.068171.us173.us.i = phi ptr [ %306, %305 ], [ %293, %.lr.ph181.split.split.us.i ]
-  %297 = load ptr, ptr %.068171.us173.us.i, align 8, !tbaa !162
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  %299 = load i32, ptr %298, align 8, !tbaa !164
-  %300 = icmp ne i32 %299, 1
-  %.not83144.us174.us.i = icmp eq ptr %297, null
-  %.not83.us175.us.i = or i1 %.not83144.us174.us.i, %300
-  br i1 %.not83.us175.us.i, label %305, label %301
+.lr.ph172.us192.i:                                ; preds = %.lr.ph181.split.split.us.i, %304
+  %.068171.us173.us.i = phi ptr [ %305, %304 ], [ %292, %.lr.ph181.split.split.us.i ]
+  %296 = load ptr, ptr %.068171.us173.us.i, align 8, !tbaa !162
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
+  %298 = load i32, ptr %297, align 8, !tbaa !164
+  %299 = icmp ne i32 %298, 1
+  %.not83144.us174.us.i = icmp eq ptr %296, null
+  %.not83.us175.us.i = or i1 %.not83144.us174.us.i, %299
+  br i1 %.not83.us175.us.i, label %304, label %300
 
-301:                                              ; preds = %.lr.ph172.us192.i
-  %302 = getelementptr inbounds nuw i8, ptr %297, i64 60
-  %303 = load i16, ptr %302, align 4
-  %304 = or i16 %303, 4
-  store i16 %304, ptr %302, align 4
-  br label %305
+300:                                              ; preds = %.lr.ph172.us192.i
+  %301 = getelementptr inbounds nuw i8, ptr %296, i64 60
+  %302 = load i16, ptr %301, align 4
+  %303 = or i16 %302, 4
+  store i16 %303, ptr %301, align 4
+  br label %304
 
-305:                                              ; preds = %301, %.lr.ph172.us192.i
-  %306 = getelementptr inbounds nuw i8, ptr %.068171.us173.us.i, i64 8
-  %.not82.us176.us.i = icmp eq ptr %306, %295
+304:                                              ; preds = %300, %.lr.ph172.us192.i
+  %305 = getelementptr inbounds nuw i8, ptr %.068171.us173.us.i, i64 8
+  %.not82.us176.us.i = icmp eq ptr %305, %294
   br i1 %.not82.us176.us.i, label %._crit_edge.split.split.us.us.i, label %.lr.ph172.us192.i
 
 .lr.ph181.split.split.i:                          ; preds = %.lr.ph181.split.i, %._crit_edge.split.split.i
-  %.sroa.0104.0179.i = phi ptr [ %313, %._crit_edge.split.split.i ], [ %64, %.lr.ph181.split.i ]
+  %.sroa.0104.0179.i = phi ptr [ %312, %._crit_edge.split.split.i ], [ %64, %.lr.ph181.split.i ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0104.0179.i, align 8
-  %307 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %308 = inttoptr i64 %307 to ptr
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 24
-  %310 = load ptr, ptr %309, align 8, !tbaa !158
-  %311 = getelementptr inbounds nuw i8, ptr %308, i64 32
-  %312 = load ptr, ptr %311, align 8, !tbaa !161
-  %.not82170.i = icmp eq ptr %310, %312
+  %306 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %307 = inttoptr i64 %306 to ptr
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 24
+  %309 = load ptr, ptr %308, align 8, !tbaa !158
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 32
+  %311 = load ptr, ptr %310, align 8, !tbaa !161
+  %.not82170.i = icmp eq ptr %309, %311
   br i1 %.not82170.i, label %._crit_edge.split.split.i, label %.lr.ph172.i
 
-._crit_edge.split.split.i:                        ; preds = %322, %.lr.ph181.split.split.i
-  %313 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0179.i, i64 8
+._crit_edge.split.split.i:                        ; preds = %321, %.lr.ph181.split.split.i
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0179.i, i64 8
   %.not143.i = icmp eq ptr %.sroa.0104.0179.i, %.09.i.i.i.i.i
   br i1 %.not143.i, label %.loopexit, label %.lr.ph181.split.split.i
 
-.lr.ph172.i:                                      ; preds = %.lr.ph181.split.split.i, %322
-  %.068171.i = phi ptr [ %323, %322 ], [ %310, %.lr.ph181.split.split.i ]
-  %314 = load ptr, ptr %.068171.i, align 8, !tbaa !162
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %316 = load i32, ptr %315, align 8, !tbaa !164
-  %317 = icmp ne i32 %316, 1
-  %.not83144.i = icmp eq ptr %314, null
-  %.not83.i = or i1 %.not83144.i, %317
-  br i1 %.not83.i, label %322, label %318
+.lr.ph172.i:                                      ; preds = %.lr.ph181.split.split.i, %321
+  %.068171.i = phi ptr [ %322, %321 ], [ %309, %.lr.ph181.split.split.i ]
+  %313 = load ptr, ptr %.068171.i, align 8, !tbaa !162
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %315 = load i32, ptr %314, align 8, !tbaa !164
+  %316 = icmp ne i32 %315, 1
+  %.not83144.i = icmp eq ptr %313, null
+  %.not83.i = or i1 %.not83144.i, %316
+  br i1 %.not83.i, label %321, label %317
 
-318:                                              ; preds = %.lr.ph172.i
-  %319 = getelementptr inbounds nuw i8, ptr %314, i64 60
-  %320 = load i16, ptr %319, align 4
-  %321 = or i16 %320, 68
-  store i16 %321, ptr %319, align 4
-  br label %322
+317:                                              ; preds = %.lr.ph172.i
+  %318 = getelementptr inbounds nuw i8, ptr %313, i64 60
+  %319 = load i16, ptr %318, align 4
+  %320 = or i16 %319, 68
+  store i16 %320, ptr %318, align 4
+  br label %321
 
-322:                                              ; preds = %318, %.lr.ph172.i
-  %323 = getelementptr inbounds nuw i8, ptr %.068171.i, i64 8
-  %.not82.i = icmp eq ptr %323, %312
+321:                                              ; preds = %317, %.lr.ph172.i
+  %322 = getelementptr inbounds nuw i8, ptr %.068171.i, i64 8
+  %.not82.i = icmp eq ptr %322, %311
   br i1 %.not82.i, label %._crit_edge.split.split.i, label %.lr.ph172.i
 
 .loopexit:                                        ; preds = %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit, %._crit_edge.split.split.i, %._crit_edge.split.split.us.us.i, %._crit_edge.split.us.split.us186.i, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.i, %.thread138.i, %.lr.ph181.split.us.i, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread.i, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread
@@ -2146,12 +2145,12 @@ _ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionS
 _ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit:  ; preds = %55, %.loopexit
   %.157 = phi i1 [ %.1.ph, %.loopexit ], [ true, %55 ]
   call void @_ZN4llvm12scc_iteratorIPNS_18ModuleSummaryIndexENS_11GraphTraitsIS2_EEE10GetNextSCCEv(ptr noundef nonnull align 8 dereferenceable(104) %7)
-  %324 = load ptr, ptr %14, align 8, !tbaa !139
-  %325 = load ptr, ptr %15, align 8, !tbaa !139
-  %326 = icmp eq ptr %324, %325
-  br i1 %326, label %._crit_edge, label %55, !llvm.loop !186
+  %323 = load ptr, ptr %14, align 8, !tbaa !139
+  %324 = load ptr, ptr %15, align 8, !tbaa !139
+  %325 = icmp eq ptr %323, %324
+  br i1 %325, label %._crit_edge, label %55, !llvm.loop !186
 
-327:                                              ; preds = %3, %_ZN4llvm12scc_iteratorIPNS_18ModuleSummaryIndexENS_11GraphTraitsIS2_EEED2Ev.exit
+326:                                              ; preds = %3, %_ZN4llvm12scc_iteratorIPNS_18ModuleSummaryIndexENS_11GraphTraitsIS2_EEED2Ev.exit
   %.0 = phi i1 [ %.019.lcssa, %_ZN4llvm12scc_iteratorIPNS_18ModuleSummaryIndexENS_11GraphTraitsIS2_EEED2Ev.exit ], [ false, %3 ]
   ret i1 %.0
 }

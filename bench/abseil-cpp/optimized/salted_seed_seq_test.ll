@@ -13642,8 +13642,8 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   %5 = alloca i32, align 4
   %6 = alloca %"class.absl::InlinedVector", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #23
-  %7 = icmp ugt i64 %3, 8
-  br i1 %7, label %8, label %16
+  %7 = icmp ult i64 %3, 9
+  br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
   %9 = icmp ugt i64 %3, 2305843009213693951
@@ -13669,111 +13669,115 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   store ptr %13, ptr %14, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.speculated.i.i.i, ptr %15, align 8, !tbaa !25
-  br label %.lr.ph.i.i.i
+  br label %.loopexit
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not.i.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %.loopexit.thread, label %.loopexit
 
-.lr.ph.i.i.i:                                     ; preds = %16, %.thread.i.i
-  %18 = phi i64 [ 1, %.thread.i.i ], [ 0, %16 ]
+.loopexit.thread:                                 ; preds = %16
+  store i64 0, ptr %6, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %24
+
+.loopexit:                                        ; preds = %.thread.i.i, %16
+  %19 = phi i64 [ 1, %.thread.i.i ], [ 0, %16 ]
   %.010.i.i = phi ptr [ %13, %.thread.i.i ], [ %17, %16 ]
-  %19 = shl nuw nsw i64 %3, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %19, i1 false), !tbaa !49
+  %20 = shl nuw nsw i64 %3, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %20, i1 false), !tbaa !49
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %.loopexit
+  %21 = shl nuw nsw i64 %3, 1
+  %22 = or disjoint i64 %19, %21
+  store i64 %22, ptr %6, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %spec.select = select i1 %7, ptr %23, ptr %.pre
+  br label %24
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i, %16
-  %20 = phi ptr [ undef, %16 ], [ %.pre, %.lr.ph.i.i.i ]
-  %21 = phi i64 [ 0, %16 ], [ %18, %.lr.ph.i.i.i ]
-  %22 = shl nuw nsw i64 %3, 1
-  %23 = add nuw nsw i64 %21, %22
-  store i64 %23, ptr %6, align 8, !tbaa !27
-  %.not.i.i = icmp eq i64 %21, 0
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = select i1 %.not.i.i, ptr %24, ptr %20
-  %26 = lshr i64 %23, 1
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
-  %28 = load ptr, ptr %0, align 8, !tbaa !67
-  invoke void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %25, ptr noundef %27)
-          to label %.noexc unwind label %47
+24:                                               ; preds = %.loopexit, %.loopexit.thread
+  %25 = phi ptr [ %18, %.loopexit.thread ], [ %23, %.loopexit ]
+  %26 = phi i64 [ 0, %.loopexit.thread ], [ %3, %.loopexit ]
+  %27 = phi ptr [ %18, %.loopexit.thread ], [ %spec.select, %.loopexit ]
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %26
+  %29 = load ptr, ptr %0, align 8, !tbaa !67
+  invoke void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef %27, ptr noundef %28)
+          to label %.noexc unwind label %48
 
-.noexc:                                           ; preds = %.loopexit
+.noexc:                                           ; preds = %24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
-  %29 = invoke i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
-          to label %.noexc8 unwind label %47
+  %30 = invoke i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
+          to label %.noexc8 unwind label %48
 
 .noexc8:                                          ; preds = %.noexc
-  %.sroa.06.0.extract.trunc.i = trunc i64 %29 to i32
-  %30 = and i64 %29, 4294967296
-  %.not.i = icmp eq i64 %30, 0
+  %.sroa.06.0.extract.trunc.i = trunc i64 %30 to i32
+  %31 = and i64 %30, 4294967296
+  %.not.i = icmp eq i64 %31, 0
   %.0.i.i = select i1 %.not.i, i32 0, i32 %.sroa.06.0.extract.trunc.i
   store i32 %.0.i.i, ptr %5, align 4, !tbaa !49
-  invoke void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIKjEENS1_IjEE(ptr nonnull %5, i64 1, ptr %25, i64 %3)
-          to label %31 unwind label %47
+  invoke void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIKjEENS1_IjEE(ptr nonnull %5, i64 1, ptr %27, i64 %3)
+          to label %32 unwind label %48
 
-31:                                               ; preds = %.noexc8
+32:                                               ; preds = %.noexc8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
-  %32 = load i64, ptr %6, align 8, !tbaa !27
-  %33 = and i64 %32, 1
-  %.not.i.i10 = icmp eq i64 %33, 0
-  %34 = load ptr, ptr %24, align 8
-  %.not = icmp ult i64 %32, 2
+  %33 = load i64, ptr %6, align 8, !tbaa !27
+  %34 = and i64 %33, 1
+  %.not.i.i10 = icmp eq i64 %34, 0
+  %35 = load ptr, ptr %25, align 8
+  %.not = icmp ult i64 %33, 2
   br i1 %.not, label %_ZSt4copyIPjPmET0_T_S3_S2_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %31
-  %35 = lshr i64 %32, 1
-  %36 = select i1 %.not.i.i10, ptr %24, ptr %34
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %32
+  %36 = lshr i64 %33, 1
+  %37 = select i1 %.not.i.i10, ptr %25, ptr %35
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i ], [ %35, %.lr.ph.i.i.i.i.i.preheader ]
-  %.0811.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader ]
-  %.0910.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.preheader ]
-  %37 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !49
-  %38 = zext i32 %37 to i64
-  store i64 %38, ptr %.0811.i.i.i.i.i, align 8, !tbaa !27
-  %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPjPmET0_T_S3_S2_.exit, !llvm.loop !358
+  %.012.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.preheader ]
+  %.0811.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader ]
+  %.0910.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i.preheader ]
+  %38 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !49
+  %39 = zext i32 %38 to i64
+  store i64 %39, ptr %.0811.i.i.i.i.i, align 8, !tbaa !27
+  %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  %42 = add nsw i64 %.012.i.i.i.i.i, -1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPjPmET0_T_S3_S2_.exit, !llvm.loop !358
 
-_ZSt4copyIPjPmET0_T_S3_S2_.exit:                  ; preds = %.lr.ph.i.i.i.i.i, %31
-  br i1 %.not.i.i10, label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit, label %43
+_ZSt4copyIPjPmET0_T_S3_S2_.exit:                  ; preds = %.lr.ph.i.i.i.i.i, %32
+  br i1 %.not.i.i10, label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit, label %44
 
-43:                                               ; preds = %_ZSt4copyIPjPmET0_T_S3_S2_.exit
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !25
-  %46 = shl i64 %45, 2
-  call void @_ZdlPvm(ptr noundef %34, i64 noundef %46) #25
+44:                                               ; preds = %_ZSt4copyIPjPmET0_T_S3_S2_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %46 = load i64, ptr %45, align 8, !tbaa !25
+  %47 = shl i64 %46, 2
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %47) #25
   br label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit
 
-_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit:     ; preds = %_ZSt4copyIPjPmET0_T_S3_S2_.exit, %43
+_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit:     ; preds = %_ZSt4copyIPjPmET0_T_S3_S2_.exit, %44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #23
   ret void
 
-47:                                               ; preds = %.noexc8, %.noexc, %.loopexit
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %.noexc8, %.noexc, %24
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = load i64, ptr %6, align 8, !tbaa !27
-  %50 = and i64 %49, 1
-  %.not.i.i.i14 = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i14, label %.body, label %51
+  %50 = load i64, ptr %6, align 8, !tbaa !27
+  %51 = and i64 %50, 1
+  %.not.i.i.i14 = icmp eq i64 %51, 0
+  br i1 %.not.i.i.i14, label %.body, label %52
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %24, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !25
-  %55 = shl i64 %54, 2
-  call void @_ZdlPvm(ptr noundef %52, i64 noundef %55) #25
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %25, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !25
+  %56 = shl i64 %55, 2
+  call void @_ZdlPvm(ptr noundef %53, i64 noundef %56) #25
   br label %.body
 
-.body:                                            ; preds = %51, %47
+.body:                                            ; preds = %52, %48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #23
-  resume { ptr, i32 } %48
+  resume { ptr, i32 } %49
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16896,8 +16900,8 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   %5 = alloca i32, align 4
   %6 = alloca %"class.absl::InlinedVector", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #23
-  %7 = icmp ugt i64 %3, 8
-  br i1 %7, label %8, label %16
+  %7 = icmp ult i64 %3, 9
+  br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
   %9 = icmp ugt i64 %3, 2305843009213693951
@@ -16923,111 +16927,115 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   store ptr %13, ptr %14, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.speculated.i.i.i, ptr %15, align 8, !tbaa !25
-  br label %.lr.ph.i.i.i
+  br label %.loopexit
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not.i.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %.loopexit.thread, label %.loopexit
 
-.lr.ph.i.i.i:                                     ; preds = %16, %.thread.i.i
-  %18 = phi i64 [ 1, %.thread.i.i ], [ 0, %16 ]
+.loopexit.thread:                                 ; preds = %16
+  store i64 0, ptr %6, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %24
+
+.loopexit:                                        ; preds = %.thread.i.i, %16
+  %19 = phi i64 [ 1, %.thread.i.i ], [ 0, %16 ]
   %.010.i.i = phi ptr [ %13, %.thread.i.i ], [ %17, %16 ]
-  %19 = shl nuw nsw i64 %3, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %19, i1 false), !tbaa !49
+  %20 = shl nuw nsw i64 %3, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %20, i1 false), !tbaa !49
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %.loopexit
+  %21 = shl nuw nsw i64 %3, 1
+  %22 = or disjoint i64 %19, %21
+  store i64 %22, ptr %6, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %spec.select = select i1 %7, ptr %23, ptr %.pre
+  br label %24
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i, %16
-  %20 = phi ptr [ undef, %16 ], [ %.pre, %.lr.ph.i.i.i ]
-  %21 = phi i64 [ 0, %16 ], [ %18, %.lr.ph.i.i.i ]
-  %22 = shl nuw nsw i64 %3, 1
-  %23 = add nuw nsw i64 %21, %22
-  store i64 %23, ptr %6, align 8, !tbaa !27
-  %.not.i.i = icmp eq i64 %21, 0
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = select i1 %.not.i.i, ptr %24, ptr %20
-  %26 = lshr i64 %23, 1
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
-  %28 = load ptr, ptr %0, align 8, !tbaa !67
-  invoke void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %25, ptr noundef %27)
-          to label %.noexc unwind label %47
+24:                                               ; preds = %.loopexit, %.loopexit.thread
+  %25 = phi ptr [ %18, %.loopexit.thread ], [ %23, %.loopexit ]
+  %26 = phi i64 [ 0, %.loopexit.thread ], [ %3, %.loopexit ]
+  %27 = phi ptr [ %18, %.loopexit.thread ], [ %spec.select, %.loopexit ]
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %26
+  %29 = load ptr, ptr %0, align 8, !tbaa !67
+  invoke void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef %27, ptr noundef %28)
+          to label %.noexc unwind label %48
 
-.noexc:                                           ; preds = %.loopexit
+.noexc:                                           ; preds = %24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
-  %29 = invoke i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
-          to label %.noexc8 unwind label %47
+  %30 = invoke i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
+          to label %.noexc8 unwind label %48
 
 .noexc8:                                          ; preds = %.noexc
-  %.sroa.06.0.extract.trunc.i = trunc i64 %29 to i32
-  %30 = and i64 %29, 4294967296
-  %.not.i = icmp eq i64 %30, 0
+  %.sroa.06.0.extract.trunc.i = trunc i64 %30 to i32
+  %31 = and i64 %30, 4294967296
+  %.not.i = icmp eq i64 %31, 0
   %.0.i.i = select i1 %.not.i, i32 0, i32 %.sroa.06.0.extract.trunc.i
   store i32 %.0.i.i, ptr %5, align 4, !tbaa !49
-  invoke void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIKjEENS1_IjEE(ptr nonnull %5, i64 1, ptr %25, i64 %3)
-          to label %31 unwind label %47
+  invoke void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIKjEENS1_IjEE(ptr nonnull %5, i64 1, ptr %27, i64 %3)
+          to label %32 unwind label %48
 
-31:                                               ; preds = %.noexc8
+32:                                               ; preds = %.noexc8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
-  %32 = load i64, ptr %6, align 8, !tbaa !27
-  %33 = and i64 %32, 1
-  %.not.i.i10 = icmp eq i64 %33, 0
-  %34 = load ptr, ptr %24, align 8
-  %.not = icmp ult i64 %32, 2
+  %33 = load i64, ptr %6, align 8, !tbaa !27
+  %34 = and i64 %33, 1
+  %.not.i.i10 = icmp eq i64 %34, 0
+  %35 = load ptr, ptr %25, align 8
+  %.not = icmp ult i64 %33, 2
   br i1 %.not, label %_ZSt4copyIPjPlET0_T_S3_S2_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %31
-  %35 = lshr i64 %32, 1
-  %36 = select i1 %.not.i.i10, ptr %24, ptr %34
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %32
+  %36 = lshr i64 %33, 1
+  %37 = select i1 %.not.i.i10, ptr %25, ptr %35
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i ], [ %35, %.lr.ph.i.i.i.i.i.preheader ]
-  %.0811.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader ]
-  %.0910.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.preheader ]
-  %37 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !49
-  %38 = zext i32 %37 to i64
-  store i64 %38, ptr %.0811.i.i.i.i.i, align 8, !tbaa !27
-  %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPjPlET0_T_S3_S2_.exit, !llvm.loop !451
+  %.012.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.preheader ]
+  %.0811.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader ]
+  %.0910.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i.preheader ]
+  %38 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !49
+  %39 = zext i32 %38 to i64
+  store i64 %39, ptr %.0811.i.i.i.i.i, align 8, !tbaa !27
+  %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  %42 = add nsw i64 %.012.i.i.i.i.i, -1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPjPlET0_T_S3_S2_.exit, !llvm.loop !451
 
-_ZSt4copyIPjPlET0_T_S3_S2_.exit:                  ; preds = %.lr.ph.i.i.i.i.i, %31
-  br i1 %.not.i.i10, label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit, label %43
+_ZSt4copyIPjPlET0_T_S3_S2_.exit:                  ; preds = %.lr.ph.i.i.i.i.i, %32
+  br i1 %.not.i.i10, label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit, label %44
 
-43:                                               ; preds = %_ZSt4copyIPjPlET0_T_S3_S2_.exit
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !25
-  %46 = shl i64 %45, 2
-  call void @_ZdlPvm(ptr noundef %34, i64 noundef %46) #25
+44:                                               ; preds = %_ZSt4copyIPjPlET0_T_S3_S2_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %46 = load i64, ptr %45, align 8, !tbaa !25
+  %47 = shl i64 %46, 2
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %47) #25
   br label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit
 
-_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit:     ; preds = %_ZSt4copyIPjPlET0_T_S3_S2_.exit, %43
+_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit:     ; preds = %_ZSt4copyIPjPlET0_T_S3_S2_.exit, %44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #23
   ret void
 
-47:                                               ; preds = %.noexc8, %.noexc, %.loopexit
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %.noexc8, %.noexc, %24
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = load i64, ptr %6, align 8, !tbaa !27
-  %50 = and i64 %49, 1
-  %.not.i.i.i14 = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i14, label %.body, label %51
+  %50 = load i64, ptr %6, align 8, !tbaa !27
+  %51 = and i64 %50, 1
+  %.not.i.i.i14 = icmp eq i64 %51, 0
+  br i1 %.not.i.i.i14, label %.body, label %52
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %24, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !25
-  %55 = shl i64 %54, 2
-  call void @_ZdlPvm(ptr noundef %52, i64 noundef %55) #25
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %25, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !25
+  %56 = shl i64 %55, 2
+  call void @_ZdlPvm(ptr noundef %53, i64 noundef %56) #25
   br label %.body
 
-.body:                                            ; preds = %51, %47
+.body:                                            ; preds = %52, %48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #23
-  resume { ptr, i32 } %48
+  resume { ptr, i32 } %49
 }
 
 ; Function Attrs: mustprogress uwtable

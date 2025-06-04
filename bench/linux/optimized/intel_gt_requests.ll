@@ -467,13 +467,13 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit35
   %157 = icmp eq i64 %150, 0
-  br i1 %157, label %191, label %158
+  br i1 %157, label %190, label %158
 
 158:                                              ; preds = %.loopexit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 3336
   %160 = load volatile i64, ptr %159, align 8
   %161 = icmp eq i64 %160, 0
-  br i1 %161, label %191, label %162
+  br i1 %161, label %190, label %162
 
 162:                                              ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 4040
@@ -511,26 +511,25 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   br i1 %187, label %188, label %164, !llvm.loop !22
 
 188:                                              ; preds = %184
-  %189 = and i8 %185, 1
-  %190 = zext nneg i8 %189 to i64
-  br label %191
+  %189 = zext nneg i8 %185 to i64
+  br label %190
 
-191:                                              ; preds = %188, %158, %.loopexit
-  %192 = phi i64 [ %190, %188 ], [ 0, %.loopexit ], [ 0, %158 ]
-  %193 = icmp eq ptr %2, null
-  br i1 %193, label %195, label %194
+190:                                              ; preds = %188, %158, %.loopexit
+  %191 = phi i64 [ %189, %188 ], [ 0, %.loopexit ], [ 0, %158 ]
+  %192 = icmp eq ptr %2, null
+  br i1 %192, label %194, label %193
 
-194:                                              ; preds = %191
+193:                                              ; preds = %190
   store i64 %150, ptr %2, align 8
-  br label %195
+  br label %194
 
-195:                                              ; preds = %191, %194
-  %196 = sub nsw i64 0, %192
-  %197 = icmp eq i64 %149, %196
-  %198 = select i1 %157, i64 -62, i64 %150
-  %199 = select i1 %197, i64 0, i64 %198
+194:                                              ; preds = %190, %193
+  %195 = sub nsw i64 0, %191
+  %196 = icmp eq i64 %149, %195
+  %197 = select i1 %157, i64 -62, i64 %150
+  %198 = select i1 %196, i64 0, i64 %197
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
-  ret i64 %199
+  ret i64 %198
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

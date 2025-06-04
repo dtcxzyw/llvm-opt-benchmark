@@ -4664,23 +4664,20 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %64 = getelementptr [3 x i8], ptr @.str.91, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
-  %67 = and i8 %45, 1
-  %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr [3 x i8], ptr @.str.92, i64 0, i64 %68
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = and i8 %44, 1
-  %73 = zext nneg i8 %72 to i64
-  %74 = getelementptr [3 x i8], ptr @.str.93, i64 0, i64 %73
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = and i8 %43, 1
-  %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr [3 x i8], ptr @.str.94, i64 0, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 112), align 8
-  %83 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.90, ptr noundef %46, ptr noundef %54, i32 noundef %47, i64 noundef %57, i64 noundef %58, i64 noundef %59, i64 noundef %60, i32 noundef %66, i32 noundef %71, i32 noundef %76, i32 noundef %81, i64 noundef %82, ptr noundef nonnull @.str) #19
+  %67 = zext nneg i8 %45 to i64
+  %68 = getelementptr [3 x i8], ptr @.str.92, i64 0, i64 %67
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  %71 = zext nneg i8 %44 to i64
+  %72 = getelementptr [3 x i8], ptr @.str.93, i64 0, i64 %71
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = zext nneg i8 %43 to i64
+  %76 = getelementptr [3 x i8], ptr @.str.94, i64 0, i64 %75
+  %77 = load i8, ptr %76, align 1
+  %78 = zext i8 %77 to i32
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 112), align 8
+  %80 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.90, ptr noundef %46, ptr noundef %54, i32 noundef %47, i64 noundef %57, i64 noundef %58, i64 noundef %59, i64 noundef %60, i32 noundef %66, i32 noundef %70, i32 noundef %74, i32 noundef %78, i64 noundef %79, ptr noundef nonnull @.str) #19
   ret void
 }
 

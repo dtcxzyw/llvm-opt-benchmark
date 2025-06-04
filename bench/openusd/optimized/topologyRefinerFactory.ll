@@ -705,28 +705,28 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 4
-  %.sroa.0243.0.insert.ext = and i32 %.sroa.0.0.copyload.i, 255
+  %.sroa.0245.0.insert.ext = and i32 %.sroa.0.0.copyload.i, 255
   store i32 %.sroa.0.0.copyload.i, ptr %2, align 4
-  %7 = icmp eq i32 %.sroa.0243.0.insert.ext, 0
+  %7 = icmp eq i32 %.sroa.0245.0.insert.ext, 0
   br i1 %7, label %9, label %.thread
 
 .thread:                                          ; preds = %1
-  %8 = icmp eq i32 %.sroa.0243.0.insert.ext, 2
-  br label %.loopexit249
+  %8 = icmp eq i32 %.sroa.0245.0.insert.ext, 2
+  br label %.loopexit251
 
 9:                                                ; preds = %1
   %10 = load i32, ptr %0, align 8
   %11 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits24GetLocalNeighborhoodSizeENS1_10SchemeTypeE(i32 noundef %10)
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.preheader, label %.loopexit249
+  br i1 %12, label %.preheader, label %.loopexit251
 
 .preheader:                                       ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph253, label %.loopexit249
+  br i1 %15, label %.lr.ph255, label %.loopexit251
 
-.lr.ph253:                                        ; preds = %.preheader
+.lr.ph255:                                        ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 288
@@ -739,11 +739,11 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %26
 
-26:                                               ; preds = %.lr.ph253, %.critedge
-  %27 = phi i32 [ %14, %.lr.ph253 ], [ %76, %.critedge ]
-  %indvars.iv284 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next285, %.critedge ]
+26:                                               ; preds = %.lr.ph255, %.critedge
+  %27 = phi i32 [ %14, %.lr.ph255 ], [ %76, %.critedge ]
+  %indvars.iv286 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next287, %.critedge ]
   %28 = load ptr, ptr %16, align 8
-  %29 = shl nuw nsw i64 %indvars.iv284, 1
+  %29 = shl nuw nsw i64 %indvars.iv286, 1
   %30 = load ptr, ptr %17, align 8
   %31 = getelementptr i32, ptr %30, i64 %29
   %32 = getelementptr i8, ptr %31, i64 4
@@ -764,33 +764,33 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
 
 46:                                               ; preds = %26
   %47 = load ptr, ptr %20, align 8
-  %48 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %47, i64 %indvars.iv284
+  %48 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %47, i64 %indvars.iv286
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 1
-  %.not210 = icmp eq i16 %50, 0
-  br i1 %.not210, label %.critedge, label %51
+  %.not212 = icmp eq i16 %50, 0
+  br i1 %.not212, label %.critedge, label %51
 
 51:                                               ; preds = %46, %26
   %smax = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %exitcond.not317 = icmp slt i32 %36, 1
-  br i1 %exitcond.not317, label %.critedge, label %.lr.ph.preheader
+  %exitcond.not319 = icmp slt i32 %36, 1
+  br i1 %exitcond.not319, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %51
   %52 = load ptr, ptr %21, align 8
   br label %.lr.ph
 
-.critedge211.preheader:                           ; preds = %61
+.critedge213.preheader:                           ; preds = %61
   %53 = icmp sgt i32 %44, 0
-  br i1 %53, label %.critedge211.preheader274, label %.critedge211._crit_edge
+  br i1 %53, label %.critedge213.preheader276, label %.critedge213._crit_edge
 
-.critedge211.preheader274:                        ; preds = %.critedge211.preheader
-  %wide.trip.count282 = zext nneg i32 %44 to i64
-  br label %.critedge211
+.critedge213.preheader276:                        ; preds = %.critedge213.preheader
+  %wide.trip.count284 = zext nneg i32 %44 to i64
+  br label %.critedge213
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
-  %indvars.iv318 = phi i64 [ %indvars.iv.be, %.backedge ], [ 0, %.lr.ph.preheader ]
-  %54 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv318
+  %indvars.iv320 = phi i64 [ %indvars.iv.be, %.backedge ], [ 0, %.lr.ph.preheader ]
+  %54 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv320
   %55 = load i32, ptr %54, align 4
   %56 = shl nsw i32 %55, 1
   %57 = sext i32 %56 to i64
@@ -805,16 +805,16 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %64 = getelementptr inbounds float, ptr %63, i64 %62
   %65 = load float, ptr %64, align 4
   %66 = fcmp ult float %65, %23
-  br i1 %66, label %.critedge211.preheader, label %.backedge
+  br i1 %66, label %.critedge213.preheader, label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph, %61
-  %indvars.iv.be = add nuw nsw i64 %indvars.iv318, 1
+  %indvars.iv.be = add nuw nsw i64 %indvars.iv320, 1
   %exitcond.not = icmp eq i64 %indvars.iv.be, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !5
 
-.critedge211:                                     ; preds = %.critedge211.preheader274, %.critedge211
-  %indvars.iv279 = phi i64 [ 0, %.critedge211.preheader274 ], [ %indvars.iv.next280, %.critedge211 ]
-  %67 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv279
+.critedge213:                                     ; preds = %.critedge213.preheader276, %.critedge213
+  %indvars.iv281 = phi i64 [ 0, %.critedge213.preheader276 ], [ %indvars.iv.next282, %.critedge213 ]
+  %67 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv281
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %24, align 8
@@ -822,32 +822,32 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %72 = load i8, ptr %71, align 1
   %73 = or i8 %72, 1
   store i8 %73, ptr %71, align 1
-  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
-  %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
-  br i1 %exitcond283.not, label %.critedge211._crit_edge, label %.critedge211, !llvm.loop !7
+  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
+  %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
+  br i1 %exitcond285.not, label %.critedge213._crit_edge, label %.critedge213, !llvm.loop !7
 
-.critedge211._crit_edge:                          ; preds = %.critedge211, %.critedge211.preheader
+.critedge213._crit_edge:                          ; preds = %.critedge213, %.critedge213.preheader
   %74 = load i16, ptr %25, align 8
   %75 = or i16 %74, 2
   store i16 %75, ptr %25, align 8
   %.pre = load i32, ptr %13, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.backedge, %51, %.critedge211._crit_edge, %46
-  %76 = phi i32 [ %.pre, %.critedge211._crit_edge ], [ %27, %46 ], [ %27, %51 ], [ %27, %.backedge ]
-  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
+.critedge:                                        ; preds = %.backedge, %51, %.critedge213._crit_edge, %46
+  %76 = phi i32 [ %.pre, %.critedge213._crit_edge ], [ %27, %46 ], [ %27, %51 ], [ %27, %.backedge ]
+  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next285, %77
-  br i1 %78, label %26, label %.loopexit249, !llvm.loop !8
+  %78 = icmp slt i64 %indvars.iv.next287, %77
+  br i1 %78, label %26, label %.loopexit251, !llvm.loop !8
 
-.loopexit249:                                     ; preds = %.critedge, %.preheader, %.thread, %9
+.loopexit251:                                     ; preds = %.critedge, %.preheader, %.thread, %9
   %79 = phi i1 [ %8, %.thread ], [ false, %9 ], [ false, %.preheader ], [ false, %.critedge ]
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph255, label %._crit_edge
+  br i1 %82, label %.lr.ph257, label %._crit_edge
 
-.lr.ph255:                                        ; preds = %.loopexit249
+.lr.ph257:                                        ; preds = %.loopexit251
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -855,14 +855,14 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %87 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease16SHARPNESS_SMOOTHE, align 4
   br label %88
 
-88:                                               ; preds = %.lr.ph255, %103
-  %indvars.iv287 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next288, %103 ]
+88:                                               ; preds = %.lr.ph257, %103
+  %indvars.iv289 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next290, %103 ]
   %89 = load ptr, ptr %83, align 8
-  %90 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %89, i64 %indvars.iv287
+  %90 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %89, i64 %indvars.iv289
   %91 = load ptr, ptr %84, align 8
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv287
+  %92 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv289
   %93 = load ptr, ptr %85, align 8
-  %.idx = shl nuw nsw i64 %indvars.iv287, 3
+  %.idx = shl nuw nsw i64 %indvars.iv289, 3
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx
   %95 = load i32, ptr %94, align 4
   %96 = icmp sgt i32 %95, 1
@@ -872,22 +872,22 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %100 = or disjoint i8 %99, %98
   store i8 %100, ptr %90, align 1
   %101 = and i8 %97, 1
-  %.not208 = icmp eq i8 %101, 0
-  %or.cond = select i1 %96, i1 %.not208, i1 false
-  br i1 %or.cond, label %._crit_edge303, label %102
+  %.not209 = icmp eq i8 %101, 0
+  %or.cond = select i1 %96, i1 %.not209, i1 false
+  br i1 %or.cond, label %._crit_edge305, label %102
 
-._crit_edge303:                                   ; preds = %88
-  %.pre304 = load float, ptr %92, align 4
+._crit_edge305:                                   ; preds = %88
+  %.pre306 = load float, ptr %92, align 4
   br label %103
 
 102:                                              ; preds = %88
   store float %86, ptr %92, align 4
-  %.pre305 = load i8, ptr %90, align 1
+  %.pre307 = load i8, ptr %90, align 1
   br label %103
 
-103:                                              ; preds = %._crit_edge303, %102
-  %104 = phi i8 [ %100, %._crit_edge303 ], [ %.pre305, %102 ]
-  %105 = phi float [ %.pre304, %._crit_edge303 ], [ %86, %102 ]
+103:                                              ; preds = %._crit_edge305, %102
+  %104 = phi i8 [ %100, %._crit_edge305 ], [ %.pre307, %102 ]
+  %105 = phi float [ %.pre306, %._crit_edge305 ], [ %86, %102 ]
   %106 = fcmp oge float %105, %86
   %107 = select i1 %106, i8 4, i8 0
   %108 = and i8 %104, -5
@@ -901,22 +901,22 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %115 = and i8 %109, -9
   %116 = or disjoint i8 %114, %115
   store i8 %116, ptr %90, align 1
-  %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
+  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %117 = load i32, ptr %80, align 4
   %118 = sext i32 %117 to i64
-  %119 = icmp slt i64 %indvars.iv.next288, %118
+  %119 = icmp slt i64 %indvars.iv.next290, %118
   br i1 %119, label %88, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %103, %.loopexit249
+._crit_edge:                                      ; preds = %103, %.loopexit251
   %120 = load i32, ptr %0, align 8
   %121 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetRegularVertexValenceENS1_10SchemeTypeE(i32 noundef %120)
   %122 = sdiv i32 %121, 2
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %124 = load i32, ptr %123, align 8
   %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph272, label %._crit_edge273
+  br i1 %125, label %.lr.ph274, label %._crit_edge275
 
-.lr.ph272:                                        ; preds = %._crit_edge
+.lr.ph274:                                        ; preds = %._crit_edge
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 432
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 360
@@ -930,14 +930,14 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %137
 
-137:                                              ; preds = %.lr.ph272, %.loopexit
-  %indvars.iv300 = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next301, %.loopexit ]
+137:                                              ; preds = %.lr.ph274, %.loopexit
+  %indvars.iv302 = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next303, %.loopexit ]
   %138 = load ptr, ptr %126, align 8
-  %139 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %138, i64 %indvars.iv300
+  %139 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %138, i64 %indvars.iv302
   %140 = load ptr, ptr %127, align 8
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv300
+  %141 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv302
   %142 = load ptr, ptr %128, align 8
-  %143 = shl nuw nsw i64 %indvars.iv300, 1
+  %143 = shl nuw nsw i64 %indvars.iv302, 1
   %144 = load ptr, ptr %129, align 8
   %145 = getelementptr i32, ptr %144, i64 %143
   %146 = getelementptr i8, ptr %145, i64 4
@@ -954,20 +954,20 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %157 = getelementptr inbounds i32, ptr %151, i64 %156
   %158 = load i32, ptr %153, align 4
   %159 = icmp sgt i32 %150, 0
-  br i1 %159, label %.lr.ph262, label %._crit_edge263
+  br i1 %159, label %.lr.ph264, label %._crit_edge265
 
-.lr.ph262:                                        ; preds = %137
+.lr.ph264:                                        ; preds = %137
   %160 = load ptr, ptr %132, align 8
-  %wide.trip.count293 = zext nneg i32 %150 to i64
+  %wide.trip.count295 = zext nneg i32 %150 to i64
   br label %161
 
-161:                                              ; preds = %.lr.ph262, %161
-  %indvars.iv290 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next291, %161 ]
-  %.0182260 = phi i32 [ 0, %.lr.ph262 ], [ %170, %161 ]
-  %.0183259 = phi i32 [ 0, %.lr.ph262 ], [ %174, %161 ]
-  %.0185257 = phi i32 [ 0, %.lr.ph262 ], [ %181, %161 ]
-  %.0186256 = phi i32 [ 0, %.lr.ph262 ], [ %178, %161 ]
-  %162 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv290
+161:                                              ; preds = %.lr.ph264, %161
+  %indvars.iv292 = phi i64 [ 0, %.lr.ph264 ], [ %indvars.iv.next293, %161 ]
+  %.0182262 = phi i32 [ 0, %.lr.ph264 ], [ %170, %161 ]
+  %.0183261 = phi i32 [ 0, %.lr.ph264 ], [ %174, %161 ]
+  %.0185259 = phi i32 [ 0, %.lr.ph264 ], [ %181, %161 ]
+  %.0186258 = phi i32 [ 0, %.lr.ph264 ], [ %178, %161 ]
+  %162 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv292
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %160, i64 %164
@@ -975,59 +975,59 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %167 = lshr i8 %166, 1
   %168 = and i8 %167, 1
   %169 = zext nneg i8 %168 to i32
-  %170 = add nuw nsw i32 %.0182260, %169
+  %170 = add nuw nsw i32 %.0182262, %169
   %171 = lshr i8 %166, 2
   %172 = and i8 %171, 1
   %173 = zext nneg i8 %172 to i32
-  %174 = add nuw nsw i32 %.0183259, %173
+  %174 = add nuw nsw i32 %.0183261, %173
   %175 = lshr i8 %166, 3
   %176 = and i8 %175, 1
   %177 = zext nneg i8 %176 to i32
-  %178 = add nuw nsw i32 %.0186256, %177
+  %178 = add nuw nsw i32 %.0186258, %177
   %179 = and i8 %166, 1
   %180 = zext nneg i8 %179 to i32
-  %181 = add nuw nsw i32 %.0185257, %180
-  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
-  %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
-  br i1 %exitcond294.not, label %._crit_edge263.loopexit, label %161, !llvm.loop !10
+  %181 = add nuw nsw i32 %.0185259, %180
+  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
+  %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
+  br i1 %exitcond296.not, label %._crit_edge265.loopexit, label %161, !llvm.loop !10
 
-._crit_edge263.loopexit:                          ; preds = %161
+._crit_edge265.loopexit:                          ; preds = %161
   %182 = icmp eq i32 %181, 2
   %183 = icmp eq i32 %170, 0
   %184 = select i1 %182, i1 %183, i1 false
-  br label %._crit_edge263
+  br label %._crit_edge265
 
-._crit_edge263:                                   ; preds = %._crit_edge263.loopexit, %137
-  %.0186.lcssa = phi i32 [ 0, %137 ], [ %178, %._crit_edge263.loopexit ]
-  %.0185.lcssa = phi i1 [ false, %137 ], [ %184, %._crit_edge263.loopexit ]
-  %.0183.lcssa = phi i32 [ 0, %137 ], [ %174, %._crit_edge263.loopexit ]
-  %.0182.lcssa = phi i1 [ true, %137 ], [ %183, %._crit_edge263.loopexit ]
+._crit_edge265:                                   ; preds = %._crit_edge265.loopexit, %137
+  %.0186.lcssa = phi i32 [ 0, %137 ], [ %178, %._crit_edge265.loopexit ]
+  %.0185.lcssa = phi i1 [ false, %137 ], [ %184, %._crit_edge265.loopexit ]
+  %.0183.lcssa = phi i32 [ 0, %137 ], [ %174, %._crit_edge265.loopexit ]
+  %.0182.lcssa = phi i1 [ true, %137 ], [ %183, %._crit_edge265.loopexit ]
   %185 = add nuw nsw i32 %.0183.lcssa, %.0186.lcssa
   %186 = icmp eq i32 %158, 1
-  br i1 %186, label %187, label %.thread246
+  br i1 %186, label %187, label %.thread248
 
-187:                                              ; preds = %._crit_edge263
+187:                                              ; preds = %._crit_edge265
   %188 = icmp eq i32 %150, 2
   %189 = and i1 %79, %188
-  br i1 %189, label %.sink.split, label %.thread246
+  br i1 %189, label %.sink.split, label %.thread248
 
-.thread246:                                       ; preds = %._crit_edge263, %187
-  %190 = phi i1 [ %188, %187 ], [ false, %._crit_edge263 ]
+.thread248:                                       ; preds = %._crit_edge265, %187
+  %190 = phi i1 [ %188, %187 ], [ false, %._crit_edge265 ]
   %191 = load i16, ptr %139, align 2
   %192 = and i16 %191, 1
   %.not = icmp eq i16 %192, 0
   %193 = icmp sgt i32 %158, %150
-  %or.cond247 = select i1 %.0185.lcssa, i1 %193, i1 false
-  %or.cond311 = select i1 %.not, i1 true, i1 %or.cond247
-  br i1 %or.cond311, label %194, label %.sink.split
+  %or.cond249 = select i1 %.0185.lcssa, i1 %193, i1 false
+  %or.cond313 = select i1 %.not, i1 true, i1 %or.cond249
+  br i1 %or.cond313, label %194, label %.sink.split
 
-.sink.split:                                      ; preds = %.thread246, %187
-  %.ph = phi i1 [ true, %187 ], [ %190, %.thread246 ]
+.sink.split:                                      ; preds = %.thread248, %187
+  %.ph = phi i1 [ true, %187 ], [ %190, %.thread248 ]
   store float %133, ptr %141, align 4
   br label %194
 
-194:                                              ; preds = %.sink.split, %.thread246
-  %195 = phi i1 [ %190, %.thread246 ], [ %.ph, %.sink.split ]
+194:                                              ; preds = %.sink.split, %.thread248
+  %195 = phi i1 [ %190, %.thread248 ], [ %.ph, %.sink.split ]
   %196 = load float, ptr %141, align 4
   %197 = fcmp oge float %196, %133
   %198 = load i16, ptr %139, align 2
@@ -1101,11 +1101,11 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %.not197 = icmp eq i16 %241, 0
   %242 = and i1 %.not196.not, %.not197
   %spec.select = select i1 %242, i16 0, i16 -32768
-  %.masked248 = and i16 %239, 6143
-  %243 = or disjoint i16 %.masked248, %240
+  %.masked250 = and i16 %239, 6143
+  %243 = or disjoint i16 %.masked250, %240
   %244 = or disjoint i16 %243, %spec.select
   store i16 %244, ptr %139, align 2
-  br i1 %.not196.not, label %318, label %245
+  br i1 %.not196.not, label %316, label %245
 
 245:                                              ; preds = %238
   br i1 %.not197, label %248, label %246
@@ -1117,9 +1117,9 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
 248:                                              ; preds = %245, %246
   %249 = phi float [ %247, %246 ], [ 0.000000e+00, %245 ]
   %250 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfi(ptr noundef nonnull align 1 dereferenceable(4) %2, float noundef %249, i32 noundef %.0183.lcssa)
-  switch i32 %250, label %318 [
+  switch i32 %250, label %316 [
     i32 4, label %251
-    i32 8, label %311
+    i32 8, label %309
   ]
 
 251:                                              ; preds = %248
@@ -1127,8 +1127,8 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %253 = or i16 %252, 16384
   store i16 %253, ptr %139, align 2
   %254 = and i16 %252, 3
-  %or.cond212 = icmp eq i16 %254, 0
-  br i1 %or.cond212, label %255, label %318
+  %or.cond214 = icmp eq i16 %254, 0
+  br i1 %or.cond214, label %255, label %316
 
 255:                                              ; preds = %251
   %256 = and i16 %252, 4
@@ -1137,12 +1137,12 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
 
 257:                                              ; preds = %255
   %258 = and i16 %253, 32764
-  br label %.sink.split313
+  br label %.sink.split315
 
 259:                                              ; preds = %255
-  switch i32 %121, label %318 [
+  switch i32 %121, label %316 [
     i32 4, label %260
-    i32 6, label %278
+    i32 6, label %277
   ]
 
 260:                                              ; preds = %259
@@ -1158,122 +1158,122 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %270 = load i8, ptr %269, align 1
   %271 = xor i8 %270, %265
   %272 = lshr i8 %271, 2
-  %273 = and i8 %272, 1
-  %274 = zext nneg i8 %273 to i16
-  %275 = shl nuw i16 %274, 15
-  %276 = and i16 %253, 32760
-  %277 = or disjoint i16 %275, %276
-  br label %.sink.split313
+  %.lobit205 = and i8 %272, 1
+  %273 = zext nneg i8 %.lobit205 to i16
+  %274 = shl nuw i16 %273, 15
+  %275 = and i16 %253, 32760
+  %276 = or disjoint i16 %274, %275
+  br label %.sink.split315
 
-278:                                              ; preds = %259
-  %279 = load i32, ptr %149, align 4
-  %280 = sext i32 %279 to i64
-  %281 = load ptr, ptr %132, align 8
-  %282 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %281, i64 %280
-  %283 = load i8, ptr %282, align 1
-  %284 = getelementptr inbounds nuw i8, ptr %149, i64 12
-  %285 = load i32, ptr %284, align 4
-  %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %281, i64 %286
-  %288 = load i8, ptr %287, align 1
-  %289 = xor i8 %288, %283
-  %290 = and i8 %289, 4
-  %.not204 = icmp eq i8 %290, 0
-  br i1 %.not204, label %291, label %307
+277:                                              ; preds = %259
+  %278 = load i32, ptr %149, align 4
+  %279 = sext i32 %278 to i64
+  %280 = load ptr, ptr %132, align 8
+  %281 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %280, i64 %279
+  %282 = load i8, ptr %281, align 1
+  %283 = getelementptr inbounds nuw i8, ptr %149, i64 12
+  %284 = load i32, ptr %283, align 4
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %280, i64 %285
+  %287 = load i8, ptr %286, align 1
+  %288 = xor i8 %287, %282
+  %289 = and i8 %288, 4
+  %.not204 = icmp eq i8 %289, 0
+  br i1 %.not204, label %290, label %305
 
-291:                                              ; preds = %278
-  %292 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  %293 = load i32, ptr %292, align 4
-  %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %281, i64 %294
-  %296 = load i8, ptr %295, align 1
-  %297 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %298 = load i32, ptr %297, align 4
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %281, i64 %299
-  %301 = load i8, ptr %300, align 1
-  %302 = xor i8 %301, %296
-  %303 = lshr i8 %302, 2
-  %304 = and i8 %303, 1
-  %305 = zext nneg i8 %304 to i16
-  %306 = shl nuw i16 %305, 15
-  br label %307
+290:                                              ; preds = %277
+  %291 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  %292 = load i32, ptr %291, align 4
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %280, i64 %293
+  %295 = load i8, ptr %294, align 1
+  %296 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %297 = load i32, ptr %296, align 4
+  %298 = sext i32 %297 to i64
+  %299 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %280, i64 %298
+  %300 = load i8, ptr %299, align 1
+  %301 = xor i8 %300, %295
+  %302 = lshr i8 %301, 2
+  %.lobit = and i8 %302, 1
+  %303 = zext nneg i8 %.lobit to i16
+  %304 = shl nuw i16 %303, 15
+  br label %305
 
-307:                                              ; preds = %291, %278
-  %308 = phi i16 [ -32768, %278 ], [ %306, %291 ]
-  %309 = and i16 %253, 32760
-  %310 = or disjoint i16 %308, %309
-  br label %.sink.split313
+305:                                              ; preds = %290, %277
+  %306 = phi i16 [ -32768, %277 ], [ %304, %290 ]
+  %307 = and i16 %253, 32760
+  %308 = or disjoint i16 %306, %307
+  br label %.sink.split315
 
-311:                                              ; preds = %248
-  %312 = icmp eq i32 %.0183.lcssa, %150
-  br i1 %312, label %313, label %318
+309:                                              ; preds = %248
+  %310 = icmp eq i32 %.0183.lcssa, %150
+  br i1 %310, label %311, label %316
 
-313:                                              ; preds = %311
-  %314 = icmp slt i32 %150, 3
-  %.pre306 = load i16, ptr %139, align 2
-  %315 = and i16 %.pre306, 16
-  %.not200 = icmp eq i16 %315, 0
-  %or.cond312 = select i1 %314, i1 %.not200, i1 false
-  br i1 %or.cond312, label %318, label %316
+311:                                              ; preds = %309
+  %312 = icmp slt i32 %150, 3
+  %.pre308 = load i16, ptr %139, align 2
+  %313 = and i16 %.pre308, 16
+  %.not200 = icmp eq i16 %313, 0
+  %or.cond314 = select i1 %312, i1 %.not200, i1 false
+  br i1 %or.cond314, label %316, label %314
 
-316:                                              ; preds = %313
-  %317 = and i16 %.pre306, 32767
-  br label %.sink.split313
+314:                                              ; preds = %311
+  %315 = and i16 %.pre308, 32767
+  br label %.sink.split315
 
-.sink.split313:                                   ; preds = %316, %260, %307, %257
-  %.sink = phi i16 [ %258, %257 ], [ %310, %307 ], [ %277, %260 ], [ %317, %316 ]
+.sink.split315:                                   ; preds = %314, %260, %305, %257
+  %.sink = phi i16 [ %258, %257 ], [ %308, %305 ], [ %276, %260 ], [ %315, %314 ]
   store i16 %.sink, ptr %139, align 2
-  br label %318
+  br label %316
 
-318:                                              ; preds = %.sink.split313, %313, %248, %259, %251, %311, %238
-  %319 = load i16, ptr %135, align 8
-  %320 = and i16 %319, 4
-  %.not205 = icmp eq i16 %320, 0
-  br i1 %.not205, label %.loopexit, label %321
+316:                                              ; preds = %.sink.split315, %311, %248, %259, %251, %309, %238
+  %317 = load i16, ptr %135, align 8
+  %318 = and i16 %317, 4
+  %.not206 = icmp eq i16 %318, 0
+  br i1 %.not206, label %.loopexit, label %319
 
-321:                                              ; preds = %318
-  %322 = lshr i16 %319, 3
-  %323 = and i16 %322, 7
-  %324 = zext nneg i16 %323 to i32
-  %325 = icmp sgt i32 %158, 0
-  br i1 %325, label %.lr.ph269, label %.loopexit
+319:                                              ; preds = %316
+  %320 = lshr i16 %317, 3
+  %321 = and i16 %320, 7
+  %322 = zext nneg i16 %321 to i32
+  %323 = icmp sgt i32 %158, 0
+  br i1 %323, label %.lr.ph271, label %.loopexit
 
-.lr.ph269:                                        ; preds = %321
-  %326 = load ptr, ptr %136, align 8
-  %wide.trip.count298 = zext nneg i32 %158 to i64
-  br label %328
+.lr.ph271:                                        ; preds = %319
+  %324 = load ptr, ptr %136, align 8
+  %wide.trip.count300 = zext nneg i32 %158 to i64
+  br label %326
 
-327:                                              ; preds = %328
-  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
-  br i1 %exitcond299.not, label %.loopexit, label %328, !llvm.loop !11
+325:                                              ; preds = %326
+  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
+  br i1 %exitcond301.not, label %.loopexit, label %326, !llvm.loop !11
 
-328:                                              ; preds = %.lr.ph269, %327
-  %indvars.iv295 = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next296, %327 ]
-  %329 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv295
-  %330 = load i32, ptr %329, align 4
-  %331 = shl nsw i32 %330, 1
-  %332 = sext i32 %331 to i64
-  %333 = getelementptr i32, ptr %326, i64 %332
-  %334 = load i32, ptr %333, align 4
-  %.not206 = icmp eq i32 %334, %324
-  br i1 %.not206, label %327, label %335
+326:                                              ; preds = %.lr.ph271, %325
+  %indvars.iv297 = phi i64 [ 0, %.lr.ph271 ], [ %indvars.iv.next298, %325 ]
+  %327 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv297
+  %328 = load i32, ptr %327, align 4
+  %329 = shl nsw i32 %328, 1
+  %330 = sext i32 %329 to i64
+  %331 = getelementptr i32, ptr %324, i64 %330
+  %332 = load i32, ptr %331, align 4
+  %.not207 = icmp eq i32 %332, %322
+  br i1 %.not207, label %325, label %333
 
-335:                                              ; preds = %328
-  %336 = load i16, ptr %139, align 2
-  %337 = or i16 %336, 4096
-  store i16 %337, ptr %139, align 2
+333:                                              ; preds = %326
+  %334 = load i16, ptr %139, align 2
+  %335 = or i16 %334, 4096
+  store i16 %335, ptr %139, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %327, %321, %318, %335
-  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
-  %338 = load i32, ptr %123, align 8
-  %339 = sext i32 %338 to i64
-  %340 = icmp slt i64 %indvars.iv.next301, %339
-  br i1 %340, label %137, label %._crit_edge273, !llvm.loop !12
+.loopexit:                                        ; preds = %325, %319, %316, %333
+  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
+  %336 = load i32, ptr %123, align 8
+  %337 = sext i32 %336 to i64
+  %338 = icmp slt i64 %indvars.iv.next303, %337
+  br i1 %338, label %137, label %._crit_edge275, !llvm.loop !12
 
-._crit_edge273:                                   ; preds = %.loopexit, %._crit_edge
+._crit_edge275:                                   ; preds = %.loopexit, %._crit_edge
   ret i1 true
 }
 

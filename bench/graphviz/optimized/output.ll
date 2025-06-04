@@ -2941,53 +2941,48 @@ agxbuse.exit410:                                  ; preds = %agxbclear.exit.thre
   %.5 = phi i8 [ %.0180527, %350 ], [ %.0180527, %353 ], [ %.2, %663 ]
   %665 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.0176528) #18
   %.not205 = icmp eq ptr %665, null
-  br i1 %.not205, label %._crit_edge531.loopexit, label %64, !llvm.loop !150
+  br i1 %.not205, label %._crit_edge531, label %64, !llvm.loop !150
 
-._crit_edge531.loopexit:                          ; preds = %.loopexit
-  %666 = and i8 %.5, 1
-  %667 = and i8 %.5187, 1
-  br label %._crit_edge531
-
-._crit_edge531:                                   ; preds = %._crit_edge531.loopexit, %58
-  %.0182.lcssa = phi i8 [ 0, %58 ], [ %667, %._crit_edge531.loopexit ]
-  %.0180.lcssa = phi i8 [ 0, %58 ], [ %666, %._crit_edge531.loopexit ]
+._crit_edge531:                                   ; preds = %.loopexit, %58
+  %.0182.lcssa = phi i8 [ 0, %58 ], [ %.5187, %.loopexit ]
+  %.0180.lcssa = phi i8 [ 0, %58 ], [ %.5, %.loopexit ]
   call fastcc void @rec_attach_bb(ptr noundef nonnull %0, ptr noundef %59, ptr noundef %.0190, ptr noundef %.0189, ptr noundef %.0188, double noundef %.sroa.0.0.i)
-  %668 = getelementptr inbounds nuw i8, ptr %4, i64 31
-  %.val222 = load i8, ptr %668, align 1, !tbaa !69
-  %669 = icmp eq i8 %.val222, -1
-  br i1 %669, label %670, label %agxbfree.exit
+  %666 = getelementptr inbounds nuw i8, ptr %4, i64 31
+  %.val222 = load i8, ptr %666, align 1, !tbaa !69
+  %667 = icmp eq i8 %.val222, -1
+  br i1 %667, label %668, label %agxbfree.exit
 
-670:                                              ; preds = %._crit_edge531
+668:                                              ; preds = %._crit_edge531
   %.val = load ptr, ptr %4, align 8
   call void @free(ptr noundef %.val) #18
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %._crit_edge531, %670
-  %671 = call ptr @aggetrec(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i32 noundef 0) #18
-  %.not206 = icmp eq ptr %671, null
-  br i1 %.not206, label %673, label %672
+agxbfree.exit:                                    ; preds = %._crit_edge531, %668
+  %669 = call ptr @aggetrec(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i32 noundef 0) #18
+  %.not206 = icmp eq ptr %669, null
+  br i1 %.not206, label %671, label %670
 
-672:                                              ; preds = %agxbfree.exit
+670:                                              ; preds = %agxbfree.exit
   call void @undoClusterEdges(ptr noundef nonnull %0) #18
+  br label %671
+
+671:                                              ; preds = %670, %agxbfree.exit
+  %.not207 = icmp eq ptr %1, null
+  br i1 %.not207, label %673, label %672
+
+672:                                              ; preds = %671
+  store i8 %.0180.lcssa, ptr %1, align 1, !tbaa !3
   br label %673
 
-673:                                              ; preds = %672, %agxbfree.exit
-  %.not207 = icmp eq ptr %1, null
-  br i1 %.not207, label %675, label %674
+673:                                              ; preds = %672, %671
+  %.not208 = icmp eq ptr %2, null
+  br i1 %.not208, label %675, label %674
 
 674:                                              ; preds = %673
-  store i8 %.0180.lcssa, ptr %1, align 1, !tbaa !3
+  store i8 %.0182.lcssa, ptr %2, align 1, !tbaa !3
   br label %675
 
 675:                                              ; preds = %674, %673
-  %.not208 = icmp eq ptr %2, null
-  br i1 %.not208, label %677, label %676
-
-676:                                              ; preds = %675
-  store i8 %.0182.lcssa, ptr %2, align 1, !tbaa !3
-  br label %677
-
-677:                                              ; preds = %676, %675
   call void @gv_fixLocale(i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret double %.sroa.0.0.i

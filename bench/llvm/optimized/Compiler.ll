@@ -25743,7 +25743,7 @@ define weak_odr i16 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE12visitVar
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %23, align 8, !tbaa !77
   %.not.i.i = icmp ult i64 %.sroa.0.0.copyload.i, 16
-  br i1 %.not.i.i, label %298, label %24
+  br i1 %.not.i.i, label %297, label %24
 
 24:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
@@ -26278,12 +26278,11 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %243, %
   %.sroa.038.1 = phi i16 [ %.sroa.038.3, %_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitterEED2Ev.exit ], [ %.sroa.038.7, %.critedge16 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  %296 = and i16 %.sroa.038.1, 255
-  %297 = or disjoint i16 %296, 256
-  br label %298
+  %296 = or disjoint i16 %.sroa.038.1, 256
+  br label %297
 
-298:                                              ; preds = %3, %295
-  %.sroa.038.0 = phi i16 [ %297, %295 ], [ 256, %3 ]
+297:                                              ; preds = %3, %295
+  %.sroa.038.0 = phi i16 [ %296, %295 ], [ 256, %3 ]
   ret i16 %.sroa.038.0
 }
 
@@ -58212,7 +58211,7 @@ define weak_odr i16 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE12visitVarDecl
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 8, !tbaa !77
   %.not.i.i = icmp ult i64 %.sroa.0.0.copyload.i, 16
-  br i1 %.not.i.i, label %292, label %23
+  br i1 %.not.i.i, label %291, label %23
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1036
@@ -58220,7 +58219,7 @@ define weak_odr i16 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE12visitVarDecl
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %27 = load i32, ptr %26, align 8, !tbaa !1348
   %28 = icmp eq i32 %25, %27
-  br i1 %28, label %29, label %292
+  br i1 %28, label %29, label %291
 
 29:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
@@ -58735,11 +58734,10 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %210, %217
   %.sroa.038.1 = phi i16 [ %.sroa.038.3, %_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED2Ev.exit ], [ %.sroa.038.7, %.critedge16 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  %291 = and i16 %.sroa.038.1, 255
-  br label %292
+  br label %291
 
-292:                                              ; preds = %23, %3, %290
-  %.sroa.038.0 = phi i16 [ %291, %290 ], [ 0, %3 ], [ 0, %23 ]
+291:                                              ; preds = %23, %3, %290
+  %.sroa.038.0 = phi i16 [ %.sroa.038.1, %290 ], [ 0, %3 ], [ 0, %23 ]
   %.sroa.19.0 = phi i16 [ 256, %290 ], [ 256, %3 ], [ 0, %23 ]
   %.sroa.038.0.insert.insert = or disjoint i16 %.sroa.19.0, %.sroa.038.0
   ret i16 %.sroa.038.0.insert.insert

@@ -1612,7 +1612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit321: ; preds = %_Z
 164:                                              ; preds = %._crit_edge.i.i
   %165 = add nsw i64 %.0166581, -65536
   %166 = lshr i64 %165, 10
-  %167 = or disjoint i64 %166, 55296
+  %167 = add nuw nsw i64 %166, 55296
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #28
   invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr dead_on_unwind noalias writable align 8 %10, i64 noundef %167)

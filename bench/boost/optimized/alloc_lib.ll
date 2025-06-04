@@ -9073,7 +9073,7 @@ define hidden i64 @boost_cont_allocated_memory() local_unnamed_addr #0 {
 spin_acquire_lock.exit:                           ; preds = %9, %3, %6
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 40), align 8, !tbaa !29
   %.not47 = icmp eq ptr %16, null
-  br i1 %.not47, label %49, label %17
+  br i1 %.not47, label %47, label %17
 
 17:                                               ; preds = %spin_acquire_lock.exit
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 16), align 8, !tbaa !28
@@ -9082,79 +9082,78 @@ spin_acquire_lock.exit:                           ; preds = %9, %3, %6
 
 .lr.ph:                                           ; preds = %.critedge, %17
   %.03469 = phi i64 [ 1, %17 ], [ %.135.lcssa.ph, %.critedge ]
-  %.03868 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_gm_, i64 888), %17 ], [ %44, %.critedge ]
+  %.03868 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_gm_, i64 888), %17 ], [ %42, %.critedge ]
   %.03967 = phi i64 [ %19, %17 ], [ %.140.lcssa.ph, %.critedge ]
   %20 = load ptr, ptr %.03868, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 15
   %24 = icmp eq i64 %23, 0
-  %25 = sub i64 0, %22
-  %26 = and i64 %25, 15
-  %27 = select i1 %24, i64 0, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %.03868, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !59
-  %31 = getelementptr inbounds nuw i8, ptr %20, i64 %30
-  br label %32
+  %25 = sub nuw nsw i64 16, %23
+  %spec.select = select i1 %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %spec.select
+  %27 = getelementptr inbounds nuw i8, ptr %.03868, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !59
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 %28
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %37
-  %.13559 = phi i64 [ %.03469, %.lr.ph ], [ %.236, %37 ]
-  %.03758 = phi ptr [ %28, %.lr.ph ], [ %42, %37 ]
-  %.14057 = phi i64 [ %.03967, %.lr.ph ], [ %.241, %37 ]
-  %33 = icmp uge ptr %.03758, %31
+30:                                               ; preds = %.lr.ph, %35
+  %.13559 = phi i64 [ %.03469, %.lr.ph ], [ %.236, %35 ]
+  %.03758 = phi ptr [ %26, %.lr.ph ], [ %40, %35 ]
+  %.14057 = phi i64 [ %.03967, %.lr.ph ], [ %.241, %35 ]
+  %31 = icmp uge ptr %.03758, %29
   %.not53 = icmp eq ptr %.03758, %16
-  %or.cond = or i1 %.not53, %33
-  br i1 %or.cond, label %.critedge, label %34
+  %or.cond = or i1 %.not53, %31
+  br i1 %or.cond, label %.critedge, label %32
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %.03758, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !23
-  %.not54 = icmp eq i64 %36, 11
-  br i1 %.not54, label %.critedge, label %37
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %.03758, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !23
+  %.not54 = icmp eq i64 %34, 11
+  br i1 %.not54, label %.critedge, label %35
 
-37:                                               ; preds = %34
-  %38 = and i64 %36, 3
-  %.not55 = icmp eq i64 %38, 1
-  %39 = and i64 %36, -8
-  %40 = select i1 %.not55, i64 %39, i64 0
-  %.241 = add i64 %40, %.14057
-  %41 = zext i1 %.not55 to i64
-  %.236 = add i64 %.13559, %41
-  %42 = getelementptr inbounds nuw i8, ptr %.03758, i64 %39
-  %.not52 = icmp ult ptr %42, %20
-  br i1 %.not52, label %.critedge, label %32, !llvm.loop !95
+35:                                               ; preds = %32
+  %36 = and i64 %34, 3
+  %.not55 = icmp eq i64 %36, 1
+  %37 = and i64 %34, -8
+  %38 = select i1 %.not55, i64 %37, i64 0
+  %.241 = add i64 %38, %.14057
+  %39 = zext i1 %.not55 to i64
+  %.236 = add i64 %.13559, %39
+  %40 = getelementptr inbounds nuw i8, ptr %.03758, i64 %37
+  %.not52 = icmp ult ptr %40, %20
+  br i1 %.not52, label %.critedge, label %30, !llvm.loop !95
 
-.critedge:                                        ; preds = %34, %37, %32
-  %.140.lcssa.ph = phi i64 [ %.14057, %34 ], [ %.241, %37 ], [ %.14057, %32 ]
-  %.135.lcssa.ph = phi i64 [ %.13559, %34 ], [ %.236, %37 ], [ %.13559, %32 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.03868, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !60
-  %.not48 = icmp eq ptr %44, null
-  br i1 %.not48, label %45, label %.lr.ph, !llvm.loop !96
+.critedge:                                        ; preds = %32, %35, %30
+  %.140.lcssa.ph = phi i64 [ %.14057, %32 ], [ %.241, %35 ], [ %.14057, %30 ]
+  %.135.lcssa.ph = phi i64 [ %.13559, %32 ], [ %.236, %35 ], [ %.13559, %30 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.03868, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !60
+  %.not48 = icmp eq ptr %42, null
+  br i1 %.not48, label %43, label %.lr.ph, !llvm.loop !96
 
-45:                                               ; preds = %.critedge
-  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 856), align 8, !tbaa !49
+43:                                               ; preds = %.critedge
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 856), align 8, !tbaa !49
   %.not49 = icmp eq i64 %.135.lcssa.ph, 0
   %.neg = mul i64 %.135.lcssa.ph, -80
   %.neg50 = add i64 %.neg, 80
-  %47 = select i1 %.not49, i64 0, i64 %.neg50
-  %48 = sub i64 %47, %.140.lcssa.ph
-  %.2 = add i64 %48, %46
-  br label %49
+  %45 = select i1 %.not49, i64 0, i64 %.neg50
+  %46 = sub i64 %45, %.140.lcssa.ph
+  %.2 = add i64 %46, %44
+  br label %47
 
-49:                                               ; preds = %45, %spin_acquire_lock.exit
-  %.1 = phi i64 [ %.2, %45 ], [ 0, %spin_acquire_lock.exit ]
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
-  %51 = and i32 %50, 2
-  %.not51 = icmp eq i32 %51, 0
-  br i1 %.not51, label %53, label %52
+47:                                               ; preds = %43, %spin_acquire_lock.exit
+  %.1 = phi i64 [ %.2, %43 ], [ 0, %spin_acquire_lock.exit ]
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
+  %49 = and i32 %48, 2
+  %.not51 = icmp eq i32 %49, 0
+  br i1 %.not51, label %51, label %50
 
-52:                                               ; preds = %49
+50:                                               ; preds = %47
   store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884) release, align 4
-  br label %53
+  br label %51
 
-53:                                               ; preds = %49, %52
+51:                                               ; preds = %47, %50
   ret i64 %.1
 }
 
@@ -9235,51 +9234,50 @@ spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %18
-  %.03110.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_gm_, i64 888), %18 ], [ %46, %.critedge.i ]
+  %.03110.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_gm_, i64 888), %18 ], [ %44, %.critedge.i ]
   %.19.i = phi i64 [ %22, %18 ], [ %.2.lcssa.ph.i, %.critedge.i ]
   %23 = load ptr, ptr %.03110.i, align 8, !tbaa !58, !noalias !97
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 15
   %27 = icmp eq i64 %26, 0
-  %28 = sub i64 0, %25
-  %29 = and i64 %28, 15
-  %30 = select i1 %27, i64 0, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 %30
-  %32 = getelementptr inbounds nuw i8, ptr %.03110.i, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !59, !noalias !97
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %33
-  br label %35
+  %28 = sub nuw nsw i64 16, %26
+  %spec.select.i = select i1 %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %spec.select.i
+  %30 = getelementptr inbounds nuw i8, ptr %.03110.i, i64 8
+  %31 = load i64, ptr %30, align 8, !tbaa !59, !noalias !97
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 %31
+  br label %33
 
-35:                                               ; preds = %40, %.lr.ph.i
-  %.04.i = phi ptr [ %31, %.lr.ph.i ], [ %44, %40 ]
-  %.23.i = phi i64 [ %.19.i, %.lr.ph.i ], [ %.3.i, %40 ]
-  %36 = icmp uge ptr %.04.i, %34
+33:                                               ; preds = %38, %.lr.ph.i
+  %.04.i = phi ptr [ %29, %.lr.ph.i ], [ %42, %38 ]
+  %.23.i = phi i64 [ %.19.i, %.lr.ph.i ], [ %.3.i, %38 ]
+  %34 = icmp uge ptr %.04.i, %32
   %.not44.i = icmp eq ptr %.04.i, %17
-  %or.cond.i = or i1 %.not44.i, %36
-  br i1 %or.cond.i, label %.critedge.i, label %37
+  %or.cond.i = or i1 %.not44.i, %34
+  br i1 %or.cond.i, label %.critedge.i, label %35
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %.04.i, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !23, !noalias !97
-  %.not45.i = icmp eq i64 %39, 11
-  br i1 %.not45.i, label %.critedge.i, label %40
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %.04.i, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !23, !noalias !97
+  %.not45.i = icmp eq i64 %37, 11
+  br i1 %.not45.i, label %.critedge.i, label %38
 
-40:                                               ; preds = %37
-  %41 = and i64 %39, 2
-  %.not46.i = icmp eq i64 %41, 0
-  %42 = and i64 %39, -8
-  %43 = select i1 %.not46.i, i64 %42, i64 0
-  %.3.i = sub i64 %.23.i, %43
-  %44 = getelementptr inbounds nuw i8, ptr %.04.i, i64 %42
-  %.not43.i = icmp ult ptr %44, %23
-  br i1 %.not43.i, label %.critedge.i, label %35, !llvm.loop !100
+38:                                               ; preds = %35
+  %39 = and i64 %37, 2
+  %.not46.i = icmp eq i64 %39, 0
+  %40 = and i64 %37, -8
+  %41 = select i1 %.not46.i, i64 %40, i64 0
+  %.3.i = sub i64 %.23.i, %41
+  %42 = getelementptr inbounds nuw i8, ptr %.04.i, i64 %40
+  %.not43.i = icmp ult ptr %42, %23
+  br i1 %.not43.i, label %.critedge.i, label %33, !llvm.loop !100
 
-.critedge.i:                                      ; preds = %40, %37, %35
-  %.2.lcssa.ph.i = phi i64 [ %.23.i, %37 ], [ %.3.i, %40 ], [ %.23.i, %35 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.03110.i, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !60, !noalias !97
-  %.not41.i = icmp eq ptr %46, null
+.critedge.i:                                      ; preds = %38, %35, %33
+  %.2.lcssa.ph.i = phi i64 [ %.23.i, %35 ], [ %.3.i, %38 ], [ %.23.i, %33 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.03110.i, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !60, !noalias !97
+  %.not41.i = icmp eq ptr %44, null
   br i1 %.not41.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !101
 
 .loopexit.i:                                      ; preds = %.critedge.i, %spin_acquire_lock.exit.i
@@ -9287,20 +9285,20 @@ spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
   %.033.i = phi i64 [ 0, %spin_acquire_lock.exit.i ], [ %20, %.critedge.i ]
   %.032.i = phi i64 [ 0, %spin_acquire_lock.exit.i ], [ %.2.lcssa.ph.i, %.critedge.i ]
   store i64 %.034.i, ptr %0, align 8, !tbaa !102, !alias.scope !97
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.033.i, ptr %47, align 8, !tbaa !104, !alias.scope !97
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.032.i, ptr %48, align 8, !tbaa !105, !alias.scope !97
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9, !noalias !97
-  %50 = and i32 %49, 2
-  %.not42.i = icmp eq i32 %50, 0
-  br i1 %.not42.i, label %get_malloc_stats.exit, label %51
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.033.i, ptr %45, align 8, !tbaa !104, !alias.scope !97
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.032.i, ptr %46, align 8, !tbaa !105, !alias.scope !97
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9, !noalias !97
+  %48 = and i32 %47, 2
+  %.not42.i = icmp eq i32 %48, 0
+  br i1 %.not42.i, label %get_malloc_stats.exit, label %49
 
-51:                                               ; preds = %.loopexit.i
+49:                                               ; preds = %.loopexit.i
   store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884) release, align 4, !noalias !97
   br label %get_malloc_stats.exit
 
-get_malloc_stats.exit:                            ; preds = %.loopexit.i, %51
+get_malloc_stats.exit:                            ; preds = %.loopexit.i, %49
   ret void
 }
 

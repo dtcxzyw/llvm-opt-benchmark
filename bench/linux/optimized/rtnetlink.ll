@@ -13923,32 +13923,31 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %882 = phi i32 [ %100, %78 ], [ %128, %132 ], [ %148, %155 ], [ %161, %165 ], [ %173, %205 ], [ %250, %254 ], [ %274, %267 ], [ %394, %.thread262 ], [ %spec.select, %758 ], [ %812, %.split ], [ %880, %878 ], [ %823, %822 ], [ %65, %.thread128 ], [ %394, %.thread169 ], [ %394, %.thread166 ], [ %.ph174, %.critedge122.thread ], [ %743, %.thread177 ], [ %743, %.thread178 ], [ %5, %.thread ], [ %5, %41 ], [ %103, %115 ], [ %103, %107 ], [ %173, %238 ], [ %173, %244 ], [ %173, %233 ], [ %173, %222 ], [ %173, %228 ], [ %394, %.thread166.thread ], [ %774, %798 ]
   %883 = and i32 %882, 1
   %884 = icmp eq i32 %883, 0
-  br i1 %884, label %897, label %885
+  br i1 %884, label %896, label %885
 
 885:                                              ; preds = %.thread125
-  %886 = and i32 %882, 3
-  %887 = icmp eq i32 %886, 3
-  br i1 %887, label %888, label %889
+  %886 = icmp eq i32 %882, 3
+  br i1 %886, label %887, label %888
 
-888:                                              ; preds = %885
+887:                                              ; preds = %885
   call void @netdev_state_change(ptr noundef %1) #18
-  br label %889
+  br label %888
 
-889:                                              ; preds = %888, %885
-  %890 = icmp slt i32 %881, 0
-  br i1 %890, label %891, label %897
+888:                                              ; preds = %887, %885
+  %889 = icmp slt i32 %881, 0
+  br i1 %889, label %890, label %896
 
-891:                                              ; preds = %889
-  %892 = call i32 @net_ratelimit() #18
-  %893 = icmp eq i32 %892, 0
-  br i1 %893, label %897, label %894
+890:                                              ; preds = %888
+  %891 = call i32 @net_ratelimit() #18
+  %892 = icmp eq i32 %891, 0
+  br i1 %892, label %896, label %893
 
-894:                                              ; preds = %891
-  %895 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %896 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef nonnull %895) #21
-  br label %897
+893:                                              ; preds = %890
+  %894 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %895 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef nonnull %894) #21
+  br label %896
 
-897:                                              ; preds = %894, %891, %889, %.thread125
+896:                                              ; preds = %893, %890, %888, %.thread125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
   ret i32 %881
 }

@@ -906,7 +906,7 @@ define hidden void @CRYPTO_poly1305_finish(ptr noundef %0, ptr noundef writeonly
   %.pre356 = load i64, ptr %.phi.trans.insert355, align 8, !tbaa !10
   %.phi.trans.insert357 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %.pre358 = load i64, ptr %.phi.trans.insert357, align 16, !tbaa !10
-  br label %356
+  br label %357
 
 12:                                               ; preds = %2
   %13 = load <2 x i64>, ptr %.phi.trans.insert, align 32, !tbaa !10
@@ -1273,320 +1273,320 @@ poly1305_combine.exit:                            ; preds = %12, %24
   store i64 %349, ptr %350, align 8, !tbaa !10
   %351 = lshr i64 %331, 10
   %352 = shl nsw i64 %335, 16
-  %.masked367.i = and i64 %352, 4398046445568
-  %353 = or disjoint i64 %.masked367.i, %351
-  store i64 %353, ptr %14, align 16, !tbaa !10
-  %354 = sub i64 %8, %.0.i
-  %355 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  br label %356
+  %353 = and i64 %352, 4398046445568
+  %354 = or disjoint i64 %353, %351
+  store i64 %354, ptr %14, align 16, !tbaa !10
+  %355 = sub i64 %8, %.0.i
+  %356 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  br label %357
 
-356:                                              ; preds = %._crit_edge, %poly1305_combine.exit
-  %357 = phi i64 [ %353, %poly1305_combine.exit ], [ %.pre358, %._crit_edge ]
-  %358 = phi i64 [ %349, %poly1305_combine.exit ], [ %.pre356, %._crit_edge ]
-  %359 = phi i64 [ %343, %poly1305_combine.exit ], [ %.pre, %._crit_edge ]
-  %.0212 = phi ptr [ %355, %poly1305_combine.exit ], [ %9, %._crit_edge ]
-  %.0 = phi i64 [ %354, %poly1305_combine.exit ], [ %8, %._crit_edge ]
-  %360 = getelementptr inbounds nuw i8, ptr %6, i64 156
-  %361 = load i32, ptr %360, align 4, !tbaa !10
-  %362 = zext i32 %361 to i64
-  %363 = shl nuw i64 %362, 32
-  %364 = getelementptr inbounds nuw i8, ptr %6, i64 148
-  %365 = load i32, ptr %364, align 4, !tbaa !10
-  %366 = zext i32 %365 to i64
-  %367 = or disjoint i64 %363, %366
-  %368 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  %369 = load i32, ptr %368, align 4, !tbaa !10
-  %370 = zext i32 %369 to i64
-  %371 = shl nuw i64 %370, 32
-  %372 = getelementptr inbounds nuw i8, ptr %6, i64 164
-  %373 = load i32, ptr %372, align 4, !tbaa !10
-  %374 = zext i32 %373 to i64
-  %375 = or disjoint i64 %371, %374
-  %376 = getelementptr inbounds nuw i8, ptr %6, i64 188
-  %377 = load i32, ptr %376, align 4, !tbaa !10
-  %378 = zext i32 %377 to i64
-  %379 = shl nuw i64 %378, 32
-  %380 = getelementptr inbounds nuw i8, ptr %6, i64 180
-  %381 = load i32, ptr %380, align 4, !tbaa !10
-  %382 = zext i32 %381 to i64
-  %383 = or disjoint i64 %379, %382
-  %384 = mul i64 %375, 20
-  %385 = mul i64 %383, 20
-  %386 = icmp ult i64 %.0, 16
-  br i1 %386, label %444, label %387
+357:                                              ; preds = %._crit_edge, %poly1305_combine.exit
+  %358 = phi i64 [ %354, %poly1305_combine.exit ], [ %.pre358, %._crit_edge ]
+  %359 = phi i64 [ %349, %poly1305_combine.exit ], [ %.pre356, %._crit_edge ]
+  %360 = phi i64 [ %343, %poly1305_combine.exit ], [ %.pre, %._crit_edge ]
+  %.0212 = phi ptr [ %356, %poly1305_combine.exit ], [ %9, %._crit_edge ]
+  %.0 = phi i64 [ %355, %poly1305_combine.exit ], [ %8, %._crit_edge ]
+  %361 = getelementptr inbounds nuw i8, ptr %6, i64 156
+  %362 = load i32, ptr %361, align 4, !tbaa !10
+  %363 = zext i32 %362 to i64
+  %364 = shl nuw i64 %363, 32
+  %365 = getelementptr inbounds nuw i8, ptr %6, i64 148
+  %366 = load i32, ptr %365, align 4, !tbaa !10
+  %367 = zext i32 %366 to i64
+  %368 = or disjoint i64 %364, %367
+  %369 = getelementptr inbounds nuw i8, ptr %6, i64 172
+  %370 = load i32, ptr %369, align 4, !tbaa !10
+  %371 = zext i32 %370 to i64
+  %372 = shl nuw i64 %371, 32
+  %373 = getelementptr inbounds nuw i8, ptr %6, i64 164
+  %374 = load i32, ptr %373, align 4, !tbaa !10
+  %375 = zext i32 %374 to i64
+  %376 = or disjoint i64 %372, %375
+  %377 = getelementptr inbounds nuw i8, ptr %6, i64 188
+  %378 = load i32, ptr %377, align 4, !tbaa !10
+  %379 = zext i32 %378 to i64
+  %380 = shl nuw i64 %379, 32
+  %381 = getelementptr inbounds nuw i8, ptr %6, i64 180
+  %382 = load i32, ptr %381, align 4, !tbaa !10
+  %383 = zext i32 %382 to i64
+  %384 = or disjoint i64 %380, %383
+  %385 = mul i64 %376, 20
+  %386 = mul i64 %384, 20
+  %387 = icmp ult i64 %.0, 16
+  br i1 %387, label %445, label %388
 
-387:                                              ; preds = %404, %356
-  %.1223 = phi i64 [ %436, %404 ], [ %357, %356 ]
-  %.1220 = phi i64 [ %432, %404 ], [ %358, %356 ]
-  %.1217 = phi i64 [ %440, %404 ], [ %359, %356 ]
-  %.2214 = phi ptr [ %441, %404 ], [ %.0212, %356 ]
-  %.2 = phi i64 [ %442, %404 ], [ %.0, %356 ]
-  %388 = load i64, ptr %.2214, align 8, !tbaa !6
-  %389 = getelementptr inbounds nuw i8, ptr %.2214, i64 8
-  %390 = load i64, ptr %389, align 8, !tbaa !6
-  %391 = and i64 %388, 17592186044415
-  %392 = add i64 %391, %.1217
-  %393 = zext i64 %390 to i128
-  %394 = shl nuw i128 %393, 64
-  %395 = zext i64 %388 to i128
-  %396 = or disjoint i128 %394, %395
-  %397 = lshr i128 %396, 44
-  %398 = trunc i128 %397 to i64
-  %399 = and i64 %398, 17592186044415
-  %400 = add i64 %399, %.1220
-  %401 = lshr i64 %390, 24
-  %402 = add i64 %.1223, 1099511627776
-  %403 = add i64 %402, %401
-  br label %404
+388:                                              ; preds = %405, %357
+  %.1223 = phi i64 [ %437, %405 ], [ %358, %357 ]
+  %.1220 = phi i64 [ %433, %405 ], [ %359, %357 ]
+  %.1217 = phi i64 [ %441, %405 ], [ %360, %357 ]
+  %.2214 = phi ptr [ %442, %405 ], [ %.0212, %357 ]
+  %.2 = phi i64 [ %443, %405 ], [ %.0, %357 ]
+  %389 = load i64, ptr %.2214, align 8, !tbaa !6
+  %390 = getelementptr inbounds nuw i8, ptr %.2214, i64 8
+  %391 = load i64, ptr %390, align 8, !tbaa !6
+  %392 = and i64 %389, 17592186044415
+  %393 = add i64 %392, %.1217
+  %394 = zext i64 %391 to i128
+  %395 = shl nuw i128 %394, 64
+  %396 = zext i64 %389 to i128
+  %397 = or disjoint i128 %395, %396
+  %398 = lshr i128 %397, 44
+  %399 = trunc i128 %398 to i64
+  %400 = and i64 %399, 17592186044415
+  %401 = add i64 %400, %.1220
+  %402 = lshr i64 %391, 24
+  %403 = add i64 %.1223, 1099511627776
+  %404 = add i64 %403, %402
+  br label %405
 
-404:                                              ; preds = %poly1305_block_zero.exit, %387
-  %.2224 = phi i64 [ %476, %poly1305_block_zero.exit ], [ %403, %387 ]
-  %.2221 = phi i64 [ %474, %poly1305_block_zero.exit ], [ %400, %387 ]
-  %.2218 = phi i64 [ %466, %poly1305_block_zero.exit ], [ %392, %387 ]
-  %.3215 = phi ptr [ %.1213, %poly1305_block_zero.exit ], [ %.2214, %387 ]
-  %.3 = phi i64 [ 16, %poly1305_block_zero.exit ], [ %.2, %387 ]
-  %405 = zext i64 %.2218 to i128
-  %406 = zext i64 %367 to i128
-  %407 = mul nuw i128 %405, %406
-  %408 = zext i64 %.2221 to i128
-  %409 = zext i64 %385 to i128
-  %410 = mul nuw i128 %408, %409
-  %.sroa.2.0.extract.shift.i229 = lshr i128 %410, 64
+405:                                              ; preds = %poly1305_block_zero.exit, %388
+  %.2224 = phi i64 [ %477, %poly1305_block_zero.exit ], [ %404, %388 ]
+  %.2221 = phi i64 [ %475, %poly1305_block_zero.exit ], [ %401, %388 ]
+  %.2218 = phi i64 [ %467, %poly1305_block_zero.exit ], [ %393, %388 ]
+  %.3215 = phi ptr [ %.1213, %poly1305_block_zero.exit ], [ %.2214, %388 ]
+  %.3 = phi i64 [ 16, %poly1305_block_zero.exit ], [ %.2, %388 ]
+  %406 = zext i64 %.2218 to i128
+  %407 = zext i64 %368 to i128
+  %408 = mul nuw i128 %406, %407
+  %409 = zext i64 %.2221 to i128
+  %410 = zext i64 %386 to i128
+  %411 = mul nuw i128 %409, %410
+  %.sroa.2.0.extract.shift.i229 = lshr i128 %411, 64
   %.sroa.2.0.extract.trunc.i230 = trunc nuw i128 %.sroa.2.0.extract.shift.i229 to i64
-  %.sroa.0.0.insert.ext.i = and i128 %410, 18446744073709551612
-  %.sroa.02.0.insert.insert.i = add nuw i128 %407, %.sroa.0.0.insert.ext.i
-  %411 = lshr i128 %.sroa.02.0.insert.insert.i, 64
-  %.tr.i = trunc nuw i128 %411 to i64
+  %.sroa.0.0.insert.ext.i = and i128 %411, 18446744073709551612
+  %.sroa.02.0.insert.insert.i = add nuw i128 %408, %.sroa.0.0.insert.ext.i
+  %412 = lshr i128 %.sroa.02.0.insert.insert.i, 64
+  %.tr.i = trunc nuw i128 %412 to i64
   %.narrow.i = add i64 %.tr.i, %.sroa.2.0.extract.trunc.i230
-  %412 = zext i64 %.2224 to i128
-  %413 = zext i64 %384 to i128
-  %414 = mul nuw i128 %412, %413
-  %.sroa.2.0.extract.shift.i236 = lshr i128 %414, 64
+  %413 = zext i64 %.2224 to i128
+  %414 = zext i64 %385 to i128
+  %415 = mul nuw i128 %413, %414
+  %.sroa.2.0.extract.shift.i236 = lshr i128 %415, 64
   %.sroa.2.0.extract.trunc.i237 = trunc nuw i128 %.sroa.2.0.extract.shift.i236 to i64
   %.sroa.02.0.insert.ext.i242 = and i128 %.sroa.02.0.insert.insert.i, 18446744073709551615
-  %.sroa.0.0.insert.ext.i243 = and i128 %414, 18446744073709551612
+  %.sroa.0.0.insert.ext.i243 = and i128 %415, 18446744073709551612
   %.sroa.0.0.insert.insert.i244 = add nuw nsw i128 %.sroa.02.0.insert.ext.i242, %.sroa.0.0.insert.ext.i243
   %.sroa.04.0.extract.trunc.i246 = trunc i128 %.sroa.0.0.insert.insert.i244 to i64
-  %415 = lshr i128 %.sroa.0.0.insert.insert.i244, 64
-  %.tr = trunc nuw nsw i128 %415 to i64
+  %416 = lshr i128 %.sroa.0.0.insert.insert.i244, 64
+  %.tr = trunc nuw nsw i128 %416 to i64
   %.narrow = add i64 %.narrow.i, %.tr
   %.narrow.i248 = add i64 %.narrow, %.sroa.2.0.extract.trunc.i237
-  %416 = zext i64 %375 to i128
-  %417 = mul nuw i128 %405, %416
-  %418 = mul nuw i128 %408, %406
-  %.sroa.2.0.extract.shift.i257 = lshr i128 %418, 64
+  %417 = zext i64 %376 to i128
+  %418 = mul nuw i128 %406, %417
+  %419 = mul nuw i128 %409, %407
+  %.sroa.2.0.extract.shift.i257 = lshr i128 %419, 64
   %.sroa.2.0.extract.trunc.i258 = trunc nuw i128 %.sroa.2.0.extract.shift.i257 to i64
-  %.sroa.0.0.insert.ext.i264 = and i128 %418, 18446744073709551615
-  %.sroa.02.0.insert.insert.i266 = add nuw i128 %417, %.sroa.0.0.insert.ext.i264
-  %419 = lshr i128 %.sroa.02.0.insert.insert.i266, 64
-  %.tr.i268 = trunc nuw i128 %419 to i64
+  %.sroa.0.0.insert.ext.i264 = and i128 %419, 18446744073709551615
+  %.sroa.02.0.insert.insert.i266 = add nuw i128 %418, %.sroa.0.0.insert.ext.i264
+  %420 = lshr i128 %.sroa.02.0.insert.insert.i266, 64
+  %.tr.i268 = trunc nuw i128 %420 to i64
   %.narrow.i269 = add i64 %.tr.i268, %.sroa.2.0.extract.trunc.i258
-  %420 = mul nuw i128 %412, %409
-  %.sroa.2.0.extract.shift.i273 = lshr i128 %420, 64
+  %421 = mul nuw i128 %413, %410
+  %.sroa.2.0.extract.shift.i273 = lshr i128 %421, 64
   %.sroa.2.0.extract.trunc.i274 = trunc nuw i128 %.sroa.2.0.extract.shift.i273 to i64
   %.sroa.02.0.insert.ext.i279 = and i128 %.sroa.02.0.insert.insert.i266, 18446744073709551615
-  %.sroa.0.0.insert.ext.i280 = and i128 %420, 18446744073709551612
+  %.sroa.0.0.insert.ext.i280 = and i128 %421, 18446744073709551612
   %.sroa.0.0.insert.insert.i281 = add nuw nsw i128 %.sroa.02.0.insert.ext.i279, %.sroa.0.0.insert.ext.i280
-  %421 = lshr i128 %.sroa.0.0.insert.insert.i281, 64
-  %.tr351 = trunc nuw nsw i128 %421 to i64
+  %422 = lshr i128 %.sroa.0.0.insert.insert.i281, 64
+  %.tr351 = trunc nuw nsw i128 %422 to i64
   %.narrow352 = add i64 %.narrow.i269, %.tr351
   %.narrow.i285 = add i64 %.narrow352, %.sroa.2.0.extract.trunc.i274
-  %422 = zext i64 %383 to i128
-  %423 = mul nuw i128 %405, %422
-  %424 = mul nuw i128 %408, %416
-  %.sroa.2.0.extract.shift.i294 = lshr i128 %424, 64
+  %423 = zext i64 %384 to i128
+  %424 = mul nuw i128 %406, %423
+  %425 = mul nuw i128 %409, %417
+  %.sroa.2.0.extract.shift.i294 = lshr i128 %425, 64
   %.sroa.2.0.extract.trunc.i295 = trunc nuw i128 %.sroa.2.0.extract.shift.i294 to i64
-  %.sroa.0.0.insert.ext.i301 = and i128 %424, 18446744073709551615
-  %.sroa.02.0.insert.insert.i303 = add nuw i128 %423, %.sroa.0.0.insert.ext.i301
-  %425 = lshr i128 %.sroa.02.0.insert.insert.i303, 64
-  %.tr.i305 = trunc nuw i128 %425 to i64
+  %.sroa.0.0.insert.ext.i301 = and i128 %425, 18446744073709551615
+  %.sroa.02.0.insert.insert.i303 = add nuw i128 %424, %.sroa.0.0.insert.ext.i301
+  %426 = lshr i128 %.sroa.02.0.insert.insert.i303, 64
+  %.tr.i305 = trunc nuw i128 %426 to i64
   %.narrow.i306 = add i64 %.tr.i305, %.sroa.2.0.extract.trunc.i295
-  %426 = mul nuw i128 %412, %406
-  %.sroa.2.0.extract.shift.i310 = lshr i128 %426, 64
+  %427 = mul nuw i128 %413, %407
+  %.sroa.2.0.extract.shift.i310 = lshr i128 %427, 64
   %.sroa.2.0.extract.trunc.i311 = trunc nuw i128 %.sroa.2.0.extract.shift.i310 to i64
   %.sroa.02.0.insert.ext.i316 = and i128 %.sroa.02.0.insert.insert.i303, 18446744073709551615
-  %.sroa.0.0.insert.ext.i317 = and i128 %426, 18446744073709551615
+  %.sroa.0.0.insert.ext.i317 = and i128 %427, 18446744073709551615
   %.sroa.0.0.insert.insert.i318 = add nuw nsw i128 %.sroa.02.0.insert.ext.i316, %.sroa.0.0.insert.ext.i317
-  %427 = lshr i128 %.sroa.0.0.insert.insert.i318, 64
-  %.tr353 = trunc nuw nsw i128 %427 to i64
+  %428 = lshr i128 %.sroa.0.0.insert.insert.i318, 64
+  %.tr353 = trunc nuw nsw i128 %428 to i64
   %.narrow354 = add i64 %.narrow.i306, %.tr353
   %.narrow.i322 = add i64 %.narrow354, %.sroa.2.0.extract.trunc.i311
-  %428 = and i64 %.sroa.04.0.extract.trunc.i246, 17592186044415
+  %429 = and i64 %.sroa.04.0.extract.trunc.i246, 17592186044415
   %.sroa.2.0.insert.ext.i = zext i64 %.narrow.i248 to i128
   %.sroa.2.0.insert.shift.i = shl nuw i128 %.sroa.2.0.insert.ext.i, 64
   %.sroa.0.0.insert.ext.i325 = and i128 %.sroa.0.0.insert.insert.i244, 18446726481523507200
   %.sroa.0.0.insert.insert.i326 = or disjoint i128 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i325
-  %429 = lshr exact i128 %.sroa.0.0.insert.insert.i326, 44
+  %430 = lshr exact i128 %.sroa.0.0.insert.insert.i326, 44
   %.sroa.2.0.insert.ext.i327 = zext i64 %.narrow.i285 to i128
   %.sroa.2.0.insert.shift.i328 = shl nuw i128 %.sroa.2.0.insert.ext.i327, 64
   %.sroa.0.0.insert.ext.i329 = and i128 %.sroa.0.0.insert.insert.i281, 18446744073709551615
   %.sroa.0.0.insert.insert.i330 = or disjoint i128 %.sroa.2.0.insert.shift.i328, %.sroa.0.0.insert.ext.i329
-  %430 = and i128 %429, 18446744073709551615
-  %431 = add i128 %.sroa.0.0.insert.insert.i330, %430
-  %.sroa.02.0.extract.trunc.i = trunc i128 %431 to i64
-  %432 = and i64 %.sroa.02.0.extract.trunc.i, 17592186044415
-  %433 = lshr i128 %431, 44
+  %431 = and i128 %430, 18446744073709551615
+  %432 = add i128 %.sroa.0.0.insert.insert.i330, %431
+  %.sroa.02.0.extract.trunc.i = trunc i128 %432 to i64
+  %433 = and i64 %.sroa.02.0.extract.trunc.i, 17592186044415
+  %434 = lshr i128 %432, 44
   %.sroa.2.0.insert.ext.i337 = zext i64 %.narrow.i322 to i128
   %.sroa.2.0.insert.shift.i338 = shl nuw i128 %.sroa.2.0.insert.ext.i337, 64
   %.sroa.0.0.insert.ext.i339 = and i128 %.sroa.0.0.insert.insert.i318, 18446744073709551615
   %.sroa.0.0.insert.insert.i340 = or disjoint i128 %.sroa.2.0.insert.shift.i338, %.sroa.0.0.insert.ext.i339
-  %434 = and i128 %433, 18446744073709551615
-  %435 = add i128 %.sroa.0.0.insert.insert.i340, %434
-  %.sroa.02.0.extract.trunc.i341 = trunc i128 %435 to i64
-  %436 = and i64 %.sroa.02.0.extract.trunc.i341, 4398046511103
-  %437 = lshr i128 %435, 42
-  %438 = trunc i128 %437 to i64
-  %439 = mul i64 %438, 5
-  %440 = add i64 %439, %428
-  %441 = getelementptr inbounds nuw i8, ptr %.3215, i64 16
-  %442 = add i64 %.3, -16
-  %443 = icmp ugt i64 %442, 15
-  br i1 %443, label %387, label %444
+  %435 = and i128 %434, 18446744073709551615
+  %436 = add i128 %.sroa.0.0.insert.insert.i340, %435
+  %.sroa.02.0.extract.trunc.i341 = trunc i128 %436 to i64
+  %437 = and i64 %.sroa.02.0.extract.trunc.i341, 4398046511103
+  %438 = lshr i128 %436, 42
+  %439 = trunc i128 %438 to i64
+  %440 = mul i64 %439, 5
+  %441 = add i64 %440, %429
+  %442 = getelementptr inbounds nuw i8, ptr %.3215, i64 16
+  %443 = add i64 %.3, -16
+  %444 = icmp ugt i64 %443, 15
+  br i1 %444, label %388, label %445
 
-444:                                              ; preds = %404, %356
-  %.0222 = phi i64 [ %357, %356 ], [ %436, %404 ]
-  %.0219 = phi i64 [ %358, %356 ], [ %432, %404 ]
-  %.0216 = phi i64 [ %359, %356 ], [ %440, %404 ]
-  %.1213 = phi ptr [ %.0212, %356 ], [ %441, %404 ]
-  %.1 = phi i64 [ %.0, %356 ], [ %442, %404 ]
+445:                                              ; preds = %405, %357
+  %.0222 = phi i64 [ %358, %357 ], [ %437, %405 ]
+  %.0219 = phi i64 [ %359, %357 ], [ %433, %405 ]
+  %.0216 = phi i64 [ %360, %357 ], [ %441, %405 ]
+  %.1213 = phi ptr [ %.0212, %357 ], [ %442, %405 ]
+  %.1 = phi i64 [ %.0, %357 ], [ %443, %405 ]
   %.not227 = icmp eq i64 %.1, 0
-  br i1 %.not227, label %477, label %445
+  br i1 %.not227, label %478, label %446
 
-445:                                              ; preds = %444
-  %446 = getelementptr inbounds nuw i8, ptr %.1213, i64 %.1
-  store i8 1, ptr %446, align 1, !tbaa !10
-  %447 = getelementptr inbounds nuw i8, ptr %446, i64 1
-  %448 = xor i64 %.1, 15
-  %.not.i = icmp samesign ult i64 %448, 8
-  br i1 %.not.i, label %451, label %449
+446:                                              ; preds = %445
+  %447 = getelementptr inbounds nuw i8, ptr %.1213, i64 %.1
+  store i8 1, ptr %447, align 1, !tbaa !10
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 1
+  %449 = xor i64 %.1, 15
+  %.not.i = icmp samesign ult i64 %449, 8
+  br i1 %.not.i, label %452, label %450
 
-449:                                              ; preds = %445
-  store i64 0, ptr %447, align 8, !tbaa !6
-  %450 = getelementptr inbounds nuw i8, ptr %446, i64 9
-  br label %451
+450:                                              ; preds = %446
+  store i64 0, ptr %448, align 8, !tbaa !6
+  %451 = getelementptr inbounds nuw i8, ptr %447, i64 9
+  br label %452
 
-451:                                              ; preds = %449, %445
-  %.0.i350 = phi ptr [ %450, %449 ], [ %447, %445 ]
-  %452 = and i64 %448, 4
-  %.not10.i = icmp eq i64 %452, 0
-  br i1 %.not10.i, label %455, label %453
+452:                                              ; preds = %450, %446
+  %.0.i350 = phi ptr [ %451, %450 ], [ %448, %446 ]
+  %453 = and i64 %449, 4
+  %.not10.i = icmp eq i64 %453, 0
+  br i1 %.not10.i, label %456, label %454
 
-453:                                              ; preds = %451
+454:                                              ; preds = %452
   store i32 0, ptr %.0.i350, align 4, !tbaa !11
-  %454 = getelementptr inbounds nuw i8, ptr %.0.i350, i64 4
-  br label %455
+  %455 = getelementptr inbounds nuw i8, ptr %.0.i350, i64 4
+  br label %456
 
-455:                                              ; preds = %453, %451
-  %.1.i = phi ptr [ %454, %453 ], [ %.0.i350, %451 ]
-  %456 = and i64 %448, 2
-  %.not11.i = icmp eq i64 %456, 0
-  br i1 %.not11.i, label %459, label %457
+456:                                              ; preds = %454, %452
+  %.1.i = phi ptr [ %455, %454 ], [ %.0.i350, %452 ]
+  %457 = and i64 %449, 2
+  %.not11.i = icmp eq i64 %457, 0
+  br i1 %.not11.i, label %460, label %458
 
-457:                                              ; preds = %455
+458:                                              ; preds = %456
   store i16 0, ptr %.1.i, align 2, !tbaa !16
-  %458 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
-  br label %459
+  %459 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
+  br label %460
 
-459:                                              ; preds = %457, %455
-  %.2.i = phi ptr [ %458, %457 ], [ %.1.i, %455 ]
-  %460 = and i64 %448, 1
-  %.not12.i = icmp eq i64 %460, 0
-  br i1 %.not12.i, label %poly1305_block_zero.exit, label %461
+460:                                              ; preds = %458, %456
+  %.2.i = phi ptr [ %459, %458 ], [ %.1.i, %456 ]
+  %461 = and i64 %449, 1
+  %.not12.i = icmp eq i64 %461, 0
+  br i1 %.not12.i, label %poly1305_block_zero.exit, label %462
 
-461:                                              ; preds = %459
+462:                                              ; preds = %460
   store i8 0, ptr %.2.i, align 1, !tbaa !10
   br label %poly1305_block_zero.exit
 
-poly1305_block_zero.exit:                         ; preds = %459, %461
-  %462 = load i64, ptr %.1213, align 8, !tbaa !6
-  %463 = getelementptr inbounds nuw i8, ptr %.1213, i64 8
-  %464 = load i64, ptr %463, align 8, !tbaa !6
-  %465 = and i64 %462, 17592186044415
-  %466 = add i64 %465, %.0216
-  %467 = zext i64 %464 to i128
-  %468 = shl nuw i128 %467, 64
-  %469 = zext i64 %462 to i128
-  %470 = or disjoint i128 %468, %469
-  %471 = lshr i128 %470, 44
-  %472 = trunc i128 %471 to i64
-  %473 = and i64 %472, 17592186044415
-  %474 = add i64 %473, %.0219
-  %475 = lshr i64 %464, 24
-  %476 = add i64 %475, %.0222
-  br label %404
+poly1305_block_zero.exit:                         ; preds = %460, %462
+  %463 = load i64, ptr %.1213, align 8, !tbaa !6
+  %464 = getelementptr inbounds nuw i8, ptr %.1213, i64 8
+  %465 = load i64, ptr %464, align 8, !tbaa !6
+  %466 = and i64 %463, 17592186044415
+  %467 = add i64 %466, %.0216
+  %468 = zext i64 %465 to i128
+  %469 = shl nuw i128 %468, 64
+  %470 = zext i64 %463 to i128
+  %471 = or disjoint i128 %469, %470
+  %472 = lshr i128 %471, 44
+  %473 = trunc i128 %472 to i64
+  %474 = and i64 %473, 17592186044415
+  %475 = add i64 %474, %.0219
+  %476 = lshr i64 %465, 24
+  %477 = add i64 %476, %.0222
+  br label %405
 
-477:                                              ; preds = %444
-  %478 = lshr i64 %.0216, 44
-  %479 = and i64 %.0216, 17592186044415
-  %480 = add i64 %478, %.0219
-  %481 = lshr i64 %480, 44
-  %482 = and i64 %480, 17592186044415
-  %483 = add i64 %481, %.0222
-  %484 = lshr i64 %483, 42
-  %485 = and i64 %483, 4398046511103
-  %486 = mul nuw nsw i64 %484, 5
-  %487 = add nuw nsw i64 %486, %479
-  %488 = add nuw nsw i64 %487, 5
-  %489 = lshr i64 %488, 44
-  %490 = add nuw nsw i64 %489, %482
-  %491 = lshr i64 %490, 44
-  %492 = add nuw nsw i64 %491, %485
-  %493 = add nsw i64 %492, -4398046511104
-  %.neg = ashr i64 %493, 63
-  %494 = lshr i64 %493, 63
-  %495 = add nsw i64 %494, -1
-  %496 = and i64 %.neg, %487
-  %497 = and i64 %495, 17592186044415
-  %498 = and i64 %497, %488
-  %499 = or i64 %496, %498
-  %500 = and i64 %.neg, %482
-  %501 = and i64 %497, %490
-  %502 = or i64 %500, %501
-  %503 = and i64 %.neg, %483
-  %504 = and i64 %495, %492
-  %505 = or i64 %504, %503
-  %506 = getelementptr inbounds nuw i8, ptr %6, i64 204
-  %507 = load i32, ptr %506, align 4, !tbaa !10
-  %508 = zext i32 %507 to i64
-  %509 = shl nuw i64 %508, 32
-  %510 = getelementptr inbounds nuw i8, ptr %6, i64 196
-  %511 = load i32, ptr %510, align 4, !tbaa !10
-  %512 = zext i32 %511 to i64
-  %513 = getelementptr inbounds nuw i8, ptr %6, i64 220
-  %514 = load i32, ptr %513, align 4, !tbaa !10
-  %515 = zext i32 %514 to i64
-  %516 = shl nuw i64 %515, 32
-  %517 = getelementptr inbounds nuw i8, ptr %6, i64 212
-  %518 = load i32, ptr %517, align 4, !tbaa !10
-  %519 = zext i32 %518 to i64
-  %520 = or disjoint i64 %516, %519
-  %.masked = and i64 %509, 17587891077120
-  %521 = or disjoint i64 %.masked, %512
-  %522 = add nuw nsw i64 %521, %499
-  %523 = lshr i64 %522, 44
-  %524 = and i64 %522, 17592186044415
-  %525 = zext i64 %520 to i128
-  %526 = shl nuw i128 %525, 64
-  %527 = zext i64 %509 to i128
-  %528 = or disjoint i128 %526, %527
-  %529 = lshr i128 %528, 44
-  %530 = trunc i128 %529 to i64
-  %531 = and i64 %530, 17592186044415
-  %532 = add nuw nsw i64 %523, %502
-  %533 = add nuw nsw i64 %532, %531
-  %534 = lshr i64 %533, 44
-  %535 = lshr i64 %520, 24
-  %536 = add i64 %535, %505
-  %537 = add i64 %536, %534
-  %538 = shl i64 %533, 44
-  %539 = or disjoint i64 %538, %524
-  store i64 %539, ptr %1, align 8, !tbaa !6
-  %540 = lshr i64 %533, 20
-  %541 = and i64 %540, 16777215
-  %542 = shl i64 %537, 24
-  %543 = or disjoint i64 %542, %541
-  %544 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %543, ptr %544, align 8, !tbaa !6
+478:                                              ; preds = %445
+  %479 = lshr i64 %.0216, 44
+  %480 = and i64 %.0216, 17592186044415
+  %481 = add i64 %479, %.0219
+  %482 = lshr i64 %481, 44
+  %483 = and i64 %481, 17592186044415
+  %484 = add i64 %482, %.0222
+  %485 = lshr i64 %484, 42
+  %486 = and i64 %484, 4398046511103
+  %487 = mul nuw nsw i64 %485, 5
+  %488 = add nuw nsw i64 %487, %480
+  %489 = add nuw nsw i64 %488, 5
+  %490 = lshr i64 %489, 44
+  %491 = add nuw nsw i64 %490, %483
+  %492 = lshr i64 %491, 44
+  %493 = add nuw nsw i64 %492, %486
+  %494 = add nsw i64 %493, -4398046511104
+  %.neg = ashr i64 %494, 63
+  %495 = lshr i64 %494, 63
+  %496 = add nsw i64 %495, -1
+  %497 = and i64 %.neg, %488
+  %498 = and i64 %496, 17592186044415
+  %499 = and i64 %498, %489
+  %500 = or i64 %497, %499
+  %501 = and i64 %.neg, %483
+  %502 = and i64 %498, %491
+  %503 = or i64 %501, %502
+  %504 = and i64 %.neg, %484
+  %505 = and i64 %496, %493
+  %506 = or i64 %505, %504
+  %507 = getelementptr inbounds nuw i8, ptr %6, i64 204
+  %508 = load i32, ptr %507, align 4, !tbaa !10
+  %509 = zext i32 %508 to i64
+  %510 = shl nuw i64 %509, 32
+  %511 = getelementptr inbounds nuw i8, ptr %6, i64 196
+  %512 = load i32, ptr %511, align 4, !tbaa !10
+  %513 = zext i32 %512 to i64
+  %514 = getelementptr inbounds nuw i8, ptr %6, i64 220
+  %515 = load i32, ptr %514, align 4, !tbaa !10
+  %516 = zext i32 %515 to i64
+  %517 = shl nuw i64 %516, 32
+  %518 = getelementptr inbounds nuw i8, ptr %6, i64 212
+  %519 = load i32, ptr %518, align 4, !tbaa !10
+  %520 = zext i32 %519 to i64
+  %521 = or disjoint i64 %517, %520
+  %.masked = and i64 %510, 17587891077120
+  %522 = or disjoint i64 %.masked, %513
+  %523 = add nuw nsw i64 %522, %500
+  %524 = lshr i64 %523, 44
+  %525 = and i64 %523, 17592186044415
+  %526 = zext i64 %521 to i128
+  %527 = shl nuw i128 %526, 64
+  %528 = zext i64 %510 to i128
+  %529 = or disjoint i128 %527, %528
+  %530 = lshr i128 %529, 44
+  %531 = trunc i128 %530 to i64
+  %532 = and i64 %531, 17592186044415
+  %533 = add nuw nsw i64 %524, %503
+  %534 = add nuw nsw i64 %533, %532
+  %535 = lshr i64 %534, 44
+  %536 = lshr i64 %521, 24
+  %537 = add i64 %536, %506
+  %538 = add i64 %537, %535
+  %539 = shl i64 %534, 44
+  %540 = or disjoint i64 %539, %525
+  store i64 %540, ptr %1, align 8, !tbaa !6
+  %541 = lshr i64 %534, 20
+  %542 = and i64 %541, 16777215
+  %543 = shl i64 %538, 24
+  %544 = or disjoint i64 %543, %542
+  %545 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %544, ptr %545, align 8, !tbaa !6
   ret void
 }
 

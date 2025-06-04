@@ -2079,7 +2079,7 @@ define internal fastcc i32 @add_parallel_transfers(ptr noundef %0, ptr noundef %
   %26 = load i16, ptr %10, align 2, !tbaa !130
   %27 = zext i16 %26 to i64
   %28 = icmp slt i64 %25, %27
-  br i1 %28, label %29, label %.critedge.loopexit
+  br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %.05475, i64 475
@@ -2180,16 +2180,11 @@ define internal fastcc i32 @add_parallel_transfers(ptr noundef %0, ptr noundef %
   %.153 = phi i8 [ %.05274, %29 ], [ %.05274, %33 ], [ %.05274, %71 ], [ 1, %40 ]
   %.054 = load ptr, ptr %.05475, align 8, !tbaa !56
   %.not60 = icmp eq ptr %.054, null
-  br i1 %.not60, label %.critedge.loopexit, label %24, !llvm.loop !134
+  br i1 %.not60, label %.critedge, label %24, !llvm.loop !134
 
-.critedge.loopexit:                               ; preds = %77, %24
-  %.ph = phi i8 [ 1, %24 ], [ %.153, %77 ]
-  %79 = and i8 %.ph, 1
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %22
-  %80 = phi i8 [ 0, %22 ], [ %79, %.critedge.loopexit ]
-  store i8 %80, ptr %3, align 1, !tbaa !71
+.critedge:                                        ; preds = %24, %77, %22
+  %79 = phi i8 [ 0, %22 ], [ %.153, %77 ], [ 1, %24 ]
+  store i8 %79, ptr %3, align 1, !tbaa !71
   br label %.loopexit
 
 .critedge68:                                      ; preds = %16

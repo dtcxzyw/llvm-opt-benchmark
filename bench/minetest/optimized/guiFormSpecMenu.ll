@@ -59227,14 +59227,13 @@ if.then.i.i770:                                   ; preds = %invoke.cont208
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774: ; preds = %if.then.i.i770, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i771
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp198) #34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %conv189 = and i64 %indvars.iv.next, 4294967295
   %241 = load ptr, ptr %_M_finish.i704, align 8, !tbaa !190
   %242 = load ptr, ptr %textures, align 8, !tbaa !189
   %sub.ptr.lhs.cast.i705 = ptrtoint ptr %241 to i64
   %sub.ptr.rhs.cast.i706 = ptrtoint ptr %242 to i64
   %sub.ptr.sub.i707 = sub i64 %sub.ptr.lhs.cast.i705, %sub.ptr.rhs.cast.i706
   %sub.ptr.div.i708 = ashr exact i64 %sub.ptr.sub.i707, 5
-  %cmp191 = icmp ugt i64 %sub.ptr.div.i708, %conv189
+  %cmp191 = icmp ugt i64 %sub.ptr.div.i708, %indvars.iv.next
   br i1 %cmp191, label %land.rhs, label %for.cond.cleanup, !llvm.loop !608
 
 lpad205:                                          ; preds = %invoke.cont206, %invoke.cont202

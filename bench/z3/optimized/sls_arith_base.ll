@@ -28599,11 +28599,11 @@ _ZNK6vectorISt4pairI13checked_int64ILb1EEjELb1EjE3endEv.exit: ; preds = %66
 .critedge6:                                       ; preds = %.thread388
   %192 = trunc nuw i8 %.3174 to i1
   %193 = trunc nuw i8 %.2177.ph to i1
-  %194 = trunc i8 %.2185.ph to i1
+  %194 = trunc nuw i8 %.2185.ph to i1
   br i1 %192, label %195, label %_ZN3sls10arith_baseI13checked_int64ILb1EEE6add_geEjRKS2_.exit
 
 195:                                              ; preds = %.critedge6
-  %196 = trunc i8 %.3182 to i1
+  %196 = trunc nuw i8 %.3182 to i1
   br i1 %196, label %197, label %.thread
 
 197:                                              ; preds = %195
@@ -96862,11 +96862,11 @@ _ZN8rationalD2Ev.exit269:                         ; preds = %.noexc.i268
 ._crit_edge521:                                   ; preds = %277
   %279 = trunc nuw i8 %.3193 to i1
   %280 = trunc nuw i8 %.2196.ph to i1
-  %281 = trunc i8 %.2204.ph to i1
+  %281 = trunc nuw i8 %.2204.ph to i1
   br i1 %279, label %282, label %289
 
 282:                                              ; preds = %._crit_edge521
-  %283 = trunc i8 %.3201 to i1
+  %283 = trunc nuw i8 %.3201 to i1
   br i1 %283, label %284, label %.thread
 
 284:                                              ; preds = %282

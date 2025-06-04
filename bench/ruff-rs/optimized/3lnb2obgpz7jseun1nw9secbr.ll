@@ -185,7 +185,7 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter14format_element8d
   ]
 
 ._crit_edge.loopexit:                             ; preds = %.backedge
-  %16 = trunc i8 %.sroa.0.0.be to i1
+  %16 = trunc nuw i8 %.sroa.0.0.be to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
@@ -302,12 +302,12 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter14format_element8d
     i8 8, label %122
     i8 9, label %131
     i8 24, label %134
-    i8 25, label %144
-    i8 28, label %147
-    i8 29, label %156
+    i8 25, label %143
+    i8 28, label %146
+    i8 29, label %154
   ]
 
-75:                                               ; preds = %167, %select.unfold, %94, %24, %20, %14, %17, %91
+75:                                               ; preds = %165, %select.unfold, %94, %24, %20, %14, %17, %91
   %76 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
   %77 = load i64, ptr %9, align 8, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
@@ -342,8 +342,8 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter14format_element8d
   call void @_ZN14ruff_formatter14format_element3tag12FitsExpanded16propagate_expand17h388b4bdb886dee83E(ptr noundef nonnull align 4 %90), !noalias !49
   br label %.backedge
 
-91:                                               ; preds = %170
-  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %176, i64 8
+91:                                               ; preds = %168
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %174, i64 8
   %.sroa.539.0.copyload = load ptr, ptr %.sroa.539.0..sroa_idx, align 8, !nonnull !9, !noundef !9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %92 = call noundef i8 @_ZN14ruff_formatter14format_element3tag16ConditionalGroup4mode17h7790f0e72d0aabb3E(ptr noundef nonnull align 4 %.sroa.539.0.copyload)
@@ -377,8 +377,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   call void @llvm.assume(i1 %108)
   br label %.backedge
 
-.backedge:                                        ; preds = %91, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit55", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit56", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57", %72, %14, %17, %159, %170, %75, %78, %82, %85, %88, %20, %24, %94, %select.unfold, %167, %119, %131, %104, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit", %144, %156, %178, %186
-  %.sroa.0.0.be = phi i8 [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit" ], [ %.sroa.0.098, %104 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58" ], [ %.sroa.0.098, %144 ], [ %.sroa.0.098, %156 ], [ %spec.select, %178 ], [ %spec.select92, %186 ], [ %.sroa.0.098, %91 ], [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit55" ], [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit56" ], [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57" ], [ %.sroa.0.098, %72 ], [ %.sroa.0.098, %17 ], [ %.sroa.0.098, %14 ], [ %.sroa.0.098, %159 ], [ %.sroa.0.098, %170 ], [ 1, %75 ], [ 1, %78 ], [ 1, %82 ], [ 1, %85 ], [ 1, %88 ], [ %.sroa.0.098, %20 ], [ %.sroa.0.098, %24 ], [ %.sroa.0.098, %94 ], [ %.sroa.0.098, %select.unfold ], [ %.sroa.0.098, %167 ], [ %.sroa.0.098, %119 ], [ %.sroa.0.098, %131 ]
+.backedge:                                        ; preds = %91, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit55", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit56", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57", %72, %14, %17, %157, %168, %75, %78, %82, %85, %88, %20, %24, %94, %select.unfold, %165, %119, %131, %104, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit", %143, %154, %176, %185
+  %.sroa.0.0.be = phi i8 [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit" ], [ %.sroa.0.098, %104 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58" ], [ %.sroa.0.098, %143 ], [ %.sroa.0.098, %154 ], [ %spec.select, %176 ], [ %spec.select92, %185 ], [ %.sroa.0.098, %91 ], [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit55" ], [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit56" ], [ %.sroa.0.098, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57" ], [ %.sroa.0.098, %72 ], [ %.sroa.0.098, %17 ], [ %.sroa.0.098, %14 ], [ %.sroa.0.098, %157 ], [ %.sroa.0.098, %168 ], [ 1, %75 ], [ 1, %78 ], [ 1, %82 ], [ 1, %85 ], [ 1, %88 ], [ %.sroa.0.098, %20 ], [ %.sroa.0.098, %24 ], [ %.sroa.0.098, %94 ], [ %.sroa.0.098, %select.unfold ], [ %.sroa.0.098, %165 ], [ %.sroa.0.098, %119 ], [ %.sroa.0.098, %131 ]
   %109 = icmp eq ptr %.sroa.046.199, %7
   %.sroa.046.1.idx = select i1 %109, i64 0, i64 24
   %.sroa.046.1 = getelementptr inbounds nuw i8, ptr %.sroa.046.199, i64 %.sroa.046.1.idx
@@ -408,7 +408,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 119:                                              ; preds = %72
   %120 = load i64, ptr %9, align 8, !noundef !9
   %121 = icmp eq i64 %120, 0
-  br i1 %121, label %.backedge, label %159
+  br i1 %121, label %.backedge, label %157
 
 122:                                              ; preds = %72
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.046.097, i64 12
@@ -434,135 +434,135 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 131:                                              ; preds = %72
   %132 = load i64, ptr %9, align 8, !noundef !9
   %133 = icmp eq i64 %132, 0
-  br i1 %133, label %.backedge, label %170
+  br i1 %133, label %.backedge, label %168
 
 134:                                              ; preds = %72
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.046.097, i64 12
-  %136 = and i8 %.sroa.0.098, 1
-  %137 = load i64, ptr %9, align 8, !alias.scope !69, !noalias !72, !noundef !9
-  %138 = load i64, ptr %2, align 8, !range !46, !alias.scope !69, !noalias !72, !noundef !9
-  %139 = icmp eq i64 %137, %138
-  br i1 %139, label %140, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57"
+  %136 = load i64, ptr %9, align 8, !alias.scope !69, !noalias !72, !noundef !9
+  %137 = load i64, ptr %2, align 8, !range !46, !alias.scope !69, !noalias !72, !noundef !9
+  %138 = icmp eq i64 %136, %137
+  br i1 %138, label %139, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57"
 
-140:                                              ; preds = %134
+139:                                              ; preds = %134
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h58466f2c7793b384E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7dea97db8b6f6f16835000891292e03f.54), !noalias !75
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57": ; preds = %134, %140
-  %141 = load ptr, ptr %10, align 8, !alias.scope !69, !noalias !72, !nonnull !9, !noundef !9
-  %142 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %141, i64 %137
-  store i8 2, ptr %142, align 8
-  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 1
-  store i8 %136, ptr %.sroa.469.0..sroa_idx, align 1
-  %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 8
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit57": ; preds = %134, %139
+  %140 = load ptr, ptr %10, align 8, !alias.scope !69, !noalias !72, !nonnull !9, !noundef !9
+  %141 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %140, i64 %136
+  store i8 2, ptr %141, align 8
+  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 1
+  store i8 %.sroa.0.098, ptr %.sroa.469.0..sroa_idx, align 1
+  %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr %135, ptr %.sroa.571.0..sroa_idx, align 8
-  %143 = add i64 %137, 1
-  store i64 %143, ptr %9, align 8, !alias.scope !69, !noalias !72
+  %142 = add i64 %136, 1
+  store i64 %142, ptr %9, align 8, !alias.scope !69, !noalias !72
   br label %.backedge
 
-144:                                              ; preds = %72
-  %145 = load i64, ptr %9, align 8, !noundef !9
-  %146 = icmp eq i64 %145, 0
-  br i1 %146, label %.backedge, label %178
+143:                                              ; preds = %72
+  %144 = load i64, ptr %9, align 8, !noundef !9
+  %145 = icmp eq i64 %144, 0
+  br i1 %145, label %.backedge, label %176
 
-147:                                              ; preds = %72
-  %148 = and i8 %.sroa.0.098, 1
-  %149 = load i64, ptr %9, align 8, !alias.scope !76, !noalias !79, !noundef !9
-  %150 = load i64, ptr %2, align 8, !range !46, !alias.scope !76, !noalias !79, !noundef !9
-  %151 = icmp eq i64 %149, %150
-  br i1 %151, label %152, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58"
+146:                                              ; preds = %72
+  %147 = load i64, ptr %9, align 8, !alias.scope !76, !noalias !79, !noundef !9
+  %148 = load i64, ptr %2, align 8, !range !46, !alias.scope !76, !noalias !79, !noundef !9
+  %149 = icmp eq i64 %147, %148
+  br i1 %149, label %150, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58"
 
-152:                                              ; preds = %147
+150:                                              ; preds = %146
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h58466f2c7793b384E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7dea97db8b6f6f16835000891292e03f.55), !noalias !82
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58": ; preds = %147, %152
-  %153 = load ptr, ptr %10, align 8, !alias.scope !76, !noalias !79, !nonnull !9, !noundef !9
-  %154 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %153, i64 %149
-  store i8 4, ptr %154, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %154, i64 1
-  store i8 %148, ptr %.sroa.462.0..sroa_idx, align 1
-  %155 = add i64 %149, 1
-  store i64 %155, ptr %9, align 8, !alias.scope !76, !noalias !79
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09c2bcecdc89094cE.exit58": ; preds = %146, %150
+  %151 = load ptr, ptr %10, align 8, !alias.scope !76, !noalias !79, !nonnull !9, !noundef !9
+  %152 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %151, i64 %147
+  store i8 4, ptr %152, align 8
+  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 1
+  store i8 %.sroa.0.098, ptr %.sroa.462.0..sroa_idx, align 1
+  %153 = add i64 %147, 1
+  store i64 %153, ptr %9, align 8, !alias.scope !76, !noalias !79
   br label %.backedge
 
-156:                                              ; preds = %72
-  %157 = load i64, ptr %9, align 8, !noundef !9
-  %158 = icmp eq i64 %157, 0
-  br i1 %158, label %.backedge, label %186
+154:                                              ; preds = %72
+  %155 = load i64, ptr %9, align 8, !noundef !9
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %.backedge, label %185
 
-159:                                              ; preds = %119
-  %160 = add nsw i64 %120, -1
-  store i64 %160, ptr %9, align 8
-  %161 = load i64, ptr %2, align 8, !range !46, !noundef !9
-  %162 = icmp samesign ult i64 %160, %161
+157:                                              ; preds = %119
+  %158 = add nsw i64 %120, -1
+  store i64 %158, ptr %9, align 8
+  %159 = load i64, ptr %2, align 8, !range !46, !noundef !9
+  %160 = icmp samesign ult i64 %158, %159
+  call void @llvm.assume(i1 %160)
+  %161 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
+  %162 = icmp ult i64 %120, 576460752303423489
   call void @llvm.assume(i1 %162)
-  %163 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
-  %164 = icmp ult i64 %120, 576460752303423489
-  call void @llvm.assume(i1 %164)
-  %165 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %163, i64 %160
-  %.sroa.043.0.copyload = load i8, ptr %165, align 8
-  %166 = icmp eq i8 %.sroa.043.0.copyload, 0
-  br i1 %166, label %167, label %.backedge
+  %163 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %161, i64 %158
+  %.sroa.043.0.copyload = load i8, ptr %163, align 8
+  %164 = icmp eq i8 %.sroa.043.0.copyload, 0
+  br i1 %164, label %165, label %.backedge
 
-167:                                              ; preds = %159
-  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 8
+165:                                              ; preds = %157
+  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 8
   %.sroa.545.0.copyload = load ptr, ptr %.sroa.545.0..sroa_idx, align 8, !nonnull !9, !noundef !9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %168 = call noundef i8 @_ZN14ruff_formatter14format_element3tag5Group4mode17hf9724e34ee2fb8ebE(ptr noundef nonnull align 4 %.sroa.545.0.copyload)
-  store i8 %168, ptr %6, align 1
-  %169 = call noundef zeroext i1 @_ZN14ruff_formatter14format_element3tag9GroupMode7is_flat17h3d0c0e5aa0b6f6ceE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6)
+  %166 = call noundef i8 @_ZN14ruff_formatter14format_element3tag5Group4mode17hf9724e34ee2fb8ebE(ptr noundef nonnull align 4 %.sroa.545.0.copyload)
+  store i8 %166, ptr %6, align 1
+  %167 = call noundef zeroext i1 @_ZN14ruff_formatter14format_element3tag9GroupMode7is_flat17h3d0c0e5aa0b6f6ceE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br i1 %169, label %.backedge, label %75
+  br i1 %167, label %.backedge, label %75
 
-170:                                              ; preds = %131
-  %171 = add nsw i64 %132, -1
-  store i64 %171, ptr %9, align 8
-  %172 = load i64, ptr %2, align 8, !range !46, !noundef !9
-  %173 = icmp samesign ult i64 %171, %172
+168:                                              ; preds = %131
+  %169 = add nsw i64 %132, -1
+  store i64 %169, ptr %9, align 8
+  %170 = load i64, ptr %2, align 8, !range !46, !noundef !9
+  %171 = icmp samesign ult i64 %169, %170
+  call void @llvm.assume(i1 %171)
+  %172 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
+  %173 = icmp ult i64 %132, 576460752303423489
   call void @llvm.assume(i1 %173)
-  %174 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
-  %175 = icmp ult i64 %132, 576460752303423489
-  call void @llvm.assume(i1 %175)
-  %176 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %174, i64 %171
-  %.sroa.037.0.copyload = load i8, ptr %176, align 8
-  %177 = icmp eq i8 %.sroa.037.0.copyload, 1
-  br i1 %177, label %91, label %.backedge
+  %174 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %172, i64 %169
+  %.sroa.037.0.copyload = load i8, ptr %174, align 8
+  %175 = icmp eq i8 %.sroa.037.0.copyload, 1
+  br i1 %175, label %91, label %.backedge
 
-178:                                              ; preds = %144
-  %179 = add nsw i64 %145, -1
-  store i64 %179, ptr %9, align 8
-  %180 = load i64, ptr %2, align 8, !range !46, !noundef !9
-  %181 = icmp samesign ult i64 %179, %180
+176:                                              ; preds = %143
+  %177 = add nsw i64 %144, -1
+  store i64 %177, ptr %9, align 8
+  %178 = load i64, ptr %2, align 8, !range !46, !noundef !9
+  %179 = icmp samesign ult i64 %177, %178
+  call void @llvm.assume(i1 %179)
+  %180 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
+  %181 = icmp ult i64 %144, 576460752303423489
   call void @llvm.assume(i1 %181)
-  %182 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
-  %183 = icmp ult i64 %145, 576460752303423489
-  call void @llvm.assume(i1 %183)
-  %184 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %182, i64 %179
-  %.sroa.034.0.copyload = load i8, ptr %184, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 1
+  %182 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %180, i64 %177
+  %.sroa.034.0.copyload = load i8, ptr %182, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.034.0.copyload.fr = freeze i8 %.sroa.034.0.copyload
-  %185 = icmp eq i8 %.sroa.034.0.copyload.fr, 2
-  %spec.select = select i1 %185, i8 %.sroa.4.0.copyload, i8 %.sroa.0.098
+  %183 = icmp eq i8 %.sroa.034.0.copyload.fr, 2
+  %184 = and i8 %.sroa.4.0.copyload, 1
+  %spec.select = select i1 %183, i8 %184, i8 %.sroa.0.098
   br label %.backedge
 
-186:                                              ; preds = %156
-  %187 = add nsw i64 %157, -1
-  store i64 %187, ptr %9, align 8
-  %188 = load i64, ptr %2, align 8, !range !46, !noundef !9
-  %189 = icmp samesign ult i64 %187, %188
-  call void @llvm.assume(i1 %189)
-  %190 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
-  %191 = icmp ult i64 %157, 576460752303423489
-  call void @llvm.assume(i1 %191)
-  %192 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %190, i64 %187
-  %.sroa.040.0.copyload = load i8, ptr %192, align 8
-  %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 1
+185:                                              ; preds = %154
+  %186 = add nsw i64 %155, -1
+  store i64 %186, ptr %9, align 8
+  %187 = load i64, ptr %2, align 8, !range !46, !noundef !9
+  %188 = icmp samesign ult i64 %186, %187
+  call void @llvm.assume(i1 %188)
+  %189 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
+  %190 = icmp ult i64 %155, 576460752303423489
+  call void @llvm.assume(i1 %190)
+  %191 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %189, i64 %186
+  %.sroa.040.0.copyload = load i8, ptr %191, align 8
+  %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 1
   %.sroa.441.0.copyload = load i8, ptr %.sroa.441.0..sroa_idx, align 1
   %.sroa.040.0.copyload.fr = freeze i8 %.sroa.040.0.copyload
-  %193 = icmp eq i8 %.sroa.040.0.copyload.fr, 4
-  %spec.select92 = select i1 %193, i8 %.sroa.441.0.copyload, i8 %.sroa.0.098
+  %192 = icmp eq i8 %.sroa.040.0.copyload.fr, 4
+  %193 = and i8 %.sroa.441.0.copyload, 1
+  %spec.select92 = select i1 %192, i8 %193, i8 %.sroa.0.098
   br label %.backedge
 }
 

@@ -683,7 +683,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   %154 = load ptr, ptr %153, align 8
   %155 = tail call i32 %154(ptr noundef %1, ptr noundef %125) #18
   %156 = icmp slt i32 %155, 0
-  br i1 %156, label %182, label %157
+  br i1 %156, label %181, label %157
 
 157:                                              ; preds = %152
   %158 = icmp eq i32 %155, 0
@@ -723,11 +723,10 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   br i1 %178, label %.preheader, label %179, !llvm.loop !16
 
 179:                                              ; preds = %.loopexit
-  %180 = and i8 %175, 1
-  %181 = icmp eq i8 %180, 0
-  br i1 %181, label %.thread19, label %116
+  %180 = icmp eq i8 %175, 0
+  br i1 %180, label %.thread19, label %116
 
-182:                                              ; preds = %152
+181:                                              ; preds = %152
   tail call void @kfree(ptr noundef nonnull %102) #18
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #18
   br label %.thread16
@@ -738,9 +737,9 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   store i32 0, ptr %7, align 8
   br label %.thread16
 
-.thread16:                                        ; preds = %35, %84, %70, %.thread, %182, %.thread20, %.thread19
-  %183 = phi i32 [ 0, %.thread19 ], [ %155, %182 ], [ -12, %.thread20 ], [ -22, %.thread ], [ -22, %70 ], [ %86, %84 ], [ -22, %35 ]
-  ret i32 %183
+.thread16:                                        ; preds = %35, %84, %70, %.thread, %181, %.thread20, %.thread19
+  %182 = phi i32 [ 0, %.thread19 ], [ %155, %181 ], [ -12, %.thread20 ], [ -22, %.thread ], [ -22, %70 ], [ %86, %84 ], [ -22, %35 ]
+  ret i32 %182
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

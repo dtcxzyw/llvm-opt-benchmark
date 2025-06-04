@@ -4121,7 +4121,7 @@ define internal zeroext i1 @gen11_dsi_get_hw_state(ptr noundef readonly captures
   %5 = load i32, ptr %4, align 4
   %6 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef %5) #11
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %72, label %8
+  br i1 %7, label %71, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -4216,13 +4216,12 @@ define internal zeroext i1 @gen11_dsi_get_hw_state(ptr noundef readonly captures
   %68 = phi i8 [ %15, %46 ], [ %65, %64 ]
   %69 = load i32, ptr %4, align 4
   tail call void @intel_display_power_put_unchecked(ptr noundef %3, i32 noundef %69) #11
-  %70 = and i8 %68, 1
-  %71 = icmp ne i8 %70, 0
-  br label %72
+  %70 = icmp ne i8 %68, 0
+  br label %71
 
-72:                                               ; preds = %.loopexit, %2
-  %73 = phi i1 [ %71, %.loopexit ], [ false, %2 ]
-  ret i1 %73
+71:                                               ; preds = %.loopexit, %2
+  %72 = phi i1 [ %70, %.loopexit ], [ false, %2 ]
+  ret i1 %72
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4341,9 +4340,8 @@ define internal zeroext i1 @gen11_dsi_is_clock_enabled(ptr noundef readonly capt
   br i1 %26, label %27, label %10, !llvm.loop !132
 
 27:                                               ; preds = %23
-  %28 = and i8 %24, 1
-  %29 = icmp ne i8 %28, 0
-  ret i1 %29
+  %28 = icmp ne i8 %24, 0
+  ret i1 %28
 }
 
 ; Function Attrs: null_pointer_is_valid

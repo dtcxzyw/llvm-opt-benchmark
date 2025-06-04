@@ -1433,9 +1433,8 @@ _ZN4llvm17JumpThreadingPass15findLoopHeadersERNS_8FunctionE.exit: ; preds = %._c
 
 ._crit_edge126:                                   ; preds = %.critedge
   %134 = trunc nuw i8 %.1 to i1
-  %.mask = and i8 %.1, 1
   %135 = zext i1 %.0 to i8
-  %136 = or i8 %.mask, %135
+  %136 = or i8 %.1, %135
   %137 = icmp ne i8 %136, 0
   br i1 %134, label %.split, label %.split128.us, !llvm.loop !181
 
@@ -1738,7 +1737,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit67.thread: ; preds 
   br i1 %.not100, label %.loopexit, label %.lr.ph133
 
 .loopexit:                                        ; preds = %.lr.ph133, %120, %._crit_edge126.thread, %263, %.split128.us
-  %.us-phi148 = phi i1 [ true, %263 ], [ false, %.split128.us ], [ false, %._crit_edge126.thread ], [ false, %120 ], [ true, %.lr.ph133 ]
+  %.us-phi147 = phi i1 [ true, %263 ], [ false, %.split128.us ], [ false, %._crit_edge126.thread ], [ false, %120 ], [ true, %.lr.ph133 ]
   %270 = load i8, ptr %124, align 4, !tbaa !32, !range !54, !noundef !55
   %271 = trunc nuw i8 %270 to i1
   br i1 %271, label %286, label %272
@@ -1783,7 +1782,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %281, %286
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit, %289
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12) #22
-  ret i1 %.us-phi148
+  ret i1 %.us-phi147
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1493,8 +1493,7 @@ _ZN4llvm9StringRefC2EPKc.exit200:                 ; preds = %_ZNKSt7__cxx1112bas
   %420 = getelementptr inbounds nuw i8, ptr %38, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %419, ptr noundef nonnull align 8 dereferenceable(9) %420, i64 9, i1 false)
   %421 = load i8, ptr %69, align 8, !tbaa !47, !range !50, !noundef !51
-  %.084.masked = and i8 %.084.lcssa, 1
-  %422 = or i8 %421, %.084.masked
+  %422 = or i8 %421, %.084.lcssa
   %or.cond.not = icmp eq i8 %422, 0
   br i1 %or.cond.not, label %426, label %423
 

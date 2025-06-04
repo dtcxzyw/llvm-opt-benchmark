@@ -1287,85 +1287,84 @@ define internal void @parse_cmd_symref_delete(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
   %6 = load i32, ptr @update_flags, align 4, !tbaa !4
-  %7 = and i32 %6, 1
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %9
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %8
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.71) #12
   unreachable
 
-9:                                                ; preds = %3
-  %10 = call fastcc ptr @parse_refname(ptr noundef %4)
-  %.not8 = icmp eq ptr %10, null
-  br i1 %.not8, label %11, label %12
+8:                                                ; preds = %3
+  %9 = call fastcc ptr @parse_refname(ptr noundef %4)
+  %.not8 = icmp eq ptr %9, null
+  br i1 %.not8, label %10, label %11
 
-11:                                               ; preds = %9
+10:                                               ; preds = %8
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.72) #12
   unreachable
 
-12:                                               ; preds = %9
+11:                                               ; preds = %8
   %.b.i = load i1, ptr @line_termination, align 1
-  %13 = load ptr, ptr %4, align 8, !tbaa !23
-  %14 = load i8, ptr %13, align 1, !tbaa !24
-  br i1 %.b.i, label %17, label %15
+  %12 = load ptr, ptr %4, align 8, !tbaa !23
+  %13 = load i8, ptr %12, align 1, !tbaa !24
+  br i1 %.b.i, label %16, label %14
 
-15:                                               ; preds = %12
-  switch i8 %14, label %16 [
+14:                                               ; preds = %11
+  switch i8 %13, label %15 [
     i8 10, label %parse_next_refname.exit
     i8 0, label %parse_next_refname.exit
-    i8 32, label %18
+    i8 32, label %17
   ]
 
-16:                                               ; preds = %15
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.67, ptr noundef nonnull %13) #12
+15:                                               ; preds = %14
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.67, ptr noundef nonnull %12) #12
   unreachable
 
-17:                                               ; preds = %12
-  %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %18, label %parse_next_refname.exit
+16:                                               ; preds = %11
+  %.not.i = icmp eq i8 %13, 0
+  br i1 %.not.i, label %17, label %parse_next_refname.exit
 
-18:                                               ; preds = %17, %15
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store ptr %19, ptr %4, align 8, !tbaa !23
-  %20 = call fastcc ptr @parse_refname(ptr noundef nonnull %4)
+17:                                               ; preds = %16, %14
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  store ptr %18, ptr %4, align 8, !tbaa !23
+  %19 = call fastcc ptr @parse_refname(ptr noundef nonnull %4)
   %.pre = load ptr, ptr %4, align 8, !tbaa !23
   %.pre11 = load i8, ptr %.pre, align 1, !tbaa !24
   %.b7.pre = load i1, ptr @line_termination, align 1
-  %21 = select i1 %.b7.pre, i32 0, i32 10
+  %20 = select i1 %.b7.pre, i32 0, i32 10
   br label %parse_next_refname.exit
 
-parse_next_refname.exit:                          ; preds = %15, %15, %17, %18
-  %.b7 = phi i32 [ %21, %18 ], [ 10, %15 ], [ 0, %17 ], [ 10, %15 ]
-  %22 = phi i8 [ %.pre11, %18 ], [ %14, %15 ], [ %14, %17 ], [ %14, %15 ]
-  %23 = phi ptr [ %.pre, %18 ], [ %13, %15 ], [ %13, %17 ], [ %13, %15 ]
-  %.0.i = phi ptr [ %20, %18 ], [ null, %15 ], [ null, %17 ], [ null, %15 ]
-  %24 = sext i8 %22 to i32
-  %.not9 = icmp eq i32 %.b7, %24
-  br i1 %.not9, label %26, label %25
+parse_next_refname.exit:                          ; preds = %14, %14, %16, %17
+  %.b7 = phi i32 [ %20, %17 ], [ 10, %14 ], [ 0, %16 ], [ 10, %14 ]
+  %21 = phi i8 [ %.pre11, %17 ], [ %13, %14 ], [ %13, %16 ], [ %13, %14 ]
+  %22 = phi ptr [ %.pre, %17 ], [ %12, %14 ], [ %12, %16 ], [ %12, %14 ]
+  %.0.i = phi ptr [ %19, %17 ], [ null, %14 ], [ null, %16 ], [ null, %14 ]
+  %23 = sext i8 %21 to i32
+  %.not9 = icmp eq i32 %.b7, %23
+  br i1 %.not9, label %25, label %24
+
+24:                                               ; preds = %parse_next_refname.exit
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.73, ptr noundef nonnull %9, ptr noundef nonnull %22) #12
+  unreachable
 
 25:                                               ; preds = %parse_next_refname.exit
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.73, ptr noundef nonnull %10, ptr noundef nonnull %23) #12
+  %26 = load i32, ptr @update_flags, align 4, !tbaa !4
+  %27 = load ptr, ptr @msg, align 8, !tbaa !23
+  %28 = call i32 @ref_transaction_delete(ptr noundef %0, ptr noundef nonnull %9, ptr noundef null, ptr noundef %.0.i, i32 noundef %26, ptr noundef %27, ptr noundef nonnull %5) #11
+  %.not10 = icmp eq i32 %28, 0
+  br i1 %.not10, label %32, label %29
+
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.16, ptr noundef %31) #12
   unreachable
 
-26:                                               ; preds = %parse_next_refname.exit
-  %27 = load i32, ptr @update_flags, align 4, !tbaa !4
-  %28 = load ptr, ptr @msg, align 8, !tbaa !23
-  %29 = call i32 @ref_transaction_delete(ptr noundef %0, ptr noundef nonnull %10, ptr noundef null, ptr noundef %.0.i, i32 noundef %27, ptr noundef %28, ptr noundef nonnull %5) #11
-  %.not10 = icmp eq i32 %29, 0
-  br i1 %.not10, label %33, label %30
-
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.16, ptr noundef %32) #12
-  unreachable
-
-33:                                               ; preds = %26
+32:                                               ; preds = %25
   %.b = load i1, ptr @default_flags, align 4
-  %34 = zext i1 %.b to i32
-  store i32 %34, ptr @update_flags, align 4, !tbaa !4
-  call void @free(ptr noundef nonnull %10) #11
+  %33 = zext i1 %.b to i32
+  store i32 %33, ptr @update_flags, align 4, !tbaa !4
+  call void @free(ptr noundef nonnull %9) #11
   call void @free(ptr noundef %.0.i) #11
   call void @strbuf_release(ptr noundef nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
@@ -1382,92 +1381,91 @@ define internal void @parse_cmd_symref_verify(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #11
   %7 = load i32, ptr @update_flags, align 4, !tbaa !4
-  %8 = and i32 %7, 1
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %10
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %9
 
-9:                                                ; preds = %3
+8:                                                ; preds = %3
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.74) #12
   unreachable
 
-10:                                               ; preds = %3
-  %11 = call fastcc ptr @parse_refname(ptr noundef %4)
-  %.not10 = icmp eq ptr %11, null
-  br i1 %.not10, label %12, label %13
+9:                                                ; preds = %3
+  %10 = call fastcc ptr @parse_refname(ptr noundef %4)
+  %.not10 = icmp eq ptr %10, null
+  br i1 %.not10, label %11, label %12
 
-12:                                               ; preds = %10
+11:                                               ; preds = %9
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.75) #12
   unreachable
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   %.b.i = load i1, ptr @line_termination, align 1
-  %14 = load ptr, ptr %4, align 8, !tbaa !23
-  %15 = load i8, ptr %14, align 1, !tbaa !24
-  br i1 %.b.i, label %18, label %16
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = load i8, ptr %13, align 1, !tbaa !24
+  br i1 %.b.i, label %17, label %15
 
-16:                                               ; preds = %13
-  switch i8 %15, label %17 [
+15:                                               ; preds = %12
+  switch i8 %14, label %16 [
     i8 10, label %parse_next_refname.exit.thread
     i8 0, label %parse_next_refname.exit.thread
     i8 32, label %parse_next_refname.exit
   ]
 
-17:                                               ; preds = %16
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.67, ptr noundef nonnull %14) #12
+16:                                               ; preds = %15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.67, ptr noundef nonnull %13) #12
   unreachable
 
-18:                                               ; preds = %13
-  %.not.i = icmp eq i8 %15, 0
+17:                                               ; preds = %12
+  %.not.i = icmp eq i8 %14, 0
   br i1 %.not.i, label %parse_next_refname.exit, label %parse_next_refname.exit.thread
 
-parse_next_refname.exit:                          ; preds = %16, %18
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store ptr %19, ptr %4, align 8, !tbaa !23
-  %20 = call fastcc ptr @parse_refname(ptr noundef nonnull %4)
-  %.not11 = icmp eq ptr %20, null
-  br i1 %.not11, label %parse_next_refname.exit.thread, label %25
+parse_next_refname.exit:                          ; preds = %15, %17
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store ptr %18, ptr %4, align 8, !tbaa !23
+  %19 = call fastcc ptr @parse_refname(ptr noundef nonnull %4)
+  %.not11 = icmp eq ptr %19, null
+  br i1 %.not11, label %parse_next_refname.exit.thread, label %24
 
-parse_next_refname.exit.thread:                   ; preds = %18, %16, %16, %parse_next_refname.exit
-  %21 = tail call ptr @null_oid() #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull readonly align 4 dereferenceable(32) %21, i64 32, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i32, ptr %22, align 4, !tbaa !58
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %23, ptr %24, align 4, !tbaa !58
-  br label %25
+parse_next_refname.exit.thread:                   ; preds = %17, %15, %15, %parse_next_refname.exit
+  %20 = tail call ptr @null_oid() #11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull readonly align 4 dereferenceable(32) %20, i64 32, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %22 = load i32, ptr %21, align 4, !tbaa !58
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i32 %22, ptr %23, align 4, !tbaa !58
+  br label %24
 
-25:                                               ; preds = %parse_next_refname.exit.thread, %parse_next_refname.exit
+24:                                               ; preds = %parse_next_refname.exit.thread, %parse_next_refname.exit
   %.not1118 = phi ptr [ %6, %parse_next_refname.exit.thread ], [ null, %parse_next_refname.exit ]
-  %.0.i16 = phi ptr [ null, %parse_next_refname.exit.thread ], [ %20, %parse_next_refname.exit ]
-  %26 = load ptr, ptr %4, align 8, !tbaa !23
-  %27 = load i8, ptr %26, align 1, !tbaa !24
-  %28 = sext i8 %27 to i32
+  %.0.i16 = phi ptr [ null, %parse_next_refname.exit.thread ], [ %19, %parse_next_refname.exit ]
+  %25 = load ptr, ptr %4, align 8, !tbaa !23
+  %26 = load i8, ptr %25, align 1, !tbaa !24
+  %27 = sext i8 %26 to i32
   %.b9 = load i1, ptr @line_termination, align 1
-  %29 = select i1 %.b9, i32 0, i32 10
-  %.not12 = icmp eq i32 %29, %28
-  br i1 %.not12, label %31, label %30
+  %28 = select i1 %.b9, i32 0, i32 10
+  %.not12 = icmp eq i32 %28, %27
+  br i1 %.not12, label %30, label %29
 
-30:                                               ; preds = %25
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.76, ptr noundef nonnull %11, ptr noundef nonnull %26) #12
+29:                                               ; preds = %24
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.76, ptr noundef nonnull %10, ptr noundef nonnull %25) #12
   unreachable
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr @update_flags, align 4, !tbaa !4
-  %33 = call i32 @ref_transaction_verify(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %.not1118, ptr noundef %.0.i16, i32 noundef %32, ptr noundef nonnull %5) #11
-  %.not13 = icmp eq i32 %33, 0
-  br i1 %.not13, label %37, label %34
+30:                                               ; preds = %24
+  %31 = load i32, ptr @update_flags, align 4, !tbaa !4
+  %32 = call i32 @ref_transaction_verify(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.not1118, ptr noundef %.0.i16, i32 noundef %31, ptr noundef nonnull %5) #11
+  %.not13 = icmp eq i32 %32, 0
+  br i1 %.not13, label %36, label %33
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !27
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.16, ptr noundef %36) #12
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !27
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.16, ptr noundef %35) #12
   unreachable
 
-37:                                               ; preds = %31
+36:                                               ; preds = %30
   %.b = load i1, ptr @default_flags, align 4
-  %38 = zext i1 %.b to i32
-  store i32 %38, ptr @update_flags, align 4, !tbaa !4
-  call void @free(ptr noundef nonnull %11) #11
+  %37 = zext i1 %.b to i32
+  store i32 %37, ptr @update_flags, align 4, !tbaa !4
+  call void @free(ptr noundef nonnull %10) #11
   call void @free(ptr noundef %.0.i16) #11
   call void @strbuf_release(ptr noundef nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #11

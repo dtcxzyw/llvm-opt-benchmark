@@ -1474,7 +1474,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 
 77:                                               ; preds = %67, %63
   %78 = icmp eq i64 %.lcssa, 9223372036854775807
-  br i1 %78, label %104, label %79
+  br i1 %78, label %103, label %79
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1488,44 +1488,43 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 
 84:                                               ; preds = %83, %79
   %85 = tail call i32 @clockevents_program_event(ptr noundef %0, i64 noundef %.lcssa, i1 noundef zeroext true) #11
-  %86 = and i32 %.lcssa6, 63
-  %87 = add nuw nsw i32 %86, 1
-  %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %91 = load i32, ptr %90, align 4
-  %92 = and i32 %91, 32
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %104, label %94
+  %86 = add nuw nsw i32 %.lcssa6, 1
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %90 = load i32, ptr %89, align 4
+  %91 = and i32 %90, 32
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %103, label %93
 
-94:                                               ; preds = %84
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %96 = load ptr, ptr %95, align 16
-  %97 = load i64, ptr %96, align 8
-  %98 = load i64, ptr %89, align 8
-  %99 = icmp eq i64 %97, %98
-  br i1 %99, label %104, label %100
+93:                                               ; preds = %84
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 16
+  %96 = load i64, ptr %95, align 8
+  %97 = load i64, ptr %88, align 8
+  %98 = icmp eq i64 %96, %97
+  br i1 %98, label %103, label %99
 
-100:                                              ; preds = %94
-  store ptr %89, ptr %95, align 16
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %102 = load i32, ptr %101, align 4
-  %103 = tail call i32 @irq_set_affinity(i32 noundef %102, ptr noundef %89) #11
-  br label %104
+99:                                               ; preds = %93
+  store ptr %88, ptr %94, align 16
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %101 = load i32, ptr %100, align 4
+  %102 = tail call i32 @irq_set_affinity(i32 noundef %101, ptr noundef %88) #11
+  br label %103
 
-104:                                              ; preds = %100, %94, %84, %77
+103:                                              ; preds = %99, %93, %84, %77
   tail call void @_raw_spin_unlock(ptr noundef nonnull @tick_broadcast_lock) #11
-  br i1 %64, label %105, label %110
+  br i1 %64, label %104, label %109
 
-105:                                              ; preds = %104
-  %106 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !37
-  %107 = inttoptr i64 %106 to ptr
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %108, align 64
-  tail call void %109(ptr noundef %108) #11
-  br label %110
+104:                                              ; preds = %103
+  %105 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !37
+  %106 = inttoptr i64 %105 to ptr
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %107, align 64
+  tail call void %108(ptr noundef %107) #11
+  br label %109
 
-110:                                              ; preds = %105, %104
+109:                                              ; preds = %104, %103
   ret void
 }
 

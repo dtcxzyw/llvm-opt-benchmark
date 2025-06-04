@@ -1968,7 +1968,7 @@ for.body.us31:                                    ; preds = %for.body.lr.ph, %fo
   %state.027.us33 = phi i32 [ %state.1.us60, %for.inc.us57 ], [ %mode, %for.body.lr.ph ]
   %quote.026.us34 = phi i8 [ %quote.1.us59, %for.inc.us57 ], [ 0, %for.body.lr.ph ]
   %escape.025.us = phi i8 [ %escape.2.us58, %for.inc.us57 ], [ 0, %for.body.lr.ph ]
-  %tobool.us = trunc i8 %escape.025.us to i1
+  %tobool.us = trunc nuw i8 %escape.025.us to i1
   br i1 %tobool.us, label %for.inc.us57, label %if.end4.us35
 
 if.end4.us35:                                     ; preds = %for.body.us31
@@ -2037,7 +2037,7 @@ for.inc.us57:                                     ; preds = %sw.default.us48, %s
 for.end:                                          ; preds = %for.inc.us, %for.inc.us57, %for.inc.us.us
   %escape.0.lcssa = phi i8 [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2.us58, %for.inc.us57 ], [ %escape.2.us, %for.inc.us ]
   %state.0.lcssa = phi i32 [ %state.1.us.us, %for.inc.us.us ], [ %state.1.us60, %for.inc.us57 ], [ %state.1.us, %for.inc.us ]
-  %tobool48 = trunc i8 %escape.0.lcssa to i1
+  %tobool48 = trunc nuw i8 %escape.0.lcssa to i1
   br i1 %tobool48, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %for.end

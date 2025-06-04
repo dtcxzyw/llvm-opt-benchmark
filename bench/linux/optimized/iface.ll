@@ -3430,9 +3430,9 @@ define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr noun
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %169
 
-169:                                              ; preds = %201, %.loopexit9
-  %170 = phi i64 [ %165, %.loopexit9 ], [ %177, %201 ]
-  %171 = phi i64 [ %163, %.loopexit9 ], [ %203, %201 ]
+169:                                              ; preds = %200, %.loopexit9
+  %170 = phi i64 [ %165, %.loopexit9 ], [ %177, %200 ]
+  %171 = phi i64 [ %163, %.loopexit9 ], [ %202, %200 ]
   %172 = trunc i64 %171 to i16
   %173 = tail call i16 @llvm.bswap.i16(i16 %172)
   %174 = trunc i64 %171 to i32
@@ -3443,45 +3443,44 @@ define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr noun
   %179 = and i32 %178, -16777216
   %180 = lshr i32 %174, 8
   %181 = and i32 %180, 16711680
-  %182 = or disjoint i32 %181, %179
   %sh.diff = lshr i64 %171, 24
   %tr.sh.diff = trunc nuw nsw i64 %sh.diff to i32
-  %183 = and i32 %tr.sh.diff, 65280
-  %184 = or disjoint i32 %182, %183
-  %185 = and i32 %176, 255
-  %186 = or disjoint i32 %184, %185
-  br label %187
+  %182 = and i32 %tr.sh.diff, 65280
+  %183 = or disjoint i32 %179, %176
+  %184 = or disjoint i32 %183, %181
+  %185 = or disjoint i32 %184, %182
+  br label %186
 
-187:                                              ; preds = %191, %169
-  %188 = phi ptr [ %125, %169 ], [ %189, %191 ]
-  %189 = load ptr, ptr %188, align 8
-  %190 = icmp eq ptr %189, %125
-  br i1 %190, label %.thread8, label %191
+186:                                              ; preds = %190, %169
+  %187 = phi ptr [ %125, %169 ], [ %188, %190 ]
+  %188 = load ptr, ptr %187, align 8
+  %189 = icmp eq ptr %188, %125
+  br i1 %189, label %.thread8, label %190
 
-191:                                              ; preds = %187
-  %192 = getelementptr inbounds nuw i8, ptr %189, i64 5062
-  %193 = load i32, ptr %192, align 4
-  %194 = xor i32 %193, %186
-  %195 = getelementptr i8, ptr %189, i64 5066
-  %196 = load i16, ptr %195, align 2
-  %197 = xor i16 %196, %173
-  %198 = zext i16 %197 to i32
-  %199 = or i32 %194, %198
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %187, !llvm.loop !132
+190:                                              ; preds = %186
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 5062
+  %192 = load i32, ptr %191, align 4
+  %193 = xor i32 %192, %185
+  %194 = getelementptr i8, ptr %188, i64 5066
+  %195 = load i16, ptr %194, align 2
+  %196 = xor i16 %195, %173
+  %197 = zext i16 %196 to i32
+  %198 = or i32 %193, %197
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %200, label %186, !llvm.loop !132
 
-.thread8:                                         ; preds = %187
-  store i32 %186, ptr %1, align 1
+.thread8:                                         ; preds = %186
+  store i32 %185, ptr %1, align 1
   store i16 %173, ptr %168, align 1
   br label %.loopexit
 
-201:                                              ; preds = %191
-  %202 = and i64 %177, %113
-  %203 = or disjoint i64 %202, %167
-  %204 = icmp eq i64 %203, %163
-  br i1 %204, label %.loopexit, label %169, !llvm.loop !133
+200:                                              ; preds = %190
+  %201 = and i64 %177, %113
+  %202 = or disjoint i64 %201, %167
+  %203 = icmp eq i64 %202, %163
+  br i1 %203, label %.loopexit, label %169, !llvm.loop !133
 
-.loopexit:                                        ; preds = %22, %201, %.thread8, %121, %.loopexit10, %50, %30, %19, %15
+.loopexit:                                        ; preds = %22, %200, %.thread8, %121, %.loopexit10, %50, %30, %19, %15
   ret void
 }
 

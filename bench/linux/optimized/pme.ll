@@ -565,7 +565,7 @@ define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
-  br i1 %4, label %37, label %.preheader
+  br i1 %4, label %36, label %.preheader
 
 .preheader:                                       ; preds = %1, %30
   %5 = phi ptr [ %32, %30 ], [ %3, %1 ]
@@ -616,13 +616,12 @@ define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly captur
   br i1 %33, label %34, label %.preheader, !llvm.loop !13
 
 34:                                               ; preds = %30
-  %35 = and i8 %31, 1
-  %36 = icmp ne i8 %35, 0
-  br label %37
+  %35 = icmp ne i8 %31, 0
+  br label %36
 
-37:                                               ; preds = %34, %1
-  %38 = phi i1 [ false, %1 ], [ %36, %34 ]
-  ret i1 %38
+36:                                               ; preds = %34, %1
+  %37 = phi i1 [ false, %1 ], [ %35, %34 ]
+  ret i1 %37
 }
 
 ; Function Attrs: null_pointer_is_valid

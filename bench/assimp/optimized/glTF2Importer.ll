@@ -88042,7 +88042,7 @@ _ZNK9rapidjson8internal18GenericRegexSearchINS0_12GenericRegexINS_4UTF8IcEENS_12
 
 .critedge:                                        ; preds = %.thread49.loopexit, %147, %38, %.thread49.loopexit.us.us, %91, %.thread49.loopexit.us, %.lr.ph60.split.us, %.lr.ph60.split, %_ZN9rapidjson8internal13DecodedStreamINS_19GenericStringStreamINS_4UTF8IcEEEES4_EC2ERS5_.exit
   %.026.lcssa = phi i8 [ %27, %_ZN9rapidjson8internal13DecodedStreamINS_19GenericStringStreamINS_4UTF8IcEEEES4_EC2ERS5_.exit ], [ %27, %.lr.ph60.split.us ], [ %27, %.lr.ph60.split ], [ 0, %91 ], [ %.329.us.us.us, %.thread49.loopexit.us ], [ 0, %.thread49.loopexit.us.us ], [ 0, %38 ], [ 0, %147 ], [ %.329, %.thread49.loopexit ]
-  %198 = trunc i8 %.026.lcssa to i1
+  %198 = trunc nuw i8 %.026.lcssa to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %185, %79, %.critedge

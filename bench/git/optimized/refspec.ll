@@ -144,174 +144,173 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   %.185.i = phi i32 [ %.084118.i, %._crit_edge121.i ], [ 1, %52 ], [ 1, %51 ]
   %59 = trunc nuw nsw i32 %.185.i to i8
   %60 = shl nuw nsw i8 %59, 1
-  %61 = and i8 %60, 2
-  %62 = and i8 %58, -3
-  %63 = or disjoint i8 %61, %62
-  store i8 %63, ptr %0, align 8
-  %64 = icmp eq i64 %46, 1
-  br i1 %64, label %65, label %70
+  %61 = and i8 %58, -3
+  %62 = or i8 %60, %61
+  store i8 %62, ptr %0, align 8
+  %63 = icmp eq i64 %46, 1
+  br i1 %63, label %64, label %69
 
-65:                                               ; preds = %57
-  %66 = load i8, ptr %.087.i, align 1, !tbaa !11
-  %67 = icmp eq i8 %66, 64
-  br i1 %67, label %68, label %70
+64:                                               ; preds = %57
+  %65 = load i8, ptr %.087.i, align 1, !tbaa !11
+  %66 = icmp eq i8 %65, 64
+  br i1 %66, label %67, label %69
 
-68:                                               ; preds = %65
-  %69 = tail call ptr @xstrdup(ptr noundef nonnull @.str.3) #13
-  br label %72
+67:                                               ; preds = %64
+  %68 = tail call ptr @xstrdup(ptr noundef nonnull @.str.3) #13
+  br label %71
 
-70:                                               ; preds = %65, %57
-  %71 = tail call ptr @xstrndup(ptr noundef nonnull %.087.i, i64 noundef %46) #13
-  br label %72
+69:                                               ; preds = %64, %57
+  %70 = tail call ptr @xstrndup(ptr noundef nonnull %.087.i, i64 noundef %46) #13
+  br label %71
 
-72:                                               ; preds = %70, %68
-  %.sink.i = phi ptr [ %71, %70 ], [ %69, %68 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %73, align 8, !tbaa !13
-  %74 = icmp ne i32 %.185.i, 0
-  %75 = select i1 %74, i32 3, i32 1
-  %76 = load i8, ptr %0, align 8
-  %77 = and i8 %76, 16
-  %.not96.i = icmp eq i8 %77, 0
-  br i1 %.not96.i, label %93, label %78
+71:                                               ; preds = %69, %67
+  %.sink.i = phi ptr [ %70, %69 ], [ %68, %67 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink.i, ptr %72, align 8, !tbaa !13
+  %73 = icmp ne i32 %.185.i, 0
+  %74 = select i1 %73, i32 3, i32 1
+  %75 = load i8, ptr %0, align 8
+  %76 = and i8 %75, 16
+  %.not96.i = icmp eq i8 %76, 0
+  br i1 %.not96.i, label %92, label %77
 
-78:                                               ; preds = %72
+77:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
-  %79 = load i8, ptr %.sink.i, align 1, !tbaa !11
-  %.not108.i = icmp eq i8 %79, 0
-  br i1 %.not108.i, label %92, label %80
+  %78 = load i8, ptr %.sink.i, align 1, !tbaa !11
+  %.not108.i = icmp eq i8 %78, 0
+  br i1 %.not108.i, label %91, label %79
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr @the_repository, align 8, !tbaa !14
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 400
-  %83 = load ptr, ptr %82, align 8, !tbaa !16
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %85 = load i64, ptr %84, align 8, !tbaa !35
-  %86 = icmp eq i64 %46, %85
-  br i1 %86, label %87, label %89
+79:                                               ; preds = %77
+  %80 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 400
+  %82 = load ptr, ptr %81, align 8, !tbaa !16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %84 = load i64, ptr %83, align 8, !tbaa !35
+  %85 = icmp eq i64 %46, %84
+  br i1 %85, label %86, label %88
 
-87:                                               ; preds = %80
-  %88 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %4) #13
-  %.not109.i = icmp eq i32 %88, 0
-  br i1 %.not109.i, label %92, label %._crit_edge124.i
+86:                                               ; preds = %79
+  %87 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %4) #13
+  %.not109.i = icmp eq i32 %87, 0
+  br i1 %.not109.i, label %91, label %._crit_edge124.i
 
-._crit_edge124.i:                                 ; preds = %87
-  %.pre125.i = load ptr, ptr %73, align 8, !tbaa !13
-  br label %89
+._crit_edge124.i:                                 ; preds = %86
+  %.pre125.i = load ptr, ptr %72, align 8, !tbaa !13
+  br label %88
 
-89:                                               ; preds = %._crit_edge124.i, %80
-  %90 = phi ptr [ %.pre125.i, %._crit_edge124.i ], [ %.sink.i, %80 ]
-  %91 = call i32 @check_refname_format(ptr noundef %90, i32 noundef %75) #13
-  %.not110.i = icmp eq i32 %91, 0
+88:                                               ; preds = %._crit_edge124.i, %79
+  %89 = phi ptr [ %.pre125.i, %._crit_edge124.i ], [ %.sink.i, %79 ]
+  %90 = call i32 @check_refname_format(ptr noundef %89, i32 noundef %74) #13
+  %.not110.i = icmp eq i32 %90, 0
   %..i = zext i1 %.not110.i to i32
-  br label %92
+  br label %91
 
-92:                                               ; preds = %89, %87, %78
-  %.1.i = phi i32 [ 0, %78 ], [ 0, %87 ], [ %..i, %89 ]
+91:                                               ; preds = %88, %86, %77
+  %.1.i = phi i32 [ 0, %77 ], [ 0, %86 ], [ %..i, %88 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #13
   br label %parse_refspec.exit
 
-93:                                               ; preds = %72
-  br i1 %18, label %94, label %119
+92:                                               ; preds = %71
+  br i1 %18, label %93, label %118
 
-94:                                               ; preds = %93
+93:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #13
-  %95 = load i8, ptr %.sink.i, align 1, !tbaa !11
-  %.not102.i = icmp eq i8 %95, 0
-  br i1 %.not102.i, label %111, label %96
+  %94 = load i8, ptr %.sink.i, align 1, !tbaa !11
+  %.not102.i = icmp eq i8 %94, 0
+  br i1 %.not102.i, label %110, label %95
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr @the_repository, align 8, !tbaa !14
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 400
-  %99 = load ptr, ptr %98, align 8, !tbaa !16
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %101 = load i64, ptr %100, align 8, !tbaa !35
-  %102 = icmp eq i64 %46, %101
-  br i1 %102, label %103, label %108
+95:                                               ; preds = %93
+  %96 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 400
+  %98 = load ptr, ptr %97, align 8, !tbaa !16
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %100 = load i64, ptr %99, align 8, !tbaa !35
+  %101 = icmp eq i64 %46, %100
+  br i1 %101, label %102, label %107
 
-103:                                              ; preds = %96
-  %104 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %5) #13
-  %.not103.i = icmp eq i32 %104, 0
-  br i1 %.not103.i, label %105, label %._crit_edge126.i
+102:                                              ; preds = %95
+  %103 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %5) #13
+  %.not103.i = icmp eq i32 %103, 0
+  br i1 %.not103.i, label %104, label %._crit_edge126.i
 
-._crit_edge126.i:                                 ; preds = %103
-  %.pre127.i = load ptr, ptr %73, align 8, !tbaa !13
-  br label %108
+._crit_edge126.i:                                 ; preds = %102
+  %.pre127.i = load ptr, ptr %72, align 8, !tbaa !13
+  br label %107
 
-105:                                              ; preds = %103
-  %106 = load i8, ptr %0, align 8
-  %107 = or i8 %106, 8
-  store i8 %107, ptr %0, align 8
-  br label %111
+104:                                              ; preds = %102
+  %105 = load i8, ptr %0, align 8
+  %106 = or i8 %105, 8
+  store i8 %106, ptr %0, align 8
+  br label %110
 
-108:                                              ; preds = %._crit_edge126.i, %96
-  %109 = phi ptr [ %.pre127.i, %._crit_edge126.i ], [ %.sink.i, %96 ]
-  %110 = call i32 @check_refname_format(ptr noundef %109, i32 noundef %75) #13
-  %.not104.i = icmp eq i32 %110, 0
-  br i1 %.not104.i, label %111, label %118
+107:                                              ; preds = %._crit_edge126.i, %95
+  %108 = phi ptr [ %.pre127.i, %._crit_edge126.i ], [ %.sink.i, %95 ]
+  %109 = call i32 @check_refname_format(ptr noundef %108, i32 noundef %74) #13
+  %.not104.i = icmp eq i32 %109, 0
+  br i1 %.not104.i, label %110, label %117
 
-111:                                              ; preds = %108, %105, %94
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !12
-  %.not105.i = icmp eq ptr %113, null
-  br i1 %.not105.i, label %.critedge.i, label %114
+110:                                              ; preds = %107, %104, %93
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %112 = load ptr, ptr %111, align 8, !tbaa !12
+  %.not105.i = icmp eq ptr %112, null
+  br i1 %.not105.i, label %.critedge.i, label %113
 
-114:                                              ; preds = %111
-  %115 = load i8, ptr %113, align 1, !tbaa !11
-  %.not106.i = icmp eq i8 %115, 0
-  br i1 %.not106.i, label %.critedge.i, label %116
+113:                                              ; preds = %110
+  %114 = load i8, ptr %112, align 1, !tbaa !11
+  %.not106.i = icmp eq i8 %114, 0
+  br i1 %.not106.i, label %.critedge.i, label %115
 
-116:                                              ; preds = %114
-  %117 = call i32 @check_refname_format(ptr noundef nonnull %113, i32 noundef %75) #13
-  %.not107.i = icmp eq i32 %117, 0
-  br i1 %.not107.i, label %.critedge.i, label %118
+115:                                              ; preds = %113
+  %116 = call i32 @check_refname_format(ptr noundef nonnull %112, i32 noundef %74) #13
+  %.not107.i = icmp eq i32 %116, 0
+  br i1 %.not107.i, label %.critedge.i, label %117
 
-.critedge.i:                                      ; preds = %116, %114, %111
+.critedge.i:                                      ; preds = %115, %113, %110
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #13
-  br label %134
+  br label %133
 
-118:                                              ; preds = %116, %108
+117:                                              ; preds = %115, %107
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #13
   br label %parse_refspec.exit
 
-119:                                              ; preds = %93
-  %120 = load i8, ptr %.sink.i, align 1, !tbaa !11
-  %121 = icmp ne i8 %120, 0
-  %or.cond9.i = select i1 %121, i1 %74, i1 false
-  br i1 %or.cond9.i, label %122, label %124
+118:                                              ; preds = %92
+  %119 = load i8, ptr %.sink.i, align 1, !tbaa !11
+  %120 = icmp ne i8 %119, 0
+  %or.cond9.i = select i1 %120, i1 %73, i1 false
+  br i1 %or.cond9.i, label %121, label %123
 
-122:                                              ; preds = %119
-  %123 = tail call i32 @check_refname_format(ptr noundef nonnull %.sink.i, i32 noundef 3) #13
-  %.not97.i = icmp eq i32 %123, 0
-  br i1 %.not97.i, label %124, label %parse_refspec.exit
+121:                                              ; preds = %118
+  %122 = tail call i32 @check_refname_format(ptr noundef nonnull %.sink.i, i32 noundef 3) #13
+  %.not97.i = icmp eq i32 %122, 0
+  br i1 %.not97.i, label %123, label %parse_refspec.exit
 
-124:                                              ; preds = %122, %119
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %126 = load ptr, ptr %125, align 8, !tbaa !12
-  %.not98.i = icmp eq ptr %126, null
-  br i1 %.not98.i, label %127, label %130
+123:                                              ; preds = %121, %118
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %125 = load ptr, ptr %124, align 8, !tbaa !12
+  %.not98.i = icmp eq ptr %125, null
+  br i1 %.not98.i, label %126, label %129
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %73, align 8, !tbaa !13
-  %129 = tail call i32 @check_refname_format(ptr noundef %128, i32 noundef %75) #13
-  %.not99.i = icmp eq i32 %129, 0
-  br i1 %.not99.i, label %134, label %parse_refspec.exit
+126:                                              ; preds = %123
+  %127 = load ptr, ptr %72, align 8, !tbaa !13
+  %128 = tail call i32 @check_refname_format(ptr noundef %127, i32 noundef %74) #13
+  %.not99.i = icmp eq i32 %128, 0
+  br i1 %.not99.i, label %133, label %parse_refspec.exit
 
-130:                                              ; preds = %124
-  %131 = load i8, ptr %126, align 1, !tbaa !11
-  %.not100.i = icmp eq i8 %131, 0
-  br i1 %.not100.i, label %parse_refspec.exit, label %132
+129:                                              ; preds = %123
+  %130 = load i8, ptr %125, align 1, !tbaa !11
+  %.not100.i = icmp eq i8 %130, 0
+  br i1 %.not100.i, label %parse_refspec.exit, label %131
 
-132:                                              ; preds = %130
-  %133 = tail call i32 @check_refname_format(ptr noundef nonnull %126, i32 noundef %75) #13
-  %.not101.i = icmp eq i32 %133, 0
-  br i1 %.not101.i, label %134, label %parse_refspec.exit
+131:                                              ; preds = %129
+  %132 = tail call i32 @check_refname_format(ptr noundef nonnull %125, i32 noundef %74) #13
+  %.not101.i = icmp eq i32 %132, 0
+  br i1 %.not101.i, label %133, label %parse_refspec.exit
 
-134:                                              ; preds = %132, %127, %.critedge.i
+133:                                              ; preds = %131, %126, %.critedge.i
   br label %parse_refspec.exit
 
-parse_refspec.exit:                               ; preds = %._crit_edge.i, %24, %49, %52, %55, %92, %118, %122, %127, %130, %132, %134
-  %.0.i = phi i32 [ %.1.i, %92 ], [ 1, %134 ], [ 0, %118 ], [ 1, %24 ], [ 0, %._crit_edge.i ], [ 0, %52 ], [ 0, %49 ], [ 0, %55 ], [ 0, %122 ], [ 0, %127 ], [ 0, %130 ], [ 0, %132 ]
+parse_refspec.exit:                               ; preds = %._crit_edge.i, %24, %49, %52, %55, %91, %117, %121, %126, %129, %131, %133
+  %.0.i = phi i32 [ %.1.i, %91 ], [ 1, %133 ], [ 0, %117 ], [ 1, %24 ], [ 0, %._crit_edge.i ], [ 0, %52 ], [ 0, %49 ], [ 0, %55 ], [ 0, %121 ], [ 0, %126 ], [ 0, %129 ], [ 0, %131 ]
   ret i32 %.0.i
 }
 

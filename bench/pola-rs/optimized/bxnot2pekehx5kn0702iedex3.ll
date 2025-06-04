@@ -18859,7 +18859,7 @@ define hidden void @_ZN14polars_compute6filter7boolean26filter_boolean_kernel_pe
   store i64 %64, ptr %.sroa.0.190, align 1
   %66 = lshr i64 %65, 3
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.190, i64 %66
-  %68 = and i64 %65, 56
+  %68 = and i64 %65, -8
   %69 = lshr i64 %64, %68
   %70 = and i64 %65, 7
   %71 = icmp ult i64 %.sroa.027.088, 72057594037927936

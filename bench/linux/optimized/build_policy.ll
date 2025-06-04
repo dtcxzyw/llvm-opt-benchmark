@@ -13141,7 +13141,7 @@ define internal void @pull_dl_task(ptr noundef %0) #2 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load volatile i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %115, label %9, !prof !29
+  br i1 %8, label %114, label %9, !prof !29
 
 9:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !282
@@ -13320,15 +13320,14 @@ define internal void @pull_dl_task(ptr noundef %0) #2 align 16 {
 
 .thread:                                          ; preds = %12, %106, %22
   %.lcssa = phi i8 [ %14, %12 ], [ %108, %106 ], [ %14, %22 ]
-  %112 = and i8 %.lcssa, 1
-  %113 = icmp eq i8 %112, 0
-  br i1 %113, label %115, label %114
+  %112 = icmp eq i8 %.lcssa, 0
+  br i1 %112, label %114, label %113
 
-114:                                              ; preds = %.thread
+113:                                              ; preds = %.thread
   tail call void @resched_curr(ptr noundef %0) #29
-  br label %115
+  br label %114
 
-115:                                              ; preds = %114, %.thread, %1
+114:                                              ; preds = %113, %.thread, %1
   ret void
 }
 

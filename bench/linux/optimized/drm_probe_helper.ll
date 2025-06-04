@@ -1216,7 +1216,7 @@ define internal void @output_poll_execute(ptr noundef %0) #0 align 16 {
   %6 = getelementptr i8, ptr %0, i64 -8
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !6
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %105, label %9
+  br i1 %8, label %104, label %9
 
 9:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
@@ -1362,36 +1362,35 @@ define internal void @output_poll_execute(ptr noundef %0) #0 align 16 {
 88:                                               ; preds = %.loopexit, %33, %.loopexit12
   %89 = phi i1 [ %86, %.loopexit ], [ false, %.loopexit12 ], [ true, %33 ]
   %90 = phi i8 [ %87, %.loopexit ], [ %11, %.loopexit12 ], [ %11, %33 ]
-  %91 = and i8 %90, 1
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %101, label %93
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %100, label %92
 
-93:                                               ; preds = %88
+92:                                               ; preds = %88
   call void @drm_sysfs_hotplug_event(ptr noundef %4) #6
-  %94 = getelementptr i8, ptr %0, i64 -16
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %100, label %99
+  %93 = getelementptr i8, ptr %0, i64 -16
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %99, label %98
 
-99:                                               ; preds = %93
-  call void %97(ptr noundef %4) #6
+98:                                               ; preds = %92
+  call void %96(ptr noundef %4) #6
+  br label %99
+
+99:                                               ; preds = %98, %92
+  call void @drm_client_dev_hotplug(ptr noundef %4) #6
   br label %100
 
-100:                                              ; preds = %99, %93
-  call void @drm_client_dev_hotplug(ptr noundef %4) #6
-  br label %101
+100:                                              ; preds = %99, %88
+  br i1 %89, label %101, label %104
 
-101:                                              ; preds = %100, %88
-  br i1 %89, label %102, label %105
+101:                                              ; preds = %100
+  %102 = load ptr, ptr @system_wq, align 8
+  %103 = call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %102, ptr noundef %0, i64 noundef 10000) #6
+  br label %104
 
-102:                                              ; preds = %101
-  %103 = load ptr, ptr @system_wq, align 8
-  %104 = call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %103, ptr noundef %0, i64 noundef 10000) #6
-  br label %105
-
-105:                                              ; preds = %102, %101, %1
+104:                                              ; preds = %101, %100, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
   ret void
 }

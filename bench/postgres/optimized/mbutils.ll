@@ -176,7 +176,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %0, 42
-  br i1 %or.cond, label %2, label %48
+  br i1 %or.cond, label %2, label %47
 
 2:                                                ; preds = %1
   %.b33 = load i1, ptr @backend_startup_complete, align 1
@@ -184,7 +184,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 
 3:                                                ; preds = %2
   store i32 %0, ptr @pending_client_encoding, align 4
-  br label %48
+  br label %47
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @DatabaseEncoding, align 8
@@ -203,7 +203,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   store ptr %13, ptr @ClientEncoding, align 8
   store ptr null, ptr @ToServerConvProc, align 8
   store ptr null, ptr @ToClientConvProc, align 8
-  br label %48
+  br label %47
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr @ConvProcList, align 8
@@ -215,72 +215,71 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   %17 = getelementptr inbounds nuw [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %16
   br label %18
 
-18:                                               ; preds = %.lr.ph, %46
-  %.sroa.0.040 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %46 ]
-  %.sroa.7.039 = phi i32 [ 0, %.lr.ph ], [ %47, %46 ]
-  %.02938 = phi i8 [ 0, %.lr.ph ], [ %.1, %46 ]
+18:                                               ; preds = %.lr.ph, %45
+  %.sroa.0.040 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %45 ]
+  %.sroa.7.039 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
+  %.02938 = phi i8 [ 0, %.lr.ph ], [ %.1, %45 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %.sroa.7.039, %20
-  br i1 %21, label %25, label %._crit_edge.loopexit
+  br i1 %21, label %24, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %18, %46
-  %.029.lcssa.ph = phi i8 [ %.1, %46 ], [ %.02938, %18 ]
-  %22 = and i8 %.029.lcssa.ph, 1
-  %23 = xor i8 %22, 1
-  %24 = zext nneg i8 %23 to i32
+._crit_edge.loopexit:                             ; preds = %18, %45
+  %.029.lcssa.ph = phi i8 [ %.1, %45 ], [ %.02938, %18 ]
+  %22 = xor i8 %.029.lcssa.ph, 1
+  %23 = zext nneg i8 %22 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
-  %.029.lcssa = phi i32 [ 1, %14 ], [ %24, %._crit_edge.loopexit ]
+  %.029.lcssa = phi i32 [ 1, %14 ], [ %23, %._crit_edge.loopexit ]
   %. = sub nsw i32 0, %.029.lcssa
-  br label %48
+  br label %47
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = sext i32 %.sroa.7.039 to i64
-  %29 = getelementptr inbounds %union.ListCell, ptr %27, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, %7
-  br i1 %32, label %33, label %46
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = sext i32 %.sroa.7.039 to i64
+  %28 = getelementptr inbounds %union.ListCell, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, %7
+  br i1 %31, label %32, label %45
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, %0
-  br i1 %36, label %37, label %46
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, %0
+  br i1 %35, label %36, label %45
 
-37:                                               ; preds = %33
-  %38 = trunc nuw i8 %.02938 to i1
-  br i1 %38, label %42, label %39
+36:                                               ; preds = %32
+  %37 = trunc nuw i8 %.02938 to i1
+  br i1 %37, label %41, label %38
 
-39:                                               ; preds = %37
+38:                                               ; preds = %36
   store ptr %17, ptr @ClientEncoding, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %40, ptr @ToServerConvProc, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store ptr %41, ptr @ToClientConvProc, align 8
-  br label %46
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %39, ptr @ToServerConvProc, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  store ptr %40, ptr @ToClientConvProc, align 8
+  br label %45
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr @ConvProcList, align 8
-  %44 = add i32 %.sroa.7.039, -1
-  %45 = tail call ptr @list_delete_nth_cell(ptr noundef %43, i32 noundef %.sroa.7.039) #13
-  store ptr %45, ptr @ConvProcList, align 8
-  tail call void @pfree(ptr noundef nonnull %30) #13
-  br label %46
+41:                                               ; preds = %36
+  %42 = load ptr, ptr @ConvProcList, align 8
+  %43 = add i32 %.sroa.7.039, -1
+  %44 = tail call ptr @list_delete_nth_cell(ptr noundef %42, i32 noundef %.sroa.7.039) #13
+  store ptr %44, ptr @ConvProcList, align 8
+  tail call void @pfree(ptr noundef nonnull %29) #13
+  br label %45
 
-46:                                               ; preds = %39, %42, %33, %25
-  %.1 = phi i8 [ 1, %42 ], [ 1, %39 ], [ %.02938, %33 ], [ %.02938, %25 ]
-  %.sroa.7.1 = phi i32 [ %44, %42 ], [ %.sroa.7.039, %39 ], [ %.sroa.7.039, %33 ], [ %.sroa.7.039, %25 ]
-  %.sroa.0.1 = phi ptr [ %45, %42 ], [ %.sroa.0.040, %39 ], [ %.sroa.0.040, %33 ], [ %.sroa.0.040, %25 ]
-  %47 = add i32 %.sroa.7.1, 1
+45:                                               ; preds = %38, %41, %32, %24
+  %.1 = phi i8 [ 1, %41 ], [ 1, %38 ], [ %.02938, %32 ], [ %.02938, %24 ]
+  %.sroa.7.1 = phi i32 [ %43, %41 ], [ %.sroa.7.039, %38 ], [ %.sroa.7.039, %32 ], [ %.sroa.7.039, %24 ]
+  %.sroa.0.1 = phi ptr [ %44, %41 ], [ %.sroa.0.040, %38 ], [ %.sroa.0.040, %32 ], [ %.sroa.0.040, %24 ]
+  %46 = add i32 %.sroa.7.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
   br i1 %.not, label %._crit_edge.loopexit, label %18, !llvm.loop !4
 
-48:                                               ; preds = %._crit_edge, %1, %11, %3
+47:                                               ; preds = %._crit_edge, %1, %11, %3
   %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ %., %._crit_edge ]
   ret i32 %.0
 }

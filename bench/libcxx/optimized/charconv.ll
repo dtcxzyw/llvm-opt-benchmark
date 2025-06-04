@@ -3451,142 +3451,141 @@ define linkonce_odr hidden void @_ZNSt3__135__from_chars_floating_point_decimalB
   %12 = icmp slt i64 %11, %9
   br i1 %12, label %.lr.ph.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
 
-.lr.ph.i:                                         ; preds = %6, %33
-  %13 = phi i32 [ %34, %33 ], [ 0, %6 ]
-  %14 = phi i1 [ %35, %33 ], [ false, %6 ]
-  %15 = phi i1 [ %36, %33 ], [ false, %6 ]
-  %.018.i = phi i64 [ %38, %33 ], [ %11, %6 ]
-  %.01517.i = phi i8 [ %.1.i, %33 ], [ 0, %6 ]
-  %16 = phi i32 [ %37, %33 ], [ 0, %6 ]
+.lr.ph.i:                                         ; preds = %6, %32
+  %13 = phi i32 [ %33, %32 ], [ 0, %6 ]
+  %14 = phi i1 [ %34, %32 ], [ false, %6 ]
+  %15 = phi i1 [ %35, %32 ], [ false, %6 ]
+  %.018.i = phi i64 [ %37, %32 ], [ %11, %6 ]
+  %.01517.i = phi i8 [ %.1.i, %32 ], [ 0, %6 ]
+  %16 = phi i32 [ %36, %32 ], [ 0, %6 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 %.018.i
   %18 = load i8, ptr %17, align 1, !tbaa !4, !noalias !62
   %19 = sext i8 %18 to i32
   %isdigittmp.i = add nsw i32 %19, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
-  br i1 %isdigit.i, label %20, label %30
+  br i1 %isdigit.i, label %20, label %29
 
 20:                                               ; preds = %.lr.ph.i
   %21 = icmp ult i32 %16, 429496729
-  %22 = and i8 %.01517.i, 1
-  br i1 %21, label %23, label %27
+  br i1 %21, label %22, label %26
 
-23:                                               ; preds = %20
-  %24 = mul nuw i32 %16, 10
-  %25 = add nuw i32 %isdigittmp.i, %24
-  %26 = zext nneg i8 %22 to i32
-  %spec.select.i = sub nsw i32 %13, %26
-  br label %33
+22:                                               ; preds = %20
+  %23 = mul nuw i32 %16, 10
+  %24 = add nuw i32 %isdigittmp.i, %23
+  %25 = zext nneg i8 %.01517.i to i32
+  %spec.select.i = sub nsw i32 %13, %25
+  br label %32
 
-27:                                               ; preds = %20
+26:                                               ; preds = %20
   %.not.i = icmp ne i32 %isdigittmp.i, 0
   %spec.select33.i = select i1 %.not.i, i1 true, i1 %14
-  %28 = xor i8 %22, 1
-  %29 = zext nneg i8 %28 to i32
-  %spec.select34.i = add nsw i32 %13, %29
-  br label %33
+  %27 = xor i8 %.01517.i, 1
+  %28 = zext nneg i8 %27 to i32
+  %spec.select34.i = add nsw i32 %13, %28
+  br label %32
 
-30:                                               ; preds = %.lr.ph.i
-  %31 = icmp ne i8 %18, 46
-  %32 = trunc nuw i8 %.01517.i to i1
-  %or.cond.i = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %33
+29:                                               ; preds = %.lr.ph.i
+  %30 = icmp ne i8 %18, 46
+  %31 = trunc nuw i8 %.01517.i to i1
+  %or.cond.i = select i1 %30, i1 true, i1 %31
+  br i1 %or.cond.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %32
 
-33:                                               ; preds = %30, %27, %23
-  %34 = phi i32 [ %13, %30 ], [ %spec.select.i, %23 ], [ %spec.select34.i, %27 ]
-  %35 = phi i1 [ %14, %30 ], [ %14, %23 ], [ %spec.select33.i, %27 ]
-  %36 = phi i1 [ %15, %30 ], [ true, %23 ], [ true, %27 ]
-  %37 = phi i32 [ %16, %30 ], [ %25, %23 ], [ %16, %27 ]
-  %.1.i = phi i8 [ 1, %30 ], [ %22, %23 ], [ %.01517.i, %27 ]
-  %38 = add i64 %.018.i, 1
-  %exitcond.not.i = icmp eq i64 %38, %9
+32:                                               ; preds = %29, %26, %22
+  %33 = phi i32 [ %13, %29 ], [ %spec.select.i, %22 ], [ %spec.select34.i, %26 ]
+  %34 = phi i1 [ %14, %29 ], [ %14, %22 ], [ %spec.select33.i, %26 ]
+  %35 = phi i1 [ %15, %29 ], [ true, %22 ], [ true, %26 ]
+  %36 = phi i32 [ %16, %29 ], [ %24, %22 ], [ %16, %26 ]
+  %.1.i = phi i8 [ 1, %29 ], [ %.01517.i, %22 ], [ %.01517.i, %26 ]
+  %37 = add i64 %.018.i, 1
+  %exitcond.not.i = icmp eq i64 %37, %9
   br i1 %exitcond.not.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %.lr.ph.i, !llvm.loop !65
 
-_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit: ; preds = %30, %33
-  %.sroa.12.0 = phi i1 [ %15, %30 ], [ %36, %33 ]
-  %.sroa.10.0 = phi i1 [ %14, %30 ], [ %35, %33 ]
-  %.sroa.7.0 = phi i32 [ %13, %30 ], [ %34, %33 ]
-  %.lcssa.i = phi i32 [ %16, %30 ], [ %37, %33 ]
-  %.0.lcssa.i = phi i64 [ %.018.i, %30 ], [ %9, %33 ]
-  br i1 %.sroa.12.0, label %39, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
+_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit: ; preds = %29, %32
+  %.sroa.12.0 = phi i1 [ %15, %29 ], [ %35, %32 ]
+  %.sroa.10.0 = phi i1 [ %14, %29 ], [ %34, %32 ]
+  %.sroa.7.0 = phi i32 [ %13, %29 ], [ %33, %32 ]
+  %.lcssa.i = phi i32 [ %16, %29 ], [ %36, %32 ]
+  %.0.lcssa.i = phi i64 [ %.018.i, %29 ], [ %9, %32 ]
+  br i1 %.sroa.12.0, label %38, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
 
-39:                                               ; preds = %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit
-  %40 = icmp eq i32 %3, 2
-  br i1 %40, label %41, label %43
+38:                                               ; preds = %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit
+  %39 = icmp eq i32 %3, 2
+  br i1 %39, label %40, label %42
 
-41:                                               ; preds = %39
-  %42 = tail call i32 @llvm.smax.i32(i32 %.sroa.7.0, i32 -255)
-  %.0.i = tail call i32 @llvm.smin.i32(i32 %42, i32 255)
-  br label %51
+40:                                               ; preds = %38
+  %41 = tail call i32 @llvm.smax.i32(i32 %.sroa.7.0, i32 -255)
+  %.0.i = tail call i32 @llvm.smin.i32(i32 %41, i32 255)
+  br label %50
 
-43:                                               ; preds = %39
-  %44 = tail call { i64, i64 } @_ZNSt3__116__parse_exponentB8ne210000EPKcmmc(ptr noundef nonnull %1, i64 noundef %9, i64 noundef %.0.lcssa.i, i8 noundef signext 101)
-  %.fca.1.extract12 = extractvalue { i64, i64 } %44, 1
-  %45 = icmp ne i32 %3, 1
-  %46 = and i64 %.fca.1.extract12, 4294967296
-  %47 = icmp ne i64 %46, 0
-  %or.cond = select i1 %45, i1 true, i1 %47
+42:                                               ; preds = %38
+  %43 = tail call { i64, i64 } @_ZNSt3__116__parse_exponentB8ne210000EPKcmmc(ptr noundef nonnull %1, i64 noundef %9, i64 noundef %.0.lcssa.i, i8 noundef signext 101)
+  %.fca.1.extract12 = extractvalue { i64, i64 } %43, 1
+  %44 = icmp ne i32 %3, 1
+  %45 = and i64 %.fca.1.extract12, 4294967296
+  %46 = icmp ne i64 %45, 0
+  %or.cond = select i1 %44, i1 true, i1 %46
   br i1 %or.cond, label %.thread, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
 
-.thread:                                          ; preds = %43
-  %.fca.0.extract11 = extractvalue { i64, i64 } %44, 0
-  %48 = sext i32 %.sroa.7.0 to i64
+.thread:                                          ; preds = %42
+  %.fca.0.extract11 = extractvalue { i64, i64 } %43, 0
+  %47 = sext i32 %.sroa.7.0 to i64
   %sext = shl i64 %.fca.1.extract12, 32
-  %49 = ashr exact i64 %sext, 32
-  %50 = add nsw i64 %49, %48
-  %spec.select11.i42 = tail call i64 @llvm.smax.i64(i64 %50, i64 -255)
+  %48 = ashr exact i64 %sext, 32
+  %49 = add nsw i64 %48, %47
+  %spec.select11.i42 = tail call i64 @llvm.smax.i64(i64 %49, i64 -255)
   %.0.i4460 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i42, i64 255)
   %.0.i44 = trunc nsw i64 %.0.i4460 to i32
-  br label %51
+  br label %50
 
-51:                                               ; preds = %.thread, %41
-  %.036 = phi i32 [ %.0.i, %41 ], [ %.0.i44, %.thread ]
-  %.0 = phi i64 [ %.0.lcssa.i, %41 ], [ %.fca.0.extract11, %.thread ]
+50:                                               ; preds = %.thread, %40
+  %.036 = phi i32 [ %.0.i, %40 ], [ %.0.i44, %.thread ]
+  %.0 = phi i64 [ %.0.lcssa.i, %40 ], [ %.fca.0.extract11, %.thread ]
   %.not = icmp eq i32 %.lcssa.i, 0
-  br i1 %.not, label %58, label %52
+  br i1 %.not, label %57, label %51
 
-52:                                               ; preds = %51
-  %53 = sub i64 %7, %10
+51:                                               ; preds = %50
+  %52 = sub i64 %7, %10
   %.sroa.24.0.insert.ext = zext i32 %.036 to i64
   %.sroa.24.0.insert.shift = shl nuw i64 %.sroa.24.0.insert.ext, 32
   %.sroa.03.0.insert.ext = zext i32 %.lcssa.i to i64
   %.sroa.03.0.insert.insert = or disjoint i64 %.sroa.24.0.insert.shift, %.sroa.03.0.insert.ext
-  %54 = tail call { i64, i32 } @_ZN24__llvm_libc_common_utils8internal20decimal_exp_to_floatIfEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionEPKcm(i64 %.sroa.03.0.insert.insert, i1 noundef zeroext %.sroa.10.0, i32 noundef 2, ptr noundef %4, i64 noundef %53)
-  %.fca.0.extract = extractvalue { i64, i32 } %54, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %54, 1
+  %53 = tail call { i64, i32 } @_ZN24__llvm_libc_common_utils8internal20decimal_exp_to_floatIfEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionEPKcm(i64 %.sroa.03.0.insert.insert, i1 noundef zeroext %.sroa.10.0, i32 noundef 2, ptr noundef %4, i64 noundef %52)
+  %.fca.0.extract = extractvalue { i64, i32 } %53, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %53, 1
   %.sroa.06.0.extract.trunc = trunc i64 %.fca.0.extract to i32
-  %55 = icmp eq i32 %.fca.1.extract, 34
-  %spec.select = select i1 %55, i32 34, i32 0
-  %56 = and i32 %.sroa.06.0.extract.trunc, 8388607
+  %54 = icmp eq i32 %.fca.1.extract, 34
+  %spec.select = select i1 %54, i32 34, i32 0
+  %55 = and i32 %.sroa.06.0.extract.trunc, 8388607
   %sh.diff = lshr i64 %.fca.0.extract, 9
   %tr.sh.diff = trunc i64 %sh.diff to i32
-  %57 = and i32 %tr.sh.diff, 2139095040
-  br label %58
+  %56 = and i32 %tr.sh.diff, 2139095040
+  br label %57
 
-58:                                               ; preds = %52, %51
-  %.sroa.5.0 = phi i32 [ %57, %52 ], [ 0, %51 ]
-  %.sroa.06.0 = phi i32 [ %56, %52 ], [ 0, %51 ]
-  %.sroa.510.0 = phi i32 [ %spec.select, %52 ], [ 0, %51 ]
-  %59 = or disjoint i32 %.sroa.06.0, %.sroa.5.0
-  %60 = icmp ne i32 %.sroa.510.0, 34
-  %61 = icmp ne i32 %.sroa.5.0, 0
-  %or.cond.not9.i = or i1 %61, %60
-  %62 = icmp eq i32 %59, 0
-  %or.cond7.i = select i1 %or.cond.not9.i, i1 true, i1 %62
+57:                                               ; preds = %51, %50
+  %.sroa.5.0 = phi i32 [ %56, %51 ], [ 0, %50 ]
+  %.sroa.06.0 = phi i32 [ %55, %51 ], [ 0, %50 ]
+  %.sroa.510.0 = phi i32 [ %spec.select, %51 ], [ 0, %50 ]
+  %58 = or disjoint i32 %.sroa.06.0, %.sroa.5.0
+  %59 = icmp ne i32 %.sroa.510.0, 34
+  %60 = icmp ne i32 %.sroa.5.0, 0
+  %or.cond.not9.i = or i1 %60, %59
+  %61 = icmp eq i32 %58, 0
+  %or.cond7.i = select i1 %or.cond.not9.i, i1 true, i1 %61
   %spec.store.select.i = select i1 %or.cond7.i, i32 %.sroa.510.0, i32 0
-  %63 = bitcast i32 %59 to float
-  %64 = fneg float %63
-  %storemerge.i = select i1 %5, float %64, float %63
+  %62 = bitcast i32 %58 to float
+  %63 = fneg float %62
+  %storemerge.i = select i1 %5, float %63, float %62
   br label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
 
-_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread: ; preds = %43, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit, %6, %58
-  %.sink64 = phi float [ %storemerge.i, %58 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0.000000e+00, %43 ]
-  %.sink62 = phi i64 [ %.0, %58 ], [ 0, %6 ], [ 0, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0, %43 ]
-  %.sink = phi i32 [ %spec.store.select.i, %58 ], [ 22, %6 ], [ 22, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 22, %43 ]
+_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread: ; preds = %42, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit, %6, %57
+  %.sink64 = phi float [ %storemerge.i, %57 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0.000000e+00, %42 ]
+  %.sink62 = phi i64 [ %.0, %57 ], [ 0, %6 ], [ 0, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0, %42 ]
+  %.sink = phi i32 [ %spec.store.select.i, %57 ], [ 22, %6 ], [ 22, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 22, %42 ]
   store float %.sink64, ptr %0, align 8, !tbaa !60
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink62, ptr %65, align 8, !tbaa !52
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink, ptr %66, align 8, !tbaa !61
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink62, ptr %64, align 8, !tbaa !52
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink, ptr %65, align 8, !tbaa !61
   ret void
 }
 
@@ -5523,153 +5522,151 @@ define linkonce_odr hidden void @_ZNSt3__135__from_chars_floating_point_decimalB
   %13 = icmp slt i64 %12, %10
   br i1 %13, label %.lr.ph.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
 
-.lr.ph.i:                                         ; preds = %6, %36
-  %14 = phi i32 [ %37, %36 ], [ 0, %6 ]
-  %15 = phi i1 [ %38, %36 ], [ false, %6 ]
-  %16 = phi i1 [ %39, %36 ], [ false, %6 ]
-  %.018.i = phi i64 [ %41, %36 ], [ %12, %6 ]
-  %.01517.i = phi i8 [ %.1.i, %36 ], [ 0, %6 ]
-  %17 = phi i64 [ %40, %36 ], [ 0, %6 ]
+.lr.ph.i:                                         ; preds = %6, %34
+  %14 = phi i32 [ %35, %34 ], [ 0, %6 ]
+  %15 = phi i1 [ %36, %34 ], [ false, %6 ]
+  %16 = phi i1 [ %37, %34 ], [ false, %6 ]
+  %.018.i = phi i64 [ %39, %34 ], [ %12, %6 ]
+  %.01517.i = phi i8 [ %.1.i, %34 ], [ 0, %6 ]
+  %17 = phi i64 [ %38, %34 ], [ 0, %6 ]
   %18 = getelementptr inbounds i8, ptr %1, i64 %.018.i
   %19 = load i8, ptr %18, align 1, !tbaa !4, !noalias !103
   %20 = sext i8 %19 to i32
   %isdigittmp.i = add nsw i32 %20, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
-  br i1 %isdigit.i, label %21, label %33
+  br i1 %isdigit.i, label %21, label %31
 
 21:                                               ; preds = %.lr.ph.i
   %22 = icmp ult i64 %17, 1844674407370955161
-  br i1 %22, label %23, label %29
+  br i1 %22, label %23, label %28
 
 23:                                               ; preds = %21
   %24 = mul nuw i64 %17, 10
   %25 = zext nneg i32 %isdigittmp.i to i64
   %26 = add nuw i64 %24, %25
-  %27 = and i8 %.01517.i, 1
-  %28 = zext nneg i8 %27 to i32
-  %spec.select.i = sub nsw i32 %14, %28
-  br label %36
+  %27 = zext nneg i8 %.01517.i to i32
+  %spec.select.i = sub nsw i32 %14, %27
+  br label %34
 
-29:                                               ; preds = %21
+28:                                               ; preds = %21
   %.not.i = icmp ne i32 %isdigittmp.i, 0
   %spec.select33.i = select i1 %.not.i, i1 true, i1 %15
-  %30 = and i8 %.01517.i, 1
-  %31 = xor i8 %30, 1
-  %32 = zext nneg i8 %31 to i32
-  %spec.select34.i = add nsw i32 %14, %32
-  br label %36
+  %29 = xor i8 %.01517.i, 1
+  %30 = zext nneg i8 %29 to i32
+  %spec.select34.i = add nsw i32 %14, %30
+  br label %34
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = icmp ne i8 %19, 46
-  %35 = trunc nuw i8 %.01517.i to i1
-  %or.cond.i = select i1 %34, i1 true, i1 %35
-  br i1 %or.cond.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %36
+31:                                               ; preds = %.lr.ph.i
+  %32 = icmp ne i8 %19, 46
+  %33 = trunc nuw i8 %.01517.i to i1
+  %or.cond.i = select i1 %32, i1 true, i1 %33
+  br i1 %or.cond.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %34
 
-36:                                               ; preds = %33, %29, %23
-  %37 = phi i32 [ %14, %33 ], [ %spec.select.i, %23 ], [ %spec.select34.i, %29 ]
-  %38 = phi i1 [ %15, %33 ], [ %15, %23 ], [ %spec.select33.i, %29 ]
-  %39 = phi i1 [ %16, %33 ], [ true, %23 ], [ true, %29 ]
-  %40 = phi i64 [ %17, %33 ], [ %26, %23 ], [ %17, %29 ]
-  %.1.i = phi i8 [ 1, %33 ], [ %27, %23 ], [ %.01517.i, %29 ]
-  %41 = add i64 %.018.i, 1
-  %exitcond.not.i = icmp eq i64 %41, %10
+34:                                               ; preds = %31, %28, %23
+  %35 = phi i32 [ %14, %31 ], [ %spec.select.i, %23 ], [ %spec.select34.i, %28 ]
+  %36 = phi i1 [ %15, %31 ], [ %15, %23 ], [ %spec.select33.i, %28 ]
+  %37 = phi i1 [ %16, %31 ], [ true, %23 ], [ true, %28 ]
+  %38 = phi i64 [ %17, %31 ], [ %26, %23 ], [ %17, %28 ]
+  %.1.i = phi i8 [ 1, %31 ], [ %.01517.i, %23 ], [ %.01517.i, %28 ]
+  %39 = add i64 %.018.i, 1
+  %exitcond.not.i = icmp eq i64 %39, %10
   br i1 %exitcond.not.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %.lr.ph.i, !llvm.loop !106
 
-_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit: ; preds = %33, %36
-  %.sroa.13.0 = phi i1 [ %16, %33 ], [ %39, %36 ]
-  %.sroa.11.0 = phi i1 [ %15, %33 ], [ %38, %36 ]
-  %.sroa.7.0 = phi i32 [ %14, %33 ], [ %37, %36 ]
-  %.lcssa.i = phi i64 [ %17, %33 ], [ %40, %36 ]
-  %.0.lcssa.i = phi i64 [ %.018.i, %33 ], [ %10, %36 ]
-  br i1 %.sroa.13.0, label %43, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
+_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit: ; preds = %31, %34
+  %.sroa.13.0 = phi i1 [ %16, %31 ], [ %37, %34 ]
+  %.sroa.11.0 = phi i1 [ %15, %31 ], [ %36, %34 ]
+  %.sroa.7.0 = phi i32 [ %14, %31 ], [ %35, %34 ]
+  %.lcssa.i = phi i64 [ %17, %31 ], [ %38, %34 ]
+  %.0.lcssa.i = phi i64 [ %.018.i, %31 ], [ %10, %34 ]
+  br i1 %.sroa.13.0, label %41, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
 
 _ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread: ; preds = %6, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store i32 22, ptr %42, align 8, !tbaa !37
-  br label %74
+  store i32 22, ptr %40, align 8, !tbaa !37
+  br label %72
 
-43:                                               ; preds = %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit
-  %44 = icmp eq i32 %3, 2
-  br i1 %44, label %45, label %47
+41:                                               ; preds = %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit
+  %42 = icmp eq i32 %3, 2
+  br i1 %42, label %43, label %45
 
-45:                                               ; preds = %43
-  %46 = tail call i32 @llvm.smax.i32(i32 %.sroa.7.0, i32 -2047)
-  %.0.i = tail call i32 @llvm.smin.i32(i32 %46, i32 2047)
-  br label %57
+43:                                               ; preds = %41
+  %44 = tail call i32 @llvm.smax.i32(i32 %.sroa.7.0, i32 -2047)
+  %.0.i = tail call i32 @llvm.smin.i32(i32 %44, i32 2047)
+  br label %55
 
-47:                                               ; preds = %43
-  %48 = tail call { i64, i64 } @_ZNSt3__116__parse_exponentB8ne210000EPKcmmc(ptr noundef nonnull %1, i64 noundef %10, i64 noundef %.0.lcssa.i, i8 noundef signext 101)
-  %.fca.1.extract = extractvalue { i64, i64 } %48, 1
-  %49 = icmp ne i32 %3, 1
-  %50 = and i64 %.fca.1.extract, 4294967296
-  %51 = icmp ne i64 %50, 0
-  %or.cond = select i1 %49, i1 true, i1 %51
-  br i1 %or.cond, label %.thread, label %55
+45:                                               ; preds = %41
+  %46 = tail call { i64, i64 } @_ZNSt3__116__parse_exponentB8ne210000EPKcmmc(ptr noundef nonnull %1, i64 noundef %10, i64 noundef %.0.lcssa.i, i8 noundef signext 101)
+  %.fca.1.extract = extractvalue { i64, i64 } %46, 1
+  %47 = icmp ne i32 %3, 1
+  %48 = and i64 %.fca.1.extract, 4294967296
+  %49 = icmp ne i64 %48, 0
+  %or.cond = select i1 %47, i1 true, i1 %49
+  br i1 %or.cond, label %.thread, label %53
 
-.thread:                                          ; preds = %47
-  %.fca.0.extract = extractvalue { i64, i64 } %48, 0
-  %52 = sext i32 %.sroa.7.0 to i64
+.thread:                                          ; preds = %45
+  %.fca.0.extract = extractvalue { i64, i64 } %46, 0
+  %50 = sext i32 %.sroa.7.0 to i64
   %sext = shl i64 %.fca.1.extract, 32
-  %53 = ashr exact i64 %sext, 32
-  %54 = add nsw i64 %53, %52
-  %spec.select11.i34 = tail call i64 @llvm.smax.i64(i64 %54, i64 -2047)
+  %51 = ashr exact i64 %sext, 32
+  %52 = add nsw i64 %51, %50
+  %spec.select11.i34 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2047)
   %.0.i3653 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i34, i64 2047)
   %.0.i36 = trunc nsw i64 %.0.i3653 to i32
-  br label %57
+  br label %55
 
-55:                                               ; preds = %47
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+53:                                               ; preds = %45
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store i32 22, ptr %56, align 8, !tbaa !37
-  br label %74
+  store i32 22, ptr %54, align 8, !tbaa !37
+  br label %72
 
-57:                                               ; preds = %.thread, %45
-  %.029 = phi i32 [ %.0.i, %45 ], [ %.0.i36, %.thread ]
-  %.0 = phi i64 [ %.0.lcssa.i, %45 ], [ %.fca.0.extract, %.thread ]
+55:                                               ; preds = %.thread, %43
+  %.029 = phi i32 [ %.0.i, %43 ], [ %.0.i36, %.thread ]
+  %.0 = phi i64 [ %.0.lcssa.i, %43 ], [ %.fca.0.extract, %.thread ]
   %.not = icmp eq i64 %.lcssa.i, 0
-  br i1 %.not, label %67, label %58
+  br i1 %.not, label %65, label %56
 
-58:                                               ; preds = %57
+56:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19
-  %59 = sub i64 %8, %11
-  call void @_ZN24__llvm_libc_common_utils8internal20decimal_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionEPKcm(ptr dead_on_unwind nonnull writable sret(%"struct.__llvm_libc_common_utils::internal::FloatConvertReturn.9") align 8 %7, i64 %.lcssa.i, i32 %.029, i1 noundef zeroext %.sroa.11.0, i32 noundef 2, ptr noundef %4, i64 noundef %59)
+  %57 = sub i64 %8, %11
+  call void @_ZN24__llvm_libc_common_utils8internal20decimal_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionEPKcm(ptr dead_on_unwind nonnull writable sret(%"struct.__llvm_libc_common_utils::internal::FloatConvertReturn.9") align 8 %7, i64 %.lcssa.i, i32 %.029, i1 noundef zeroext %.sroa.11.0, i32 noundef 2, ptr noundef %4, i64 noundef %57)
   %.sroa.03.0.copyload = load i64, ptr %7, align 8, !tbaa !52
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !107
-  %62 = icmp eq i32 %61, 34
-  %spec.select = select i1 %62, i32 34, i32 0
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %59 = load i32, ptr %58, align 8, !tbaa !107
+  %60 = icmp eq i32 %59, 34
+  %spec.select = select i1 %60, i32 34, i32 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19
-  %63 = and i64 %.sroa.03.0.copyload, 4503599627370495
-  %64 = zext i32 %.sroa.5.0.copyload to i64
-  %65 = shl i64 %64, 52
-  %66 = and i64 %65, 9218868437227405312
-  br label %67
+  %61 = and i64 %.sroa.03.0.copyload, 4503599627370495
+  %62 = zext i32 %.sroa.5.0.copyload to i64
+  %63 = shl i64 %62, 52
+  %64 = and i64 %63, 9218868437227405312
+  br label %65
 
-67:                                               ; preds = %58, %57
-  %.sroa.55.0 = phi i32 [ %spec.select, %58 ], [ 0, %57 ]
-  %.sroa.03.0 = phi i64 [ %63, %58 ], [ 0, %57 ]
-  %.sroa.5.0 = phi i64 [ %66, %58 ], [ 0, %57 ]
-  %68 = or disjoint i64 %.sroa.5.0, %.sroa.03.0
-  %69 = icmp ne i32 %.sroa.55.0, 34
-  %70 = icmp ne i64 %.sroa.5.0, 0
-  %or.cond.not9.i = or i1 %69, %70
-  %71 = icmp eq i64 %68, 0
-  %or.cond7.i = select i1 %or.cond.not9.i, i1 true, i1 %71
+65:                                               ; preds = %56, %55
+  %.sroa.55.0 = phi i32 [ %spec.select, %56 ], [ 0, %55 ]
+  %.sroa.03.0 = phi i64 [ %61, %56 ], [ 0, %55 ]
+  %.sroa.5.0 = phi i64 [ %64, %56 ], [ 0, %55 ]
+  %66 = or disjoint i64 %.sroa.5.0, %.sroa.03.0
+  %67 = icmp ne i32 %.sroa.55.0, 34
+  %68 = icmp ne i64 %.sroa.5.0, 0
+  %or.cond.not9.i = or i1 %67, %68
+  %69 = icmp eq i64 %66, 0
+  %or.cond7.i = select i1 %or.cond.not9.i, i1 true, i1 %69
   %spec.store.select.i = select i1 %or.cond7.i, i32 %.sroa.55.0, i32 0
-  %72 = bitcast i64 %68 to double
-  %73 = fneg double %72
-  %storemerge.i = select i1 %5, double %73, double %72
+  %70 = bitcast i64 %66 to double
+  %71 = fneg double %70
+  %storemerge.i = select i1 %5, double %71, double %70
   store double %storemerge.i, ptr %0, align 8, !tbaa !102
   %.sroa.5.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0, ptr %.sroa.5.0..sroa_idx44, align 8, !tbaa !52
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.store.select.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !61
-  br label %74
+  br label %72
 
-74:                                               ; preds = %55, %67, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
+72:                                               ; preds = %53, %65, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
   ret void
 }
 

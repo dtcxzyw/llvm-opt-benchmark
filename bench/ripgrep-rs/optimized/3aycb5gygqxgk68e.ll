@@ -62,12 +62,12 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
   store i8 %.sroa.5.012, ptr %3, align 1
   %8 = lshr i8 %.sroa.5.012, 6
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %9
-  %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = and i8 %.sroa.5.012, 63
-  %13 = zext nneg i8 %12 to i64
+  %10 = and i8 %.sroa.5.012, 63
+  %11 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %9
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = zext nneg i8 %10 to i64
   %14 = shl nuw i64 1, %13
-  %15 = and i64 %11, %14
+  %15 = and i64 %12, %14
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %20, label %18
 

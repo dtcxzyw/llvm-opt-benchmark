@@ -680,10 +680,9 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
   %.2.lcssa = phi i8 [ %.0.lcssa, %.preheader ], [ %.3, %40 ]
   %46 = load i8, ptr %2, align 8
   %47 = shl nuw nsw i8 %.2.lcssa, 2
-  %48 = and i8 %47, 4
-  %49 = and i8 %46, -5
-  %50 = or disjoint i8 %49, %48
-  store i8 %50, ptr %2, align 8
+  %48 = and i8 %46, -5
+  %49 = or i8 %48, %47
+  store i8 %49, ptr %2, align 8
   ret void
 }
 
@@ -981,10 +980,9 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
   %.2.lcssa = phi i8 [ %.0.lcssa, %.preheader ], [ %.3, %40 ]
   %46 = load i8, ptr %2, align 8
   %47 = shl nuw nsw i8 %.2.lcssa, 3
-  %48 = and i8 %47, 8
-  %49 = and i8 %46, -9
-  %50 = or disjoint i8 %49, %48
-  store i8 %50, ptr %2, align 8
+  %48 = and i8 %46, -9
+  %49 = or i8 %48, %47
+  store i8 %49, ptr %2, align 8
   ret void
 }
 

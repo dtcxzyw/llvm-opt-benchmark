@@ -333,10 +333,10 @@ define dso_local void @intel_gt_flush_buffer_pool(ptr noundef %0) local_unnamed_
   %50 = icmp eq i64 %49, 4
   br i1 %50, label %5, label %.backedge
 
-.backedge:                                        ; preds = %46, %64, %pool_free_older_than.exit
-  %.be = phi i64 [ %49, %46 ], [ 0, %64 ], [ 0, %pool_free_older_than.exit ]
-  %.be5 = phi ptr [ %48, %46 ], [ null, %64 ], [ null, %pool_free_older_than.exit ]
-  %.be6 = phi i8 [ %47, %46 ], [ 0, %64 ], [ 0, %pool_free_older_than.exit ]
+.backedge:                                        ; preds = %46, %63, %pool_free_older_than.exit
+  %.be = phi i64 [ %49, %46 ], [ 0, %63 ], [ 0, %pool_free_older_than.exit ]
+  %.be5 = phi ptr [ %48, %46 ], [ null, %63 ], [ null, %pool_free_older_than.exit ]
+  %.be6 = phi i8 [ %47, %46 ], [ 0, %63 ], [ 0, %pool_free_older_than.exit ]
   br label %7, !llvm.loop !19
 
 .preheader.i:                                     ; preds = %5, %.thread8.i
@@ -369,15 +369,14 @@ define dso_local void @intel_gt_flush_buffer_pool(ptr noundef %0) local_unnamed_
   br i1 %62, label %pool_free_older_than.exit, label %.preheader.i, !llvm.loop !20
 
 pool_free_older_than.exit:                        ; preds = %.thread8.i, %5
-  %63 = and i8 %47, 1
-  %.not = icmp eq i8 %63, 0
-  br i1 %.not, label %64, label %.backedge
+  %.not = icmp eq i8 %47, 0
+  br i1 %.not, label %63, label %.backedge
 
-64:                                               ; preds = %pool_free_older_than.exit
-  %65 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %3) #5
-  br i1 %65, label %.backedge, label %66
+63:                                               ; preds = %pool_free_older_than.exit
+  %64 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %3) #5
+  br i1 %64, label %.backedge, label %65
 
-66:                                               ; preds = %64
+65:                                               ; preds = %63
   ret void
 }
 
@@ -504,9 +503,8 @@ define internal fastcc zeroext i1 @pool_free_older_than(ptr noundef %0, i64 noun
   br i1 %64, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.thread8, %4
-  %65 = and i8 %49, 1
-  %66 = icmp ne i8 %65, 0
-  ret i1 %66
+  %65 = icmp ne i8 %49, 0
+  ret i1 %65
 }
 
 ; Function Attrs: null_pointer_is_valid

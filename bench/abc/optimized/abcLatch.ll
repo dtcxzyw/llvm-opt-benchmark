@@ -2996,9 +2996,9 @@ define range(i32 -2147483648, 2147483647) i32 @Abc_NtkVerifyCex(ptr noundef %0, 
   %108 = lshr i32 %107, 6
   %109 = lshr i32 %.val107, 11
   %110 = xor i32 %108, %109
-  %111 = and i32 %110, %101
-  %112 = shl nuw i32 %111, 6
-  %113 = and i32 %112, 64
+  %111 = and i32 %101, 1
+  %112 = and i32 %111, %110
+  %113 = shl nuw nsw i32 %112, 6
   %114 = and i32 %.val107, -73
   %115 = or disjoint i32 %113, %114
   store i32 %115, ptr %88, align 4

@@ -11,26 +11,26 @@ define zeroext range(i16 0, 2048) i16 @crc11_307_noreflect_noxor(ptr noundef rea
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.011 = phi ptr [ %12, %.lr.ph ], [ %0, %2 ]
-  %.0610 = phi i16 [ %11, %.lr.ph ], [ 0, %2 ]
+  %.011 = phi ptr [ %14, %.lr.ph ], [ %0, %2 ]
+  %.0610 = phi i16 [ %13, %.lr.ph ], [ 0, %2 ]
   %.079 = phi i64 [ %3, %.lr.ph ], [ %1, %2 ]
   %3 = add i64 %.079, -1
   %4 = lshr i16 %.0610, 3
   %5 = load i8, ptr %.011, align 1
-  %.tr = trunc nuw i16 %4 to i8
-  %.narrow = xor i8 %5, %.tr
-  %6 = zext i8 %.narrow to i64
-  %7 = getelementptr [256 x i16], ptr @crc11_table_307_noreflect_noxor, i64 0, i64 %6
-  %8 = load i16, ptr %7, align 2
-  %9 = shl i16 %.0610, 8
-  %10 = xor i16 %8, %9
-  %11 = and i16 %10, 2047
-  %12 = getelementptr i8, ptr %.011, i64 1
+  %6 = zext i8 %5 to i16
+  %7 = xor i16 %4, %6
+  %8 = zext nneg i16 %7 to i64
+  %9 = getelementptr [256 x i16], ptr @crc11_table_307_noreflect_noxor, i64 0, i64 %8
+  %10 = load i16, ptr %9, align 2
+  %11 = shl i16 %.0610, 8
+  %12 = xor i16 %10, %11
+  %13 = and i16 %12, 2047
+  %14 = getelementptr i8, ptr %.011, i64 1
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.06.lcssa = phi i16 [ 0, %2 ], [ %11, %.lr.ph ]
+  %.06.lcssa = phi i16 [ 0, %2 ], [ %13, %.lr.ph ]
   ret i16 %.06.lcssa
 }
 

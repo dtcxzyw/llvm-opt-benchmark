@@ -32684,7 +32684,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
 84:                                               ; preds = %78
   %85 = load i8, ptr %73, align 1, !noundef !6
   %86 = icmp sgt i8 %85, -65
-  %87 = trunc i8 %.sroa.015.0.ph277 to i1
+  %87 = trunc nuw i8 %.sroa.015.0.ph277 to i1
   %88 = and i1 %86, %87
   %89 = zext i1 %88 to i8
   br i1 %68, label %92, label %.outer271
@@ -32860,7 +32860,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %136
-  %139 = trunc i8 %.sroa.015.0.ph277 to i1
+  %139 = trunc nuw i8 %.sroa.015.0.ph277 to i1
   br i1 %139, label %142, label %141, !prof !24
 
 140:                                              ; preds = %136
@@ -32902,7 +32902,7 @@ _ZN8simdutf814implementation3x8619validate_utf8_basic17h06c25a15e128ed05E.exit: 
   br label %123
 
 153:                                              ; preds = %140
-  %154 = trunc i8 %.sroa.015.0.ph277 to i1
+  %154 = trunc nuw i8 %.sroa.015.0.ph277 to i1
   br i1 %154, label %160, label %159, !prof !24
 
 155:                                              ; preds = %140
@@ -33344,7 +33344,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
 95:                                               ; preds = %87
   %96 = load i8, ptr %82, align 1, !noundef !6
   %97 = icmp sgt i8 %96, -65
-  %98 = trunc i8 %.sroa.015.0.ph to i1
+  %98 = trunc nuw i8 %.sroa.015.0.ph to i1
   %99 = and i1 %97, %98
   %100 = zext i1 %99 to i8
   %101 = load i64, ptr %41, align 8, !noundef !6
@@ -33496,7 +33496,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %144
-  %147 = trunc i8 %.sroa.015.0.ph to i1
+  %147 = trunc nuw i8 %.sroa.015.0.ph to i1
   br i1 %147, label %150, label %149, !prof !24
 
 148:                                              ; preds = %144
@@ -33538,7 +33538,7 @@ _ZN8simdutf814implementation3x8619validate_utf8_basic17h06c25a15e128ed05E.exit: 
   br label %131
 
 161:                                              ; preds = %148
-  %162 = trunc i8 %.sroa.015.0.ph to i1
+  %162 = trunc nuw i8 %.sroa.015.0.ph to i1
   br i1 %162, label %168, label %167, !prof !24
 
 163:                                              ; preds = %148
@@ -34016,7 +34016,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
 117:                                              ; preds = %111
   %118 = load i8, ptr %106, align 1, !noundef !6
   %119 = icmp sgt i8 %118, -65
-  %120 = trunc i8 %.sroa.015.0.ph312.ph to i1
+  %120 = trunc nuw i8 %.sroa.015.0.ph312.ph to i1
   %121 = and i1 %119, %120
   %122 = zext i1 %121 to i8
   br i1 %86, label %125, label %.outer302.outer
@@ -34218,7 +34218,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %169
-  %172 = trunc i8 %.sroa.015.0.ph312.ph to i1
+  %172 = trunc nuw i8 %.sroa.015.0.ph312.ph to i1
   br i1 %172, label %175, label %174, !prof !24
 
 173:                                              ; preds = %169
@@ -34260,7 +34260,7 @@ _ZN8simdutf814implementation3x8619validate_utf8_basic17h06c25a15e128ed05E.exit: 
   br label %156
 
 186:                                              ; preds = %173
-  %187 = trunc i8 %.sroa.015.0.ph312.ph to i1
+  %187 = trunc nuw i8 %.sroa.015.0.ph312.ph to i1
   br i1 %187, label %193, label %192, !prof !24
 
 188:                                              ; preds = %173
@@ -34597,7 +34597,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
   resume { ptr, i32 } %eh.lpad-body106
 
 ._crit_edge:                                      ; preds = %96
-  %46 = trunc i8 %98 to i1
+  %46 = trunc nuw i8 %98 to i1
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %48 = load i64, ptr %47, align 8, !noundef !6
   %49 = add i64 %48, %99
@@ -34658,7 +34658,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize7binview20decode_
 70:                                               ; preds = %62
   %71 = load i8, ptr %57, align 1, !noundef !6
   %72 = icmp sgt i8 %71, -65
-  %73 = trunc i8 %.sroa.015.0140 to i1
+  %73 = trunc nuw i8 %.sroa.015.0140 to i1
   %74 = and i1 %72, %73
   %75 = zext i1 %74 to i8
   %76 = load i64, ptr %42, align 8, !noundef !6

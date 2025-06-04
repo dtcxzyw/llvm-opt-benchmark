@@ -16107,7 +16107,7 @@ _ZN5clang17InitializedEntity19InitializeParameterERNS_10ASTContextEPNS_11ParmVar
 1136:                                             ; preds = %1041
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #20
-  br label %1324
+  br label %1323
 
 .thread500:                                       ; preds = %1135, %_ZN5clang4Decl14getDeclContextEv.exit
   %.0128.lcssa = phi i8 [ 0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %.2130, %1135 ]
@@ -16474,19 +16474,18 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit27
   %1318 = load ptr, ptr %0, align 8, !tbaa !408
   call void @_ZN5clang4Sema21DiagnoseSentinelCallsEPKNS_9NamedDeclENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(17504) %1318, ptr noundef nonnull %7, i32 %storemerge, ptr %3, i64 %4) #20
   %1319 = call noundef zeroext i1 @_ZN5clang8SemaObjC19CheckObjCMethodCallEPNS_14ObjCMethodDeclENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %7, i32 %storemerge, ptr %3, i64 %4) #20
-  %1320 = and i8 %.9137, 1
-  %1321 = zext i1 %1319 to i8
-  %1322 = or i8 %1320, %1321
-  %1323 = icmp ne i8 %1322, 0
-  br label %1324
+  %1320 = zext i1 %1319 to i8
+  %1321 = or i8 %.9137, %1320
+  %1322 = icmp ne i8 %1321, 0
+  br label %1323
 
-1324:                                             ; preds = %1136, %.loopexit
-  %.11 = phi i1 [ %1323, %.loopexit ], [ true, %1136 ]
+1323:                                             ; preds = %1136, %.loopexit
+  %.11 = phi i1 [ %1322, %.loopexit ], [ true, %1136 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56) #20
   br label %.critedge160
 
-.critedge160:                                     ; preds = %91, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit218, %1324, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit
-  %.4 = phi i1 [ false, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit218 ], [ %.11, %1324 ], [ true, %91 ]
+.critedge160:                                     ; preds = %91, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit218, %1323, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit
+  %.4 = phi i1 [ false, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit218 ], [ %.11, %1323 ], [ true, %91 ]
   ret i1 %.4
 }
 

@@ -919,10 +919,9 @@ for.cond118.for.cond.cleanup123_crit_edge.split.us.us.us: ; preds = %cleanup150.
 for.cond.cleanup116:                              ; preds = %for.cond118.for.cond.cleanup123_crit_edge.split.us.us.us
   %inc160 = add nuw nsw i32 %i.0522, 1
   %cmp = icmp samesign ult i32 %i.0522, 99
-  %31 = and i8 %fits.5.us.us.us, 1
-  %tobool.not = icmp eq i8 %31, 0
-  %32 = select i1 %cmp, i1 %tobool.not, i1 false
-  br i1 %32, label %for.body, label %for.cond.cleanup, !llvm.loop !115
+  %tobool.not = icmp eq i8 %fits.5.us.us.us, 0
+  %31 = select i1 %cmp, i1 %tobool.not, i1 false
+  br i1 %31, label %for.body, label %for.cond.cleanup, !llvm.loop !115
 
 if.end165.loopexit:                               ; preds = %for.cond118.preheader.lr.ph, %for.body
   store i16 %conv82, ptr %Z.i373, align 4, !tbaa !26
@@ -932,21 +931,21 @@ if.end165.loopexit:                               ; preds = %for.cond118.prehead
 
 if.end165:                                        ; preds = %if.end165.loopexit, %for.cond.cleanup
   %num_rooms = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %33 = load i16, ptr %num_rooms, align 8, !tbaa !116
-  %cmp180524.not = icmp eq i16 %33, 0
+  %32 = load i16, ptr %num_rooms, align 8, !tbaa !116
+  %cmp180524.not = icmp eq i16 %32, 0
   br i1 %cmp180524.not, label %cleanup345, label %for.body182.lr.ph
 
 for.body182.lr.ph:                                ; preds = %if.end165
-  %34 = sdiv i16 %roomsize.sroa.18.1, 2
-  %add13.i400 = add i16 %conv82, %34
+  %33 = sdiv i16 %roomsize.sroa.18.1, 2
+  %add13.i400 = add i16 %conv82, %33
   %retval.sroa.3.0.insert.ext.i401 = zext i16 %add13.i400 to i48
   %retval.sroa.3.0.insert.shift.i402 = shl nuw i48 %retval.sroa.3.0.insert.ext.i401, 32
   %add8.i397 = add i16 %conv96, 1
   %retval.sroa.2.0.insert.ext.i403 = zext i16 %add8.i397 to i48
   %retval.sroa.2.0.insert.shift.i404 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i403, 16
   %retval.sroa.2.0.insert.insert.i405 = or disjoint i48 %retval.sroa.2.0.insert.shift.i404, %retval.sroa.3.0.insert.shift.i402
-  %35 = sdiv i16 %storemerge370, 2
-  %add.i394 = add i16 %conv110, %35
+  %34 = sdiv i16 %storemerge370, 2
+  %add.i394 = add i16 %conv110, %34
   %retval.sroa.0.0.insert.ext.i406 = zext i16 %add.i394 to i48
   %retval.sroa.0.0.insert.insert.i407 = or disjoint i48 %retval.sroa.2.0.insert.insert.i405, %retval.sroa.0.0.insert.ext.i406
   %gennotify = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -981,16 +980,16 @@ for.body182:                                      ; preds = %cleanup336, %for.bo
   %roomsize.sroa.0.0.insert.insert466 = or disjoint i48 %roomsize.sroa.11.0.insert.insert470, %roomsize.sroa.0.0.insert.ext464
   %agg.tmp184.sroa.0.0.copyload = load i48, ptr %roomplace, align 8
   tail call void @_ZN10DungeonGen8makeRoomEN3irr4core8vector3dIsEES3_(ptr noundef nonnull align 8 dereferenceable(152) %this, i48 %roomsize.sroa.0.0.insert.insert466, i48 %agg.tmp184.sroa.0.0.copyload)
-  %36 = sdiv i16 %roomsize.sroa.0.1525, 2
-  %37 = sdiv i16 %roomsize.sroa.18.2527, 2
-  %38 = trunc i48 %agg.tmp184.sroa.0.0.copyload to i16
-  %add.i410 = add i16 %36, %38
-  %39 = lshr i48 %agg.tmp184.sroa.0.0.copyload, 16
-  %40 = trunc i48 %39 to i16
-  %add8.i413 = add i16 %40, 1
-  %41 = lshr i48 %agg.tmp184.sroa.0.0.copyload, 32
-  %42 = trunc nuw i48 %41 to i16
-  %add13.i416 = add i16 %37, %42
+  %35 = sdiv i16 %roomsize.sroa.0.1525, 2
+  %36 = sdiv i16 %roomsize.sroa.18.2527, 2
+  %37 = trunc i48 %agg.tmp184.sroa.0.0.copyload to i16
+  %add.i410 = add i16 %35, %37
+  %38 = lshr i48 %agg.tmp184.sroa.0.0.copyload, 16
+  %39 = trunc i48 %38 to i16
+  %add8.i413 = add i16 %39, 1
+  %40 = lshr i48 %agg.tmp184.sroa.0.0.copyload, 32
+  %41 = trunc nuw i48 %40 to i16
+  %add13.i416 = add i16 %36, %41
   %retval.sroa.3.0.insert.ext.i417 = zext i16 %add13.i416 to i48
   %retval.sroa.3.0.insert.shift.i418 = shl nuw i48 %retval.sroa.3.0.insert.ext.i417, 32
   %retval.sroa.2.0.insert.ext.i419 = zext i16 %add8.i413 to i48
@@ -998,30 +997,30 @@ for.body182:                                      ; preds = %cleanup336, %for.bo
   %retval.sroa.2.0.insert.insert.i421 = or disjoint i48 %retval.sroa.3.0.insert.shift.i418, %retval.sroa.2.0.insert.shift.i420
   %retval.sroa.0.0.insert.ext.i422 = zext i16 %add.i410 to i48
   %retval.sroa.0.0.insert.insert.i423 = or disjoint i48 %retval.sroa.2.0.insert.insert.i421, %retval.sroa.0.0.insert.ext.i422
-  %43 = load ptr, ptr %gennotify, align 8, !tbaa !28
-  %tobool196.not = icmp eq ptr %43, null
+  %42 = load ptr, ptr %gennotify, align 8, !tbaa !28
+  %tobool196.not = icmp eq ptr %42, null
   br i1 %tobool196.not, label %if.end202, label %if.then197
 
 if.then197:                                       ; preds = %for.body182
-  %44 = load i32, ptr %notifytype, align 8, !tbaa !51
-  %call201 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %43, i32 noundef %44, i48 %retval.sroa.0.0.insert.insert.i423)
+  %43 = load i32, ptr %notifytype, align 8, !tbaa !51
+  %call201 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %42, i32 noundef %43, i48 %retval.sroa.0.0.insert.insert.i423)
   br label %if.end202
 
 if.end202:                                        ; preds = %if.then197, %for.body182
   %add203 = add nuw nsw i32 %i176.0528, 1
-  %45 = load i16, ptr %num_rooms, align 8, !tbaa !116
-  %conv206 = zext i16 %45 to i32
+  %44 = load i16, ptr %num_rooms, align 8, !tbaa !116
+  %conv206 = zext i16 %44 to i32
   %cmp207 = icmp eq i32 %add203, %conv206
   br i1 %cmp207, label %cleanup345, label %if.end209
 
 if.end209:                                        ; preds = %if.end202
-  %46 = load i32, ptr %random, align 4, !tbaa !53
-  %mul.i.i424 = mul i32 %46, 1103515245
+  %45 = load i32, ptr %random, align 4, !tbaa !53
+  %mul.i.i424 = mul i32 %45, 1103515245
   %add.i.i425 = add i32 %mul.i.i424, 12345
   store i32 %add.i.i425, ptr %random, align 4, !tbaa !53
   %div.i.i = sdiv i32 %add.i.i425, 65536
-  %47 = trunc nsw i32 %div.i.i to i16
-  %rem.lhs.trunc.i = and i16 %47, 32767
+  %46 = trunc nsw i32 %div.i.i to i16
+  %rem.lhs.trunc.i = and i16 %46, 32767
   %rem49.i = urem i16 %rem.lhs.trunc.i, 3
   %cmp212.not = icmp eq i16 %rem49.i, 0
   %call194.last_room_center.sroa.0.0 = select i1 %cmp212.not, i48 %retval.sroa.0.0.insert.insert.i423, i48 %last_room_center.sroa.0.0529
@@ -1045,8 +1044,8 @@ if.end209:                                        ; preds = %if.end202
   br i1 %call217, label %if.end219, label %cleanup345.sink.split
 
 if.end219:                                        ; preds = %if.end209
-  %48 = load i32, ptr %random, align 4, !tbaa !53
-  %mul.i.i432 = mul i32 %48, 1103515245
+  %47 = load i32, ptr %random, align 4, !tbaa !53
+  %mul.i.i432 = mul i32 %47, 1103515245
   %add.i.i433 = add i32 %mul.i.i432, 12345
   store i32 %add.i.i433, ptr %random, align 4, !tbaa !53
   %div.i.i434 = sdiv i32 %add.i.i433, 65536
@@ -1061,13 +1060,13 @@ if.then223:                                       ; preds = %if.end219
   br label %if.end228
 
 if.else226:                                       ; preds = %if.end219
-  %49 = load <2 x i16>, ptr %doordir, align 8, !tbaa !31
-  %50 = load <2 x i16>, ptr %doorplace, align 8, !tbaa !31
-  %51 = sub <2 x i16> %50, %49
-  store <2 x i16> %51, ptr %doorplace, align 8, !tbaa !31
-  %52 = load i16, ptr %Z.i431, align 4, !tbaa !26
-  %53 = load i16, ptr %Z.i429, align 4, !tbaa !26
-  %sub13.i = sub i16 %53, %52
+  %48 = load <2 x i16>, ptr %doordir, align 8, !tbaa !31
+  %49 = load <2 x i16>, ptr %doorplace, align 8, !tbaa !31
+  %50 = sub <2 x i16> %49, %48
+  store <2 x i16> %50, ptr %doorplace, align 8, !tbaa !31
+  %51 = load i16, ptr %Z.i431, align 4, !tbaa !26
+  %52 = load i16, ptr %Z.i429, align 4, !tbaa !26
+  %sub13.i = sub i16 %52, %51
   store i16 %sub13.i, ptr %Z.i429, align 4, !tbaa !26
   %agg.tmp229.sroa.0.0.copyload.pre = load i48, ptr %doorplace, align 8, !tbaa.struct !117
   br label %if.end228
@@ -1084,12 +1083,12 @@ if.end228:                                        ; preds = %if.else226, %if.the
   store i16 0, ptr %Z.i445, align 2, !tbaa !26
   %agg.tmp230.sroa.0.0.copyload = load i48, ptr %doordir, align 8, !tbaa.struct !117
   call void @_ZN10DungeonGen12makeCorridorEN3irr4core8vector3dIsEES3_RS3_S4_(ptr noundef nonnull align 8 dereferenceable(152) %this, i48 %agg.tmp229.sroa.0.0.copyload, i48 %agg.tmp230.sroa.0.0.copyload, ptr noundef nonnull align 2 dereferenceable(6) %corridor_end, ptr noundef nonnull align 2 dereferenceable(6) %corridor_end_dir)
-  %54 = load i16, ptr %large_room_chance, align 2, !tbaa !111
-  %cmp234 = icmp ugt i16 %54, 1
+  %53 = load i16, ptr %large_room_chance, align 2, !tbaa !111
+  %cmp234 = icmp ugt i16 %53, 1
   br i1 %cmp234, label %land.lhs.true, label %if.else278
 
 land.lhs.true:                                    ; preds = %if.end228
-  %conv233 = zext i16 %54 to i32
+  %conv233 = zext i16 %53 to i32
   %call239 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %random, i32 noundef 1, i32 noundef %conv233)
   %cmp240 = icmp eq i32 %call239, 1
   br i1 %cmp240, label %if.end315, label %if.else278
@@ -1111,8 +1110,8 @@ if.end315:                                        ; preds = %land.lhs.true, %if.
   %call288 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %random, i32 noundef %conv283.sink, i32 noundef %conv287)
   %.sink581 = load i16, ptr %.sink581.in, align 4, !tbaa !31
   %conv295 = sext i16 %.sink581 to i32
-  %55 = load i16, ptr %Y50.sink580, align 2, !tbaa !31
-  %conv299 = sext i16 %55 to i32
+  %54 = load i16, ptr %Y50.sink580, align 2, !tbaa !31
+  %conv299 = sext i16 %54 to i32
   %call300 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %random, i32 noundef %conv295, i32 noundef %conv299)
   %conv307.sink.in = load i16, ptr %conv307.sink.in.in, align 2, !tbaa !31
   %conv307.sink = sext i16 %conv307.sink.in to i32
@@ -1127,8 +1126,8 @@ if.end315:                                        ; preds = %land.lhs.true, %if.
   %roomsize.sroa.18.3.mask = and i32 %call288, 65535
   %roomsize.sroa.18.0.insert.ext = zext nneg i32 %roomsize.sroa.18.3.mask to i48
   %roomsize.sroa.18.0.insert.shift = shl nuw i48 %roomsize.sroa.18.0.insert.ext, 32
-  %56 = shl i32 %call300, 16
-  %roomsize.sroa.11.0.insert.shift = zext i32 %56 to i48
+  %55 = shl i32 %call300, 16
+  %roomsize.sroa.11.0.insert.shift = zext i32 %55 to i48
   %roomsize.sroa.11.0.insert.insert = or disjoint i48 %roomsize.sroa.18.0.insert.shift, %roomsize.sroa.11.0.insert.shift
   %storemerge369.mask = and i32 %call312, 65535
   %roomsize.sroa.0.0.insert.ext = zext nneg i32 %storemerge369.mask to i48
@@ -1142,8 +1141,8 @@ cleanup336.thread496:                             ; preds = %if.end315
   br label %cleanup345.sink.split
 
 if.end320:                                        ; preds = %if.end315
-  %57 = load i32, ptr %random, align 4, !tbaa !53
-  %mul.i.i446 = mul i32 %57, 1103515245
+  %56 = load i32, ptr %random, align 4, !tbaa !53
+  %mul.i.i446 = mul i32 %56, 1103515245
   %add.i.i447 = add i32 %mul.i.i446, 12345
   store i32 %add.i.i447, ptr %random, align 4, !tbaa !53
   %div.i.i448 = sdiv i32 %add.i.i447, 65536
@@ -1158,13 +1157,13 @@ if.then324:                                       ; preds = %if.end320
   br label %cleanup336
 
 if.else327:                                       ; preds = %if.end320
-  %58 = load <2 x i16>, ptr %doordir, align 8, !tbaa !31
-  %59 = load <2 x i16>, ptr %roomplace, align 8, !tbaa !31
-  %60 = sub <2 x i16> %59, %58
-  store <2 x i16> %60, ptr %roomplace, align 8, !tbaa !31
-  %61 = load i16, ptr %Z.i431, align 4, !tbaa !26
-  %62 = load i16, ptr %Z.i373, align 4, !tbaa !26
-  %sub13.i460 = sub i16 %62, %61
+  %57 = load <2 x i16>, ptr %doordir, align 8, !tbaa !31
+  %58 = load <2 x i16>, ptr %roomplace, align 8, !tbaa !31
+  %59 = sub <2 x i16> %58, %57
+  store <2 x i16> %59, ptr %roomplace, align 8, !tbaa !31
+  %60 = load i16, ptr %Z.i431, align 4, !tbaa !26
+  %61 = load i16, ptr %Z.i373, align 4, !tbaa !26
+  %sub13.i460 = sub i16 %61, %60
   store i16 %sub13.i460, ptr %Z.i373, align 4, !tbaa !26
   br label %cleanup336
 
@@ -1173,8 +1172,8 @@ cleanup336:                                       ; preds = %if.else327, %if.the
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corridor_end) #24
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doordir) #24
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doorplace) #24
-  %63 = load i16, ptr %num_rooms, align 8, !tbaa !116
-  %conv179 = zext i16 %63 to i32
+  %62 = load i16, ptr %num_rooms, align 8, !tbaa !116
+  %conv179 = zext i16 %62 to i32
   %cmp180 = icmp samesign ult i32 %add203, %conv179
   br i1 %cmp180, label %for.body182, label %cleanup345, !llvm.loop !118
 
@@ -3505,8 +3504,7 @@ for.cond74.for.cond.cleanup79_crit_edge.split.us.us.us: ; preds = %cleanup104.us
   br i1 %cmp71.us.us, label %for.cond74.preheader.us.us, label %for.cond.cleanup72, !llvm.loop !136
 
 for.cond.cleanup72:                               ; preds = %for.cond74.for.cond.cleanup79_crit_edge.split.us.us.us
-  %32 = and i8 %fits.4.us.us.us, 1
-  %tobool113.not = icmp eq i8 %32, 0
+  %tobool113.not = icmp eq i8 %fits.4.us.us.us, 0
   br i1 %tobool113.not, label %for.inc122, label %cleanup118
 
 cleanup118:                                       ; preds = %for.cond.cleanup72, %for.cond74.preheader.lr.ph, %if.end65

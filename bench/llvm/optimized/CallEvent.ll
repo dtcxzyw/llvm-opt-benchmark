@@ -5956,7 +5956,7 @@ define dso_local void @_ZNK5clang4ento14ObjCMethodCall20getRuntimeDefinitionEv(p
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 16580608
   %spec.select.i = icmp eq i32 %19, 65536
-  br i1 %spec.select.i, label %20, label %219
+  br i1 %spec.select.i, label %20, label %218
 
 20:                                               ; preds = %2
   %21 = and i32 %18, 131072
@@ -6059,7 +6059,7 @@ _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %_ZNK5clang15
 
 73:                                               ; preds = %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %225
+  br label %224
 
 74:                                               ; preds = %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6090,7 +6090,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 81:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %225
+  br label %224
 
 82:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
   %83 = and i64 %.fca.0.extract29, -16
@@ -6234,7 +6234,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit115: ; preds 
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %148, align 8, !tbaa !804
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #20
-  br label %225
+  br label %224
 
 _ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit110, %.thread, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit
   %.370 = phi i8 [ 1, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit ], [ %.471.ph, %.thread ], [ 1, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit110 ]
@@ -6321,132 +6321,131 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %_ZNK5clang4Type5get
   %176 = trunc nuw i8 %.067156 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.sroa.0.0.copyload, ptr %3, align 8
-  %177 = and i8 %.067156, 1
-  %178 = load atomic i8, ptr @_ZGVZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC acquire, align 8
-  %179 = icmp eq i8 %178, 0
-  br i1 %179, label %180, label %184, !prof !896
+  %177 = load atomic i8, ptr @_ZGVZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC acquire, align 8
+  %178 = icmp eq i8 %177, 0
+  br i1 %178, label %179, label %183, !prof !896
 
-180:                                              ; preds = %175
-  %181 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC) #20
-  %.not.i126 = icmp eq i32 %181, 0
-  br i1 %.not.i126, label %184, label %182
+179:                                              ; preds = %175
+  %180 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC) #20
+  %.not.i126 = icmp eq i32 %180, 0
+  br i1 %.not.i126, label %183, label %181
 
-182:                                              ; preds = %180
+181:                                              ; preds = %179
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC, i8 0, i64 20, i1 false)
-  %183 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm8DenseMapI16PrivateMethodKeySt8optionalIPKN5clang14ObjCMethodDeclEENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S7_EEED2Ev, ptr nonnull @_ZZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC, ptr nonnull @__dso_handle) #20
+  %182 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm8DenseMapI16PrivateMethodKeySt8optionalIPKN5clang14ObjCMethodDeclEENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S7_EEED2Ev, ptr nonnull @_ZZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC) #20
-  br label %184
+  br label %183
 
-184:                                              ; preds = %182, %180, %175
+183:                                              ; preds = %181, %179, %175
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20
   store ptr %174, ptr %4, align 8, !tbaa !897
-  %185 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %186 = load i64, ptr %3, align 8, !tbaa !73
-  store i64 %186, ptr %185, align 8, !tbaa !73
-  %187 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 %177, ptr %187, align 8, !tbaa !899
-  %188 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapI16PrivateMethodKeySt8optionalIPKN5clang14ObjCMethodDeclEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S8_EEEES2_S8_SA_SD_EixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC, ptr noundef nonnull align 8 dereferenceable(17) %4)
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %185 = load i64, ptr %3, align 8, !tbaa !73
+  store i64 %185, ptr %184, align 8, !tbaa !73
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 %.067156, ptr %186, align 8, !tbaa !899
+  %187 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapI16PrivateMethodKeySt8optionalIPKN5clang14ObjCMethodDeclEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S8_EEEES2_S8_SA_SD_EixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC, ptr noundef nonnull align 8 dereferenceable(17) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %190 = load i8, ptr %189, align 8, !tbaa !900, !range !195, !noundef !196
-  %191 = trunc nuw i8 %190 to i1
-  br i1 %191, label %._crit_edge.i, label %192
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %189 = load i8, ptr %188, align 8, !tbaa !900, !range !195, !noundef !196
+  %190 = trunc nuw i8 %189 to i1
+  br i1 %190, label %._crit_edge.i, label %191
 
-._crit_edge.i:                                    ; preds = %184
-  %.pre.i125 = load ptr, ptr %188, align 8, !tbaa !902
+._crit_edge.i:                                    ; preds = %183
+  %.pre.i125 = load ptr, ptr %187, align 8, !tbaa !902
   br label %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit
 
-192:                                              ; preds = %184
-  %193 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl19lookupPrivateMethodERKNS_8SelectorEb(ptr noundef nonnull align 8 dereferenceable(128) %174, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %176) #20
-  %194 = load i8, ptr %189, align 8, !tbaa !900, !range !195, !noundef !196
-  %195 = trunc nuw i8 %194 to i1
-  br i1 %195, label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i, label %196
+191:                                              ; preds = %183
+  %192 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl19lookupPrivateMethodERKNS_8SelectorEb(ptr noundef nonnull align 8 dereferenceable(128) %174, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %176) #20
+  %193 = load i8, ptr %188, align 8, !tbaa !900, !range !195, !noundef !196
+  %194 = trunc nuw i8 %193 to i1
+  br i1 %194, label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i, label %195
 
-196:                                              ; preds = %192
-  store i8 1, ptr %189, align 8, !tbaa !900
+195:                                              ; preds = %191
+  store i8 1, ptr %188, align 8, !tbaa !900
   br label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i
 
-_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i: ; preds = %196, %192
-  store ptr %193, ptr %188, align 8, !tbaa !902
-  %.not10.i = icmp eq ptr %193, null
-  br i1 %.not10.i, label %197, label %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thread
+_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i: ; preds = %195, %191
+  store ptr %192, ptr %187, align 8, !tbaa !902
+  %.not10.i = icmp eq ptr %192, null
+  br i1 %.not10.i, label %196, label %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thread
 
 _ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thread: ; preds = %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %203
+  br label %202
 
-197:                                              ; preds = %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i
+196:                                              ; preds = %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i
   %.sroa.0.0.copyload.i124 = load i64, ptr %3, align 8, !tbaa !73
-  %198 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl12lookupMethodENS_8SelectorEbbbPKNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(128) %174, i64 %.sroa.0.0.copyload.i124, i1 noundef zeroext %176, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null) #20
-  %199 = load i8, ptr %189, align 8, !tbaa !900, !range !195, !noundef !196
-  %200 = trunc nuw i8 %199 to i1
-  br i1 %200, label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i, label %201
+  %197 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl12lookupMethodENS_8SelectorEbbbPKNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(128) %174, i64 %.sroa.0.0.copyload.i124, i1 noundef zeroext %176, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null) #20
+  %198 = load i8, ptr %188, align 8, !tbaa !900, !range !195, !noundef !196
+  %199 = trunc nuw i8 %198 to i1
+  br i1 %199, label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i, label %200
 
-201:                                              ; preds = %197
-  store i8 1, ptr %189, align 8, !tbaa !900
+200:                                              ; preds = %196
+  store i8 1, ptr %188, align 8, !tbaa !900
   br label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i
 
-_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i: ; preds = %201, %197
-  store ptr %198, ptr %188, align 8, !tbaa !902
+_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i: ; preds = %200, %196
+  store ptr %197, ptr %187, align 8, !tbaa !902
   br label %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit
 
 _ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit: ; preds = %._crit_edge.i, %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i
-  %202 = phi ptr [ %.pre.i125, %._crit_edge.i ], [ %198, %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i ]
+  %201 = phi ptr [ %.pre.i125, %._crit_edge.i ], [ %197, %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.not98 = icmp eq ptr %202, null
-  br i1 %.not98, label %214, label %203
+  %.not98 = icmp eq ptr %201, null
+  br i1 %.not98, label %213, label %202
 
-203:                                              ; preds = %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thread, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit
-  %204 = phi ptr [ %193, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thread ], [ %202, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit ]
-  %205 = load ptr, ptr %204, align 8, !tbaa !71
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 72
-  %207 = load ptr, ptr %206, align 8
-  %208 = call noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(136) %204) #20
-  br i1 %208, label %214, label %209
+202:                                              ; preds = %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thread, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit
+  %203 = phi ptr [ %192, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thread ], [ %201, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit ]
+  %204 = load ptr, ptr %203, align 8, !tbaa !71
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 72
+  %206 = load ptr, ptr %205, align 8
+  %207 = call noundef zeroext i1 %206(ptr noundef nonnull align 8 dereferenceable(136) %203) #20
+  br i1 %207, label %213, label %208
 
-209:                                              ; preds = %203
-  %210 = load ptr, ptr %204, align 8, !tbaa !71
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 32
-  %212 = load ptr, ptr %211, align 8
-  %213 = call noundef ptr %212(ptr noundef nonnull align 8 dereferenceable(136) %204) #20
-  br label %214
+208:                                              ; preds = %202
+  %209 = load ptr, ptr %203, align 8, !tbaa !71
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
+  %211 = load ptr, ptr %210, align 8
+  %212 = call noundef ptr %211(ptr noundef nonnull align 8 dereferenceable(136) %203) #20
+  br label %213
 
-214:                                              ; preds = %209, %203, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit
-  %.066 = phi ptr [ %204, %203 ], [ %213, %209 ], [ null, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit ]
+213:                                              ; preds = %208, %202, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit
+  %.066 = phi ptr [ %203, %202 ], [ %212, %208 ], [ null, %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit ]
   store ptr %.066, ptr %0, align 8, !tbaa !800
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.058157, label %217, label %218
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %.058157, label %216, label %217
 
-217:                                              ; preds = %214
-  store ptr %.075155, ptr %215, align 8, !tbaa !803
-  store i8 0, ptr %216, align 8, !tbaa !804
-  br label %225
+216:                                              ; preds = %213
+  store ptr %.075155, ptr %214, align 8, !tbaa !803
+  store i8 0, ptr %215, align 8, !tbaa !804
+  br label %224
 
-218:                                              ; preds = %214
-  store ptr null, ptr %215, align 8, !tbaa !803
-  store i8 0, ptr %216, align 8, !tbaa !804
-  br label %225
+217:                                              ; preds = %213
+  store ptr null, ptr %214, align 8, !tbaa !803
+  store i8 0, ptr %215, align 8, !tbaa !804
+  br label %224
 
-219:                                              ; preds = %2
-  %220 = tail call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %15) #20
-  %.not = icmp eq ptr %220, null
-  br i1 %.not, label %.critedge102, label %221
+218:                                              ; preds = %2
+  %219 = tail call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %15) #20
+  %.not = icmp eq ptr %219, null
+  br i1 %.not, label %.critedge102, label %220
 
-221:                                              ; preds = %219
-  %222 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl19lookupPrivateMethodERKNS_8SelectorEb(ptr noundef nonnull align 8 dereferenceable(128) %220, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false) #20
-  store ptr %222, ptr %0, align 8, !tbaa !800
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %223, align 8, !tbaa !803
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %224, align 8, !tbaa !804
-  br label %225
+220:                                              ; preds = %218
+  %221 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl19lookupPrivateMethodERKNS_8SelectorEb(ptr noundef nonnull align 8 dereferenceable(128) %219, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false) #20
+  store ptr %221, ptr %0, align 8, !tbaa !800
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %222, align 8, !tbaa !803
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %223, align 8, !tbaa !804
+  br label %224
 
-.critedge102:                                     ; preds = %164, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %82, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit, %219
+.critedge102:                                     ; preds = %164, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %82, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit, %218
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %225
+  br label %224
 
-225:                                              ; preds = %73, %140, %81, %217, %218, %221, %.critedge102
+224:                                              ; preds = %73, %140, %81, %216, %217, %220, %.critedge102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   ret void
 }

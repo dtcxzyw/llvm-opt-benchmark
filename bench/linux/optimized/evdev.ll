@@ -291,7 +291,7 @@ define internal fastcc void @evdev_pass_values(ptr noundef %0, ptr noundef reado
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i8, ptr %5, align 4, !range !9, !noundef !10
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %112
+  br i1 %7, label %8, label %111
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -308,7 +308,7 @@ define internal fastcc void @evdev_pass_values(ptr noundef %0, ptr noundef reado
   %19 = zext i32 %2 to i64
   %20 = getelementptr %struct.input_value, ptr %1, i64 %19
   %21 = icmp eq i32 %2, 0
-  br i1 %21, label %111, label %22
+  br i1 %21, label %110, label %22
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -456,21 +456,20 @@ define internal fastcc void @evdev_pass_values(ptr noundef %0, ptr noundef reado
   br i1 %104, label %105, label %29, !llvm.loop !13
 
 105:                                              ; preds = %101
-  %106 = and i8 %102, 1
-  %107 = icmp eq i8 %106, 0
+  %106 = icmp eq i8 %102, 0
   tail call void @_raw_spin_unlock(ptr noundef nonnull %18) #14
-  br i1 %107, label %112, label %108
+  br i1 %106, label %111, label %107
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %110 = tail call i32 @__wake_up(ptr noundef nonnull %109, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 325 to ptr)) #14
-  br label %112
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %109 = tail call i32 @__wake_up(ptr noundef nonnull %108, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 325 to ptr)) #14
+  br label %111
 
-111:                                              ; preds = %8
+110:                                              ; preds = %8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %18) #14
-  br label %112
+  br label %111
 
-112:                                              ; preds = %111, %108, %105, %4
+111:                                              ; preds = %110, %107, %105, %4
   ret void
 }
 

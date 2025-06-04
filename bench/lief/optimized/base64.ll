@@ -128,9 +128,9 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %96 = getelementptr inbounds nuw i8, ptr %.060, i64 1
   store i8 %95, ptr %.060, align 1, !tbaa !7
   %97 = shl i8 %25, 4
-  %98 = lshr i8 %27, 4
-  %99 = and i8 %97, 48
-  %100 = or disjoint i8 %98, %99
+  %98 = and i8 %97, 48
+  %99 = lshr i8 %27, 4
+  %100 = or disjoint i8 %99, %98
   %101 = add nuw i8 %100, 65
   %102 = zext nneg i8 %100 to i64
   %103 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %102) #6, !srcloc !8
@@ -199,9 +199,9 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %166 = getelementptr inbounds nuw i8, ptr %.060, i64 2
   store i8 %165, ptr %96, align 1, !tbaa !7
   %167 = shl i8 %27, 2
-  %168 = lshr i8 %29, 6
-  %169 = and i8 %167, 60
-  %170 = or disjoint i8 %168, %169
+  %168 = and i8 %167, 60
+  %169 = lshr i8 %29, 6
+  %170 = or disjoint i8 %169, %168
   %171 = add nuw i8 %170, 65
   %172 = zext nneg i8 %170 to i64
   %173 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %172) #6, !srcloc !8
@@ -431,10 +431,10 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %383 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   store i8 %382, ptr %.0.lcssa, align 1, !tbaa !7
   %384 = shl i8 %308, 4
-  %385 = lshr i32 %316, 4
-  %386 = and i8 %384, 48
-  %387 = trunc nuw nsw i32 %385 to i8
-  %388 = or disjoint i8 %386, %387
+  %385 = and i8 %384, 48
+  %386 = lshr i32 %316, 4
+  %387 = trunc nuw nsw i32 %386 to i8
+  %388 = or disjoint i8 %385, %387
   %389 = add nuw i8 %388, 65
   %390 = zext nneg i8 %388 to i64
   %391 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %390) #6, !srcloc !8

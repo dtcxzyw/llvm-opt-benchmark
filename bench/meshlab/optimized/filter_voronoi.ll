@@ -54570,7 +54570,7 @@ _ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit: ; preds = %_ZNSt5stac
   br i1 %341, label %._crit_edge, label %.lr.ph, !llvm.loop !526
 
 ._crit_edge:                                      ; preds = %338
-  br i1 %.4, label %._crit_edge..thread_crit_edge, label %._crit_edge86.loopexit
+  br i1 %.4, label %._crit_edge..thread_crit_edge, label %._crit_edge86
 
 ._crit_edge..thread_crit_edge:                    ; preds = %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit, %._crit_edge
   %.327.lcssa100 = phi i8 [ %.5, %._crit_edge ], [ %.02484, %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit ]
@@ -54582,47 +54582,41 @@ _ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit: ; preds = %_ZNSt5stac
   %.22658 = phi i8 [ %.327.lcssa100, %._crit_edge..thread_crit_edge ], [ %.02484, %30 ]
   %343 = getelementptr inbounds nuw i8, ptr %.sroa.048.082, i64 48
   %.not = icmp eq ptr %343, %342
-  br i1 %.not, label %._crit_edge86.loopexit, label %30, !llvm.loop !527
+  br i1 %.not, label %._crit_edge86, label %30, !llvm.loop !527
 
-._crit_edge86.loopexit:                           ; preds = %._crit_edge, %.thread
-  %.125.ph = phi i8 [ %.22658, %.thread ], [ %.5, %._crit_edge ]
-  %.1.ph = phi i8 [ 1, %.thread ], [ 0, %._crit_edge ]
-  %344 = and i8 %.125.ph, 1
-  br label %._crit_edge86
-
-._crit_edge86:                                    ; preds = %._crit_edge86.loopexit, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit
-  %.125 = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit ], [ %344, %._crit_edge86.loopexit ]
-  %.1 = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit ], [ %.1.ph, %._crit_edge86.loopexit ]
+._crit_edge86:                                    ; preds = %.thread, %._crit_edge, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit
+  %.125 = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit ], [ %.5, %._crit_edge ], [ %.22658, %.thread ]
+  %.1 = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit ], [ 0, %._crit_edge ], [ 1, %.thread ]
   store i8 %.125, ptr %1, align 1
   store i8 %.1, ptr %2, align 1
-  %345 = load ptr, ptr %4, align 8
-  %.not.i.i.i33 = icmp eq ptr %345, null
-  br i1 %.not.i.i.i33, label %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEED2Ev.exit, label %346
+  %344 = load ptr, ptr %4, align 8
+  %.not.i.i.i33 = icmp eq ptr %344, null
+  br i1 %.not.i.i.i33, label %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEED2Ev.exit, label %345
 
-346:                                              ; preds = %._crit_edge86
-  %347 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %348 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %349 = load ptr, ptr %348, align 8
-  %350 = load ptr, ptr %347, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  %352 = icmp ult ptr %349, %351
-  br i1 %352, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
+345:                                              ; preds = %._crit_edge86
+  %346 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %347 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %348 = load ptr, ptr %347, align 8
+  %349 = load ptr, ptr %346, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  %351 = icmp ult ptr %348, %350
+  br i1 %351, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %346, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %354, %.lr.ph.i.i.i.i ], [ %349, %346 ]
-  %353 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %353) #28
-  %354 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %355 = icmp ult ptr %.06.i.i.i.i, %350
-  br i1 %355, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !528
+.lr.ph.i.i.i.i:                                   ; preds = %345, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %353, %.lr.ph.i.i.i.i ], [ %348, %345 ]
+  %352 = load ptr, ptr %.06.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %352) #28
+  %353 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %354 = icmp ult ptr %.06.i.i.i.i, %349
+  br i1 %354, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !528
 
 _ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %4, align 8
   br label %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
-_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %346
-  %356 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %345, %346 ]
-  call void @_ZdlPv(ptr noundef %356) #28
+_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %345
+  %355 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %344, %345 ]
+  call void @_ZdlPv(ptr noundef %355) #28
   br label %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEED2Ev.exit
 
 _ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEED2Ev.exit: ; preds = %._crit_edge86, %_ZNSt11_Deque_baseIP6CFaceOSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i

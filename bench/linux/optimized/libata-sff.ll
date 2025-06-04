@@ -3801,15 +3801,14 @@ __ata_sff_port_intr.exit:                         ; preds = %66, %70, %.thread5.
   br i1 %166, label %.preheader, label %167, !llvm.loop !103
 
 167:                                              ; preds = %161
-  %168 = and i8 %162, 1
-  %169 = icmp eq i8 %168, 0
-  br i1 %169, label %.thread6, label %6
+  %168 = icmp eq i8 %162, 0
+  br i1 %168, label %.thread6, label %6
 
 .thread6:                                         ; preds = %167, %.loopexit, %6
   %.lcssa15 = phi i1 [ false, %6 ], [ %126, %.loopexit ], [ false, %167 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %3) #13
-  %170 = zext i1 %.lcssa15 to i32
-  ret i32 %170
+  %169 = zext i1 %.lcssa15 to i32
+  ret i32 %169
 }
 
 ; Function Attrs: cold null_pointer_is_valid
@@ -5820,15 +5819,14 @@ define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1
   br i1 %94, label %.preheader, label %95, !llvm.loop !103
 
 95:                                               ; preds = %89
-  %96 = and i8 %90, 1
-  %97 = icmp eq i8 %96, 0
-  br i1 %97, label %.thread6, label %6
+  %96 = icmp eq i8 %90, 0
+  br i1 %96, label %.thread6, label %6
 
 .thread6:                                         ; preds = %95, %.loopexit, %6
   %.lcssa15 = phi i1 [ false, %6 ], [ %54, %.loopexit ], [ false, %95 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %3) #13
-  %98 = zext i1 %.lcssa15 to i32
-  ret i32 %98
+  %97 = zext i1 %.lcssa15 to i32
+  ret i32 %97
 }
 
 ; Function Attrs: null_pointer_is_valid

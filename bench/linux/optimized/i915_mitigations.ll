@@ -39,7 +39,7 @@ define internal range(i32 -22, 1) i32 @mitigations_set(ptr noundef %0, ptr readn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %4 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #6
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %54, label %6
+  br i1 %5, label %50, label %6
 
 6:                                                ; preds = %2
   store ptr %4, ptr %3, align 8
@@ -47,100 +47,96 @@ define internal range(i32 -22, 1) i32 @mitigations_set(ptr noundef %0, ptr readn
   %8 = icmp eq ptr %7, null
   br i1 %8, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %49
-  %9 = phi ptr [ %52, %49 ], [ %7, %6 ]
-  %10 = phi i8 [ %51, %49 ], [ 1, %6 ]
-  %11 = phi i64 [ %50, %49 ], [ -1, %6 ]
+.lr.ph:                                           ; preds = %6, %46
+  %9 = phi ptr [ %48, %46 ], [ %7, %6 ]
+  %10 = phi i1 [ true, %46 ], [ false, %6 ]
+  %11 = phi i64 [ %47, %46 ], [ -1, %6 ]
   %12 = call ptr @strim(ptr noundef nonnull %9) #6
-  %13 = and i8 %10, 1
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %sub_0, label %15
+  br i1 %10, label %sub_0, label %13
 
-15:                                               ; preds = %.lr.ph
-  %16 = call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.1) #6
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %49, label %18, !llvm.loop !5
+13:                                               ; preds = %.lr.ph
+  %14 = call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.1) #6
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %46, label %16, !llvm.loop !5
 
-18:                                               ; preds = %15
-  %19 = call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(4) @.str.2) #6
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %49, label %sub_0, !llvm.loop !5
+16:                                               ; preds = %13
+  %17 = call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(4) @.str.2) #6
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %46, label %sub_0, !llvm.loop !5
 
-sub_0:                                            ; preds = %18, %.lr.ph
-  %21 = phi i64 [ 0, %18 ], [ %11, %.lr.ph ]
-  %22 = phi i8 [ 0, %18 ], [ %10, %.lr.ph ]
-  %23 = load i8, ptr %12, align 1
-  %24 = icmp eq i8 %23, 33
-  %25 = zext i1 %24 to i64
-  %26 = getelementptr i8, ptr %12, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %.not = icmp eq i8 %27, 110
+sub_0:                                            ; preds = %16, %.lr.ph
+  %19 = phi i64 [ 0, %16 ], [ %11, %.lr.ph ]
+  %20 = load i8, ptr %12, align 1
+  %21 = icmp eq i8 %20, 33
+  %22 = zext i1 %21 to i64
+  %23 = getelementptr i8, ptr %12, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %.not = icmp eq i8 %24, 110
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %29 = load i8, ptr %28, align 1
-  %.fr = freeze i8 %29
-  %30 = icmp ne i8 %.fr, 111
-  %spec.select = select i1 %30, i64 0, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %26 = load i8, ptr %25, align 1
+  %.fr = freeze i8 %26
+  %27 = icmp ne i8 %.fr, 111
+  %spec.select = select i1 %27, i64 0, i64 2
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail, %sub_0
-  %31 = phi i1 [ true, %sub_0 ], [ %30, %.tail ]
-  %32 = phi i64 [ 0, %sub_0 ], [ %spec.select, %.tail ]
-  %33 = getelementptr i8, ptr %26, i64 %32
-  %34 = xor i1 %24, %31
-  %35 = load i8, ptr %33, align 1
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %49, label %.preheader, !llvm.loop !5
+  %28 = phi i1 [ true, %sub_0 ], [ %27, %.tail ]
+  %29 = phi i64 [ 0, %sub_0 ], [ %spec.select, %.tail ]
+  %30 = getelementptr i8, ptr %23, i64 %29
+  %31 = xor i1 %21, %28
+  %32 = load i8, ptr %30, align 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %46, label %.preheader, !llvm.loop !5
 
-.preheader:                                       ; preds = %.tail.thread, %39
-  %37 = phi i1 [ false, %39 ], [ true, %.tail.thread ]
-  %38 = phi i1 [ true, %39 ], [ false, %.tail.thread ]
-  br i1 %37, label %39, label %.loopexit
+.preheader:                                       ; preds = %.tail.thread, %36
+  %34 = phi i1 [ false, %36 ], [ true, %.tail.thread ]
+  %35 = phi i1 [ true, %36 ], [ false, %.tail.thread ]
+  br i1 %34, label %36, label %.loopexit
 
-39:                                               ; preds = %.preheader
-  %40 = call i32 @strcmp(ptr noundef %33, ptr noundef nonnull dereferenceable(10) @.str.6) #6
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.preheader, !llvm.loop !8
+36:                                               ; preds = %.preheader
+  %37 = call i32 @strcmp(ptr noundef %30, ptr noundef nonnull dereferenceable(10) @.str.6) #6
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %.preheader, !llvm.loop !8
+
+39:                                               ; preds = %36
+  br i1 %31, label %40, label %42
+
+40:                                               ; preds = %39
+  %41 = or i64 %19, 1
+  br label %.loopexit
 
 42:                                               ; preds = %39
-  br i1 %34, label %43, label %45
-
-43:                                               ; preds = %42
-  %44 = or i64 %21, 1
+  %43 = and i64 %19, -2
   br label %.loopexit
 
-45:                                               ; preds = %42
-  %46 = and i64 %21, -2
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.preheader, %45, %43
-  %47 = phi i64 [ %44, %43 ], [ %46, %45 ], [ %21, %.preheader ]
-  br i1 %38, label %.thread3, label %49
+.loopexit:                                        ; preds = %.preheader, %42, %40
+  %44 = phi i64 [ %41, %40 ], [ %43, %42 ], [ %19, %.preheader ]
+  br i1 %35, label %.thread3, label %46
 
 .thread3:                                         ; preds = %.loopexit
-  %48 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %33) #7
+  %45 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %30) #7
   call void @kfree(ptr noundef nonnull %4) #6
-  br label %54
+  br label %50
 
-49:                                               ; preds = %.loopexit, %.tail.thread, %18, %15
-  %50 = phi i64 [ %11, %15 ], [ 0, %18 ], [ %21, %.tail.thread ], [ %47, %.loopexit ]
-  %51 = phi i8 [ 0, %15 ], [ 0, %18 ], [ %22, %.tail.thread ], [ %22, %.loopexit ]
-  %52 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str) #6
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %._crit_edge, label %.lr.ph
+46:                                               ; preds = %.loopexit, %.tail.thread, %16, %13
+  %47 = phi i64 [ %11, %13 ], [ 0, %16 ], [ %19, %.tail.thread ], [ %44, %.loopexit ]
+  %48 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str) #6
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %49, %6
-  %.lcssa5 = phi i64 [ -1, %6 ], [ %50, %49 ]
+._crit_edge:                                      ; preds = %46, %6
+  %.lcssa5 = phi i64 [ -1, %6 ], [ %47, %46 ]
   call void @kfree(ptr noundef nonnull %4) #6
   store volatile i64 %.lcssa5, ptr @mitigations, align 8
-  br label %54
+  br label %50
 
-54:                                               ; preds = %.thread3, %._crit_edge, %2
-  %55 = phi i32 [ 0, %._crit_edge ], [ -12, %2 ], [ -22, %.thread3 ]
+50:                                               ; preds = %.thread3, %._crit_edge, %2
+  %51 = phi i32 [ 0, %._crit_edge ], [ -12, %2 ], [ -22, %.thread3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  ret i32 %55
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1115,13 +1115,12 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit216: ; preds = %if
 
 while.end95:                                      ; preds = %cleanup91, %if.end, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backERKS2_.exit, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE7reserveEm.exit
   %use_default.0.ph262 = phi i8 [ %frombool, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE7reserveEm.exit ], [ %use_default.0.ph272, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backERKS2_.exit ], [ %use_default.0.ph272, %if.end ], [ %use_default.2, %cleanup91 ]
-  %95 = and i8 %use_default.0.ph262, 1
-  %tobool96.not = icmp eq i8 %95, 0
+  %tobool96.not = icmp eq i8 %use_default.0.ph262, 0
   br i1 %tobool96.not, label %if.end101, label %if.then97
 
 if.then97:                                        ; preds = %while.end95
-  %96 = load i64, ptr %_M_string_length.i, align 8, !tbaa !21
-  store i64 %96, ptr %m_default_length, align 8, !tbaa !9
+  %95 = load i64, ptr %_M_string_length.i, align 8, !tbaa !21
+  store i64 %95, ptr %m_default_length, align 8, !tbaa !9
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then97, %while.end95

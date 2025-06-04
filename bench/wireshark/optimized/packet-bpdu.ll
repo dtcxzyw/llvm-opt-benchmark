@@ -1200,15 +1200,14 @@ define internal fastcc void @dissect_bpdu_pvst_tlv(ptr noundef %0, ptr noundef %
 
 .loopexit:                                        ; preds = %45, %28
   %.04750 = phi i8 [ %.04751, %28 ], [ %.1, %45 ]
-  %49 = and i8 %.04750, 1
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.loopexit.thread, label %52
+  %49 = icmp eq i8 %.04750, 0
+  br i1 %49, label %.loopexit.thread, label %51
 
 .loopexit.thread:                                 ; preds = %9, %.loopexit
-  %51 = call ptr @expert_add_info(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pvst_tlv_origvlan_missing)
-  br label %52
+  %50 = call ptr @expert_add_info(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pvst_tlv_origvlan_missing)
+  br label %51
 
-52:                                               ; preds = %.loopexit.thread, %.loopexit
+51:                                               ; preds = %.loopexit.thread, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
   ret void
 }

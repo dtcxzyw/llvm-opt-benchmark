@@ -3977,14 +3977,13 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_
 
 129:                                              ; preds = %124, %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
   %.not46 = icmp eq ptr %6, null
-  br i1 %.not46, label %132, label %130
+  br i1 %.not46, label %131, label %130
 
 130:                                              ; preds = %129
-  %131 = and i8 %.157, 1
-  store i8 %131, ptr %6, align 1
-  br label %132
+  store i8 %.157, ptr %6, align 1
+  br label %131
 
-132:                                              ; preds = %130, %129
+131:                                              ; preds = %130, %129
   ret i1 %.1.ph91
 }
 

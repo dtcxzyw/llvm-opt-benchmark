@@ -362,7 +362,7 @@ define dso_local void @dma_resv_add_fence(ptr noundef %0, ptr noundef %1, i32 no
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %96, label %28
+  br i1 %27, label %.loopexit9, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -462,38 +462,38 @@ define dso_local void @dma_resv_add_fence(ptr noundef %0, ptr noundef %1, i32 no
 92:                                               ; preds = %74, %68
   %93 = add nuw nsw i64 %34, 1
   %94 = icmp eq i64 %93, %32
-  br i1 %94, label %95, label %33, !llvm.loop !22
+  br i1 %94, label %.loopexit9.loopexit, label %33, !llvm.loop !22
 
-95:                                               ; preds = %92
+.loopexit9.loopexit:                              ; preds = %92
   %.pre = load i32, ptr %25, align 8
-  br label %96
+  br label %.loopexit9
 
-96:                                               ; preds = %95, %22
-  %97 = phi i32 [ 0, %22 ], [ %.pre, %95 ]
-  %98 = phi i64 [ 0, %22 ], [ %32, %95 ]
-  %99 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp ult i32 %97, %100
-  br i1 %101, label %103, label %102, !prof !6
+.loopexit9:                                       ; preds = %.loopexit9.loopexit, %22
+  %95 = phi i32 [ 0, %22 ], [ %.pre, %.loopexit9.loopexit ]
+  %96 = phi i64 [ 0, %22 ], [ %32, %.loopexit9.loopexit ]
+  %97 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp ult i32 %95, %98
+  br i1 %99, label %101, label %100, !prof !6
 
-102:                                              ; preds = %96
+100:                                              ; preds = %.loopexit9
   tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #9, !srcloc !23
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 312, i32 0, i64 12) #9, !srcloc !24
   unreachable
 
-103:                                              ; preds = %96
-  %104 = add i32 %26, 1
-  %105 = ptrtoint ptr %1 to i64
-  %106 = zext i32 %2 to i64
-  %107 = or i64 %106, %105
-  %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %110 = getelementptr [0 x ptr], ptr %109, i64 0, i64 %98
-  store volatile ptr %108, ptr %110, align 8
-  %111 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %104, ptr nonnull elementtype(i32) %25) #9, !srcloc !25
+101:                                              ; preds = %.loopexit9
+  %102 = add i32 %26, 1
+  %103 = ptrtoint ptr %1 to i64
+  %104 = zext i32 %2 to i64
+  %105 = or i64 %104, %103
+  %106 = inttoptr i64 %105 to ptr
+  %107 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %108 = getelementptr [0 x ptr], ptr %107, i64 0, i64 %96
+  store volatile ptr %106, ptr %108, align 8
+  %109 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %102, ptr nonnull elementtype(i32) %25) #9, !srcloc !25
   br label %.thread
 
-.thread:                                          ; preds = %88, %90, %103, %91, %.loopexit
+.thread:                                          ; preds = %88, %90, %101, %91, %.loopexit
   ret void
 }
 

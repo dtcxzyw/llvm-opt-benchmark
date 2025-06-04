@@ -540,7 +540,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116MIRCanonicalizer20runOnMa
   %22 = add i32 %21, 1
   store i32 %22, ptr @_ZZN12_GLOBAL__N_116MIRCanonicalizer20runOnMachineFunctionERN4llvm15MachineFunctionEE11functionNum, align 4, !tbaa !49
   %.not11 = icmp eq i32 %19, %21
-  br i1 %.not11, label %23, label %731
+  br i1 %.not11, label %23, label %730
 
 23:                                               ; preds = %20, %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #22
@@ -625,7 +625,7 @@ _ZL10GetRPOListRN4llvm15MachineFunctionE.exit:    ; preds = %27, %39
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZL10GetRPOListRN4llvm15MachineFunctionE.exit
   %61 = phi ptr [ %.pre, %_ZL10GetRPOListRN4llvm15MachineFunctionE.exit ], [ %.pre114, %._crit_edge.loopexit ]
-  %.010.lcssa = phi i1 [ false, %_ZL10GetRPOListRN4llvm15MachineFunctionE.exit ], [ %729, %._crit_edge.loopexit ]
+  %.010.lcssa = phi i1 [ false, %_ZL10GetRPOListRN4llvm15MachineFunctionE.exit ], [ %728, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #22
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit, label %62
@@ -642,12 +642,12 @@ _ZL10GetRPOListRN4llvm15MachineFunctionE.exit:    ; preds = %27, %39
 _ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit: ; preds = %23, %._crit_edge, %62
   %.010.lcssa118 = phi i1 [ %.010.lcssa, %._crit_edge ], [ %.010.lcssa, %62 ], [ false, %23 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #22
-  br label %731
+  br label %730
 
 68:                                               ; preds = %.lr.ph, %_ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit
   %.0990 = phi i32 [ 0, %.lr.ph ], [ %70, %_ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit ]
-  %.01089 = phi i1 [ false, %.lr.ph ], [ %729, %_ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit ]
-  %.sroa.027.088 = phi ptr [ %.pre, %.lr.ph ], [ %730, %_ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit ]
+  %.01089 = phi i1 [ false, %.lr.ph ], [ %728, %_ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit ]
+  %.sroa.027.088 = phi ptr [ %.pre, %.lr.ph ], [ %729, %_ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit ]
   %69 = load ptr, ptr %.sroa.027.088, align 8, !tbaa !77
   %70 = add i32 %.0990, 1
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -2425,19 +2425,18 @@ condstore.split.i.i:                              ; preds = %.lr.ph.i36.i
 
 _ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i41.i, %_ZL21rescheduleCanonicallyRjPN4llvm17MachineBasicBlockE.exit.i
   %.0.lcssa.i43.i = phi i1 [ false, %_ZL21rescheduleCanonicallyRjPN4llvm17MachineBasicBlockE.exit.i ], [ %.1.lcssa.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i41.i ]
-  %722 = and i8 %.5.lcssa.i113.i, 1
-  %723 = zext i1 %547 to i8
-  %724 = or i8 %722, %723
-  %725 = icmp ne i8 %724, 0
-  %726 = or i1 %.0.lcssa131.i.i, %725
-  %727 = or i1 %726, %692
-  %728 = or i1 %727, %.0.lcssa.i43.i
-  %729 = or i1 %.01089, %728
-  %730 = getelementptr inbounds nuw i8, ptr %.sroa.027.088, i64 8
-  %.not50 = icmp eq ptr %730, %.pre113
+  %722 = zext i1 %547 to i8
+  %723 = or i8 %.5.lcssa.i113.i, %722
+  %724 = icmp ne i8 %723, 0
+  %725 = or i1 %.0.lcssa131.i.i, %724
+  %726 = or i1 %725, %692
+  %727 = or i1 %726, %.0.lcssa.i43.i
+  %728 = or i1 %.01089, %727
+  %729 = getelementptr inbounds nuw i8, ptr %.sroa.027.088, i64 8
+  %.not50 = icmp eq ptr %729, %.pre113
   br i1 %.not50, label %._crit_edge.loopexit, label %68
 
-731:                                              ; preds = %20, %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit
+730:                                              ; preds = %20, %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit
   %.0 = phi i1 [ %.010.lcssa118, %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit ], [ false, %20 ]
   ret i1 %.0
 }

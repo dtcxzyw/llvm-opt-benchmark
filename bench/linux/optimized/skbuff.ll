@@ -15817,41 +15817,40 @@ define dso_local i32 @skb_checksum_setup(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %.not, label %.thread, label %103, !llvm.loop !250
 
 .thread41:                                        ; preds = %103
-  %232 = and i8 %116, 1
-  %.not55 = icmp eq i8 %232, 0
-  br i1 %.not55, label %233, label %.thread
+  %.not55 = icmp eq i8 %116, 0
+  br i1 %.not55, label %232, label %.thread
 
-233:                                              ; preds = %.thread41
-  %234 = zext i8 %118 to i32
-  %235 = tail call fastcc ptr @skb_checksum_setup_ip(ptr noundef %0, i32 noundef %234, i32 noundef %117)
-  %236 = icmp ugt ptr %235, inttoptr (i64 -4096 to ptr)
-  br i1 %236, label %237, label %240
+232:                                              ; preds = %.thread41
+  %233 = zext i8 %118 to i32
+  %234 = tail call fastcc ptr @skb_checksum_setup_ip(ptr noundef %0, i32 noundef %233, i32 noundef %117)
+  %235 = icmp ugt ptr %234, inttoptr (i64 -4096 to ptr)
+  br i1 %235, label %236, label %239
 
-237:                                              ; preds = %233
-  %238 = ptrtoint ptr %235 to i64
-  %239 = trunc i64 %238 to i32
+236:                                              ; preds = %232
+  %237 = ptrtoint ptr %234 to i64
+  %238 = trunc i64 %237 to i32
   br label %.thread
 
-240:                                              ; preds = %233
-  br i1 %1, label %241, label %.thread
+239:                                              ; preds = %232
+  br i1 %1, label %240, label %.thread
 
-241:                                              ; preds = %240
-  %242 = load ptr, ptr %91, align 8
-  %243 = load i16, ptr %93, align 4
-  %244 = zext i16 %243 to i64
-  %245 = getelementptr i8, ptr %242, i64 %244
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %247 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %248 = load i32, ptr %72, align 8
-  %249 = sub i32 %248, %117
-  %250 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef nonnull %246, ptr noundef nonnull %247, i32 noundef %249, i8 noundef zeroext %118, i32 noundef 0) #23
-  %251 = xor i16 %250, -1
-  store i16 %251, ptr %235, align 2
+240:                                              ; preds = %239
+  %241 = load ptr, ptr %91, align 8
+  %242 = load i16, ptr %93, align 4
+  %243 = zext i16 %242 to i64
+  %244 = getelementptr i8, ptr %241, i64 %243
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  %247 = load i32, ptr %72, align 8
+  %248 = sub i32 %247, %117
+  %249 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef nonnull %245, ptr noundef nonnull %246, i32 noundef %248, i8 noundef zeroext %118, i32 noundef 0) #23
+  %250 = xor i16 %249, -1
+  store i16 %250, ptr %234, align 2
   br label %.thread
 
-.thread:                                          ; preds = %217, %190, %185, %157, %152, %128, %123, %83, %78, %17, %12, %241, %240, %237, %.thread41, %47, %46, %43, %22, %2
-  %252 = phi i32 [ -71, %2 ], [ %45, %43 ], [ -71, %22 ], [ 0, %47 ], [ 0, %46 ], [ %239, %237 ], [ -71, %.thread41 ], [ 0, %241 ], [ 0, %240 ], [ -12, %12 ], [ -71, %17 ], [ -12, %78 ], [ -71, %83 ], [ -71, %217 ], [ -71, %190 ], [ -12, %185 ], [ -71, %157 ], [ -12, %152 ], [ -71, %128 ], [ -12, %123 ]
-  ret i32 %252
+.thread:                                          ; preds = %217, %190, %185, %157, %152, %128, %123, %83, %78, %17, %12, %240, %239, %236, %.thread41, %47, %46, %43, %22, %2
+  %251 = phi i32 [ -71, %2 ], [ %45, %43 ], [ -71, %22 ], [ 0, %47 ], [ 0, %46 ], [ %238, %236 ], [ -71, %.thread41 ], [ 0, %240 ], [ 0, %239 ], [ -12, %12 ], [ -71, %17 ], [ -12, %78 ], [ -71, %83 ], [ -71, %217 ], [ -71, %190 ], [ -12, %185 ], [ -71, %157 ], [ -12, %152 ], [ -71, %128 ], [ -12, %123 ]
+  ret i32 %251
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

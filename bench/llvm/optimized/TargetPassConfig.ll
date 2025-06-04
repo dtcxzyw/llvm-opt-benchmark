@@ -6038,7 +6038,7 @@ define dso_local void @_ZN4llvm16TargetPassConfigC2ERNS_13TargetMachineERNS_6leg
   %35 = and i32 %32, -2097153
   %36 = or disjoint i32 %35, %34
   store i32 %36, ptr %31, align 4
-  br label %48
+  br label %47
 
 37:                                               ; preds = %3
   %38 = load ptr, ptr %1, align 8, !tbaa !3
@@ -6047,36 +6047,34 @@ define dso_local void @_ZN4llvm16TargetPassConfigC2ERNS_13TargetMachineERNS_6leg
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(1264) %1) #26
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 876
   %43 = load i32, ptr %42, align 4
-  %44 = and i32 %43, 2097152
-  %.tr = icmp ne i32 %44, 0
-  %.narrow = or i1 %41, %.tr
-  %45 = select i1 %.narrow, i32 2097152, i32 0
-  %46 = and i32 %43, -2097153
-  %47 = or disjoint i32 %45, %46
-  store i32 %47, ptr %42, align 4
-  br label %48
+  %.mask = and i32 %43, 2097152
+  %44 = select i1 %41, i32 2097152, i32 %.mask
+  %45 = and i32 %43, -2097153
+  %46 = or disjoint i32 %44, %45
+  store i32 %46, ptr %42, align 4
+  br label %47
 
-48:                                               ; preds = %37, %29
-  %49 = phi i32 [ %45, %37 ], [ %34, %29 ]
-  %.not8 = icmp eq i32 %49, 0
-  br i1 %.not8, label %51, label %50
+47:                                               ; preds = %37, %29
+  %48 = phi i32 [ %44, %37 ], [ %34, %29 ]
+  %.not8 = icmp eq i32 %48, 0
+  br i1 %.not8, label %50, label %49
 
-50:                                               ; preds = %48
+49:                                               ; preds = %47
   store i8 1, ptr %19, align 4, !tbaa !47
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %48
-  %52 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL21EnableGlobalISelAbort, i64 8), align 8, !tbaa !6
-  %.not9 = icmp eq i16 %52, 0
-  br i1 %.not9, label %56, label %53
+50:                                               ; preds = %49, %47
+  %51 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL21EnableGlobalISelAbort, i64 8), align 8, !tbaa !6
+  %.not9 = icmp eq i16 %51, 0
+  br i1 %.not9, label %55, label %52
 
-53:                                               ; preds = %51
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL21EnableGlobalISelAbort, i64 120), align 8, !tbaa !80
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 868
-  store i32 %54, ptr %55, align 4, !tbaa !344
-  br label %56
+52:                                               ; preds = %50
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL21EnableGlobalISelAbort, i64 120), align 8, !tbaa !80
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 868
+  store i32 %53, ptr %54, align 4, !tbaa !344
+  br label %55
 
-56:                                               ; preds = %53, %51
+55:                                               ; preds = %52, %50
   tail call void @_ZN4llvm16TargetPassConfig18setStartStopPassesEv(ptr noundef nonnull align 8 dereferenceable(134) %0)
   ret void
 }

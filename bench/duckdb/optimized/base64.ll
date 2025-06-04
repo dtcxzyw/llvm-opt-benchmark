@@ -57,16 +57,16 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %32 = getelementptr inbounds nuw i8, ptr %.060, i64 1
   store i8 %31, ptr %.060, align 1, !tbaa !7
   %33 = shl i8 %25, 4
-  %34 = lshr i8 %27, 4
-  %35 = and i8 %33, 48
-  %36 = or disjoint i8 %34, %35
+  %34 = and i8 %33, 48
+  %35 = lshr i8 %27, 4
+  %36 = or disjoint i8 %35, %34
   %37 = tail call noundef zeroext i8 @_Z26mbedtls_ct_base64_enc_charh(i8 noundef zeroext %36)
   %38 = getelementptr inbounds nuw i8, ptr %.060, i64 2
   store i8 %37, ptr %32, align 1, !tbaa !7
   %39 = shl i8 %27, 2
-  %40 = lshr i8 %29, 6
-  %41 = and i8 %39, 60
-  %42 = or disjoint i8 %40, %41
+  %40 = and i8 %39, 60
+  %41 = lshr i8 %29, 6
+  %42 = or disjoint i8 %41, %40
   %43 = tail call noundef zeroext i8 @_Z26mbedtls_ct_base64_enc_charh(i8 noundef zeroext %42)
   %44 = getelementptr inbounds nuw i8, ptr %.060, i64 3
   store i8 %43, ptr %38, align 1, !tbaa !7
@@ -104,10 +104,10 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   store i8 %62, ptr %.0.lcssa, align 1, !tbaa !7
   %64 = shl i8 %52, 4
-  %65 = lshr i32 %60, 4
-  %66 = and i8 %64, 48
-  %67 = trunc nuw nsw i32 %65 to i8
-  %68 = or disjoint i8 %66, %67
+  %65 = and i8 %64, 48
+  %66 = lshr i32 %60, 4
+  %67 = trunc nuw nsw i32 %66 to i8
+  %68 = or disjoint i8 %65, %67
   %69 = tail call noundef zeroext i8 @_Z26mbedtls_ct_base64_enc_charh(i8 noundef zeroext %68)
   %70 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   store i8 %69, ptr %63, align 1, !tbaa !7

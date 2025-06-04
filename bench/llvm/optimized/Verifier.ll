@@ -10834,7 +10834,6 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit62.thread: ; preds = %121
 
 133:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit62.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit62
   %134 = trunc nuw i8 %.033 to i1
-  %spec.select247 = and i8 %.033, 1
   %spec.select248 = select i1 %134, i32 -1, i32 %.0
   %135 = load i8, ptr %109, align 8, !tbaa !540, !range !50, !noundef !51
   %136 = trunc nuw i8 %135 to i1
@@ -11323,7 +11322,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %133, %298, %30
   br label %_ZN4llvm12TBAAVerifier11CheckFailedIJRA75_KcRPKNS_6MDNodeEEEEvDpOT_.exit
 
 _ZN4llvm12TBAAVerifier11CheckFailedIJRA75_KcRPKNS_6MDNodeEEEEvDpOT_.exit: ; preds = %33, %104, %102, %55, %53, %45, %43, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA35_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
-  %.sroa.0201.1 = phi i8 [ 1, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA35_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit ], [ %spec.select247, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ], [ 1, %43 ], [ 1, %45 ], [ 1, %53 ], [ 1, %55 ], [ 1, %102 ], [ 1, %104 ], [ %spec.select, %33 ]
+  %.sroa.0201.1 = phi i8 [ 1, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA35_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit ], [ %.033, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ], [ 1, %43 ], [ 1, %45 ], [ 1, %53 ], [ 1, %55 ], [ 1, %102 ], [ 1, %104 ], [ %spec.select, %33 ]
   %.sroa.9221.1 = phi i32 [ -1, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA35_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit ], [ %spec.select248, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ], [ -1, %43 ], [ -1, %45 ], [ -1, %53 ], [ -1, %55 ], [ -1, %102 ], [ -1, %104 ], [ %spec.select246, %33 ]
   %.sroa.9221.0.insert.ext = zext i32 %.sroa.9221.1 to i64
   %.sroa.9221.0.insert.shift = shl nuw i64 %.sroa.9221.0.insert.ext, 32

@@ -449,7 +449,7 @@ define hidden void @_ZN4cvc58internal6theory5arith22getApproximateConstantENS0_1
   %26 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %27 = alloca %"class.cvc5::internal::Rational", align 8
   %28 = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %28, label %45, label %29
+  br i1 %28, label %46, label %29
 
 29:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -460,1035 +460,1038 @@ define hidden void @_ZN4cvc58internal6theory5arith22getApproximateConstantENS0_1
   %33 = trunc nuw nsw i64 %32 to i32
   %34 = and i32 %33, 1048575
   %35 = icmp samesign ult i32 %34, 1048574
-  br i1 %35, label %36, label %41, !prof !17
+  br i1 %35, label %36, label %42, !prof !17
 
 36:                                               ; preds = %29
-  %37 = add i64 %31, 1099511627776
-  %38 = and i64 %37, 1152920405095219200
-  %39 = and i64 %31, -1152920405095219201
-  %40 = or disjoint i64 %38, %39
-  store i64 %40, ptr %30, align 8, !noalias !14
+  %37 = add nuw nsw i32 %34, 1
+  %38 = zext nneg i32 %37 to i64
+  %39 = shl nuw nsw i64 %38, 40
+  %40 = and i64 %31, -1152920405095219201
+  %41 = or i64 %39, %40
+  store i64 %41, ptr %30, align 8, !noalias !14
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
-41:                                               ; preds = %29
-  %42 = icmp eq i32 %34, 1048574
-  br i1 %42, label %43, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !18
+42:                                               ; preds = %29
+  %43 = icmp eq i32 %34, 1048574
+  br i1 %43, label %44, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !18
 
-43:                                               ; preds = %41
-  %44 = or i64 %31, 1152920405095219200
-  store i64 %44, ptr %30, align 8, !noalias !14
+44:                                               ; preds = %42
+  %45 = or i64 %31, 1152920405095219200
+  store i64 %45, ptr %30, align 8, !noalias !14
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %30), !noalias !14
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
-45:                                               ; preds = %4
+46:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  %46 = load ptr, ptr %1, align 8, !tbaa !3
-  %47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %46)
-  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %47)
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  call void @__gmpz_init_set(ptr noundef nonnull %48, ptr noundef nonnull %49)
+  %47 = load ptr, ptr %1, align 8, !tbaa !3
+  %48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %47)
+  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  call void @__gmpz_init_set(ptr noundef nonnull %49, ptr noundef nonnull %50)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalC2ERKS1_.exit unwind label %50
+          to label %_ZN4cvc58internal8RationalC2ERKS1_.exit unwind label %51
 
-50:                                               ; preds = %45
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %46
+  %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %common.resume unwind label %52
+          to label %common.resume unwind label %53
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #24
+  %55 = extractvalue { ptr, i32 } %54, 0
+  call void @__clang_call_terminate(ptr %55) #24
   unreachable
 
-common.resume:                                    ; preds = %50, %_ZN4cvc58internal8RationalD2Ev.exit207
-  %common.resume.op = phi { ptr, i32 } [ %.pn92.pn, %_ZN4cvc58internal8RationalD2Ev.exit207 ], [ %51, %50 ]
+common.resume:                                    ; preds = %51, %_ZN4cvc58internal8RationalD2Ev.exit207
+  %common.resume.op = phi { ptr, i32 } [ %.pn92.pn, %_ZN4cvc58internal8RationalD2Ev.exit207 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4cvc58internal8RationalC2ERKS1_.exit:          ; preds = %45
-  %55 = uitofp i32 %3 to double
-  %56 = call noundef double @pow(double noundef 1.000000e+01, double noundef %55) #23, !tbaa !19
-  %57 = fptoui double %56 to i32
+_ZN4cvc58internal8RationalC2ERKS1_.exit:          ; preds = %46
+  %56 = uitofp i32 %3 to double
+  %57 = call noundef double @pow(double noundef 1.000000e+01, double noundef %56) #23, !tbaa !19
+  %58 = fptoui double %57 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %57)
-          to label %58 unwind label %83
+  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %58)
+          to label %59 unwind label %85
 
-58:                                               ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit
+59:                                               ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23
-  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %48)
-          to label %_ZNK4cvc58internal8Rational14getDenominatorEv.exit unwind label %85
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %49)
+          to label %_ZNK4cvc58internal8Rational14getDenominatorEv.exit unwind label %87
 
-_ZNK4cvc58internal8Rational14getDenominatorEv.exit: ; preds = %58
+_ZNK4cvc58internal8Rational14getDenominatorEv.exit: ; preds = %59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #23
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZNK4cvc58internal8Rational12getNumeratorEv.exit unwind label %87
+          to label %_ZNK4cvc58internal8Rational12getNumeratorEv.exit unwind label %89
 
 _ZNK4cvc58internal8Rational12getNumeratorEv.exit: ; preds = %_ZNK4cvc58internal8Rational14getDenominatorEv.exit
-  %59 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %60 unwind label %89
+  %60 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %61 unwind label %91
 
-60:                                               ; preds = %_ZNK4cvc58internal8Rational12getNumeratorEv.exit
+61:                                               ; preds = %_ZNK4cvc58internal8Rational12getNumeratorEv.exit
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %61
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %62
 
-61:                                               ; preds = %60
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %61
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #24
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %60
+_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit95 unwind label %64
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit95 unwind label %65
 
-64:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #24
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #24
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit95:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23
-  br i1 %59, label %67, label %99
+  br i1 %60, label %68, label %101
 
-67:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit95
-  %68 = load ptr, ptr %1, align 8, !tbaa !3
-  store ptr %68, ptr %0, align 8, !tbaa !3
-  %69 = load i64, ptr %68, align 8
-  %70 = lshr i64 %69, 40
-  %71 = trunc nuw nsw i64 %70 to i32
-  %72 = and i32 %71, 1048575
-  %73 = icmp samesign ult i32 %72, 1048574
-  br i1 %73, label %74, label %79, !prof !17
+68:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit95
+  %69 = load ptr, ptr %1, align 8, !tbaa !3
+  store ptr %69, ptr %0, align 8, !tbaa !3
+  %70 = load i64, ptr %69, align 8
+  %71 = lshr i64 %70, 40
+  %72 = trunc nuw nsw i64 %71 to i32
+  %73 = and i32 %72, 1048575
+  %74 = icmp samesign ult i32 %73, 1048574
+  br i1 %74, label %75, label %81, !prof !17
 
-74:                                               ; preds = %67
-  %75 = add i64 %69, 1099511627776
-  %76 = and i64 %75, 1152920405095219200
-  %77 = and i64 %69, -1152920405095219201
-  %78 = or disjoint i64 %76, %77
-  store i64 %78, ptr %68, align 8
+75:                                               ; preds = %68
+  %76 = add nuw nsw i32 %73, 1
+  %77 = zext nneg i32 %76 to i64
+  %78 = shl nuw nsw i64 %77, 40
+  %79 = and i64 %70, -1152920405095219201
+  %80 = or i64 %78, %79
+  store i64 %80, ptr %69, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-79:                                               ; preds = %67
-  %80 = icmp eq i32 %72, 1048574
-  br i1 %80, label %81, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
+81:                                               ; preds = %68
+  %82 = icmp eq i32 %73, 1048574
+  br i1 %82, label %83, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
 
-81:                                               ; preds = %79
-  %82 = or i64 %69, 1152920405095219200
-  store i64 %82, ptr %68, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %68)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %97
+83:                                               ; preds = %81
+  %84 = or i64 %70, 1152920405095219200
+  store i64 %84, ptr %69, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %69)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %99
 
-83:                                               ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit
-  %84 = landingpad { ptr, i32 }
+85:                                               ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit205
 
-85:                                               ; preds = %58
-  %86 = landingpad { ptr, i32 }
+87:                                               ; preds = %59
+  %88 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal7IntegerD2Ev.exit97
 
-87:                                               ; preds = %_ZNK4cvc58internal8Rational14getDenominatorEv.exit
-  %88 = landingpad { ptr, i32 }
+89:                                               ; preds = %_ZNK4cvc58internal8Rational14getDenominatorEv.exit
+  %90 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal7IntegerD2Ev.exit96
 
-89:                                               ; preds = %_ZNK4cvc58internal8Rational12getNumeratorEv.exit
-  %90 = landingpad { ptr, i32 }
+91:                                               ; preds = %_ZNK4cvc58internal8Rational12getNumeratorEv.exit
+  %92 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit96 unwind label %91
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit96 unwind label %93
 
-91:                                               ; preds = %89
-  %92 = landingpad { ptr, i32 }
+93:                                               ; preds = %91
+  %94 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #24
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit96:             ; preds = %89, %87
-  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ]
+_ZN4cvc58internal7IntegerD2Ev.exit96:             ; preds = %91, %89
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %92, %91 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit97 unwind label %94
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit97 unwind label %96
 
-94:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit96
-  %95 = landingpad { ptr, i32 }
+96:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit96
+  %97 = landingpad { ptr, i32 }
           catch ptr null
-  %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #24
+  %98 = extractvalue { ptr, i32 } %97, 0
+  call void @__clang_call_terminate(ptr %98) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit97:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit96, %85
-  %.pn.pn = phi { ptr, i32 } [ %86, %85 ], [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit96 ]
+_ZN4cvc58internal7IntegerD2Ev.exit97:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit96, %87
+  %.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23
-  br label %399
+  br label %402
 
-97:                                               ; preds = %81
-  %98 = landingpad { ptr, i32 }
+99:                                               ; preds = %83
+  %100 = landingpad { ptr, i32 }
           cleanup
-  br label %399
+  br label %402
 
-99:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit95
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %101 = load i32, ptr %100, align 4, !tbaa !9
-  %.inv.i = icmp slt i32 %101, 0
-  br i1 %.inv.i, label %102, label %114
+101:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit95
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %103 = load i32, ptr %102, align 4, !tbaa !9
+  %.inv.i = icmp slt i32 %103, 0
+  br i1 %.inv.i, label %104, label %116
 
-102:                                              ; preds = %99
+104:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   invoke void @_ZNK4cvc58internal8RationalngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %103 unwind label %107
+          to label %105 unwind label %109
 
-103:                                              ; preds = %102
+105:                                              ; preds = %104
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZN4cvc58internal8RationalaSERKS1_.exit unwind label %109
+          to label %_ZN4cvc58internal8RationalaSERKS1_.exit unwind label %111
 
-_ZN4cvc58internal8RationalaSERKS1_.exit:          ; preds = %103
+_ZN4cvc58internal8RationalaSERKS1_.exit:          ; preds = %105
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %104
+          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %106
 
-104:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit
-  %105 = landingpad { ptr, i32 }
+106:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #24
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
-  br label %114
+  br label %116
 
-107:                                              ; preds = %102
-  %108 = landingpad { ptr, i32 }
+109:                                              ; preds = %104
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit101
 
-109:                                              ; preds = %103
-  %110 = landingpad { ptr, i32 }
+111:                                              ; preds = %105
+  %112 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit101 unwind label %111
+          to label %_ZN4cvc58internal8RationalD2Ev.exit101 unwind label %113
 
-111:                                              ; preds = %109
-  %112 = landingpad { ptr, i32 }
+113:                                              ; preds = %111
+  %114 = landingpad { ptr, i32 }
           catch ptr null
-  %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #24
+  %115 = extractvalue { ptr, i32 } %114, 0
+  call void @__clang_call_terminate(ptr %115) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit101:           ; preds = %109, %107
-  %.pn58 = phi { ptr, i32 } [ %108, %107 ], [ %110, %109 ]
+_ZN4cvc58internal8RationalD2Ev.exit101:           ; preds = %111, %109
+  %.pn58 = phi { ptr, i32 } [ %110, %109 ], [ %112, %111 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
-  br label %399
+  br label %402
 
-114:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %99
+116:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %101
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1)
-          to label %115 unwind label %129
+          to label %117 unwind label %131
 
-115:                                              ; preds = %114
+117:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 10)
-          to label %116 unwind label %131
+          to label %118 unwind label %133
 
-116:                                              ; preds = %115
+118:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 1)
-          to label %.preheader unwind label %133
+          to label %.preheader unwind label %135
 
-.preheader:                                       ; preds = %116
-  %117 = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  %118 = icmp sgt i32 %117, -1
-  br i1 %118, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %118
+  %119 = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10) #25
+  %120 = icmp sgt i32 %119, -1
+  br i1 %120, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4cvc58internal8RationalD2Ev.exit109
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
   invoke void @_ZNK4cvc58internal8RationaldvERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %119 unwind label %135
+          to label %121 unwind label %137
 
-119:                                              ; preds = %.lr.ph
+121:                                              ; preds = %.lr.ph
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %_ZN4cvc58internal8RationalaSERKS1_.exit103 unwind label %137
+          to label %_ZN4cvc58internal8RationalaSERKS1_.exit103 unwind label %139
 
-_ZN4cvc58internal8RationalaSERKS1_.exit103:       ; preds = %119
+_ZN4cvc58internal8RationalaSERKS1_.exit103:       ; preds = %121
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit105 unwind label %120
+          to label %_ZN4cvc58internal8RationalD2Ev.exit105 unwind label %122
 
-120:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit103
-  %121 = landingpad { ptr, i32 }
+122:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit103
+  %123 = landingpad { ptr, i32 }
           catch ptr null
-  %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #24
+  %124 = extractvalue { ptr, i32 } %123, 0
+  call void @__clang_call_terminate(ptr %124) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit105:           ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit103
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #23
   invoke void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %123 unwind label %142
+          to label %125 unwind label %144
 
-123:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit105
+125:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit105
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %_ZN4cvc58internal8RationalaSERKS1_.exit107 unwind label %144
+          to label %_ZN4cvc58internal8RationalaSERKS1_.exit107 unwind label %146
 
-_ZN4cvc58internal8RationalaSERKS1_.exit107:       ; preds = %123
+_ZN4cvc58internal8RationalaSERKS1_.exit107:       ; preds = %125
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit109 unwind label %124
+          to label %_ZN4cvc58internal8RationalD2Ev.exit109 unwind label %126
 
-124:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit107
-  %125 = landingpad { ptr, i32 }
+126:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit107
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #24
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit109:           ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit107
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23
-  %127 = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  %128 = icmp sgt i32 %127, -1
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %129 = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10) #25
+  %130 = icmp sgt i32 %129, -1
+  br i1 %130, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
-129:                                              ; preds = %114
-  %130 = landingpad { ptr, i32 }
+131:                                              ; preds = %116
+  %132 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit199
 
-131:                                              ; preds = %115
-  %132 = landingpad { ptr, i32 }
+133:                                              ; preds = %117
+  %134 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit197
 
-133:                                              ; preds = %116
-  %134 = landingpad { ptr, i32 }
+135:                                              ; preds = %118
+  %136 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit195
 
-135:                                              ; preds = %.lr.ph
-  %136 = landingpad { ptr, i32 }
+137:                                              ; preds = %.lr.ph
+  %138 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit111
 
-137:                                              ; preds = %119
-  %138 = landingpad { ptr, i32 }
+139:                                              ; preds = %121
+  %140 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit111 unwind label %139
+          to label %_ZN4cvc58internal8RationalD2Ev.exit111 unwind label %141
 
-139:                                              ; preds = %137
-  %140 = landingpad { ptr, i32 }
+141:                                              ; preds = %139
+  %142 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #24
+  %143 = extractvalue { ptr, i32 } %142, 0
+  call void @__clang_call_terminate(ptr %143) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit111:           ; preds = %137, %135
-  %.pn83 = phi { ptr, i32 } [ %136, %135 ], [ %138, %137 ]
+_ZN4cvc58internal8RationalD2Ev.exit111:           ; preds = %139, %137
+  %.pn83 = phi { ptr, i32 } [ %138, %137 ], [ %140, %139 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
-  br label %383
+  br label %386
 
-142:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit105
-  %143 = landingpad { ptr, i32 }
+144:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit105
+  %145 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit113
 
-144:                                              ; preds = %123
-  %145 = landingpad { ptr, i32 }
+146:                                              ; preds = %125
+  %147 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit113 unwind label %146
+          to label %_ZN4cvc58internal8RationalD2Ev.exit113 unwind label %148
 
-146:                                              ; preds = %144
-  %147 = landingpad { ptr, i32 }
+148:                                              ; preds = %146
+  %149 = landingpad { ptr, i32 }
           catch ptr null
-  %148 = extractvalue { ptr, i32 } %147, 0
-  call void @__clang_call_terminate(ptr %148) #24
+  %150 = extractvalue { ptr, i32 } %149, 0
+  call void @__clang_call_terminate(ptr %150) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit113:           ; preds = %144, %142
-  %.pn85 = phi { ptr, i32 } [ %143, %142 ], [ %145, %144 ]
+_ZN4cvc58internal8RationalD2Ev.exit113:           ; preds = %146, %144
+  %.pn85 = phi { ptr, i32 } [ %145, %144 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23
-  br label %383
+  br label %386
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal8RationalD2Ev.exit109, %.preheader
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #23
   invoke void @_ZNK4cvc58internal8RationaldvERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %149 unwind label %206
+          to label %151 unwind label %208
 
-149:                                              ; preds = %._crit_edge
+151:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #23
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 2)
-          to label %150 unwind label %208
-
-150:                                              ; preds = %149
-  %151 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
           to label %152 unwind label %210
 
-152:                                              ; preds = %150
-  %153 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
-  %154 = icmp eq i8 %153, 0
-  br i1 %154, label %155, label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, !prof !22
+152:                                              ; preds = %151
+  %153 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
+          to label %154 unwind label %212
 
-155:                                              ; preds = %152
-  %156 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
-  %.not.i.i = icmp eq i32 %156, 0
-  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, label %157
+154:                                              ; preds = %152
+  %155 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
+  %156 = icmp eq i8 %155, 0
+  br i1 %156, label %157, label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, !prof !22
 
-157:                                              ; preds = %155
-  %158 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-          to label %159 unwind label %161
+157:                                              ; preds = %154
+  %158 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
+  %.not.i.i = icmp eq i32 %158, 0
+  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, label %159
 
 159:                                              ; preds = %157
-  store i64 1152920405095219200, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, i8 0, i64 16, i1 false)
-  store ptr %158, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
+  %160 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+          to label %161 unwind label %163
+
+161:                                              ; preds = %159
+  store i64 1152920405095219200, ptr %160, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
+  store ptr %160, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit
 
-161:                                              ; preds = %157
-  %162 = landingpad { ptr, i32 }
+163:                                              ; preds = %159
+  %164 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
   br label %.body
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit:   ; preds = %152, %155, %159
-  %163 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
-  store ptr %163, ptr %0, align 8, !tbaa !3
-  %164 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %165 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %166 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %167 = icmp sgt i32 %101, 0
-  %168 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %169 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  br label %170
+_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit:   ; preds = %154, %157, %161
+  %165 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
+  store ptr %165, ptr %0, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %169 = icmp sgt i32 %103, 0
+  %170 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  br label %172
 
-170:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, %351
-  %.023 = phi i32 [ %57, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %.124, %351 ]
-  %.0 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %.1, %351 ]
-  %171 = add i32 %.0, %.023
-  %172 = lshr i32 %171, 1
+172:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, %354
+  %.023 = phi i32 [ %58, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %.124, %354 ]
+  %.0 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %.1, %354 ]
+  %173 = add i32 %.0, %.023
+  %174 = lshr i32 %173, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #23
-  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %172)
-          to label %173 unwind label %212
+  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %174)
+          to label %175 unwind label %214
 
-173:                                              ; preds = %170
+175:                                              ; preds = %172
   invoke void @_ZNK4cvc58internal8RationaldvERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %174 unwind label %214
+          to label %176 unwind label %216
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit115 unwind label %175
+          to label %_ZN4cvc58internal8RationalD2Ev.exit115 unwind label %177
 
-175:                                              ; preds = %174
-  %176 = landingpad { ptr, i32 }
+177:                                              ; preds = %176
+  %178 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #24
+  %179 = extractvalue { ptr, i32 } %178, 0
+  call void @__clang_call_terminate(ptr %179) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit115:           ; preds = %174
+_ZN4cvc58internal8RationalD2Ev.exit115:           ; preds = %176
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #23
   invoke void @_ZNK4cvc58internal8RationalmiERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %178 unwind label %219
+          to label %180 unwind label %221
 
-178:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit115
-  %179 = load i32, ptr %164, align 4, !tbaa !9
-  %.inv.i116 = icmp slt i32 %179, 0
-  %180 = call i32 @llvm.scmp.i32.i32(i32 %179, i32 0)
+180:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit115
+  %181 = load i32, ptr %166, align 4, !tbaa !9
+  %.inv.i116 = icmp slt i32 %181, 0
+  %182 = call i32 @llvm.scmp.i32.i32(i32 %181, i32 0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #23
-  br i1 %.inv.i116, label %181, label %182
+  br i1 %.inv.i116, label %183, label %184
 
-181:                                              ; preds = %178
+183:                                              ; preds = %180
   invoke void @_ZNK4cvc58internal8RationalngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %188 unwind label %221
+          to label %190 unwind label %223
 
-182:                                              ; preds = %178
+184:                                              ; preds = %180
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %.noexc118 unwind label %221
+          to label %.noexc118 unwind label %223
 
-.noexc118:                                        ; preds = %182
-  invoke void @__gmpz_init_set(ptr noundef nonnull %165, ptr noundef nonnull %166)
-          to label %.noexc119 unwind label %221
+.noexc118:                                        ; preds = %184
+  invoke void @__gmpz_init_set(ptr noundef nonnull %167, ptr noundef nonnull %168)
+          to label %.noexc119 unwind label %223
 
 .noexc119:                                        ; preds = %.noexc118
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %188 unwind label %183
+          to label %190 unwind label %185
 
-183:                                              ; preds = %.noexc119
-  %184 = landingpad { ptr, i32 }
+185:                                              ; preds = %.noexc119
+  %186 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %.body120 unwind label %185
+          to label %.body120 unwind label %187
 
-185:                                              ; preds = %183
-  %186 = landingpad { ptr, i32 }
+187:                                              ; preds = %185
+  %188 = landingpad { ptr, i32 }
           catch ptr null
-  %187 = extractvalue { ptr, i32 } %186, 0
-  call void @__clang_call_terminate(ptr %187) #24
+  %189 = extractvalue { ptr, i32 } %188, 0
+  call void @__clang_call_terminate(ptr %189) #24
   unreachable
 
-188:                                              ; preds = %181, %.noexc119
-  %189 = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %20) #25
+190:                                              ; preds = %183, %.noexc119
+  %191 = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit123 unwind label %190
+          to label %_ZN4cvc58internal8RationalD2Ev.exit123 unwind label %192
 
-190:                                              ; preds = %188
-  %191 = landingpad { ptr, i32 }
+192:                                              ; preds = %190
+  %193 = landingpad { ptr, i32 }
           catch ptr null
-  %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #24
+  %194 = extractvalue { ptr, i32 } %193, 0
+  call void @__clang_call_terminate(ptr %194) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit123:           ; preds = %188
-  %193 = icmp sgt i32 %189, -1
+_ZN4cvc58internal8RationalD2Ev.exit123:           ; preds = %190
+  %195 = icmp sgt i32 %191, -1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #23
-  br i1 %193, label %194, label %331
+  br i1 %195, label %196, label %334
 
-194:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit123
-  %195 = icmp slt i32 %179, 1
-  %or.cond = or i1 %2, %195
-  br i1 %or.cond, label %235, label %196
-
-196:                                              ; preds = %194
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #23
-  %197 = add nuw i32 %172, 1
-  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %197)
-          to label %198 unwind label %223
+196:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit123
+  %197 = icmp slt i32 %181, 1
+  %or.cond = or i1 %2, %197
+  br i1 %or.cond, label %237, label %198
 
 198:                                              ; preds = %196
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #23
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #23
+  %199 = add nuw i32 %174, 1
+  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %199)
+          to label %200 unwind label %225
+
+200:                                              ; preds = %198
   invoke void @_ZNK4cvc58internal8RationaldvERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %199 unwind label %225
+          to label %201 unwind label %227
 
-199:                                              ; preds = %198
+201:                                              ; preds = %200
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %_ZN4cvc58internal8RationalaSERKS1_.exit125 unwind label %227
+          to label %_ZN4cvc58internal8RationalaSERKS1_.exit125 unwind label %229
 
-_ZN4cvc58internal8RationalaSERKS1_.exit125:       ; preds = %199
+_ZN4cvc58internal8RationalaSERKS1_.exit125:       ; preds = %201
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit127 unwind label %200
+          to label %_ZN4cvc58internal8RationalD2Ev.exit127 unwind label %202
 
-200:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit125
-  %201 = landingpad { ptr, i32 }
+202:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit125
+  %203 = landingpad { ptr, i32 }
           catch ptr null
-  %202 = extractvalue { ptr, i32 } %201, 0
-  call void @__clang_call_terminate(ptr %202) #24
+  %204 = extractvalue { ptr, i32 } %203, 0
+  call void @__clang_call_terminate(ptr %204) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit127:           ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit125
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit129 unwind label %203
+          to label %_ZN4cvc58internal8RationalD2Ev.exit129 unwind label %205
 
-203:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit127
-  %204 = landingpad { ptr, i32 }
+205:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit127
+  %206 = landingpad { ptr, i32 }
           catch ptr null
-  %205 = extractvalue { ptr, i32 } %204, 0
-  call void @__clang_call_terminate(ptr %205) #24
+  %207 = extractvalue { ptr, i32 } %206, 0
+  call void @__clang_call_terminate(ptr %207) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit129:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit127
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #23
-  br label %258
+  br label %260
 
-206:                                              ; preds = %._crit_edge
-  %207 = landingpad { ptr, i32 }
+208:                                              ; preds = %._crit_edge
+  %209 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit193
 
-208:                                              ; preds = %149
-  %209 = landingpad { ptr, i32 }
+210:                                              ; preds = %151
+  %211 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit191
 
-210:                                              ; preds = %150
-  %211 = landingpad { ptr, i32 }
+212:                                              ; preds = %152
+  %213 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-212:                                              ; preds = %170
-  %213 = landingpad { ptr, i32 }
+214:                                              ; preds = %172
+  %215 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit131
 
-214:                                              ; preds = %173
-  %215 = landingpad { ptr, i32 }
+216:                                              ; preds = %175
+  %217 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit131 unwind label %216
+          to label %_ZN4cvc58internal8RationalD2Ev.exit131 unwind label %218
 
-216:                                              ; preds = %214
-  %217 = landingpad { ptr, i32 }
+218:                                              ; preds = %216
+  %219 = landingpad { ptr, i32 }
           catch ptr null
-  %218 = extractvalue { ptr, i32 } %217, 0
-  call void @__clang_call_terminate(ptr %218) #24
+  %220 = extractvalue { ptr, i32 } %219, 0
+  call void @__clang_call_terminate(ptr %220) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit131:           ; preds = %214, %212
-  %.pn60 = phi { ptr, i32 } [ %213, %212 ], [ %215, %214 ]
+_ZN4cvc58internal8RationalD2Ev.exit131:           ; preds = %216, %214
+  %.pn60 = phi { ptr, i32 } [ %215, %214 ], [ %217, %216 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #23
   br label %_ZN4cvc58internal8RationalD2Ev.exit179
 
-219:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit115
-  %220 = landingpad { ptr, i32 }
+221:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit115
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit177
 
-221:                                              ; preds = %.noexc118, %182, %181
-  %222 = landingpad { ptr, i32 }
+223:                                              ; preds = %.noexc118, %184, %183
+  %224 = landingpad { ptr, i32 }
           cleanup
   br label %.body120
 
-.body120:                                         ; preds = %221, %183
-  %.pn62 = phi { ptr, i32 } [ %222, %221 ], [ %184, %183 ]
+.body120:                                         ; preds = %223, %185
+  %.pn62 = phi { ptr, i32 } [ %224, %223 ], [ %186, %185 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #23
-  br label %354
-
-223:                                              ; preds = %196
-  %224 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4cvc58internal8RationalD2Ev.exit137
+  br label %357
 
 225:                                              ; preds = %198
   %226 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN4cvc58internal8RationalD2Ev.exit135
+  br label %_ZN4cvc58internal8RationalD2Ev.exit137
 
-227:                                              ; preds = %199
+227:                                              ; preds = %200
   %228 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit135 unwind label %229
+  br label %_ZN4cvc58internal8RationalD2Ev.exit135
 
-229:                                              ; preds = %227
+229:                                              ; preds = %201
   %230 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit135 unwind label %231
+
+231:                                              ; preds = %229
+  %232 = landingpad { ptr, i32 }
           catch ptr null
-  %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #24
+  %233 = extractvalue { ptr, i32 } %232, 0
+  call void @__clang_call_terminate(ptr %233) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit135:           ; preds = %227, %225
-  %.pn64 = phi { ptr, i32 } [ %226, %225 ], [ %228, %227 ]
+_ZN4cvc58internal8RationalD2Ev.exit135:           ; preds = %229, %227
+  %.pn64 = phi { ptr, i32 } [ %228, %227 ], [ %230, %229 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit137 unwind label %232
+          to label %_ZN4cvc58internal8RationalD2Ev.exit137 unwind label %234
 
-232:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit135
-  %233 = landingpad { ptr, i32 }
+234:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit135
+  %235 = landingpad { ptr, i32 }
           catch ptr null
-  %234 = extractvalue { ptr, i32 } %233, 0
-  call void @__clang_call_terminate(ptr %234) #24
+  %236 = extractvalue { ptr, i32 } %235, 0
+  call void @__clang_call_terminate(ptr %236) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit137:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit135, %223
-  %.pn64.pn = phi { ptr, i32 } [ %224, %223 ], [ %.pn64, %_ZN4cvc58internal8RationalD2Ev.exit135 ]
+_ZN4cvc58internal8RationalD2Ev.exit137:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit135, %225
+  %.pn64.pn = phi { ptr, i32 } [ %226, %225 ], [ %.pn64, %_ZN4cvc58internal8RationalD2Ev.exit135 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #23
-  br label %354
+  br label %357
 
-235:                                              ; preds = %194
+237:                                              ; preds = %196
   %or.cond3 = and i1 %2, %.inv.i116
-  br i1 %or.cond3, label %236, label %258
+  br i1 %or.cond3, label %238, label %260
 
-236:                                              ; preds = %235
+238:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #23
-  %237 = add nsw i32 %172, -1
-  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %237)
-          to label %238 unwind label %246
+  %239 = add nsw i32 %174, -1
+  invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %239)
+          to label %240 unwind label %248
 
-238:                                              ; preds = %236
+240:                                              ; preds = %238
   invoke void @_ZNK4cvc58internal8RationaldvERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %239 unwind label %248
+          to label %241 unwind label %250
 
-239:                                              ; preds = %238
+241:                                              ; preds = %240
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %_ZN4cvc58internal8RationalaSERKS1_.exit139 unwind label %250
+          to label %_ZN4cvc58internal8RationalaSERKS1_.exit139 unwind label %252
 
-_ZN4cvc58internal8RationalaSERKS1_.exit139:       ; preds = %239
+_ZN4cvc58internal8RationalaSERKS1_.exit139:       ; preds = %241
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit141 unwind label %240
+          to label %_ZN4cvc58internal8RationalD2Ev.exit141 unwind label %242
 
-240:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit139
-  %241 = landingpad { ptr, i32 }
+242:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit139
+  %243 = landingpad { ptr, i32 }
           catch ptr null
-  %242 = extractvalue { ptr, i32 } %241, 0
-  call void @__clang_call_terminate(ptr %242) #24
+  %244 = extractvalue { ptr, i32 } %243, 0
+  call void @__clang_call_terminate(ptr %244) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit141:           ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit139
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit143 unwind label %243
+          to label %_ZN4cvc58internal8RationalD2Ev.exit143 unwind label %245
 
-243:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit141
-  %244 = landingpad { ptr, i32 }
+245:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit141
+  %246 = landingpad { ptr, i32 }
           catch ptr null
-  %245 = extractvalue { ptr, i32 } %244, 0
-  call void @__clang_call_terminate(ptr %245) #24
+  %247 = extractvalue { ptr, i32 } %246, 0
+  call void @__clang_call_terminate(ptr %247) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit143:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit141
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #23
-  br label %258
-
-246:                                              ; preds = %236
-  %247 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4cvc58internal8RationalD2Ev.exit147
+  br label %260
 
 248:                                              ; preds = %238
   %249 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN4cvc58internal8RationalD2Ev.exit145
+  br label %_ZN4cvc58internal8RationalD2Ev.exit147
 
-250:                                              ; preds = %239
+250:                                              ; preds = %240
   %251 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit145 unwind label %252
+  br label %_ZN4cvc58internal8RationalD2Ev.exit145
 
-252:                                              ; preds = %250
+252:                                              ; preds = %241
   %253 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit145 unwind label %254
+
+254:                                              ; preds = %252
+  %255 = landingpad { ptr, i32 }
           catch ptr null
-  %254 = extractvalue { ptr, i32 } %253, 0
-  call void @__clang_call_terminate(ptr %254) #24
+  %256 = extractvalue { ptr, i32 } %255, 0
+  call void @__clang_call_terminate(ptr %256) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit145:           ; preds = %250, %248
-  %.pn67 = phi { ptr, i32 } [ %249, %248 ], [ %251, %250 ]
+_ZN4cvc58internal8RationalD2Ev.exit145:           ; preds = %252, %250
+  %.pn67 = phi { ptr, i32 } [ %251, %250 ], [ %253, %252 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit147 unwind label %255
+          to label %_ZN4cvc58internal8RationalD2Ev.exit147 unwind label %257
 
-255:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit145
-  %256 = landingpad { ptr, i32 }
+257:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit145
+  %258 = landingpad { ptr, i32 }
           catch ptr null
-  %257 = extractvalue { ptr, i32 } %256, 0
-  call void @__clang_call_terminate(ptr %257) #24
+  %259 = extractvalue { ptr, i32 } %258, 0
+  call void @__clang_call_terminate(ptr %259) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit147:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit145, %246
-  %.pn67.pn = phi { ptr, i32 } [ %247, %246 ], [ %.pn67, %_ZN4cvc58internal8RationalD2Ev.exit145 ]
+_ZN4cvc58internal8RationalD2Ev.exit147:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit145, %248
+  %.pn67.pn = phi { ptr, i32 } [ %249, %248 ], [ %.pn67, %_ZN4cvc58internal8RationalD2Ev.exit145 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #23
-  br label %354
+  br label %357
 
-258:                                              ; preds = %235, %_ZN4cvc58internal8RationalD2Ev.exit143, %_ZN4cvc58internal8RationalD2Ev.exit129
+260:                                              ; preds = %237, %_ZN4cvc58internal8RationalD2Ev.exit143, %_ZN4cvc58internal8RationalD2Ev.exit129
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #23
   invoke void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %259 unwind label %314
+          to label %261 unwind label %317
 
-259:                                              ; preds = %258
+261:                                              ; preds = %260
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %_ZN4cvc58internal8RationalaSERKS1_.exit149 unwind label %316
+          to label %_ZN4cvc58internal8RationalaSERKS1_.exit149 unwind label %319
 
-_ZN4cvc58internal8RationalaSERKS1_.exit149:       ; preds = %259
+_ZN4cvc58internal8RationalaSERKS1_.exit149:       ; preds = %261
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit151 unwind label %260
+          to label %_ZN4cvc58internal8RationalD2Ev.exit151 unwind label %262
 
-260:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit149
-  %261 = landingpad { ptr, i32 }
+262:                                              ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit149
+  %263 = landingpad { ptr, i32 }
           catch ptr null
-  %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #24
+  %264 = extractvalue { ptr, i32 } %263, 0
+  call void @__clang_call_terminate(ptr %264) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit151:           ; preds = %_ZN4cvc58internal8RationalaSERKS1_.exit149
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #23
-  br i1 %167, label %263, label %269
+  br i1 %169, label %265, label %271
 
-263:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit151
+265:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit151
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %.noexc153 unwind label %321
+          to label %.noexc153 unwind label %324
 
-.noexc153:                                        ; preds = %263
-  invoke void @__gmpz_init_set(ptr noundef nonnull %168, ptr noundef nonnull %169)
-          to label %.noexc154 unwind label %321
+.noexc153:                                        ; preds = %265
+  invoke void @__gmpz_init_set(ptr noundef nonnull %170, ptr noundef nonnull %171)
+          to label %.noexc154 unwind label %324
 
 .noexc154:                                        ; preds = %.noexc153
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %_ZN4cvc58internal8RationalC2ERKS1_.exit157 unwind label %264
+          to label %_ZN4cvc58internal8RationalC2ERKS1_.exit157 unwind label %266
 
-264:                                              ; preds = %.noexc154
-  %265 = landingpad { ptr, i32 }
+266:                                              ; preds = %.noexc154
+  %267 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %.body155 unwind label %266
+          to label %.body155 unwind label %268
 
-266:                                              ; preds = %264
-  %267 = landingpad { ptr, i32 }
+268:                                              ; preds = %266
+  %269 = landingpad { ptr, i32 }
           catch ptr null
-  %268 = extractvalue { ptr, i32 } %267, 0
-  call void @__clang_call_terminate(ptr %268) #24
+  %270 = extractvalue { ptr, i32 } %269, 0
+  call void @__clang_call_terminate(ptr %270) #24
   unreachable
 
-269:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit151
+271:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit151
   invoke void @_ZNK4cvc58internal8RationalngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %_ZN4cvc58internal8RationalC2ERKS1_.exit157 unwind label %321
+          to label %_ZN4cvc58internal8RationalC2ERKS1_.exit157 unwind label %324
 
-_ZN4cvc58internal8RationalC2ERKS1_.exit157:       ; preds = %.noexc154, %269
-  invoke void @_ZN4cvc58internal11NodeManager7mkConstINS0_8RationalEEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKT_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %26, ptr noundef nonnull align 8 dereferenceable(3560) %151, i32 noundef 71, ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %270 unwind label %323
+_ZN4cvc58internal8RationalC2ERKS1_.exit157:       ; preds = %.noexc154, %271
+  invoke void @_ZN4cvc58internal11NodeManager7mkConstINS0_8RationalEEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKT_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %26, ptr noundef nonnull align 8 dereferenceable(3560) %153, i32 noundef 71, ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %272 unwind label %326
 
-270:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit157
-  %271 = load ptr, ptr %0, align 8, !tbaa !3
-  %272 = load ptr, ptr %26, align 8, !tbaa !3
-  %.not.i = icmp eq ptr %271, %272
-  br i1 %.not.i, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %273, !prof !18
+272:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit157
+  %273 = load ptr, ptr %0, align 8, !tbaa !3
+  %274 = load ptr, ptr %26, align 8, !tbaa !3
+  %.not.i = icmp eq ptr %273, %274
+  br i1 %.not.i, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %275, !prof !18
 
-273:                                              ; preds = %270
-  %274 = load i64, ptr %271, align 8
-  %275 = and i64 %274, 1152920405095219200
-  %.not.i.i158 = icmp eq i64 %275, 1152920405095219200
-  br i1 %.not.i.i158, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i, label %276, !prof !18
+275:                                              ; preds = %272
+  %276 = load i64, ptr %273, align 8
+  %277 = and i64 %276, 1152920405095219200
+  %.not.i.i158 = icmp eq i64 %277, 1152920405095219200
+  br i1 %.not.i.i158, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i, label %278, !prof !18
 
-276:                                              ; preds = %273
-  %277 = add i64 %274, 1152920405095219200
-  %278 = and i64 %277, 1152920405095219200
-  %279 = and i64 %274, -1152920405095219201
-  %280 = or disjoint i64 %278, %279
-  store i64 %280, ptr %271, align 8
-  %281 = icmp eq i64 %278, 0
-  br i1 %281, label %282, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i, !prof !18
+278:                                              ; preds = %275
+  %279 = add i64 %276, 1152920405095219200
+  %280 = and i64 %279, 1152920405095219200
+  %281 = and i64 %276, -1152920405095219201
+  %282 = or disjoint i64 %280, %281
+  store i64 %282, ptr %273, align 8
+  %283 = icmp eq i64 %280, 0
+  br i1 %283, label %284, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i, !prof !18
 
-282:                                              ; preds = %276
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %271)
-          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %325
+284:                                              ; preds = %278
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %273)
+          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %328
 
-_ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %282, %276, %273
-  %283 = load ptr, ptr %26, align 8, !tbaa !3
-  store ptr %283, ptr %0, align 8, !tbaa !3
-  %284 = load i64, ptr %283, align 8
-  %285 = lshr i64 %284, 40
-  %286 = trunc nuw nsw i64 %285 to i32
-  %287 = and i32 %286, 1048575
-  %288 = icmp samesign ult i32 %287, 1048574
-  br i1 %288, label %289, label %294, !prof !17
+_ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %284, %278, %275
+  %285 = load ptr, ptr %26, align 8, !tbaa !3
+  store ptr %285, ptr %0, align 8, !tbaa !3
+  %286 = load i64, ptr %285, align 8
+  %287 = lshr i64 %286, 40
+  %288 = trunc nuw nsw i64 %287 to i32
+  %289 = and i32 %288, 1048575
+  %290 = icmp samesign ult i32 %289, 1048574
+  br i1 %290, label %291, label %297, !prof !17
 
-289:                                              ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
-  %290 = add i64 %284, 1099511627776
-  %291 = and i64 %290, 1152920405095219200
-  %292 = and i64 %284, -1152920405095219201
-  %293 = or disjoint i64 %291, %292
-  store i64 %293, ptr %283, align 8
+291:                                              ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
+  %292 = add nuw nsw i32 %289, 1
+  %293 = zext nneg i32 %292 to i64
+  %294 = shl nuw nsw i64 %293, 40
+  %295 = and i64 %286, -1152920405095219201
+  %296 = or i64 %294, %295
+  store i64 %296, ptr %285, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
 
-294:                                              ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
-  %295 = icmp eq i32 %287, 1048574
-  br i1 %295, label %296, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, !prof !18
+297:                                              ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
+  %298 = icmp eq i32 %289, 1048574
+  br i1 %298, label %299, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, !prof !18
 
-296:                                              ; preds = %294
-  %297 = or i64 %284, 1152920405095219200
-  store i64 %297, ptr %283, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %283)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit unwind label %325
+299:                                              ; preds = %297
+  %300 = or i64 %286, 1152920405095219200
+  store i64 %300, ptr %285, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %285)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit unwind label %328
 
-_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %294, %289, %270, %296
-  %298 = load ptr, ptr %26, align 8, !tbaa !3
-  %299 = load i64, ptr %298, align 8
-  %300 = and i64 %299, 1152920405095219200
-  %.not.i.i161 = icmp eq i64 %300, 1152920405095219200
-  br i1 %.not.i.i161, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %301, !prof !18
-
-301:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
-  %302 = add i64 %299, 1152920405095219200
+_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %297, %291, %272, %299
+  %301 = load ptr, ptr %26, align 8, !tbaa !3
+  %302 = load i64, ptr %301, align 8
   %303 = and i64 %302, 1152920405095219200
-  %304 = and i64 %299, -1152920405095219201
-  %305 = or disjoint i64 %303, %304
-  store i64 %305, ptr %298, align 8
-  %306 = icmp eq i64 %303, 0
-  br i1 %306, label %307, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !18
+  %.not.i.i161 = icmp eq i64 %303, 1152920405095219200
+  br i1 %.not.i.i161, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %304, !prof !18
 
-307:                                              ; preds = %301
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %298)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %308
+304:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
+  %305 = add i64 %302, 1152920405095219200
+  %306 = and i64 %305, 1152920405095219200
+  %307 = and i64 %302, -1152920405095219201
+  %308 = or disjoint i64 %306, %307
+  store i64 %308, ptr %301, align 8
+  %309 = icmp eq i64 %306, 0
+  br i1 %309, label %310, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !18
 
-308:                                              ; preds = %307
-  %309 = landingpad { ptr, i32 }
-          catch ptr null
-  %310 = extractvalue { ptr, i32 } %309, 0
-  call void @__clang_call_terminate(ptr %310) #24
-  unreachable
+310:                                              ; preds = %304
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %301)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %311
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %301, %307
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit164 unwind label %311
-
-311:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+311:                                              ; preds = %310
   %312 = landingpad { ptr, i32 }
           catch ptr null
   %313 = extractvalue { ptr, i32 } %312, 0
   call void @__clang_call_terminate(ptr %313) #24
   unreachable
 
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %304, %310
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit164 unwind label %314
+
+314:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %315 = landingpad { ptr, i32 }
+          catch ptr null
+  %316 = extractvalue { ptr, i32 } %315, 0
+  call void @__clang_call_terminate(ptr %316) #24
+  unreachable
+
 _ZN4cvc58internal8RationalD2Ev.exit164:           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
-  br label %333
+  br label %336
 
-314:                                              ; preds = %258
-  %315 = landingpad { ptr, i32 }
+317:                                              ; preds = %260
+  %318 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit166
 
-316:                                              ; preds = %259
-  %317 = landingpad { ptr, i32 }
+319:                                              ; preds = %261
+  %320 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit166 unwind label %318
+          to label %_ZN4cvc58internal8RationalD2Ev.exit166 unwind label %321
 
-318:                                              ; preds = %316
-  %319 = landingpad { ptr, i32 }
+321:                                              ; preds = %319
+  %322 = landingpad { ptr, i32 }
           catch ptr null
-  %320 = extractvalue { ptr, i32 } %319, 0
-  call void @__clang_call_terminate(ptr %320) #24
+  %323 = extractvalue { ptr, i32 } %322, 0
+  call void @__clang_call_terminate(ptr %323) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit166:           ; preds = %316, %314
-  %.pn70 = phi { ptr, i32 } [ %315, %314 ], [ %317, %316 ]
+_ZN4cvc58internal8RationalD2Ev.exit166:           ; preds = %319, %317
+  %.pn70 = phi { ptr, i32 } [ %318, %317 ], [ %320, %319 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #23
-  br label %354
+  br label %357
 
-321:                                              ; preds = %.noexc153, %263, %269
-  %322 = landingpad { ptr, i32 }
+324:                                              ; preds = %.noexc153, %265, %271
+  %325 = landingpad { ptr, i32 }
           cleanup
   br label %.body155
 
-323:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit157
-  %324 = landingpad { ptr, i32 }
+326:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit157
+  %327 = landingpad { ptr, i32 }
           cleanup
-  br label %327
+  br label %330
 
-325:                                              ; preds = %296, %282
-  %326 = landingpad { ptr, i32 }
+328:                                              ; preds = %299, %284
+  %329 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #23
-  br label %327
+  br label %330
 
-327:                                              ; preds = %325, %323
-  %.pn72 = phi { ptr, i32 } [ %326, %325 ], [ %324, %323 ]
+330:                                              ; preds = %328, %326
+  %.pn72 = phi { ptr, i32 } [ %329, %328 ], [ %327, %326 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %.body155 unwind label %328
+          to label %.body155 unwind label %331
 
-328:                                              ; preds = %327
-  %329 = landingpad { ptr, i32 }
+331:                                              ; preds = %330
+  %332 = landingpad { ptr, i32 }
           catch ptr null
-  %330 = extractvalue { ptr, i32 } %329, 0
-  call void @__clang_call_terminate(ptr %330) #24
+  %333 = extractvalue { ptr, i32 } %332, 0
+  call void @__clang_call_terminate(ptr %333) #24
   unreachable
 
-.body155:                                         ; preds = %327, %321, %264
-  %.pn72.pn = phi { ptr, i32 } [ %322, %321 ], [ %265, %264 ], [ %.pn72, %327 ]
+.body155:                                         ; preds = %330, %324, %266
+  %.pn72.pn = phi { ptr, i32 } [ %325, %324 ], [ %267, %266 ], [ %.pn72, %330 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
-  br label %354
+  br label %357
 
-331:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit123
-  switch i32 %180, label %.fold.split [
-    i32 -1, label %333
-    i32 1, label %332
+334:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit123
+  switch i32 %182, label %.fold.split [
+    i32 -1, label %336
+    i32 1, label %335
   ]
 
-332:                                              ; preds = %331
-  br label %333
+335:                                              ; preds = %334
+  br label %336
 
-.fold.split:                                      ; preds = %331
-  br label %333
+.fold.split:                                      ; preds = %334
+  br label %336
 
-333:                                              ; preds = %331, %.fold.split, %332, %_ZN4cvc58internal8RationalD2Ev.exit164
-  %.124 = phi i32 [ %.023, %_ZN4cvc58internal8RationalD2Ev.exit164 ], [ %.023, %332 ], [ %172, %331 ], [ %.023, %.fold.split ]
-  %.1 = phi i32 [ %.0, %_ZN4cvc58internal8RationalD2Ev.exit164 ], [ %172, %332 ], [ %.0, %331 ], [ %.0, %.fold.split ]
+336:                                              ; preds = %334, %.fold.split, %335, %_ZN4cvc58internal8RationalD2Ev.exit164
+  %.124 = phi i32 [ %.023, %_ZN4cvc58internal8RationalD2Ev.exit164 ], [ %.023, %335 ], [ %174, %334 ], [ %.023, %.fold.split ]
+  %.1 = phi i32 [ %.0, %_ZN4cvc58internal8RationalD2Ev.exit164 ], [ %174, %335 ], [ %.0, %334 ], [ %.0, %.fold.split ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit170 unwind label %334
+          to label %_ZN4cvc58internal8RationalD2Ev.exit170 unwind label %337
 
-334:                                              ; preds = %333
-  %335 = landingpad { ptr, i32 }
-          catch ptr null
-  %336 = extractvalue { ptr, i32 } %335, 0
-  call void @__clang_call_terminate(ptr %336) #24
-  unreachable
-
-_ZN4cvc58internal8RationalD2Ev.exit170:           ; preds = %333
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit172 unwind label %337
-
-337:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit170
+337:                                              ; preds = %336
   %338 = landingpad { ptr, i32 }
           catch ptr null
   %339 = extractvalue { ptr, i32 } %338, 0
   call void @__clang_call_terminate(ptr %339) #24
   unreachable
 
+_ZN4cvc58internal8RationalD2Ev.exit170:           ; preds = %336
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit172 unwind label %340
+
+340:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit170
+  %341 = landingpad { ptr, i32 }
+          catch ptr null
+  %342 = extractvalue { ptr, i32 } %341, 0
+  call void @__clang_call_terminate(ptr %342) #24
+  unreachable
+
 _ZN4cvc58internal8RationalD2Ev.exit172:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
-  %340 = load ptr, ptr %0, align 8, !tbaa !3
-  %341 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
-  %342 = icmp eq i8 %341, 0
-  br i1 %342, label %343, label %351, !prof !22
+  %343 = load ptr, ptr %0, align 8, !tbaa !3
+  %344 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
+  %345 = icmp eq i8 %344, 0
+  br i1 %345, label %346, label %354, !prof !22
 
-343:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit172
-  %344 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
-  %.not.i.i173 = icmp eq i32 %344, 0
-  br i1 %.not.i.i173, label %351, label %345
+346:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit172
+  %347 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
+  %.not.i.i173 = icmp eq i32 %347, 0
+  br i1 %.not.i.i173, label %354, label %348
 
-345:                                              ; preds = %343
-  %346 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-          to label %347 unwind label %349
+348:                                              ; preds = %346
+  %349 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+          to label %350 unwind label %352
 
-347:                                              ; preds = %345
-  store i64 1152920405095219200, ptr %346, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %348, i8 0, i64 16, i1 false)
-  store ptr %346, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
+350:                                              ; preds = %348
+  store i64 1152920405095219200, ptr %349, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %351, i8 0, i64 16, i1 false)
+  store ptr %349, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
-  br label %351
+  br label %354
 
-349:                                              ; preds = %345
-  %350 = landingpad { ptr, i32 }
+352:                                              ; preds = %348
+  %353 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
   br label %.body174
 
-351:                                              ; preds = %347, %343, %_ZN4cvc58internal8RationalD2Ev.exit172
-  %352 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
-  %353 = icmp eq ptr %340, %352
-  br i1 %353, label %170, label %361, !llvm.loop !24
+354:                                              ; preds = %350, %346, %_ZN4cvc58internal8RationalD2Ev.exit172
+  %355 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !23
+  %356 = icmp eq ptr %343, %355
+  br i1 %356, label %172, label %364, !llvm.loop !24
 
-354:                                              ; preds = %.body155, %_ZN4cvc58internal8RationalD2Ev.exit166, %_ZN4cvc58internal8RationalD2Ev.exit147, %_ZN4cvc58internal8RationalD2Ev.exit137, %.body120
+357:                                              ; preds = %.body155, %_ZN4cvc58internal8RationalD2Ev.exit166, %_ZN4cvc58internal8RationalD2Ev.exit147, %_ZN4cvc58internal8RationalD2Ev.exit137, %.body120
   %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %.body155 ], [ %.pn70, %_ZN4cvc58internal8RationalD2Ev.exit166 ], [ %.pn67.pn, %_ZN4cvc58internal8RationalD2Ev.exit147 ], [ %.pn64.pn, %_ZN4cvc58internal8RationalD2Ev.exit137 ], [ %.pn62, %.body120 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit177 unwind label %355
+          to label %_ZN4cvc58internal8RationalD2Ev.exit177 unwind label %358
 
-355:                                              ; preds = %354
-  %356 = landingpad { ptr, i32 }
-          catch ptr null
-  %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #24
-  unreachable
-
-_ZN4cvc58internal8RationalD2Ev.exit177:           ; preds = %354, %219
-  %.pn72.pn.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %.pn72.pn.pn, %354 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit179 unwind label %358
-
-358:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit177
+358:                                              ; preds = %357
   %359 = landingpad { ptr, i32 }
           catch ptr null
   %360 = extractvalue { ptr, i32 } %359, 0
   call void @__clang_call_terminate(ptr %360) #24
+  unreachable
+
+_ZN4cvc58internal8RationalD2Ev.exit177:           ; preds = %357, %221
+  %.pn72.pn.pn.pn = phi { ptr, i32 } [ %222, %221 ], [ %.pn72.pn.pn, %357 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit179 unwind label %361
+
+361:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit177
+  %362 = landingpad { ptr, i32 }
+          catch ptr null
+  %363 = extractvalue { ptr, i32 } %362, 0
+  call void @__clang_call_terminate(ptr %363) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit179:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit177, %_ZN4cvc58internal8RationalD2Ev.exit131
@@ -1496,204 +1499,204 @@ _ZN4cvc58internal8RationalD2Ev.exit179:           ; preds = %_ZN4cvc58internal8R
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
   br label %.body174
 
-361:                                              ; preds = %351
+364:                                              ; preds = %354
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit181 unwind label %362
+          to label %_ZN4cvc58internal8RationalD2Ev.exit181 unwind label %365
 
-362:                                              ; preds = %361
-  %363 = landingpad { ptr, i32 }
-          catch ptr null
-  %364 = extractvalue { ptr, i32 } %363, 0
-  call void @__clang_call_terminate(ptr %364) #24
-  unreachable
-
-_ZN4cvc58internal8RationalD2Ev.exit181:           ; preds = %361
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit183 unwind label %365
-
-365:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit181
+365:                                              ; preds = %364
   %366 = landingpad { ptr, i32 }
           catch ptr null
   %367 = extractvalue { ptr, i32 } %366, 0
   call void @__clang_call_terminate(ptr %367) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit183:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit181
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit185 unwind label %368
+_ZN4cvc58internal8RationalD2Ev.exit181:           ; preds = %364
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit183 unwind label %368
 
-368:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit183
+368:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit181
   %369 = landingpad { ptr, i32 }
           catch ptr null
   %370 = extractvalue { ptr, i32 } %369, 0
   call void @__clang_call_terminate(ptr %370) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit185:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit183
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit187 unwind label %371
+_ZN4cvc58internal8RationalD2Ev.exit183:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit181
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit185 unwind label %371
 
-371:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit185
+371:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit183
   %372 = landingpad { ptr, i32 }
           catch ptr null
   %373 = extractvalue { ptr, i32 } %372, 0
   call void @__clang_call_terminate(ptr %373) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit187:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit185
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit189 unwind label %374
+_ZN4cvc58internal8RationalD2Ev.exit185:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit183
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit187 unwind label %374
 
-374:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit187
+374:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit185
   %375 = landingpad { ptr, i32 }
           catch ptr null
   %376 = extractvalue { ptr, i32 } %375, 0
   call void @__clang_call_terminate(ptr %376) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit189:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit187
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
-  br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+_ZN4cvc58internal8RationalD2Ev.exit187:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit185
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit189 unwind label %377
 
-.body174:                                         ; preds = %349, %_ZN4cvc58internal8RationalD2Ev.exit179
-  %.pn78 = phi { ptr, i32 } [ %.pn72.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit179 ], [ %350, %349 ]
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
-  br label %.body
-
-.body:                                            ; preds = %210, %161, %.body174
-  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %.body174 ], [ %211, %210 ], [ %162, %161 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit191 unwind label %377
-
-377:                                              ; preds = %.body
+377:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit187
   %378 = landingpad { ptr, i32 }
           catch ptr null
   %379 = extractvalue { ptr, i32 } %378, 0
   call void @__clang_call_terminate(ptr %379) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit191:           ; preds = %.body, %208
-  %.pn78.pn.pn = phi { ptr, i32 } [ %209, %208 ], [ %.pn78.pn, %.body ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit193 unwind label %380
+_ZN4cvc58internal8RationalD2Ev.exit189:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit187
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
+  br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-380:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit191
+.body174:                                         ; preds = %352, %_ZN4cvc58internal8RationalD2Ev.exit179
+  %.pn78 = phi { ptr, i32 } [ %.pn72.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit179 ], [ %353, %352 ]
+  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  br label %.body
+
+.body:                                            ; preds = %212, %163, %.body174
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %.body174 ], [ %213, %212 ], [ %164, %163 ]
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit191 unwind label %380
+
+380:                                              ; preds = %.body
   %381 = landingpad { ptr, i32 }
           catch ptr null
   %382 = extractvalue { ptr, i32 } %381, 0
   call void @__clang_call_terminate(ptr %382) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit193:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit191, %206
-  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %207, %206 ], [ %.pn78.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit191 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23
-  br label %383
+_ZN4cvc58internal8RationalD2Ev.exit191:           ; preds = %.body, %210
+  %.pn78.pn.pn = phi { ptr, i32 } [ %211, %210 ], [ %.pn78.pn, %.body ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit193 unwind label %383
 
-383:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit193, %_ZN4cvc58internal8RationalD2Ev.exit113, %_ZN4cvc58internal8RationalD2Ev.exit111
-  %.pn85.pn = phi { ptr, i32 } [ %.pn85, %_ZN4cvc58internal8RationalD2Ev.exit113 ], [ %.pn83, %_ZN4cvc58internal8RationalD2Ev.exit111 ], [ %.pn78.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit193 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit195 unwind label %384
-
-384:                                              ; preds = %383
-  %385 = landingpad { ptr, i32 }
+383:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit191
+  %384 = landingpad { ptr, i32 }
           catch ptr null
-  %386 = extractvalue { ptr, i32 } %385, 0
-  call void @__clang_call_terminate(ptr %386) #24
+  %385 = extractvalue { ptr, i32 } %384, 0
+  call void @__clang_call_terminate(ptr %385) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit195:           ; preds = %383, %133
-  %.pn85.pn.pn = phi { ptr, i32 } [ %134, %133 ], [ %.pn85.pn, %383 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit197 unwind label %387
+_ZN4cvc58internal8RationalD2Ev.exit193:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit191, %208
+  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %209, %208 ], [ %.pn78.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit191 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23
+  br label %386
 
-387:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit195
+386:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit193, %_ZN4cvc58internal8RationalD2Ev.exit113, %_ZN4cvc58internal8RationalD2Ev.exit111
+  %.pn85.pn = phi { ptr, i32 } [ %.pn85, %_ZN4cvc58internal8RationalD2Ev.exit113 ], [ %.pn83, %_ZN4cvc58internal8RationalD2Ev.exit111 ], [ %.pn78.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit193 ]
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit195 unwind label %387
+
+387:                                              ; preds = %386
   %388 = landingpad { ptr, i32 }
           catch ptr null
   %389 = extractvalue { ptr, i32 } %388, 0
   call void @__clang_call_terminate(ptr %389) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit197:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit195, %131
-  %.pn85.pn.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn85.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit195 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit199 unwind label %390
+_ZN4cvc58internal8RationalD2Ev.exit195:           ; preds = %386, %135
+  %.pn85.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %.pn85.pn, %386 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit197 unwind label %390
 
-390:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit197
+390:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit195
   %391 = landingpad { ptr, i32 }
           catch ptr null
   %392 = extractvalue { ptr, i32 } %391, 0
   call void @__clang_call_terminate(ptr %392) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit199:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit197, %129
-  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %.pn85.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit197 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
-  br label %399
+_ZN4cvc58internal8RationalD2Ev.exit197:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit195, %133
+  %.pn85.pn.pn.pn = phi { ptr, i32 } [ %134, %133 ], [ %.pn85.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit195 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit199 unwind label %393
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %79, %74, %81, %_ZN4cvc58internal8RationalD2Ev.exit189
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit201 unwind label %393
-
-393:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+393:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit197
   %394 = landingpad { ptr, i32 }
           catch ptr null
   %395 = extractvalue { ptr, i32 } %394, 0
   call void @__clang_call_terminate(ptr %395) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit201:           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit203 unwind label %396
+_ZN4cvc58internal8RationalD2Ev.exit199:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit197, %131
+  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn85.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit197 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
+  br label %402
 
-396:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit201
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %81, %75, %83, %_ZN4cvc58internal8RationalD2Ev.exit189
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit201 unwind label %396
+
+396:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %397 = landingpad { ptr, i32 }
           catch ptr null
   %398 = extractvalue { ptr, i32 } %397, 0
   call void @__clang_call_terminate(ptr %398) #24
   unreachable
 
+_ZN4cvc58internal8RationalD2Ev.exit201:           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit203 unwind label %399
+
+399:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit201
+  %400 = landingpad { ptr, i32 }
+          catch ptr null
+  %401 = extractvalue { ptr, i32 } %400, 0
+  call void @__clang_call_terminate(ptr %401) #24
+  unreachable
+
 _ZN4cvc58internal8RationalD2Ev.exit203:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit201
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
-399:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit101, %_ZN4cvc58internal8RationalD2Ev.exit199, %97, %_ZN4cvc58internal7IntegerD2Ev.exit97
-  %.pn92 = phi { ptr, i32 } [ %98, %97 ], [ %.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit97 ], [ %.pn85.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit199 ], [ %.pn58, %_ZN4cvc58internal8RationalD2Ev.exit101 ]
+402:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit101, %_ZN4cvc58internal8RationalD2Ev.exit199, %99, %_ZN4cvc58internal7IntegerD2Ev.exit97
+  %.pn92 = phi { ptr, i32 } [ %100, %99 ], [ %.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit97 ], [ %.pn85.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit199 ], [ %.pn58, %_ZN4cvc58internal8RationalD2Ev.exit101 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit205 unwind label %400
+          to label %_ZN4cvc58internal8RationalD2Ev.exit205 unwind label %403
 
-400:                                              ; preds = %399
-  %401 = landingpad { ptr, i32 }
-          catch ptr null
-  %402 = extractvalue { ptr, i32 } %401, 0
-  call void @__clang_call_terminate(ptr %402) #24
-  unreachable
-
-_ZN4cvc58internal8RationalD2Ev.exit205:           ; preds = %399, %83
-  %.pn92.pn = phi { ptr, i32 } [ %84, %83 ], [ %.pn92, %399 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit207 unwind label %403
-
-403:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit205
+403:                                              ; preds = %402
   %404 = landingpad { ptr, i32 }
           catch ptr null
   %405 = extractvalue { ptr, i32 } %404, 0
   call void @__clang_call_terminate(ptr %405) #24
   unreachable
 
+_ZN4cvc58internal8RationalD2Ev.exit205:           ; preds = %402, %85
+  %.pn92.pn = phi { ptr, i32 } [ %86, %85 ], [ %.pn92, %402 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit207 unwind label %406
+
+406:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit205
+  %407 = landingpad { ptr, i32 }
+          catch ptr null
+  %408 = extractvalue { ptr, i32 } %407, 0
+  call void @__clang_call_terminate(ptr %408) #24
+  unreachable
+
 _ZN4cvc58internal8RationalD2Ev.exit207:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   br label %common.resume
 
-_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %43, %41, %36, %_ZN4cvc58internal8RationalD2Ev.exit203
+_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %44, %42, %36, %_ZN4cvc58internal8RationalD2Ev.exit203
   ret void
 }
 
@@ -2046,7 +2049,7 @@ define hidden void @_ZN4cvc58internal6theory5arith19printRationalApproxEPKcNS0_1
   %4 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %5 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %6 = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %6, label %7, label %52
+  br i1 %6, label %7, label %53
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
@@ -2057,96 +2060,97 @@ define hidden void @_ZN4cvc58internal6theory5arith19printRationalApproxEPKcNS0_1
   %11 = trunc nuw nsw i64 %10 to i32
   %12 = and i32 %11, 1048575
   %13 = icmp samesign ult i32 %12, 1048574
-  br i1 %13, label %14, label %19, !prof !17
+  br i1 %13, label %14, label %20, !prof !17
 
 14:                                               ; preds = %7
-  %15 = add i64 %9, 1099511627776
-  %16 = and i64 %15, 1152920405095219200
-  %17 = and i64 %9, -1152920405095219201
-  %18 = or disjoint i64 %16, %17
-  store i64 %18, ptr %8, align 8
+  %15 = add nuw nsw i32 %12, 1
+  %16 = zext nneg i32 %15 to i64
+  %17 = shl nuw nsw i64 %16, 40
+  %18 = and i64 %9, -1152920405095219201
+  %19 = or i64 %17, %18
+  store i64 %19, ptr %8, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-19:                                               ; preds = %7
-  %20 = icmp eq i32 %12, 1048574
-  br i1 %20, label %21, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
+20:                                               ; preds = %7
+  %21 = icmp eq i32 %12, 1048574
+  br i1 %21, label %22, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
 
-21:                                               ; preds = %19
-  %22 = or i64 %9, 1152920405095219200
-  store i64 %22, ptr %8, align 8
+22:                                               ; preds = %20
+  %23 = or i64 %9, 1152920405095219200
+  store i64 %23, ptr %8, align 8
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %14, %19, %21
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %14, %20, %22
   invoke void @_ZN4cvc58internal6theory5arith22getApproximateConstantENS0_12NodeTemplateILb1EEEbj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %4, ptr noundef nonnull %5, i1 noundef zeroext true, i32 noundef %2)
-          to label %23 unwind label %40
+          to label %24 unwind label %41
 
-23:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %24 = load ptr, ptr %5, align 8, !tbaa !3
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 1152920405095219200
-  %.not.i.i = icmp eq i64 %26, 1152920405095219200
-  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %27, !prof !18
+24:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %26, 1152920405095219200
+  %.not.i.i = icmp eq i64 %27, 1152920405095219200
+  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %28, !prof !18
 
-27:                                               ; preds = %23
-  %28 = add i64 %25, 1152920405095219200
-  %29 = and i64 %28, 1152920405095219200
-  %30 = and i64 %25, -1152920405095219201
-  %31 = or disjoint i64 %29, %30
-  store i64 %31, ptr %24, align 8
-  %32 = icmp eq i64 %29, 0
-  br i1 %32, label %33, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !18
+28:                                               ; preds = %24
+  %29 = add i64 %26, 1152920405095219200
+  %30 = and i64 %29, 1152920405095219200
+  %31 = and i64 %26, -1152920405095219201
+  %32 = or disjoint i64 %30, %31
+  store i64 %32, ptr %25, align 8
+  %33 = icmp eq i64 %30, 0
+  br i1 %33, label %34, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !18
 
-33:                                               ; preds = %27
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %34
+34:                                               ; preds = %28
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %25)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %35
 
-34:                                               ; preds = %33
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #24
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %23, %27, %33
-  %37 = load ptr, ptr %4, align 8, !tbaa !3
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 1152920405095219200
-  %.not.i.i72 = icmp eq i64 %39, 1152920405095219200
-  br i1 %.not.i.i72, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, label %42, !prof !18
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %24, %28, %34
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = load i64, ptr %38, align 8
+  %40 = and i64 %39, 1152920405095219200
+  %.not.i.i72 = icmp eq i64 %40, 1152920405095219200
+  br i1 %.not.i.i72, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, label %43, !prof !18
 
-40:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %42
 
-42:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %43 = add i64 %38, 1152920405095219200
-  %44 = and i64 %43, 1152920405095219200
-  %45 = and i64 %38, -1152920405095219201
-  %46 = or disjoint i64 %44, %45
-  store i64 %46, ptr %37, align 8
-  %47 = icmp eq i64 %44, 0
-  br i1 %47, label %48, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, !prof !18
+43:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %44 = add i64 %39, 1152920405095219200
+  %45 = and i64 %44, 1152920405095219200
+  %46 = and i64 %39, -1152920405095219201
+  %47 = or disjoint i64 %45, %46
+  store i64 %47, ptr %38, align 8
+  %48 = icmp eq i64 %45, 0
+  br i1 %48, label %49, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, !prof !18
 
-48:                                               ; preds = %42
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %37)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73 unwind label %49
+49:                                               ; preds = %43
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %38)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73 unwind label %50
 
-49:                                               ; preds = %48
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %49
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #24
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %42, %48
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %43, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  br label %52
+  br label %53
 
-52:                                               ; preds = %3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73
+53:                                               ; preds = %3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73
   ret void
 }
 
@@ -3126,63 +3130,64 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE6negateEv
   %18 = trunc nuw nsw i64 %17 to i32
   %19 = and i32 %18, 1048575
   %20 = icmp samesign ult i32 %19, 1048574
-  br i1 %20, label %21, label %26, !prof !17
+  br i1 %20, label %21, label %27, !prof !17
 
 21:                                               ; preds = %9
-  %22 = add i64 %16, 1099511627776
-  %23 = and i64 %22, 1152920405095219200
-  %24 = and i64 %16, -1152920405095219201
-  %25 = or disjoint i64 %23, %24
-  store i64 %25, ptr %15, align 8
+  %22 = add nuw nsw i32 %19, 1
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 40
+  %25 = and i64 %16, -1152920405095219201
+  %26 = or i64 %24, %25
+  store i64 %26, ptr %15, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit.thread
 
-26:                                               ; preds = %9
-  %27 = icmp eq i32 %19, 1048574
-  br i1 %27, label %28, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit.thread, !prof !18
+27:                                               ; preds = %9
+  %28 = icmp eq i32 %19, 1048574
+  br i1 %28, label %29, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit.thread, !prof !18
 
-28:                                               ; preds = %26
-  %29 = or i64 %16, 1152920405095219200
-  store i64 %29, ptr %15, align 8
+29:                                               ; preds = %27
+  %30 = or i64 %16, 1152920405095219200
+  store i64 %30, ptr %15, align 8
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit.thread
 
 .noexc:                                           ; preds = %2
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #23, !noalias !82
-  %31 = load ptr, ptr %30, align 8, !tbaa !28, !noalias !82
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %31, i32 noundef 21)
+  %32 = load ptr, ptr %31, align 8, !tbaa !28, !noalias !82
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %32, i32 noundef 21)
   store ptr %5, ptr %4, align 8, !tbaa !32, !noalias !82
-  %32 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef nonnull %4)
-          to label %33 unwind label %36, !noalias !82
+  %33 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef nonnull %4)
+          to label %34 unwind label %37, !noalias !82
 
-33:                                               ; preds = %.noexc
+34:                                               ; preds = %.noexc
   invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(124) %3)
-          to label %38 unwind label %34
+          to label %39 unwind label %35
 
-34:                                               ; preds = %33
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-36:                                               ; preds = %.noexc
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.noexc
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %36, %34
-  %.pn.i = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+.body:                                            ; preds = %37, %35
+  %.pn.i = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ]
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %3) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #23, !noalias !82
   resume { ptr, i32 } %.pn.i
 
-38:                                               ; preds = %33
+39:                                               ; preds = %34
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %3) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #23, !noalias !82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit.thread
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit.thread: ; preds = %21, %26, %28, %38
+_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit.thread: ; preds = %21, %27, %29, %39
   ret void
 }
 
@@ -3209,15 +3214,15 @@ define hidden void @_ZN4cvc58internal6theory5arith13multConstantsERKNS0_12NodeTe
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false)
   %8 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode9isIntegerEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %9 unwind label %52
+          to label %9 unwind label %53
 
 9:                                                ; preds = %3
-  br i1 %8, label %10, label %59
+  br i1 %8, label %10, label %60
 
 10:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
-          to label %11 unwind label %54
+          to label %11 unwind label %55
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %4, align 8, !tbaa !85
@@ -3242,7 +3247,7 @@ define hidden void @_ZN4cvc58internal6theory5arith13multConstantsERKNS0_12NodeTe
 
 23:                                               ; preds = %17
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %56
+          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %57
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %23, %17, %14
   %24 = load ptr, ptr %5, align 8, !tbaa !85
@@ -3252,165 +3257,166 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %23, %17, %14
   %27 = trunc nuw nsw i64 %26 to i32
   %28 = and i32 %27, 1048575
   %29 = icmp samesign ult i32 %28, 1048574
-  br i1 %29, label %30, label %35, !prof !17
+  br i1 %29, label %30, label %36, !prof !17
 
 30:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
-  %31 = add i64 %25, 1099511627776
-  %32 = and i64 %31, 1152920405095219200
-  %33 = and i64 %25, -1152920405095219201
-  %34 = or disjoint i64 %32, %33
-  store i64 %34, ptr %24, align 8
+  %31 = add nuw nsw i32 %28, 1
+  %32 = zext nneg i32 %31 to i64
+  %33 = shl nuw nsw i64 %32, 40
+  %34 = and i64 %25, -1152920405095219201
+  %35 = or i64 %33, %34
+  store i64 %35, ptr %24, align 8
   br label %_ZN4cvc58internal8TypeNodeaSERKS1_.exit
 
-35:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
-  %36 = icmp eq i32 %28, 1048574
-  br i1 %36, label %37, label %_ZN4cvc58internal8TypeNodeaSERKS1_.exit, !prof !18
+36:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
+  %37 = icmp eq i32 %28, 1048574
+  br i1 %37, label %38, label %_ZN4cvc58internal8TypeNodeaSERKS1_.exit, !prof !18
 
-37:                                               ; preds = %35
-  %38 = or i64 %25, 1152920405095219200
-  store i64 %38, ptr %24, align 8
+38:                                               ; preds = %36
+  %39 = or i64 %25, 1152920405095219200
+  store i64 %39, ptr %24, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %_ZN4cvc58internal8TypeNodeaSERKS1_.exit unwind label %56
+          to label %_ZN4cvc58internal8TypeNodeaSERKS1_.exit unwind label %57
 
-_ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %35, %30, %11, %37
-  %39 = load ptr, ptr %5, align 8, !tbaa !85
-  %40 = load i64, ptr %39, align 8
-  %41 = and i64 %40, 1152920405095219200
-  %.not.i.i14 = icmp eq i64 %41, 1152920405095219200
-  br i1 %.not.i.i14, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %42, !prof !18
+_ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %36, %30, %11, %38
+  %40 = load ptr, ptr %5, align 8, !tbaa !85
+  %41 = load i64, ptr %40, align 8
+  %42 = and i64 %41, 1152920405095219200
+  %.not.i.i14 = icmp eq i64 %42, 1152920405095219200
+  br i1 %.not.i.i14, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %43, !prof !18
 
-42:                                               ; preds = %_ZN4cvc58internal8TypeNodeaSERKS1_.exit
-  %43 = add i64 %40, 1152920405095219200
-  %44 = and i64 %43, 1152920405095219200
-  %45 = and i64 %40, -1152920405095219201
-  %46 = or disjoint i64 %44, %45
-  store i64 %46, ptr %39, align 8
-  %47 = icmp eq i64 %44, 0
-  br i1 %47, label %48, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, !prof !18
+43:                                               ; preds = %_ZN4cvc58internal8TypeNodeaSERKS1_.exit
+  %44 = add i64 %41, 1152920405095219200
+  %45 = and i64 %44, 1152920405095219200
+  %46 = and i64 %41, -1152920405095219201
+  %47 = or disjoint i64 %45, %46
+  store i64 %47, ptr %40, align 8
+  %48 = icmp eq i64 %45, 0
+  br i1 %48, label %49, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, !prof !18
 
-48:                                               ; preds = %42
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %39)
-          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit unwind label %49
+49:                                               ; preds = %43
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %40)
+          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit unwind label %50
 
-49:                                               ; preds = %48
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %49
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #24
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #24
   unreachable
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal8TypeNodeaSERKS1_.exit, %42, %48
+_ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal8TypeNodeaSERKS1_.exit, %43, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  br label %60
+
+53:                                               ; preds = %3
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  br label %90
+
+55:                                               ; preds = %10
+  %56 = landingpad { ptr, i32 }
+          cleanup
   br label %59
 
-52:                                               ; preds = %3
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  br label %89
-
-54:                                               ; preds = %10
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  br label %58
-
-56:                                               ; preds = %37, %23
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %38, %23
+  %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
-  br label %58
+  br label %59
 
-58:                                               ; preds = %56, %54
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
+59:                                               ; preds = %57, %55
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  br label %89
+  br label %90
 
-59:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %9
+60:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  %60 = load ptr, ptr %1, align 8, !tbaa !3
-  %61 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %60)
-          to label %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit unwind label %82
+  %61 = load ptr, ptr %1, align 8, !tbaa !3
+  %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %61)
+          to label %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit unwind label %83
 
-_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit: ; preds = %59
-  %62 = load ptr, ptr %2, align 8, !tbaa !3
-  %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %62)
-          to label %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit18 unwind label %82
+_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit: ; preds = %60
+  %63 = load ptr, ptr %2, align 8, !tbaa !3
+  %64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %63)
+          to label %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit18 unwind label %83
 
 _ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit18: ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit
-  invoke void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %63)
-          to label %64 unwind label %82
+  invoke void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %64)
+          to label %65 unwind label %83
 
-64:                                               ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit18
+65:                                               ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit18
   invoke void @_ZN4cvc58internal11NodeManager16mkConstRealOrIntERKNS0_8TypeNodeERKNS0_8RationalE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3560) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %65 unwind label %84
-
-65:                                               ; preds = %64
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %66
+          to label %66 unwind label %85
 
 66:                                               ; preds = %65
-  %67 = landingpad { ptr, i32 }
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %67
+
+67:                                               ; preds = %66
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #24
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %65
+_ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
-  %69 = load ptr, ptr %4, align 8, !tbaa !85
-  %70 = load i64, ptr %69, align 8
-  %71 = and i64 %70, 1152920405095219200
-  %.not.i.i19 = icmp eq i64 %71, 1152920405095219200
-  br i1 %.not.i.i19, label %_ZN4cvc58internal8TypeNodeD2Ev.exit21, label %72, !prof !18
+  %70 = load ptr, ptr %4, align 8, !tbaa !85
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %71, 1152920405095219200
+  %.not.i.i19 = icmp eq i64 %72, 1152920405095219200
+  br i1 %.not.i.i19, label %_ZN4cvc58internal8TypeNodeD2Ev.exit21, label %73, !prof !18
 
-72:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
-  %73 = add i64 %70, 1152920405095219200
-  %74 = and i64 %73, 1152920405095219200
-  %75 = and i64 %70, -1152920405095219201
-  %76 = or disjoint i64 %74, %75
-  store i64 %76, ptr %69, align 8
-  %77 = icmp eq i64 %74, 0
-  br i1 %77, label %78, label %_ZN4cvc58internal8TypeNodeD2Ev.exit21, !prof !18
+73:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
+  %74 = add i64 %71, 1152920405095219200
+  %75 = and i64 %74, 1152920405095219200
+  %76 = and i64 %71, -1152920405095219201
+  %77 = or disjoint i64 %75, %76
+  store i64 %77, ptr %70, align 8
+  %78 = icmp eq i64 %75, 0
+  br i1 %78, label %79, label %_ZN4cvc58internal8TypeNodeD2Ev.exit21, !prof !18
 
-78:                                               ; preds = %72
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %69)
-          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit21 unwind label %79
+79:                                               ; preds = %73
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %70)
+          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit21 unwind label %80
 
-79:                                               ; preds = %78
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %79
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #24
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #24
   unreachable
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit21:            ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %72, %78
+_ZN4cvc58internal8TypeNodeD2Ev.exit21:            ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %73, %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   ret void
 
-82:                                               ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit, %59, %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit18
-  %83 = landingpad { ptr, i32 }
+83:                                               ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit, %60, %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit18
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal8RationalD2Ev.exit22
 
-84:                                               ; preds = %64
-  %85 = landingpad { ptr, i32 }
+85:                                               ; preds = %65
+  %86 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit22 unwind label %86
+          to label %_ZN4cvc58internal8RationalD2Ev.exit22 unwind label %87
 
-86:                                               ; preds = %84
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %85
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #24
+  %89 = extractvalue { ptr, i32 } %88, 0
+  call void @__clang_call_terminate(ptr %89) #24
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit22:            ; preds = %84, %82
-  %.pn10 = phi { ptr, i32 } [ %83, %82 ], [ %85, %84 ]
+_ZN4cvc58internal8RationalD2Ev.exit22:            ; preds = %85, %83
+  %.pn10 = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
-  br label %89
+  br label %90
 
-89:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit22, %58, %52
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN4cvc58internal8RationalD2Ev.exit22 ], [ %.pn, %58 ], [ %53, %52 ]
+90:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit22, %59, %53
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN4cvc58internal8RationalD2Ev.exit22 ], [ %.pn, %59 ], [ %54, %53 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   resume { ptr, i32 } %.pn10.pn
@@ -3605,27 +3611,28 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit:      ; preds = %5, %8, %14
   %18 = trunc nuw nsw i64 %17 to i32
   %19 = and i32 %18, 1048575
   %20 = icmp samesign ult i32 %19, 1048574
-  br i1 %20, label %21, label %26, !prof !17
+  br i1 %20, label %21, label %27, !prof !17
 
 21:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit
-  %22 = add i64 %16, 1099511627776
-  %23 = and i64 %22, 1152920405095219200
-  %24 = and i64 %16, -1152920405095219201
-  %25 = or disjoint i64 %23, %24
-  store i64 %25, ptr %15, align 8
+  %22 = add nuw nsw i32 %19, 1
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 40
+  %25 = and i64 %16, -1152920405095219201
+  %26 = or i64 %24, %25
+  store i64 %26, ptr %15, align 8
   br label %_ZN4cvc58internal4expr9NodeValue3incEv.exit
 
-26:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit
-  %27 = icmp eq i32 %19, 1048574
-  br i1 %27, label %28, label %_ZN4cvc58internal4expr9NodeValue3incEv.exit, !prof !18
+27:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit
+  %28 = icmp eq i32 %19, 1048574
+  br i1 %28, label %29, label %_ZN4cvc58internal4expr9NodeValue3incEv.exit, !prof !18
 
-28:                                               ; preds = %26
-  %29 = or i64 %16, 1152920405095219200
-  store i64 %29, ptr %15, align 8
+29:                                               ; preds = %27
+  %30 = or i64 %16, 1152920405095219200
+  store i64 %30, ptr %15, align 8
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
   br label %_ZN4cvc58internal4expr9NodeValue3incEv.exit
 
-_ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %28, %26, %21, %2
+_ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %29, %27, %21, %2
   ret ptr %0
 }
 
@@ -4158,13 +4165,13 @@ define hidden void @_ZN4cvc58internal6theory5arith10mkSameTypeERKNS0_12NodeTempl
   call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
-          to label %12 unwind label %50
+          to label %12 unwind label %52
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %8, align 8, !tbaa !85
   %14 = load ptr, ptr %9, align 8, !tbaa !85
   %15 = icmp eq ptr %13, %14
-  br i1 %15, label %16, label %54
+  br i1 %15, label %16, label %56
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %1, align 8, !tbaa !3
@@ -4174,455 +4181,461 @@ define hidden void @_ZN4cvc58internal6theory5arith10mkSameTypeERKNS0_12NodeTempl
   %20 = trunc nuw nsw i64 %19 to i32
   %21 = and i32 %20, 1048575
   %22 = icmp samesign ult i32 %21, 1048574
-  br i1 %22, label %23, label %28, !prof !17
+  br i1 %22, label %23, label %29, !prof !17
 
 23:                                               ; preds = %16
-  %24 = add i64 %18, 1099511627776
-  %25 = and i64 %24, 1152920405095219200
-  %26 = and i64 %18, -1152920405095219201
-  %27 = or disjoint i64 %25, %26
-  store i64 %27, ptr %17, align 8
+  %24 = add nuw nsw i32 %21, 1
+  %25 = zext nneg i32 %24 to i64
+  %26 = shl nuw nsw i64 %25, 40
+  %27 = and i64 %18, -1152920405095219201
+  %28 = or i64 %26, %27
+  store i64 %28, ptr %17, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i
 
-28:                                               ; preds = %16
-  %29 = icmp eq i32 %21, 1048574
-  br i1 %29, label %30, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i, !prof !18
+29:                                               ; preds = %16
+  %30 = icmp eq i32 %21, 1048574
+  br i1 %30, label %31, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i, !prof !18
 
-30:                                               ; preds = %28
-  %31 = or i64 %18, 1152920405095219200
-  store i64 %31, ptr %17, align 8
+31:                                               ; preds = %29
+  %32 = or i64 %18, 1152920405095219200
+  store i64 %32, ptr %17, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i unwind label %52
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i unwind label %54
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i: ; preds = %30, %28, %23
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %33, ptr %32, align 8, !tbaa !3
-  %34 = load i64, ptr %33, align 8
-  %35 = lshr i64 %34, 40
-  %36 = trunc nuw nsw i64 %35 to i32
-  %37 = and i32 %36, 1048575
-  %38 = icmp samesign ult i32 %37, 1048574
-  br i1 %38, label %39, label %44, !prof !17
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i: ; preds = %31, %29, %23
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %34, ptr %33, align 8, !tbaa !3
+  %35 = load i64, ptr %34, align 8
+  %36 = lshr i64 %35, 40
+  %37 = trunc nuw nsw i64 %36 to i32
+  %38 = and i32 %37, 1048575
+  %39 = icmp samesign ult i32 %38, 1048574
+  br i1 %39, label %40, label %46, !prof !17
 
-39:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i
-  %40 = add i64 %34, 1099511627776
-  %41 = and i64 %40, 1152920405095219200
-  %42 = and i64 %34, -1152920405095219201
-  %43 = or disjoint i64 %41, %42
-  store i64 %43, ptr %33, align 8
+40:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i
+  %41 = add nuw nsw i32 %38, 1
+  %42 = zext nneg i32 %41 to i64
+  %43 = shl nuw nsw i64 %42, 40
+  %44 = and i64 %35, -1152920405095219201
+  %45 = or i64 %43, %44
+  store i64 %45, ptr %34, align 8
   br label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit
 
-44:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i
-  %45 = icmp eq i32 %37, 1048574
-  br i1 %45, label %46, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit, !prof !18
-
-46:                                               ; preds = %44
-  %47 = or i64 %34, 1152920405095219200
-  store i64 %47, ptr %33, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
-          to label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit unwind label %48
+46:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i
+  %47 = icmp eq i32 %38, 1048574
+  br i1 %47, label %48, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit, !prof !18
 
 48:                                               ; preds = %46
-  %49 = landingpad { ptr, i32 }
+  %49 = or i64 %35, 1152920405095219200
+  store i64 %49, ptr %34, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %34)
+          to label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit unwind label %50
+
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %.body
 
-50:                                               ; preds = %3
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  br label %210
-
-52:                                               ; preds = %30, %57, %54
+52:                                               ; preds = %3
   %53 = landingpad { ptr, i32 }
+          cleanup
+  br label %216
+
+54:                                               ; preds = %31, %59, %56
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-54:                                               ; preds = %12
-  %55 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode9isIntegerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %56 unwind label %52
+56:                                               ; preds = %12
+  %57 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode9isIntegerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %58 unwind label %54
 
-56:                                               ; preds = %54
-  br i1 %55, label %57, label %122
+58:                                               ; preds = %56
+  br i1 %57, label %59, label %126
 
-57:                                               ; preds = %56
-  %58 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode6isRealEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %59 unwind label %52
+59:                                               ; preds = %58
+  %60 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode6isRealEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %61 unwind label %54
 
-59:                                               ; preds = %57
-  br i1 %58, label %60, label %122
+61:                                               ; preds = %59
+  br i1 %60, label %62, label %126
 
-60:                                               ; preds = %59
+62:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
-  %61 = load ptr, ptr %1, align 8, !tbaa !3
+  %63 = load ptr, ptr %1, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #23, !noalias !108
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !28, !noalias !108
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef %63, i32 noundef 83)
-          to label %.noexc19 unwind label %118
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !28, !noalias !108
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef %65, i32 noundef 83)
+          to label %.noexc19 unwind label %122
 
-.noexc19:                                         ; preds = %60
-  store ptr %61, ptr %7, align 8, !tbaa !32, !noalias !108
-  %64 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull %7)
-          to label %65 unwind label %68, !noalias !108
+.noexc19:                                         ; preds = %62
+  store ptr %63, ptr %7, align 8, !tbaa !32, !noalias !108
+  %66 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull %7)
+          to label %67 unwind label %70, !noalias !108
 
-65:                                               ; preds = %.noexc19
+67:                                               ; preds = %.noexc19
   invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %10, ptr noundef nonnull align 8 dereferenceable(124) %6)
-          to label %71 unwind label %66
+          to label %73 unwind label %68
 
-66:                                               ; preds = %65
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  br label %70
-
-68:                                               ; preds = %.noexc19
+68:                                               ; preds = %67
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %72
 
-70:                                               ; preds = %68, %66
-  %.pn.i = phi { ptr, i32 } [ %67, %66 ], [ %69, %68 ]
+70:                                               ; preds = %.noexc19
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  br label %72
+
+72:                                               ; preds = %70, %68
+  %.pn.i = phi { ptr, i32 } [ %69, %68 ], [ %71, %70 ]
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %6) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23, !noalias !108
   br label %.body20
 
-71:                                               ; preds = %65
+73:                                               ; preds = %67
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %6) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23, !noalias !108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %72 = load ptr, ptr %10, align 8, !tbaa !3
-  store ptr %72, ptr %0, align 8, !tbaa !3
-  %73 = load i64, ptr %72, align 8
-  %74 = lshr i64 %73, 40
-  %75 = trunc nuw nsw i64 %74 to i32
-  %76 = and i32 %75, 1048575
-  %77 = icmp samesign ult i32 %76, 1048574
-  br i1 %77, label %78, label %83, !prof !17
+  %74 = load ptr, ptr %10, align 8, !tbaa !3
+  store ptr %74, ptr %0, align 8, !tbaa !3
+  %75 = load i64, ptr %74, align 8
+  %76 = lshr i64 %75, 40
+  %77 = trunc nuw nsw i64 %76 to i32
+  %78 = and i32 %77, 1048575
+  %79 = icmp samesign ult i32 %78, 1048574
+  br i1 %79, label %80, label %86, !prof !17
 
-78:                                               ; preds = %71
-  %79 = add i64 %73, 1099511627776
-  %80 = and i64 %79, 1152920405095219200
-  %81 = and i64 %73, -1152920405095219201
-  %82 = or disjoint i64 %80, %81
-  store i64 %82, ptr %72, align 8
+80:                                               ; preds = %73
+  %81 = add nuw nsw i32 %78, 1
+  %82 = zext nneg i32 %81 to i64
+  %83 = shl nuw nsw i64 %82, 40
+  %84 = and i64 %75, -1152920405095219201
+  %85 = or i64 %83, %84
+  store i64 %85, ptr %74, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22
 
-83:                                               ; preds = %71
-  %84 = icmp eq i32 %76, 1048574
-  br i1 %84, label %85, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22, !prof !18
+86:                                               ; preds = %73
+  %87 = icmp eq i32 %78, 1048574
+  br i1 %87, label %88, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22, !prof !18
 
-85:                                               ; preds = %83
-  %86 = or i64 %73, 1152920405095219200
-  store i64 %86, ptr %72, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %72)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22 unwind label %120
+88:                                               ; preds = %86
+  %89 = or i64 %75, 1152920405095219200
+  store i64 %89, ptr %74, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %74)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22 unwind label %124
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22: ; preds = %85, %83, %78
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %88 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %88, ptr %87, align 8, !tbaa !3
-  %89 = load i64, ptr %88, align 8
-  %90 = lshr i64 %89, 40
-  %91 = trunc nuw nsw i64 %90 to i32
-  %92 = and i32 %91, 1048575
-  %93 = icmp samesign ult i32 %92, 1048574
-  br i1 %93, label %94, label %99, !prof !17
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22: ; preds = %88, %86, %80
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %91 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %91, ptr %90, align 8, !tbaa !3
+  %92 = load i64, ptr %91, align 8
+  %93 = lshr i64 %92, 40
+  %94 = trunc nuw nsw i64 %93 to i32
+  %95 = and i32 %94, 1048575
+  %96 = icmp samesign ult i32 %95, 1048574
+  br i1 %96, label %97, label %103, !prof !17
 
-94:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22
-  %95 = add i64 %89, 1099511627776
-  %96 = and i64 %95, 1152920405095219200
-  %97 = and i64 %89, -1152920405095219201
-  %98 = or disjoint i64 %96, %97
-  store i64 %98, ptr %88, align 8
+97:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22
+  %98 = add nuw nsw i32 %95, 1
+  %99 = zext nneg i32 %98 to i64
+  %100 = shl nuw nsw i64 %99, 40
+  %101 = and i64 %92, -1152920405095219201
+  %102 = or i64 %100, %101
+  store i64 %102, ptr %91, align 8
   br label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
 
-99:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22
-  %100 = icmp eq i32 %92, 1048574
-  br i1 %100, label %101, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, !prof !18
+103:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i22
+  %104 = icmp eq i32 %95, 1048574
+  br i1 %104, label %105, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, !prof !18
 
-101:                                              ; preds = %99
-  %102 = or i64 %89, 1152920405095219200
-  store i64 %102, ptr %88, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %88)
-          to label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit unwind label %103
+105:                                              ; preds = %103
+  %106 = or i64 %92, 1152920405095219200
+  store i64 %106, ptr %91, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %91)
+          to label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit unwind label %107
 
-103:                                              ; preds = %101
-  %104 = landingpad { ptr, i32 }
+107:                                              ; preds = %105
+  %108 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %.body24
 
-_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %101, %99, %94
-  %105 = load ptr, ptr %10, align 8, !tbaa !3
-  %106 = load i64, ptr %105, align 8
-  %107 = and i64 %106, 1152920405095219200
-  %.not.i.i = icmp eq i64 %107, 1152920405095219200
-  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %108, !prof !18
+_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %105, %103, %97
+  %109 = load ptr, ptr %10, align 8, !tbaa !3
+  %110 = load i64, ptr %109, align 8
+  %111 = and i64 %110, 1152920405095219200
+  %.not.i.i = icmp eq i64 %111, 1152920405095219200
+  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %112, !prof !18
 
-108:                                              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
-  %109 = add i64 %106, 1152920405095219200
-  %110 = and i64 %109, 1152920405095219200
-  %111 = and i64 %106, -1152920405095219201
-  %112 = or disjoint i64 %110, %111
-  store i64 %112, ptr %105, align 8
-  %113 = icmp eq i64 %110, 0
-  br i1 %113, label %114, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !18
+112:                                              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+  %113 = add i64 %110, 1152920405095219200
+  %114 = and i64 %113, 1152920405095219200
+  %115 = and i64 %110, -1152920405095219201
+  %116 = or disjoint i64 %114, %115
+  store i64 %116, ptr %109, align 8
+  %117 = icmp eq i64 %114, 0
+  br i1 %117, label %118, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !18
 
-114:                                              ; preds = %108
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %105)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %115
+118:                                              ; preds = %112
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %109)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %119
 
-115:                                              ; preds = %114
-  %116 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #24
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, %108, %114
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_RKS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, %112, %118
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   br label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit
 
-118:                                              ; preds = %60
-  %119 = landingpad { ptr, i32 }
+122:                                              ; preds = %62
+  %123 = landingpad { ptr, i32 }
           cleanup
   br label %.body20
 
-120:                                              ; preds = %85
-  %121 = landingpad { ptr, i32 }
+124:                                              ; preds = %88
+  %125 = landingpad { ptr, i32 }
           cleanup
   br label %.body24
 
-.body24:                                          ; preds = %103, %120
-  %eh.lpad-body25 = phi { ptr, i32 } [ %121, %120 ], [ %104, %103 ]
+.body24:                                          ; preds = %107, %124
+  %eh.lpad-body25 = phi { ptr, i32 } [ %125, %124 ], [ %108, %107 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #23
   br label %.body20
 
-.body20:                                          ; preds = %118, %70, %.body24
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body25, %.body24 ], [ %119, %118 ], [ %.pn.i, %70 ]
+.body20:                                          ; preds = %122, %72, %.body24
+  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body25, %.body24 ], [ %123, %122 ], [ %.pn.i, %72 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   br label %.body
 
-122:                                              ; preds = %59, %56
+126:                                              ; preds = %61, %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
-  %123 = load ptr, ptr %2, align 8, !tbaa !3
+  %127 = load ptr, ptr %2, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #23, !noalias !111
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !28, !noalias !111
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef %125, i32 noundef 83)
-          to label %.noexc27 unwind label %180
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8, !tbaa !28, !noalias !111
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef %129, i32 noundef 83)
+          to label %.noexc27 unwind label %186
 
-.noexc27:                                         ; preds = %122
-  store ptr %123, ptr %5, align 8, !tbaa !32, !noalias !111
-  %126 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef nonnull %5)
-          to label %127 unwind label %130, !noalias !111
+.noexc27:                                         ; preds = %126
+  store ptr %127, ptr %5, align 8, !tbaa !32, !noalias !111
+  %130 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef nonnull %5)
+          to label %131 unwind label %134, !noalias !111
 
-127:                                              ; preds = %.noexc27
+131:                                              ; preds = %.noexc27
   invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %11, ptr noundef nonnull align 8 dereferenceable(124) %4)
-          to label %133 unwind label %128
+          to label %137 unwind label %132
 
-128:                                              ; preds = %127
-  %129 = landingpad { ptr, i32 }
+132:                                              ; preds = %131
+  %133 = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %136
 
-130:                                              ; preds = %.noexc27
-  %131 = landingpad { ptr, i32 }
+134:                                              ; preds = %.noexc27
+  %135 = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %136
 
-132:                                              ; preds = %130, %128
-  %.pn.i26 = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ]
+136:                                              ; preds = %134, %132
+  %.pn.i26 = phi { ptr, i32 } [ %133, %132 ], [ %135, %134 ]
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %4) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #23, !noalias !111
   br label %.body28
 
-133:                                              ; preds = %127
+137:                                              ; preds = %131
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %4) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #23, !noalias !111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %134 = load ptr, ptr %1, align 8, !tbaa !3
-  store ptr %134, ptr %0, align 8, !tbaa !3
-  %135 = load i64, ptr %134, align 8
-  %136 = lshr i64 %135, 40
-  %137 = trunc nuw nsw i64 %136 to i32
-  %138 = and i32 %137, 1048575
-  %139 = icmp samesign ult i32 %138, 1048574
-  br i1 %139, label %140, label %145, !prof !17
+  %138 = load ptr, ptr %1, align 8, !tbaa !3
+  store ptr %138, ptr %0, align 8, !tbaa !3
+  %139 = load i64, ptr %138, align 8
+  %140 = lshr i64 %139, 40
+  %141 = trunc nuw nsw i64 %140 to i32
+  %142 = and i32 %141, 1048575
+  %143 = icmp samesign ult i32 %142, 1048574
+  br i1 %143, label %144, label %150, !prof !17
 
-140:                                              ; preds = %133
-  %141 = add i64 %135, 1099511627776
-  %142 = and i64 %141, 1152920405095219200
-  %143 = and i64 %135, -1152920405095219201
-  %144 = or disjoint i64 %142, %143
-  store i64 %144, ptr %134, align 8
+144:                                              ; preds = %137
+  %145 = add nuw nsw i32 %142, 1
+  %146 = zext nneg i32 %145 to i64
+  %147 = shl nuw nsw i64 %146, 40
+  %148 = and i64 %139, -1152920405095219201
+  %149 = or i64 %147, %148
+  store i64 %149, ptr %138, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31
 
-145:                                              ; preds = %133
-  %146 = icmp eq i32 %138, 1048574
-  br i1 %146, label %147, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31, !prof !18
+150:                                              ; preds = %137
+  %151 = icmp eq i32 %142, 1048574
+  br i1 %151, label %152, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31, !prof !18
 
-147:                                              ; preds = %145
-  %148 = or i64 %135, 1152920405095219200
-  store i64 %148, ptr %134, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %134)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31 unwind label %182
+152:                                              ; preds = %150
+  %153 = or i64 %139, 1152920405095219200
+  store i64 %153, ptr %138, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %138)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31 unwind label %188
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31: ; preds = %147, %145, %140
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %150 = load ptr, ptr %11, align 8, !tbaa !3
-  store ptr %150, ptr %149, align 8, !tbaa !3
-  %151 = load i64, ptr %150, align 8
-  %152 = lshr i64 %151, 40
-  %153 = trunc nuw nsw i64 %152 to i32
-  %154 = and i32 %153, 1048575
-  %155 = icmp samesign ult i32 %154, 1048574
-  br i1 %155, label %156, label %161, !prof !17
-
-156:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31
-  %157 = add i64 %151, 1099511627776
-  %158 = and i64 %157, 1152920405095219200
-  %159 = and i64 %151, -1152920405095219201
-  %160 = or disjoint i64 %158, %159
-  store i64 %160, ptr %150, align 8
-  br label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31: ; preds = %152, %150, %144
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %155 = load ptr, ptr %11, align 8, !tbaa !3
+  store ptr %155, ptr %154, align 8, !tbaa !3
+  %156 = load i64, ptr %155, align 8
+  %157 = lshr i64 %156, 40
+  %158 = trunc nuw nsw i64 %157 to i32
+  %159 = and i32 %158, 1048575
+  %160 = icmp samesign ult i32 %159, 1048574
+  br i1 %160, label %161, label %167, !prof !17
 
 161:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31
-  %162 = icmp eq i32 %154, 1048574
-  br i1 %162, label %163, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, !prof !18
+  %162 = add nuw nsw i32 %159, 1
+  %163 = zext nneg i32 %162 to i64
+  %164 = shl nuw nsw i64 %163, 40
+  %165 = and i64 %156, -1152920405095219201
+  %166 = or i64 %164, %165
+  store i64 %166, ptr %155, align 8
+  br label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
 
-163:                                              ; preds = %161
-  %164 = or i64 %151, 1152920405095219200
-  store i64 %164, ptr %150, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %150)
-          to label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit unwind label %165
+167:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i31
+  %168 = icmp eq i32 %159, 1048574
+  br i1 %168, label %169, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, !prof !18
 
-165:                                              ; preds = %163
-  %166 = landingpad { ptr, i32 }
+169:                                              ; preds = %167
+  %170 = or i64 %156, 1152920405095219200
+  store i64 %170, ptr %155, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %155)
+          to label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit unwind label %171
+
+171:                                              ; preds = %169
+  %172 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %.body33
 
-_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %163, %161, %156
-  %167 = load ptr, ptr %11, align 8, !tbaa !3
-  %168 = load i64, ptr %167, align 8
-  %169 = and i64 %168, 1152920405095219200
-  %.not.i.i35 = icmp eq i64 %169, 1152920405095219200
-  br i1 %.not.i.i35, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36, label %170, !prof !18
+_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %169, %167, %161
+  %173 = load ptr, ptr %11, align 8, !tbaa !3
+  %174 = load i64, ptr %173, align 8
+  %175 = and i64 %174, 1152920405095219200
+  %.not.i.i35 = icmp eq i64 %175, 1152920405095219200
+  br i1 %.not.i.i35, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36, label %176, !prof !18
 
-170:                                              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
-  %171 = add i64 %168, 1152920405095219200
-  %172 = and i64 %171, 1152920405095219200
-  %173 = and i64 %168, -1152920405095219201
-  %174 = or disjoint i64 %172, %173
-  store i64 %174, ptr %167, align 8
-  %175 = icmp eq i64 %172, 0
-  br i1 %175, label %176, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36, !prof !18
+176:                                              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+  %177 = add i64 %174, 1152920405095219200
+  %178 = and i64 %177, 1152920405095219200
+  %179 = and i64 %174, -1152920405095219201
+  %180 = or disjoint i64 %178, %179
+  store i64 %180, ptr %173, align 8
+  %181 = icmp eq i64 %178, 0
+  br i1 %181, label %182, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36, !prof !18
 
-176:                                              ; preds = %170
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %167)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36 unwind label %177
+182:                                              ; preds = %176
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %173)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36 unwind label %183
 
-177:                                              ; preds = %176
-  %178 = landingpad { ptr, i32 }
+183:                                              ; preds = %182
+  %184 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #24
+  %185 = extractvalue { ptr, i32 } %184, 0
+  call void @__clang_call_terminate(ptr %185) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36: ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, %170, %176
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36: ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IRKS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, %176, %182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
   br label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit
 
-180:                                              ; preds = %122
-  %181 = landingpad { ptr, i32 }
+186:                                              ; preds = %126
+  %187 = landingpad { ptr, i32 }
           cleanup
   br label %.body28
 
-182:                                              ; preds = %147
-  %183 = landingpad { ptr, i32 }
+188:                                              ; preds = %152
+  %189 = landingpad { ptr, i32 }
           cleanup
   br label %.body33
 
-.body33:                                          ; preds = %165, %182
-  %eh.lpad-body34 = phi { ptr, i32 } [ %183, %182 ], [ %166, %165 ]
+.body33:                                          ; preds = %171, %188
+  %eh.lpad-body34 = phi { ptr, i32 } [ %189, %188 ], [ %172, %171 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #23
   br label %.body28
 
-.body28:                                          ; preds = %180, %132, %.body33
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body34, %.body33 ], [ %181, %180 ], [ %.pn.i26, %132 ]
+.body28:                                          ; preds = %186, %136, %.body33
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body34, %.body33 ], [ %187, %186 ], [ %.pn.i26, %136 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
   br label %.body
 
-_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit: ; preds = %46, %44, %39, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %184 = load ptr, ptr %9, align 8, !tbaa !85
-  %185 = load i64, ptr %184, align 8
-  %186 = and i64 %185, 1152920405095219200
-  %.not.i.i37 = icmp eq i64 %186, 1152920405095219200
-  br i1 %.not.i.i37, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %187, !prof !18
+_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit: ; preds = %48, %46, %40, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit36, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %190 = load ptr, ptr %9, align 8, !tbaa !85
+  %191 = load i64, ptr %190, align 8
+  %192 = and i64 %191, 1152920405095219200
+  %.not.i.i37 = icmp eq i64 %192, 1152920405095219200
+  br i1 %.not.i.i37, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %193, !prof !18
 
-187:                                              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit
-  %188 = add i64 %185, 1152920405095219200
-  %189 = and i64 %188, 1152920405095219200
-  %190 = and i64 %185, -1152920405095219201
-  %191 = or disjoint i64 %189, %190
-  store i64 %191, ptr %184, align 8
-  %192 = icmp eq i64 %189, 0
-  br i1 %192, label %193, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, !prof !18
+193:                                              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit
+  %194 = add i64 %191, 1152920405095219200
+  %195 = and i64 %194, 1152920405095219200
+  %196 = and i64 %191, -1152920405095219201
+  %197 = or disjoint i64 %195, %196
+  store i64 %197, ptr %190, align 8
+  %198 = icmp eq i64 %195, 0
+  br i1 %198, label %199, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, !prof !18
 
-193:                                              ; preds = %187
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %184)
-          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit unwind label %194
+199:                                              ; preds = %193
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %190)
+          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit unwind label %200
 
-194:                                              ; preds = %193
-  %195 = landingpad { ptr, i32 }
+200:                                              ; preds = %199
+  %201 = landingpad { ptr, i32 }
           catch ptr null
-  %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #24
+  %202 = extractvalue { ptr, i32 } %201, 0
+  call void @__clang_call_terminate(ptr %202) #24
   unreachable
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit, %187, %193
+_ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2IS3_S3_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS7_S8_EEEbE4typeELb1EEERKS3_SC_.exit, %193, %199
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
-  %197 = load ptr, ptr %8, align 8, !tbaa !85
-  %198 = load i64, ptr %197, align 8
-  %199 = and i64 %198, 1152920405095219200
-  %.not.i.i38 = icmp eq i64 %199, 1152920405095219200
-  br i1 %.not.i.i38, label %_ZN4cvc58internal8TypeNodeD2Ev.exit39, label %200, !prof !18
+  %203 = load ptr, ptr %8, align 8, !tbaa !85
+  %204 = load i64, ptr %203, align 8
+  %205 = and i64 %204, 1152920405095219200
+  %.not.i.i38 = icmp eq i64 %205, 1152920405095219200
+  br i1 %.not.i.i38, label %_ZN4cvc58internal8TypeNodeD2Ev.exit39, label %206, !prof !18
 
-200:                                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %201 = add i64 %198, 1152920405095219200
-  %202 = and i64 %201, 1152920405095219200
-  %203 = and i64 %198, -1152920405095219201
-  %204 = or disjoint i64 %202, %203
-  store i64 %204, ptr %197, align 8
-  %205 = icmp eq i64 %202, 0
-  br i1 %205, label %206, label %_ZN4cvc58internal8TypeNodeD2Ev.exit39, !prof !18
+206:                                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
+  %207 = add i64 %204, 1152920405095219200
+  %208 = and i64 %207, 1152920405095219200
+  %209 = and i64 %204, -1152920405095219201
+  %210 = or disjoint i64 %208, %209
+  store i64 %210, ptr %203, align 8
+  %211 = icmp eq i64 %208, 0
+  br i1 %211, label %212, label %_ZN4cvc58internal8TypeNodeD2Ev.exit39, !prof !18
 
-206:                                              ; preds = %200
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %197)
-          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit39 unwind label %207
+212:                                              ; preds = %206
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %203)
+          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit39 unwind label %213
 
-207:                                              ; preds = %206
-  %208 = landingpad { ptr, i32 }
+213:                                              ; preds = %212
+  %214 = landingpad { ptr, i32 }
           catch ptr null
-  %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #24
+  %215 = extractvalue { ptr, i32 } %214, 0
+  call void @__clang_call_terminate(ptr %215) #24
   unreachable
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit39:            ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %200, %206
+_ZN4cvc58internal8TypeNodeD2Ev.exit39:            ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %206, %212
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   ret void
 
-.body:                                            ; preds = %52, %48, %.body28, %.body20
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body20 ], [ %.pn, %.body28 ], [ %53, %52 ], [ %49, %48 ]
+.body:                                            ; preds = %54, %50, %.body28, %.body20
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body20 ], [ %.pn, %.body28 ], [ %55, %54 ], [ %51, %50 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
-  br label %210
+  br label %216
 
-210:                                              ; preds = %.body, %50
-  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %.body ], [ %51, %50 ]
+216:                                              ; preds = %.body, %52
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %.body ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
@@ -4729,7 +4742,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %48
   %56 = ptrtoint ptr %53 to i64
   %57 = sub i64 %54, %56
   %58 = icmp eq i64 %57, 8
-  br i1 %58, label %271, label %287
+  br i1 %58, label %272, label %289
 
 59:                                               ; preds = %2
   %60 = landingpad { ptr, i32 }
@@ -4746,12 +4759,12 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %48
 
 _ZN4cvc58internal8RationalD2Ev.exit41:            ; preds = %59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
-  br label %352
+  br label %354
 
 64:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %351
+  br label %353
 
 66:                                               ; preds = %48
   %67 = landingpad { ptr, i32 }
@@ -4759,7 +4772,7 @@ _ZN4cvc58internal8RationalD2Ev.exit41:            ; preds = %59
   br label %_ZN4cvc58internal7IntegerD2Ev.exit81
 
 68:                                               ; preds = %.lr.ph, %_ZN4cvc58internal7IntegerD2Ev.exit
-  %.091 = phi i32 [ 0, %.lr.ph ], [ %236, %_ZN4cvc58internal7IntegerD2Ev.exit ]
+  %.091 = phi i32 [ 0, %.lr.ph ], [ %237, %_ZN4cvc58internal7IntegerD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #23
@@ -4767,7 +4780,7 @@ _ZN4cvc58internal8RationalD2Ev.exit41:            ; preds = %59
   store i32 %.091, ptr %24, align 4, !tbaa !121
   store i32 %.091, ptr %49, align 4, !tbaa !123
   invoke void @_ZN4cvc58internal11NodeManager7mkConstINS0_16BitVectorExtractEEENS0_12NodeTemplateILb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %23, ptr noundef nonnull align 8 dereferenceable(3560) %43, ptr noundef nonnull align 4 dereferenceable(8) %24)
-          to label %69 unwind label %242
+          to label %69 unwind label %243
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %23, align 8, !tbaa !3
@@ -4779,7 +4792,7 @@ _ZN4cvc58internal8RationalD2Ev.exit41:            ; preds = %59
   %76 = icmp eq i32 %75, 1023
   %77 = select i1 %76, i32 -1, i32 %75
   %78 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %77)
-          to label %79 unwind label %244
+          to label %79 unwind label %245
 
 79:                                               ; preds = %69
   %80 = icmp eq i32 %78, 2
@@ -4793,11 +4806,11 @@ _ZN4cvc58internal8RationalD2Ev.exit41:            ; preds = %59
   %85 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !28, !noalias !127
   %87 = invoke noundef i32 @_ZN4cvc58internal4kind14operatorToKindEPNS0_4expr9NodeValueE(ptr noundef nonnull %70)
-          to label %.noexc unwind label %246
+          to label %.noexc unwind label %247
 
 .noexc:                                           ; preds = %79
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %12, ptr noundef %86, i32 noundef %87)
-          to label %.noexc42 unwind label %246
+          to label %.noexc42 unwind label %247
 
 .noexc42:                                         ; preds = %.noexc
   %88 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -4854,7 +4867,7 @@ _ZN4cvc58internal8RationalD2Ev.exit41:            ; preds = %59
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !28, !noalias !130
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %9, ptr noundef %107, i32 noundef 5)
-          to label %.noexc43 unwind label %248
+          to label %.noexc43 unwind label %249
 
 .noexc43:                                         ; preds = %103
   store ptr %104, ptr %10, align 8, !tbaa !32, !noalias !130
@@ -4958,11 +4971,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47: ; preds = %_ZN4cvc58internal12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #23
   invoke void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %.noexc48 unwind label %251
+          to label %.noexc48 unwind label %252
 
 .noexc48:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47
   invoke void @__gmpq_set_z(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %.noexc49 unwind label %251
+          to label %.noexc49 unwind label %252
 
 .noexc49:                                         ; preds = %.noexc48
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %27)
@@ -4983,7 +4996,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47: ; preds = %_ZN4cvc58internal12
 
 _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %.noexc49
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %26, ptr noundef nonnull align 8 dereferenceable(3560) %43, ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %152 unwind label %253
+          to label %152 unwind label %254
 
 152:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit
   %153 = load ptr, ptr %26, align 8, !tbaa !3
@@ -4995,7 +5008,7 @@ _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %.noexc49
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !28, !noalias !133
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %5, ptr noundef %156, i32 noundef 26)
-          to label %.noexc52 unwind label %255
+          to label %.noexc52 unwind label %256
 
 .noexc52:                                         ; preds = %152
   store ptr %146, ptr %6, align 8, !tbaa !32, !noalias !133
@@ -5051,7 +5064,7 @@ _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %.noexc49
   %173 = load ptr, ptr %50, align 8, !tbaa !117
   %174 = load ptr, ptr %51, align 8, !tbaa !136
   %.not.i.i55 = icmp eq ptr %173, %174
-  br i1 %.not.i.i55, label %193, label %175
+  br i1 %.not.i.i55, label %194, label %175
 
 175:                                              ; preds = %172
   %176 = load ptr, ptr %25, align 8, !tbaa !3
@@ -5061,319 +5074,321 @@ _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %.noexc49
   %179 = trunc nuw nsw i64 %178 to i32
   %180 = and i32 %179, 1048575
   %181 = icmp samesign ult i32 %180, 1048574
-  br i1 %181, label %182, label %187, !prof !17
+  br i1 %181, label %182, label %188, !prof !17
 
 182:                                              ; preds = %175
-  %183 = add i64 %177, 1099511627776
-  %184 = and i64 %183, 1152920405095219200
-  %185 = and i64 %177, -1152920405095219201
-  %186 = or disjoint i64 %184, %185
-  store i64 %186, ptr %176, align 8
+  %183 = add nuw nsw i32 %180, 1
+  %184 = zext nneg i32 %183 to i64
+  %185 = shl nuw nsw i64 %184, 40
+  %186 = and i64 %177, -1152920405095219201
+  %187 = or i64 %185, %186
+  store i64 %187, ptr %176, align 8
   br label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i
 
-187:                                              ; preds = %175
-  %188 = icmp eq i32 %180, 1048574
-  br i1 %188, label %189, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, !prof !18
+188:                                              ; preds = %175
+  %189 = icmp eq i32 %180, 1048574
+  br i1 %189, label %190, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, !prof !18
 
-189:                                              ; preds = %187
-  %190 = or i64 %177, 1152920405095219200
-  store i64 %190, ptr %176, align 8
+190:                                              ; preds = %188
+  %191 = or i64 %177, 1152920405095219200
+  store i64 %191, ptr %176, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %176)
-          to label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i unwind label %257
+          to label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i unwind label %258
 
-_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %189, %187, %182
-  %191 = load ptr, ptr %50, align 8, !tbaa !117
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  store ptr %192, ptr %50, align 8, !tbaa !117
+_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %190, %188, %182
+  %192 = load ptr, ptr %50, align 8, !tbaa !117
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  store ptr %193, ptr %50, align 8, !tbaa !117
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit
 
-193:                                              ; preds = %172
+194:                                              ; preds = %172
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr %173, ptr noundef nonnull align 8 dereferenceable(8) %25)
-          to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit unwind label %257
+          to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit unwind label %258
 
-_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, %193
-  %194 = load ptr, ptr %25, align 8, !tbaa !3
-  %195 = load i64, ptr %194, align 8
-  %196 = and i64 %195, 1152920405095219200
-  %.not.i.i58 = icmp eq i64 %196, 1152920405095219200
-  br i1 %.not.i.i58, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59, label %197, !prof !18
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, %194
+  %195 = load ptr, ptr %25, align 8, !tbaa !3
+  %196 = load i64, ptr %195, align 8
+  %197 = and i64 %196, 1152920405095219200
+  %.not.i.i58 = icmp eq i64 %197, 1152920405095219200
+  br i1 %.not.i.i58, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59, label %198, !prof !18
 
-197:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit
-  %198 = add i64 %195, 1152920405095219200
-  %199 = and i64 %198, 1152920405095219200
-  %200 = and i64 %195, -1152920405095219201
-  %201 = or disjoint i64 %199, %200
-  store i64 %201, ptr %194, align 8
-  %202 = icmp eq i64 %199, 0
-  br i1 %202, label %203, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59, !prof !18
+198:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit
+  %199 = add i64 %196, 1152920405095219200
+  %200 = and i64 %199, 1152920405095219200
+  %201 = and i64 %196, -1152920405095219201
+  %202 = or disjoint i64 %200, %201
+  store i64 %202, ptr %195, align 8
+  %203 = icmp eq i64 %200, 0
+  br i1 %203, label %204, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59, !prof !18
 
-203:                                              ; preds = %197
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %194)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59 unwind label %204
+204:                                              ; preds = %198
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %195)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59 unwind label %205
 
-204:                                              ; preds = %203
-  %205 = landingpad { ptr, i32 }
+205:                                              ; preds = %204
+  %206 = landingpad { ptr, i32 }
           catch ptr null
-  %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #24
+  %207 = extractvalue { ptr, i32 } %206, 0
+  call void @__clang_call_terminate(ptr %207) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit, %197, %203
-  %207 = load ptr, ptr %26, align 8, !tbaa !3
-  %208 = load i64, ptr %207, align 8
-  %209 = and i64 %208, 1152920405095219200
-  %.not.i.i60 = icmp eq i64 %209, 1152920405095219200
-  br i1 %.not.i.i60, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61, label %210, !prof !18
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit, %198, %204
+  %208 = load ptr, ptr %26, align 8, !tbaa !3
+  %209 = load i64, ptr %208, align 8
+  %210 = and i64 %209, 1152920405095219200
+  %.not.i.i60 = icmp eq i64 %210, 1152920405095219200
+  br i1 %.not.i.i60, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61, label %211, !prof !18
 
-210:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59
-  %211 = add i64 %208, 1152920405095219200
-  %212 = and i64 %211, 1152920405095219200
-  %213 = and i64 %208, -1152920405095219201
-  %214 = or disjoint i64 %212, %213
-  store i64 %214, ptr %207, align 8
-  %215 = icmp eq i64 %212, 0
-  br i1 %215, label %216, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61, !prof !18
+211:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59
+  %212 = add i64 %209, 1152920405095219200
+  %213 = and i64 %212, 1152920405095219200
+  %214 = and i64 %209, -1152920405095219201
+  %215 = or disjoint i64 %213, %214
+  store i64 %215, ptr %208, align 8
+  %216 = icmp eq i64 %213, 0
+  br i1 %216, label %217, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61, !prof !18
 
-216:                                              ; preds = %210
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %207)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61 unwind label %217
+217:                                              ; preds = %211
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %208)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61 unwind label %218
 
-217:                                              ; preds = %216
-  %218 = landingpad { ptr, i32 }
+218:                                              ; preds = %217
+  %219 = landingpad { ptr, i32 }
           catch ptr null
-  %219 = extractvalue { ptr, i32 } %218, 0
-  call void @__clang_call_terminate(ptr %219) #24
+  %220 = extractvalue { ptr, i32 } %219, 0
+  call void @__clang_call_terminate(ptr %220) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59, %210, %216
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit59, %211, %217
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit63 unwind label %220
+          to label %_ZN4cvc58internal8RationalD2Ev.exit63 unwind label %221
 
-220:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61
-  %221 = landingpad { ptr, i32 }
+221:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61
+  %222 = landingpad { ptr, i32 }
           catch ptr null
-  %222 = extractvalue { ptr, i32 } %221, 0
-  call void @__clang_call_terminate(ptr %222) #24
+  %223 = extractvalue { ptr, i32 } %222, 0
+  call void @__clang_call_terminate(ptr %223) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit63:            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
-  %223 = load ptr, ptr %21, align 8, !tbaa !3
-  %224 = load i64, ptr %223, align 8
-  %225 = and i64 %224, 1152920405095219200
-  %.not.i.i64 = icmp eq i64 %225, 1152920405095219200
-  br i1 %.not.i.i64, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65, label %226, !prof !18
+  %224 = load ptr, ptr %21, align 8, !tbaa !3
+  %225 = load i64, ptr %224, align 8
+  %226 = and i64 %225, 1152920405095219200
+  %.not.i.i64 = icmp eq i64 %226, 1152920405095219200
+  br i1 %.not.i.i64, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65, label %227, !prof !18
 
-226:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit63
-  %227 = add i64 %224, 1152920405095219200
-  %228 = and i64 %227, 1152920405095219200
-  %229 = and i64 %224, -1152920405095219201
-  %230 = or disjoint i64 %228, %229
-  store i64 %230, ptr %223, align 8
-  %231 = icmp eq i64 %228, 0
-  br i1 %231, label %232, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65, !prof !18
+227:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit63
+  %228 = add i64 %225, 1152920405095219200
+  %229 = and i64 %228, 1152920405095219200
+  %230 = and i64 %225, -1152920405095219201
+  %231 = or disjoint i64 %229, %230
+  store i64 %231, ptr %224, align 8
+  %232 = icmp eq i64 %229, 0
+  br i1 %232, label %233, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65, !prof !18
 
-232:                                              ; preds = %226
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %223)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65 unwind label %233
+233:                                              ; preds = %227
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %224)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65 unwind label %234
 
-233:                                              ; preds = %232
-  %234 = landingpad { ptr, i32 }
+234:                                              ; preds = %233
+  %235 = landingpad { ptr, i32 }
           catch ptr null
-  %235 = extractvalue { ptr, i32 } %234, 0
-  call void @__clang_call_terminate(ptr %235) #24
+  %236 = extractvalue { ptr, i32 } %235, 0
+  call void @__clang_call_terminate(ptr %236) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit63, %226, %232
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit63, %227, %233
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #23
-  %236 = add nuw i32 %.091, 1
+  %237 = add nuw i32 %.091, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #23
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %28, i64 noundef 2)
-          to label %_ZN4cvc58internal7IntegerC2Ei.exit67 unwind label %264
+          to label %_ZN4cvc58internal7IntegerC2Ei.exit67 unwind label %265
 
 _ZN4cvc58internal7IntegerC2Ei.exit67:             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65
-  %237 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %238 unwind label %266
+  %238 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %28)
+          to label %239 unwind label %267
 
-238:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit67
+239:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit67
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %239
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %240
 
-239:                                              ; preds = %238
-  %240 = landingpad { ptr, i32 }
+240:                                              ; preds = %239
+  %241 = landingpad { ptr, i32 }
           catch ptr null
-  %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #24
+  %242 = extractvalue { ptr, i32 } %241, 0
+  call void @__clang_call_terminate(ptr %242) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %238
+_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %239
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #23
-  %exitcond.not = icmp eq i32 %236, %42
+  %exitcond.not = icmp eq i32 %237, %42
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %68, !llvm.loop !137
 
-242:                                              ; preds = %68
-  %243 = landingpad { ptr, i32 }
+243:                                              ; preds = %68
+  %244 = landingpad { ptr, i32 }
           cleanup
-  br label %250
+  br label %251
 
-244:                                              ; preds = %69
-  %245 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-246:                                              ; preds = %.noexc, %79
-  %247 = landingpad { ptr, i32 }
+245:                                              ; preds = %69
+  %246 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-248:                                              ; preds = %103
-  %249 = landingpad { ptr, i32 }
+247:                                              ; preds = %.noexc, %79
+  %248 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+249:                                              ; preds = %103
+  %250 = landingpad { ptr, i32 }
           cleanup
   br label %.body44
 
-.body44:                                          ; preds = %118, %248
-  %eh.lpad-body45 = phi { ptr, i32 } [ %249, %248 ], [ %.pn5.i, %118 ]
+.body44:                                          ; preds = %118, %249
+  %eh.lpad-body45 = phi { ptr, i32 } [ %250, %249 ], [ %.pn5.i, %118 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
   br label %.body
 
-.body:                                            ; preds = %.body44, %102, %246, %244
-  %.pn.pn = phi { ptr, i32 } [ %245, %244 ], [ %eh.lpad-body45, %.body44 ], [ %247, %246 ], [ %.pn.i, %102 ]
+.body:                                            ; preds = %.body44, %102, %247, %245
+  %.pn.pn = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body45, %.body44 ], [ %248, %247 ], [ %.pn.i, %102 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #23
-  br label %250
+  br label %251
 
-250:                                              ; preds = %.body, %242
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %243, %242 ]
+251:                                              ; preds = %.body, %243
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %244, %243 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #23
-  br label %263
+  br label %264
 
-251:                                              ; preds = %.noexc48, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47
-  %252 = landingpad { ptr, i32 }
+252:                                              ; preds = %.noexc48, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47
+  %253 = landingpad { ptr, i32 }
           cleanup
   br label %.body50
 
-253:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit
-  %254 = landingpad { ptr, i32 }
+254:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit
+  %255 = landingpad { ptr, i32 }
           cleanup
-  br label %259
+  br label %260
 
-255:                                              ; preds = %152
-  %256 = landingpad { ptr, i32 }
+256:                                              ; preds = %152
+  %257 = landingpad { ptr, i32 }
           cleanup
   br label %.body53
 
-257:                                              ; preds = %193, %189
-  %258 = landingpad { ptr, i32 }
+258:                                              ; preds = %194, %190
+  %259 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #23
   br label %.body53
 
-.body53:                                          ; preds = %255, %171, %257
-  %.pn28 = phi { ptr, i32 } [ %258, %257 ], [ %256, %255 ], [ %.pn7.i, %171 ]
+.body53:                                          ; preds = %256, %171, %258
+  %.pn28 = phi { ptr, i32 } [ %259, %258 ], [ %257, %256 ], [ %.pn7.i, %171 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #23
-  br label %259
+  br label %260
 
-259:                                              ; preds = %.body53, %253
-  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %.body53 ], [ %254, %253 ]
+260:                                              ; preds = %.body53, %254
+  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %.body53 ], [ %255, %254 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %.body50 unwind label %260
+          to label %.body50 unwind label %261
 
-260:                                              ; preds = %259
-  %261 = landingpad { ptr, i32 }
+261:                                              ; preds = %260
+  %262 = landingpad { ptr, i32 }
           catch ptr null
-  %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #24
+  %263 = extractvalue { ptr, i32 } %262, 0
+  call void @__clang_call_terminate(ptr %263) #24
   unreachable
 
-.body50:                                          ; preds = %259, %251, %147
-  %.pn28.pn.pn = phi { ptr, i32 } [ %252, %251 ], [ %148, %147 ], [ %.pn28.pn, %259 ]
+.body50:                                          ; preds = %260, %252, %147
+  %.pn28.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %148, %147 ], [ %.pn28.pn, %260 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #23
-  br label %263
+  br label %264
 
-263:                                              ; preds = %.body50, %250
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn, %.body50 ], [ %.pn.pn.pn, %250 ]
+264:                                              ; preds = %.body50, %251
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn, %.body50 ], [ %.pn.pn.pn, %251 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #23
   br label %.body73
 
-264:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65
-  %265 = landingpad { ptr, i32 }
+265:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65
+  %266 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal7IntegerD2Ev.exit70
 
-266:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit67
-  %267 = landingpad { ptr, i32 }
+267:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit67
+  %268 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit70 unwind label %268
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit70 unwind label %269
 
-268:                                              ; preds = %266
-  %269 = landingpad { ptr, i32 }
+269:                                              ; preds = %267
+  %270 = landingpad { ptr, i32 }
           catch ptr null
-  %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #24
+  %271 = extractvalue { ptr, i32 } %270, 0
+  call void @__clang_call_terminate(ptr %271) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit70:             ; preds = %266, %264
-  %.pn33 = phi { ptr, i32 } [ %265, %264 ], [ %267, %266 ]
+_ZN4cvc58internal7IntegerD2Ev.exit70:             ; preds = %267, %265
+  %.pn33 = phi { ptr, i32 } [ %266, %265 ], [ %268, %267 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #23
   br label %.body73
 
-271:                                              ; preds = %._crit_edge
-  %272 = load ptr, ptr %53, align 8, !tbaa !3
-  store ptr %272, ptr %0, align 8, !tbaa !3
-  %273 = load i64, ptr %272, align 8
-  %274 = lshr i64 %273, 40
-  %275 = trunc nuw nsw i64 %274 to i32
-  %276 = and i32 %275, 1048575
-  %277 = icmp samesign ult i32 %276, 1048574
-  br i1 %277, label %278, label %283, !prof !17
+272:                                              ; preds = %._crit_edge
+  %273 = load ptr, ptr %53, align 8, !tbaa !3
+  store ptr %273, ptr %0, align 8, !tbaa !3
+  %274 = load i64, ptr %273, align 8
+  %275 = lshr i64 %274, 40
+  %276 = trunc nuw nsw i64 %275 to i32
+  %277 = and i32 %276, 1048575
+  %278 = icmp samesign ult i32 %277, 1048574
+  br i1 %278, label %279, label %285, !prof !17
 
-278:                                              ; preds = %271
-  %279 = add i64 %273, 1099511627776
-  %280 = and i64 %279, 1152920405095219200
-  %281 = and i64 %273, -1152920405095219201
-  %282 = or disjoint i64 %280, %281
-  store i64 %282, ptr %272, align 8
+279:                                              ; preds = %272
+  %280 = add nuw nsw i32 %277, 1
+  %281 = zext nneg i32 %280 to i64
+  %282 = shl nuw nsw i64 %281, 40
+  %283 = and i64 %274, -1152920405095219201
+  %284 = or i64 %282, %283
+  store i64 %284, ptr %273, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-283:                                              ; preds = %271
-  %284 = icmp eq i32 %276, 1048574
-  br i1 %284, label %285, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
+285:                                              ; preds = %272
+  %286 = icmp eq i32 %277, 1048574
+  br i1 %286, label %287, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
 
-285:                                              ; preds = %283
-  %286 = or i64 %273, 1152920405095219200
-  store i64 %286, ptr %272, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %272)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %346
+287:                                              ; preds = %285
+  %288 = or i64 %274, 1152920405095219200
+  store i64 %288, ptr %273, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %273)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %348
 
-287:                                              ; preds = %._crit_edge
+289:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #23, !noalias !138
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef nonnull align 8 dereferenceable(3560) %43, i32 noundef 39)
-          to label %.noexc72 unwind label %346
+          to label %.noexc72 unwind label %348
 
-.noexc72:                                         ; preds = %287
-  %288 = load ptr, ptr %20, align 8, !tbaa !141, !noalias !138
-  %289 = load ptr, ptr %55, align 8, !tbaa !141, !noalias !138
+.noexc72:                                         ; preds = %289
+  %290 = load ptr, ptr %20, align 8, !tbaa !141, !noalias !138
+  %291 = load ptr, ptr %55, align 8, !tbaa !141, !noalias !138
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !138
-  %.not6.i.i.i = icmp eq ptr %289, %288
+  %.not6.i.i.i = icmp eq ptr %291, %290
   br i1 %.not6.i.i.i, label %.loopexit4.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc72, %.noexc.i
-  %.sroa.0.07.i.i.i = phi ptr [ %292, %.noexc.i ], [ %288, %.noexc72 ]
-  %290 = load ptr, ptr %.sroa.0.07.i.i.i, align 8, !tbaa !3, !noalias !138
-  store ptr %290, ptr %3, align 8, !tbaa !32, !noalias !138
-  %291 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilder6appendENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef nonnull %3)
+  %.sroa.0.07.i.i.i = phi ptr [ %294, %.noexc.i ], [ %290, %.noexc72 ]
+  %292 = load ptr, ptr %.sroa.0.07.i.i.i, align 8, !tbaa !3, !noalias !138
+  store ptr %292, ptr %3, align 8, !tbaa !32, !noalias !138
+  %293 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilder6appendENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef nonnull %3)
           to label %.noexc.i unwind label %.loopexit.i, !noalias !138
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i.i
-  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %292, %289
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %294, %291
   br i1 %.not.i.i.i, label %.loopexit4.i, label %.lr.ph.i.i.i, !llvm.loop !142
 
 .loopexit4.i:                                     ; preds = %.noexc.i, %.noexc72
@@ -5384,14 +5399,14 @@ _ZN4cvc58internal7IntegerD2Ev.exit70:             ; preds = %266, %264
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %293
+  br label %295
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit4.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %293
+  br label %295
 
-293:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
+295:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %4) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #23, !noalias !138
@@ -5402,43 +5417,43 @@ _ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6K
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #23, !noalias !138
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %283, %278, %285, %_ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS3_IXT_EEESaIS8_EE.exit
-  %294 = load ptr, ptr %20, align 8, !tbaa !120
-  %295 = load ptr, ptr %55, align 8, !tbaa !117
-  %.not4.i.i.i.i = icmp eq ptr %294, %295
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %285, %279, %287, %_ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS3_IXT_EEESaIS8_EE.exit
+  %296 = load ptr, ptr %20, align 8, !tbaa !120
+  %297 = load ptr, ptr %55, align 8, !tbaa !117
+  %.not4.i.i.i.i = icmp eq ptr %296, %297
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %309, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i ], [ %294, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ]
-  %296 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !3
-  %297 = load i64, ptr %296, align 8
-  %298 = and i64 %297, 1152920405095219200
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %298, 1152920405095219200
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, label %299, !prof !18
+  %.05.i.i.i.i = phi ptr [ %311, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i ], [ %296, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ]
+  %298 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !3
+  %299 = load i64, ptr %298, align 8
+  %300 = and i64 %299, 1152920405095219200
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %300, 1152920405095219200
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, label %301, !prof !18
 
-299:                                              ; preds = %.lr.ph.i.i.i.i
-  %300 = add i64 %297, 1152920405095219200
-  %301 = and i64 %300, 1152920405095219200
-  %302 = and i64 %297, -1152920405095219201
-  %303 = or disjoint i64 %301, %302
-  store i64 %303, ptr %296, align 8
-  %304 = icmp eq i64 %301, 0
-  br i1 %304, label %305, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, !prof !18
+301:                                              ; preds = %.lr.ph.i.i.i.i
+  %302 = add i64 %299, 1152920405095219200
+  %303 = and i64 %302, 1152920405095219200
+  %304 = and i64 %299, -1152920405095219201
+  %305 = or disjoint i64 %303, %304
+  store i64 %305, ptr %298, align 8
+  %306 = icmp eq i64 %303, 0
+  br i1 %306, label %307, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, !prof !18
 
-305:                                              ; preds = %299
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %296)
-          to label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i unwind label %306
+307:                                              ; preds = %301
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %298)
+          to label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i unwind label %308
 
-306:                                              ; preds = %305
-  %307 = landingpad { ptr, i32 }
+308:                                              ; preds = %307
+  %309 = landingpad { ptr, i32 }
           catch ptr null
-  %308 = extractvalue { ptr, i32 } %307, 0
-  call void @__clang_call_terminate(ptr %308) #24
+  %310 = extractvalue { ptr, i32 } %309, 0
+  call void @__clang_call_terminate(ptr %310) #24
   unreachable
 
-_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %305, %299, %.lr.ph.i.i.i.i
-  %309 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %309, %295
+_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %307, %301, %.lr.ph.i.i.i.i
+  %311 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %311, %297
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
 
 _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i
@@ -5446,124 +5461,124 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread
   br label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %310 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %294, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ]
-  %.not.i.i.i75 = icmp eq ptr %310, null
-  br i1 %.not.i.i.i75, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %311
+  %312 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %296, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ]
+  %.not.i.i.i75 = icmp eq ptr %312, null
+  br i1 %.not.i.i.i75, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %313
 
-311:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
-  %312 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %313 = load ptr, ptr %312, align 8, !tbaa !136
-  %314 = ptrtoint ptr %313 to i64
-  %315 = ptrtoint ptr %310 to i64
-  %316 = sub i64 %314, %315
-  call void @_ZdlPvm(ptr noundef nonnull %310, i64 noundef %316) #28
+313:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
+  %314 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %315 = load ptr, ptr %314, align 8, !tbaa !136
+  %316 = ptrtoint ptr %315 to i64
+  %317 = ptrtoint ptr %312 to i64
+  %318 = sub i64 %316, %317
+  call void @_ZdlPvm(ptr noundef nonnull %312, i64 noundef %318) #28
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, %311
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, %313
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #23
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit76 unwind label %317
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit76 unwind label %319
 
-317:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
-  %318 = landingpad { ptr, i32 }
+319:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
+  %320 = landingpad { ptr, i32 }
           catch ptr null
-  %319 = extractvalue { ptr, i32 } %318, 0
-  call void @__clang_call_terminate(ptr %319) #24
+  %321 = extractvalue { ptr, i32 } %320, 0
+  call void @__clang_call_terminate(ptr %321) #24
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit76:             ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #23
-  %320 = load ptr, ptr %18, align 8, !tbaa !3
-  %321 = load i64, ptr %320, align 8
-  %322 = and i64 %321, 1152920405095219200
-  %.not.i.i77 = icmp eq i64 %322, 1152920405095219200
-  br i1 %.not.i.i77, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78, label %323, !prof !18
+  %322 = load ptr, ptr %18, align 8, !tbaa !3
+  %323 = load i64, ptr %322, align 8
+  %324 = and i64 %323, 1152920405095219200
+  %.not.i.i77 = icmp eq i64 %324, 1152920405095219200
+  br i1 %.not.i.i77, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78, label %325, !prof !18
 
-323:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit76
-  %324 = add i64 %321, 1152920405095219200
-  %325 = and i64 %324, 1152920405095219200
-  %326 = and i64 %321, -1152920405095219201
-  %327 = or disjoint i64 %325, %326
-  store i64 %327, ptr %320, align 8
-  %328 = icmp eq i64 %325, 0
-  br i1 %328, label %329, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78, !prof !18
+325:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit76
+  %326 = add i64 %323, 1152920405095219200
+  %327 = and i64 %326, 1152920405095219200
+  %328 = and i64 %323, -1152920405095219201
+  %329 = or disjoint i64 %327, %328
+  store i64 %329, ptr %322, align 8
+  %330 = icmp eq i64 %327, 0
+  br i1 %330, label %331, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78, !prof !18
 
-329:                                              ; preds = %323
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %320)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78 unwind label %330
+331:                                              ; preds = %325
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %322)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78 unwind label %332
 
-330:                                              ; preds = %329
-  %331 = landingpad { ptr, i32 }
+332:                                              ; preds = %331
+  %333 = landingpad { ptr, i32 }
           catch ptr null
-  %332 = extractvalue { ptr, i32 } %331, 0
-  call void @__clang_call_terminate(ptr %332) #24
+  %334 = extractvalue { ptr, i32 } %333, 0
+  call void @__clang_call_terminate(ptr %334) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78: ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit76, %323, %329
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78: ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit76, %325, %331
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #23
-  %333 = load ptr, ptr %16, align 8, !tbaa !3
-  %334 = load i64, ptr %333, align 8
-  %335 = and i64 %334, 1152920405095219200
-  %.not.i.i79 = icmp eq i64 %335, 1152920405095219200
-  br i1 %.not.i.i79, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, label %336, !prof !18
+  %335 = load ptr, ptr %16, align 8, !tbaa !3
+  %336 = load i64, ptr %335, align 8
+  %337 = and i64 %336, 1152920405095219200
+  %.not.i.i79 = icmp eq i64 %337, 1152920405095219200
+  br i1 %.not.i.i79, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, label %338, !prof !18
 
-336:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78
-  %337 = add i64 %334, 1152920405095219200
-  %338 = and i64 %337, 1152920405095219200
-  %339 = and i64 %334, -1152920405095219201
-  %340 = or disjoint i64 %338, %339
-  store i64 %340, ptr %333, align 8
-  %341 = icmp eq i64 %338, 0
-  br i1 %341, label %342, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, !prof !18
+338:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78
+  %339 = add i64 %336, 1152920405095219200
+  %340 = and i64 %339, 1152920405095219200
+  %341 = and i64 %336, -1152920405095219201
+  %342 = or disjoint i64 %340, %341
+  store i64 %342, ptr %335, align 8
+  %343 = icmp eq i64 %340, 0
+  br i1 %343, label %344, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, !prof !18
 
-342:                                              ; preds = %336
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %333)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 unwind label %343
+344:                                              ; preds = %338
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %335)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 unwind label %345
 
-343:                                              ; preds = %342
-  %344 = landingpad { ptr, i32 }
+345:                                              ; preds = %344
+  %346 = landingpad { ptr, i32 }
           catch ptr null
-  %345 = extractvalue { ptr, i32 } %344, 0
-  call void @__clang_call_terminate(ptr %345) #24
+  %347 = extractvalue { ptr, i32 } %346, 0
+  call void @__clang_call_terminate(ptr %347) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78, %336, %342
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit78, %338, %344
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   ret void
 
-346:                                              ; preds = %287, %285
-  %347 = landingpad { ptr, i32 }
+348:                                              ; preds = %289, %287
+  %349 = landingpad { ptr, i32 }
           cleanup
   br label %.body73
 
-.body73:                                          ; preds = %346, %293, %263, %_ZN4cvc58internal7IntegerD2Ev.exit70
-  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33, %_ZN4cvc58internal7IntegerD2Ev.exit70 ], [ %.pn28.pn.pn.pn, %263 ], [ %347, %346 ], [ %lpad.phi.i, %293 ]
+.body73:                                          ; preds = %348, %295, %264, %_ZN4cvc58internal7IntegerD2Ev.exit70
+  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33, %_ZN4cvc58internal7IntegerD2Ev.exit70 ], [ %.pn28.pn.pn.pn, %264 ], [ %349, %348 ], [ %lpad.phi.i, %295 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #23
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit81 unwind label %348
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit81 unwind label %350
 
-348:                                              ; preds = %.body73
-  %349 = landingpad { ptr, i32 }
+350:                                              ; preds = %.body73
+  %351 = landingpad { ptr, i32 }
           catch ptr null
-  %350 = extractvalue { ptr, i32 } %349, 0
-  call void @__clang_call_terminate(ptr %350) #24
+  %352 = extractvalue { ptr, i32 } %351, 0
+  call void @__clang_call_terminate(ptr %352) #24
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit81:             ; preds = %.body73, %66
   %.pn33.pn.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn33.pn.pn, %.body73 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #23
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #23
-  br label %351
+  br label %353
 
-351:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit81, %64
+353:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit81, %64
   %.pn33.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit81 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #23
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
-  br label %352
+  br label %354
 
-352:                                              ; preds = %351, %_ZN4cvc58internal8RationalD2Ev.exit41
-  %.pn33.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn, %351 ], [ %60, %_ZN4cvc58internal8RationalD2Ev.exit41 ]
+354:                                              ; preds = %353, %_ZN4cvc58internal8RationalD2Ev.exit41
+  %.pn33.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn, %353 ], [ %60, %_ZN4cvc58internal8RationalD2Ev.exit41 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   resume { ptr, i32 } %.pn33.pn.pn.pn.pn.pn
 }
@@ -5673,7 +5688,7 @@ define hidden void @_ZN4cvc58internal6theory5arith15eliminateInt2BvENS0_12NodeTe
   call void @_ZNK4cvc58internal12NodeTemplateILb0EE11getOperatorEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %29 = load ptr, ptr %14, align 8, !tbaa !3
   %30 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %29)
-          to label %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_14IntToBitVectorEEERKT_v.exit unwind label %244
+          to label %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_14IntToBitVectorEEERKT_v.exit unwind label %245
 
 _ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_14IntToBitVectorEEERKT_v.exit: ; preds = %2
   %31 = load i32, ptr %30, align 4, !tbaa !144
@@ -5710,14 +5725,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNK4cvc58internal1
   call void @_ZN4cvc58internal6theory2bv5utils6mkZeroEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %15, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #23
   invoke void @_ZN4cvc58internal6theory2bv5utils5mkOneEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %16, i32 noundef 1)
-          to label %46 unwind label %246
+          to label %46 unwind label %247
 
 46:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #23
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef 2)
-          to label %_ZN4cvc58internal7IntegerC2Ei.exit.preheader unwind label %248
+          to label %_ZN4cvc58internal7IntegerC2Ei.exit.preheader unwind label %249
 
 _ZN4cvc58internal7IntegerC2Ei.exit.preheader:     ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -5747,7 +5762,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit.preheader:     ; preds = %46
   %64 = icmp eq i32 %63, 1023
   %65 = select i1 %64, i32 -1, i32 %63
   %66 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %65)
-          to label %67 unwind label %250
+          to label %67 unwind label %251
 
 67:                                               ; preds = %58
   %68 = icmp eq i32 %66, 2
@@ -5758,11 +5773,11 @@ _ZN4cvc58internal7IntegerC2Ei.exit.preheader:     ; preds = %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #23
   invoke void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %.noexc unwind label %252
+          to label %.noexc unwind label %253
 
 .noexc:                                           ; preds = %67
   invoke void @__gmpq_set_z(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %.noexc43 unwind label %252
+          to label %.noexc43 unwind label %253
 
 .noexc43:                                         ; preds = %.noexc
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %22)
@@ -5783,7 +5798,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit.preheader:     ; preds = %46
 
 _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %.noexc43
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %21, ptr noundef nonnull align 8 dereferenceable(3560) %45, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %78 unwind label %254
+          to label %78 unwind label %255
 
 78:                                               ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit
   %79 = load ptr, ptr %21, align 8, !tbaa !3
@@ -5793,7 +5808,7 @@ _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %.noexc43
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !28, !noalias !149
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %11, ptr noundef %81, i32 noundef 49)
-          to label %.noexc44 unwind label %256
+          to label %.noexc44 unwind label %257
 
 .noexc44:                                         ; preds = %78
   store ptr %72, ptr %12, align 8, !tbaa !32, !noalias !149
@@ -5840,15 +5855,15 @@ _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %.noexc43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #23
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %25, i64 noundef 2)
-          to label %_ZN4cvc58internal7IntegerC2Ei.exit48 unwind label %258
+          to label %_ZN4cvc58internal7IntegerC2Ei.exit48 unwind label %259
 
 _ZN4cvc58internal7IntegerC2Ei.exit48:             ; preds = %93
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %.noexc50 unwind label %260
+          to label %.noexc50 unwind label %261
 
 .noexc50:                                         ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit48
   invoke void @__gmpz_init_set(ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(16) %25)
-          to label %.noexc51 unwind label %260
+          to label %.noexc51 unwind label %261
 
 .noexc51:                                         ; preds = %.noexc50
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %24)
@@ -5869,7 +5884,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit48:             ; preds = %93
 
 _ZN4cvc58internal8RationalC2ERKNS0_7IntegerES4_.exit: ; preds = %.noexc51
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %23, ptr noundef nonnull align 8 dereferenceable(3560) %45, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %100 unwind label %262
+          to label %100 unwind label %263
 
 100:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerES4_.exit
   %101 = load ptr, ptr %23, align 8, !tbaa !3
@@ -5879,7 +5894,7 @@ _ZN4cvc58internal8RationalC2ERKNS0_7IntegerES4_.exit: ; preds = %.noexc51
   %102 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !28, !noalias !152
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %8, ptr noundef %103, i32 noundef 78)
-          to label %.noexc55 unwind label %264
+          to label %.noexc55 unwind label %265
 
 .noexc55:                                         ; preds = %100
   store ptr %94, ptr %9, align 8, !tbaa !32, !noalias !152
@@ -6052,7 +6067,7 @@ _ZN4cvc58internal8RationalD2Ev.exit67:            ; preds = %_ZN4cvc58internal12
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !28, !noalias !155
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef %168, i32 noundef 26)
-          to label %.noexc68 unwind label %278
+          to label %.noexc68 unwind label %279
 
 .noexc68:                                         ; preds = %_ZN4cvc58internal8RationalD2Ev.exit67
   store ptr %164, ptr %5, align 8, !tbaa !32, !noalias !155
@@ -6108,7 +6123,7 @@ _ZN4cvc58internal8RationalD2Ev.exit67:            ; preds = %_ZN4cvc58internal12
   %185 = load ptr, ptr %47, align 8, !tbaa !117
   %186 = load ptr, ptr %57, align 8, !tbaa !136
   %.not.i.i71 = icmp eq ptr %185, %186
-  br i1 %.not.i.i71, label %205, label %187
+  br i1 %.not.i.i71, label %206, label %187
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %26, align 8, !tbaa !3
@@ -6118,441 +6133,443 @@ _ZN4cvc58internal8RationalD2Ev.exit67:            ; preds = %_ZN4cvc58internal12
   %191 = trunc nuw nsw i64 %190 to i32
   %192 = and i32 %191, 1048575
   %193 = icmp samesign ult i32 %192, 1048574
-  br i1 %193, label %194, label %199, !prof !17
+  br i1 %193, label %194, label %200, !prof !17
 
 194:                                              ; preds = %187
-  %195 = add i64 %189, 1099511627776
-  %196 = and i64 %195, 1152920405095219200
-  %197 = and i64 %189, -1152920405095219201
-  %198 = or disjoint i64 %196, %197
-  store i64 %198, ptr %188, align 8
+  %195 = add nuw nsw i32 %192, 1
+  %196 = zext nneg i32 %195 to i64
+  %197 = shl nuw nsw i64 %196, 40
+  %198 = and i64 %189, -1152920405095219201
+  %199 = or i64 %197, %198
+  store i64 %199, ptr %188, align 8
   br label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i
 
-199:                                              ; preds = %187
-  %200 = icmp eq i32 %192, 1048574
-  br i1 %200, label %201, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, !prof !18
+200:                                              ; preds = %187
+  %201 = icmp eq i32 %192, 1048574
+  br i1 %201, label %202, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, !prof !18
 
-201:                                              ; preds = %199
-  %202 = or i64 %189, 1152920405095219200
-  store i64 %202, ptr %188, align 8
+202:                                              ; preds = %200
+  %203 = or i64 %189, 1152920405095219200
+  store i64 %203, ptr %188, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %188)
-          to label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i unwind label %280
+          to label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i unwind label %281
 
-_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %201, %199, %194
-  %203 = load ptr, ptr %47, align 8, !tbaa !117
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  store ptr %204, ptr %47, align 8, !tbaa !117
+_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %202, %200, %194
+  %204 = load ptr, ptr %47, align 8, !tbaa !117
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  store ptr %205, ptr %47, align 8, !tbaa !117
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit
 
-205:                                              ; preds = %184
+206:                                              ; preds = %184
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %185, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit unwind label %280
+          to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit unwind label %281
 
-_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, %205
-  %206 = load ptr, ptr %26, align 8, !tbaa !3
-  %207 = load i64, ptr %206, align 8
-  %208 = and i64 %207, 1152920405095219200
-  %.not.i.i74 = icmp eq i64 %208, 1152920405095219200
-  br i1 %.not.i.i74, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75, label %209, !prof !18
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i, %206
+  %207 = load ptr, ptr %26, align 8, !tbaa !3
+  %208 = load i64, ptr %207, align 8
+  %209 = and i64 %208, 1152920405095219200
+  %.not.i.i74 = icmp eq i64 %209, 1152920405095219200
+  br i1 %.not.i.i74, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75, label %210, !prof !18
 
-209:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit
-  %210 = add i64 %207, 1152920405095219200
-  %211 = and i64 %210, 1152920405095219200
-  %212 = and i64 %207, -1152920405095219201
-  %213 = or disjoint i64 %211, %212
-  store i64 %213, ptr %206, align 8
-  %214 = icmp eq i64 %211, 0
-  br i1 %214, label %215, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75, !prof !18
+210:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit
+  %211 = add i64 %208, 1152920405095219200
+  %212 = and i64 %211, 1152920405095219200
+  %213 = and i64 %208, -1152920405095219201
+  %214 = or disjoint i64 %212, %213
+  store i64 %214, ptr %207, align 8
+  %215 = icmp eq i64 %212, 0
+  br i1 %215, label %216, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75, !prof !18
 
-215:                                              ; preds = %209
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %206)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75 unwind label %216
+216:                                              ; preds = %210
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %207)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75 unwind label %217
 
-216:                                              ; preds = %215
-  %217 = landingpad { ptr, i32 }
+217:                                              ; preds = %216
+  %218 = landingpad { ptr, i32 }
           catch ptr null
-  %218 = extractvalue { ptr, i32 } %217, 0
-  call void @__clang_call_terminate(ptr %218) #24
+  %219 = extractvalue { ptr, i32 } %218, 0
+  call void @__clang_call_terminate(ptr %219) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit, %209, %215
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit, %210, %216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #23
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef 2)
-          to label %_ZN4cvc58internal7IntegerC2Ei.exit77 unwind label %282
+          to label %_ZN4cvc58internal7IntegerC2Ei.exit77 unwind label %283
 
 _ZN4cvc58internal7IntegerC2Ei.exit77:             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75
-  %219 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %27)
-          to label %220 unwind label %284
+  %220 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %27)
+          to label %221 unwind label %285
 
-220:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit77
+221:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit77
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %27)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit78 unwind label %221
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit78 unwind label %222
 
-221:                                              ; preds = %220
-  %222 = landingpad { ptr, i32 }
+222:                                              ; preds = %221
+  %223 = landingpad { ptr, i32 }
           catch ptr null
-  %223 = extractvalue { ptr, i32 } %222, 0
-  call void @__clang_call_terminate(ptr %223) #24
+  %224 = extractvalue { ptr, i32 } %223, 0
+  call void @__clang_call_terminate(ptr %224) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit78:             ; preds = %220
+_ZN4cvc58internal7IntegerD2Ev.exit78:             ; preds = %221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #23
-  %224 = load ptr, ptr %19, align 8, !tbaa !3
-  %225 = load i64, ptr %224, align 8
-  %226 = and i64 %225, 1152920405095219200
-  %.not.i.i79 = icmp eq i64 %226, 1152920405095219200
-  br i1 %.not.i.i79, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, label %227, !prof !18
+  %225 = load ptr, ptr %19, align 8, !tbaa !3
+  %226 = load i64, ptr %225, align 8
+  %227 = and i64 %226, 1152920405095219200
+  %.not.i.i79 = icmp eq i64 %227, 1152920405095219200
+  br i1 %.not.i.i79, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, label %228, !prof !18
 
-227:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit78
-  %228 = add i64 %225, 1152920405095219200
-  %229 = and i64 %228, 1152920405095219200
-  %230 = and i64 %225, -1152920405095219201
-  %231 = or disjoint i64 %229, %230
-  store i64 %231, ptr %224, align 8
-  %232 = icmp eq i64 %229, 0
-  br i1 %232, label %233, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, !prof !18
+228:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit78
+  %229 = add i64 %226, 1152920405095219200
+  %230 = and i64 %229, 1152920405095219200
+  %231 = and i64 %226, -1152920405095219201
+  %232 = or disjoint i64 %230, %231
+  store i64 %232, ptr %225, align 8
+  %233 = icmp eq i64 %230, 0
+  br i1 %233, label %234, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, !prof !18
 
-233:                                              ; preds = %227
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %224)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 unwind label %234
+234:                                              ; preds = %228
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %225)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 unwind label %235
 
-234:                                              ; preds = %233
-  %235 = landingpad { ptr, i32 }
+235:                                              ; preds = %234
+  %236 = landingpad { ptr, i32 }
           catch ptr null
-  %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #24
+  %237 = extractvalue { ptr, i32 } %236, 0
+  call void @__clang_call_terminate(ptr %237) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80: ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit78, %227, %233
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80: ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit78, %228, %234
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #23
-  %237 = load ptr, ptr %47, align 8, !tbaa !117
-  %238 = load ptr, ptr %17, align 8, !tbaa !120
-  %239 = ptrtoint ptr %237 to i64
+  %238 = load ptr, ptr %47, align 8, !tbaa !117
+  %239 = load ptr, ptr %17, align 8, !tbaa !120
   %240 = ptrtoint ptr %238 to i64
-  %241 = sub i64 %239, %240
-  %242 = ashr exact i64 %241, 3
-  %243 = icmp ult i64 %242, %48
-  br i1 %243, label %58, label %_ZN4cvc58internal7IntegerC2Ei.exit._crit_edge, !llvm.loop !158
+  %241 = ptrtoint ptr %239 to i64
+  %242 = sub i64 %240, %241
+  %243 = ashr exact i64 %242, 3
+  %244 = icmp ult i64 %243, %48
+  br i1 %244, label %58, label %_ZN4cvc58internal7IntegerC2Ei.exit._crit_edge, !llvm.loop !158
 
-244:                                              ; preds = %2
-  %245 = landingpad { ptr, i32 }
+245:                                              ; preds = %2
+  %246 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #23
-  br label %383
+  br label %385
 
-246:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %247 = landingpad { ptr, i32 }
+247:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %248 = landingpad { ptr, i32 }
           cleanup
-  br label %382
+  br label %384
 
-248:                                              ; preds = %46
-  %249 = landingpad { ptr, i32 }
+249:                                              ; preds = %46
+  %250 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal7IntegerD2Ev.exit94
 
-250:                                              ; preds = %58
-  %251 = landingpad { ptr, i32 }
+251:                                              ; preds = %58
+  %252 = landingpad { ptr, i32 }
           cleanup
-  br label %277
+  br label %278
 
-252:                                              ; preds = %.noexc, %67
-  %253 = landingpad { ptr, i32 }
+253:                                              ; preds = %.noexc, %67
+  %254 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-254:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit
-  %255 = landingpad { ptr, i32 }
+255:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit
+  %256 = landingpad { ptr, i32 }
           cleanup
-  br label %273
+  br label %274
 
-256:                                              ; preds = %78
-  %257 = landingpad { ptr, i32 }
+257:                                              ; preds = %78
+  %258 = landingpad { ptr, i32 }
           cleanup
   br label %.body45
 
-258:                                              ; preds = %93
-  %259 = landingpad { ptr, i32 }
+259:                                              ; preds = %93
+  %260 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal7IntegerD2Ev.exit83
 
-260:                                              ; preds = %.noexc50, %_ZN4cvc58internal7IntegerC2Ei.exit48
-  %261 = landingpad { ptr, i32 }
+261:                                              ; preds = %.noexc50, %_ZN4cvc58internal7IntegerC2Ei.exit48
+  %262 = landingpad { ptr, i32 }
           cleanup
   br label %.body52
 
-262:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerES4_.exit
-  %263 = landingpad { ptr, i32 }
+263:                                              ; preds = %_ZN4cvc58internal8RationalC2ERKNS0_7IntegerES4_.exit
+  %264 = landingpad { ptr, i32 }
           cleanup
-  br label %266
+  br label %267
 
-264:                                              ; preds = %100
-  %265 = landingpad { ptr, i32 }
+265:                                              ; preds = %100
+  %266 = landingpad { ptr, i32 }
           cleanup
   br label %.body56
 
-.body56:                                          ; preds = %114, %264
-  %eh.lpad-body57 = phi { ptr, i32 } [ %265, %264 ], [ %.pn5.i54, %114 ]
+.body56:                                          ; preds = %114, %265
+  %eh.lpad-body57 = phi { ptr, i32 } [ %266, %265 ], [ %.pn5.i54, %114 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #23
-  br label %266
+  br label %267
 
-266:                                              ; preds = %.body56, %262
-  %.pn25 = phi { ptr, i32 } [ %eh.lpad-body57, %.body56 ], [ %263, %262 ]
+267:                                              ; preds = %.body56, %263
+  %.pn25 = phi { ptr, i32 } [ %eh.lpad-body57, %.body56 ], [ %264, %263 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %.body52 unwind label %267
+          to label %.body52 unwind label %268
 
-267:                                              ; preds = %266
-  %268 = landingpad { ptr, i32 }
+268:                                              ; preds = %267
+  %269 = landingpad { ptr, i32 }
           catch ptr null
-  %269 = extractvalue { ptr, i32 } %268, 0
-  call void @__clang_call_terminate(ptr %269) #24
+  %270 = extractvalue { ptr, i32 } %269, 0
+  call void @__clang_call_terminate(ptr %270) #24
   unreachable
 
-.body52:                                          ; preds = %266, %260, %95
-  %.pn25.pn = phi { ptr, i32 } [ %261, %260 ], [ %96, %95 ], [ %.pn25, %266 ]
+.body52:                                          ; preds = %267, %261, %95
+  %.pn25.pn = phi { ptr, i32 } [ %262, %261 ], [ %96, %95 ], [ %.pn25, %267 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %25)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit83 unwind label %270
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit83 unwind label %271
 
-270:                                              ; preds = %.body52
-  %271 = landingpad { ptr, i32 }
+271:                                              ; preds = %.body52
+  %272 = landingpad { ptr, i32 }
           catch ptr null
-  %272 = extractvalue { ptr, i32 } %271, 0
-  call void @__clang_call_terminate(ptr %272) #24
+  %273 = extractvalue { ptr, i32 } %272, 0
+  call void @__clang_call_terminate(ptr %273) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit83:             ; preds = %.body52, %258
-  %.pn25.pn.pn = phi { ptr, i32 } [ %259, %258 ], [ %.pn25.pn, %.body52 ]
+_ZN4cvc58internal7IntegerD2Ev.exit83:             ; preds = %.body52, %259
+  %.pn25.pn.pn = phi { ptr, i32 } [ %260, %259 ], [ %.pn25.pn, %.body52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #23
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #23
   br label %.body45
 
-.body45:                                          ; preds = %256, %92, %_ZN4cvc58internal7IntegerD2Ev.exit83
-  %.pn25.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit83 ], [ %257, %256 ], [ %.pn5.i, %92 ]
+.body45:                                          ; preds = %257, %92, %_ZN4cvc58internal7IntegerD2Ev.exit83
+  %.pn25.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit83 ], [ %258, %257 ], [ %.pn5.i, %92 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #23
-  br label %273
+  br label %274
 
-273:                                              ; preds = %.body45, %254
-  %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %.body45 ], [ %255, %254 ]
+274:                                              ; preds = %.body45, %255
+  %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %.body45 ], [ %256, %255 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %.body unwind label %274
+          to label %.body unwind label %275
 
-274:                                              ; preds = %273
-  %275 = landingpad { ptr, i32 }
+275:                                              ; preds = %274
+  %276 = landingpad { ptr, i32 }
           catch ptr null
-  %276 = extractvalue { ptr, i32 } %275, 0
-  call void @__clang_call_terminate(ptr %276) #24
+  %277 = extractvalue { ptr, i32 } %276, 0
+  call void @__clang_call_terminate(ptr %277) #24
   unreachable
 
-.body:                                            ; preds = %273, %252, %73
-  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %74, %73 ], [ %.pn25.pn.pn.pn.pn, %273 ]
+.body:                                            ; preds = %274, %253, %73
+  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %254, %253 ], [ %74, %73 ], [ %.pn25.pn.pn.pn.pn, %274 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #23
-  br label %277
+  br label %278
 
-277:                                              ; preds = %.body, %250
-  %.pn25.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn.pn, %.body ], [ %251, %250 ]
+278:                                              ; preds = %.body, %251
+  %.pn25.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn.pn, %.body ], [ %252, %251 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #23
-  br label %290
+  br label %291
 
-278:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit67
-  %279 = landingpad { ptr, i32 }
+279:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit67
+  %280 = landingpad { ptr, i32 }
           cleanup
   br label %.body69
 
-280:                                              ; preds = %205, %201
-  %281 = landingpad { ptr, i32 }
+281:                                              ; preds = %206, %202
+  %282 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #23
   br label %.body69
 
-.body69:                                          ; preds = %278, %183, %280
-  %.pn33 = phi { ptr, i32 } [ %281, %280 ], [ %279, %278 ], [ %.pn7.i, %183 ]
+.body69:                                          ; preds = %279, %183, %281
+  %.pn33 = phi { ptr, i32 } [ %282, %281 ], [ %280, %279 ], [ %.pn7.i, %183 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
-  br label %289
+  br label %290
 
-282:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75
-  %283 = landingpad { ptr, i32 }
+283:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit75
+  %284 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal7IntegerD2Ev.exit86
 
-284:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit77
-  %285 = landingpad { ptr, i32 }
+285:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit77
+  %286 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %27)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit86 unwind label %286
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit86 unwind label %287
 
-286:                                              ; preds = %284
-  %287 = landingpad { ptr, i32 }
+287:                                              ; preds = %285
+  %288 = landingpad { ptr, i32 }
           catch ptr null
-  %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #24
+  %289 = extractvalue { ptr, i32 } %288, 0
+  call void @__clang_call_terminate(ptr %289) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit86:             ; preds = %284, %282
-  %.pn35 = phi { ptr, i32 } [ %283, %282 ], [ %285, %284 ]
+_ZN4cvc58internal7IntegerD2Ev.exit86:             ; preds = %285, %283
+  %.pn35 = phi { ptr, i32 } [ %284, %283 ], [ %286, %285 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #23
-  br label %289
-
-289:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit86, %.body69
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %_ZN4cvc58internal7IntegerD2Ev.exit86 ], [ %.pn33, %.body69 ]
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #23
   br label %290
 
-290:                                              ; preds = %289, %277
-  %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35.pn, %289 ], [ %.pn25.pn.pn.pn.pn.pn.pn, %277 ]
+290:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit86, %.body69
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %_ZN4cvc58internal7IntegerD2Ev.exit86 ], [ %.pn33, %.body69 ]
+  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #23
+  br label %291
+
+291:                                              ; preds = %290, %278
+  %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35.pn, %290 ], [ %.pn25.pn.pn.pn.pn.pn.pn, %278 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #23
-  br label %378
+  br label %380
 
 _ZN4cvc58internal7IntegerC2Ei.exit._crit_edge:    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80, %_ZN4cvc58internal7IntegerC2Ei.exit.preheader
-  %.lcssa139 = phi ptr [ %50, %_ZN4cvc58internal7IntegerC2Ei.exit.preheader ], [ %238, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 ]
-  %.lcssa = phi i64 [ %53, %_ZN4cvc58internal7IntegerC2Ei.exit.preheader ], [ %241, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 ]
-  %291 = icmp eq i64 %.lcssa, 8
-  br i1 %291, label %292, label %310
+  %.lcssa139 = phi ptr [ %50, %_ZN4cvc58internal7IntegerC2Ei.exit.preheader ], [ %239, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 ]
+  %.lcssa = phi i64 [ %53, %_ZN4cvc58internal7IntegerC2Ei.exit.preheader ], [ %242, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit80 ]
+  %292 = icmp eq i64 %.lcssa, 8
+  br i1 %292, label %293, label %312
 
-292:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit._crit_edge
-  %293 = load ptr, ptr %.lcssa139, align 8, !tbaa !3
-  store ptr %293, ptr %0, align 8, !tbaa !3
-  %294 = load i64, ptr %293, align 8
-  %295 = lshr i64 %294, 40
-  %296 = trunc nuw nsw i64 %295 to i32
-  %297 = and i32 %296, 1048575
-  %298 = icmp samesign ult i32 %297, 1048574
-  br i1 %298, label %299, label %304, !prof !17
+293:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit._crit_edge
+  %294 = load ptr, ptr %.lcssa139, align 8, !tbaa !3
+  store ptr %294, ptr %0, align 8, !tbaa !3
+  %295 = load i64, ptr %294, align 8
+  %296 = lshr i64 %295, 40
+  %297 = trunc nuw nsw i64 %296 to i32
+  %298 = and i32 %297, 1048575
+  %299 = icmp samesign ult i32 %298, 1048574
+  br i1 %299, label %300, label %306, !prof !17
 
-299:                                              ; preds = %292
-  %300 = add i64 %294, 1099511627776
-  %301 = and i64 %300, 1152920405095219200
-  %302 = and i64 %294, -1152920405095219201
-  %303 = or disjoint i64 %301, %302
-  store i64 %303, ptr %293, align 8
+300:                                              ; preds = %293
+  %301 = add nuw nsw i32 %298, 1
+  %302 = zext nneg i32 %301 to i64
+  %303 = shl nuw nsw i64 %302, 40
+  %304 = and i64 %295, -1152920405095219201
+  %305 = or i64 %303, %304
+  store i64 %305, ptr %294, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-304:                                              ; preds = %292
-  %305 = icmp eq i32 %297, 1048574
-  br i1 %305, label %306, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
-
-306:                                              ; preds = %304
-  %307 = or i64 %294, 1152920405095219200
-  store i64 %307, ptr %293, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %293)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %308
+306:                                              ; preds = %293
+  %307 = icmp eq i32 %298, 1048574
+  br i1 %307, label %308, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !18
 
 308:                                              ; preds = %306
-  %309 = landingpad { ptr, i32 }
-          cleanup
-  br label %378
+  %309 = or i64 %295, 1152920405095219200
+  store i64 %309, ptr %294, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %294)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %310
 
-310:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit._crit_edge
+310:                                              ; preds = %308
+  %311 = landingpad { ptr, i32 }
+          cleanup
+  br label %380
+
+312:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit._crit_edge
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %28) #23
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %28, ptr noundef %45, i32 noundef 92)
-          to label %311 unwind label %318
+          to label %313 unwind label %320
 
-311:                                              ; preds = %310
-  %312 = load ptr, ptr %47, align 8, !tbaa !141, !noalias !159
-  %313 = load ptr, ptr %17, align 8, !tbaa !141, !noalias !162
+313:                                              ; preds = %312
+  %314 = load ptr, ptr %47, align 8, !tbaa !141, !noalias !159
+  %315 = load ptr, ptr %17, align 8, !tbaa !141, !noalias !162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %.not5.i = icmp eq ptr %313, %312
+  %.not5.i = icmp eq ptr %315, %314
   br i1 %.not5.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %311, %.noexc88
-  %.sroa.0.06.i = phi ptr [ %314, %.noexc88 ], [ %312, %311 ]
-  %314 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 -8
-  %315 = load ptr, ptr %314, align 8, !tbaa !3
-  store ptr %315, ptr %3, align 8, !tbaa !32
-  %316 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilder6appendENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %28, ptr noundef nonnull %3)
-          to label %.noexc88 unwind label %320
+.lr.ph.i:                                         ; preds = %313, %.noexc88
+  %.sroa.0.06.i = phi ptr [ %316, %.noexc88 ], [ %314, %313 ]
+  %316 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 -8
+  %317 = load ptr, ptr %316, align 8, !tbaa !3
+  store ptr %317, ptr %3, align 8, !tbaa !32
+  %318 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilder6appendENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %28, ptr noundef nonnull %3)
+          to label %.noexc88 unwind label %322
 
 .noexc88:                                         ; preds = %.lr.ph.i
-  %.not.i = icmp eq ptr %314, %313
+  %.not.i = icmp eq ptr %316, %315
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %.noexc88, %311
+.loopexit:                                        ; preds = %.noexc88, %313
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   invoke void @_ZN4cvc58internal11NodeBuildercvNS0_12NodeTemplateILb1EEEEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(124) %28)
-          to label %317 unwind label %322
+          to label %319 unwind label %324
 
-317:                                              ; preds = %.loopexit
+319:                                              ; preds = %.loopexit
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %28) #23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %28) #23
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-318:                                              ; preds = %310
-  %319 = landingpad { ptr, i32 }
-          cleanup
-  br label %325
-
-320:                                              ; preds = %.lr.ph.i
+320:                                              ; preds = %312
   %321 = landingpad { ptr, i32 }
           cleanup
-  br label %324
+  br label %327
 
-322:                                              ; preds = %.loopexit
+322:                                              ; preds = %.lr.ph.i
   %323 = landingpad { ptr, i32 }
           cleanup
-  br label %324
+  br label %326
 
-324:                                              ; preds = %322, %320
-  %.pn = phi { ptr, i32 } [ %323, %322 ], [ %321, %320 ]
+324:                                              ; preds = %.loopexit
+  %325 = landingpad { ptr, i32 }
+          cleanup
+  br label %326
+
+326:                                              ; preds = %324, %322
+  %.pn = phi { ptr, i32 } [ %325, %324 ], [ %323, %322 ]
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %28) #23
-  br label %325
+  br label %327
 
-325:                                              ; preds = %324, %318
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %324 ], [ %319, %318 ]
+327:                                              ; preds = %326, %320
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %326 ], [ %321, %320 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %28) #23
-  br label %378
+  br label %380
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %304, %299, %306, %317
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %306, %300, %308, %319
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit89 unwind label %326
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit89 unwind label %328
 
-326:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %327 = landingpad { ptr, i32 }
+328:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+  %329 = landingpad { ptr, i32 }
           catch ptr null
-  %328 = extractvalue { ptr, i32 } %327, 0
-  call void @__clang_call_terminate(ptr %328) #24
+  %330 = extractvalue { ptr, i32 } %329, 0
+  call void @__clang_call_terminate(ptr %330) #24
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit89:             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #23
-  %329 = load ptr, ptr %17, align 8, !tbaa !120
-  %330 = load ptr, ptr %47, align 8, !tbaa !117
-  %.not4.i.i.i.i = icmp eq ptr %329, %330
+  %331 = load ptr, ptr %17, align 8, !tbaa !120
+  %332 = load ptr, ptr %47, align 8, !tbaa !117
+  %.not4.i.i.i.i = icmp eq ptr %331, %332
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit89, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %344, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i ], [ %329, %_ZN4cvc58internal7IntegerD2Ev.exit89 ]
-  %331 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !3
-  %332 = load i64, ptr %331, align 8
-  %333 = and i64 %332, 1152920405095219200
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %333, 1152920405095219200
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, label %334, !prof !18
+  %.05.i.i.i.i = phi ptr [ %346, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i ], [ %331, %_ZN4cvc58internal7IntegerD2Ev.exit89 ]
+  %333 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !3
+  %334 = load i64, ptr %333, align 8
+  %335 = and i64 %334, 1152920405095219200
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %335, 1152920405095219200
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, label %336, !prof !18
 
-334:                                              ; preds = %.lr.ph.i.i.i.i
-  %335 = add i64 %332, 1152920405095219200
-  %336 = and i64 %335, 1152920405095219200
-  %337 = and i64 %332, -1152920405095219201
-  %338 = or disjoint i64 %336, %337
-  store i64 %338, ptr %331, align 8
-  %339 = icmp eq i64 %336, 0
-  br i1 %339, label %340, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, !prof !18
+336:                                              ; preds = %.lr.ph.i.i.i.i
+  %337 = add i64 %334, 1152920405095219200
+  %338 = and i64 %337, 1152920405095219200
+  %339 = and i64 %334, -1152920405095219201
+  %340 = or disjoint i64 %338, %339
+  store i64 %340, ptr %333, align 8
+  %341 = icmp eq i64 %338, 0
+  br i1 %341, label %342, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, !prof !18
 
-340:                                              ; preds = %334
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %331)
-          to label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i unwind label %341
+342:                                              ; preds = %336
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %333)
+          to label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i unwind label %343
 
-341:                                              ; preds = %340
-  %342 = landingpad { ptr, i32 }
+343:                                              ; preds = %342
+  %344 = landingpad { ptr, i32 }
           catch ptr null
-  %343 = extractvalue { ptr, i32 } %342, 0
-  call void @__clang_call_terminate(ptr %343) #24
+  %345 = extractvalue { ptr, i32 } %344, 0
+  call void @__clang_call_terminate(ptr %345) #24
   unreachable
 
-_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %340, %334, %.lr.ph.i.i.i.i
-  %344 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %344, %330
+_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %342, %336, %.lr.ph.i.i.i.i
+  %346 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %346, %332
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
 
 _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i
@@ -6560,108 +6577,108 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread
   br label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %_ZN4cvc58internal7IntegerD2Ev.exit89
-  %345 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %329, %_ZN4cvc58internal7IntegerD2Ev.exit89 ]
-  %.not.i.i.i = icmp eq ptr %345, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %346
+  %347 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %331, %_ZN4cvc58internal7IntegerD2Ev.exit89 ]
+  %.not.i.i.i = icmp eq ptr %347, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %348
 
-346:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
-  %347 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %348 = load ptr, ptr %347, align 8, !tbaa !136
-  %349 = ptrtoint ptr %348 to i64
-  %350 = ptrtoint ptr %345 to i64
-  %351 = sub i64 %349, %350
-  call void @_ZdlPvm(ptr noundef nonnull %345, i64 noundef %351) #28
+348:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
+  %349 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %350 = load ptr, ptr %349, align 8, !tbaa !136
+  %351 = ptrtoint ptr %350 to i64
+  %352 = ptrtoint ptr %347 to i64
+  %353 = sub i64 %351, %352
+  call void @_ZdlPvm(ptr noundef nonnull %347, i64 noundef %353) #28
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, %346
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, %348
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #23
-  %352 = load ptr, ptr %16, align 8, !tbaa !3
-  %353 = load i64, ptr %352, align 8
-  %354 = and i64 %353, 1152920405095219200
-  %.not.i.i90 = icmp eq i64 %354, 1152920405095219200
-  br i1 %.not.i.i90, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, label %355, !prof !18
+  %354 = load ptr, ptr %16, align 8, !tbaa !3
+  %355 = load i64, ptr %354, align 8
+  %356 = and i64 %355, 1152920405095219200
+  %.not.i.i90 = icmp eq i64 %356, 1152920405095219200
+  br i1 %.not.i.i90, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, label %357, !prof !18
 
-355:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
-  %356 = add i64 %353, 1152920405095219200
-  %357 = and i64 %356, 1152920405095219200
-  %358 = and i64 %353, -1152920405095219201
-  %359 = or disjoint i64 %357, %358
-  store i64 %359, ptr %352, align 8
-  %360 = icmp eq i64 %357, 0
-  br i1 %360, label %361, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, !prof !18
+357:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
+  %358 = add i64 %355, 1152920405095219200
+  %359 = and i64 %358, 1152920405095219200
+  %360 = and i64 %355, -1152920405095219201
+  %361 = or disjoint i64 %359, %360
+  store i64 %361, ptr %354, align 8
+  %362 = icmp eq i64 %359, 0
+  br i1 %362, label %363, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, !prof !18
 
-361:                                              ; preds = %355
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %352)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91 unwind label %362
+363:                                              ; preds = %357
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %354)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91 unwind label %364
 
-362:                                              ; preds = %361
-  %363 = landingpad { ptr, i32 }
+364:                                              ; preds = %363
+  %365 = landingpad { ptr, i32 }
           catch ptr null
-  %364 = extractvalue { ptr, i32 } %363, 0
-  call void @__clang_call_terminate(ptr %364) #24
+  %366 = extractvalue { ptr, i32 } %365, 0
+  call void @__clang_call_terminate(ptr %366) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %355, %361
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %357, %363
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
-  %365 = load ptr, ptr %15, align 8, !tbaa !3
-  %366 = load i64, ptr %365, align 8
-  %367 = and i64 %366, 1152920405095219200
-  %.not.i.i92 = icmp eq i64 %367, 1152920405095219200
-  br i1 %.not.i.i92, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93, label %368, !prof !18
+  %367 = load ptr, ptr %15, align 8, !tbaa !3
+  %368 = load i64, ptr %367, align 8
+  %369 = and i64 %368, 1152920405095219200
+  %.not.i.i92 = icmp eq i64 %369, 1152920405095219200
+  br i1 %.not.i.i92, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93, label %370, !prof !18
 
-368:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91
-  %369 = add i64 %366, 1152920405095219200
-  %370 = and i64 %369, 1152920405095219200
-  %371 = and i64 %366, -1152920405095219201
-  %372 = or disjoint i64 %370, %371
-  store i64 %372, ptr %365, align 8
-  %373 = icmp eq i64 %370, 0
-  br i1 %373, label %374, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93, !prof !18
+370:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91
+  %371 = add i64 %368, 1152920405095219200
+  %372 = and i64 %371, 1152920405095219200
+  %373 = and i64 %368, -1152920405095219201
+  %374 = or disjoint i64 %372, %373
+  store i64 %374, ptr %367, align 8
+  %375 = icmp eq i64 %372, 0
+  br i1 %375, label %376, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93, !prof !18
 
-374:                                              ; preds = %368
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %365)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93 unwind label %375
+376:                                              ; preds = %370
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %367)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93 unwind label %377
 
-375:                                              ; preds = %374
-  %376 = landingpad { ptr, i32 }
+377:                                              ; preds = %376
+  %378 = landingpad { ptr, i32 }
           catch ptr null
-  %377 = extractvalue { ptr, i32 } %376, 0
-  call void @__clang_call_terminate(ptr %377) #24
+  %379 = extractvalue { ptr, i32 } %378, 0
+  call void @__clang_call_terminate(ptr %379) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, %368, %374
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit93: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, %370, %376
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
   ret void
 
-378:                                              ; preds = %325, %308, %290
-  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %290 ], [ %309, %308 ], [ %.pn.pn, %325 ]
+380:                                              ; preds = %327, %310, %291
+  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %291 ], [ %311, %310 ], [ %.pn.pn, %327 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit94 unwind label %379
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit94 unwind label %381
 
-379:                                              ; preds = %378
-  %380 = landingpad { ptr, i32 }
+381:                                              ; preds = %380
+  %382 = landingpad { ptr, i32 }
           catch ptr null
-  %381 = extractvalue { ptr, i32 } %380, 0
-  call void @__clang_call_terminate(ptr %381) #24
+  %383 = extractvalue { ptr, i32 } %382, 0
+  call void @__clang_call_terminate(ptr %383) #24
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit94:             ; preds = %378, %248
-  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %249, %248 ], [ %.pn35.pn.pn.pn, %378 ]
+_ZN4cvc58internal7IntegerD2Ev.exit94:             ; preds = %380, %249
+  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %250, %249 ], [ %.pn35.pn.pn.pn, %380 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #23
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #23
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
-  br label %382
+  br label %384
 
-382:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit94, %246
-  %.pn35.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit94 ], [ %247, %246 ]
+384:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit94, %247
+  %.pn35.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit94 ], [ %248, %247 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
-  br label %383
+  br label %385
 
-383:                                              ; preds = %382, %244
-  %.pn35.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn.pn, %382 ], [ %245, %244 ]
+385:                                              ; preds = %384, %245
+  %.pn35.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn.pn, %384 ], [ %246, %245 ]
   resume { ptr, i32 } %.pn35.pn.pn.pn.pn.pn.pn
 }
 
@@ -6675,7 +6692,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE11getOper
   %8 = and i32 %7, 1023
   %9 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %8)
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %34
+  br i1 %10, label %11, label %35
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
@@ -6694,61 +6711,63 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE11getOper
   %22 = trunc nuw nsw i64 %21 to i32
   %23 = and i32 %22, 1048575
   %24 = icmp samesign ult i32 %23, 1048574
-  br i1 %24, label %25, label %30, !prof !17
+  br i1 %24, label %25, label %31, !prof !17
 
 25:                                               ; preds = %11
-  %26 = add i64 %20, 1099511627776
-  %27 = and i64 %26, 1152920405095219200
-  %28 = and i64 %20, -1152920405095219201
-  %29 = or disjoint i64 %27, %28
-  store i64 %29, ptr %19, align 8
+  %26 = add nuw nsw i32 %23, 1
+  %27 = zext nneg i32 %26 to i64
+  %28 = shl nuw nsw i64 %27, 40
+  %29 = and i64 %20, -1152920405095219201
+  %30 = or i64 %28, %29
+  store i64 %30, ptr %19, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
 
-30:                                               ; preds = %11
-  %31 = icmp eq i32 %23, 1048574
-  br i1 %31, label %32, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit, !prof !18
+31:                                               ; preds = %11
+  %32 = icmp eq i32 %23, 1048574
+  br i1 %32, label %33, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit, !prof !18
 
-32:                                               ; preds = %30
-  %33 = or i64 %20, 1152920405095219200
-  store i64 %33, ptr %19, align 8
+33:                                               ; preds = %31
+  %34 = or i64 %20, 1152920405095219200
+  store i64 %34, ptr %19, align 8
   call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %32, %30, %25
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %33, %31, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit
 
-34:                                               ; preds = %2
-  %35 = load ptr, ptr %1, align 8, !tbaa !32
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !23
-  store ptr %37, ptr %0, align 8, !tbaa !3
-  %38 = load i64, ptr %37, align 8
-  %39 = lshr i64 %38, 40
-  %40 = trunc nuw nsw i64 %39 to i32
-  %41 = and i32 %40, 1048575
-  %42 = icmp samesign ult i32 %41, 1048574
-  br i1 %42, label %43, label %48, !prof !17
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %1, align 8, !tbaa !32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  store ptr %38, ptr %0, align 8, !tbaa !3
+  %39 = load i64, ptr %38, align 8
+  %40 = lshr i64 %39, 40
+  %41 = trunc nuw nsw i64 %40 to i32
+  %42 = and i32 %41, 1048575
+  %43 = icmp samesign ult i32 %42, 1048574
+  br i1 %43, label %44, label %50, !prof !17
 
-43:                                               ; preds = %34
-  %44 = add i64 %38, 1099511627776
-  %45 = and i64 %44, 1152920405095219200
-  %46 = and i64 %38, -1152920405095219201
-  %47 = or disjoint i64 %45, %46
-  store i64 %47, ptr %37, align 8
+44:                                               ; preds = %35
+  %45 = add nuw nsw i32 %42, 1
+  %46 = zext nneg i32 %45 to i64
+  %47 = shl nuw nsw i64 %46, 40
+  %48 = and i64 %39, -1152920405095219201
+  %49 = or i64 %47, %48
+  store i64 %49, ptr %38, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit
 
-48:                                               ; preds = %34
-  %49 = icmp eq i32 %41, 1048574
-  br i1 %49, label %50, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, !prof !18
+50:                                               ; preds = %35
+  %51 = icmp eq i32 %42, 1048574
+  br i1 %51, label %52, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, !prof !18
 
-50:                                               ; preds = %48
-  %51 = or i64 %38, 1152920405095219200
-  store i64 %51, ptr %37, align 8
-  tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %37)
+52:                                               ; preds = %50
+  %53 = or i64 %39, 1152920405095219200
+  store i64 %53, ptr %38, align 8
+  tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %38)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %50, %48, %43, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
+_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %52, %50, %44, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   ret void
 }
 
@@ -6765,7 +6784,7 @@ declare void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 der
 define internal void @__cxx_global_var_init.5() #10 section ".text.startup" comdat($_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE) personality ptr @__gxx_personality_v0 {
   %1 = load i8, ptr @_ZGVN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %30
+  br i1 %2, label %3, label %31
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
@@ -6804,31 +6823,32 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %3, %6, %10
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = and i32 %17, 1048575
   %19 = icmp samesign ult i32 %18, 1048574
-  br i1 %19, label %20, label %25, !prof !17
+  br i1 %19, label %20, label %26, !prof !17
 
 20:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
-  %21 = add i64 %15, 1099511627776
-  %22 = and i64 %21, 1152920405095219200
-  %23 = and i64 %15, -1152920405095219201
-  %24 = or disjoint i64 %22, %23
-  store i64 %24, ptr %14, align 8
+  %21 = add nuw nsw i32 %18, 1
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl nuw nsw i64 %22, 40
+  %24 = and i64 %15, -1152920405095219201
+  %25 = or i64 %23, %24
+  store i64 %25, ptr %14, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit
 
-25:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
-  %26 = icmp eq i32 %18, 1048574
-  br i1 %26, label %27, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, !prof !18
+26:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
+  %27 = icmp eq i32 %18, 1048574
+  br i1 %27, label %28, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, !prof !18
 
-27:                                               ; preds = %25
-  %28 = or i64 %15, 1152920405095219200
-  store i64 %28, ptr %14, align 8
+28:                                               ; preds = %26
+  %29 = or i64 %15, 1152920405095219200
+  store i64 %29, ptr %14, align 8
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %20, %25, %27
-  %29 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr nonnull @__dso_handle) #23
-  br label %30
+_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %20, %26, %28
+  %30 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr nonnull @__dso_handle) #23
+  br label %31
 
-30:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, %0
+31:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, %0
   ret void
 }
 
@@ -7065,131 +7085,132 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %27 = trunc nuw nsw i64 %26 to i32
   %28 = and i32 %27, 1048575
   %29 = icmp samesign ult i32 %28, 1048574
-  br i1 %29, label %30, label %35, !prof !17
+  br i1 %29, label %30, label %36, !prof !17
 
 30:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit
-  %31 = add i64 %25, 1099511627776
-  %32 = and i64 %31, 1152920405095219200
-  %33 = and i64 %25, -1152920405095219201
-  %34 = or disjoint i64 %32, %33
-  store i64 %34, ptr %24, align 8
+  %31 = add nuw nsw i32 %28, 1
+  %32 = zext nneg i32 %31 to i64
+  %33 = shl nuw nsw i64 %32, 40
+  %34 = and i64 %25, -1152920405095219201
+  %35 = or i64 %33, %34
+  store i64 %35, ptr %24, align 8
   br label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
 
-35:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit
-  %36 = icmp eq i32 %28, 1048574
-  br i1 %36, label %37, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit, !prof !18
+36:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit
+  %37 = icmp eq i32 %28, 1048574
+  br i1 %37, label %38, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit, !prof !18
 
-37:                                               ; preds = %35
-  %38 = or i64 %25, 1152920405095219200
-  store i64 %38, ptr %24, align 8
+38:                                               ; preds = %36
+  %39 = or i64 %25, 1152920405095219200
+  store i64 %39, ptr %24, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit unwind label %65
+          to label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit unwind label %66
 
-_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %35, %30, %37
-  %39 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb1EEEPS3_ET0_T_S8_S7_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %22)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit unwind label %62
+_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %36, %30, %38
+  %40 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb1EEEPS3_ET0_T_S8_S7_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %22)
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit unwind label %63
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb1EEEPS3_ET0_T_S8_S7_(ptr noundef %1, ptr noundef %5, ptr noundef nonnull %40)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit30 unwind label %65
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb1EEEPS3_ET0_T_S8_S7_(ptr noundef %1, ptr noundef %5, ptr noundef nonnull %41)
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit30 unwind label %66
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit30: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit30, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %55, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit30 ]
-  %42 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !3
-  %43 = load i64, ptr %42, align 8
-  %44 = and i64 %43, 1152920405095219200
-  %.not.i.i.i.i.i.i = icmp eq i64 %44, 1152920405095219200
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i, label %45, !prof !18
+  %.05.i.i.i = phi ptr [ %56, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit30 ]
+  %43 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !3
+  %44 = load i64, ptr %43, align 8
+  %45 = and i64 %44, 1152920405095219200
+  %.not.i.i.i.i.i.i = icmp eq i64 %45, 1152920405095219200
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i, label %46, !prof !18
 
-45:                                               ; preds = %.lr.ph.i.i.i
-  %46 = add i64 %43, 1152920405095219200
-  %47 = and i64 %46, 1152920405095219200
-  %48 = and i64 %43, -1152920405095219201
-  %49 = or disjoint i64 %47, %48
-  store i64 %49, ptr %42, align 8
-  %50 = icmp eq i64 %47, 0
-  br i1 %50, label %51, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i, !prof !18
+46:                                               ; preds = %.lr.ph.i.i.i
+  %47 = add i64 %44, 1152920405095219200
+  %48 = and i64 %47, 1152920405095219200
+  %49 = and i64 %44, -1152920405095219201
+  %50 = or disjoint i64 %48, %49
+  store i64 %50, ptr %43, align 8
+  %51 = icmp eq i64 %48, 0
+  br i1 %51, label %52, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i, !prof !18
 
-51:                                               ; preds = %45
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %42)
-          to label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i unwind label %52
+52:                                               ; preds = %46
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %43)
+          to label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i unwind label %53
 
-52:                                               ; preds = %51
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %52
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #24
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #24
   unreachable
 
-_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i: ; preds = %51, %45, %.lr.ph.i.i.i
-  %55 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %55, %5
+_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i: ; preds = %52, %46, %.lr.ph.i.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %56, %5
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !143
 
 _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit30
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i31 = icmp eq ptr %6, null
-  br i1 %.not.i31, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit, label %57
+  br i1 %.not.i31, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit, label %58
 
-57:                                               ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit
-  %58 = load ptr, ptr %56, align 8, !tbaa !136
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %59, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %60) #28
+58:                                               ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit
+  %59 = load ptr, ptr %57, align 8, !tbaa !136
+  %60 = ptrtoint ptr %59 to i64
+  %61 = sub i64 %60, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %61) #28
   br label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %57
+_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !120
-  store ptr %41, ptr %4, align 8, !tbaa !117
-  %61 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
-  store ptr %61, ptr %56, align 8, !tbaa !136
+  store ptr %42, ptr %4, align 8, !tbaa !117
+  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  store ptr %62, ptr %57, align 8, !tbaa !136
   ret void
 
-62:                                               ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
+63:                                               ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
-  %64 = tail call ptr @__cxa_begin_catch(ptr %63) #23
+  %64 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
+  %65 = tail call ptr @__cxa_begin_catch(ptr %64) #23
   tail call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #23
-  br label %70
+  br label %71
 
-65:                                               ; preds = %37, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.ph = phi ptr [ %40, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %22, %37 ]
+66:                                               ; preds = %38, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
+  %.0.ph = phi ptr [ %41, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %22, %38 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #23
+  %67 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
+  %68 = tail call ptr @__cxa_begin_catch(ptr %67) #23
   invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %22, ptr noundef nonnull %.0.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %70 unwind label %68
+          to label %71 unwind label %69
 
-68:                                               ; preds = %70, %65
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %71, %66
+  %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %72 unwind label %73
+          to label %73 unwind label %74
 
-70:                                               ; preds = %62, %65
-  %71 = shl nuw nsw i64 %16, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %71) #28
+71:                                               ; preds = %63, %66
+  %72 = shl nuw nsw i64 %16, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %72) #28
   invoke void @__cxa_rethrow() #27
-          to label %76 unwind label %68
+          to label %77 unwind label %69
 
-72:                                               ; preds = %68
-  resume { ptr, i32 } %69
+73:                                               ; preds = %69
+  resume { ptr, i32 } %70
 
-73:                                               ; preds = %68
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #24
+  %76 = extractvalue { ptr, i32 } %75, 0
+  tail call void @__clang_call_terminate(ptr %76) #24
   unreachable
 
-76:                                               ; preds = %70
+77:                                               ; preds = %71
   unreachable
 }
 
@@ -7238,8 +7259,8 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit
-  %.016 = phi ptr [ %20, %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit ], [ %2, %3 ]
-  %.01215 = phi ptr [ %19, %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit ], [ %0, %3 ]
+  %.016 = phi ptr [ %21, %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit ], [ %2, %3 ]
+  %.01215 = phi ptr [ %20, %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit ], [ %0, %3 ]
   %4 = load ptr, ptr %.01215, align 8, !tbaa !3
   store ptr %4, ptr %.016, align 8, !tbaa !3
   %5 = load i64, ptr %4, align 8
@@ -7247,65 +7268,66 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal
   %7 = trunc nuw nsw i64 %6 to i32
   %8 = and i32 %7, 1048575
   %9 = icmp samesign ult i32 %8, 1048574
-  br i1 %9, label %10, label %15, !prof !17
+  br i1 %9, label %10, label %16, !prof !17
 
 10:                                               ; preds = %.lr.ph
-  %11 = add i64 %5, 1099511627776
-  %12 = and i64 %11, 1152920405095219200
-  %13 = and i64 %5, -1152920405095219201
-  %14 = or disjoint i64 %12, %13
-  store i64 %14, ptr %4, align 8
+  %11 = add nuw nsw i32 %8, 1
+  %12 = zext nneg i32 %11 to i64
+  %13 = shl nuw nsw i64 %12, 40
+  %14 = and i64 %5, -1152920405095219201
+  %15 = or i64 %13, %14
+  store i64 %15, ptr %4, align 8
   br label %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit
 
-15:                                               ; preds = %.lr.ph
-  %16 = icmp eq i32 %8, 1048574
-  br i1 %16, label %17, label %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit, !prof !18
+16:                                               ; preds = %.lr.ph
+  %17 = icmp eq i32 %8, 1048574
+  br i1 %17, label %18, label %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit, !prof !18
 
-17:                                               ; preds = %15
-  %18 = or i64 %5, 1152920405095219200
-  store i64 %18, ptr %4, align 8
+18:                                               ; preds = %16
+  %19 = or i64 %5, 1152920405095219200
+  store i64 %19, ptr %4, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit unwind label %21
+          to label %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit unwind label %22
 
-_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit: ; preds = %15, %10, %17
-  %19 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %.not = icmp eq ptr %19, %1
+_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit: ; preds = %16, %10, %18
+  %20 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.016, i64 8
+  %.not = icmp eq ptr %20, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !165
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %18
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  %24 = tail call ptr @__cxa_begin_catch(ptr %23) #23
+  %24 = extractvalue { ptr, i32 } %23, 0
+  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #23
   invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEEEvT_S5_(ptr noundef %2, ptr noundef nonnull %.016)
-          to label %25 unwind label %26
+          to label %26 unwind label %27
 
-25:                                               ; preds = %21
+26:                                               ; preds = %22
   invoke void @__cxa_rethrow() #27
-          to label %32 unwind label %26
+          to label %33 unwind label %27
 
 ._crit_edge:                                      ; preds = %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit, %3
-  %.0.lcssa = phi ptr [ %2, %3 ], [ %20, %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit ]
+  %.0.lcssa = phi ptr [ %2, %3 ], [ %21, %_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit ]
   ret ptr %.0.lcssa
 
-26:                                               ; preds = %25, %21
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %26, %22
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %28 unwind label %29
+          to label %29 unwind label %30
 
-28:                                               ; preds = %26
-  resume { ptr, i32 } %27
+29:                                               ; preds = %27
+  resume { ptr, i32 } %28
 
-29:                                               ; preds = %26
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #24
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #24
   unreachable
 
-32:                                               ; preds = %25
+33:                                               ; preds = %26
   unreachable
 }
 

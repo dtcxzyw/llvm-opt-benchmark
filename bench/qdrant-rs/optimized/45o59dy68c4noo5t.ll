@@ -478,7 +478,7 @@ _ZN4core3str7pattern13simd_contains17hf79408dc36f91aefE.exit.i: ; preds = %57
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h6e84c689914ec3c0E.exit"
 
 229:                                              ; preds = %130, %126, %._crit_edge.i.i
-  %.0.i.ph.i = phi i8 [ %136, %130 ], [ %.165.lcssa.i.i, %._crit_edge.i.i ], [ %129, %126 ]
+  %.0.i.ph.i = phi i8 [ %129, %126 ], [ %.165.lcssa.i.i, %._crit_edge.i.i ], [ %136, %130 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

@@ -483,7 +483,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %188 = load i8, ptr %187, align 1
   %189 = and i8 %188, 32
   %190 = icmp eq i8 %189, 0
-  br i1 %190, label %.split.us.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %190, label %.split.us, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader63.split, %185
   %191 = phi ptr [ %192, %185 ], [ %162, %.preheader63.split ]
@@ -492,12 +492,12 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %194 = icmp eq i8 %193, 0
   br i1 %194, label %.loopexit64, label %185, !llvm.loop !14
 
-.split.us.thread:                                 ; preds = %185
+.split.us:                                        ; preds = %185
   %195 = call i32 (ptr, ptr, ...) @cn_printf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, i32 noundef 0), !range !15
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %197, label %.thread39
 
-197:                                              ; preds = %.split.us.thread
+197:                                              ; preds = %.split.us
   %198 = load i32, ptr %129, align 8
   %199 = sext i32 %198 to i64
   %200 = add i32 %161, 1
@@ -664,8 +664,8 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %287 = icmp slt i32 %273, 0
   br i1 %287, label %.thread39, label %.thread37
 
-.thread39:                                        ; preds = %.split.us.thread, %144, %.thread28, %281, %148, %286
-  %.ph3343 = phi ptr [ %151, %286 ], [ null, %.thread28 ], [ %151, %281 ], [ %146, %148 ], [ null, %144 ], [ %151, %.split.us.thread ]
+.thread39:                                        ; preds = %.split.us, %144, %.thread28, %281, %148, %286
+  %.ph3343 = phi ptr [ %151, %286 ], [ null, %.thread28 ], [ %151, %281 ], [ %146, %148 ], [ null, %144 ], [ %151, %.split.us ]
   %288 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #23
   %289 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #23
   br label %.thread50
@@ -961,9 +961,9 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
 
 .thread54.thread:                                 ; preds = %412
   %460 = icmp eq ptr %413, null
-  br i1 %460, label %.thread50, label %.thread118
+  br i1 %460, label %.thread50, label %.thread116
 
-.thread118:                                       ; preds = %.thread54.thread
+.thread116:                                       ; preds = %.thread54.thread
   %461 = call i32 @filp_close(ptr noundef nonnull %413, ptr noundef null) #19
   br label %.thread50
 
@@ -979,9 +979,9 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @do_coredump.core_dump_count, ptr nonnull elementtype(i32) @do_coredump.core_dump_count) #19, !srcloc !21
   br label %.thread50
 
-.thread50:                                        ; preds = %.thread54.thread, %.thread118, %362, %.thread, %351, %293, %.thread39, %462, %.thread57, %464
-  %466 = phi ptr [ %151, %.thread57 ], [ %151, %464 ], [ %151, %462 ], [ %151, %293 ], [ %.ph3343, %.thread39 ], [ %151, %351 ], [ %151, %.thread ], [ %151, %362 ], [ %151, %.thread118 ], [ %151, %.thread54.thread ]
-  %467 = phi i8 [ %465, %.thread57 ], [ %.ph60, %464 ], [ %.ph60, %462 ], [ 0, %293 ], [ 0, %.thread39 ], [ 0, %351 ], [ 0, %.thread ], [ 0, %362 ], [ 0, %.thread118 ], [ 0, %.thread54.thread ]
+.thread50:                                        ; preds = %.thread54.thread, %.thread116, %362, %.thread, %351, %293, %.thread39, %462, %.thread57, %464
+  %466 = phi ptr [ %151, %.thread57 ], [ %151, %464 ], [ %151, %462 ], [ %151, %293 ], [ %.ph3343, %.thread39 ], [ %151, %351 ], [ %151, %.thread ], [ %151, %362 ], [ %151, %.thread116 ], [ %151, %.thread54.thread ]
+  %467 = phi i8 [ %465, %.thread57 ], [ %.ph60, %464 ], [ %.ph60, %462 ], [ 0, %293 ], [ 0, %.thread39 ], [ 0, %351 ], [ 0, %.thread ], [ 0, %362 ], [ 0, %.thread116 ], [ 0, %.thread54.thread ]
   call void @kfree(ptr noundef %466) #19
   %468 = load ptr, ptr %3, align 8
   call void @kfree(ptr noundef %468) #19

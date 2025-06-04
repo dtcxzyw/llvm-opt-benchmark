@@ -13938,49 +13938,48 @@ define noundef zeroext i1 @_ZN13mini_lsm_mvcc9mem_table8MemTable8is_empty17h8c57
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN62_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSliceMut$GT$7set_bit17hd241e0650b092eefE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = lshr i64 %1, 3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ult i64 %4, %6
-  br i1 %2, label %9, label %8
-
-8:                                                ; preds = %3
-  br i1 %7, label %10, label %19, !prof !2474
+  %5 = and i64 %1, 7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  %8 = icmp ult i64 %4, %7
+  br i1 %2, label %10, label %9
 
 9:                                                ; preds = %3
-  br i1 %7, label %21, label %29, !prof !2474
+  br i1 %8, label %11, label %19, !prof !2474
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr %0, align 8, !alias.scope !2905, !nonnull !4, !noundef !4
-  %12 = trunc i64 %1 to i8
-  %13 = and i8 %12, 7
+10:                                               ; preds = %3
+  br i1 %8, label %21, label %28, !prof !2474
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %0, align 8, !alias.scope !2905, !nonnull !4, !noundef !4
+  %13 = trunc nuw nsw i64 %5 to i8
   %14 = shl nuw i8 1, %13
   %15 = xor i8 %14, -1
-  %16 = getelementptr inbounds nuw [0 x i8], ptr %11, i64 0, i64 %4
+  %16 = getelementptr inbounds nuw [0 x i8], ptr %12, i64 0, i64 %4
   %17 = load i8, ptr %16, align 1, !noundef !4
   %18 = and i8 %17, %15
   store i8 %18, ptr %16, align 1
   br label %20
 
-19:                                               ; preds = %8
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4dd66198b1e00463ac4f9539cc1b7f60.121.llvm.6717981035442482804) #32
+19:                                               ; preds = %9
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %4, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4dd66198b1e00463ac4f9539cc1b7f60.121.llvm.6717981035442482804) #32
   unreachable
 
-20:                                               ; preds = %21, %10
+20:                                               ; preds = %21, %11
   ret void
 
-21:                                               ; preds = %9
+21:                                               ; preds = %10
   %22 = load ptr, ptr %0, align 8, !alias.scope !2908, !nonnull !4, !noundef !4
-  %23 = trunc i64 %1 to i8
-  %24 = and i8 %23, 7
-  %25 = shl nuw i8 1, %24
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %4
-  %27 = load i8, ptr %26, align 1, !noundef !4
-  %28 = or i8 %27, %25
-  store i8 %28, ptr %26, align 1
+  %23 = trunc nuw nsw i64 %5 to i8
+  %24 = shl nuw i8 1, %23
+  %25 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %4
+  %26 = load i8, ptr %25, align 1, !noundef !4
+  %27 = or i8 %26, %24
+  store i8 %27, ptr %25, align 1
   br label %20
 
-29:                                               ; preds = %9
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4dd66198b1e00463ac4f9539cc1b7f60.122.llvm.6717981035442482804) #32
+28:                                               ; preds = %10
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %4, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4dd66198b1e00463ac4f9539cc1b7f60.122.llvm.6717981035442482804) #32
   unreachable
 }
 

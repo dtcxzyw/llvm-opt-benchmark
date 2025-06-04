@@ -6086,9 +6086,9 @@ define internal void @check_lifetime(ptr readnone captures(none) %0) #0 align 16
   %5 = add i64 %2, 20
   br label %6
 
-6:                                                ; preds = %107, %1
-  %7 = phi i64 [ 0, %1 ], [ %109, %107 ]
-  %8 = phi i64 [ %4, %1 ], [ %108, %107 ]
+6:                                                ; preds = %106, %1
+  %7 = phi i64 [ 0, %1 ], [ %108, %106 ]
+  %8 = phi i64 [ %4, %1 ], [ %107, %106 ]
   tail call void @__rcu_read_lock() #18
   %9 = getelementptr [256 x %struct.hlist_head], ptr @inet_addr_lst, i64 0, i64 %7
   %10 = load volatile ptr, ptr %9, align 8
@@ -6097,7 +6097,7 @@ define internal void @check_lifetime(ptr readnone captures(none) %0) #0 align 16
 
 .thread:                                          ; preds = %6
   tail call void @__rcu_read_unlock() #18
-  br label %107
+  br label %106
 
 .preheader8:                                      ; preds = %6, %54
   %12 = phi ptr [ %57, %54 ], [ %10, %6 ]
@@ -6163,105 +6163,104 @@ define internal void @check_lifetime(ptr readnone captures(none) %0) #0 align 16
 
 59:                                               ; preds = %54
   tail call void @__rcu_read_unlock() #18
-  %60 = and i8 %55, 1
-  %61 = icmp eq i8 %60, 0
-  br i1 %61, label %107, label %62
+  %60 = icmp eq i8 %55, 0
+  br i1 %60, label %106, label %61
 
-62:                                               ; preds = %59
+61:                                               ; preds = %59
   tail call void @rtnl_lock() #18
-  %63 = load ptr, ptr %9, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.loopexit7, label %.preheader
+  %62 = load ptr, ptr %9, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.loopexit7, label %.preheader
 
-.preheader:                                       ; preds = %62, %.loopexit
-  %65 = phi ptr [ %66, %.loopexit ], [ %63, %62 ]
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 72
-  %68 = load i32, ptr %67, align 8
-  %69 = and i32 %68, 128
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.loopexit
+.preheader:                                       ; preds = %61, %.loopexit
+  %64 = phi ptr [ %65, %.loopexit ], [ %62, %61 ]
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 72
+  %67 = load i32, ptr %66, align 8
+  %68 = and i32 %67, 128
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %.loopexit
 
-71:                                               ; preds = %.preheader
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 112
-  %73 = load i64, ptr %72, align 8
-  %74 = sub i64 %5, %73
-  %75 = udiv i64 %74, 1000
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 92
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, -1
-  %79 = zext i32 %77 to i64
-  %80 = icmp samesign ult i64 %75, %79
-  %81 = select i1 %78, i1 true, i1 %80
-  br i1 %81, label %94, label %82
+70:                                               ; preds = %.preheader
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 112
+  %72 = load i64, ptr %71, align 8
+  %73 = sub i64 %5, %72
+  %74 = udiv i64 %73, 1000
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 92
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp eq i32 %76, -1
+  %78 = zext i32 %76 to i64
+  %79 = icmp samesign ult i64 %74, %78
+  %80 = select i1 %77, i1 true, i1 %79
+  br i1 %80, label %93, label %81
 
-82:                                               ; preds = %71
-  %83 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %84 = load ptr, ptr %83, align 8
-  br label %85
+81:                                               ; preds = %70
+  %82 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %83 = load ptr, ptr %82, align 8
+  br label %84
 
-85:                                               ; preds = %90, %82
-  %86 = phi ptr [ %84, %82 ], [ %88, %90 ]
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit, label %90
+84:                                               ; preds = %89, %81
+  %85 = phi ptr [ %83, %81 ], [ %87, %89 ]
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %.loopexit, label %89
 
-90:                                               ; preds = %85
-  %91 = icmp eq ptr %88, %65
-  br i1 %91, label %92, label %85, !llvm.loop !142
+89:                                               ; preds = %84
+  %90 = icmp eq ptr %87, %64
+  br i1 %90, label %91, label %84, !llvm.loop !142
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  tail call fastcc void @__inet_del_ifa(ptr noundef %84, ptr noundef nonnull %93, i32 noundef 1, ptr noundef null, i32 noundef 0)
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  tail call fastcc void @__inet_del_ifa(ptr noundef %83, ptr noundef nonnull %92, i32 noundef 1, ptr noundef null, i32 noundef 0)
   br label %.loopexit
 
-94:                                               ; preds = %71
-  %95 = getelementptr inbounds nuw i8, ptr %65, i64 96
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp ne i32 %96, -1
-  %98 = zext i32 %96 to i64
-  %99 = icmp samesign uge i64 %75, %98
-  %100 = select i1 %97, i1 %99, i1 false
-  %101 = and i32 %68, 32
-  %102 = icmp eq i32 %101, 0
-  %103 = and i1 %102, %100
-  br i1 %103, label %104, label %.loopexit
+93:                                               ; preds = %70
+  %94 = getelementptr inbounds nuw i8, ptr %64, i64 96
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp ne i32 %95, -1
+  %97 = zext i32 %95 to i64
+  %98 = icmp samesign uge i64 %74, %97
+  %99 = select i1 %96, i1 %98, i1 false
+  %100 = and i32 %67, 32
+  %101 = icmp eq i32 %100, 0
+  %102 = and i1 %101, %99
+  br i1 %102, label %103, label %.loopexit
 
-104:                                              ; preds = %94
-  %105 = or disjoint i32 %68, 32
-  store i32 %105, ptr %67, align 8
-  tail call fastcc void @rtmsg_ifa(i32 noundef 20, ptr noundef nonnull %65, ptr noundef null, i32 noundef 0)
+103:                                              ; preds = %93
+  %104 = or disjoint i32 %67, 32
+  store i32 %104, ptr %66, align 8
+  tail call fastcc void @rtmsg_ifa(i32 noundef 20, ptr noundef nonnull %64, ptr noundef null, i32 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %85, %104, %94, %92, %.preheader
-  %106 = icmp eq ptr %66, null
-  br i1 %106, label %.loopexit7, label %.preheader, !llvm.loop !143
+.loopexit:                                        ; preds = %84, %103, %93, %91, %.preheader
+  %105 = icmp eq ptr %65, null
+  br i1 %105, label %.loopexit7, label %.preheader, !llvm.loop !143
 
-.loopexit7:                                       ; preds = %.loopexit, %62
+.loopexit7:                                       ; preds = %.loopexit, %61
   tail call void @rtnl_unlock() #18
-  br label %107
+  br label %106
 
-107:                                              ; preds = %.thread, %.loopexit7, %59
-  %108 = phi i64 [ %8, %.thread ], [ %56, %.loopexit7 ], [ %56, %59 ]
-  %109 = add nuw nsw i64 %7, 1
-  %110 = icmp eq i64 %109, 256
-  br i1 %110, label %111, label %6, !llvm.loop !144
+106:                                              ; preds = %.thread, %.loopexit7, %59
+  %107 = phi i64 [ %8, %.thread ], [ %56, %.loopexit7 ], [ %56, %59 ]
+  %108 = add nuw nsw i64 %7, 1
+  %109 = icmp eq i64 %108, 256
+  br i1 %109, label %110, label %6, !llvm.loop !144
 
-111:                                              ; preds = %107
-  %112 = tail call i64 @round_jiffies_up(i64 noundef %108) #18
-  %reass.sub = sub i64 %112, %108
-  %113 = add i64 %reass.sub, -250
-  %114 = icmp slt i64 %113, 0
-  %115 = select i1 %114, i64 %112, i64 %108
-  %116 = load volatile i64, ptr @jiffies, align 64
-  %117 = add i64 %116, 1000
-  %118 = sub i64 %115, %117
-  %119 = icmp slt i64 %118, 0
-  %120 = select i1 %119, i64 %117, i64 %115
-  %121 = load ptr, ptr @system_power_efficient_wq, align 8
-  %122 = sub i64 %120, %116
-  %123 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %121, ptr noundef nonnull @check_lifetime_work, i64 noundef %122) #18
+110:                                              ; preds = %106
+  %111 = tail call i64 @round_jiffies_up(i64 noundef %107) #18
+  %reass.sub = sub i64 %111, %107
+  %112 = add i64 %reass.sub, -250
+  %113 = icmp slt i64 %112, 0
+  %114 = select i1 %113, i64 %111, i64 %107
+  %115 = load volatile i64, ptr @jiffies, align 64
+  %116 = add i64 %115, 1000
+  %117 = sub i64 %114, %116
+  %118 = icmp slt i64 %117, 0
+  %119 = select i1 %118, i64 %116, i64 %114
+  %120 = load ptr, ptr @system_power_efficient_wq, align 8
+  %121 = sub i64 %119, %115
+  %122 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %120, ptr noundef nonnull @check_lifetime_work, i64 noundef %121) #18
   ret void
 }
 

@@ -987,7 +987,7 @@ define dso_local ptr @swap_cache_get_folio(i64 %0, ptr noundef %1, i64 noundef %
   %9 = getelementptr %struct.address_space, ptr %6, i64 %8
   %10 = tail call ptr @__filemap_get_folio(ptr noundef %9, i64 noundef %7, i32 noundef 0, i32 noundef 0) #11
   %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
-  br i1 %11, label %49, label %12
+  br i1 %11, label %45, label %12
 
 12:                                               ; preds = %3
   %13 = load volatile i8, ptr @enable_vma_readahead, align 1, !range !24, !noundef !25
@@ -1004,7 +1004,7 @@ define dso_local ptr @swap_cache_get_folio(i64 %0, ptr noundef %1, i64 noundef %
   %20 = load volatile i64, ptr %10, align 8
   %21 = and i64 %20, 64
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %49, !prof !12
+  br i1 %22, label %23, label %45, !prof !12
 
 23:                                               ; preds = %18
   %24 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 18, ptr elementtype(i64) %10) #11, !srcloc !26
@@ -1013,48 +1013,41 @@ define dso_local ptr @swap_cache_get_folio(i64 %0, ptr noundef %1, i64 noundef %
   %26 = icmp eq i8 %24, 0
   %27 = icmp eq ptr %1, null
   %28 = select i1 %27, i1 true, i1 %19
-  br i1 %28, label %39, label %29
+  br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %23
+  br i1 %26, label %45, label %44
+
+.thread:                                          ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %31 = load volatile i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
   %33 = select i1 %32, i64 4, i64 %31
   %34 = and i64 %33, 4032
-  br i1 %26, label %.thread.thread, label %.thread2
+  %35 = trunc i64 %33 to i32
+  %36 = and i32 %35, 63
+  %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 62)
+  %38 = add nuw nsw i32 %37, 1
+  %39 = select i1 %26, i32 %36, i32 %38
+  %40 = and i64 %2, -4096
+  %41 = or disjoint i64 %34, %40
+  %42 = zext nneg i32 %39 to i64
+  %43 = or disjoint i64 %41, %42
+  store volatile i64 %43, ptr %30, align 8
+  br i1 %26, label %45, label %.thread2
 
-.thread.thread:                                   ; preds = %29
-  %35 = and i64 %2, -4096
-  %36 = and i64 %33, 63
-  %37 = or disjoint i64 %36, %35
-  %38 = or disjoint i64 %37, %34
-  store volatile i64 %38, ptr %30, align 8
-  br label %49
-
-39:                                               ; preds = %23
-  br i1 %26, label %49, label %48
-
-.thread2:                                         ; preds = %29
-  %40 = trunc i64 %33 to i32
-  %41 = and i32 %40, 63
-  %42 = tail call i32 @llvm.umin.i32(i32 %41, i32 62)
-  %43 = add nuw nsw i32 %42, 1
-  %44 = and i64 %2, -4096
-  %45 = zext nneg i32 %43 to i64
-  %46 = or disjoint i64 %44, %45
-  %47 = or i64 %46, %34
-  store volatile i64 %47, ptr %30, align 8
+.thread2:                                         ; preds = %.thread
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 568), ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 568)) #11, !srcloc !27
-  br label %49
+  br label %45
 
-48:                                               ; preds = %39
+44:                                               ; preds = %29
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 568), ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 568)) #11, !srcloc !27
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @swapin_readahead_hits, ptr nonnull elementtype(i32) @swapin_readahead_hits) #11, !srcloc !28
-  br label %49
+  br label %45
 
-49:                                               ; preds = %.thread.thread, %.thread2, %48, %39, %18, %3
-  %50 = phi ptr [ null, %3 ], [ %10, %18 ], [ %10, %39 ], [ %10, %48 ], [ %10, %.thread2 ], [ %10, %.thread.thread ]
-  ret ptr %50
+45:                                               ; preds = %.thread2, %.thread, %44, %29, %18, %3
+  %46 = phi ptr [ null, %3 ], [ %10, %18 ], [ %10, %29 ], [ %10, %44 ], [ %10, %.thread ], [ %10, %.thread2 ]
+  ret ptr %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

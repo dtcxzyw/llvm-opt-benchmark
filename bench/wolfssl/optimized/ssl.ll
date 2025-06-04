@@ -441,11 +441,11 @@ define void @wolfSSL_CTX_set_verify(ptr noundef captures(address_is_null) %0, i3
 
 ModeToVerifyOptions.exit:                         ; preds = %5, %6, %.fold.split.i
   %.sroa.0.0.i = phi i8 [ %14, %6 ], [ 0, %5 ], [ 2, %.fold.split.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  %16 = load i16, ptr %15, align 1
-  %17 = and i8 %.sroa.0.0.i, 2
-  %18 = zext nneg i8 %17 to i16
-  %19 = and i16 %16, -16
+  %15 = and i8 %.sroa.0.0.i, 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  %17 = load i16, ptr %16, align 1
+  %18 = zext nneg i8 %15 to i16
+  %19 = and i16 %17, -16
   %20 = or disjoint i16 %19, %18
   %21 = and i8 %.sroa.0.0.i, 1
   %22 = zext nneg i8 %21 to i16
@@ -456,7 +456,7 @@ ModeToVerifyOptions.exit:                         ; preds = %5, %6, %.fold.split
   %27 = and i8 %.sroa.0.0.i, 8
   %28 = zext nneg i8 %27 to i16
   %29 = or disjoint i16 %26, %28
-  store i16 %29, ptr %15, align 1
+  store i16 %29, ptr %16, align 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %2, ptr %30, align 8, !tbaa !17
   br label %31

@@ -2571,7 +2571,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   call void @blkg_conf_init(ptr noundef nonnull %5, ptr noundef %1) #21
   %11 = call i32 @blkg_conf_open_bdev(ptr noundef nonnull %5) #21
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %168
+  br i1 %12, label %13, label %167
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2586,7 +2586,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %168, label %25
+  br i1 %24, label %167, label %25
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 264
@@ -2610,7 +2610,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
 .loopexit20:                                      ; preds = %33, %25
   %37 = call fastcc i32 @blk_iocost_init(ptr noundef %19)
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %168
+  br i1 %38, label %39, label %167
 
 39:                                               ; preds = %.loopexit20
   %40 = load ptr, ptr %20, align 8
@@ -2770,7 +2770,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #21
-  br label %165
+  br label %164
 
 select.unfold:                                    ; preds = %81, %.preheader, %73, %77, %95, %103, %117
   %124 = phi i8 [ %76, %73 ], [ %65, %.preheader ], [ %65, %77 ], [ %65, %117 ], [ %65, %103 ], [ %65, %95 ], [ %65, %81 ]
@@ -2790,90 +2790,89 @@ select.unfold:                                    ; preds = %81, %.preheader, %7
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %133 = load i32, ptr %132, align 4
   %134 = icmp ugt i32 %131, %133
-  br i1 %134, label %165, label %135
+  br i1 %134, label %164, label %135
 
 135:                                              ; preds = %.loopexit
-  %136 = and i8 %128, 1
-  %137 = icmp eq i8 %136, 0
-  %138 = load i8, ptr %57, align 8, !range !29, !noundef !30
-  %139 = icmp eq i8 %138, 0
-  br i1 %137, label %144, label %140
+  %136 = icmp eq i8 %128, 0
+  %137 = load i8, ptr %57, align 8, !range !29, !noundef !30
+  %138 = icmp eq i8 %137, 0
+  br i1 %136, label %143, label %139
 
-140:                                              ; preds = %135
-  br i1 %139, label %141, label %150
+139:                                              ; preds = %135
+  br i1 %138, label %140, label %149
 
-141:                                              ; preds = %140
+140:                                              ; preds = %139
+  %141 = load ptr, ptr %20, align 8
+  call void @blk_stat_enable_accounting(ptr noundef %141) #21
   %142 = load ptr, ptr %20, align 8
-  call void @blk_stat_enable_accounting(ptr noundef %142) #21
-  %143 = load ptr, ptr %20, align 8
-  call void @blk_queue_flag_set(i32 noundef 27, ptr noundef %143) #21
-  br label %148
+  call void @blk_queue_flag_set(i32 noundef 27, ptr noundef %142) #21
+  br label %147
 
-144:                                              ; preds = %135
-  br i1 %139, label %150, label %145
+143:                                              ; preds = %135
+  br i1 %138, label %149, label %144
 
-145:                                              ; preds = %144
+144:                                              ; preds = %143
+  %145 = load ptr, ptr %20, align 8
+  call void @blk_stat_disable_accounting(ptr noundef %145) #21
   %146 = load ptr, ptr %20, align 8
-  call void @blk_stat_disable_accounting(ptr noundef %146) #21
-  %147 = load ptr, ptr %20, align 8
-  call void @blk_queue_flag_clear(i32 noundef 27, ptr noundef %147) #21
-  br label %148
+  call void @blk_queue_flag_clear(i32 noundef 27, ptr noundef %146) #21
+  br label %147
 
-148:                                              ; preds = %145, %141
-  %149 = phi i8 [ 0, %145 ], [ 1, %141 ]
-  store i8 %149, ptr %57, align 8
-  br label %150
+147:                                              ; preds = %144, %140
+  %148 = phi i8 [ 0, %144 ], [ 1, %140 ]
+  store i8 %148, ptr %57, align 8
+  br label %149
 
-150:                                              ; preds = %148, %144, %140
-  %151 = and i8 %129, 1
-  %152 = icmp eq i8 %151, 0
-  br i1 %152, label %156, label %153
+149:                                              ; preds = %147, %143, %139
+  %150 = and i8 %129, 1
+  %151 = icmp eq i8 %150, 0
+  br i1 %151, label %155, label %152
 
-153:                                              ; preds = %150
+152:                                              ; preds = %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
-  %154 = load i8, ptr %59, align 4
-  %155 = or i8 %154, 1
-  br label %159
+  %153 = load i8, ptr %59, align 4
+  %154 = or i8 %153, 1
+  br label %158
 
-156:                                              ; preds = %150
-  %157 = load i8, ptr %59, align 4
-  %158 = and i8 %157, -2
-  br label %159
+155:                                              ; preds = %149
+  %156 = load i8, ptr %59, align 4
+  %157 = and i8 %156, -2
+  br label %158
 
-159:                                              ; preds = %156, %153
-  %160 = phi i8 [ %158, %156 ], [ %155, %153 ]
-  store i8 %160, ptr %59, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %162 = load ptr, ptr %161, align 8
-  call fastcc void @ioc_refresh_params_disk(ptr noundef %53, i1 noundef zeroext true, ptr noundef %162)
+158:                                              ; preds = %155, %152
+  %159 = phi i8 [ %157, %155 ], [ %154, %152 ]
+  store i8 %159, ptr %59, align 4
+  %160 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %161 = load ptr, ptr %160, align 8
+  call fastcc void @ioc_refresh_params_disk(ptr noundef %53, i1 noundef zeroext true, ptr noundef %161)
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %55) #21
+  %162 = load ptr, ptr %20, align 8
+  call void @blk_mq_unquiesce_queue(ptr noundef %162) #21
   %163 = load ptr, ptr %20, align 8
-  call void @blk_mq_unquiesce_queue(ptr noundef %163) #21
-  %164 = load ptr, ptr %20, align 8
-  call void @blk_mq_unfreeze_queue(ptr noundef %164) #21
+  call void @blk_mq_unfreeze_queue(ptr noundef %163) #21
   call void @blkg_conf_exit(ptr noundef nonnull %5) #21
-  br label %171
+  br label %170
 
-165:                                              ; preds = %.thread15, %.loopexit
+164:                                              ; preds = %.thread15, %.loopexit
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %55) #21
+  %165 = load ptr, ptr %20, align 8
+  call void @blk_mq_unquiesce_queue(ptr noundef %165) #21
   %166 = load ptr, ptr %20, align 8
-  call void @blk_mq_unquiesce_queue(ptr noundef %166) #21
-  %167 = load ptr, ptr %20, align 8
-  call void @blk_mq_unfreeze_queue(ptr noundef %167) #21
-  br label %168
+  call void @blk_mq_unfreeze_queue(ptr noundef %166) #21
+  br label %167
 
-168:                                              ; preds = %165, %.loopexit20, %13, %4
-  %169 = phi i32 [ %11, %4 ], [ -22, %165 ], [ %37, %.loopexit20 ], [ -95, %13 ]
+167:                                              ; preds = %164, %.loopexit20, %13, %4
+  %168 = phi i32 [ %11, %4 ], [ -22, %164 ], [ %37, %.loopexit20 ], [ -95, %13 ]
   call void @blkg_conf_exit(ptr noundef nonnull %5) #21
-  %170 = sext i32 %169 to i64
-  br label %171
+  %169 = sext i32 %168 to i64
+  br label %170
 
-171:                                              ; preds = %168, %159
-  %172 = phi i64 [ %170, %168 ], [ %2, %159 ]
+170:                                              ; preds = %167, %158
+  %171 = phi i64 [ %169, %167 ], [ %2, %158 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
-  ret i64 %172
+  ret i64 %171
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

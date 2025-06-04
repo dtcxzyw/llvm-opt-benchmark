@@ -2206,75 +2206,76 @@ define dso_local ptr @rb_iseq_new_with_opt(i64 noundef %0, i64 noundef %1, i64 n
 
 36:                                               ; preds = %31, %24
   %37 = phi i16 [ %35, %31 ], [ %30, %24 ]
-  %.mask.i = and i8 %27, 2
-  %38 = icmp eq i8 %.mask.i, 0
-  br i1 %38, label %39, label %set_compile_option_from_ast.exit
+  %38 = shl i8 %27, 6
+  %39 = ashr exact i8 %38, 6
+  %40 = icmp sgt i8 %39, -1
+  br i1 %40, label %41, label %set_compile_option_from_ast.exit
 
-39:                                               ; preds = %36
-  %40 = shl i8 %27, 6
-  %41 = zext nneg i8 %40 to i16
-  %42 = and i16 %37, -193
-  %43 = or disjoint i16 %42, %41
-  store i16 %43, ptr %12, align 8
+41:                                               ; preds = %36
+  %42 = zext nneg i8 %39 to i16
+  %43 = shl nuw nsw i16 %42, 6
+  %44 = and i16 %37, -193
+  %45 = or i16 %44, %43
+  store i16 %45, ptr %12, align 8
   br label %set_compile_option_from_ast.exit
 
-set_compile_option_from_ast.exit:                 ; preds = %39, %36
-  %44 = icmp eq i64 %9, 4
-  br i1 %44, label %46, label %56
+set_compile_option_from_ast.exit:                 ; preds = %41, %36
+  %46 = icmp eq i64 %9, 4
+  br i1 %46, label %48, label %58
 
 set_compile_option_from_ast.exit.thread:          ; preds = %18
-  %45 = icmp eq i64 %9, 4
-  br i1 %45, label %.thread, label %56
+  %47 = icmp eq i64 %9, 4
+  br i1 %47, label %.thread, label %58
 
-46:                                               ; preds = %set_compile_option_from_ast.exit
-  %47 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !174
-  %.not37 = icmp eq ptr %48, null
-  br i1 %.not37, label %.thread, label %49
+48:                                               ; preds = %set_compile_option_from_ast.exit
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !174
+  %.not37 = icmp eq ptr %50, null
+  br i1 %.not37, label %.thread, label %51
 
-49:                                               ; preds = %46
-  %50 = tail call i64 @rb_parser_build_script_lines_from(ptr noundef nonnull %48) #20
-  br label %56
+51:                                               ; preds = %48
+  %52 = tail call i64 @rb_parser_build_script_lines_from(ptr noundef nonnull %50) #20
+  br label %58
 
-.thread:                                          ; preds = %set_compile_option_from_ast.exit.thread, %46
-  %.04244 = phi ptr [ %12, %46 ], [ %spec.store.select, %set_compile_option_from_ast.exit.thread ]
+.thread:                                          ; preds = %set_compile_option_from_ast.exit.thread, %48
+  %.04244 = phi ptr [ %12, %48 ], [ %spec.store.select, %set_compile_option_from_ast.exit.thread ]
   %.not38 = icmp eq ptr %5, null
-  br i1 %.not38, label %56, label %51
+  br i1 %.not38, label %58, label %53
 
-51:                                               ; preds = %.thread
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !7
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 200
-  %55 = load i64, ptr %54, align 8, !tbaa !175
-  br label %56
+53:                                               ; preds = %.thread
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !7
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 200
+  %57 = load i64, ptr %56, align 8, !tbaa !175
+  br label %58
 
-56:                                               ; preds = %set_compile_option_from_ast.exit.thread, %49, %51, %.thread, %set_compile_option_from_ast.exit
-  %.041 = phi ptr [ %12, %49 ], [ %.04244, %51 ], [ %.04244, %.thread ], [ %12, %set_compile_option_from_ast.exit ], [ %spec.store.select, %set_compile_option_from_ast.exit.thread ]
-  %.032 = phi i64 [ %50, %49 ], [ %55, %51 ], [ 4, %.thread ], [ %9, %set_compile_option_from_ast.exit ], [ %9, %set_compile_option_from_ast.exit.thread ]
+58:                                               ; preds = %set_compile_option_from_ast.exit.thread, %51, %53, %.thread, %set_compile_option_from_ast.exit
+  %.041 = phi ptr [ %12, %51 ], [ %.04244, %53 ], [ %.04244, %.thread ], [ %12, %set_compile_option_from_ast.exit ], [ %spec.store.select, %set_compile_option_from_ast.exit.thread ]
+  %.032 = phi i64 [ %52, %51 ], [ %57, %53 ], [ 4, %.thread ], [ %9, %set_compile_option_from_ast.exit ], [ %9, %set_compile_option_from_ast.exit.thread ]
   %.not39 = icmp eq ptr %19, null
-  br i1 %.not39, label %61, label %57
+  br i1 %.not39, label %63, label %59
 
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %60 = load i32, ptr %59, align 8, !tbaa !176
-  br label %61
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %62 = load i32, ptr %61, align 8, !tbaa !176
+  br label %63
 
-61:                                               ; preds = %56, %57
-  %62 = phi ptr [ null, %56 ], [ %58, %57 ]
-  %63 = phi i32 [ -1, %56 ], [ %60, %57 ]
-  call fastcc void @prepare_iseq_build(ptr noundef nonnull %21, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %62, i32 noundef %63, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %.032, ptr noundef nonnull %.041)
-  %64 = call i64 @rb_iseq_compile_node(ptr noundef nonnull %21, ptr noundef %19) #20
+63:                                               ; preds = %58, %59
+  %64 = phi ptr [ null, %58 ], [ %60, %59 ]
+  %65 = phi i32 [ -1, %58 ], [ %62, %59 ]
+  call fastcc void @prepare_iseq_build(ptr noundef nonnull %21, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %64, i32 noundef %65, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %.032, ptr noundef nonnull %.041)
+  %66 = call i64 @rb_iseq_compile_node(ptr noundef nonnull %21, ptr noundef %19) #20
   call fastcc void @finish_iseq_build(ptr noundef nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #20
   store ptr %11, ptr %13, align 8, !tbaa !178
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %13) #20, !srcloc !179
-  %65 = load ptr, ptr %13, align 8, !tbaa !178
+  %67 = load ptr, ptr %13, align 8, !tbaa !178
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #20
-  %66 = load volatile i64, ptr %65, align 8, !tbaa !42
-  %67 = call fastcc ptr @iseq_translate(ptr noundef nonnull %21)
+  %68 = load volatile i64, ptr %67, align 8, !tbaa !42
+  %69 = call fastcc ptr @iseq_translate(ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
-  ret ptr %67
+  ret ptr %69
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

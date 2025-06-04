@@ -2083,7 +2083,7 @@ sema_analyse_expr.exit499:                        ; preds = %sema_analyse_expr_l
 
 198:                                              ; preds = %194
   %.not492 = icmp eq ptr %5, null
-  br i1 %.not492, label %199, label %534
+  br i1 %.not492, label %199, label %533
 
 199:                                              ; preds = %198
   %200 = load i64, ptr %25, align 8
@@ -2105,7 +2105,7 @@ sema_analyse_expr.exit499:                        ; preds = %sema_analyse_expr_l
 
 202:                                              ; preds = %.thread505
   %.not491 = icmp eq ptr %5, null
-  br i1 %.not491, label %203, label %534
+  br i1 %.not491, label %203, label %533
 
 203:                                              ; preds = %202
   %204 = load i64, ptr %25, align 8
@@ -2795,7 +2795,7 @@ thread-pre-split:                                 ; preds = %.thread514, %359, %
   %.sroa.0365.0.copyload = load i64, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %491, i64 56, i1 false)
   store i64 %.sroa.0365.0.copyload, ptr %25, align 8
-  br label %526
+  br label %525
 
 .thread535:                                       ; preds = %500, %487, %.thread532, %481, %._crit_edge584, %492, %489
   %506 = phi i8 [ %spec.select527, %.thread532 ], [ %spec.select537, %481 ], [ %spec.select537, %._crit_edge584 ], [ %spec.select537, %492 ], [ %spec.select537, %489 ], [ %spec.select537, %487 ], [ %spec.select537, %500 ]
@@ -2821,26 +2821,25 @@ thread-pre-split:                                 ; preds = %.thread514, %359, %
   %522 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %335, ptr %522, align 8
   store ptr %313, ptr %275, align 8
-  %523 = and i8 %506, 1
-  %524 = and i8 %519, -2
-  %525 = or disjoint i8 %524, %523
-  store i8 %525, ptr %176, align 4
-  br label %526
+  %523 = and i8 %519, -2
+  %524 = or disjoint i8 %523, %506
+  store i8 %524, ptr %176, align 4
+  br label %525
 
-526:                                              ; preds = %.thread535, %505
-  %527 = phi i8 [ %506, %.thread535 ], [ %spec.select537, %505 ]
+525:                                              ; preds = %.thread535, %505
+  %526 = phi i8 [ %506, %.thread535 ], [ %spec.select537, %505 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %228, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
-  %528 = trunc nuw i8 %527 to i1
-  br i1 %528, label %529, label %533
+  %527 = trunc nuw i8 %526 to i1
+  br i1 %527, label %528, label %532
 
-529:                                              ; preds = %526
-  %530 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %531 = load i8, ptr %530, align 4
-  %532 = or i8 %531, 2
-  store i8 %532, ptr %530, align 4
-  br label %533
+528:                                              ; preds = %525
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %530 = load i8, ptr %529, align 4
+  %531 = or i8 %530, 2
+  store i8 %531, ptr %529, align 4
+  br label %532
 
-533:                                              ; preds = %529, %526
+532:                                              ; preds = %528, %525
   call void @sema_context_destroy(ptr noundef nonnull %10) #12
   br label %.critedge
 
@@ -2849,12 +2848,12 @@ thread-pre-split:                                 ; preds = %.thread514, %359, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %228, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   br label %.critedge
 
-534:                                              ; preds = %202, %198
+533:                                              ; preds = %202, %198
   store i8 1, ptr %5, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %sema_analyse_expr_lvalue.exit676, %sema_analyse_expr_lvalue.exit, %sema_analyse_expr.exit499, %sema_analyse_expr.exit, %223, %212, %148, %143, %105, %100, %61, %534, %.loopexit541, %533, %456, %209, %203, %199, %18
-  %.0404 = phi i1 [ false, %18 ], [ false, %534 ], [ false, %199 ], [ false, %203 ], [ false, %209 ], [ false, %.loopexit541 ], [ true, %533 ], [ false, %456 ], [ false, %61 ], [ false, %100 ], [ false, %105 ], [ false, %143 ], [ false, %148 ], [ false, %212 ], [ false, %223 ], [ false, %sema_analyse_expr.exit ], [ false, %sema_analyse_expr.exit499 ], [ false, %sema_analyse_expr_lvalue.exit ], [ false, %sema_analyse_expr_lvalue.exit676 ]
+.critedge:                                        ; preds = %sema_analyse_expr_lvalue.exit676, %sema_analyse_expr_lvalue.exit, %sema_analyse_expr.exit499, %sema_analyse_expr.exit, %223, %212, %148, %143, %105, %100, %61, %533, %.loopexit541, %532, %456, %209, %203, %199, %18
+  %.0404 = phi i1 [ false, %18 ], [ false, %533 ], [ false, %199 ], [ false, %203 ], [ false, %209 ], [ false, %.loopexit541 ], [ true, %532 ], [ false, %456 ], [ false, %61 ], [ false, %100 ], [ false, %105 ], [ false, %143 ], [ false, %148 ], [ false, %212 ], [ false, %223 ], [ false, %sema_analyse_expr.exit ], [ false, %sema_analyse_expr.exit499 ], [ false, %sema_analyse_expr_lvalue.exit ], [ false, %sema_analyse_expr_lvalue.exit676 ]
   ret i1 %.0404
 }
 

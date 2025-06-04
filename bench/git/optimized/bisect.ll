@@ -2554,10 +2554,10 @@ check_good_are_ancestors_of_bad.exit:             ; preds = %select.unfold.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #22
   call fastcc void @bisect_rev_setup(ptr noundef %0, ptr noundef %11, ptr noundef %10, ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 1)
   %183 = lshr exact i32 %spec.select, 1
-  %184 = load i64, ptr %15, align 8
-  %185 = zext nneg i32 %183 to i64
-  %186 = shl nuw nsw i64 %185, 38
-  %187 = and i64 %184, -274878431233
+  %184 = zext nneg i32 %183 to i64
+  %185 = load i64, ptr %15, align 8
+  %186 = shl nuw nsw i64 %184, 38
+  %187 = and i64 %185, -274878431233
   %188 = or disjoint i64 %187, %186
   %189 = or disjoint i64 %188, 524288
   store i64 %189, ptr %15, align 8

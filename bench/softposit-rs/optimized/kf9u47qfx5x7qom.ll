@@ -229,10 +229,10 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %.066 = phi i32 [ %103, %99 ], [ %97, %92 ]
   %.065 = phi i32 [ %101, %99 ], [ %94, %92 ]
   %106 = icmp ult i32 %.065, 29
-  br i1 %106, label %114, label %109
+  br i1 %106, label %115, label %109
 
-107:                                              ; preds = %99, %92, %132, %128
-  %.068 = phi i32 [ %138, %132 ], [ %130, %128 ], [ 2147483647, %92 ], [ 1, %99 ]
+107:                                              ; preds = %99, %92, %133, %129
+  %.068 = phi i32 [ %138, %133 ], [ %131, %129 ], [ 2147483647, %92 ], [ 1, %99 ]
   %108 = sub i32 0, %.068
   %.0.i108 = select i1 %.not, i32 %.068, i32 %108
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
@@ -241,48 +241,48 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 109:                                              ; preds = %105
   %110 = icmp eq i32 %.065, 30
   %111 = trunc i32 %62 to i8
-  %112 = ashr i32 %62, 1
-  %.073 = select i1 %110, i32 0, i32 %112
-  %113 = zext i1 %110 to i8
-  %.070.in = lshr i8 %111, %113
-  %.3 = select i1 %110, i8 %111, i8 %.069
-  br label %128
+  %112 = and i8 %111, 1
+  %113 = ashr i32 %62, 1
+  %.073 = select i1 %110, i32 0, i32 %113
+  %114 = zext i1 %110 to i8
+  %.070.in = lshr i8 %111, %114
+  %.3 = select i1 %110, i8 %112, i8 %.069
+  br label %129
 
-114:                                              ; preds = %105
-  %115 = add nuw nsw i32 %.065, 35
-  %116 = zext nneg i32 %115 to i64
-  %117 = lshr i64 %.075, %116
-  %118 = trunc nuw nsw i64 %117 to i32
-  %119 = add nuw nsw i32 %.065, 34
-  %120 = zext nneg i32 %119 to i64
-  %121 = lshr i64 %.075, %120
-  %122 = trunc i64 %121 to i8
-  %123 = sub nuw nsw i32 28, %.065
-  %124 = shl i32 %62, %123
-  %125 = sub nuw nsw i32 30, %.065
-  %126 = zext nneg i32 %125 to i64
-  %127 = shl i64 %.075, %126
-  br label %128
+115:                                              ; preds = %105
+  %116 = add nuw nsw i32 %.065, 35
+  %117 = zext nneg i32 %116 to i64
+  %118 = lshr i64 %.075, %117
+  %119 = trunc nuw nsw i64 %118 to i32
+  %120 = add nuw nsw i32 %.065, 34
+  %121 = zext nneg i32 %120 to i64
+  %122 = lshr i64 %.075, %121
+  %123 = trunc i64 %122 to i8
+  %124 = sub nuw nsw i32 28, %.065
+  %125 = shl i32 %62, %124
+  %126 = sub nuw nsw i32 30, %.065
+  %127 = zext nneg i32 %126 to i64
+  %128 = shl i64 %.075, %127
+  br label %129
 
-128:                                              ; preds = %109, %114
-  %.075.sink = phi i64 [ %.075, %109 ], [ %127, %114 ]
-  %.3.sink = phi i8 [ %.3, %109 ], [ %.069, %114 ]
-  %.174 = phi i32 [ %.073, %109 ], [ %124, %114 ]
-  %.072 = phi i32 [ 0, %109 ], [ %118, %114 ]
-  %.171.in = phi i8 [ %.070.in, %109 ], [ %122, %114 ]
-  %129 = add i32 %.174, %.066
-  %130 = add i32 %129, %.072
-  %131 = trunc i8 %.171.in to i1
-  br i1 %131, label %132, label %107
+129:                                              ; preds = %109, %115
+  %.075.sink = phi i64 [ %.075, %109 ], [ %128, %115 ]
+  %.3.sink = phi i8 [ %.3, %109 ], [ %.069, %115 ]
+  %.174 = phi i32 [ %.073, %109 ], [ %125, %115 ]
+  %.072 = phi i32 [ 0, %109 ], [ %119, %115 ]
+  %.171.in = phi i8 [ %.070.in, %109 ], [ %123, %115 ]
+  %130 = add i32 %.174, %.066
+  %131 = add i32 %130, %.072
+  %132 = trunc i8 %.171.in to i1
+  br i1 %132, label %133, label %107
 
-132:                                              ; preds = %128
+133:                                              ; preds = %129
   %.not89 = icmp eq i64 %.075.sink, 0
-  %133 = and i32 %130, 1
-  %134 = and i8 %.3.sink, 1
-  %135 = zext nneg i8 %134 to i32
+  %134 = and i32 %131, 1
+  %135 = zext nneg i8 %.3.sink to i32
   %136 = select i1 %.not89, i32 %135, i32 1
-  %137 = or i32 %133, %136
-  %138 = add i32 %137, %130
+  %137 = or i32 %134, %136
+  %138 = add i32 %137, %131
   br label %107
 
 139:                                              ; preds = %23, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %107

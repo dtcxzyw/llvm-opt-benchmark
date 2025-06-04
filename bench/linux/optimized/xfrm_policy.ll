@@ -12136,7 +12136,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initial
   store i8 2, ptr %8, align 1
   %9 = tail call i32 @xfrm_state_init(ptr noundef %0) #22
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %77, label %11
+  br i1 %10, label %76, label %11
 
 11:                                               ; preds = %1
   %12 = icmp eq ptr %0, @init_net
@@ -12169,8 +12169,8 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initial
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2768
   br label %27
 
-27:                                               ; preds = %39, %22
-  %28 = phi i64 [ 0, %22 ], [ %45, %39 ]
+27:                                               ; preds = %38, %22
+  %28 = phi i64 [ 0, %22 ], [ %44, %38 ]
   %29 = getelementptr [6 x i32], ptr %24, i64 0, i64 %28
   store i32 0, ptr %29, align 4
   %30 = add nuw nsw i64 %28, 3
@@ -12182,96 +12182,95 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initial
   %34 = tail call ptr @xfrm_hash_alloc(i32 noundef 64) #22
   store ptr %34, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %27
-  %37 = and i64 %28, 4294967295
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.loopexit, label %.preheader
+  %37 = icmp eq i64 %28, 0
+  br i1 %37, label %.loopexit, label %.preheader
 
-39:                                               ; preds = %27
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 7, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i8 32, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 13
-  store i8 32, ptr %42, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 14
-  store i8 -128, ptr %43, align 2
-  %44 = getelementptr inbounds nuw i8, ptr %33, i64 15
-  store i8 -128, ptr %44, align 1
-  %45 = add nuw nsw i64 %28, 1
-  %46 = icmp eq i64 %45, 3
-  br i1 %46, label %54, label %27, !llvm.loop !162
+38:                                               ; preds = %27
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i32 7, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  store i8 32, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 13
+  store i8 32, ptr %41, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 14
+  store i8 -128, ptr %42, align 2
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 15
+  store i8 -128, ptr %43, align 1
+  %44 = add nuw nsw i64 %28, 1
+  %45 = icmp eq i64 %44, 3
+  br i1 %45, label %53, label %27, !llvm.loop !162
 
 .preheader:                                       ; preds = %36, %.preheader
-  %47 = phi i64 [ %48, %.preheader ], [ %28, %36 ]
-  %48 = add nsw i64 %47, -1
-  %49 = and i64 %48, 4294967295
-  %50 = getelementptr [3 x %struct.xfrm_policy_hash], ptr %26, i64 0, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  tail call void @xfrm_hash_free(ptr noundef %51, i32 noundef 64) #22
-  %52 = icmp sgt i64 %47, 1
-  br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !163
+  %46 = phi i64 [ %47, %.preheader ], [ %28, %36 ]
+  %47 = add nsw i64 %46, -1
+  %48 = and i64 %47, 4294967295
+  %49 = getelementptr [3 x %struct.xfrm_policy_hash], ptr %26, i64 0, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  tail call void @xfrm_hash_free(ptr noundef %50, i32 noundef 64) #22
+  %51 = icmp sgt i64 %46, 1
+  br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !163
 
 .loopexit:                                        ; preds = %.preheader, %36
-  %53 = load ptr, ptr %20, align 8
-  tail call void @xfrm_hash_free(ptr noundef %53, i32 noundef 64) #22
+  %52 = load ptr, ptr %20, align 8
+  tail call void @xfrm_hash_free(ptr noundef %52, i32 noundef 64) #22
   br label %.thread3
 
-54:                                               ; preds = %39
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2872
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2912
-  store i8 32, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 2913
-  store i8 32, ptr %57, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 2914
-  store i8 -128, ptr %58, align 2
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2915
-  store i8 -128, ptr %59, align 1
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2908
-  store i32 0, ptr %61, align 4
+53:                                               ; preds = %38
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2872
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2912
+  store i8 32, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2913
+  store i8 32, ptr %56, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 2914
+  store i8 -128, ptr %57, align 2
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 2915
+  store i8 -128, ptr %58, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2904
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2908
   store i32 0, ptr %60, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2712
-  store volatile ptr %62, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2720
-  store volatile ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  store volatile ptr %64, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2928
-  store volatile ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  store i64 68719476704, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2848
-  store volatile ptr %67, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 2856
-  store volatile ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2864
-  store ptr @xfrm_hash_resize, ptr %69, align 8
-  store i64 68719476704, ptr %55, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2880
-  store volatile ptr %70, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2888
-  store volatile ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  store ptr @xfrm_hash_rebuild, ptr %72, align 8
-  %73 = tail call i32 @xfrm_sysctl_init(ptr noundef %0) #22
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %75, label %77
+  store i32 0, ptr %59, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2712
+  store volatile ptr %61, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2720
+  store volatile ptr %61, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2920
+  store volatile ptr %63, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2928
+  store volatile ptr %63, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  store i64 68719476704, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2848
+  store volatile ptr %66, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2856
+  store volatile ptr %66, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 2864
+  store ptr @xfrm_hash_resize, ptr %68, align 8
+  store i64 68719476704, ptr %54, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2880
+  store volatile ptr %69, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2888
+  store volatile ptr %69, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2896
+  store ptr @xfrm_hash_rebuild, ptr %71, align 8
+  %72 = tail call i32 @xfrm_sysctl_init(ptr noundef %0) #22
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %76
 
-75:                                               ; preds = %54
+74:                                               ; preds = %53
   tail call fastcc void @xfrm_policy_fini(ptr noundef %0)
   br label %.thread3
 
-.thread3:                                         ; preds = %.loopexit, %18, %75
-  %76 = phi i32 [ %73, %75 ], [ -12, %18 ], [ -12, %.loopexit ]
+.thread3:                                         ; preds = %.loopexit, %18, %74
+  %75 = phi i32 [ %72, %74 ], [ -12, %18 ], [ -12, %.loopexit ]
   tail call void @xfrm_state_fini(ptr noundef %0) #22
-  br label %77
+  br label %76
 
-77:                                               ; preds = %.thread3, %54, %1
-  %78 = phi i32 [ 0, %54 ], [ %9, %1 ], [ %76, %.thread3 ]
-  ret i32 %78
+76:                                               ; preds = %.thread3, %53, %1
+  %77 = phi i32 [ 0, %53 ], [ %9, %1 ], [ %75, %.thread3 ]
+  ret i32 %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

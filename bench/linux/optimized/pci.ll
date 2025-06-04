@@ -8237,11 +8237,11 @@ define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %
 
 ._crit_edge.thread:                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
-  br label %52
+  br label %50
 
-.lr.ph:                                           ; preds = %21, %45
-  %28 = phi i8 [ %.ph2, %45 ], [ %22, %21 ]
-  %29 = phi i32 [ %.ph, %45 ], [ 1, %21 ]
+.lr.ph:                                           ; preds = %21, %43
+  %28 = phi i8 [ %.ph2, %43 ], [ %22, %21 ]
+  %29 = phi i32 [ %.ph, %43 ], [ 1, %21 ]
   %30 = icmp sgt i32 %29, %2
   br i1 %30, label %.thread4, label %32
 
@@ -8249,57 +8249,55 @@ define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %
   %31 = add nsw i32 %29, -1
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.82, i32 noundef %31, ptr noundef %1) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
-  br label %52
+  br label %50
 
 32:                                               ; preds = %.lr.ph
   %33 = icmp sgt i32 %29, 1000
-  br i1 %33, label %34, label %42
+  br i1 %33, label %34, label %40
 
 34:                                               ; preds = %32
-  %35 = and i8 %28, 1
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %39, label %37
+  %35 = icmp eq i8 %28, 0
+  br i1 %35, label %38, label %36
 
-37:                                               ; preds = %34
-  %38 = call zeroext i1 @pcie_failed_link_retrain(ptr noundef %23) #27
-  br i1 %38, label %45, label %39, !llvm.loop !72
+36:                                               ; preds = %34
+  %37 = call zeroext i1 @pcie_failed_link_retrain(ptr noundef %23) #27
+  br i1 %37, label %43, label %38, !llvm.loop !72
 
-39:                                               ; preds = %37, %34
-  %40 = phi i8 [ 0, %37 ], [ %28, %34 ]
-  %41 = add nsw i32 %29, -1
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.83, i32 noundef %41, ptr noundef %1) #28
-  br label %42
+38:                                               ; preds = %36, %34
+  %39 = add nsw i32 %29, -1
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.83, i32 noundef %39, ptr noundef %1) #28
+  br label %40
 
-42:                                               ; preds = %39, %32
-  %43 = phi i8 [ %40, %39 ], [ %28, %32 ]
+40:                                               ; preds = %38, %32
+  %41 = phi i8 [ 0, %38 ], [ %28, %32 ]
   call void @msleep(i32 noundef %29) #27
-  %44 = shl i32 %29, 1
-  br label %45
+  %42 = shl i32 %29, 1
+  br label %43
 
-45:                                               ; preds = %42, %37
-  %.ph = phi i32 [ 1, %37 ], [ %44, %42 ]
-  %.ph2 = phi i8 [ 0, %37 ], [ %43, %42 ]
+43:                                               ; preds = %40, %36
+  %.ph = phi i32 [ 1, %36 ], [ %42, %40 ]
+  %.ph2 = phi i8 [ 0, %36 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   store i32 0, ptr %4, align 4, !annotation !8
-  %46 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %4) #27
-  %47 = load i32, ptr %4, align 4
-  %48 = icmp eq i32 %47, -1
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  %44 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %4) #27
+  %45 = load i32, ptr %4, align 4
+  %46 = icmp eq i32 %45, -1
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %45
+._crit_edge:                                      ; preds = %43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
-  %49 = icmp sgt i32 %.ph, 1000
-  br i1 %49, label %50, label %52
+  %47 = icmp sgt i32 %.ph, 1000
+  br i1 %47, label %48, label %50
 
-50:                                               ; preds = %._crit_edge
-  %51 = add nsw i32 %.ph, -1
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.84, i32 noundef %51, ptr noundef %1) #28
-  br label %52
+48:                                               ; preds = %._crit_edge
+  %49 = add nsw i32 %.ph, -1
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.84, i32 noundef %49, ptr noundef %1) #28
+  br label %50
 
-52:                                               ; preds = %._crit_edge.thread, %.thread4, %50, %._crit_edge
-  %53 = phi i32 [ 0, %._crit_edge ], [ 0, %50 ], [ -25, %.thread4 ], [ 0, %._crit_edge.thread ]
-  ret i32 %53
+50:                                               ; preds = %._crit_edge.thread, %.thread4, %48, %._crit_edge
+  %51 = phi i32 [ 0, %._crit_edge ], [ 0, %48 ], [ -25, %.thread4 ], [ 0, %._crit_edge.thread ]
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1348,7 +1348,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117PeepholeOptimizer3
   br label %182
 
 ._crit_edge459.loopexit:                          ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
-  %181 = trunc i8 %.1.lcssa to i1
+  %181 = trunc nuw i8 %.1.lcssa to i1
   br label %._crit_edge459
 
 ._crit_edge459:                                   ; preds = %._crit_edge459.loopexit, %60

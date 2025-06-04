@@ -1243,22 +1243,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8MCSymbol11isUndefinedEb
   br i1 %or.cond.not.i, label %8, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 8:                                                ; preds = %4
-  %9 = and i64 %6, 8
-  %.tr.i.i = icmp ne i64 %9, 0
-  %.narrow.i.i = or i1 %1, %.tr.i.i
-  %10 = select i1 %.narrow.i.i, i64 8, i64 0
-  %11 = and i64 %6, -20617
-  %12 = or disjoint i64 %10, %11
-  store i64 %12, ptr %5, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !75
-  %15 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
-  store ptr %15, ptr %0, align 8, !tbaa !77
-  %16 = icmp eq ptr %15, null
+  %.mask.i.i = and i64 %6, 8
+  %9 = select i1 %1, i64 8, i64 %.mask.i.i
+  %10 = and i64 %6, -20617
+  %11 = or disjoint i64 %9, %10
+  store i64 %11, ptr %5, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !75
+  %14 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+  store ptr %14, ptr %0, align 8, !tbaa !77
+  %15 = icmp eq ptr %14, null
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %2, %4, %8
-  %.0.i = phi i1 [ %16, %8 ], [ true, %4 ], [ false, %2 ]
+  %.0.i = phi i1 [ %15, %8 ], [ true, %4 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -1341,31 +1339,29 @@ declare noundef i64 @_ZNK4llvm16MachObjectWriter16getSymbolAddressERKNS_8MCSymbo
 define linkonce_odr hidden noundef ptr @_ZNK4llvm8MCSymbol11getFragmentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !77
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %16
+  br i1 %.not, label %4, label %15
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 28800
   %or.cond.not = icmp eq i64 %7, 8192
-  br i1 %or.cond.not, label %8, label %16
+  br i1 %or.cond.not, label %8, label %15
 
 8:                                                ; preds = %4
-  %9 = and i64 %6, 8
-  %.tr.i = icmp ne i64 %9, 0
-  %.narrow.i = or i1 %1, %.tr.i
-  %10 = select i1 %.narrow.i, i64 8, i64 0
-  %11 = and i64 %6, -20617
-  %12 = or disjoint i64 %10, %11
-  store i64 %12, ptr %5, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !75
-  %15 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
-  store ptr %15, ptr %0, align 8, !tbaa !77
-  br label %16
+  %.mask.i = and i64 %6, 8
+  %9 = select i1 %1, i64 8, i64 %.mask.i
+  %10 = and i64 %6, -20617
+  %11 = or disjoint i64 %9, %10
+  store i64 %11, ptr %5, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !75
+  %14 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+  store ptr %14, ptr %0, align 8, !tbaa !77
+  br label %15
 
-16:                                               ; preds = %2, %4, %8
-  %.0 = phi ptr [ %15, %8 ], [ null, %4 ], [ %3, %2 ]
+15:                                               ; preds = %2, %4, %8
+  %.0 = phi ptr [ %14, %8 ], [ null, %4 ], [ %3, %2 ]
   ret ptr %.0
 }
 

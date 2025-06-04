@@ -68084,9 +68084,9 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %9 = icmp ult i64 %1, %3
   br i1 %9, label %11, label %13
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h13b554980f8dc248E.exit.us.i.i", %.critedge.backedge.us.i.i, %.lr.ph.i, %28, %20, %14, %13, %.lr.ph.split.us.i.i, %123, %_ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit
-  %.029 = phi i8 [ %127, %_ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit ], [ 1, %.lr.ph.split.us.i.i ], [ %.5.i, %123 ], [ %16, %14 ], [ 0, %13 ], [ %24, %20 ], [ 0, %28 ], [ 1, %.lr.ph.i ], [ 0, %.critedge.backedge.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h13b554980f8dc248E.exit.us.i.i" ]
-  %10 = trunc i8 %.029 to i1
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h13b554980f8dc248E.exit.us.i.i", %.critedge.backedge.us.i.i, %.lr.ph.i, %28, %20, %.lr.ph.split.us.i.i, %123, %14, %13, %_ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit
+  %.029 = phi i8 [ %127, %_ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit ], [ %16, %14 ], [ 0, %13 ], [ 1, %.lr.ph.split.us.i.i ], [ %.5.i, %123 ], [ %24, %20 ], [ 0, %28 ], [ 1, %.lr.ph.i ], [ 0, %.critedge.backedge.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h13b554980f8dc248E.exit.us.i.i" ]
+  %10 = trunc nuw i8 %.029 to i1
   ret i1 %10
 
 11:                                               ; preds = %4

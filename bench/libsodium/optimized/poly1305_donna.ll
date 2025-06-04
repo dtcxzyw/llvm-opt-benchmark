@@ -40,7 +40,7 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr noundef %0, p
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i8 0, ptr %24, align 8
   %25 = icmp ugt i64 %2, 15
-  br i1 %25, label %26, label %90
+  br i1 %25, label %26, label %88
 
 26:                                               ; preds = %4
   %27 = and i64 %2, -16
@@ -56,11 +56,11 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr noundef %0, p
   br label %37
 
 37:                                               ; preds = %37, %26
-  %.081.i = phi ptr [ %1, %26 ], [ %86, %37 ]
-  %.07380.i = phi i64 [ %27, %26 ], [ %87, %37 ]
-  %.07479.i = phi i64 [ 0, %26 ], [ %84, %37 ]
-  %.07578.i = phi i64 [ 0, %26 ], [ %85, %37 ]
-  %.07677.i = phi i64 [ 0, %26 ], [ %80, %37 ]
+  %.081.i = phi ptr [ %1, %26 ], [ %84, %37 ]
+  %.07380.i = phi i64 [ %27, %26 ], [ %85, %37 ]
+  %.07479.i = phi i64 [ 0, %26 ], [ %82, %37 ]
+  %.07578.i = phi i64 [ 0, %26 ], [ %83, %37 ]
+  %.07677.i = phi i64 [ 0, %26 ], [ %78, %37 ]
   %38 = load i64, ptr %.081.i, align 1
   %39 = getelementptr i8, ptr %.081.i, i64 8
   %40 = load i64, ptr %39, align 1
@@ -89,68 +89,66 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr noundef %0, p
   %63 = lshr i128 %56, 44
   %64 = trunc i128 %56 to i64
   %65 = and i64 %64, 17592186044415
-  %66 = and i128 %63, 18446744073709551615
-  %67 = add nuw nsw i128 %59, %57
-  %68 = add nuw nsw i128 %67, %58
-  %69 = add nuw nsw i128 %68, %66
-  %70 = lshr i128 %69, 44
-  %71 = trunc i128 %69 to i64
-  %72 = and i64 %71, 17592186044415
-  %73 = and i128 %70, 18446744073709551615
-  %74 = add nuw nsw i128 %62, %60
-  %75 = add nuw nsw i128 %74, %61
-  %76 = add nuw nsw i128 %75, %73
-  %77 = lshr i128 %76, 42
-  %78 = trunc nuw nsw i128 %77 to i64
-  %79 = trunc i128 %76 to i64
-  %80 = and i64 %79, 4398046511103
-  %81 = mul nuw nsw i64 %78, 5
-  %82 = add nuw nsw i64 %81, %65
-  %83 = lshr i64 %82, 44
-  %84 = and i64 %82, 17592186044415
-  %85 = add nuw nsw i64 %83, %72
-  %86 = getelementptr i8, ptr %.081.i, i64 16
-  %87 = add i64 %.07380.i, -16
-  %.not = icmp eq i64 %87, 0
+  %66 = add nuw nsw i128 %59, %57
+  %67 = add nuw nsw i128 %66, %58
+  %68 = add nuw nsw i128 %67, %63
+  %69 = lshr i128 %68, 44
+  %70 = trunc i128 %68 to i64
+  %71 = and i64 %70, 17592186044415
+  %72 = add nuw nsw i128 %62, %60
+  %73 = add nuw nsw i128 %72, %61
+  %74 = add nuw nsw i128 %73, %69
+  %75 = lshr i128 %74, 42
+  %76 = trunc nuw nsw i128 %75 to i64
+  %77 = trunc i128 %74 to i64
+  %78 = and i64 %77, 4398046511103
+  %79 = mul nuw nsw i64 %76, 5
+  %80 = add nuw nsw i64 %79, %65
+  %81 = lshr i64 %80, 44
+  %82 = and i64 %80, 17592186044415
+  %83 = add nuw nsw i64 %81, %71
+  %84 = getelementptr i8, ptr %.081.i, i64 16
+  %85 = add i64 %.07380.i, -16
+  %.not = icmp eq i64 %85, 0
   br i1 %.not, label %poly1305_blocks.exit, label %37, !llvm.loop !4
 
 poly1305_blocks.exit:                             ; preds = %37
-  store i64 %84, ptr %16, align 8
-  store i64 %85, ptr %28, align 32
-  store i64 %80, ptr %29, align 8
-  %88 = getelementptr i8, ptr %1, i64 %27
-  %89 = and i64 %2, 15
-  br label %90
+  store i64 %82, ptr %16, align 8
+  store i64 %83, ptr %28, align 32
+  store i64 %78, ptr %29, align 8
+  %86 = getelementptr i8, ptr %1, i64 %27
+  %87 = and i64 %2, 15
+  br label %88
 
-90:                                               ; preds = %poly1305_blocks.exit, %4
-  %.148.i = phi i64 [ %89, %poly1305_blocks.exit ], [ %2, %4 ]
-  %.1.i = phi ptr [ %88, %poly1305_blocks.exit ], [ %1, %4 ]
+88:                                               ; preds = %poly1305_blocks.exit, %4
+  %.148.i = phi i64 [ %87, %poly1305_blocks.exit ], [ %2, %4 ]
+  %.1.i = phi ptr [ %86, %poly1305_blocks.exit ], [ %1, %4 ]
   %.not52.i = icmp eq i64 %.148.i, 0
   br i1 %.not52.i, label %poly1305_update.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %90
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  br label %92
+.preheader.i:                                     ; preds = %88
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  br label %90
 
-92:                                               ; preds = %92, %.preheader.i
-  %.14654.i = phi i64 [ 0, %.preheader.i ], [ %98, %92 ]
-  %93 = getelementptr i8, ptr %.1.i, i64 %.14654.i
-  %94 = load i8, ptr %93, align 1
-  %95 = load i64, ptr %23, align 64
-  %96 = add i64 %95, %.14654.i
-  %97 = getelementptr [16 x i8], ptr %91, i64 0, i64 %96
-  store i8 %94, ptr %97, align 1
-  %98 = add nuw nsw i64 %.14654.i, 1
-  %exitcond56.not.i = icmp eq i64 %98, %.148.i
-  br i1 %exitcond56.not.i, label %99, label %92, !llvm.loop !6
+90:                                               ; preds = %90, %.preheader.i
+  %.14654.i = phi i64 [ 0, %.preheader.i ], [ %96, %90 ]
+  %91 = getelementptr i8, ptr %.1.i, i64 %.14654.i
+  %92 = load i8, ptr %91, align 1
+  %93 = load i64, ptr %23, align 64
+  %94 = add i64 %93, %.14654.i
+  %95 = getelementptr [16 x i8], ptr %89, i64 0, i64 %94
+  store i8 %92, ptr %95, align 1
+  %96 = add nuw nsw i64 %.14654.i, 1
+  %exitcond56.not.i = icmp eq i64 %96, %.148.i
+  br i1 %exitcond56.not.i, label %97, label %90, !llvm.loop !6
 
-99:                                               ; preds = %92
-  %100 = load i64, ptr %23, align 64
-  %101 = add i64 %100, %.148.i
-  store i64 %101, ptr %23, align 64
+97:                                               ; preds = %90
+  %98 = load i64, ptr %23, align 64
+  %99 = add i64 %98, %.148.i
+  store i64 %99, ptr %23, align 64
   br label %poly1305_update.exit
 
-poly1305_update.exit:                             ; preds = %90, %99
+poly1305_update.exit:                             ; preds = %88, %97
   call fastcc void @poly1305_finish(ptr noundef nonnull %5, ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #8
   ret i32 0

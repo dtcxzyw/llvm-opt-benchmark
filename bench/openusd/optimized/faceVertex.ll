@@ -2823,7 +2823,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21finalizeUnOrderedTagsEPKNS2
 
 19:                                               ; preds = %17
   %20 = lshr i8 %7, 6
-  %21 = xor i8 %20, 1
+  %.lobit = and i8 %20, 1
+  %21 = xor i8 %.lobit, 1
   %22 = or i8 %21, %.06493
   br label %29
 
@@ -2852,117 +2853,114 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21finalizeUnOrderedTagsEPKNS2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %29
-  %34 = and i8 %.165, 1
-  %35 = zext nneg i8 %34 to i16
-  %36 = shl nuw nsw i16 %35, 10
+  %34 = zext nneg i8 %.165 to i16
+  %35 = shl nuw nsw i16 %34, 10
   %.not69 = icmp eq i32 %.1, 0
-  br i1 %.not69, label %._crit_edge.thread, label %37
+  br i1 %.not69, label %._crit_edge.thread, label %36
 
-37:                                               ; preds = %._crit_edge
-  %38 = trunc i8 %.163 to i1
-  %39 = trunc i8 %.161 to i1
-  %40 = select i1 %38, i1 true, i1 %39
-  %41 = trunc nuw i8 %.167 to i1
-  %or.cond3 = select i1 %40, i1 true, i1 %41
-  %42 = icmp ne i32 %.1, 2
-  %or.cond81.not = or i1 %or.cond3, %42
-  br i1 %or.cond81.not, label %.thread, label %43
+36:                                               ; preds = %._crit_edge
+  %37 = trunc i8 %.163 to i1
+  %38 = trunc i8 %.161 to i1
+  %39 = select i1 %37, i1 true, i1 %38
+  %40 = trunc nuw i8 %.167 to i1
+  %or.cond3 = select i1 %39, i1 true, i1 %40
+  %41 = icmp ne i32 %.1, 2
+  %or.cond81.not = or i1 %or.cond3, %41
+  br i1 %or.cond81.not, label %.thread, label %42
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %45 = load i16, ptr %44, align 2
-  %46 = sext i16 %45 to i32
-  %47 = icmp slt i32 %2, %46
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %44 = load i16, ptr %43, align 2
+  %45 = sext i16 %44 to i32
+  %46 = icmp slt i32 %2, %45
   br label %.thread
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
   %.051.lcssa126 = phi i32 [ %.152, %._crit_edge ], [ 0, %3 ]
   %.053.lcssa124 = phi i32 [ %.154, %._crit_edge ], [ 0, %3 ]
   %.058.lcssa122 = phi i32 [ %33, %._crit_edge ], [ 0, %3 ]
-  %.064.lcssa120 = phi i16 [ %36, %._crit_edge ], [ 0, %3 ]
+  %.064.lcssa120 = phi i16 [ %35, %._crit_edge ], [ 0, %3 ]
   %.066.lcssa118 = phi i8 [ %.167, %._crit_edge ], [ 0, %3 ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %49 = load i16, ptr %48, align 2
-  %.fr91 = freeze i16 %49
-  %50 = sext i16 %.fr91 to i32
-  %51 = sub nsw i32 %2, %50
-  %52 = and i8 %.066.lcssa118, 1
-  %53 = zext nneg i8 %52 to i32
-  %.not90 = icmp eq i32 %51, %53
-  br i1 %.not90, label %54, label %.thread
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %48 = load i16, ptr %47, align 2
+  %.fr91 = freeze i16 %48
+  %49 = sext i16 %.fr91 to i32
+  %50 = sub nsw i32 %2, %49
+  %51 = zext nneg i8 %.066.lcssa118 to i32
+  %.not90 = icmp eq i32 %50, %51
+  br i1 %.not90, label %52, label %.thread
 
-54:                                               ; preds = %._crit_edge.thread
-  %55 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex25findConnectedSubsetExtentEPNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %4)
-  %56 = icmp sge i32 %55, %50
-  %spec.select = select i1 %56, i16 0, i16 512
+52:                                               ; preds = %._crit_edge.thread
+  %53 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex25findConnectedSubsetExtentEPNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %4)
+  %54 = icmp sge i32 %53, %49
+  %spec.select = select i1 %54, i16 0, i16 512
   br label %.thread
 
-.thread:                                          ; preds = %43, %._crit_edge.thread, %37, %54
-  %.051.lcssa125 = phi i32 [ %.051.lcssa126, %54 ], [ %.152, %37 ], [ %.051.lcssa126, %._crit_edge.thread ], [ %.152, %43 ]
-  %.053.lcssa123 = phi i32 [ %.053.lcssa124, %54 ], [ %.154, %37 ], [ %.053.lcssa124, %._crit_edge.thread ], [ %.154, %43 ]
-  %.058.lcssa121 = phi i32 [ %.058.lcssa122, %54 ], [ %33, %37 ], [ %.058.lcssa122, %._crit_edge.thread ], [ %33, %43 ]
-  %.064.lcssa119 = phi i16 [ %.064.lcssa120, %54 ], [ %36, %37 ], [ %.064.lcssa120, %._crit_edge.thread ], [ %36, %43 ]
-  %.066.lcssa117 = phi i8 [ %.066.lcssa118, %54 ], [ %.167, %37 ], [ %.066.lcssa118, %._crit_edge.thread ], [ 0, %43 ]
-  %57 = phi i16 [ %spec.select, %54 ], [ 512, %37 ], [ 512, %._crit_edge.thread ], [ 512, %43 ]
-  %or.cond5 = phi i1 [ %56, %54 ], [ false, %37 ], [ false, %._crit_edge.thread ], [ %47, %43 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %59 = load i16, ptr %58, align 8
-  %60 = and i16 %59, -1582
-  %61 = and i8 %.066.lcssa117, 1
-  %62 = zext nneg i8 %61 to i16
-  %63 = icmp sgt i32 %.051.lcssa125, 0
-  %64 = select i1 %63, i16 4, i16 0
-  %65 = icmp sgt i32 %.053.lcssa123, 0
-  %66 = select i1 %65, i16 32, i16 0
-  %67 = icmp eq i32 %.051.lcssa125, 1
-  %68 = shl nuw nsw i8 %.066.lcssa117, 3
-  %69 = and i8 %68, 8
-  %70 = xor i8 %69, 8
-  %71 = zext nneg i8 %70 to i16
-  %72 = select i1 %67, i16 %71, i16 0
-  %73 = or disjoint i16 %.064.lcssa119, %62
-  %74 = or disjoint i16 %73, %66
-  %75 = or disjoint i16 %74, %64
-  %76 = or disjoint i16 %75, %57
-  %77 = add nuw nsw i16 %76, %60
-  %78 = or i16 %77, %72
-  store i16 %78, ptr %58, align 8
-  %79 = icmp samesign ult i32 %.058.lcssa121, 3
-  %or.cond79 = and i1 %79, %or.cond5
-  br i1 %or.cond79, label %84, label %80
+.thread:                                          ; preds = %42, %._crit_edge.thread, %36, %52
+  %.051.lcssa125 = phi i32 [ %.051.lcssa126, %52 ], [ %.152, %36 ], [ %.051.lcssa126, %._crit_edge.thread ], [ %.152, %42 ]
+  %.053.lcssa123 = phi i32 [ %.053.lcssa124, %52 ], [ %.154, %36 ], [ %.053.lcssa124, %._crit_edge.thread ], [ %.154, %42 ]
+  %.058.lcssa121 = phi i32 [ %.058.lcssa122, %52 ], [ %33, %36 ], [ %.058.lcssa122, %._crit_edge.thread ], [ %33, %42 ]
+  %.064.lcssa119 = phi i16 [ %.064.lcssa120, %52 ], [ %35, %36 ], [ %.064.lcssa120, %._crit_edge.thread ], [ %35, %42 ]
+  %.066.lcssa117 = phi i8 [ %.066.lcssa118, %52 ], [ %.167, %36 ], [ %.066.lcssa118, %._crit_edge.thread ], [ 0, %42 ]
+  %55 = phi i16 [ %spec.select, %52 ], [ 512, %36 ], [ 512, %._crit_edge.thread ], [ 512, %42 ]
+  %or.cond5 = phi i1 [ %54, %52 ], [ false, %36 ], [ false, %._crit_edge.thread ], [ %46, %42 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %57 = load i16, ptr %56, align 8
+  %58 = and i16 %57, -1582
+  %59 = zext nneg i8 %.066.lcssa117 to i16
+  %60 = icmp sgt i32 %.051.lcssa125, 0
+  %61 = select i1 %60, i16 4, i16 0
+  %62 = icmp sgt i32 %.053.lcssa123, 0
+  %63 = select i1 %62, i16 32, i16 0
+  %64 = icmp eq i32 %.051.lcssa125, 1
+  %65 = shl nuw nsw i8 %.066.lcssa117, 3
+  %66 = and i8 %65, 8
+  %67 = xor i8 %66, 8
+  %68 = zext nneg i8 %67 to i16
+  %69 = select i1 %64, i16 %68, i16 0
+  %70 = or disjoint i16 %.064.lcssa119, %59
+  %71 = or disjoint i16 %70, %63
+  %72 = or disjoint i16 %71, %61
+  %73 = or disjoint i16 %72, %55
+  %74 = add nuw nsw i16 %73, %58
+  %75 = or i16 %74, %69
+  store i16 %75, ptr %56, align 8
+  %76 = icmp samesign ult i32 %.058.lcssa121, 3
+  %or.cond79 = and i1 %76, %or.cond5
+  br i1 %or.cond79, label %81, label %77
 
-80:                                               ; preds = %.thread
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 159
-  %82 = load i8, ptr %81, align 1
-  %83 = or i8 %82, 4
-  store i8 %83, ptr %81, align 1
+77:                                               ; preds = %.thread
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 159
+  %79 = load i8, ptr %78, align 1
+  %80 = or i8 %79, 4
+  store i8 %80, ptr %78, align 1
   br label %._crit_edge108
 
-84:                                               ; preds = %.thread
-  %85 = add nsw i32 %.053.lcssa123, %.058.lcssa121
-  %86 = icmp sgt i32 %85, 2
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 159
-  %88 = load i8, ptr %87, align 1
-  br i1 %86, label %89, label %._crit_edge108
+81:                                               ; preds = %.thread
+  %82 = add nsw i32 %.053.lcssa123, %.058.lcssa121
+  %83 = icmp sgt i32 %82, 2
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 159
+  %85 = load i8, ptr %84, align 1
+  br i1 %83, label %86, label %._crit_edge108
 
-89:                                               ; preds = %84
-  %90 = or i8 %88, 8
-  store i8 %90, ptr %87, align 1
+86:                                               ; preds = %81
+  %87 = or i8 %85, 8
+  store i8 %87, ptr %84, align 1
   br label %._crit_edge108
 
-._crit_edge108:                                   ; preds = %84, %89, %80
-  %91 = phi i8 [ %90, %89 ], [ %83, %80 ], [ %88, %84 ]
-  %92 = and i8 %91, 5
-  %or.cond80.not = icmp eq i8 %92, 4
-  br i1 %or.cond80.not, label %93, label %96
+._crit_edge108:                                   ; preds = %81, %86, %77
+  %88 = phi i8 [ %87, %86 ], [ %80, %77 ], [ %85, %81 ]
+  %89 = and i8 %88, 5
+  %or.cond80.not = icmp eq i8 %89, 4
+  br i1 %or.cond80.not, label %90, label %93
 
-93:                                               ; preds = %._crit_edge108
-  %94 = and i16 %78, -19
-  %95 = or disjoint i16 %94, 2
-  store i16 %95, ptr %58, align 8
-  br label %96
+90:                                               ; preds = %._crit_edge108
+  %91 = and i16 %75, -19
+  %92 = or disjoint i16 %91, 2
+  store i16 %92, ptr %56, align 8
+  br label %93
 
-96:                                               ; preds = %93, %._crit_edge108
+93:                                               ; preds = %90, %._crit_edge108
   ret void
 }
 

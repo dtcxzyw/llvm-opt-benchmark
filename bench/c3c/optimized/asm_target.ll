@@ -4037,25 +4037,25 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   store ptr %13, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.not172257 = icmp eq ptr %2, null
-  br i1 %.not172257, label %.critedge, label %.lr.ph
+  %.not172254 = icmp eq ptr %2, null
+  br i1 %.not172254, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %27
 
 27:                                               ; preds = %.lr.ph, %.loopexit
-  %28 = phi ptr [ %2, %.lr.ph ], [ %177, %.loopexit ]
-  %.0164258 = phi i32 [ 0, %.lr.ph ], [ %31, %.loopexit ]
+  %28 = phi ptr [ %2, %.lr.ph ], [ %178, %.loopexit ]
+  %.0164255 = phi i32 [ 0, %.lr.ph ], [ %31, %.loopexit ]
   %29 = load i8, ptr %28, align 1
   %.not173 = icmp eq i8 %29, 0
   br i1 %.not173, label %.critedge, label %30
 
 30:                                               ; preds = %27
-  %31 = add i32 %.0164258, 1
-  %32 = zext i32 %.0164258 to i64
+  %31 = add i32 %.0164255, 1
+  %32 = zext i32 %.0164255 to i64
   %33 = getelementptr inbounds nuw [6 x %struct.AsmArgType], ptr %26, i64 0, i64 %32
-  switch i8 %29, label %.preheader363 [
+  switch i8 %29, label %.preheader360 [
     i8 119, label %.sink.split
     i8 114, label %34
   ]
@@ -4064,29 +4064,29 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 119
-  br i1 %37, label %.sink.split, label %.preheader363
+  br i1 %37, label %.sink.split, label %.preheader360
 
 .sink.split:                                      ; preds = %34, %30
-  %.sink325 = phi i64 [ 2, %30 ], [ 3, %34 ]
+  %.sink322 = phi i64 [ 2, %30 ], [ 3, %34 ]
   %.sroa.055.0.ph = phi i64 [ 1, %30 ], [ 3, %34 ]
-  %38 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink325
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink322
   store ptr %38, ptr %5, align 8
-  br label %.preheader363
+  br label %.preheader360
 
-.preheader363:                                    ; preds = %.sink.split, %30, %34
+.preheader360:                                    ; preds = %.sink.split, %30, %34
   %.ph = phi ptr [ %38, %.sink.split ], [ %28, %30 ], [ %28, %34 ]
   %.sroa.055.1.ph = phi i64 [ %.sroa.055.0.ph, %.sink.split ], [ 0, %30 ], [ 0, %34 ]
   br label %39
 
-39:                                               ; preds = %.preheader363, %172
-  %40 = phi ptr [ %173, %172 ], [ %.ph, %.preheader363 ]
-  %.0167 = phi ptr [ %.1, %172 ], [ %5, %.preheader363 ]
-  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %172 ], [ %.sroa.055.1.ph, %.preheader363 ]
-  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %172 ], [ 0, %.preheader363 ]
+39:                                               ; preds = %.preheader360, %173
+  %40 = phi ptr [ %174, %173 ], [ %.ph, %.preheader360 ]
+  %.0167 = phi ptr [ %.1, %173 ], [ %5, %.preheader360 ]
+  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %173 ], [ %.sroa.055.1.ph, %.preheader360 ]
+  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %173 ], [ 0, %.preheader360 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %41, ptr %.0167, align 8
   %42 = load i8, ptr %40, align 1
-  switch i8 %42, label %168 [
+  switch i8 %42, label %169 [
     i8 44, label %.loopexit
     i8 0, label %.loopexit
     i8 114, label %43
@@ -4096,43 +4096,43 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   ]
 
 43:                                               ; preds = %39
-  %bcmp209 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %44 = icmp eq i32 %bcmp209, 0
+  %bcmp206 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %44 = icmp eq i32 %bcmp206, 0
   br i1 %44, label %60, label %45
 
 45:                                               ; preds = %43
-  %rhsc210 = load i8, ptr %41, align 1
-  %46 = icmp eq i8 %rhsc210, 56
+  %rhsc207 = load i8, ptr %41, align 1
+  %46 = icmp eq i8 %rhsc207, 56
   br i1 %46, label %60, label %47
 
 47:                                               ; preds = %45
-  %bcmp211 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %48 = icmp eq i32 %bcmp211, 0
+  %bcmp208 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %48 = icmp eq i32 %bcmp208, 0
   br i1 %48, label %60, label %49
 
 49:                                               ; preds = %47
-  %bcmp212 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %50 = icmp eq i32 %bcmp212, 0
+  %bcmp209 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %50 = icmp eq i32 %bcmp209, 0
   br i1 %50, label %60, label %51
 
 51:                                               ; preds = %49
-  %bcmp213 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %52 = icmp eq i32 %bcmp213, 0
+  %bcmp210 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %52 = icmp eq i32 %bcmp210, 0
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %51
-  %bcmp214 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %41, i64 3)
-  %54 = icmp eq i32 %bcmp214, 0
+  %bcmp211 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %41, i64 3)
+  %54 = icmp eq i32 %bcmp211, 0
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %53
-  %bcmp215 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %41, i64 3)
-  %56 = icmp eq i32 %bcmp215, 0
+  %bcmp212 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %41, i64 3)
+  %56 = icmp eq i32 %bcmp212, 0
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %55
-  %bcmp216 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %41, i64 3)
-  %58 = icmp eq i32 %bcmp216, 0
+  %bcmp213 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %41, i64 3)
+  %58 = icmp eq i32 %bcmp213, 0
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %57
@@ -4140,66 +4140,66 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 60:                                               ; preds = %57, %55, %53, %51, %49, %47, %45, %43
-  %.sink326 = phi i64 [ 3, %43 ], [ 2, %45 ], [ 3, %47 ], [ 3, %49 ], [ 3, %51 ], [ 4, %53 ], [ 4, %55 ], [ 4, %57 ]
+  %.sink323 = phi i64 [ 3, %43 ], [ 2, %45 ], [ 3, %47 ], [ 3, %49 ], [ 3, %51 ], [ 4, %53 ], [ 4, %55 ], [ 4, %57 ]
   %.0165 = phi i64 [ 36028797018963968, %43 ], [ 281474976710656, %45 ], [ 562949953421312, %47 ], [ 1125899906842624, %49 ], [ 2251799813685248, %51 ], [ 4503599627370496, %53 ], [ 9007199254740992, %55 ], [ 18014398509481984, %57 ]
-  %61 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink326
+  %61 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink323
   store ptr %61, ptr %.0167, align 8
   %62 = or i64 %.0165, %.sroa.055.1
-  br label %169
+  br label %170
 
 63:                                               ; preds = %39
-  %bcmp208 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.48, ptr noundef nonnull dereferenceable(3) %40, i64 3)
-  %64 = icmp eq i32 %bcmp208, 0
+  %bcmp205 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.48, ptr noundef nonnull dereferenceable(3) %40, i64 3)
+  %64 = icmp eq i32 %bcmp205, 0
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %63
   %66 = or i64 %.sroa.055.1, 4
   %67 = getelementptr inbounds nuw i8, ptr %40, i64 3
   store ptr %67, ptr %.0167, align 8
-  br label %169
+  br label %170
 
 68:                                               ; preds = %63
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.147, ptr noundef nonnull %40) #13
   unreachable
 
 69:                                               ; preds = %39
-  %bcmp200 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %70 = icmp eq i32 %bcmp200, 0
+  %bcmp197 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %70 = icmp eq i32 %bcmp197, 0
   br i1 %70, label %86, label %71
 
 71:                                               ; preds = %69
-  %rhsc201 = load i8, ptr %41, align 1
-  %72 = icmp eq i8 %rhsc201, 56
+  %rhsc198 = load i8, ptr %41, align 1
+  %72 = icmp eq i8 %rhsc198, 56
   br i1 %72, label %86, label %73
 
 73:                                               ; preds = %71
-  %bcmp202 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %74 = icmp eq i32 %bcmp202, 0
+  %bcmp199 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %74 = icmp eq i32 %bcmp199, 0
   br i1 %74, label %86, label %75
 
 75:                                               ; preds = %73
-  %bcmp203 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %76 = icmp eq i32 %bcmp203, 0
+  %bcmp200 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %76 = icmp eq i32 %bcmp200, 0
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %75
-  %bcmp204 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %41, i64 2)
-  %78 = icmp eq i32 %bcmp204, 0
+  %bcmp201 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %41, i64 2)
+  %78 = icmp eq i32 %bcmp201, 0
   br i1 %78, label %86, label %79
 
 79:                                               ; preds = %77
-  %bcmp205 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %41, i64 3)
-  %80 = icmp eq i32 %bcmp205, 0
+  %bcmp202 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %41, i64 3)
+  %80 = icmp eq i32 %bcmp202, 0
   br i1 %80, label %86, label %81
 
 81:                                               ; preds = %79
-  %bcmp206 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %41, i64 3)
-  %82 = icmp eq i32 %bcmp206, 0
+  %bcmp203 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %41, i64 3)
+  %82 = icmp eq i32 %bcmp203, 0
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %81
-  %bcmp207 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %41, i64 3)
-  %84 = icmp eq i32 %bcmp207, 0
+  %bcmp204 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %41, i64 3)
+  %84 = icmp eq i32 %bcmp204, 0
   br i1 %84, label %86, label %85
 
 85:                                               ; preds = %83
@@ -4207,17 +4207,17 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 86:                                               ; preds = %83, %81, %79, %77, %75, %73, %71, %69
-  %.sink327 = phi i64 [ 3, %69 ], [ 2, %71 ], [ 3, %73 ], [ 3, %75 ], [ 3, %77 ], [ 4, %79 ], [ 4, %81 ], [ 4, %83 ]
+  %.sink324 = phi i64 [ 3, %69 ], [ 2, %71 ], [ 3, %73 ], [ 3, %75 ], [ 3, %77 ], [ 4, %79 ], [ 4, %81 ], [ 4, %83 ]
   %.0163 = phi i32 [ 8388608, %69 ], [ 65536, %71 ], [ 131072, %73 ], [ 262144, %75 ], [ 524288, %77 ], [ 1048576, %79 ], [ 2097152, %81 ], [ 4194304, %83 ]
-  %87 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink327
+  %87 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink324
   store ptr %87, ptr %.0167, align 8
   %88 = or i32 %.0163, %.sroa.25.0
-  br label %169
+  br label %170
 
 89:                                               ; preds = %39
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.148, ptr noundef nonnull dereferenceable(2) %41, i64 2)
   %90 = icmp eq i32 %bcmp, 0
-  br i1 %90, label %91, label %168
+  br i1 %90, label %91, label %169
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %40, i64 3
@@ -4231,43 +4231,43 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store ptr %95, ptr %.0167, align 8
-  %bcmp191 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %95, i64 2)
-  %96 = icmp eq i32 %bcmp191, 0
+  %bcmp189 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %95, i64 2)
+  %96 = icmp eq i32 %bcmp189, 0
   br i1 %96, label %112, label %97
 
 97:                                               ; preds = %94
-  %rhsc192 = load i8, ptr %95, align 1
-  %98 = icmp eq i8 %rhsc192, 56
+  %rhsc190 = load i8, ptr %95, align 1
+  %98 = icmp eq i8 %rhsc190, 56
   br i1 %98, label %112, label %99
 
 99:                                               ; preds = %97
-  %bcmp193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %95, i64 2)
-  %100 = icmp eq i32 %bcmp193, 0
+  %bcmp191 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %95, i64 2)
+  %100 = icmp eq i32 %bcmp191, 0
   br i1 %100, label %112, label %101
 
 101:                                              ; preds = %99
-  %bcmp194 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %95, i64 2)
-  %102 = icmp eq i32 %bcmp194, 0
+  %bcmp192 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %95, i64 2)
+  %102 = icmp eq i32 %bcmp192, 0
   br i1 %102, label %112, label %103
 
 103:                                              ; preds = %101
-  %bcmp195 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %95, i64 2)
-  %104 = icmp eq i32 %bcmp195, 0
+  %bcmp193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %95, i64 2)
+  %104 = icmp eq i32 %bcmp193, 0
   br i1 %104, label %112, label %105
 
 105:                                              ; preds = %103
-  %bcmp196 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %95, i64 3)
-  %106 = icmp eq i32 %bcmp196, 0
+  %bcmp194 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %95, i64 3)
+  %106 = icmp eq i32 %bcmp194, 0
   br i1 %106, label %112, label %107
 
 107:                                              ; preds = %105
-  %bcmp197 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %95, i64 3)
-  %108 = icmp eq i32 %bcmp197, 0
+  %bcmp195 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %95, i64 3)
+  %108 = icmp eq i32 %bcmp195, 0
   br i1 %108, label %112, label %109
 
 109:                                              ; preds = %107
-  %bcmp198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %95, i64 3)
-  %110 = icmp eq i32 %bcmp198, 0
+  %bcmp196 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %95, i64 3)
+  %110 = icmp eq i32 %bcmp196, 0
   br i1 %110, label %112, label %111
 
 111:                                              ; preds = %109
@@ -4275,53 +4275,53 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 112:                                              ; preds = %109, %107, %105, %103, %101, %99, %97, %94
-  %.sink328 = phi i64 [ 6, %94 ], [ 5, %97 ], [ 6, %99 ], [ 6, %101 ], [ 6, %103 ], [ 7, %105 ], [ 7, %107 ], [ 7, %109 ]
+  %.sink325 = phi i64 [ 6, %94 ], [ 5, %97 ], [ 6, %99 ], [ 6, %101 ], [ 6, %103 ], [ 7, %105 ], [ 7, %107 ], [ 7, %109 ]
   %.0162 = phi i64 [ 549755813888, %94 ], [ 4294967296, %97 ], [ 8589934592, %99 ], [ 17179869184, %101 ], [ 34359738368, %103 ], [ 68719476736, %105 ], [ 137438953472, %107 ], [ 274877906944, %109 ]
-  %113 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink328
+  %113 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink325
   store ptr %113, ptr %.0167, align 8
   %114 = or i64 %.0162, %.sroa.055.1
-  br label %169
+  br label %170
 
 115:                                              ; preds = %91
   %116 = getelementptr inbounds nuw i8, ptr %.0167, i64 8
   %117 = load ptr, ptr %116, align 8
-  %bcmp182 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %117, i64 2)
-  %118 = icmp eq i32 %bcmp182, 0
+  %bcmp181 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %117, i64 2)
+  %118 = icmp eq i32 %bcmp181, 0
   br i1 %118, label %134, label %119
 
 119:                                              ; preds = %115
-  %rhsc183 = load i8, ptr %117, align 1
-  %120 = icmp eq i8 %rhsc183, 56
+  %rhsc182 = load i8, ptr %117, align 1
+  %120 = icmp eq i8 %rhsc182, 56
   br i1 %120, label %134, label %121
 
 121:                                              ; preds = %119
-  %bcmp184 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %117, i64 2)
-  %122 = icmp eq i32 %bcmp184, 0
+  %bcmp183 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %117, i64 2)
+  %122 = icmp eq i32 %bcmp183, 0
   br i1 %122, label %134, label %123
 
 123:                                              ; preds = %121
-  %bcmp185 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %117, i64 2)
-  %124 = icmp eq i32 %bcmp185, 0
+  %bcmp184 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %117, i64 2)
+  %124 = icmp eq i32 %bcmp184, 0
   br i1 %124, label %134, label %125
 
 125:                                              ; preds = %123
-  %bcmp186 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %117, i64 2)
-  %126 = icmp eq i32 %bcmp186, 0
+  %bcmp185 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %117, i64 2)
+  %126 = icmp eq i32 %bcmp185, 0
   br i1 %126, label %134, label %127
 
 127:                                              ; preds = %125
-  %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %117, i64 3)
-  %128 = icmp eq i32 %bcmp187, 0
+  %bcmp186 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %117, i64 3)
+  %128 = icmp eq i32 %bcmp186, 0
   br i1 %128, label %134, label %129
 
 129:                                              ; preds = %127
-  %bcmp188 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %117, i64 3)
-  %130 = icmp eq i32 %bcmp188, 0
+  %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %117, i64 3)
+  %130 = icmp eq i32 %bcmp187, 0
   br i1 %130, label %134, label %131
 
 131:                                              ; preds = %129
-  %bcmp189 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %117, i64 3)
-  %132 = icmp eq i32 %bcmp189, 0
+  %bcmp188 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %117, i64 3)
+  %132 = icmp eq i32 %bcmp188, 0
   br i1 %132, label %134, label %133
 
 133:                                              ; preds = %131
@@ -4329,12 +4329,12 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 134:                                              ; preds = %131, %129, %127, %125, %123, %121, %119, %115
-  %.sink329 = phi i64 [ 2, %115 ], [ 1, %119 ], [ 2, %121 ], [ 2, %123 ], [ 2, %125 ], [ 3, %127 ], [ 3, %129 ], [ 3, %131 ]
+  %.sink326 = phi i64 [ 2, %115 ], [ 1, %119 ], [ 2, %121 ], [ 2, %123 ], [ 2, %125 ], [ 3, %127 ], [ 3, %129 ], [ 3, %131 ]
   %.0161 = phi i64 [ 1024, %115 ], [ 8, %119 ], [ 16, %121 ], [ 32, %123 ], [ 64, %125 ], [ 128, %127 ], [ 256, %129 ], [ 512, %131 ]
-  %135 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink329
+  %135 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink326
   store ptr %135, ptr %116, align 8
   %136 = or i64 %.0161, %.sroa.055.1
-  br label %169
+  br label %170
 
 137:                                              ; preds = %91
   %bcmp174 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %92, i64 2)
@@ -4380,73 +4380,73 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 154:                                              ; preds = %151, %149, %147, %145, %143, %141, %139, %137
-  %.sink330 = phi i64 [ 5, %137 ], [ 4, %139 ], [ 5, %141 ], [ 5, %143 ], [ 5, %145 ], [ 6, %147 ], [ 6, %149 ], [ 6, %151 ]
+  %.sink327 = phi i64 [ 5, %137 ], [ 4, %139 ], [ 5, %141 ], [ 5, %143 ], [ 5, %145 ], [ 6, %147 ], [ 6, %149 ], [ 6, %151 ]
   %.0 = phi i32 [ 128, %137 ], [ 1, %139 ], [ 2, %141 ], [ 4, %143 ], [ 8, %145 ], [ 16, %147 ], [ 32, %149 ], [ 64, %151 ]
-  %155 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink330
+  %155 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink327
   store ptr %155, ptr %.0167, align 8
   %156 = lshr i64 %.sroa.055.1, 32
   %157 = trunc nuw i64 %156 to i32
-  %.masked = and i32 %157, 65535
-  %158 = or i32 %.0, %.masked
-  %159 = zext nneg i32 %158 to i64
-  %160 = shl nuw nsw i64 %159, 32
-  %161 = and i64 %.sroa.055.1, -281470682267641
-  %162 = or disjoint i64 %160, %161
-  %163 = trunc i64 %.sroa.055.1 to i32
-  %164 = shl nuw nsw i32 %.0, 3
-  %.mask = and i32 %163, 524280
-  %165 = or i32 %164, %.mask
-  %166 = zext nneg i32 %165 to i64
-  %167 = or disjoint i64 %162, %166
-  br label %169
+  %158 = and i32 %157, 65535
+  %159 = or i32 %.0, %158
+  %160 = zext nneg i32 %159 to i64
+  %161 = shl nuw nsw i64 %160, 32
+  %162 = and i64 %.sroa.055.1, -281470682267641
+  %163 = or disjoint i64 %161, %162
+  %164 = trunc i64 %.sroa.055.1 to i32
+  %165 = shl nuw nsw i32 %.0, 3
+  %.mask = and i32 %164, 524280
+  %166 = or i32 %165, %.mask
+  %167 = zext nneg i32 %166 to i64
+  %168 = or disjoint i64 %163, %167
+  br label %170
 
-168:                                              ; preds = %39, %89
+169:                                              ; preds = %39, %89
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.149, ptr noundef nonnull %40) #13
   unreachable
 
-169:                                              ; preds = %154, %134, %112, %86, %65, %60
-  %170 = phi ptr [ %61, %60 ], [ %67, %65 ], [ %87, %86 ], [ %113, %112 ], [ %135, %134 ], [ %155, %154 ]
+170:                                              ; preds = %154, %134, %112, %86, %65, %60
+  %171 = phi ptr [ %61, %60 ], [ %67, %65 ], [ %87, %86 ], [ %113, %112 ], [ %135, %134 ], [ %155, %154 ]
   %.1 = phi ptr [ %.0167, %60 ], [ %.0167, %65 ], [ %.0167, %86 ], [ %.0167, %112 ], [ %116, %134 ], [ %.0167, %154 ]
-  %.sroa.055.2 = phi i64 [ %62, %60 ], [ %66, %65 ], [ %.sroa.055.1, %86 ], [ %114, %112 ], [ %136, %134 ], [ %167, %154 ]
+  %.sroa.055.2 = phi i64 [ %62, %60 ], [ %66, %65 ], [ %.sroa.055.1, %86 ], [ %114, %112 ], [ %136, %134 ], [ %168, %154 ]
   %.sroa.25.1 = phi i32 [ %.sroa.25.0, %60 ], [ %.sroa.25.0, %65 ], [ %88, %86 ], [ %.sroa.25.0, %112 ], [ %.sroa.25.0, %134 ], [ %.sroa.25.0, %154 ]
-  %171 = load i8, ptr %170, align 1
-  switch i8 %171, label %176 [
-    i8 47, label %172
+  %172 = load i8, ptr %171, align 1
+  switch i8 %172, label %177 [
+    i8 47, label %173
     i8 44, label %.preheader
     i8 0, label %.loopexit
   ]
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 1
-  store ptr %173, ptr %.1, align 8
+173:                                              ; preds = %170
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 1
+  store ptr %174, ptr %.1, align 8
   br label %39, !llvm.loop !39
 
-.preheader:                                       ; preds = %169, %.preheader
-  %.pn = phi ptr [ %storemerge, %.preheader ], [ %170, %169 ]
+.preheader:                                       ; preds = %170, %.preheader
+  %.pn = phi ptr [ %storemerge, %.preheader ], [ %171, %170 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %.1, align 8
-  %174 = load i8, ptr %storemerge, align 1
-  %175 = icmp eq i8 %174, 32
-  br i1 %175, label %.preheader, label %.loopexit, !llvm.loop !40
+  %175 = load i8, ptr %storemerge, align 1
+  %176 = icmp eq i8 %175, 32
+  br i1 %176, label %.preheader, label %.loopexit, !llvm.loop !40
 
-176:                                              ; preds = %169
+177:                                              ; preds = %170
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.150, ptr noundef nonnull %.1) #13
   unreachable
 
-.loopexit:                                        ; preds = %39, %39, %169, %.preheader
-  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %39 ], [ %.sroa.055.1, %39 ], [ %.sroa.055.2, %169 ]
-  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %39 ], [ %.sroa.25.0, %39 ], [ %.sroa.25.1, %169 ]
+.loopexit:                                        ; preds = %39, %39, %170, %.preheader
+  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %39 ], [ %.sroa.055.1, %39 ], [ %.sroa.055.2, %170 ]
+  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %39 ], [ %.sroa.25.0, %39 ], [ %.sroa.25.1, %170 ]
   store i64 %.sroa.055.3, ptr %33, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %.sroa.25.2, ptr %.sroa.22.0..sroa_idx, align 4
-  %177 = load ptr, ptr %5, align 8
-  %.not172 = icmp eq ptr %177, null
+  %178 = load ptr, ptr %5, align 8
+  %.not172 = icmp eq ptr %178, null
   br i1 %.not172, label %.critedge, label %27, !llvm.loop !41
 
 .critedge:                                        ; preds = %27, %.loopexit, %24
-  %.0164.lcssa = phi i32 [ 0, %24 ], [ %31, %.loopexit ], [ %.0164258, %27 ]
-  %178 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store i32 %.0164.lcssa, ptr %178, align 8
+  %.0164.lcssa = phi i32 [ 0, %24 ], [ %31, %.loopexit ], [ %.0164255, %27 ]
+  %179 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  store i32 %.0164.lcssa, ptr %179, align 8
   ret void
 }
 
@@ -4501,8 +4501,8 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   store ptr %12, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
-  %.not172257 = icmp eq ptr %1, null
-  br i1 %.not172257, label %.critedge, label %.lr.ph
+  %.not172254 = icmp eq ptr %1, null
+  br i1 %.not172254, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -4510,7 +4510,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
 
 26:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %27 = phi ptr [ %1, %.lr.ph ], [ %174, %.loopexit ]
+  %27 = phi ptr [ %1, %.lr.ph ], [ %175, %.loopexit ]
   %28 = load i8, ptr %27, align 1
   %.not173 = icmp eq i8 %28, 0
   br i1 %.not173, label %.critedge.loopexit, label %29
@@ -4518,7 +4518,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
 29:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds nuw [6 x %struct.AsmArgType], ptr %25, i64 0, i64 %indvars.iv
-  switch i8 %28, label %.preheader364 [
+  switch i8 %28, label %.preheader361 [
     i8 119, label %.sink.split
     i8 114, label %31
   ]
@@ -4527,29 +4527,29 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 119
-  br i1 %34, label %.sink.split, label %.preheader364
+  br i1 %34, label %.sink.split, label %.preheader361
 
 .sink.split:                                      ; preds = %31, %29
-  %.sink326 = phi i64 [ 2, %29 ], [ 3, %31 ]
+  %.sink323 = phi i64 [ 2, %29 ], [ 3, %31 ]
   %.sroa.055.0.ph = phi i64 [ 1, %29 ], [ 3, %31 ]
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink326
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink323
   store ptr %35, ptr %4, align 8
-  br label %.preheader364
+  br label %.preheader361
 
-.preheader364:                                    ; preds = %.sink.split, %29, %31
+.preheader361:                                    ; preds = %.sink.split, %29, %31
   %.ph = phi ptr [ %35, %.sink.split ], [ %27, %29 ], [ %27, %31 ]
   %.sroa.055.1.ph = phi i64 [ %.sroa.055.0.ph, %.sink.split ], [ 0, %29 ], [ 0, %31 ]
   br label %36
 
-36:                                               ; preds = %.preheader364, %169
-  %37 = phi ptr [ %170, %169 ], [ %.ph, %.preheader364 ]
-  %.0167 = phi ptr [ %.1, %169 ], [ %4, %.preheader364 ]
-  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %169 ], [ %.sroa.055.1.ph, %.preheader364 ]
-  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %169 ], [ 0, %.preheader364 ]
+36:                                               ; preds = %.preheader361, %170
+  %37 = phi ptr [ %171, %170 ], [ %.ph, %.preheader361 ]
+  %.0167 = phi ptr [ %.1, %170 ], [ %4, %.preheader361 ]
+  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %170 ], [ %.sroa.055.1.ph, %.preheader361 ]
+  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %170 ], [ 0, %.preheader361 ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %38, ptr %.0167, align 8
   %39 = load i8, ptr %37, align 1
-  switch i8 %39, label %165 [
+  switch i8 %39, label %166 [
     i8 44, label %.loopexit
     i8 0, label %.loopexit
     i8 114, label %40
@@ -4559,43 +4559,43 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   ]
 
 40:                                               ; preds = %36
-  %bcmp209 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %41 = icmp eq i32 %bcmp209, 0
+  %bcmp206 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %41 = icmp eq i32 %bcmp206, 0
   br i1 %41, label %57, label %42
 
 42:                                               ; preds = %40
-  %rhsc210 = load i8, ptr %38, align 1
-  %43 = icmp eq i8 %rhsc210, 56
+  %rhsc207 = load i8, ptr %38, align 1
+  %43 = icmp eq i8 %rhsc207, 56
   br i1 %43, label %57, label %44
 
 44:                                               ; preds = %42
-  %bcmp211 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %45 = icmp eq i32 %bcmp211, 0
+  %bcmp208 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %45 = icmp eq i32 %bcmp208, 0
   br i1 %45, label %57, label %46
 
 46:                                               ; preds = %44
-  %bcmp212 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %47 = icmp eq i32 %bcmp212, 0
+  %bcmp209 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %47 = icmp eq i32 %bcmp209, 0
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %46
-  %bcmp213 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %49 = icmp eq i32 %bcmp213, 0
+  %bcmp210 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %49 = icmp eq i32 %bcmp210, 0
   br i1 %49, label %57, label %50
 
 50:                                               ; preds = %48
-  %bcmp214 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %38, i64 3)
-  %51 = icmp eq i32 %bcmp214, 0
+  %bcmp211 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %38, i64 3)
+  %51 = icmp eq i32 %bcmp211, 0
   br i1 %51, label %57, label %52
 
 52:                                               ; preds = %50
-  %bcmp215 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %38, i64 3)
-  %53 = icmp eq i32 %bcmp215, 0
+  %bcmp212 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %38, i64 3)
+  %53 = icmp eq i32 %bcmp212, 0
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %52
-  %bcmp216 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %38, i64 3)
-  %55 = icmp eq i32 %bcmp216, 0
+  %bcmp213 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %38, i64 3)
+  %55 = icmp eq i32 %bcmp213, 0
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %54
@@ -4603,66 +4603,66 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 57:                                               ; preds = %54, %52, %50, %48, %46, %44, %42, %40
-  %.sink327 = phi i64 [ 3, %40 ], [ 2, %42 ], [ 3, %44 ], [ 3, %46 ], [ 3, %48 ], [ 4, %50 ], [ 4, %52 ], [ 4, %54 ]
+  %.sink324 = phi i64 [ 3, %40 ], [ 2, %42 ], [ 3, %44 ], [ 3, %46 ], [ 3, %48 ], [ 4, %50 ], [ 4, %52 ], [ 4, %54 ]
   %.0165 = phi i64 [ 36028797018963968, %40 ], [ 281474976710656, %42 ], [ 562949953421312, %44 ], [ 1125899906842624, %46 ], [ 2251799813685248, %48 ], [ 4503599627370496, %50 ], [ 9007199254740992, %52 ], [ 18014398509481984, %54 ]
-  %58 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink327
+  %58 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink324
   store ptr %58, ptr %.0167, align 8
   %59 = or i64 %.0165, %.sroa.055.1
-  br label %166
+  br label %167
 
 60:                                               ; preds = %36
-  %bcmp208 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.48, ptr noundef nonnull dereferenceable(3) %37, i64 3)
-  %61 = icmp eq i32 %bcmp208, 0
+  %bcmp205 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.48, ptr noundef nonnull dereferenceable(3) %37, i64 3)
+  %61 = icmp eq i32 %bcmp205, 0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %60
   %63 = or i64 %.sroa.055.1, 4
   %64 = getelementptr inbounds nuw i8, ptr %37, i64 3
   store ptr %64, ptr %.0167, align 8
-  br label %166
+  br label %167
 
 65:                                               ; preds = %60
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.147, ptr noundef nonnull %37) #13
   unreachable
 
 66:                                               ; preds = %36
-  %bcmp200 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %67 = icmp eq i32 %bcmp200, 0
+  %bcmp197 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %67 = icmp eq i32 %bcmp197, 0
   br i1 %67, label %83, label %68
 
 68:                                               ; preds = %66
-  %rhsc201 = load i8, ptr %38, align 1
-  %69 = icmp eq i8 %rhsc201, 56
+  %rhsc198 = load i8, ptr %38, align 1
+  %69 = icmp eq i8 %rhsc198, 56
   br i1 %69, label %83, label %70
 
 70:                                               ; preds = %68
-  %bcmp202 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %71 = icmp eq i32 %bcmp202, 0
+  %bcmp199 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %71 = icmp eq i32 %bcmp199, 0
   br i1 %71, label %83, label %72
 
 72:                                               ; preds = %70
-  %bcmp203 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %73 = icmp eq i32 %bcmp203, 0
+  %bcmp200 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %73 = icmp eq i32 %bcmp200, 0
   br i1 %73, label %83, label %74
 
 74:                                               ; preds = %72
-  %bcmp204 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %38, i64 2)
-  %75 = icmp eq i32 %bcmp204, 0
+  %bcmp201 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %38, i64 2)
+  %75 = icmp eq i32 %bcmp201, 0
   br i1 %75, label %83, label %76
 
 76:                                               ; preds = %74
-  %bcmp205 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %38, i64 3)
-  %77 = icmp eq i32 %bcmp205, 0
+  %bcmp202 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %38, i64 3)
+  %77 = icmp eq i32 %bcmp202, 0
   br i1 %77, label %83, label %78
 
 78:                                               ; preds = %76
-  %bcmp206 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %38, i64 3)
-  %79 = icmp eq i32 %bcmp206, 0
+  %bcmp203 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %38, i64 3)
+  %79 = icmp eq i32 %bcmp203, 0
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %78
-  %bcmp207 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %38, i64 3)
-  %81 = icmp eq i32 %bcmp207, 0
+  %bcmp204 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %38, i64 3)
+  %81 = icmp eq i32 %bcmp204, 0
   br i1 %81, label %83, label %82
 
 82:                                               ; preds = %80
@@ -4670,17 +4670,17 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 83:                                               ; preds = %80, %78, %76, %74, %72, %70, %68, %66
-  %.sink328 = phi i64 [ 3, %66 ], [ 2, %68 ], [ 3, %70 ], [ 3, %72 ], [ 3, %74 ], [ 4, %76 ], [ 4, %78 ], [ 4, %80 ]
+  %.sink325 = phi i64 [ 3, %66 ], [ 2, %68 ], [ 3, %70 ], [ 3, %72 ], [ 3, %74 ], [ 4, %76 ], [ 4, %78 ], [ 4, %80 ]
   %.0163 = phi i32 [ 8388608, %66 ], [ 65536, %68 ], [ 131072, %70 ], [ 262144, %72 ], [ 524288, %74 ], [ 1048576, %76 ], [ 2097152, %78 ], [ 4194304, %80 ]
-  %84 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink328
+  %84 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink325
   store ptr %84, ptr %.0167, align 8
   %85 = or i32 %.0163, %.sroa.25.0
-  br label %166
+  br label %167
 
 86:                                               ; preds = %36
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.148, ptr noundef nonnull dereferenceable(2) %38, i64 2)
   %87 = icmp eq i32 %bcmp, 0
-  br i1 %87, label %88, label %165
+  br i1 %87, label %88, label %166
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %37, i64 3
@@ -4694,43 +4694,43 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store ptr %92, ptr %.0167, align 8
-  %bcmp191 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %92, i64 2)
-  %93 = icmp eq i32 %bcmp191, 0
+  %bcmp189 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %92, i64 2)
+  %93 = icmp eq i32 %bcmp189, 0
   br i1 %93, label %109, label %94
 
 94:                                               ; preds = %91
-  %rhsc192 = load i8, ptr %92, align 1
-  %95 = icmp eq i8 %rhsc192, 56
+  %rhsc190 = load i8, ptr %92, align 1
+  %95 = icmp eq i8 %rhsc190, 56
   br i1 %95, label %109, label %96
 
 96:                                               ; preds = %94
-  %bcmp193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %92, i64 2)
-  %97 = icmp eq i32 %bcmp193, 0
+  %bcmp191 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %92, i64 2)
+  %97 = icmp eq i32 %bcmp191, 0
   br i1 %97, label %109, label %98
 
 98:                                               ; preds = %96
-  %bcmp194 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %92, i64 2)
-  %99 = icmp eq i32 %bcmp194, 0
+  %bcmp192 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %92, i64 2)
+  %99 = icmp eq i32 %bcmp192, 0
   br i1 %99, label %109, label %100
 
 100:                                              ; preds = %98
-  %bcmp195 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %92, i64 2)
-  %101 = icmp eq i32 %bcmp195, 0
+  %bcmp193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %92, i64 2)
+  %101 = icmp eq i32 %bcmp193, 0
   br i1 %101, label %109, label %102
 
 102:                                              ; preds = %100
-  %bcmp196 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %92, i64 3)
-  %103 = icmp eq i32 %bcmp196, 0
+  %bcmp194 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %92, i64 3)
+  %103 = icmp eq i32 %bcmp194, 0
   br i1 %103, label %109, label %104
 
 104:                                              ; preds = %102
-  %bcmp197 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %92, i64 3)
-  %105 = icmp eq i32 %bcmp197, 0
+  %bcmp195 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %92, i64 3)
+  %105 = icmp eq i32 %bcmp195, 0
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %104
-  %bcmp198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %92, i64 3)
-  %107 = icmp eq i32 %bcmp198, 0
+  %bcmp196 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %92, i64 3)
+  %107 = icmp eq i32 %bcmp196, 0
   br i1 %107, label %109, label %108
 
 108:                                              ; preds = %106
@@ -4738,53 +4738,53 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 109:                                              ; preds = %106, %104, %102, %100, %98, %96, %94, %91
-  %.sink329 = phi i64 [ 6, %91 ], [ 5, %94 ], [ 6, %96 ], [ 6, %98 ], [ 6, %100 ], [ 7, %102 ], [ 7, %104 ], [ 7, %106 ]
+  %.sink326 = phi i64 [ 6, %91 ], [ 5, %94 ], [ 6, %96 ], [ 6, %98 ], [ 6, %100 ], [ 7, %102 ], [ 7, %104 ], [ 7, %106 ]
   %.0162 = phi i64 [ 549755813888, %91 ], [ 4294967296, %94 ], [ 8589934592, %96 ], [ 17179869184, %98 ], [ 34359738368, %100 ], [ 68719476736, %102 ], [ 137438953472, %104 ], [ 274877906944, %106 ]
-  %110 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink329
+  %110 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink326
   store ptr %110, ptr %.0167, align 8
   %111 = or i64 %.0162, %.sroa.055.1
-  br label %166
+  br label %167
 
 112:                                              ; preds = %88
   %113 = getelementptr inbounds nuw i8, ptr %.0167, i64 8
   %114 = load ptr, ptr %113, align 8
-  %bcmp182 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %114, i64 2)
-  %115 = icmp eq i32 %bcmp182, 0
+  %bcmp181 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %114, i64 2)
+  %115 = icmp eq i32 %bcmp181, 0
   br i1 %115, label %131, label %116
 
 116:                                              ; preds = %112
-  %rhsc183 = load i8, ptr %114, align 1
-  %117 = icmp eq i8 %rhsc183, 56
+  %rhsc182 = load i8, ptr %114, align 1
+  %117 = icmp eq i8 %rhsc182, 56
   br i1 %117, label %131, label %118
 
 118:                                              ; preds = %116
-  %bcmp184 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %114, i64 2)
-  %119 = icmp eq i32 %bcmp184, 0
+  %bcmp183 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.153, ptr noundef nonnull dereferenceable(2) %114, i64 2)
+  %119 = icmp eq i32 %bcmp183, 0
   br i1 %119, label %131, label %120
 
 120:                                              ; preds = %118
-  %bcmp185 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %114, i64 2)
-  %121 = icmp eq i32 %bcmp185, 0
+  %bcmp184 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.154, ptr noundef nonnull dereferenceable(2) %114, i64 2)
+  %121 = icmp eq i32 %bcmp184, 0
   br i1 %121, label %131, label %122
 
 122:                                              ; preds = %120
-  %bcmp186 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %114, i64 2)
-  %123 = icmp eq i32 %bcmp186, 0
+  %bcmp185 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.155, ptr noundef nonnull dereferenceable(2) %114, i64 2)
+  %123 = icmp eq i32 %bcmp185, 0
   br i1 %123, label %131, label %124
 
 124:                                              ; preds = %122
-  %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %114, i64 3)
-  %125 = icmp eq i32 %bcmp187, 0
+  %bcmp186 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.156, ptr noundef nonnull dereferenceable(3) %114, i64 3)
+  %125 = icmp eq i32 %bcmp186, 0
   br i1 %125, label %131, label %126
 
 126:                                              ; preds = %124
-  %bcmp188 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %114, i64 3)
-  %127 = icmp eq i32 %bcmp188, 0
+  %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.157, ptr noundef nonnull dereferenceable(3) %114, i64 3)
+  %127 = icmp eq i32 %bcmp187, 0
   br i1 %127, label %131, label %128
 
 128:                                              ; preds = %126
-  %bcmp189 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %114, i64 3)
-  %129 = icmp eq i32 %bcmp189, 0
+  %bcmp188 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.158, ptr noundef nonnull dereferenceable(3) %114, i64 3)
+  %129 = icmp eq i32 %bcmp188, 0
   br i1 %129, label %131, label %130
 
 130:                                              ; preds = %128
@@ -4792,12 +4792,12 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 131:                                              ; preds = %128, %126, %124, %122, %120, %118, %116, %112
-  %.sink330 = phi i64 [ 2, %112 ], [ 1, %116 ], [ 2, %118 ], [ 2, %120 ], [ 2, %122 ], [ 3, %124 ], [ 3, %126 ], [ 3, %128 ]
+  %.sink327 = phi i64 [ 2, %112 ], [ 1, %116 ], [ 2, %118 ], [ 2, %120 ], [ 2, %122 ], [ 3, %124 ], [ 3, %126 ], [ 3, %128 ]
   %.0161 = phi i64 [ 1024, %112 ], [ 8, %116 ], [ 16, %118 ], [ 32, %120 ], [ 64, %122 ], [ 128, %124 ], [ 256, %126 ], [ 512, %128 ]
-  %132 = getelementptr inbounds nuw i8, ptr %114, i64 %.sink330
+  %132 = getelementptr inbounds nuw i8, ptr %114, i64 %.sink327
   store ptr %132, ptr %113, align 8
   %133 = or i64 %.0161, %.sroa.055.1
-  br label %166
+  br label %167
 
 134:                                              ; preds = %88
   %bcmp174 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.151, ptr noundef nonnull dereferenceable(2) %89, i64 2)
@@ -4843,67 +4843,67 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 151:                                              ; preds = %148, %146, %144, %142, %140, %138, %136, %134
-  %.sink331 = phi i64 [ 5, %134 ], [ 4, %136 ], [ 5, %138 ], [ 5, %140 ], [ 5, %142 ], [ 6, %144 ], [ 6, %146 ], [ 6, %148 ]
+  %.sink328 = phi i64 [ 5, %134 ], [ 4, %136 ], [ 5, %138 ], [ 5, %140 ], [ 5, %142 ], [ 6, %144 ], [ 6, %146 ], [ 6, %148 ]
   %.0 = phi i32 [ 128, %134 ], [ 1, %136 ], [ 2, %138 ], [ 4, %140 ], [ 8, %142 ], [ 16, %144 ], [ 32, %146 ], [ 64, %148 ]
-  %152 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink331
+  %152 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink328
   store ptr %152, ptr %.0167, align 8
   %153 = lshr i64 %.sroa.055.1, 32
   %154 = trunc nuw i64 %153 to i32
-  %.masked = and i32 %154, 65535
-  %155 = or i32 %.0, %.masked
-  %156 = zext nneg i32 %155 to i64
-  %157 = shl nuw nsw i64 %156, 32
-  %158 = and i64 %.sroa.055.1, -281470682267641
-  %159 = or disjoint i64 %157, %158
-  %160 = trunc i64 %.sroa.055.1 to i32
-  %161 = shl nuw nsw i32 %.0, 3
-  %.mask = and i32 %160, 524280
-  %162 = or i32 %161, %.mask
-  %163 = zext nneg i32 %162 to i64
-  %164 = or disjoint i64 %159, %163
-  br label %166
+  %155 = and i32 %154, 65535
+  %156 = or i32 %.0, %155
+  %157 = zext nneg i32 %156 to i64
+  %158 = shl nuw nsw i64 %157, 32
+  %159 = and i64 %.sroa.055.1, -281470682267641
+  %160 = or disjoint i64 %158, %159
+  %161 = trunc i64 %.sroa.055.1 to i32
+  %162 = shl nuw nsw i32 %.0, 3
+  %.mask = and i32 %161, 524280
+  %163 = or i32 %162, %.mask
+  %164 = zext nneg i32 %163 to i64
+  %165 = or disjoint i64 %160, %164
+  br label %167
 
-165:                                              ; preds = %36, %86
+166:                                              ; preds = %36, %86
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.149, ptr noundef nonnull %37) #13
   unreachable
 
-166:                                              ; preds = %151, %131, %109, %83, %62, %57
-  %167 = phi ptr [ %58, %57 ], [ %64, %62 ], [ %84, %83 ], [ %110, %109 ], [ %132, %131 ], [ %152, %151 ]
+167:                                              ; preds = %151, %131, %109, %83, %62, %57
+  %168 = phi ptr [ %58, %57 ], [ %64, %62 ], [ %84, %83 ], [ %110, %109 ], [ %132, %131 ], [ %152, %151 ]
   %.1 = phi ptr [ %.0167, %57 ], [ %.0167, %62 ], [ %.0167, %83 ], [ %.0167, %109 ], [ %113, %131 ], [ %.0167, %151 ]
-  %.sroa.055.2 = phi i64 [ %59, %57 ], [ %63, %62 ], [ %.sroa.055.1, %83 ], [ %111, %109 ], [ %133, %131 ], [ %164, %151 ]
+  %.sroa.055.2 = phi i64 [ %59, %57 ], [ %63, %62 ], [ %.sroa.055.1, %83 ], [ %111, %109 ], [ %133, %131 ], [ %165, %151 ]
   %.sroa.25.1 = phi i32 [ %.sroa.25.0, %57 ], [ %.sroa.25.0, %62 ], [ %85, %83 ], [ %.sroa.25.0, %109 ], [ %.sroa.25.0, %131 ], [ %.sroa.25.0, %151 ]
-  %168 = load i8, ptr %167, align 1
-  switch i8 %168, label %173 [
-    i8 47, label %169
+  %169 = load i8, ptr %168, align 1
+  switch i8 %169, label %174 [
+    i8 47, label %170
     i8 44, label %.preheader
     i8 0, label %.loopexit
   ]
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %167, i64 1
-  store ptr %170, ptr %.1, align 8
+170:                                              ; preds = %167
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 1
+  store ptr %171, ptr %.1, align 8
   br label %36, !llvm.loop !42
 
-.preheader:                                       ; preds = %166, %.preheader
-  %.pn = phi ptr [ %storemerge, %.preheader ], [ %167, %166 ]
+.preheader:                                       ; preds = %167, %.preheader
+  %.pn = phi ptr [ %storemerge, %.preheader ], [ %168, %167 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %.1, align 8
-  %171 = load i8, ptr %storemerge, align 1
-  %172 = icmp eq i8 %171, 32
-  br i1 %172, label %.preheader, label %.loopexit, !llvm.loop !43
+  %172 = load i8, ptr %storemerge, align 1
+  %173 = icmp eq i8 %172, 32
+  br i1 %173, label %.preheader, label %.loopexit, !llvm.loop !43
 
-173:                                              ; preds = %166
+174:                                              ; preds = %167
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.150, ptr noundef nonnull %.1) #13
   unreachable
 
-.loopexit:                                        ; preds = %36, %36, %166, %.preheader
-  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %36 ], [ %.sroa.055.1, %36 ], [ %.sroa.055.2, %166 ]
-  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %36 ], [ %.sroa.25.0, %36 ], [ %.sroa.25.1, %166 ]
+.loopexit:                                        ; preds = %36, %36, %167, %.preheader
+  %.sroa.055.3 = phi i64 [ %.sroa.055.2, %.preheader ], [ %.sroa.055.1, %36 ], [ %.sroa.055.1, %36 ], [ %.sroa.055.2, %167 ]
+  %.sroa.25.2 = phi i32 [ %.sroa.25.1, %.preheader ], [ %.sroa.25.0, %36 ], [ %.sroa.25.0, %36 ], [ %.sroa.25.1, %167 ]
   store i64 %.sroa.055.3, ptr %30, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %.sroa.25.2, ptr %.sroa.22.0..sroa_idx, align 4
-  %174 = load ptr, ptr %4, align 8
-  %.not172 = icmp eq ptr %174, null
+  %175 = load ptr, ptr %4, align 8
+  %.not172 = icmp eq ptr %175, null
   br i1 %.not172, label %.critedge.loopexit, label %26, !llvm.loop !44
 
 .critedge.loopexit:                               ; preds = %.loopexit, %26
@@ -4913,8 +4913,8 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
 
 .critedge:                                        ; preds = %.critedge.loopexit, %23
   %.0164.lcssa = phi i32 [ 0, %23 ], [ %.0164.lcssa.ph, %.critedge.loopexit ]
-  %175 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  store i32 %.0164.lcssa, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  store i32 %.0164.lcssa, ptr %176, align 8
   ret void
 }
 

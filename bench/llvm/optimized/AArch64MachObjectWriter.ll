@@ -1292,31 +1292,29 @@ _ZNSt6vectorIN4llvm16MachObjectWriter12RelAndSymbolESaIS2_EE9push_backERKS2_.exi
 define linkonce_odr hidden noundef ptr @_ZNK4llvm8MCSymbol11getFragmentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !117
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %16
+  br i1 %.not, label %4, label %15
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 28800
   %or.cond.not = icmp eq i64 %7, 8192
-  br i1 %or.cond.not, label %8, label %16
+  br i1 %or.cond.not, label %8, label %15
 
 8:                                                ; preds = %4
-  %9 = and i64 %6, 8
-  %.tr.i = icmp ne i64 %9, 0
-  %.narrow.i = or i1 %1, %.tr.i
-  %10 = select i1 %.narrow.i, i64 8, i64 0
-  %11 = and i64 %6, -20617
-  %12 = or disjoint i64 %10, %11
-  store i64 %12, ptr %5, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !82
-  %15 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
-  store ptr %15, ptr %0, align 8, !tbaa !117
-  br label %16
+  %.mask.i = and i64 %6, 8
+  %9 = select i1 %1, i64 8, i64 %.mask.i
+  %10 = and i64 %6, -20617
+  %11 = or disjoint i64 %9, %10
+  store i64 %11, ptr %5, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !82
+  %14 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+  store ptr %14, ptr %0, align 8, !tbaa !117
+  br label %15
 
-16:                                               ; preds = %2, %4, %8
-  %.0 = phi ptr [ %15, %8 ], [ null, %4 ], [ %3, %2 ]
+15:                                               ; preds = %2, %4, %8
+  %.0 = phi ptr [ %14, %8 ], [ null, %4 ], [ %3, %2 ]
   ret ptr %.0
 }
 

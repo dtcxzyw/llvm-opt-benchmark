@@ -1002,67 +1002,70 @@ define dso_local void @intel_dsi_vbt_gpio_init(ptr noundef captures(none) %0, i1
   %12 = icmp eq i64 %11, 0
   %13 = and i64 %10, 18874368
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %20, label %15
+  br i1 %14, label %.thread3, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %17 = load i48, ptr %16, align 1
   %18 = and i48 %17, 512
   %19 = icmp ne i48 %18, 0
-  br label %20
+  br i1 %12, label %25, label %20
 
-20:                                               ; preds = %15, %2
-  %21 = phi i1 [ %19, %15 ], [ true, %2 ]
-  br i1 %12, label %26, label %22
+.thread3:                                         ; preds = %2
+  br i1 %12, label %.thread1, label %20
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %24 = load i48, ptr %23, align 1
-  %25 = and i48 %24, 512
-  %.not = icmp ne i48 %25, 0
+20:                                               ; preds = %.thread3, %15
+  %21 = phi i1 [ true, %.thread3 ], [ %19, %15 ]
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %23 = load i48, ptr %22, align 1
+  %24 = and i48 %23, 512
+  %.not = icmp ne i48 %24, 0
   %.not2 = xor i1 %21, true
   %brmerge = select i1 %.not, i1 true, i1 %.not2
   br i1 %brmerge, label %.thread, label %.thread1
 
-26:                                               ; preds = %20
-  br i1 %21, label %.thread1, label %.thread
+25:                                               ; preds = %15
+  br i1 %19, label %.thread1, label %.thread
 
-.thread:                                          ; preds = %22, %26
-  %27 = phi i1 [ false, %26 ], [ %.not, %22 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store ptr inttoptr (i64 -38 to ptr), ptr %28, align 8
-  %29 = icmp eq ptr %3, null
-  br i1 %29, label %33, label %30
+.thread:                                          ; preds = %20, %25
+  %26 = phi i1 [ false, %25 ], [ %.not, %20 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store ptr inttoptr (i64 -38 to ptr), ptr %27, align 8
+  %28 = icmp eq ptr %3, null
+  br i1 %28, label %29, label %.thread5
 
-30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load ptr, ptr %31, align 8
-  br label %33
+29:                                               ; preds = %.thread
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef null, ptr noundef nonnull @.str.37) #9
+  store ptr null, ptr %27, align 8
+  br i1 %26, label %32, label %.thread1
 
-33:                                               ; preds = %.thread, %30
-  %34 = phi ptr [ %32, %30 ], [ null, %.thread ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.37) #9
-  store ptr null, ptr %28, align 8
-  br i1 %27, label %35, label %.thread1
+.thread5:                                         ; preds = %.thread
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load ptr, ptr %30, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.37) #9
+  store ptr null, ptr %27, align 8
+  br i1 %26, label %34, label %.thread1
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store ptr inttoptr (i64 -38 to ptr), ptr %36, align 8
-  %37 = icmp eq ptr %3, null
-  br i1 %37, label %41, label %38
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store ptr inttoptr (i64 -38 to ptr), ptr %33, align 8
+  br label %38
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = load ptr, ptr %39, align 8
-  br label %41
+34:                                               ; preds = %.thread5
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store ptr inttoptr (i64 -38 to ptr), ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = load ptr, ptr %36, align 8
+  br label %38
 
-41:                                               ; preds = %38, %35
-  %42 = phi ptr [ %40, %38 ], [ null, %35 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %42, ptr noundef nonnull @.str.39) #9
-  store ptr null, ptr %36, align 8
+38:                                               ; preds = %32, %34
+  %39 = phi ptr [ %35, %34 ], [ %33, %32 ]
+  %40 = phi ptr [ %37, %34 ], [ null, %32 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.39) #9
+  store ptr null, ptr %39, align 8
   br label %.thread1
 
-.thread1:                                         ; preds = %22, %26, %41, %33
+.thread1:                                         ; preds = %.thread3, %.thread5, %20, %25, %38, %29
   ret void
 }
 

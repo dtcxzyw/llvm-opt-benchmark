@@ -342,7 +342,7 @@ define dso_local void @tokenize_auth_file(ptr noundef %0, ptr noundef %1, ptr no
   br label %30
 
 30:                                               ; preds = %.lr.ph234, %.thread149
-  %.086232 = phi i32 [ 1, %.lr.ph234 ], [ %281, %.thread149 ]
+  %.086232 = phi i32 [ 1, %.lr.ph234 ], [ %280, %.thread149 ]
   %31 = call i32 @ferror(ptr noundef %1) #13
   %.not98 = icmp eq i32 %31, 0
   br i1 %.not98, label %32, label %.critedge
@@ -413,16 +413,16 @@ define dso_local void @tokenize_auth_file(ptr noundef %0, ptr noundef %1, ptr no
   %63 = select i1 %60, i1 %62, i1 false
   br i1 %63, label %.lr.ph221, label %._crit_edge222
 
-.lr.ph221:                                        ; preds = %57, %172
-  %.087219 = phi ptr [ %.188, %172 ], [ null, %57 ]
-  %.0126218 = phi ptr [ %93, %172 ], [ %58, %57 ]
+.lr.ph221:                                        ; preds = %57, %171
+  %.087219 = phi ptr [ %.188, %171 ], [ null, %57 ]
+  %.0126218 = phi ptr [ %93, %171 ], [ %58, %57 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #13
   call void @initStringInfo(ptr noundef nonnull %7) #13
   br label %64
 
-64:                                               ; preds = %164, %.lr.ph221
-  %.1127 = phi ptr [ %.0126218, %.lr.ph221 ], [ %93, %164 ]
-  %.0.i = phi ptr [ null, %.lr.ph221 ], [ %.2.i, %164 ]
+64:                                               ; preds = %163, %.lr.ph221
+  %.1127 = phi ptr [ %.0126218, %.lr.ph221 ], [ %93, %163 ]
+  %.0.i = phi ptr [ null, %.lr.ph221 ], [ %.2.i, %163 ]
   call void @resetStringInfo(ptr noundef nonnull %7) #13
   br label %65
 
@@ -669,320 +669,319 @@ next_token.exit.thread:                           ; preds = %.critedge2.i
 tokenize_expand_file.exit:                        ; preds = %.thread, %149, %106
   %.0.i117 = phi ptr [ %.0.i, %106 ], [ %.047.i172, %149 ], [ %.047.i172, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  br label %164
+  br label %163
 
 151:                                              ; preds = %98, %next_token.exit.thread
   %152 = load ptr, ptr @tokenize_context, align 8
   %153 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %152, ptr @CurrentMemoryContext, align 8
-  %154 = and i8 %.0129, 1
-  %155 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre264) #15
-  %sext.i = shl i64 %155, 32
-  %156 = ashr exact i64 %sext.i, 32
-  %157 = add nsw i64 %156, 25
-  %158 = call ptr @palloc0(i64 noundef %157) #13
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  store ptr %159, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  store i8 %154, ptr %160, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  store ptr null, ptr %161, align 8
+  %154 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre264) #15
+  %sext.i = shl i64 %154, 32
+  %155 = ashr exact i64 %sext.i, 32
+  %156 = add nsw i64 %155, 25
+  %157 = call ptr @palloc0(i64 noundef %156) #13
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
+  store ptr %158, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store i8 %.0129, ptr %159, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  store ptr null, ptr %160, align 8
   %sext10.i = add i64 %sext.i, 4294967296
-  %162 = ashr exact i64 %sext10.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %159, ptr nonnull readonly align 1 %.pre264, i64 %162, i1 false)
-  %163 = call ptr @lappend(ptr noundef %.0.i, ptr noundef nonnull %158) #13
+  %161 = ashr exact i64 %sext10.i, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr nonnull readonly align 1 %.pre264, i64 %161, i1 false)
+  %162 = call ptr @lappend(ptr noundef %.0.i, ptr noundef nonnull %157) #13
   store ptr %153, ptr @CurrentMemoryContext, align 8
-  br label %164
+  br label %163
 
-164:                                              ; preds = %151, %tokenize_expand_file.exit
-  %.2.i = phi ptr [ %.0.i117, %tokenize_expand_file.exit ], [ %163, %151 ]
-  %165 = load ptr, ptr %11, align 8
-  %166 = icmp eq ptr %165, null
-  %or.cond161 = select i1 %.0131, i1 %166, i1 false
+163:                                              ; preds = %151, %tokenize_expand_file.exit
+  %.2.i = phi ptr [ %.0.i117, %tokenize_expand_file.exit ], [ %162, %151 ]
+  %164 = load ptr, ptr %11, align 8
+  %165 = icmp eq ptr %164, null
+  %or.cond161 = select i1 %.0131, i1 %165, i1 false
   br i1 %or.cond161, label %64, label %next_field_expand.exit, !llvm.loop !8
 
-next_field_expand.exit:                           ; preds = %.critedge2.i, %164
-  %.1.i = phi ptr [ %.2.i, %164 ], [ %.0.i, %.critedge2.i ]
-  %167 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %167) #13
+next_field_expand.exit:                           ; preds = %.critedge2.i, %163
+  %.1.i = phi ptr [ %.2.i, %163 ], [ %.0.i, %.critedge2.i ]
+  %166 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %166) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
   %.not105 = icmp eq ptr %.1.i, null
-  br i1 %.not105, label %172, label %168
+  br i1 %.not105, label %171, label %167
 
-168:                                              ; preds = %next_field_expand.exit
-  %169 = load ptr, ptr @tokenize_context, align 8
-  %170 = load ptr, ptr @CurrentMemoryContext, align 8
+167:                                              ; preds = %next_field_expand.exit
+  %168 = load ptr, ptr @tokenize_context, align 8
+  %169 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %168, ptr @CurrentMemoryContext, align 8
+  %170 = call ptr @lappend(ptr noundef %.087219, ptr noundef nonnull %.1.i) #13
   store ptr %169, ptr @CurrentMemoryContext, align 8
-  %171 = call ptr @lappend(ptr noundef %.087219, ptr noundef nonnull %.1.i) #13
-  store ptr %170, ptr @CurrentMemoryContext, align 8
-  br label %172
+  br label %171
 
-172:                                              ; preds = %168, %next_field_expand.exit
-  %.188 = phi ptr [ %171, %168 ], [ %.087219, %next_field_expand.exit ]
-  %173 = load i8, ptr %93, align 1
-  %174 = icmp ne i8 %173, 0
-  %175 = load ptr, ptr %11, align 8
-  %176 = icmp eq ptr %175, null
-  %177 = select i1 %174, i1 %176, i1 false
-  br i1 %177, label %.lr.ph221, label %._crit_edge222, !llvm.loop !9
+171:                                              ; preds = %167, %next_field_expand.exit
+  %.188 = phi ptr [ %170, %167 ], [ %.087219, %next_field_expand.exit ]
+  %172 = load i8, ptr %93, align 1
+  %173 = icmp ne i8 %172, 0
+  %174 = load ptr, ptr %11, align 8
+  %175 = icmp eq ptr %174, null
+  %176 = select i1 %173, i1 %175, i1 false
+  br i1 %176, label %.lr.ph221, label %._crit_edge222, !llvm.loop !9
 
-._crit_edge222:                                   ; preds = %172, %57
-  %.087.lcssa = phi ptr [ null, %57 ], [ %.188, %172 ]
-  %.lcssa175 = phi i1 [ %62, %57 ], [ %176, %172 ]
-  %178 = icmp eq ptr %.087.lcssa, null
-  %or.cond5 = select i1 %178, i1 %.lcssa175, i1 false
-  br i1 %or.cond5, label %.thread149, label %179
+._crit_edge222:                                   ; preds = %171, %57
+  %.087.lcssa = phi ptr [ null, %57 ], [ %.188, %171 ]
+  %.lcssa175 = phi i1 [ %62, %57 ], [ %175, %171 ]
+  %177 = icmp eq ptr %.087.lcssa, null
+  %or.cond5 = select i1 %177, i1 %.lcssa175, i1 false
+  br i1 %or.cond5, label %.thread149, label %178
 
-179:                                              ; preds = %._crit_edge222
+178:                                              ; preds = %._crit_edge222
   %.not162 = xor i1 %.lcssa175, true
-  %brmerge = or i1 %178, %.not162
+  %brmerge = or i1 %177, %.not162
   br i1 %brmerge, label %list_length.exit.thread, label %list_length.exit
 
-list_length.exit:                                 ; preds = %179
-  %180 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 4
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp eq i32 %181, 2
-  br i1 %182, label %183, label %list_length.exit.thread
+list_length.exit:                                 ; preds = %178
+  %179 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 4
+  %180 = load i32, ptr %179, align 4
+  %181 = icmp eq i32 %180, 2
+  br i1 %181, label %182, label %list_length.exit.thread
 
-183:                                              ; preds = %list_length.exit
-  %184 = getelementptr i8, ptr %.087.lcssa, i64 16
-  %.087.val = load ptr, ptr %184, align 8
-  %185 = load ptr, ptr %.087.val, align 8
-  %186 = getelementptr i8, ptr %185, i64 16
-  %.val = load ptr, ptr %186, align 8
-  %187 = load ptr, ptr %.val, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %.087.val, i64 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr i8, ptr %189, i64 16
-  %.val108 = load ptr, ptr %190, align 8
-  %191 = load ptr, ptr %.val108, align 8
-  %192 = load ptr, ptr %187, align 8
-  %193 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(8) @.str.7) #15
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %204
+182:                                              ; preds = %list_length.exit
+  %183 = getelementptr i8, ptr %.087.lcssa, i64 16
+  %.087.val = load ptr, ptr %183, align 8
+  %184 = load ptr, ptr %.087.val, align 8
+  %185 = getelementptr i8, ptr %184, i64 16
+  %.val = load ptr, ptr %185, align 8
+  %186 = load ptr, ptr %.val, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %.087.val, i64 8
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr i8, ptr %188, i64 16
+  %.val108 = load ptr, ptr %189, align 8
+  %190 = load ptr, ptr %.val108, align 8
+  %191 = load ptr, ptr %186, align 8
+  %192 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %191, ptr noundef nonnull dereferenceable(8) @.str.7) #15
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %203
 
-195:                                              ; preds = %183
-  %196 = load ptr, ptr %191, align 8
-  %197 = call ptr @AbsoluteConfigLocation(ptr noundef %196, ptr noundef %0) #13
-  %198 = call ptr @open_auth_file(ptr noundef %197, i32 noundef %3, i32 noundef %27, ptr noundef nonnull %11)
-  %.not.i109 = icmp eq ptr %198, null
-  br i1 %.not.i109, label %tokenize_include_file.exit, label %199
+194:                                              ; preds = %182
+  %195 = load ptr, ptr %190, align 8
+  %196 = call ptr @AbsoluteConfigLocation(ptr noundef %195, ptr noundef %0) #13
+  %197 = call ptr @open_auth_file(ptr noundef %196, i32 noundef %3, i32 noundef %27, ptr noundef nonnull %11)
+  %.not.i109 = icmp eq ptr %197, null
+  br i1 %.not.i109, label %tokenize_include_file.exit, label %198
 
-199:                                              ; preds = %195
-  call void @tokenize_auth_file(ptr noundef %197, ptr noundef nonnull %198, ptr noundef %2, i32 noundef %3, i32 noundef %27)
-  %200 = call i32 @FreeFile(ptr noundef nonnull %198) #13
-  br i1 %28, label %201, label %tokenize_include_file.exit
+198:                                              ; preds = %194
+  call void @tokenize_auth_file(ptr noundef %196, ptr noundef nonnull %197, ptr noundef %2, i32 noundef %3, i32 noundef %27)
+  %199 = call i32 @FreeFile(ptr noundef nonnull %197) #13
+  br i1 %28, label %200, label %tokenize_include_file.exit
 
-201:                                              ; preds = %199
-  %202 = load ptr, ptr @tokenize_context, align 8
-  call void @MemoryContextDelete(ptr noundef %202) #13
+200:                                              ; preds = %198
+  %201 = load ptr, ptr @tokenize_context, align 8
+  call void @MemoryContextDelete(ptr noundef %201) #13
   store ptr null, ptr @tokenize_context, align 8
   br label %tokenize_include_file.exit
 
-tokenize_include_file.exit:                       ; preds = %201, %199, %195
-  call void @pfree(ptr noundef %197) #13
-  %203 = load ptr, ptr %11, align 8
-  %.not103 = icmp eq ptr %203, null
+tokenize_include_file.exit:                       ; preds = %200, %198, %194
+  call void @pfree(ptr noundef %196) #13
+  %202 = load ptr, ptr %11, align 8
+  %.not103 = icmp eq ptr %202, null
   br i1 %.not103, label %.thread149, label %list_length.exit.thread
 
-204:                                              ; preds = %183
-  %205 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(12) @.str.8) #15
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %207, label %242
+203:                                              ; preds = %182
+  %204 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %191, ptr noundef nonnull dereferenceable(12) @.str.8) #15
+  %205 = icmp eq i32 %204, 0
+  br i1 %205, label %206, label %241
 
-207:                                              ; preds = %204
-  %208 = load ptr, ptr %191, align 8
+206:                                              ; preds = %203
+  %207 = load ptr, ptr %190, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #13
-  %209 = call ptr @GetConfFilesInDir(ptr noundef %208, ptr noundef %0, i32 noundef %3, ptr noundef nonnull %12, ptr noundef nonnull %11) #13
-  %.not101 = icmp eq ptr %209, null
-  br i1 %.not101, label %.thread152, label %210
+  %208 = call ptr @GetConfFilesInDir(ptr noundef %207, ptr noundef %0, i32 noundef %3, ptr noundef nonnull %12, ptr noundef nonnull %11) #13
+  %.not101 = icmp eq ptr %208, null
+  br i1 %.not101, label %.thread152, label %209
 
-210:                                              ; preds = %207
+209:                                              ; preds = %206
   call void @initStringInfo(ptr noundef nonnull %13) #13
-  %211 = load i32, ptr %12, align 4
-  %212 = icmp sgt i32 %211, 0
-  br i1 %212, label %.lr.ph227, label %._crit_edge230
+  %210 = load i32, ptr %12, align 4
+  %211 = icmp sgt i32 %210, 0
+  br i1 %211, label %.lr.ph227, label %._crit_edge230
 
-.preheader:                                       ; preds = %229
-  %213 = icmp sgt i32 %230, 0
-  br i1 %213, label %.lr.ph229, label %._crit_edge230
+.preheader:                                       ; preds = %228
+  %212 = icmp sgt i32 %229, 0
+  br i1 %212, label %.lr.ph229, label %._crit_edge230
 
-.lr.ph227:                                        ; preds = %210, %229
-  %indvars.iv257 = phi i64 [ %indvars.iv.next258, %229 ], [ 0, %210 ]
-  %214 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv257
-  %215 = load ptr, ptr %214, align 8
-  %216 = call ptr @AbsoluteConfigLocation(ptr noundef %215, ptr noundef %0) #13
-  %217 = call ptr @open_auth_file(ptr noundef %216, i32 noundef %3, i32 noundef %27, ptr noundef nonnull %11)
-  %.not.i110 = icmp eq ptr %217, null
-  br i1 %.not.i110, label %tokenize_include_file.exit111, label %218
+.lr.ph227:                                        ; preds = %209, %228
+  %indvars.iv257 = phi i64 [ %indvars.iv.next258, %228 ], [ 0, %209 ]
+  %213 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv257
+  %214 = load ptr, ptr %213, align 8
+  %215 = call ptr @AbsoluteConfigLocation(ptr noundef %214, ptr noundef %0) #13
+  %216 = call ptr @open_auth_file(ptr noundef %215, i32 noundef %3, i32 noundef %27, ptr noundef nonnull %11)
+  %.not.i110 = icmp eq ptr %216, null
+  br i1 %.not.i110, label %tokenize_include_file.exit111, label %217
 
-218:                                              ; preds = %.lr.ph227
-  call void @tokenize_auth_file(ptr noundef %216, ptr noundef nonnull %217, ptr noundef %2, i32 noundef %3, i32 noundef %27)
-  %219 = call i32 @FreeFile(ptr noundef nonnull %217) #13
-  br i1 %28, label %220, label %tokenize_include_file.exit111
+217:                                              ; preds = %.lr.ph227
+  call void @tokenize_auth_file(ptr noundef %215, ptr noundef nonnull %216, ptr noundef %2, i32 noundef %3, i32 noundef %27)
+  %218 = call i32 @FreeFile(ptr noundef nonnull %216) #13
+  br i1 %28, label %219, label %tokenize_include_file.exit111
 
-220:                                              ; preds = %218
-  %221 = load ptr, ptr @tokenize_context, align 8
-  call void @MemoryContextDelete(ptr noundef %221) #13
+219:                                              ; preds = %217
+  %220 = load ptr, ptr @tokenize_context, align 8
+  call void @MemoryContextDelete(ptr noundef %220) #13
   store ptr null, ptr @tokenize_context, align 8
   br label %tokenize_include_file.exit111
 
-tokenize_include_file.exit111:                    ; preds = %220, %218, %.lr.ph227
-  call void @pfree(ptr noundef %216) #13
-  %222 = load ptr, ptr %11, align 8
-  %.not102 = icmp eq ptr %222, null
-  br i1 %.not102, label %229, label %223
+tokenize_include_file.exit111:                    ; preds = %219, %217, %.lr.ph227
+  call void @pfree(ptr noundef %215) #13
+  %221 = load ptr, ptr %11, align 8
+  %.not102 = icmp eq ptr %221, null
+  br i1 %.not102, label %228, label %222
 
-223:                                              ; preds = %tokenize_include_file.exit111
-  %224 = load i32, ptr %29, align 8
-  %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %226, label %227
+222:                                              ; preds = %tokenize_include_file.exit111
+  %223 = load i32, ptr %29, align 8
+  %224 = icmp sgt i32 %223, 0
+  br i1 %224, label %225, label %226
 
-226:                                              ; preds = %223
+225:                                              ; preds = %222
   call void @appendStringInfoChar(ptr noundef nonnull %13, i8 noundef signext 10) #13
   %.pre265 = load ptr, ptr %11, align 8
-  br label %227
+  br label %226
 
-227:                                              ; preds = %226, %223
-  %228 = phi ptr [ %.pre265, %226 ], [ %222, %223 ]
-  call void @appendStringInfoString(ptr noundef nonnull %13, ptr noundef %228) #13
-  br label %229
+226:                                              ; preds = %225, %222
+  %227 = phi ptr [ %.pre265, %225 ], [ %221, %222 ]
+  call void @appendStringInfoString(ptr noundef nonnull %13, ptr noundef %227) #13
+  br label %228
 
-229:                                              ; preds = %tokenize_include_file.exit111, %227
+228:                                              ; preds = %tokenize_include_file.exit111, %226
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
-  %230 = load i32, ptr %12, align 4
-  %231 = sext i32 %230 to i64
-  %232 = icmp slt i64 %indvars.iv.next258, %231
-  br i1 %232, label %.lr.ph227, label %.preheader, !llvm.loop !10
+  %229 = load i32, ptr %12, align 4
+  %230 = sext i32 %229 to i64
+  %231 = icmp slt i64 %indvars.iv.next258, %230
+  br i1 %231, label %.lr.ph227, label %.preheader, !llvm.loop !10
 
-._crit_edge230:                                   ; preds = %.lr.ph229, %210, %.preheader
-  call void @pfree(ptr noundef nonnull %209) #13
-  %233 = load i32, ptr %29, align 8
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %262, label %240
+._crit_edge230:                                   ; preds = %.lr.ph229, %209, %.preheader
+  call void @pfree(ptr noundef nonnull %208) #13
+  %232 = load i32, ptr %29, align 8
+  %233 = icmp eq i32 %232, 0
+  br i1 %233, label %261, label %239
 
 .lr.ph229:                                        ; preds = %.preheader, %.lr.ph229
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %.lr.ph229 ], [ 0, %.preheader ]
-  %235 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv260
-  %236 = load ptr, ptr %235, align 8
-  call void @pfree(ptr noundef %236) #13
+  %234 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv260
+  %235 = load ptr, ptr %234, align 8
+  call void @pfree(ptr noundef %235) #13
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %237 = load i32, ptr %12, align 4
-  %238 = sext i32 %237 to i64
-  %239 = icmp slt i64 %indvars.iv.next261, %238
-  br i1 %239, label %.lr.ph229, label %._crit_edge230, !llvm.loop !11
+  %236 = load i32, ptr %12, align 4
+  %237 = sext i32 %236 to i64
+  %238 = icmp slt i64 %indvars.iv.next261, %237
+  br i1 %238, label %.lr.ph229, label %._crit_edge230, !llvm.loop !11
 
-240:                                              ; preds = %._crit_edge230
-  %241 = load ptr, ptr %13, align 8
-  store ptr %241, ptr %11, align 8
+239:                                              ; preds = %._crit_edge230
+  %240 = load ptr, ptr %13, align 8
+  store ptr %240, ptr %11, align 8
   br label %.thread152
 
-242:                                              ; preds = %204
-  %243 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(18) @.str.9) #15
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %245, label %list_length.exit.thread
+241:                                              ; preds = %203
+  %242 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %191, ptr noundef nonnull dereferenceable(18) @.str.9) #15
+  %243 = icmp eq i32 %242, 0
+  br i1 %243, label %244, label %list_length.exit.thread
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %191, align 8
-  %247 = call ptr @AbsoluteConfigLocation(ptr noundef %246, ptr noundef %0) #13
-  %248 = call ptr @open_auth_file(ptr noundef %247, i32 noundef %3, i32 noundef %27, ptr noundef nonnull %11)
-  %.not.i112 = icmp eq ptr %248, null
-  br i1 %.not.i112, label %249, label %257
+244:                                              ; preds = %241
+  %245 = load ptr, ptr %190, align 8
+  %246 = call ptr @AbsoluteConfigLocation(ptr noundef %245, ptr noundef %0) #13
+  %247 = call ptr @open_auth_file(ptr noundef %246, i32 noundef %3, i32 noundef %27, ptr noundef nonnull %11)
+  %.not.i112 = icmp eq ptr %247, null
+  br i1 %.not.i112, label %248, label %256
 
-249:                                              ; preds = %245
-  %250 = tail call ptr @__errno_location() #14
-  %251 = load i32, ptr %250, align 4
-  %252 = icmp eq i32 %251, 2
-  br i1 %252, label %253, label %tokenize_include_file.exit113
+248:                                              ; preds = %244
+  %249 = tail call ptr @__errno_location() #14
+  %250 = load i32, ptr %249, align 4
+  %251 = icmp eq i32 %250, 2
+  br i1 %251, label %252, label %tokenize_include_file.exit113
 
-253:                                              ; preds = %249
-  %254 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #13
-  br i1 %254, label %255, label %tokenize_include_file.exit113.sink.split
+252:                                              ; preds = %248
+  %253 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #13
+  br i1 %253, label %254, label %tokenize_include_file.exit113.sink.split
 
-255:                                              ; preds = %253
-  %256 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.80, ptr noundef %247) #13
+254:                                              ; preds = %252
+  %255 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.80, ptr noundef %246) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 458, ptr noundef nonnull @__func__.tokenize_include_file) #13
   br label %tokenize_include_file.exit113.sink.split
 
-257:                                              ; preds = %245
-  call void @tokenize_auth_file(ptr noundef %247, ptr noundef nonnull %248, ptr noundef %2, i32 noundef %3, i32 noundef %27)
-  %258 = call i32 @FreeFile(ptr noundef nonnull %248) #13
-  br i1 %28, label %259, label %tokenize_include_file.exit113
+256:                                              ; preds = %244
+  call void @tokenize_auth_file(ptr noundef %246, ptr noundef nonnull %247, ptr noundef %2, i32 noundef %3, i32 noundef %27)
+  %257 = call i32 @FreeFile(ptr noundef nonnull %247) #13
+  br i1 %28, label %258, label %tokenize_include_file.exit113
 
-259:                                              ; preds = %257
-  %260 = load ptr, ptr @tokenize_context, align 8
-  call void @MemoryContextDelete(ptr noundef %260) #13
+258:                                              ; preds = %256
+  %259 = load ptr, ptr @tokenize_context, align 8
+  call void @MemoryContextDelete(ptr noundef %259) #13
   br label %tokenize_include_file.exit113.sink.split
 
-tokenize_include_file.exit113.sink.split:         ; preds = %253, %255, %259
-  %tokenize_context.sink = phi ptr [ @tokenize_context, %259 ], [ %11, %255 ], [ %11, %253 ]
+tokenize_include_file.exit113.sink.split:         ; preds = %252, %254, %258
+  %tokenize_context.sink = phi ptr [ @tokenize_context, %258 ], [ %11, %254 ], [ %11, %252 ]
   store ptr null, ptr %tokenize_context.sink, align 8
   br label %tokenize_include_file.exit113
 
-tokenize_include_file.exit113:                    ; preds = %tokenize_include_file.exit113.sink.split, %257, %249
-  call void @pfree(ptr noundef %247) #13
-  %261 = load ptr, ptr %11, align 8
-  %.not100 = icmp eq ptr %261, null
+tokenize_include_file.exit113:                    ; preds = %tokenize_include_file.exit113.sink.split, %256, %248
+  call void @pfree(ptr noundef %246) #13
+  %260 = load ptr, ptr %11, align 8
+  %.not100 = icmp eq ptr %260, null
   br i1 %.not100, label %.thread149, label %list_length.exit.thread
 
-.thread152:                                       ; preds = %240, %207
+.thread152:                                       ; preds = %239, %206
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
   br label %list_length.exit.thread
 
-262:                                              ; preds = %._crit_edge230
+261:                                              ; preds = %._crit_edge230
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
   br label %.thread149
 
-list_length.exit.thread:                          ; preds = %179, %242, %tokenize_include_file.exit113, %tokenize_include_file.exit, %.thread152, %list_length.exit
-  %263 = load ptr, ptr @tokenize_context, align 8
-  %264 = load ptr, ptr @CurrentMemoryContext, align 8
+list_length.exit.thread:                          ; preds = %178, %241, %tokenize_include_file.exit113, %tokenize_include_file.exit, %.thread152, %list_length.exit
+  %262 = load ptr, ptr @tokenize_context, align 8
+  %263 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %262, ptr @CurrentMemoryContext, align 8
+  %264 = call ptr @palloc0(i64 noundef 40) #13
+  store ptr %.087.lcssa, ptr %264, align 8
+  %265 = call ptr @pstrdup(ptr noundef %0) #13
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  store ptr %265, ptr %266, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 16
+  store i32 %.086232, ptr %267, align 8
+  %268 = load ptr, ptr %8, align 8
+  %269 = call ptr @pstrdup(ptr noundef %268) #13
+  %270 = getelementptr inbounds nuw i8, ptr %264, i64 24
+  store ptr %269, ptr %270, align 8
+  %271 = load ptr, ptr %11, align 8
+  %.not104 = icmp eq ptr %271, null
+  br i1 %.not104, label %274, label %272
+
+272:                                              ; preds = %list_length.exit.thread
+  %273 = call ptr @pstrdup(ptr noundef nonnull %271) #13
+  br label %274
+
+274:                                              ; preds = %list_length.exit.thread, %272
+  %275 = phi ptr [ %273, %272 ], [ null, %list_length.exit.thread ]
+  %276 = getelementptr inbounds nuw i8, ptr %264, i64 32
+  store ptr %275, ptr %276, align 8
+  %277 = load ptr, ptr %2, align 8
+  %278 = call ptr @lappend(ptr noundef %277, ptr noundef nonnull %264) #13
+  store ptr %278, ptr %2, align 8
   store ptr %263, ptr @CurrentMemoryContext, align 8
-  %265 = call ptr @palloc0(i64 noundef 40) #13
-  store ptr %.087.lcssa, ptr %265, align 8
-  %266 = call ptr @pstrdup(ptr noundef %0) #13
-  %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  store ptr %266, ptr %267, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  store i32 %.086232, ptr %268, align 8
-  %269 = load ptr, ptr %8, align 8
-  %270 = call ptr @pstrdup(ptr noundef %269) #13
-  %271 = getelementptr inbounds nuw i8, ptr %265, i64 24
-  store ptr %270, ptr %271, align 8
-  %272 = load ptr, ptr %11, align 8
-  %.not104 = icmp eq ptr %272, null
-  br i1 %.not104, label %275, label %273
-
-273:                                              ; preds = %list_length.exit.thread
-  %274 = call ptr @pstrdup(ptr noundef nonnull %272) #13
-  br label %275
-
-275:                                              ; preds = %list_length.exit.thread, %273
-  %276 = phi ptr [ %274, %273 ], [ null, %list_length.exit.thread ]
-  %277 = getelementptr inbounds nuw i8, ptr %265, i64 32
-  store ptr %276, ptr %277, align 8
-  %278 = load ptr, ptr %2, align 8
-  %279 = call ptr @lappend(ptr noundef %278, ptr noundef nonnull %265) #13
-  store ptr %279, ptr %2, align 8
-  store ptr %264, ptr @CurrentMemoryContext, align 8
   br label %.thread149
 
-.thread149:                                       ; preds = %tokenize_include_file.exit113, %tokenize_include_file.exit, %275, %._crit_edge222, %262
-  %280 = add i32 %.086232, 1
-  %281 = add i32 %280, %.090.lcssa
-  store i32 %281, ptr %14, align 8
+.thread149:                                       ; preds = %tokenize_include_file.exit113, %tokenize_include_file.exit, %274, %._crit_edge222, %261
+  %279 = add i32 %.086232, 1
+  %280 = add i32 %279, %.090.lcssa
+  store i32 %280, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  %282 = call i32 @feof(ptr noundef %1) #13
-  %.not = icmp eq i32 %282, 0
+  %281 = call i32 @feof(ptr noundef %1) #13
+  %.not = icmp eq i32 %281, 0
   br i1 %.not, label %30, label %.critedge
 
 .critedge:                                        ; preds = %30, %.thread149, %23, %.thread154
   store ptr %20, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %19) #13
-  %283 = load ptr, ptr %9, align 8
-  store ptr %283, ptr @error_context_stack, align 8
+  %282 = load ptr, ptr %9, align 8
+  store ptr %282, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #13

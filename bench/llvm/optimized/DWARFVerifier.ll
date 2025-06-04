@@ -7641,9 +7641,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9DWARFUnitESt14default_delet
   br label %_ZN4llvm15DWARFUnitVectorD2Ev.exit27
 
 _ZN4llvm15DWARFUnitVectorD2Ev.exit27:             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9DWARFUnitESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i.i26, %92
-  %93 = and i8 %.3, 1
-  %94 = xor i8 %93, 1
-  %spec.select = zext nneg i8 %94 to i32
+  %93 = xor i8 %.3, 1
+  %spec.select = zext nneg i8 %93 to i32
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28

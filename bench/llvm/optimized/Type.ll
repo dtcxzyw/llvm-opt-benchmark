@@ -24491,8 +24491,8 @@ define dso_local void @_ZN5clang16PackIndexingTypeC2ERKNS_10ASTContextENS_8QualT
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.026.i = phi ptr [ %36, %.lr.ph.i ], [ %.sroa.0.0.copyload, %.lr.ph.preheader.i ]
-  %.125.i = phi i8 [ %35, %.lr.ph.i ], [ %17, %.lr.ph.preheader.i ]
+  %.026.i = phi ptr [ %37, %.lr.ph.i ], [ %.sroa.0.0.copyload, %.lr.ph.preheader.i ]
+  %.125.i = phi i8 [ %36, %.lr.ph.i ], [ %17, %.lr.ph.preheader.i ]
   %.0.copyload.i.i.i.i.i11.i = load i64, ptr %.026.i, align 8
   %29 = and i64 %.0.copyload.i.i.i.i.i11.i, -16
   %30 = inttoptr i64 %29 to ptr
@@ -24500,9 +24500,10 @@ define dso_local void @_ZN5clang16PackIndexingTypeC2ERKNS_10ASTContextENS_8QualT
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 17
   %33 = load i16, ptr %32, align 1
   %34 = trunc i16 %33 to i8
-  %35 = or i8 %.125.i, %34
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
-  %.not.i = icmp eq ptr %36, %28
+  %35 = and i8 %34, 31
+  %36 = or i8 %35, %.125.i
+  %37 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
+  %.not.i = icmp eq ptr %37, %28
   br i1 %.not.i, label %_ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE.exit.loopexit, label %.lr.ph.i
 
 _ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE.exit.loopexit: ; preds = %.lr.ph.i
@@ -24512,33 +24513,32 @@ _ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8Arr
 
 _ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE.exit: ; preds = %_ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE.exit.loopexit, %19
   %.pre-phi10 = phi ptr [ %.pre9, %_ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE.exit.loopexit ], [ %21, %19 ]
-  %.021.i = phi i8 [ %35, %_ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE.exit.loopexit ], [ %27, %19 ]
-  %37 = and i8 %10, 1
-  %.not10.i = icmp eq i8 %37, 0
-  %38 = and i8 %.021.i, 30
-  %spec.select.i = select i1 %.not10.i, i8 %38, i8 %.021.i
-  %39 = load ptr, ptr %.pre-phi10, align 8, !tbaa !371
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 17
-  %41 = load i16, ptr %40, align 1
-  %42 = and i16 %41, 1
-  %.not23.i = icmp eq i16 %42, 0
-  %43 = or i8 %spec.select.i, 22
-  %.3.i = select i1 %.not23.i, i8 %43, i8 %spec.select.i
+  %.021.i = phi i8 [ %36, %_ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE.exit.loopexit ], [ %27, %19 ]
+  %38 = and i8 %10, 1
+  %.not10.i = icmp eq i8 %38, 0
+  %39 = and i8 %.021.i, 30
+  %spec.select.i = select i1 %.not10.i, i8 %39, i8 %.021.i
+  %40 = load ptr, ptr %.pre-phi10, align 8, !tbaa !371
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 17
+  %42 = load i16, ptr %41, align 1
+  %43 = and i16 %42, 1
+  %.not23.i = icmp eq i16 %43, 0
+  %44 = or i8 %spec.select.i, 22
+  %.3.i = select i1 %.not23.i, i8 %44, i8 %spec.select.i
   %.not.i.i.i = icmp ult i64 %2, 16
-  %44 = ptrtoint ptr %0 to i64
-  %.sroa.0.0.i = select i1 %.not.i.i.i, i64 %44, i64 %2
+  %45 = ptrtoint ptr %0 to i64
+  %.sroa.0.0.i = select i1 %.not.i.i.i, i64 %45, i64 %2
   store ptr %0, ptr %0, align 16, !tbaa !371
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i, ptr %45, align 8, !tbaa !374
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 38, ptr %46, align 16
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %48 = load i16, ptr %47, align 1
-  %49 = and i8 %.3.i, 31
-  %50 = zext nneg i8 %49 to i16
-  %51 = and i16 %48, -2048
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.0.0.i, ptr %46, align 8, !tbaa !374
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 38, ptr %47, align 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %49 = load i16, ptr %48, align 1
+  %50 = zext nneg i8 %.3.i to i16
+  %51 = and i16 %49, -2048
   %52 = or disjoint i16 %51, %50
-  store i16 %52, ptr %47, align 1
+  store i16 %52, ptr %48, align 1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %53, align 8, !tbaa !439
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -1322,9 +1322,8 @@ define internal fastcc zeroext i1 @io_poll_remove_all_table(ptr noundef %0, ptr 
   br i1 %43, label %6, label %44, !llvm.loop !37
 
 44:                                               ; preds = %.loopexit
-  %45 = and i8 %40, 1
-  %46 = icmp ne i8 %45, 0
-  ret i1 %46
+  %45 = icmp ne i8 %40, 0
+  ret i1 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -15816,7 +15816,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call1 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %node_options, i64 noundef %index.034) #22
   %0 = load i8, ptr %call1, align 1
   %cmp2 = icmp eq i8 %0, 92
-  %tobool = trunc i8 %is_in_string.032 to i1
+  %tobool = trunc nuw i8 %is_in_string.032 to i1
   %or.cond = select i1 %cmp2, i1 %tobool, i1 false
   br i1 %or.cond, label %if.then, label %if.else8
 
@@ -15914,7 +15914,7 @@ for.inc:                                          ; preds = %if.else8, %_ZNSt6ve
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !130
 
 for.end:                                          ; preds = %for.inc
-  %9 = trunc i8 %is_in_string.1 to i1
+  %9 = trunc nuw i8 %is_in_string.1 to i1
   br i1 %9, label %if.then33, label %nrvo.skipdtor
 
 if.then33:                                        ; preds = %for.end

@@ -94606,13 +94606,13 @@ _ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_const
   br label %246, !llvm.loop !633
 
 281:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit130
-  %282 = trunc i8 %.6 to i1
+  %282 = trunc nuw i8 %.6 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #52
   br i1 %282, label %296, label %.critedge67
 
 283:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit130.thread
-  %284 = trunc i8 %.6 to i1
+  %284 = trunc nuw i8 %.6 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #52
   %285 = atomicrmw sub ptr %247, i32 1 seq_cst, align 4
   %.not2.i.i = icmp eq i32 %285, 1
@@ -95871,7 +95871,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP8QCPLayerEED2Ev.exit: ; preds = %46, %_
 
 115:                                              ; preds = %108, %98, %_ZN9QtPrivate17QForeachContainerI5QListIP8QCPLayerEED2Ev.exit
   %.428 = phi i8 [ %110, %108 ], [ %.024, %98 ], [ %.024, %_ZN9QtPrivate17QForeachContainerI5QListIP8QCPLayerEED2Ev.exit ]
-  %116 = trunc i8 %.428 to i1
+  %116 = trunc nuw i8 %.428 to i1
   br i1 %116, label %117, label %_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit
 
 117:                                              ; preds = %115
@@ -127224,7 +127224,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE8ke
 11:                                               ; preds = %3
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
-  br label %83
+  br label %82
 
 12:                                               ; preds = %3
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
@@ -127406,12 +127406,11 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE8ke
   %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ 0, %29 ], [ %.457, %55 ], [ %.659, %76 ]
   %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.0, %29 ], [ %.6, %55 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
-  %81 = and i8 %.255, 1
-  %82 = select i1 %80, i8 %81, i8 0
-  store i8 %82, ptr %1, align 1
-  br label %83
+  %81 = select i1 %80, i8 %.255, i8 0
+  store i8 %81, ptr %1, align 1
+  br label %82
 
-83:                                               ; preds = %.loopexit, %11
+82:                                               ; preds = %.loopexit, %11
   %.fca.0.load = load double, ptr %4, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -127449,7 +127448,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE10v
 19:                                               ; preds = %4
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %10)
-  br label %170
+  br label %169
 
 _ZNK8QCPRangeneERKS_.exit:                        ; preds = %4
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %10)
@@ -127806,13 +127805,12 @@ _ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit: ; preds = %_ZSt7advanceI
   %.266 = phi i8 [ 0, %_ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader145 ], [ 0, %.preheader147 ], [ %.165, %105 ], [ %.468, %136 ], [ %.670, %165 ]
   %.3 = phi i8 [ 0, %_ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader145 ], [ 0, %.preheader147 ], [ %.1, %105 ], [ %.5, %136 ], [ %.8, %165 ]
   %167 = trunc nuw i8 %.3 to i1
-  %168 = and i8 %.266, 1
-  %169 = select i1 %167, i8 %168, i8 0
-  store i8 %169, ptr %1, align 1
+  %168 = select i1 %167, i8 %.266, i8 0
+  store i8 %168, ptr %1, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #52
-  br label %170
+  br label %169
 
-170:                                              ; preds = %.loopexit, %19
+169:                                              ; preds = %.loopexit, %19
   %.fca.0.load = load double, ptr %10, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -142016,7 +142014,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE8ke
 11:                                               ; preds = %3
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
-  br label %91
+  br label %90
 
 12:                                               ; preds = %3
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
@@ -142210,12 +142208,11 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE8ke
   %.255 = phi i8 [ 0, %12 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ %.154, %40 ], [ %.457, %62 ], [ %.659, %84 ]
   %.4 = phi i8 [ 0, %12 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ %.2, %40 ], [ %.6, %62 ], [ %.9, %84 ]
   %88 = trunc nuw i8 %.4 to i1
-  %89 = and i8 %.255, 1
-  %90 = select i1 %88, i8 %89, i8 0
-  store i8 %90, ptr %1, align 1
-  br label %91
+  %89 = select i1 %88, i8 %.255, i8 0
+  store i8 %89, ptr %1, align 1
+  br label %90
 
-91:                                               ; preds = %.loopexit, %11
+90:                                               ; preds = %.loopexit, %11
   %.fca.0.load = load double, ptr %4, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -142251,7 +142248,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE10v
 17:                                               ; preds = %4
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8)
-  br label %152
+  br label %151
 
 18:                                               ; preds = %4
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8)
@@ -142585,13 +142582,12 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE10v
   %.266 = phi i8 [ 0, %18 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.165, %94 ], [ %.468, %126 ], [ %.670.us, %62 ], [ %.670, %147 ]
   %.3 = phi i8 [ 0, %18 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.1, %94 ], [ %.5, %126 ], [ %.8.us, %62 ], [ %.9, %147 ]
   %149 = trunc nuw i8 %.3 to i1
-  %150 = and i8 %.266, 1
-  %151 = select i1 %149, i8 %150, i8 0
-  store i8 %151, ptr %1, align 1
+  %150 = select i1 %149, i8 %.266, i8 0
+  store i8 %150, ptr %1, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #52
-  br label %152
+  br label %151
 
-152:                                              ; preds = %.loopexit, %17
+151:                                              ; preds = %.loopexit, %17
   %.fca.0.load = load double, ptr %8, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -158128,7 +158124,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI11QCPBarsDataE8key
 11:                                               ; preds = %3
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
-  br label %83
+  br label %82
 
 12:                                               ; preds = %3
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
@@ -158310,12 +158306,11 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI11QCPBarsDataE8key
   %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ 0, %29 ], [ %.457, %55 ], [ %.659, %76 ]
   %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.0, %29 ], [ %.6, %55 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
-  %81 = and i8 %.255, 1
-  %82 = select i1 %80, i8 %81, i8 0
-  store i8 %82, ptr %1, align 1
-  br label %83
+  %81 = select i1 %80, i8 %.255, i8 0
+  store i8 %81, ptr %1, align 1
+  br label %82
 
-83:                                               ; preds = %.loopexit, %11
+82:                                               ; preds = %.loopexit, %11
   %.fca.0.load = load double, ptr %4, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -163674,7 +163669,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI21QCPStatisticalBo
 11:                                               ; preds = %3
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
-  br label %83
+  br label %82
 
 12:                                               ; preds = %3
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
@@ -163856,12 +163851,11 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI21QCPStatisticalBo
   %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ 0, %29 ], [ %.457, %55 ], [ %.659, %76 ]
   %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.0, %29 ], [ %.6, %55 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
-  %81 = and i8 %.255, 1
-  %82 = select i1 %80, i8 %81, i8 0
-  store i8 %82, ptr %1, align 1
-  br label %83
+  %81 = select i1 %80, i8 %.255, i8 0
+  store i8 %81, ptr %1, align 1
+  br label %82
 
-83:                                               ; preds = %.loopexit, %11
+82:                                               ; preds = %.loopexit, %11
   %.fca.0.load = load double, ptr %4, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -163897,7 +163891,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI21QCPStatisticalBo
 17:                                               ; preds = %4
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8)
-  br label %201
+  br label %200
 
 _ZNK8QCPRangeneERKS_.exit:                        ; preds = %4
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8)
@@ -164331,13 +164325,12 @@ _ZNK21QCPStatisticalBoxData10valueRangeEv.exit107: ; preds = %_ZN8QCPRange6expan
   %.266 = phi i8 [ 0, %39 ], [ 0, %.preheader ], [ 0, %.preheader155 ], [ 0, %.preheader157 ], [ %.165, %92 ], [ %.468, %145 ], [ %.670, %196 ]
   %.3 = phi i8 [ 0, %39 ], [ 0, %.preheader ], [ 0, %.preheader155 ], [ 0, %.preheader157 ], [ %.1, %92 ], [ %.5, %145 ], [ %.8, %196 ]
   %198 = trunc nuw i8 %.3 to i1
-  %199 = and i8 %.266, 1
-  %200 = select i1 %198, i8 %199, i8 0
-  store i8 %200, ptr %1, align 1
+  %199 = select i1 %198, i8 %.266, i8 0
+  store i8 %199, ptr %1, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #52
-  br label %201
+  br label %200
 
-201:                                              ; preds = %.loopexit, %17
+200:                                              ; preds = %.loopexit, %17
   %.fca.0.load = load double, ptr %8, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -175105,7 +175098,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI16QCPFinancialData
 11:                                               ; preds = %3
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
-  br label %83
+  br label %82
 
 12:                                               ; preds = %3
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4)
@@ -175287,12 +175280,11 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI16QCPFinancialData
   %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ 0, %29 ], [ %.457, %55 ], [ %.659, %76 ]
   %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.0, %29 ], [ %.6, %55 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
-  %81 = and i8 %.255, 1
-  %82 = select i1 %80, i8 %81, i8 0
-  store i8 %82, ptr %1, align 1
-  br label %83
+  %81 = select i1 %80, i8 %.255, i8 0
+  store i8 %81, ptr %1, align 1
+  br label %82
 
-83:                                               ; preds = %.loopexit, %11
+82:                                               ; preds = %.loopexit, %11
   %.fca.0.load = load double, ptr %4, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -175330,7 +175322,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI16QCPFinancialData
 19:                                               ; preds = %4
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %10)
-  br label %175
+  br label %174
 
 _ZNK8QCPRangeneERKS_.exit:                        ; preds = %4
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %10)
@@ -175711,13 +175703,12 @@ _ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit: ; preds = %_ZSt11upp
   %.266 = phi i8 [ 0, %_ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.165, %106 ], [ %.468, %139 ], [ %.670, %170 ]
   %.3 = phi i8 [ 0, %_ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.1, %106 ], [ %.5, %139 ], [ %.8, %170 ]
   %172 = trunc nuw i8 %.3 to i1
-  %173 = and i8 %.266, 1
-  %174 = select i1 %172, i8 %173, i8 0
-  store i8 %174, ptr %1, align 1
+  %173 = select i1 %172, i8 %.266, i8 0
+  store i8 %173, ptr %1, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #52
-  br label %175
+  br label %174
 
-175:                                              ; preds = %.loopexit, %19
+174:                                              ; preds = %.loopexit, %19
   %.fca.0.load = load double, ptr %10, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -187620,7 +187611,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit: ; preds = %10
 _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %4, %10, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %5)
-  br label %217
+  br label %216
 
 _ZNK8QCPRangeneERKS_.exit:                        ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %5)
@@ -187944,12 +187935,11 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit100: ; preds = %166, %167, %171
   %.688 = phi i8 [ %.183, %210 ], [ 1, %211 ], [ 1, %207 ], [ 0, %70 ]
   %.7 = phi i8 [ %.1, %210 ], [ 1, %211 ], [ 1, %207 ], [ 0, %70 ]
   %214 = trunc nuw i8 %.7 to i1
-  %215 = and i8 %.688, 1
-  %216 = select i1 %214, i8 %215, i8 0
-  store i8 %216, ptr %1, align 1
-  br label %217
+  %215 = select i1 %214, i8 %.688, i8 0
+  store i8 %215, ptr %1, align 1
+  br label %216
 
-217:                                              ; preds = %.thread, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
+216:                                              ; preds = %.thread, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
   %.fca.0.load = load double, ptr %5, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -271678,7 +271668,7 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN5QListI12QCPGraphDataE8iterator
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %1, %2
   %or.cond = select i1 %5, i1 true, i1 %6
-  br i1 %or.cond, label %32, label %7
+  br i1 %or.cond, label %33, label %7
 
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %1 to i64
@@ -271711,8 +271701,7 @@ select.unfold.i.i:                                ; preds = %18
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr i8, ptr %17, i64 %16
-  %.idx.mask.i = and i64 %.010.i.i, 1152921504606846975
-  %24 = icmp eq i64 %.idx.mask.i, 0
+  %24 = icmp eq i64 %.010.i.i, 0
   br i1 %24, label %_ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit, label %25
 
 25:                                               ; preds = %22
@@ -271740,7 +271729,7 @@ select.unfold.i.i:                                ; preds = %18
 
 .loopexit:                                        ; preds = %18, %select.unfold.i.i, %7
   invoke void @_ZSt22__merge_without_bufferIN5QListI12QCPGraphDataE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S8_EEEEvT_SC_SC_T0_SD_T1_(ptr %0, ptr %1, ptr %2, i64 noundef %11, i64 noundef %14, ptr %3)
-          to label %.loopexit._crit_edge unwind label %27
+          to label %31 unwind label %27
 
 27:                                               ; preds = %_ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit, %.loopexit
   %.sroa.4.042 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit ], [ 0, %.loopexit ]
@@ -271754,16 +271743,16 @@ select.unfold.i.i:                                ; preds = %18
 _ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit: ; preds = %._crit_edge.i.i.i, %22
   %30 = ptrtoint ptr %3 to i64
   invoke void @_ZSt16__merge_adaptiveIN5QListI12QCPGraphDataE8iteratorExPS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S9_EEEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr %0, ptr %1, ptr %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %17, i64 noundef %.010.i.i, i64 %30)
-          to label %.loopexit._crit_edge unwind label %27
+          to label %31 unwind label %27
 
-.loopexit._crit_edge:                             ; preds = %.loopexit, %_ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit
+31:                                               ; preds = %_ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit, %.loopexit
   %.sroa.4.040 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit ], [ 0, %.loopexit ]
   %.sroa.9.037 = phi ptr [ %17, %_ZNSt17_Temporary_bufferIN5QListI12QCPGraphDataE8iteratorES1_EC2ES3_l.exit ], [ null, %.loopexit ]
-  %31 = shl i64 %.sroa.4.040, 4
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.037, i64 noundef %31) #52
-  br label %32
+  %32 = shl i64 %.sroa.4.040, 4
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.037, i64 noundef %32) #52
+  br label %33
 
-32:                                               ; preds = %4, %.loopexit._crit_edge
+33:                                               ; preds = %4, %31
   ret void
 }
 
@@ -284738,7 +284727,7 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN5QListI11QCPBarsDataE8iteratorE
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %1, %2
   %or.cond = select i1 %5, i1 true, i1 %6
-  br i1 %or.cond, label %32, label %7
+  br i1 %or.cond, label %33, label %7
 
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %1 to i64
@@ -284771,8 +284760,7 @@ select.unfold.i.i:                                ; preds = %18
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr i8, ptr %17, i64 %16
-  %.idx.mask.i = and i64 %.010.i.i, 1152921504606846975
-  %24 = icmp eq i64 %.idx.mask.i, 0
+  %24 = icmp eq i64 %.010.i.i, 0
   br i1 %24, label %_ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit, label %25
 
 25:                                               ; preds = %22
@@ -284800,7 +284788,7 @@ select.unfold.i.i:                                ; preds = %18
 
 .loopexit:                                        ; preds = %18, %select.unfold.i.i, %7
   invoke void @_ZSt22__merge_without_bufferIN5QListI11QCPBarsDataE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S8_EEEEvT_SC_SC_T0_SD_T1_(ptr %0, ptr %1, ptr %2, i64 noundef %11, i64 noundef %14, ptr %3)
-          to label %.loopexit._crit_edge unwind label %27
+          to label %31 unwind label %27
 
 27:                                               ; preds = %_ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit, %.loopexit
   %.sroa.4.042 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit ], [ 0, %.loopexit ]
@@ -284814,16 +284802,16 @@ select.unfold.i.i:                                ; preds = %18
 _ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit: ; preds = %._crit_edge.i.i.i, %22
   %30 = ptrtoint ptr %3 to i64
   invoke void @_ZSt16__merge_adaptiveIN5QListI11QCPBarsDataE8iteratorExPS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S9_EEEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr %0, ptr %1, ptr %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %17, i64 noundef %.010.i.i, i64 %30)
-          to label %.loopexit._crit_edge unwind label %27
+          to label %31 unwind label %27
 
-.loopexit._crit_edge:                             ; preds = %.loopexit, %_ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit
+31:                                               ; preds = %_ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit, %.loopexit
   %.sroa.4.040 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit ], [ 0, %.loopexit ]
   %.sroa.9.037 = phi ptr [ %17, %_ZNSt17_Temporary_bufferIN5QListI11QCPBarsDataE8iteratorES1_EC2ES3_l.exit ], [ null, %.loopexit ]
-  %31 = shl i64 %.sroa.4.040, 4
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.037, i64 noundef %31) #52
-  br label %32
+  %32 = shl i64 %.sroa.4.040, 4
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.037, i64 noundef %32) #52
+  br label %33
 
-32:                                               ; preds = %4, %.loopexit._crit_edge
+33:                                               ; preds = %4, %31
   ret void
 }
 

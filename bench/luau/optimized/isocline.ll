@@ -26130,7 +26130,7 @@ ic_strlen.exit.split.us:                          ; preds = %ic_strlen.exit, %..
 ic_strlen.exit79.us:                              ; preds = %13, %ic_strlen.exit.split.us
   %.0.i78.us = phi i64 [ %15, %13 ], [ 0, %ic_strlen.exit.split.us ]
   %.not75.us = icmp samesign ult i64 %.055.us, %.0.i78.us
-  br i1 %.not75.us, label %16, label %.thread98.loopexit
+  br i1 %.not75.us, label %16, label %.thread98
 
 16:                                               ; preds = %ic_strlen.exit79.us
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.055.us
@@ -26265,24 +26265,20 @@ ic_strlen.exit79.us116:                           ; preds = %58, %ic_strlen.exit
   %73 = add nuw nsw i64 %.055.us115, 1
   br label %ic_strlen.exit.split.split.us, !llvm.loop !362
 
-.thread98.loopexit:                               ; preds = %ic_strlen.exit79.us
-  %74 = and i8 %.056.us, 1
-  br label %.thread98
+.thread98:                                        ; preds = %ic_strlen.exit79.us116, %ic_strlen.exit79.us, %ic_strlen.exit.split, %7
+  %.us-phi = phi i64 [ -1, %7 ], [ -1, %ic_strlen.exit.split ], [ %.066.us, %ic_strlen.exit79.us ], [ -1, %ic_strlen.exit79.us116 ]
+  %.us-phi112 = phi i64 [ 0, %7 ], [ 0, %ic_strlen.exit.split ], [ %.060.us, %ic_strlen.exit79.us ], [ %.060.us114, %ic_strlen.exit79.us116 ]
+  %.us-phi113 = phi i8 [ 1, %7 ], [ 1, %ic_strlen.exit.split ], [ %.056.us, %ic_strlen.exit79.us ], [ 1, %ic_strlen.exit79.us116 ]
+  br i1 %.not, label %.loopexit105, label %74
 
-.thread98:                                        ; preds = %ic_strlen.exit79.us116, %ic_strlen.exit.split, %7, %.thread98.loopexit
-  %.us-phi = phi i64 [ %.066.us, %.thread98.loopexit ], [ -1, %7 ], [ -1, %ic_strlen.exit.split ], [ -1, %ic_strlen.exit79.us116 ]
-  %.us-phi112 = phi i64 [ %.060.us, %.thread98.loopexit ], [ 0, %7 ], [ 0, %ic_strlen.exit.split ], [ %.060.us114, %ic_strlen.exit79.us116 ]
-  %.us-phi113 = phi i8 [ %74, %.thread98.loopexit ], [ 1, %7 ], [ 1, %ic_strlen.exit.split ], [ 1, %ic_strlen.exit79.us116 ]
-  br i1 %.not, label %.loopexit105, label %75
-
-75:                                               ; preds = %.thread98
+74:                                               ; preds = %.thread98
   %.not76 = icmp eq i64 %.us-phi112, 0
-  %76 = select i1 %.not76, i8 %.us-phi113, i8 0
-  store i8 %76, ptr %3, align 1, !tbaa !223
+  %75 = select i1 %.not76, i8 %.us-phi113, i8 0
+  store i8 %75, ptr %3, align 1, !tbaa !223
   br label %.loopexit105
 
-.loopexit105:                                     ; preds = %64, %48, %.thread98, %75
-  %.3 = phi i64 [ %.us-phi, %75 ], [ %.us-phi, %.thread98 ], [ -1, %48 ], [ -1, %64 ]
+.loopexit105:                                     ; preds = %64, %48, %.thread98, %74
+  %.3 = phi i64 [ %.us-phi, %74 ], [ %.us-phi, %.thread98 ], [ -1, %48 ], [ -1, %64 ]
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %5) #32
   ret i64 %.3
 }

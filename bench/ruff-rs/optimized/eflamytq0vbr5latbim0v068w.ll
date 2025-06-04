@@ -3703,9 +3703,9 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %10 = icmp ult i64 %1, %3
   br i1 %10, label %12, label %14
 
-_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit: ; preds = %30, %.lr.ph.i, %22, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha32f6f78852540b2E.exit.i, %325, %14, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit", %4
-  %.sroa.011.0 = phi i8 [ 1, %4 ], [ %.sroa.0.0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit" ], [ %16, %14 ], [ %263, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha32f6f78852540b2E.exit.i ], [ %.sroa.014.4.i, %325 ], [ %26, %22 ], [ 0, %30 ], [ 1, %.lr.ph.i ]
-  %11 = trunc i8 %.sroa.011.0 to i1
+_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit: ; preds = %30, %.lr.ph.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha32f6f78852540b2E.exit.i, %325, %22, %14, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit", %4
+  %.sroa.011.0 = phi i8 [ 1, %4 ], [ %.sroa.0.0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit" ], [ %16, %14 ], [ %26, %22 ], [ %263, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha32f6f78852540b2E.exit.i ], [ %.sroa.014.4.i, %325 ], [ 0, %30 ], [ 1, %.lr.ph.i ]
+  %11 = trunc nuw i8 %.sroa.011.0 to i1
   ret i1 %11
 
 12:                                               ; preds = %9

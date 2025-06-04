@@ -3943,24 +3943,22 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %.ptr = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.024 = phi ptr [ %.ptr, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.02123 = phi i8 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
-  %11 = tail call noundef zeroext i8 @_ZNK5clang16TemplateArgument13getDependenceEv(ptr noundef nonnull align 8 dereferenceable(24) %.024) #10
-  %12 = and i8 %11, 3
-  %13 = or i8 %12, %.02123
-  %.not13 = icmp eq i8 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %.024, i64 32
-  %.not = icmp eq ptr %14, %.ptr27
-  %or.cond = select i1 %.not13, i1 true, i1 %.not
-  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.024, i64 32
+  %.not = icmp eq ptr %12, %.ptr27
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %15 = and i8 %13, 3
-  br label %._crit_edge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %.024 = phi ptr [ %12, %11 ], [ %.ptr, %.lr.ph.preheader ]
+  %.02123 = phi i8 [ %15, %11 ], [ 0, %.lr.ph.preheader ]
+  %13 = tail call noundef zeroext i8 @_ZNK5clang16TemplateArgument13getDependenceEv(ptr noundef nonnull align 8 dereferenceable(24) %.024) #10
+  %14 = and i8 %13, 3
+  %15 = or i8 %14, %.02123
+  %.not13 = icmp eq i8 %15, 3
+  br i1 %.not13, label %._crit_edge, label %11
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.1 = phi i8 [ 0, %2 ], [ %15, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %11, %2
+  %.1 = phi i8 [ 0, %2 ], [ %15, %11 ], [ 3, %.lr.ph ]
   %16 = select i1 %1, i8 8, i8 0
   %17 = or disjoint i8 %.1, %16
   br i1 %1, label %25, label %18
@@ -3972,7 +3970,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %22 = load i8, ptr %21, align 8
   %23 = shl i8 %22, 3
   %24 = and i8 %23, 16
-  %spec.select = or disjoint i8 %24, %17
+  %spec.select = or i8 %24, %17
   br label %25
 
 25:                                               ; preds = %18, %._crit_edge

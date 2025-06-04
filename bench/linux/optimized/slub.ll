@@ -522,11 +522,11 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #2 section ".init.
   %or.cond = or i1 %8, %7
   br i1 %or.cond, label %.thread7, label %.preheader9
 
-.preheader9:                                      ; preds = %5, %74
-  %9 = phi ptr [ %62, %74 ], [ %2, %5 ]
-  %10 = phi i32 [ %77, %74 ], [ 68864, %5 ]
-  %11 = phi i8 [ %76, %74 ], [ 0, %5 ]
-  %12 = phi i8 [ %75, %74 ], [ 0, %5 ]
+.preheader9:                                      ; preds = %5, %73
+  %9 = phi ptr [ %61, %73 ], [ %2, %5 ]
+  %10 = phi i32 [ %76, %73 ], [ 68864, %5 ]
+  %11 = phi i8 [ %75, %73 ], [ 0, %5 ]
+  %12 = phi i8 [ %74, %73 ], [ 0, %5 ]
   br label %13
 
 13:                                               ; preds = %17, %.preheader9
@@ -539,7 +539,7 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #2 section ".init.
 
 .loopexit.thread:                                 ; preds = %13
   %16 = getelementptr i8, ptr %14, i64 1
-  br label %51
+  br label %50
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %14, i64 1
@@ -613,135 +613,134 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #2 section ".init.
   br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %.preheader, %.preheader
-  %47 = and i8 %21, 1
-  %48 = icmp ne i8 %47, 0
-  %49 = icmp eq i8 %19, 44
-  %50 = getelementptr i8, ptr %20, i64 1
-  %spec.select49 = select i1 %49, ptr %50, ptr %20
-  br label %51
+  %47 = icmp ne i8 %21, 0
+  %48 = icmp eq i8 %19, 44
+  %49 = getelementptr i8, ptr %20, i64 1
+  %spec.select49 = select i1 %48, ptr %49, ptr %20
+  br label %50
 
-51:                                               ; preds = %.loopexit, %.loopexit.thread
-  %52 = phi ptr [ %16, %.loopexit.thread ], [ %50, %.loopexit ]
-  %53 = phi i1 [ false, %.loopexit.thread ], [ %48, %.loopexit ]
-  %54 = phi i1 [ true, %.loopexit.thread ], [ %49, %.loopexit ]
+50:                                               ; preds = %.loopexit, %.loopexit.thread
+  %51 = phi ptr [ %16, %.loopexit.thread ], [ %49, %.loopexit ]
+  %52 = phi i1 [ false, %.loopexit.thread ], [ %47, %.loopexit ]
+  %53 = phi i1 [ true, %.loopexit.thread ], [ %48, %.loopexit ]
   %.035 = phi i32 [ 68864, %.loopexit.thread ], [ %.1, %.loopexit ]
-  %55 = phi ptr [ %16, %.loopexit.thread ], [ %spec.select49, %.loopexit ]
-  br label %56
+  %54 = phi ptr [ %16, %.loopexit.thread ], [ %spec.select49, %.loopexit ]
+  br label %55
 
-56:                                               ; preds = %59, %51
-  %57 = phi ptr [ %55, %51 ], [ %60, %59 ]
-  %58 = load i8, ptr %57, align 1
-  switch i8 %58, label %59 [
+55:                                               ; preds = %58, %50
+  %56 = phi ptr [ %54, %50 ], [ %59, %58 ]
+  %57 = load i8, ptr %56, align 1
+  switch i8 %57, label %58 [
     i8 0, label %.preheader62
     i8 59, label %.preheader62
   ]
 
-.preheader62:                                     ; preds = %56, %56
-  br label %61
+.preheader62:                                     ; preds = %55, %55
+  br label %60
 
-59:                                               ; preds = %56
-  %60 = getelementptr i8, ptr %57, i64 1
-  br label %56, !llvm.loop !11
+58:                                               ; preds = %55
+  %59 = getelementptr i8, ptr %56, i64 1
+  br label %55, !llvm.loop !11
 
-61:                                               ; preds = %.preheader62, %61
-  %62 = phi ptr [ %65, %61 ], [ %57, %.preheader62 ]
-  %63 = load i8, ptr %62, align 1
-  %64 = icmp eq i8 %63, 59
-  %65 = getelementptr i8, ptr %62, i64 1
-  br i1 %64, label %61, label %66, !llvm.loop !12
+60:                                               ; preds = %.preheader62, %60
+  %61 = phi ptr [ %64, %60 ], [ %56, %.preheader62 ]
+  %62 = load i8, ptr %61, align 1
+  %63 = icmp eq i8 %62, 59
+  %64 = getelementptr i8, ptr %61, i64 1
+  br i1 %63, label %60, label %65, !llvm.loop !12
 
-66:                                               ; preds = %61
-  br i1 %53, label %67, label %parse_slub_debug_flags.exit
+65:                                               ; preds = %60
+  br i1 %52, label %66, label %parse_slub_debug_flags.exit
 
-67:                                               ; preds = %66
+66:                                               ; preds = %65
   store i1 true, ptr @disable_higher_order_debug, align 4
   br label %parse_slub_debug_flags.exit
 
-parse_slub_debug_flags.exit:                      ; preds = %66, %67
-  %68 = icmp eq i8 %63, 0
-  %69 = icmp ne ptr %52, null
-  %.not8 = and i1 %54, %69
-  br i1 %.not8, label %70, label %74
+parse_slub_debug_flags.exit:                      ; preds = %65, %66
+  %67 = icmp eq i8 %62, 0
+  %68 = icmp ne ptr %51, null
+  %.not8 = and i1 %53, %68
+  br i1 %.not8, label %69, label %73
 
-70:                                               ; preds = %parse_slub_debug_flags.exit
-  %71 = and i32 %.035, 65536
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %74, label %73
+69:                                               ; preds = %parse_slub_debug_flags.exit
+  %70 = and i32 %.035, 65536
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %73, label %72
 
-73:                                               ; preds = %70
+72:                                               ; preds = %69
   tail call void @stack_depot_request_early_init() #28
-  br label %74
+  br label %73
 
-74:                                               ; preds = %73, %70, %parse_slub_debug_flags.exit
-  %75 = phi i8 [ 1, %73 ], [ 1, %70 ], [ %12, %parse_slub_debug_flags.exit ]
-  %76 = phi i8 [ %11, %73 ], [ %11, %70 ], [ 1, %parse_slub_debug_flags.exit ]
-  %77 = phi i32 [ %10, %73 ], [ %10, %70 ], [ %.035, %parse_slub_debug_flags.exit ]
-  %78 = icmp eq ptr %62, null
-  %79 = or i1 %78, %68
-  br i1 %79, label %80, label %.preheader9, !llvm.loop !13
+73:                                               ; preds = %72, %69, %parse_slub_debug_flags.exit
+  %74 = phi i8 [ 1, %72 ], [ 1, %69 ], [ %12, %parse_slub_debug_flags.exit ]
+  %75 = phi i8 [ %11, %72 ], [ %11, %69 ], [ 1, %parse_slub_debug_flags.exit ]
+  %76 = phi i32 [ %10, %72 ], [ %10, %69 ], [ %.035, %parse_slub_debug_flags.exit ]
+  %77 = icmp eq ptr %61, null
+  %78 = or i1 %77, %67
+  br i1 %78, label %79, label %.preheader9, !llvm.loop !13
 
-80:                                               ; preds = %74
-  %81 = icmp eq i8 %75, 0
-  br i1 %81, label %86, label %82
+79:                                               ; preds = %73
+  %80 = icmp eq i8 %74, 0
+  br i1 %80, label %85, label %81
 
-82:                                               ; preds = %80
-  %83 = icmp eq i8 %76, 0
-  %84 = load i32, ptr @slub_debug, align 4
-  %85 = select i1 %83, i32 %84, i32 %77
+81:                                               ; preds = %79
+  %82 = icmp eq i8 %75, 0
+  %83 = load i32, ptr @slub_debug, align 4
+  %84 = select i1 %82, i32 %83, i32 %76
   store ptr %2, ptr @slub_debug_string, align 8
-  br label %86
+  br label %85
 
 .thread7:                                         ; preds = %1, %5
   store i32 68864, ptr @slub_debug, align 4
-  br label %90
+  br label %89
 
-86:                                               ; preds = %82, %80
-  %87 = phi i32 [ %85, %82 ], [ %77, %80 ]
-  store i32 %87, ptr @slub_debug, align 4
-  %88 = and i32 %87, 65536
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %91, label %90
+85:                                               ; preds = %81, %79
+  %86 = phi i32 [ %84, %81 ], [ %76, %79 ]
+  store i32 %86, ptr @slub_debug, align 4
+  %87 = and i32 %86, 65536
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %90, label %89
 
-90:                                               ; preds = %.thread7, %86
+89:                                               ; preds = %.thread7, %85
   tail call void @stack_depot_request_early_init() #28
   %.pre = load i32, ptr @slub_debug, align 4
-  br label %91
+  br label %90
 
-91:                                               ; preds = %90, %86
-  %92 = phi i32 [ %.pre, %90 ], [ %87, %86 ]
-  %93 = icmp ne i32 %92, 0
-  %94 = load ptr, ptr @slub_debug_string, align 8
-  %95 = icmp ne ptr %94, null
-  %96 = select i1 %93, i1 true, i1 %95
-  br i1 %96, label %97, label %98
+90:                                               ; preds = %89, %85
+  %91 = phi i32 [ %.pre, %89 ], [ %86, %85 ]
+  %92 = icmp ne i32 %91, 0
+  %93 = load ptr, ptr @slub_debug_string, align 8
+  %94 = icmp ne ptr %93, null
+  %95 = select i1 %92, i1 true, i1 %94
+  br i1 %95, label %96, label %97
 
-97:                                               ; preds = %91
+96:                                               ; preds = %90
   tail call void @static_key_enable(ptr noundef nonnull @slub_debug_enabled) #27
-  br label %99
+  br label %98
 
-98:                                               ; preds = %91
+97:                                               ; preds = %90
   tail call void @static_key_disable(ptr noundef nonnull @slub_debug_enabled) #27
-  br label %99
+  br label %98
 
-99:                                               ; preds = %98, %97
+98:                                               ; preds = %97, %96
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_alloc, i32 2) #27
-          to label %100 [label %101], !srcloc !6
+          to label %99 [label %100], !srcloc !6
 
-100:                                              ; preds = %99
+99:                                               ; preds = %98
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #27
-          to label %107 [label %101], !srcloc !6
+          to label %106 [label %100], !srcloc !6
 
-101:                                              ; preds = %100, %99
-  %102 = load i32, ptr @slub_debug, align 4
-  %103 = and i32 %102, 2048
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %107, label %105
+100:                                              ; preds = %99, %98
+  %101 = load i32, ptr @slub_debug, align 4
+  %102 = and i32 %101, 2048
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %106, label %104
 
-105:                                              ; preds = %101
-  %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #28
-  br label %107
+104:                                              ; preds = %100
+  %105 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #28
+  br label %106
 
-107:                                              ; preds = %105, %101, %100
+106:                                              ; preds = %104, %100, %99
   ret i32 1
 }
 

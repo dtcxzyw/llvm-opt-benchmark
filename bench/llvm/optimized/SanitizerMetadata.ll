@@ -40,27 +40,27 @@ define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 216
-  %.sroa.0138.0.copyload = load i64, ptr %17, align 8
-  %18 = and i64 %.sroa.0138.0.copyload, 16857
+  %.sroa.0132.0.copyload = load i64, ptr %17, align 8
+  %18 = and i64 %.sroa.0132.0.copyload, 16857
   %.not.i.i.i.not = icmp eq i64 %18, 0
   br i1 %.not.i.i.i.not, label %.critedge, label %19
 
 19:                                               ; preds = %8
-  %20 = and i64 %.sroa.0138.0.copyload, 9
+  %20 = and i64 %.sroa.0132.0.copyload, 9
   %.not.i.not.i = icmp eq i64 %20, 0
-  %21 = or i64 %.sroa.0138.0.copyload, 9
-  %spec.select.i = select i1 %.not.i.not.i, i64 %.sroa.0138.0.copyload, i64 %21
+  %21 = or i64 %.sroa.0132.0.copyload, 9
+  %spec.select.i = select i1 %.not.i.not.i, i64 %.sroa.0132.0.copyload, i64 %21
   %.sroa.046.0.copyload = load i64, ptr %6, align 8
   %22 = and i64 %.sroa.046.0.copyload, 9
-  %.not.i.not.i79 = icmp eq i64 %22, 0
+  %.not.i.not.i73 = icmp eq i64 %22, 0
   %23 = or i64 %.sroa.046.0.copyload, 9
-  %spec.select.i80 = select i1 %.not.i.not.i79, i64 %.sroa.046.0.copyload, i64 %23
-  %24 = and i64 %spec.select.i80, %spec.select.i
+  %spec.select.i74 = select i1 %.not.i.not.i73, i64 %.sroa.046.0.copyload, i64 %23
+  %24 = and i64 %spec.select.i74, %spec.select.i
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 65536
-  %.not155 = icmp eq i32 %27, 0
-  br i1 %.not155, label %31, label %28
+  %.not149 = icmp eq i32 %27, 0
+  br i1 %.not149, label %31, label %28
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 4 dereferenceable(1) ptr @_ZNK4llvm11GlobalValue20getSanitizerMetadataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #9
@@ -70,82 +70,76 @@ define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llv
 
 31:                                               ; preds = %28, %19
   %32 = phi ptr [ %.pre, %28 ], [ %14, %19 ]
-  %.sroa.0122.0 = phi i8 [ %30, %28 ], [ 0, %19 ]
-  %33 = and i64 %24, 1
-  %.not.i.i = icmp ne i64 %33, 0
-  %.tr = trunc i8 %.sroa.0122.0 to i1
-  %.narrow = or i1 %.not.i.i, %.tr
-  %34 = and i8 %.sroa.0122.0, -4
+  %.sroa.0116.0 = phi i8 [ %30, %28 ], [ 0, %19 ]
+  %33 = trunc i64 %24 to i8
+  %34 = and i8 %33, 1
   %35 = and i64 %spec.select.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %36 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %32, i64 %35, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9) #9
-  %.narrow69 = or i1 %.narrow, %36
-  %37 = zext i1 %.narrow69 to i8
+  %37 = zext i1 %36 to i8
   %38 = and i64 %24, 16
-  %.not.i.i90 = icmp ne i64 %38, 0
-  %39 = and i8 %.sroa.0122.0, 2
-  %.tr70 = icmp ne i8 %39, 0
-  %.narrow71 = or i1 %.not.i.i90, %.tr70
+  %.not.i.i84.not = icmp eq i64 %38, 0
+  %.mask = and i8 %.sroa.0116.0, 2
+  %39 = select i1 %.not.i.i84.not, i8 %.mask, i8 2
+  %.sroa.0116.0.masked = and i8 %.sroa.0116.0, -3
   %40 = load ptr, ptr %0, align 8, !tbaa !8
   %41 = and i64 %spec.select.i, 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %42 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %40, i64 %41, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10) #9
-  %.narrow73 = or i1 %.narrow71, %42
-  %43 = select i1 %.narrow73, i8 2, i8 0
-  %44 = or disjoint i8 %34, %37
-  %45 = or disjoint i8 %44, %43
-  %46 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %1) #9
-  %47 = extractvalue { ptr, i64 } %46, 1
-  %.not.i.i93 = icmp ult i64 %47, 5
-  br i1 %.not.i.i93, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
+  %43 = select i1 %42, i8 2, i8 %39
+  %44 = or i8 %.sroa.0116.0.masked, %34
+  %45 = or i8 %44, %37
+  %46 = or disjoint i8 %45, %43
+  %47 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %1) #9
+  %48 = extractvalue { ptr, i64 } %47, 1
+  %.not.i.i87 = icmp ult i64 %48, 5
+  br i1 %.not.i.i87, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %31
-  %48 = extractvalue { ptr, i64 } %46, 0
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %48, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
-  %49 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %49, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
+  %49 = extractvalue { ptr, i64 } %47, 0
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %49, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
+  %50 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %50, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %31
-  %50 = load i32, ptr %25, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
-  %54 = and i32 %50, 67116032
-  %55 = icmp ne i32 %54, 0
-  %or.cond.not = select i1 %55, i1 true, i1 %53
-  br i1 %or.cond.not, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %56
+  %51 = load i32, ptr %25, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %53 = load i8, ptr %52, align 8
+  %54 = trunc i8 %53 to i1
+  %55 = and i32 %51, 67116032
+  %56 = icmp ne i32 %55, 0
+  %or.cond.not = select i1 %56, i1 true, i1 %54
+  br i1 %or.cond.not, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %57
 
-56:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
-  %57 = and i64 %spec.select.i, 256
-  %.not.i96 = icmp ne i64 %57, 0
-  %58 = and i8 %.sroa.0122.0, 4
-  %.tr74 = icmp ne i8 %58, 0
-  %.narrow75 = or i1 %.not.i96, %.tr74
-  %59 = and i8 %45, -5
-  %60 = and i64 %24, 448
-  %.not.i.i100.not = icmp eq i64 %60, 0
-  %61 = select i1 %.not.i.i100.not, i1 %.narrow75, i1 false
-  %62 = select i1 %61, i8 4, i8 0
+57:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
+  %58 = and i64 %spec.select.i, 256
+  %.not.i90.not = icmp eq i64 %58, 0
+  %.mask69 = and i8 %.sroa.0116.0, 4
+  %59 = select i1 %.not.i90.not, i8 %.mask69, i8 4
+  %60 = and i8 %46, -5
+  %61 = and i64 %24, 448
+  %.not.i.i94.not = icmp eq i64 %61, 0
+  %62 = select i1 %.not.i.i94.not, i8 %59, i8 0
   %63 = load ptr, ptr %0, align 8, !tbaa !8
   %64 = and i64 %spec.select.i, 448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %65 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %63, i64 %64, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11) #9
   %66 = select i1 %65, i8 0, i8 %62
-  %67 = or disjoint i8 %66, %59
+  %67 = or disjoint i8 %66, %60
   br label %69
 
 _ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %68 = and i8 %45, -5
+  %68 = and i8 %46, -5
   br label %69
 
-69:                                               ; preds = %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, %56
-  %storemerge = phi i8 [ %68, %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread ], [ %67, %56 ]
+69:                                               ; preds = %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, %57
+  %storemerge = phi i8 [ %68, %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread ], [ %67, %57 ]
   %70 = and i8 %storemerge, 1
   %.not = icmp eq i8 %70, 0
-  %or.cond153 = select i1 %7, i1 %.not, i1 false
-  %.not.i.i106 = icmp ne i64 %35, 0
-  %or.cond154 = and i1 %.not.i.i106, %or.cond153
-  br i1 %or.cond154, label %71, label %76
+  %or.cond147 = select i1 %7, i1 %.not, i1 false
+  %.not.i.i100 = icmp ne i64 %35, 0
+  %or.cond148 = and i1 %.not.i.i100, %or.cond147
+  br i1 %or.cond148, label %71, label %76
 
 71:                                               ; preds = %69
   %72 = load ptr, ptr %0, align 8, !tbaa !8
@@ -160,36 +154,36 @@ _ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread: ; preds = %_ZNK4llvm9
   %77 = phi i8 [ 0, %69 ], [ %75, %71 ]
   %78 = and i8 %storemerge, -9
   %79 = or disjoint i8 %77, %78
-  %.sroa.0122.0.insert.ext = zext i8 %79 to i32
-  tail call void @_ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %.sroa.0122.0.insert.ext) #9
-  %.not.i.i107 = icmp ult i64 %5, 16
-  br i1 %.not.i.i107, label %.critedge, label %80
+  %.sroa.0116.0.insert.ext = zext i8 %79 to i32
+  tail call void @_ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %.sroa.0116.0.insert.ext) #9
+  %.not.i.i101 = icmp ult i64 %5, 16
+  br i1 %.not.i.i101, label %.critedge, label %80
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %0, align 8, !tbaa !8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 152
   %83 = load ptr, ptr %82, align 8, !tbaa !10
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 216
-  %.sroa.0.0.copyload.i108 = load i64, ptr %84, align 8
-  %85 = and i64 %.sroa.0.0.copyload.i108, 16384
-  %.not.i.i111.not = icmp ne i64 %85, 0
-  %86 = and i64 %spec.select.i80, 16384
-  %.not.i114.not = icmp eq i64 %86, 0
-  %or.cond = select i1 %.not.i.i111.not, i1 %.not.i114.not, i1 false
+  %.sroa.0.0.copyload.i102 = load i64, ptr %84, align 8
+  %85 = and i64 %.sroa.0.0.copyload.i102, 16384
+  %.not.i.i105.not = icmp ne i64 %85, 0
+  %86 = and i64 %spec.select.i74, 16384
+  %.not.i108.not = icmp eq i64 %86, 0
+  %or.cond = select i1 %.not.i.i105.not, i1 %.not.i108.not, i1 false
   br i1 %or.cond, label %87, label %.critedge
 
 87:                                               ; preds = %80
   %88 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %81, i64 %5) #9
-  %.not76 = icmp eq ptr %88, null
-  br i1 %.not76, label %.critedge, label %89
+  %.not70 = icmp eq ptr %88, null
+  br i1 %.not70, label %.critedge, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %0, align 8, !tbaa !8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 144
   %92 = load ptr, ptr %91, align 8, !tbaa !352
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 18488
-  %.sroa.0.0.copyload.i115 = load i64, ptr %93, align 8, !tbaa !348
-  %94 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %90, i64 %.sroa.0.0.copyload.i115) #9
+  %.sroa.0.0.copyload.i109 = load i64, ptr %93, align 8, !tbaa !348
+  %94 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %90, i64 %.sroa.0.0.copyload.i109) #9
   %95 = icmp eq ptr %88, %94
   br i1 %95, label %.critedge, label %96
 
@@ -203,8 +197,8 @@ _ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread: ; preds = %_ZNK4llvm9
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 232
   %101 = load ptr, ptr %100, align 8, !tbaa !355
   %102 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr nonnull %13, i64 2, i32 noundef 0, i1 noundef zeroext false) #9
-  %.not77 = icmp eq ptr %102, null
-  br i1 %.not77, label %103, label %112
+  %.not71 = icmp eq ptr %102, null
+  br i1 %.not71, label %103, label %112
 
 103:                                              ; preds = %96
   %104 = load ptr, ptr %0, align 8, !tbaa !8

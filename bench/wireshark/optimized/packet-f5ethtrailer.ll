@@ -2732,11 +2732,11 @@ dissect_dpt_trailer.exit.i:                       ; preds = %dissect_low_trailer
   %728 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %729 = load i8, ptr %728, align 4
   %730 = lshr i8 %729, 4
-  %731 = load i16, ptr %.0.i, align 1
-  %732 = and i8 %730, 3
-  %733 = zext nneg i8 %732 to i16
-  %734 = shl nuw nsw i16 %733, 10
-  %735 = and i16 %731, -3073
+  %731 = and i8 %730, 3
+  %732 = zext nneg i8 %731 to i16
+  %733 = load i16, ptr %.0.i, align 1
+  %734 = shl nuw nsw i16 %732, 10
+  %735 = and i16 %733, -3073
   %736 = or disjoint i16 %734, %735
   store i16 %736, ptr %.0.i, align 1
   %737 = load i8, ptr %728, align 4

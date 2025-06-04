@@ -4376,14 +4376,14 @@ iseq_set_local_table.exit:                        ; preds = %._crit_edge.i, %rbi
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %70 = load i8, ptr %69, align 8
   %71 = lshr i8 %70, 1
-  %72 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %73 = load i16, ptr %72, align 8
-  %74 = and i8 %71, 1
-  %75 = zext nneg i8 %74 to i16
-  %76 = shl nuw nsw i16 %75, 9
-  %77 = and i16 %73, -513
+  %72 = and i8 %71, 1
+  %73 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %74 = zext nneg i8 %72 to i16
+  %75 = load i16, ptr %73, align 8
+  %76 = shl nuw nsw i16 %74, 9
+  %77 = and i16 %75, -513
   %78 = or disjoint i16 %76, %77
-  store i16 %78, ptr %72, align 8
+  store i16 %78, ptr %73, align 8
   %79 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %80 = load i32, ptr %79, align 8, !tbaa !176
   %81 = getelementptr inbounds nuw i8, ptr %57, i64 24
@@ -4393,7 +4393,7 @@ iseq_set_local_table.exit:                        ; preds = %._crit_edge.i, %rbi
 
 83:                                               ; preds = %.critedge.i
   %84 = or i16 %78, 1
-  store i16 %84, ptr %72, align 8
+  store i16 %84, ptr %73, align 8
   br label %85
 
 85:                                               ; preds = %83, %.critedge.i
@@ -4718,9 +4718,9 @@ rbimpl_size_mul_or_raise.exit.i122:               ; preds = %rb_array_const_ptr.
 
 ._crit_edge.i123:                                 ; preds = %.lr.ph.i, %rbimpl_size_mul_or_raise.exit.i122
   %234 = call i64 @rb_ary_clear(i64 noundef %107) #38
-  %235 = load i16, ptr %72, align 8
+  %235 = load i16, ptr %73, align 8
   %236 = or i16 %235, 2
-  store i16 %236, ptr %72, align 8
+  store i16 %236, ptr %73, align 8
   %237 = getelementptr inbounds nuw i8, ptr %57, i64 28
   store i32 %166, ptr %237, align 4, !tbaa !160
   %238 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -4739,13 +4739,13 @@ rbimpl_size_mul_or_raise.exit.i122:               ; preds = %rb_array_const_ptr.
   %244 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i32 %.0134.i, ptr %244, align 8, !tbaa !196
   %245 = or i16 %241, 4
-  store i16 %245, ptr %72, align 8
+  store i16 %245, ptr %73, align 8
   %246 = icmp eq i64 %103, 42
   br i1 %246, label %247, label %249
 
 247:                                              ; preds = %242
   %248 = or i16 %241, 1028
-  store i16 %248, ptr %72, align 8
+  store i16 %248, ptr %73, align 8
   br label %249
 
 249:                                              ; preds = %247, %242, %240
@@ -4764,7 +4764,7 @@ rbimpl_size_mul_or_raise.exit.i122:               ; preds = %rb_array_const_ptr.
   %257 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store i32 %256, ptr %257, align 8, !tbaa !200
   %258 = or i16 %250, 8
-  store i16 %258, ptr %72, align 8
+  store i16 %258, ptr %73, align 8
   %259 = load i32, ptr %255, align 4, !tbaa !199
   %260 = add i32 %259, %.1135.i
   %261 = and i16 %250, 4
@@ -5059,9 +5059,9 @@ rb_obj_write.exit.i.i:                            ; preds = %381, %RARRAY_AREF.e
   store i32 %.2.i, ptr %398, align 4, !tbaa !216
   %399 = getelementptr inbounds nuw i8, ptr %57, i64 56
   store ptr %396, ptr %399, align 8, !tbaa !202
-  %400 = load i16, ptr %72, align 8
+  %400 = load i16, ptr %73, align 8
   %401 = or i16 %400, 32
-  store i16 %401, ptr %72, align 8
+  store i16 %401, ptr %73, align 8
   %402 = load i64, ptr @iseq_set_arguments.anon_kwrest, align 8, !tbaa !37
   %.not153.i = icmp eq i64 %402, 0
   br i1 %.not153.i, label %403, label %405
@@ -5088,9 +5088,9 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i199.i, %403
   br i1 %407, label %408, label %iseq_set_arguments_keywords.exit.i
 
 408:                                              ; preds = %405
-  %409 = load i16, ptr %72, align 8
+  %409 = load i16, ptr %73, align 8
   %410 = or i16 %409, 2048
-  store i16 %410, ptr %72, align 8
+  store i16 %410, ptr %73, align 8
   br label %iseq_set_arguments_keywords.exit.i
 
 411:                                              ; preds = %385
@@ -5101,7 +5101,7 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i199.i, %403
 
 414:                                              ; preds = %411
   %415 = or i16 %267, 256
-  store i16 %415, ptr %72, align 8
+  store i16 %415, ptr %73, align 8
   br label %iseq_set_arguments_keywords.exit.i
 
 iseq_set_arguments_keywords.exit.i:               ; preds = %414, %411, %408, %405, %383, %rb_array_len.exit.i.i
@@ -5113,9 +5113,9 @@ iseq_set_arguments_keywords.exit.i:               ; preds = %414, %411, %408, %4
   %417 = add i32 %.3.i, 1
   %418 = getelementptr inbounds nuw i8, ptr %57, i64 44
   store i32 %.3.i, ptr %418, align 4, !tbaa !222
-  %419 = load i16, ptr %72, align 8
+  %419 = load i16, ptr %73, align 8
   %420 = or i16 %419, 64
-  store i16 %420, ptr %72, align 8
+  store i16 %420, ptr %73, align 8
   %.val.i = load ptr, ptr %60, align 8, !tbaa !45
   %421 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %422 = load i16, ptr %421, align 8
@@ -5144,9 +5144,9 @@ iseq_set_use_block.exit.i:                        ; preds = %428, %424, %416, %i
   br i1 %102, label %435, label %438
 
 435:                                              ; preds = %iseq_set_use_block.exit.i
-  %436 = load i16, ptr %72, align 8
+  %436 = load i16, ptr %73, align 8
   %437 = or i16 %436, 12288
-  store i16 %437, ptr %72, align 8
+  store i16 %437, ptr %73, align 8
   br label %438
 
 438:                                              ; preds = %435, %iseq_set_use_block.exit.i
@@ -5265,7 +5265,7 @@ iseq_compile_each.exit205.i:                      ; preds = %493
   br i1 %499, label %500, label %iseq_set_arguments.exit
 
 500:                                              ; preds = %497
-  %501 = load i16, ptr %72, align 8
+  %501 = load i16, ptr %73, align 8
   %502 = and i16 %501, 62
   %or.cond167.i = icmp eq i16 %502, 0
   br i1 %or.cond167.i, label %503, label %iseq_set_arguments.exit
@@ -5278,7 +5278,7 @@ iseq_compile_each.exit205.i:                      ; preds = %493
 
 506:                                              ; preds = %503
   %507 = or i16 %501, 128
-  store i16 %507, ptr %72, align 8
+  store i16 %507, ptr %73, align 8
   br label %iseq_set_arguments.exit
 
 iseq_set_arguments.exit:                          ; preds = %iseq_set_local_table.exit, %.thread211.i, %497, %500, %503, %506

@@ -4460,8 +4460,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit: ; preds = %.no
   %.sroa.060.4.insert.insert = or disjoint i56 %.sroa.060.3.insert.insert, %.sroa.060.5.insert.shift
   %.sroa.060.6.insert.ext = zext nneg i8 %197 to i56
   %.sroa.060.6.insert.shift = shl nuw nsw i56 %.sroa.060.6.insert.ext, 48
-  %.sroa.060.6.insert.mask = or disjoint i56 %.sroa.060.4.insert.insert, %.sroa.060.6.insert.shift
-  %.sroa.060.6.insert.insert = or disjoint i56 %.sroa.060.6.insert.mask, 256
+  %.sroa.060.5.insert.insert = or disjoint i56 %.sroa.060.4.insert.insert, %.sroa.060.6.insert.shift
+  %.sroa.060.6.insert.insert = or disjoint i56 %.sroa.060.5.insert.insert, 256
   invoke void @_ZN18tracing_subscriber5layer5Layer15with_subscriber17hdd8d954ebb369d44E(ptr noalias noundef nonnull sret([2360 x i8]) align 8 captures(none) dereferenceable(2360) %16, i56 %.sroa.060.6.insert.insert, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(2344) %15)
           to label %198 unwind label %188
 

@@ -484,8 +484,7 @@ if.then.i.i.i:                                    ; preds = %if.end15.sink.split
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit, %if.then.i.i.i
   %scopeDescHasEscapingVar.0.lcssa8390115 = phi i8 [ %scopeDescHasEscapingVar.1, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit ]
-  %27 = and i8 %scopeDescHasEscapingVar.0.lcssa8390115, 1
-  %cond = zext nneg i8 %27 to i32
+  %cond = zext nneg i8 %scopeDescHasEscapingVar.0.lcssa8390115 to i32
   ret i32 %cond
 }
 

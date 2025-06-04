@@ -7277,12 +7277,11 @@ if.then28:                                        ; preds = %for.body25
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.052, %for.body25 ]
-  %frombool35 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.049 = phi i8 [ %frombool35, %if.end33 ], [ %zInside.1, %for.inc ]
+  %zInside.049 = phi i8 [ %yInside.1, %if.end33 ], [ %zInside.1, %for.inc ]
   %15 = add nuw nsw i64 %indvars.iv, %12
   %shr.i36 = lshr i64 %15, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
@@ -9818,12 +9817,11 @@ _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit48: ; preds = %if.th
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit48, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit48 ], [ %yInside.072, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.069 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.069 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %22 = add nuw nsw i64 %indvars.iv, %16
   %shr.i49 = lshr i64 %22, 6
   %idxprom.i50 = and i64 %shr.i49, 67108863
@@ -10747,12 +10745,11 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit57, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit57 ], [ %yInside.087, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.084 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.084 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %28 = add nuw nsw i64 %indvars.iv, %20
   %shr.i58 = lshr i64 %28, 6
   %idxprom.i59 = and i64 %shr.i58, 67108863
@@ -18180,12 +18177,11 @@ if.then28:                                        ; preds = %for.body25
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.052, %for.body25 ]
-  %frombool35 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.049 = phi i8 [ %frombool35, %if.end33 ], [ %zInside.1, %for.inc ]
+  %zInside.049 = phi i8 [ %yInside.1, %if.end33 ], [ %zInside.1, %for.inc ]
   %15 = add nuw nsw i64 %indvars.iv, %12
   %shr.i36 = lshr i64 %15, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
@@ -20258,12 +20254,11 @@ _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit48: ; preds = %if.th
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit48, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit48 ], [ %yInside.072, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.069 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.069 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %22 = add nuw nsw i64 %indvars.iv, %16
   %shr.i49 = lshr i64 %22, 6
   %idxprom.i50 = and i64 %shr.i49, 67108863
@@ -21187,12 +21182,11 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit57, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit57 ], [ %yInside.087, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.084 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.084 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %28 = add nuw nsw i64 %indvars.iv, %20
   %shr.i58 = lshr i64 %28, 6
   %idxprom.i59 = and i64 %shr.i58, 67108863
@@ -24370,12 +24364,11 @@ if.then28:                                        ; preds = %for.body25
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.052, %for.body25 ]
-  %frombool35 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.049 = phi i8 [ %frombool35, %if.end33 ], [ %zInside.1, %for.inc ]
+  %zInside.049 = phi i8 [ %yInside.1, %if.end33 ], [ %zInside.1, %for.inc ]
   %15 = add nuw nsw i64 %indvars.iv, %12
   %shr.i36 = lshr i64 %15, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
@@ -25273,12 +25266,11 @@ _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit48: ; preds = %if.th
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit48, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit48 ], [ %yInside.072, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.069 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.069 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %22 = add nuw nsw i64 %indvars.iv, %16
   %shr.i49 = lshr i64 %22, 6
   %idxprom.i50 = and i64 %shr.i49, 67108863
@@ -26202,12 +26194,11 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit57, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit57 ], [ %yInside.087, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.084 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.084 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %28 = add nuw nsw i64 %indvars.iv, %20
   %shr.i58 = lshr i64 %28, 6
   %idxprom.i59 = and i64 %shr.i58, 67108863
@@ -27691,12 +27682,11 @@ if.then28:                                        ; preds = %for.body25
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.052, %for.body25 ]
-  %frombool35 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.049 = phi i8 [ %frombool35, %if.end33 ], [ %zInside.1, %for.inc ]
+  %zInside.049 = phi i8 [ %yInside.1, %if.end33 ], [ %zInside.1, %for.inc ]
   %15 = add nuw nsw i64 %indvars.iv, %12
   %shr.i36 = lshr i64 %15, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
@@ -28594,12 +28584,11 @@ _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit48: ; preds = %if.th
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit48, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit48 ], [ %yInside.072, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.069 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.069 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %22 = add nuw nsw i64 %indvars.iv, %16
   %shr.i49 = lshr i64 %22, 6
   %idxprom.i50 = and i64 %shr.i49, 67108863
@@ -29523,12 +29512,11 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit57, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit57 ], [ %yInside.087, %for.body26 ]
-  %frombool38 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.084 = phi i8 [ %frombool38, %if.end36 ], [ %zInside.1, %for.inc ]
+  %zInside.084 = phi i8 [ %yInside.1, %if.end36 ], [ %zInside.1, %for.inc ]
   %28 = add nuw nsw i64 %indvars.iv, %20
   %shr.i58 = lshr i64 %28, 6
   %idxprom.i59 = and i64 %shr.i58, 67108863

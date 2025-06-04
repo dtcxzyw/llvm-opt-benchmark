@@ -1920,9 +1920,8 @@ _ZN4llvm13GISelWorkListILj128EED2Ev.exit:         ; preds = %_ZN4llvm25ReversePo
   br label %_ZN4llvm13GISelWorkListILj256EED2Ev.exit
 
 _ZN4llvm13GISelWorkListILj256EED2Ev.exit:         ; preds = %_ZN4llvm13GISelWorkListILj128EED2Ev.exit, %562
-  %.sroa.0.5 = and i8 %.sroa.0.5.in, 1
   call void @llvm.lifetime.end.p0(i64 2088, ptr nonnull %12) #26
-  %.fca.0.insert = insertvalue { i8, ptr } poison, i8 %.sroa.0.5, 0
+  %.fca.0.insert = insertvalue { i8, ptr } poison, i8 %.sroa.0.5.in, 0
   %.fca.1.insert = insertvalue { i8, ptr } %.fca.0.insert, ptr %.sroa.4.5, 1
   ret { i8, ptr } %.fca.1.insert
 }

@@ -2219,8 +2219,8 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call ptr @pg_detoast_datum(ptr noundef %20) #10
-  %.not43 = icmp ult i32 %11, %16
-  br i1 %.not43, label %31, label %22
+  %.not41 = icmp ult i32 %11, %16
+  br i1 %.not41, label %31, label %22
 
 22:                                               ; preds = %15
   %23 = load i32, ptr %5, align 8
@@ -2260,11 +2260,11 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
 
 40:                                               ; preds = %36, %27
   %.sink = phi i32 [ %37, %36 ], [ %28, %27 ]
-  %.sink41 = phi ptr [ %38, %36 ], [ %29, %27 ]
+  %.sink42 = phi ptr [ %38, %36 ], [ %29, %27 ]
   %.131 = phi ptr [ %.232, %36 ], [ %.03037, %27 ]
   %.2 = phi ptr [ %.038, %36 ], [ %.1, %27 ]
   %41 = sext i32 %.sink to i64
-  %42 = getelementptr inbounds i16, ptr %.sink41, i64 %41
+  %42 = getelementptr inbounds i16, ptr %.sink42, i64 %41
   store i16 %.03336, ptr %42, align 2
   %43 = add i16 %.03336, 1
   %44 = zext i16 %43 to i32

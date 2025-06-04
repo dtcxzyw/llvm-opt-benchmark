@@ -4365,14 +4365,13 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPv
 
 130:                                              ; preds = %125, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPvPS3_.exit
   %.not46 = icmp eq ptr %6, null
-  br i1 %.not46, label %133, label %131
+  br i1 %.not46, label %132, label %131
 
 131:                                              ; preds = %130
-  %132 = and i8 %.157, 1
-  store i8 %132, ptr %6, align 1
-  br label %133
+  store i8 %.157, ptr %6, align 1
+  br label %132
 
-133:                                              ; preds = %131, %130
+132:                                              ; preds = %131, %130
   ret i1 %.1.ph91
 }
 

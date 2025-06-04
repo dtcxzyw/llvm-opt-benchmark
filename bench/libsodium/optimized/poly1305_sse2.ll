@@ -227,16 +227,16 @@ define internal fastcc void @poly1305_init_ext(ptr noundef initializes((0, 60)) 
 
 44:                                               ; preds = %3, %48
   %45 = phi i1 [ true, %3 ], [ false, %48 ]
-  %.07883 = phi i64 [ %11, %3 ], [ %90, %48 ]
-  %.07982 = phi i64 [ %9, %3 ], [ %89, %48 ]
-  %.08081 = phi i64 [ %7, %3 ], [ %86, %48 ]
+  %.07883 = phi i64 [ %11, %3 ], [ %88, %48 ]
+  %.07982 = phi i64 [ %9, %3 ], [ %87, %48 ]
+  %.08081 = phi i64 [ %7, %3 ], [ %84, %48 ]
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
-  br i1 %43, label %112, label %48
+  br i1 %43, label %110, label %48
 
 47:                                               ; preds = %44
-  br i1 %42, label %112, label %48
+  br i1 %42, label %110, label %48
 
 48:                                               ; preds = %47, %46
   %.1 = phi ptr [ %41, %46 ], [ %40, %47 ]
@@ -263,56 +263,54 @@ define internal fastcc void @poly1305_init_ext(ptr noundef initializes((0, 60)) 
   %69 = trunc i128 %56 to i64
   %70 = and i64 %69, 17592186044415
   %71 = lshr i128 %56, 44
-  %72 = and i128 %71, 18446744073709551615
-  %73 = add nuw nsw i128 %63, %72
-  %74 = trunc i128 %73 to i64
-  %75 = and i64 %74, 17592186044415
-  %76 = lshr i128 %73, 44
-  %77 = and i128 %76, 18446744073709551615
-  %78 = add nuw nsw i128 %68, %77
-  %79 = trunc i128 %78 to i64
-  %80 = and i64 %79, 4398046511103
-  %81 = lshr i128 %78, 42
-  %82 = trunc nuw nsw i128 %81 to i64
-  %83 = mul nuw nsw i64 %82, 5
-  %84 = add nuw nsw i64 %83, %70
-  %85 = lshr i64 %84, 44
-  %86 = and i64 %84, 17592186044415
-  %87 = add nuw nsw i64 %85, %75
-  %88 = lshr i64 %87, 44
-  %89 = and i64 %87, 17592186044415
-  %90 = add nuw nsw i64 %88, %80
-  %91 = trunc i64 %84 to i32
-  %92 = and i32 %91, 67108863
-  store i32 %92, ptr %.1, align 4
-  %93 = lshr i64 %86, 26
-  %94 = shl nuw nsw i64 %87, 18
-  %95 = or disjoint i64 %94, %93
-  %96 = trunc i64 %95 to i32
-  %97 = and i32 %96, 67108863
-  %98 = getelementptr i8, ptr %.1, i64 4
-  store i32 %97, ptr %98, align 4
-  %99 = lshr i64 %87, 8
-  %100 = trunc i64 %99 to i32
-  %101 = and i32 %100, 67108863
-  %102 = getelementptr i8, ptr %.1, i64 8
-  store i32 %101, ptr %102, align 4
-  %103 = lshr i64 %89, 34
-  %104 = shl nuw nsw i64 %90, 10
-  %105 = or disjoint i64 %104, %103
-  %106 = trunc i64 %105 to i32
-  %107 = and i32 %106, 67108863
-  %108 = getelementptr i8, ptr %.1, i64 12
-  store i32 %107, ptr %108, align 4
-  %109 = lshr i64 %90, 16
-  %110 = trunc nuw nsw i64 %109 to i32
-  %111 = getelementptr i8, ptr %.1, i64 16
-  store i32 %110, ptr %111, align 4
-  br i1 %45, label %44, label %112, !llvm.loop !7
+  %72 = add nuw nsw i128 %63, %71
+  %73 = trunc i128 %72 to i64
+  %74 = and i64 %73, 17592186044415
+  %75 = lshr i128 %72, 44
+  %76 = add nuw nsw i128 %68, %75
+  %77 = trunc i128 %76 to i64
+  %78 = and i64 %77, 4398046511103
+  %79 = lshr i128 %76, 42
+  %80 = trunc nuw nsw i128 %79 to i64
+  %81 = mul nuw nsw i64 %80, 5
+  %82 = add nuw nsw i64 %81, %70
+  %83 = lshr i64 %82, 44
+  %84 = and i64 %82, 17592186044415
+  %85 = add nuw nsw i64 %83, %74
+  %86 = lshr i64 %85, 44
+  %87 = and i64 %85, 17592186044415
+  %88 = add nuw nsw i64 %86, %78
+  %89 = trunc i64 %82 to i32
+  %90 = and i32 %89, 67108863
+  store i32 %90, ptr %.1, align 4
+  %91 = lshr i64 %84, 26
+  %92 = shl nuw nsw i64 %85, 18
+  %93 = or disjoint i64 %92, %91
+  %94 = trunc i64 %93 to i32
+  %95 = and i32 %94, 67108863
+  %96 = getelementptr i8, ptr %.1, i64 4
+  store i32 %95, ptr %96, align 4
+  %97 = lshr i64 %85, 8
+  %98 = trunc i64 %97 to i32
+  %99 = and i32 %98, 67108863
+  %100 = getelementptr i8, ptr %.1, i64 8
+  store i32 %99, ptr %100, align 4
+  %101 = lshr i64 %87, 34
+  %102 = shl nuw nsw i64 %88, 10
+  %103 = or disjoint i64 %102, %101
+  %104 = trunc i64 %103 to i32
+  %105 = and i32 %104, 67108863
+  %106 = getelementptr i8, ptr %.1, i64 12
+  store i32 %105, ptr %106, align 4
+  %107 = lshr i64 %88, 16
+  %108 = trunc nuw nsw i64 %107 to i32
+  %109 = getelementptr i8, ptr %.1, i64 16
+  store i32 %108, ptr %109, align 4
+  br i1 %45, label %44, label %110, !llvm.loop !7
 
-112:                                              ; preds = %47, %46, %48
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
+110:                                              ; preds = %47, %46, %48
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
   ret void
 }
 

@@ -3942,7 +3942,7 @@ define internal fastcc void @parse_PAYLOAD(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @col_set_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.1325)
   %20 = load ptr, ptr %18, align 8
   tail call void @col_set_fence(ptr noundef %20, i32 noundef 25)
-  br label %178
+  br label %174
 
 21:                                               ; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
@@ -3986,7 +3986,7 @@ define internal fastcc void @parse_PAYLOAD(ptr noundef %0, ptr noundef %1, ptr n
 
 parse_VENDOR_MANAGEMENT.exit:                     ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #14
-  br label %176
+  br label %172
 
 42:                                               ; preds = %27
   %43 = add i8 %30, -16
@@ -4012,7 +4012,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %33, %37
 
 parse_APPLICATION_MANAGEMENT.exit:                ; preds = %44, %48
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #14
-  br label %176
+  br label %172
 
 53:                                               ; preds = %42
   %54 = and i8 %30, -3
@@ -4045,10 +4045,10 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %44, %48
 
 parse_RESERVED_MANAGEMENT.exit:                   ; preds = %58, %62
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #14
-  br label %176
+  br label %172
 
 67:                                               ; preds = %55
-  switch i8 %30, label %176 [
+  switch i8 %30, label %172 [
     i8 1, label %68
     i8 -127, label %69
     i8 3, label %70
@@ -4061,44 +4061,44 @@ parse_RESERVED_MANAGEMENT.exit:                   ; preds = %58, %62
 
 68:                                               ; preds = %67
   call fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %12)
-  br label %176
+  br label %172
 
 69:                                               ; preds = %67
   call fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %12)
-  br label %176
+  br label %172
 
 70:                                               ; preds = %67
   call fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %12)
-  br label %176
+  br label %172
 
 71:                                               ; preds = %67
   call fastcc void @parse_PERF(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef nonnull %12)
-  br label %176
+  br label %172
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void @col_set_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.1329)
   call fastcc void @parse_BM(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12)
-  br label %176
+  br label %172
 
 75:                                               ; preds = %67
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8
   tail call void @col_set_str(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.1330)
   call fastcc void @parse_DEV_MGT(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12)
-  br label %176
+  br label %172
 
 78:                                               ; preds = %67
   call fastcc void @parse_COM_MGT(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %12, ptr noundef %7)
-  br label %176
+  br label %172
 
 79:                                               ; preds = %67
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8
   tail call void @col_set_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.1331)
   call fastcc void @parse_SNMP(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12)
-  br label %176
+  br label %172
 
 82:                                               ; preds = %24
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -4165,9 +4165,9 @@ parse_PAYLOAD_do_rc_send_reassembling.exit:       ; preds = %update_sport.exit, 
   %109 = trunc nuw i8 %.0.i to i1
   br label %110
 
-110:                                              ; preds = %170, %parse_PAYLOAD_do_rc_send_reassembling.exit
-  %111 = phi i1 [ %109, %parse_PAYLOAD_do_rc_send_reassembling.exit ], [ true, %170 ]
-  %.0118 = phi i8 [ 0, %parse_PAYLOAD_do_rc_send_reassembling.exit ], [ %.2134, %170 ]
+110:                                              ; preds = %166, %parse_PAYLOAD_do_rc_send_reassembling.exit
+  %111 = phi i1 [ %109, %parse_PAYLOAD_do_rc_send_reassembling.exit ], [ true, %166 ]
+  %.0118 = phi i8 [ 0, %parse_PAYLOAD_do_rc_send_reassembling.exit ], [ %.2134, %166 ]
   br i1 %111, label %112, label %147
 
 112:                                              ; preds = %110
@@ -4177,8 +4177,8 @@ parse_PAYLOAD_do_rc_send_reassembling.exit:       ; preds = %update_sport.exit, 
   %switch.maskindex = zext nneg i8 %.val132 to i32
   %switch.shifted = lshr i32 12582975, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  %or.cond135 = select i1 %113, i1 %switch.lobit, i1 false
-  br i1 %or.cond135, label %switch.lookup, label %parse_PAYLOAD_reassemble_tvb.exit
+  %or.cond140 = select i1 %113, i1 %switch.lobit, i1 false
+  br i1 %or.cond140, label %switch.lookup, label %parse_PAYLOAD_reassemble_tvb.exit
 
 switch.lookup:                                    ; preds = %112
   %switch.cast = zext nneg i8 %.val132 to i24
@@ -4242,7 +4242,7 @@ parse_PAYLOAD_reassemble_tvb.exit:                ; preds = %112, %138, %144
   store volatile ptr %.029.i, ptr %13, align 8
   %.0..0..0..0.23 = load volatile ptr, ptr %13, align 8
   %146 = icmp eq ptr %.0..0..0..0.23, null
-  br i1 %146, label %173, label %147
+  br i1 %146, label %169, label %147
 
 147:                                              ; preds = %parse_PAYLOAD_reassemble_tvb.exit, %110
   %148 = load i8, ptr @try_heuristic_first, align 1, !range !6, !noundef !7
@@ -4253,66 +4253,56 @@ parse_PAYLOAD_reassemble_tvb.exit:                ; preds = %112, %138, %144
   %151 = load ptr, ptr @heur_dissectors_payload, align 8
   %.0..0..0..0.24 = load volatile ptr, ptr %13, align 8
   %152 = call zeroext i1 @dissector_try_heuristic(ptr noundef %151, ptr noundef %.0..0..0..0.24, ptr noundef %1, ptr noundef %7, ptr noundef nonnull %14, ptr noundef %2)
-  %spec.select129 = select i1 %152, i8 1, i8 %.0118
-  br label %153
+  br i1 %152, label %.thread, label %153
 
 153:                                              ; preds = %150, %147
-  %.1119 = phi i8 [ %.0118, %147 ], [ %spec.select129, %150 ]
-  %154 = and i8 %.1119, 1
-  %155 = icmp eq i8 %154, 0
-  br i1 %155, label %156, label %165
+  %154 = icmp eq i8 %.0118, 0
+  br i1 %154, label %155, label %.thread
 
-156:                                              ; preds = %153
-  %157 = load ptr, ptr @subdissector_table, align 8
+155:                                              ; preds = %153
+  %156 = load ptr, ptr @subdissector_table, align 8
   %.0..0..0..0.25 = load volatile ptr, ptr %13, align 8
-  %158 = call i32 @dissector_try_payload_with_data(ptr noundef %157, ptr noundef %.0..0..0..0.25, ptr noundef %1, ptr noundef %7, i1 noundef zeroext true, ptr noundef %2)
-  %.not127 = icmp eq i32 %158, 0
-  br i1 %.not127, label %159, label %.thread
+  %157 = call i32 @dissector_try_payload_with_data(ptr noundef %156, ptr noundef %.0..0..0..0.25, ptr noundef %1, ptr noundef %7, i1 noundef zeroext true, ptr noundef %2)
+  %.not127 = icmp eq i32 %157, 0
+  br i1 %.not127, label %158, label %.thread
 
-159:                                              ; preds = %156
-  %160 = load i8, ptr @try_heuristic_first, align 1, !range !6, !noundef !7
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %165, label %162
+158:                                              ; preds = %155
+  %159 = load i8, ptr @try_heuristic_first, align 1, !range !6, !noundef !7
+  %160 = trunc nuw i8 %159 to i1
+  br i1 %160, label %164, label %161
 
-162:                                              ; preds = %159
-  %163 = load ptr, ptr @heur_dissectors_payload, align 8
+161:                                              ; preds = %158
+  %162 = load ptr, ptr @heur_dissectors_payload, align 8
   %.0..0..0..0.26 = load volatile ptr, ptr %13, align 8
-  %164 = call zeroext i1 @dissector_try_heuristic(ptr noundef %163, ptr noundef %.0..0..0..0.26, ptr noundef %1, ptr noundef %7, ptr noundef nonnull %14, ptr noundef %2)
-  %spec.select130 = select i1 %164, i8 1, i8 %.1119
-  br label %165
+  %163 = call zeroext i1 @dissector_try_heuristic(ptr noundef %162, ptr noundef %.0..0..0..0.26, ptr noundef %1, ptr noundef %7, ptr noundef nonnull %14, ptr noundef %2)
+  br i1 %163, label %.thread, label %164
 
-165:                                              ; preds = %162, %159, %153
-  %.2 = phi i8 [ %.1119, %159 ], [ %.1119, %153 ], [ %spec.select130, %162 ]
-  %166 = and i8 %.2, 1
-  %167 = icmp eq i8 %166, 0
-  br i1 %167, label %168, label %.thread
-
-168:                                              ; preds = %165
+164:                                              ; preds = %158, %161
   %.0..0..0..0.27 = load volatile ptr, ptr %13, align 8
-  %169 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.27, ptr noundef %1, ptr noundef %7)
+  %165 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.27, ptr noundef %1, ptr noundef %7)
   br label %.thread
 
-.thread:                                          ; preds = %156, %168, %165
-  %.2134 = phi i8 [ %.2, %168 ], [ %.2, %165 ], [ 1, %156 ]
-  br i1 %111, label %173, label %170
+.thread:                                          ; preds = %161, %150, %153, %155, %164
+  %.2134 = phi i8 [ 0, %164 ], [ 1, %155 ], [ %.0118, %153 ], [ 1, %150 ], [ 1, %161 ]
+  br i1 %111, label %169, label %166
 
-170:                                              ; preds = %.thread
-  %171 = load i8, ptr %107, align 1, !range !6, !noundef !7
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %110, label %173
+166:                                              ; preds = %.thread
+  %167 = load i8, ptr %107, align 1, !range !6, !noundef !7
+  %168 = trunc nuw i8 %167 to i1
+  br i1 %168, label %110, label %169
 
-173:                                              ; preds = %.thread, %170, %parse_PAYLOAD_reassemble_tvb.exit
-  %174 = call i32 @tvb_reported_length(ptr noundef %3)
-  %175 = sub i32 %174, %6
-  store i32 %175, ptr %12, align 4
-  br label %176
+169:                                              ; preds = %.thread, %166, %parse_PAYLOAD_reassemble_tvb.exit
+  %170 = call i32 @tvb_reported_length(ptr noundef %3)
+  %171 = sub i32 %170, %6
+  store i32 %171, ptr %12, align 4
+  br label %172
 
-176:                                              ; preds = %parse_VENDOR_MANAGEMENT.exit, %parse_RESERVED_MANAGEMENT.exit, %67, %79, %78, %75, %72, %71, %70, %69, %68, %parse_APPLICATION_MANAGEMENT.exit, %173
-  %177 = load i32, ptr %12, align 4
-  store i32 %177, ptr %4, align 4
-  br label %178
+172:                                              ; preds = %parse_VENDOR_MANAGEMENT.exit, %parse_RESERVED_MANAGEMENT.exit, %67, %79, %78, %75, %72, %71, %70, %69, %68, %parse_APPLICATION_MANAGEMENT.exit, %169
+  %173 = load i32, ptr %12, align 4
+  store i32 %173, ptr %4, align 4
+  br label %174
 
-178:                                              ; preds = %176, %17
+174:                                              ; preds = %172, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14

@@ -5879,12 +5879,11 @@ define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr noundef nonnull read
   %33 = icmp eq i32 %.044.lcssa.ph, 0
   %34 = icmp ne i64 %.045.lcssa.ph, 63
   %35 = select i1 %33, i1 %34, i1 false
-  %36 = and i32 %.149.ph, 1
-  %37 = select i1 %35, i32 %36, i32 0
+  %36 = select i1 %35, i32 %.149.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.044.lcssa = phi i32 [ 0, %1 ], [ %37, %._crit_edge.loopexit ]
+  %.044.lcssa = phi i32 [ 0, %1 ], [ %36, %._crit_edge.loopexit ]
   ret i32 %.044.lcssa
 }
 

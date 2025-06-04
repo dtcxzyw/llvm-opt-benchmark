@@ -1736,8 +1736,7 @@ if.then4.i.i38:                                   ; preds = %if.then27
 
 if.end31:                                         ; preds = %if.then, %if.then4.i.i38, %if.then.i.i41, %for.end, %entry
   %hasGlobals.0 = phi i8 [ %hasGlobals.2, %for.end ], [ 0, %entry ], [ %hasGlobals.2, %if.then.i.i41 ], [ %hasGlobals.2, %if.then4.i.i38 ], [ 0, %if.then ]
-  %frombool = and i8 %hasGlobals.0, 1
-  store i8 %frombool, ptr %printNewLine, align 1
+  store i8 %hasGlobals.0, ptr %printNewLine, align 1
   %scopeDesc_.i.i = getelementptr inbounds nuw i8, ptr %F, i64 72
   %21 = load ptr, ptr %scopeDesc_.i.i, align 8
   call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull readonly align 8 dereferenceable(304) %F, ptr noundef %21, ptr nonnull %printNewLine, ptr nonnull %this)

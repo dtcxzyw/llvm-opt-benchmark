@@ -1058,13 +1058,13 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
 
 15:                                               ; preds = %3
   %.not103.i = icmp eq i64 %9, 0
-  br i1 %.not103.i, label %16, label %123
+  br i1 %.not103.i, label %16, label %122
 
 16:                                               ; preds = %15
   %17 = icmp eq i64 %12, 255
   %18 = icmp ne i64 %13, 0
   %or.cond.i = select i1 %17, i1 %18, i1 false
-  br i1 %or.cond.i, label %123, label %133
+  br i1 %or.cond.i, label %122, label %132
 
 19:                                               ; preds = %3
   %trunc.i = trunc i64 %11 to i8
@@ -1075,7 +1075,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
 
 20:                                               ; preds = %19
   %.not102.i = icmp eq i64 %13, 0
-  br i1 %.not102.i, label %21, label %123
+  br i1 %.not102.i, label %21, label %122
 
 21:                                               ; preds = %20
   store i32 %4, ptr %0, align 4, !tbaa !12, !alias.scope !45
@@ -1083,7 +1083,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
 
 22:                                               ; preds = %19
   %.not94.i = icmp eq i64 %13, 0
-  br i1 %.not94.i, label %133, label %23
+  br i1 %.not94.i, label %132, label %23
 
 23:                                               ; preds = %22
   %24 = trunc nuw nsw i64 %13 to i32
@@ -1172,18 +1172,18 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
 
 73:                                               ; preds = %71
   %74 = shl i32 %64, 5
-  br label %110
+  br label %109
 
 75:                                               ; preds = %71
   %76 = shl i32 %64, 6
   %77 = zext i32 %76 to i64
   %.not.i = icmp ugt i64 %72, %77
-  br i1 %.not.i, label %110, label %78
+  br i1 %.not.i, label %109, label %78
 
 78:                                               ; preds = %75
   %79 = trunc nuw i64 %72 to i32
   %80 = sub i32 %76, %79
-  br label %110
+  br label %109
 
 81:                                               ; preds = %62
   %82 = shl i64 %65, 8
@@ -1218,81 +1218,80 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
   %.181.lcssa.i = phi i32 [ %85, %81 ], [ %95, %.lr.ph.i ]
   %.lcssa3.i = phi i32 [ %91, %81 ], [ %100, %.lr.ph.i ]
   %102 = trunc nsw i64 %.084.lcssa.i to i32
-  %103 = and i32 %102, 31
-  %104 = xor i32 %103, 31
-  %105 = lshr i32 %.lcssa3.i, %104
-  %106 = add nsw i32 %102, 30
-  %107 = shl i32 %.181.lcssa.i, %106
-  %108 = mul i32 %105, %.pre.i
-  %109 = sub i32 %107, %108
-  br label %110
+  %103 = xor i32 %102, -1
+  %104 = lshr i32 %.lcssa3.i, %103
+  %105 = add nsw i32 %102, 30
+  %106 = shl i32 %.181.lcssa.i, %105
+  %107 = mul i32 %104, %.pre.i
+  %108 = sub i32 %106, %107
+  br label %109
 
-110:                                              ; preds = %._crit_edge.i, %78, %75, %73
-  %.082.i = phi i32 [ 0, %73 ], [ 1, %78 ], [ 0, %75 ], [ %105, %._crit_edge.i ]
-  %.080.i = phi i32 [ %74, %73 ], [ %80, %78 ], [ %76, %75 ], [ %109, %._crit_edge.i ]
+109:                                              ; preds = %._crit_edge.i, %78, %75, %73
+  %.082.i = phi i32 [ 0, %73 ], [ 1, %78 ], [ 0, %75 ], [ %104, %._crit_edge.i ]
+  %.080.i = phi i32 [ %74, %73 ], [ %80, %78 ], [ %76, %75 ], [ %108, %._crit_edge.i ]
   %.1.i = phi i64 [ %72, %73 ], [ %72, %78 ], [ %72, %75 ], [ %87, %._crit_edge.i ]
-  %111 = trunc i64 %.1.i to i32
-  br label %112
+  %110 = trunc i64 %.1.i to i32
+  br label %111
 
-112:                                              ; preds = %112, %110
-  %.183.i = phi i32 [ %.082.i, %110 ], [ %113, %112 ]
-  %.2.i = phi i32 [ %.080.i, %110 ], [ %114, %112 ]
-  %113 = add i32 %.183.i, 1
-  %114 = sub i32 %.2.i, %111
-  %.not98.i = icmp sgt i32 %114, -1
-  br i1 %.not98.i, label %112, label %115, !llvm.loop !50
+111:                                              ; preds = %111, %109
+  %.183.i = phi i32 [ %.082.i, %109 ], [ %112, %111 ]
+  %.2.i = phi i32 [ %.080.i, %109 ], [ %113, %111 ]
+  %112 = add i32 %.183.i, 1
+  %113 = sub i32 %.2.i, %110
+  %.not98.i = icmp sgt i32 %113, -1
+  br i1 %.not98.i, label %111, label %114, !llvm.loop !50
 
-115:                                              ; preds = %112
-  %116 = add i32 %114, %.2.i
-  %.not99.i = icmp sgt i32 %116, -1
-  br i1 %.not99.i, label %117, label %119
+114:                                              ; preds = %111
+  %115 = add i32 %113, %.2.i
+  %.not99.i = icmp sgt i32 %115, -1
+  br i1 %.not99.i, label %116, label %118
 
-117:                                              ; preds = %115
-  %.not100.i = icmp eq i32 %116, 0
-  %118 = and i32 %.183.i, 1
-  %.not101.not.i = icmp eq i32 %118, 0
+116:                                              ; preds = %114
+  %.not100.i = icmp eq i32 %115, 0
+  %117 = and i32 %.183.i, 1
+  %.not101.not.i = icmp eq i32 %117, 0
   %or.cond104.i = select i1 %.not100.i, i1 %.not101.not.i, i1 false
-  br i1 %or.cond104.i, label %119, label %120
+  br i1 %or.cond104.i, label %118, label %119
 
-119:                                              ; preds = %117, %115
-  br label %120
+118:                                              ; preds = %116, %114
+  br label %119
 
-120:                                              ; preds = %119, %117
-  %.3.i = phi i32 [ %.2.i, %119 ], [ %114, %117 ]
+119:                                              ; preds = %118, %116
+  %.3.i = phi i32 [ %.2.i, %118 ], [ %113, %116 ]
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %.3.i, i1 false)
-  %121 = xor i32 %.3.i, %4
-  %spec.select105.i = icmp slt i32 %121, 0
-  %122 = zext i32 %spec.select.i to i64
-  tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable align 4 %0, i1 noundef zeroext %spec.select105.i, i64 noundef %.076.i, i64 noundef %122), !alias.scope !45
+  %120 = xor i32 %.3.i, %4
+  %spec.select105.i = icmp slt i32 %120, 0
+  %121 = zext i32 %spec.select.i to i64
+  tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable align 4 %0, i1 noundef zeroext %spec.select105.i, i64 noundef %.076.i, i64 noundef %121), !alias.scope !45
   br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
 
-123:                                              ; preds = %20, %16, %15
-  %124 = and i64 %6, 2143289344
-  %125 = icmp eq i64 %124, 2139095040
-  %126 = and i64 %6, 4194303
-  %127 = icmp ne i64 %126, 0
-  %128 = and i1 %125, %127
-  br i1 %128, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, label %129
+122:                                              ; preds = %20, %16, %15
+  %123 = and i64 %6, 2143289344
+  %124 = icmp eq i64 %123, 2139095040
+  %125 = and i64 %6, 4194303
+  %126 = icmp ne i64 %125, 0
+  %127 = and i1 %124, %126
+  br i1 %127, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, label %128
 
-129:                                              ; preds = %123
-  %130 = and i64 %6, 2139095040
-  %131 = icmp ne i64 %130, 2139095040
+128:                                              ; preds = %122
+  %129 = and i64 %6, 2139095040
+  %130 = icmp ne i64 %129, 2139095040
   %.not12.i.i = icmp eq i64 %9, 0
-  %or.cond13.i.i = or i1 %131, %.not12.i.i
-  %132 = select i1 %or.cond13.i.i, i32 %5, i32 %4
+  %or.cond13.i.i = or i1 %130, %.not12.i.i
+  %131 = select i1 %or.cond13.i.i, i32 %5, i32 %4
   br label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i
 
-_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %129, %123
-  %.0.in.i.i = phi i32 [ %132, %129 ], [ %4, %123 ]
+_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %128, %122
+  %.0.in.i.i = phi i32 [ %131, %128 ], [ %4, %122 ]
   %.0.i.i = or i32 %.0.in.i.i, 4194304
-  br label %133
+  br label %132
 
-133:                                              ; preds = %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %22, %16
+132:                                              ; preds = %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %22, %16
   %.078.i = phi i32 [ %.0.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ -4194304, %22 ], [ -4194304, %16 ]
   store i32 %.078.i, ptr %0, align 4, !tbaa !12, !alias.scope !51
   br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
 
-_ZN2cvL7f32_remENS_9softfloatES0_.exit:           ; preds = %21, %43, %70, %120, %133
+_ZN2cvL7f32_remENS_9softfloatES0_.exit:           ; preds = %21, %43, %70, %119, %132
   ret void
 }
 
@@ -2982,13 +2981,13 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 9:                                                ; preds = %1
   %.not120 = icmp eq i64 %4, 0
-  br i1 %.not120, label %10, label %125
+  br i1 %.not120, label %10, label %124
 
 10:                                               ; preds = %9
   %11 = icmp eq i64 %6, 2047
   %12 = icmp ne i64 %7, 0
   %or.cond = select i1 %11, i1 %12, i1 false
-  br i1 %or.cond, label %125, label %135
+  br i1 %or.cond, label %124, label %134
 
 13:                                               ; preds = %1
   %14 = icmp eq i64 %6, 2047
@@ -2996,11 +2995,11 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 15:                                               ; preds = %13
   %.not119 = icmp eq i64 %7, 0
-  br i1 %.not119, label %16, label %125
+  br i1 %.not119, label %16, label %124
 
 16:                                               ; preds = %15
   store i64 %.0.val, ptr %0, align 8, !tbaa !27
-  br label %136
+  br label %135
 
 17:                                               ; preds = %13
   %18 = add nsw i64 %6, -1
@@ -3009,7 +3008,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 20:                                               ; preds = %17
   store i64 %.0.val, ptr %0, align 8, !tbaa !27
-  br label %136
+  br label %135
 
 21:                                               ; preds = %17
   %.not = icmp eq i64 %6, 0
@@ -3017,7 +3016,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 22:                                               ; preds = %21
   %.not108 = icmp eq i64 %7, 0
-  br i1 %.not108, label %135, label %23
+  br i1 %.not108, label %134, label %23
 
 23:                                               ; preds = %22
   %24 = lshr i64 %7, 32
@@ -3060,7 +3059,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 44:                                               ; preds = %43
   store i64 %.0.val, ptr %0, align 8, !tbaa !27
-  br label %136
+  br label %135
 
 45:                                               ; preds = %43
   %46 = lshr i64 %4, 32
@@ -3106,7 +3105,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 71:                                               ; preds = %69
   store i64 %.0.val, ptr %0, align 8, !tbaa !27
-  br label %136
+  br label %135
 
 72:                                               ; preds = %69
   %73 = shl i64 %66, 9
@@ -3115,7 +3114,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 74:                                               ; preds = %72
   %75 = shl i64 %65, 8
-  br label %115
+  br label %114
 
 76:                                               ; preds = %72
   %77 = shl i64 %65, 9
@@ -3123,7 +3122,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %79 = zext i1 %78 to i32
   %80 = select i1 %78, i64 %73, i64 0
   %spec.select = sub nuw i64 %77, %80
-  br label %115
+  br label %114
 
 81:                                               ; preds = %64
   %82 = lshr i64 %66, 21
@@ -3162,88 +3161,87 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %102 = lshr i64 %.lcssa6, 32
   %103 = trunc nuw i64 %102 to i32
   %104 = trunc nsw i64 %.097.lcssa to i32
-  %105 = and i32 %104, 31
-  %106 = xor i32 %105, 31
-  %107 = lshr i32 %103, %106
-  %108 = add nsw i64 %.097.lcssa, 30
-  %109 = shl i64 %.193.lcssa, %108
-  %110 = zext i32 %107 to i64
-  %111 = mul i64 %87, %110
-  %112 = sub i64 %109, %111
-  %.not112 = icmp sgt i64 %112, -1
-  br i1 %.not112, label %115, label %113
+  %105 = xor i32 %104, -1
+  %106 = lshr i32 %103, %105
+  %107 = add nsw i64 %.097.lcssa, 30
+  %108 = shl i64 %.193.lcssa, %107
+  %109 = zext i32 %106 to i64
+  %110 = mul i64 %87, %109
+  %111 = sub i64 %108, %110
+  %.not112 = icmp sgt i64 %111, -1
+  br i1 %.not112, label %114, label %112
 
-113:                                              ; preds = %._crit_edge
-  %114 = add i64 %112, %87
+112:                                              ; preds = %._crit_edge
+  %113 = add i64 %111, %87
   br label %.loopexit
 
-115:                                              ; preds = %76, %._crit_edge, %74
-  %.094 = phi i32 [ 0, %74 ], [ %107, %._crit_edge ], [ %79, %76 ]
-  %.092 = phi i64 [ %75, %74 ], [ %112, %._crit_edge ], [ %spec.select, %76 ]
+114:                                              ; preds = %76, %._crit_edge, %74
+  %.094 = phi i32 [ 0, %74 ], [ %106, %._crit_edge ], [ %79, %76 ]
+  %.092 = phi i64 [ %75, %74 ], [ %111, %._crit_edge ], [ %spec.select, %76 ]
   %.1 = phi i64 [ %73, %74 ], [ %87, %._crit_edge ], [ %73, %76 ]
-  br label %116
+  br label %115
 
-116:                                              ; preds = %116, %115
-  %.296 = phi i32 [ %.094, %115 ], [ %117, %116 ]
-  %.4 = phi i64 [ %.092, %115 ], [ %118, %116 ]
-  %117 = add i32 %.296, 1
-  %118 = sub i64 %.4, %.1
-  %.not114 = icmp sgt i64 %118, -1
-  br i1 %.not114, label %116, label %.loopexit, !llvm.loop !82
+115:                                              ; preds = %115, %114
+  %.296 = phi i32 [ %.094, %114 ], [ %116, %115 ]
+  %.4 = phi i64 [ %.092, %114 ], [ %117, %115 ]
+  %116 = add i32 %.296, 1
+  %117 = sub i64 %.4, %.1
+  %.not114 = icmp sgt i64 %117, -1
+  br i1 %.not114, label %115, label %.loopexit, !llvm.loop !82
 
-.loopexit:                                        ; preds = %116, %113
-  %.195 = phi i32 [ %107, %113 ], [ %117, %116 ]
-  %.3 = phi i64 [ %112, %113 ], [ %118, %116 ]
-  %.091 = phi i64 [ %114, %113 ], [ %.4, %116 ]
-  %119 = add i64 %.091, %.3
-  %.not115 = icmp sgt i64 %119, -1
-  br i1 %.not115, label %120, label %122
+.loopexit:                                        ; preds = %115, %112
+  %.195 = phi i32 [ %106, %112 ], [ %116, %115 ]
+  %.3 = phi i64 [ %111, %112 ], [ %117, %115 ]
+  %.091 = phi i64 [ %113, %112 ], [ %.4, %115 ]
+  %118 = add i64 %.091, %.3
+  %.not115 = icmp sgt i64 %118, -1
+  br i1 %.not115, label %119, label %121
 
-120:                                              ; preds = %.loopexit
-  %.not116 = icmp ne i64 %119, 0
-  %121 = and i32 %.195, 1
-  %.not117 = icmp eq i32 %121, 0
+119:                                              ; preds = %.loopexit
+  %.not116 = icmp ne i64 %118, 0
+  %120 = and i32 %.195, 1
+  %.not117 = icmp eq i32 %120, 0
   %or.cond122 = select i1 %.not116, i1 true, i1 %.not117
-  br i1 %or.cond122, label %123, label %122
+  br i1 %or.cond122, label %122, label %121
 
-122:                                              ; preds = %120, %.loopexit
-  br label %123
+121:                                              ; preds = %119, %.loopexit
+  br label %122
 
-123:                                              ; preds = %122, %120
-  %.5 = phi i64 [ %.091, %122 ], [ %.3, %120 ]
+122:                                              ; preds = %121, %119
+  %.5 = phi i64 [ %.091, %121 ], [ %.3, %119 ]
   %spec.select123 = tail call i64 @llvm.abs.i64(i64 %.5, i1 false)
-  %124 = xor i64 %.5, %.0.val
-  %spec.select124 = icmp slt i64 %124, 0
+  %123 = xor i64 %.5, %.0.val
+  %spec.select124 = icmp slt i64 %123, 0
   tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias writable align 8 %0, i1 noundef zeroext %spec.select124, i64 noundef %.087, i64 noundef %spec.select123)
-  br label %136
-
-125:                                              ; preds = %15, %9, %10
-  %126 = and i64 %.0.val, 9221120237041090560
-  %127 = icmp eq i64 %126, 9218868437227405312
-  %128 = and i64 %.0.val, 2251799813685247
-  %129 = icmp ne i64 %128, 0
-  %130 = and i1 %127, %129
-  br i1 %130, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit, label %131
-
-131:                                              ; preds = %125
-  %132 = and i64 %.0.val, 9218868437227405312
-  %133 = icmp ne i64 %132, 9218868437227405312
-  %.not12.i = icmp eq i64 %4, 0
-  %or.cond13.i = or i1 %133, %.not12.i
-  %134 = select i1 %or.cond13.i, i64 %.0.val1, i64 %.0.val
-  br label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit
-
-_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %125, %131
-  %.0.in.i = phi i64 [ %134, %131 ], [ %.0.val, %125 ]
-  %.0.i = or i64 %.0.in.i, 2251799813685248
   br label %135
 
-135:                                              ; preds = %10, %22, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit
+124:                                              ; preds = %15, %9, %10
+  %125 = and i64 %.0.val, 9221120237041090560
+  %126 = icmp eq i64 %125, 9218868437227405312
+  %127 = and i64 %.0.val, 2251799813685247
+  %128 = icmp ne i64 %127, 0
+  %129 = and i1 %126, %128
+  br i1 %129, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit, label %130
+
+130:                                              ; preds = %124
+  %131 = and i64 %.0.val, 9218868437227405312
+  %132 = icmp ne i64 %131, 9218868437227405312
+  %.not12.i = icmp eq i64 %4, 0
+  %or.cond13.i = or i1 %132, %.not12.i
+  %133 = select i1 %or.cond13.i, i64 %.0.val1, i64 %.0.val
+  br label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit
+
+_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %124, %130
+  %.0.in.i = phi i64 [ %133, %130 ], [ %.0.val, %124 ]
+  %.0.i = or i64 %.0.in.i, 2251799813685248
+  br label %134
+
+134:                                              ; preds = %10, %22, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit
   %.089 = phi i64 [ %.0.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit ], [ -2251799813685248, %22 ], [ -2251799813685248, %10 ]
   store i64 %.089, ptr %0, align 8, !tbaa !27, !alias.scope !83
-  br label %136
+  br label %135
 
-136:                                              ; preds = %135, %123, %71, %44, %20, %16
+135:                                              ; preds = %134, %122, %71, %44, %20, %16
   ret void
 }
 

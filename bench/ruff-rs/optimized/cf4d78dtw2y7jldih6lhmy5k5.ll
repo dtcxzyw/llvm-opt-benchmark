@@ -9252,9 +9252,9 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %9 = icmp ult i64 %1, %3
   br i1 %9, label %11, label %13
 
-_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit: ; preds = %27, %.lr.ph.i, %19, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h50b0167689a270e2E.exit.i, %123, %13, %_ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit
-  %.sroa.011.0 = phi i8 [ %129, %_ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit ], [ %15, %13 ], [ %61, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h50b0167689a270e2E.exit.i ], [ %.sroa.014.4.i, %123 ], [ %23, %19 ], [ 0, %27 ], [ 1, %.lr.ph.i ]
-  %10 = trunc i8 %.sroa.011.0 to i1
+_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit: ; preds = %27, %.lr.ph.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h50b0167689a270e2E.exit.i, %123, %19, %13, %_ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit
+  %.sroa.011.0 = phi i8 [ %129, %_ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit ], [ %15, %13 ], [ %23, %19 ], [ %61, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h50b0167689a270e2E.exit.i ], [ %.sroa.014.4.i, %123 ], [ 0, %27 ], [ 1, %.lr.ph.i ]
+  %10 = trunc nuw i8 %.sroa.011.0 to i1
   ret i1 %10
 
 11:                                               ; preds = %4

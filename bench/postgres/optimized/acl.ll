@@ -1236,7 +1236,7 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
   %10 = call fastcc ptr @getid(ptr noundef %6, ptr noundef %2, ptr noundef %8)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %125, label %12
+  br i1 %11, label %124, label %12
 
 12:                                               ; preds = %1
   %13 = load i8, ptr %10, align 1
@@ -1255,19 +1255,19 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
 
 16:                                               ; preds = %15
   %17 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %17, label %18, label %125
+  br i1 %17, label %18, label %124
 
 18:                                               ; preds = %16
   %19 = tail call i32 @errcode(i32 noundef 33685634) #14
   %20 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull %2) #14
   %21 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.41) #14
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.aclparse) #14
-  br label %125
+  br label %124
 
 22:                                               ; preds = %15, %14
   %23 = call fastcc ptr @getid(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %8)
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %125, label %25
+  br i1 %24, label %124, label %25
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %2, align 16
@@ -1276,14 +1276,14 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
 
 28:                                               ; preds = %25
   %29 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %29, label %30, label %125
+  br i1 %29, label %30, label %124
 
 30:                                               ; preds = %28
   %31 = tail call i32 @errcode(i32 noundef 33685634) #14
   %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42) #14
   %33 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #14
   tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.aclparse) #14
-  br label %125
+  br label %124
 
 34:                                               ; preds = %25
   %.pr.i = load i8, ptr %23, align 1
@@ -1307,13 +1307,13 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
 
 44:                                               ; preds = %34
   %45 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %45, label %46, label %125
+  br i1 %45, label %46, label %124
 
 46:                                               ; preds = %44
   %47 = tail call i32 @errcode(i32 noundef 33685634) #14
   %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #14
   tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.aclparse) #14
-  br label %125
+  br label %124
 
 .critedge.i:                                      ; preds = %.preheader.i, %71
   %49 = phi i8 [ %73, %71 ], [ %38, %.preheader.i ]
@@ -1388,13 +1388,13 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
 
 66:                                               ; preds = %.critedge.i
   %67 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %67, label %68, label %125
+  br i1 %67, label %68, label %124
 
 68:                                               ; preds = %66
   %69 = tail call i32 @errcode(i32 noundef 33685634) #14
   %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.3) #14
   tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @__func__.aclparse) #14
-  br label %125
+  br label %124
 
 71:                                               ; preds = %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %50, %.critedge.i
   %.157.i = phi i64 [ %.05675.i, %50 ], [ 2, %52 ], [ 4, %53 ], [ 8, %54 ], [ 16, %55 ], [ 32, %56 ], [ 64, %57 ], [ 128, %58 ], [ 256, %59 ], [ 512, %60 ], [ 1024, %61 ], [ 2048, %62 ], [ 4096, %63 ], [ 8192, %64 ], [ 16384, %65 ], [ 1, %.critedge.i ]
@@ -1412,144 +1412,143 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %or.cond.i, label %.critedge.i, label %._crit_edge.loopexit.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %71
-  %79 = and i64 %72, 4294967295
-  %80 = shl i64 %.155.i, 32
+  %79 = shl i64 %.155.i, 32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %.054.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %80, %._crit_edge.loopexit.i ]
-  %.053.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %79, %._crit_edge.loopexit.i ]
+  %.054.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %79, %._crit_edge.loopexit.i ]
+  %.053.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %72, %._crit_edge.loopexit.i ]
   %.052.pn.lcssa.i = phi ptr [ %.05286.i, %.preheader.i ], [ %.178.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ %.172.i, %.preheader.i ], [ %.1.i, %._crit_edge.loopexit.i ]
-  %81 = load i8, ptr %2, align 16
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %84
+  %80 = load i8, ptr %2, align 16
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %83
+
+82:                                               ; preds = %._crit_edge.i
+  store i32 0, ptr %9, align 8
+  br label %91
 
 83:                                               ; preds = %._crit_edge.i
-  store i32 0, ptr %9, align 8
-  br label %92
+  %84 = ptrtoint ptr %2 to i64
+  %85 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %84, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
+  store i32 %85, ptr %9, align 8
+  %.not66.i = icmp eq i32 %85, 0
+  br i1 %.not66.i, label %86, label %91
 
-84:                                               ; preds = %._crit_edge.i
-  %85 = ptrtoint ptr %2 to i64
-  %86 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %85, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  store i32 %86, ptr %9, align 8
-  %.not66.i = icmp eq i32 %86, 0
-  br i1 %.not66.i, label %87, label %92
+86:                                               ; preds = %83
+  %87 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
+  br i1 %87, label %88, label %124
 
-87:                                               ; preds = %84
-  %88 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %88, label %89, label %125
-
-89:                                               ; preds = %87
-  %90 = call i32 @errcode(i32 noundef 67137668) #14
-  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #14
+88:                                               ; preds = %86
+  %89 = call i32 @errcode(i32 noundef 67137668) #14
+  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #14
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 366, ptr noundef nonnull @__func__.aclparse) #14
-  br label %125
+  br label %124
 
-92:                                               ; preds = %84, %83
-  %93 = load i8, ptr %.1.lcssa.i, align 1
-  %94 = icmp eq i8 %93, 47
-  br i1 %94, label %95, label %116
+91:                                               ; preds = %83, %82
+  %92 = load i8, ptr %.1.lcssa.i, align 1
+  %93 = icmp eq i8 %92, 47
+  br i1 %93, label %94, label %115
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %.052.pn.lcssa.i, i64 2
-  %97 = call fastcc ptr @getid(ptr noundef nonnull %96, ptr noundef %3, ptr noundef %8)
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %125, label %99
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %.052.pn.lcssa.i, i64 2
+  %96 = call fastcc ptr @getid(ptr noundef nonnull %95, ptr noundef %3, ptr noundef %8)
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %124, label %98
 
-99:                                               ; preds = %95
-  %100 = load i8, ptr %3, align 16
-  %101 = icmp eq i8 %100, 0
-  br i1 %101, label %102, label %107
+98:                                               ; preds = %94
+  %99 = load i8, ptr %3, align 16
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %101, label %106
 
-102:                                              ; preds = %99
-  %103 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %103, label %104, label %125
+101:                                              ; preds = %98
+  %102 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
+  br i1 %102, label %103, label %124
 
-104:                                              ; preds = %102
-  %105 = call i32 @errcode(i32 noundef 33685634) #14
-  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #14
+103:                                              ; preds = %101
+  %104 = call i32 @errcode(i32 noundef 33685634) #14
+  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #14
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 381, ptr noundef nonnull @__func__.aclparse) #14
-  br label %125
+  br label %124
 
-107:                                              ; preds = %99
-  %108 = ptrtoint ptr %3 to i64
-  %109 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %108, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %110 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %109, ptr %110, align 4
-  %.not67.i = icmp eq i32 %109, 0
-  br i1 %.not67.i, label %111, label %aclparse.exit
+106:                                              ; preds = %98
+  %107 = ptrtoint ptr %3 to i64
+  %108 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %107, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %108, ptr %109, align 4
+  %.not67.i = icmp eq i32 %108, 0
+  br i1 %.not67.i, label %110, label %aclparse.exit
 
-111:                                              ; preds = %107
-  %112 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %112, label %113, label %125
+110:                                              ; preds = %106
+  %111 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
+  br i1 %111, label %112, label %124
 
-113:                                              ; preds = %111
-  %114 = call i32 @errcode(i32 noundef 67137668) #14
-  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %3) #14
+112:                                              ; preds = %110
+  %113 = call i32 @errcode(i32 noundef 67137668) #14
+  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %3) #14
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 386, ptr noundef nonnull @__func__.aclparse) #14
-  br label %125
+  br label %124
 
-116:                                              ; preds = %92
-  %117 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 10, ptr %117, align 4
-  %118 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
-  br i1 %118, label %119, label %aclparse.exit
+115:                                              ; preds = %91
+  %116 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 10, ptr %116, align 4
+  %117 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  br i1 %117, label %118, label %aclparse.exit
 
-119:                                              ; preds = %116
-  %120 = call i32 @errcode(i32 noundef 1792) #14
-  %121 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, i32 noundef 10) #14
+118:                                              ; preds = %115
+  %119 = call i32 @errcode(i32 noundef 1792) #14
+  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, i32 noundef 10) #14
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__func__.aclparse) #14
   br label %aclparse.exit
 
-aclparse.exit:                                    ; preds = %107, %116, %119
-  %.2.i = phi ptr [ %97, %107 ], [ %.1.lcssa.i, %119 ], [ %.1.lcssa.i, %116 ]
-  %122 = or disjoint i64 %.053.lcssa.i, %.054.lcssa.i
-  %123 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %122, ptr %123, align 8
+aclparse.exit:                                    ; preds = %106, %115, %118
+  %.2.i = phi ptr [ %96, %106 ], [ %.1.lcssa.i, %118 ], [ %.1.lcssa.i, %115 ]
+  %121 = or i64 %.053.lcssa.i, %.054.lcssa.i
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %121, ptr %122, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #14
-  %124 = load ptr, ptr %36, align 8
-  br label %127
+  %123 = load ptr, ptr %36, align 8
+  br label %126
 
-125:                                              ; preds = %1, %18, %16, %22, %30, %28, %46, %44, %68, %66, %89, %87, %95, %104, %102, %113, %111
+124:                                              ; preds = %1, %18, %16, %22, %30, %28, %46, %44, %68, %66, %88, %86, %94, %103, %101, %112, %110
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #14
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %126, align 4
-  br label %142
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %125, align 4
+  br label %141
 
-127:                                              ; preds = %127, %aclparse.exit
-  %.014 = phi ptr [ %.2.i, %aclparse.exit ], [ %133, %127 ]
-  %128 = load i8, ptr %.014, align 1
-  %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw i16, ptr %124, i64 %129
-  %131 = load i16, ptr %130, align 2
-  %132 = and i16 %131, 8192
-  %.not = icmp eq i16 %132, 0
-  %133 = getelementptr inbounds nuw i8, ptr %.014, i64 1
-  br i1 %.not, label %134, label %127, !llvm.loop !10
+126:                                              ; preds = %126, %aclparse.exit
+  %.014 = phi ptr [ %.2.i, %aclparse.exit ], [ %132, %126 ]
+  %127 = load i8, ptr %.014, align 1
+  %128 = zext i8 %127 to i64
+  %129 = getelementptr inbounds nuw i16, ptr %123, i64 %128
+  %130 = load i16, ptr %129, align 2
+  %131 = and i16 %130, 8192
+  %.not = icmp eq i16 %131, 0
+  %132 = getelementptr inbounds nuw i8, ptr %.014, i64 1
+  br i1 %.not, label %133, label %126, !llvm.loop !10
 
-134:                                              ; preds = %127
-  %.not16 = icmp eq i8 %128, 0
-  br i1 %.not16, label %140, label %135
+133:                                              ; preds = %126
+  %.not16 = icmp eq i8 %127, 0
+  br i1 %.not16, label %139, label %134
 
-135:                                              ; preds = %134
-  %136 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %136, label %137, label %142
+134:                                              ; preds = %133
+  %135 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
+  br i1 %135, label %136, label %141
 
-137:                                              ; preds = %135
-  %138 = call i32 @errcode(i32 noundef 33685634) #14
-  %139 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #14
+136:                                              ; preds = %134
+  %137 = call i32 @errcode(i32 noundef 33685634) #14
+  %138 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #14
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 616, ptr noundef nonnull @__func__.aclitemin) #14
-  br label %142
+  br label %141
 
-140:                                              ; preds = %134
-  %141 = ptrtoint ptr %9 to i64
-  br label %142
+139:                                              ; preds = %133
+  %140 = ptrtoint ptr %9 to i64
+  br label %141
 
-142:                                              ; preds = %135, %137, %140, %125
-  %.0 = phi i64 [ 0, %125 ], [ %141, %140 ], [ 0, %137 ], [ 0, %135 ]
+141:                                              ; preds = %134, %136, %139, %124
+  %.0 = phi i64 [ 0, %124 ], [ %140, %139 ], [ 0, %136 ], [ 0, %134 ]
   ret i64 %.0
 }
 

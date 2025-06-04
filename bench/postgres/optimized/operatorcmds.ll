@@ -1032,8 +1032,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
 189:                                              ; preds = %188
   %190 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 1, ptr %190, align 1
-  %.mask = and i8 %.0128.lcssa, 1
-  %191 = zext nneg i8 %.mask to i64
+  %191 = zext nneg i8 %.0128.lcssa to i64
   %192 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %191, ptr %192, align 8
   br label %193
@@ -1044,8 +1043,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
 194:                                              ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 1, ptr %195, align 1
-  %.mask157 = and i8 %.0124.lcssa, 1
-  %196 = zext nneg i8 %.mask157 to i64
+  %196 = zext nneg i8 %.0124.lcssa to i64
   %197 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %196, ptr %197, align 16
   br label %198

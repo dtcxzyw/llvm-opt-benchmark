@@ -19207,7 +19207,7 @@ define internal fastcc noundef zeroext i1 @_ZL19removeUnneededCallsRKN12_GLOBAL_
   br label %15
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %14 = trunc i8 %.336 to i1
+  %14 = trunc nuw i8 %.336 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4

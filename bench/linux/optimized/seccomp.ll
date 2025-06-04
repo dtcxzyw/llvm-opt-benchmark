@@ -3109,7 +3109,7 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   %11 = alloca [63 x i8], align 16
   %12 = alloca %struct.ctl_table, align 8
   %13 = icmp eq i32 %1, 0
-  br i1 %13, label %138, label %14
+  br i1 %13, label %136, label %14
 
 14:                                               ; preds = %5
   %15 = load i32, ptr @seccomp_actions_logged, align 4
@@ -3199,7 +3199,7 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(i64 63, ptr nonnull %9) #14
   %55 = load i32, ptr @audit_enabled, align 4
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %137, label %57
+  br i1 %56, label %135, label %57
 
 57:                                               ; preds = %52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(63) %8, i8 0, i64 63, i1 false)
@@ -3211,201 +3211,198 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   %60 = icmp eq i32 %53, 0
   br i1 %60, label %.thread25, label %.preheader34
 
-.preheader34:                                     ; preds = %59, %87
-  %61 = phi ptr [ %93, %87 ], [ @.str.14, %59 ]
-  %62 = phi i8 [ %90, %87 ], [ 0, %59 ]
-  %63 = phi ptr [ %91, %87 ], [ @seccomp_log_names, %59 ]
-  %64 = phi ptr [ %89, %87 ], [ %8, %59 ]
-  %65 = phi i64 [ %88, %87 ], [ 63, %59 ]
+.preheader34:                                     ; preds = %59, %86
+  %61 = phi ptr [ %92, %86 ], [ @.str.14, %59 ]
+  %62 = phi i8 [ %89, %86 ], [ 0, %59 ]
+  %63 = phi ptr [ %90, %86 ], [ @seccomp_log_names, %59 ]
+  %64 = phi ptr [ %88, %86 ], [ %8, %59 ]
+  %65 = phi i64 [ %87, %86 ], [ 63, %59 ]
   %66 = load i32, ptr %63, align 8
   %67 = and i32 %66, %53
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %87, label %69
+  br i1 %68, label %86, label %69
 
 69:                                               ; preds = %.preheader34
-  %70 = and i8 %62, 1
-  %71 = icmp eq i8 %70, 0
-  br i1 %71, label %78, label %72
+  %70 = icmp eq i8 %62, 0
+  br i1 %70, label %77, label %71
 
-72:                                               ; preds = %69
-  %73 = call i64 @strscpy(ptr noundef %64, ptr noundef nonnull @.str.24, i64 noundef %65) #14
-  %74 = icmp slt i64 %73, 0
-  br i1 %74, label %.thread25, label %75
+71:                                               ; preds = %69
+  %72 = call i64 @strscpy(ptr noundef %64, ptr noundef nonnull @.str.24, i64 noundef %65) #14
+  %73 = icmp slt i64 %72, 0
+  br i1 %73, label %.thread25, label %74
 
-75:                                               ; preds = %72
-  %76 = getelementptr i8, ptr %64, i64 %73
-  %77 = sub i64 %65, %73
-  br label %78
+74:                                               ; preds = %71
+  %75 = getelementptr i8, ptr %64, i64 %72
+  %76 = sub i64 %65, %72
+  br label %77
 
-78:                                               ; preds = %75, %69
-  %79 = phi i64 [ %77, %75 ], [ %65, %69 ]
-  %80 = phi ptr [ %76, %75 ], [ %64, %69 ]
-  %81 = phi i8 [ %62, %75 ], [ 1, %69 ]
-  %82 = call i64 @strscpy(ptr noundef %80, ptr noundef %61, i64 noundef %79) #14
-  %83 = icmp slt i64 %82, 0
-  br i1 %83, label %.thread25, label %84
+77:                                               ; preds = %74, %69
+  %78 = phi i64 [ %76, %74 ], [ %65, %69 ]
+  %79 = phi ptr [ %75, %74 ], [ %64, %69 ]
+  %80 = phi i8 [ %62, %74 ], [ 1, %69 ]
+  %81 = call i64 @strscpy(ptr noundef %79, ptr noundef %61, i64 noundef %78) #14
+  %82 = icmp slt i64 %81, 0
+  br i1 %82, label %.thread25, label %83
 
-84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %80, i64 %82
-  %86 = sub i64 %79, %82
-  br label %87
+83:                                               ; preds = %77
+  %84 = getelementptr i8, ptr %79, i64 %81
+  %85 = sub i64 %78, %81
+  br label %86
 
-87:                                               ; preds = %.preheader34, %84
-  %88 = phi i64 [ %86, %84 ], [ %65, %.preheader34 ]
-  %89 = phi ptr [ %85, %84 ], [ %64, %.preheader34 ]
-  %90 = phi i8 [ %81, %84 ], [ %62, %.preheader34 ]
-  %91 = getelementptr i8, ptr %63, i64 16
-  %92 = getelementptr i8, ptr %63, i64 24
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  %95 = icmp eq i64 %88, 0
-  %96 = select i1 %94, i1 true, i1 %95
-  br i1 %96, label %.thread25, label %.preheader34, !llvm.loop !91
+86:                                               ; preds = %.preheader34, %83
+  %87 = phi i64 [ %85, %83 ], [ %65, %.preheader34 ]
+  %88 = phi ptr [ %84, %83 ], [ %64, %.preheader34 ]
+  %89 = phi i8 [ %80, %83 ], [ %62, %.preheader34 ]
+  %90 = getelementptr i8, ptr %63, i64 16
+  %91 = getelementptr i8, ptr %63, i64 24
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %92, null
+  %94 = icmp eq i64 %87, 0
+  %95 = select i1 %93, i1 true, i1 %94
+  br i1 %95, label %.thread25, label %.preheader34, !llvm.loop !91
 
-.thread25:                                        ; preds = %78, %72, %87, %59, %57
-  %97 = phi ptr [ @.str.22, %57 ], [ @.str.23, %59 ], [ @.str.22, %78 ], [ @.str.22, %72 ], [ %8, %87 ]
-  %98 = icmp eq i32 %15, 0
-  br i1 %98, label %.thread29, label %.preheader
+.thread25:                                        ; preds = %77, %71, %86, %59, %57
+  %96 = phi ptr [ @.str.22, %57 ], [ @.str.23, %59 ], [ @.str.22, %77 ], [ @.str.22, %71 ], [ %8, %86 ]
+  %97 = icmp eq i32 %15, 0
+  br i1 %97, label %.thread29, label %.preheader
 
-.preheader:                                       ; preds = %.thread25, %125
-  %99 = phi ptr [ %131, %125 ], [ @.str.14, %.thread25 ]
-  %100 = phi i8 [ %128, %125 ], [ 0, %.thread25 ]
-  %101 = phi ptr [ %129, %125 ], [ @seccomp_log_names, %.thread25 ]
-  %102 = phi ptr [ %127, %125 ], [ %9, %.thread25 ]
-  %103 = phi i64 [ %126, %125 ], [ 63, %.thread25 ]
-  %104 = load i32, ptr %101, align 8
-  %105 = and i32 %104, %15
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %125, label %107
+.preheader:                                       ; preds = %.thread25, %123
+  %98 = phi ptr [ %129, %123 ], [ @.str.14, %.thread25 ]
+  %99 = phi i8 [ %126, %123 ], [ 0, %.thread25 ]
+  %100 = phi ptr [ %127, %123 ], [ @seccomp_log_names, %.thread25 ]
+  %101 = phi ptr [ %125, %123 ], [ %9, %.thread25 ]
+  %102 = phi i64 [ %124, %123 ], [ 63, %.thread25 ]
+  %103 = load i32, ptr %100, align 8
+  %104 = and i32 %103, %15
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %123, label %106
 
-107:                                              ; preds = %.preheader
-  %108 = and i8 %100, 1
-  %109 = icmp eq i8 %108, 0
-  br i1 %109, label %116, label %110
+106:                                              ; preds = %.preheader
+  %107 = icmp eq i8 %99, 0
+  br i1 %107, label %114, label %108
 
-110:                                              ; preds = %107
-  %111 = call i64 @strscpy(ptr noundef %102, ptr noundef nonnull @.str.24, i64 noundef %103) #14
-  %112 = icmp slt i64 %111, 0
-  br i1 %112, label %.thread29, label %113
+108:                                              ; preds = %106
+  %109 = call i64 @strscpy(ptr noundef %101, ptr noundef nonnull @.str.24, i64 noundef %102) #14
+  %110 = icmp slt i64 %109, 0
+  br i1 %110, label %.thread29, label %111
 
-113:                                              ; preds = %110
-  %114 = getelementptr i8, ptr %102, i64 %111
-  %115 = sub i64 %103, %111
-  br label %116
+111:                                              ; preds = %108
+  %112 = getelementptr i8, ptr %101, i64 %109
+  %113 = sub i64 %102, %109
+  br label %114
 
-116:                                              ; preds = %113, %107
-  %117 = phi i64 [ %115, %113 ], [ %103, %107 ]
-  %118 = phi ptr [ %114, %113 ], [ %102, %107 ]
-  %119 = phi i8 [ %100, %113 ], [ 1, %107 ]
-  %120 = call i64 @strscpy(ptr noundef %118, ptr noundef %99, i64 noundef %117) #14
-  %121 = icmp slt i64 %120, 0
-  br i1 %121, label %.thread29, label %122
+114:                                              ; preds = %111, %106
+  %115 = phi i64 [ %113, %111 ], [ %102, %106 ]
+  %116 = phi ptr [ %112, %111 ], [ %101, %106 ]
+  %117 = phi i8 [ %99, %111 ], [ 1, %106 ]
+  %118 = call i64 @strscpy(ptr noundef %116, ptr noundef %98, i64 noundef %115) #14
+  %119 = icmp slt i64 %118, 0
+  br i1 %119, label %.thread29, label %120
 
-122:                                              ; preds = %116
-  %123 = getelementptr i8, ptr %118, i64 %120
-  %124 = sub i64 %117, %120
-  br label %125
+120:                                              ; preds = %114
+  %121 = getelementptr i8, ptr %116, i64 %118
+  %122 = sub i64 %115, %118
+  br label %123
 
-125:                                              ; preds = %.preheader, %122
-  %126 = phi i64 [ %124, %122 ], [ %103, %.preheader ]
-  %127 = phi ptr [ %123, %122 ], [ %102, %.preheader ]
-  %128 = phi i8 [ %119, %122 ], [ %100, %.preheader ]
-  %129 = getelementptr i8, ptr %101, i64 16
-  %130 = getelementptr i8, ptr %101, i64 24
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  %133 = icmp eq i64 %126, 0
-  %134 = select i1 %132, i1 true, i1 %133
-  br i1 %134, label %.thread29, label %.preheader, !llvm.loop !91
+123:                                              ; preds = %.preheader, %120
+  %124 = phi i64 [ %122, %120 ], [ %102, %.preheader ]
+  %125 = phi ptr [ %121, %120 ], [ %101, %.preheader ]
+  %126 = phi i8 [ %117, %120 ], [ %99, %.preheader ]
+  %127 = getelementptr i8, ptr %100, i64 16
+  %128 = getelementptr i8, ptr %100, i64 24
+  %129 = load ptr, ptr %128, align 8
+  %130 = icmp eq ptr %129, null
+  %131 = icmp eq i64 %124, 0
+  %132 = select i1 %130, i1 true, i1 %131
+  br i1 %132, label %.thread29, label %.preheader, !llvm.loop !91
 
-.thread29:                                        ; preds = %116, %110, %125, %.thread25
-  %135 = phi ptr [ @.str.23, %.thread25 ], [ @.str.22, %116 ], [ @.str.22, %110 ], [ %9, %125 ]
-  %136 = zext i1 %58 to i32
-  call void @audit_seccomp_actions_logged(ptr noundef nonnull %97, ptr noundef nonnull %135, i32 noundef %136) #14
-  br label %137
+.thread29:                                        ; preds = %114, %108, %123, %.thread25
+  %133 = phi ptr [ @.str.23, %.thread25 ], [ @.str.22, %114 ], [ @.str.22, %108 ], [ %9, %123 ]
+  %134 = zext i1 %58 to i32
+  call void @audit_seccomp_actions_logged(ptr noundef nonnull %96, ptr noundef nonnull %133, i32 noundef %134) #14
+  br label %135
 
-137:                                              ; preds = %.thread29, %52
+135:                                              ; preds = %.thread29, %52
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %8) #14
-  br label %181
+  br label %178
 
-138:                                              ; preds = %5
+136:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 63, ptr nonnull %6) #14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !annotation !25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(63) %6, i8 0, i64 63, i1 false)
-  %139 = load i32, ptr @seccomp_actions_logged, align 4
-  br label %140
+  %137 = load i32, ptr @seccomp_actions_logged, align 4
+  br label %138
 
-140:                                              ; preds = %167, %138
-  %141 = phi ptr [ @.str.14, %138 ], [ %173, %167 ]
-  %142 = phi i8 [ 0, %138 ], [ %170, %167 ]
-  %143 = phi ptr [ @seccomp_log_names, %138 ], [ %171, %167 ]
-  %144 = phi ptr [ %6, %138 ], [ %169, %167 ]
-  %145 = phi i64 [ 63, %138 ], [ %168, %167 ]
-  %146 = load i32, ptr %143, align 8
-  %147 = and i32 %146, %139
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %167, label %149
+138:                                              ; preds = %164, %136
+  %139 = phi ptr [ @.str.14, %136 ], [ %170, %164 ]
+  %140 = phi i8 [ 0, %136 ], [ %167, %164 ]
+  %141 = phi ptr [ @seccomp_log_names, %136 ], [ %168, %164 ]
+  %142 = phi ptr [ %6, %136 ], [ %166, %164 ]
+  %143 = phi i64 [ 63, %136 ], [ %165, %164 ]
+  %144 = load i32, ptr %141, align 8
+  %145 = and i32 %144, %137
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %164, label %147
 
-149:                                              ; preds = %140
-  %150 = and i8 %142, 1
-  %151 = icmp eq i8 %150, 0
-  br i1 %151, label %158, label %152
+147:                                              ; preds = %138
+  %148 = icmp eq i8 %140, 0
+  br i1 %148, label %155, label %149
+
+149:                                              ; preds = %147
+  %150 = call i64 @strscpy(ptr noundef %142, ptr noundef nonnull @.str.13, i64 noundef %143) #14
+  %151 = icmp slt i64 %150, 0
+  br i1 %151, label %.thread33, label %152
 
 152:                                              ; preds = %149
-  %153 = call i64 @strscpy(ptr noundef %144, ptr noundef nonnull @.str.13, i64 noundef %145) #14
-  %154 = icmp slt i64 %153, 0
-  br i1 %154, label %.thread33, label %155
+  %153 = getelementptr i8, ptr %142, i64 %150
+  %154 = sub i64 %143, %150
+  br label %155
 
-155:                                              ; preds = %152
-  %156 = getelementptr i8, ptr %144, i64 %153
-  %157 = sub i64 %145, %153
-  br label %158
+155:                                              ; preds = %152, %147
+  %156 = phi i64 [ %154, %152 ], [ %143, %147 ]
+  %157 = phi ptr [ %153, %152 ], [ %142, %147 ]
+  %158 = phi i8 [ %140, %152 ], [ 1, %147 ]
+  %159 = call i64 @strscpy(ptr noundef %157, ptr noundef %139, i64 noundef %156) #14
+  %160 = icmp slt i64 %159, 0
+  br i1 %160, label %.thread33, label %161
 
-158:                                              ; preds = %155, %149
-  %159 = phi i64 [ %157, %155 ], [ %145, %149 ]
-  %160 = phi ptr [ %156, %155 ], [ %144, %149 ]
-  %161 = phi i8 [ %142, %155 ], [ 1, %149 ]
-  %162 = call i64 @strscpy(ptr noundef %160, ptr noundef %141, i64 noundef %159) #14
-  %163 = icmp slt i64 %162, 0
-  br i1 %163, label %.thread33, label %164
+161:                                              ; preds = %155
+  %162 = getelementptr i8, ptr %157, i64 %159
+  %163 = sub i64 %156, %159
+  br label %164
 
-164:                                              ; preds = %158
-  %165 = getelementptr i8, ptr %160, i64 %162
-  %166 = sub i64 %159, %162
-  br label %167
+164:                                              ; preds = %138, %161
+  %165 = phi i64 [ %163, %161 ], [ %143, %138 ]
+  %166 = phi ptr [ %162, %161 ], [ %142, %138 ]
+  %167 = phi i8 [ %158, %161 ], [ %140, %138 ]
+  %168 = getelementptr i8, ptr %141, i64 16
+  %169 = getelementptr i8, ptr %141, i64 24
+  %170 = load ptr, ptr %169, align 8
+  %171 = icmp eq ptr %170, null
+  %172 = icmp eq i64 %165, 0
+  %173 = select i1 %171, i1 true, i1 %172
+  br i1 %173, label %.critedge, label %138, !llvm.loop !91
 
-167:                                              ; preds = %140, %164
-  %168 = phi i64 [ %166, %164 ], [ %145, %140 ]
-  %169 = phi ptr [ %165, %164 ], [ %144, %140 ]
-  %170 = phi i8 [ %161, %164 ], [ %142, %140 ]
-  %171 = getelementptr i8, ptr %143, i64 16
-  %172 = getelementptr i8, ptr %143, i64 24
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp eq ptr %173, null
-  %175 = icmp eq i64 %168, 0
-  %176 = select i1 %174, i1 true, i1 %175
-  br i1 %176, label %.critedge, label %140, !llvm.loop !91
-
-.critedge:                                        ; preds = %167
+.critedge:                                        ; preds = %164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %177 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %6, ptr %177, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 63, ptr %178, align 8
-  %179 = call i32 @proc_dostring(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4) #14
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %6, ptr %174, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 63, ptr %175, align 8
+  %176 = call i32 @proc_dostring(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4) #14
   br label %.thread33
 
-.thread33:                                        ; preds = %158, %152, %.critedge
-  %180 = phi i32 [ %179, %.critedge ], [ -22, %152 ], [ -22, %158 ]
+.thread33:                                        ; preds = %155, %149, %.critedge
+  %177 = phi i32 [ %176, %.critedge ], [ -22, %149 ], [ -22, %155 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %6) #14
-  br label %181
+  br label %178
 
-181:                                              ; preds = %.thread33, %137
-  %182 = phi i32 [ %54, %137 ], [ %180, %.thread33 ]
-  ret i32 %182
+178:                                              ; preds = %.thread33, %135
+  %179 = phi i32 [ %54, %135 ], [ %177, %.thread33 ]
+  ret i32 %179
 }
 
 ; Function Attrs: null_pointer_is_valid

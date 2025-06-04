@@ -7420,7 +7420,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   store ptr %.sroa.577.0.copyload, ptr %.sroa.281.0..sroa_idx, align 8
   %.sroa.382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.678.0.copyload, ptr %.sroa.382.0..sroa_idx, align 8
-  br label %62
+  br label %61
 
 13:                                               ; preds = %.lr.ph, %37
   %.sroa.0.0203 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0.1, %37 ]
@@ -7464,7 +7464,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
 
 28:                                               ; preds = %24
   tail call void @_ZN5serde2de5Error13unknown_field17hbdd53ff15b0d193fE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %15, ptr noalias noundef nonnull readonly align 8 @anon.c9b8fca733cf8e9ab2a8c65c0e643bc6.16, i64 noundef 3)
-  br label %62
+  br label %61
 
 29:                                               ; preds = %24
   %30 = trunc nuw i8 %.sroa.0.0203 to i1
@@ -7472,7 +7472,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
 
 31:                                               ; preds = %29
   tail call void @_ZN5serde2de5Error15duplicate_field17hbe6e64818e27a1eeE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 @anon.c9b8fca733cf8e9ab2a8c65c0e643bc6.15, i64 noundef 30)
-  br label %62
+  br label %61
 
 32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -7494,7 +7494,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   store i8 %.sroa.5107.0.copyload, ptr %.sroa.2111.0..sroa_idx, align 8
   %.sroa.3112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %.sroa.6108.0.copyload, ptr %.sroa.3112.0..sroa_idx, align 1
-  br label %62
+  br label %61
 
 35:                                               ; preds = %32
   %36 = load i16, ptr %10, align 8
@@ -7516,7 +7516,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
 
 39:                                               ; preds = %26
   tail call void @_ZN5serde2de5Error15duplicate_field17hbe6e64818e27a1eeE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 @anon.c9b8fca733cf8e9ab2a8c65c0e643bc6.14, i64 noundef 28)
-  br label %62
+  br label %61
 
 40:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
@@ -7534,7 +7534,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   store i64 %41, ptr %0, align 8
   %.sroa.2100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %42, ptr %.sroa.2100.0..sroa_idx, align 8
-  br label %62
+  br label %61
 
 44:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
@@ -7542,7 +7542,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
 
 45:                                               ; preds = %22
   tail call void @_ZN5serde2de5Error15duplicate_field17hbe6e64818e27a1eeE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 @anon.c9b8fca733cf8e9ab2a8c65c0e643bc6.13, i64 noundef 30)
-  br label %62
+  br label %61
 
 46:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
@@ -7560,7 +7560,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   store i64 %47, ptr %0, align 8
   %.sroa.291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %48, ptr %.sroa.291.0..sroa_idx, align 8
-  br label %62
+  br label %61
 
 50:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
@@ -7574,10 +7574,10 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
 
 54:                                               ; preds = %18
   tail call void @_ZN5serde2de5Error13missing_field17h8a159273e9075d43E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 @anon.c9b8fca733cf8e9ab2a8c65c0e643bc6.13, i64 noundef 30)
-  br label %62
+  br label %61
 
 55:                                               ; preds = %51
-  br i1 %52, label %58, label %61
+  br i1 %52, label %58, label %60
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7589,20 +7589,19 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   %.sroa.669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %.sroa.465.2.extract.trunc, ptr %.sroa.669.0..sroa_idx, align 1
   store i64 2, ptr %0, align 8
-  br label %62
+  br label %61
 
 58:                                               ; preds = %55
-  %59 = and i8 %.sroa.0.0203, 1
-  %60 = icmp eq i8 %59, 0
-  tail call void @llvm.assume(i1 %60)
+  %59 = icmp eq i8 %.sroa.0.0203, 0
+  tail call void @llvm.assume(i1 %59)
   tail call void @_ZN5serde2de5Error13missing_field17h8a159273e9075d43E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 @anon.c9b8fca733cf8e9ab2a8c65c0e643bc6.15, i64 noundef 30)
-  br label %62
+  br label %61
 
-61:                                               ; preds = %55
+60:                                               ; preds = %55
   tail call void @_ZN5serde2de5Error13missing_field17h8a159273e9075d43E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 @anon.c9b8fca733cf8e9ab2a8c65c0e643bc6.14, i64 noundef 28)
-  br label %62
+  br label %61
 
-62:                                               ; preds = %._crit_edge, %28, %31, %34, %39, %43, %45, %49, %61, %58, %56, %54
+61:                                               ; preds = %._crit_edge, %28, %31, %34, %39, %43, %45, %49, %60, %58, %56, %54
   ret void
 }
 

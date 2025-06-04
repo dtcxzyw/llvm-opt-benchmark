@@ -7191,7 +7191,7 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @list_copy(ptr noundef %12) #13
-  br label %92
+  br label %91
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7311,42 +7311,41 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   store i32 %.056.lcssa, ptr %77, align 8
   %78 = trunc nuw i8 %.051.lcssa to i1
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %80 = and i8 %.051.lcssa, 1
-  store i8 %80, ptr %79, align 4
-  %81 = icmp ne i8 %6, 100
-  %82 = icmp eq i32 %.056.lcssa, 0
-  %or.cond.not62 = select i1 %81, i1 true, i1 %82
+  store i8 %.051.lcssa, ptr %79, align 4
+  %80 = icmp ne i8 %6, 100
+  %81 = icmp eq i32 %.056.lcssa, 0
+  %or.cond.not62 = select i1 %80, i1 true, i1 %81
   %or.cond3 = select i1 %or.cond.not62, i1 true, i1 %78
-  br i1 %or.cond3, label %85, label %83
+  br i1 %or.cond3, label %84, label %82
 
-83:                                               ; preds = %._crit_edge
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %.056.lcssa, ptr %84, align 8
-  br label %91
+82:                                               ; preds = %._crit_edge
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %.056.lcssa, ptr %83, align 8
+  br label %90
 
-85:                                               ; preds = %._crit_edge
-  %86 = icmp eq i8 %6, 105
-  %87 = icmp ne i32 %.053.lcssa, 0
-  %or.cond5 = select i1 %86, i1 %87, i1 false
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  br i1 %or.cond5, label %89, label %90
+84:                                               ; preds = %._crit_edge
+  %85 = icmp eq i8 %6, 105
+  %86 = icmp ne i32 %.053.lcssa, 0
+  %or.cond5 = select i1 %85, i1 %86, i1 false
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  br i1 %or.cond5, label %88, label %89
 
-89:                                               ; preds = %85
-  store i32 %.053.lcssa, ptr %88, align 8
-  br label %91
+88:                                               ; preds = %84
+  store i32 %.053.lcssa, ptr %87, align 8
+  br label %90
 
-90:                                               ; preds = %85
-  store i32 0, ptr %88, align 8
-  br label %91
+89:                                               ; preds = %84
+  store i32 0, ptr %87, align 8
+  br label %90
 
-91:                                               ; preds = %89, %90, %83
+90:                                               ; preds = %88, %89, %82
   store i8 1, ptr %7, align 1
   store ptr %73, ptr @CurrentMemoryContext, align 8
   call void @list_free(ptr noundef %75) #13
-  br label %92
+  br label %91
 
-92:                                               ; preds = %91, %10
-  %.0 = phi ptr [ %13, %10 ], [ %.050.lcssa, %91 ]
+91:                                               ; preds = %90, %10
+  %.0 = phi ptr [ %13, %10 ], [ %.050.lcssa, %90 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #13
   ret ptr %.0
 }

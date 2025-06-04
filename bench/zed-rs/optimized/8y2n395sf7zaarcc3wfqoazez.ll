@@ -2606,7 +2606,7 @@ define hidden void @"_ZN57_$LT$R$u20$as$u20$num_bigint_dig..bigrand..RandBigInt$
   %.val = load i64, ptr %39, align 8
   %40 = select i1 %37, i64 %.val, i64 %35
   %41 = invoke { ptr, ptr } @"_ZN49_$LT$$u5b$u64$u5d$$u20$as$u20$rand..rng..Fill$GT$8try_fill17h5e60a5c8fd0ea215E"(ptr noalias noundef nonnull align 8 %.sink10.i, i64 noundef %40, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %.noexc unwind label %85
+          to label %.noexc unwind label %84
 
 .noexc:                                           ; preds = %34
   %42 = extractvalue { ptr, ptr } %41, 0
@@ -2618,7 +2618,7 @@ define hidden void @"_ZN57_$LT$R$u20$as$u20$num_bigint_dig..bigrand..RandBigInt$
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
   invoke void @"_ZN4rand3rng3Rng4fill28_$u7b$$u7b$closure$u7d$$u7d$17h4f56730c9d750d15E.llvm.12878139696234281404"(ptr noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %45)
-          to label %.noexc2 unwind label %85
+          to label %.noexc2 unwind label %84
 
 .noexc2:                                          ; preds = %44
   unreachable
@@ -2686,7 +2686,7 @@ _ZN4rand3rng3Rng4fill17hb366f69680802677E.llvm.12878139696234281404.exit: ; pred
 
 76:                                               ; preds = %71
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %8, i64 noundef %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dd82cfc7c2fc634f21e9bc4221da04d3.34.llvm.12878139696234281404) #29
-          to label %.noexc3 unwind label %85
+          to label %.noexc3 unwind label %84
 
 .noexc3:                                          ; preds = %76
   unreachable
@@ -2695,11 +2695,10 @@ _ZN4rand3rng3Rng4fill17hb366f69680802677E.llvm.12878139696234281404.exit: ; pred
   %78 = load ptr, ptr %7, align 8, !alias.scope !443, !noalias !448, !nonnull !9
   %.sink10.i.i = select i1 %73, ptr %78, ptr %7
   %79 = getelementptr inbounds nuw [0 x i64], ptr %.sink10.i.i, i64 0, i64 %8
-  %80 = sub i64 0, %2
+  %80 = sub nuw nsw i64 64, %9
   %81 = load i64, ptr %79, align 8, !noundef !9
-  %82 = and i64 %80, 63
-  %83 = lshr i64 %81, %82
-  store i64 %83, ptr %79, align 8
+  %82 = lshr i64 %81, %80
+  store i64 %82, ptr %79, align 8
   br label %47
 
 .loopexit:                                        ; preds = %67, %54, %47
@@ -2708,23 +2707,23 @@ _ZN4rand3rng3Rng4fill17hb366f69680802677E.llvm.12878139696234281404.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 
-84:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i", %85
-  resume { ptr, i32 } %86
+83:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i", %84
+  resume { ptr, i32 } %85
 
-85:                                               ; preds = %34, %44, %76
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %34, %44, %76
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !454)
   call void @llvm.experimental.noalias.scope.decl(metadata !457)
-  %87 = load i64, ptr %36, align 8, !alias.scope !460, !noundef !9
-  %88 = icmp ugt i64 %87, 4
-  br i1 %88, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i", label %84
+  %86 = load i64, ptr %36, align 8, !alias.scope !460, !noundef !9
+  %87 = icmp ugt i64 %86, 4
+  br i1 %87, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i", label %83
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i": ; preds = %85
-  %89 = load ptr, ptr %7, align 8, !alias.scope !460, !nonnull !9, !noundef !9
-  %90 = shl nuw i64 %87, 3
-  call void @__rust_dealloc(ptr noundef nonnull %89, i64 noundef %90, i64 noundef 8) #30, !noalias !461
-  br label %84
+"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i": ; preds = %84
+  %88 = load ptr, ptr %7, align 8, !alias.scope !460, !nonnull !9, !noundef !9
+  %89 = shl nuw i64 %86, 3
+  call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef %89, i64 noundef 8) #30, !noalias !461
+  br label %83
 }
 
 ; Function Attrs: nonlazybind uwtable

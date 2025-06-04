@@ -5781,7 +5781,7 @@ _ZN4llvm16EscapeEnumeratorD2Ev.exit.i:            ; preds = %2079, %._crit_edge.
   br label %2088
 
 2086:                                             ; preds = %.loopexit
-  %2087 = trunc i8 %.2 to i1
+  %2087 = trunc nuw i8 %.2 to i1
   %or.cond5 = select i1 %2087, i1 true, i1 %.097.lcssa
   br i1 %or.cond5, label %2088, label %2147
 
@@ -5931,7 +5931,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 
 2147:                                             ; preds = %2086, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit, %2088
   %.6 = phi i8 [ 1, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit ], [ %.2, %2088 ], [ 0, %2086 ]
-  %2148 = trunc i8 %.6 to i1
+  %2148 = trunc nuw i8 %.6 to i1
   %2149 = load ptr, ptr %134, align 8, !tbaa !25
   %2150 = icmp eq ptr %2149, %1204
   br i1 %2150, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit, label %2151

@@ -856,8 +856,8 @@ define dso_local i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, 
 
 select.unfold.us:                                 ; preds = %50
   %60 = load i32, ptr %4, align 4
-  %.not38 = icmp eq i32 %60, %30
-  br i1 %.not38, label %62, label %.thread4
+  %.not37 = icmp eq i32 %60, %30
+  br i1 %.not37, label %62, label %.thread4
 
 .thread5.us:                                      ; preds = %22
   call void @__futex_queue(ptr noundef nonnull %28, ptr noundef %31) #8

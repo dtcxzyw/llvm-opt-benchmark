@@ -5675,11 +5675,11 @@ define noalias noundef ptr @Cec_ManComputeInitState(ptr noundef %0, i32 noundef 
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val103176, i64 %35
   %37 = tail call i32 @Gia_ManRandom(i32 noundef 0) #23
-  %38 = load i64, ptr %36, align 4
-  %39 = and i32 %37, 1
-  %40 = zext nneg i32 %39 to i64
-  %41 = shl nuw nsw i64 %40, 62
-  %42 = and i64 %38, -4611686018427387905
+  %38 = and i32 %37, 1
+  %39 = zext nneg i32 %38 to i64
+  %40 = load i64, ptr %36, align 4
+  %41 = shl nuw nsw i64 %39, 62
+  %42 = and i64 %40, -4611686018427387905
   %43 = or disjoint i64 %41, %42
   store i64 %43, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv174, 1
@@ -5733,9 +5733,9 @@ define noalias noundef ptr @Cec_ManComputeInitState(ptr noundef %0, i32 noundef 
   %68 = lshr i64 %67, 62
   %69 = lshr i64 %.val107, 61
   %70 = xor i64 %68, %69
-  %71 = and i64 %70, %62
-  %72 = shl nuw i64 %71, 62
-  %73 = and i64 %72, 4611686018427387904
+  %71 = and i64 %62, 1
+  %72 = and i64 %71, %70
+  %73 = shl nuw nsw i64 %72, 62
   %74 = and i64 %.val107, -4611686020574871553
   %75 = or disjoint i64 %73, %74
   store i64 %75, ptr %51, align 4

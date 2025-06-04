@@ -2062,20 +2062,19 @@ preprocess_expression.exit431:                    ; preds = %.lr.ph518, %674
 
 760:                                              ; preds = %759, %._crit_edge533
   %761 = or i8 %.0303.lcssa, %.0305.lcssa
-  %762 = and i8 %761, 1
-  %or.cond.not = icmp eq i8 %762, 0
-  br i1 %or.cond.not, label %764, label %763
+  %or.cond.not = icmp eq i8 %761, 0
+  br i1 %or.cond.not, label %763, label %762
 
-763:                                              ; preds = %760
+762:                                              ; preds = %760
   tail call void @remove_useless_result_rtes(ptr noundef %8) #12
-  br label %764
+  br label %763
 
-764:                                              ; preds = %760, %763
+763:                                              ; preds = %760, %762
   tail call fastcc void @grouping_planner(ptr noundef %8, double noundef %4, ptr noundef %5)
   tail call void @SS_identify_outer_params(ptr noundef %8) #12
-  %765 = tail call ptr @fetch_upper_rel(ptr noundef %8, i32 noundef 7, ptr noundef null) #12
-  tail call void @SS_charge_for_initplans(ptr noundef %8, ptr noundef %765) #12
-  tail call void @set_cheapest(ptr noundef %765) #12
+  %764 = tail call ptr @fetch_upper_rel(ptr noundef %8, i32 noundef 7, ptr noundef null) #12
+  tail call void @SS_charge_for_initplans(ptr noundef %8, ptr noundef %764) #12
+  tail call void @set_cheapest(ptr noundef %764) #12
   ret ptr %8
 }
 

@@ -197267,7 +197267,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
   %28 = load double, ptr %11, align 8
   %29 = fcmp ugt double %25, %28
   %or.cond204 = select i1 %27, i1 true, i1 %29
-  br i1 %or.cond204, label %30, label %225
+  br i1 %or.cond204, label %30, label %222
 
 30:                                               ; preds = %24, %18, %12
   %31 = load double, ptr %3, align 8
@@ -197292,7 +197292,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
   %44 = load double, ptr %11, align 8
   %45 = fcmp ugt double %41, %44
   %or.cond210 = select i1 %43, i1 true, i1 %45
-  br i1 %or.cond210, label %46, label %225
+  br i1 %or.cond210, label %46, label %222
 
 46:                                               ; preds = %40, %34, %30
   %47 = fcmp ult double %31, %13
@@ -197300,7 +197300,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
 
 48:                                               ; preds = %46
   %49 = fcmp ogt double %13, %16
-  br i1 %49, label %225, label %50
+  br i1 %49, label %222, label %50
 
 50:                                               ; preds = %48
   %51 = fsub double %16, %13
@@ -197310,7 +197310,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
 
 54:                                               ; preds = %46
   %55 = fcmp olt double %13, %14
-  br i1 %55, label %225, label %56
+  br i1 %55, label %222, label %56
 
 56:                                               ; preds = %54
   %57 = fsub double %13, %14
@@ -197331,7 +197331,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
   %65 = fcmp ogt double %13, %16
   %66 = fcmp olt double %13, %14
   %or.cond373 = or i1 %66, %65
-  br i1 %or.cond373, label %225, label %67
+  br i1 %or.cond373, label %222, label %67
 
 67:                                               ; preds = %64, %60
   %68 = load double, ptr %4, align 8
@@ -197342,7 +197342,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
 71:                                               ; preds = %67
   %72 = load double, ptr %10, align 8
   %73 = fcmp ogt double %69, %72
-  br i1 %73, label %225, label %74
+  br i1 %73, label %222, label %74
 
 74:                                               ; preds = %71
   %75 = fsub double %72, %69
@@ -197354,7 +197354,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
 79:                                               ; preds = %67
   %80 = load double, ptr %7, align 8
   %81 = fcmp olt double %69, %80
-  br i1 %81, label %225, label %82
+  br i1 %81, label %222, label %82
 
 82:                                               ; preds = %79
   %83 = fsub double %69, %80
@@ -197378,7 +197378,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
   %94 = fcmp ogt double %69, %89
   %95 = fcmp olt double %69, %88
   %or.cond375 = select i1 %94, i1 true, i1 %95
-  br i1 %or.cond375, label %225, label %96
+  br i1 %or.cond375, label %222, label %96
 
 96:                                               ; preds = %93, %87
   %97 = load double, ptr %5, align 8
@@ -197389,7 +197389,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
 100:                                              ; preds = %96
   %101 = load double, ptr %11, align 8
   %102 = fcmp ogt double %98, %101
-  br i1 %102, label %225, label %103
+  br i1 %102, label %222, label %103
 
 103:                                              ; preds = %100
   %104 = fsub double %101, %98
@@ -197401,7 +197401,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
 108:                                              ; preds = %96
   %109 = load double, ptr %8, align 8
   %110 = fcmp olt double %98, %109
-  br i1 %110, label %225, label %111
+  br i1 %110, label %222, label %111
 
 111:                                              ; preds = %108
   %112 = fsub double %98, %109
@@ -197425,7 +197425,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_seg
   %123 = fcmp ogt double %98, %118
   %124 = fcmp olt double %98, %117
   %or.cond377 = select i1 %123, i1 true, i1 %124
-  br i1 %or.cond377, label %225, label %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit
+  br i1 %or.cond377, label %222, label %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit
 
 _ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit: ; preds = %122, %116
   %125 = fcmp ogt double %.0185, 0.000000e+00
@@ -197447,13 +197447,13 @@ _ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1E
   %134 = fcmp ogt double %.sroa.27.3, 0x5FB317E5EF3AB327
   %135 = fcmp ogt double %.sroa.9.3, 0x5FB317E5EF3AB327
   %136 = select i1 %134, i1 true, i1 %135
-  br i1 %136, label %225, label %137
+  br i1 %136, label %222, label %137
 
 137:                                              ; preds = %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit
   %138 = fcmp olt double %.sroa.27.3, 1.000000e-146
   %139 = fcmp olt double %.sroa.9.3, 1.000000e-146
   %140 = select i1 %138, i1 true, i1 %139
-  br i1 %140, label %225, label %141
+  br i1 %140, label %222, label %141
 
 141:                                              ; preds = %137
   %142 = fcmp une double %69, %68
@@ -197493,7 +197493,7 @@ _ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1
   %.sroa.0350.0.extract.trunc = trunc i9 %156 to i8
   %.sroa.20.0.extract.shift = lshr i16 %.sroa.01.0.insert.insert.i, 8
   %.sroa.20.0.extract.trunc = trunc nuw nsw i16 %.sroa.20.0.extract.shift to i8
-  br label %225
+  br label %222
 
 157:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit
   %158 = fmul double %.0185, %91
@@ -197525,16 +197525,13 @@ _ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1
   %.sroa.0350.0.extract.trunc351 = trunc i9 %168 to i8
   %.sroa.20.0.extract.shift356 = lshr i16 %.sroa.01.0.insert.insert.i240, 8
   %.sroa.20.0.extract.trunc357 = trunc nuw nsw i16 %.sroa.20.0.extract.shift356 to i8
-  br label %225
+  br label %222
 
 169:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit237, %143
-  br i1 %63, label %.critedge2, label %170
+  br i1 %63, label %.thread403, label %170
 
 .thread:                                          ; preds = %141
-  br i1 %63, label %.critedge2, label %.thread370
-
-.thread370:                                       ; preds = %.thread
-  br label %.critedge2
+  br i1 %63, label %.thread403, label %.critedge6.thread
 
 170:                                              ; preds = %169
   %171 = fmul double %.0185, %91
@@ -197549,135 +197546,136 @@ _ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1
   %.sroa.7.0.extract.trunc292381 = zext i1 %176 to i8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %170, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread, %169, %.thread, %.thread370
-  %.sroa.7.1 = phi i8 [ 0, %.thread370 ], [ 0, %169 ], [ 0, %.thread ], [ %.sroa.7.0.extract.trunc292381, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ 1, %170 ]
-  %.sroa.0.1 = phi i8 [ 0, %.thread370 ], [ 0, %169 ], [ 0, %.thread ], [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ 1, %170 ]
-  %.1367 = phi double [ %62, %.thread370 ], [ %91, %169 ], [ %91, %.thread ], [ %62, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ %91, %170 ]
-  %.1 = phi double [ %.0185, %.thread370 ], [ %.0189, %169 ], [ %.0189, %.thread ], [ %.0185, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ %.0189, %170 ]
+.critedge2:                                       ; preds = %170, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread
+  %.sroa.7.1 = phi i8 [ %.sroa.7.0.extract.trunc292381, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ 1, %170 ]
+  %.sroa.0.1 = phi i8 [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ 1, %170 ]
+  %.1367 = phi double [ %62, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ %91, %170 ]
+  %.1 = phi double [ %.0185, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit244.thread ], [ %.0189, %170 ]
   %.not = icmp eq i8 %.sroa.0.1, %.sroa.7.1
-  br i1 %.not, label %177, label %225
+  br i1 %.not, label %177, label %222
+
+.thread403:                                       ; preds = %169, %.thread
+  br label %.critedge6.thread
 
 177:                                              ; preds = %.critedge2
-  br i1 %63, label %.critedge6, label %178
+  %178 = fmul double %.0183, %.0189
+  %179 = fmul double %.0185, %.0188
+  %180 = fsub double %178, %179
+  %181 = fcmp ogt double %180, %133
+  br i1 %181, label %.critedge6, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread
 
-178:                                              ; preds = %177
-  br i1 %142, label %179, label %.critedge6
-
-179:                                              ; preds = %178
-  %180 = fmul double %.0183, %.0189
-  %181 = fmul double %.0185, %.0188
-  %182 = fsub double %180, %181
-  %183 = fcmp ogt double %182, %133
-  br i1 %183, label %.critedge6, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread
-
-_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread: ; preds = %179
-  %184 = fneg double %133
-  %185 = fcmp uge double %182, %184
-  %.sroa.7.0.extract.trunc386 = zext i1 %185 to i8
+_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread: ; preds = %177
+  %182 = fneg double %133
+  %183 = fcmp uge double %180, %182
+  %.sroa.7.0.extract.trunc416 = zext i1 %183 to i8
   br label %.critedge6
 
-.critedge6:                                       ; preds = %179, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread, %177, %178
-  %.sroa.7.3 = phi i8 [ %.sroa.7.1, %178 ], [ %.sroa.7.1, %177 ], [ %.sroa.7.0.extract.trunc386, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ 1, %179 ]
-  %.sroa.0.3 = phi i8 [ %.sroa.0.1, %178 ], [ %.sroa.0.1, %177 ], [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ 1, %179 ]
-  %.1186 = phi double [ %.0185, %178 ], [ %.0189, %177 ], [ %.0185, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ %.0189, %179 ]
-  %.1184 = phi double [ %.0183, %178 ], [ %.0188, %177 ], [ %.0183, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ %.0188, %179 ]
+.critedge6:                                       ; preds = %177, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread
+  %.sroa.7.3 = phi i8 [ %.sroa.7.0.extract.trunc416, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ 1, %177 ]
+  %.sroa.0.3 = phi i8 [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ 1, %177 ]
+  %.1186 = phi double [ %.0185, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ %.0189, %177 ]
+  %.1184 = phi double [ %.0183, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit249.thread ], [ %.0188, %177 ]
   %.not372 = icmp eq i8 %.sroa.0.3, %.sroa.7.3
-  br i1 %.not372, label %186, label %225
+  br i1 %.not372, label %.critedge6.thread, label %222
 
-186:                                              ; preds = %.critedge6
-  %187 = fcmp une double %13, %31
-  %brmerge = or i1 %187, %142
-  %188 = fcmp une double %98, %97
-  %or.cond371 = and i1 %brmerge, %188
-  br i1 %or.cond371, label %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253, label %225
+.critedge6.thread:                                ; preds = %.thread, %.thread403, %.critedge6
+  %.1184428 = phi double [ %.1184, %.critedge6 ], [ %.0183, %.thread ], [ %.0188, %.thread403 ]
+  %.1186427 = phi double [ %.1186, %.critedge6 ], [ %.0185, %.thread ], [ %.0189, %.thread403 ]
+  %.1391398426 = phi double [ %.1, %.critedge6 ], [ %.0185, %.thread ], [ %.0189, %.thread403 ]
+  %.1367390400425 = phi double [ %.1367, %.critedge6 ], [ %62, %.thread ], [ %91, %.thread403 ]
+  %184 = fcmp une double %13, %31
+  %brmerge = or i1 %184, %142
+  %185 = fcmp une double %98, %97
+  %or.cond371 = and i1 %brmerge, %185
+  br i1 %or.cond371, label %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253, label %222
 
-_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253: ; preds = %186
-  %189 = fcmp ogt double %120, %.sroa.9.3
-  %.sroa.9.4 = select i1 %189, double %120, double %.sroa.9.3
-  %190 = fcmp ogt double %.0192, %.sroa.27.3
-  %.sroa.27.4 = select i1 %190, double %.0192, double %.sroa.27.3
-  %191 = fcmp ogt double %.0191, %.sroa.9.4
-  %.sroa.9.5 = select i1 %191, double %.0191, double %.sroa.9.4
-  %192 = fmul double %.sroa.27.4, %.sroa.9.5
-  %193 = fmul double %192, 0x3CD0028010000004
-  %194 = fcmp ogt double %.sroa.27.4, 0x5FB317E5EF3AB327
-  %195 = fcmp ogt double %.sroa.9.5, 0x5FB317E5EF3AB327
-  %196 = select i1 %194, i1 true, i1 %195
-  br i1 %196, label %225, label %197
+_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253: ; preds = %.critedge6.thread
+  %186 = fcmp ogt double %120, %.sroa.9.3
+  %.sroa.9.4 = select i1 %186, double %120, double %.sroa.9.3
+  %187 = fcmp ogt double %.0192, %.sroa.27.3
+  %.sroa.27.4 = select i1 %187, double %.0192, double %.sroa.27.3
+  %188 = fcmp ogt double %.0191, %.sroa.9.4
+  %.sroa.9.5 = select i1 %188, double %.0191, double %.sroa.9.4
+  %189 = fmul double %.sroa.27.4, %.sroa.9.5
+  %190 = fmul double %189, 0x3CD0028010000004
+  %191 = fcmp ogt double %.sroa.27.4, 0x5FB317E5EF3AB327
+  %192 = fcmp ogt double %.sroa.9.5, 0x5FB317E5EF3AB327
+  %193 = select i1 %191, i1 true, i1 %192
+  br i1 %193, label %222, label %194
 
-197:                                              ; preds = %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253
-  %198 = fcmp olt double %.sroa.27.4, 1.000000e-146
-  %199 = fcmp olt double %.sroa.9.5, 1.000000e-146
-  %200 = select i1 %198, i1 true, i1 %199
-  br i1 %200, label %225, label %201
+194:                                              ; preds = %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253
+  %195 = fcmp olt double %.sroa.27.4, 1.000000e-146
+  %196 = fcmp olt double %.sroa.9.5, 1.000000e-146
+  %197 = select i1 %195, i1 true, i1 %196
+  br i1 %197, label %222, label %198
 
-201:                                              ; preds = %197
-  %202 = fmul double %.0192, %.1367
-  %203 = fmul double %.0191, %.1
-  %204 = fsub double %202, %203
-  %205 = fcmp ogt double %204, %193
+198:                                              ; preds = %194
+  %199 = fmul double %.0192, %.1367390400425
+  %200 = fmul double %.0191, %.1391398426
+  %201 = fsub double %199, %200
+  %202 = fcmp ogt double %201, %190
+  br i1 %202, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258, label %203
+
+203:                                              ; preds = %198
+  %204 = fneg double %190
+  %205 = fcmp olt double %201, %204
   br i1 %205, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258, label %206
 
-206:                                              ; preds = %201
-  %207 = fneg double %193
-  %208 = fcmp olt double %204, %207
-  br i1 %208, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258, label %209
-
-209:                                              ; preds = %206
+206:                                              ; preds = %203
   br label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258
 
-_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258: ; preds = %201, %206, %209
-  %.sroa.4.0.i255 = phi i16 [ 256, %209 ], [ 256, %201 ], [ 0, %206 ]
-  %.sroa.0.0.i256 = phi i16 [ 0, %209 ], [ 1, %201 ], [ 0, %206 ]
+_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258: ; preds = %198, %203, %206
+  %.sroa.4.0.i255 = phi i16 [ 256, %206 ], [ 256, %198 ], [ 0, %203 ]
+  %.sroa.0.0.i256 = phi i16 [ 0, %206 ], [ 1, %198 ], [ 0, %203 ]
   %.sroa.0.0.insert.insert.i257 = or disjoint i16 %.sroa.0.0.i256, %.sroa.4.0.i255
   %spec.select.i259.not = icmp eq i16 %.sroa.0.0.insert.insert.i257, 0
-  br i1 %spec.select.i259.not, label %213, label %210
+  br i1 %spec.select.i259.not, label %210, label %207
 
-210:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258
+207:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258
   %trunc.i260 = trunc nuw i16 %.sroa.0.0.insert.insert.i257 to i9
-  %211 = xor i9 %trunc.i260, -255
-  %212 = tail call i9 @llvm.bitreverse.i9(i9 %211)
-  %.sroa.01.0.insert.insert.i261 = zext i9 %212 to i16
-  %.sroa.0350.0.extract.trunc352 = trunc i9 %212 to i8
+  %208 = xor i9 %trunc.i260, -255
+  %209 = tail call i9 @llvm.bitreverse.i9(i9 %208)
+  %.sroa.01.0.insert.insert.i261 = zext i9 %209 to i16
+  %.sroa.0350.0.extract.trunc352 = trunc i9 %209 to i8
   %.sroa.20.0.extract.shift358 = lshr i16 %.sroa.01.0.insert.insert.i261, 8
   %.sroa.20.0.extract.trunc359 = trunc nuw nsw i16 %.sroa.20.0.extract.shift358 to i8
-  br label %225
+  br label %222
 
-213:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258
-  %214 = fmul double %120, %.1186
-  %215 = fmul double %.0192, %.1184
-  %216 = fsub double %214, %215
-  %217 = fcmp ogt double %216, %193
+210:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit258
+  %211 = fmul double %120, %.1186427
+  %212 = fmul double %.0192, %.1184428
+  %213 = fsub double %211, %212
+  %214 = fcmp ogt double %213, %190
+  br i1 %214, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265, label %215
+
+215:                                              ; preds = %210
+  %216 = fneg double %190
+  %217 = fcmp olt double %213, %216
   br i1 %217, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265, label %218
 
-218:                                              ; preds = %213
-  %219 = fneg double %193
-  %220 = fcmp olt double %216, %219
-  br i1 %220, label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265, label %221
-
-221:                                              ; preds = %218
+218:                                              ; preds = %215
   br label %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265
 
-_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265: ; preds = %213, %218, %221
-  %.sroa.4.0.i262 = phi i16 [ 256, %221 ], [ 256, %213 ], [ 0, %218 ]
-  %.sroa.0.0.i263 = phi i16 [ 0, %221 ], [ 1, %213 ], [ 0, %218 ]
+_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265: ; preds = %210, %215, %218
+  %.sroa.4.0.i262 = phi i16 [ 256, %218 ], [ 256, %210 ], [ 0, %215 ]
+  %.sroa.0.0.i263 = phi i16 [ 0, %218 ], [ 1, %210 ], [ 0, %215 ]
   %.sroa.0.0.insert.insert.i264 = or disjoint i16 %.sroa.0.0.i263, %.sroa.4.0.i262
   %spec.select.i266.not = icmp eq i16 %.sroa.0.0.insert.insert.i264, 0
-  br i1 %spec.select.i266.not, label %225, label %222
+  br i1 %spec.select.i266.not, label %222, label %219
 
-222:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265
+219:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265
   %trunc.i267 = trunc nuw i16 %.sroa.0.0.insert.insert.i264 to i9
-  %223 = xor i9 %trunc.i267, -255
-  %224 = tail call i9 @llvm.bitreverse.i9(i9 %223)
-  %.sroa.01.0.insert.insert.i268 = zext i9 %224 to i16
-  %.sroa.0350.0.extract.trunc353 = trunc i9 %224 to i8
+  %220 = xor i9 %trunc.i267, -255
+  %221 = tail call i9 @llvm.bitreverse.i9(i9 %220)
+  %.sroa.01.0.insert.insert.i268 = zext i9 %221 to i16
+  %.sroa.0350.0.extract.trunc353 = trunc i9 %221 to i8
   %.sroa.20.0.extract.shift360 = lshr i16 %.sroa.01.0.insert.insert.i268, 8
   %.sroa.20.0.extract.trunc361 = trunc nuw nsw i16 %.sroa.20.0.extract.shift360 to i8
-  br label %225
+  br label %222
 
-225:                                              ; preds = %.critedge6, %.critedge2, %186, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253, %197, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit, %137, %122, %108, %100, %93, %79, %71, %64, %54, %48, %24, %40, %222, %210, %166, %154
-  %.sroa.0350.0 = phi i8 [ %.sroa.0350.0.extract.trunc, %154 ], [ %.sroa.0350.0.extract.trunc351, %166 ], [ %.sroa.0350.0.extract.trunc352, %210 ], [ %.sroa.0350.0.extract.trunc353, %222 ], [ 1, %40 ], [ 1, %24 ], [ 0, %48 ], [ 0, %54 ], [ 0, %64 ], [ 0, %71 ], [ 0, %79 ], [ 0, %93 ], [ 0, %100 ], [ 0, %108 ], [ 0, %122 ], [ 0, %137 ], [ 0, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit ], [ 0, %197 ], [ 0, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253 ], [ 1, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265 ], [ 1, %186 ], [ %.sroa.0.1, %.critedge2 ], [ %.sroa.0.3, %.critedge6 ]
-  %.sroa.20.0 = phi i8 [ %.sroa.20.0.extract.trunc, %154 ], [ %.sroa.20.0.extract.trunc357, %166 ], [ %.sroa.20.0.extract.trunc359, %210 ], [ %.sroa.20.0.extract.trunc361, %222 ], [ 1, %40 ], [ 1, %24 ], [ 0, %48 ], [ 0, %54 ], [ 0, %64 ], [ 0, %71 ], [ 0, %79 ], [ 0, %93 ], [ 0, %100 ], [ 0, %108 ], [ 0, %122 ], [ 1, %137 ], [ 1, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit ], [ 1, %197 ], [ 1, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253 ], [ 1, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265 ], [ 1, %186 ], [ %.sroa.7.1, %.critedge2 ], [ %.sroa.7.3, %.critedge6 ]
+222:                                              ; preds = %.critedge6, %.critedge2, %.critedge6.thread, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253, %194, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit, %137, %122, %108, %100, %93, %79, %71, %64, %54, %48, %24, %40, %219, %207, %166, %154
+  %.sroa.0350.0 = phi i8 [ %.sroa.0350.0.extract.trunc, %154 ], [ %.sroa.0350.0.extract.trunc351, %166 ], [ %.sroa.0350.0.extract.trunc352, %207 ], [ %.sroa.0350.0.extract.trunc353, %219 ], [ 1, %40 ], [ 1, %24 ], [ 0, %48 ], [ 0, %54 ], [ 0, %64 ], [ 0, %71 ], [ 0, %79 ], [ 0, %93 ], [ 0, %100 ], [ 0, %108 ], [ 0, %122 ], [ 0, %137 ], [ 0, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit ], [ 0, %194 ], [ 0, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253 ], [ 1, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265 ], [ 1, %.critedge6.thread ], [ %.sroa.0.1, %.critedge2 ], [ %.sroa.0.3, %.critedge6 ]
+  %.sroa.20.0 = phi i8 [ %.sroa.20.0.extract.trunc, %154 ], [ %.sroa.20.0.extract.trunc357, %166 ], [ %.sroa.20.0.extract.trunc359, %207 ], [ %.sroa.20.0.extract.trunc361, %219 ], [ 1, %40 ], [ 1, %24 ], [ 0, %48 ], [ 0, %54 ], [ 0, %64 ], [ 0, %71 ], [ 0, %79 ], [ 0, %93 ], [ 0, %100 ], [ 0, %108 ], [ 0, %122 ], [ 1, %137 ], [ 1, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit ], [ 1, %194 ], [ 1, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit253 ], [ 1, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit265 ], [ 1, %.critedge6.thread ], [ %.sroa.7.1, %.critedge2 ], [ %.sroa.7.3, %.critedge6 ]
   %.sroa.20.0.insert.ext = zext nneg i8 %.sroa.20.0 to i16
   %.sroa.20.0.insert.shift = shl nuw nsw i16 %.sroa.20.0.insert.ext, 8
   %.sroa.0350.0.insert.ext = zext i8 %.sroa.0350.0 to i16

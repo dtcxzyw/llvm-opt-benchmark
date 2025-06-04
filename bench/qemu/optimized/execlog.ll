@@ -541,7 +541,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %.loopexit
-  %73 = trunc i8 %.04984 to i1
+  %73 = trunc nuw i8 %.04984 to i1
   br i1 %73, label %74, label %89
 
 74:                                               ; preds = %72
@@ -555,7 +555,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   %77 = load i32, ptr %3, align 4
   %78 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, i64 noundef %16, i32 noundef %77, ptr noundef %15) #7
   call void @qemu_plugin_register_vcpu_mem_cb(ptr noundef %14, ptr noundef nonnull @vcpu_mem, i32 noundef 0, i32 noundef 3, ptr noundef null) #7
-  %79 = trunc i8 %.04984 to i1
+  %79 = trunc nuw i8 %.04984 to i1
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %75

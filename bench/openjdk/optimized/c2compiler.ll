@@ -224,46 +224,46 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
   %11 = load i8, ptr @ReduceAllocationMerges, align 1
   %12 = trunc i8 %11 to i1
   %13 = load i8, ptr @EliminateAllocations, align 1
-  %14 = select i1 %12, i8 %13, i8 0
-  %15 = load i8, ptr @EliminateAutoBox, align 1
-  %16 = and i8 %15, 1
-  %17 = load i8, ptr @EliminateLocks, align 1
-  %18 = and i8 %17, 1
-  %19 = load i8, ptr @UseSuperWord, align 1
-  %20 = and i8 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %14 = and i8 %13, 1
+  %15 = select i1 %12, i8 %14, i8 0
+  %16 = load i8, ptr @EliminateAutoBox, align 1
+  %17 = and i8 %16, 1
+  %18 = load i8, ptr @EliminateLocks, align 1
+  %19 = and i8 %18, 1
+  %20 = load i8, ptr @UseSuperWord, align 1
+  %21 = and i8 %20, 1
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %.sroa.8.0.insert.shift = select i1 %4, i64 72057594037927936, i64 0
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 352
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 376
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 127
-  br label %26
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 352
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 376
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 127
+  br label %27
 
-26:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %6
+27:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %6
   %.033 = phi i8 [ %10, %6 ], [ %.134, %_ZN12ResourceMarkD2Ev.exit ]
   %.031 = phi i8 [ %10, %6 ], [ %.132, %_ZN12ResourceMarkD2Ev.exit ]
-  %.029 = phi i8 [ %14, %6 ], [ %.130, %_ZN12ResourceMarkD2Ev.exit ]
-  %.027 = phi i8 [ %16, %6 ], [ %.128, %_ZN12ResourceMarkD2Ev.exit ]
-  %.025 = phi i8 [ %18, %6 ], [ %.126, %_ZN12ResourceMarkD2Ev.exit ]
-  %.023 = phi i8 [ %20, %6 ], [ %.124, %_ZN12ResourceMarkD2Ev.exit ]
+  %.029 = phi i8 [ %15, %6 ], [ %.130, %_ZN12ResourceMarkD2Ev.exit ]
+  %.027 = phi i8 [ %17, %6 ], [ %.128, %_ZN12ResourceMarkD2Ev.exit ]
+  %.025 = phi i8 [ %19, %6 ], [ %.126, %_ZN12ResourceMarkD2Ev.exit ]
+  %.023 = phi i8 [ %21, %6 ], [ %.124, %_ZN12ResourceMarkD2Ev.exit ]
   %.022 = phi i8 [ 1, %6 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ]
-  %27 = load ptr, ptr %21, align 8
-  %.not81 = icmp eq ptr %27, null
-  br i1 %.not81, label %28, label %82
+  %28 = load ptr, ptr %22, align 8
+  %.not81 = icmp eq ptr %28, null
+  br i1 %.not81, label %29, label %82
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 800
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %39 = load i64, ptr %38, align 8
-  %40 = and i8 %.029, 1
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %23, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 800
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %40 = load i64, ptr %39, align 8
   %.sroa.7.0.insert.ext = zext nneg i8 %.023 to i64
   %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 48
   %.sroa.7.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.8.0.insert.shift
@@ -273,7 +273,7 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
   %.sroa.5.0.insert.ext = zext nneg i8 %.027 to i64
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.insert, %.sroa.5.0.insert.shift
-  %.sroa.4.0.insert.ext = zext nneg i8 %40 to i64
+  %.sroa.4.0.insert.ext = zext nneg i8 %.029 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 24
   %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.4.0.insert.shift
   %.sroa.3.0.insert.ext = zext nneg i8 %.031 to i64
@@ -285,16 +285,16 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
   %.sroa.0.0.insert.mask = or disjoint i64 %.sroa.2.0.insert.mask, %.sroa.2.0.insert.shift
   %.sroa.0.0.insert.insert = or i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
   call void @_ZN7CompileC1EP5ciEnvP8ciMethodi7OptionsP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(2316) %8, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i64 %.sroa.0.0.insert.insert, ptr noundef %5) #10
-  %41 = load ptr, ptr %23, align 8
+  %41 = load ptr, ptr %24, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
-  %44 = load ptr, ptr %24, align 8
+  %44 = load ptr, ptr %25, align 8
   %45 = select i1 %.not.i, ptr %44, ptr %43
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %75, label %46
 
-46:                                               ; preds = %28
+46:                                               ; preds = %29
   %47 = icmp eq ptr %44, @.str
   br i1 %47, label %_ZNK7Compile17failure_reason_isEPKc.exit.thread, label %48
 
@@ -377,7 +377,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit49.thread: ; preds = %67, %_ZNK7Compile1
   br label %76, !llvm.loop !8
 
 _ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %48, %_ZNK7Compile17failure_reason_isEPKc.exit49
-  %71 = load i8, ptr %25, align 1
+  %71 = load i8, ptr %26, align 1
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %74
 
@@ -389,7 +389,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %48, %_ZNK7Compil
   call void @_ZN5ciEnv14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
   br label %75
 
-75:                                               ; preds = %74, %28
+75:                                               ; preds = %74, %29
   call void @_ZN7Compile19dump_print_inliningEv(ptr noundef nonnull align 8 dereferenceable(2316) %8) #10
   br label %76
 
@@ -403,30 +403,30 @@ _ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %48, %_ZNK7Compil
   %.1 = phi i8 [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.022, %73 ], [ %.022, %75 ]
   %switch = phi i1 [ true, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ true, %73 ], [ false, %75 ]
   call void @_ZN7CompileD1Ev(ptr noundef nonnull align 8 dereferenceable(2316) %8) #10
-  %77 = load ptr, ptr %33, align 8
+  %77 = load ptr, ptr %34, align 8
   %.not.i.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i, label %79, label %78
 
 78:                                               ; preds = %76
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef %39) #10
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %33) #10
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %32, i64 noundef %40) #10
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %34) #10
   br label %79
 
 79:                                               ; preds = %78, %76
-  %80 = load ptr, ptr %34, align 8
-  %.not8.i.i.i.i = icmp eq ptr %80, %35
+  %80 = load ptr, ptr %35, align 8
+  %.not8.i.i.i.i = icmp eq ptr %80, %36
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %81
 
 81:                                               ; preds = %79
-  store ptr %33, ptr %32, align 8
-  store ptr %35, ptr %34, align 8
-  store ptr %37, ptr %36, align 8
+  store ptr %34, ptr %33, align 8
+  store ptr %36, ptr %35, align 8
+  store ptr %38, ptr %37, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %79, %81
-  br i1 %switch, label %26, label %82
+  br i1 %switch, label %27, label %82
 
-82:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %26
+82:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %27
   call void @_ZN30CompilationMemoryStatisticMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
   ret void
 }

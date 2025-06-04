@@ -1196,12 +1196,11 @@ if.end90:                                         ; preds = %if.then86, %_ZNK14N
   br i1 %cmp68.not, label %for.cond63.for.cond.cleanup69_crit_edge, label %for.body70, !llvm.loop !129
 
 delete.notnull.loopexit179:                       ; preds = %for.cond35.for.cond.cleanup40_crit_edge.split
-  %53 = and i8 %near_cavern.3, 1
-  %54 = icmp ne i8 %53, 0
+  %53 = icmp ne i8 %near_cavern.3, 0
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %delete.notnull.loopexit179, %for.cond35.preheader.lr.ph, %for.cond.cleanup
-  %near_cavern.0.lcssa = phi i1 [ false, %for.cond.cleanup ], [ %54, %delete.notnull.loopexit179 ], [ false, %for.cond35.preheader.lr.ph ]
+  %near_cavern.0.lcssa = phi i1 [ false, %for.cond.cleanup ], [ %53, %delete.notnull.loopexit179 ], [ false, %for.cond35.preheader.lr.ph ]
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   ret i1 %near_cavern.0.lcssa
 }

@@ -3885,40 +3885,40 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
   %177 = load i32, ptr %29, align 8
   %178 = and i32 %177, 131328
   %179 = icmp eq i32 %178, 256
-  br i1 %179, label %180, label %256
+  br i1 %179, label %180, label %253
 
 180:                                              ; preds = %.loopexit18
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %182 = load i32, ptr %181, align 8
   %183 = icmp ugt i32 %182, 1
-  br i1 %183, label %184, label %256
+  br i1 %183, label %184, label %253
 
 184:                                              ; preds = %180
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 597
   %186 = load i8, ptr %185, align 1
   %187 = and i8 %186, 1
   %188 = icmp eq i8 %187, 0
-  br i1 %188, label %256, label %189
+  br i1 %188, label %253, label %189
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %256, label %193
+  br i1 %192, label %253, label %193
 
 193:                                              ; preds = %189
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 240
   %195 = load volatile i64, ptr %194, align 8
   %196 = and i64 %195, 1
   %197 = icmp eq i64 %196, 0
-  br i1 %197, label %256, label %198
+  br i1 %197, label %253, label %198
 
 198:                                              ; preds = %193
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %200 = load i64, ptr %199, align 8
   %201 = and i64 %200, 8388608
   %202 = icmp eq i64 %201, 0
-  br i1 %202, label %203, label %256, !prof !9
+  br i1 %202, label %203, label %253, !prof !9
 
 203:                                              ; preds = %198
   %204 = zext i32 %2 to i64
@@ -3932,12 +3932,12 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
   br label %211
 
 .loopexit14:                                      ; preds = %.preheader
-  %210 = icmp eq ptr %248, %205
+  %210 = icmp eq ptr %246, %205
   br i1 %210, label %.loopexit17, label %211, !llvm.loop !28
 
 211:                                              ; preds = %.loopexit14, %207
-  %212 = phi i8 [ 0, %207 ], [ %250, %.loopexit14 ]
-  %213 = phi ptr [ %1, %207 ], [ %248, %.loopexit14 ]
+  %212 = phi i1 [ false, %207 ], [ %247, %.loopexit14 ]
+  %213 = phi ptr [ %1, %207 ], [ %246, %.loopexit14 ]
   %214 = load i16, ptr %208, align 8
   %215 = load ptr, ptr %26, align 8
   %216 = call i32 %215(ptr noundef %0, i32 noundef 5) #14
@@ -3975,86 +3975,83 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
   br i1 %236, label %.loopexit17, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit16, %.preheader
-  %237 = phi i8 [ %250, %.preheader ], [ %212, %.loopexit16 ]
-  %238 = phi i32 [ %252, %.preheader ], [ 0, %.loopexit16 ]
-  %239 = phi ptr [ %248, %.preheader ], [ %213, %.loopexit16 ]
+  %237 = phi i1 [ %247, %.preheader ], [ %212, %.loopexit16 ]
+  %238 = phi i32 [ %249, %.preheader ], [ 0, %.loopexit16 ]
+  %239 = phi ptr [ %246, %.preheader ], [ %213, %.loopexit16 ]
   %240 = load i8, ptr %239, align 1
   %241 = icmp ne i8 %240, 10
-  %242 = and i8 %237, 1
-  %243 = icmp ne i8 %242, 0
-  %244 = or i1 %241, %243
-  %245 = zext i8 %240 to i32
-  %246 = select i1 %244, i32 %245, i32 13
-  %247 = zext i1 %244 to i64
-  %248 = getelementptr i8, ptr %239, i64 %247
-  %249 = xor i1 %244, true
-  %250 = zext i1 %249 to i8
-  %251 = load ptr, ptr %31, align 8
-  call void %251(ptr noundef %0, i32 noundef 0, i32 noundef %246) #14
-  %252 = add nuw i32 %238, 1
-  %253 = icmp ult i32 %252, %182
-  %254 = icmp ne ptr %248, %205
-  %255 = and i1 %253, %254
-  br i1 %255, label %.preheader, label %.loopexit14, !llvm.loop !29
+  %242 = or i1 %241, %237
+  %243 = zext i8 %240 to i32
+  %244 = select i1 %242, i32 %243, i32 13
+  %245 = zext i1 %242 to i64
+  %246 = getelementptr i8, ptr %239, i64 %245
+  %247 = xor i1 %242, true
+  %248 = load ptr, ptr %31, align 8
+  call void %248(ptr noundef %0, i32 noundef 0, i32 noundef %244) #14
+  %249 = add nuw i32 %238, 1
+  %250 = icmp ult i32 %249, %182
+  %251 = icmp ne ptr %246, %205
+  %252 = and i1 %250, %251
+  br i1 %252, label %.preheader, label %.loopexit14, !llvm.loop !29
 
-256:                                              ; preds = %198, %193, %189, %184, %180, %.loopexit18
+253:                                              ; preds = %198, %193, %189, %184, %180, %.loopexit18
   call void @uart_console_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @serial8250_console_putchar) #14
   br label %.loopexit17
 
-.loopexit17:                                      ; preds = %.loopexit14, %.loopexit16, %256, %203
+.loopexit17:                                      ; preds = %.loopexit14, %.loopexit16, %253, %203
   call fastcc void @wait_for_xmitr(ptr noundef %0, i32 noundef 96)
-  br i1 %158, label %274, label %257
+  br i1 %158, label %271, label %254
 
-257:                                              ; preds = %.loopexit17
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %259 = load i32, ptr %258, align 8
-  %260 = icmp eq i32 %259, 0
-  br i1 %260, label %.loopexit, label %261
+254:                                              ; preds = %.loopexit17
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %256 = load i32, ptr %255, align 8
+  %257 = icmp eq i32 %256, 0
+  br i1 %257, label %.loopexit, label %258
 
-261:                                              ; preds = %257
-  %262 = zext i32 %259 to i64
-  br label %263
+258:                                              ; preds = %254
+  %259 = zext i32 %256 to i64
+  br label %260
 
-263:                                              ; preds = %263, %261
-  %264 = phi i64 [ %265, %263 ], [ %262, %261 ]
-  %265 = add nsw i64 %264, -1
+260:                                              ; preds = %260, %258
+  %261 = phi i64 [ %262, %260 ], [ %259, %258 ]
+  %262 = add nsw i64 %261, -1
   call void @__const_udelay(i64 noundef 4295000) #14
-  %266 = icmp eq i64 %265, 0
-  br i1 %266, label %.loopexit, label %263, !llvm.loop !30
+  %263 = icmp eq i64 %262, 0
+  br i1 %263, label %.loopexit, label %260, !llvm.loop !30
 
-.loopexit:                                        ; preds = %263, %257
-  %267 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %268 = load i8, ptr %267, align 8
-  %269 = and i8 %268, 1
-  %270 = icmp eq i8 %269, 0
-  br i1 %270, label %274, label %271
+.loopexit:                                        ; preds = %260, %254
+  %264 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  %265 = load i8, ptr %264, align 8
+  %266 = and i8 %265, 1
+  %267 = icmp eq i8 %266, 0
+  br i1 %267, label %271, label %268
 
-271:                                              ; preds = %.loopexit
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %273 = load ptr, ptr %272, align 8
-  call void %273(ptr noundef %0) #14
-  br label %274
+268:                                              ; preds = %.loopexit
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %270 = load ptr, ptr %269, align 8
+  call void %270(ptr noundef %0) #14
+  br label %271
 
-274:                                              ; preds = %271, %.loopexit, %.loopexit17
-  %275 = load ptr, ptr %31, align 8
-  call void %275(ptr noundef %0, i32 noundef 1, i32 noundef %28) #14
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 628
-  %277 = load i8, ptr %276, align 4
-  %278 = icmp eq i8 %277, 0
-  br i1 %278, label %281, label %279
+271:                                              ; preds = %268, %.loopexit, %.loopexit17
+  %272 = load ptr, ptr %31, align 8
+  call void %272(ptr noundef %0, i32 noundef 1, i32 noundef %28) #14
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 628
+  %274 = load i8, ptr %273, align 4
+  %275 = icmp eq i8 %274, 0
+  br i1 %275, label %278, label %276
 
-279:                                              ; preds = %274
-  %280 = call i32 @serial8250_modem_status(ptr noundef %0)
-  br label %281
+276:                                              ; preds = %271
+  %277 = call i32 @serial8250_modem_status(ptr noundef %0)
+  br label %278
 
-281:                                              ; preds = %279, %274
-  br i1 %25, label %283, label %282
+278:                                              ; preds = %276, %271
+  br i1 %25, label %280, label %279
 
-282:                                              ; preds = %281
+279:                                              ; preds = %278
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %24) #14
-  br label %283
+  br label %280
 
-283:                                              ; preds = %282, %281
+280:                                              ; preds = %279, %278
   ret void
 }
 

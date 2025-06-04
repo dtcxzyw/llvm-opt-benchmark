@@ -363,7 +363,7 @@ define void @Dch_ManResimulateSolved_rec(ptr noundef %0, ptr noundef captures(no
   %6 = getelementptr i8, ptr %1, i64 32
   %.val25 = load i32, ptr %6, align 8, !tbaa !26
   %.not = icmp eq i32 %.val25, %.val
-  br i1 %.not, label %79, label %7
+  br i1 %.not, label %78, label %7
 
 7:                                                ; preds = %2
   store i32 %.val, ptr %6, align 8, !tbaa !26
@@ -403,7 +403,7 @@ define void @Dch_ManResimulateSolved_rec(ptr noundef %0, ptr noundef captures(no
   %28 = and i64 %.val27, -38
   %29 = or disjoint i64 %27, %28
   store i64 %29, ptr %8, align 8
-  br label %79
+  br label %78
 
 30:                                               ; preds = %7
   %31 = getelementptr i8, ptr %1, i64 8
@@ -437,39 +437,38 @@ define void @Dch_ManResimulateSolved_rec(ptr noundef %0, ptr noundef captures(no
   %53 = trunc i64 %52 to i32
   %54 = lshr i32 %53, 5
   %55 = trunc i64 %48 to i32
-  %56 = and i32 %55, 1
-  %57 = xor i32 %54, %56
-  %58 = and i32 %57, %47
+  %56 = xor i32 %54, %55
+  %57 = and i32 %47, 1
+  %58 = and i32 %57, %56
   %59 = load i64, ptr %8, align 8
-  %60 = shl nuw i32 %58, 5
-  %61 = and i32 %60, 32
-  %62 = zext nneg i32 %61 to i64
-  %63 = and i64 %59, -33
-  %64 = or disjoint i64 %63, %62
-  store i64 %64, ptr %8, align 8
-  %65 = getelementptr i8, ptr %1, i64 40
-  %.val29 = load ptr, ptr %65, align 8, !tbaa !44
-  %66 = ptrtoint ptr %.val29 to i64
-  %67 = and i64 %66, -2
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr i8, ptr %0, i64 56
-  %.val32 = load ptr, ptr %69, align 8, !tbaa !45
-  %70 = getelementptr i8, ptr %68, i64 36
-  %.val33 = load i32, ptr %70, align 4, !tbaa !27
-  %71 = sext i32 %.val33 to i64
-  %72 = getelementptr inbounds i32, ptr %.val32, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !29
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %79
+  %60 = shl nuw nsw i32 %58, 5
+  %61 = zext nneg i32 %60 to i64
+  %62 = and i64 %59, -33
+  %63 = or disjoint i64 %62, %61
+  store i64 %63, ptr %8, align 8
+  %64 = getelementptr i8, ptr %1, i64 40
+  %.val29 = load ptr, ptr %64, align 8, !tbaa !44
+  %65 = ptrtoint ptr %.val29 to i64
+  %66 = and i64 %65, -2
+  %67 = inttoptr i64 %66 to ptr
+  %68 = getelementptr i8, ptr %0, i64 56
+  %.val32 = load ptr, ptr %68, align 8, !tbaa !45
+  %69 = getelementptr i8, ptr %67, i64 36
+  %.val33 = load i32, ptr %69, align 4, !tbaa !27
+  %70 = sext i32 %.val33 to i64
+  %71 = getelementptr inbounds i32, ptr %.val32, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !29
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %74, label %78
 
-75:                                               ; preds = %30
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %77 = load i32, ptr %76, align 8, !tbaa !61
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %76, align 8, !tbaa !61
-  br label %79
+74:                                               ; preds = %30
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %76 = load i32, ptr %75, align 8, !tbaa !61
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %75, align 8, !tbaa !61
+  br label %78
 
-79:                                               ; preds = %2, %75, %30, %26
+78:                                               ; preds = %2, %74, %30, %26
   ret void
 }
 
@@ -490,61 +489,62 @@ define void @Dch_ManResimulateOther_rec(ptr noundef %0, ptr noundef captures(non
   %.val18 = load i64, ptr %8, align 8
   %9 = and i64 %.val18, 7
   %.not25 = icmp eq i64 %9, 2
-  br i1 %.not25, label %10, label %18
+  br i1 %.not25, label %10, label %17
 
 10:                                               ; preds = %7
   %11 = tail call i32 @Aig_ManRandom(i32 noundef 0) #11
+  %12 = shl i32 %11, 5
+  %13 = and i32 %12, 32
   br label %common.ret.sink.split
 
-common.ret.sink.split:                            ; preds = %18, %10
-  %.sink30 = phi i32 [ %11, %10 ], [ %46, %18 ]
-  %12 = load i64, ptr %8, align 8
-  %13 = shl i32 %.sink30, 5
-  %14 = and i32 %13, 32
-  %15 = zext nneg i32 %14 to i64
-  %16 = and i64 %12, -33
-  %17 = or disjoint i64 %16, %15
-  store i64 %17, ptr %8, align 8
+common.ret.sink.split:                            ; preds = %17, %10
+  %.sink28 = phi i32 [ %13, %10 ], [ %46, %17 ]
+  %.sink = load i64, ptr %8, align 8
+  %14 = zext nneg i32 %.sink28 to i64
+  %15 = and i64 %.sink, -33
+  %16 = or disjoint i64 %15, %14
+  store i64 %16, ptr %8, align 8
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %2
   ret void
 
-18:                                               ; preds = %7
-  %19 = getelementptr i8, ptr %1, i64 8
-  %.val20 = load ptr, ptr %19, align 8, !tbaa !59
-  %20 = ptrtoint ptr %.val20 to i64
-  %21 = and i64 %20, -2
-  %22 = inttoptr i64 %21 to ptr
-  tail call void @Dch_ManResimulateOther_rec(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr i8, ptr %1, i64 16
-  %.val22 = load ptr, ptr %23, align 8, !tbaa !60
-  %24 = ptrtoint ptr %.val22 to i64
-  %25 = and i64 %24, -2
-  %26 = inttoptr i64 %25 to ptr
-  tail call void @Dch_ManResimulateOther_rec(ptr noundef nonnull %0, ptr noundef %26)
-  %.val19 = load ptr, ptr %19, align 8, !tbaa !59
-  %27 = ptrtoint ptr %.val19 to i64
-  %28 = and i64 %27, -2
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load i64, ptr %30, align 8
-  %32 = trunc i64 %31 to i32
-  %33 = lshr i32 %32, 5
-  %34 = trunc i64 %27 to i32
-  %35 = xor i32 %33, %34
-  %.val21 = load ptr, ptr %23, align 8, !tbaa !60
-  %36 = ptrtoint ptr %.val21 to i64
-  %37 = and i64 %36, -2
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load i64, ptr %39, align 8
-  %41 = trunc i64 %40 to i32
-  %42 = lshr i32 %41, 5
-  %43 = trunc i64 %36 to i32
-  %44 = and i32 %43, 1
-  %45 = xor i32 %42, %44
-  %46 = and i32 %45, %35
+17:                                               ; preds = %7
+  %18 = getelementptr i8, ptr %1, i64 8
+  %.val20 = load ptr, ptr %18, align 8, !tbaa !59
+  %19 = ptrtoint ptr %.val20 to i64
+  %20 = and i64 %19, -2
+  %21 = inttoptr i64 %20 to ptr
+  tail call void @Dch_ManResimulateOther_rec(ptr noundef nonnull %0, ptr noundef %21)
+  %22 = getelementptr i8, ptr %1, i64 16
+  %.val22 = load ptr, ptr %22, align 8, !tbaa !60
+  %23 = ptrtoint ptr %.val22 to i64
+  %24 = and i64 %23, -2
+  %25 = inttoptr i64 %24 to ptr
+  tail call void @Dch_ManResimulateOther_rec(ptr noundef nonnull %0, ptr noundef %25)
+  %.val19 = load ptr, ptr %18, align 8, !tbaa !59
+  %26 = ptrtoint ptr %.val19 to i64
+  %27 = and i64 %26, -2
+  %28 = inttoptr i64 %27 to ptr
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = load i64, ptr %29, align 8
+  %31 = trunc i64 %30 to i32
+  %32 = lshr i32 %31, 5
+  %33 = trunc i64 %26 to i32
+  %34 = xor i32 %32, %33
+  %.val21 = load ptr, ptr %22, align 8, !tbaa !60
+  %35 = ptrtoint ptr %.val21 to i64
+  %36 = and i64 %35, -2
+  %37 = inttoptr i64 %36 to ptr
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load i64, ptr %38, align 8
+  %40 = trunc i64 %39 to i32
+  %41 = lshr i32 %40, 5
+  %42 = trunc i64 %35 to i32
+  %43 = xor i32 %41, %42
+  %44 = and i32 %34, 1
+  %45 = and i32 %44, %43
+  %46 = shl nuw nsw i32 %45, 5
   br label %common.ret.sink.split
 }
 

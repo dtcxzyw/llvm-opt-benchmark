@@ -1134,8 +1134,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @"_ZN5salsa8function4memo13Memo$LT$V$GT$24mark_outputs_as_verified17hdb048067aaec8a1cE"(ptr noundef nonnull align 8 %3, ptr noundef nonnull align 8 %2, i32 noundef %360, i32 noundef %361)
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %362, %342, %342, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit", %439, %428
-  %.sroa.0.0 = phi i8 [ 2, %439 ], [ %429, %428 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread" ], [ 2, %342 ], [ 2, %342 ], [ 2, %362 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ]
+_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit130", %428, %._crit_edge, %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %362, %342, %342, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit", %437
+  %.sroa.0.0 = phi i8 [ 2, %437 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread" ], [ 2, %342 ], [ 2, %342 ], [ 2, %362 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %428 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit130" ]
   ret i8 %.sroa.0.0
 
 362:                                              ; preds = %342
@@ -1220,25 +1220,25 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   %404 = getelementptr inbounds nuw i8, ptr %41, i64 4
   br label %405
 
-405:                                              ; preds = %.lr.ph, %440
-  %.sroa.0112.120 = phi ptr [ %.sroa.0112.117, %.lr.ph ], [ %.sroa.0112.1, %440 ]
-  %.sroa.0112.019 = phi ptr [ %397, %.lr.ph ], [ %.sroa.0112.120, %440 ]
-  %.sroa.0109.018 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0109.1, %440 ]
+405:                                              ; preds = %.lr.ph, %438
+  %.sroa.0112.120 = phi ptr [ %.sroa.0112.117, %.lr.ph ], [ %.sroa.0112.1, %438 ]
+  %.sroa.0112.019 = phi ptr [ %397, %.lr.ph ], [ %.sroa.0112.120, %438 ]
+  %.sroa.0109.018 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0109.1, %438 ]
   %.sroa.062.0.copyload = load i32, ptr %.sroa.0112.019, align 4
   %.sroa.563.0..sroa.060.0.61.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0112.019, i64 4
   %.sroa.563.0.copyload = load i32, ptr %.sroa.563.0..sroa.060.0.61.sroa_idx, align 4
   %.sroa.765.0..sroa.060.0.61.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0112.019, i64 8
   %.sroa.765.0.copyload = load i32, ptr %.sroa.765.0..sroa.060.0.61.sroa_idx, align 4
   %406 = trunc i32 %.sroa.062.0.copyload to i1
-  br i1 %406, label %431, label %434
+  br i1 %406, label %429, label %432
 
-._crit_edge:                                      ; preds = %440, %390
-  %.sroa.0109.0.lcssa = phi i8 [ 0, %390 ], [ %.sroa.0109.1, %440 ]
+._crit_edge:                                      ; preds = %438, %390
+  %.sroa.0109.0.lcssa = phi i8 [ 0, %390 ], [ %.sroa.0109.1, %438 ]
   %407 = call noundef zeroext i1 @_ZN5salsa5cycle10CycleHeads6remove17hc5d9ac2eec291d21E(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %58)
   %408 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %409 = load i64, ptr %408, align 8, !noundef !3
   %410 = icmp eq i64 %409, 0
-  br i1 %410, label %411, label %428
+  br i1 %410, label %411, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
 411:                                              ; preds = %._crit_edge
   %412 = getelementptr inbounds nuw i8, ptr %2, i64 2256
@@ -1272,52 +1272,48 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   %425 = load i64, ptr %2, align 8, !range !54, !noundef !3
   call void @_ZN5salsa8revision14AtomicRevision5store17h36e531e3aaf718d9E(ptr noundef nonnull align 8 %424, i64 noundef %425)
   %426 = getelementptr inbounds nuw i8, ptr %3, i64 81
-  %427 = trunc i8 %.sroa.0109.0.lcssa to i1
+  %427 = trunc nuw i8 %.sroa.0109.0.lcssa to i1
   call void @_ZN5salsa11accumulator15accumulated_map28AtomicInputAccumulatedValues5store17hc8f1898d0ea9c8c0E(ptr noundef nonnull align 1 %426, i1 noundef zeroext %427)
-  br i1 %.not, label %430, label %428
+  br i1 %.not, label %428, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-428:                                              ; preds = %._crit_edge, %430, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit130"
-  %429 = and i8 %.sroa.0109.0.lcssa, 1
+428:                                              ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit130"
+  store atomic i8 1, ptr %363 monotonic, align 2
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-430:                                              ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit130"
-  store atomic i8 1, ptr %363 monotonic, align 2
-  br label %428
-
-431:                                              ; preds = %405
+429:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   store i32 %.sroa.563.0.copyload, ptr %41, align 4
   store i32 %.sroa.765.0.copyload, ptr %404, align 4
-  %432 = load i32, ptr %58, align 4, !range !15, !noundef !3
-  %433 = load i32, ptr %59, align 4, !noundef !3
-  call void @_ZN5salsa3key16DatabaseKeyIndex21mark_validated_output17h6efb03bbf7d12c3fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %41, ptr noundef nonnull align 8 %2, i32 noundef %432, i32 noundef %433)
+  %430 = load i32, ptr %58, align 4, !range !15, !noundef !3
+  %431 = load i32, ptr %59, align 4, !noundef !3
+  call void @_ZN5salsa3key16DatabaseKeyIndex21mark_validated_output17h6efb03bbf7d12c3fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %41, ptr noundef nonnull align 8 %2, i32 noundef %430, i32 noundef %431)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
-  br label %440
+  br label %438
 
-434:                                              ; preds = %405
+432:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   store i32 %.sroa.563.0.copyload, ptr %42, align 4
   store i32 %.sroa.765.0.copyload, ptr %402, align 4
-  %435 = call noundef i64 @_ZN5salsa8revision14AtomicRevision4load17h3c5b087b72df7584E(ptr noundef nonnull align 8 %403)
-  %436 = call noundef i8 @_ZN5salsa3key16DatabaseKeyIndex19maybe_changed_after17hcdbb260aeda0d230E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %42, ptr noundef nonnull align 1 %394, ptr noalias noundef readonly align 8 dereferenceable(136) %395, ptr noundef nonnull align 8 %2, i64 noundef %435, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-  %.not123 = icmp eq i8 %436, 2
-  br i1 %.not123, label %439, label %437
+  %433 = call noundef i64 @_ZN5salsa8revision14AtomicRevision4load17h3c5b087b72df7584E(ptr noundef nonnull align 8 %403)
+  %434 = call noundef i8 @_ZN5salsa3key16DatabaseKeyIndex19maybe_changed_after17hcdbb260aeda0d230E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %42, ptr noundef nonnull align 1 %394, ptr noalias noundef readonly align 8 dereferenceable(136) %395, ptr noundef nonnull align 8 %2, i64 noundef %433, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  %.not123 = icmp eq i8 %434, 2
+  br i1 %.not123, label %437, label %435
 
-437:                                              ; preds = %434
-  %438 = or i8 %436, %.sroa.0109.018
+435:                                              ; preds = %432
+  %436 = or i8 %434, %.sroa.0109.018
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
-  br label %440
+  br label %438
 
-439:                                              ; preds = %434
+437:                                              ; preds = %432
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-440:                                              ; preds = %437, %431
-  %.sroa.0109.1 = phi i8 [ %.sroa.0109.018, %431 ], [ %438, %437 ]
-  %441 = icmp eq ptr %.sroa.0112.120, %400
-  %.sroa.0112.1.idx = select i1 %441, i64 0, i64 12
+438:                                              ; preds = %435, %429
+  %.sroa.0109.1 = phi i8 [ %.sroa.0109.018, %429 ], [ %436, %435 ]
+  %439 = icmp eq ptr %.sroa.0112.120, %400
+  %.sroa.0112.1.idx = select i1 %439, i64 0, i64 12
   %.sroa.0112.1 = getelementptr inbounds nuw i8, ptr %.sroa.0112.120, i64 %.sroa.0112.1.idx
-  br i1 %441, label %._crit_edge, label %405
+  br i1 %439, label %._crit_edge, label %405
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2249,8 +2245,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @"_ZN5salsa8function4memo13Memo$LT$V$GT$24mark_outputs_as_verified17h48ad5aaa9cb0aca6E"(ptr noundef nonnull align 8 %3, ptr noundef nonnull align 8 %2, i32 noundef %360, i32 noundef %361)
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %362, %342, %342, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit", %439, %428
-  %.sroa.0.0 = phi i8 [ 2, %439 ], [ %429, %428 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread" ], [ 2, %342 ], [ 2, %342 ], [ 2, %362 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ]
+_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit130", %428, %._crit_edge, %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %362, %342, %342, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit", %437
+  %.sroa.0.0 = phi i8 [ 2, %437 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread" ], [ 2, %342 ], [ 2, %342 ], [ 2, %362 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %428 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit130" ]
   ret i8 %.sroa.0.0
 
 362:                                              ; preds = %342
@@ -2335,25 +2331,25 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   %404 = getelementptr inbounds nuw i8, ptr %41, i64 4
   br label %405
 
-405:                                              ; preds = %.lr.ph, %440
-  %.sroa.0112.120 = phi ptr [ %.sroa.0112.117, %.lr.ph ], [ %.sroa.0112.1, %440 ]
-  %.sroa.0112.019 = phi ptr [ %397, %.lr.ph ], [ %.sroa.0112.120, %440 ]
-  %.sroa.0109.018 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0109.1, %440 ]
+405:                                              ; preds = %.lr.ph, %438
+  %.sroa.0112.120 = phi ptr [ %.sroa.0112.117, %.lr.ph ], [ %.sroa.0112.1, %438 ]
+  %.sroa.0112.019 = phi ptr [ %397, %.lr.ph ], [ %.sroa.0112.120, %438 ]
+  %.sroa.0109.018 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0109.1, %438 ]
   %.sroa.062.0.copyload = load i32, ptr %.sroa.0112.019, align 4
   %.sroa.563.0..sroa.060.0.61.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0112.019, i64 4
   %.sroa.563.0.copyload = load i32, ptr %.sroa.563.0..sroa.060.0.61.sroa_idx, align 4
   %.sroa.765.0..sroa.060.0.61.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0112.019, i64 8
   %.sroa.765.0.copyload = load i32, ptr %.sroa.765.0..sroa.060.0.61.sroa_idx, align 4
   %406 = trunc i32 %.sroa.062.0.copyload to i1
-  br i1 %406, label %431, label %434
+  br i1 %406, label %429, label %432
 
-._crit_edge:                                      ; preds = %440, %390
-  %.sroa.0109.0.lcssa = phi i8 [ 0, %390 ], [ %.sroa.0109.1, %440 ]
+._crit_edge:                                      ; preds = %438, %390
+  %.sroa.0109.0.lcssa = phi i8 [ 0, %390 ], [ %.sroa.0109.1, %438 ]
   %407 = call noundef zeroext i1 @_ZN5salsa5cycle10CycleHeads6remove17hc5d9ac2eec291d21E(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %58)
   %408 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %409 = load i64, ptr %408, align 8, !noundef !3
   %410 = icmp eq i64 %409, 0
-  br i1 %410, label %411, label %428
+  br i1 %410, label %411, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
 411:                                              ; preds = %._crit_edge
   %412 = getelementptr inbounds nuw i8, ptr %2, i64 2256
@@ -2387,52 +2383,48 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   %425 = load i64, ptr %2, align 8, !range !54, !noundef !3
   call void @_ZN5salsa8revision14AtomicRevision5store17h36e531e3aaf718d9E(ptr noundef nonnull align 8 %424, i64 noundef %425)
   %426 = getelementptr inbounds nuw i8, ptr %3, i64 81
-  %427 = trunc i8 %.sroa.0109.0.lcssa to i1
+  %427 = trunc nuw i8 %.sroa.0109.0.lcssa to i1
   call void @_ZN5salsa11accumulator15accumulated_map28AtomicInputAccumulatedValues5store17hc8f1898d0ea9c8c0E(ptr noundef nonnull align 1 %426, i1 noundef zeroext %427)
-  br i1 %.not, label %430, label %428
+  br i1 %.not, label %428, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-428:                                              ; preds = %._crit_edge, %430, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit130"
-  %429 = and i8 %.sroa.0109.0.lcssa, 1
+428:                                              ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit130"
+  store atomic i8 1, ptr %363 monotonic, align 2
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-430:                                              ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit130"
-  store atomic i8 1, ptr %363 monotonic, align 2
-  br label %428
-
-431:                                              ; preds = %405
+429:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   store i32 %.sroa.563.0.copyload, ptr %41, align 4
   store i32 %.sroa.765.0.copyload, ptr %404, align 4
-  %432 = load i32, ptr %58, align 4, !range !15, !noundef !3
-  %433 = load i32, ptr %59, align 4, !noundef !3
-  call void @_ZN5salsa3key16DatabaseKeyIndex21mark_validated_output17h6efb03bbf7d12c3fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %41, ptr noundef nonnull align 8 %2, i32 noundef %432, i32 noundef %433)
+  %430 = load i32, ptr %58, align 4, !range !15, !noundef !3
+  %431 = load i32, ptr %59, align 4, !noundef !3
+  call void @_ZN5salsa3key16DatabaseKeyIndex21mark_validated_output17h6efb03bbf7d12c3fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %41, ptr noundef nonnull align 8 %2, i32 noundef %430, i32 noundef %431)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
-  br label %440
+  br label %438
 
-434:                                              ; preds = %405
+432:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   store i32 %.sroa.563.0.copyload, ptr %42, align 4
   store i32 %.sroa.765.0.copyload, ptr %402, align 4
-  %435 = call noundef i64 @_ZN5salsa8revision14AtomicRevision4load17h3c5b087b72df7584E(ptr noundef nonnull align 8 %403)
-  %436 = call noundef i8 @_ZN5salsa3key16DatabaseKeyIndex19maybe_changed_after17hcdbb260aeda0d230E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %42, ptr noundef nonnull align 1 %394, ptr noalias noundef readonly align 8 dereferenceable(136) %395, ptr noundef nonnull align 8 %2, i64 noundef %435, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-  %.not123 = icmp eq i8 %436, 2
-  br i1 %.not123, label %439, label %437
+  %433 = call noundef i64 @_ZN5salsa8revision14AtomicRevision4load17h3c5b087b72df7584E(ptr noundef nonnull align 8 %403)
+  %434 = call noundef i8 @_ZN5salsa3key16DatabaseKeyIndex19maybe_changed_after17hcdbb260aeda0d230E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %42, ptr noundef nonnull align 1 %394, ptr noalias noundef readonly align 8 dereferenceable(136) %395, ptr noundef nonnull align 8 %2, i64 noundef %433, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  %.not123 = icmp eq i8 %434, 2
+  br i1 %.not123, label %437, label %435
 
-437:                                              ; preds = %434
-  %438 = or i8 %436, %.sroa.0109.018
+435:                                              ; preds = %432
+  %436 = or i8 %434, %.sroa.0109.018
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
-  br label %440
+  br label %438
 
-439:                                              ; preds = %434
+437:                                              ; preds = %432
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-440:                                              ; preds = %437, %431
-  %.sroa.0109.1 = phi i8 [ %.sroa.0109.018, %431 ], [ %438, %437 ]
-  %441 = icmp eq ptr %.sroa.0112.120, %400
-  %.sroa.0112.1.idx = select i1 %441, i64 0, i64 12
+438:                                              ; preds = %435, %429
+  %.sroa.0109.1 = phi i8 [ %.sroa.0109.018, %429 ], [ %436, %435 ]
+  %439 = icmp eq ptr %.sroa.0112.120, %400
+  %.sroa.0112.1.idx = select i1 %439, i64 0, i64 12
   %.sroa.0112.1 = getelementptr inbounds nuw i8, ptr %.sroa.0112.120, i64 %.sroa.0112.1.idx
-  br i1 %441, label %._crit_edge, label %405
+  br i1 %439, label %._crit_edge, label %405
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3364,8 +3356,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @"_ZN5salsa8function4memo13Memo$LT$V$GT$24mark_outputs_as_verified17h5a2535d71b6dfd2fE"(ptr noundef nonnull align 8 %3, ptr noundef nonnull align 8 %2, i32 noundef %360, i32 noundef %361)
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %362, %342, %342, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit", %439, %428
-  %.sroa.0.0 = phi i8 [ 2, %439 ], [ %429, %428 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread" ], [ 2, %342 ], [ 2, %342 ], [ 2, %362 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ]
+_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit130", %428, %._crit_edge, %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %362, %342, %342, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit", %437
+  %.sroa.0.0 = phi i8 [ 2, %437 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread" ], [ 2, %342 ], [ 2, %342 ], [ 2, %362 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %428 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit130" ]
   ret i8 %.sroa.0.0
 
 362:                                              ; preds = %342
@@ -3450,25 +3442,25 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   %404 = getelementptr inbounds nuw i8, ptr %41, i64 4
   br label %405
 
-405:                                              ; preds = %.lr.ph, %440
-  %.sroa.0112.120 = phi ptr [ %.sroa.0112.117, %.lr.ph ], [ %.sroa.0112.1, %440 ]
-  %.sroa.0112.019 = phi ptr [ %397, %.lr.ph ], [ %.sroa.0112.120, %440 ]
-  %.sroa.0109.018 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0109.1, %440 ]
+405:                                              ; preds = %.lr.ph, %438
+  %.sroa.0112.120 = phi ptr [ %.sroa.0112.117, %.lr.ph ], [ %.sroa.0112.1, %438 ]
+  %.sroa.0112.019 = phi ptr [ %397, %.lr.ph ], [ %.sroa.0112.120, %438 ]
+  %.sroa.0109.018 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0109.1, %438 ]
   %.sroa.062.0.copyload = load i32, ptr %.sroa.0112.019, align 4
   %.sroa.563.0..sroa.060.0.61.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0112.019, i64 4
   %.sroa.563.0.copyload = load i32, ptr %.sroa.563.0..sroa.060.0.61.sroa_idx, align 4
   %.sroa.765.0..sroa.060.0.61.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0112.019, i64 8
   %.sroa.765.0.copyload = load i32, ptr %.sroa.765.0..sroa.060.0.61.sroa_idx, align 4
   %406 = trunc i32 %.sroa.062.0.copyload to i1
-  br i1 %406, label %431, label %434
+  br i1 %406, label %429, label %432
 
-._crit_edge:                                      ; preds = %440, %390
-  %.sroa.0109.0.lcssa = phi i8 [ 0, %390 ], [ %.sroa.0109.1, %440 ]
+._crit_edge:                                      ; preds = %438, %390
+  %.sroa.0109.0.lcssa = phi i8 [ 0, %390 ], [ %.sroa.0109.1, %438 ]
   %407 = call noundef zeroext i1 @_ZN5salsa5cycle10CycleHeads6remove17hc5d9ac2eec291d21E(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %58)
   %408 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %409 = load i64, ptr %408, align 8, !noundef !3
   %410 = icmp eq i64 %409, 0
-  br i1 %410, label %411, label %428
+  br i1 %410, label %411, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
 411:                                              ; preds = %._crit_edge
   %412 = getelementptr inbounds nuw i8, ptr %2, i64 2256
@@ -3502,52 +3494,48 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   %425 = load i64, ptr %2, align 8, !range !54, !noundef !3
   call void @_ZN5salsa8revision14AtomicRevision5store17h36e531e3aaf718d9E(ptr noundef nonnull align 8 %424, i64 noundef %425)
   %426 = getelementptr inbounds nuw i8, ptr %3, i64 81
-  %427 = trunc i8 %.sroa.0109.0.lcssa to i1
+  %427 = trunc nuw i8 %.sroa.0109.0.lcssa to i1
   call void @_ZN5salsa11accumulator15accumulated_map28AtomicInputAccumulatedValues5store17hc8f1898d0ea9c8c0E(ptr noundef nonnull align 1 %426, i1 noundef zeroext %427)
-  br i1 %.not, label %430, label %428
+  br i1 %.not, label %428, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-428:                                              ; preds = %._crit_edge, %430, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit130"
-  %429 = and i8 %.sroa.0109.0.lcssa, 1
+428:                                              ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit130"
+  store atomic i8 1, ptr %363 monotonic, align 2
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-430:                                              ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit130"
-  store atomic i8 1, ptr %363 monotonic, align 2
-  br label %428
-
-431:                                              ; preds = %405
+429:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   store i32 %.sroa.563.0.copyload, ptr %41, align 4
   store i32 %.sroa.765.0.copyload, ptr %404, align 4
-  %432 = load i32, ptr %58, align 4, !range !15, !noundef !3
-  %433 = load i32, ptr %59, align 4, !noundef !3
-  call void @_ZN5salsa3key16DatabaseKeyIndex21mark_validated_output17h6efb03bbf7d12c3fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %41, ptr noundef nonnull align 8 %2, i32 noundef %432, i32 noundef %433)
+  %430 = load i32, ptr %58, align 4, !range !15, !noundef !3
+  %431 = load i32, ptr %59, align 4, !noundef !3
+  call void @_ZN5salsa3key16DatabaseKeyIndex21mark_validated_output17h6efb03bbf7d12c3fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %41, ptr noundef nonnull align 8 %2, i32 noundef %430, i32 noundef %431)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
-  br label %440
+  br label %438
 
-434:                                              ; preds = %405
+432:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   store i32 %.sroa.563.0.copyload, ptr %42, align 4
   store i32 %.sroa.765.0.copyload, ptr %402, align 4
-  %435 = call noundef i64 @_ZN5salsa8revision14AtomicRevision4load17h3c5b087b72df7584E(ptr noundef nonnull align 8 %403)
-  %436 = call noundef i8 @_ZN5salsa3key16DatabaseKeyIndex19maybe_changed_after17hcdbb260aeda0d230E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %42, ptr noundef nonnull align 1 %394, ptr noalias noundef readonly align 8 dereferenceable(136) %395, ptr noundef nonnull align 8 %2, i64 noundef %435, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-  %.not123 = icmp eq i8 %436, 2
-  br i1 %.not123, label %439, label %437
+  %433 = call noundef i64 @_ZN5salsa8revision14AtomicRevision4load17h3c5b087b72df7584E(ptr noundef nonnull align 8 %403)
+  %434 = call noundef i8 @_ZN5salsa3key16DatabaseKeyIndex19maybe_changed_after17hcdbb260aeda0d230E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %42, ptr noundef nonnull align 1 %394, ptr noalias noundef readonly align 8 dereferenceable(136) %395, ptr noundef nonnull align 8 %2, i64 noundef %433, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  %.not123 = icmp eq i8 %434, 2
+  br i1 %.not123, label %437, label %435
 
-437:                                              ; preds = %434
-  %438 = or i8 %436, %.sroa.0109.018
+435:                                              ; preds = %432
+  %436 = or i8 %434, %.sroa.0109.018
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
-  br label %440
+  br label %438
 
-439:                                              ; preds = %434
+437:                                              ; preds = %432
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
-440:                                              ; preds = %437, %431
-  %.sroa.0109.1 = phi i8 [ %.sroa.0109.018, %431 ], [ %438, %437 ]
-  %441 = icmp eq ptr %.sroa.0112.120, %400
-  %.sroa.0112.1.idx = select i1 %441, i64 0, i64 12
+438:                                              ; preds = %435, %429
+  %.sroa.0109.1 = phi i8 [ %.sroa.0109.018, %429 ], [ %436, %435 ]
+  %439 = icmp eq ptr %.sroa.0112.120, %400
+  %.sroa.0112.1.idx = select i1 %439, i64 0, i64 12
   %.sroa.0112.1 = getelementptr inbounds nuw i8, ptr %.sroa.0112.120, i64 %.sroa.0112.1.idx
-  br i1 %441, label %._crit_edge, label %405
+  br i1 %439, label %._crit_edge, label %405
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -2118,14 +2118,14 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %.backedge, %12
-  %19 = phi i32 [ %14, %12 ], [ %109, %.backedge ]
-  %20 = phi i32 [ %15, %12 ], [ %108, %.backedge ]
+  %19 = phi i32 [ %14, %12 ], [ %107, %.backedge ]
+  %20 = phi i32 [ %15, %12 ], [ %106, %.backedge ]
   %21 = phi i64 [ %16, %12 ], [ %.be, %.backedge ]
   br label %22
 
-22:                                               ; preds = %112, %18
-  %23 = phi i32 [ %109, %112 ], [ %19, %18 ]
-  %24 = phi i32 [ %108, %112 ], [ %20, %18 ]
+22:                                               ; preds = %110, %18
+  %23 = phi i32 [ %107, %110 ], [ %19, %18 ]
+  %24 = phi i32 [ %106, %110 ], [ %20, %18 ]
   %25 = icmp sgt i32 %24, 2
   %26 = sext i1 %25 to i32
   %27 = add nsw i32 %24, %26
@@ -2149,7 +2149,7 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %41 = load i64, ptr %40, align 8
   %42 = load i64, ptr %4, align 8
   %43 = icmp eq i64 %41, %42
-  br i1 %43, label %44, label %107
+  br i1 %43, label %44, label %105
 
 44:                                               ; preds = %39, %35
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -2157,7 +2157,7 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %46 = load i64, ptr %4, align 8
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %46, ptr %47, align 8
-  br label %.thread
+  br label %115
 
 48:                                               ; preds = %22
   %49 = and i32 %24, 2147483646
@@ -2182,7 +2182,7 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %64 = xor i64 %63, %21
   %65 = and i64 %64, %55
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %107
+  br i1 %66, label %67, label %105
 
 67:                                               ; preds = %61, %51
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -2195,7 +2195,7 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %74 = and i64 %21, %55
   %75 = or i64 %73, %74
   store i64 %75, ptr %71, align 8
-  br label %.thread
+  br label %115
 
 76:                                               ; preds = %48
   %77 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -2209,21 +2209,21 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %83 = load i64, ptr %3, align 8
   %84 = lshr i64 %83, 32
   %85 = icmp eq i64 %82, %84
-  br i1 %85, label %86, label %107
+  br i1 %85, label %86, label %105
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = load i64, ptr %4, align 8
   %90 = icmp eq i64 %88, %89
-  br i1 %90, label %91, label %107
+  br i1 %90, label %91, label %105
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %93 = load i64, ptr %92, align 8
   %94 = load i64, ptr %5, align 8
   %95 = icmp eq i64 %93, %94
-  br i1 %95, label %96, label %107
+  br i1 %95, label %96, label %105
 
 96:                                               ; preds = %91, %76
   %97 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -2238,86 +2238,86 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %103 = load i64, ptr %5, align 8
   %104 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i64 %103, ptr %104, align 8
-  br label %.thread
+  br label %115
 
-.thread:                                          ; preds = %44, %96, %67
+105:                                              ; preds = %39, %91, %86, %80, %61
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %32, i64 noundef %33) #8
-  %105 = load i32, ptr %0, align 8
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %.loopexit, label %117
+  %106 = xor i32 %24, 1
+  %107 = load i32, ptr %13, align 8
+  %108 = srem i32 %107, 6
+  %109 = icmp eq i32 %106, %108
+  br i1 %109, label %.loopexit, label %110
 
-107:                                              ; preds = %91, %86, %80, %61, %39
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %32, i64 noundef %33) #8
-  %108 = xor i32 %24, 1
-  %109 = load i32, ptr %13, align 8
-  %110 = srem i32 %109, 6
-  %111 = icmp eq i32 %108, %110
-  br i1 %111, label %.loopexit, label %112
-
-112:                                              ; preds = %107
-  switch i32 %108, label %22 [
-    i32 2, label %113
-    i32 3, label %115
+110:                                              ; preds = %105
+  switch i32 %106, label %22 [
+    i32 2, label %111
+    i32 3, label %113
   ]
 
-113:                                              ; preds = %112
-  %114 = lshr i64 %21, 8
+111:                                              ; preds = %110
+  %112 = lshr i64 %21, 8
   br label %.backedge
 
-115:                                              ; preds = %112
-  %116 = shl i64 %21, 8
+113:                                              ; preds = %110
+  %114 = shl i64 %21, 8
   br label %.backedge
 
-.backedge:                                        ; preds = %115, %113
-  %.be = phi i64 [ %116, %115 ], [ %114, %113 ]
+.backedge:                                        ; preds = %113, %111
+  %.be = phi i64 [ %114, %113 ], [ %112, %111 ]
   br label %18
 
-117:                                              ; preds = %.thread
-  %118 = load i32, ptr %13, align 8
-  %119 = srem i32 %118, 6
-  %120 = icmp eq i32 %24, %119
-  br i1 %120, label %139, label %121
+115:                                              ; preds = %44, %67, %96
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %32, i64 noundef %33) #8
+  %116 = load i32, ptr %0, align 8
+  %117 = icmp slt i32 %116, 0
+  br i1 %117, label %.loopexit, label %118
 
-121:                                              ; preds = %117
-  %122 = and i32 %118, 1
-  %123 = icmp eq i32 %122, 0
-  %124 = or disjoint i32 %118, 1
-  %125 = add nsw i32 %118, -1
-  %126 = select i1 %123, i32 %124, i32 %125
-  %127 = select i1 %123, i64 2, i64 -2
-  store i32 %126, ptr %13, align 8
-  %128 = load i64, ptr %3, align 8
-  %129 = add i64 %128, %127
-  store i64 %129, ptr %3, align 8
-  %130 = srem i32 %126, 6
-  switch i32 %130, label %139 [
-    i32 2, label %131
-    i32 3, label %134
+118:                                              ; preds = %115
+  %119 = load i32, ptr %13, align 8
+  %120 = srem i32 %119, 6
+  %121 = icmp eq i32 %24, %120
+  br i1 %121, label %140, label %122
+
+122:                                              ; preds = %118
+  %123 = and i32 %119, 1
+  %124 = icmp eq i32 %123, 0
+  %125 = or disjoint i32 %119, 1
+  %126 = add nsw i32 %119, -1
+  %127 = select i1 %124, i32 %125, i32 %126
+  %128 = select i1 %124, i64 2, i64 -2
+  store i32 %127, ptr %13, align 8
+  %129 = load i64, ptr %3, align 8
+  %130 = add i64 %129, %128
+  store i64 %130, ptr %3, align 8
+  %131 = srem i32 %127, 6
+  switch i32 %131, label %140 [
+    i32 2, label %132
+    i32 3, label %135
   ]
 
-131:                                              ; preds = %121
-  %132 = load i64, ptr %4, align 8
-  %133 = lshr i64 %132, 8
-  br label %137
+132:                                              ; preds = %122
+  %133 = load i64, ptr %4, align 8
+  %134 = lshr i64 %133, 8
+  br label %138
 
-134:                                              ; preds = %121
-  %135 = load i64, ptr %4, align 8
-  %136 = shl i64 %135, 8
-  br label %137
+135:                                              ; preds = %122
+  %136 = load i64, ptr %4, align 8
+  %137 = shl i64 %136, 8
+  br label %138
 
-137:                                              ; preds = %134, %131
-  %138 = phi i64 [ %136, %134 ], [ %133, %131 ]
-  store i64 %138, ptr %4, align 8
-  br label %139
+138:                                              ; preds = %135, %132
+  %139 = phi i64 [ %137, %135 ], [ %134, %132 ]
+  store i64 %139, ptr %4, align 8
+  br label %140
 
-139:                                              ; preds = %137, %121, %117
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 420
-  store i32 1, ptr %140, align 4
+140:                                              ; preds = %138, %122, %118
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 420
+  store i32 1, ptr %141, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %107, %139, %.thread, %8
-  %141 = phi ptr [ null, %8 ], [ null, %139 ], [ null, %.thread ], [ @uncore_constraint_empty, %107 ]
-  ret ptr %141
+.loopexit:                                        ; preds = %105, %140, %115, %8
+  %142 = phi ptr [ null, %8 ], [ null, %140 ], [ null, %115 ], [ @uncore_constraint_empty, %105 ]
+  ret ptr %142
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

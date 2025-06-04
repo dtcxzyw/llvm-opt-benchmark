@@ -532,7 +532,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   br i1 %81, label %.thread, label %84
 
 82:                                               ; preds = %.lr.ph.split
-  %83 = trunc i8 %.03366 to i1
+  %83 = trunc nuw i8 %.03366 to i1
   %spec.select = select i1 %83, i64 %.03465, i64 %58
   br label %84
 
@@ -550,7 +550,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %.us-phi68 = phi ptr [ %32, %48 ], [ %32, %42 ], [ %32, %37 ], [ %32, %33 ], [ %59, %79 ], [ %59, %68 ], [ %59, %73 ], [ %59, %64 ]
   %.us-phi69 = phi i64 [ %.03465.us, %48 ], [ %.03465.us, %42 ], [ %.03465.us, %37 ], [ %.03465.us, %33 ], [ %.03465, %79 ], [ %.03465, %68 ], [ %.03465, %73 ], [ %.03465, %64 ]
   %.us-phi70 = phi i8 [ %.03366.us, %48 ], [ %.03366.us, %42 ], [ %.03366.us, %37 ], [ %.03366.us, %33 ], [ %.03366, %79 ], [ %.03366, %68 ], [ %.03366, %73 ], [ %.03366, %64 ]
-  %90 = trunc i8 %.us-phi70 to i1
+  %90 = trunc nuw i8 %.us-phi70 to i1
   br i1 %90, label %.thread52, label %.thread55
 
 .thread55:                                        ; preds = %.thread
@@ -570,7 +570,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %.033.lcssa = phi i8 [ %.3.us, %53 ], [ %.3, %84 ]
   store atomic i64 %.034.lcssa, ptr %20 monotonic, align 16
   store atomic i64 %8, ptr %6 release, align 8
-  %93 = trunc i8 %.033.lcssa to i1
+  %93 = trunc nuw i8 %.033.lcssa to i1
   br i1 %93, label %94, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
 94:                                               ; preds = %.thread52, %._crit_edge

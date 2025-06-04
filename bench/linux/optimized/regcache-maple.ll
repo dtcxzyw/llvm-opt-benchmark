@@ -340,84 +340,84 @@ define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0,
   tail call void @__rcu_read_lock() #10
   %17 = call ptr @mas_find(ptr noundef nonnull %4, i64 noundef %10) #10
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit, label %.preheader7
+  br i1 %18, label %.loopexit, label %.preheader6
 
-.preheader7:                                      ; preds = %3, %64
-  %19 = phi ptr [ %66, %64 ], [ %17, %3 ]
-  %20 = phi i32 [ %57, %64 ], [ 0, %3 ]
-  %21 = phi i8 [ %65, %64 ], [ 0, %3 ]
-  %22 = load i64, ptr %7, align 8
-  %23 = call i64 @llvm.umax.i64(i64 %22, i64 %8)
-  %24 = trunc i64 %23 to i32
-  %25 = and i64 %23, 4294967295
-  %26 = load i64, ptr %9, align 8
-  %27 = call i64 @llvm.umin.i64(i64 %26, i64 %10)
-  %28 = icmp samesign ult i64 %27, %25
-  br i1 %28, label %.loopexit6, label %.preheader
+.preheader6:                                      ; preds = %3, %.thread
+  %19 = phi ptr [ %57, %.thread ], [ %17, %3 ]
+  %20 = phi i32 [ %56, %.thread ], [ 0, %3 ]
+  %21 = load i64, ptr %7, align 8
+  %22 = call i64 @llvm.umax.i64(i64 %21, i64 %8)
+  %23 = and i64 %22, 4294967295
+  %24 = load i64, ptr %9, align 8
+  %25 = call i64 @llvm.umin.i64(i64 %24, i64 %10)
+  %26 = icmp samesign ult i64 %25, %23
+  br i1 %26, label %.thread, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.preheader7, %48
-  %29 = phi i64 [ %52, %48 ], [ %25, %.preheader7 ]
-  %30 = phi i32 [ %51, %48 ], [ %24, %.preheader7 ]
-  %31 = phi i32 [ %50, %48 ], [ %20, %.preheader7 ]
-  %32 = phi i8 [ %49, %48 ], [ %21, %.preheader7 ]
-  %33 = load i64, ptr %7, align 8
-  %34 = sub i64 %29, %33
-  %35 = getelementptr i64, ptr %19, i64 %34
-  %36 = load i64, ptr %35, align 8
-  %37 = trunc i64 %36 to i32
-  %38 = call zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32 noundef %30, i32 noundef %37) #10
-  %39 = and i8 %32, 1
-  %40 = icmp eq i8 %39, 0
-  br i1 %38, label %41, label %44
+.preheader.preheader:                             ; preds = %.preheader6
+  %27 = trunc i64 %22 to i32
+  br label %.preheader.outer
 
-41:                                               ; preds = %.preheader
-  %42 = select i1 %40, i8 1, i8 %32
-  %43 = select i1 %40, i32 %30, i32 %31
-  br label %48
+.preheader.outer:                                 ; preds = %.thread15, %.preheader.preheader
+  %.ph = phi i64 [ %50, %.thread15 ], [ %23, %.preheader.preheader ]
+  %.ph17 = phi i32 [ %49, %.thread15 ], [ %27, %.preheader.preheader ]
+  %.ph18 = phi i32 [ %48, %.thread15 ], [ %20, %.preheader.preheader ]
+  %28 = phi i1 [ false, %.thread15 ], [ true, %.preheader.preheader ]
+  br label %.preheader
 
-44:                                               ; preds = %.preheader
-  br i1 %40, label %48, label %45
+.preheader:                                       ; preds = %.preheader.outer, %42
+  %29 = phi i64 [ %44, %42 ], [ %.ph, %.preheader.outer ]
+  %30 = phi i32 [ %43, %42 ], [ %.ph17, %.preheader.outer ]
+  %31 = phi i1 [ true, %42 ], [ %28, %.preheader.outer ]
+  %32 = load i64, ptr %7, align 8
+  %33 = sub i64 %29, %32
+  %34 = getelementptr i64, ptr %19, i64 %33
+  %35 = load i64, ptr %34, align 8
+  %36 = trunc i64 %35 to i32
+  %37 = call zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32 noundef %30, i32 noundef %36) #10
+  br i1 %37, label %.thread15, label %38
 
-45:                                               ; preds = %44
-  %46 = call fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef %31, i32 noundef %30)
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.loopexit
+38:                                               ; preds = %.preheader
+  br i1 %31, label %42, label %39
 
-48:                                               ; preds = %45, %44, %41
-  %49 = phi i8 [ %32, %44 ], [ %42, %41 ], [ 0, %45 ]
-  %50 = phi i32 [ %31, %44 ], [ %43, %41 ], [ %31, %45 ]
-  %51 = add i32 %30, 1
-  %52 = zext i32 %51 to i64
-  %53 = load i64, ptr %9, align 8
-  %54 = call i64 @llvm.umin.i64(i64 %53, i64 %10)
-  %55 = icmp samesign ult i64 %54, %52
-  br i1 %55, label %.loopexit6, label %.preheader, !llvm.loop !9
+39:                                               ; preds = %38
+  %40 = call fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef %.ph18, i32 noundef %30)
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %.loopexit
 
-.loopexit6:                                       ; preds = %48, %.preheader7
-  %56 = phi i8 [ %21, %.preheader7 ], [ %49, %48 ]
-  %57 = phi i32 [ %20, %.preheader7 ], [ %50, %48 ]
-  %58 = phi i32 [ %24, %.preheader7 ], [ %51, %48 ]
-  %59 = and i8 %56, 1
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %64, label %61
+42:                                               ; preds = %39, %38
+  %43 = add i32 %30, 1
+  %44 = zext i32 %43 to i64
+  %45 = load i64, ptr %9, align 8
+  %46 = call i64 @llvm.umin.i64(i64 %45, i64 %10)
+  %47 = icmp samesign ult i64 %46, %44
+  br i1 %47, label %.thread, label %.preheader, !llvm.loop !9
 
-61:                                               ; preds = %.loopexit6
-  %62 = call fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef %57, i32 noundef %58)
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %.loopexit
+.thread15:                                        ; preds = %.preheader
+  %48 = select i1 %31, i32 %30, i32 %.ph18
+  %49 = add i32 %30, 1
+  %50 = zext i32 %49 to i64
+  %51 = load i64, ptr %9, align 8
+  %52 = call i64 @llvm.umin.i64(i64 %51, i64 %10)
+  %53 = icmp samesign ult i64 %52, %50
+  br i1 %53, label %.thread16, label %.preheader.outer, !llvm.loop !9
 
-64:                                               ; preds = %61, %.loopexit6
-  %65 = phi i8 [ %56, %.loopexit6 ], [ 0, %61 ]
-  %66 = call ptr @mas_find(ptr noundef nonnull %4, i64 noundef %10) #10
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %.loopexit, label %.preheader7, !llvm.loop !10
+.thread16:                                        ; preds = %.thread15
+  %54 = call fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef %48, i32 noundef %49)
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %.thread, label %.loopexit
 
-.loopexit:                                        ; preds = %64, %61, %45, %3
-  %68 = phi i32 [ 0, %3 ], [ %46, %45 ], [ %62, %61 ], [ 0, %64 ]
+.thread:                                          ; preds = %42, %.preheader6, %.thread16
+  %56 = phi i32 [ %48, %.thread16 ], [ %20, %.preheader6 ], [ %.ph18, %42 ]
+  %57 = call ptr @mas_find(ptr noundef nonnull %4, i64 noundef %10) #10
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %.loopexit, label %.preheader6, !llvm.loop !10
+
+.loopexit:                                        ; preds = %.thread, %.thread16, %39, %3
+  %59 = phi i32 [ 0, %3 ], [ %40, %39 ], [ %54, %.thread16 ], [ 0, %.thread ]
   call void @__rcu_read_unlock() #10
   store i8 0, ptr %16, align 1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
-  ret i32 %68
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

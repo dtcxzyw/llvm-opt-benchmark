@@ -15333,6 +15333,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %37 = load i32, ptr %m_flags.i195, align 8
   %m_has_case_change = getelementptr inbounds nuw i8, ptr %this, i64 232
   %38 = load i8, ptr %m_has_case_change, align 8
+  %frombool38 = and i8 %38, 1
   store i8 0, ptr %m_has_case_change, align 8
   %m_mark_reset = getelementptr inbounds nuw i8, ptr %this, i64 204
   %39 = load i32, ptr %m_mark_reset, align 4
@@ -17406,6 +17407,7 @@ if.then.i:                                        ; preds = %if.then1206
 _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit: ; preds = %if.then1206, %if.then.i
   %418 = load i8, ptr %m_has_case_change, align 8
   %419 = or i8 %418, %38
+  %or145 = and i8 %419, 1
   br label %if.end1242
 
 if.then1220:                                      ; preds = %if.end1193
@@ -17457,7 +17459,7 @@ while.end1235:                                    ; preds = %while.cond1226
 
 if.end1242:                                       ; preds = %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit
   %428 = phi i8 [ %418, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %.pre857, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
-  %old_case_change.1 = phi i8 [ %419, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
+  %old_case_change.1 = phi i8 [ %or145, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
   %restore_flags.1 = phi i1 [ false, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
   %tobool1244 = trunc i8 %428 to i1
   br i1 %tobool1244, label %if.then1245, label %sw.epilog
@@ -17471,7 +17473,7 @@ if.then1245:                                      ; preds = %if.end1242
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end1242, %if.then1245, %if.end445, %if.end684, %if.end868, %if.end900, %if.end738, %if.end588, %if.end1008, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431, %if.end261, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269, %sw.bb48
-  %old_case_change.0 = phi i8 [ %38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ %old_case_change.1, %if.then1245 ], [ %old_case_change.1, %if.end1242 ], [ %38, %sw.bb48 ], [ %38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ %38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ %38, %if.end261 ], [ %38, %if.end1008 ], [ %38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ %38, %if.end445 ], [ %38, %if.end588 ], [ %38, %if.end684 ], [ %38, %if.end738 ], [ %38, %if.end868 ], [ %38, %if.end900 ]
+  %old_case_change.0 = phi i8 [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ %old_case_change.1, %if.then1245 ], [ %old_case_change.1, %if.end1242 ], [ %frombool38, %sw.bb48 ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ %frombool38, %if.end261 ], [ %frombool38, %if.end1008 ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ %frombool38, %if.end445 ], [ %frombool38, %if.end588 ], [ %frombool38, %if.end684 ], [ %frombool38, %if.end738 ], [ %frombool38, %if.end868 ], [ %frombool38, %if.end900 ]
   %restore_flags.0 = phi i1 [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ %restore_flags.1, %if.then1245 ], [ %restore_flags.1, %if.end1242 ], [ true, %sw.bb48 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ true, %if.end261 ], [ true, %if.end1008 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ true, %if.end445 ], [ true, %if.end588 ], [ true, %if.end684 ], [ true, %if.end738 ], [ true, %if.end868 ], [ true, %if.end900 ]
   %jump_offset.0 = phi i64 [ 0, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ 0, %if.then1245 ], [ 0, %if.end1242 ], [ 0, %sw.bb48 ], [ %sub.ptr.sub.i.i314, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ %sub.ptr.sub.i.i363, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ %sub.ptr.sub.i.i386, %if.end261 ], [ 0, %if.end1008 ], [ %sub.ptr.sub.i.i435, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ 0, %if.end445 ], [ 0, %if.end588 ], [ 0, %if.end684 ], [ 0, %if.end738 ], [ 0, %if.end868 ], [ 0, %if.end900 ]
   %markid.0 = phi i32 [ 0, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ 0, %if.then1245 ], [ 0, %if.end1242 ], [ 0, %sw.bb48 ], [ -1, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ -2, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ %.sink, %if.end261 ], [ %markid.2, %if.end1008 ], [ -3, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ -4, %if.end445 ], [ -4, %if.end588 ], [ -4, %if.end684 ], [ -4, %if.end738 ], [ -4, %if.end868 ], [ -4, %if.end900 ]
@@ -18006,8 +18008,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %m_paren_start = getelementptr inbounds nuw i8, ptr %this, i64 216
   store i64 %sub.ptr.sub.i.i, ptr %m_paren_start, align 8
   store i64 %32, ptr %m_alt_insert_point, align 8
-  %frombool1496 = and i8 %old_case_change.0, 1
-  store i8 %frombool1496, ptr %m_has_case_change, align 8
+  store i8 %old_case_change.0, ptr %m_has_case_change, align 8
   %515 = load i32, ptr %m_max_mark, align 8
   %516 = load i32, ptr %m_mark_count, align 8
   %cmp1499 = icmp ugt i32 %515, %516

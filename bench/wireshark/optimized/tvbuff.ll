@@ -3346,23 +3346,23 @@ define i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i64 @tvb_get_uint64_with_length(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  switch i32 %2, label %236 [
+  switch i32 %2, label %239 [
     i32 1, label %5
     i32 2, label %9
     i32 3, label %20
-    i32 4, label %40
-    i32 5, label %65
-    i32 6, label %98
-    i32 7, label %141
-    i32 8, label %194
-    i32 0, label %278
+    i32 4, label %43
+    i32 5, label %68
+    i32 6, label %101
+    i32 7, label %144
+    i32 8, label %197
+    i32 0, label %281
   ]
 
 5:                                                ; preds = %4
   %6 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 1)
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  br label %278
+  br label %281
 
 9:                                                ; preds = %4
   %.not49 = icmp sgt i32 %3, -1
@@ -3386,324 +3386,322 @@ define i64 @tvb_get_uint64_with_length(ptr noundef %0, i32 noundef %1, i32 nound
 18:                                               ; preds = %12, %11
   %.in = phi i16 [ %.val.i, %11 ], [ %17, %12 ]
   %19 = zext i16 %.in to i64
-  br label %278
+  br label %281
 
 20:                                               ; preds = %4
   %.not48 = icmp sgt i32 %3, -1
   %21 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 3)
-  br i1 %.not48, label %27, label %22
+  br i1 %.not48, label %30, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %21, i64 1
   %24 = load i16, ptr %23, align 1
   %25 = zext i16 %24 to i64
   %26 = shl nuw nsw i64 %25, 8
-  br label %37
+  %27 = load i8, ptr %21, align 1
+  %28 = zext i8 %27 to i64
+  %29 = or disjoint i64 %26, %28
+  br label %281
 
-27:                                               ; preds = %20
-  %28 = load i8, ptr %21, align 1
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, 16
-  %31 = getelementptr i8, ptr %21, i64 1
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i64
-  %34 = shl nuw nsw i64 %33, 8
-  %35 = or disjoint i64 %34, %30
-  %36 = getelementptr i8, ptr %21, i64 2
-  br label %37
+30:                                               ; preds = %20
+  %31 = load i8, ptr %21, align 1
+  %32 = zext i8 %31 to i64
+  %33 = shl nuw nsw i64 %32, 16
+  %34 = getelementptr i8, ptr %21, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i64
+  %37 = shl nuw nsw i64 %36, 8
+  %38 = or disjoint i64 %37, %33
+  %39 = getelementptr i8, ptr %21, i64 2
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i64
+  %42 = or disjoint i64 %38, %41
+  br label %281
 
-37:                                               ; preds = %27, %22
-  %.sink53.in = phi ptr [ %36, %27 ], [ %21, %22 ]
-  %.sink = phi i64 [ %35, %27 ], [ %26, %22 ]
-  %.sink53 = load i8, ptr %.sink53.in, align 1
-  %38 = zext i8 %.sink53 to i64
-  %39 = or disjoint i64 %.sink, %38
-  br label %278
-
-40:                                               ; preds = %4
+43:                                               ; preds = %4
   %.not47 = icmp sgt i32 %3, -1
-  %41 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 4)
-  br i1 %.not47, label %44, label %42
+  %44 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 4)
+  br i1 %.not47, label %47, label %45
 
-42:                                               ; preds = %40
-  %43 = load i32, ptr %41, align 1
-  br label %62
+45:                                               ; preds = %43
+  %46 = load i32, ptr %44, align 1
+  br label %65
 
-44:                                               ; preds = %40
-  %45 = load i8, ptr %41, align 1
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw i32 %46, 24
-  %48 = getelementptr i8, ptr %41, i64 1
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = shl nuw nsw i32 %50, 16
-  %52 = or disjoint i32 %51, %47
-  %53 = getelementptr i8, ptr %41, i64 2
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 %55, 8
-  %57 = or disjoint i32 %52, %56
-  %58 = getelementptr i8, ptr %41, i64 3
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = or disjoint i32 %57, %60
-  br label %62
+47:                                               ; preds = %43
+  %48 = load i8, ptr %44, align 1
+  %49 = zext i8 %48 to i32
+  %50 = shl nuw i32 %49, 24
+  %51 = getelementptr i8, ptr %44, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = shl nuw nsw i32 %53, 16
+  %55 = or disjoint i32 %54, %50
+  %56 = getelementptr i8, ptr %44, i64 2
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = shl nuw nsw i32 %58, 8
+  %60 = or disjoint i32 %55, %59
+  %61 = getelementptr i8, ptr %44, i64 3
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i32
+  %64 = or disjoint i32 %60, %63
+  br label %65
 
-62:                                               ; preds = %44, %42
-  %63 = phi i32 [ %43, %42 ], [ %61, %44 ]
-  %64 = zext i32 %63 to i64
-  br label %278
+65:                                               ; preds = %47, %45
+  %66 = phi i32 [ %46, %45 ], [ %64, %47 ]
+  %67 = zext i32 %66 to i64
+  br label %281
 
-65:                                               ; preds = %4
+68:                                               ; preds = %4
   %.not46 = icmp sgt i32 %3, -1
-  %66 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
-  br i1 %.not46, label %75, label %67
+  %69 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
+  br i1 %.not46, label %78, label %70
 
-67:                                               ; preds = %65
-  %68 = getelementptr i8, ptr %66, i64 1
-  %69 = load i32, ptr %68, align 1
-  %70 = zext i32 %69 to i64
-  %71 = shl nuw nsw i64 %70, 8
-  %72 = load i8, ptr %66, align 1
-  %73 = zext i8 %72 to i64
-  %74 = or disjoint i64 %71, %73
-  br label %278
+70:                                               ; preds = %68
+  %71 = getelementptr i8, ptr %69, i64 1
+  %72 = load i32, ptr %71, align 1
+  %73 = zext i32 %72 to i64
+  %74 = shl nuw nsw i64 %73, 8
+  %75 = load i8, ptr %69, align 1
+  %76 = zext i8 %75 to i64
+  %77 = or disjoint i64 %74, %76
+  br label %281
 
-75:                                               ; preds = %65
-  %76 = load i8, ptr %66, align 1
-  %77 = zext i8 %76 to i64
-  %78 = shl nuw nsw i64 %77, 32
-  %79 = getelementptr i8, ptr %66, i64 1
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i64
-  %82 = shl nuw nsw i64 %81, 24
-  %83 = or disjoint i64 %82, %78
-  %84 = getelementptr i8, ptr %66, i64 2
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i64
-  %87 = shl nuw nsw i64 %86, 16
-  %88 = or disjoint i64 %83, %87
-  %89 = getelementptr i8, ptr %66, i64 3
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i64
-  %92 = shl nuw nsw i64 %91, 8
-  %93 = or disjoint i64 %88, %92
-  %94 = getelementptr i8, ptr %66, i64 4
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i64
-  %97 = or disjoint i64 %93, %96
-  br label %278
+78:                                               ; preds = %68
+  %79 = load i8, ptr %69, align 1
+  %80 = zext i8 %79 to i64
+  %81 = shl nuw nsw i64 %80, 32
+  %82 = getelementptr i8, ptr %69, i64 1
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i64
+  %85 = shl nuw nsw i64 %84, 24
+  %86 = or disjoint i64 %85, %81
+  %87 = getelementptr i8, ptr %69, i64 2
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i64
+  %90 = shl nuw nsw i64 %89, 16
+  %91 = or disjoint i64 %86, %90
+  %92 = getelementptr i8, ptr %69, i64 3
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i64
+  %95 = shl nuw nsw i64 %94, 8
+  %96 = or disjoint i64 %91, %95
+  %97 = getelementptr i8, ptr %69, i64 4
+  %98 = load i8, ptr %97, align 1
+  %99 = zext i8 %98 to i64
+  %100 = or disjoint i64 %96, %99
+  br label %281
 
-98:                                               ; preds = %4
+101:                                              ; preds = %4
   %.not45 = icmp sgt i32 %3, -1
-  %99 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
-  br i1 %.not45, label %113, label %100
+  %102 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
+  br i1 %.not45, label %116, label %103
 
-100:                                              ; preds = %98
-  %101 = getelementptr i8, ptr %99, i64 2
-  %102 = load i32, ptr %101, align 1
-  %103 = zext i32 %102 to i64
-  %104 = shl nuw nsw i64 %103, 16
-  %105 = getelementptr i8, ptr %99, i64 1
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i64
-  %108 = shl nuw nsw i64 %107, 8
-  %109 = or disjoint i64 %108, %104
-  %110 = load i8, ptr %99, align 1
-  %111 = zext i8 %110 to i64
-  %112 = or disjoint i64 %109, %111
-  br label %278
+103:                                              ; preds = %101
+  %104 = getelementptr i8, ptr %102, i64 2
+  %105 = load i32, ptr %104, align 1
+  %106 = zext i32 %105 to i64
+  %107 = shl nuw nsw i64 %106, 16
+  %108 = getelementptr i8, ptr %102, i64 1
+  %109 = load i8, ptr %108, align 1
+  %110 = zext i8 %109 to i64
+  %111 = shl nuw nsw i64 %110, 8
+  %112 = or disjoint i64 %111, %107
+  %113 = load i8, ptr %102, align 1
+  %114 = zext i8 %113 to i64
+  %115 = or disjoint i64 %112, %114
+  br label %281
 
-113:                                              ; preds = %98
-  %114 = load i8, ptr %99, align 1
-  %115 = zext i8 %114 to i64
-  %116 = shl nuw nsw i64 %115, 40
-  %117 = getelementptr i8, ptr %99, i64 1
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i64
-  %120 = shl nuw nsw i64 %119, 32
-  %121 = or disjoint i64 %120, %116
-  %122 = getelementptr i8, ptr %99, i64 2
-  %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %123 to i64
-  %125 = shl nuw nsw i64 %124, 24
-  %126 = or disjoint i64 %121, %125
-  %127 = getelementptr i8, ptr %99, i64 3
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i64
-  %130 = shl nuw nsw i64 %129, 16
-  %131 = or disjoint i64 %126, %130
-  %132 = getelementptr i8, ptr %99, i64 4
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i64
-  %135 = shl nuw nsw i64 %134, 8
-  %136 = or disjoint i64 %131, %135
-  %137 = getelementptr i8, ptr %99, i64 5
-  %138 = load i8, ptr %137, align 1
-  %139 = zext i8 %138 to i64
-  %140 = or disjoint i64 %136, %139
-  br label %278
+116:                                              ; preds = %101
+  %117 = load i8, ptr %102, align 1
+  %118 = zext i8 %117 to i64
+  %119 = shl nuw nsw i64 %118, 40
+  %120 = getelementptr i8, ptr %102, i64 1
+  %121 = load i8, ptr %120, align 1
+  %122 = zext i8 %121 to i64
+  %123 = shl nuw nsw i64 %122, 32
+  %124 = or disjoint i64 %123, %119
+  %125 = getelementptr i8, ptr %102, i64 2
+  %126 = load i8, ptr %125, align 1
+  %127 = zext i8 %126 to i64
+  %128 = shl nuw nsw i64 %127, 24
+  %129 = or disjoint i64 %124, %128
+  %130 = getelementptr i8, ptr %102, i64 3
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i64
+  %133 = shl nuw nsw i64 %132, 16
+  %134 = or disjoint i64 %129, %133
+  %135 = getelementptr i8, ptr %102, i64 4
+  %136 = load i8, ptr %135, align 1
+  %137 = zext i8 %136 to i64
+  %138 = shl nuw nsw i64 %137, 8
+  %139 = or disjoint i64 %134, %138
+  %140 = getelementptr i8, ptr %102, i64 5
+  %141 = load i8, ptr %140, align 1
+  %142 = zext i8 %141 to i64
+  %143 = or disjoint i64 %139, %142
+  br label %281
 
-141:                                              ; preds = %4
+144:                                              ; preds = %4
   %.not44 = icmp sgt i32 %3, -1
-  %142 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
-  br i1 %.not44, label %161, label %143
+  %145 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
+  br i1 %.not44, label %164, label %146
 
-143:                                              ; preds = %141
-  %144 = getelementptr i8, ptr %142, i64 3
-  %145 = load i32, ptr %144, align 1
-  %146 = zext i32 %145 to i64
-  %147 = shl nuw nsw i64 %146, 24
-  %148 = getelementptr i8, ptr %142, i64 2
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i64
-  %151 = shl nuw nsw i64 %150, 16
-  %152 = or disjoint i64 %151, %147
-  %153 = getelementptr i8, ptr %142, i64 1
-  %154 = load i8, ptr %153, align 1
-  %155 = zext i8 %154 to i64
-  %156 = shl nuw nsw i64 %155, 8
-  %157 = or disjoint i64 %152, %156
-  %158 = load i8, ptr %142, align 1
-  %159 = zext i8 %158 to i64
-  %160 = or disjoint i64 %157, %159
-  br label %278
+146:                                              ; preds = %144
+  %147 = getelementptr i8, ptr %145, i64 3
+  %148 = load i32, ptr %147, align 1
+  %149 = zext i32 %148 to i64
+  %150 = shl nuw nsw i64 %149, 24
+  %151 = getelementptr i8, ptr %145, i64 2
+  %152 = load i8, ptr %151, align 1
+  %153 = zext i8 %152 to i64
+  %154 = shl nuw nsw i64 %153, 16
+  %155 = or disjoint i64 %154, %150
+  %156 = getelementptr i8, ptr %145, i64 1
+  %157 = load i8, ptr %156, align 1
+  %158 = zext i8 %157 to i64
+  %159 = shl nuw nsw i64 %158, 8
+  %160 = or disjoint i64 %155, %159
+  %161 = load i8, ptr %145, align 1
+  %162 = zext i8 %161 to i64
+  %163 = or disjoint i64 %160, %162
+  br label %281
 
-161:                                              ; preds = %141
-  %162 = load i8, ptr %142, align 1
-  %163 = zext i8 %162 to i64
-  %164 = shl nuw nsw i64 %163, 48
-  %165 = getelementptr i8, ptr %142, i64 1
-  %166 = load i8, ptr %165, align 1
-  %167 = zext i8 %166 to i64
-  %168 = shl nuw nsw i64 %167, 40
-  %169 = or disjoint i64 %168, %164
-  %170 = getelementptr i8, ptr %142, i64 2
-  %171 = load i8, ptr %170, align 1
-  %172 = zext i8 %171 to i64
-  %173 = shl nuw nsw i64 %172, 32
-  %174 = or disjoint i64 %169, %173
-  %175 = getelementptr i8, ptr %142, i64 3
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i64
-  %178 = shl nuw nsw i64 %177, 24
-  %179 = or disjoint i64 %174, %178
-  %180 = getelementptr i8, ptr %142, i64 4
-  %181 = load i8, ptr %180, align 1
-  %182 = zext i8 %181 to i64
-  %183 = shl nuw nsw i64 %182, 16
-  %184 = or disjoint i64 %179, %183
-  %185 = getelementptr i8, ptr %142, i64 5
-  %186 = load i8, ptr %185, align 1
-  %187 = zext i8 %186 to i64
-  %188 = shl nuw nsw i64 %187, 8
-  %189 = or disjoint i64 %184, %188
-  %190 = getelementptr i8, ptr %142, i64 6
-  %191 = load i8, ptr %190, align 1
-  %192 = zext i8 %191 to i64
-  %193 = or i64 %189, %192
-  br label %278
+164:                                              ; preds = %144
+  %165 = load i8, ptr %145, align 1
+  %166 = zext i8 %165 to i64
+  %167 = shl nuw nsw i64 %166, 48
+  %168 = getelementptr i8, ptr %145, i64 1
+  %169 = load i8, ptr %168, align 1
+  %170 = zext i8 %169 to i64
+  %171 = shl nuw nsw i64 %170, 40
+  %172 = or disjoint i64 %171, %167
+  %173 = getelementptr i8, ptr %145, i64 2
+  %174 = load i8, ptr %173, align 1
+  %175 = zext i8 %174 to i64
+  %176 = shl nuw nsw i64 %175, 32
+  %177 = or disjoint i64 %172, %176
+  %178 = getelementptr i8, ptr %145, i64 3
+  %179 = load i8, ptr %178, align 1
+  %180 = zext i8 %179 to i64
+  %181 = shl nuw nsw i64 %180, 24
+  %182 = or disjoint i64 %177, %181
+  %183 = getelementptr i8, ptr %145, i64 4
+  %184 = load i8, ptr %183, align 1
+  %185 = zext i8 %184 to i64
+  %186 = shl nuw nsw i64 %185, 16
+  %187 = or disjoint i64 %182, %186
+  %188 = getelementptr i8, ptr %145, i64 5
+  %189 = load i8, ptr %188, align 1
+  %190 = zext i8 %189 to i64
+  %191 = shl nuw nsw i64 %190, 8
+  %192 = or disjoint i64 %187, %191
+  %193 = getelementptr i8, ptr %145, i64 6
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i64
+  %196 = or i64 %192, %195
+  br label %281
 
-194:                                              ; preds = %4
+197:                                              ; preds = %4
   %.not = icmp sgt i32 %3, -1
-  %195 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 8)
-  br i1 %.not, label %198, label %196
+  %198 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 8)
+  br i1 %.not, label %201, label %199
 
-196:                                              ; preds = %194
-  %197 = load i64, ptr %195, align 1
-  br label %278
+199:                                              ; preds = %197
+  %200 = load i64, ptr %198, align 1
+  br label %281
 
-198:                                              ; preds = %194
-  %199 = load i8, ptr %195, align 1
-  %200 = zext i8 %199 to i64
-  %201 = shl nuw i64 %200, 56
-  %202 = getelementptr i8, ptr %195, i64 1
-  %203 = load i8, ptr %202, align 1
-  %204 = zext i8 %203 to i64
-  %205 = shl nuw nsw i64 %204, 48
-  %206 = or disjoint i64 %205, %201
-  %207 = getelementptr i8, ptr %195, i64 2
-  %208 = load i8, ptr %207, align 1
-  %209 = zext i8 %208 to i64
-  %210 = shl nuw nsw i64 %209, 40
-  %211 = or disjoint i64 %206, %210
-  %212 = getelementptr i8, ptr %195, i64 3
-  %213 = load i8, ptr %212, align 1
-  %214 = zext i8 %213 to i64
-  %215 = shl nuw nsw i64 %214, 32
-  %216 = or disjoint i64 %211, %215
-  %217 = getelementptr i8, ptr %195, i64 4
-  %218 = load i8, ptr %217, align 1
-  %219 = zext i8 %218 to i64
-  %220 = shl nuw nsw i64 %219, 24
-  %221 = or disjoint i64 %216, %220
-  %222 = getelementptr i8, ptr %195, i64 5
-  %223 = load i8, ptr %222, align 1
-  %224 = zext i8 %223 to i64
-  %225 = shl nuw nsw i64 %224, 16
-  %226 = or disjoint i64 %221, %225
-  %227 = getelementptr i8, ptr %195, i64 6
-  %228 = load i8, ptr %227, align 1
-  %229 = zext i8 %228 to i64
-  %230 = shl nuw nsw i64 %229, 8
-  %231 = or i64 %226, %230
-  %232 = getelementptr i8, ptr %195, i64 7
-  %233 = load i8, ptr %232, align 1
-  %234 = zext i8 %233 to i64
-  %235 = or i64 %231, %234
-  br label %278
+201:                                              ; preds = %197
+  %202 = load i8, ptr %198, align 1
+  %203 = zext i8 %202 to i64
+  %204 = shl nuw i64 %203, 56
+  %205 = getelementptr i8, ptr %198, i64 1
+  %206 = load i8, ptr %205, align 1
+  %207 = zext i8 %206 to i64
+  %208 = shl nuw nsw i64 %207, 48
+  %209 = or disjoint i64 %208, %204
+  %210 = getelementptr i8, ptr %198, i64 2
+  %211 = load i8, ptr %210, align 1
+  %212 = zext i8 %211 to i64
+  %213 = shl nuw nsw i64 %212, 40
+  %214 = or disjoint i64 %209, %213
+  %215 = getelementptr i8, ptr %198, i64 3
+  %216 = load i8, ptr %215, align 1
+  %217 = zext i8 %216 to i64
+  %218 = shl nuw nsw i64 %217, 32
+  %219 = or disjoint i64 %214, %218
+  %220 = getelementptr i8, ptr %198, i64 4
+  %221 = load i8, ptr %220, align 1
+  %222 = zext i8 %221 to i64
+  %223 = shl nuw nsw i64 %222, 24
+  %224 = or disjoint i64 %219, %223
+  %225 = getelementptr i8, ptr %198, i64 5
+  %226 = load i8, ptr %225, align 1
+  %227 = zext i8 %226 to i64
+  %228 = shl nuw nsw i64 %227, 16
+  %229 = or disjoint i64 %224, %228
+  %230 = getelementptr i8, ptr %198, i64 6
+  %231 = load i8, ptr %230, align 1
+  %232 = zext i8 %231 to i64
+  %233 = shl nuw nsw i64 %232, 8
+  %234 = or i64 %229, %233
+  %235 = getelementptr i8, ptr %198, i64 7
+  %236 = load i8, ptr %235, align 1
+  %237 = zext i8 %236 to i64
+  %238 = or i64 %234, %237
+  br label %281
 
-236:                                              ; preds = %4
+239:                                              ; preds = %4
   %.not50 = icmp sgt i32 %3, -1
-  %237 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 8)
-  br i1 %.not50, label %240, label %238
+  %240 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 8)
+  br i1 %.not50, label %243, label %241
 
-238:                                              ; preds = %236
-  %239 = load i64, ptr %237, align 1
-  br label %278
+241:                                              ; preds = %239
+  %242 = load i64, ptr %240, align 1
+  br label %281
 
-240:                                              ; preds = %236
-  %241 = load i8, ptr %237, align 1
-  %242 = zext i8 %241 to i64
-  %243 = shl nuw i64 %242, 56
-  %244 = getelementptr i8, ptr %237, i64 1
-  %245 = load i8, ptr %244, align 1
-  %246 = zext i8 %245 to i64
-  %247 = shl nuw nsw i64 %246, 48
-  %248 = or disjoint i64 %247, %243
-  %249 = getelementptr i8, ptr %237, i64 2
-  %250 = load i8, ptr %249, align 1
-  %251 = zext i8 %250 to i64
-  %252 = shl nuw nsw i64 %251, 40
-  %253 = or disjoint i64 %248, %252
-  %254 = getelementptr i8, ptr %237, i64 3
-  %255 = load i8, ptr %254, align 1
-  %256 = zext i8 %255 to i64
-  %257 = shl nuw nsw i64 %256, 32
-  %258 = or disjoint i64 %253, %257
-  %259 = getelementptr i8, ptr %237, i64 4
-  %260 = load i8, ptr %259, align 1
-  %261 = zext i8 %260 to i64
-  %262 = shl nuw nsw i64 %261, 24
-  %263 = or disjoint i64 %258, %262
-  %264 = getelementptr i8, ptr %237, i64 5
-  %265 = load i8, ptr %264, align 1
-  %266 = zext i8 %265 to i64
-  %267 = shl nuw nsw i64 %266, 16
-  %268 = or disjoint i64 %263, %267
-  %269 = getelementptr i8, ptr %237, i64 6
-  %270 = load i8, ptr %269, align 1
-  %271 = zext i8 %270 to i64
-  %272 = shl nuw nsw i64 %271, 8
-  %273 = or i64 %268, %272
-  %274 = getelementptr i8, ptr %237, i64 7
-  %275 = load i8, ptr %274, align 1
-  %276 = zext i8 %275 to i64
-  %277 = or i64 %273, %276
-  br label %278
+243:                                              ; preds = %239
+  %244 = load i8, ptr %240, align 1
+  %245 = zext i8 %244 to i64
+  %246 = shl nuw i64 %245, 56
+  %247 = getelementptr i8, ptr %240, i64 1
+  %248 = load i8, ptr %247, align 1
+  %249 = zext i8 %248 to i64
+  %250 = shl nuw nsw i64 %249, 48
+  %251 = or disjoint i64 %250, %246
+  %252 = getelementptr i8, ptr %240, i64 2
+  %253 = load i8, ptr %252, align 1
+  %254 = zext i8 %253 to i64
+  %255 = shl nuw nsw i64 %254, 40
+  %256 = or disjoint i64 %251, %255
+  %257 = getelementptr i8, ptr %240, i64 3
+  %258 = load i8, ptr %257, align 1
+  %259 = zext i8 %258 to i64
+  %260 = shl nuw nsw i64 %259, 32
+  %261 = or disjoint i64 %256, %260
+  %262 = getelementptr i8, ptr %240, i64 4
+  %263 = load i8, ptr %262, align 1
+  %264 = zext i8 %263 to i64
+  %265 = shl nuw nsw i64 %264, 24
+  %266 = or disjoint i64 %261, %265
+  %267 = getelementptr i8, ptr %240, i64 5
+  %268 = load i8, ptr %267, align 1
+  %269 = zext i8 %268 to i64
+  %270 = shl nuw nsw i64 %269, 16
+  %271 = or disjoint i64 %266, %270
+  %272 = getelementptr i8, ptr %240, i64 6
+  %273 = load i8, ptr %272, align 1
+  %274 = zext i8 %273 to i64
+  %275 = shl nuw nsw i64 %274, 8
+  %276 = or i64 %271, %275
+  %277 = getelementptr i8, ptr %240, i64 7
+  %278 = load i8, ptr %277, align 1
+  %279 = zext i8 %278 to i64
+  %280 = or i64 %276, %279
+  br label %281
 
-278:                                              ; preds = %238, %240, %4, %196, %198, %143, %161, %100, %113, %67, %75, %62, %37, %18, %5
-  %.0 = phi i64 [ %8, %5 ], [ %19, %18 ], [ %39, %37 ], [ %64, %62 ], [ %74, %67 ], [ %97, %75 ], [ %112, %100 ], [ %140, %113 ], [ %160, %143 ], [ %193, %161 ], [ %197, %196 ], [ %235, %198 ], [ 0, %4 ], [ %239, %238 ], [ %277, %240 ]
+281:                                              ; preds = %22, %30, %241, %243, %4, %199, %201, %146, %164, %103, %116, %70, %78, %65, %18, %5
+  %.0 = phi i64 [ %8, %5 ], [ %19, %18 ], [ %67, %65 ], [ %77, %70 ], [ %100, %78 ], [ %115, %103 ], [ %143, %116 ], [ %163, %146 ], [ %196, %164 ], [ %200, %199 ], [ %238, %201 ], [ 0, %4 ], [ %242, %241 ], [ %280, %243 ], [ %29, %22 ], [ %42, %30 ]
   ret i64 %.0
 }
 

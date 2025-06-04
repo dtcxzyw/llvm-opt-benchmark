@@ -21604,13 +21604,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit102:         ; preds = %_ZNSt7__cxx1112basi
   br label %423
 
 423:                                              ; preds = %415, %418, %_ZN5clang17DiagnosticBuilderD2Ev.exit95
-  %424 = and i8 %.157, 1
-  store i8 %424, ptr %1, align 8, !tbaa !1687
-  %425 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %426 = and i8 %.161, 1
-  store i8 %426, ptr %425, align 1, !tbaa !1689
-  %427 = trunc nuw i8 %.6 to i1
-  ret i1 %427
+  store i8 %.157, ptr %1, align 8, !tbaa !1687
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %.161, ptr %424, align 1, !tbaa !1689
+  %425 = trunc nuw i8 %.6 to i1
+  ret i1 %425
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

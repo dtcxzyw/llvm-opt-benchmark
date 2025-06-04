@@ -4033,11 +4033,11 @@ define dso_local void @__tcp_cleanup_rbuf(ptr noundef %0, i32 noundef %1) local_
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   %16 = icmp ugt i32 %12, %15
-  br i1 %16, label %.thread.thread, label %17
+  br i1 %16, label %.thread4, label %17
 
 17:                                               ; preds = %7
   %18 = icmp sgt i32 %1, 0
-  br i1 %18, label %19, label %.thread3
+  br i1 %18, label %19, label %.thread5
 
 19:                                               ; preds = %17
   %20 = zext i8 %4 to i32
@@ -4048,7 +4048,7 @@ define dso_local void @__tcp_cleanup_rbuf(ptr noundef %0, i32 noundef %1) local_
 23:                                               ; preds = %19
   %24 = and i32 %20, 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread8, label %26
+  br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1218
@@ -4058,26 +4058,26 @@ define dso_local void @__tcp_cleanup_rbuf(ptr noundef %0, i32 noundef %1) local_
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1155
   %32 = load volatile i8, ptr %31, align 1
   %33 = icmp ult i8 %28, %32
-  br i1 %33, label %34, label %.thread8
+  br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %26, %19
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %36 = load volatile i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread.thread, label %.thread8
+  br i1 %37, label %.thread4, label %.thread
 
 38:                                               ; preds = %2
   %39 = icmp sgt i32 %1, 0
-  br i1 %39, label %.thread8, label %.thread3
+  br i1 %39, label %.thread, label %.thread5
 
-.thread8:                                         ; preds = %23, %26, %34, %38
+.thread:                                          ; preds = %23, %26, %34, %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 620
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, 1
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %44, label %.thread3
+  br i1 %43, label %44, label %.thread5
 
-44:                                               ; preds = %.thread8
+44:                                               ; preds = %.thread
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %46 = load i32, ptr %45, align 16
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1696
@@ -4091,20 +4091,20 @@ define dso_local void @__tcp_cleanup_rbuf(ptr noundef %0, i32 noundef %1) local_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   %56 = load i32, ptr %55, align 4
   %57 = icmp ugt i32 %54, %56
-  br i1 %57, label %.thread3, label %.thread
+  br i1 %57, label %.thread5, label %58
 
-.thread:                                          ; preds = %44
-  %58 = tail call i32 @__tcp_select_window(ptr noundef %0) #22
-  %59 = icmp eq i32 %58, 0
-  %60 = icmp ult i32 %58, %54
-  %.not6.not = or i1 %59, %60
-  br i1 %.not6.not, label %.thread3, label %.thread.thread
+58:                                               ; preds = %44
+  %59 = tail call i32 @__tcp_select_window(ptr noundef %0) #22
+  %60 = icmp eq i32 %59, 0
+  %61 = icmp ult i32 %59, %54
+  %62 = or i1 %60, %61
+  br i1 %62, label %.thread5, label %.thread4
 
-.thread.thread:                                   ; preds = %7, %34, %.thread
+.thread4:                                         ; preds = %58, %34, %7
   tail call void @tcp_send_ack(ptr noundef %0) #22
-  br label %.thread3
+  br label %.thread5
 
-.thread3:                                         ; preds = %17, %44, %38, %.thread8, %.thread.thread, %.thread
+.thread5:                                         ; preds = %58, %44, %38, %.thread, %17, %.thread4
   ret void
 }
 
@@ -7891,7 +7891,7 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
   %8 = load volatile i8, ptr %7, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1218
   store i8 %8, ptr %9, align 2
-  br label %102
+  br label %104
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1218
@@ -7902,14 +7902,14 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
   %15 = shl nuw i32 1, %14
   %16 = and i32 %15, 258
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %102, label %18
+  br i1 %17, label %104, label %18
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 1
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %102, label %23
+  br i1 %22, label %104, label %23
 
 23:                                               ; preds = %18
   %24 = or i8 %20, 4
@@ -7948,7 +7948,7 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
   %43 = phi i8 [ %.pre, %37 ], [ %24, %30 ], [ %24, %23 ]
   %44 = and i8 %43, 1
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %.thread8.i, label %46
+  br i1 %45, label %.thread.i, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1656
@@ -7960,7 +7960,7 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = icmp ugt i32 %51, %54
-  br i1 %55, label %.thread.thread.i, label %56
+  br i1 %55, label %.thread4.i, label %56
 
 56:                                               ; preds = %46
   %57 = zext i8 %43 to i32
@@ -7971,7 +7971,7 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
 60:                                               ; preds = %56
   %61 = and i32 %57, 4
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.thread8.i, label %63
+  br i1 %62, label %.thread.i, label %63
 
 63:                                               ; preds = %60
   %64 = load i8, ptr %11, align 2
@@ -7980,22 +7980,22 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1155
   %68 = load volatile i8, ptr %67, align 1
   %69 = icmp ult i8 %64, %68
-  br i1 %69, label %70, label %.thread8.i
+  br i1 %69, label %70, label %.thread.i
 
 70:                                               ; preds = %63, %56
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %72 = load volatile i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread.thread.i, label %.thread8.i
+  br i1 %73, label %.thread4.i, label %.thread.i
 
-.thread8.i:                                       ; preds = %42, %70, %63, %60
+.thread.i:                                        ; preds = %42, %70, %63, %60
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 620
   %75 = load i8, ptr %74, align 4
   %76 = and i8 %75, 1
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %__tcp_cleanup_rbuf.exit
 
-78:                                               ; preds = %.thread8.i
+78:                                               ; preds = %.thread.i
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %80 = load i32, ptr %79, align 16
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1696
@@ -8009,33 +8009,33 @@ define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((12
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   %90 = load i32, ptr %89, align 4
   %91 = icmp ugt i32 %88, %90
-  br i1 %91, label %__tcp_cleanup_rbuf.exit, label %.thread.i
+  br i1 %91, label %__tcp_cleanup_rbuf.exit, label %92
 
-.thread.i:                                        ; preds = %78
-  %92 = tail call i32 @__tcp_select_window(ptr noundef %0) #22
-  %93 = icmp eq i32 %92, 0
-  %94 = icmp ult i32 %92, %88
-  %.not6.not.i = or i1 %93, %94
-  br i1 %.not6.not.i, label %__tcp_cleanup_rbuf.exit, label %.thread.thread.i
+92:                                               ; preds = %78
+  %93 = tail call i32 @__tcp_select_window(ptr noundef %0) #22
+  %94 = icmp eq i32 %93, 0
+  %95 = icmp ult i32 %93, %88
+  %96 = or i1 %94, %95
+  br i1 %96, label %__tcp_cleanup_rbuf.exit, label %.thread4.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %70, %46
+.thread4.i:                                       ; preds = %92, %70, %46
   tail call void @tcp_send_ack(ptr noundef %0) #22
   br label %__tcp_cleanup_rbuf.exit
 
-__tcp_cleanup_rbuf.exit:                          ; preds = %.thread8.i, %78, %.thread.i, %.thread.thread.i
-  %95 = and i32 %1, 1
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %102
+__tcp_cleanup_rbuf.exit:                          ; preds = %.thread.i, %78, %92, %.thread4.i
+  %97 = and i32 %1, 1
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %104
 
-97:                                               ; preds = %__tcp_cleanup_rbuf.exit
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1155
-  %101 = load volatile i8, ptr %100, align 1
-  store i8 %101, ptr %11, align 2
-  br label %102
+99:                                               ; preds = %__tcp_cleanup_rbuf.exit
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1155
+  %103 = load volatile i8, ptr %102, align 1
+  store i8 %103, ptr %11, align 2
+  br label %104
 
-102:                                              ; preds = %97, %__tcp_cleanup_rbuf.exit, %18, %10, %4
+104:                                              ; preds = %99, %__tcp_cleanup_rbuf.exit, %18, %10, %4
   ret void
 }
 

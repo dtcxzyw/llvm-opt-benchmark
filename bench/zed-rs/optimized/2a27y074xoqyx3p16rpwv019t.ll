@@ -4428,7 +4428,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h7696e6da8
 21:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %72
+  br label %71
 
 22:                                               ; preds = %13
   %23 = lshr i64 %14, 48
@@ -4448,7 +4448,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h7696e6da8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %27, ptr %33, align 8
   store i64 -9223372036854775805, ptr %0, align 8
-  br label %72
+  br label %71
 
 34:                                               ; preds = %43, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 8, %22 ]
@@ -4479,53 +4479,52 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h7696e6da8
   store ptr %42, ptr %.sroa.413.0..sroa_idx, align 8
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 29, ptr %.sroa.514.0..sroa_idx, align 8
-  br label %72
+  br label %71
 
 43:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = trunc i64 %indvars.iv to i16
-  %45 = and i16 %44, 255
-  %46 = xor i16 %45, 15
-  %47 = lshr i16 %24, %46
-  %48 = zext i16 %47 to i32
-  %49 = getelementptr inbounds nuw [16 x i32], ptr %25, i64 0, i64 %indvars.iv
-  %50 = load i32, ptr %49, align 4, !noundef !5
-  %.not8 = icmp slt i32 %50, %48
-  br i1 %.not8, label %34, label %51
+  %45 = sub i16 15, %44
+  %46 = lshr i16 %24, %45
+  %47 = zext i16 %46 to i32
+  %48 = getelementptr inbounds nuw [16 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %49 = load i32, ptr %48, align 4, !noundef !5
+  %.not8 = icmp slt i32 %49, %47
+  br i1 %.not8, label %34, label %50
 
-51:                                               ; preds = %43
-  %52 = trunc nuw nsw i64 %indvars.iv.next to i8
-  %53 = and i64 %indvars.iv.next, 255
-  %54 = shl i64 %14, %53
-  store i64 %54, ptr %1, align 8
-  %55 = load i8, ptr %7, align 8, !noundef !5
-  %56 = sub i8 %55, %52
-  store i8 %56, ptr %7, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %58 = getelementptr inbounds nuw [16 x i32], ptr %57, i64 0, i64 %indvars.iv
-  %59 = load i32, ptr %58, align 4, !noundef !5
-  %60 = add i32 %59, %48
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %63 = load i64, ptr %62, align 8, !noundef !5
-  %64 = icmp ugt i64 %63, %61
-  br i1 %64, label %65, label %71
+50:                                               ; preds = %43
+  %51 = trunc nuw nsw i64 %indvars.iv.next to i8
+  %52 = and i64 %indvars.iv.next, 255
+  %53 = shl i64 %14, %52
+  store i64 %53, ptr %1, align 8
+  %54 = load i8, ptr %7, align 8, !noundef !5
+  %55 = sub i8 %54, %51
+  store i8 %55, ptr %7, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %57 = getelementptr inbounds nuw [16 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %58 = load i32, ptr %57, align 4, !noundef !5
+  %59 = add i32 %58, %47
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %62 = load i64, ptr %61, align 8, !noundef !5
+  %63 = icmp ugt i64 %62, %60
+  br i1 %63, label %64, label %70
 
-65:                                               ; preds = %51
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds [0 x i8], ptr %67, i64 0, i64 %61
-  %69 = load i8, ptr %68, align 1, !noundef !5
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %69, ptr %70, align 8
+64:                                               ; preds = %50
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !nonnull !5, !noundef !5
+  %67 = getelementptr inbounds [0 x i8], ptr %66, i64 0, i64 %60
+  %68 = load i8, ptr %67, align 1, !noundef !5
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %68, ptr %69, align 8
   store i64 -9223372036854775805, ptr %0, align 8
-  br label %72
+  br label %71
 
-71:                                               ; preds = %51
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %61, i64 noundef %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4c99158258ee3b3a3d86145b1761aaa8.23) #48
+70:                                               ; preds = %50
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %60, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4c99158258ee3b3a3d86145b1761aaa8.23) #48
   unreachable
 
-72:                                               ; preds = %26, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h718c1e930af81f8aE.llvm.2317975020751253692.exit", %65, %21
+71:                                               ; preds = %26, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h718c1e930af81f8aE.llvm.2317975020751253692.exit", %64, %21
   ret void
 }
 

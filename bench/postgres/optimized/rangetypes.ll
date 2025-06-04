@@ -314,8 +314,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   store i8 1, ptr %116, align 2
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %118 = lshr i8 %.53943, 4
-  %.lobit24 = and i8 %118, 1
-  store i8 %.lobit24, ptr %117, align 8
+  store i8 %118, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %120 = lshr i8 %.53943, 2
   %.lobit25 = and i8 %120, 1

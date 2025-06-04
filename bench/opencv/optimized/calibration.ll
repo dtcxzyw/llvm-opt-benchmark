@@ -5223,7 +5223,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br i1 %1771, label %1798, label %1886
 
 1798:                                             ; preds = %1788
-  %1799 = trunc i8 %.0301 to i1
+  %1799 = trunc nuw i8 %.0301 to i1
   br i1 %1799, label %1800, label %1845
 
 1800:                                             ; preds = %1798
@@ -5538,7 +5538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1172: ; preds = %_
   br label %1977
 
 1898:                                             ; preds = %1893, %1889
-  %1899 = trunc i8 %.0301 to i1
+  %1899 = trunc nuw i8 %.0301 to i1
   %or.cond5 = select i1 %1772, i1 %1899, i1 false
   br i1 %or.cond5, label %1900, label %1910
 

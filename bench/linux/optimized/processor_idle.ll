@@ -831,48 +831,47 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br i1 %393, label %276, label %394, !llvm.loop !15
 
 394:                                              ; preds = %383
-  %395 = and i8 %387, 1
-  %396 = icmp eq i8 %395, 0
-  br i1 %396, label %.thread25, label %397
+  %395 = icmp eq i8 %387, 0
+  br i1 %395, label %.thread25, label %396
 
-397:                                              ; preds = %394
-  %398 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #18
-  %399 = load i32, ptr @max_cstate, align 4
-  %400 = zext i32 %399 to i64
-  tail call void @sort(ptr noundef %263, i64 noundef %400, i64 noundef 52, ptr noundef nonnull @acpi_cst_latency_cmp, ptr noundef nonnull @acpi_cst_latency_swap) #17
+396:                                              ; preds = %394
+  %397 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #18
+  %398 = load i32, ptr @max_cstate, align 4
+  %399 = zext i32 %398 to i64
+  tail call void @sort(ptr noundef %263, i64 noundef %399, i64 noundef 52, ptr noundef nonnull @acpi_cst_latency_cmp, ptr noundef nonnull @acpi_cst_latency_swap) #17
   br label %.thread25
 
-.thread25:                                        ; preds = %270, %397, %394
-  %401 = phi i32 [ %384, %397 ], [ %384, %394 ], [ 0, %270 ]
-  %402 = load i32, ptr %5, align 8
-  %403 = tail call i32 @smp_call_function_single(i32 noundef %402, ptr noundef nonnull @__lapic_timer_propagate_broadcast, ptr noundef %0, i32 noundef 1) #17
-  store i32 %401, ptr %219, align 8
-  %404 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %405
+.thread25:                                        ; preds = %270, %396, %394
+  %400 = phi i32 [ %384, %396 ], [ %384, %394 ], [ 0, %270 ]
+  %401 = load i32, ptr %5, align 8
+  %402 = tail call i32 @smp_call_function_single(i32 noundef %401, ptr noundef nonnull @__lapic_timer_propagate_broadcast, ptr noundef %0, i32 noundef 1) #17
+  store i32 %400, ptr %219, align 8
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %404
 
-405:                                              ; preds = %414, %.thread25
-  %406 = phi i64 [ 1, %.thread25 ], [ %415, %414 ]
-  %407 = getelementptr [8 x %struct.acpi_processor_cx], ptr %220, i64 0, i64 %406
-  %408 = load i8, ptr %407, align 4
-  %409 = icmp eq i8 %408, 0
-  br i1 %409, label %414, label %410
+404:                                              ; preds = %413, %.thread25
+  %405 = phi i64 [ 1, %.thread25 ], [ %414, %413 ]
+  %406 = getelementptr [8 x %struct.acpi_processor_cx], ptr %220, i64 0, i64 %405
+  %407 = load i8, ptr %406, align 4
+  %408 = icmp eq i8 %407, 0
+  br i1 %408, label %413, label %409
 
-410:                                              ; preds = %405
-  %411 = trunc i64 %406 to i32
-  store i32 %411, ptr %219, align 8
-  %412 = load i16, ptr %404, align 8
-  %413 = or i16 %412, 1
-  store i16 %413, ptr %404, align 8
-  br label %414
+409:                                              ; preds = %404
+  %410 = trunc i64 %405 to i32
+  store i32 %410, ptr %219, align 8
+  %411 = load i16, ptr %403, align 8
+  %412 = or i16 %411, 1
+  store i16 %412, ptr %403, align 8
+  br label %413
 
-414:                                              ; preds = %410, %405
-  %415 = add nuw nsw i64 %406, 1
-  %416 = icmp eq i64 %415, 8
-  br i1 %416, label %.thread19, label %405, !llvm.loop !16
+413:                                              ; preds = %409, %404
+  %414 = add nuw nsw i64 %405, 1
+  %415 = icmp eq i64 %414, 8
+  br i1 %415, label %.thread19, label %404, !llvm.loop !16
 
-.thread19:                                        ; preds = %414, %223, %.thread16, %227, %.loopexit
-  %417 = phi i32 [ 0, %.loopexit ], [ -14, %227 ], [ -19, %.thread16 ], [ %226, %223 ], [ 0, %414 ]
-  ret i32 %417
+.thread19:                                        ; preds = %413, %223, %.thread16, %227, %.loopexit
+  %416 = phi i32 [ 0, %.loopexit ], [ -14, %227 ], [ -19, %.thread16 ], [ %226, %223 ], [ 0, %413 ]
+  ret i32 %416
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

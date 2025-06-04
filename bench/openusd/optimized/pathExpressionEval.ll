@@ -90,15 +90,15 @@ define range(i64 0, 4294967298) i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf
   %.sroa.1045.086 = phi i32 [ %.sroa.1045.1, %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit ], [ 0, %3 ]
   %.sroa.020.085 = phi i8 [ %.sroa.020.1, %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit ], [ 0, %3 ]
   %.084 = phi i32 [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit ], [ 0, %3 ]
-  %.sroa.068.083 = phi ptr [ %34, %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit ], [ %4, %3 ]
+  %.sroa.068.083 = phi ptr [ %33, %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit ], [ %4, %3 ]
   %7 = load i32, ptr %.sroa.068.083, align 4
   switch i32 %7, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit [
     i32 0, label %8
     i32 1, label %14
-    i32 5, label %17
-    i32 4, label %17
-    i32 2, label %30
-    i32 3, label %32
+    i32 5, label %16
+    i32 4, label %16
+    i32 2, label %29
+    i32 3, label %31
   ]
 
 8:                                                ; preds = %.lr.ph
@@ -113,71 +113,70 @@ define range(i64 0, 4294967298) i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit
 
 14:                                               ; preds = %.lr.ph
-  %15 = and i8 %.sroa.020.085, 1
-  %16 = xor i8 %15, 1
+  %15 = xor i8 %.sroa.020.085, 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit
 
-17:                                               ; preds = %.lr.ph, %.lr.ph
-  %18 = trunc nuw i8 %.sroa.020.085 to i1
-  %19 = icmp ne i32 %7, 5
-  %.not = xor i1 %19, %18
+16:                                               ; preds = %.lr.ph, %.lr.ph
+  %17 = trunc nuw i8 %.sroa.020.085 to i1
+  %18 = icmp ne i32 %7, 5
+  %.not = xor i1 %18, %17
   br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %17, %28
-  %.sroa.068.2 = phi ptr [ %29, %28 ], [ %.sroa.068.083, %17 ]
-  %.2 = phi i32 [ %.3, %28 ], [ %.084, %17 ]
-  %20 = load i32, ptr %.sroa.068.2, align 4
-  switch i32 %20, label %28 [
-    i32 0, label %21
-    i32 3, label %25
-    i32 2, label %23
+.lr.ph.i:                                         ; preds = %16, %27
+  %.sroa.068.2 = phi ptr [ %28, %27 ], [ %.sroa.068.083, %16 ]
+  %.2 = phi i32 [ %.3, %27 ], [ %.084, %16 ]
+  %19 = load i32, ptr %.sroa.068.2, align 4
+  switch i32 %19, label %27 [
+    i32 0, label %20
+    i32 3, label %24
+    i32 2, label %22
   ]
 
-21:                                               ; preds = %.lr.ph.i
-  %22 = tail call i64 %2(ptr noundef %1, i1 noundef zeroext true)
-  br label %28
+20:                                               ; preds = %.lr.ph.i
+  %21 = tail call i64 %2(ptr noundef %1, i1 noundef zeroext true)
+  br label %27
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = add nsw i32 %.2, 1
-  br label %28
+22:                                               ; preds = %.lr.ph.i
+  %23 = add nsw i32 %.2, 1
+  br label %27
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = add nsw i32 %.2, -1
-  %27 = icmp eq i32 %26, %.084
-  br i1 %27, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %28
+24:                                               ; preds = %.lr.ph.i
+  %25 = add nsw i32 %.2, -1
+  %26 = icmp eq i32 %25, %.084
+  br i1 %26, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %27
 
-28:                                               ; preds = %25, %23, %21, %.lr.ph.i
-  %.3 = phi i32 [ %.2, %.lr.ph.i ], [ %.2, %21 ], [ %26, %25 ], [ %24, %23 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.068.2, i64 4
-  %.not.i14 = icmp eq ptr %29, %6
+27:                                               ; preds = %24, %22, %20, %.lr.ph.i
+  %.3 = phi i32 [ %.2, %.lr.ph.i ], [ %.2, %20 ], [ %25, %24 ], [ %23, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.068.2, i64 4
+  %.not.i14 = icmp eq ptr %28, %6
   br i1 %.not.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %.lr.ph.i, !llvm.loop !4
 
-30:                                               ; preds = %.lr.ph
-  %31 = add nsw i32 %.084, 1
+29:                                               ; preds = %.lr.ph
+  %30 = add nsw i32 %.084, 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit
 
-32:                                               ; preds = %.lr.ph
-  %33 = add nsw i32 %.084, -1
+31:                                               ; preds = %.lr.ph
+  %32 = add nsw i32 %.084, -1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit: ; preds = %28, %25, %8, %.lr.ph, %14, %30, %32, %17
-  %.sroa.068.1 = phi ptr [ %.sroa.068.083, %.lr.ph ], [ %.sroa.068.083, %14 ], [ %.sroa.068.083, %17 ], [ %.sroa.068.083, %30 ], [ %.sroa.068.083, %32 ], [ %.sroa.068.083, %8 ], [ %.sroa.068.2, %25 ], [ %29, %28 ]
-  %.1 = phi i32 [ %.084, %.lr.ph ], [ %.084, %14 ], [ %.084, %17 ], [ %31, %30 ], [ %33, %32 ], [ %.084, %8 ], [ %.084, %25 ], [ %.3, %28 ]
-  %.sroa.020.1 = phi i8 [ %.sroa.020.085, %.lr.ph ], [ %16, %14 ], [ %.sroa.020.085, %17 ], [ %.sroa.020.085, %30 ], [ %.sroa.020.085, %32 ], [ %11, %8 ], [ %.sroa.020.085, %25 ], [ %.sroa.020.085, %28 ]
-  %.sroa.1045.1 = phi i32 [ %.sroa.1045.086, %.lr.ph ], [ %.sroa.1045.086, %14 ], [ %.sroa.1045.086, %17 ], [ %.sroa.1045.086, %30 ], [ %.sroa.1045.086, %32 ], [ %spec.select, %8 ], [ %.sroa.1045.086, %25 ], [ %.sroa.1045.086, %28 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.068.1, i64 4
-  %.not81 = icmp eq ptr %34, %6
+_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit: ; preds = %27, %24, %8, %.lr.ph, %14, %29, %31, %16
+  %.sroa.068.1 = phi ptr [ %.sroa.068.083, %.lr.ph ], [ %.sroa.068.083, %14 ], [ %.sroa.068.083, %16 ], [ %.sroa.068.083, %29 ], [ %.sroa.068.083, %31 ], [ %.sroa.068.083, %8 ], [ %.sroa.068.2, %24 ], [ %28, %27 ]
+  %.1 = phi i32 [ %.084, %.lr.ph ], [ %.084, %14 ], [ %.084, %16 ], [ %30, %29 ], [ %32, %31 ], [ %.084, %8 ], [ %.084, %24 ], [ %.3, %27 ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.085, %.lr.ph ], [ %15, %14 ], [ %.sroa.020.085, %16 ], [ %.sroa.020.085, %29 ], [ %.sroa.020.085, %31 ], [ %11, %8 ], [ %.sroa.020.085, %24 ], [ %.sroa.020.085, %27 ]
+  %.sroa.1045.1 = phi i32 [ %.sroa.1045.086, %.lr.ph ], [ %.sroa.1045.086, %14 ], [ %.sroa.1045.086, %16 ], [ %.sroa.1045.086, %29 ], [ %.sroa.1045.086, %31 ], [ %spec.select, %8 ], [ %.sroa.1045.086, %24 ], [ %.sroa.1045.086, %27 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.068.1, i64 4
+  %.not81 = icmp eq ptr %33, %6
   br i1 %.not81, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit
-  %35 = zext nneg i32 %.sroa.1045.1 to i64
-  %36 = shl nuw nsw i64 %35, 32
-  %37 = zext nneg i8 %.sroa.020.1 to i64
-  %38 = or disjoint i64 %36, %37
+  %34 = zext nneg i32 %.sroa.1045.1 to i64
+  %35 = shl nuw nsw i64 %34, 32
+  %36 = zext nneg i8 %.sroa.020.1 to i64
+  %37 = or disjoint i64 %35, %36
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.sroa.020.0.insert.insert = phi i64 [ 0, %3 ], [ %38, %._crit_edge.loopexit ]
+  %.sroa.020.0.insert.insert = phi i64 [ 0, %3 ], [ %37, %._crit_edge.loopexit ]
   ret i64 %.sroa.020.0.insert.insert
 }
 

@@ -677,12 +677,12 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
 
 .thread:                                          ; preds = %95, %73, %43
   tail call void @__rcu_read_unlock() #9
-  br label %383
+  br label %382
 
 .loopexit30:                                      ; preds = %93, %78, %48
   tail call void @__rcu_read_unlock() #9
   %113 = icmp slt i32 %.fr57, 0
-  br i1 %113, label %383, label %114
+  br i1 %113, label %382, label %114
 
 114:                                              ; preds = %.loopexit30
   store ptr @__pollwait, ptr %7, align 8
@@ -787,24 +787,24 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   %177 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br label %.critedge.outer
 
-.critedge.outer:                                  ; preds = %348, %.thread27
-  %.ph108 = phi i32 [ 0, %348 ], [ %168, %.thread27 ]
-  %.ph109 = phi i32 [ %327, %348 ], [ %10, %.thread27 ]
-  %.ph110 = phi i64 [ %350, %348 ], [ 0, %.thread27 ]
-  %.ph111 = phi ptr [ %.ph115, %348 ], [ null, %.thread27 ]
+.critedge.outer:                                  ; preds = %347, %.thread27
+  %.ph108 = phi i32 [ 0, %347 ], [ %168, %.thread27 ]
+  %.ph109 = phi i32 [ %326, %347 ], [ %10, %.thread27 ]
+  %.ph110 = phi i64 [ %349, %347 ], [ 0, %.thread27 ]
+  %.ph111 = phi ptr [ %.ph115, %347 ], [ null, %.thread27 ]
   %178 = icmp eq i64 %.ph110, 0
   br label %.critedge.outer112
 
-.critedge.outer112:                               ; preds = %.critedge.outer, %379
-  %.ph113 = phi i32 [ %.ph108, %.critedge.outer ], [ %380, %379 ]
-  %.ph114 = phi i32 [ %.ph109, %.critedge.outer ], [ 0, %379 ]
-  %.ph115 = phi ptr [ %.ph111, %.critedge.outer ], [ %371, %379 ]
+.critedge.outer112:                               ; preds = %.critedge.outer, %378
+  %.ph113 = phi i32 [ %.ph108, %.critedge.outer ], [ %379, %378 ]
+  %.ph114 = phi i32 [ %.ph109, %.critedge.outer ], [ 0, %378 ]
+  %.ph115 = phi ptr [ %.ph111, %.critedge.outer ], [ %370, %378 ]
   %179 = icmp ne i32 %.ph113, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.outer112, %354
-  %180 = phi i1 [ false, %354 ], [ %179, %.critedge.outer112 ]
-  %181 = phi i32 [ %327, %354 ], [ %.ph114, %.critedge.outer112 ]
+.critedge:                                        ; preds = %.critedge.outer112, %353
+  %180 = phi i1 [ false, %353 ], [ %179, %.critedge.outer112 ]
+  %181 = phi i32 [ %326, %353 ], [ %.ph114, %.critedge.outer112 ]
   br i1 %175, label %.loopexit, label %182
 
 182:                                              ; preds = %.critedge
@@ -1010,110 +1010,109 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   br i1 %323, label %189, label %.loopexit.loopexit, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %315
-  %324 = and i8 %319, 1
-  %325 = icmp eq i8 %324, 0
+  %324 = icmp eq i8 %319, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge
-  %326 = phi i32 [ 0, %.critedge ], [ %316, %.loopexit.loopexit ]
-  %327 = phi i32 [ %181, %.critedge ], [ %318, %.loopexit.loopexit ]
-  %328 = phi i1 [ true, %.critedge ], [ %325, %.loopexit.loopexit ]
+  %325 = phi i32 [ 0, %.critedge ], [ %316, %.loopexit.loopexit ]
+  %326 = phi i32 [ %181, %.critedge ], [ %318, %.loopexit.loopexit ]
+  %327 = phi i1 [ true, %.critedge ], [ %324, %.loopexit.loopexit ]
   store ptr null, ptr %7, align 8
-  %329 = icmp ne i32 %326, 0
-  %330 = select i1 %329, i1 true, i1 %180
-  br i1 %330, label %382, label %331
+  %328 = icmp ne i32 %325, 0
+  %329 = select i1 %328, i1 true, i1 %180
+  br i1 %329, label %381, label %330
 
-331:                                              ; preds = %.loopexit
-  %332 = load volatile i64, ptr %14, align 8
-  %333 = and i64 %332, 131072
-  %334 = icmp eq i64 %333, 0
-  br i1 %334, label %335, label %382, !prof !18
+330:                                              ; preds = %.loopexit
+  %331 = load volatile i64, ptr %14, align 8
+  %332 = and i64 %331, 131072
+  %333 = icmp eq i64 %332, 0
+  br i1 %333, label %334, label %381, !prof !18
 
-335:                                              ; preds = %331
-  %336 = load volatile i64, ptr %14, align 8
-  %337 = and i64 %336, 4
-  %338 = icmp eq i64 %337, 0
-  br i1 %338, label %339, label %382
+334:                                              ; preds = %330
+  %335 = load volatile i64, ptr %14, align 8
+  %336 = and i64 %335, 4
+  %337 = icmp eq i64 %336, 0
+  br i1 %337, label %338, label %381
 
-339:                                              ; preds = %335
-  %340 = load i32, ptr %118, align 4
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %382
+338:                                              ; preds = %334
+  %339 = load i32, ptr %118, align 4
+  %340 = icmp eq i32 %339, 0
+  br i1 %340, label %341, label %381
 
-342:                                              ; preds = %339
-  br i1 %328, label %360, label %343
+341:                                              ; preds = %338
+  br i1 %327, label %359, label %342
 
-343:                                              ; preds = %342
-  %344 = load volatile i64, ptr %14, align 8
-  %345 = and i64 %344, 8
-  %346 = icmp eq i64 %345, 0
-  br i1 %346, label %347, label %360
+342:                                              ; preds = %341
+  %343 = load volatile i64, ptr %14, align 8
+  %344 = and i64 %343, 8
+  %345 = icmp eq i64 %344, 0
+  br i1 %345, label %346, label %359
 
-347:                                              ; preds = %343
-  br i1 %178, label %348, label %351
+346:                                              ; preds = %342
+  br i1 %178, label %347, label %350
 
-348:                                              ; preds = %347
-  %349 = call i64 @local_clock() #9
-  %350 = lshr i64 %349, 10
+347:                                              ; preds = %346
+  %348 = call i64 @local_clock() #9
+  %349 = lshr i64 %348, 10
   br label %.critedge.outer, !llvm.loop !26
 
-351:                                              ; preds = %347
-  %352 = load volatile i32, ptr @sysctl_net_busy_poll, align 4
-  %353 = icmp eq i32 %352, 0
-  br i1 %353, label %360, label %354
+350:                                              ; preds = %346
+  %351 = load volatile i32, ptr @sysctl_net_busy_poll, align 4
+  %352 = icmp eq i32 %351, 0
+  br i1 %352, label %359, label %353
 
-354:                                              ; preds = %351
-  %355 = zext i32 %352 to i64
-  %356 = add nuw nsw i64 %.ph110, %355
-  %357 = call i64 @local_clock() #9
-  %358 = lshr i64 %357, 10
-  %359 = icmp samesign ult i64 %356, %358
-  br i1 %359, label %360, label %.critedge, !llvm.loop !26
+353:                                              ; preds = %350
+  %354 = zext i32 %351 to i64
+  %355 = add nuw nsw i64 %.ph110, %354
+  %356 = call i64 @local_clock() #9
+  %357 = lshr i64 %356, 10
+  %358 = icmp samesign ult i64 %355, %357
+  br i1 %358, label %359, label %.critedge, !llvm.loop !26
 
-360:                                              ; preds = %354, %351, %343, %342
-  %361 = icmp ne ptr %.ph115, null
-  %362 = select i1 %121, i1 true, i1 %361
-  br i1 %362, label %370, label %363
+359:                                              ; preds = %353, %350, %342, %341
+  %360 = icmp ne ptr %.ph115, null
+  %361 = select i1 %121, i1 true, i1 %360
+  br i1 %361, label %369, label %362
 
-363:                                              ; preds = %360
-  %364 = load i64, ptr %2, align 8
-  %365 = load i64, ptr %176, align 8
-  %366 = icmp sgt i64 %364, 9223372035
-  %367 = mul i64 %364, 1000000000
-  %368 = add i64 %367, %365
-  %369 = select i1 %366, i64 9223372036854775807, i64 %368, !prof !14
-  store i64 %369, ptr %6, align 8
-  br label %370
+362:                                              ; preds = %359
+  %363 = load i64, ptr %2, align 8
+  %364 = load i64, ptr %176, align 8
+  %365 = icmp sgt i64 %363, 9223372035
+  %366 = mul i64 %363, 1000000000
+  %367 = add i64 %366, %364
+  %368 = select i1 %365, i64 9223372036854775807, i64 %367, !prof !14
+  store i64 %368, ptr %6, align 8
+  br label %369
 
-370:                                              ; preds = %363, %360
-  %371 = phi ptr [ %.ph115, %360 ], [ %6, %363 ]
-  %372 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %177, i32 1, ptr nonnull elementtype(i32) %177) #9, !srcloc !27
-  %373 = load i32, ptr %117, align 8
-  %374 = icmp eq i32 %373, 0
-  br i1 %374, label %375, label %379
+369:                                              ; preds = %362, %359
+  %370 = phi ptr [ %.ph115, %359 ], [ %6, %362 ]
+  %371 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %177, i32 1, ptr nonnull elementtype(i32) %177) #9, !srcloc !27
+  %372 = load i32, ptr %117, align 8
+  %373 = icmp eq i32 %372, 0
+  br i1 %373, label %374, label %378
 
-375:                                              ; preds = %370
-  %376 = call i32 @schedule_hrtimeout_range(ptr noundef %371, i64 noundef %169, i32 noundef 0) #9
-  %377 = icmp eq i32 %376, 0
-  %378 = zext i1 %377 to i32
-  br label %379
+374:                                              ; preds = %369
+  %375 = call i32 @schedule_hrtimeout_range(ptr noundef %370, i64 noundef %169, i32 noundef 0) #9
+  %376 = icmp eq i32 %375, 0
+  %377 = zext i1 %376 to i32
+  br label %378
 
-379:                                              ; preds = %375, %370
-  %380 = phi i32 [ 0, %370 ], [ %378, %375 ]
+378:                                              ; preds = %374, %369
+  %379 = phi i32 [ 0, %369 ], [ %377, %374 ]
   store volatile i32 0, ptr %177, align 8
-  %381 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %117, i32 0, ptr nonnull elementtype(i32) %117) #9, !srcloc !28
+  %380 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %117, i32 0, ptr nonnull elementtype(i32) %117) #9, !srcloc !28
   br label %.critedge.outer112
 
-382:                                              ; preds = %335, %.loopexit, %339, %331
-  %.ph = phi i32 [ 0, %331 ], [ %340, %339 ], [ %326, %.loopexit ], [ 0, %335 ]
+381:                                              ; preds = %334, %.loopexit, %338, %330
+  %.ph = phi i32 [ 0, %330 ], [ %339, %338 ], [ %325, %.loopexit ], [ 0, %334 ]
   call void @poll_freewait(ptr noundef nonnull %7)
-  br label %383
+  br label %382
 
-383:                                              ; preds = %.thread, %382, %.loopexit30
-  %384 = phi i32 [ %.ph, %382 ], [ %.fr57, %.loopexit30 ], [ -9, %.thread ]
+382:                                              ; preds = %.thread, %381, %.loopexit30
+  %383 = phi i32 [ %.ph, %381 ], [ %.fr57, %.loopexit30 ], [ -9, %.thread ]
   call void @llvm.lifetime.end.p0(i64 560, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  ret i32 %384
+  ret i32 %383
 }
 
 ; Function Attrs: null_pointer_is_valid

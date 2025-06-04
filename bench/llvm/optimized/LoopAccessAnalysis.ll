@@ -12484,7 +12484,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114AccessAnalysis15ca
   br label %60
 
 ._crit_edge61.loopexit:                           ; preds = %_ZN4llvm11SmallVectorIPKNS_5ValueELj8EED2Ev.exit
-  %54 = trunc i8 %.1116 to i1
+  %54 = trunc nuw i8 %.1116 to i1
   br label %._crit_edge61
 
 ._crit_edge61:                                    ; preds = %._crit_edge61.loopexit, %19
@@ -13226,48 +13226,47 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit161: ; preds = %_ZNK4llvm4Type22get
   br label %.loopexit
 
 385:                                              ; preds = %380
-  %386 = and i8 %.0117.lcssa, 1
-  store i8 %386, ptr %1, align 8, !tbaa !457
-  br i1 %370, label %387, label %.loopexit
+  store i8 %.0117.lcssa, ptr %1, align 8, !tbaa !457
+  br i1 %370, label %386, label %.loopexit
 
-387:                                              ; preds = %385
+386:                                              ; preds = %385
   store i8 0, ptr %1, align 8, !tbaa !457
-  %388 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  store i8 1, ptr %388, align 8, !tbaa !267
-  %389 = load ptr, ptr %55, align 8, !tbaa !25
+  %387 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  store i8 1, ptr %387, align 8, !tbaa !267
+  %388 = load ptr, ptr %55, align 8, !tbaa !25
   br i1 %.not14768.not, label %_ZN4llvm22RuntimePointerChecking5resetEv.exit, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %387
-  %390 = zext i32 %57 to i64
-  %391 = getelementptr inbounds nuw %"struct.llvm::RuntimePointerChecking::PointerInfo", ptr %389, i64 %390
+.lr.ph.i.preheader.i.i:                           ; preds = %386
+  %389 = zext i32 %57 to i64
+  %390 = getelementptr inbounds nuw %"struct.llvm::RuntimePointerChecking::PointerInfo", ptr %388, i64 %389
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
-  %.05.i.i.i = phi ptr [ %392, %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i ], [ %391, %.lr.ph.i.preheader.i.i ]
-  %392 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -72
-  %393 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -56
-  %394 = load ptr, ptr %393, align 8, !tbaa !136
-  %magicptr.i.i.i.i.i.i = ptrtoint ptr %394 to i64
-  switch i64 %magicptr.i.i.i.i.i.i, label %395 [
+  %.05.i.i.i = phi ptr [ %391, %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i ], [ %390, %.lr.ph.i.preheader.i.i ]
+  %391 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -72
+  %392 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -56
+  %393 = load ptr, ptr %392, align 8, !tbaa !136
+  %magicptr.i.i.i.i.i.i = ptrtoint ptr %393 to i64
+  switch i64 %magicptr.i.i.i.i.i.i, label %394 [
     i64 0, label %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i
     i64 -4096, label %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i
     i64 -8192, label %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i
   ]
 
-395:                                              ; preds = %.lr.ph.i.i.i
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(65) %392) #28
+394:                                              ; preds = %.lr.ph.i.i.i
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(65) %391) #28
   br label %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i
 
-_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i: ; preds = %395, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %389, %392
+_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i: ; preds = %394, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
+  %.not.i.i.i = icmp eq ptr %388, %391
   br i1 %.not.i.i.i, label %_ZN4llvm22RuntimePointerChecking5resetEv.exit, label %.lr.ph.i.i.i, !llvm.loop !456
 
-_ZN4llvm22RuntimePointerChecking5resetEv.exit:    ; preds = %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i, %387
+_ZN4llvm22RuntimePointerChecking5resetEv.exit:    ; preds = %_ZN4llvm22RuntimePointerChecking11PointerInfoD2Ev.exit.i.i.i, %386
   store i32 0, ptr %56, align 8, !tbaa !26
-  %396 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %395 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  store i32 0, ptr %395, align 8, !tbaa !26
+  %396 = getelementptr inbounds nuw i8, ptr %1, i64 392
   store i32 0, ptr %396, align 8, !tbaa !26
-  %397 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  store i32 0, ptr %397, align 8, !tbaa !26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit161, %.thread18, %_ZN4llvm22RuntimePointerChecking5resetEv.exit, %385, %6

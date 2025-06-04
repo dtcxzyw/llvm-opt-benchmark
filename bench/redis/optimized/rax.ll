@@ -2212,7 +2212,7 @@ raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStack
 
 151:                                              ; preds = %.thread192.thread256
   %152 = trunc nuw nsw i64 %.086.lcssa.ph259 to i32
-  %153 = shl i32 %152, 3
+  %153 = shl nuw i32 %152, 3
   %154 = or disjoint i32 %153, 4
   store i32 %154, ptr %148, align 4
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -3957,15 +3957,15 @@ gtk2_set_direction.exit:                          ; preds = %22, %26
   switch i32 %0, label %gtk2_set_direction.exit._crit_edge [
     i32 0, label %28
     i32 55, label %init_toggle_widget.exit
-    i32 14, label %52
-    i32 15, label %58
-    i32 65, label %65
-    i32 66, label %71
+    i32 14, label %53
+    i32 15, label %59
+    i32 65, label %66
+    i32 66, label %72
   ]
 
 gtk2_set_direction.exit._crit_edge:               ; preds = %gtk2_set_direction.exit
   %.pre = load ptr, ptr @gtk2_widget, align 8
-  br label %78
+  br label %79
 
 28:                                               ; preds = %gtk2_set_direction.exit
   %29 = and i32 %8, 1024
@@ -3978,120 +3978,120 @@ gtk2_set_direction.exit._crit_edge:               ; preds = %gtk2_set_direction.
 33:                                               ; preds = %28
   %34 = or i32 %32, 16384
   store i32 %34, ptr %31, align 8
-  br label %78
+  br label %79
 
 35:                                               ; preds = %28
   %36 = and i32 %32, -16385
   store i32 %36, ptr %31, align 8
-  br label %78
+  br label %79
 
 init_toggle_widget.exit:                          ; preds = %gtk2_set_direction.exit
   %37 = load ptr, ptr @gtk2_widget, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 144
-  %.lobit.i = lshr i32 %8, 9
-  %39 = trunc i32 %.lobit.i to i8
-  %40 = load i8, ptr %38, align 8
-  %41 = and i8 %39, 1
-  %42 = and i8 %40, -2
-  %43 = or disjoint i8 %42, %41
-  store i8 %43, ptr %38, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, -4097
-  %47 = shl i32 %8, 4
-  %masksel.i = and i32 %47, 4096
-  %.sink.i = or disjoint i32 %46, %masksel.i
-  store i32 %.sink.i, ptr %44, align 8
-  %48 = and i32 %8, 6
-  %or.cond.i = icmp ne i32 %48, 2
-  %49 = and i32 %8, 260
-  %or.cond21.i = icmp ne i32 %49, 260
+  %39 = lshr i32 %8, 9
+  %40 = trunc i32 %39 to i8
+  %41 = and i8 %40, 1
+  %42 = load i8, ptr %38, align 8
+  %43 = and i8 %42, -2
+  %44 = or disjoint i8 %43, %41
+  store i8 %44, ptr %38, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %46 = load i32, ptr %45, align 8
+  %47 = and i32 %46, -4097
+  %48 = shl i32 %8, 4
+  %masksel.i = and i32 %48, 4096
+  %.sink.i = or disjoint i32 %47, %masksel.i
+  store i32 %.sink.i, ptr %45, align 8
+  %49 = and i32 %8, 6
+  %or.cond.i = icmp ne i32 %49, 2
+  %50 = and i32 %8, 260
+  %or.cond21.i = icmp ne i32 %50, 260
   %or.cond22.i = and i1 %or.cond.i, %or.cond21.i
-  %50 = and i32 %8, 8
-  %.not18.i = icmp eq i32 %50, 0
+  %51 = and i32 %8, 8
+  %.not18.i = icmp eq i32 %51, 0
   %spec.select = select i1 %.not18.i, i8 %41, i8 4
   %.sink23.i = select i1 %or.cond22.i, i8 %spec.select, i8 2
-  %51 = getelementptr inbounds nuw i8, ptr %37, i64 34
-  store i8 %.sink23.i, ptr %51, align 2
-  br label %78
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 34
+  store i8 %.sink23.i, ptr %52, align 2
+  br label %79
 
-52:                                               ; preds = %gtk2_set_direction.exit
-  %53 = load ptr, ptr @gtk2_widget, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  store i32 %4, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 68
-  store i32 %5, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  store i32 %6, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 76
-  store i32 %7, ptr %57, align 4
-  br label %78
+53:                                               ; preds = %gtk2_set_direction.exit
+  %54 = load ptr, ptr @gtk2_widget, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
+  store i32 %4, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 68
+  store i32 %5, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  store i32 %6, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 76
+  store i32 %7, ptr %58, align 4
+  br label %79
 
-58:                                               ; preds = %gtk2_set_direction.exit
-  %59 = add nsw i32 %6, %4
-  %60 = load ptr, ptr @gtk2_widget, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
-  store i32 %59, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 68
-  store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 76
-  store i32 %7, ptr %64, align 4
-  br label %78
+59:                                               ; preds = %gtk2_set_direction.exit
+  %60 = add nsw i32 %6, %4
+  %61 = load ptr, ptr @gtk2_widget, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
+  store i32 %60, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 68
+  store i32 0, ptr %63, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  store i32 0, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 76
+  store i32 %7, ptr %65, align 4
+  br label %79
 
-65:                                               ; preds = %gtk2_set_direction.exit
-  %66 = load ptr, ptr @gtk2_widget, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
-  store i32 %4, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 68
-  store i32 %5, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 72
-  store i32 %6, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 76
-  store i32 %7, ptr %70, align 4
-  br label %78
+66:                                               ; preds = %gtk2_set_direction.exit
+  %67 = load ptr, ptr @gtk2_widget, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
+  store i32 %4, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 68
+  store i32 %5, ptr %69, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 72
+  store i32 %6, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 76
+  store i32 %7, ptr %71, align 4
+  br label %79
 
-71:                                               ; preds = %gtk2_set_direction.exit
-  %72 = load ptr, ptr @gtk2_widget, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  store i32 %4, ptr %73, align 8
-  %74 = add nsw i32 %7, %5
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 68
-  store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  store i32 %6, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 76
-  store i32 0, ptr %77, align 4
-  br label %78
+72:                                               ; preds = %gtk2_set_direction.exit
+  %73 = load ptr, ptr @gtk2_widget, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
+  store i32 %4, ptr %74, align 8
+  %75 = add nsw i32 %7, %5
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 68
+  store i32 %75, ptr %76, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  store i32 %6, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 76
+  store i32 0, ptr %78, align 4
+  br label %79
 
-78:                                               ; preds = %gtk2_set_direction.exit._crit_edge, %33, %35, %71, %65, %58, %52, %init_toggle_widget.exit
-  %79 = phi ptr [ %.pre, %gtk2_set_direction.exit._crit_edge ], [ %30, %33 ], [ %30, %35 ], [ %72, %71 ], [ %66, %65 ], [ %60, %58 ], [ %53, %52 ], [ %37, %init_toggle_widget.exit ]
-  %80 = load ptr, ptr @fp_gtk_paint_box, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr @gtk2_white_pixmap, align 8
-  tail call void %80(ptr noundef %82, ptr noundef %83, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %79, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
-  %84 = load ptr, ptr @fp_gtk_paint_box, align 8
-  %85 = load ptr, ptr @gtk2_widget, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr @gtk2_black_pixmap, align 8
-  tail call void %84(ptr noundef %87, ptr noundef %88, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %85, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
-  %89 = load ptr, ptr @gtk2_widget, align 8
-  %90 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
-  tail call void %90(ptr noundef %89, i32 noundef 1) #18
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 88
-  %92 = load ptr, ptr %91, align 8
-  %.not.i38 = icmp eq ptr %92, null
-  br i1 %.not.i38, label %gtk2_set_direction.exit39, label %93
+79:                                               ; preds = %gtk2_set_direction.exit._crit_edge, %33, %35, %72, %66, %59, %53, %init_toggle_widget.exit
+  %80 = phi ptr [ %.pre, %gtk2_set_direction.exit._crit_edge ], [ %30, %33 ], [ %30, %35 ], [ %73, %72 ], [ %67, %66 ], [ %61, %59 ], [ %54, %53 ], [ %37, %init_toggle_widget.exit ]
+  %81 = load ptr, ptr @fp_gtk_paint_box, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr @gtk2_white_pixmap, align 8
+  tail call void %81(ptr noundef %83, ptr noundef %84, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %80, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
+  %85 = load ptr, ptr @fp_gtk_paint_box, align 8
+  %86 = load ptr, ptr @gtk2_widget, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr @gtk2_black_pixmap, align 8
+  tail call void %85(ptr noundef %88, ptr noundef %89, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %86, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
+  %90 = load ptr, ptr @gtk2_widget, align 8
+  %91 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
+  tail call void %91(ptr noundef %90, i32 noundef 1) #18
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 88
+  %93 = load ptr, ptr %92, align 8
+  %.not.i38 = icmp eq ptr %93, null
+  br i1 %.not.i38, label %gtk2_set_direction.exit39, label %94
 
-93:                                               ; preds = %78
-  %94 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
-  tail call void %94(ptr noundef nonnull %92, i32 noundef 1) #18
+94:                                               ; preds = %79
+  %95 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
+  tail call void %95(ptr noundef nonnull %93, i32 noundef 1) #18
   br label %gtk2_set_direction.exit39
 
-gtk2_set_direction.exit39:                        ; preds = %78, %93
+gtk2_set_direction.exit39:                        ; preds = %79, %94
   ret void
 }
 
@@ -4236,70 +4236,68 @@ define internal void @gtk2_paint_vline(i32 noundef %0, i32 noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @gtk2_paint_option(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
-  %8 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
-  store ptr %8, ptr @gtk2_widget, align 8
+  %8 = and i32 %1, 512
+  %9 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
+  store ptr %9, ptr @gtk2_widget, align 8
   switch i32 %0, label %.init_toggle_widget.exit_crit_edge [
-    i32 55, label %9
-    i32 37, label %9
-    i32 1, label %9
+    i32 55, label %10
+    i32 37, label %10
+    i32 1, label %10
   ]
 
 .init_toggle_widget.exit_crit_edge:               ; preds = %7
-  %.pre = lshr i32 %1, 9
-  %.pre22 = trunc i32 %.pre to i8
-  %.pre24 = and i8 %.pre22, 1
+  %.pre = lshr exact i32 %8, 9
+  %.pre22 = trunc nuw nsw i32 %.pre to i8
   br label %init_toggle_widget.exit
 
-9:                                                ; preds = %7, %7, %7
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %.lobit.i = lshr i32 %1, 9
-  %11 = trunc i32 %.lobit.i to i8
-  %12 = load i8, ptr %10, align 8
-  %13 = and i8 %11, 1
-  %14 = and i8 %12, -2
-  %15 = or disjoint i8 %14, %13
-  store i8 %15, ptr %10, align 8
+10:                                               ; preds = %7, %7, %7
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %.lobit.i = lshr exact i32 %8, 9
+  %12 = trunc nuw nsw i32 %.lobit.i to i8
+  %13 = load i8, ptr %11, align 8
+  %14 = and i8 %13, -2
+  %15 = or disjoint i8 %14, %12
+  store i8 %15, ptr %11, align 8
   br label %init_toggle_widget.exit
 
-init_toggle_widget.exit:                          ; preds = %.init_toggle_widget.exit_crit_edge, %9
-  %.pre-phi25 = phi i8 [ %.pre24, %.init_toggle_widget.exit_crit_edge ], [ %13, %9 ]
-  %16 = and i32 %1, 512
-  %.not.i20 = icmp eq i32 %16, 0
+init_toggle_widget.exit:                          ; preds = %.init_toggle_widget.exit_crit_edge, %10
+  %.pre-phi = phi i8 [ %.pre22, %.init_toggle_widget.exit_crit_edge ], [ %12, %10 ]
+  %.not.i20 = icmp eq i32 %8, 0
   %spec.store.select.i = select i1 %.not.i20, i32 2, i32 1
-  %17 = and i32 %1, 8
-  %.not.i.not = icmp eq i32 %17, 0
-  %18 = and i32 %1, 4
-  %.not4.i = icmp eq i32 %18, 0
-  %19 = and i32 %1, 2
-  %spec.select.i = select i1 %.not4.i, i32 %19, i32 1
+  %16 = and i32 %1, 8
+  %.not.i.not = icmp eq i32 %16, 0
+  %17 = and i32 %1, 4
+  %.not4.i = icmp eq i32 %17, 0
+  %18 = and i32 %1, 2
+  %spec.select.i = select i1 %.not4.i, i32 %18, i32 1
   %.0.i = select i1 %.not.i.not, i32 %spec.select.i, i32 4
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, -4097
-  %23 = shl i32 %1, 4
-  %masksel.i = and i32 %23, 4096
-  %.sink.i = or disjoint i32 %22, %masksel.i
-  store i32 %.sink.i, ptr %20, align 8
-  %24 = and i32 %1, 6
-  %or.cond.i = icmp eq i32 %24, 2
-  %25 = and i32 %1, 260
-  %or.cond21.i = icmp eq i32 %25, 260
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, -4097
+  %22 = shl i32 %1, 4
+  %masksel.i = and i32 %22, 4096
+  %.sink.i = or disjoint i32 %21, %masksel.i
+  store i32 %.sink.i, ptr %19, align 8
+  %23 = and i32 %1, 6
+  %or.cond.i = icmp eq i32 %23, 2
+  %24 = and i32 %1, 260
+  %or.cond21.i = icmp eq i32 %24, 260
   %or.cond22.i.not21 = or i1 %or.cond.i, %or.cond21.i
-  %.mux = select i1 %.not.i.not, i8 %.pre-phi25, i8 4
+  %.mux = select i1 %.not.i.not, i8 %.pre-phi, i8 4
   %.sink23.i = select i1 %or.cond22.i.not21, i8 2, i8 %.mux
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 34
-  store i8 %.sink23.i, ptr %26, align 2
-  %27 = load ptr, ptr @fp_gtk_paint_option, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr @gtk2_white_pixmap, align 8
-  tail call void %27(ptr noundef %29, ptr noundef %30, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
-  %31 = load ptr, ptr @fp_gtk_paint_option, align 8
-  %32 = load ptr, ptr @gtk2_widget, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr @gtk2_black_pixmap, align 8
-  tail call void %31(ptr noundef %34, ptr noundef %35, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef %32, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 34
+  store i8 %.sink23.i, ptr %25, align 2
+  %26 = load ptr, ptr @fp_gtk_paint_option, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr @gtk2_white_pixmap, align 8
+  tail call void %26(ptr noundef %28, ptr noundef %29, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef nonnull %9, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
+  %30 = load ptr, ptr @fp_gtk_paint_option, align 8
+  %31 = load ptr, ptr @gtk2_widget, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr @gtk2_black_pixmap, align 8
+  tail call void %30(ptr noundef %33, ptr noundef %34, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef %31, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
   ret void
 }
 
@@ -4421,70 +4419,68 @@ define internal void @gtk_paint_background(i32 noundef %0, i32 noundef %1, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal void @gtk2_paint_check(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
-  %8 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
-  store ptr %8, ptr @gtk2_widget, align 8
+  %8 = and i32 %1, 512
+  %9 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
+  store ptr %9, ptr @gtk2_widget, align 8
   switch i32 %0, label %.init_toggle_widget.exit_crit_edge [
-    i32 55, label %9
-    i32 37, label %9
-    i32 1, label %9
+    i32 55, label %10
+    i32 37, label %10
+    i32 1, label %10
   ]
 
 .init_toggle_widget.exit_crit_edge:               ; preds = %7
-  %.pre = lshr i32 %1, 9
-  %.pre22 = trunc i32 %.pre to i8
-  %.pre24 = and i8 %.pre22, 1
+  %.pre = lshr exact i32 %8, 9
+  %.pre22 = trunc nuw nsw i32 %.pre to i8
   br label %init_toggle_widget.exit
 
-9:                                                ; preds = %7, %7, %7
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %.lobit.i = lshr i32 %1, 9
-  %11 = trunc i32 %.lobit.i to i8
-  %12 = load i8, ptr %10, align 8
-  %13 = and i8 %11, 1
-  %14 = and i8 %12, -2
-  %15 = or disjoint i8 %14, %13
-  store i8 %15, ptr %10, align 8
+10:                                               ; preds = %7, %7, %7
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %.lobit.i = lshr exact i32 %8, 9
+  %12 = trunc nuw nsw i32 %.lobit.i to i8
+  %13 = load i8, ptr %11, align 8
+  %14 = and i8 %13, -2
+  %15 = or disjoint i8 %14, %12
+  store i8 %15, ptr %11, align 8
   br label %init_toggle_widget.exit
 
-init_toggle_widget.exit:                          ; preds = %.init_toggle_widget.exit_crit_edge, %9
-  %.pre-phi25 = phi i8 [ %.pre24, %.init_toggle_widget.exit_crit_edge ], [ %13, %9 ]
-  %16 = and i32 %1, 512
-  %.not.i20 = icmp eq i32 %16, 0
+init_toggle_widget.exit:                          ; preds = %.init_toggle_widget.exit_crit_edge, %10
+  %.pre-phi = phi i8 [ %.pre22, %.init_toggle_widget.exit_crit_edge ], [ %12, %10 ]
+  %.not.i20 = icmp eq i32 %8, 0
   %spec.store.select.i = select i1 %.not.i20, i32 2, i32 1
-  %17 = and i32 %1, 8
-  %.not.i.not = icmp eq i32 %17, 0
-  %18 = and i32 %1, 4
-  %.not4.i = icmp eq i32 %18, 0
-  %19 = and i32 %1, 2
-  %spec.select.i = select i1 %.not4.i, i32 %19, i32 1
+  %16 = and i32 %1, 8
+  %.not.i.not = icmp eq i32 %16, 0
+  %17 = and i32 %1, 4
+  %.not4.i = icmp eq i32 %17, 0
+  %18 = and i32 %1, 2
+  %spec.select.i = select i1 %.not4.i, i32 %18, i32 1
   %.0.i = select i1 %.not.i.not, i32 %spec.select.i, i32 4
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, -4097
-  %23 = shl i32 %1, 4
-  %masksel.i = and i32 %23, 4096
-  %.sink.i = or disjoint i32 %22, %masksel.i
-  store i32 %.sink.i, ptr %20, align 8
-  %24 = and i32 %1, 6
-  %or.cond.i = icmp eq i32 %24, 2
-  %25 = and i32 %1, 260
-  %or.cond21.i = icmp eq i32 %25, 260
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, -4097
+  %22 = shl i32 %1, 4
+  %masksel.i = and i32 %22, 4096
+  %.sink.i = or disjoint i32 %21, %masksel.i
+  store i32 %.sink.i, ptr %19, align 8
+  %23 = and i32 %1, 6
+  %or.cond.i = icmp eq i32 %23, 2
+  %24 = and i32 %1, 260
+  %or.cond21.i = icmp eq i32 %24, 260
   %or.cond22.i.not21 = or i1 %or.cond.i, %or.cond21.i
-  %.mux = select i1 %.not.i.not, i8 %.pre-phi25, i8 4
+  %.mux = select i1 %.not.i.not, i8 %.pre-phi, i8 4
   %.sink23.i = select i1 %or.cond22.i.not21, i8 2, i8 %.mux
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 34
-  store i8 %.sink23.i, ptr %26, align 2
-  %27 = load ptr, ptr @fp_gtk_paint_check, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr @gtk2_white_pixmap, align 8
-  tail call void %27(ptr noundef %29, ptr noundef %30, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
-  %31 = load ptr, ptr @fp_gtk_paint_check, align 8
-  %32 = load ptr, ptr @gtk2_widget, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr @gtk2_black_pixmap, align 8
-  tail call void %31(ptr noundef %34, ptr noundef %35, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef %32, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 34
+  store i8 %.sink23.i, ptr %25, align 2
+  %26 = load ptr, ptr @fp_gtk_paint_check, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr @gtk2_white_pixmap, align 8
+  tail call void %26(ptr noundef %28, ptr noundef %29, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef nonnull %9, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
+  %30 = load ptr, ptr @fp_gtk_paint_check, align 8
+  %31 = load ptr, ptr @gtk2_widget, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr @gtk2_black_pixmap, align 8
+  tail call void %30(ptr noundef %33, ptr noundef %34, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef %31, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
   ret void
 }
 

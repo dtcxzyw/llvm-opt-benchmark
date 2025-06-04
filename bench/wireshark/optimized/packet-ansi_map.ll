@@ -5111,25 +5111,25 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
   %416 = load i32, ptr %415, align 4
   %417 = call ptr @wmem_multimap_lookup32_le(ptr noundef %413, ptr noundef %394, i32 noundef %416)
   %.not.i26 = icmp eq ptr %417, null
-  br i1 %.not.i26, label %422, label %418
+  br i1 %.not.i26, label %._crit_edge.i, label %418
+
+._crit_edge.i:                                    ; preds = %412
+  %.pre.i = load i32, ptr @OperationCode, align 4
+  br label %find_saved_invokedata.exit
 
 418:                                              ; preds = %412
   %419 = load i32, ptr %417, align 4
-  %420 = getelementptr inbounds nuw i8, ptr %417, i64 4
-  %421 = load i8, ptr %420, align 4
-  store i8 %421, ptr @ServiceIndicator, align 1
+  %420 = and i32 %419, 255
+  %421 = getelementptr inbounds nuw i8, ptr %417, i64 4
+  %422 = load i8, ptr %421, align 4
+  store i8 %422, ptr @ServiceIndicator, align 1
   br label %find_saved_invokedata.exit
 
-422:                                              ; preds = %412
-  %423 = load i32, ptr @OperationCode, align 4
-  br label %find_saved_invokedata.exit
-
-find_saved_invokedata.exit:                       ; preds = %418, %422
-  %.sink.in.i = phi i32 [ %423, %422 ], [ %419, %418 ]
-  %.sink.i = and i32 %.sink.in.i, 255
-  store i32 %.sink.i, ptr @OperationCode, align 4
+find_saved_invokedata.exit:                       ; preds = %._crit_edge.i, %418
+  %423 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %420, %418 ]
+  store i32 %423, ptr @OperationCode, align 4
   %424 = load ptr, ptr %8, align 8
-  %425 = call ptr @val_to_str_ext(i32 noundef %.sink.i, ptr noundef nonnull @ansi_map_opr_code_strings_ext, ptr noundef nonnull @.str.2658)
+  %425 = call ptr @val_to_str_ext(i32 noundef %423, ptr noundef nonnull @ansi_map_opr_code_strings_ext, ptr noundef nonnull @.str.2658)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %424, i32 noundef 25, ptr noundef nonnull @.str.2660, ptr noundef %425)
   %426 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %427 = load ptr, ptr %426, align 8

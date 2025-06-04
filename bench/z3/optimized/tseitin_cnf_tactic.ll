@@ -4405,7 +4405,7 @@ define linkonce_odr hidden void @_ZN18tseitin_cnf_tactic3imp7get_litEP4exprbR7ob
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %243
   %.026.lcssa.ph = phi i8 [ %246, %243 ], [ %.026104, %.lr.ph ]
   %.024.lcssa.ph = phi ptr [ %245, %243 ], [ %.024105, %.lr.ph ]
-  %13 = trunc i8 %.026.lcssa.ph to i1
+  %13 = trunc nuw i8 %.026.lcssa.ph to i1
   br i1 %13, label %14, label %30
 
 ._crit_edge:                                      ; preds = %4
@@ -4487,7 +4487,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %43
   br i1 %.not, label %_ZNK4decl13get_decl_kindEv.exit, label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %43, %_ZNK4decl13get_family_idEv.exit
-  %50 = trunc i8 %.026104 to i1
+  %50 = trunc nuw i8 %.026104 to i1
   br i1 %50, label %51, label %67
 
 51:                                               ; preds = %_ZNK4decl13get_family_idEv.exit.thread
@@ -4632,7 +4632,7 @@ _ZNK7obj_mapI3appPS0_E9find_coreES1_.exit.i:      ; preds = %96, %104
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit:         ; preds = %.lr.ph.i.i.i, %.lr.ph39.i.i.i, %109, %.preheader.i.i.i, %_ZNK7obj_mapI3appPS0_E9find_coreES1_.exit.i
   %.078 = phi ptr [ null, %.preheader.i.i.i ], [ %112, %_ZNK7obj_mapI3appPS0_E9find_coreES1_.exit.i ], [ null, %109 ], [ null, %.lr.ph39.i.i.i ], [ null, %.lr.ph.i.i.i ]
-  %113 = trunc i8 %.026104 to i1
+  %113 = trunc nuw i8 %.026104 to i1
   br i1 %113, label %114, label %130
 
 114:                                              ; preds = %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit
@@ -4781,7 +4781,7 @@ _ZNK7obj_mapI3appPS0_E9find_coreES1_.exit.i57:    ; preds = %163, %171
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit60:       ; preds = %.lr.ph.i.i.i46, %.lr.ph39.i.i.i52, %176, %.preheader.i.i.i50, %_ZNK7obj_mapI3appPS0_E9find_coreES1_.exit.i57
   %.179 = phi ptr [ null, %.preheader.i.i.i50 ], [ %179, %_ZNK7obj_mapI3appPS0_E9find_coreES1_.exit.i57 ], [ null, %176 ], [ null, %.lr.ph39.i.i.i52 ], [ null, %.lr.ph.i.i.i46 ]
-  %180 = trunc i8 %.026104 to i1
+  %180 = trunc nuw i8 %.026104 to i1
   br i1 %180, label %181, label %197
 
 181:                                              ; preds = %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit60
@@ -4852,7 +4852,7 @@ _ZN18tseitin_cnf_tactic3imp6mk_litEP4exprbR7obj_refIS1_11ast_managerE.exit68: ; 
   br label %.thread
 
 211:                                              ; preds = %144
-  %212 = trunc i8 %.026104 to i1
+  %212 = trunc nuw i8 %.026104 to i1
   br i1 %212, label %213, label %229
 
 213:                                              ; preds = %211

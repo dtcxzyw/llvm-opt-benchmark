@@ -4116,14 +4116,13 @@ _ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit: ; preds = %_ZL17toDXILElementT
   %100 = and i32 %6, 255
   %101 = or disjoint i32 %12, %100
   %102 = shl nuw nsw i32 %.0, 15
-  %103 = and i32 %102, 32768
-  %104 = or i32 %101, %38
-  %105 = or i32 %104, %39
-  %106 = or i32 %105, %40
-  %107 = or i32 %106, %103
+  %103 = or i32 %101, %38
+  %104 = or i32 %103, %39
+  %105 = or i32 %104, %40
+  %106 = or i32 %105, %102
   %.sroa.2.0.insert.ext = zext i32 %.044 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext nneg i32 %107 to i64
+  %.sroa.0.0.insert.ext = zext nneg i32 %106 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
 }

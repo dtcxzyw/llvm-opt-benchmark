@@ -5649,29 +5649,25 @@ _ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit:    ; preds = %for.body.i145
 
 if.then176:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
   %conv2.i152 = trunc nuw nsw i64 %or.i151 to i32
-  %conv177 = and i32 %conv2.i152, 65535
   %53 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv177, ptr noundef nonnull align 8 dereferenceable(36) %53)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i152, ptr noundef nonnull align 8 dereferenceable(36) %53)
   br label %sw.epilog
 
 if.then181:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
   %54 = trunc nuw nsw i64 %or.i151 to i32
-  %conv182 = and i32 %54, 65535
   %55 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv182, ptr noundef nonnull align 8 dereferenceable(36) %55)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %54, ptr noundef nonnull align 8 dereferenceable(36) %55)
   br label %sw.epilog
 
 if.then186:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
   %56 = trunc nuw nsw i64 %or.i151 to i32
-  %conv187 = and i32 %56, 65535
   %57 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv187, ptr noundef nonnull align 8 dereferenceable(36) %57)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %56, ptr noundef nonnull align 8 dereferenceable(36) %57)
   br label %sw.epilog
 
 if.else199:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
   %58 = load ptr, ptr %os_2, align 8
-  %conv201 = and i64 %or.i151, 65535
-  %call.i154 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %58, i64 noundef %conv201) #17
+  %call.i154 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %58, i64 noundef %or.i151) #17
   br label %sw.epilog
 
 for.body.i155:                                    ; preds = %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit, %for.body.i155
@@ -13271,7 +13267,6 @@ _ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit:    ; preds = %for.body.i160
 
 if.then57:                                        ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
   %conv2.i168 = trunc nuw nsw i64 %or.i167 to i32
-  %conv58 = and i32 %conv2.i168, 65535
   %bcProvider_.i169 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %45 = load ptr, ptr %bcProvider_.i169, align 8
   %stringStorage_.i.i170 = getelementptr inbounds nuw i8, ptr %45, i64 56
@@ -13279,7 +13274,7 @@ if.then57:                                        ; preds = %_ZN6hermes3hbc13dec
   %vtable.i172 = load ptr, ptr %45, align 8
   %vfn.i173 = getelementptr inbounds nuw i8, ptr %vtable.i172, i64 8
   %46 = load ptr, ptr %vfn.i173, align 8
-  %call6.i174 = tail call i64 %46(ptr noundef nonnull align 8 dereferenceable(280) %45, i32 noundef %conv58) #17
+  %call6.i174 = tail call i64 %46(ptr noundef nonnull align 8 dereferenceable(280) %45, i32 noundef %conv2.i168) #17
   %entry3.sroa.2.0.extract.shift.i175 = lshr i64 %call6.i174, 32
   %idx.ext.i176 = and i64 %call6.i174, 4294967295
   %add.ptr.i177 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i.i171, i64 %idx.ext.i176
@@ -13339,22 +13334,19 @@ if.else59:                                        ; preds = %_ZN6hermes3hbc13dec
   %tobool61 = trunc i8 %51 to i1
   %cmp67 = icmp eq i8 %0, 110
   %or.cond37 = and i1 %cmp67, %tobool61
-  br i1 %or.cond37, label %if.then68, label %sw.epilog
+  %tobool.not3.i209 = icmp ne i64 %or.i167, 0
+  %or.cond607.not = select i1 %or.cond37, i1 %tobool.not3.i209, i1 false
+  br i1 %or.cond607.not, label %while.body.lr.ph.i210, label %sw.epilog
 
-if.then68:                                        ; preds = %if.else59
+while.body.lr.ph.i210:                            ; preds = %if.else59
   %52 = trunc nuw nsw i64 %or.i167 to i32
-  %conv69 = and i32 %52, 65535
-  %tobool.not3.i209 = icmp eq i32 %conv69, 0
-  br i1 %tobool.not3.i209, label %sw.epilog, label %while.body.lr.ph.i210
-
-while.body.lr.ph.i210:                            ; preds = %if.then68
   %hash_.i211 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %hash_.promoted.i212 = load i32, ptr %hash_.i211, align 4
   br label %while.body.i213
 
 while.body.i213:                                  ; preds = %while.body.i213, %while.body.lr.ph.i210
   %53 = phi i32 [ %hash_.promoted.i212, %while.body.lr.ph.i210 ], [ %xor.i.i.i219, %while.body.i213 ]
-  %imm.addr.04.i214 = phi i32 [ %conv69, %while.body.lr.ph.i210 ], [ %shr.i220, %while.body.i213 ]
+  %imm.addr.04.i214 = phi i32 [ %52, %while.body.lr.ph.i210 ], [ %shr.i220, %while.body.i213 ]
   %conv.i.i.i215 = and i32 %imm.addr.04.i214, 255
   %add.i.i.i216 = add i32 %conv.i.i.i215, %53
   %add.i1.i.i217 = mul i32 %add.i.i.i216, 1025
@@ -13929,7 +13921,7 @@ while.cond.while.end_crit_edge.i538:              ; preds = %while.body.i529
   store i32 %xor.i.i.i535, ptr %hash_.i527, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.body19.i502, %for.body.i515, %for.body19.i438, %for.body.i451, %for.body19.i372, %for.body.i385, %for.body19.i307, %for.body.i320, %for.body19.i252, %for.body.i265, %for.body19.i186, %for.body.i199, %for.body19.i122, %for.body.i135, %for.body19.i67, %for.body.i80, %for.body19.i, %for.body.i, %while.cond.while.end_crit_edge.i538, %if.then167, %for.cond.preheader.i511, %for.cond17.preheader.i498, %while.cond.while.end_crit_edge.i474, %for.cond.preheader.i447, %for.cond17.preheader.i434, %while.cond.while.end_crit_edge.i408, %for.cond.preheader.i381, %for.cond17.preheader.i368, %while.cond.while.end_crit_edge.i343, %for.cond.preheader.i316, %for.cond17.preheader.i303, %while.cond.while.end_crit_edge.i288, %for.cond.preheader.i261, %for.cond17.preheader.i248, %while.cond.while.end_crit_edge.i222, %if.then68, %for.cond.preheader.i195, %for.cond17.preheader.i182, %while.body.lr.ph.i146, %for.cond.preheader.i131, %for.cond17.preheader.i118, %while.cond.while.end_crit_edge.i103, %for.cond.preheader.i76, %for.cond17.preheader.i63, %while.body.lr.ph.i, %for.cond.preheader.i, %for.cond17.preheader.i, %if.else158, %if.else138, %if.else119, %if.else99, %if.else79, %if.else59, %if.else38, %if.else18, %if.else, %_ZN6hermes3hbcL17isOperandStringIDENS_4inst6OpCodeEj.exit
+sw.epilog:                                        ; preds = %for.body19.i502, %for.body.i515, %for.body19.i438, %for.body.i451, %for.body19.i372, %for.body.i385, %for.body19.i307, %for.body.i320, %for.body19.i252, %for.body.i265, %for.body19.i186, %for.body.i199, %for.body19.i122, %for.body.i135, %for.body19.i67, %for.body.i80, %for.body19.i, %for.body.i, %while.cond.while.end_crit_edge.i538, %if.then167, %for.cond.preheader.i511, %for.cond17.preheader.i498, %while.cond.while.end_crit_edge.i474, %for.cond.preheader.i447, %for.cond17.preheader.i434, %while.cond.while.end_crit_edge.i408, %for.cond.preheader.i381, %for.cond17.preheader.i368, %while.cond.while.end_crit_edge.i343, %for.cond.preheader.i316, %for.cond17.preheader.i303, %while.cond.while.end_crit_edge.i288, %for.cond.preheader.i261, %for.cond17.preheader.i248, %while.cond.while.end_crit_edge.i222, %for.cond.preheader.i195, %for.cond17.preheader.i182, %while.body.lr.ph.i146, %for.cond.preheader.i131, %for.cond17.preheader.i118, %while.cond.while.end_crit_edge.i103, %for.cond.preheader.i76, %for.cond17.preheader.i63, %while.body.lr.ph.i, %for.cond.preheader.i, %for.cond17.preheader.i, %if.else158, %if.else138, %if.else119, %if.else99, %if.else79, %if.else59, %if.else38, %if.else18, %if.else, %_ZN6hermes3hbcL17isOperandStringIDENS_4inst6OpCodeEj.exit
   ret void
 }
 
@@ -15008,8 +15000,7 @@ if.then4.i.i210:                                  ; preds = %_ZN6hermes3hbc13dec
 
 _ZN4llvh11raw_ostreamlsEPKc.exit215:              ; preds = %if.then.i.i213, %if.then4.i.i210
   %phi.call.i212 = phi ptr [ %call3.i.i214, %if.then.i.i213 ], [ %49, %if.then4.i.i210 ]
-  %conv29 = and i64 %or.i199, 65535
-  %call.i217 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i212, i64 noundef %conv29) #17
+  %call.i217 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i212, i64 noundef %or.i199) #17
   %OutBufEnd.i5.i219 = getelementptr inbounds nuw i8, ptr %call.i217, i64 16
   %53 = load ptr, ptr %OutBufEnd.i5.i219, align 8
   %OutBufCur.i6.i220 = getelementptr inbounds nuw i8, ptr %call.i217, i64 24
@@ -16473,11 +16464,10 @@ if.then4.i.i176:                                  ; preds = %_ZN6hermes3hbc13dec
 
 _ZN4llvh11raw_ostreamlsEPKc.exit181:              ; preds = %if.then.i.i179, %if.then4.i.i176
   %phi.call.i178 = phi ptr [ %call3.i.i180, %if.then.i.i179 ], [ %29, %if.then4.i.i176 ]
-  %conv169 = and i64 %or.i165, 65535
   %call170 = tail call noundef zeroext i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext 3) #17
   %conv171 = zext i8 %call170 to i32
   %mul172 = shl nuw nsw i32 %conv171, 1
-  store i64 %conv169, ptr %ref.tmp168, align 8, !alias.scope !137
+  store i64 %or.i165, ptr %ref.tmp168, align 8, !alias.scope !137
   %DecValue.i.i182 = getelementptr inbounds nuw i8, ptr %ref.tmp168, i64 8
   store i64 0, ptr %DecValue.i.i182, align 8, !alias.scope !137
   %Width.i.i183 = getelementptr inbounds nuw i8, ptr %ref.tmp168, i64 16

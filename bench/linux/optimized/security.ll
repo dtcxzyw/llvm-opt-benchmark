@@ -4757,12 +4757,12 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
 31:                                               ; preds = %19
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1168), align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %113, label %.split.us
+  br i1 %33, label %112, label %.split.us
 
 .thread:                                          ; preds = %28
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1168), align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %113, label %.split.split
+  br i1 %35, label %112, label %.split.split
 
 .split.us:                                        ; preds = %31
   %36 = icmp eq ptr %1, null
@@ -4900,36 +4900,35 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   %.us-phi9 = phi i32 [ %105, %.loopexit25 ], [ %58, %57 ], [ %86, %85 ], [ 0, %108 ]
   %.us-phi10 = phi i8 [ %106, %.loopexit25 ], [ %59, %57 ], [ %87, %85 ], [ 0, %108 ]
   %.us-phi11 = phi i64 [ %107, %.loopexit25 ], [ %61, %57 ], [ %89, %85 ], [ 0, %108 ]
-  %111 = and i8 %.us-phi10, 1
-  %112 = icmp ne i8 %111, 0
-  br label %113
+  %111 = icmp ne i8 %.us-phi10, 0
+  br label %112
 
-113:                                              ; preds = %.thread, %.split8.us, %31
-  %114 = phi i32 [ 0, %31 ], [ %.us-phi9, %.split8.us ], [ 0, %.thread ]
-  %115 = phi i1 [ false, %31 ], [ %112, %.split8.us ], [ false, %.thread ]
-  %116 = phi i64 [ 0, %31 ], [ %.us-phi11, %.split8.us ], [ 0, %.thread ]
-  %117 = call i64 @llvm.read_register.i64(metadata !0)
-  %118 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 %116, i64 8, i64 %117) #17, !srcloc !181
-  %119 = extractvalue { ptr, i64 } %118, 0
-  %120 = extractvalue { ptr, i64 } %118, 1
-  %121 = ptrtoint ptr %119 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %120)
-  %122 = and i64 %121, 4294967295
-  %123 = icmp ne i64 %122, 0
-  %124 = select i1 %123, i1 true, i1 %115
-  %125 = select i1 %123, i32 -14, i32 -7
-  br i1 %124, label %.loopexit, label %126
+112:                                              ; preds = %.thread, %.split8.us, %31
+  %113 = phi i32 [ 0, %31 ], [ %.us-phi9, %.split8.us ], [ 0, %.thread ]
+  %114 = phi i1 [ false, %31 ], [ %111, %.split8.us ], [ false, %.thread ]
+  %115 = phi i64 [ 0, %31 ], [ %.us-phi11, %.split8.us ], [ 0, %.thread ]
+  %116 = call i64 @llvm.read_register.i64(metadata !0)
+  %117 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 %115, i64 8, i64 %116) #17, !srcloc !181
+  %118 = extractvalue { ptr, i64 } %117, 0
+  %119 = extractvalue { ptr, i64 } %117, 1
+  %120 = ptrtoint ptr %118 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %119)
+  %121 = and i64 %120, 4294967295
+  %122 = icmp ne i64 %121, 0
+  %123 = select i1 %122, i1 true, i1 %114
+  %124 = select i1 %122, i32 -14, i32 -7
+  br i1 %123, label %.loopexit, label %125
 
-126:                                              ; preds = %113
-  %127 = icmp eq i32 %114, 0
-  %128 = select i1 %127, i32 -95, i32 %114
+125:                                              ; preds = %112
+  %126 = icmp eq i32 %113, 0
+  %127 = select i1 %126, i32 -95, i32 %113
   br label %.loopexit
 
-.loopexit:                                        ; preds = %73, %45, %103, %126, %113, %28, %25, %21, %10, %4
-  %129 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %125, %113 ], [ %128, %126 ], [ %102, %103 ], [ %44, %45 ], [ %72, %73 ]
+.loopexit:                                        ; preds = %73, %45, %103, %125, %112, %28, %25, %21, %10, %4
+  %128 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %124, %112 ], [ %127, %125 ], [ %102, %103 ], [ %44, %45 ], [ %72, %73 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  ret i32 %129
+  ret i32 %128
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

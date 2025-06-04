@@ -15805,7 +15805,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN4ll
   br label %.thread584
 
 757:                                              ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit
-  %758 = trunc i8 %.0183701 to i1
+  %758 = trunc nuw i8 %.0183701 to i1
   %759 = call noundef zeroext i1 @_ZN4llvm8AANoSync16isAlignedBarrierERKNS_8CallBaseEb(ptr noundef nonnull align 8 dereferenceable(88) %688, i1 noundef zeroext %758) #29
   br i1 %759, label %760, label %.thread584
 

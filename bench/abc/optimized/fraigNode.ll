@@ -316,7 +316,7 @@ define noundef ptr @Fraig_NodeCreate(ptr noundef captures(none) %0, ptr noundef 
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, -2
-  %63 = or disjoint i32 %62, %59
+  %63 = or i32 %62, %59
   store i32 %63, ptr %60, align 8
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %65 = load i32, ptr %64, align 8

@@ -80878,15 +80878,15 @@ _ZNK4llvm5APInt4lshrEj.exit:                      ; preds = %_ZN4llvm5APIntC2ERK
   %.0.in.i = select i1 %14, ptr %2, ptr %.pr
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !64
   %15 = icmp eq ptr %.pr, null
-  %or.cond27 = select i1 %14, i1 true, i1 %15
-  br i1 %or.cond27, label %_ZN4llvm5APIntD2Ev.exit, label %16
+  %or.cond25 = select i1 %14, i1 true, i1 %15
+  br i1 %or.cond25, label %_ZN4llvm5APIntD2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNK4llvm5APInt4lshrEj.exit
   call void @_ZdaPv(ptr noundef nonnull %.pr) #28
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt4lshrEj.exit.thread, %_ZNK4llvm5APInt4lshrEj.exit, %16
-  %.0.i34 = phi i64 [ %.sink, %_ZNK4llvm5APInt4lshrEj.exit.thread ], [ %.0.i, %_ZNK4llvm5APInt4lshrEj.exit ], [ %.0.i, %16 ]
+  %.0.i32 = phi i64 [ %.sink, %_ZNK4llvm5APInt4lshrEj.exit.thread ], [ %.0.i, %_ZNK4llvm5APInt4lshrEj.exit ], [ %.0.i, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
   call void @llvm.experimental.noalias.scope.decl(metadata !1757)
@@ -80924,12 +80924,12 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %22
 
 _ZNK4llvm5APInt4lshrEj.exit19:                    ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i16
   call void @_ZN4llvm5APInt12lshrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 52) #26
-  %.pre29 = load i32, ptr %17, align 8, !tbaa !75
-  %28 = icmp ult i32 %.pre29, 65
-  br i1 %28, label %_ZNK4llvm5APInt12getSExtValueEv.exit, label %36
+  %.pre27 = load i32, ptr %17, align 8, !tbaa !75
+  %28 = icmp ult i32 %.pre27, 65
+  br i1 %28, label %_ZNK4llvm5APInt12getSExtValueEv.exit, label %37
 
 _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %25, %_ZNK4llvm5APInt4lshrEj.exit19
-  %29 = phi i32 [ %.pre29, %_ZNK4llvm5APInt4lshrEj.exit19 ], [ %23, %25 ]
+  %29 = phi i32 [ %.pre27, %_ZNK4llvm5APInt4lshrEj.exit19 ], [ %23, %25 ]
   %.fr = freeze i32 %29
   %30 = load i64, ptr %3, align 8, !tbaa !64
   %31 = icmp eq i32 %.fr, 0
@@ -80937,45 +80937,47 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %25, %_ZNK4llvm5APIn
   %33 = zext nneg i32 %32 to i64
   %34 = shl i64 %30, %33
   %35 = ashr exact i64 %34, %33
-  %spec.select = select i1 %31, i64 0, i64 %35
+  %36 = and i64 %35, 2047
+  %spec.select = select i1 %31, i64 0, i64 %36
   br label %_ZN4llvm5APIntD2Ev.exit21
 
-36:                                               ; preds = %_ZNK4llvm5APInt4lshrEj.exit19
-  %37 = load ptr, ptr %3, align 8, !tbaa !64
-  %38 = load i64, ptr %37, align 8, !tbaa !65
-  call void @_ZdaPv(ptr noundef nonnull %37) #28
+37:                                               ; preds = %_ZNK4llvm5APInt4lshrEj.exit19
+  %38 = load ptr, ptr %3, align 8, !tbaa !64
+  %39 = load i64, ptr %38, align 8, !tbaa !65
+  %40 = and i64 %39, 2047
+  call void @_ZdaPv(ptr noundef nonnull %38) #28
   br label %_ZN4llvm5APIntD2Ev.exit21
 
-_ZN4llvm5APIntD2Ev.exit21:                        ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, %36
-  %.0.i2025 = phi i64 [ %38, %36 ], [ 0, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %spec.select, %_ZNK4llvm5APInt12getSExtValueEv.exit ]
-  %39 = and i64 %.0.i2025, 2044
+_ZN4llvm5APIntD2Ev.exit21:                        ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, %37
+  %41 = phi i64 [ %40, %37 ], [ 0, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %spec.select, %_ZNK4llvm5APInt12getSExtValueEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
-  %40 = load i32, ptr %5, align 8, !tbaa !75
-  %41 = icmp ult i32 %40, 65
-  %42 = load ptr, ptr %0, align 8
-  %.0.in.i22 = select i1 %41, ptr %0, ptr %42
+  %42 = load i32, ptr %5, align 8, !tbaa !75
+  %43 = icmp ult i32 %42, 65
+  %44 = load ptr, ptr %0, align 8
+  %.0.in.i22 = select i1 %43, ptr %0, ptr %44
   %.0.i23 = load i64, ptr %.0.in.i22, align 8, !tbaa !64
-  %43 = and i64 %.0.i23, 281474976710655
-  %.not = icmp ne i64 %43, 0
-  %44 = add nsw i64 %39, -1028
-  %or.cond = icmp ult i64 %44, -8
-  %or.cond28 = select i1 %.not, i1 true, i1 %or.cond
-  br i1 %or.cond28, label %55, label %45
+  %45 = and i64 %.0.i23, 281474976710655
+  %.not = icmp ne i64 %45, 0
+  %46 = add nsw i64 %41, -1028
+  %or.cond = icmp ult i64 %46, -8
+  %or.cond26 = select i1 %.not, i1 true, i1 %or.cond
+  br i1 %or.cond26, label %58, label %47
 
-45:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit21
-  %46 = lshr exact i64 %.0.i23, 48
-  %47 = and i64 %46, 15
-  %48 = shl i64 %.0.i34, 7
-  %49 = and i64 %48, 128
-  %50 = shl i64 %.0.i2025, 4
-  %51 = and i64 %50, 112
-  %52 = or disjoint i64 %51, %49
-  %53 = or disjoint i64 %52, %47
-  %54 = trunc nuw nsw i64 %53 to i32
-  br label %55
+47:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit21
+  %48 = lshr exact i64 %.0.i23, 48
+  %49 = and i64 %48, 15
+  %50 = shl i64 %.0.i32, 7
+  %51 = and i64 %50, 128
+  %52 = shl nuw nsw i64 %41, 4
+  %53 = add nuw nsw i64 %52, 4294950976
+  %54 = or i64 %53, %51
+  %55 = or disjoint i64 %54, %49
+  %56 = trunc i64 %55 to i32
+  %57 = xor i32 %56, 64
+  br label %58
 
-55:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit21, %45
-  %.0 = phi i32 [ %54, %45 ], [ -1, %_ZN4llvm5APIntD2Ev.exit21 ]
+58:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit21, %47
+  %.0 = phi i32 [ %57, %47 ], [ -1, %_ZN4llvm5APIntD2Ev.exit21 ]
   ret i32 %.0
 }
 

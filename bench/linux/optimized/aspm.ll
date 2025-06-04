@@ -153,13 +153,13 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %44 = phi i1 [ false, %37 ], [ true, %1 ], [ %.not.not, %.preheader ], [ %.not.not, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   %45 = load i1, ptr @aspm_support_enabled, align 1
-  br i1 %45, label %593, label %46
+  br i1 %45, label %586, label %46
 
 46:                                               ; preds = %.loopexit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %593
+  br i1 %49, label %50, label %586
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -169,7 +169,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %55 = and i16 %52, 240
   %56 = icmp eq i16 %55, 128
   %57 = or i1 %54, %56
-  br i1 %57, label %58, label %593
+  br i1 %57, label %58, label %586
 
 58:                                               ; preds = %50
   %59 = icmp eq i16 %55, 64
@@ -181,7 +181,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %593
+  br i1 %65, label %66, label %586
 
 66:                                               ; preds = %60, %58
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #14
@@ -189,7 +189,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load volatile ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %68
-  br i1 %70, label %592, label %71
+  br i1 %70, label %585, label %71
 
 71:                                               ; preds = %66
   call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
@@ -657,27 +657,27 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %348 = icmp eq i32 %347, 0
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %73, i64 48
   %.pre18.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
-  br i1 %348, label %._crit_edge12, label %349
+  br i1 %348, label %._crit_edge16, label %349
 
 349:                                              ; preds = %346
   %350 = or i32 %.pre18.i.pre, 4096
   store i32 %350, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
-  br label %._crit_edge12
+  br label %._crit_edge16
 
-._crit_edge12:                                    ; preds = %346, %349
+._crit_edge16:                                    ; preds = %346, %349
   %.pre18.i = phi i32 [ %350, %349 ], [ %.pre18.i.pre, %346 ]
   %351 = and i32 %332, 1
   %352 = icmp eq i32 %351, 0
   br i1 %352, label %._crit_edge.i, label %353
 
-353:                                              ; preds = %._crit_edge12
+353:                                              ; preds = %._crit_edge16
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %73, i64 48
   %354 = or i32 %.pre18.i, 8192
   store i32 %354, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %353, %._crit_edge12
-  %355 = phi i32 [ %354, %353 ], [ %.pre18.i, %._crit_edge12 ]
+._crit_edge.i:                                    ; preds = %353, %._crit_edge16
+  %355 = phi i32 [ %354, %353 ], [ %.pre18.i, %._crit_edge16 ]
   %356 = and i32 %355, 80
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %512, label %358
@@ -997,7 +997,7 @@ pcie_aspm_cap_init.exit:                          ; preds = %528, %119, %126, %5
   %540 = load i32, ptr %2, align 4
   %541 = and i32 %540, 262144
   %542 = icmp eq i32 %541, 0
-  br i1 %542, label %551, label %543
+  br i1 %542, label %pcie_clkpm_cap_init.exit.loopexit, label %543
 
 543:                                              ; preds = %.preheader.i7
   %544 = call i32 @pcie_capability_read_word(ptr noundef %537, i32 noundef 16, ptr noundef nonnull %3) #14
@@ -1007,85 +1007,82 @@ pcie_aspm_cap_init.exit:                          ; preds = %528, %119, %126, %5
   %548 = select i1 %547, i16 0, i16 %538
   %549 = load ptr, ptr %537, align 8
   %550 = icmp eq ptr %549, %534
-  br i1 %550, label %551, label %.preheader.i7, !llvm.loop !17
+  br i1 %550, label %pcie_clkpm_cap_init.exit.loopexit, label %.preheader.i7, !llvm.loop !17
 
-551:                                              ; preds = %543, %.preheader.i7
-  %552 = phi i16 [ %548, %543 ], [ 0, %.preheader.i7 ]
-  %553 = phi i16 [ 128, %543 ], [ 0, %.preheader.i7 ]
-  %554 = and i16 %552, 1
+pcie_clkpm_cap_init.exit.loopexit:                ; preds = %543, %.preheader.i7
+  %.ph = phi i16 [ 0, %.preheader.i7 ], [ %548, %543 ]
+  %.ph13 = phi i16 [ 0, %.preheader.i7 ], [ 128, %543 ]
+  %551 = mul nuw nsw i16 %.ph, 768
   br label %pcie_clkpm_cap_init.exit
 
-pcie_clkpm_cap_init.exit:                         ; preds = %pcie_aspm_cap_init.exit, %551
-  %555 = phi i16 [ 1, %pcie_aspm_cap_init.exit ], [ %554, %551 ]
-  %556 = phi i16 [ 128, %pcie_aspm_cap_init.exit ], [ %553, %551 ]
-  %557 = getelementptr inbounds nuw i8, ptr %73, i64 52
-  %558 = load i16, ptr %557, align 4
-  %559 = shl nuw nsw i16 %555, 8
-  %560 = and i16 %558, -1921
-  %561 = shl nuw nsw i16 %555, 9
-  %562 = select i1 %44, i16 0, i16 1024
-  %563 = or disjoint i16 %559, %562
-  %564 = or disjoint i16 %563, %561
-  %565 = add nuw nsw i16 %564, %556
-  %566 = add nuw nsw i16 %565, %560
-  store i16 %566, ptr %557, align 4
+pcie_clkpm_cap_init.exit:                         ; preds = %pcie_clkpm_cap_init.exit.loopexit, %pcie_aspm_cap_init.exit
+  %reass.mul = phi i16 [ 768, %pcie_aspm_cap_init.exit ], [ %551, %pcie_clkpm_cap_init.exit.loopexit ]
+  %552 = phi i16 [ 128, %pcie_aspm_cap_init.exit ], [ %.ph13, %pcie_clkpm_cap_init.exit.loopexit ]
+  %553 = getelementptr inbounds nuw i8, ptr %73, i64 52
+  %554 = load i16, ptr %553, align 4
+  %555 = and i16 %554, -1921
+  %556 = select i1 %44, i16 0, i16 1024
+  %557 = add nuw nsw i16 %reass.mul, %556
+  %558 = or disjoint i16 %557, %552
+  %559 = add nuw nsw i16 %558, %555
+  store i16 %559, ptr %553, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
-  %567 = load i32, ptr @aspm_policy, align 4
-  %568 = add nsw i32 %567, -4
-  %569 = icmp ult i32 %568, -2
-  br i1 %569, label %570, label %580
+  %560 = load i32, ptr @aspm_policy, align 4
+  %561 = add nsw i32 %560, -4
+  %562 = icmp ult i32 %561, -2
+  br i1 %562, label %563, label %573
 
-570:                                              ; preds = %pcie_clkpm_cap_init.exit
+563:                                              ; preds = %pcie_clkpm_cap_init.exit
   call fastcc void @pcie_config_aspm_path(ptr noundef nonnull %73)
-  %571 = load i32, ptr @aspm_policy, align 4
-  switch i32 %571, label %578 [
-    i32 0, label %573
-    i32 2, label %572
-    i32 3, label %572
+  %564 = load i32, ptr @aspm_policy, align 4
+  switch i32 %564, label %571 [
+    i32 0, label %566
+    i32 2, label %565
+    i32 3, label %565
   ]
 
-572:                                              ; preds = %570, %570
-  br label %578
+565:                                              ; preds = %563, %563
+  br label %571
 
-573:                                              ; preds = %570
-  %574 = load i16, ptr %557, align 4
-  %575 = lshr i16 %574, 9
-  %576 = and i16 %575, 1
-  %577 = zext nneg i16 %576 to i32
-  br label %578
+566:                                              ; preds = %563
+  %567 = load i16, ptr %553, align 4
+  %568 = lshr i16 %567, 9
+  %569 = and i16 %568, 1
+  %570 = zext nneg i16 %569 to i32
+  br label %571
 
-578:                                              ; preds = %573, %572, %570
-  %579 = phi i32 [ %577, %573 ], [ 1, %572 ], [ 0, %570 ]
-  call fastcc void @pcie_set_clkpm(ptr noundef nonnull %73, i32 noundef %579)
-  br label %580
+571:                                              ; preds = %566, %565, %563
+  %572 = phi i32 [ %570, %566 ], [ 1, %565 ], [ 0, %563 ]
+  call fastcc void @pcie_set_clkpm(ptr noundef nonnull %73, i32 noundef %572)
+  br label %573
 
-580:                                              ; preds = %578, %pcie_clkpm_cap_init.exit
-  %581 = load ptr, ptr %19, align 8
-  %582 = getelementptr inbounds nuw i8, ptr %581, i64 40
-  %583 = load ptr, ptr %582, align 8
-  %584 = icmp eq ptr %583, %582
-  br i1 %584, label %pcie_aspm_update_sysfs_visibility.exit, label %.preheader.i8
+573:                                              ; preds = %571, %pcie_clkpm_cap_init.exit
+  %574 = load ptr, ptr %19, align 8
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 40
+  %576 = load ptr, ptr %575, align 8
+  %577 = icmp eq ptr %576, %575
+  br i1 %577, label %pcie_aspm_update_sysfs_visibility.exit, label %.preheader.i8
 
-.preheader.i8:                                    ; preds = %580, %.preheader.i8
-  %585 = phi ptr [ %588, %.preheader.i8 ], [ %583, %580 ]
-  %586 = getelementptr inbounds nuw i8, ptr %585, i64 184
-  %587 = call i32 @sysfs_update_group(ptr noundef nonnull %586, ptr noundef nonnull @aspm_ctrl_attr_group) #14
-  %588 = load ptr, ptr %585, align 8
-  %589 = load ptr, ptr %19, align 8
-  %590 = getelementptr inbounds nuw i8, ptr %589, i64 40
-  %591 = icmp eq ptr %588, %590
-  br i1 %591, label %pcie_aspm_update_sysfs_visibility.exit, label %.preheader.i8, !llvm.loop !18
+.preheader.i8:                                    ; preds = %573, %.preheader.i8
+  %578 = phi ptr [ %581, %.preheader.i8 ], [ %576, %573 ]
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 184
+  %580 = call i32 @sysfs_update_group(ptr noundef nonnull %579, ptr noundef nonnull @aspm_ctrl_attr_group) #14
+  %581 = load ptr, ptr %578, align 8
+  %582 = load ptr, ptr %19, align 8
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 40
+  %584 = icmp eq ptr %581, %583
+  br i1 %584, label %pcie_aspm_update_sysfs_visibility.exit, label %.preheader.i8, !llvm.loop !18
 
-pcie_aspm_update_sysfs_visibility.exit:           ; preds = %.preheader.i8, %.thread, %71, %580
+pcie_aspm_update_sysfs_visibility.exit:           ; preds = %.preheader.i8, %.thread, %71, %573
   call void @mutex_unlock(ptr noundef nonnull @aspm_lock) #14
-  br label %592
+  br label %585
 
-592:                                              ; preds = %pcie_aspm_update_sysfs_visibility.exit, %66
+585:                                              ; preds = %pcie_aspm_update_sysfs_visibility.exit, %66
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #14
-  br label %593
+  br label %586
 
-593:                                              ; preds = %592, %60, %50, %46, %.loopexit
+586:                                              ; preds = %585, %60, %50, %46, %.loopexit
   ret void
 }
 

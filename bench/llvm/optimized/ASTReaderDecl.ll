@@ -19294,895 +19294,937 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPvN5clang9ASTReader25PendingFakeDefinitionKi
 
 .critedge:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPvN5clang9ASTReader25PendingFakeDefinitionKindENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E4findEPKv.exit, %87
   %113 = load i64, ptr %7, align 8
-  %114 = load i64, ptr %2, align 8
-  %115 = and i64 %114, 1
-  %116 = or i64 %115, %113
-  store i64 %116, ptr %7, align 8
-  %117 = trunc i64 %113 to i32
-  %118 = lshr i32 %117, 1
-  %119 = load i64, ptr %2, align 8
-  %120 = trunc i64 %119 to i32
-  %121 = lshr i32 %120, 1
-  %122 = or i32 %121, %118
-  %123 = shl nuw i32 %122, 1
-  %124 = and i32 %123, 126
-  %125 = zext nneg i32 %124 to i64
-  %126 = and i64 %116, -127
-  %127 = or disjoint i64 %126, %125
-  store i64 %127, ptr %7, align 8
-  %128 = lshr i32 %117, 7
-  %129 = load i64, ptr %2, align 8
-  %130 = trunc i64 %129 to i32
-  %131 = lshr i32 %130, 7
-  %132 = or i32 %131, %128
-  %133 = shl nuw i32 %132, 7
-  %134 = and i32 %133, 128
-  %135 = zext nneg i32 %134 to i64
-  %136 = and i64 %127, -129
-  %137 = or disjoint i64 %136, %135
-  store i64 %137, ptr %7, align 8
-  %138 = lshr i32 %117, 8
-  %139 = load i64, ptr %2, align 8
-  %140 = trunc i64 %139 to i32
-  %141 = lshr i32 %140, 8
-  %142 = or i32 %141, %138
-  %143 = shl nuw i32 %142, 8
-  %144 = and i32 %143, 256
-  %145 = zext nneg i32 %144 to i64
-  %146 = and i64 %137, -257
-  %147 = or disjoint i64 %146, %145
-  store i64 %147, ptr %7, align 8
-  %148 = lshr i32 %117, 9
-  %149 = load i64, ptr %2, align 8
-  %150 = trunc i64 %149 to i32
-  %151 = lshr i32 %150, 9
-  %152 = or i32 %151, %148
-  %153 = shl nuw i32 %152, 9
-  %154 = and i32 %153, 512
-  %155 = zext nneg i32 %154 to i64
-  %156 = and i64 %147, -513
-  %157 = or disjoint i64 %156, %155
-  store i64 %157, ptr %7, align 8
-  %158 = lshr i32 %117, 10
-  %159 = load i64, ptr %2, align 8
-  %160 = trunc i64 %159 to i32
-  %161 = lshr i32 %160, 10
-  %162 = or i32 %161, %158
-  %163 = shl nuw i32 %162, 10
-  %164 = and i32 %163, 1024
-  %165 = zext nneg i32 %164 to i64
-  %166 = and i64 %157, -1025
-  %167 = or disjoint i64 %166, %165
-  store i64 %167, ptr %7, align 8
-  %168 = lshr i32 %117, 11
+  %114 = trunc i64 %113 to i32
+  %115 = and i32 %114, 1
+  %116 = load i64, ptr %2, align 8
+  %117 = trunc i64 %116 to i32
+  %118 = and i32 %117, 1
+  %119 = or i32 %118, %115
+  %120 = zext nneg i32 %119 to i64
+  %121 = and i64 %113, -2
+  %122 = or disjoint i64 %121, %120
+  store i64 %122, ptr %7, align 8
+  %123 = lshr i32 %114, 1
+  %124 = and i32 %123, 63
+  %125 = load i64, ptr %2, align 8
+  %126 = trunc i64 %125 to i32
+  %127 = lshr i32 %126, 1
+  %128 = and i32 %127, 63
+  %129 = or i32 %128, %124
+  %130 = shl nuw nsw i32 %129, 1
+  %131 = zext nneg i32 %130 to i64
+  %132 = and i64 %122, -127
+  %133 = or disjoint i64 %132, %131
+  store i64 %133, ptr %7, align 8
+  %134 = lshr i32 %114, 7
+  %135 = and i32 %134, 1
+  %136 = load i64, ptr %2, align 8
+  %137 = trunc i64 %136 to i32
+  %138 = lshr i32 %137, 7
+  %139 = and i32 %138, 1
+  %140 = or i32 %139, %135
+  %141 = shl nuw nsw i32 %140, 7
+  %142 = zext nneg i32 %141 to i64
+  %143 = and i64 %133, -129
+  %144 = or disjoint i64 %143, %142
+  store i64 %144, ptr %7, align 8
+  %145 = lshr i32 %114, 8
+  %146 = and i32 %145, 1
+  %147 = load i64, ptr %2, align 8
+  %148 = trunc i64 %147 to i32
+  %149 = lshr i32 %148, 8
+  %150 = and i32 %149, 1
+  %151 = or i32 %150, %146
+  %152 = shl nuw nsw i32 %151, 8
+  %153 = zext nneg i32 %152 to i64
+  %154 = and i64 %144, -257
+  %155 = or disjoint i64 %154, %153
+  store i64 %155, ptr %7, align 8
+  %156 = lshr i32 %114, 9
+  %157 = and i32 %156, 1
+  %158 = load i64, ptr %2, align 8
+  %159 = trunc i64 %158 to i32
+  %160 = lshr i32 %159, 9
+  %161 = and i32 %160, 1
+  %162 = or i32 %161, %157
+  %163 = shl nuw nsw i32 %162, 9
+  %164 = zext nneg i32 %163 to i64
+  %165 = and i64 %155, -513
+  %166 = or disjoint i64 %165, %164
+  store i64 %166, ptr %7, align 8
+  %167 = lshr i32 %114, 10
+  %168 = and i32 %167, 1
   %169 = load i64, ptr %2, align 8
   %170 = trunc i64 %169 to i32
-  %171 = lshr i32 %170, 11
-  %172 = or i32 %171, %168
-  %173 = shl nuw i32 %172, 11
-  %174 = and i32 %173, 2048
+  %171 = lshr i32 %170, 10
+  %172 = and i32 %171, 1
+  %173 = or i32 %172, %168
+  %174 = shl nuw nsw i32 %173, 10
   %175 = zext nneg i32 %174 to i64
-  %176 = and i64 %167, -2049
+  %176 = and i64 %166, -1025
   %177 = or disjoint i64 %176, %175
   store i64 %177, ptr %7, align 8
-  %178 = lshr i32 %117, 12
-  %179 = load i64, ptr %2, align 8
-  %180 = trunc i64 %179 to i32
-  %181 = lshr i32 %180, 12
-  %182 = or i32 %181, %178
-  %183 = shl nuw i32 %182, 12
-  %184 = and i32 %183, 4096
-  %185 = zext nneg i32 %184 to i64
-  %186 = and i64 %177, -4097
-  %187 = or disjoint i64 %186, %185
-  store i64 %187, ptr %7, align 8
-  %188 = lshr i32 %117, 13
-  %189 = load i64, ptr %2, align 8
-  %190 = trunc i64 %189 to i32
-  %191 = lshr i32 %190, 13
-  %192 = or i32 %191, %188
-  %193 = shl nuw i32 %192, 13
-  %194 = and i32 %193, 8192
-  %195 = zext nneg i32 %194 to i64
-  %196 = and i64 %187, -8193
-  %197 = or disjoint i64 %196, %195
-  store i64 %197, ptr %7, align 8
-  %198 = lshr i32 %117, 14
-  %199 = load i64, ptr %2, align 8
-  %200 = trunc i64 %199 to i32
-  %201 = lshr i32 %200, 14
-  %202 = or i32 %201, %198
-  %203 = shl nuw i32 %202, 14
-  %204 = and i32 %203, 16384
-  %205 = zext nneg i32 %204 to i64
-  %206 = and i64 %197, -16385
-  %207 = or disjoint i64 %206, %205
-  store i64 %207, ptr %7, align 8
-  %208 = lshr i32 %117, 15
-  %209 = load i64, ptr %2, align 8
-  %210 = trunc i64 %209 to i32
-  %211 = lshr i32 %210, 15
-  %212 = or i32 %211, %208
-  %213 = shl nuw i32 %212, 15
-  %214 = and i32 %213, 32768
-  %215 = zext nneg i32 %214 to i64
-  %216 = and i64 %207, -32769
-  %217 = or disjoint i64 %216, %215
-  store i64 %217, ptr %7, align 8
-  %218 = lshr i32 %117, 16
-  %219 = load i64, ptr %2, align 8
-  %220 = trunc i64 %219 to i32
-  %221 = lshr i32 %220, 16
-  %222 = or i32 %221, %218
-  %223 = shl nuw i32 %222, 16
-  %224 = and i32 %223, 65536
-  %225 = zext nneg i32 %224 to i64
-  %226 = and i64 %217, -65537
-  %227 = or disjoint i64 %226, %225
-  store i64 %227, ptr %7, align 8
-  %228 = lshr i32 %117, 17
-  %229 = load i64, ptr %2, align 8
-  %230 = trunc i64 %229 to i32
-  %231 = lshr i32 %230, 17
-  %232 = or i32 %231, %228
-  %233 = shl nuw i32 %232, 17
-  %234 = and i32 %233, 131072
-  %235 = zext nneg i32 %234 to i64
-  %236 = and i64 %227, -131073
-  %237 = or disjoint i64 %236, %235
-  store i64 %237, ptr %7, align 8
-  %238 = lshr i32 %117, 18
-  %239 = load i64, ptr %2, align 8
-  %240 = trunc i64 %239 to i32
-  %241 = lshr i32 %240, 18
-  %242 = or i32 %241, %238
-  %243 = shl nuw i32 %242, 18
-  %244 = and i32 %243, 262144
-  %245 = zext nneg i32 %244 to i64
-  %246 = and i64 %237, -262145
-  %247 = or disjoint i64 %246, %245
-  store i64 %247, ptr %7, align 8
-  %248 = lshr i32 %117, 19
-  %249 = load i64, ptr %2, align 8
-  %250 = trunc i64 %249 to i32
-  %251 = lshr i32 %250, 19
-  %252 = or i32 %251, %248
-  %253 = shl nuw i32 %252, 19
-  %254 = and i32 %253, 524288
-  %255 = zext nneg i32 %254 to i64
-  %256 = and i64 %247, -524289
-  %257 = or disjoint i64 %256, %255
-  store i64 %257, ptr %7, align 8
-  %258 = lshr i32 %117, 20
-  %259 = load i64, ptr %2, align 8
-  %260 = trunc i64 %259 to i32
-  %261 = lshr i32 %260, 20
-  %262 = or i32 %261, %258
-  %263 = shl nuw i32 %262, 20
-  %264 = and i32 %263, 1048576
-  %265 = zext nneg i32 %264 to i64
-  %266 = and i64 %257, -1048577
-  %267 = or disjoint i64 %266, %265
-  store i64 %267, ptr %7, align 8
-  %268 = lshr i32 %117, 21
-  %269 = load i64, ptr %2, align 8
-  %270 = trunc i64 %269 to i32
-  %271 = lshr i32 %270, 21
-  %272 = or i32 %271, %268
-  %273 = shl nuw i32 %272, 21
-  %274 = and i32 %273, 2097152
-  %275 = zext nneg i32 %274 to i64
-  %276 = and i64 %267, -2097153
-  %277 = or disjoint i64 %276, %275
-  store i64 %277, ptr %7, align 8
-  %278 = lshr i32 %117, 22
+  %178 = lshr i32 %114, 11
+  %179 = and i32 %178, 1
+  %180 = load i64, ptr %2, align 8
+  %181 = trunc i64 %180 to i32
+  %182 = lshr i32 %181, 11
+  %183 = and i32 %182, 1
+  %184 = or i32 %183, %179
+  %185 = shl nuw nsw i32 %184, 11
+  %186 = zext nneg i32 %185 to i64
+  %187 = and i64 %177, -2049
+  %188 = or disjoint i64 %187, %186
+  store i64 %188, ptr %7, align 8
+  %189 = lshr i32 %114, 12
+  %190 = and i32 %189, 1
+  %191 = load i64, ptr %2, align 8
+  %192 = trunc i64 %191 to i32
+  %193 = lshr i32 %192, 12
+  %194 = and i32 %193, 1
+  %195 = or i32 %194, %190
+  %196 = shl nuw nsw i32 %195, 12
+  %197 = zext nneg i32 %196 to i64
+  %198 = and i64 %188, -4097
+  %199 = or disjoint i64 %198, %197
+  store i64 %199, ptr %7, align 8
+  %200 = lshr i32 %114, 13
+  %201 = and i32 %200, 1
+  %202 = load i64, ptr %2, align 8
+  %203 = trunc i64 %202 to i32
+  %204 = lshr i32 %203, 13
+  %205 = and i32 %204, 1
+  %206 = or i32 %205, %201
+  %207 = shl nuw nsw i32 %206, 13
+  %208 = zext nneg i32 %207 to i64
+  %209 = and i64 %199, -8193
+  %210 = or disjoint i64 %209, %208
+  store i64 %210, ptr %7, align 8
+  %211 = lshr i32 %114, 14
+  %212 = and i32 %211, 1
+  %213 = load i64, ptr %2, align 8
+  %214 = trunc i64 %213 to i32
+  %215 = lshr i32 %214, 14
+  %216 = and i32 %215, 1
+  %217 = or i32 %216, %212
+  %218 = shl nuw nsw i32 %217, 14
+  %219 = zext nneg i32 %218 to i64
+  %220 = and i64 %210, -16385
+  %221 = or disjoint i64 %220, %219
+  store i64 %221, ptr %7, align 8
+  %222 = lshr i32 %114, 15
+  %223 = and i32 %222, 1
+  %224 = load i64, ptr %2, align 8
+  %225 = trunc i64 %224 to i32
+  %226 = lshr i32 %225, 15
+  %227 = and i32 %226, 1
+  %228 = or i32 %227, %223
+  %229 = shl nuw nsw i32 %228, 15
+  %230 = zext nneg i32 %229 to i64
+  %231 = and i64 %221, -32769
+  %232 = or disjoint i64 %231, %230
+  store i64 %232, ptr %7, align 8
+  %233 = lshr i32 %114, 16
+  %234 = and i32 %233, 1
+  %235 = load i64, ptr %2, align 8
+  %236 = trunc i64 %235 to i32
+  %237 = lshr i32 %236, 16
+  %238 = and i32 %237, 1
+  %239 = or i32 %238, %234
+  %240 = shl nuw nsw i32 %239, 16
+  %241 = zext nneg i32 %240 to i64
+  %242 = and i64 %232, -65537
+  %243 = or disjoint i64 %242, %241
+  store i64 %243, ptr %7, align 8
+  %244 = lshr i32 %114, 17
+  %245 = and i32 %244, 1
+  %246 = load i64, ptr %2, align 8
+  %247 = trunc i64 %246 to i32
+  %248 = lshr i32 %247, 17
+  %249 = and i32 %248, 1
+  %250 = or i32 %249, %245
+  %251 = shl nuw nsw i32 %250, 17
+  %252 = zext nneg i32 %251 to i64
+  %253 = and i64 %243, -131073
+  %254 = or disjoint i64 %253, %252
+  store i64 %254, ptr %7, align 8
+  %255 = lshr i32 %114, 18
+  %256 = and i32 %255, 1
+  %257 = load i64, ptr %2, align 8
+  %258 = trunc i64 %257 to i32
+  %259 = lshr i32 %258, 18
+  %260 = and i32 %259, 1
+  %261 = or i32 %260, %256
+  %262 = shl nuw nsw i32 %261, 18
+  %263 = zext nneg i32 %262 to i64
+  %264 = and i64 %254, -262145
+  %265 = or disjoint i64 %264, %263
+  store i64 %265, ptr %7, align 8
+  %266 = lshr i32 %114, 19
+  %267 = and i32 %266, 1
+  %268 = load i64, ptr %2, align 8
+  %269 = trunc i64 %268 to i32
+  %270 = lshr i32 %269, 19
+  %271 = and i32 %270, 1
+  %272 = or i32 %271, %267
+  %273 = shl nuw nsw i32 %272, 19
+  %274 = zext nneg i32 %273 to i64
+  %275 = and i64 %265, -524289
+  %276 = or disjoint i64 %275, %274
+  store i64 %276, ptr %7, align 8
+  %277 = lshr i32 %114, 20
+  %278 = and i32 %277, 1
   %279 = load i64, ptr %2, align 8
   %280 = trunc i64 %279 to i32
-  %281 = lshr i32 %280, 22
-  %282 = or i32 %281, %278
-  %283 = shl nuw i32 %282, 22
-  %284 = and i32 %283, 4194304
+  %281 = lshr i32 %280, 20
+  %282 = and i32 %281, 1
+  %283 = or i32 %282, %278
+  %284 = shl nuw nsw i32 %283, 20
   %285 = zext nneg i32 %284 to i64
-  %286 = and i64 %277, -4194305
+  %286 = and i64 %276, -1048577
   %287 = or disjoint i64 %286, %285
   store i64 %287, ptr %7, align 8
-  %288 = lshr i32 %117, 23
-  %289 = load i64, ptr %2, align 8
-  %290 = trunc i64 %289 to i32
-  %291 = lshr i32 %290, 23
-  %292 = or i32 %291, %288
-  %293 = shl nuw i32 %292, 23
-  %294 = and i32 %293, 8388608
-  %295 = zext nneg i32 %294 to i64
-  %296 = and i64 %287, -8388609
-  %297 = or disjoint i64 %296, %295
-  store i64 %297, ptr %7, align 8
-  %298 = lshr i32 %117, 24
-  %299 = load i64, ptr %2, align 8
-  %300 = trunc i64 %299 to i32
-  %301 = lshr i32 %300, 24
-  %302 = or i32 %301, %298
-  %303 = shl nuw i32 %302, 24
-  %304 = and i32 %303, 16777216
-  %305 = zext nneg i32 %304 to i64
-  %306 = and i64 %297, -16777217
-  %307 = or disjoint i64 %306, %305
-  store i64 %307, ptr %7, align 8
-  %308 = lshr i32 %117, 25
-  %309 = load i64, ptr %2, align 8
-  %310 = trunc i64 %309 to i32
-  %311 = lshr i32 %310, 25
-  %312 = or i32 %311, %308
-  %313 = shl nuw i32 %312, 25
-  %314 = and i32 %313, 33554432
-  %315 = zext nneg i32 %314 to i64
-  %316 = and i64 %307, -33554433
-  %317 = or disjoint i64 %316, %315
-  store i64 %317, ptr %7, align 8
-  %318 = lshr i32 %117, 26
-  %319 = load i64, ptr %2, align 8
-  %320 = trunc i64 %319 to i32
-  %321 = lshr i32 %320, 26
-  %322 = or i32 %321, %318
-  %323 = shl nuw i32 %322, 26
-  %324 = and i32 %323, 67108864
-  %325 = zext nneg i32 %324 to i64
-  %326 = and i64 %317, -67108865
-  %327 = or disjoint i64 %326, %325
-  store i64 %327, ptr %7, align 8
-  %328 = lshr i32 %117, 27
-  %329 = load i64, ptr %2, align 8
-  %330 = trunc i64 %329 to i32
-  %331 = lshr i32 %330, 27
-  %332 = or i32 %331, %328
-  %333 = shl nuw i32 %332, 27
-  %334 = and i32 %333, 134217728
-  %335 = zext nneg i32 %334 to i64
-  %336 = and i64 %327, -134217729
-  %337 = or disjoint i64 %336, %335
-  store i64 %337, ptr %7, align 8
-  %338 = lshr i32 %117, 28
-  %339 = load i64, ptr %2, align 8
-  %340 = trunc i64 %339 to i32
-  %341 = lshr i32 %340, 28
-  %342 = or i32 %341, %338
-  %343 = shl nuw i32 %342, 28
-  %344 = and i32 %343, 268435456
-  %345 = zext nneg i32 %344 to i64
-  %346 = and i64 %337, -268435457
-  %347 = or disjoint i64 %346, %345
-  store i64 %347, ptr %7, align 8
-  %348 = lshr i32 %117, 29
-  %349 = load i64, ptr %2, align 8
-  %350 = trunc i64 %349 to i32
-  %351 = lshr i32 %350, 29
-  %352 = or i32 %351, %348
-  %353 = shl nuw i32 %352, 29
-  %354 = and i32 %353, 536870912
-  %355 = zext nneg i32 %354 to i64
-  %356 = and i64 %347, -536870913
-  %357 = or disjoint i64 %356, %355
-  store i64 %357, ptr %7, align 8
-  %358 = lshr i32 %117, 30
-  %359 = load i64, ptr %2, align 8
-  %360 = trunc i64 %359 to i32
-  %361 = lshr i32 %360, 30
-  %362 = or i32 %361, %358
-  %363 = shl nuw i32 %362, 30
-  %364 = and i32 %363, 1073741824
-  %365 = zext nneg i32 %364 to i64
-  %366 = and i64 %357, -1073741825
-  %367 = or disjoint i64 %366, %365
-  store i64 %367, ptr %7, align 8
-  %368 = lshr i32 %117, 31
-  %369 = load i64, ptr %2, align 8
-  %370 = trunc i64 %369 to i32
-  %371 = lshr i32 %370, 31
-  %372 = or i32 %371, %368
-  %373 = shl nuw i32 %372, 31
-  %374 = zext i32 %373 to i64
-  %375 = and i64 %367, -2147483649
-  %376 = or disjoint i64 %375, %374
-  store i64 %376, ptr %7, align 8
-  %377 = lshr i64 %113, 32
+  %288 = lshr i32 %114, 21
+  %289 = and i32 %288, 1
+  %290 = load i64, ptr %2, align 8
+  %291 = trunc i64 %290 to i32
+  %292 = lshr i32 %291, 21
+  %293 = and i32 %292, 1
+  %294 = or i32 %293, %289
+  %295 = shl nuw nsw i32 %294, 21
+  %296 = zext nneg i32 %295 to i64
+  %297 = and i64 %287, -2097153
+  %298 = or disjoint i64 %297, %296
+  store i64 %298, ptr %7, align 8
+  %299 = lshr i32 %114, 22
+  %300 = and i32 %299, 1
+  %301 = load i64, ptr %2, align 8
+  %302 = trunc i64 %301 to i32
+  %303 = lshr i32 %302, 22
+  %304 = and i32 %303, 1
+  %305 = or i32 %304, %300
+  %306 = shl nuw nsw i32 %305, 22
+  %307 = zext nneg i32 %306 to i64
+  %308 = and i64 %298, -4194305
+  %309 = or disjoint i64 %308, %307
+  store i64 %309, ptr %7, align 8
+  %310 = lshr i32 %114, 23
+  %311 = and i32 %310, 1
+  %312 = load i64, ptr %2, align 8
+  %313 = trunc i64 %312 to i32
+  %314 = lshr i32 %313, 23
+  %315 = and i32 %314, 1
+  %316 = or i32 %315, %311
+  %317 = shl nuw nsw i32 %316, 23
+  %318 = zext nneg i32 %317 to i64
+  %319 = and i64 %309, -8388609
+  %320 = or disjoint i64 %319, %318
+  store i64 %320, ptr %7, align 8
+  %321 = lshr i32 %114, 24
+  %322 = and i32 %321, 1
+  %323 = load i64, ptr %2, align 8
+  %324 = trunc i64 %323 to i32
+  %325 = lshr i32 %324, 24
+  %326 = and i32 %325, 1
+  %327 = or i32 %326, %322
+  %328 = shl nuw nsw i32 %327, 24
+  %329 = zext nneg i32 %328 to i64
+  %330 = and i64 %320, -16777217
+  %331 = or disjoint i64 %330, %329
+  store i64 %331, ptr %7, align 8
+  %332 = lshr i32 %114, 25
+  %333 = and i32 %332, 1
+  %334 = load i64, ptr %2, align 8
+  %335 = trunc i64 %334 to i32
+  %336 = lshr i32 %335, 25
+  %337 = and i32 %336, 1
+  %338 = or i32 %337, %333
+  %339 = shl nuw nsw i32 %338, 25
+  %340 = zext nneg i32 %339 to i64
+  %341 = and i64 %331, -33554433
+  %342 = or disjoint i64 %341, %340
+  store i64 %342, ptr %7, align 8
+  %343 = lshr i32 %114, 26
+  %344 = and i32 %343, 1
+  %345 = load i64, ptr %2, align 8
+  %346 = trunc i64 %345 to i32
+  %347 = lshr i32 %346, 26
+  %348 = and i32 %347, 1
+  %349 = or i32 %348, %344
+  %350 = shl nuw nsw i32 %349, 26
+  %351 = zext nneg i32 %350 to i64
+  %352 = and i64 %342, -67108865
+  %353 = or disjoint i64 %352, %351
+  store i64 %353, ptr %7, align 8
+  %354 = lshr i32 %114, 27
+  %355 = and i32 %354, 1
+  %356 = load i64, ptr %2, align 8
+  %357 = trunc i64 %356 to i32
+  %358 = lshr i32 %357, 27
+  %359 = and i32 %358, 1
+  %360 = or i32 %359, %355
+  %361 = shl nuw nsw i32 %360, 27
+  %362 = zext nneg i32 %361 to i64
+  %363 = and i64 %353, -134217729
+  %364 = or disjoint i64 %363, %362
+  store i64 %364, ptr %7, align 8
+  %365 = lshr i32 %114, 28
+  %366 = and i32 %365, 1
+  %367 = load i64, ptr %2, align 8
+  %368 = trunc i64 %367 to i32
+  %369 = lshr i32 %368, 28
+  %370 = and i32 %369, 1
+  %371 = or i32 %370, %366
+  %372 = shl nuw nsw i32 %371, 28
+  %373 = zext nneg i32 %372 to i64
+  %374 = and i64 %364, -268435457
+  %375 = or disjoint i64 %374, %373
+  store i64 %375, ptr %7, align 8
+  %376 = lshr i32 %114, 29
+  %377 = and i32 %376, 1
   %378 = load i64, ptr %2, align 8
-  %379 = lshr i64 %378, 32
-  %380 = or i64 %379, %377
-  %381 = shl nuw i64 %380, 32
-  %382 = and i64 %381, 4294967296
-  %383 = and i64 %376, -4294967297
-  %384 = or disjoint i64 %383, %382
-  store i64 %384, ptr %7, align 8
-  %385 = lshr i64 %113, 33
-  %386 = load i64, ptr %2, align 8
-  %387 = lshr i64 %386, 33
-  %388 = or i64 %387, %385
-  %389 = shl nuw i64 %388, 33
-  %390 = and i64 %389, 8589934592
-  %391 = and i64 %384, -8589934593
-  %392 = or disjoint i64 %391, %390
-  store i64 %392, ptr %7, align 8
-  %393 = lshr i64 %113, 34
-  %394 = load i64, ptr %2, align 8
-  %395 = lshr i64 %394, 34
-  %396 = or i64 %395, %393
-  %397 = shl nuw i64 %396, 34
-  %398 = and i64 %397, 17179869184
-  %399 = and i64 %392, -17179869185
-  %400 = or disjoint i64 %399, %398
-  store i64 %400, ptr %7, align 8
-  %401 = lshr i64 %113, 35
-  %402 = load i64, ptr %2, align 8
-  %403 = lshr i64 %402, 35
-  %404 = or i64 %403, %401
-  %405 = shl nuw i64 %404, 35
-  %406 = and i64 %405, 34359738368
-  %407 = and i64 %400, -34359738369
-  %408 = or disjoint i64 %407, %406
-  store i64 %408, ptr %7, align 8
-  %409 = lshr i64 %113, 36
+  %379 = trunc i64 %378 to i32
+  %380 = lshr i32 %379, 29
+  %381 = and i32 %380, 1
+  %382 = or i32 %381, %377
+  %383 = shl nuw nsw i32 %382, 29
+  %384 = zext nneg i32 %383 to i64
+  %385 = and i64 %375, -536870913
+  %386 = or disjoint i64 %385, %384
+  store i64 %386, ptr %7, align 8
+  %387 = lshr i32 %114, 30
+  %388 = and i32 %387, 1
+  %389 = load i64, ptr %2, align 8
+  %390 = trunc i64 %389 to i32
+  %391 = lshr i32 %390, 30
+  %392 = and i32 %391, 1
+  %393 = or i32 %392, %388
+  %394 = shl nuw nsw i32 %393, 30
+  %395 = zext nneg i32 %394 to i64
+  %396 = and i64 %386, -1073741825
+  %397 = or disjoint i64 %396, %395
+  store i64 %397, ptr %7, align 8
+  %398 = lshr i32 %114, 31
+  %399 = load i64, ptr %2, align 8
+  %400 = trunc i64 %399 to i32
+  %401 = lshr i32 %400, 31
+  %402 = or i32 %401, %398
+  %403 = shl nuw i32 %402, 31
+  %404 = zext i32 %403 to i64
+  %405 = and i64 %397, -2147483649
+  %406 = or disjoint i64 %405, %404
+  store i64 %406, ptr %7, align 8
+  %407 = lshr i64 %113, 32
+  %408 = trunc nuw i64 %407 to i32
+  %409 = and i32 %408, 1
   %410 = load i64, ptr %2, align 8
-  %411 = lshr i64 %410, 36
-  %412 = or i64 %411, %409
-  %413 = shl nuw i64 %412, 36
-  %414 = and i64 %413, 68719476736
-  %415 = and i64 %408, -68719476737
-  %416 = or disjoint i64 %415, %414
-  store i64 %416, ptr %7, align 8
-  %417 = lshr i64 %113, 37
-  %418 = load i64, ptr %2, align 8
-  %419 = lshr i64 %418, 37
-  %420 = or i64 %419, %417
-  %421 = shl nuw i64 %420, 37
-  %422 = and i64 %421, 137438953472
-  %423 = and i64 %416, -137438953473
-  %424 = or disjoint i64 %423, %422
-  store i64 %424, ptr %7, align 8
-  %425 = lshr i64 %113, 38
-  %426 = load i64, ptr %2, align 8
-  %427 = lshr i64 %426, 38
-  %428 = or i64 %427, %425
-  %429 = shl nuw i64 %428, 38
-  %430 = and i64 %429, 274877906944
-  %431 = and i64 %424, -274877906945
-  %432 = or disjoint i64 %431, %430
-  store i64 %432, ptr %7, align 8
-  %433 = load i64, ptr %2, align 8
-  %434 = or i64 %433, %113
-  %435 = and i64 %434, 34634616274944
-  %436 = and i64 %432, -34634616274945
-  %437 = or disjoint i64 %436, %435
-  store i64 %437, ptr %7, align 8
-  %438 = load i64, ptr %2, align 8
-  %439 = or i64 %438, %113
-  %440 = and i64 %439, 2216615441596416
-  %441 = and i64 %437, -2216615441596417
+  %411 = lshr i64 %410, 32
+  %412 = trunc nuw i64 %411 to i32
+  %413 = and i32 %412, 1
+  %414 = or i32 %413, %409
+  %415 = zext nneg i32 %414 to i64
+  %416 = shl nuw nsw i64 %415, 32
+  %417 = and i64 %406, -4294967297
+  %418 = or disjoint i64 %417, %416
+  store i64 %418, ptr %7, align 8
+  %419 = lshr i64 %113, 33
+  %420 = trunc nuw nsw i64 %419 to i32
+  %421 = and i32 %420, 1
+  %422 = load i64, ptr %2, align 8
+  %423 = lshr i64 %422, 33
+  %424 = trunc nuw nsw i64 %423 to i32
+  %425 = and i32 %424, 1
+  %426 = or i32 %425, %421
+  %427 = zext nneg i32 %426 to i64
+  %428 = shl nuw nsw i64 %427, 33
+  %429 = and i64 %418, -8589934593
+  %430 = or disjoint i64 %429, %428
+  store i64 %430, ptr %7, align 8
+  %431 = lshr i64 %113, 34
+  %432 = trunc nuw nsw i64 %431 to i32
+  %433 = and i32 %432, 1
+  %434 = load i64, ptr %2, align 8
+  %435 = lshr i64 %434, 34
+  %436 = trunc nuw nsw i64 %435 to i32
+  %437 = and i32 %436, 1
+  %438 = or i32 %437, %433
+  %439 = zext nneg i32 %438 to i64
+  %440 = shl nuw nsw i64 %439, 34
+  %441 = and i64 %430, -17179869185
   %442 = or disjoint i64 %441, %440
   store i64 %442, ptr %7, align 8
-  %443 = load i64, ptr %2, align 8
-  %444 = or i64 %443, %113
-  %445 = and i64 %444, 141863388262170624
-  %446 = and i64 %442, -141863388262170625
-  %447 = or disjoint i64 %446, %445
-  store i64 %447, ptr %7, align 8
-  %448 = load i64, ptr %2, align 8
-  %449 = or i64 %448, %113
-  %450 = and i64 %449, 9079256848778919936
-  %451 = and i64 %447, -9079256848778919937
-  %452 = or disjoint i64 %451, %450
-  store i64 %452, ptr %7, align 8
-  %453 = lshr i64 %113, 63
-  %454 = load i64, ptr %2, align 8
-  %455 = lshr i64 %454, 63
-  %456 = or i64 %455, %453
-  %457 = shl nuw i64 %456, 63
-  %458 = and i64 %452, 9223372036854775807
-  %459 = or disjoint i64 %458, %457
-  store i64 %459, ptr %7, align 8
-  %460 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %461 = load i32, ptr %460, align 8
-  %462 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %463 = load i32, ptr %462, align 8
-  %464 = and i32 %461, 1
-  %465 = or i32 %464, %463
-  store i32 %465, ptr %462, align 8
-  %466 = load i32, ptr %460, align 8
-  %467 = or i32 %466, %463
-  %468 = and i32 %467, 2
-  %469 = and i32 %465, -3
-  %470 = or disjoint i32 %468, %469
-  store i32 %470, ptr %462, align 8
-  %471 = lshr i32 %463, 2
-  %472 = and i32 %471, 1
-  %473 = load i32, ptr %460, align 8
-  %474 = lshr i32 %473, 2
-  %475 = and i32 %474, 1
-  %476 = or i32 %475, %472
-  %477 = shl nuw nsw i32 %476, 2
-  %478 = and i32 %470, -5
-  %479 = or disjoint i32 %477, %478
-  store i32 %479, ptr %462, align 8
-  %480 = load i32, ptr %460, align 8
-  %481 = or i32 %480, %463
-  %482 = and i32 %481, 8
-  %483 = and i32 %479, -9
-  %484 = or disjoint i32 %483, %482
-  store i32 %484, ptr %462, align 8
-  %485 = lshr i32 %463, 4
-  %486 = and i32 %485, 1
-  %487 = load i32, ptr %460, align 8
-  %488 = lshr i32 %487, 4
-  %489 = and i32 %488, 1
-  %490 = or i32 %489, %486
-  %491 = shl nuw nsw i32 %490, 4
-  %492 = and i32 %484, -17
-  %493 = or disjoint i32 %492, %491
-  store i32 %493, ptr %462, align 8
-  %494 = lshr i32 %463, 5
-  %495 = and i32 %494, 1
-  %496 = load i32, ptr %460, align 8
-  %497 = lshr i32 %496, 5
-  %498 = and i32 %497, 1
-  %499 = or i32 %498, %495
-  %500 = shl nuw nsw i32 %499, 5
-  %501 = and i32 %493, -33
-  %502 = or disjoint i32 %501, %500
-  store i32 %502, ptr %462, align 8
-  %503 = lshr i32 %463, 6
-  %504 = and i32 %503, 1
-  %505 = load i32, ptr %460, align 8
-  %506 = lshr i32 %505, 6
-  %507 = and i32 %506, 1
-  %508 = or i32 %507, %504
-  %509 = shl nuw nsw i32 %508, 6
-  %510 = and i32 %502, -65
-  %511 = or disjoint i32 %510, %509
-  store i32 %511, ptr %462, align 8
-  %512 = lshr i32 %463, 7
-  %513 = and i32 %512, 1
-  %514 = load i32, ptr %460, align 8
-  %515 = lshr i32 %514, 7
-  %516 = and i32 %515, 1
-  %517 = or i32 %516, %513
-  %518 = shl nuw nsw i32 %517, 7
-  %519 = and i32 %511, -129
-  %520 = or disjoint i32 %519, %518
-  store i32 %520, ptr %462, align 8
-  %521 = load i32, ptr %460, align 8
-  %522 = or i32 %521, %463
-  %523 = and i32 %522, 16128
-  %524 = and i32 %520, -16129
-  %525 = or disjoint i32 %524, %523
-  store i32 %525, ptr %462, align 8
-  %526 = lshr i32 %463, 14
-  %527 = and i32 %526, 1
-  %528 = load i32, ptr %460, align 8
-  %529 = lshr i32 %528, 14
+  %443 = lshr i64 %113, 35
+  %444 = trunc nuw nsw i64 %443 to i32
+  %445 = and i32 %444, 1
+  %446 = load i64, ptr %2, align 8
+  %447 = lshr i64 %446, 35
+  %448 = trunc nuw nsw i64 %447 to i32
+  %449 = and i32 %448, 1
+  %450 = or i32 %449, %445
+  %451 = zext nneg i32 %450 to i64
+  %452 = shl nuw nsw i64 %451, 35
+  %453 = and i64 %442, -34359738369
+  %454 = or disjoint i64 %453, %452
+  store i64 %454, ptr %7, align 8
+  %455 = lshr i64 %113, 36
+  %456 = trunc nuw nsw i64 %455 to i32
+  %457 = and i32 %456, 1
+  %458 = load i64, ptr %2, align 8
+  %459 = lshr i64 %458, 36
+  %460 = trunc nuw nsw i64 %459 to i32
+  %461 = and i32 %460, 1
+  %462 = or i32 %461, %457
+  %463 = zext nneg i32 %462 to i64
+  %464 = shl nuw nsw i64 %463, 36
+  %465 = and i64 %454, -68719476737
+  %466 = or disjoint i64 %465, %464
+  store i64 %466, ptr %7, align 8
+  %467 = lshr i64 %113, 37
+  %468 = trunc nuw nsw i64 %467 to i32
+  %469 = and i32 %468, 1
+  %470 = load i64, ptr %2, align 8
+  %471 = lshr i64 %470, 37
+  %472 = trunc nuw nsw i64 %471 to i32
+  %473 = and i32 %472, 1
+  %474 = or i32 %473, %469
+  %475 = zext nneg i32 %474 to i64
+  %476 = shl nuw nsw i64 %475, 37
+  %477 = and i64 %466, -137438953473
+  %478 = or disjoint i64 %477, %476
+  store i64 %478, ptr %7, align 8
+  %479 = lshr i64 %113, 38
+  %480 = trunc nuw nsw i64 %479 to i32
+  %481 = and i32 %480, 1
+  %482 = load i64, ptr %2, align 8
+  %483 = lshr i64 %482, 38
+  %484 = trunc nuw nsw i64 %483 to i32
+  %485 = and i32 %484, 1
+  %486 = or i32 %485, %481
+  %487 = zext nneg i32 %486 to i64
+  %488 = shl nuw nsw i64 %487, 38
+  %489 = and i64 %478, -274877906945
+  %490 = or disjoint i64 %489, %488
+  store i64 %490, ptr %7, align 8
+  %491 = load i64, ptr %2, align 8
+  %492 = or i64 %491, %113
+  %493 = and i64 %492, 34634616274944
+  %494 = and i64 %490, -34634616274945
+  %495 = or disjoint i64 %494, %493
+  store i64 %495, ptr %7, align 8
+  %496 = load i64, ptr %2, align 8
+  %497 = or i64 %496, %113
+  %498 = and i64 %497, 2216615441596416
+  %499 = and i64 %495, -2216615441596417
+  %500 = or disjoint i64 %499, %498
+  store i64 %500, ptr %7, align 8
+  %501 = load i64, ptr %2, align 8
+  %502 = or i64 %501, %113
+  %503 = and i64 %502, 141863388262170624
+  %504 = and i64 %500, -141863388262170625
+  %505 = or disjoint i64 %504, %503
+  store i64 %505, ptr %7, align 8
+  %506 = load i64, ptr %2, align 8
+  %507 = or i64 %506, %113
+  %508 = and i64 %507, 9079256848778919936
+  %509 = and i64 %505, -9079256848778919937
+  %510 = or disjoint i64 %509, %508
+  store i64 %510, ptr %7, align 8
+  %511 = lshr i64 %113, 63
+  %512 = load i64, ptr %2, align 8
+  %513 = lshr i64 %512, 63
+  %514 = or i64 %513, %511
+  %515 = shl nuw i64 %514, 63
+  %516 = and i64 %510, 9223372036854775807
+  %517 = or disjoint i64 %516, %515
+  store i64 %517, ptr %7, align 8
+  %518 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %519 = load i32, ptr %518, align 8
+  %520 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %521 = load i32, ptr %520, align 8
+  %522 = and i32 %519, 1
+  %523 = or i32 %522, %521
+  store i32 %523, ptr %520, align 8
+  %524 = load i32, ptr %518, align 8
+  %525 = or i32 %524, %521
+  %526 = and i32 %525, 2
+  %527 = and i32 %523, -3
+  %528 = or disjoint i32 %526, %527
+  store i32 %528, ptr %520, align 8
+  %529 = lshr i32 %521, 2
   %530 = and i32 %529, 1
-  %531 = or i32 %530, %527
-  %532 = shl nuw nsw i32 %531, 14
-  %533 = and i32 %525, -16385
-  %534 = or disjoint i32 %533, %532
-  store i32 %534, ptr %462, align 8
-  %535 = lshr i32 %463, 15
-  %536 = and i32 %535, 1
-  %537 = load i32, ptr %460, align 8
-  %538 = lshr i32 %537, 15
-  %539 = and i32 %538, 1
-  %540 = or i32 %539, %536
-  %541 = shl nuw nsw i32 %540, 15
-  %542 = and i32 %534, -32769
-  %543 = or disjoint i32 %542, %541
-  store i32 %543, ptr %462, align 8
-  %544 = lshr i32 %463, 16
-  %545 = and i32 %544, 1
-  %546 = load i32, ptr %460, align 8
-  %547 = lshr i32 %546, 16
-  %548 = and i32 %547, 1
-  %549 = or i32 %548, %545
-  %550 = shl nuw nsw i32 %549, 16
-  %551 = and i32 %543, -65537
-  %552 = or disjoint i32 %551, %550
-  store i32 %552, ptr %462, align 8
-  %553 = load i32, ptr %460, align 8
-  %554 = or i32 %553, %463
-  %555 = and i32 %554, 131072
-  %556 = and i32 %552, -131073
-  %557 = or disjoint i32 %556, %555
-  store i32 %557, ptr %462, align 8
-  %558 = load i32, ptr %460, align 8
-  %559 = or i32 %558, %463
-  %560 = and i32 %559, 262144
-  %561 = and i32 %557, -262145
-  %562 = or disjoint i32 %561, %560
-  store i32 %562, ptr %462, align 8
-  %563 = lshr i32 %463, 19
-  %564 = and i32 %563, 1
-  %565 = load i32, ptr %460, align 8
-  %566 = lshr i32 %565, 19
-  %567 = and i32 %566, 1
-  %568 = or i32 %567, %564
-  %569 = shl nuw nsw i32 %568, 19
-  %570 = and i32 %562, -524289
-  %571 = or disjoint i32 %570, %569
-  store i32 %571, ptr %462, align 8
-  %572 = lshr i32 %463, 20
-  %573 = and i32 %572, 1
-  %574 = load i32, ptr %460, align 8
-  %575 = lshr i32 %574, 20
-  %576 = and i32 %575, 1
-  %577 = or i32 %576, %573
-  %578 = shl nuw nsw i32 %577, 20
-  %579 = and i32 %571, -1048577
-  %580 = or disjoint i32 %579, %578
-  store i32 %580, ptr %462, align 8
-  %581 = lshr i32 %463, 21
-  %582 = and i32 %581, 1
-  %583 = load i32, ptr %460, align 8
-  %584 = lshr i32 %583, 21
+  %531 = load i32, ptr %518, align 8
+  %532 = lshr i32 %531, 2
+  %533 = and i32 %532, 1
+  %534 = or i32 %533, %530
+  %535 = shl nuw nsw i32 %534, 2
+  %536 = and i32 %528, -5
+  %537 = or disjoint i32 %535, %536
+  store i32 %537, ptr %520, align 8
+  %538 = load i32, ptr %518, align 8
+  %539 = or i32 %538, %521
+  %540 = and i32 %539, 8
+  %541 = and i32 %537, -9
+  %542 = or disjoint i32 %541, %540
+  store i32 %542, ptr %520, align 8
+  %543 = lshr i32 %521, 4
+  %544 = and i32 %543, 1
+  %545 = load i32, ptr %518, align 8
+  %546 = lshr i32 %545, 4
+  %547 = and i32 %546, 1
+  %548 = or i32 %547, %544
+  %549 = shl nuw nsw i32 %548, 4
+  %550 = and i32 %542, -17
+  %551 = or disjoint i32 %550, %549
+  store i32 %551, ptr %520, align 8
+  %552 = lshr i32 %521, 5
+  %553 = and i32 %552, 1
+  %554 = load i32, ptr %518, align 8
+  %555 = lshr i32 %554, 5
+  %556 = and i32 %555, 1
+  %557 = or i32 %556, %553
+  %558 = shl nuw nsw i32 %557, 5
+  %559 = and i32 %551, -33
+  %560 = or disjoint i32 %559, %558
+  store i32 %560, ptr %520, align 8
+  %561 = lshr i32 %521, 6
+  %562 = and i32 %561, 1
+  %563 = load i32, ptr %518, align 8
+  %564 = lshr i32 %563, 6
+  %565 = and i32 %564, 1
+  %566 = or i32 %565, %562
+  %567 = shl nuw nsw i32 %566, 6
+  %568 = and i32 %560, -65
+  %569 = or disjoint i32 %568, %567
+  store i32 %569, ptr %520, align 8
+  %570 = lshr i32 %521, 7
+  %571 = and i32 %570, 1
+  %572 = load i32, ptr %518, align 8
+  %573 = lshr i32 %572, 7
+  %574 = and i32 %573, 1
+  %575 = or i32 %574, %571
+  %576 = shl nuw nsw i32 %575, 7
+  %577 = and i32 %569, -129
+  %578 = or disjoint i32 %577, %576
+  store i32 %578, ptr %520, align 8
+  %579 = load i32, ptr %518, align 8
+  %580 = or i32 %579, %521
+  %581 = and i32 %580, 16128
+  %582 = and i32 %578, -16129
+  %583 = or disjoint i32 %582, %581
+  store i32 %583, ptr %520, align 8
+  %584 = lshr i32 %521, 14
   %585 = and i32 %584, 1
-  %586 = or i32 %585, %582
-  %587 = shl nuw nsw i32 %586, 21
-  %588 = and i32 %580, -2097153
-  %589 = or disjoint i32 %588, %587
-  store i32 %589, ptr %462, align 8
-  %590 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %591 = load i32, ptr %590, align 8, !tbaa !1547
-  %592 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %593 = load i32, ptr %592, align 8, !tbaa !1547
-  %.not324 = icmp eq i32 %591, %593
-  br i1 %.not324, label %594, label %703
+  %586 = load i32, ptr %518, align 8
+  %587 = lshr i32 %586, 14
+  %588 = and i32 %587, 1
+  %589 = or i32 %588, %585
+  %590 = shl nuw nsw i32 %589, 14
+  %591 = and i32 %583, -16385
+  %592 = or disjoint i32 %591, %590
+  store i32 %592, ptr %520, align 8
+  %593 = lshr i32 %521, 15
+  %594 = and i32 %593, 1
+  %595 = load i32, ptr %518, align 8
+  %596 = lshr i32 %595, 15
+  %597 = and i32 %596, 1
+  %598 = or i32 %597, %594
+  %599 = shl nuw nsw i32 %598, 15
+  %600 = and i32 %592, -32769
+  %601 = or disjoint i32 %600, %599
+  store i32 %601, ptr %520, align 8
+  %602 = lshr i32 %521, 16
+  %603 = and i32 %602, 1
+  %604 = load i32, ptr %518, align 8
+  %605 = lshr i32 %604, 16
+  %606 = and i32 %605, 1
+  %607 = or i32 %606, %603
+  %608 = shl nuw nsw i32 %607, 16
+  %609 = and i32 %601, -65537
+  %610 = or disjoint i32 %609, %608
+  store i32 %610, ptr %520, align 8
+  %611 = load i32, ptr %518, align 8
+  %612 = or i32 %611, %521
+  %613 = and i32 %612, 131072
+  %614 = and i32 %610, -131073
+  %615 = or disjoint i32 %614, %613
+  store i32 %615, ptr %520, align 8
+  %616 = load i32, ptr %518, align 8
+  %617 = or i32 %616, %521
+  %618 = and i32 %617, 262144
+  %619 = and i32 %615, -262145
+  %620 = or disjoint i32 %619, %618
+  store i32 %620, ptr %520, align 8
+  %621 = lshr i32 %521, 19
+  %622 = and i32 %621, 1
+  %623 = load i32, ptr %518, align 8
+  %624 = lshr i32 %623, 19
+  %625 = and i32 %624, 1
+  %626 = or i32 %625, %622
+  %627 = shl nuw nsw i32 %626, 19
+  %628 = and i32 %620, -524289
+  %629 = or disjoint i32 %628, %627
+  store i32 %629, ptr %520, align 8
+  %630 = lshr i32 %521, 20
+  %631 = and i32 %630, 1
+  %632 = load i32, ptr %518, align 8
+  %633 = lshr i32 %632, 20
+  %634 = and i32 %633, 1
+  %635 = or i32 %634, %631
+  %636 = shl nuw nsw i32 %635, 20
+  %637 = and i32 %629, -1048577
+  %638 = or disjoint i32 %637, %636
+  store i32 %638, ptr %520, align 8
+  %639 = lshr i32 %521, 21
+  %640 = and i32 %639, 1
+  %641 = load i32, ptr %518, align 8
+  %642 = lshr i32 %641, 21
+  %643 = and i32 %642, 1
+  %644 = or i32 %643, %640
+  %645 = shl nuw nsw i32 %644, 21
+  %646 = and i32 %638, -2097153
+  %647 = or disjoint i32 %646, %645
+  store i32 %647, ptr %520, align 8
+  %648 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %649 = load i32, ptr %648, align 8, !tbaa !1547
+  %650 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %651 = load i32, ptr %650, align 8, !tbaa !1547
+  %.not324 = icmp eq i32 %649, %651
+  br i1 %.not324, label %652, label %749
 
-594:                                              ; preds = %.critedge
-  %595 = xor i32 %131, %128
-  %596 = xor i64 %114, %113
-  %597 = trunc i64 %596 to i32
-  %598 = or i32 %595, %597
-  %599 = xor i32 %141, %138
-  %600 = or i32 %598, %599
-  %601 = xor i32 %151, %148
-  %602 = or i32 %600, %601
-  %603 = xor i32 %161, %158
-  %604 = or i32 %602, %603
-  %605 = xor i32 %171, %168
-  %606 = or i32 %604, %605
-  %607 = xor i32 %181, %178
-  %608 = or i32 %606, %607
-  %609 = xor i32 %191, %188
-  %610 = or i32 %608, %609
-  %611 = xor i32 %201, %198
-  %612 = or i32 %610, %611
-  %613 = xor i32 %211, %208
-  %614 = or i32 %612, %613
-  %615 = xor i32 %221, %218
-  %616 = or i32 %614, %615
-  %617 = xor i32 %231, %228
-  %618 = or i32 %616, %617
-  %619 = xor i32 %241, %238
-  %620 = or i32 %618, %619
-  %621 = xor i32 %251, %248
-  %622 = or i32 %620, %621
-  %623 = xor i32 %261, %258
-  %624 = or i32 %622, %623
-  %625 = xor i32 %271, %268
-  %626 = or i32 %624, %625
-  %627 = xor i32 %281, %278
-  %628 = or i32 %626, %627
-  %629 = xor i32 %291, %288
-  %630 = or i32 %628, %629
-  %631 = xor i32 %301, %298
-  %632 = or i32 %630, %631
-  %633 = xor i32 %311, %308
-  %634 = or i32 %632, %633
-  %635 = xor i32 %321, %318
-  %636 = or i32 %634, %635
-  %637 = xor i32 %331, %328
-  %638 = or i32 %636, %637
-  %639 = xor i32 %341, %338
-  %640 = or i32 %638, %639
-  %641 = xor i32 %351, %348
-  %642 = or i32 %640, %641
-  %643 = xor i32 %361, %358
-  %644 = or i32 %642, %643
-  %645 = and i32 %644, 1
-  %646 = xor i32 %121, %118
-  %647 = and i32 %646, 63
-  %648 = icmp ne i32 %647, 0
-  %649 = zext i1 %648 to i32
-  %650 = or i32 %645, %649
-  %651 = icmp ne i32 %368, %371
-  %652 = zext i1 %651 to i32
-  %653 = or i32 %650, %652
-  %654 = xor i64 %427, %425
-  %655 = xor i64 %419, %417
-  %656 = xor i64 %411, %409
-  %657 = xor i64 %403, %401
-  %658 = xor i64 %395, %393
-  %659 = xor i64 %387, %385
-  %660 = xor i64 %379, %377
-  %661 = or i64 %659, %660
-  %662 = or i64 %661, %658
-  %663 = or i64 %662, %657
-  %664 = or i64 %663, %656
-  %665 = or i64 %664, %655
-  %666 = or i64 %665, %654
-  %667 = trunc nuw i64 %666 to i32
-  %668 = and i32 %667, 1
-  %669 = or i32 %653, %668
-  %670 = icmp ne i64 %453, %455
-  %671 = zext i1 %670 to i32
-  %672 = or i32 %669, %671
-  %673 = icmp ne i32 %472, %475
-  %674 = zext i1 %673 to i32
-  %675 = or i32 %672, %674
-  %676 = icmp ne i32 %486, %489
-  %677 = zext i1 %676 to i32
-  %678 = or i32 %675, %677
-  %679 = icmp ne i32 %678, 0
-  %680 = icmp ne i32 %495, %498
-  %681 = or i1 %680, %679
-  %682 = icmp ne i32 %504, %507
+652:                                              ; preds = %.critedge
+  %653 = icmp ne i32 %115, %118
+  %654 = icmp ne i32 %124, %128
+  %655 = or i1 %653, %654
+  %656 = icmp ne i32 %135, %139
+  %657 = or i1 %655, %656
+  %658 = icmp ne i32 %146, %150
+  %659 = or i1 %657, %658
+  %660 = icmp ne i32 %157, %161
+  %661 = or i1 %659, %660
+  %662 = icmp ne i32 %168, %172
+  %663 = or i1 %661, %662
+  %664 = icmp ne i32 %179, %183
+  %665 = or i1 %663, %664
+  %666 = icmp ne i32 %190, %194
+  %667 = or i1 %665, %666
+  %668 = icmp ne i32 %201, %205
+  %669 = or i1 %667, %668
+  %670 = icmp ne i32 %212, %216
+  %671 = or i1 %669, %670
+  %672 = icmp ne i32 %223, %227
+  %673 = or i1 %671, %672
+  %674 = icmp ne i32 %234, %238
+  %675 = or i1 %673, %674
+  %676 = icmp ne i32 %245, %249
+  %677 = or i1 %675, %676
+  %678 = icmp ne i32 %256, %260
+  %679 = or i1 %677, %678
+  %680 = icmp ne i32 %267, %271
+  %681 = or i1 %679, %680
+  %682 = icmp ne i32 %278, %282
   %683 = or i1 %681, %682
-  %684 = icmp ne i32 %513, %516
+  %684 = icmp ne i32 %289, %293
   %685 = or i1 %683, %684
-  %686 = icmp ne i32 %527, %530
+  %686 = icmp ne i32 %300, %304
   %687 = or i1 %685, %686
-  %688 = icmp ne i32 %536, %539
+  %688 = icmp ne i32 %311, %315
   %689 = or i1 %687, %688
-  %690 = icmp ne i32 %545, %548
+  %690 = icmp ne i32 %322, %326
   %691 = or i1 %689, %690
-  %692 = icmp ne i32 %564, %567
+  %692 = icmp ne i32 %333, %337
   %693 = or i1 %691, %692
-  %694 = icmp ne i32 %573, %576
+  %694 = icmp ne i32 %344, %348
   %695 = or i1 %693, %694
-  %696 = icmp ne i32 %582, %585
+  %696 = icmp ne i32 %355, %359
   %697 = or i1 %695, %696
-  %698 = zext i1 %697 to i8
-  %699 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %700 = load i32, ptr %699, align 4, !tbaa !1548
-  %701 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %702 = load i32, ptr %701, align 4, !tbaa !1548
-  %.not325 = icmp eq i32 %700, %702
-  br i1 %.not325, label %704, label %703
+  %698 = icmp ne i32 %366, %370
+  %699 = or i1 %697, %698
+  %700 = icmp ne i32 %377, %381
+  %701 = or i1 %699, %700
+  %702 = icmp ne i32 %388, %392
+  %703 = or i1 %701, %702
+  %704 = icmp ne i32 %398, %401
+  %705 = or i1 %703, %704
+  %706 = icmp ne i32 %409, %413
+  %707 = or i1 %705, %706
+  %708 = icmp ne i32 %421, %425
+  %709 = or i1 %707, %708
+  %710 = icmp ne i32 %433, %437
+  %711 = or i1 %709, %710
+  %712 = icmp ne i32 %445, %449
+  %713 = or i1 %711, %712
+  %714 = icmp ne i32 %457, %461
+  %715 = or i1 %713, %714
+  %716 = icmp ne i32 %469, %473
+  %717 = or i1 %715, %716
+  %718 = icmp ne i32 %481, %485
+  %719 = or i1 %717, %718
+  %720 = icmp ne i64 %511, %513
+  %721 = or i1 %719, %720
+  %722 = icmp ne i32 %530, %533
+  %723 = or i1 %721, %722
+  %724 = icmp ne i32 %544, %547
+  %725 = or i1 %723, %724
+  %726 = icmp ne i32 %553, %556
+  %727 = or i1 %725, %726
+  %728 = icmp ne i32 %562, %565
+  %729 = or i1 %727, %728
+  %730 = icmp ne i32 %571, %574
+  %731 = or i1 %729, %730
+  %732 = icmp ne i32 %585, %588
+  %733 = or i1 %731, %732
+  %734 = icmp ne i32 %594, %597
+  %735 = or i1 %733, %734
+  %736 = icmp ne i32 %603, %606
+  %737 = or i1 %735, %736
+  %738 = icmp ne i32 %622, %625
+  %739 = or i1 %737, %738
+  %740 = icmp ne i32 %631, %634
+  %741 = or i1 %739, %740
+  %742 = icmp ne i32 %640, %643
+  %743 = or i1 %741, %742
+  %744 = zext i1 %743 to i8
+  %745 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %746 = load i32, ptr %745, align 4, !tbaa !1548
+  %747 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %748 = load i32, ptr %747, align 4, !tbaa !1548
+  %.not325 = icmp eq i32 %746, %748
+  br i1 %.not325, label %750, label %749
 
-703:                                              ; preds = %594, %.critedge
-  br label %704
+749:                                              ; preds = %652, %.critedge
+  br label %750
 
-704:                                              ; preds = %703, %594
-  %.0 = phi i8 [ 1, %703 ], [ %698, %594 ]
-  %705 = load i32, ptr %460, align 8
-  %706 = and i32 %705, 8388608
-  %.not326 = icmp ne i32 %706, 0
-  %707 = and i32 %463, 8388608
-  %.not327 = icmp eq i32 %707, 0
+750:                                              ; preds = %749, %652
+  %.0 = phi i8 [ 1, %749 ], [ %744, %652 ]
+  %751 = load i32, ptr %518, align 8
+  %752 = and i32 %751, 8388608
+  %.not326 = icmp ne i32 %752, 0
+  %753 = and i32 %521, 8388608
+  %.not327 = icmp eq i32 %753, 0
   %or.cond351 = select i1 %.not326, i1 %.not327, i1 false
-  br i1 %or.cond351, label %708, label %._crit_edge
+  br i1 %or.cond351, label %754, label %767
 
-._crit_edge:                                      ; preds = %704
-  %.pre = load i32, ptr %462, align 8
-  br label %721
+754:                                              ; preds = %750
+  %755 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %756 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %757 = load ptr, ptr %755, align 8, !tbaa !1570
+  %758 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %759 = load ptr, ptr %758, align 8, !tbaa !1571
+  %760 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %761 = load i64, ptr %760, align 8, !tbaa !885
+  %762 = and i64 %761, 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %755, i8 0, i64 16, i1 false)
+  store i64 %762, ptr %760, align 8
+  store ptr %757, ptr %756, align 8, !tbaa !1572
+  %763 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr %759, ptr %763, align 8, !tbaa !1572
+  %764 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i64 %761, ptr %764, align 8, !tbaa !885
+  %765 = load i32, ptr %520, align 8
+  %766 = or i32 %765, 8388608
+  store i32 %766, ptr %520, align 8
+  br label %767
 
-708:                                              ; preds = %704
-  %709 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %710 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %711 = load ptr, ptr %709, align 8, !tbaa !1570
-  %712 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %713 = load ptr, ptr %712, align 8, !tbaa !1571
-  %714 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %715 = load i64, ptr %714, align 8, !tbaa !885
-  %716 = and i64 %715, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %709, i8 0, i64 16, i1 false)
-  store i64 %716, ptr %714, align 8
-  store ptr %711, ptr %710, align 8, !tbaa !1572
-  %717 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr %713, ptr %717, align 8, !tbaa !1572
-  %718 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i64 %715, ptr %718, align 8, !tbaa !885
-  %719 = load i32, ptr %462, align 8
-  %720 = or i32 %719, 8388608
-  store i32 %720, ptr %462, align 8
-  br label %721
+767:                                              ; preds = %754, %750
+  %768 = phi i32 [ %766, %754 ], [ %647, %750 ]
+  %769 = and i32 %768, 2097152
+  %.not328 = icmp eq i32 %769, 0
+  br i1 %.not328, label %846, label %770
 
-721:                                              ; preds = %._crit_edge, %708
-  %722 = phi i32 [ %.pre, %._crit_edge ], [ %720, %708 ]
-  %723 = and i32 %722, 2097152
-  %.not328 = icmp eq i32 %723, 0
-  br i1 %.not328, label %800, label %724
+770:                                              ; preds = %767
+  %771 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %772 = load i64, ptr %771, align 8
+  %773 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %774 = load i64, ptr %773, align 8
+  %775 = xor i64 %774, %772
+  %776 = and i64 %775, 3
+  %777 = icmp ne i64 %776, 0
+  %778 = zext i1 %777 to i8
+  %779 = or i8 %.0, %778
+  %780 = trunc i64 %775 to i32
+  %781 = lshr i32 %780, 2
+  %782 = and i32 %781, 1
+  %783 = zext nneg i8 %779 to i32
+  %784 = and i64 %775, 24
+  %785 = icmp ne i64 %784, 0
+  %786 = zext i1 %785 to i32
+  %787 = trunc i64 %772 to i32
+  %788 = lshr i32 %787, 5
+  %789 = and i32 %788, 32767
+  %790 = trunc i64 %774 to i32
+  %791 = lshr i32 %790, 5
+  %792 = and i32 %791, 32767
+  %793 = icmp ne i32 %789, %792
+  %794 = zext i1 %793 to i32
+  %795 = or i32 %782, %786
+  %796 = or i32 %795, %794
+  %797 = or i32 %796, %783
+  %798 = icmp ne i32 %797, 0
+  %799 = and i64 %775, 4293918720
+  %800 = icmp ne i64 %799, 0
+  %801 = or i1 %800, %798
+  %802 = lshr i64 %775, 32
+  %803 = trunc i64 %802 to i8
+  %804 = zext i1 %801 to i8
+  %805 = icmp ugt i64 %775, 8589934591
+  %806 = zext i1 %805 to i8
+  %807 = or i8 %803, %806
+  %808 = or i8 %807, %804
+  %.not330 = icmp ne i32 %789, 0
+  %809 = icmp eq i32 %789, %792
+  %or.cond = select i1 %.not330, i1 %809, i1 false
+  br i1 %or.cond, label %.preheader, label %846
 
-724:                                              ; preds = %721
-  %725 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %726 = load i64, ptr %725, align 8
-  %727 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %728 = load i64, ptr %727, align 8
-  %729 = xor i64 %728, %726
-  %730 = and i64 %729, 3
-  %731 = icmp ne i64 %730, 0
-  %732 = zext i1 %731 to i8
-  %733 = or i8 %.0, %732
-  %734 = trunc i64 %729 to i32
-  %735 = lshr i32 %734, 2
-  %736 = and i32 %735, 1
-  %737 = zext nneg i8 %733 to i32
-  %738 = and i64 %729, 24
-  %739 = icmp ne i64 %738, 0
-  %740 = zext i1 %739 to i32
-  %741 = trunc i64 %726 to i32
-  %742 = lshr i32 %741, 5
-  %743 = and i32 %742, 32767
-  %744 = trunc i64 %728 to i32
-  %745 = lshr i32 %744, 5
-  %746 = and i32 %745, 32767
-  %747 = icmp ne i32 %743, %746
-  %748 = zext i1 %747 to i32
-  %749 = or i32 %736, %740
-  %750 = or i32 %749, %748
-  %751 = or i32 %750, %737
-  %752 = icmp ne i32 %751, 0
-  %753 = and i64 %729, 4293918720
-  %754 = icmp ne i64 %753, 0
-  %755 = or i1 %754, %752
-  %756 = lshr i64 %729, 32
-  %757 = trunc i64 %756 to i8
-  %758 = zext i1 %755 to i8
-  %759 = icmp ugt i64 %729, 8589934591
-  %760 = zext i1 %759 to i8
-  %761 = or i8 %757, %760
-  %762 = or i8 %761, %758
-  %.not330 = icmp ne i32 %743, 0
-  %763 = icmp eq i32 %743, %746
-  %or.cond = select i1 %.not330, i1 %763, i1 false
-  br i1 %or.cond, label %.preheader, label %800
+.preheader:                                       ; preds = %770
+  %810 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %811 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %812 = zext nneg i32 %789 to i64
+  br label %824
 
-.preheader:                                       ; preds = %724
-  %764 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %765 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %766 = zext nneg i32 %743 to i64
-  br label %778
+813:                                              ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341
+  %814 = load ptr, ptr %0, align 8, !tbaa !1150
+  %815 = getelementptr inbounds nuw i8, ptr %814, i64 144
+  %816 = load ptr, ptr %815, align 8, !tbaa !115
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %811, align 8
+  %817 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
+  %818 = icmp eq i64 %817, 0
+  %819 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %820 = inttoptr i64 %819 to ptr
+  br i1 %818, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit, label %821
 
-767:                                              ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341
-  %768 = load ptr, ptr %0, align 8, !tbaa !1150
-  %769 = getelementptr inbounds nuw i8, ptr %768, i64 144
-  %770 = load ptr, ptr %769, align 8, !tbaa !115
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %765, align 8
-  %771 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
-  %772 = icmp eq i64 %771, 0
-  %773 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %774 = inttoptr i64 %773 to ptr
-  br i1 %772, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit, label %775
-
-775:                                              ; preds = %767
-  %776 = load ptr, ptr %774, align 8, !tbaa !111
-  %777 = load ptr, ptr %776, align 8, !tbaa !1573
+821:                                              ; preds = %813
+  %822 = load ptr, ptr %820, align 8, !tbaa !111
+  %823 = load ptr, ptr %822, align 8, !tbaa !1573
   br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit: ; preds = %767, %775
-  %.0.i = phi ptr [ %777, %775 ], [ %774, %767 ]
-  call void @_ZN5clang13CXXRecordDecl20LambdaDefinitionData14AddCaptureListERNS_10ASTContextEPNS_13LambdaCaptureE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(23216) %770, ptr noundef %.0.i) #26
-  br label %800
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit: ; preds = %813, %821
+  %.0.i = phi ptr [ %823, %821 ], [ %820, %813 ]
+  call void @_ZN5clang13CXXRecordDecl20LambdaDefinitionData14AddCaptureListERNS_10ASTContextEPNS_13LambdaCaptureE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(23216) %816, ptr noundef %.0.i) #26
+  br label %846
 
-778:                                              ; preds = %.preheader, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341
+824:                                              ; preds = %.preheader, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341 ]
-  %.3355 = phi i8 [ %762, %.preheader ], [ %799, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341 ]
-  %.0.copyload.i.i.i.i.i.i.i.i336 = load i64, ptr %764, align 8
-  %779 = and i64 %.0.copyload.i.i.i.i.i.i.i.i336, 4
-  %780 = icmp eq i64 %779, 0
-  %781 = and i64 %.0.copyload.i.i.i.i.i.i.i.i336, -8
-  %782 = inttoptr i64 %781 to ptr
-  br i1 %780, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338, label %783
+  %.3355 = phi i8 [ %808, %.preheader ], [ %845, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341 ]
+  %.0.copyload.i.i.i.i.i.i.i.i336 = load i64, ptr %810, align 8
+  %825 = and i64 %.0.copyload.i.i.i.i.i.i.i.i336, 4
+  %826 = icmp eq i64 %825, 0
+  %827 = and i64 %.0.copyload.i.i.i.i.i.i.i.i336, -8
+  %828 = inttoptr i64 %827 to ptr
+  br i1 %826, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338, label %829
 
-783:                                              ; preds = %778
-  %784 = load ptr, ptr %782, align 8, !tbaa !111
-  %785 = load ptr, ptr %784, align 8, !tbaa !1573
+829:                                              ; preds = %824
+  %830 = load ptr, ptr %828, align 8, !tbaa !111
+  %831 = load ptr, ptr %830, align 8, !tbaa !1573
   br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338: ; preds = %778, %783
-  %.0.i337 = phi ptr [ %785, %783 ], [ %782, %778 ]
-  %786 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i337, i64 %indvars.iv
-  %.0.copyload.i.i.i.i.i.i.i.i339 = load i64, ptr %765, align 8
-  %787 = and i64 %.0.copyload.i.i.i.i.i.i.i.i339, 4
-  %788 = icmp eq i64 %787, 0
-  %789 = and i64 %.0.copyload.i.i.i.i.i.i.i.i339, -8
-  %790 = inttoptr i64 %789 to ptr
-  br i1 %788, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341, label %791
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338: ; preds = %824, %829
+  %.0.i337 = phi ptr [ %831, %829 ], [ %828, %824 ]
+  %832 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i337, i64 %indvars.iv
+  %.0.copyload.i.i.i.i.i.i.i.i339 = load i64, ptr %811, align 8
+  %833 = and i64 %.0.copyload.i.i.i.i.i.i.i.i339, 4
+  %834 = icmp eq i64 %833, 0
+  %835 = and i64 %.0.copyload.i.i.i.i.i.i.i.i339, -8
+  %836 = inttoptr i64 %835 to ptr
+  br i1 %834, label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341, label %837
 
-791:                                              ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338
-  %792 = load ptr, ptr %790, align 8, !tbaa !111
-  %793 = load ptr, ptr %792, align 8, !tbaa !1573
+837:                                              ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338
+  %838 = load ptr, ptr %836, align 8, !tbaa !111
+  %839 = load ptr, ptr %838, align 8, !tbaa !1573
   br label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338, %791
-  %.0.i340 = phi ptr [ %793, %791 ], [ %790, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338 ]
-  %794 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i340, i64 %indvars.iv
-  %795 = call noundef i32 @_ZNK5clang13LambdaCapture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(16) %786) #26
-  %796 = call noundef i32 @_ZNK5clang13LambdaCapture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(16) %794) #26
-  %797 = icmp ne i32 %795, %796
-  %798 = zext i1 %797 to i8
-  %799 = or i8 %.3355, %798
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit341: ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338, %837
+  %.0.i340 = phi ptr [ %839, %837 ], [ %836, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit338 ]
+  %840 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i340, i64 %indvars.iv
+  %841 = call noundef i32 @_ZNK5clang13LambdaCapture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(16) %832) #26
+  %842 = call noundef i32 @_ZNK5clang13LambdaCapture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(16) %840) #26
+  %843 = icmp ne i32 %841, %842
+  %844 = zext i1 %843 to i8
+  %845 = or i8 %.3355, %844
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not331 = icmp eq i64 %indvars.iv.next, %766
-  br i1 %.not331, label %767, label %778, !llvm.loop !1575
+  %.not331 = icmp eq i64 %indvars.iv.next, %812
+  br i1 %.not331, label %813, label %824, !llvm.loop !1575
 
-800:                                              ; preds = %724, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit, %721
-  %.1 = phi i8 [ %.0, %721 ], [ %799, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit ], [ %762, %724 ]
-  %801 = load ptr, ptr %10, align 8, !tbaa !1099
-  %802 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %801) #28
-  %803 = getelementptr inbounds nuw i8, ptr %802, i64 2160
-  %804 = load ptr, ptr %803, align 8, !tbaa !535
-  %805 = getelementptr inbounds nuw i8, ptr %804, i64 16
-  %806 = load i64, ptr %805, align 8
-  %807 = and i64 %806, 16777216
-  %.not.i = icmp eq i64 %807, 0
-  br i1 %.not.i, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349, label %808
+846:                                              ; preds = %770, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit, %767
+  %.1 = phi i8 [ %.0, %767 ], [ %845, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5frontEv.exit ], [ %808, %770 ]
+  %847 = load ptr, ptr %10, align 8, !tbaa !1099
+  %848 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %847) #28
+  %849 = getelementptr inbounds nuw i8, ptr %848, i64 2160
+  %850 = load ptr, ptr %849, align 8, !tbaa !535
+  %851 = getelementptr inbounds nuw i8, ptr %850, i64 16
+  %852 = load i64, ptr %851, align 8
+  %853 = and i64 %852, 16777216
+  %.not.i = icmp eq i64 %853, 0
+  br i1 %.not.i, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349, label %854
 
-808:                                              ; preds = %800
-  %809 = call noundef zeroext i1 @_ZNK5clang4Decl18isFromGlobalModuleEv(ptr noundef nonnull align 8 dereferenceable(33) %801) #26
-  br i1 %809, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit
+854:                                              ; preds = %846
+  %855 = call noundef zeroext i1 @_ZNK5clang4Decl18isFromGlobalModuleEv(ptr noundef nonnull align 8 dereferenceable(33) %847) #26
+  br i1 %855, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit
 
-_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit: ; preds = %808
-  %810 = call noundef zeroext i1 @_ZNK5clang4Decl16isFromHeaderUnitEv(ptr noundef nonnull align 8 dereferenceable(33) %801) #26
-  br i1 %810, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349
+_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit: ; preds = %854
+  %856 = call noundef zeroext i1 @_ZNK5clang4Decl16isFromHeaderUnitEv(ptr noundef nonnull align 8 dereferenceable(33) %847) #26
+  br i1 %856, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349
 
-_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349: ; preds = %800, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit
-  %811 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #28
-  %812 = getelementptr inbounds nuw i8, ptr %811, i64 2160
-  %813 = load ptr, ptr %812, align 8, !tbaa !535
-  %814 = getelementptr inbounds nuw i8, ptr %813, i64 16
-  %815 = load i64, ptr %814, align 8
-  %816 = and i64 %815, 16777216
-  %.not.i342 = icmp eq i64 %816, 0
-  br i1 %.not.i342, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350, label %817
+_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349: ; preds = %846, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit
+  %857 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #28
+  %858 = getelementptr inbounds nuw i8, ptr %857, i64 2160
+  %859 = load ptr, ptr %858, align 8, !tbaa !535
+  %860 = getelementptr inbounds nuw i8, ptr %859, i64 16
+  %861 = load i64, ptr %860, align 8
+  %862 = and i64 %861, 16777216
+  %.not.i342 = icmp eq i64 %862, 0
+  br i1 %.not.i342, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350, label %863
 
-817:                                              ; preds = %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349
-  %818 = call noundef zeroext i1 @_ZNK5clang4Decl18isFromGlobalModuleEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #26
-  br i1 %818, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343
+863:                                              ; preds = %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349
+  %864 = call noundef zeroext i1 @_ZNK5clang4Decl18isFromGlobalModuleEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #26
+  br i1 %864, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343
 
-_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343: ; preds = %817
-  %819 = call noundef zeroext i1 @_ZNK5clang4Decl16isFromHeaderUnitEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #26
-  br i1 %819, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350
+_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343: ; preds = %863
+  %865 = call noundef zeroext i1 @_ZNK5clang4Decl16isFromHeaderUnitEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #26
+  br i1 %865, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350
 
 _ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350: ; preds = %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread349, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343
-  %820 = call noundef i32 @_ZNK5clang13CXXRecordDecl10getODRHashEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #26
-  %821 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %822 = load i32, ptr %821, align 4, !tbaa !1546
-  %.not332 = icmp ne i32 %820, %822
-  %823 = trunc i8 %.1 to i1
-  %824 = select i1 %.not332, i1 true, i1 %823
-  br i1 %824, label %825, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread
+  %866 = call noundef i32 @_ZNK5clang13CXXRecordDecl10getODRHashEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #26
+  %867 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %868 = load i32, ptr %867, align 4, !tbaa !1546
+  %.not332 = icmp ne i32 %866, %868
+  %869 = trunc i8 %.1 to i1
+  %870 = select i1 %.not332, i1 true, i1 %869
+  br i1 %870, label %871, label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread
 
-825:                                              ; preds = %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350
-  %826 = load ptr, ptr %0, align 8, !tbaa !1150
-  %827 = getelementptr inbounds nuw i8, ptr %826, i64 12008
-  %828 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang13CXXRecordDeclENS_11SmallVectorISt4pairIS4_PNS3_14DefinitionDataEELj2EEELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %827, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %829 = load ptr, ptr %10, align 8, !tbaa !1448
-  %830 = getelementptr inbounds nuw i8, ptr %828, i64 8
-  %831 = load i32, ptr %830, align 8, !tbaa !896
-  %832 = getelementptr inbounds nuw i8, ptr %828, i64 12
-  %833 = load i32, ptr %832, align 4, !tbaa !897
-  %.not.i.i.not.i = icmp ult i32 %831, %833
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang13CXXRecordDeclEPNS3_14DefinitionDataEELb1EE9push_backES7_.exit, label %834, !prof !898
+871:                                              ; preds = %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350
+  %872 = load ptr, ptr %0, align 8, !tbaa !1150
+  %873 = getelementptr inbounds nuw i8, ptr %872, i64 12008
+  %874 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang13CXXRecordDeclENS_11SmallVectorISt4pairIS4_PNS3_14DefinitionDataEELj2EEELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %873, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %875 = load ptr, ptr %10, align 8, !tbaa !1448
+  %876 = getelementptr inbounds nuw i8, ptr %874, i64 8
+  %877 = load i32, ptr %876, align 8, !tbaa !896
+  %878 = getelementptr inbounds nuw i8, ptr %874, i64 12
+  %879 = load i32, ptr %878, align 4, !tbaa !897
+  %.not.i.i.not.i = icmp ult i32 %877, %879
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang13CXXRecordDeclEPNS3_14DefinitionDataEELb1EE9push_backES7_.exit, label %880, !prof !898
 
-834:                                              ; preds = %825
-  %835 = zext i32 %831 to i64
-  %836 = add nuw nsw i64 %835, 1
-  %837 = getelementptr inbounds nuw i8, ptr %828, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %828, ptr noundef nonnull %837, i64 noundef %836, i64 noundef 16) #26
-  %.pre.i = load i32, ptr %830, align 8, !tbaa !896
+880:                                              ; preds = %871
+  %881 = zext i32 %877 to i64
+  %882 = add nuw nsw i64 %881, 1
+  %883 = getelementptr inbounds nuw i8, ptr %874, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %874, ptr noundef nonnull %883, i64 noundef %882, i64 noundef 16) #26
+  %.pre.i = load i32, ptr %876, align 8, !tbaa !896
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang13CXXRecordDeclEPNS3_14DefinitionDataEELb1EE9push_backES7_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang13CXXRecordDeclEPNS3_14DefinitionDataEELb1EE9push_backES7_.exit: ; preds = %825, %834
-  %838 = phi i32 [ %831, %825 ], [ %.pre.i, %834 ]
-  %839 = load ptr, ptr %828, align 8, !tbaa !111
-  %840 = zext i32 %838 to i64
-  %841 = getelementptr inbounds nuw %"struct.std::pair.1206", ptr %839, i64 %840
-  store ptr %829, ptr %841, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %841, i64 8
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang13CXXRecordDeclEPNS3_14DefinitionDataEELb1EE9push_backES7_.exit: ; preds = %871, %880
+  %884 = phi i32 [ %877, %871 ], [ %.pre.i, %880 ]
+  %885 = load ptr, ptr %874, align 8, !tbaa !111
+  %886 = zext i32 %884 to i64
+  %887 = getelementptr inbounds nuw %"struct.std::pair.1206", ptr %885, i64 %886
+  store ptr %875, ptr %887, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %887, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %842 = load i32, ptr %830, align 8, !tbaa !896
-  %843 = add i32 %842, 1
-  store i32 %843, ptr %830, align 8, !tbaa !896
+  %888 = load i32, ptr %876, align 8, !tbaa !896
+  %889 = add i32 %888, 1
+  store i32 %889, ptr %876, align 8, !tbaa !896
   br label %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread
 
-_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread: ; preds = %817, %808, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang13CXXRecordDeclEPNS3_14DefinitionDataEELb1EE9push_backES7_.exit, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350, %91
+_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread: ; preds = %863, %854, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang13CXXRecordDeclEPNS3_14DefinitionDataEELb1EE9push_backES7_.exit, %_ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit343.thread350, %91
   ret void
 }
 

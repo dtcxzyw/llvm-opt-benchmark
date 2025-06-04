@@ -90502,15 +90502,15 @@ _ZN5clang26ImplicitConversionSequence11setStandardEv.exit: ; preds = %2, %7, %12
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load ptr, ptr %70, align 8, !tbaa !2273
   %72 = load i8, ptr %71, align 1, !tbaa !1269, !range !28, !noundef !29
-  %73 = load ptr, ptr %0, align 8, !tbaa !2268
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load i64, ptr %74, align 8
-  %76 = xor i8 %72, 1
-  %77 = zext nneg i8 %76 to i64
-  %78 = shl nuw nsw i64 %77, 37
-  %79 = and i64 %75, -137438953473
+  %73 = xor i8 %72, 1
+  %74 = load ptr, ptr %0, align 8, !tbaa !2268
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = zext nneg i8 %73 to i64
+  %77 = load i64, ptr %75, align 8
+  %78 = shl nuw nsw i64 %76, 37
+  %79 = and i64 %77, -137438953473
   %80 = or disjoint i64 %79, %78
-  store i64 %80, ptr %74, align 8
+  store i64 %80, ptr %75, align 8
   %81 = load ptr, ptr %45, align 8, !tbaa !2271
   %.0.copyload.i.i.i.i.i = load i64, ptr %81, align 8
   %82 = and i64 %.0.copyload.i.i.i.i.i, -16

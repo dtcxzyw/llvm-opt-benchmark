@@ -77751,7 +77751,7 @@ define void @"_ZN128_$LT$ruff_linter..rules..pycodestyle..rules..blank_lines..Li
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.thread81
-  %19 = phi ptr [ %17, %.lr.ph ], [ %118, %.thread81 ]
+  %19 = phi ptr [ %17, %.lr.ph ], [ %116, %.thread81 ]
   %.sroa.026.0156 = phi i8 [ %.sroa.026.0.ph166, %.lr.ph ], [ %spec.select7390, %.thread81 ]
   %.sroa.011.0155 = phi i8 [ %.sroa.011.0.ph165, %.lr.ph ], [ %.sroa.029.06793, %.thread81 ]
   %.sroa.413.0154 = phi i32 [ %.sroa.413.0.ph164, %.lr.ph ], [ %.sroa.031.06992, %.thread81 ]
@@ -78030,26 +78030,24 @@ _ZN11ruff_linter7locator7Locator5slice17h4a87bdd24d049517E.exit: ; preds = %87, 
   %108 = trunc nuw i8 %spec.select72 to i1
   %109 = load i8, ptr %15, align 8, !range !269, !noundef !8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
-  %110 = and i8 %spec.select72, 1
-  %111 = and i8 %spec.select45, 1
-  br i1 %108, label %.thread96, label %112
+  br i1 %108, label %.thread96, label %110
 
 .thread96:                                        ; preds = %_ZN11ruff_linter7locator7Locator5slice17h4a87bdd24d049517E.exit
   store i32 %24, ptr %14, align 8
-  br label %116
+  br label %114
 
-112:                                              ; preds = %_ZN11ruff_linter7locator7Locator5slice17h4a87bdd24d049517E.exit
+110:                                              ; preds = %_ZN11ruff_linter7locator7Locator5slice17h4a87bdd24d049517E.exit
   store i32 0, ptr %16, align 4
   store i32 %24, ptr %14, align 8
-  %113 = load i64, ptr %1, align 8, !range !66, !noundef !8
-  %114 = icmp eq i64 %113, 2
-  br i1 %114, label %116, label %115
+  %111 = load i64, ptr %1, align 8, !range !66, !noundef !8
+  %112 = icmp eq i64 %111, 2
+  br i1 %112, label %114, label %113
 
-115:                                              ; preds = %112
+113:                                              ; preds = %110
   store i8 0, ptr %15, align 8
-  br label %116
+  br label %114
 
-116:                                              ; preds = %.thread96, %112, %115
+114:                                              ; preds = %.thread96, %110, %113
   store i32 %.sroa.031.068, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.433.070, ptr %.sroa.2.0..sroa_idx, align 4
@@ -78070,15 +78068,15 @@ _ZN11ruff_linter7locator7Locator5slice17h4a87bdd24d049517E.exit: ; preds = %87, 
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 %.sroa.029.066, ptr %.sroa.8.0..sroa_idx, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 46
-  store i8 %110, ptr %.sroa.9.0..sroa_idx, align 2
+  store i8 %spec.select72, ptr %.sroa.9.0..sroa_idx, align 2
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 47
   store i8 %109, ptr %.sroa.10.0..sroa_idx, align 1
   br label %.outer._crit_edge
 
-.outer._crit_edge:                                ; preds = %.outer, %.thread81, %2, %116
-  %.sink = phi i8 [ %111, %116 ], [ 2, %2 ], [ 2, %.thread81 ], [ 2, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %.thread81, %2, %114
+  %spec.select45.lcssa.sink = phi i8 [ %spec.select45, %114 ], [ 2, %2 ], [ 2, %.thread81 ], [ 2, %.outer ]
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %.sink, ptr %.sroa.11.0..sroa_idx, align 8
+  store i8 %spec.select45.lcssa.sink, ptr %.sroa.11.0..sroa_idx, align 8
   ret void
 
 .thread81:                                        ; preds = %31, %67, %69
@@ -78088,10 +78086,10 @@ _ZN11ruff_linter7locator7Locator5slice17h4a87bdd24d049517E.exit: ; preds = %87, 
   %.sroa.031.06992 = phi i32 [ %.sroa.031.068, %67 ], [ %.sroa.031.068, %69 ], [ %.sroa.031.0, %31 ]
   %.sroa.433.07191 = phi i32 [ %.sroa.433.070, %67 ], [ %.sroa.433.070, %69 ], [ %.sroa.433.0, %31 ]
   %spec.select7390 = phi i8 [ %spec.select72, %67 ], [ %spec.select72, %69 ], [ %spec.select, %31 ]
-  %117 = tail call noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle7helpers20is_non_logical_token17h47a8f76e47e0d642E(i8 noundef %21)
-  %spec.select46 = select i1 %117, i8 %.sroa.022.0151, i8 %21
-  %118 = tail call noundef align 4 dereferenceable_or_null(12) ptr @"_ZN99_$LT$ruff_python_parser..TokenIterWithContext$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd123157a50558640E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-  %.not = icmp eq ptr %118, null
+  %115 = tail call noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle7helpers20is_non_logical_token17h47a8f76e47e0d642E(i8 noundef %21)
+  %spec.select46 = select i1 %115, i8 %.sroa.022.0151, i8 %21
+  %116 = tail call noundef align 4 dereferenceable_or_null(12) ptr @"_ZN99_$LT$ruff_python_parser..TokenIterWithContext$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd123157a50558640E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %.not = icmp eq ptr %116, null
   br i1 %.not, label %.outer._crit_edge, label %18
 }
 

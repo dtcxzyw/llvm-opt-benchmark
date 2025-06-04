@@ -8639,7 +8639,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #21
   %104 = load i8, ptr %17, align 8, !range !165, !noundef !166
   %105 = icmp eq i8 %104, 0
-  br i1 %105, label %106, label %450
+  br i1 %105, label %106, label %449
 
 106:                                              ; preds = %.split.us, %.thread
   %107 = phi i32 [ %.ph31, %.thread ], [ %.us-phi73, %.split.us ]
@@ -9235,14 +9235,13 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
 
 .loopexit49:                                      ; preds = %.loopexit48, %441, %287, %.loopexit47.us, %.loopexit49.loopexit.critedge, %.thread38
   %447 = phi i64 [ %290, %.thread38 ], [ %126, %.loopexit49.loopexit.critedge ], [ 3, %287 ], [ %126, %.loopexit47.us ], [ 3, %441 ], [ %290, %.loopexit48 ]
-  %448 = and i64 %447, 4294967295
-  store i64 %448, ptr %109, align 8
-  %449 = load i32, ptr %122, align 8
-  br label %450
+  store i64 %447, ptr %109, align 8
+  %448 = load i32, ptr %122, align 8
+  br label %449
 
-450:                                              ; preds = %.loopexit49, %.thread
-  %451 = phi i32 [ %449, %.loopexit49 ], [ %.ph32, %.thread ]
-  ret i32 %451
+449:                                              ; preds = %.loopexit49, %.thread
+  %450 = phi i32 [ %448, %.loopexit49 ], [ %.ph32, %.thread ]
+  ret i32 %450
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

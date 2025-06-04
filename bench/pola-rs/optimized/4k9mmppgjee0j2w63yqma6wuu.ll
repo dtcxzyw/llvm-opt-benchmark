@@ -2725,7 +2725,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i: ; 
   br label %128
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h94b95ee688b59965E.exit": ; preds = %.lr.ph.i.i, %30, %4, %14, %22, %_ZN4core3str7pattern13simd_contains17h595ea723b18cce37E.exit.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i, %128
-  %.sroa.011.0.i = phi i8 [ 1, %4 ], [ %33, %_ZN4core3str7pattern13simd_contains17h595ea723b18cce37E.exit.i ], [ %16, %14 ], [ %66, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i ], [ %.sroa.014.4.i.i, %128 ], [ %26, %22 ], [ 1, %.lr.ph.i.i ], [ 0, %30 ]
+  %.sroa.011.0.i = phi i8 [ 1, %4 ], [ %33, %_ZN4core3str7pattern13simd_contains17h595ea723b18cce37E.exit.i ], [ %16, %14 ], [ %26, %22 ], [ %66, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i ], [ %.sroa.014.4.i.i, %128 ], [ 1, %.lr.ph.i.i ], [ 0, %30 ]
   %133 = trunc nuw i8 %.sroa.011.0.i to i1
   ret i1 %133
 }

@@ -137,7 +137,7 @@ define hidden i32 @mbedtls_hkdf_expand(ptr noundef %0, ptr noundef %1, i64 nound
   %.04581 = phi i64 [ %14, %36 ], [ 0, %25 ]
   %.04880 = phi i64 [ %40, %36 ], [ 0, %25 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #5
-  %26 = trunc i64 %.04482 to i8
+  %26 = trunc nuw i64 %.04482 to i8
   store i8 %26, ptr %10, align 1, !tbaa !3
   %27 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %2) #5
   %.not66 = icmp eq i32 %27, 0

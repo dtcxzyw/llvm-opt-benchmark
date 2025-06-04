@@ -94,45 +94,45 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr noundef readonly captures(
   store i32 %5, ptr %3, align 4
   %6 = tail call i32 @hid_open_report(ptr noundef %0) #10
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %.loopexit13
+  br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
-  br i1 %11, label %.thread, label %.preheader15
+  br i1 %11, label %.thread, label %.preheader16
 
-.preheader15:                                     ; preds = %8, %.preheader15
-  %12 = phi ptr [ %18, %.preheader15 ], [ %10, %8 ]
-  %13 = phi i8 [ %17, %.preheader15 ], [ 0, %8 ]
+.preheader16:                                     ; preds = %8, %.preheader16
+  %12 = phi ptr [ %18, %.preheader16 ], [ %10, %8 ]
+  %13 = phi i8 [ %17, %.preheader16 ], [ 0, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -16777216
   %17 = select i1 %16, i8 1, i8 %13
   %18 = load ptr, ptr %12, align 8
   %19 = icmp eq ptr %18, %9
-  br i1 %19, label %20, label %.preheader15, !llvm.loop !5
+  br i1 %19, label %20, label %.preheader16, !llvm.loop !5
 
-20:                                               ; preds = %.preheader15
+20:                                               ; preds = %.preheader16
   %21 = icmp eq i8 %17, 0
   br i1 %21, label %.thread, label %23
 
 .thread:                                          ; preds = %8, %20
   %22 = tail call i32 @hid_hw_start(ptr noundef %0, i32 noundef 45) #10
-  br label %.loopexit13
+  br label %.loopexit
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 6352
   %25 = tail call noalias noundef dereferenceable_or_null(2664) ptr @devm_kmalloc(ptr noundef nonnull %24, i64 noundef 2664, i32 noundef 3520) #11
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit13, label %27
+  br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @__mutex_init(ptr noundef nonnull %28, ptr noundef nonnull @.str.8, ptr noundef nonnull @lg_g15_probe.__key) #10
   %29 = tail call ptr @devm_input_allocate_device(ptr noundef nonnull %24) #10
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit13, label %31
+  br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 96
@@ -202,7 +202,7 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr noundef readonly captures(
   %63 = phi i8 [ 0, %31 ], [ 0, %56 ], [ 0, %51 ], [ 2, %46 ], [ 2, %41 ]
   %64 = tail call i32 @hid_hw_start(ptr noundef %0, i32 noundef %60) #10
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %.loopexit13
+  br i1 %65, label %66, label %.loopexit
 
 66:                                               ; preds = %57
   br i1 %62, label %76, label %67
@@ -214,7 +214,7 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr noundef readonly captures(
   tail call void @llvm.memset.p0.i64(ptr align 1 %68, i8 0, i64 %69, i1 false)
   %70 = tail call i32 @hid_hw_open(ptr noundef %0) #10
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %.loopexit
+  br i1 %71, label %72, label %lg_g15_get_initial_led_brightness.exit.thread14
 
 72:                                               ; preds = %67
   %73 = or disjoint i32 %59, 1
@@ -246,171 +246,270 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr noundef readonly captures(
 88:                                               ; preds = %85
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %24, ptr noundef nonnull @.str.12, i32 noundef %86) #12
   store ptr null, ptr %39, align 8
-  br label %.loopexit13
+  br label %.loopexit
 
 89:                                               ; preds = %85
-  %90 = tail call fastcc i32 @lg_g15_get_initial_led_brightness(ptr noundef nonnull %25)
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %.loopexit
+  %90 = load i32, ptr %36, align 8
+  switch i32 %90, label %lg_g15_get_initial_led_brightness.exit.thread14 [
+    i32 0, label %91
+    i32 1, label %91
+    i32 2, label %125
+    i32 3, label %125
+    i32 4, label %lg_g15_get_initial_led_brightness.exit.thread.thread
+  ]
 
-92:                                               ; preds = %89
-  %93 = load i32, ptr %36, align 8
+91:                                               ; preds = %89, %89
+  %92 = load ptr, ptr %32, align 8
+  %93 = tail call i32 @hid_hw_raw_request(ptr noundef %92, i8 noundef zeroext 2, ptr noundef nonnull %25, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
   %94 = icmp eq i32 %93, 4
-  br i1 %94, label %95, label %103
+  br i1 %94, label %99, label %95
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %37, align 8
-  tail call fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef %96, ptr noundef nonnull @.str.13)
-  %97 = load ptr, ptr %37, align 8
-  %98 = tail call i32 @input_register_device(ptr noundef %97) #10
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %.loopexit
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %32, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %97, ptr noundef nonnull @.str.16, i32 noundef %93) #12
+  %98 = icmp slt i32 %93, 0
+  %spec.select = select i1 %98, i32 %93, i32 -5
+  br label %lg_g15_get_initial_led_brightness.exit.thread14
 
-100:                                              ; preds = %95
-  %101 = tail call fastcc i32 @lg_g15_register_led(ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull @.str.14)
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.loopexit13, label %.loopexit
+99:                                               ; preds = %91
+  %100 = getelementptr i8, ptr %25, i64 1
+  %101 = load i8, ptr %100, align 1
+  %102 = zext i8 %101 to i32
+  %103 = getelementptr inbounds nuw i8, ptr %25, i64 520
+  store i32 %102, ptr %103, align 8
+  %104 = getelementptr i8, ptr %25, i64 2
+  %105 = load i8, ptr %104, align 2
+  %106 = zext i8 %105 to i32
+  %107 = getelementptr i8, ptr %25, i64 944
+  store i32 %106, ptr %107, align 8
+  %108 = getelementptr i8, ptr %25, i64 3
+  %109 = load i8, ptr %108, align 1
+  %110 = and i8 %109, 1
+  %111 = xor i8 %110, 1
+  %112 = zext nneg i8 %111 to i32
+  %113 = getelementptr i8, ptr %25, i64 1368
+  store i32 %112, ptr %113, align 8
+  %114 = and i8 %109, 2
+  %115 = icmp eq i8 %114, 0
+  %116 = zext i1 %115 to i32
+  %117 = getelementptr i8, ptr %25, i64 1792
+  store i32 %116, ptr %117, align 8
+  %118 = and i8 %109, 4
+  %119 = icmp eq i8 %118, 0
+  %120 = zext i1 %119 to i32
+  %121 = getelementptr i8, ptr %25, i64 2216
+  store i32 %120, ptr %121, align 8
+  %122 = and i8 %109, 8
+  %123 = icmp eq i8 %122, 0
+  %124 = zext i1 %123 to i32
+  br label %lg_g15_get_initial_led_brightness.exit.thread
 
-103:                                              ; preds = %92
+125:                                              ; preds = %89, %89
+  %126 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %25, i32 noundef 0), !range !8
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %lg_g15_get_initial_led_brightness.exit.thread14
+
+128:                                              ; preds = %125
+  %129 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %25, i32 noundef 1), !range !8
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %lg_g15_get_initial_led_brightness.exit.thread14
+
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %32, align 8
+  %133 = tail call i32 @hid_hw_raw_request(ptr noundef %132, i8 noundef zeroext 4, ptr noundef nonnull %25, i64 noundef 2, i32 noundef 2, i32 noundef 1) #10
+  %134 = icmp eq i32 %133, 2
+  br i1 %134, label %138, label %135
+
+135:                                              ; preds = %131
+  %136 = load ptr, ptr %32, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %137, ptr noundef nonnull @.str.16, i32 noundef %133) #12
+  br label %138
+
+138:                                              ; preds = %135, %131
+  %139 = getelementptr i8, ptr %25, i64 1
+  %140 = load i8, ptr %139, align 1
+  %141 = lshr i8 %140, 7
+  %142 = zext nneg i8 %141 to i32
+  %143 = getelementptr i8, ptr %25, i64 1368
+  store i32 %142, ptr %143, align 8
+  %144 = lshr i8 %140, 6
+  %145 = and i8 %144, 1
+  %146 = zext nneg i8 %145 to i32
+  %147 = getelementptr i8, ptr %25, i64 1792
+  store i32 %146, ptr %147, align 8
+  %148 = lshr i8 %140, 5
+  %149 = and i8 %148, 1
+  %150 = zext nneg i8 %149 to i32
+  %151 = getelementptr i8, ptr %25, i64 2216
+  store i32 %150, ptr %151, align 8
+  %152 = lshr i8 %140, 4
+  %153 = and i8 %152, 1
+  %154 = zext nneg i8 %153 to i32
+  br label %lg_g15_get_initial_led_brightness.exit.thread
+
+lg_g15_get_initial_led_brightness.exit.thread:    ; preds = %99, %138
+  %.sink = phi i32 [ %124, %99 ], [ %154, %138 ]
+  %155 = getelementptr i8, ptr %25, i64 2640
+  store i32 %.sink, ptr %155, align 8
+  %.pr = load i32, ptr %36, align 8
+  %156 = icmp eq i32 %.pr, 4
+  br i1 %156, label %lg_g15_get_initial_led_brightness.exit.thread.thread, label %164
+
+lg_g15_get_initial_led_brightness.exit.thread.thread: ; preds = %89, %lg_g15_get_initial_led_brightness.exit.thread
+  %157 = load ptr, ptr %37, align 8
+  tail call fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef %157, ptr noundef nonnull @.str.13)
+  %158 = load ptr, ptr %37, align 8
+  %159 = tail call i32 @input_register_device(ptr noundef %158) #10
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %161, label %lg_g15_get_initial_led_brightness.exit.thread14
+
+161:                                              ; preds = %lg_g15_get_initial_led_brightness.exit.thread.thread
+  %162 = tail call fastcc i32 @lg_g15_register_led(ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull @.str.14)
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %.loopexit, label %lg_g15_get_initial_led_brightness.exit.thread14
+
+164:                                              ; preds = %lg_g15_get_initial_led_brightness.exit.thread
   tail call fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull @.str.15)
-  br i1 %58, label %104, label %.loopexit14.preheader
+  br i1 %58, label %165, label %.loopexit15.preheader
 
-104:                                              ; preds = %103
-  %105 = tail call i32 @llvm.umax.i32(i32 %59, i32 1)
-  br label %106
+165:                                              ; preds = %164
+  %166 = tail call i32 @llvm.umax.i32(i32 %59, i32 1)
+  br label %167
 
-106:                                              ; preds = %106, %104
-  %107 = phi i32 [ %109, %106 ], [ 0, %104 ]
-  %108 = add nuw nsw i32 %107, 656
-  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %108) #10
-  %109 = add nuw nsw i32 %107, 1
-  %110 = icmp eq i32 %109, %105
-  br i1 %110, label %.loopexit14.preheader, label %106, !llvm.loop !8
+167:                                              ; preds = %167, %165
+  %168 = phi i32 [ %170, %167 ], [ 0, %165 ]
+  %169 = add nuw nsw i32 %168, 656
+  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %169) #10
+  %170 = add nuw nsw i32 %168, 1
+  %171 = icmp eq i32 %170, %166
+  br i1 %171, label %.loopexit15.preheader, label %167, !llvm.loop !9
 
-.loopexit14.preheader:                            ; preds = %106, %103
-  br label %.loopexit14
+.loopexit15.preheader:                            ; preds = %167, %164
+  br label %.loopexit15
 
-.loopexit14:                                      ; preds = %.loopexit14.preheader, %.loopexit14
-  %111 = phi i32 [ %113, %.loopexit14 ], [ 0, %.loopexit14.preheader ]
-  %112 = add nuw nsw i32 %111, 691
-  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %112) #10
-  %113 = add nuw nsw i32 %111, 1
-  %114 = icmp eq i32 %113, 3
-  br i1 %114, label %115, label %.loopexit14, !llvm.loop !9
+.loopexit15:                                      ; preds = %.loopexit15.preheader, %.loopexit15
+  %172 = phi i32 [ %174, %.loopexit15 ], [ 0, %.loopexit15.preheader ]
+  %173 = add nuw nsw i32 %172, 691
+  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %173) #10
+  %174 = add nuw nsw i32 %172, 1
+  %175 = icmp eq i32 %174, 3
+  br i1 %175, label %176, label %.loopexit15, !llvm.loop !10
 
-115:                                              ; preds = %.loopexit14
+176:                                              ; preds = %.loopexit15
   tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 688) #10
-  %116 = load i32, ptr %36, align 8
-  %117 = icmp eq i32 %116, 2
-  br i1 %117, label %118, label %119
+  %177 = load i32, ptr %36, align 8
+  %178 = icmp eq i32 %177, 2
+  br i1 %178, label %179, label %180
 
-118:                                              ; preds = %115
+179:                                              ; preds = %176
   tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 113) #10
   tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 190) #10
-  br label %119
+  br label %180
 
-119:                                              ; preds = %118, %115
-  %120 = tail call i32 @input_register_device(ptr noundef nonnull %29) #10
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.preheader, label %.loopexit
+180:                                              ; preds = %179, %176
+  %181 = tail call i32 @input_register_device(ptr noundef nonnull %29) #10
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %.preheader, label %lg_g15_get_initial_led_brightness.exit.thread14
 
-.preheader:                                       ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  br label %126
+.preheader:                                       ; preds = %180
+  %183 = getelementptr inbounds nuw i8, ptr %25, i64 112
+  br label %187
 
-123:                                              ; preds = %lg_g15_register_led.exit
-  %124 = add nuw nsw i64 %127, 1
-  %125 = icmp eq i64 %124, 6
-  br i1 %125, label %.loopexit13, label %126, !llvm.loop !10
+184:                                              ; preds = %lg_g15_register_led.exit
+  %185 = add nuw nsw i64 %188, 1
+  %186 = icmp eq i64 %185, 6
+  br i1 %186, label %.loopexit, label %187, !llvm.loop !11
 
-126:                                              ; preds = %.preheader, %123
-  %127 = phi i64 [ %124, %123 ], [ 0, %.preheader ]
-  %128 = getelementptr [6 x ptr], ptr @lg_g15_probe.led_names, i64 0, i64 %127
-  %129 = load ptr, ptr %128, align 8
-  %130 = trunc i64 %127 to i32
-  %sext = shl i64 %127, 32
-  %131 = ashr exact i64 %sext, 32
-  %132 = getelementptr [6 x %struct.lg_g15_led], ptr %122, i64 0, i64 %131
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 412
-  store i32 %130, ptr %133, align 4
-  store ptr %129, ptr %132, align 8
-  %134 = load i32, ptr %36, align 8
-  switch i32 %134, label %lg_g15_register_led.exit [
-    i32 0, label %135
-    i32 1, label %135
-    i32 4, label %137
-    i32 2, label %145
-    i32 3, label %145
+187:                                              ; preds = %.preheader, %184
+  %188 = phi i64 [ %185, %184 ], [ 0, %.preheader ]
+  %189 = getelementptr [6 x ptr], ptr @lg_g15_probe.led_names, i64 0, i64 %188
+  %190 = load ptr, ptr %189, align 8
+  %191 = trunc i64 %188 to i32
+  %sext = shl i64 %188, 32
+  %192 = ashr exact i64 %sext, 32
+  %193 = getelementptr [6 x %struct.lg_g15_led], ptr %183, i64 0, i64 %192
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 412
+  store i32 %191, ptr %194, align 4
+  store ptr %190, ptr %193, align 8
+  %195 = load i32, ptr %36, align 8
+  switch i32 %195, label %lg_g15_register_led.exit [
+    i32 0, label %196
+    i32 1, label %196
+    i32 4, label %198
+    i32 2, label %206
+    i32 3, label %206
   ]
 
-135:                                              ; preds = %126, %126
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 48
-  store ptr @lg_g15_led_get, ptr %136, align 8
-  br label %137
+196:                                              ; preds = %187, %187
+  %197 = getelementptr inbounds nuw i8, ptr %193, i64 48
+  store ptr @lg_g15_led_get, ptr %197, align 8
+  br label %198
 
-137:                                              ; preds = %135, %126
-  %138 = getelementptr inbounds nuw i8, ptr %132, i64 40
-  store ptr @lg_g15_led_set, ptr %138, align 8
-  %139 = icmp slt i32 %130, 2
-  br i1 %139, label %140, label %143
+198:                                              ; preds = %196, %187
+  %199 = getelementptr inbounds nuw i8, ptr %193, i64 40
+  store ptr @lg_g15_led_set, ptr %199, align 8
+  %200 = icmp slt i32 %191, 2
+  br i1 %200, label %201, label %204
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds nuw i8, ptr %132, i64 20
-  store i32 2097152, ptr %141, align 4
-  %142 = getelementptr inbounds nuw i8, ptr %132, i64 12
-  store i32 2, ptr %142, align 4
+201:                                              ; preds = %198
+  %202 = getelementptr inbounds nuw i8, ptr %193, i64 20
+  store i32 2097152, ptr %202, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %193, i64 12
+  store i32 2, ptr %203, align 4
   br label %lg_g15_register_led.exit
 
-143:                                              ; preds = %137
-  %144 = getelementptr inbounds nuw i8, ptr %132, i64 12
-  store i32 1, ptr %144, align 4
+204:                                              ; preds = %198
+  %205 = getelementptr inbounds nuw i8, ptr %193, i64 12
+  store i32 1, ptr %205, align 4
   br label %lg_g15_register_led.exit
 
-145:                                              ; preds = %126, %126
-  switch i32 %130, label %152 [
-    i32 1, label %146
-    i32 0, label %147
+206:                                              ; preds = %187, %187
+  switch i32 %191, label %213 [
+    i32 1, label %207
+    i32 0, label %208
   ]
 
-146:                                              ; preds = %145
-  store ptr @.str.18, ptr %132, align 8
-  br label %147
+207:                                              ; preds = %206
+  store ptr @.str.18, ptr %193, align 8
+  br label %208
 
-147:                                              ; preds = %146, %145
-  %148 = getelementptr inbounds nuw i8, ptr %132, i64 40
-  store ptr @lg_g510_kbd_led_set, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %132, i64 48
-  store ptr @lg_g510_kbd_led_get, ptr %149, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %132, i64 12
-  store i32 255, ptr %150, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %132, i64 88
-  store ptr @lg_g510_kbd_led_groups, ptr %151, align 8
+208:                                              ; preds = %207, %206
+  %209 = getelementptr inbounds nuw i8, ptr %193, i64 40
+  store ptr @lg_g510_kbd_led_set, ptr %209, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %193, i64 48
+  store ptr @lg_g510_kbd_led_get, ptr %210, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %193, i64 12
+  store i32 255, ptr %211, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %193, i64 88
+  store ptr @lg_g510_kbd_led_groups, ptr %212, align 8
   br label %lg_g15_register_led.exit
 
-152:                                              ; preds = %145
-  %153 = getelementptr inbounds nuw i8, ptr %132, i64 40
-  store ptr @lg_g510_mkey_led_set, ptr %153, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %132, i64 48
-  store ptr @lg_g510_mkey_led_get, ptr %154, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %132, i64 12
-  store i32 1, ptr %155, align 4
+213:                                              ; preds = %206
+  %214 = getelementptr inbounds nuw i8, ptr %193, i64 40
+  store ptr @lg_g510_mkey_led_set, ptr %214, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %193, i64 48
+  store ptr @lg_g510_mkey_led_get, ptr %215, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %193, i64 12
+  store i32 1, ptr %216, align 4
   br label %lg_g15_register_led.exit
 
-lg_g15_register_led.exit:                         ; preds = %126, %140, %143, %147, %152
-  %156 = load ptr, ptr %32, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 6352
-  %158 = tail call i32 @devm_led_classdev_register_ext(ptr noundef nonnull %157, ptr noundef %132, ptr noundef null) #10
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %123, label %.loopexit
+lg_g15_register_led.exit:                         ; preds = %187, %201, %204, %208, %213
+  %217 = load ptr, ptr %32, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 6352
+  %219 = tail call i32 @devm_led_classdev_register_ext(ptr noundef nonnull %218, ptr noundef %193, ptr noundef null) #10
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %184, label %lg_g15_get_initial_led_brightness.exit.thread14
 
-.loopexit:                                        ; preds = %lg_g15_register_led.exit, %119, %100, %95, %89, %67
-  %160 = phi i32 [ %70, %67 ], [ %90, %89 ], [ %98, %95 ], [ %101, %100 ], [ %120, %119 ], [ %158, %lg_g15_register_led.exit ]
+lg_g15_get_initial_led_brightness.exit.thread14:  ; preds = %lg_g15_register_led.exit, %128, %125, %95, %89, %180, %161, %lg_g15_get_initial_led_brightness.exit.thread.thread, %67
+  %221 = phi i32 [ %70, %67 ], [ %159, %lg_g15_get_initial_led_brightness.exit.thread.thread ], [ %162, %161 ], [ %181, %180 ], [ -22, %89 ], [ %spec.select, %95 ], [ %126, %125 ], [ %129, %128 ], [ %219, %lg_g15_register_led.exit ]
   tail call void @hid_hw_stop(ptr noundef %0) #10
-  br label %.loopexit13
+  br label %.loopexit
 
-.loopexit13:                                      ; preds = %123, %.loopexit, %100, %88, %57, %27, %23, %.thread, %2
-  %161 = phi i32 [ %160, %.loopexit ], [ 0, %88 ], [ %22, %.thread ], [ %6, %2 ], [ -12, %23 ], [ -12, %27 ], [ %64, %57 ], [ 0, %100 ], [ 0, %123 ]
-  ret i32 %161
+.loopexit:                                        ; preds = %184, %lg_g15_get_initial_led_brightness.exit.thread14, %161, %88, %57, %27, %23, %.thread, %2
+  %222 = phi i32 [ %221, %lg_g15_get_initial_led_brightness.exit.thread14 ], [ 0, %88 ], [ %22, %.thread ], [ %6, %2 ], [ -12, %23 ], [ -12, %27 ], [ %64, %57 ], [ 0, %161 ], [ 0, %184 ]
+  ret i32 %222
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -459,7 +558,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %30 = or i32 %27, 656
   tail call void @input_event(ptr noundef %26, i32 noundef 1, i32 noundef %30, i32 noundef %29) #10
   %31 = icmp eq i64 %22, 6
-  br i1 %31, label %18, label %20, !llvm.loop !11
+  br i1 %31, label %18, label %20, !llvm.loop !12
 
 32:                                               ; preds = %32, %18
   %33 = phi i64 [ 0, %18 ], [ %42, %32 ]
@@ -474,7 +573,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %41, i32 noundef %40) #10
   %42 = add nuw nsw i64 %33, 1
   %43 = icmp eq i64 %42, 6
-  br i1 %43, label %.preheader, label %32, !llvm.loop !12
+  br i1 %43, label %.preheader, label %32, !llvm.loop !13
 
 .preheader:                                       ; preds = %32, %.preheader
   %44 = phi i64 [ %45, %.preheader ], [ 0, %32 ]
@@ -491,7 +590,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %55 = add i32 %49, 668
   tail call void @input_event(ptr noundef %52, i32 noundef 1, i32 noundef %55, i32 noundef %54) #10
   %56 = icmp eq i64 %45, 5
-  br i1 %56, label %57, label %.preheader, !llvm.loop !13
+  br i1 %56, label %57, label %.preheader, !llvm.loop !14
 
 57:                                               ; preds = %.preheader
   %58 = load ptr, ptr %17, align 8
@@ -517,7 +616,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %70, i32 noundef 1, i32 noundef %74, i32 noundef %73) #10
   %75 = add nuw nsw i64 %66, 1
   %76 = icmp eq i64 %75, 3
-  br i1 %76, label %77, label %65, !llvm.loop !14
+  br i1 %76, label %77, label %65, !llvm.loop !15
 
 77:                                               ; preds = %65
   %78 = load ptr, ptr %17, align 8
@@ -546,7 +645,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %92, i32 noundef 1, i32 noundef %96, i32 noundef %94) #10
   %97 = add nuw nsw i64 %89, 1
   %98 = icmp eq i64 %97, 4
-  br i1 %98, label %99, label %88, !llvm.loop !15
+  br i1 %98, label %99, label %88, !llvm.loop !16
 
 99:                                               ; preds = %88
   %100 = getelementptr i8, ptr %2, i64 1
@@ -588,7 +687,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %121, i32 noundef 1, i32 noundef %122, i32 noundef %124) #10
   %125 = add nuw nsw i32 %118, 1
   %126 = icmp eq i32 %125, 6
-  br i1 %126, label %127, label %117, !llvm.loop !16
+  br i1 %126, label %127, label %117, !llvm.loop !17
 
 127:                                              ; preds = %117
   %128 = load ptr, ptr %116, align 8
@@ -635,7 +734,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %158, i32 noundef 1, i32 noundef %159, i32 noundef %161) #10
   %162 = add nuw nsw i32 %153, 1
   %163 = icmp eq i32 %162, 4
-  br i1 %163, label %164, label %152, !llvm.loop !17
+  br i1 %163, label %164, label %152, !llvm.loop !18
 
 164:                                              ; preds = %152
   %165 = load i8, ptr %138, align 1
@@ -684,7 +783,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %191, i32 noundef 1, i32 noundef %195, i32 noundef %193) #10
   %196 = add nuw nsw i64 %188, 1
   %197 = icmp eq i64 %196, 4
-  br i1 %197, label %198, label %187, !llvm.loop !15
+  br i1 %197, label %198, label %187, !llvm.loop !16
 
 198:                                              ; preds = %187
   %199 = load ptr, ptr %180, align 8
@@ -718,7 +817,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %216, i32 noundef 1, i32 noundef %217, i32 noundef %219) #10
   %220 = add nuw nsw i32 %209, 1
   %221 = icmp eq i32 %220, 18
-  br i1 %221, label %222, label %208, !llvm.loop !18
+  br i1 %221, label %222, label %208, !llvm.loop !19
 
 222:                                              ; preds = %208
   %223 = getelementptr i8, ptr %2, i64 3
@@ -726,7 +825,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %225 = and i8 %224, 4
   %226 = lshr exact i8 %225, 2
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 2656
-  %228 = load i8, ptr %227, align 8, !range !19, !noundef !20
+  %228 = load i8, ptr %227, align 8, !range !20, !noundef !21
   %229 = icmp eq i8 %226, %228
   br i1 %229, label %.preheader2, label %230
 
@@ -756,7 +855,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %242, i32 noundef 1, i32 noundef %243, i32 noundef %245) #10
   %246 = add nuw nsw i32 %237, 1
   %247 = icmp eq i32 %246, 3
-  br i1 %247, label %248, label %236, !llvm.loop !21
+  br i1 %247, label %248, label %236, !llvm.loop !22
 
 248:                                              ; preds = %236
   %249 = load ptr, ptr %207, align 8
@@ -778,7 +877,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %258, i32 noundef 1, i32 noundef %259, i32 noundef %261) #10
   %262 = add nuw nsw i32 %255, 1
   %263 = icmp eq i32 %262, 5
-  br i1 %263, label %264, label %254, !llvm.loop !22
+  br i1 %263, label %264, label %254, !llvm.loop !23
 
 264:                                              ; preds = %254
   %265 = load ptr, ptr %207, align 8
@@ -969,123 +1068,6 @@ declare dso_local i32 @hid_hw_raw_request(ptr noundef, i8 noundef zeroext, ptr n
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load i32, ptr %2, align 8
-  switch i32 %3, label %73 [
-    i32 0, label %4
-    i32 1, label %4
-    i32 2, label %41
-    i32 3, label %41
-    i32 4, label %74
-  ]
-
-4:                                                ; preds = %1, %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @hid_hw_raw_request(ptr noundef %6, i8 noundef zeroext 2, ptr noundef nonnull %0, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
-  %8 = icmp eq i32 %7, 4
-  br i1 %8, label %14, label %9
-
-9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.16, i32 noundef %7) #12
-  %12 = icmp slt i32 %7, 0
-  %13 = select i1 %12, i32 %7, i32 -5
-  br label %74
-
-14:                                               ; preds = %4
-  %15 = getelementptr i8, ptr %0, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i32 %17, ptr %18, align 8
-  %19 = getelementptr i8, ptr %0, i64 2
-  %20 = load i8, ptr %19, align 2
-  %21 = zext i8 %20 to i32
-  %22 = getelementptr i8, ptr %0, i64 944
-  store i32 %21, ptr %22, align 8
-  %23 = getelementptr i8, ptr %0, i64 3
-  %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %26 = xor i8 %25, 1
-  %27 = zext nneg i8 %26 to i32
-  %28 = getelementptr i8, ptr %0, i64 1368
-  store i32 %27, ptr %28, align 8
-  %29 = and i8 %24, 2
-  %30 = icmp eq i8 %29, 0
-  %31 = zext i1 %30 to i32
-  %32 = getelementptr i8, ptr %0, i64 1792
-  store i32 %31, ptr %32, align 8
-  %33 = and i8 %24, 4
-  %34 = icmp eq i8 %33, 0
-  %35 = zext i1 %34 to i32
-  %36 = getelementptr i8, ptr %0, i64 2216
-  store i32 %35, ptr %36, align 8
-  %37 = and i8 %24, 8
-  %38 = icmp eq i8 %37, 0
-  %39 = zext i1 %38 to i32
-  %40 = getelementptr i8, ptr %0, i64 2640
-  store i32 %39, ptr %40, align 8
-  br label %74
-
-41:                                               ; preds = %1, %1
-  %42 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i32 noundef 0), !range !23
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %74
-
-44:                                               ; preds = %41
-  %45 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i32 noundef 1), !range !23
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %74
-
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 @hid_hw_raw_request(ptr noundef %49, i8 noundef zeroext 4, ptr noundef nonnull %0, i64 noundef 2, i32 noundef 2, i32 noundef 1) #10
-  %51 = icmp eq i32 %50, 2
-  br i1 %51, label %55, label %52
-
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %54, ptr noundef nonnull @.str.16, i32 noundef %50) #12
-  br label %55
-
-55:                                               ; preds = %52, %47
-  %56 = getelementptr i8, ptr %0, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = lshr i8 %57, 7
-  %59 = zext nneg i8 %58 to i32
-  %60 = getelementptr i8, ptr %0, i64 1368
-  store i32 %59, ptr %60, align 8
-  %61 = lshr i8 %57, 6
-  %62 = and i8 %61, 1
-  %63 = zext nneg i8 %62 to i32
-  %64 = getelementptr i8, ptr %0, i64 1792
-  store i32 %63, ptr %64, align 8
-  %65 = lshr i8 %57, 5
-  %66 = and i8 %65, 1
-  %67 = zext nneg i8 %66 to i32
-  %68 = getelementptr i8, ptr %0, i64 2216
-  store i32 %67, ptr %68, align 8
-  %69 = lshr i8 %57, 4
-  %70 = and i8 %69, 1
-  %71 = zext nneg i8 %70 to i32
-  %72 = getelementptr i8, ptr %0, i64 2640
-  store i32 %71, ptr %72, align 8
-  br label %74
-
-73:                                               ; preds = %1
-  br label %74
-
-74:                                               ; preds = %73, %55, %44, %41, %14, %9, %1
-  %75 = phi i32 [ -22, %73 ], [ 0, %55 ], [ %42, %41 ], [ %45, %44 ], [ 0, %1 ], [ %13, %9 ], [ 0, %14 ]
-  ret i32 %75
-}
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef initializes((0, 32), (456, 472), (608, 616)) %1, ptr noundef %2) unnamed_addr #2 align 16 {
@@ -1960,7 +1942,7 @@ attributes #12 = { cold nounwind }
 !5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
+!8 = !{i32 5, i32 4}
 !9 = distinct !{!9, !6, !7}
 !10 = distinct !{!10, !6, !7}
 !11 = distinct !{!11, !6, !7}
@@ -1971,11 +1953,11 @@ attributes #12 = { cold nounwind }
 !16 = distinct !{!16, !6, !7}
 !17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = distinct !{!21, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = !{i8 0, i8 2}
+!21 = !{}
 !22 = distinct !{!22, !6, !7}
-!23 = !{i32 5, i32 4}
+!23 = distinct !{!23, !6, !7}
 !24 = distinct !{!24, !6, !7}
 !25 = distinct !{!25, !6, !7}
 !26 = distinct !{!26, !6, !7}

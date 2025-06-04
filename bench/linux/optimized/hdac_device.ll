@@ -1008,8 +1008,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %109 = icmp eq i32 %108, 0
   %110 = and i32 %107, %37
   %111 = trunc nuw nsw i32 %110 to i16
-  %.reass = and i32 %107, %37
-  %112 = icmp eq i32 %.reass, 0
+  %112 = icmp eq i32 %110, 0
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %106
@@ -1025,7 +1024,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
 118:                                              ; preds = %115
   %119 = icmp ne i16 %78, 0
   %120 = zext nneg i16 %78 to i32
-  %121 = icmp samesign ugt i32 %.reass, %120
+  %121 = icmp ugt i32 %110, %120
   %122 = select i1 %119, i1 %121, i1 false
   br i1 %122, label %.preheader, label %131
 
@@ -1045,11 +1044,11 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %127 = add i32 %126, 1
   %128 = add i16 %125, 1
   %129 = zext i16 %128 to i32
-  %130 = icmp samesign ult i32 %.reass, %129
+  %130 = icmp ult i32 %110, %129
   br i1 %130, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
 
 131:                                              ; preds = %118
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %120, i32 noundef %.reass) #10
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %120, i32 noundef %110) #10
   br label %.loopexit
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %133
@@ -1064,7 +1063,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %135 = add i16 %132, 1
   %136 = zext i16 %135 to i32
-  %137 = icmp samesign ult i32 %.reass, %136
+  %137 = icmp ult i32 %110, %136
   br i1 %137, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !16
 
 138:                                              ; preds = %115

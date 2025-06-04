@@ -432,7 +432,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %36 = zext nneg i32 %35 to i64
   %37 = call i64 @llvm.expect.i64(i64 %36, i64 1)
   %38 = icmp ne i64 %37, 0
-  br i1 %38, label %39, label %726
+  br i1 %38, label %39, label %710
 
 39:                                               ; preds = %31
   %40 = load ptr, ptr %4, align 8, !tbaa !33
@@ -474,7 +474,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
 
 57:                                               ; preds = %56
   store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
+  br label %709
 
 58:                                               ; preds = %39
   %59 = load ptr, ptr %4, align 8, !tbaa !33
@@ -518,7 +518,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
 
 78:                                               ; preds = %77
   store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
+  br label %709
 
 79:                                               ; preds = %58
   %80 = load ptr, ptr %4, align 8, !tbaa !33
@@ -712,974 +712,958 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %183 = load ptr, ptr %12, align 8, !tbaa !33
   %184 = load i8, ptr %183, align 1, !tbaa !37
   %185 = zext i8 %184 to i32
-  %186 = and i32 %185, 255
-  store i32 %186, ptr %7, align 4, !tbaa !36
-  %187 = load ptr, ptr %12, align 8, !tbaa !33
-  %188 = getelementptr inbounds nuw i8, ptr %187, i32 1
-  store ptr %188, ptr %12, align 8, !tbaa !33
-  %189 = load ptr, ptr %12, align 8, !tbaa !33
-  %190 = load i8, ptr %189, align 1, !tbaa !37
-  %191 = zext i8 %190 to i32
-  %192 = and i32 %191, 255
-  %193 = shl nuw nsw i32 %192, 8
-  %194 = load i32, ptr %7, align 4, !tbaa !36
-  %195 = or i32 %194, %193
-  store i32 %195, ptr %7, align 4, !tbaa !36
+  store i32 %185, ptr %7, align 4, !tbaa !36
+  %186 = load ptr, ptr %12, align 8, !tbaa !33
+  %187 = getelementptr inbounds nuw i8, ptr %186, i32 1
+  store ptr %187, ptr %12, align 8, !tbaa !33
+  %188 = load ptr, ptr %12, align 8, !tbaa !33
+  %189 = load i8, ptr %188, align 1, !tbaa !37
+  %190 = zext i8 %189 to i32
+  %191 = shl nuw nsw i32 %190, 8
+  %192 = load i32, ptr %7, align 4, !tbaa !36
+  %193 = or i32 %192, %191
+  store i32 %193, ptr %7, align 4, !tbaa !36
+  %194 = load ptr, ptr %12, align 8, !tbaa !33
+  %195 = getelementptr inbounds nuw i8, ptr %194, i32 1
+  store ptr %195, ptr %12, align 8, !tbaa !33
   %196 = load ptr, ptr %12, align 8, !tbaa !33
-  %197 = getelementptr inbounds nuw i8, ptr %196, i32 1
-  store ptr %197, ptr %12, align 8, !tbaa !33
-  %198 = load ptr, ptr %12, align 8, !tbaa !33
-  %199 = load i8, ptr %198, align 1, !tbaa !37
-  %200 = zext i8 %199 to i32
-  %201 = and i32 %200, 255
-  %202 = shl nuw nsw i32 %201, 16
-  %203 = load i32, ptr %7, align 4, !tbaa !36
-  %204 = or i32 %203, %202
-  store i32 %204, ptr %7, align 4, !tbaa !36
-  %205 = load ptr, ptr %12, align 8, !tbaa !33
-  %206 = getelementptr inbounds nuw i8, ptr %205, i32 1
-  store ptr %206, ptr %12, align 8, !tbaa !33
-  %207 = load ptr, ptr %12, align 8, !tbaa !33
-  %208 = load i8, ptr %207, align 1, !tbaa !37
-  %209 = zext i8 %208 to i32
-  %210 = and i32 %209, 255
-  %211 = shl nuw i32 %210, 24
-  %212 = load i32, ptr %7, align 4, !tbaa !36
-  %213 = or i32 %212, %211
-  store i32 %213, ptr %7, align 4, !tbaa !36
-  %214 = load ptr, ptr %12, align 8, !tbaa !33
-  %215 = getelementptr inbounds nuw i8, ptr %214, i32 1
-  store ptr %215, ptr %12, align 8, !tbaa !33
-  br label %216
+  %197 = load i8, ptr %196, align 1, !tbaa !37
+  %198 = zext i8 %197 to i32
+  %199 = shl nuw nsw i32 %198, 16
+  %200 = load i32, ptr %7, align 4, !tbaa !36
+  %201 = or i32 %200, %199
+  store i32 %201, ptr %7, align 4, !tbaa !36
+  %202 = load ptr, ptr %12, align 8, !tbaa !33
+  %203 = getelementptr inbounds nuw i8, ptr %202, i32 1
+  store ptr %203, ptr %12, align 8, !tbaa !33
+  %204 = load ptr, ptr %12, align 8, !tbaa !33
+  %205 = load i8, ptr %204, align 1, !tbaa !37
+  %206 = zext i8 %205 to i32
+  %207 = shl nuw i32 %206, 24
+  %208 = load i32, ptr %7, align 4, !tbaa !36
+  %209 = or i32 %208, %207
+  store i32 %209, ptr %7, align 4, !tbaa !36
+  %210 = load ptr, ptr %12, align 8, !tbaa !33
+  %211 = getelementptr inbounds nuw i8, ptr %210, i32 1
+  store ptr %211, ptr %12, align 8, !tbaa !33
+  br label %212
 
-216:                                              ; preds = %182
-  br label %217
+212:                                              ; preds = %182
+  br label %213
 
-217:                                              ; preds = %216
-  %218 = load ptr, ptr %13, align 8, !tbaa !33
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 4
-  store ptr %219, ptr %13, align 8, !tbaa !33
-  %220 = load i32, ptr %7, align 4, !tbaa !36
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %237
+213:                                              ; preds = %212
+  %214 = load ptr, ptr %13, align 8, !tbaa !33
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
+  store ptr %215, ptr %13, align 8, !tbaa !33
+  %216 = load i32, ptr %7, align 4, !tbaa !36
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %218, label %233
 
-222:                                              ; preds = %217
-  br label %223
+218:                                              ; preds = %213
+  br label %219
 
-223:                                              ; preds = %222
-  br label %224
+219:                                              ; preds = %218
+  br label %220
 
-224:                                              ; preds = %223
+220:                                              ; preds = %219
+  br label %221
+
+221:                                              ; preds = %220
+  %222 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %223 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %224 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 637, i64 noundef %222, i64 noundef %223, ptr noundef @.str.19)
   br label %225
 
-225:                                              ; preds = %224
-  %226 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %227 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %228 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 637, i64 noundef %226, i64 noundef %227, ptr noundef @.str.19)
-  br label %229
+225:                                              ; preds = %221
+  br label %226
 
-229:                                              ; preds = %225
+226:                                              ; preds = %225
+  store i8 1, ptr %15, align 1, !tbaa !3
+  %227 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %228 = trunc nuw i8 %227 to i1
+  %229 = zext i1 %228 to i8
+  store i8 %229, ptr %15, align 1, !tbaa !3
   br label %230
 
-230:                                              ; preds = %229
-  store i8 1, ptr %15, align 1, !tbaa !3
-  %231 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %232 = trunc nuw i8 %231 to i1
-  %233 = zext i1 %232 to i8
-  store i8 %233, ptr %15, align 1, !tbaa !3
-  br label %234
+230:                                              ; preds = %226
+  br label %231
 
-234:                                              ; preds = %230
-  br label %235
+231:                                              ; preds = %230
+  br label %232
 
-235:                                              ; preds = %234
-  br label %236
-
-236:                                              ; preds = %235
+232:                                              ; preds = %231
   store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
+  br label %709
 
-237:                                              ; preds = %217
-  %238 = load i32, ptr %7, align 4, !tbaa !36
-  %239 = load i32, ptr %7, align 4, !tbaa !36
-  %240 = sub i32 %239, 1
-  %241 = and i32 %238, %240
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %246, label %243
+233:                                              ; preds = %213
+  %234 = load i32, ptr %7, align 4, !tbaa !36
+  %235 = load i32, ptr %7, align 4, !tbaa !36
+  %236 = sub i32 %235, 1
+  %237 = and i32 %234, %236
+  %238 = icmp ne i32 %237, 0
+  br i1 %238, label %242, label %239
 
-243:                                              ; preds = %237
-  %244 = load i32, ptr %7, align 4, !tbaa !36
-  %245 = icmp ne i32 %244, 0
-  br i1 %245, label %261, label %246
+239:                                              ; preds = %233
+  %240 = load i32, ptr %7, align 4, !tbaa !36
+  %241 = icmp ne i32 %240, 0
+  br i1 %241, label %257, label %242
 
-246:                                              ; preds = %243, %237
-  br label %247
+242:                                              ; preds = %239, %233
+  br label %243
 
-247:                                              ; preds = %246
-  br label %248
+243:                                              ; preds = %242
+  br label %244
 
-248:                                              ; preds = %247
+244:                                              ; preds = %243
+  br label %245
+
+245:                                              ; preds = %244
+  %246 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %247 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %248 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 639, i64 noundef %246, i64 noundef %247, ptr noundef @.str.20)
   br label %249
 
-249:                                              ; preds = %248
-  %250 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %251 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %252 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 639, i64 noundef %250, i64 noundef %251, ptr noundef @.str.20)
-  br label %253
+249:                                              ; preds = %245
+  br label %250
 
-253:                                              ; preds = %249
+250:                                              ; preds = %249
+  store i8 1, ptr %15, align 1, !tbaa !3
+  %251 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %252 = trunc nuw i8 %251 to i1
+  %253 = zext i1 %252 to i8
+  store i8 %253, ptr %15, align 1, !tbaa !3
   br label %254
 
-254:                                              ; preds = %253
-  store i8 1, ptr %15, align 1, !tbaa !3
-  %255 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %256 = trunc nuw i8 %255 to i1
-  %257 = zext i1 %256 to i8
-  store i8 %257, ptr %15, align 1, !tbaa !3
-  br label %258
+254:                                              ; preds = %250
+  br label %255
 
-258:                                              ; preds = %254
-  br label %259
+255:                                              ; preds = %254
+  br label %256
 
-259:                                              ; preds = %258
-  br label %260
-
-260:                                              ; preds = %259
+256:                                              ; preds = %255
   store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
+  br label %709
 
-261:                                              ; preds = %243
+257:                                              ; preds = %239
+  %258 = load ptr, ptr %5, align 8, !tbaa !34
+  %259 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %258, i32 0, i32 5
+  %260 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %259, i32 0, i32 1
+  store i32 0, ptr %260, align 4, !tbaa !43
+  br label %261
+
+261:                                              ; preds = %271, %257
   %262 = load ptr, ptr %5, align 8, !tbaa !34
   %263 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %262, i32 0, i32 5
   %264 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %263, i32 0, i32 1
-  store i32 0, ptr %264, align 4, !tbaa !43
-  br label %265
+  %265 = load i32, ptr %264, align 4, !tbaa !43
+  %266 = shl nuw i32 1, %265
+  %267 = load i32, ptr %7, align 4, !tbaa !36
+  %268 = and i32 %266, %267
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %270, label %277
 
-265:                                              ; preds = %275, %261
-  %266 = load ptr, ptr %5, align 8, !tbaa !34
-  %267 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %266, i32 0, i32 5
-  %268 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %267, i32 0, i32 1
-  %269 = load i32, ptr %268, align 4, !tbaa !43
-  %270 = shl nuw i32 1, %269
-  %271 = load i32, ptr %7, align 4, !tbaa !36
-  %272 = and i32 %270, %271
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %281
+270:                                              ; preds = %261
+  br label %271
 
-274:                                              ; preds = %265
-  br label %275
+271:                                              ; preds = %270
+  %272 = load ptr, ptr %5, align 8, !tbaa !34
+  %273 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %272, i32 0, i32 5
+  %274 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %273, i32 0, i32 1
+  %275 = load i32, ptr %274, align 4, !tbaa !43
+  %276 = add i32 %275, 1
+  store i32 %276, ptr %274, align 4, !tbaa !43
+  br label %261, !llvm.loop !44
 
-275:                                              ; preds = %274
-  %276 = load ptr, ptr %5, align 8, !tbaa !34
-  %277 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %276, i32 0, i32 5
-  %278 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %277, i32 0, i32 1
-  %279 = load i32, ptr %278, align 4, !tbaa !43
-  %280 = add i32 %279, 1
-  store i32 %280, ptr %278, align 4, !tbaa !43
-  br label %265, !llvm.loop !44
-
-281:                                              ; preds = %265
-  %282 = load ptr, ptr %13, align 8, !tbaa !33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 1 %282, i64 8, i1 false)
+277:                                              ; preds = %261
+  %278 = load ptr, ptr %13, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 1 %278, i64 8, i1 false)
   store ptr %9, ptr %12, align 8, !tbaa !33
-  br label %283
+  br label %279
 
-283:                                              ; preds = %281
+279:                                              ; preds = %277
   call void @llvm.lifetime.start.p0(i64 8, ptr %19) #14
   store i64 0, ptr %10, align 8, !tbaa !26
-  %284 = load ptr, ptr %12, align 8, !tbaa !33
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  store ptr %285, ptr %12, align 8, !tbaa !33
+  %280 = load ptr, ptr %12, align 8, !tbaa !33
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
+  store ptr %281, ptr %12, align 8, !tbaa !33
   store i64 0, ptr %19, align 8, !tbaa !26
-  br label %286
+  br label %282
 
-286:                                              ; preds = %297, %283
-  %287 = load i64, ptr %19, align 8, !tbaa !26
-  %288 = icmp ult i64 %287, 8
-  br i1 %288, label %289, label %300
+282:                                              ; preds = %293, %279
+  %283 = load i64, ptr %19, align 8, !tbaa !26
+  %284 = icmp ult i64 %283, 8
+  br i1 %284, label %285, label %296
 
-289:                                              ; preds = %286
-  %290 = load i64, ptr %10, align 8, !tbaa !26
-  %291 = shl i64 %290, 8
-  %292 = load ptr, ptr %12, align 8, !tbaa !33
-  %293 = getelementptr inbounds i8, ptr %292, i32 -1
-  store ptr %293, ptr %12, align 8, !tbaa !33
-  %294 = load i8, ptr %293, align 1, !tbaa !37
-  %295 = zext i8 %294 to i64
-  %296 = or i64 %291, %295
-  store i64 %296, ptr %10, align 8, !tbaa !26
-  br label %297
+285:                                              ; preds = %282
+  %286 = load i64, ptr %10, align 8, !tbaa !26
+  %287 = shl i64 %286, 8
+  %288 = load ptr, ptr %12, align 8, !tbaa !33
+  %289 = getelementptr inbounds i8, ptr %288, i32 -1
+  store ptr %289, ptr %12, align 8, !tbaa !33
+  %290 = load i8, ptr %289, align 1, !tbaa !37
+  %291 = zext i8 %290 to i64
+  %292 = or i64 %287, %291
+  store i64 %292, ptr %10, align 8, !tbaa !26
+  br label %293
 
-297:                                              ; preds = %289
-  %298 = load i64, ptr %19, align 8, !tbaa !26
-  %299 = add i64 %298, 1
-  store i64 %299, ptr %19, align 8, !tbaa !26
-  br label %286, !llvm.loop !45
+293:                                              ; preds = %285
+  %294 = load i64, ptr %19, align 8, !tbaa !26
+  %295 = add i64 %294, 1
+  store i64 %295, ptr %19, align 8, !tbaa !26
+  br label %282, !llvm.loop !45
 
-300:                                              ; preds = %286
-  %301 = load ptr, ptr %12, align 8, !tbaa !33
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store ptr %302, ptr %12, align 8, !tbaa !33
+296:                                              ; preds = %282
+  %297 = load ptr, ptr %12, align 8, !tbaa !33
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  store ptr %298, ptr %12, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr %19) #14
-  br label %303
+  br label %299
 
-303:                                              ; preds = %300
+299:                                              ; preds = %296
+  br label %300
+
+300:                                              ; preds = %299
+  %301 = load ptr, ptr %13, align 8, !tbaa !33
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  store ptr %302, ptr %13, align 8, !tbaa !33
+  %303 = load ptr, ptr %13, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 1 %303, i64 4, i1 false)
+  store ptr %6, ptr %12, align 8, !tbaa !33
   br label %304
 
-304:                                              ; preds = %303
-  %305 = load ptr, ptr %13, align 8, !tbaa !33
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  store ptr %306, ptr %13, align 8, !tbaa !33
-  %307 = load ptr, ptr %13, align 8, !tbaa !33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 1 %307, i64 4, i1 false)
-  store ptr %6, ptr %12, align 8, !tbaa !33
-  br label %308
-
-308:                                              ; preds = %304
-  %309 = load ptr, ptr %12, align 8, !tbaa !33
-  %310 = load i8, ptr %309, align 1, !tbaa !37
-  %311 = zext i8 %310 to i32
-  %312 = and i32 %311, 255
-  store i32 %312, ptr %11, align 4, !tbaa !36
-  %313 = load ptr, ptr %12, align 8, !tbaa !33
-  %314 = getelementptr inbounds nuw i8, ptr %313, i32 1
-  store ptr %314, ptr %12, align 8, !tbaa !33
-  %315 = load ptr, ptr %12, align 8, !tbaa !33
-  %316 = load i8, ptr %315, align 1, !tbaa !37
-  %317 = zext i8 %316 to i32
-  %318 = and i32 %317, 255
-  %319 = shl nuw nsw i32 %318, 8
-  %320 = load i32, ptr %11, align 4, !tbaa !36
-  %321 = or i32 %320, %319
-  store i32 %321, ptr %11, align 4, !tbaa !36
-  %322 = load ptr, ptr %12, align 8, !tbaa !33
-  %323 = getelementptr inbounds nuw i8, ptr %322, i32 1
-  store ptr %323, ptr %12, align 8, !tbaa !33
+304:                                              ; preds = %300
+  %305 = load ptr, ptr %12, align 8, !tbaa !33
+  %306 = load i8, ptr %305, align 1, !tbaa !37
+  %307 = zext i8 %306 to i32
+  store i32 %307, ptr %11, align 4, !tbaa !36
+  %308 = load ptr, ptr %12, align 8, !tbaa !33
+  %309 = getelementptr inbounds nuw i8, ptr %308, i32 1
+  store ptr %309, ptr %12, align 8, !tbaa !33
+  %310 = load ptr, ptr %12, align 8, !tbaa !33
+  %311 = load i8, ptr %310, align 1, !tbaa !37
+  %312 = zext i8 %311 to i32
+  %313 = shl nuw nsw i32 %312, 8
+  %314 = load i32, ptr %11, align 4, !tbaa !36
+  %315 = or i32 %314, %313
+  store i32 %315, ptr %11, align 4, !tbaa !36
+  %316 = load ptr, ptr %12, align 8, !tbaa !33
+  %317 = getelementptr inbounds nuw i8, ptr %316, i32 1
+  store ptr %317, ptr %12, align 8, !tbaa !33
+  %318 = load ptr, ptr %12, align 8, !tbaa !33
+  %319 = load i8, ptr %318, align 1, !tbaa !37
+  %320 = zext i8 %319 to i32
+  %321 = shl nuw nsw i32 %320, 16
+  %322 = load i32, ptr %11, align 4, !tbaa !36
+  %323 = or i32 %322, %321
+  store i32 %323, ptr %11, align 4, !tbaa !36
   %324 = load ptr, ptr %12, align 8, !tbaa !33
-  %325 = load i8, ptr %324, align 1, !tbaa !37
-  %326 = zext i8 %325 to i32
-  %327 = and i32 %326, 255
-  %328 = shl nuw nsw i32 %327, 16
-  %329 = load i32, ptr %11, align 4, !tbaa !36
-  %330 = or i32 %329, %328
-  store i32 %330, ptr %11, align 4, !tbaa !36
-  %331 = load ptr, ptr %12, align 8, !tbaa !33
-  %332 = getelementptr inbounds nuw i8, ptr %331, i32 1
-  store ptr %332, ptr %12, align 8, !tbaa !33
-  %333 = load ptr, ptr %12, align 8, !tbaa !33
-  %334 = load i8, ptr %333, align 1, !tbaa !37
-  %335 = zext i8 %334 to i32
-  %336 = and i32 %335, 255
-  %337 = shl nuw i32 %336, 24
-  %338 = load i32, ptr %11, align 4, !tbaa !36
-  %339 = or i32 %338, %337
-  store i32 %339, ptr %11, align 4, !tbaa !36
-  %340 = load ptr, ptr %12, align 8, !tbaa !33
-  %341 = getelementptr inbounds nuw i8, ptr %340, i32 1
-  store ptr %341, ptr %12, align 8, !tbaa !33
-  br label %342
+  %325 = getelementptr inbounds nuw i8, ptr %324, i32 1
+  store ptr %325, ptr %12, align 8, !tbaa !33
+  %326 = load ptr, ptr %12, align 8, !tbaa !33
+  %327 = load i8, ptr %326, align 1, !tbaa !37
+  %328 = zext i8 %327 to i32
+  %329 = shl nuw i32 %328, 24
+  %330 = load i32, ptr %11, align 4, !tbaa !36
+  %331 = or i32 %330, %329
+  store i32 %331, ptr %11, align 4, !tbaa !36
+  %332 = load ptr, ptr %12, align 8, !tbaa !33
+  %333 = getelementptr inbounds nuw i8, ptr %332, i32 1
+  store ptr %333, ptr %12, align 8, !tbaa !33
+  br label %334
 
-342:                                              ; preds = %308
-  br label %343
+334:                                              ; preds = %304
+  br label %335
 
-343:                                              ; preds = %342
-  %344 = load ptr, ptr %13, align 8, !tbaa !33
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
-  store ptr %345, ptr %13, align 8, !tbaa !33
-  %346 = load ptr, ptr %5, align 8, !tbaa !34
-  %347 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %346, i32 0, i32 5
-  %348 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %347, i32 0, i32 2
-  %349 = load i64, ptr %348, align 8, !tbaa !29
-  %350 = icmp eq i64 %349, 0
-  br i1 %350, label %351, label %360
+335:                                              ; preds = %334
+  %336 = load ptr, ptr %13, align 8, !tbaa !33
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
+  store ptr %337, ptr %13, align 8, !tbaa !33
+  %338 = load ptr, ptr %5, align 8, !tbaa !34
+  %339 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %338, i32 0, i32 5
+  %340 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %339, i32 0, i32 2
+  %341 = load i64, ptr %340, align 8, !tbaa !29
+  %342 = icmp eq i64 %341, 0
+  br i1 %342, label %343, label %352
 
-351:                                              ; preds = %343
-  %352 = load i64, ptr %10, align 8, !tbaa !26
-  %353 = load ptr, ptr %5, align 8, !tbaa !34
-  %354 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %353, i32 0, i32 5
-  %355 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %354, i32 0, i32 2
-  store i64 %352, ptr %355, align 8, !tbaa !29
-  %356 = load i64, ptr %10, align 8, !tbaa !26
-  %357 = mul i64 20, %356
-  %358 = load ptr, ptr %13, align 8, !tbaa !33
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 %357
-  store ptr %359, ptr %13, align 8, !tbaa !33
-  br label %584
+343:                                              ; preds = %335
+  %344 = load i64, ptr %10, align 8, !tbaa !26
+  %345 = load ptr, ptr %5, align 8, !tbaa !34
+  %346 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %345, i32 0, i32 5
+  %347 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %346, i32 0, i32 2
+  store i64 %344, ptr %347, align 8, !tbaa !29
+  %348 = load i64, ptr %10, align 8, !tbaa !26
+  %349 = mul i64 20, %348
+  %350 = load ptr, ptr %13, align 8, !tbaa !33
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 %349
+  store ptr %351, ptr %13, align 8, !tbaa !33
+  br label %572
 
-360:                                              ; preds = %343
-  %361 = load i64, ptr %10, align 8, !tbaa !26
-  %362 = load ptr, ptr %5, align 8, !tbaa !34
-  %363 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %362, i32 0, i32 5
-  %364 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %363, i32 0, i32 2
-  %365 = load i64, ptr %364, align 8, !tbaa !29
-  %366 = icmp ne i64 %361, %365
-  br i1 %366, label %367, label %382
+352:                                              ; preds = %335
+  %353 = load i64, ptr %10, align 8, !tbaa !26
+  %354 = load ptr, ptr %5, align 8, !tbaa !34
+  %355 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %354, i32 0, i32 5
+  %356 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %355, i32 0, i32 2
+  %357 = load i64, ptr %356, align 8, !tbaa !29
+  %358 = icmp ne i64 %353, %357
+  br i1 %358, label %359, label %374
 
-367:                                              ; preds = %360
-  br label %368
+359:                                              ; preds = %352
+  br label %360
 
-368:                                              ; preds = %367
-  br label %369
+360:                                              ; preds = %359
+  br label %361
 
-369:                                              ; preds = %368
-  br label %370
+361:                                              ; preds = %360
+  br label %362
 
-370:                                              ; preds = %369
-  %371 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %372 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %373 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 661, i64 noundef %371, i64 noundef %372, ptr noundef @.str.21)
-  br label %374
+362:                                              ; preds = %361
+  %363 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %364 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %365 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 661, i64 noundef %363, i64 noundef %364, ptr noundef @.str.21)
+  br label %366
 
-374:                                              ; preds = %370
-  br label %375
+366:                                              ; preds = %362
+  br label %367
 
-375:                                              ; preds = %374
+367:                                              ; preds = %366
   store i8 1, ptr %15, align 1, !tbaa !3
-  %376 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %377 = trunc nuw i8 %376 to i1
-  %378 = zext i1 %377 to i8
-  store i8 %378, ptr %15, align 1, !tbaa !3
-  br label %379
+  %368 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %369 = trunc nuw i8 %368 to i1
+  %370 = zext i1 %369 to i8
+  store i8 %370, ptr %15, align 1, !tbaa !3
+  br label %371
 
-379:                                              ; preds = %375
-  br label %380
+371:                                              ; preds = %367
+  br label %372
 
-380:                                              ; preds = %379
+372:                                              ; preds = %371
+  br label %373
+
+373:                                              ; preds = %372
+  store i64 0, ptr %14, align 8, !tbaa !26
+  br label %709
+
+374:                                              ; preds = %352
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #14
+  store ptr null, ptr %20, align 8, !tbaa !46
+  %375 = load ptr, ptr %5, align 8, !tbaa !34
+  %376 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %375, i32 0, i32 5
+  %377 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %376, i32 0, i32 3
+  %378 = load ptr, ptr %377, align 8, !tbaa !25
+  %379 = icmp eq ptr %378, null
+  br i1 %379, label %380, label %395
+
+380:                                              ; preds = %374
   br label %381
 
 381:                                              ; preds = %380
-  store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
+  br label %382
 
-382:                                              ; preds = %360
-  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #14
-  store ptr null, ptr %20, align 8, !tbaa !46
-  %383 = load ptr, ptr %5, align 8, !tbaa !34
-  %384 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %383, i32 0, i32 5
-  %385 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %384, i32 0, i32 3
-  %386 = load ptr, ptr %385, align 8, !tbaa !25
-  %387 = icmp eq ptr %386, null
-  br i1 %387, label %388, label %403
+382:                                              ; preds = %381
+  br label %383
 
-388:                                              ; preds = %382
-  br label %389
+383:                                              ; preds = %382
+  %384 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %385 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %386 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 667, i64 noundef %384, i64 noundef %385, ptr noundef @.str.22)
+  br label %387
 
-389:                                              ; preds = %388
-  br label %390
+387:                                              ; preds = %383
+  br label %388
 
-390:                                              ; preds = %389
-  br label %391
-
-391:                                              ; preds = %390
-  %392 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %393 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %394 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 667, i64 noundef %392, i64 noundef %393, ptr noundef @.str.22)
-  br label %395
-
-395:                                              ; preds = %391
-  br label %396
-
-396:                                              ; preds = %395
+388:                                              ; preds = %387
   store i8 1, ptr %15, align 1, !tbaa !3
-  %397 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %398 = trunc nuw i8 %397 to i1
-  %399 = zext i1 %398 to i8
-  store i8 %399, ptr %15, align 1, !tbaa !3
-  br label %400
+  %389 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %390 = trunc nuw i8 %389 to i1
+  %391 = zext i1 %390 to i8
+  store i8 %391, ptr %15, align 1, !tbaa !3
+  br label %392
 
-400:                                              ; preds = %396
-  br label %401
+392:                                              ; preds = %388
+  br label %393
 
-401:                                              ; preds = %400
-  br label %402
+393:                                              ; preds = %392
+  br label %394
 
-402:                                              ; preds = %401
+394:                                              ; preds = %393
   store i64 0, ptr %14, align 8, !tbaa !26
   store i32 10, ptr %22, align 4
-  br label %580
+  br label %568
 
-403:                                              ; preds = %382
+395:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(i64 8, ptr %21) #14
   store i64 0, ptr %21, align 8, !tbaa !26
-  br label %404
+  br label %396
 
-404:                                              ; preds = %574, %403
-  %405 = load i64, ptr %21, align 8, !tbaa !26
-  %406 = load i64, ptr %10, align 8, !tbaa !26
-  %407 = icmp ult i64 %405, %406
-  br i1 %407, label %409, label %408
+396:                                              ; preds = %562, %395
+  %397 = load i64, ptr %21, align 8, !tbaa !26
+  %398 = load i64, ptr %10, align 8, !tbaa !26
+  %399 = icmp ult i64 %397, %398
+  br i1 %399, label %401, label %400
 
-408:                                              ; preds = %404
+400:                                              ; preds = %396
   store i32 78, ptr %22, align 4
-  br label %577
+  br label %565
 
-409:                                              ; preds = %404
-  %410 = load ptr, ptr %5, align 8, !tbaa !34
-  %411 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %410, i32 0, i32 5
-  %412 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %411, i32 0, i32 3
-  %413 = load ptr, ptr %412, align 8, !tbaa !25
-  %414 = load i64, ptr %21, align 8, !tbaa !26
-  %415 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %413, i64 %414
-  store ptr %415, ptr %20, align 8, !tbaa !46
-  %416 = load ptr, ptr %13, align 8, !tbaa !33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 1 %416, i64 8, i1 false)
+401:                                              ; preds = %396
+  %402 = load ptr, ptr %5, align 8, !tbaa !34
+  %403 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %402, i32 0, i32 5
+  %404 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %403, i32 0, i32 3
+  %405 = load ptr, ptr %404, align 8, !tbaa !25
+  %406 = load i64, ptr %21, align 8, !tbaa !26
+  %407 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %405, i64 %406
+  store ptr %407, ptr %20, align 8, !tbaa !46
+  %408 = load ptr, ptr %13, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 1 %408, i64 8, i1 false)
   store ptr %9, ptr %12, align 8, !tbaa !33
-  br label %417
+  br label %409
 
-417:                                              ; preds = %409
+409:                                              ; preds = %401
   call void @llvm.lifetime.start.p0(i64 8, ptr %23) #14
+  %410 = load ptr, ptr %20, align 8, !tbaa !46
+  %411 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %410, i32 0, i32 0
+  store i64 0, ptr %411, align 8, !tbaa !47
+  %412 = load ptr, ptr %12, align 8, !tbaa !33
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
+  store ptr %413, ptr %12, align 8, !tbaa !33
+  store i64 0, ptr %23, align 8, !tbaa !26
+  br label %414
+
+414:                                              ; preds = %429, %409
+  %415 = load i64, ptr %23, align 8, !tbaa !26
+  %416 = icmp ult i64 %415, 8
+  br i1 %416, label %417, label %432
+
+417:                                              ; preds = %414
   %418 = load ptr, ptr %20, align 8, !tbaa !46
   %419 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %418, i32 0, i32 0
-  store i64 0, ptr %419, align 8, !tbaa !47
-  %420 = load ptr, ptr %12, align 8, !tbaa !33
-  %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
-  store ptr %421, ptr %12, align 8, !tbaa !33
-  store i64 0, ptr %23, align 8, !tbaa !26
-  br label %422
+  %420 = load i64, ptr %419, align 8, !tbaa !47
+  %421 = shl i64 %420, 8
+  %422 = load ptr, ptr %12, align 8, !tbaa !33
+  %423 = getelementptr inbounds i8, ptr %422, i32 -1
+  store ptr %423, ptr %12, align 8, !tbaa !33
+  %424 = load i8, ptr %423, align 1, !tbaa !37
+  %425 = zext i8 %424 to i64
+  %426 = or i64 %421, %425
+  %427 = load ptr, ptr %20, align 8, !tbaa !46
+  %428 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %427, i32 0, i32 0
+  store i64 %426, ptr %428, align 8, !tbaa !47
+  br label %429
 
-422:                                              ; preds = %437, %417
-  %423 = load i64, ptr %23, align 8, !tbaa !26
-  %424 = icmp ult i64 %423, 8
-  br i1 %424, label %425, label %440
+429:                                              ; preds = %417
+  %430 = load i64, ptr %23, align 8, !tbaa !26
+  %431 = add i64 %430, 1
+  store i64 %431, ptr %23, align 8, !tbaa !26
+  br label %414, !llvm.loop !49
 
-425:                                              ; preds = %422
-  %426 = load ptr, ptr %20, align 8, !tbaa !46
-  %427 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %426, i32 0, i32 0
-  %428 = load i64, ptr %427, align 8, !tbaa !47
-  %429 = shl i64 %428, 8
-  %430 = load ptr, ptr %12, align 8, !tbaa !33
-  %431 = getelementptr inbounds i8, ptr %430, i32 -1
-  store ptr %431, ptr %12, align 8, !tbaa !33
-  %432 = load i8, ptr %431, align 1, !tbaa !37
-  %433 = zext i8 %432 to i64
-  %434 = or i64 %429, %433
-  %435 = load ptr, ptr %20, align 8, !tbaa !46
-  %436 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %435, i32 0, i32 0
-  store i64 %434, ptr %436, align 8, !tbaa !47
-  br label %437
-
-437:                                              ; preds = %425
-  %438 = load i64, ptr %23, align 8, !tbaa !26
-  %439 = add i64 %438, 1
-  store i64 %439, ptr %23, align 8, !tbaa !26
-  br label %422, !llvm.loop !49
-
-440:                                              ; preds = %422
-  %441 = load ptr, ptr %12, align 8, !tbaa !33
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 8
-  store ptr %442, ptr %12, align 8, !tbaa !33
+432:                                              ; preds = %414
+  %433 = load ptr, ptr %12, align 8, !tbaa !33
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  store ptr %434, ptr %12, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr %23) #14
-  br label %443
+  br label %435
 
-443:                                              ; preds = %440
-  br label %444
+435:                                              ; preds = %432
+  br label %436
 
-444:                                              ; preds = %443
-  %445 = load ptr, ptr %13, align 8, !tbaa !33
-  %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
-  store ptr %446, ptr %13, align 8, !tbaa !33
-  %447 = load ptr, ptr %20, align 8, !tbaa !46
-  %448 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %447, i32 0, i32 0
-  %449 = load i64, ptr %448, align 8, !tbaa !47
-  %450 = load i32, ptr %7, align 4, !tbaa !36
-  %451 = sub i32 %450, 1
-  %452 = zext i32 %451 to i64
-  %453 = and i64 %449, %452
-  %454 = icmp ne i64 %453, 0
-  br i1 %454, label %455, label %470
+436:                                              ; preds = %435
+  %437 = load ptr, ptr %13, align 8, !tbaa !33
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 8
+  store ptr %438, ptr %13, align 8, !tbaa !33
+  %439 = load ptr, ptr %20, align 8, !tbaa !46
+  %440 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %439, i32 0, i32 0
+  %441 = load i64, ptr %440, align 8, !tbaa !47
+  %442 = load i32, ptr %7, align 4, !tbaa !36
+  %443 = sub i32 %442, 1
+  %444 = zext i32 %443 to i64
+  %445 = and i64 %441, %444
+  %446 = icmp ne i64 %445, 0
+  br i1 %446, label %447, label %462
 
-455:                                              ; preds = %444
-  br label %456
+447:                                              ; preds = %436
+  br label %448
 
-456:                                              ; preds = %455
-  br label %457
+448:                                              ; preds = %447
+  br label %449
 
-457:                                              ; preds = %456
-  br label %458
+449:                                              ; preds = %448
+  br label %450
 
-458:                                              ; preds = %457
-  %459 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %460 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %461 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 679, i64 noundef %459, i64 noundef %460, ptr noundef @.str.23)
-  br label %462
+450:                                              ; preds = %449
+  %451 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %452 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %453 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 679, i64 noundef %451, i64 noundef %452, ptr noundef @.str.23)
+  br label %454
 
-462:                                              ; preds = %458
-  br label %463
+454:                                              ; preds = %450
+  br label %455
 
-463:                                              ; preds = %462
+455:                                              ; preds = %454
   store i8 1, ptr %15, align 1, !tbaa !3
-  %464 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %465 = trunc nuw i8 %464 to i1
-  %466 = zext i1 %465 to i8
-  store i8 %466, ptr %15, align 1, !tbaa !3
-  br label %467
+  %456 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %457 = trunc nuw i8 %456 to i1
+  %458 = zext i1 %457 to i8
+  store i8 %458, ptr %15, align 1, !tbaa !3
+  br label %459
 
-467:                                              ; preds = %463
-  br label %468
+459:                                              ; preds = %455
+  br label %460
 
-468:                                              ; preds = %467
-  br label %469
+460:                                              ; preds = %459
+  br label %461
 
-469:                                              ; preds = %468
+461:                                              ; preds = %460
   store i64 0, ptr %14, align 8, !tbaa !26
   store i32 10, ptr %22, align 4
-  br label %577
+  br label %565
 
-470:                                              ; preds = %444
-  %471 = load ptr, ptr %20, align 8, !tbaa !46
-  %472 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %471, i32 0, i32 0
-  %473 = load i64, ptr %472, align 8, !tbaa !47
-  %474 = load ptr, ptr %5, align 8, !tbaa !34
-  %475 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %474, i32 0, i32 5
-  %476 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %475, i32 0, i32 1
-  %477 = load i32, ptr %476, align 4, !tbaa !43
-  %478 = zext i32 %477 to i64
-  %479 = lshr i64 %473, %478
-  %480 = load ptr, ptr %20, align 8, !tbaa !46
-  %481 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %480, i32 0, i32 0
-  store i64 %479, ptr %481, align 8, !tbaa !47
-  %482 = load ptr, ptr %13, align 8, !tbaa !33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 1 %482, i64 8, i1 false)
+462:                                              ; preds = %436
+  %463 = load ptr, ptr %20, align 8, !tbaa !46
+  %464 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %463, i32 0, i32 0
+  %465 = load i64, ptr %464, align 8, !tbaa !47
+  %466 = load ptr, ptr %5, align 8, !tbaa !34
+  %467 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %466, i32 0, i32 5
+  %468 = getelementptr inbounds nuw %struct.H5FD_onion_archival_index_t, ptr %467, i32 0, i32 1
+  %469 = load i32, ptr %468, align 4, !tbaa !43
+  %470 = zext i32 %469 to i64
+  %471 = lshr i64 %465, %470
+  %472 = load ptr, ptr %20, align 8, !tbaa !46
+  %473 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %472, i32 0, i32 0
+  store i64 %471, ptr %473, align 8, !tbaa !47
+  %474 = load ptr, ptr %13, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 1 %474, i64 8, i1 false)
   store ptr %9, ptr %12, align 8, !tbaa !33
-  br label %483
+  br label %475
 
-483:                                              ; preds = %470
+475:                                              ; preds = %462
   call void @llvm.lifetime.start.p0(i64 8, ptr %24) #14
+  %476 = load ptr, ptr %20, align 8, !tbaa !46
+  %477 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %476, i32 0, i32 1
+  store i64 0, ptr %477, align 8, !tbaa !50
+  %478 = load ptr, ptr %12, align 8, !tbaa !33
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
+  store ptr %479, ptr %12, align 8, !tbaa !33
+  store i64 0, ptr %24, align 8, !tbaa !26
+  br label %480
+
+480:                                              ; preds = %495, %475
+  %481 = load i64, ptr %24, align 8, !tbaa !26
+  %482 = icmp ult i64 %481, 8
+  br i1 %482, label %483, label %498
+
+483:                                              ; preds = %480
   %484 = load ptr, ptr %20, align 8, !tbaa !46
   %485 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %484, i32 0, i32 1
-  store i64 0, ptr %485, align 8, !tbaa !50
-  %486 = load ptr, ptr %12, align 8, !tbaa !33
-  %487 = getelementptr inbounds nuw i8, ptr %486, i64 8
-  store ptr %487, ptr %12, align 8, !tbaa !33
-  store i64 0, ptr %24, align 8, !tbaa !26
-  br label %488
+  %486 = load i64, ptr %485, align 8, !tbaa !50
+  %487 = shl i64 %486, 8
+  %488 = load ptr, ptr %12, align 8, !tbaa !33
+  %489 = getelementptr inbounds i8, ptr %488, i32 -1
+  store ptr %489, ptr %12, align 8, !tbaa !33
+  %490 = load i8, ptr %489, align 1, !tbaa !37
+  %491 = zext i8 %490 to i64
+  %492 = or i64 %487, %491
+  %493 = load ptr, ptr %20, align 8, !tbaa !46
+  %494 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %493, i32 0, i32 1
+  store i64 %492, ptr %494, align 8, !tbaa !50
+  br label %495
 
-488:                                              ; preds = %503, %483
-  %489 = load i64, ptr %24, align 8, !tbaa !26
-  %490 = icmp ult i64 %489, 8
-  br i1 %490, label %491, label %506
+495:                                              ; preds = %483
+  %496 = load i64, ptr %24, align 8, !tbaa !26
+  %497 = add i64 %496, 1
+  store i64 %497, ptr %24, align 8, !tbaa !26
+  br label %480, !llvm.loop !51
 
-491:                                              ; preds = %488
-  %492 = load ptr, ptr %20, align 8, !tbaa !46
-  %493 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %492, i32 0, i32 1
-  %494 = load i64, ptr %493, align 8, !tbaa !50
-  %495 = shl i64 %494, 8
-  %496 = load ptr, ptr %12, align 8, !tbaa !33
-  %497 = getelementptr inbounds i8, ptr %496, i32 -1
-  store ptr %497, ptr %12, align 8, !tbaa !33
-  %498 = load i8, ptr %497, align 1, !tbaa !37
-  %499 = zext i8 %498 to i64
-  %500 = or i64 %495, %499
-  %501 = load ptr, ptr %20, align 8, !tbaa !46
-  %502 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %501, i32 0, i32 1
-  store i64 %500, ptr %502, align 8, !tbaa !50
-  br label %503
-
-503:                                              ; preds = %491
-  %504 = load i64, ptr %24, align 8, !tbaa !26
-  %505 = add i64 %504, 1
-  store i64 %505, ptr %24, align 8, !tbaa !26
-  br label %488, !llvm.loop !51
-
-506:                                              ; preds = %488
-  %507 = load ptr, ptr %12, align 8, !tbaa !33
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 8
-  store ptr %508, ptr %12, align 8, !tbaa !33
+498:                                              ; preds = %480
+  %499 = load ptr, ptr %12, align 8, !tbaa !33
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
+  store ptr %500, ptr %12, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr %24) #14
-  br label %509
+  br label %501
 
-509:                                              ; preds = %506
-  br label %510
+501:                                              ; preds = %498
+  br label %502
 
-510:                                              ; preds = %509
-  %511 = load ptr, ptr %13, align 8, !tbaa !33
-  %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
-  store ptr %512, ptr %13, align 8, !tbaa !33
-  %513 = load ptr, ptr %13, align 8, !tbaa !33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 1 %513, i64 4, i1 false)
+502:                                              ; preds = %501
+  %503 = load ptr, ptr %13, align 8, !tbaa !33
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 8
+  store ptr %504, ptr %13, align 8, !tbaa !33
+  %505 = load ptr, ptr %13, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 1 %505, i64 4, i1 false)
   store ptr %6, ptr %12, align 8, !tbaa !33
-  br label %514
+  br label %506
 
-514:                                              ; preds = %510
-  %515 = load ptr, ptr %12, align 8, !tbaa !33
-  %516 = load i8, ptr %515, align 1, !tbaa !37
-  %517 = zext i8 %516 to i32
-  %518 = and i32 %517, 255
-  store i32 %518, ptr %8, align 4, !tbaa !36
-  %519 = load ptr, ptr %12, align 8, !tbaa !33
-  %520 = getelementptr inbounds nuw i8, ptr %519, i32 1
-  store ptr %520, ptr %12, align 8, !tbaa !33
-  %521 = load ptr, ptr %12, align 8, !tbaa !33
-  %522 = load i8, ptr %521, align 1, !tbaa !37
-  %523 = zext i8 %522 to i32
-  %524 = and i32 %523, 255
-  %525 = shl nuw nsw i32 %524, 8
-  %526 = load i32, ptr %8, align 4, !tbaa !36
-  %527 = or i32 %526, %525
-  store i32 %527, ptr %8, align 4, !tbaa !36
+506:                                              ; preds = %502
+  %507 = load ptr, ptr %12, align 8, !tbaa !33
+  %508 = load i8, ptr %507, align 1, !tbaa !37
+  %509 = zext i8 %508 to i32
+  store i32 %509, ptr %8, align 4, !tbaa !36
+  %510 = load ptr, ptr %12, align 8, !tbaa !33
+  %511 = getelementptr inbounds nuw i8, ptr %510, i32 1
+  store ptr %511, ptr %12, align 8, !tbaa !33
+  %512 = load ptr, ptr %12, align 8, !tbaa !33
+  %513 = load i8, ptr %512, align 1, !tbaa !37
+  %514 = zext i8 %513 to i32
+  %515 = shl nuw nsw i32 %514, 8
+  %516 = load i32, ptr %8, align 4, !tbaa !36
+  %517 = or i32 %516, %515
+  store i32 %517, ptr %8, align 4, !tbaa !36
+  %518 = load ptr, ptr %12, align 8, !tbaa !33
+  %519 = getelementptr inbounds nuw i8, ptr %518, i32 1
+  store ptr %519, ptr %12, align 8, !tbaa !33
+  %520 = load ptr, ptr %12, align 8, !tbaa !33
+  %521 = load i8, ptr %520, align 1, !tbaa !37
+  %522 = zext i8 %521 to i32
+  %523 = shl nuw nsw i32 %522, 16
+  %524 = load i32, ptr %8, align 4, !tbaa !36
+  %525 = or i32 %524, %523
+  store i32 %525, ptr %8, align 4, !tbaa !36
+  %526 = load ptr, ptr %12, align 8, !tbaa !33
+  %527 = getelementptr inbounds nuw i8, ptr %526, i32 1
+  store ptr %527, ptr %12, align 8, !tbaa !33
   %528 = load ptr, ptr %12, align 8, !tbaa !33
-  %529 = getelementptr inbounds nuw i8, ptr %528, i32 1
-  store ptr %529, ptr %12, align 8, !tbaa !33
-  %530 = load ptr, ptr %12, align 8, !tbaa !33
-  %531 = load i8, ptr %530, align 1, !tbaa !37
-  %532 = zext i8 %531 to i32
-  %533 = and i32 %532, 255
-  %534 = shl nuw nsw i32 %533, 16
-  %535 = load i32, ptr %8, align 4, !tbaa !36
-  %536 = or i32 %535, %534
-  store i32 %536, ptr %8, align 4, !tbaa !36
-  %537 = load ptr, ptr %12, align 8, !tbaa !33
-  %538 = getelementptr inbounds nuw i8, ptr %537, i32 1
-  store ptr %538, ptr %12, align 8, !tbaa !33
-  %539 = load ptr, ptr %12, align 8, !tbaa !33
-  %540 = load i8, ptr %539, align 1, !tbaa !37
-  %541 = zext i8 %540 to i32
-  %542 = and i32 %541, 255
-  %543 = shl nuw i32 %542, 24
+  %529 = load i8, ptr %528, align 1, !tbaa !37
+  %530 = zext i8 %529 to i32
+  %531 = shl nuw i32 %530, 24
+  %532 = load i32, ptr %8, align 4, !tbaa !36
+  %533 = or i32 %532, %531
+  store i32 %533, ptr %8, align 4, !tbaa !36
+  %534 = load ptr, ptr %12, align 8, !tbaa !33
+  %535 = getelementptr inbounds nuw i8, ptr %534, i32 1
+  store ptr %535, ptr %12, align 8, !tbaa !33
+  br label %536
+
+536:                                              ; preds = %506
+  br label %537
+
+537:                                              ; preds = %536
+  %538 = load ptr, ptr %13, align 8, !tbaa !33
+  %539 = getelementptr inbounds nuw i8, ptr %538, i64 4
+  store ptr %539, ptr %13, align 8, !tbaa !33
+  %540 = load ptr, ptr %13, align 8, !tbaa !33
+  %541 = getelementptr inbounds i8, ptr %540, i64 -20
+  %542 = call i32 @H5_checksum_fletcher32(ptr noundef %541, i64 noundef 16)
+  store i32 %542, ptr %6, align 4, !tbaa !36
+  %543 = load i32, ptr %6, align 4, !tbaa !36
   %544 = load i32, ptr %8, align 4, !tbaa !36
-  %545 = or i32 %544, %543
-  store i32 %545, ptr %8, align 4, !tbaa !36
-  %546 = load ptr, ptr %12, align 8, !tbaa !33
-  %547 = getelementptr inbounds nuw i8, ptr %546, i32 1
-  store ptr %547, ptr %12, align 8, !tbaa !33
+  %545 = icmp ne i32 %543, %544
+  br i1 %545, label %546, label %561
+
+546:                                              ; preds = %537
+  br label %547
+
+547:                                              ; preds = %546
   br label %548
 
-548:                                              ; preds = %514
+548:                                              ; preds = %547
   br label %549
 
 549:                                              ; preds = %548
-  %550 = load ptr, ptr %13, align 8, !tbaa !33
-  %551 = getelementptr inbounds nuw i8, ptr %550, i64 4
-  store ptr %551, ptr %13, align 8, !tbaa !33
-  %552 = load ptr, ptr %13, align 8, !tbaa !33
-  %553 = getelementptr inbounds i8, ptr %552, i64 -20
-  %554 = call i32 @H5_checksum_fletcher32(ptr noundef %553, i64 noundef 16)
-  store i32 %554, ptr %6, align 4, !tbaa !36
-  %555 = load i32, ptr %6, align 4, !tbaa !36
-  %556 = load i32, ptr %8, align 4, !tbaa !36
-  %557 = icmp ne i32 %555, %556
-  br i1 %557, label %558, label %573
+  %550 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %551 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %552 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 695, i64 noundef %550, i64 noundef %551, ptr noundef @.str.24)
+  br label %553
 
-558:                                              ; preds = %549
+553:                                              ; preds = %549
+  br label %554
+
+554:                                              ; preds = %553
+  store i8 1, ptr %15, align 1, !tbaa !3
+  %555 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %556 = trunc nuw i8 %555 to i1
+  %557 = zext i1 %556 to i8
+  store i8 %557, ptr %15, align 1, !tbaa !3
+  br label %558
+
+558:                                              ; preds = %554
   br label %559
 
 559:                                              ; preds = %558
   br label %560
 
 560:                                              ; preds = %559
-  br label %561
-
-561:                                              ; preds = %560
-  %562 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %563 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %564 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 695, i64 noundef %562, i64 noundef %563, ptr noundef @.str.24)
+  store i64 0, ptr %14, align 8, !tbaa !26
+  store i32 10, ptr %22, align 4
   br label %565
 
-565:                                              ; preds = %561
-  br label %566
+561:                                              ; preds = %537
+  br label %562
 
-566:                                              ; preds = %565
-  store i8 1, ptr %15, align 1, !tbaa !3
-  %567 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %568 = trunc nuw i8 %567 to i1
-  %569 = zext i1 %568 to i8
-  store i8 %569, ptr %15, align 1, !tbaa !3
-  br label %570
+562:                                              ; preds = %561
+  %563 = load i64, ptr %21, align 8, !tbaa !26
+  %564 = add i64 %563, 1
+  store i64 %564, ptr %21, align 8, !tbaa !26
+  br label %396, !llvm.loop !52
 
-570:                                              ; preds = %566
+565:                                              ; preds = %560, %461, %400
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #14
+  %566 = load i32, ptr %22, align 4
+  %cond = icmp eq i32 %566, 78
+  br i1 %cond, label %567, label %568
+
+567:                                              ; preds = %565
+  store i32 0, ptr %22, align 4
+  br label %568
+
+568:                                              ; preds = %565, %567, %394
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #14
+  %569 = load i32, ptr %22, align 4
+  switch i32 %569, label %712 [
+    i32 0, label %570
+    i32 10, label %709
+  ]
+
+570:                                              ; preds = %568
   br label %571
 
 571:                                              ; preds = %570
   br label %572
 
-572:                                              ; preds = %571
-  store i64 0, ptr %14, align 8, !tbaa !26
-  store i32 10, ptr %22, align 4
-  br label %577
+572:                                              ; preds = %571, %343
+  %573 = load ptr, ptr %5, align 8, !tbaa !34
+  %574 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %573, i32 0, i32 6
+  %575 = load i32, ptr %574, align 8, !tbaa !30
+  %576 = icmp eq i32 %575, 0
+  br i1 %576, label %577, label %601
 
-573:                                              ; preds = %549
-  br label %574
+577:                                              ; preds = %572
+  %578 = load ptr, ptr %5, align 8, !tbaa !34
+  %579 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %578, i32 0, i32 7
+  %580 = load ptr, ptr %579, align 8, !tbaa !20
+  %581 = icmp ne ptr %580, null
+  br i1 %581, label %582, label %597
 
-574:                                              ; preds = %573
-  %575 = load i64, ptr %21, align 8, !tbaa !26
-  %576 = add i64 %575, 1
-  store i64 %576, ptr %21, align 8, !tbaa !26
-  br label %404, !llvm.loop !52
-
-577:                                              ; preds = %572, %469, %408
-  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #14
-  %578 = load i32, ptr %22, align 4
-  %cond = icmp eq i32 %578, 78
-  br i1 %cond, label %579, label %580
-
-579:                                              ; preds = %577
-  store i32 0, ptr %22, align 4
-  br label %580
-
-580:                                              ; preds = %577, %579, %402
-  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #14
-  %581 = load i32, ptr %22, align 4
-  switch i32 %581, label %728 [
-    i32 0, label %582
-    i32 10, label %725
-  ]
-
-582:                                              ; preds = %580
+582:                                              ; preds = %577
   br label %583
 
 583:                                              ; preds = %582
   br label %584
 
-584:                                              ; preds = %583, %351
-  %585 = load ptr, ptr %5, align 8, !tbaa !34
-  %586 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %585, i32 0, i32 6
-  %587 = load i32, ptr %586, align 8, !tbaa !30
-  %588 = icmp eq i32 %587, 0
-  br i1 %588, label %589, label %613
+584:                                              ; preds = %583
+  br label %585
 
-589:                                              ; preds = %584
-  %590 = load ptr, ptr %5, align 8, !tbaa !34
-  %591 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %590, i32 0, i32 7
-  %592 = load ptr, ptr %591, align 8, !tbaa !20
-  %593 = icmp ne ptr %592, null
-  br i1 %593, label %594, label %609
+585:                                              ; preds = %584
+  %586 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %587 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %588 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 701, i64 noundef %586, i64 noundef %587, ptr noundef @.str.25)
+  br label %589
 
-594:                                              ; preds = %589
+589:                                              ; preds = %585
+  br label %590
+
+590:                                              ; preds = %589
+  store i8 1, ptr %15, align 1, !tbaa !3
+  %591 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %592 = trunc nuw i8 %591 to i1
+  %593 = zext i1 %592 to i8
+  store i8 %593, ptr %15, align 1, !tbaa !3
+  br label %594
+
+594:                                              ; preds = %590
   br label %595
 
 595:                                              ; preds = %594
   br label %596
 
 596:                                              ; preds = %595
-  br label %597
+  store i64 0, ptr %14, align 8, !tbaa !26
+  br label %709
 
-597:                                              ; preds = %596
-  %598 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %599 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %600 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 701, i64 noundef %598, i64 noundef %599, ptr noundef @.str.25)
-  br label %601
+597:                                              ; preds = %577
+  %598 = load i32, ptr %11, align 4, !tbaa !36
+  %599 = load ptr, ptr %5, align 8, !tbaa !34
+  %600 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %599, i32 0, i32 6
+  store i32 %598, ptr %600, align 8, !tbaa !30
+  br label %628
 
-601:                                              ; preds = %597
-  br label %602
+601:                                              ; preds = %572
+  %602 = load ptr, ptr %5, align 8, !tbaa !34
+  %603 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %602, i32 0, i32 7
+  %604 = load ptr, ptr %603, align 8, !tbaa !20
+  %605 = icmp eq ptr %604, null
+  br i1 %605, label %606, label %621
 
-602:                                              ; preds = %601
-  store i8 1, ptr %15, align 1, !tbaa !3
-  %603 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %604 = trunc nuw i8 %603 to i1
-  %605 = zext i1 %604 to i8
-  store i8 %605, ptr %15, align 1, !tbaa !3
-  br label %606
-
-606:                                              ; preds = %602
+606:                                              ; preds = %601
   br label %607
 
 607:                                              ; preds = %606
   br label %608
 
 608:                                              ; preds = %607
-  store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
+  br label %609
 
-609:                                              ; preds = %589
-  %610 = load i32, ptr %11, align 4, !tbaa !36
-  %611 = load ptr, ptr %5, align 8, !tbaa !34
-  %612 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %611, i32 0, i32 6
-  store i32 %610, ptr %612, align 8, !tbaa !30
-  br label %640
+609:                                              ; preds = %608
+  %610 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %611 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %612 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 706, i64 noundef %610, i64 noundef %611, ptr noundef @.str.26)
+  br label %613
 
-613:                                              ; preds = %584
-  %614 = load ptr, ptr %5, align 8, !tbaa !34
-  %615 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %614, i32 0, i32 7
-  %616 = load ptr, ptr %615, align 8, !tbaa !20
-  %617 = icmp eq ptr %616, null
-  br i1 %617, label %618, label %633
+613:                                              ; preds = %609
+  br label %614
 
-618:                                              ; preds = %613
+614:                                              ; preds = %613
+  store i8 1, ptr %15, align 1, !tbaa !3
+  %615 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %616 = trunc nuw i8 %615 to i1
+  %617 = zext i1 %616 to i8
+  store i8 %617, ptr %15, align 1, !tbaa !3
+  br label %618
+
+618:                                              ; preds = %614
   br label %619
 
 619:                                              ; preds = %618
   br label %620
 
 620:                                              ; preds = %619
-  br label %621
-
-621:                                              ; preds = %620
-  %622 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %623 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %624 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 706, i64 noundef %622, i64 noundef %623, ptr noundef @.str.26)
-  br label %625
-
-625:                                              ; preds = %621
-  br label %626
-
-626:                                              ; preds = %625
-  store i8 1, ptr %15, align 1, !tbaa !3
-  %627 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %628 = trunc nuw i8 %627 to i1
-  %629 = zext i1 %628 to i8
-  store i8 %629, ptr %15, align 1, !tbaa !3
-  br label %630
-
-630:                                              ; preds = %626
-  br label %631
-
-631:                                              ; preds = %630
-  br label %632
-
-632:                                              ; preds = %631
   store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
+  br label %709
 
-633:                                              ; preds = %613
-  %634 = load ptr, ptr %5, align 8, !tbaa !34
-  %635 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %634, i32 0, i32 7
-  %636 = load ptr, ptr %635, align 8, !tbaa !20
-  %637 = load ptr, ptr %13, align 8, !tbaa !33
-  %638 = load i32, ptr %11, align 4, !tbaa !36
-  %639 = zext i32 %638 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %636, ptr align 1 %637, i64 %639, i1 false)
-  br label %640
+621:                                              ; preds = %601
+  %622 = load ptr, ptr %5, align 8, !tbaa !34
+  %623 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %622, i32 0, i32 7
+  %624 = load ptr, ptr %623, align 8, !tbaa !20
+  %625 = load ptr, ptr %13, align 8, !tbaa !33
+  %626 = load i32, ptr %11, align 4, !tbaa !36
+  %627 = zext i32 %626 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %624, ptr align 1 %625, i64 %627, i1 false)
+  br label %628
 
-640:                                              ; preds = %633, %609
-  %641 = load i32, ptr %11, align 4, !tbaa !36
-  %642 = load ptr, ptr %13, align 8, !tbaa !33
-  %643 = zext i32 %641 to i64
-  %644 = getelementptr inbounds nuw i8, ptr %642, i64 %643
-  store ptr %644, ptr %13, align 8, !tbaa !33
-  %645 = load ptr, ptr %4, align 8, !tbaa !33
-  %646 = load ptr, ptr %13, align 8, !tbaa !33
-  %647 = load ptr, ptr %4, align 8, !tbaa !33
-  %648 = ptrtoint ptr %646 to i64
-  %649 = ptrtoint ptr %647 to i64
-  %650 = sub i64 %648, %649
-  %651 = call i32 @H5_checksum_fletcher32(ptr noundef %645, i64 noundef %650)
-  store i32 %651, ptr %8, align 4, !tbaa !36
-  %652 = load ptr, ptr %13, align 8, !tbaa !33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 1 %652, i64 4, i1 false)
+628:                                              ; preds = %621, %597
+  %629 = load i32, ptr %11, align 4, !tbaa !36
+  %630 = load ptr, ptr %13, align 8, !tbaa !33
+  %631 = zext i32 %629 to i64
+  %632 = getelementptr inbounds nuw i8, ptr %630, i64 %631
+  store ptr %632, ptr %13, align 8, !tbaa !33
+  %633 = load ptr, ptr %4, align 8, !tbaa !33
+  %634 = load ptr, ptr %13, align 8, !tbaa !33
+  %635 = load ptr, ptr %4, align 8, !tbaa !33
+  %636 = ptrtoint ptr %634 to i64
+  %637 = ptrtoint ptr %635 to i64
+  %638 = sub i64 %636, %637
+  %639 = call i32 @H5_checksum_fletcher32(ptr noundef %633, i64 noundef %638)
+  store i32 %639, ptr %8, align 4, !tbaa !36
+  %640 = load ptr, ptr %13, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 1 %640, i64 4, i1 false)
   store ptr %6, ptr %12, align 8, !tbaa !33
-  br label %653
+  br label %641
 
-653:                                              ; preds = %640
-  %654 = load ptr, ptr %12, align 8, !tbaa !33
-  %655 = load i8, ptr %654, align 1, !tbaa !37
-  %656 = zext i8 %655 to i32
-  %657 = and i32 %656, 255
-  %658 = load ptr, ptr %5, align 8, !tbaa !34
-  %659 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %658, i32 0, i32 8
-  store i32 %657, ptr %659, align 8, !tbaa !27
-  %660 = load ptr, ptr %12, align 8, !tbaa !33
-  %661 = getelementptr inbounds nuw i8, ptr %660, i32 1
-  store ptr %661, ptr %12, align 8, !tbaa !33
-  %662 = load ptr, ptr %12, align 8, !tbaa !33
-  %663 = load i8, ptr %662, align 1, !tbaa !37
-  %664 = zext i8 %663 to i32
-  %665 = and i32 %664, 255
-  %666 = shl nuw nsw i32 %665, 8
-  %667 = load ptr, ptr %5, align 8, !tbaa !34
-  %668 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %667, i32 0, i32 8
-  %669 = load i32, ptr %668, align 8, !tbaa !27
-  %670 = or i32 %669, %666
-  store i32 %670, ptr %668, align 8, !tbaa !27
-  %671 = load ptr, ptr %12, align 8, !tbaa !33
-  %672 = getelementptr inbounds nuw i8, ptr %671, i32 1
-  store ptr %672, ptr %12, align 8, !tbaa !33
-  %673 = load ptr, ptr %12, align 8, !tbaa !33
-  %674 = load i8, ptr %673, align 1, !tbaa !37
-  %675 = zext i8 %674 to i32
-  %676 = and i32 %675, 255
-  %677 = shl nuw nsw i32 %676, 16
-  %678 = load ptr, ptr %5, align 8, !tbaa !34
-  %679 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %678, i32 0, i32 8
-  %680 = load i32, ptr %679, align 8, !tbaa !27
-  %681 = or i32 %680, %677
-  store i32 %681, ptr %679, align 8, !tbaa !27
-  %682 = load ptr, ptr %12, align 8, !tbaa !33
-  %683 = getelementptr inbounds nuw i8, ptr %682, i32 1
-  store ptr %683, ptr %12, align 8, !tbaa !33
-  %684 = load ptr, ptr %12, align 8, !tbaa !33
-  %685 = load i8, ptr %684, align 1, !tbaa !37
-  %686 = zext i8 %685 to i32
-  %687 = and i32 %686, 255
-  %688 = shl nuw i32 %687, 24
-  %689 = load ptr, ptr %5, align 8, !tbaa !34
-  %690 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %689, i32 0, i32 8
-  %691 = load i32, ptr %690, align 8, !tbaa !27
-  %692 = or i32 %691, %688
-  store i32 %692, ptr %690, align 8, !tbaa !27
-  %693 = load ptr, ptr %12, align 8, !tbaa !33
-  %694 = getelementptr inbounds nuw i8, ptr %693, i32 1
-  store ptr %694, ptr %12, align 8, !tbaa !33
+641:                                              ; preds = %628
+  %642 = load ptr, ptr %12, align 8, !tbaa !33
+  %643 = load i8, ptr %642, align 1, !tbaa !37
+  %644 = zext i8 %643 to i32
+  %645 = load ptr, ptr %5, align 8, !tbaa !34
+  %646 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %645, i32 0, i32 8
+  store i32 %644, ptr %646, align 8, !tbaa !27
+  %647 = load ptr, ptr %12, align 8, !tbaa !33
+  %648 = getelementptr inbounds nuw i8, ptr %647, i32 1
+  store ptr %648, ptr %12, align 8, !tbaa !33
+  %649 = load ptr, ptr %12, align 8, !tbaa !33
+  %650 = load i8, ptr %649, align 1, !tbaa !37
+  %651 = zext i8 %650 to i32
+  %652 = shl nuw nsw i32 %651, 8
+  %653 = load ptr, ptr %5, align 8, !tbaa !34
+  %654 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %653, i32 0, i32 8
+  %655 = load i32, ptr %654, align 8, !tbaa !27
+  %656 = or i32 %655, %652
+  store i32 %656, ptr %654, align 8, !tbaa !27
+  %657 = load ptr, ptr %12, align 8, !tbaa !33
+  %658 = getelementptr inbounds nuw i8, ptr %657, i32 1
+  store ptr %658, ptr %12, align 8, !tbaa !33
+  %659 = load ptr, ptr %12, align 8, !tbaa !33
+  %660 = load i8, ptr %659, align 1, !tbaa !37
+  %661 = zext i8 %660 to i32
+  %662 = shl nuw nsw i32 %661, 16
+  %663 = load ptr, ptr %5, align 8, !tbaa !34
+  %664 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %663, i32 0, i32 8
+  %665 = load i32, ptr %664, align 8, !tbaa !27
+  %666 = or i32 %665, %662
+  store i32 %666, ptr %664, align 8, !tbaa !27
+  %667 = load ptr, ptr %12, align 8, !tbaa !33
+  %668 = getelementptr inbounds nuw i8, ptr %667, i32 1
+  store ptr %668, ptr %12, align 8, !tbaa !33
+  %669 = load ptr, ptr %12, align 8, !tbaa !33
+  %670 = load i8, ptr %669, align 1, !tbaa !37
+  %671 = zext i8 %670 to i32
+  %672 = shl nuw i32 %671, 24
+  %673 = load ptr, ptr %5, align 8, !tbaa !34
+  %674 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %673, i32 0, i32 8
+  %675 = load i32, ptr %674, align 8, !tbaa !27
+  %676 = or i32 %675, %672
+  store i32 %676, ptr %674, align 8, !tbaa !27
+  %677 = load ptr, ptr %12, align 8, !tbaa !33
+  %678 = getelementptr inbounds nuw i8, ptr %677, i32 1
+  store ptr %678, ptr %12, align 8, !tbaa !33
+  br label %679
+
+679:                                              ; preds = %641
+  br label %680
+
+680:                                              ; preds = %679
+  %681 = load ptr, ptr %13, align 8, !tbaa !33
+  %682 = getelementptr inbounds nuw i8, ptr %681, i64 4
+  store ptr %682, ptr %13, align 8, !tbaa !33
+  %683 = load i32, ptr %8, align 4, !tbaa !36
+  %684 = load ptr, ptr %5, align 8, !tbaa !34
+  %685 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %684, i32 0, i32 8
+  %686 = load i32, ptr %685, align 8, !tbaa !27
+  %687 = icmp ne i32 %683, %686
+  br i1 %687, label %688, label %703
+
+688:                                              ; preds = %680
+  br label %689
+
+689:                                              ; preds = %688
+  br label %690
+
+690:                                              ; preds = %689
+  br label %691
+
+691:                                              ; preds = %690
+  %692 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
+  %693 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
+  %694 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 719, i64 noundef %692, i64 noundef %693, ptr noundef @.str.27)
   br label %695
 
-695:                                              ; preds = %653
+695:                                              ; preds = %691
   br label %696
 
 696:                                              ; preds = %695
-  %697 = load ptr, ptr %13, align 8, !tbaa !33
-  %698 = getelementptr inbounds nuw i8, ptr %697, i64 4
-  store ptr %698, ptr %13, align 8, !tbaa !33
-  %699 = load i32, ptr %8, align 4, !tbaa !36
-  %700 = load ptr, ptr %5, align 8, !tbaa !34
-  %701 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %700, i32 0, i32 8
-  %702 = load i32, ptr %701, align 8, !tbaa !27
-  %703 = icmp ne i32 %699, %702
-  br i1 %703, label %704, label %719
+  store i8 1, ptr %15, align 1, !tbaa !3
+  %697 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
+  %698 = trunc nuw i8 %697 to i1
+  %699 = zext i1 %698 to i8
+  store i8 %699, ptr %15, align 1, !tbaa !3
+  br label %700
 
-704:                                              ; preds = %696
-  br label %705
+700:                                              ; preds = %696
+  br label %701
 
-705:                                              ; preds = %704
-  br label %706
+701:                                              ; preds = %700
+  br label %702
 
-706:                                              ; preds = %705
-  br label %707
+702:                                              ; preds = %701
+  store i64 0, ptr %14, align 8, !tbaa !26
+  br label %709
 
-707:                                              ; preds = %706
-  %708 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !26
-  %709 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !26
-  %710 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5FD__onion_revision_record_decode, i32 noundef 719, i64 noundef %708, i64 noundef %709, ptr noundef @.str.27)
-  br label %711
+703:                                              ; preds = %680
+  %704 = load ptr, ptr %13, align 8, !tbaa !33
+  %705 = load ptr, ptr %4, align 8, !tbaa !33
+  %706 = ptrtoint ptr %704 to i64
+  %707 = ptrtoint ptr %705 to i64
+  %708 = sub i64 %706, %707
+  store i64 %708, ptr %14, align 8, !tbaa !26
+  br label %709
 
-711:                                              ; preds = %707
+709:                                              ; preds = %703, %702, %620, %596, %568, %373, %256, %232, %78, %57
+  br label %710
+
+710:                                              ; preds = %709, %31
+  %711 = load i64, ptr %14, align 8, !tbaa !26
+  store i64 %711, ptr %3, align 8
+  store i32 1, ptr %22, align 4
   br label %712
 
-712:                                              ; preds = %711
-  store i8 1, ptr %15, align 1, !tbaa !3
-  %713 = load i8, ptr %15, align 1, !tbaa !3, !range !7, !noundef !8
-  %714 = trunc nuw i8 %713 to i1
-  %715 = zext i1 %714 to i8
-  store i8 %715, ptr %15, align 1, !tbaa !3
-  br label %716
-
-716:                                              ; preds = %712
-  br label %717
-
-717:                                              ; preds = %716
-  br label %718
-
-718:                                              ; preds = %717
-  store i64 0, ptr %14, align 8, !tbaa !26
-  br label %725
-
-719:                                              ; preds = %696
-  %720 = load ptr, ptr %13, align 8, !tbaa !33
-  %721 = load ptr, ptr %4, align 8, !tbaa !33
-  %722 = ptrtoint ptr %720 to i64
-  %723 = ptrtoint ptr %721 to i64
-  %724 = sub i64 %722, %723
-  store i64 %724, ptr %14, align 8, !tbaa !26
-  br label %725
-
-725:                                              ; preds = %719, %718, %632, %608, %580, %381, %260, %236, %78, %57
-  br label %726
-
-726:                                              ; preds = %725, %31
-  %727 = load i64, ptr %14, align 8, !tbaa !26
-  store i64 %727, ptr %3, align 8
-  store i32 1, ptr %22, align 4
-  br label %728
-
-728:                                              ; preds = %726, %580
+712:                                              ; preds = %710, %568
   call void @llvm.lifetime.end.p0(i64 1, ptr %15) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr %13) #14
@@ -1690,8 +1674,8 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr %7) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr %6) #14
-  %729 = load i64, ptr %3, align 8
-  ret i64 %729
+  %713 = load i64, ptr %3, align 8
+  ret i64 %713
 }
 
 declare i32 @H5_checksum_fletcher32(ptr noundef, i64 noundef) local_unnamed_addr #3

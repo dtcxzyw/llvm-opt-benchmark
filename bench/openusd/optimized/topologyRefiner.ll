@@ -1406,7 +1406,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner13RefineUniformENS2_14Un
 
 9:                                                ; preds = %2
   tail call void (i32, ptr, ...) @_ZN10OpenSubdiv6v3_6_03Far5ErrorENS1_9ErrorTypeEPKcz(i32 noundef 4, ptr noundef nonnull @.str.3)
-  br label %83
+  br label %82
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1418,7 +1418,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner13RefineUniformENS2_14Un
 
 15:                                               ; preds = %10
   tail call void (i32, ptr, ...) @_ZN10OpenSubdiv6v3_6_03Far5ErrorENS1_9ErrorTypeEPKcz(i32 noundef 4, ptr noundef nonnull @.str.4)
-  br label %83
+  br label %82
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1426,154 +1426,153 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner13RefineUniformENS2_14Un
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i16, ptr %18, align 8
   %20 = and i32 %1, 15
-  %21 = trunc i32 %1 to i16
-  %22 = shl i16 %21, 6
-  %23 = and i16 %22, 960
-  %24 = and i16 %19, -962
-  %25 = or disjoint i16 %23, %24
-  %26 = or disjoint i16 %25, 1
-  store i16 %26, ptr %18, align 8
-  %27 = load i32, ptr %0, align 8
-  %28 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetTopologicalSplitTypeENS1_10SchemeTypeE(i32 noundef %27)
-  %29 = lshr i32 %1, 3
-  %30 = and i32 %29, 2
+  %21 = trunc nuw nsw i32 %20 to i16
+  %22 = shl nuw nsw i16 %21, 6
+  %23 = and i16 %19, -962
+  %24 = or disjoint i16 %23, %22
+  %25 = or disjoint i16 %24, 1
+  store i16 %25, ptr %18, align 8
+  %26 = load i32, ptr %0, align 8
+  %27 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetTopologicalSplitTypeENS1_10SchemeTypeE(i32 noundef %26)
+  %28 = lshr i32 %1, 3
+  %29 = and i32 %28, 2
   %.not2333 = icmp eq i32 %20, 0
   br i1 %.not2333, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %31 = and i32 %1, 32
-  %.not24 = icmp eq i32 %31, 0
-  %32 = icmp eq i32 %28, 0
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %35 = zext nneg i32 %20 to i64
-  %36 = add nuw nsw i32 %20, 1
-  %wide.trip.count = zext nneg i32 %36 to i64
-  br label %37
+  %30 = and i32 %1, 32
+  %.not24 = icmp eq i32 %30, 0
+  %31 = icmp eq i32 %27, 0
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %34 = zext nneg i32 %20 to i64
+  %35 = add nuw nsw i32 %20, 1
+  %wide.trip.count = zext nneg i32 %35 to i64
+  br label %36
 
-37:                                               ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit
+36:                                               ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit ]
-  %38 = icmp eq i64 %indvars.iv, %35
-  %39 = and i1 %.not24, %38
-  %40 = select i1 %39, i32 4, i32 0
-  %.sroa.0.0.insert.ext = or disjoint i32 %40, %30
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr ptr, ptr %41, i64 %indvars.iv
-  %43 = getelementptr i8, ptr %42, i64 -8
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #15
-  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5LevelC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %45)
-          to label %46 unwind label %49
+  %37 = icmp eq i64 %indvars.iv, %34
+  %38 = and i1 %.not24, %37
+  %39 = select i1 %38, i32 4, i32 0
+  %.sroa.0.0.insert.ext = or disjoint i32 %39, %29
+  %40 = load ptr, ptr %3, align 8
+  %41 = getelementptr ptr, ptr %40, i64 %indvars.iv
+  %42 = getelementptr i8, ptr %41, i64 -8
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #15
+  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5LevelC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %44)
+          to label %45 unwind label %48
 
-46:                                               ; preds = %37
-  br i1 %32, label %47, label %53
+45:                                               ; preds = %36
+  br i1 %31, label %46, label %52
 
-47:                                               ; preds = %46
-  %48 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #15
-  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinementC1ERKNS2_5LevelERS4_RKNS0_3Sdc7OptionsE(ptr noundef nonnull align 8 dereferenceable(504) %48, ptr noundef nonnull align 8 dereferenceable(480) %44, ptr noundef nonnull align 8 dereferenceable(480) %45, ptr noundef nonnull align 1 dereferenceable(4) %33)
-          to label %57 unwind label %51
+46:                                               ; preds = %45
+  %47 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #15
+  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinementC1ERKNS2_5LevelERS4_RKNS0_3Sdc7OptionsE(ptr noundef nonnull align 8 dereferenceable(504) %47, ptr noundef nonnull align 8 dereferenceable(480) %43, ptr noundef nonnull align 8 dereferenceable(480) %44, ptr noundef nonnull align 1 dereferenceable(4) %32)
+          to label %56 unwind label %50
 
-49:                                               ; preds = %37
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %36
+  %49 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 480) #17
-  br label %84
+  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 480) #17
+  br label %83
 
-51:                                               ; preds = %47
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %46
+  %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef 504) #17
-  br label %84
+  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 504) #17
+  br label %83
 
-53:                                               ; preds = %46
-  %54 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #15
-  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinementC1ERKNS2_5LevelERS4_RKNS0_3Sdc7OptionsE(ptr noundef nonnull align 8 dereferenceable(528) %54, ptr noundef nonnull align 8 dereferenceable(480) %44, ptr noundef nonnull align 8 dereferenceable(480) %45, ptr noundef nonnull align 1 dereferenceable(4) %33)
-          to label %57 unwind label %55
+52:                                               ; preds = %45
+  %53 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #15
+  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinementC1ERKNS2_5LevelERS4_RKNS0_3Sdc7OptionsE(ptr noundef nonnull align 8 dereferenceable(528) %53, ptr noundef nonnull align 8 dereferenceable(480) %43, ptr noundef nonnull align 8 dereferenceable(480) %44, ptr noundef nonnull align 1 dereferenceable(4) %32)
+          to label %56 unwind label %54
 
-55:                                               ; preds = %53
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef 528) #17
-  br label %84
+  tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef 528) #17
+  br label %83
 
-57:                                               ; preds = %53, %47
-  %.019 = phi ptr [ %48, %47 ], [ %54, %53 ]
+56:                                               ; preds = %52, %46
+  %.019 = phi ptr [ %47, %46 ], [ %53, %52 ]
   tail call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement6refineENS3_7OptionsE(ptr noundef nonnull align 8 dereferenceable(504) %.019, i32 %.sroa.0.0.insert.ext)
-  tail call void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner11appendLevelERNS0_3Vtr8internal5LevelE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(480) %45)
-  %58 = load ptr, ptr %12, align 8
-  %59 = load ptr, ptr %34, align 8
-  %.not.i.i.i = icmp eq ptr %58, %59
-  br i1 %.not.i.i.i, label %63, label %60
+  tail call void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner11appendLevelERNS0_3Vtr8internal5LevelE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(480) %44)
+  %57 = load ptr, ptr %12, align 8
+  %58 = load ptr, ptr %33, align 8
+  %.not.i.i.i = icmp eq ptr %57, %58
+  br i1 %.not.i.i.i, label %62, label %59
 
-60:                                               ; preds = %57
-  store ptr %.019, ptr %58, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %62, ptr %12, align 8
+59:                                               ; preds = %56
+  store ptr %.019, ptr %57, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store ptr %61, ptr %12, align 8
   br label %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %11, align 8
-  %65 = ptrtoint ptr %58 to i64
-  %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  %68 = icmp eq i64 %67, 9223372036854775800
-  br i1 %68, label %69, label %_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %11, align 8
+  %64 = ptrtoint ptr %57 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %67 = icmp eq i64 %66, 9223372036854775800
+  br i1 %67, label %68, label %_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-69:                                               ; preds = %63
+68:                                               ; preds = %62
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #16
   unreachable
 
-_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %63
-  %70 = ashr exact i64 %67, 3
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %70, i64 1)
-  %71 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %70
-  %72 = icmp ult i64 %71, %70
-  %73 = tail call i64 @llvm.umin.i64(i64 %71, i64 1152921504606846975)
-  %74 = select i1 %72, i64 1152921504606846975, i64 %73
-  %.not.i.i.i.i.i = icmp ne i64 %74, 0
+_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %62
+  %69 = ashr exact i64 %66, 3
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %69, i64 1)
+  %70 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %69
+  %71 = icmp ult i64 %70, %69
+  %72 = tail call i64 @llvm.umin.i64(i64 %70, i64 1152921504606846975)
+  %73 = select i1 %71, i64 1152921504606846975, i64 %72
+  %.not.i.i.i.i.i = icmp ne i64 %73, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %75 = shl nuw nsw i64 %74, 3
-  %76 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #15
-  %77 = getelementptr inbounds i8, ptr %76, i64 %67
-  store ptr %.019, ptr %77, align 8
-  %78 = icmp sgt i64 %67, 0
-  br i1 %78, label %79, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i
+  %74 = shl nuw nsw i64 %73, 3
+  %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #15
+  %76 = getelementptr inbounds i8, ptr %75, i64 %66
+  store ptr %.019, ptr %76, align 8
+  %77 = icmp sgt i64 %66, 0
+  br i1 %77, label %78, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i
 
-79:                                               ; preds = %_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %76, ptr align 8 %64, i64 %67, i1 false)
+78:                                               ; preds = %_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %75, ptr align 8 %63, i64 %66, i1 false)
   br label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i
 
-_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i: ; preds = %79, %_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %.not.i17.i.i.i.i = icmp eq ptr %64, null
-  br i1 %.not.i17.i.i.i.i, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i, label %81
+_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i: ; preds = %78, %_ZNKSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %.not.i17.i.i.i.i = icmp eq ptr %63, null
+  br i1 %.not.i17.i.i.i.i, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i, label %80
 
-81:                                               ; preds = %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %67) #17
+80:                                               ; preds = %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %66) #17
   br label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %81, %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i
-  store ptr %76, ptr %11, align 8
-  store ptr %80, ptr %12, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
-  store ptr %82, ptr %34, align 8
+_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %80, %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i.i
+  store ptr %75, ptr %11, align 8
+  store ptr %79, ptr %12, align 8
+  %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %73
+  store ptr %81, ptr %33, align 8
   br label %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit
 
-_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit: ; preds = %60, %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i
+_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit: ; preds = %59, %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit, %16
   tail call void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner17assembleFarLevelsEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-  br label %83
+  br label %82
 
-83:                                               ; preds = %._crit_edge, %15, %9
+82:                                               ; preds = %._crit_edge, %15, %9
   ret void
 
-84:                                               ; preds = %55, %51, %49
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %56, %55 ], [ %50, %49 ]
+83:                                               ; preds = %54, %50, %48
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %55, %54 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn
 }
 

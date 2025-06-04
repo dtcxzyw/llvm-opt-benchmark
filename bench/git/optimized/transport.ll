@@ -3278,11 +3278,11 @@ define internal range(i32 -1, 1) i32 @fetch_refs_via_pack(ptr noundef %0, i32 no
   call void @list_objects_filter_copy(ptr noundef nonnull %68, ptr noundef nonnull %69) #21
   %70 = load i16, ptr %6, align 8
   %71 = lshr i16 %70, 8
-  %72 = load i32, ptr %11, align 8
-  %73 = and i16 %71, 1
-  %74 = zext nneg i16 %73 to i32
-  %75 = shl nuw nsw i32 %74, 18
-  %76 = and i32 %72, -264193
+  %72 = and i16 %71, 1
+  %73 = zext nneg i16 %72 to i32
+  %74 = load i32, ptr %11, align 8
+  %75 = shl nuw nsw i32 %73, 18
+  %76 = and i32 %74, -264193
   %77 = or disjoint i32 %75, %76
   %78 = load i8, ptr %52, align 8
   %79 = lshr i8 %78, 2

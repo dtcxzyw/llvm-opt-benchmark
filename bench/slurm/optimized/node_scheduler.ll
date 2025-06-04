@@ -5810,8 +5810,8 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph415, %339
   br i1 %383, label %384, label %388
 
 384:                                              ; preds = %379
-  %385 = trunc i8 %.0292422 to i1
-  %386 = trunc i8 %.2 to i1
+  %385 = trunc nuw i8 %.0292422 to i1
+  %386 = trunc nuw i8 %.2 to i1
   %or.cond10 = select i1 %385, i1 %386, i1 false
   br i1 %or.cond10, label %.thread391, label %387
 

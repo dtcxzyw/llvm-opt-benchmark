@@ -5021,7 +5021,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i: ; 
           to label %common.resume unwind label %343
 
 .loopexit:                                        ; preds = %46, %.lr.ph.i.i, %337, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit.i", %.noexc1, %.noexc, %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h9b09a4a26eb30ea4E.exit"
-  %.sroa.011.0.i = phi i8 [ 1, %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h9b09a4a26eb30ea4E.exit" ], [ %.sroa.0.0.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit.i" ], [ %32, %.noexc ], [ %275, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i ], [ %.sroa.014.4.i.i, %337 ], [ %42, %.noexc1 ], [ 1, %.lr.ph.i.i ], [ 0, %46 ]
+  %.sroa.011.0.i = phi i8 [ 1, %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h9b09a4a26eb30ea4E.exit" ], [ %.sroa.0.0.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit.i" ], [ %32, %.noexc ], [ %42, %.noexc1 ], [ %275, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i ], [ %.sroa.014.4.i.i, %337 ], [ 1, %.lr.ph.i.i ], [ 0, %46 ]
   %342 = trunc nuw i8 %.sroa.011.0.i to i1
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h08608a2be4078eb0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)

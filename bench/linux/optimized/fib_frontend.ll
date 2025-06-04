@@ -4606,66 +4606,64 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   %.lcssa8.ph = phi i8 [ %130, %128 ], [ %72, %.lr.ph ]
   %.pre = load i32, ptr %57, align 8
   %139 = icmp eq i32 %.pre, 0
-  %140 = and i8 %.lcssa11.ph, 1
-  %141 = icmp eq i8 %140, 0
-  %142 = and i8 %.lcssa8.ph, 1
-  %143 = icmp eq i8 %142, 0
-  %144 = select i1 %141, i1 true, i1 %143
-  br i1 %139, label %160, label %145
+  %140 = icmp eq i8 %.lcssa11.ph, 0
+  %141 = icmp eq i8 %.lcssa8.ph, 0
+  %142 = select i1 %140, i1 true, i1 %141
+  br i1 %139, label %158, label %143
 
-145:                                              ; preds = %.critedge
-  %146 = load i32, ptr %68, align 8
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %157
+143:                                              ; preds = %.critedge
+  %144 = load i32, ptr %68, align 8
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %146, label %155
 
-148:                                              ; preds = %145
-  %149 = load i8, ptr %67, align 1
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %151, label %157
+146:                                              ; preds = %143
+  %147 = load i8, ptr %67, align 1
+  %148 = icmp eq i8 %147, 0
+  br i1 %148, label %149, label %155
 
-151:                                              ; preds = %148
-  %152 = load ptr, ptr %58, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %157
+149:                                              ; preds = %146
+  %150 = load ptr, ptr %58, align 8
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %152, label %155
 
-154:                                              ; preds = %151
-  %155 = load ptr, ptr %60, align 8
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %160, label %157
+152:                                              ; preds = %149
+  %153 = load ptr, ptr %60, align 8
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %158, label %155
 
-157:                                              ; preds = %154, %151, %148, %145
+155:                                              ; preds = %152, %149, %146, %143
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtm_to_fib_config.__msg.14) #13
-  %158 = icmp eq ptr %4, null
-  br i1 %158, label %.thread, label %159
+  %156 = icmp eq ptr %4, null
+  br i1 %156, label %.thread, label %157
 
-159:                                              ; preds = %157
+157:                                              ; preds = %155
   store ptr @rtm_to_fib_config.__msg.14, ptr %4, align 8
   br label %.thread
 
-160:                                              ; preds = %154, %.critedge
-  br i1 %144, label %.thread24, label %161
+158:                                              ; preds = %152, %.critedge
+  br i1 %142, label %.thread24, label %159
 
-161:                                              ; preds = %160
+159:                                              ; preds = %158
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtm_to_fib_config.__msg.15) #13
-  %162 = icmp eq ptr %4, null
-  br i1 %162, label %.thread, label %163
+  %160 = icmp eq ptr %4, null
+  br i1 %160, label %.thread, label %161
 
-163:                                              ; preds = %161
+161:                                              ; preds = %159
   store ptr @rtm_to_fib_config.__msg.15, ptr %4, align 8
   br label %.thread
 
-.thread24:                                        ; preds = %54, %160
-  %164 = load i32, ptr %28, align 8
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %.thread
+.thread24:                                        ; preds = %54, %158
+  %162 = load i32, ptr %28, align 8
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %.thread
 
-166:                                              ; preds = %.thread24
+164:                                              ; preds = %.thread24
   store i32 254, ptr %28, align 8
   br label %.thread
 
-.thread:                                          ; preds = %93, %5, %166, %.thread24, %163, %161, %159, %157, %124, %119, %53, %51, %20, %18, %8
-  %167 = phi i32 [ -22, %159 ], [ -22, %157 ], [ -22, %163 ], [ -22, %161 ], [ 0, %166 ], [ 0, %.thread24 ], [ %11, %8 ], [ -22, %20 ], [ -22, %18 ], [ -22, %53 ], [ -22, %51 ], [ -95, %119 ], [ -95, %124 ], [ -22, %5 ], [ %94, %93 ]
-  ret i32 %167
+.thread:                                          ; preds = %93, %5, %164, %.thread24, %161, %159, %157, %155, %124, %119, %53, %51, %20, %18, %8
+  %165 = phi i32 [ -22, %157 ], [ -22, %155 ], [ -22, %161 ], [ -22, %159 ], [ 0, %164 ], [ 0, %.thread24 ], [ %11, %8 ], [ -22, %20 ], [ -22, %18 ], [ -22, %53 ], [ -22, %51 ], [ -95, %119 ], [ -95, %124 ], [ -22, %5 ], [ %94, %93 ]
+  ret i32 %165
 }
 
 ; Function Attrs: null_pointer_is_valid

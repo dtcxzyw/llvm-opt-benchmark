@@ -113375,7 +113375,7 @@ _ZN6hir_ty17method_resolution25is_inherent_impl_coherent17h302c4580c8781101E.exi
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #50
   unreachable
 
-357:                                              ; preds = %_ZN6hir_ty17method_resolution25is_inherent_impl_coherent17h302c4580c8781101E.exit, %291, %297, %302, %303, %306, %307, %308, %.noexc65
+357:                                              ; preds = %.noexc65, %308, %307, %306, %303, %302, %297, %291, %_ZN6hir_ty17method_resolution25is_inherent_impl_coherent17h302c4580c8781101E.exit
   %.sroa.16.0.i = phi i8 [ %.sroa.16.4.extract.trunc.i, %291 ], [ %301, %297 ], [ undef, %302 ], [ undef, %303 ], [ undef, %306 ], [ undef, %307 ], [ %.sroa.16.4.extract.trunc14.i, %308 ], [ %.sroa.16.4.extract.trunc16.i, %.noexc65 ], [ undef, %_ZN6hir_ty17method_resolution25is_inherent_impl_coherent17h302c4580c8781101E.exit ]
   %.sroa.10.0.i = phi i8 [ %.sroa.10.4.extract.trunc.i, %291 ], [ %299, %297 ], [ undef, %302 ], [ %305, %303 ], [ undef, %306 ], [ undef, %307 ], [ %.sroa.10.4.extract.trunc11.i, %308 ], [ %.sroa.10.4.extract.trunc12.i, %.noexc65 ], [ undef, %_ZN6hir_ty17method_resolution25is_inherent_impl_coherent17h302c4580c8781101E.exit ]
   %.sroa.010.0.i = phi i64 [ %296, %291 ], [ 8, %297 ], [ 4, %302 ], [ 7, %303 ], [ 3, %306 ], [ 6, %307 ], [ 11, %308 ], [ 10, %.noexc65 ], [ 5, %_ZN6hir_ty17method_resolution25is_inherent_impl_coherent17h302c4580c8781101E.exit ]

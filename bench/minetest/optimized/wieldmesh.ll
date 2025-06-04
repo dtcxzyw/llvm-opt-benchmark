@@ -4941,8 +4941,7 @@ for.body:                                         ; preds = %if.end44, %for.body
   %and4.i = shl nuw nsw i32 %div25, 8
   %shl5.i = and i32 %and4.i, 65280
   %or.i = or disjoint i32 %shl5.i, %and2.i
-  %and7.i = and i32 %div29, 255
-  %or6.i = or disjoint i32 %or.i, %and7.i
+  %or6.i = add nuw nsw i32 %or.i, %div29
   %or8.i = or i32 %or6.i, -16777216
   store i32 %or8.i, ptr %buffercolor, align 4, !tbaa !238
   %vtable30 = load ptr, ptr %call, align 8, !tbaa !15

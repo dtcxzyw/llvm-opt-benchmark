@@ -676,7 +676,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %direction198 = getelementptr inbounds nuw i8, ptr %arrayidx197, i64 8
   %47 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %47, 0
-  %tobool201 = trunc i8 %inside.1262 to i1
+  %tobool201 = trunc nuw i8 %inside.1262 to i1
   %cmp203 = xor i1 %cmp199, %tobool201
   br i1 %cmp203, label %if.then204, label %for.inc212
 
@@ -772,7 +772,7 @@ invoke.cont218:                                   ; preds = %for.inc212, %if.end
   %cmp.i7.i245 = fcmp olt float %cond.i.i240, %cond.i6.i244
   %cond.i8.i246 = select i1 %cmp.i7.i245, float %cond.i6.i244, float %cond.i.i240
   %cmp220 = fcmp ogt float %cond.i8.i246, 5.000000e-01
-  %57 = trunc i8 %inside.1.lcssa to i1
+  %57 = trunc nuw i8 %inside.1.lcssa to i1
   %cmp224 = xor i1 %cmp220, %57
   %cmp226 = fcmp une float %cond.i8.i246, 5.000000e-01
   %or.cond1 = and i1 %cmp226, %cmp224
@@ -1190,7 +1190,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %direction198 = getelementptr inbounds nuw i8, ptr %arrayidx197, i64 8
   %47 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %47, 0
-  %tobool201 = trunc i8 %inside.1262 to i1
+  %tobool201 = trunc nuw i8 %inside.1262 to i1
   %cmp203 = xor i1 %cmp199, %tobool201
   br i1 %cmp203, label %if.then204, label %for.inc212
 
@@ -1286,7 +1286,7 @@ invoke.cont218:                                   ; preds = %for.inc212, %if.end
   %cmp.i7.i245 = fcmp olt float %cond.i.i240, %cond.i6.i244
   %cond.i8.i246 = select i1 %cmp.i7.i245, float %cond.i6.i244, float %cond.i.i240
   %cmp220 = fcmp ogt float %cond.i8.i246, 5.000000e-01
-  %57 = trunc i8 %inside.1.lcssa to i1
+  %57 = trunc nuw i8 %inside.1.lcssa to i1
   %cmp224 = xor i1 %cmp220, %57
   %cmp226 = fcmp une float %cond.i8.i246, 5.000000e-01
   %or.cond1 = and i1 %cmp226, %cmp224

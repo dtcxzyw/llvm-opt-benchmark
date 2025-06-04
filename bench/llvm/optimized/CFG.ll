@@ -25213,8 +25213,7 @@ _ZN4llvm5APIntD2Ev.exit115.i:                     ; preds = %243, %240, %_ZN4llv
   br label %285
 
 285:                                              ; preds = %281, %276, %275
-  %.mask.i = and i8 %.3.i, 1
-  %286 = zext nneg i8 %.mask.i to i32
+  %286 = zext nneg i8 %.3.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %245, %285, %273

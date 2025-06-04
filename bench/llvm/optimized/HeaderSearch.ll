@@ -7743,10 +7743,10 @@ define dso_local noundef ptr @_ZNK5clang12HeaderSearch19getExistingFileInfoENS_1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2288
   %4 = load ptr, ptr %3, align 8, !tbaa !569
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.preheader53, label %.preheader55
+  br i1 %.not, label %.preheader54, label %.preheader56
 
-.preheader55:                                     ; preds = %2, %.preheader55
-  %.05.i.i.i = phi ptr [ %8, %.preheader55 ], [ %1, %2 ]
+.preheader56:                                     ; preds = %2, %.preheader56
+  %.05.i.i.i = phi ptr [ %8, %.preheader56 ], [ %1, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %5, align 8
   %6 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 4
@@ -7755,9 +7755,9 @@ define dso_local noundef ptr @_ZNK5clang12HeaderSearch19getExistingFileInfoENS_1
   %8 = inttoptr i64 %7 to ptr
   %.not7.i.i.i = icmp eq i64 %7, 0
   %.not.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not7.i.i.i
-  br i1 %.not.i.i.i, label %_ZNK5clang12FileEntryRef6getUIDEv.exit, label %.preheader55
+  br i1 %.not.i.i.i, label %_ZNK5clang12FileEntryRef6getUIDEv.exit, label %.preheader56
 
-_ZNK5clang12FileEntryRef6getUIDEv.exit:           ; preds = %.preheader55
+_ZNK5clang12FileEntryRef6getUIDEv.exit:           ; preds = %.preheader56
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !570
   %11 = zext i32 %10 to i64
@@ -7770,10 +7770,10 @@ _ZNK5clang12FileEntryRef6getUIDEv.exit:           ; preds = %.preheader55
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 4
   %.not7 = icmp ugt i64 %19, %11
-  br i1 %.not7, label %_ZNSt6vectorIN5clang14HeaderFileInfoESaIS1_EE6resizeEm.exit.preheader, label %.preheader54
+  br i1 %.not7, label %_ZNSt6vectorIN5clang14HeaderFileInfoESaIS1_EE6resizeEm.exit.preheader, label %.preheader55
 
-.preheader54:                                     ; preds = %_ZNK5clang12FileEntryRef6getUIDEv.exit, %.preheader54
-  %.05.i.i.i14 = phi ptr [ %23, %.preheader54 ], [ %1, %_ZNK5clang12FileEntryRef6getUIDEv.exit ]
+.preheader55:                                     ; preds = %_ZNK5clang12FileEntryRef6getUIDEv.exit, %.preheader55
+  %.05.i.i.i14 = phi ptr [ %23, %.preheader55 ], [ %1, %_ZNK5clang12FileEntryRef6getUIDEv.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %.05.i.i.i14, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i15 = load i64, ptr %20, align 8
   %21 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i15, 4
@@ -7782,9 +7782,9 @@ _ZNK5clang12FileEntryRef6getUIDEv.exit:           ; preds = %.preheader55
   %23 = inttoptr i64 %22 to ptr
   %.not7.i.i.i17 = icmp eq i64 %22, 0
   %.not.i.i.i18 = or i1 %.not.i.i.i.i.i.i.i16, %.not7.i.i.i17
-  br i1 %.not.i.i.i18, label %_ZNK5clang12FileEntryRef6getUIDEv.exit19, label %.preheader54
+  br i1 %.not.i.i.i18, label %_ZNK5clang12FileEntryRef6getUIDEv.exit19, label %.preheader55
 
-_ZNK5clang12FileEntryRef6getUIDEv.exit19:         ; preds = %.preheader54
+_ZNK5clang12FileEntryRef6getUIDEv.exit19:         ; preds = %.preheader55
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load i32, ptr %24, align 8, !tbaa !570
   %26 = add i32 %25, 1
@@ -7860,91 +7860,97 @@ _ZNK5clang12FileEntryRef6getUIDEv.exit25:         ; preds = %_ZNSt6vectorIN5clan
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !3
-  %.not1.i = icmp eq i64 %62, 0
-  br i1 %.not1.i, label %63, label %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit
+  %.not3.i = icmp eq i64 %62, 0
+  br i1 %.not3.i, label %63, label %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit
 
 63:                                               ; preds = %60
   store i64 %54, ptr %61, align 8, !tbaa !298
   br label %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit
 
 _ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit: ; preds = %60, %63
-  %64 = or i16 %58, %.sroa.0.0.extract.trunc
+  %64 = or i16 %57, %.sroa.0.0.extract.trunc
   %65 = and i16 %64, 4
-  %66 = and i16 %64, 128
-  %.narrow.i.not.i = icmp eq i16 %66, 0
-  %67 = and i16 %64, 256
-  %.sink2.i = select i1 %.narrow.i.not.i, i16 %67, i16 128
-  %.masked4.i = and i16 %58, -2557
-  %68 = and i16 %57, 2048
-  %.not.i = icmp eq i16 %68, 0
+  %66 = and i16 %.sroa.0.0.extract.trunc, 128
+  %.not1.i = icmp eq i16 %66, 0
+  %.mask.i.i = and i16 %57, 128
+  %67 = select i1 %.not1.i, i16 %.mask.i.i, i16 128
+  %.not.i.i26 = icmp eq i16 %67, 0
+  %68 = and i16 %.sroa.0.0.extract.trunc, 256
+  %.not2.i = icmp eq i16 %68, 0
+  %.mask5.i.i = and i16 %57, 256
+  %69 = select i1 %.not2.i, i16 %.mask5.i.i, i16 256
+  %.sink4.i = select i1 %.not.i.i26, i16 %69, i16 %67
+  %.masked6.i = and i16 %58, -2557
+  %70 = and i16 %57, 2048
+  %.not.i = icmp eq i16 %70, 0
   %.lobit.i = and i16 %57, 64
   %spec.select.i = select i1 %.not.i, i16 64, i16 %.lobit.i
-  %.masked3.i = and i16 %.sroa.0.0.extract.trunc, 2106
-  %69 = or i16 %.masked3.i, %.masked4.i
-  %70 = or disjoint i16 %69, %65
-  %71 = or disjoint i16 %70, %spec.select.i
-  %72 = or disjoint i16 %71, %.sink2.i
-  store i16 %72, ptr %44, align 8
+  %.masked5.i = and i16 %.sroa.0.0.extract.trunc, 2106
+  %71 = or i16 %.masked5.i, %.masked6.i
+  %72 = or disjoint i16 %71, %65
+  %73 = or disjoint i16 %72, %spec.select.i
+  %74 = or disjoint i16 %73, %.sink4.i
+  store i16 %74, ptr %44, align 8
   br label %.thread
 
-.preheader53:                                     ; preds = %2, %.preheader53
-  %.05.i.i.i26 = phi ptr [ %76, %.preheader53 ], [ %1, %2 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.05.i.i.i26, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i27 = load i64, ptr %73, align 8
-  %74 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i27, 4
-  %.not.i.i.i.i.i.i.i28 = icmp eq i64 %74, 0
-  %75 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i27, -8
-  %76 = inttoptr i64 %75 to ptr
-  %.not7.i.i.i29 = icmp eq i64 %75, 0
-  %.not.i.i.i30 = or i1 %.not.i.i.i.i.i.i.i28, %.not7.i.i.i29
-  br i1 %.not.i.i.i30, label %_ZNK5clang12FileEntryRef6getUIDEv.exit31, label %.preheader53
+.preheader54:                                     ; preds = %2, %.preheader54
+  %.05.i.i.i27 = phi ptr [ %78, %.preheader54 ], [ %1, %2 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i28 = load i64, ptr %75, align 8
+  %76 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i28, 4
+  %.not.i.i.i.i.i.i.i29 = icmp eq i64 %76, 0
+  %77 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i28, -8
+  %78 = inttoptr i64 %77 to ptr
+  %.not7.i.i.i30 = icmp eq i64 %77, 0
+  %.not.i.i.i31 = or i1 %.not.i.i.i.i.i.i.i29, %.not7.i.i.i30
+  br i1 %.not.i.i.i31, label %_ZNK5clang12FileEntryRef6getUIDEv.exit32, label %.preheader54
 
-_ZNK5clang12FileEntryRef6getUIDEv.exit31:         ; preds = %.preheader53
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
-  %78 = load i32, ptr %77, align 8, !tbaa !570
-  %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %82 = load ptr, ptr %81, align 8, !tbaa !263
-  %83 = load ptr, ptr %80, align 8, !tbaa !264
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = ashr exact i64 %86, 4
-  %88 = icmp ugt i64 %87, %79
-  br i1 %88, label %.preheader, label %.thread50
+_ZNK5clang12FileEntryRef6getUIDEv.exit32:         ; preds = %.preheader54
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 72
+  %80 = load i32, ptr %79, align 8, !tbaa !570
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %84 = load ptr, ptr %83, align 8, !tbaa !263
+  %85 = load ptr, ptr %82, align 8, !tbaa !264
+  %86 = ptrtoint ptr %84 to i64
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = ashr exact i64 %88, 4
+  %90 = icmp ugt i64 %89, %81
+  br i1 %90, label %.preheader, label %.thread51
 
-.preheader:                                       ; preds = %_ZNK5clang12FileEntryRef6getUIDEv.exit31, %.preheader
-  %.05.i.i.i32 = phi ptr [ %92, %.preheader ], [ %1, %_ZNK5clang12FileEntryRef6getUIDEv.exit31 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.05.i.i.i32, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i33 = load i64, ptr %89, align 8
-  %90 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i33, 4
-  %.not.i.i.i.i.i.i.i34 = icmp eq i64 %90, 0
-  %91 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i33, -8
-  %92 = inttoptr i64 %91 to ptr
-  %.not7.i.i.i35 = icmp eq i64 %91, 0
-  %.not.i.i.i36 = or i1 %.not.i.i.i.i.i.i.i34, %.not7.i.i.i35
-  br i1 %.not.i.i.i36, label %93, label %.preheader
+.preheader:                                       ; preds = %_ZNK5clang12FileEntryRef6getUIDEv.exit32, %.preheader
+  %.05.i.i.i33 = phi ptr [ %94, %.preheader ], [ %1, %_ZNK5clang12FileEntryRef6getUIDEv.exit32 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.05.i.i.i33, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i34 = load i64, ptr %91, align 8
+  %92 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i34, 4
+  %.not.i.i.i.i.i.i.i35 = icmp eq i64 %92, 0
+  %93 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i34, -8
+  %94 = inttoptr i64 %93 to ptr
+  %.not7.i.i.i36 = icmp eq i64 %93, 0
+  %.not.i.i.i37 = or i1 %.not.i.i.i.i.i.i.i35, %.not7.i.i.i36
+  br i1 %.not.i.i.i37, label %95, label %.preheader
 
-93:                                               ; preds = %.preheader
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 72
-  %95 = load i32, ptr %94, align 8, !tbaa !570
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.clang::HeaderFileInfo", ptr %83, i64 %96
-  %.not11 = icmp eq ptr %83, null
-  br i1 %.not11, label %.thread50, label %.thread
+95:                                               ; preds = %.preheader
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 72
+  %97 = load i32, ptr %96, align 8, !tbaa !570
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw %"struct.clang::HeaderFileInfo", ptr %85, i64 %98
+  %.not11 = icmp eq ptr %85, null
+  br i1 %.not11, label %.thread51, label %.thread
 
-.thread:                                          ; preds = %47, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit, %56, %_ZNK5clang12FileEntryRef6getUIDEv.exit25, %93
-  %.049 = phi ptr [ %97, %93 ], [ %44, %_ZNK5clang12FileEntryRef6getUIDEv.exit25 ], [ %44, %56 ], [ %44, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit ], [ %44, %47 ]
-  %98 = load i16, ptr %.049, align 8
-  %99 = and i16 %98, 2048
-  %.not12 = icmp eq i16 %99, 0
-  %spec.select = select i1 %.not12, ptr null, ptr %.049
-  br label %.thread50
+.thread:                                          ; preds = %47, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit, %56, %_ZNK5clang12FileEntryRef6getUIDEv.exit25, %95
+  %.050 = phi ptr [ %99, %95 ], [ %44, %_ZNK5clang12FileEntryRef6getUIDEv.exit25 ], [ %44, %56 ], [ %44, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit ], [ %44, %47 ]
+  %100 = load i16, ptr %.050, align 8
+  %101 = and i16 %100, 2048
+  %.not12 = icmp eq i16 %101, 0
+  %spec.select = select i1 %.not12, ptr null, ptr %.050
+  br label %.thread51
 
-.thread50:                                        ; preds = %_ZNK5clang12FileEntryRef6getUIDEv.exit31, %.thread, %93
-  %100 = phi ptr [ null, %93 ], [ %spec.select, %.thread ], [ null, %_ZNK5clang12FileEntryRef6getUIDEv.exit31 ]
-  ret ptr %100
+.thread51:                                        ; preds = %_ZNK5clang12FileEntryRef6getUIDEv.exit32, %.thread, %95
+  %102 = phi ptr [ null, %95 ], [ %spec.select, %.thread ], [ null, %_ZNK5clang12FileEntryRef6getUIDEv.exit32 ]
+  ret ptr %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8040,11 +8046,11 @@ _ZNK5clang12FileEntryRef6getUIDEv.exit23:         ; preds = %_ZNSt6vectorIN5clan
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2288
   %45 = load ptr, ptr %44, align 8, !tbaa !569
   %.not7 = icmp ne ptr %45, null
-  %.pre35 = load i16, ptr %43, align 8
-  %46 = and i16 %.pre35, 1024
+  %.pre36 = load i16, ptr %43, align 8
+  %46 = and i16 %.pre36, 1024
   %.not8 = icmp eq i16 %46, 0
   %or.cond = select i1 %.not7, i1 %.not8, i1 false
-  br i1 %or.cond, label %47, label %71
+  br i1 %or.cond, label %47, label %73
 
 47:                                               ; preds = %_ZNK5clang12FileEntryRef6getUIDEv.exit23
   %48 = load ptr, ptr %45, align 8, !tbaa !8
@@ -8057,48 +8063,54 @@ _ZNK5clang12FileEntryRef6getUIDEv.exit23:         ; preds = %_ZNSt6vectorIN5clan
   %54 = and i16 %.sroa.0.0.extract.trunc, 2048
   %.not9 = icmp eq i16 %54, 0
   %.pre = load i16, ptr %43, align 8
-  br i1 %.not9, label %71, label %55
+  br i1 %.not9, label %73, label %55
 
 55:                                               ; preds = %47
   %56 = or i16 %.pre, 1024
   %57 = and i16 %.sroa.0.0.extract.trunc, 64
   %.not10 = icmp eq i16 %57, 0
-  br i1 %.not10, label %71, label %58
+  br i1 %.not10, label %73, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !3
-  %.not1.i = icmp eq i64 %60, 0
-  br i1 %.not1.i, label %61, label %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit
+  %.not3.i = icmp eq i64 %60, 0
+  br i1 %.not3.i, label %61, label %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit
 
 61:                                               ; preds = %58
   store i64 %53, ptr %59, align 8, !tbaa !298
   br label %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit
 
 _ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit: ; preds = %58, %61
-  %62 = or i16 %56, %.sroa.0.0.extract.trunc
+  %62 = or i16 %.pre, %.sroa.0.0.extract.trunc
   %63 = and i16 %62, 4
-  %64 = and i16 %62, 128
-  %.narrow.i.not.i = icmp eq i16 %64, 0
-  %65 = and i16 %62, 256
-  %.sink2.i = select i1 %.narrow.i.not.i, i16 %65, i16 128
-  %.masked4.i = and i16 %56, -2557
-  %66 = and i16 %.pre, 2048
-  %.not.i = icmp eq i16 %66, 0
+  %64 = and i16 %.sroa.0.0.extract.trunc, 128
+  %.not1.i = icmp eq i16 %64, 0
+  %.mask.i.i = and i16 %.pre, 128
+  %65 = select i1 %.not1.i, i16 %.mask.i.i, i16 128
+  %.not.i.i24 = icmp eq i16 %65, 0
+  %66 = and i16 %.sroa.0.0.extract.trunc, 256
+  %.not2.i = icmp eq i16 %66, 0
+  %.mask5.i.i = and i16 %.pre, 256
+  %67 = select i1 %.not2.i, i16 %.mask5.i.i, i16 256
+  %.sink4.i = select i1 %.not.i.i24, i16 %67, i16 %65
+  %.masked6.i = and i16 %56, -2557
+  %68 = and i16 %.pre, 2048
+  %.not.i = icmp eq i16 %68, 0
   %.lobit.i = and i16 %.pre, 64
   %spec.select.i = select i1 %.not.i, i16 64, i16 %.lobit.i
-  %.masked3.i = and i16 %.sroa.0.0.extract.trunc, 2106
-  %67 = or i16 %.masked3.i, %.masked4.i
-  %68 = or disjoint i16 %67, %63
-  %69 = or disjoint i16 %68, %spec.select.i
-  %70 = or disjoint i16 %69, %.sink2.i
-  br label %71
+  %.masked5.i = and i16 %.sroa.0.0.extract.trunc, 2106
+  %69 = or i16 %.masked5.i, %.masked6.i
+  %70 = or disjoint i16 %69, %63
+  %71 = or disjoint i16 %70, %spec.select.i
+  %72 = or disjoint i16 %71, %.sink4.i
+  br label %73
 
-71:                                               ; preds = %47, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit, %55, %_ZNK5clang12FileEntryRef6getUIDEv.exit23
-  %72 = phi i16 [ %.pre, %47 ], [ %70, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit ], [ %56, %55 ], [ %.pre35, %_ZNK5clang12FileEntryRef6getUIDEv.exit23 ]
-  %73 = and i16 %72, -2113
-  %74 = or disjoint i16 %73, 2048
-  store i16 %74, ptr %43, align 8
+73:                                               ; preds = %47, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit, %55, %_ZNK5clang12FileEntryRef6getUIDEv.exit23
+  %74 = phi i16 [ %.pre, %47 ], [ %72, %_ZL19mergeHeaderFileInfoRN5clang14HeaderFileInfoERKS0_.exit ], [ %56, %55 ], [ %.pre36, %_ZNK5clang12FileEntryRef6getUIDEv.exit23 ]
+  %75 = and i16 %74, -2113
+  %76 = or disjoint i16 %75, 2048
+  store i16 %76, ptr %43, align 8
   ret ptr %43
 }
 
@@ -9499,34 +9511,20 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang14HeaderFileInfo21mergeModuleMembershipENS_9ModuleMap16ModuleHeaderRoleE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef zeroext i1 @_ZN5clang9ModuleMap9isModularENS0_16ModuleHeaderRoleE(i32 noundef %1) #23
-  %4 = load i16, ptr %0, align 8
-  %5 = and i16 %4, 128
-  %.tr.i = icmp ne i16 %5, 0
-  %.narrow.i = or i1 %3, %.tr.i
-  %6 = select i1 %.narrow.i, i16 128, i16 0
-  %7 = and i16 %4, -129
-  %8 = or disjoint i16 %6, %7
-  br i1 %.narrow.i, label %9, label %11
-
-9:                                                ; preds = %2
-  %10 = and i16 %8, -257
-  br label %_ZL29mergeHeaderFileInfoModuleBitsRN5clang14HeaderFileInfoEbb.exit
-
-11:                                               ; preds = %2
-  %12 = and i32 %1, 2
-  %13 = icmp ne i32 %12, 0
-  %14 = and i16 %4, 256
-  %.tr5.i = icmp ne i16 %14, 0
-  %.narrow6.i = or i1 %13, %.tr5.i
-  %15 = select i1 %.narrow6.i, i16 256, i16 0
-  %16 = and i16 %8, -257
-  %17 = or disjoint i16 %16, %15
-  br label %_ZL29mergeHeaderFileInfoModuleBitsRN5clang14HeaderFileInfoEbb.exit
-
-_ZL29mergeHeaderFileInfoModuleBitsRN5clang14HeaderFileInfoEbb.exit: ; preds = %9, %11
-  %storemerge.i = phi i16 [ %17, %11 ], [ %10, %9 ]
-  store i16 %storemerge.i, ptr %0, align 8
+_ZL29mergeHeaderFileInfoModuleBitsRN5clang14HeaderFileInfoEbb.exit:
+  %2 = tail call noundef zeroext i1 @_ZN5clang9ModuleMap9isModularENS0_16ModuleHeaderRoleE(i32 noundef %1) #23
+  %3 = load i16, ptr %0, align 8
+  %.mask.i = and i16 %3, 128
+  %4 = select i1 %2, i16 128, i16 %.mask.i
+  %.not.i = icmp eq i16 %4, 0
+  %5 = and i32 %1, 2
+  %.not = icmp eq i32 %5, 0
+  %.mask5.i = and i16 %3, 256
+  %6 = select i1 %.not, i16 %.mask5.i, i16 256
+  %.sink = select i1 %.not.i, i16 %6, i16 %4
+  %7 = and i16 %3, -385
+  %8 = or disjoint i16 %.sink, %7
+  store i16 %8, ptr %0, align 8
   ret void
 }
 
@@ -9644,59 +9642,40 @@ define dso_local void @_ZN5clang12HeaderSearch20MarkFileModuleHeaderENS_12FileEn
 
 12:                                               ; preds = %9
   %13 = and i16 %11, 384
-  %.not18 = icmp eq i16 %13, 128
-  br i1 %.not18, label %.thread, label %18
+  %.not19 = icmp eq i16 %13, 128
+  br i1 %.not19, label %.thread, label %18
 
 14:                                               ; preds = %9
   %15 = and i16 %11, 128
   %.not.i = icmp eq i16 %15, 0
   %16 = and i32 %2, 2
   %.not6.i = icmp ne i32 %16, 0
-  %or.cond.i.not17 = and i1 %.not6.i, %.not.i
+  %or.cond.i.not18 = and i1 %.not6.i, %.not.i
   %17 = and i16 %11, 256
   %.not7.i = icmp eq i16 %17, 0
-  %or.cond = select i1 %or.cond.i.not17, i1 %.not7.i, i1 false
+  %or.cond = select i1 %or.cond.i.not18, i1 %.not7.i, i1 false
   br i1 %or.cond, label %18, label %.thread
 
 18:                                               ; preds = %14, %12, %7, %4
-  %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clang12HeaderSearch11getFileInfoENS_12FileEntryRefE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1)
-  %20 = tail call noundef zeroext i1 @_ZN5clang9ModuleMap9isModularENS0_16ModuleHeaderRoleE(i32 noundef %2) #23
-  %21 = load i16, ptr %19, align 8
-  %22 = and i16 %21, 128
-  %.tr.i.i = icmp ne i16 %22, 0
-  %.narrow.i.i = or i1 %20, %.tr.i.i
-  %23 = select i1 %.narrow.i.i, i16 128, i16 0
-  %24 = and i16 %21, -129
-  %25 = or disjoint i16 %23, %24
-  br i1 %.narrow.i.i, label %26, label %28
-
-26:                                               ; preds = %18
-  %27 = and i16 %25, -257
-  br label %_ZN5clang14HeaderFileInfo21mergeModuleMembershipENS_9ModuleMap16ModuleHeaderRoleE.exit
-
-28:                                               ; preds = %18
-  %29 = and i32 %2, 2
-  %30 = icmp ne i32 %29, 0
-  %31 = and i16 %21, 256
-  %.tr5.i.i = icmp ne i16 %31, 0
-  %.narrow6.i.i = or i1 %30, %.tr5.i.i
-  %32 = select i1 %.narrow6.i.i, i16 256, i16 0
-  %33 = and i16 %25, -257
-  %34 = or disjoint i16 %33, %32
-  br label %_ZN5clang14HeaderFileInfo21mergeModuleMembershipENS_9ModuleMap16ModuleHeaderRoleE.exit
-
-_ZN5clang14HeaderFileInfo21mergeModuleMembershipENS_9ModuleMap16ModuleHeaderRoleE.exit: ; preds = %26, %28
-  %storemerge.i.i = phi i16 [ %34, %28 ], [ %27, %26 ]
-  %35 = and i16 %storemerge.i.i, 512
-  %.tr = icmp ne i16 %35, 0
-  %.narrow = or i1 %3, %.tr
-  %36 = select i1 %.narrow, i16 512, i16 0
-  %37 = and i16 %storemerge.i.i, -513
-  %38 = or disjoint i16 %36, %37
-  store i16 %38, ptr %19, align 8
+  %19 = phi i16 [ 512, %4 ], [ 0, %7 ], [ 0, %12 ], [ 0, %14 ]
+  %20 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clang12HeaderSearch11getFileInfoENS_12FileEntryRefE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1)
+  %21 = tail call noundef zeroext i1 @_ZN5clang9ModuleMap9isModularENS0_16ModuleHeaderRoleE(i32 noundef %2) #23
+  %22 = load i16, ptr %20, align 8
+  %.mask.i.i = and i16 %22, 128
+  %23 = select i1 %21, i16 128, i16 %.mask.i.i
+  %.not.i.i = icmp eq i16 %23, 0
+  %24 = and i32 %2, 2
+  %.not.i14 = icmp eq i32 %24, 0
+  %.mask5.i.i = and i16 %22, 256
+  %25 = select i1 %.not.i14, i16 %.mask5.i.i, i16 256
+  %.sink.i = select i1 %.not.i.i, i16 %25, i16 %23
+  %26 = and i16 %22, -385
+  %27 = or i16 %26, %19
+  %28 = or disjoint i16 %27, %.sink.i
+  store i16 %28, ptr %20, align 8
   br label %.thread
 
-.thread:                                          ; preds = %14, %12, %5, %_ZN5clang14HeaderFileInfo21mergeModuleMembershipENS_9ModuleMap16ModuleHeaderRoleE.exit
+.thread:                                          ; preds = %14, %12, %5, %18
   ret void
 }
 

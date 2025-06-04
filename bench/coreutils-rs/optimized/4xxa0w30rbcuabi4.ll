@@ -5607,7 +5607,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i: ; preds = %813
   br label %.loopexit.i107
 
 .loopexit.i107:                                   ; preds = %.critedge.backedge.us.i.i.i.i, %805, %.noexc31.i, %893, %.noexc.i115, %789, %788
-  %.030.i.i = phi i8 [ %901, %.noexc31.i ], [ %.4.i.i.i, %893 ], [ %791, %789 ], [ 0, %788 ], [ %801, %.noexc.i115 ], [ 0, %805 ], [ 0, %.critedge.backedge.us.i.i.i.i ]
+  %.030.i.i = phi i8 [ %901, %.noexc31.i ], [ %791, %789 ], [ 0, %788 ], [ %.4.i.i.i, %893 ], [ %801, %.noexc.i115 ], [ 0, %805 ], [ 0, %.critedge.backedge.us.i.i.i.i ]
   %902 = trunc nuw i8 %.030.i.i to i1
   br i1 %902, label %.thread41.i, label %762
 

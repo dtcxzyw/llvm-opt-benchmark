@@ -913,14 +913,13 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
   %.329 = phi i8 [ %.127.lcssa, %._crit_edge ], [ %spec.select43, %33 ], [ %.02669, %._crit_edge.thread ]
   %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select42, %33 ], [ %.not67, %._crit_edge.thread ]
   %.not38 = icmp eq ptr %4, null
-  br i1 %.not38, label %39, label %37
+  br i1 %.not38, label %38, label %37
 
 37:                                               ; preds = %36
-  %38 = and i8 %.329, 1
-  store i8 %38, ptr %4, align 1, !tbaa !10
-  br label %39
+  store i8 %.329, ptr %4, align 1, !tbaa !10
+  br label %38
 
-39:                                               ; preds = %37, %36
+38:                                               ; preds = %37, %36
   ret i1 %.3
 }
 

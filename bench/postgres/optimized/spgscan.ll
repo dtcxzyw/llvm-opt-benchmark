@@ -373,14 +373,14 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
 ._crit_edge94.thread.i:                           ; preds = %87, %._crit_edge94.i
   br label %spgPrepareScanKeys.exit
 
-spgPrepareScanKeys.exit:                          ; preds = %._crit_edge94.i, %._crit_edge.i, %._crit_edge94.thread.i
-  %.sink41 = phi i8 [ 0, %._crit_edge94.thread.i ], [ 1, %._crit_edge.i ], [ %.357.ph.i, %._crit_edge94.i ]
-  %.sink = phi i8 [ 0, %._crit_edge94.thread.i ], [ 1, %._crit_edge.i ], [ %.369.ph.i, %._crit_edge94.i ]
+spgPrepareScanKeys.exit:                          ; preds = %._crit_edge.i, %._crit_edge94.i, %._crit_edge94.thread.i
+  %.357.ph.lcssa.sink.i = phi i8 [ 0, %._crit_edge94.thread.i ], [ 1, %._crit_edge.i ], [ %.357.ph.i, %._crit_edge94.i ]
+  %.369.ph.lcssa.sink.i = phi i8 [ 0, %._crit_edge94.thread.i ], [ 1, %._crit_edge.i ], [ %.369.ph.i, %._crit_edge94.i ]
   %.365.ph.lcssa.sink.i = phi i32 [ 0, %._crit_edge94.thread.i ], [ 0, %._crit_edge.i ], [ %.365.ph.i, %._crit_edge94.i ]
   %100 = getelementptr inbounds nuw i8, ptr %72, i64 120
-  store i8 %.sink41, ptr %100, align 8
+  store i8 %.357.ph.lcssa.sink.i, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %72, i64 121
-  store i8 %.sink, ptr %101, align 1
+  store i8 %.369.ph.lcssa.sink.i, ptr %101, align 1
   %102 = getelementptr inbounds nuw i8, ptr %72, i64 124
   store i32 %.365.ph.lcssa.sink.i, ptr %102, align 4
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 112

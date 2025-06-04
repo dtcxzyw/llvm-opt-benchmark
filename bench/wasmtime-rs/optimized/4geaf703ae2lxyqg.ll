@@ -751,7 +751,7 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
   %21 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7c8e93de16aff6bE"(ptr nonnull align 8 %4)
   %22 = extractvalue { ptr, ptr } %21, 0
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer._crit_edge", label %.lr.ph.lr.ph
+  br i1 %23, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread", label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %19
   %24 = icmp ne ptr %.17, null
@@ -759,107 +759,102 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
   %25 = getelementptr inbounds nuw i8, ptr %.17, i64 24
   br label %.lr.ph
 
-"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit": ; preds = %31
+"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit": ; preds = %30
   %26 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7c8e93de16aff6bE"(ptr nonnull align 8 %4)
   %27 = extractvalue { ptr, ptr } %26, 0
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer._crit_edge", label %.lr.ph
+  br i1 %28, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit"
   %.pn = phi { ptr, ptr } [ %21, %.lr.ph.lr.ph ], [ %26, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
   %29 = phi ptr [ %22, %.lr.ph.lr.ph ], [ %27, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
   %.1.ph22 = phi i8 [ %.015, %.lr.ph.lr.ph ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
-  br label %31
+  br label %30
 
-"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer._crit_edge": ; preds = %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", %19
-  %.1.ph.lcssa20 = phi i8 [ %.015, %19 ], [ %.1.ph22, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
-  %30 = and i8 %.1.ph.lcssa20, 1
-  br label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+30:                                               ; preds = %.lr.ph, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge"
+  %.pn.pn = phi { ptr, ptr } [ %.pn, %.lr.ph ], [ %58, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ]
+  %31 = phi ptr [ %29, %.lr.ph ], [ %59, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ]
+  %32 = extractvalue { ptr, ptr } %.pn.pn, 1
+  %33 = icmp ne ptr %32, null
+  call void @llvm.assume(i1 %33)
+  %34 = call align 16 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5947e572ba358985E"(ptr nonnull align 8 %25, ptr nonnull align 2 %31)
+  %.not16 = icmp eq ptr %34, null
+  br i1 %.not16, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", label %35
 
-31:                                               ; preds = %.lr.ph, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge"
-  %.pn.pn = phi { ptr, ptr } [ %.pn, %.lr.ph ], [ %59, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ]
-  %32 = phi ptr [ %29, %.lr.ph ], [ %60, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ]
-  %33 = extractvalue { ptr, ptr } %.pn.pn, 1
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  %35 = call align 16 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5947e572ba358985E"(ptr nonnull align 8 %25, ptr nonnull align 2 %32)
-  %.not16 = icmp eq ptr %35, null
-  br i1 %.not16, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", label %36
-
-"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread": ; preds = %62, %41, %47, %36, %74, %68, %53, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer._crit_edge"
-  %.013 = phi i8 [ %30, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer._crit_edge" ], [ 2, %53 ], [ 2, %68 ], [ 2, %74 ], [ 2, %36 ], [ 2, %47 ], [ 2, %41 ], [ 2, %62 ]
+"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread": ; preds = %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", %61, %40, %46, %35, %73, %67, %52, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", %19
+  %.013 = phi i8 [ %.015, %19 ], [ 2, %61 ], [ 2, %40 ], [ 2, %46 ], [ 2, %35 ], [ 2, %73 ], [ 2, %67 ], [ 2, %52 ], [ %.1.ph22, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
   ret i8 %.013
 
-36:                                               ; preds = %31
-  %37 = load i8, ptr %33, align 16, !range !9, !noundef !3
-  %38 = load i8, ptr %35, align 16, !range !9, !noundef !3
-  %39 = icmp eq i8 %37, %38
-  br i1 %39, label %40, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+35:                                               ; preds = %30
+  %36 = load i8, ptr %32, align 16, !range !9, !noundef !3
+  %37 = load i8, ptr %34, align 16, !range !9, !noundef !3
+  %38 = icmp eq i8 %36, %37
+  br i1 %38, label %39, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
-40:                                               ; preds = %36
-  switch i8 %37, label %default.unreachable [
-    i8 0, label %41
-    i8 1, label %62
-    i8 2, label %74
+39:                                               ; preds = %35
+  switch i8 %36, label %default.unreachable [
+    i8 0, label %40
+    i8 1, label %61
+    i8 2, label %73
     i8 3, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge"
   ]
 
-default.unreachable:                              ; preds = %40
+default.unreachable:                              ; preds = %39
   unreachable
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %43 = load i64, ptr %42, align 8, !noundef !3
-  %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %45 = load i64, ptr %44, align 8, !noundef !3
-  %46 = icmp eq i64 %43, %45
-  br i1 %46, label %47, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %42 = load i64, ptr %41, align 8, !noundef !3
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %44 = load i64, ptr %43, align 8, !noundef !3
+  %45 = icmp eq i64 %42, %44
+  br i1 %45, label %46, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %49 = load i64, ptr %48, align 16, !noundef !3
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %51 = load i64, ptr %50, align 16, !noundef !3
-  %52 = icmp eq i64 %49, %51
-  br i1 %52, label %53, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %48 = load i64, ptr %47, align 16, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %50 = load i64, ptr %49, align 16, !noundef !3
+  %51 = icmp eq i64 %48, %50
+  br i1 %51, label %52, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %55 = load i8, ptr %54, align 1, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %57 = load i8, ptr %56, align 1, !noundef !3
-  %58 = icmp eq i8 %55, %57
-  br i1 %58, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  %54 = load i8, ptr %53, align 1, !noundef !3
+  %55 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  %56 = load i8, ptr %55, align 1, !noundef !3
+  %57 = icmp eq i8 %54, %56
+  br i1 %57, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
-"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge": ; preds = %53, %68, %74, %40
-  %59 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7c8e93de16aff6bE"(ptr nonnull align 8 %4)
-  %60 = extractvalue { ptr, ptr } %59, 0
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer._crit_edge", label %31
+"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge": ; preds = %52, %67, %73, %39
+  %58 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7c8e93de16aff6bE"(ptr nonnull align 8 %4)
+  %59 = extractvalue { ptr, ptr } %58, 0
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread", label %30
 
-62:                                               ; preds = %40
-  %63 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %64 = load i128, ptr %63, align 16, !noundef !3
-  %65 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %66 = load i128, ptr %65, align 16, !noundef !3
-  %67 = icmp eq i128 %64, %66
-  br i1 %67, label %68, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+61:                                               ; preds = %39
+  %62 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %63 = load i128, ptr %62, align 16, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %65 = load i128, ptr %64, align 16, !noundef !3
+  %66 = icmp eq i128 %63, %65
+  br i1 %66, label %67, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %70 = load i64, ptr %69, align 8, !noundef !3
-  %71 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %72 = load i64, ptr %71, align 8, !noundef !3
-  %73 = icmp eq i64 %70, %72
-  br i1 %73, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %69 = load i64, ptr %68, align 8, !noundef !3
+  %70 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %71 = load i64, ptr %70, align 8, !noundef !3
+  %72 = icmp eq i64 %69, %71
+  br i1 %72, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
-74:                                               ; preds = %40
-  %75 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %76 = load i64, ptr %75, align 8, !noundef !3
-  %77 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %78 = load i64, ptr %77, align 8, !noundef !3
-  %79 = icmp eq i64 %76, %78
-  br i1 %79, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
+73:                                               ; preds = %39
+  %74 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %75 = load i64, ptr %74, align 8, !noundef !3
+  %76 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %77 = load i64, ptr %76, align 8, !noundef !3
+  %78 = icmp eq i64 %75, %77
+  br i1 %78, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

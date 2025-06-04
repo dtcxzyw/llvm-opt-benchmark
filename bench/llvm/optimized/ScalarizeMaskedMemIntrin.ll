@@ -955,7 +955,7 @@ _ZNSt8optionalIN4llvm14DomTreeUpdaterEE7emplaceIJRPNS0_13DominatorTreeENS0_21Gen
   br i1 %539, label %.split424.us, label %.split
 
 .split:                                           ; preds = %206, %.loopexit
-  %.0422 = phi i1 [ %3204, %.loopexit ], [ false, %206 ]
+  %.0422 = phi i1 [ %3203, %.loopexit ], [ false, %206 ]
   %540 = load ptr, ptr %209, align 8, !tbaa !81
   %.not406419 = icmp eq ptr %540, %210
   br i1 %.not406419, label %.split424.us, label %.lr.ph
@@ -7262,25 +7262,24 @@ _ZL28scalarizeMaskedCompressStoreRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTr
 
 .loopexit:                                        ; preds = %3199, %_ZL28scalarizeMaskedCompressStoreRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit, %_ZL25scalarizeMaskedExpandLoadRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit, %_ZL22scalarizeMaskedScatterRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit, %_ZL21scalarizeMaskedGatherRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit, %_ZL20scalarizeMaskedStoreRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit, %_ZL19scalarizeMaskedLoadRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit, %_ZL30scalarizeMaskedVectorHistogramRKN4llvm10DataLayoutEPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit
   %.2 = phi i8 [ 1, %_ZL30scalarizeMaskedVectorHistogramRKN4llvm10DataLayoutEPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit ], [ 1, %_ZL19scalarizeMaskedLoadRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit ], [ 1, %_ZL20scalarizeMaskedStoreRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit ], [ 1, %_ZL21scalarizeMaskedGatherRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit ], [ 1, %_ZL22scalarizeMaskedScatterRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit ], [ 1, %_ZL25scalarizeMaskedExpandLoadRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit ], [ 1, %_ZL28scalarizeMaskedCompressStoreRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdaterERb.exit ], [ %3200, %3199 ]
-  %3201 = and i8 %.2, 1
-  %3202 = zext i1 %.0422 to i8
-  %3203 = or i8 %3201, %3202
-  %3204 = icmp ne i8 %3203, 0
-  %3205 = trunc nuw i8 %.2 to i1
-  br i1 %3205, label %.split, label %.split424.us, !llvm.loop !369
+  %3201 = zext i1 %.0422 to i8
+  %3202 = or i8 %.2, %3201
+  %3203 = icmp ne i8 %3202, 0
+  %3204 = trunc nuw i8 %.2 to i1
+  br i1 %3204, label %.split, label %.split424.us, !llvm.loop !369
 
 .split424.us:                                     ; preds = %.loopexit, %.split, %206
-  %.us-phi = phi i1 [ false, %206 ], [ %.0422, %.split ], [ %3204, %.loopexit ]
-  %3206 = load i8, ptr %189, align 8, !tbaa !59, !range !84, !noundef !85
-  %3207 = trunc nuw i8 %3206 to i1
-  br i1 %3207, label %3208, label %_ZNSt14_Optional_baseIN4llvm14DomTreeUpdaterELb0ELb0EED2Ev.exit
+  %.us-phi = phi i1 [ false, %206 ], [ %.0422, %.split ], [ %3203, %.loopexit ]
+  %3205 = load i8, ptr %189, align 8, !tbaa !59, !range !84, !noundef !85
+  %3206 = trunc nuw i8 %3205 to i1
+  br i1 %3206, label %3207, label %_ZNSt14_Optional_baseIN4llvm14DomTreeUpdaterELb0ELb0EED2Ev.exit
 
-3208:                                             ; preds = %.split424.us
+3207:                                             ; preds = %.split424.us
   store i8 0, ptr %189, align 8, !tbaa !59
   call void @_ZN4llvm14DomTreeUpdaterD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %188) #14
   br label %_ZNSt14_Optional_baseIN4llvm14DomTreeUpdaterELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm14DomTreeUpdaterELb0ELb0EED2Ev.exit: ; preds = %.split424.us, %3208
+_ZNSt14_Optional_baseIN4llvm14DomTreeUpdaterELb0ELb0EED2Ev.exit: ; preds = %.split424.us, %3207
   call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %188) #14
   ret i1 %.us-phi
 }

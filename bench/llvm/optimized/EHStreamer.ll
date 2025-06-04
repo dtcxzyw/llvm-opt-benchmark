@@ -1162,7 +1162,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12
   %197 = load ptr, ptr %3, align 8, !tbaa !135
   %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %196
   %199 = load ptr, ptr %198, align 8, !tbaa !142
-  %200 = trunc i8 %spec.select to i1
+  %200 = trunc nuw i8 %spec.select to i1
   br i1 %200, label %201, label %.thread
 
 201:                                              ; preds = %193
@@ -1469,7 +1469,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit: ; preds 
   br i1 %341, label %342, label %376
 
 342:                                              ; preds = %338, %._crit_edge
-  %343 = trunc i8 %.272.lcssa to i1
+  %343 = trunc nuw i8 %.272.lcssa to i1
   %.not4 = xor i1 %343, true
   %or.cond6 = or i1 %19, %.not4
   %.pre150 = load i32, ptr %29, align 8, !tbaa !136

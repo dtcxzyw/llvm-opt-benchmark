@@ -3200,19 +3200,19 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef zeroext i1 @dissect_pdcp_lte_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   %6 = icmp slt i32 %5, 13
-  br i1 %6, label %101, label %7
+  br i1 %6, label %100, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.168, i64 noundef 8)
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %101
+  br i1 %.not, label %9, label %100
 
 9:                                                ; preds = %7
   %10 = tail call ptr @wmem_file_scope()
   %11 = load i32, ptr @proto_pdcp_lte, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef 0)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %92
+  br i1 %13, label %14, label %91
 
 14:                                               ; preds = %9
   %15 = tail call ptr @wmem_file_scope()
@@ -3357,7 +3357,7 @@ define internal noundef zeroext i1 @dissect_pdcp_lte_heur(ptr noundef %0, ptr no
   tail call fastcc void @report_heur_error(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pdcp_lte_unknown_udp_framing_tag, ptr noundef %0, i32 noundef %.0101.ph227, i32 noundef 1)
   %70 = tail call ptr @wmem_file_scope()
   tail call void @wmem_free(ptr noundef %70, ptr noundef %16)
-  br label %101
+  br label %100
 
 .outer:                                           ; preds = %.split213.us, %.split208.us, %.split203.us, %.split198.us, %.split193.us, %.split188.us, %.split183.us, %.split178.us, %.split174.us, %.split169.us, %.split164.us, %.split159.us, %.split154.us
   %.sink = phi i32 [ 3, %.split213.us ], [ 3, %.split208.us ], [ 3, %.split203.us ], [ 2, %.split198.us ], [ 2, %.split193.us ], [ 2, %.split188.us ], [ 2, %.split183.us ], [ 2, %.split178.us ], [ 3, %.split174.us ], [ 2, %.split169.us ], [ 2, %.split164.us ], [ 2, %.split159.us ], [ 2, %.split154.us ]
@@ -3372,48 +3372,47 @@ define internal noundef zeroext i1 @dissect_pdcp_lte_heur(ptr noundef %0, ptr no
   store i16 %74, ptr %72, align 2
   %75 = load i32, ptr %23, align 4
   %76 = icmp eq i32 %75, 2
-  %77 = and i8 %.0.ph228, 1
-  %78 = icmp eq i8 %77, 0
-  %or.cond = select i1 %76, i1 %78, i1 false
-  br i1 %or.cond, label %79, label %89
+  %77 = icmp eq i8 %.0.ph228, 0
+  %or.cond = select i1 %76, i1 %77, i1 false
+  br i1 %or.cond, label %78, label %88
 
-79:                                               ; preds = %.outer._crit_edge
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %81 = load ptr, ptr %80, align 8
-  tail call void @col_set_str(ptr noundef %81, i32 noundef 35, ptr noundef nonnull @.str.167)
-  %82 = load ptr, ptr %80, align 8
-  tail call void @col_clear(ptr noundef %82, i32 noundef 25)
-  %83 = load i32, ptr @proto_pdcp_lte, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %85 = load i32, ptr @ett_pdcp, align 4
-  %86 = tail call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85)
-  %87 = tail call ptr @proto_tree_add_expert(ptr noundef %86, ptr noundef %1, ptr noundef nonnull @ei_pdcp_lte_missing_udp_framing_tag, ptr noundef %0, i32 noundef 0, i32 noundef %43)
-  %88 = tail call ptr @wmem_file_scope()
-  tail call void @wmem_free(ptr noundef %88, ptr noundef %16)
-  br label %101
+78:                                               ; preds = %.outer._crit_edge
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %80 = load ptr, ptr %79, align 8
+  tail call void @col_set_str(ptr noundef %80, i32 noundef 35, ptr noundef nonnull @.str.167)
+  %81 = load ptr, ptr %79, align 8
+  tail call void @col_clear(ptr noundef %81, i32 noundef 25)
+  %82 = load i32, ptr @proto_pdcp_lte, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %84 = load i32, ptr @ett_pdcp, align 4
+  %85 = tail call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %84)
+  %86 = tail call ptr @proto_tree_add_expert(ptr noundef %85, ptr noundef %1, ptr noundef nonnull @ei_pdcp_lte_missing_udp_framing_tag, ptr noundef %0, i32 noundef 0, i32 noundef %43)
+  %87 = tail call ptr @wmem_file_scope()
+  tail call void @wmem_free(ptr noundef %87, ptr noundef %16)
+  br label %100
 
-89:                                               ; preds = %.outer._crit_edge
-  %90 = tail call ptr @wmem_file_scope()
-  %91 = load i32, ptr @proto_pdcp_lte, align 4
-  tail call void @p_add_proto_data(ptr noundef %90, ptr noundef %1, i32 noundef %91, i32 noundef 0, ptr noundef %16)
-  br label %98
+88:                                               ; preds = %.outer._crit_edge
+  %89 = tail call ptr @wmem_file_scope()
+  %90 = load i32, ptr @proto_pdcp_lte, align 4
+  tail call void @p_add_proto_data(ptr noundef %89, ptr noundef %1, i32 noundef %90, i32 noundef 0, ptr noundef %16)
+  br label %97
 
-92:                                               ; preds = %9
-  %93 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %94 = getelementptr inbounds nuw i8, ptr %12, i64 58
-  %95 = load i16, ptr %94, align 2
-  %96 = zext i16 %95 to i32
-  %97 = sub i32 %93, %96
-  br label %98
+91:                                               ; preds = %9
+  %92 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 58
+  %94 = load i16, ptr %93, align 2
+  %95 = zext i16 %94 to i32
+  %96 = sub i32 %92, %95
+  br label %97
 
-98:                                               ; preds = %92, %89
-  %.2 = phi i32 [ %43, %89 ], [ %97, %92 ]
-  %99 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2)
-  %100 = tail call i32 @dissect_pdcp_lte(ptr noundef %99, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %101
+97:                                               ; preds = %91, %88
+  %.2 = phi i32 [ %43, %88 ], [ %96, %91 ]
+  %98 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2)
+  %99 = tail call i32 @dissect_pdcp_lte(ptr noundef %98, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %100
 
-101:                                              ; preds = %7, %4, %98, %79, %.split.us
-  %.0100 = phi i1 [ true, %.split.us ], [ true, %79 ], [ true, %98 ], [ false, %4 ], [ false, %7 ]
+100:                                              ; preds = %7, %4, %97, %78, %.split.us
+  %.0100 = phi i1 [ true, %.split.us ], [ true, %78 ], [ true, %97 ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0100
 }
 

@@ -2571,56 +2571,55 @@ uncore_pci_pmus_register.exit:                    ; preds = %.loopexit6.i, %25
 
 173:                                              ; preds = %.loopexit.i7, %.preheader.i
   %174 = phi i8 [ %99, %.preheader.i ], [ %170, %.loopexit.i7 ]
-  %175 = and i8 %174, 1
-  %176 = icmp eq i8 %175, 0
-  br i1 %176, label %.thread9.i, label %177
+  %175 = icmp eq i8 %174, 0
+  br i1 %175, label %.thread9.i, label %176
 
-177:                                              ; preds = %173
-  %178 = tail call i32 @bus_register_notifier(ptr noundef nonnull @pci_bus_type, ptr noundef nonnull @uncore_pci_sub_notifier) #18
-  %.not.i = icmp eq i32 %178, 0
+176:                                              ; preds = %173
+  %177 = tail call i32 @bus_register_notifier(ptr noundef nonnull @pci_bus_type, ptr noundef nonnull @uncore_pci_sub_notifier) #18
+  %.not.i = icmp eq i32 %177, 0
   br i1 %.not.i, label %uncore_pci_sub_driver_init.exit, label %.thread9.i
 
-.thread9.i:                                       ; preds = %177, %173, %95
+.thread9.i:                                       ; preds = %176, %173, %95
   store ptr null, ptr @uncore_pci_sub_driver, align 8
   br label %uncore_pci_sub_driver_init.exit
 
-uncore_pci_sub_driver_init.exit:                  ; preds = %.thread9.i, %177, %92
+uncore_pci_sub_driver_init.exit:                  ; preds = %.thread9.i, %176, %92
   store i1 true, ptr @pcidrv_registered, align 1
-  br label %191
+  br label %190
 
 .loopexit10:                                      ; preds = %.preheader9, %20
-  %179 = phi i32 [ %23, %20 ], [ %16, %.preheader9 ]
-  %180 = load ptr, ptr @uncore_pci_uncores, align 8
-  tail call fastcc void @uncore_types_exit(ptr noundef %180)
-  %181 = load ptr, ptr @uncore_extra_pci_dev, align 8
-  tail call void @kfree(ptr noundef %181) #18
+  %178 = phi i32 [ %23, %20 ], [ %16, %.preheader9 ]
+  %179 = load ptr, ptr @uncore_pci_uncores, align 8
+  tail call fastcc void @uncore_types_exit(ptr noundef %179)
+  %180 = load ptr, ptr @uncore_extra_pci_dev, align 8
+  tail call void @kfree(ptr noundef %180) #18
   store ptr null, ptr @uncore_extra_pci_dev, align 8
-  %182 = load ptr, ptr @pci2phy_map_head, align 8
-  %183 = icmp eq ptr %182, @pci2phy_map_head
-  br i1 %183, label %.loopexit, label %.preheader
+  %181 = load ptr, ptr @pci2phy_map_head, align 8
+  %182 = icmp eq ptr %181, @pci2phy_map_head
+  br i1 %182, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit10, %.preheader
-  %184 = phi ptr [ %185, %.preheader ], [ %182, %.loopexit10 ]
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store ptr %187, ptr %188, align 8
-  store volatile ptr %185, ptr %187, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %184, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %186, align 8
-  tail call void @kfree(ptr noundef %184) #18
-  %189 = icmp eq ptr %185, @pci2phy_map_head
-  br i1 %189, label %.loopexit, label %.preheader, !llvm.loop !50
+  %183 = phi ptr [ %184, %.preheader ], [ %181, %.loopexit10 ]
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  store ptr %186, ptr %187, align 8
+  store volatile ptr %184, ptr %186, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %183, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %185, align 8
+  tail call void @kfree(ptr noundef %183) #18
+  %188 = icmp eq ptr %184, @pci2phy_map_head
+  br i1 %188, label %.loopexit, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit10, %0
-  %190 = phi i32 [ -12, %0 ], [ %179, %.loopexit10 ], [ %179, %.preheader ]
+  %189 = phi i32 [ -12, %0 ], [ %178, %.loopexit10 ], [ %178, %.preheader ]
   store ptr @empty_uncore, ptr @uncore_pci_uncores, align 8
-  br label %191
+  br label %190
 
-191:                                              ; preds = %.loopexit, %uncore_pci_sub_driver_init.exit
-  %192 = phi i32 [ %190, %.loopexit ], [ 0, %uncore_pci_sub_driver_init.exit ]
-  ret i32 %192
+190:                                              ; preds = %.loopexit, %uncore_pci_sub_driver_init.exit
+  %191 = phi i32 [ %189, %.loopexit ], [ 0, %uncore_pci_sub_driver_init.exit ]
+  ret i32 %191
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

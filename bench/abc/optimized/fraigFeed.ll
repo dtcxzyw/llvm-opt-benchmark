@@ -1700,13 +1700,18 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Fraig_NodeIsTravIdCurrent(ptr noundef %0, ptr noundef %1) #12
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %8, label %4
+  br i1 %.not, label %8, label %common.ret
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i32, ptr %5, align 8
-  %7 = lshr i32 %6, 6
-  br label %36
+common.ret:                                       ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8
+  %6 = lshr i32 %5, 6
+  %7 = and i32 %6, 1
+  br label %common.ret17
+
+common.ret17:                                     ; preds = %8, %common.ret
+  %common.ret17.op = phi i32 [ %7, %common.ret ], [ %30, %8 ]
+  ret i32 %common.ret17.op
 
 8:                                                ; preds = %2
   tail call void @Fraig_NodeSetTravIdCurrent(ptr noundef %0, ptr noundef %1) #12
@@ -1729,21 +1734,16 @@ define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr nou
   %25 = load ptr, ptr %15, align 8, !tbaa !106
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
-  %28 = xor i32 %20, %27
-  %29 = and i32 %28, %24
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i32, ptr %30, align 8
-  %32 = shl i32 %29, 6
-  %33 = and i32 %32, 64
-  %34 = and i32 %31, -65
+  %28 = and i32 %27, 1
+  %29 = xor i32 %28, %20
+  %30 = and i32 %29, %24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = load i32, ptr %31, align 8
+  %33 = shl nuw nsw i32 %30, 6
+  %34 = and i32 %32, -65
   %35 = or disjoint i32 %33, %34
-  store i32 %35, ptr %30, align 8
-  br label %36
-
-36:                                               ; preds = %8, %4
-  %.0.in = phi i32 [ %7, %4 ], [ %29, %8 ]
-  %.0 = and i32 %.0.in, 1
-  ret i32 %.0
+  store i32 %35, ptr %31, align 8
+  br label %common.ret17
 }
 
 declare i32 @Fraig_NodeIsTravIdCurrent(ptr noundef, ptr noundef) local_unnamed_addr #1

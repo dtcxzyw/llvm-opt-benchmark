@@ -1000,9 +1000,9 @@ define noundef ptr @Map_NodeCreate(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 80:                                               ; preds = %76, %70
   %81 = phi i32 [ %75, %70 ], [ %79, %76 ]
-  %82 = and i32 %67, %81
+  %82 = and i32 %81, %67
   %83 = and i32 %53, -9
-  %84 = or disjoint i32 %82, %83
+  %84 = or i32 %82, %83
   store i32 %84, ptr %47, align 4
   br label %107
 

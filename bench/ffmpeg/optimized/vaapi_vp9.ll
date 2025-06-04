@@ -156,48 +156,48 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
   %128 = and i8 %127, 1
   %129 = zext nneg i8 %128 to i32
   %130 = shl nuw nsw i32 %129, 30
-  %131 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %132 = load i8, ptr %131, align 4, !tbaa !63
-  %133 = and i8 %132, 1
-  %134 = zext nneg i8 %133 to i32
-  %135 = shl nuw i32 %134, 31
-  %.masked94.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked = or disjoint i32 %64, %65
-  %.masked96.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked94.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked, %70
-  %.masked98.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked96.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked, %75
-  %.masked100.masked.masked.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked98.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked, %80
-  %.masked102.masked.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked100.masked.masked.masked.masked.masked.masked.masked.masked.masked, %85
-  %.masked104.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked102.masked.masked.masked.masked.masked.masked.masked.masked, %90
-  %.masked106.masked.masked.masked.masked.masked.masked = or i32 %.masked104.masked.masked.masked.masked.masked.masked.masked, %95
-  %.masked108.masked.masked.masked.masked.masked = or i32 %.masked106.masked.masked.masked.masked.masked.masked, %100
-  %.masked110.masked.masked.masked.masked = or i32 %.masked108.masked.masked.masked.masked.masked, %105
-  %.masked112.masked.masked.masked = or i32 %.masked110.masked.masked.masked.masked, %110
-  %.masked114.masked.masked = or i32 %.masked112.masked.masked.masked, %115
-  %.masked116.masked = or i32 %.masked114.masked.masked, %120
-  %.masked118 = or i32 %.masked116.masked, %125
-  %136 = or i32 %.masked118, %130
-  %137 = or i32 %136, %135
-  %138 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  %139 = load i8, ptr %138, align 2, !tbaa !64
-  %140 = getelementptr inbounds nuw i8, ptr %7, i64 31
-  %141 = load i8, ptr %140, align 1, !tbaa !65
-  %142 = getelementptr inbounds nuw i8, ptr %7, i64 276
-  %143 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  %144 = load i32, ptr %143, align 4, !tbaa !66
-  %145 = trunc i32 %144 to i8
-  %146 = load i32, ptr %142, align 4, !tbaa !67
-  %147 = trunc i32 %146 to i8
-  %148 = getelementptr inbounds nuw i8, ptr %7, i64 292
-  %149 = load i32, ptr %148, align 4, !tbaa !68
-  %150 = trunc i32 %149 to i8
-  %151 = getelementptr inbounds nuw i8, ptr %7, i64 296
-  %152 = load i32, ptr %151, align 8, !tbaa !69
-  %153 = trunc i32 %152 to i16
+  %.masked94.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked = or disjoint i32 %64, %65
+  %.masked96.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked94.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked, %70
+  %.masked98.masked.masked.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked96.masked.masked.masked.masked.masked.masked.masked.masked.masked.masked, %75
+  %.masked100.masked.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked98.masked.masked.masked.masked.masked.masked.masked.masked.masked, %80
+  %.masked102.masked.masked.masked.masked.masked.masked.masked = or i32 %.masked100.masked.masked.masked.masked.masked.masked.masked.masked, %85
+  %.masked104.masked.masked.masked.masked.masked.masked = or i32 %.masked102.masked.masked.masked.masked.masked.masked.masked, %90
+  %.masked106.masked.masked.masked.masked.masked = or i32 %.masked104.masked.masked.masked.masked.masked.masked, %95
+  %.masked108.masked.masked.masked.masked = or i32 %.masked106.masked.masked.masked.masked.masked, %100
+  %.masked110.masked.masked.masked = or i32 %.masked108.masked.masked.masked.masked, %105
+  %.masked112.masked.masked = or i32 %.masked110.masked.masked.masked, %110
+  %.masked114.masked = or i32 %.masked112.masked.masked, %115
+  %.masked116 = or i32 %.masked114.masked, %120
+  %131 = or i32 %.masked116, %125
+  %132 = or i32 %131, %130
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %134 = load i8, ptr %133, align 4, !tbaa !63
+  %135 = and i8 %134, 1
+  %136 = zext nneg i8 %135 to i32
+  %137 = shl nuw i32 %136, 31
+  %138 = or i32 %132, %137
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 30
+  %140 = load i8, ptr %139, align 2, !tbaa !64
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 31
+  %142 = load i8, ptr %141, align 1, !tbaa !65
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 276
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 280
+  %145 = load i32, ptr %144, align 4, !tbaa !66
+  %146 = trunc i32 %145 to i8
+  %147 = load i32, ptr %143, align 4, !tbaa !67
+  %148 = trunc i32 %147 to i8
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 292
+  %150 = load i32, ptr %149, align 4, !tbaa !68
+  %151 = trunc i32 %150 to i8
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 296
+  %153 = load i32, ptr %152, align 8, !tbaa !69
+  %154 = trunc i32 %153 to i16
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %.sroa.56.0..sroa_idx, i8 0, i64 10, i1 false)
-  %154 = load i8, ptr %7, align 8, !tbaa !70
-  %155 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %156 = load i8, ptr %155, align 1, !tbaa !71
+  %155 = load i8, ptr %7, align 8, !tbaa !70
+  %156 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %157 = load i8, ptr %156, align 1, !tbaa !71
   %.sroa.60.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.60.0..sroa_idx, i8 0, i64 32, i1 false)
   store i16 %20, ptr %5, align 4, !tbaa !72
@@ -206,98 +206,98 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.3.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %137, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !62
+  store i32 %138, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !62
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 %139, ptr %.sroa.49.0..sroa_idx, align 4, !tbaa !62
+  store i8 %140, ptr %.sroa.49.0..sroa_idx, align 4, !tbaa !62
   %.sroa.50.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 41
-  store i8 %141, ptr %.sroa.50.0..sroa_idx, align 1, !tbaa !62
+  store i8 %142, ptr %.sroa.50.0..sroa_idx, align 1, !tbaa !62
   %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 42
-  store i8 %145, ptr %.sroa.51.0..sroa_idx, align 2, !tbaa !62
+  store i8 %146, ptr %.sroa.51.0..sroa_idx, align 2, !tbaa !62
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 43
-  store i8 %147, ptr %.sroa.52.0..sroa_idx, align 1, !tbaa !62
+  store i8 %148, ptr %.sroa.52.0..sroa_idx, align 1, !tbaa !62
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i8 %150, ptr %.sroa.53.0..sroa_idx, align 4, !tbaa !62
+  store i8 %151, ptr %.sroa.53.0..sroa_idx, align 4, !tbaa !62
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 45
   store i8 0, ptr %.sroa.54.0..sroa_idx, align 1
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 46
-  store i16 %153, ptr %.sroa.55.0..sroa_idx, align 2, !tbaa !72
+  store i16 %154, ptr %.sroa.55.0..sroa_idx, align 2, !tbaa !72
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 58
-  store i8 %154, ptr %.sroa.58.0..sroa_idx, align 2, !tbaa !62
+  store i8 %155, ptr %.sroa.58.0..sroa_idx, align 2, !tbaa !62
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 59
-  store i8 %156, ptr %.sroa.59.0..sroa_idx, align 1, !tbaa !62
-  %157 = getelementptr inbounds nuw i8, ptr %7, i64 50
-  br label %158
+  store i8 %157, ptr %.sroa.59.0..sroa_idx, align 1, !tbaa !62
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 50
+  br label %159
 
-158:                                              ; preds = %55, %158
-  %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %158 ]
-  %159 = getelementptr inbounds nuw [7 x i8], ptr %157, i64 0, i64 %indvars.iv
-  %160 = load i8, ptr %159, align 1, !tbaa !62
-  %161 = getelementptr inbounds nuw [7 x i8], ptr %.sroa.56.0..sroa_idx, i64 0, i64 %indvars.iv
-  store i8 %160, ptr %161, align 1, !tbaa !62
+159:                                              ; preds = %55, %159
+  %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %159 ]
+  %160 = getelementptr inbounds nuw [7 x i8], ptr %158, i64 0, i64 %indvars.iv
+  %161 = load i8, ptr %160, align 1, !tbaa !62
+  %162 = getelementptr inbounds nuw [7 x i8], ptr %.sroa.56.0..sroa_idx, i64 0, i64 %indvars.iv
+  store i8 %161, ptr %162, align 1, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %162, label %158, !llvm.loop !74
+  br i1 %exitcond.not, label %163, label %159, !llvm.loop !74
 
-162:                                              ; preds = %158
-  %163 = load i8, ptr %91, align 1, !tbaa !60
-  %.not120 = icmp eq i8 %163, 0
-  br i1 %.not120, label %169, label %.preheader
+163:                                              ; preds = %159
+  %164 = load i8, ptr %91, align 1, !tbaa !60
+  %.not118 = icmp eq i8 %164, 0
+  br i1 %.not118, label %170, label %.preheader
 
-.preheader:                                       ; preds = %162
-  %164 = getelementptr inbounds nuw i8, ptr %7, i64 57
-  br label %165
+.preheader:                                       ; preds = %163
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 57
+  br label %166
 
-165:                                              ; preds = %.preheader, %165
-  %indvars.iv126 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next127, %165 ]
-  %166 = getelementptr inbounds nuw [3 x i8], ptr %164, i64 0, i64 %indvars.iv126
-  %167 = load i8, ptr %166, align 1, !tbaa !62
-  %168 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.57.0..sroa_idx, i64 0, i64 %indvars.iv126
-  store i8 %167, ptr %168, align 1, !tbaa !62
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next127, 3
-  br i1 %exitcond129.not, label %.loopexit, label %165, !llvm.loop !76
+166:                                              ; preds = %.preheader, %166
+  %indvars.iv124 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next125, %166 ]
+  %167 = getelementptr inbounds nuw [3 x i8], ptr %165, i64 0, i64 %indvars.iv124
+  %168 = load i8, ptr %167, align 1, !tbaa !62
+  %169 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.57.0..sroa_idx, i64 0, i64 %indvars.iv124
+  store i8 %168, ptr %169, align 1, !tbaa !62
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond127.not = icmp eq i64 %indvars.iv.next125, 3
+  br i1 %exitcond127.not, label %.loopexit, label %166, !llvm.loop !76
 
-169:                                              ; preds = %162
+170:                                              ; preds = %163
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.57.0..sroa_idx, i8 -1, i64 3, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %165, %169
-  %170 = getelementptr inbounds nuw i8, ptr %7, i64 304
-  br label %171
+.loopexit:                                        ; preds = %166, %170
+  %171 = getelementptr inbounds nuw i8, ptr %7, i64 304
+  br label %172
 
-171:                                              ; preds = %.loopexit, %178
-  %indvars.iv130 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next131, %178 ]
-  %172 = getelementptr inbounds nuw [8 x %struct.ProgressFrame], ptr %170, i64 0, i64 %indvars.iv130
-  %173 = load ptr, ptr %172, align 8, !tbaa !77
-  %.not121 = icmp eq ptr %173, null
-  br i1 %.not121, label %178, label %174
+172:                                              ; preds = %.loopexit, %179
+  %indvars.iv128 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next129, %179 ]
+  %173 = getelementptr inbounds nuw [8 x %struct.ProgressFrame], ptr %171, i64 0, i64 %indvars.iv128
+  %174 = load ptr, ptr %173, align 8, !tbaa !77
+  %.not119 = icmp eq ptr %174, null
+  br i1 %.not119, label %179, label %175
 
-174:                                              ; preds = %171
-  %175 = getelementptr i8, ptr %173, i64 24
-  %.val = load ptr, ptr %175, align 8, !tbaa !35
-  %176 = ptrtoint ptr %.val to i64
-  %177 = trunc i64 %176 to i32
-  br label %178
+175:                                              ; preds = %172
+  %176 = getelementptr i8, ptr %174, i64 24
+  %.val = load ptr, ptr %176, align 8, !tbaa !35
+  %177 = ptrtoint ptr %.val to i64
+  %178 = trunc i64 %177 to i32
+  br label %179
 
-178:                                              ; preds = %171, %174
-  %.sink = phi i32 [ %177, %174 ], [ -1, %171 ]
-  %179 = getelementptr inbounds nuw [8 x i32], ptr %.sroa.3.0..sroa_idx, i64 0, i64 %indvars.iv130
-  store i32 %.sink, ptr %179, align 4, !tbaa !78
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next131, 8
-  br i1 %exitcond133.not, label %180, label %171, !llvm.loop !79
+179:                                              ; preds = %172, %175
+  %.sink = phi i32 [ %178, %175 ], [ -1, %172 ]
+  %180 = getelementptr inbounds nuw [8 x i32], ptr %.sroa.3.0..sroa_idx, i64 0, i64 %indvars.iv128
+  store i32 %.sink, ptr %180, align 4, !tbaa !78
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 8
+  br i1 %exitcond131.not, label %181, label %172, !llvm.loop !79
 
-180:                                              ; preds = %178
-  %181 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %5, i64 noundef 92) #4
-  %182 = icmp slt i32 %181, 0
-  br i1 %182, label %183, label %185
+181:                                              ; preds = %179
+  %182 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %5, i64 noundef 92) #4
+  %183 = icmp slt i32 %182, 0
+  br i1 %183, label %184, label %186
 
-183:                                              ; preds = %180
-  %184 = call i32 @ff_vaapi_decode_cancel(ptr noundef %0, ptr noundef nonnull %10) #4
-  br label %185
+184:                                              ; preds = %181
+  %185 = call i32 @ff_vaapi_decode_cancel(ptr noundef %0, ptr noundef nonnull %10) #4
+  br label %186
 
-185:                                              ; preds = %180, %183
-  %.0 = phi i32 [ %181, %183 ], [ 0, %180 ]
+186:                                              ; preds = %181, %184
+  %.0 = phi i32 [ %182, %184 ], [ 0, %181 ]
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %5) #4
   ret i32 %.0
 }

@@ -4270,71 +4270,70 @@ define internal i32 @wkh_allow(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %12 = load i32, ptr @hf_hdr_name_value, align 4
   %13 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %.not = icmp sgt i8 %9, -1
-  br i1 %.not, label %17, label %14
+  br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %4
   %15 = add i32 %2, 2
-  %16 = and i8 %9, 64
-  %.not41 = icmp eq i8 %16, 0
-  br i1 %.not41, label %43, label %37
+  %16 = and i8 %9, 127
+  %17 = icmp samesign ugt i8 %16, 63
+  br i1 %17, label %38, label %43
 
-17:                                               ; preds = %4
-  %18 = add nsw i8 %9, -32
-  %or.cond = icmp ult i8 %18, -31
-  br i1 %or.cond, label %19, label %24
+18:                                               ; preds = %4
+  %19 = add nsw i8 %9, -32
+  %or.cond = icmp ult i8 %19, -31
+  br i1 %or.cond, label %20, label %25
 
-19:                                               ; preds = %17
-  %20 = call ptr @wmem_packet_scope()
-  %21 = call ptr @tvb_get_stringz_enc(ptr noundef %20, ptr noundef %1, i32 noundef %8, ptr noundef nonnull %6, i32 noundef 0)
-  %22 = load i32, ptr %6, align 4
-  %23 = add i32 %22, %8
+20:                                               ; preds = %18
+  %21 = call ptr @wmem_packet_scope()
+  %22 = call ptr @tvb_get_stringz_enc(ptr noundef %21, ptr noundef %1, i32 noundef %8, ptr noundef nonnull %6, i32 noundef 0)
+  %23 = load i32, ptr %6, align 4
+  %24 = add i32 %23, %8
   br label %43
 
-24:                                               ; preds = %17
-  %25 = icmp eq i8 %9, 31
-  br i1 %25, label %26, label %31
+25:                                               ; preds = %18
+  %26 = icmp eq i8 %9, 31
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %24
-  %27 = add i32 %2, 2
-  %28 = call i32 @tvb_get_uintvar(ptr noundef %1, i32 noundef %27, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull @ei_wsp_oversized_uintvar)
-  %29 = load i32, ptr %7, align 4
-  %30 = add i32 %29, 1
-  br label %34
+27:                                               ; preds = %25
+  %28 = add i32 %2, 2
+  %29 = call i32 @tvb_get_uintvar(ptr noundef %1, i32 noundef %28, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull @ei_wsp_oversized_uintvar)
+  %30 = load i32, ptr %7, align 4
+  %31 = add i32 %30, 1
+  br label %35
 
-31:                                               ; preds = %24
-  %32 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %8)
-  %33 = zext i8 %32 to i32
-  br label %34
+32:                                               ; preds = %25
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %8)
+  %34 = zext i8 %33 to i32
+  br label %35
 
-34:                                               ; preds = %31, %26
-  %.sink = phi i32 [ %28, %26 ], [ %33, %31 ]
-  %storemerge = phi i32 [ %30, %26 ], [ 1, %31 ]
+35:                                               ; preds = %32, %27
+  %.sink = phi i32 [ %29, %27 ], [ %34, %32 ]
+  %storemerge = phi i32 [ %31, %27 ], [ 1, %32 ]
   store i32 %.sink, ptr %6, align 4
   store i32 %storemerge, ptr %7, align 4
-  %35 = add i32 %storemerge, %8
-  %36 = add i32 %35, %.sink
+  %36 = add i32 %storemerge, %8
+  %37 = add i32 %36, %.sink
   br label %43
 
-37:                                               ; preds = %14
-  %38 = load i32, ptr @hf_hdr_allow, align 4
-  %39 = and i8 %9, 127
-  %40 = zext nneg i8 %39 to i32
-  %41 = call ptr @val_to_str_ext(i32 noundef %40, ptr noundef nonnull @wsp_vals_pdu_type_ext, ptr noundef nonnull @.str.1028)
-  %42 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %38, ptr noundef %1, i32 noundef %2, i32 noundef 2, ptr noundef %41)
+38:                                               ; preds = %14
+  %39 = zext nneg i8 %16 to i32
+  %40 = load i32, ptr @hf_hdr_allow, align 4
+  %41 = call ptr @val_to_str_ext(i32 noundef %39, ptr noundef nonnull @wsp_vals_pdu_type_ext, ptr noundef nonnull @.str.1028)
+  %42 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %40, ptr noundef %1, i32 noundef %2, i32 noundef 2, ptr noundef %41)
   br label %46
 
-43:                                               ; preds = %14, %19, %34
-  %.0.ph = phi i32 [ %36, %34 ], [ %23, %19 ], [ %15, %14 ]
+43:                                               ; preds = %14, %20, %35
+  %.0.ph = phi i32 [ %37, %35 ], [ %24, %20 ], [ %15, %14 ]
   %44 = load ptr, ptr %5, align 8
   %45 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %44, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %46
 
-46:                                               ; preds = %37, %43
-  %.045 = phi i32 [ %.0.ph, %43 ], [ %15, %37 ]
+46:                                               ; preds = %38, %43
+  %.044 = phi i32 [ %.0.ph, %43 ], [ %15, %38 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  ret i32 %.045
+  ret i32 %.044
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -5415,16 +5414,15 @@ define internal i32 @wkh_public(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 14:                                               ; preds = %4
   %15 = add i32 %2, 2
-  %16 = and i8 %9, 64
-  %.not47 = icmp eq i8 %16, 0
-  br i1 %.not47, label %46, label %17
+  %16 = and i8 %9, 127
+  %17 = icmp samesign ugt i8 %16, 63
+  br i1 %17, label %18, label %46
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr @hf_hdr_public, align 4
-  %19 = and i8 %9, 127
-  %20 = zext nneg i8 %19 to i32
-  %21 = call ptr @val_to_str_ext(i32 noundef %20, ptr noundef nonnull @wsp_vals_pdu_type_ext, ptr noundef nonnull @.str.1028)
-  %22 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %2, i32 noundef 2, ptr noundef %21)
+18:                                               ; preds = %14
+  %19 = zext nneg i8 %16 to i32
+  %20 = load i32, ptr @hf_hdr_public, align 4
+  %21 = call ptr @val_to_str_ext(i32 noundef %19, ptr noundef nonnull @wsp_vals_pdu_type_ext, ptr noundef nonnull @.str.1028)
+  %22 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 2, ptr noundef %21)
   br label %.thread
 
 23:                                               ; preds = %4
@@ -5472,12 +5470,12 @@ define internal i32 @wkh_public(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %48 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %47, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread
 
-.thread:                                          ; preds = %25, %17, %46
-  %.050 = phi i32 [ %.0, %46 ], [ %29, %25 ], [ %15, %17 ]
+.thread:                                          ; preds = %25, %18, %46
+  %.049 = phi i32 [ %.0, %46 ], [ %29, %25 ], [ %15, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  ret i32 %.050
+  ret i32 %.049
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

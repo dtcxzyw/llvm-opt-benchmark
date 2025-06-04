@@ -328,64 +328,63 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZNSt6vectorIN4llvm
   br i1 %.not27, label %.preheader, label %19
 
 .preheader.split:                                 ; preds = %.preheader, %._crit_edge
-  %.036 = phi i1 [ %42, %._crit_edge ], [ false, %.preheader ]
+  %.036 = phi i1 [ %41, %._crit_edge ], [ false, %.preheader ]
   %37 = load ptr, ptr %3, align 8, !tbaa !50
   %38 = load ptr, ptr %15, align 8, !tbaa !50
   %.not2832 = icmp eq ptr %37, %38
   br i1 %.not2832, label %.split.us, label %.lr.ph35
 
-._crit_edge:                                      ; preds = %48
-  %39 = and i8 %.2, 1
-  %40 = zext i1 %.036 to i8
-  %41 = or i8 %39, %40
-  %42 = icmp ne i8 %41, 0
-  %43 = trunc nuw i8 %.2 to i1
-  br i1 %43, label %.preheader.split, label %.split.us, !llvm.loop !62
+._crit_edge:                                      ; preds = %47
+  %39 = zext i1 %.036 to i8
+  %40 = or i8 %.2, %39
+  %41 = icmp ne i8 %40, 0
+  %42 = trunc nuw i8 %.2 to i1
+  br i1 %42, label %.preheader.split, label %.split.us, !llvm.loop !62
 
-.lr.ph35:                                         ; preds = %.preheader.split, %48
-  %.134 = phi i8 [ %.2, %48 ], [ 0, %.preheader.split ]
-  %.sroa.020.033 = phi ptr [ %49, %48 ], [ %37, %.preheader.split ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !58
-  %.not = icmp eq ptr %45, null
-  br i1 %.not, label %48, label %46
+.lr.ph35:                                         ; preds = %.preheader.split, %47
+  %.134 = phi i8 [ %.2, %47 ], [ 0, %.preheader.split ]
+  %.sroa.020.033 = phi ptr [ %48, %47 ], [ %37, %.preheader.split ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !58
+  %.not = icmp eq ptr %44, null
+  br i1 %.not, label %47, label %45
 
-46:                                               ; preds = %.lr.ph35
-  %47 = call noundef zeroext i1 @_ZN4llvm10FlattenCFGEPNS_10BasicBlockEPNS_9AAResultsE(ptr noundef nonnull %45, ptr noundef %1) #12
-  %spec.select = select i1 %47, i8 1, i8 %.134
-  br label %48
+45:                                               ; preds = %.lr.ph35
+  %46 = call noundef zeroext i1 @_ZN4llvm10FlattenCFGEPNS_10BasicBlockEPNS_9AAResultsE(ptr noundef nonnull %44, ptr noundef %1) #12
+  %spec.select = select i1 %46, i8 1, i8 %.134
+  br label %47
 
-48:                                               ; preds = %46, %.lr.ph35
-  %.2 = phi i8 [ %.134, %.lr.ph35 ], [ %spec.select, %46 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 24
-  %.not28 = icmp eq ptr %49, %38
+47:                                               ; preds = %45, %.lr.ph35
+  %.2 = phi i8 [ %.134, %.lr.ph35 ], [ %spec.select, %45 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 24
+  %.not28 = icmp eq ptr %48, %38
   br i1 %.not28, label %._crit_edge, label %.lr.ph35
 
 .split.us:                                        ; preds = %._crit_edge, %.preheader.split
-  %50 = phi i1 [ %.036, %.preheader.split ], [ %42, %._crit_edge ]
+  %49 = phi i1 [ %.036, %.preheader.split ], [ %41, %._crit_edge ]
   %.pre = load ptr, ptr %3, align 8, !tbaa !64
   %.pre38 = load ptr, ptr %15, align 8, !tbaa !59
   %.not4.i.i.i.i16 = icmp eq ptr %.pre, %.pre38
   br i1 %.not4.i.i.i.i16, label %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %.split.us, %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %54, %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i ], [ %.pre, %.split.us ]
-  %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !58
-  %magicptr.i.i.i.i.i.i18 = ptrtoint ptr %52 to i64
-  switch i64 %magicptr.i.i.i.i.i.i18, label %53 [
+  %.05.i.i.i.i = phi ptr [ %53, %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i ], [ %.pre, %.split.us ]
+  %50 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !58
+  %magicptr.i.i.i.i.i.i18 = ptrtoint ptr %51 to i64
+  switch i64 %magicptr.i.i.i.i.i.i18, label %52 [
     i64 0, label %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i
     i64 -4096, label %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i
     i64 -8192, label %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i
   ]
 
-53:                                               ; preds = %.lr.ph.i.i.i.i17
+52:                                               ; preds = %.lr.ph.i.i.i.i17
   call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i) #12
   br label %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i:   ; preds = %53, %.lr.ph.i.i.i.i17, %.lr.ph.i.i.i.i17, %.lr.ph.i.i.i.i17
-  %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i19 = icmp eq ptr %54, %.pre38
+_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i:   ; preds = %52, %.lr.ph.i.i.i.i17, %.lr.ph.i.i.i.i17, %.lr.ph.i.i.i.i17
+  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
+  %.not.i.i.i.i19 = icmp eq ptr %53, %.pre38
   br i1 %.not.i.i.i.i19, label %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i17, !llvm.loop !65
 
 _ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4llvm6WeakVHEEvPT_.exit.i.i.i.i
@@ -393,21 +392,21 @@ _ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds 
   br label %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %.preheader, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.split.us
-  %.us-phi42 = phi i1 [ %50, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %50, %.split.us ], [ false, %.preheader ]
-  %55 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %.split.us ], [ %16, %.preheader ]
-  %.not.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm6WeakVHESaIS1_EED2Ev.exit, label %56
+  %.us-phi42 = phi i1 [ %49, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %49, %.split.us ], [ false, %.preheader ]
+  %54 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %.split.us ], [ %16, %.preheader ]
+  %.not.i.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm6WeakVHESaIS1_EED2Ev.exit, label %55
 
-56:                                               ; preds = %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !61
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %55 to i64
-  %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
+55:                                               ; preds = %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %57 = load ptr, ptr %56, align 8, !tbaa !61
+  %58 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %54 to i64
+  %60 = sub i64 %58, %59
+  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %60) #15
   br label %_ZNSt6vectorIN4llvm6WeakVHESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN4llvm6WeakVHESaIS1_EED2Ev.exit:     ; preds = %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i, %56
+_ZNSt6vectorIN4llvm6WeakVHESaIS1_EED2Ev.exit:     ; preds = %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   ret i1 %.us-phi42
 }

@@ -5350,8 +5350,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %29, %7
 
 55:                                               ; preds = %46
   %56 = load i8, ptr %35, align 8, !tbaa !154, !range !155, !noundef !156
-  %.mask = and i8 %.042, 1
-  %57 = icmp eq i8 %56, %.mask
+  %57 = icmp eq i8 %56, %.042
   br i1 %57, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit.sink.split, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit.sink.split: ; preds = %55

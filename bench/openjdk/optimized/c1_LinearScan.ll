@@ -2679,24 +2679,20 @@ _ZN10LinearScan17set_live_gen_killEP11InstructionP6LIR_OpR6BitMapS5_.exit165._cr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %397, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count267
-  br i1 %exitcond268.not, label %._crit_edge246.loopexit, label %37, !llvm.loop !24
+  br i1 %exitcond268.not, label %._crit_edge246, label %37, !llvm.loop !24
 
-._crit_edge246.loopexit:                          ; preds = %._crit_edge238
-  %398 = and i8 %.1.lcssa, 1
-  br label %._crit_edge246
-
-._crit_edge246:                                   ; preds = %._crit_edge246.loopexit, %1
-  %.0128.lcssa = phi i32 [ 0, %1 ], [ %.1129.lcssa, %._crit_edge246.loopexit ]
-  %.0.lcssa = phi i8 [ 0, %1 ], [ %398, %._crit_edge246.loopexit ]
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 %.0.lcssa, ptr %399, align 4
-  %400 = load ptr, ptr %0, align 8
-  %401 = getelementptr inbounds nuw i8, ptr %400, i64 97
-  store i8 %.0.lcssa, ptr %401, align 1
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %.0128.lcssa, ptr %402, align 8
-  %403 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %403, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+._crit_edge246:                                   ; preds = %._crit_edge238, %1
+  %.0128.lcssa = phi i32 [ 0, %1 ], [ %.1129.lcssa, %._crit_edge238 ]
+  %.0.lcssa = phi i8 [ 0, %1 ], [ %.1.lcssa, %._crit_edge238 ]
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 %.0.lcssa, ptr %398, align 4
+  %399 = load ptr, ptr %0, align 8
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 97
+  store i8 %.0.lcssa, ptr %400, align 1
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %.0128.lcssa, ptr %401, align 8
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %402, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 }
 

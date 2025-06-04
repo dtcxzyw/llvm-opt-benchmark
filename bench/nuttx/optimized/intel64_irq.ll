@@ -80,13 +80,13 @@ define void @up_irqinitialize() local_unnamed_addr #0 {
   store i16 103, ptr %.sroa.0.i, align 2
   %2 = load ptr, ptr @g_ist64, align 8
   %3 = ptrtoint ptr %2 to i64
-  %4 = trunc i64 %3 to i48
-  %5 = and i48 %4, 16777215
-  %6 = trunc i64 %3 to i32
-  %7 = lshr i32 %6, 24
+  %4 = trunc i64 %3 to i32
+  %5 = and i32 %4, 16777215
+  %6 = zext nneg i32 %5 to i48
+  %7 = lshr i32 %4, 24
   %8 = zext nneg i32 %7 to i48
   %9 = shl nuw i48 %8, 40
-  %10 = or disjoint i48 %9, %5
+  %10 = or disjoint i48 %9, %6
   %11 = or disjoint i48 %10, 2298478592
   store i48 %11, ptr %.sroa.3.i, align 8
   %12 = lshr i64 %3, 32

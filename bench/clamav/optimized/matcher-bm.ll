@@ -121,8 +121,8 @@ define i32 @cli_bm_addpatt(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %64 = zext i8 %63 to i64
   %.idx = mul nuw nsw i64 %61, 296
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  %.idx152 = mul nuw nsw i64 %58, 1688
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx152
+  %.idx150 = mul nuw nsw i64 %58, 1688
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx150
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
   %68 = load ptr, ptr %67, align 8, !tbaa !39
   %.not122 = icmp eq ptr %68, null

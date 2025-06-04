@@ -4244,8 +4244,8 @@ _ZN10async_task5utils14abort_on_panic17ha0ffbe7582eb786cE.exit: ; preds = %21
   br label %146
 
 49:                                               ; preds = %47
-  %.sroa.10.17.insert.mask267 = zext nneg i8 %33 to i64
-  %50 = inttoptr i64 %.sroa.10.17.insert.mask267 to ptr
+  %.sroa.10.16.insert.ext260 = zext nneg i8 %33 to i64
+  %50 = inttoptr i64 %.sroa.10.16.insert.ext260 to ptr
   br label %60
 
 51:                                               ; preds = %.thread, %43
@@ -7949,8 +7949,8 @@ _ZN4core3ops8function6FnOnce9call_once17h7d21d7a6a6b50868E.llvm.1437403529064598
   br label %200
 
 102:                                              ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8242f762d20ae7f1E.exit"
-  %.sroa.10.17.insert.mask273 = zext nneg i8 %63 to i64
-  %103 = inttoptr i64 %.sroa.10.17.insert.mask273 to ptr
+  %.sroa.10.16.insert.ext266 = zext nneg i8 %63 to i64
+  %103 = inttoptr i64 %.sroa.10.16.insert.ext266 to ptr
   br label %113
 
 104:                                              ; preds = %.thread, %97

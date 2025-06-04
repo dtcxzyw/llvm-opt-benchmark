@@ -2819,12 +2819,12 @@ define hidden noalias noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa5
   %17 = trunc nuw i64 %indvars.iv.i to i8
   %.lobit.i.i = lshr i64 %indvars.iv.i, 7
   %18 = and i64 %.lobit.i.i, 1
-  %19 = getelementptr inbounds nuw [2 x i128], ptr %15, i64 0, i64 %18
-  %20 = load i128, ptr %19, align 8, !alias.scope !294, !noalias !297, !noundef !5
-  %21 = and i8 %17, 127
-  %22 = zext nneg i8 %21 to i128
+  %19 = and i8 %17, 127
+  %20 = getelementptr inbounds nuw [2 x i128], ptr %15, i64 0, i64 %18
+  %21 = load i128, ptr %20, align 8, !alias.scope !294, !noalias !297, !noundef !5
+  %22 = zext nneg i8 %19 to i128
   %23 = shl nuw i128 1, %22
-  %24 = and i128 %23, %20
+  %24 = and i128 %23, %21
   %.not.i = icmp eq i128 %24, 0
   br i1 %.not.i, label %29, label %25
 

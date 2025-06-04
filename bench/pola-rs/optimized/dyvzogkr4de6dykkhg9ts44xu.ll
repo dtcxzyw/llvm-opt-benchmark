@@ -54232,7 +54232,7 @@ define void @"_ZN88_$LT$polars_stream..nodes..zip..ZipNode$u20$as$u20$polars_str
   br i1 %or.cond3, label %32, label %30, !prof !5016
 
 30:                                               ; preds = %._crit_edge
-  %31 = trunc i8 %.sroa.014.1 to i1
+  %31 = trunc nuw i8 %.sroa.014.1 to i1
   br i1 %31, label %.thread105, label %37
 
 32:                                               ; preds = %._crit_edge
@@ -54366,7 +54366,7 @@ _ZN13polars_stream5nodes3zip9InputHead22notify_no_more_morsels17hdac388ade9a9bd2
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %75 = load i64, ptr %74, align 8, !noundef !6
   %76 = icmp eq i64 %75, 0
-  %77 = trunc i8 %.sroa.014.078 to i1
+  %77 = trunc nuw i8 %.sroa.014.078 to i1
   %78 = and i1 %76, %77
   %79 = zext i1 %78 to i8
   br label %.thread

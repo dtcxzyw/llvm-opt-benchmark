@@ -469,12 +469,12 @@ define internal i64 @pg_base64_encode(ptr noundef readonly captures(address) %0,
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 76
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %.048 = phi i32 [ %.1, %42 ], [ 0, %.lr.ph.preheader ]
-  %.03547 = phi i32 [ %.136, %42 ], [ 2, %.lr.ph.preheader ]
-  %.03746 = phi ptr [ %.2, %42 ], [ %2, %.lr.ph.preheader ]
-  %.03945 = phi ptr [ %12, %42 ], [ %0, %.lr.ph.preheader ]
-  %.04044 = phi ptr [ %.141, %42 ], [ %5, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %.048 = phi i32 [ %.1, %41 ], [ 0, %.lr.ph.preheader ]
+  %.03547 = phi i32 [ %.136, %41 ], [ 2, %.lr.ph.preheader ]
+  %.03746 = phi ptr [ %.2, %41 ], [ %2, %.lr.ph.preheader ]
+  %.03945 = phi ptr [ %12, %41 ], [ %0, %.lr.ph.preheader ]
+  %.04044 = phi ptr [ %.141, %41 ], [ %5, %.lr.ph.preheader ]
   %6 = load i8, ptr %.03945, align 1
   %7 = zext i8 %6 to i32
   %8 = shl nuw nsw i32 %.03547, 3
@@ -483,101 +483,99 @@ define internal i64 @pg_base64_encode(ptr noundef readonly captures(address) %0,
   %11 = add nsw i32 %.03547, -1
   %12 = getelementptr inbounds nuw i8, ptr %.03945, i64 1
   %13 = icmp slt i32 %.03547, 1
-  br i1 %13, label %14, label %38
+  br i1 %13, label %14, label %37
 
 14:                                               ; preds = %.lr.ph
   %15 = lshr i32 %10, 18
-  %16 = and i32 %15, 63
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %.03746, i64 1
-  store i8 %19, ptr %.03746, align 1
-  %21 = lshr i32 %10, 12
-  %22 = and i32 %21, 63
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %.03746, i64 2
-  store i8 %25, ptr %20, align 1
-  %27 = lshr i32 %10, 6
-  %28 = and i32 %27, 63
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %.03746, i64 3
-  store i8 %31, ptr %26, align 1
-  %33 = and i32 %10, 63
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %.03746, i64 4
-  store i8 %36, ptr %32, align 1
-  br label %38
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %.03746, i64 1
+  store i8 %18, ptr %.03746, align 1
+  %20 = lshr i32 %10, 12
+  %21 = and i32 %20, 63
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %.03746, i64 2
+  store i8 %24, ptr %19, align 1
+  %26 = lshr i32 %10, 6
+  %27 = and i32 %26, 63
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %.03746, i64 3
+  store i8 %30, ptr %25, align 1
+  %32 = and i32 %10, 63
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %.03746, i64 4
+  store i8 %35, ptr %31, align 1
+  br label %37
 
-38:                                               ; preds = %14, %.lr.ph
-  %.138 = phi ptr [ %37, %14 ], [ %.03746, %.lr.ph ]
+37:                                               ; preds = %14, %.lr.ph
+  %.138 = phi ptr [ %36, %14 ], [ %.03746, %.lr.ph ]
   %.136 = phi i32 [ 2, %14 ], [ %11, %.lr.ph ]
   %.1 = phi i32 [ 0, %14 ], [ %10, %.lr.ph ]
   %.not43 = icmp ult ptr %.138, %.04044
-  br i1 %.not43, label %42, label %39
+  br i1 %.not43, label %41, label %38
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %.138, i64 1
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %.138, i64 1
   store i8 10, ptr %.138, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %.138, i64 77
-  br label %42
+  %40 = getelementptr inbounds nuw i8, ptr %.138, i64 77
+  br label %41
 
-42:                                               ; preds = %39, %38
-  %.141 = phi ptr [ %41, %39 ], [ %.04044, %38 ]
-  %.2 = phi ptr [ %40, %39 ], [ %.138, %38 ]
-  %43 = icmp ult ptr %12, %4
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+41:                                               ; preds = %38, %37
+  %.141 = phi ptr [ %40, %38 ], [ %.04044, %37 ]
+  %.2 = phi ptr [ %39, %38 ], [ %.138, %37 ]
+  %42 = icmp ult ptr %12, %4
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %42
+._crit_edge:                                      ; preds = %41
   %.not = icmp eq i32 %.136, 2
-  br i1 %.not, label %._crit_edge.thread, label %44
+  br i1 %.not, label %._crit_edge.thread, label %43
 
-44:                                               ; preds = %._crit_edge
-  %45 = lshr i32 %.1, 18
-  %46 = and i32 %45, 63
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %49, ptr %.2, align 1
-  %51 = lshr i32 %.1, 12
-  %52 = and i32 %51, 63
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1
-  %56 = getelementptr inbounds nuw i8, ptr %.2, i64 2
-  store i8 %55, ptr %50, align 1
-  %57 = icmp eq i32 %.136, 0
-  br i1 %57, label %58, label %64
+43:                                               ; preds = %._crit_edge
+  %44 = lshr i32 %.1, 18
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  store i8 %47, ptr %.2, align 1
+  %49 = lshr i32 %.1, 12
+  %50 = and i32 %49, 63
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = getelementptr inbounds nuw i8, ptr %.2, i64 2
+  store i8 %53, ptr %48, align 1
+  %55 = icmp eq i32 %.136, 0
+  br i1 %55, label %56, label %62
 
-58:                                               ; preds = %44
-  %59 = lshr i32 %.1, 6
-  %60 = and i32 %59, 63
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1
-  br label %64
+56:                                               ; preds = %43
+  %57 = lshr i32 %.1, 6
+  %58 = and i32 %57, 63
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %59
+  %61 = load i8, ptr %60, align 1
+  br label %62
 
-64:                                               ; preds = %44, %58
-  %65 = phi i8 [ %63, %58 ], [ 61, %44 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.2, i64 3
-  store i8 %65, ptr %56, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i8 61, ptr %66, align 1
+62:                                               ; preds = %43, %56
+  %63 = phi i8 [ %61, %56 ], [ 61, %43 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.2, i64 3
+  store i8 %63, ptr %54, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  store i8 61, ptr %64, align 1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %3, %64, %._crit_edge
-  %.3 = phi ptr [ %67, %64 ], [ %.2, %._crit_edge ], [ %2, %3 ]
-  %68 = ptrtoint ptr %.3 to i64
-  %69 = ptrtoint ptr %2 to i64
-  %70 = sub i64 %68, %69
-  ret i64 %70
+._crit_edge.thread:                               ; preds = %3, %62, %._crit_edge
+  %.3 = phi ptr [ %65, %62 ], [ %.2, %._crit_edge ], [ %2, %3 ]
+  %66 = ptrtoint ptr %.3 to i64
+  %67 = ptrtoint ptr %2 to i64
+  %68 = sub i64 %66, %67
+  ret i64 %68
 }
 
 ; Function Attrs: nounwind uwtable

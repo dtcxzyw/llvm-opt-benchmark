@@ -76049,9 +76049,8 @@ common.resume:                                    ; preds = %303, %304, %.thread
           to label %common.resume unwind label %159, !noalias !8504
 
 _ZN11ruff_linter5rules4ruff5rules16sequence_sorting29collect_string_sequence_lines17h45978b72daefe795E.exit: ; preds = %._crit_edge.i, %154
-  %.sroa.819.0.in = phi i8 [ %.sroa.015.0.lcssa.i, %._crit_edge.i ], [ %.sroa.015.098.i, %154 ]
+  %.sroa.819.0 = phi i8 [ %.sroa.015.0.lcssa.i, %._crit_edge.i ], [ %.sroa.015.098.i, %154 ]
   %.sroa.015.0 = phi i64 [ %.sroa.015.0.copyload16, %._crit_edge.i ], [ %.sroa.015.0.copyload17, %154 ]
-  %.sroa.819.0 = and i8 %.sroa.819.0.in, 1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %27), !noalias !8501
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !8501
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %9)

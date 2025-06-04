@@ -20,14 +20,10 @@ define hidden range(i32 0, 256) i32 @mbedtls_ct_memcmp(ptr noundef %0, ptr nound
   %10 = or i32 %.01314, %9
   %11 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %11, %2
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %12 = and i32 %10, 65535
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.013.lcssa = phi i32 [ 0, %3 ], [ %12, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.013.lcssa = phi i32 [ 0, %3 ], [ %10, %.lr.ph ]
   ret i32 %.013.lcssa
 }
 

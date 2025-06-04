@@ -196,7 +196,7 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %8, label %252
+  br i1 %7, label %8, label %251
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -535,13 +535,12 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(
   br i1 %248, label %13, label %249, !llvm.loop !24
 
 249:                                              ; preds = %241
-  %250 = and i8 %243, 1
-  %251 = icmp ne i8 %250, 0
-  br label %252
+  %250 = icmp ne i8 %243, 0
+  br label %251
 
-252:                                              ; preds = %249, %2
-  %253 = phi i1 [ false, %2 ], [ %251, %249 ]
-  ret i1 %253
+251:                                              ; preds = %249, %2
+  %252 = phi i1 [ false, %2 ], [ %250, %249 ]
+  ret i1 %252
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

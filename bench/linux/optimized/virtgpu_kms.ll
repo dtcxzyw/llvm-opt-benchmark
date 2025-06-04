@@ -619,7 +619,7 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
 
 14:                                               ; preds = %9
   %15 = icmp sgt i32 %1, 0
-  br i1 %15, label %16, label %.loopexit6
+  br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 62040
@@ -629,10 +629,10 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
 
 20:                                               ; preds = %.thread, %9
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.19) #8
-  br label %73
+  br label %76
 
-21:                                               ; preds = %.thread20, %16
-  %22 = phi i64 [ 0, %16 ], [ %70, %.thread20 ]
+21:                                               ; preds = %.critedge4, %16
+  %22 = phi i64 [ 0, %16 ], [ %73, %.critedge4 ]
   %23 = trunc i64 %22 to i32
   %24 = call i32 @virtio_gpu_cmd_get_capset_info(ptr noundef nonnull %0, i32 noundef %23) #8
   call void @virtio_gpu_notify(ptr noundef nonnull %0) #8
@@ -641,15 +641,11 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
   %27 = getelementptr %struct.virtio_gpu_drv_capset, ptr %26, i64 %22
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %31, label %.thread4
+  br i1 %29, label %31, label %.thread6
 
-.thread4:                                         ; preds = %21
+.thread6:                                         ; preds = %21
   %30 = icmp ult i32 %28, 64
-  br i1 %30, label %.thread20, label %.thread5.thread
-
-.thread5.thread:                                  ; preds = %.thread4
-  call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.21, i32 noundef %28) #8
-  br label %.loopexit
+  br i1 %30, label %.critedge4, label %56
 
 31:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
@@ -659,8 +655,13 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
   %33 = load ptr, ptr %12, align 8
   %34 = getelementptr %struct.virtio_gpu_drv_capset, ptr %33, i64 %22
   %35 = load i32, ptr %34, align 4
-  %.not12 = icmp eq i32 %35, 0
-  br i1 %.not12, label %.lr.ph, label %select.unfold.critedge
+  %.not10 = icmp eq i32 %35, 0
+  br i1 %.not10, label %.lr.ph, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %31
+  call void @finish_wait(ptr noundef nonnull %17, ptr noundef nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
+  br label %50
 
 .lr.ph:                                           ; preds = %31, %.lr.ph
   %36 = phi i64 [ %45, %.lr.ph ], [ 5000, %31 ]
@@ -675,70 +676,65 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
   %45 = select i1 %44, i64 1, i64 %37
   %46 = icmp eq i64 %45, 0
   %47 = select i1 %42, i1 true, i1 %46
-  br i1 %47, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %47, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %48 = and i64 %45, 4294967295
   %49 = icmp eq i64 %48, 0
   call void @finish_wait(ptr noundef nonnull %17, ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
-  br i1 %49, label %.critedge, label %select.unfold
+  br i1 %49, label %.critedge, label %50
 
-.critedge:                                        ; preds = %._crit_edge.loopexit
+.critedge:                                        ; preds = %._crit_edge
   call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.20, i32 noundef %23) #8
-  br label %.loopexit
+  br label %58
 
-select.unfold.critedge:                           ; preds = %31
-  call void @finish_wait(ptr noundef nonnull %17, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
-  br label %select.unfold
+50:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr %struct.virtio_gpu_drv_capset, ptr %51, i64 %22
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, -1
+  %55 = icmp ult i32 %54, 63
+  br i1 %55, label %.critedge4, label %56
 
-select.unfold:                                    ; preds = %select.unfold.critedge, %._crit_edge.loopexit
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr %struct.virtio_gpu_drv_capset, ptr %50, i64 %22
-  %52 = load i32, ptr %51, align 4
-  %53 = add i32 %52, -1
-  %54 = icmp ult i32 %53, 63
-  br i1 %54, label %.thread20, label %.thread5
+56:                                               ; preds = %.thread6, %50
+  %57 = phi i32 [ %28, %.thread6 ], [ %53, %50 ]
+  call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.21, i32 noundef %57) #8
+  br label %58
 
-.thread5:                                         ; preds = %select.unfold
-  call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.21, i32 noundef %52) #8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.thread5, %.thread5.thread, %.critedge
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 62064
-  call void @_raw_spin_lock(ptr noundef nonnull %55) #8
-  %56 = load ptr, ptr %12, align 8
-  call void @drmm_kfree(ptr noundef %4, ptr noundef %56) #8
+58:                                               ; preds = %56, %.critedge
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 62064
+  call void @_raw_spin_lock(ptr noundef nonnull %59) #8
+  %60 = load ptr, ptr %12, align 8
+  call void @drmm_kfree(ptr noundef %4, ptr noundef %60) #8
   store ptr null, ptr %12, align 8
-  call void @_raw_spin_unlock(ptr noundef nonnull %55) #8
-  br label %73
+  call void @_raw_spin_unlock(ptr noundef nonnull %59) #8
+  br label %76
 
-.thread20:                                        ; preds = %select.unfold, %.thread4
-  %57 = phi ptr [ %26, %.thread4 ], [ %50, %select.unfold ]
-  %58 = getelementptr %struct.virtio_gpu_drv_capset, ptr %57, i64 %22
-  %59 = load i32, ptr %58, align 4
-  %60 = shl nuw i32 1, %59
-  %61 = sext i32 %60 to i64
-  %62 = load i64, ptr %18, align 8
-  %63 = or i64 %62, %61
-  store i64 %63, ptr %18, align 8
-  %64 = load i32, ptr %58, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %68 = load i32, ptr %67, align 4
-  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %23, i32 noundef %64, i32 noundef %66, i32 noundef %68) #9
-  %70 = add nuw nsw i64 %22, 1
-  %71 = icmp eq i64 %70, %19
-  br i1 %71, label %.loopexit6, label %21, !llvm.loop !13
+.critedge4:                                       ; preds = %.thread6, %50
+  %61 = phi ptr [ %27, %.thread6 ], [ %52, %50 ]
+  %62 = phi i32 [ %28, %.thread6 ], [ %53, %50 ]
+  %63 = shl nuw i32 1, %62
+  %64 = sext i32 %63 to i64
+  %65 = load i64, ptr %18, align 8
+  %66 = or i64 %65, %64
+  store i64 %66, ptr %18, align 8
+  %67 = load i32, ptr %61, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %71 = load i32, ptr %70, align 4
+  %72 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %23, i32 noundef %67, i32 noundef %69, i32 noundef %71) #9
+  %73 = add nuw nsw i64 %22, 1
+  %74 = icmp eq i64 %73, %19
+  br i1 %74, label %.loopexit, label %21, !llvm.loop !13
 
-.loopexit6:                                       ; preds = %.thread20, %14
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 62496
-  store i32 %1, ptr %72, align 8
-  br label %73
+.loopexit:                                        ; preds = %.critedge4, %14
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 62496
+  store i32 %1, ptr %75, align 8
+  br label %76
 
-73:                                               ; preds = %.loopexit6, %.loopexit, %20
+76:                                               ; preds = %.loopexit, %58, %20
   ret void
 }
 

@@ -7136,8 +7136,7 @@ do.body437:                                       ; preds = %do.body437.preheade
   %132 = phi i32 [ %143, %for.inc468 ], [ %.ph342, %do.body437.preheader ]
   %i367.0290 = phi i32 [ %dec469, %for.inc468 ], [ 2, %do.body437.preheader ]
   %z.0289 = phi i32 [ %xor470, %for.inc468 ], [ 0, %do.body437.preheader ]
-  %and439 = and i32 %z.0289, 65535
-  %shl442 = shl nuw nsw i32 %and439, %132
+  %shl442 = shl i32 %z.0289, %132
   %or444 = or i32 %131, %shl442
   store i32 %or444, ptr %m_bit_buffer73, align 8
   %add446 = add nuw nsw i32 %132, 16

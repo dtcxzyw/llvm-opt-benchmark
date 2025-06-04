@@ -1800,8 +1800,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit138:             ; preds = %_ZSt4endlIcSt11char
 
 if.end38:                                         ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit138, %if.end30
   %ret.4 = phi i8 [ 0, %_ZN11StreamProxylsEPFRSoS0_E.exit138 ], [ %ret.3, %if.end30 ]
-  %51 = and i8 %ret.4, 1
-  %tobool = icmp ne i8 %51, 0
+  %tobool = icmp ne i8 %ret.4, 0
   ret i1 %tobool
 }
 

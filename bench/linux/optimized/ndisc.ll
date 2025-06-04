@@ -4431,64 +4431,63 @@ ndisc_parse_options.exit:                         ; preds = %50
   %570 = phi ptr [ %366, %375 ], [ %366, %.thread62 ], [ %366, %448 ], [ %327, %332 ], [ %366, %567 ], [ %366, %527 ], [ %366, %.critedge ], [ %366, %560 ], [ %366, %557 ], [ %366, %563 ]
   %571 = phi i32 [ %368, %375 ], [ %368, %.thread62 ], [ %368, %448 ], [ 2, %332 ], [ %368, %567 ], [ %368, %527 ], [ %368, %.critedge ], [ %368, %560 ], [ %368, %557 ], [ %368, %563 ]
   %572 = phi i8 [ %367, %375 ], [ %367, %.thread62 ], [ %449, %448 ], [ %328, %332 ], [ %449, %567 ], [ %449, %527 ], [ %449, %.critedge ], [ %449, %560 ], [ %449, %557 ], [ %449, %563 ]
-  %573 = and i8 %572, 1
-  %574 = icmp eq i8 %573, 0
-  br i1 %574, label %576, label %575
+  %573 = icmp eq i8 %572, 0
+  br i1 %573, label %575, label %574
 
-575:                                              ; preds = %.thread71
+574:                                              ; preds = %.thread71
   call void @inet6_ifinfo_notify(i32 noundef 16, ptr noundef nonnull %35) #14
-  br label %576
+  br label %575
 
-576:                                              ; preds = %575, %.thread71
-  %577 = icmp eq ptr %570, null
-  br i1 %577, label %.thread73, label %578
+575:                                              ; preds = %574, %.thread71
+  %576 = icmp eq ptr %570, null
+  br i1 %576, label %.thread73, label %577
 
-578:                                              ; preds = %576
-  %579 = getelementptr inbounds nuw i8, ptr %570, i64 44
-  %580 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %579, i32 -1, ptr nonnull elementtype(i32) %579) #14, !srcloc !8
-  %581 = icmp eq i32 %580, 1
-  br i1 %581, label %585, label %582
+577:                                              ; preds = %575
+  %578 = getelementptr inbounds nuw i8, ptr %570, i64 44
+  %579 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %578, i32 -1, ptr nonnull elementtype(i32) %578) #14, !srcloc !8
+  %580 = icmp eq i32 %579, 1
+  br i1 %580, label %584, label %581
 
-582:                                              ; preds = %578
-  %583 = icmp sgt i32 %580, 0
-  br i1 %583, label %.thread73, label %584, !prof !7
+581:                                              ; preds = %577
+  %582 = icmp sgt i32 %579, 0
+  br i1 %582, label %.thread73, label %583, !prof !7
 
-584:                                              ; preds = %582
-  call void @refcount_warn_saturate(ptr noundef nonnull %579, i32 noundef 3) #14
+583:                                              ; preds = %581
+  call void @refcount_warn_saturate(ptr noundef nonnull %578, i32 noundef 3) #14
   br label %.thread73
 
-585:                                              ; preds = %578
+584:                                              ; preds = %577
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
-  %586 = getelementptr inbounds nuw i8, ptr %570, i64 144
-  call void @call_rcu(ptr noundef nonnull %586, ptr noundef nonnull @fib6_info_destroy_rcu) #14
+  %585 = getelementptr inbounds nuw i8, ptr %570, i64 144
+  call void @call_rcu(ptr noundef nonnull %585, ptr noundef nonnull @fib6_info_destroy_rcu) #14
   br label %.thread73
 
-.thread73:                                        ; preds = %582, %584, %585, %576
-  br i1 %568, label %ndisc_parse_options.exit.thread, label %587
+.thread73:                                        ; preds = %581, %583, %584, %575
+  br i1 %568, label %ndisc_parse_options.exit.thread, label %586
 
-587:                                              ; preds = %.thread73
-  %588 = getelementptr inbounds nuw i8, ptr %569, i64 48
-  %589 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %588, i32 -1, ptr nonnull elementtype(i32) %588) #14, !srcloc !8
-  %590 = icmp eq i32 %589, 1
-  br i1 %590, label %594, label %591
+586:                                              ; preds = %.thread73
+  %587 = getelementptr inbounds nuw i8, ptr %569, i64 48
+  %588 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %587, i32 -1, ptr nonnull elementtype(i32) %587) #14, !srcloc !8
+  %589 = icmp eq i32 %588, 1
+  br i1 %589, label %593, label %590
 
-591:                                              ; preds = %587
-  %592 = icmp sgt i32 %589, 0
-  br i1 %592, label %ndisc_parse_options.exit.thread, label %593, !prof !7
+590:                                              ; preds = %586
+  %591 = icmp sgt i32 %588, 0
+  br i1 %591, label %ndisc_parse_options.exit.thread, label %592, !prof !7
 
-593:                                              ; preds = %591
-  call void @refcount_warn_saturate(ptr noundef nonnull %588, i32 noundef 3) #14
+592:                                              ; preds = %590
+  call void @refcount_warn_saturate(ptr noundef nonnull %587, i32 noundef 3) #14
   br label %ndisc_parse_options.exit.thread
 
-594:                                              ; preds = %587
+593:                                              ; preds = %586
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   call void @neigh_destroy(ptr noundef nonnull %569) #14
   br label %ndisc_parse_options.exit.thread
 
-ndisc_parse_options.exit.thread:                  ; preds = %53, %50, %591, %593, %44, %594, %.thread73, %227, %209, %206, %183, %40, %37, %26, %24, %1
-  %595 = phi i32 [ 2, %227 ], [ 2, %183 ], [ 2, %1 ], [ 4, %24 ], [ 2, %26 ], [ 2, %40 ], [ 2, %37 ], [ 2, %209 ], [ 2, %206 ], [ %571, %.thread73 ], [ %571, %594 ], [ 80, %44 ], [ %571, %593 ], [ %571, %591 ], [ 80, %50 ], [ 80, %53 ]
+ndisc_parse_options.exit.thread:                  ; preds = %53, %50, %590, %592, %44, %593, %.thread73, %227, %209, %206, %183, %40, %37, %26, %24, %1
+  %594 = phi i32 [ 2, %227 ], [ 2, %183 ], [ 2, %1 ], [ 4, %24 ], [ 2, %26 ], [ 2, %40 ], [ 2, %37 ], [ 2, %209 ], [ 2, %206 ], [ %571, %.thread73 ], [ %571, %593 ], [ 80, %44 ], [ %571, %592 ], [ %571, %590 ], [ 80, %50 ], [ 80, %53 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #14
-  ret i32 %595
+  ret i32 %594
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

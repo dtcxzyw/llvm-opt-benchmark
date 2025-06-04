@@ -3974,59 +3974,53 @@ define dso_local zeroext i1 @intel_engine_is_idle(ptr noundef %0) local_unnamed_
   %66 = tail call i32 %65(ptr noundef %61, i32 %63, i1 noundef zeroext true) #18
   %67 = and i32 %66, 2097144
   %68 = icmp eq i32 %60, %67
-  %69 = zext i1 %68 to i8
-  %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 7176
-  %72 = load i8, ptr %71, align 8
-  %73 = icmp ugt i8 %72, 2
-  br i1 %73, label %74, label %84
+  %69 = load ptr, ptr %0, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 7176
+  %71 = load i8, ptr %70, align 8
+  %72 = icmp ugt i8 %71, 2
+  br i1 %72, label %73, label %83
 
-74:                                               ; preds = %51
-  %75 = load ptr, ptr %52, align 8
-  %76 = load i32, ptr %54, align 8
-  %77 = add i32 %76, 156
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 144
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call i32 %79(ptr noundef %75, i32 %77, i1 noundef zeroext true) #18
-  %81 = and i32 %80, 512
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i8 0, i8 %69
-  br label %84
+73:                                               ; preds = %51
+  %74 = load ptr, ptr %52, align 8
+  %75 = load i32, ptr %54, align 8
+  %76 = add i32 %75, 156
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 144
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call i32 %78(ptr noundef %74, i32 %76, i1 noundef zeroext true) #18
+  %80 = and i32 %79, 512
+  %81 = icmp ne i32 %80, 0
+  %82 = select i1 %81, i1 %68, i1 false
+  br label %83
 
-84:                                               ; preds = %74, %51
-  %85 = phi i8 [ %69, %51 ], [ %83, %74 ]
-  %86 = tail call i32 @__SCT__might_resched() #18
-  %87 = load volatile i32, ptr %39, align 4
-  %88 = icmp eq i32 %87, 1
-  br i1 %88, label %._crit_edge, label %.lr.ph5, !prof !63
+83:                                               ; preds = %73, %51
+  %84 = phi i1 [ %68, %51 ], [ %82, %73 ]
+  %85 = tail call i32 @__SCT__might_resched() #18
+  %86 = load volatile i32, ptr %39, align 4
+  %87 = icmp eq i32 %86, 1
+  br i1 %87, label %._crit_edge, label %.lr.ph6, !prof !63
 
-.lr.ph5:                                          ; preds = %84, %95
-  %89 = phi i32 [ %96, %95 ], [ %87, %84 ]
-  %90 = add i32 %89, -1
-  %91 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %39, i32 %90, ptr nonnull elementtype(i32) %39, i32 %89) #18, !srcloc !64
-  %92 = extractvalue { i8, i32 } %91, 0
-  %93 = icmp ult i8 %92, 2
-  tail call void @llvm.assume(i1 %93)
-  %94 = icmp eq i8 %92, 0
-  br i1 %94, label %95, label %.loopexit, !prof !46
+.lr.ph6:                                          ; preds = %83, %94
+  %88 = phi i32 [ %95, %94 ], [ %86, %83 ]
+  %89 = add i32 %88, -1
+  %90 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %39, i32 %89, ptr nonnull elementtype(i32) %39, i32 %88) #18, !srcloc !64
+  %91 = extractvalue { i8, i32 } %90, 0
+  %92 = icmp ult i8 %91, 2
+  tail call void @llvm.assume(i1 %92)
+  %93 = icmp eq i8 %91, 0
+  br i1 %93, label %94, label %.thread3, !prof !46
 
-95:                                               ; preds = %.lr.ph5
-  %96 = extractvalue { i8, i32 } %91, 1
-  %97 = icmp eq i32 %96, 1
-  br i1 %97, label %._crit_edge, label %.lr.ph5, !prof !65, !llvm.loop !66
+94:                                               ; preds = %.lr.ph6
+  %95 = extractvalue { i8, i32 } %90, 1
+  %96 = icmp eq i32 %95, 1
+  br i1 %96, label %._crit_edge, label %.lr.ph6, !prof !65, !llvm.loop !66
 
-._crit_edge:                                      ; preds = %95, %84
+._crit_edge:                                      ; preds = %94, %83
   tail call void @__intel_wakeref_put_last(ptr noundef nonnull %39, i64 noundef 0) #18
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph5, %._crit_edge
-  %98 = and i8 %85, 1
-  %99 = icmp ne i8 %98, 0
   br label %.thread3
 
-.thread3:                                         ; preds = %48, %38, %.loopexit, %33, %7, %1
-  %100 = phi i1 [ true, %1 ], [ true, %7 ], [ false, %33 ], [ %99, %.loopexit ], [ true, %38 ], [ true, %48 ]
-  ret i1 %100
+.thread3:                                         ; preds = %48, %.lr.ph6, %38, %._crit_edge, %33, %7, %1
+  %97 = phi i1 [ true, %1 ], [ true, %7 ], [ false, %33 ], [ %84, %._crit_edge ], [ true, %38 ], [ %84, %.lr.ph6 ], [ true, %48 ]
+  ret i1 %97
 }
 
 ; Function Attrs: null_pointer_is_valid

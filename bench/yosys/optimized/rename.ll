@@ -14386,9 +14386,8 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %_ZN5Yosys5RT
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit562
 
 1505:                                             ; preds = %._crit_edge1296
-  %1506 = trunc i8 %.084.lcssa1693 to i1
-  %.mask = and i8 %.084.lcssa1693, 1
-  %1507 = zext nneg i8 %.mask to i32
+  %1506 = trunc nuw i8 %.084.lcssa1693 to i1
+  %1507 = zext nneg i8 %.084.lcssa1693 to i32
   store i32 %1507, ptr %1457, align 4, !tbaa !64
   %1508 = load ptr, ptr %11, align 8, !tbaa !326
   %1509 = load ptr, ptr %132, align 8, !tbaa !263

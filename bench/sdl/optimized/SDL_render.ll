@@ -3482,59 +3482,59 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
 
 .lr.ph366:                                        ; preds = %.thread335
   %wide.trip.count401 = zext nneg i32 %119 to i64
-  %121 = trunc i8 %.1 to i1
-  br label %122
+  br label %121
 
-122:                                              ; preds = %.lr.ph366, %137
+121:                                              ; preds = %.lr.ph366, %137
   %indvars.iv398 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next399, %137 ]
-  %123 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv398
-  %124 = load i32, ptr %123, align 4
-  %.not264 = icmp eq i32 %124, 0
-  %.mask266 = and i32 %124, -268435456
+  %122 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv398
+  %123 = load i32, ptr %122, align 4
+  %.not264 = icmp eq i32 %123, 0
+  %.mask266 = and i32 %123, -268435456
   %.not265 = icmp eq i32 %.mask266, 268435456
   %or.cond293 = or i1 %.not264, %.not265
-  br i1 %or.cond293, label %125, label %137
+  br i1 %or.cond293, label %124, label %137
 
-125:                                              ; preds = %122
-  %126 = lshr i32 %124, 24
-  %127 = and i32 %126, 15
-  %.off315 = add nsw i32 %127, -4
+124:                                              ; preds = %121
+  %125 = lshr i32 %123, 24
+  %126 = and i32 %125, 15
+  %.off315 = add nsw i32 %126, -4
   %switch316 = icmp ult i32 %.off315, 3
-  br i1 %switch316, label %128, label %132
+  br i1 %switch316, label %127, label %131
 
-128:                                              ; preds = %125
-  %129 = lshr i32 %124, 20
-  %130 = and i32 %129, 15
-  %131 = add nsw i32 %130, -3
-  %switch.and = and i32 %131, -6
+127:                                              ; preds = %124
+  %128 = lshr i32 %123, 20
+  %129 = and i32 %128, 15
+  %130 = add nsw i32 %129, -3
+  %switch.and = and i32 %130, -6
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  br label %135
+  br label %134
 
-132:                                              ; preds = %125
-  %.off317 = add nsw i32 %127, -7
+131:                                              ; preds = %124
+  %.off317 = add nsw i32 %126, -7
   %switch318 = icmp ult i32 %.off317, 5
-  br i1 %switch318, label %switch.lookup442, label %135
+  br i1 %switch318, label %switch.lookup442, label %134
 
-switch.lookup442:                                 ; preds = %132
-  %133 = lshr i32 %124, 20
-  %134 = trunc nuw nsw i32 %133 to i16
-  %switch.cast = and i16 %134, 15
+switch.lookup442:                                 ; preds = %131
+  %132 = lshr i32 %123, 20
+  %133 = trunc nuw nsw i32 %132 to i16
+  %switch.cast = and i16 %133, 15
   %switch.downshift = lshr i16 108, %switch.cast
   %switch.masked = trunc i16 %switch.downshift to i1
-  br label %135
+  br label %134
 
-135:                                              ; preds = %switch.lookup442, %128, %132
-  %.shrunk = phi i1 [ false, %132 ], [ %switch.selectcmp, %128 ], [ %switch.masked, %switch.lookup442 ]
-  %136 = xor i1 %.shrunk, %121
-  br i1 %136, label %137, label %.thread338
+134:                                              ; preds = %switch.lookup442, %127, %131
+  %.shrunk = phi i1 [ false, %131 ], [ %switch.selectcmp, %127 ], [ %switch.masked, %switch.lookup442 ]
+  %135 = zext i1 %.shrunk to i8
+  %136 = icmp eq i8 %.1, %135
+  br i1 %136, label %.thread338, label %137
 
-137:                                              ; preds = %122, %135
+137:                                              ; preds = %121, %134
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next399, %wide.trip.count401
-  br i1 %exitcond402.not, label %.thread338, label %122, !llvm.loop !25
+  br i1 %exitcond402.not, label %.thread338, label %121, !llvm.loop !25
 
-.thread338:                                       ; preds = %73, %68, %98, %111, %137, %135, %.thread335, %88
-  %.3204 = phi i32 [ %.pre, %88 ], [ %117, %.thread335 ], [ %117, %137 ], [ %124, %135 ], [ %113, %111 ], [ %100, %98 ], [ 372645892, %68 ], [ 376840196, %73 ]
+.thread338:                                       ; preds = %73, %68, %98, %111, %137, %134, %.thread335, %88
+  %.3204 = phi i32 [ %.pre, %88 ], [ %117, %.thread335 ], [ %117, %137 ], [ %123, %134 ], [ %113, %111 ], [ %100, %98 ], [ 372645892, %68 ], [ 376840196, %73 ]
   %138 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef %1) #15
   %139 = icmp eq i32 %138, 301991168
   %140 = and i32 %138, 992
@@ -9231,8 +9231,7 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   store float %7, ptr %53, align 4
   %54 = fsub float %46, %.
   %55 = trunc nuw i8 %.1138 to i1
-  %.mask152 = and i8 %.1138, 1
-  %56 = uitofp nneg i8 %.mask152 to float
+  %56 = uitofp nneg i8 %.1138 to float
   %57 = fadd float %54, %56
   %58 = fmul float %9, %57
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 12
@@ -9265,8 +9264,7 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   store float %72, ptr %73, align 4
   %74 = fsub float %67, %.153
   %75 = trunc nuw i8 %.1138 to i1
-  %.mask = and i8 %.1138, 1
-  %76 = uitofp nneg i8 %.mask to float
+  %76 = uitofp nneg i8 %.1138 to float
   %77 = fadd float %74, %76
   %78 = fmul float %7, %77
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 8

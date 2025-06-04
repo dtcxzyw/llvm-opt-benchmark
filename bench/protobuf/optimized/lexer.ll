@@ -5831,7 +5831,7 @@ if.then104:                                       ; preds = %if.else102
 if.then124:                                       ; preds = %if.else102
   %shr125 = lshr i32 %rune.1, 18
   %53 = trunc nuw nsw i32 %shr125 to i8
-  %conv128 = or disjoint i8 %53, -16
+  %conv128 = or i8 %53, -16
   store i8 %conv128, ptr %out_utf8, align 1
   %shr130 = lshr i32 %rune.1, 12
   %54 = trunc i32 %shr130 to i8

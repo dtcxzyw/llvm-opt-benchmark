@@ -1231,17 +1231,16 @@ select.unfold:                                    ; preds = %48, %38, %26, %41
 
 .loopexit21:                                      ; preds = %87, %.loopexit24
   %91 = phi i8 [ %18, %.loopexit24 ], [ %.ph14, %87 ]
-  %92 = and i8 %91, 1
-  %93 = icmp eq i8 %92, 0
-  br i1 %93, label %94, label %.thread18
+  %92 = icmp eq i8 %91, 0
+  br i1 %92, label %93, label %.thread18
 
-94:                                               ; preds = %.loopexit21
-  %95 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #7
+93:                                               ; preds = %.loopexit21
+  %94 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #7
   br label %.thread18
 
-.thread18:                                        ; preds = %41, %48, %43, %.loopexit, %94, %.loopexit21, %4
-  %96 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %94 ], [ %86, %.loopexit ], [ %42, %41 ], [ %46, %48 ], [ 0, %43 ]
-  ret i32 %96
+.thread18:                                        ; preds = %41, %48, %43, %.loopexit, %93, %.loopexit21, %4
+  %95 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %93 ], [ %86, %.loopexit ], [ %42, %41 ], [ %46, %48 ], [ 0, %43 ]
+  ret i32 %95
 }
 
 ; Function Attrs: null_pointer_is_valid

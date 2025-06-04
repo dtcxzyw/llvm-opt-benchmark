@@ -5911,11 +5911,11 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   store i8 0, ptr %165, align 1
   br label %166
 
-166:                                              ; preds = %215, %164
-  %.2180.i = phi i8 [ %.1179196.i, %164 ], [ %.3181.i, %215 ]
-  %.2177.i = phi i16 [ %.1176197.i, %164 ], [ %167, %215 ]
-  %.0171.i = phi ptr [ null, %164 ], [ %.1172.i, %215 ]
-  %.3.i = phi i32 [ %.2199.i, %164 ], [ %.4.i, %215 ]
+166:                                              ; preds = %216, %164
+  %.2180.i = phi i8 [ %.1179196.i, %164 ], [ 0, %216 ]
+  %.2177.i = phi i16 [ %.1176197.i, %164 ], [ %167, %216 ]
+  %.0171.i = phi ptr [ null, %164 ], [ %.1172.i, %216 ]
+  %.3.i = phi i32 [ %.2199.i, %164 ], [ %.4.i, %216 ]
   %167 = add i16 %.2177.i, 1
   %168 = zext i16 %.2177.i to i64
   %169 = load i64, ptr %7, align 8
@@ -5958,11 +5958,11 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
 195:                                              ; preds = %193, %188
   %196 = load i8, ptr %165, align 1
   %.not189.i = icmp eq i8 %196, 0
-  br i1 %.not189.i, label %215, label %197
+  br i1 %.not189.i, label %216, label %197
 
 197:                                              ; preds = %195
   %198 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %191, ptr noundef nonnull @ei_fp_e_rnti_first_entry)
-  br label %215
+  br label %216
 
 199:                                              ; preds = %175
   %200 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3.i)
@@ -5976,23 +5976,23 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   %207 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %206, ptr noundef %0, i32 noundef %.3.i, i32 noundef 2, i32 noundef 0)
   %208 = add i32 %.3.i, 1
   %209 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %208)
-  %210 = load i32, ptr @hf_fp_edch_macis_flag, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %210, ptr noundef %0, i32 noundef %208, i32 noundef 1, i32 noundef 0)
-  %212 = load i8, ptr %165, align 1
-  %213 = add i8 %212, 1
-  store i8 %213, ptr %165, align 1
-  %214 = add i32 %.3.i, 2
-  br label %215
+  %210 = and i8 %209, 1
+  %211 = load i32, ptr @hf_fp_edch_macis_flag, align 4
+  %212 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %211, ptr noundef %0, i32 noundef %208, i32 noundef 1, i32 noundef 0)
+  %213 = load i8, ptr %165, align 1
+  %214 = add i8 %213, 1
+  store i8 %214, ptr %165, align 1
+  %215 = add i32 %.3.i, 2
+  br label %216
 
-215:                                              ; preds = %199, %197, %195
-  %.3181.i = phi i8 [ %209, %199 ], [ %.2180.i, %197 ], [ %.2180.i, %195 ]
-  %.1172.i = phi ptr [ %211, %199 ], [ %.0171.i, %197 ], [ %.0171.i, %195 ]
-  %.4.i = phi i32 [ %214, %199 ], [ %192, %197 ], [ %192, %195 ]
-  %216 = and i8 %.3181.i, 1
-  %217 = icmp eq i8 %216, 0
+216:                                              ; preds = %199, %197, %195
+  %.3181.i = phi i8 [ %210, %199 ], [ %.2180.i, %197 ], [ %.2180.i, %195 ]
+  %.1172.i = phi ptr [ %212, %199 ], [ %.0171.i, %197 ], [ %.0171.i, %195 ]
+  %.4.i = phi i32 [ %215, %199 ], [ %192, %197 ], [ %192, %195 ]
+  %217 = icmp eq i8 %.3181.i, 0
   br i1 %217, label %166, label %218, !llvm.loop !34
 
-218:                                              ; preds = %215
+218:                                              ; preds = %216
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %219 = load i8, ptr %154, align 1
   %220 = zext i8 %219 to i64
@@ -6560,40 +6560,39 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   br i1 %exitcond515.not, label %._crit_edge452, label %359, !llvm.loop !47
 
 ._crit_edge452:                                   ; preds = %.thread355
-  %489 = and i8 %.1313.lcssa, 1
-  %490 = icmp eq i8 %489, 0
-  br i1 %490, label %._crit_edge452.thread, label %493
+  %489 = icmp eq i8 %.1313.lcssa, 0
+  br i1 %489, label %._crit_edge452.thread, label %492
 
 ._crit_edge452.thread:                            ; preds = %.preheader367, %._crit_edge452
   %.2.lcssa535 = phi i32 [ %488, %._crit_edge452 ], [ 4, %.preheader367 ]
   %.0308.lcssa533 = phi i32 [ %486, %._crit_edge452 ], [ 0, %.preheader367 ]
   %.0310.lcssa532 = phi i32 [ %487, %._crit_edge452 ], [ 0, %.preheader367 ]
   %.0.lcssa519531 = phi i32 [ %356, %._crit_edge452 ], [ 4, %.preheader367 ]
-  %491 = load ptr, ptr %31, align 8
-  %492 = load i32, ptr %10, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %491, i32 noundef 25, ptr noundef nonnull @.str.597, i32 noundef %492, i32 noundef %.0310.lcssa532, i32 noundef %.0308.lcssa533, i32 noundef %101)
-  br label %493
+  %490 = load ptr, ptr %31, align 8
+  %491 = load i32, ptr %10, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %490, i32 noundef 25, ptr noundef nonnull @.str.597, i32 noundef %491, i32 noundef %.0310.lcssa532, i32 noundef %.0308.lcssa533, i32 noundef %101)
+  br label %492
 
-493:                                              ; preds = %._crit_edge452.thread, %._crit_edge452
+492:                                              ; preds = %._crit_edge452.thread, %._crit_edge452
   %.2.lcssa534 = phi i32 [ %.2.lcssa535, %._crit_edge452.thread ], [ %488, %._crit_edge452 ]
   %.0.lcssa519530 = phi i32 [ %.0.lcssa519531, %._crit_edge452.thread ], [ %356, %._crit_edge452 ]
-  %494 = load i8, ptr @preferences_header_checksum, align 1, !range !10, !noundef !11
-  %495 = trunc nuw i8 %494 to i1
-  br i1 %495, label %496, label %499
+  %493 = load i8, ptr @preferences_header_checksum, align 1, !range !10, !noundef !11
+  %494 = trunc nuw i8 %493 to i1
+  br i1 %494, label %495, label %498
 
-496:                                              ; preds = %493
-  %497 = load i32, ptr %12, align 4
-  %498 = trunc i32 %497 to i16
-  call fastcc void @verify_header_crc_edch(ptr noundef %0, ptr noundef %1, ptr noundef %75, i16 noundef zeroext %498, i32 noundef %.0.lcssa519530)
-  br label %499
+495:                                              ; preds = %492
+  %496 = load i32, ptr %12, align 4
+  %497 = trunc i32 %496 to i16
+  call fastcc void @verify_header_crc_edch(ptr noundef %0, ptr noundef %1, ptr noundef %75, i16 noundef zeroext %497, i32 noundef %.0.lcssa519530)
+  br label %498
 
-499:                                              ; preds = %496, %493
-  %500 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %501 = load i8, ptr %500, align 4
-  call fastcc void @dissect_spare_extension_and_crc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %501, i32 noundef %.2.lcssa534, i32 noundef %.0.lcssa519530)
+498:                                              ; preds = %495, %492
+  %499 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %500 = load i8, ptr %499, align 4
+  call fastcc void @dissect_spare_extension_and_crc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %500, i32 noundef %.2.lcssa534, i32 noundef %.0.lcssa519530)
   br label %.critedge
 
-.critedge:                                        ; preds = %443, %.loopexit.thread, %358, %dissect_e_dch_t2_or_common_channel_info.exit, %44, %499
+.critedge:                                        ; preds = %443, %.loopexit.thread, %358, %dissect_e_dch_t2_or_common_channel_info.exit, %44, %498
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 3104, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
@@ -7041,7 +7040,7 @@ define internal fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef %1, ptr 
 
 16:                                               ; preds = %7
   %17 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %13, ptr noundef nonnull @ei_fp_invalid_frame_count, ptr noundef nonnull @.str.549, i32 noundef 64)
-  br label %164
+  br label %163
 
 18:                                               ; preds = %7
   %19 = shl i32 %3, 3
@@ -7322,38 +7321,37 @@ proto_item_set_generated.exit157._crit_edge:      ; preds = %proto_item_set_gene
   br i1 %155, label %44, label %._crit_edge191, !llvm.loop !51
 
 ._crit_edge191:                                   ; preds = %._crit_edge177
-  %156 = and i8 %.1131.lcssa, 1
-  %157 = icmp eq i8 %156, 0
-  %158 = sdiv i32 %.1143.lcssa, 8
-  br i1 %157, label %._crit_edge191.thread, label %161
+  %156 = icmp eq i8 %.1131.lcssa, 0
+  %157 = sdiv i32 %.1143.lcssa, 8
+  br i1 %156, label %._crit_edge191.thread, label %160
 
 ._crit_edge191.thread:                            ; preds = %.loopexit, %._crit_edge191
   %.0136.lcssa215 = phi i32 [ %.1137.lcssa, %._crit_edge191 ], [ 0, %.loopexit ]
-  %.0142.lcssa213 = phi i32 [ %158, %._crit_edge191 ], [ 0, %.loopexit ]
+  %.0142.lcssa213 = phi i32 [ %157, %._crit_edge191 ], [ 0, %.loopexit ]
   %.0145.lcssa211 = phi i32 [ %.1146.lcssa, %._crit_edge191 ], [ 0, %.loopexit ]
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %160 = load ptr, ptr %159, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %160, i32 noundef 25, ptr noundef nonnull @.str.552, i32 noundef %.0136.lcssa215, i32 noundef %.0145.lcssa211)
-  br label %161
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %159 = load ptr, ptr %158, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %159, i32 noundef 25, ptr noundef nonnull @.str.552, i32 noundef %.0136.lcssa215, i32 noundef %.0145.lcssa211)
+  br label %160
 
-161:                                              ; preds = %._crit_edge191.thread, %._crit_edge191
+160:                                              ; preds = %._crit_edge191.thread, %._crit_edge191
   %.0136.lcssa214 = phi i32 [ %.0136.lcssa215, %._crit_edge191.thread ], [ %.1137.lcssa, %._crit_edge191 ]
-  %.0142.lcssa212 = phi i32 [ %.0142.lcssa213, %._crit_edge191.thread ], [ %158, %._crit_edge191 ]
+  %.0142.lcssa212 = phi i32 [ %.0142.lcssa213, %._crit_edge191.thread ], [ %157, %._crit_edge191 ]
   %.0145.lcssa210 = phi i32 [ %.0145.lcssa211, %._crit_edge191.thread ], [ %.1146.lcssa, %._crit_edge191 ]
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge203, label %162
+  br i1 %.not, label %._crit_edge203, label %161
 
-162:                                              ; preds = %161
+161:                                              ; preds = %160
   tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %.0142.lcssa212)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.553, i32 noundef %.0136.lcssa214, i32 noundef %.0145.lcssa210)
   br label %._crit_edge203
 
-._crit_edge203:                                   ; preds = %161, %162
-  %163 = add i32 %.0142.lcssa212, %3
-  br label %164
+._crit_edge203:                                   ; preds = %160, %161
+  %162 = add i32 %.0142.lcssa212, %3
+  br label %163
 
-164:                                              ; preds = %._crit_edge203, %16
-  %.0 = phi i32 [ %3, %16 ], [ %163, %._crit_edge203 ]
+163:                                              ; preds = %._crit_edge203, %16
+  %.0 = phi i32 [ %3, %16 ], [ %162, %._crit_edge203 ]
   ret i32 %.0
 }
 

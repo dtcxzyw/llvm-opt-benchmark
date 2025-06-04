@@ -940,7 +940,7 @@ define dso_local i32 @udpv6_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef 
   %101 = getelementptr inbounds nuw i8, ptr %54, i64 23
   %102 = load i8, ptr %101, align 1, !range !16, !noundef !17
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %.thread6
+  br i1 %103, label %104, label %.thread
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %54, i64 64
@@ -962,27 +962,27 @@ define dso_local i32 @udpv6_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef 
 115:                                              ; preds = %111, %113
   %116 = phi i16 [ %112, %111 ], [ %114, %113 ]
   %117 = icmp eq i16 %116, 0
-  br i1 %117, label %..thread6_crit_edge, label %274
+  br i1 %117, label %..thread_crit_edge, label %274
 
-..thread6_crit_edge:                              ; preds = %115
+..thread_crit_edge:                               ; preds = %115
   %.pre = load i32, ptr %7, align 4
-  br label %.thread6
+  br label %.thread
 
-118:                                              ; preds = %95, %96
+118:                                              ; preds = %96, %95
   %119 = getelementptr inbounds nuw i8, ptr %54, i64 23
   %120 = load i8, ptr %119, align 1, !range !16, !noundef !17
   %121 = icmp eq i8 %120, 0
-  br i1 %121, label %146, label %.thread6
+  br i1 %121, label %146, label %.thread
 
-.thread6:                                         ; preds = %100, %118, %..thread6_crit_edge
-  %122 = phi i32 [ %.pre, %..thread6_crit_edge ], [ %72, %118 ], [ %72, %100 ]
+.thread:                                          ; preds = %100, %118, %..thread_crit_edge
+  %122 = phi i32 [ %.pre, %..thread_crit_edge ], [ %72, %118 ], [ %72, %100 ]
   %123 = getelementptr inbounds nuw i8, ptr %54, i64 22
   %124 = load i8, ptr %123, align 2, !range !16, !noundef !17
   %125 = icmp eq i8 %124, 0
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %125, label %144, label %127
 
-127:                                              ; preds = %.thread6
+127:                                              ; preds = %.thread
   %128 = icmp slt i32 %81, 0
   br i1 %128, label %129, label %130, !prof !9
 
@@ -1013,7 +1013,7 @@ define dso_local i32 @udpv6_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef 
   call void @iov_iter_revert(ptr noundef nonnull %126, i64 noundef %143) #14
   br label %.loopexit.sink.split
 
-144:                                              ; preds = %.thread6
+144:                                              ; preds = %.thread
   %145 = call i32 @skb_copy_datagram_iter(ptr noundef nonnull %54, i32 noundef %122, ptr noundef nonnull %126, i32 noundef %81) #14
   br label %.loopexit.sink.split
 

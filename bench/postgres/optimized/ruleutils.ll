@@ -10746,8 +10746,8 @@ list_length.exit52:                               ; preds = %list_length.exit, %
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br i1 %.not50, label %.thread, label %.split
 
-.split:                                           ; preds = %40, %623
-  %indvars.iv = phi i64 [ %indvars.iv.next, %623 ], [ 0, %40 ]
+.split:                                           ; preds = %40, %622
+  %indvars.iv = phi i64 [ %indvars.iv.next, %622 ], [ 0, %40 ]
   br i1 %.not49, label %55, label %48
 
 48:                                               ; preds = %.split
@@ -10785,7 +10785,7 @@ list_length.exit52:                               ; preds = %list_length.exit, %
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 2
-  br i1 %71, label %72, label %622
+  br i1 %71, label %72, label %621
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr %17, align 8
@@ -12054,17 +12054,16 @@ set_join_column_names.exit:                       ; preds = %._crit_edge321.i, %
   %618 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %619 = load ptr, ptr %618, align 8
   %.not230.i = icmp eq ptr %619, null
-  %620 = and i8 %.7.lcssa.i, 1
-  %spec.select371.i = select i1 %.not230.i, i8 0, i8 %620
-  %621 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  store i8 %spec.select371.i, ptr %621, align 8
-  br label %623
+  %spec.select371.i = select i1 %.not230.i, i8 0, i8 %.7.lcssa.i
+  %620 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  store i8 %spec.select371.i, ptr %620, align 8
+  br label %622
 
-622:                                              ; preds = %65
+621:                                              ; preds = %65
   tail call fastcc void @set_relation_column_names(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef %68)
-  br label %623
+  br label %622
 
-623:                                              ; preds = %622, %set_join_column_names.exit
+622:                                              ; preds = %621, %set_join_column_names.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.split, !llvm.loop !46
 }
@@ -15084,60 +15083,56 @@ add_to_names_hash.exit:                           ; preds = %134, %130, %108
   %.191 = phi i8 [ %.090132, %104 ], [ %spec.select, %145 ], [ 1, %add_to_names_hash.exit ]
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count144
-  br i1 %exitcond145.not, label %._crit_edge134.loopexit, label %104, !llvm.loop !54
+  br i1 %exitcond145.not, label %._crit_edge134, label %104, !llvm.loop !54
 
-._crit_edge134.loopexit:                          ; preds = %147
-  %148 = and i8 %.191, 1
-  br label %._crit_edge134
+._crit_edge134:                                   ; preds = %147, %list_length.exit113
+  %.096.lcssa = phi i32 [ 0, %list_length.exit113 ], [ %.197, %147 ]
+  %.090.lcssa = phi i8 [ 0, %list_length.exit113 ], [ %.191, %147 ]
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %149 = load ptr, ptr %148, align 8
+  %.not.i117 = icmp eq ptr %149, null
+  br i1 %.not.i117, label %destroy_colinfo_names_hash.exit, label %150
 
-._crit_edge134:                                   ; preds = %._crit_edge134.loopexit, %list_length.exit113
-  %.096.lcssa = phi i32 [ 0, %list_length.exit113 ], [ %.197, %._crit_edge134.loopexit ]
-  %.090.lcssa = phi i8 [ 0, %list_length.exit113 ], [ %148, %._crit_edge134.loopexit ]
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %150 = load ptr, ptr %149, align 8
-  %.not.i117 = icmp eq ptr %150, null
-  br i1 %.not.i117, label %destroy_colinfo_names_hash.exit, label %151
-
-151:                                              ; preds = %._crit_edge134
-  call void @hash_destroy(ptr noundef nonnull %150) #11
-  store ptr null, ptr %149, align 8
+150:                                              ; preds = %._crit_edge134
+  call void @hash_destroy(ptr noundef nonnull %149) #11
+  store ptr null, ptr %148, align 8
   br label %destroy_colinfo_names_hash.exit
 
-destroy_colinfo_names_hash.exit:                  ; preds = %._crit_edge134, %151
-  %152 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.096.lcssa, ptr %152, align 8
-  %153 = load i32, ptr %5, align 8
-  switch i32 %153, label %156 [
-    i32 0, label %163
-    i32 3, label %154
-    i32 4, label %155
+destroy_colinfo_names_hash.exit:                  ; preds = %._crit_edge134, %150
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %.096.lcssa, ptr %151, align 8
+  %152 = load i32, ptr %5, align 8
+  switch i32 %152, label %155 [
+    i32 0, label %162
+    i32 3, label %153
+    i32 4, label %154
   ]
 
+153:                                              ; preds = %destroy_colinfo_names_hash.exit
+  br label %162
+
 154:                                              ; preds = %destroy_colinfo_names_hash.exit
-  br label %163
+  br label %162
 
 155:                                              ; preds = %destroy_colinfo_names_hash.exit
-  br label %163
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %.not107 = icmp eq ptr %157, null
+  br i1 %.not107, label %161, label %158
 
-156:                                              ; preds = %destroy_colinfo_names_hash.exit
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %.not107 = icmp eq ptr %158, null
-  br i1 %.not107, label %162, label %159
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %160 = load ptr, ptr %159, align 8
+  %.not108 = icmp eq ptr %160, null
+  br i1 %.not108, label %161, label %162
 
-159:                                              ; preds = %156
-  %160 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %161 = load ptr, ptr %160, align 8
-  %.not108 = icmp eq ptr %161, null
-  br i1 %.not108, label %162, label %163
+161:                                              ; preds = %158, %155
+  br label %162
 
-162:                                              ; preds = %159, %156
-  br label %163
-
-163:                                              ; preds = %159, %destroy_colinfo_names_hash.exit, %154, %162, %155
-  %.sink146 = phi i8 [ 1, %154 ], [ %.090.lcssa, %162 ], [ 0, %155 ], [ %.090.lcssa, %destroy_colinfo_names_hash.exit ], [ 1, %159 ]
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i8 %.sink146, ptr %164, align 8
+162:                                              ; preds = %158, %destroy_colinfo_names_hash.exit, %153, %161, %154
+  %.sink146 = phi i8 [ 1, %153 ], [ %.090.lcssa, %161 ], [ 0, %154 ], [ %.090.lcssa, %destroy_colinfo_names_hash.exit ], [ 1, %158 ]
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i8 %.sink146, ptr %163, align 8
   ret void
 }
 

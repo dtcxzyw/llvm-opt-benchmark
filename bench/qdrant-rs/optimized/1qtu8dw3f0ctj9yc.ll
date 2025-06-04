@@ -898,8 +898,7 @@ define { i32, float } @_ZN6sparse6common13sparse_vector12SparseVector5score17ha9
   %.039.lcssa = phi i8 [ 0, %2 ], [ %.140, %35 ]
   %21 = trunc nuw i8 %.039.lcssa to i1
   %.041. = select i1 %21, float %.041.lcssa, float undef
-  %.mask = and i8 %.039.lcssa, 1
-  %. = zext nneg i8 %.mask to i32
+  %. = zext nneg i8 %.039.lcssa to i32
   %22 = insertvalue { i32, float } poison, i32 %., 0
   %23 = insertvalue { i32, float } %22, float %.041., 1
   ret { i32, float } %23

@@ -51,7 +51,7 @@ define dso_local ptr @i915_sched_lookup_priolist(ptr noundef %0, i32 noundef %1)
 
 20:                                               ; preds = %.preheader
   %21 = icmp slt i32 %11, %18
-  br i1 %21, label %22, label %53
+  br i1 %21, label %22, label %52
 
 22:                                               ; preds = %20, %.preheader
   %23 = phi i64 [ 16, %.preheader ], [ 8, %20 ]
@@ -99,26 +99,25 @@ define dso_local ptr @i915_sched_lookup_priolist(ptr noundef %0, i32 noundef %1)
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store ptr %46, ptr %32, align 8
-  %48 = and i8 %34, 1
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %52, label %50
+  %48 = icmp eq i8 %34, 0
+  br i1 %48, label %51, label %49
 
-50:                                               ; preds = %.loopexit
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %46, ptr %51, align 8
-  br label %52
+49:                                               ; preds = %.loopexit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %46, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %50, %.loopexit
+51:                                               ; preds = %49, %.loopexit
   tail call void @rb_insert_color(ptr noundef nonnull %46, ptr noundef nonnull %9) #10
-  br label %55
+  br label %54
 
-53:                                               ; preds = %20
-  %54 = getelementptr i8, ptr %15, i64 -16
-  br label %55
+52:                                               ; preds = %20
+  %53 = getelementptr i8, ptr %15, i64 -16
+  br label %54
 
-55:                                               ; preds = %53, %52
-  %56 = phi ptr [ %43, %52 ], [ %54, %53 ]
-  ret ptr %56
+54:                                               ; preds = %52, %51
+  %55 = phi ptr [ %43, %51 ], [ %53, %52 ]
+  ret ptr %55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -161,14 +160,14 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %13 = load volatile i64, ptr %12, align 8
   %14 = and i64 %13, 1
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %262
+  br i1 %15, label %16, label %261
 
 16:                                               ; preds = %2
   call void @__rcu_read_lock() #10
   %17 = load volatile i64, ptr %12, align 8
   %18 = and i64 %17, 1
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %261, !prof !7
+  br i1 %19, label %20, label %260, !prof !7
 
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %0, i64 448
@@ -180,7 +179,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %27 = sub i32 %23, %26
   %28 = icmp sgt i32 %27, -1
   call void @__rcu_read_unlock() #10
-  br i1 %28, label %262, label %29
+  br i1 %28, label %261, label %29
 
 29:                                               ; preds = %20
   store ptr %5, ptr %3, align 8
@@ -309,7 +308,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %103 = load ptr, ptr %30, align 8
   %104 = load ptr, ptr %33, align 8
   %105 = icmp eq ptr %103, %104
-  br i1 %105, label %262, label %106
+  br i1 %105, label %261, label %106
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -349,10 +348,10 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %128 = icmp eq ptr %127, %4
   br i1 %128, label %.loopexit28, label %.preheader27
 
-.preheader27:                                     ; preds = %.loopexit30, %256
-  %129 = phi ptr [ %151, %256 ], [ %126, %.loopexit30 ]
-  %130 = phi ptr [ %133, %256 ], [ %127, %.loopexit30 ]
-  %131 = phi ptr [ %257, %256 ], [ null, %.loopexit30 ]
+.preheader27:                                     ; preds = %.loopexit30, %255
+  %129 = phi ptr [ %151, %255 ], [ %126, %.loopexit30 ]
+  %130 = phi ptr [ %133, %255 ], [ %127, %.loopexit30 ]
+  %131 = phi ptr [ %256, %255 ], [ null, %.loopexit30 ]
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr i8, ptr %130, i64 -48
@@ -386,21 +385,21 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %152 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %153 = load i32, ptr %152, align 8
   %154 = icmp sgt i32 %9, %153
-  br i1 %154, label %155, label %256
+  br i1 %154, label %155, label %255
 
 155:                                              ; preds = %.loopexit26
   %156 = getelementptr i8, ptr %135, i64 -256
   %157 = load volatile i64, ptr %156, align 8
   %158 = and i64 %157, 1
   %159 = icmp eq i64 %158, 0
-  br i1 %159, label %160, label %256
+  br i1 %159, label %160, label %255
 
 160:                                              ; preds = %155
   call void @__rcu_read_lock() #10
   %161 = load volatile i64, ptr %156, align 8
   %162 = and i64 %161, 1
   %163 = icmp eq i64 %162, 0
-  br i1 %163, label %164, label %255, !prof !7
+  br i1 %163, label %164, label %254, !prof !7
 
 164:                                              ; preds = %160
   %165 = getelementptr i8, ptr %135, i64 144
@@ -412,7 +411,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %171 = sub i32 %167, %170
   %172 = icmp sgt i32 %171, -1
   call void @__rcu_read_unlock() #10
-  br i1 %172, label %256, label %173
+  br i1 %172, label %255, label %173
 
 173:                                              ; preds = %164
   %174 = getelementptr inbounds nuw i8, ptr %151, i64 192
@@ -429,17 +428,17 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %179 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %180 = load volatile ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, %179
-  br i1 %181, label %256, label %182
+  br i1 %181, label %255, label %182
 
 182:                                              ; preds = %178
   %183 = load volatile i64, ptr %156, align 8
   %184 = and i64 %183, 16
   %185 = icmp eq i64 %184, 0
-  br i1 %185, label %249, label %186
+  br i1 %185, label %248, label %186
 
 186:                                              ; preds = %182
   %187 = icmp eq ptr %150, null
-  br i1 %187, label %188, label %241
+  br i1 %187, label %188, label %240
 
 188:                                              ; preds = %186
   %189 = getelementptr inbounds nuw i8, ptr %151, i64 152
@@ -472,7 +471,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
 
 206:                                              ; preds = %.preheader
   %207 = icmp slt i32 %197, %204
-  br i1 %207, label %208, label %239
+  br i1 %207, label %208, label %238
 
 208:                                              ; preds = %206, %.preheader
   %209 = phi i64 [ 16, %.preheader ], [ 8, %206 ]
@@ -520,70 +519,69 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, i8 0, i64 16, i1 false)
   store ptr %232, ptr %218, align 8
-  %234 = and i8 %220, 1
-  %235 = icmp eq i8 %234, 0
-  br i1 %235, label %238, label %236
+  %234 = icmp eq i8 %220, 0
+  br i1 %234, label %237, label %235
 
-236:                                              ; preds = %.loopexit
-  %237 = getelementptr inbounds nuw i8, ptr %151, i64 144
-  store ptr %232, ptr %237, align 8
-  br label %238
+235:                                              ; preds = %.loopexit
+  %236 = getelementptr inbounds nuw i8, ptr %151, i64 144
+  store ptr %232, ptr %236, align 8
+  br label %237
 
-238:                                              ; preds = %236, %.loopexit
+237:                                              ; preds = %235, %.loopexit
   call void @rb_insert_color(ptr noundef nonnull %232, ptr noundef nonnull %195) #10
-  br label %241
+  br label %240
 
-239:                                              ; preds = %206
-  %240 = getelementptr i8, ptr %201, i64 -16
-  br label %241
+238:                                              ; preds = %206
+  %239 = getelementptr i8, ptr %201, i64 -16
+  br label %240
 
-241:                                              ; preds = %239, %238, %186
-  %242 = phi ptr [ %150, %186 ], [ %229, %238 ], [ %240, %239 ]
-  %243 = getelementptr inbounds nuw i8, ptr %135, i64 40
-  %244 = load ptr, ptr %243, align 8
-  %245 = load ptr, ptr %179, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  store ptr %244, ptr %246, align 8
-  store volatile ptr %245, ptr %244, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  %248 = load ptr, ptr %247, align 8
-  store ptr %179, ptr %247, align 8
-  store ptr %242, ptr %179, align 8
-  store ptr %248, ptr %243, align 8
-  store volatile ptr %179, ptr %248, align 8
-  br label %249
+240:                                              ; preds = %238, %237, %186
+  %241 = phi ptr [ %150, %186 ], [ %229, %237 ], [ %239, %238 ]
+  %242 = getelementptr inbounds nuw i8, ptr %135, i64 40
+  %243 = load ptr, ptr %242, align 8
+  %244 = load ptr, ptr %179, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  store ptr %243, ptr %245, align 8
+  store volatile ptr %244, ptr %243, align 8
+  %246 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %247 = load ptr, ptr %246, align 8
+  store ptr %179, ptr %246, align 8
+  store ptr %241, ptr %179, align 8
+  store ptr %247, ptr %242, align 8
+  store volatile ptr %179, ptr %247, align 8
+  br label %248
 
-249:                                              ; preds = %241, %182
-  %250 = phi ptr [ %242, %241 ], [ %150, %182 ]
-  %251 = getelementptr inbounds nuw i8, ptr %151, i64 184
-  %252 = load ptr, ptr %251, align 8
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %256, label %254
+248:                                              ; preds = %240, %182
+  %249 = phi ptr [ %241, %240 ], [ %150, %182 ]
+  %250 = getelementptr inbounds nuw i8, ptr %151, i64 184
+  %251 = load ptr, ptr %250, align 8
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %255, label %253
 
-254:                                              ; preds = %249
-  call void %252(ptr noundef %136, i32 noundef %9) #10
-  br label %256
+253:                                              ; preds = %248
+  call void %251(ptr noundef %136, i32 noundef %9) #10
+  br label %255
 
-255:                                              ; preds = %160
+254:                                              ; preds = %160
   call void @__rcu_read_unlock() #10
-  br label %256
+  br label %255
 
-256:                                              ; preds = %255, %254, %249, %178, %164, %155, %.loopexit26
-  %257 = phi ptr [ %150, %164 ], [ %250, %249 ], [ %250, %254 ], [ %150, %178 ], [ %150, %.loopexit26 ], [ %150, %155 ], [ %150, %255 ]
-  %258 = icmp eq ptr %133, %4
-  br i1 %258, label %.loopexit28, label %.preheader27, !llvm.loop !16
+255:                                              ; preds = %254, %253, %248, %178, %164, %155, %.loopexit26
+  %256 = phi ptr [ %150, %164 ], [ %249, %248 ], [ %249, %253 ], [ %150, %178 ], [ %150, %.loopexit26 ], [ %150, %155 ], [ %150, %254 ]
+  %257 = icmp eq ptr %133, %4
+  br i1 %257, label %.loopexit28, label %.preheader27, !llvm.loop !16
 
-.loopexit28:                                      ; preds = %256, %.loopexit30
-  %259 = phi ptr [ %126, %.loopexit30 ], [ %151, %256 ]
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 4
-  call void @_raw_spin_unlock(ptr noundef nonnull %260) #10
-  br label %262
+.loopexit28:                                      ; preds = %255, %.loopexit30
+  %258 = phi ptr [ %126, %.loopexit30 ], [ %151, %255 ]
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  call void @_raw_spin_unlock(ptr noundef nonnull %259) #10
+  br label %261
 
-261:                                              ; preds = %16
+260:                                              ; preds = %16
   call void @__rcu_read_unlock() #10
-  br label %262
+  br label %261
 
-262:                                              ; preds = %261, %.loopexit28, %101, %20, %2
+261:                                              ; preds = %260, %.loopexit28, %101, %20, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #10
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @schedule_lock) #10

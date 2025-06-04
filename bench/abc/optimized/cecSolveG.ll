@@ -2445,14 +2445,14 @@ Vec_PtrFreeP.exit:                                ; preds = %Abc_Clock.exit, %22
   %65 = trunc i64 %59 to i32
   %66 = lshr i32 %65, 29
   %67 = and i32 %66, 1
-  %68 = shl nuw nsw i32 %67, 30
-  %69 = zext nneg i32 %68 to i64
-  %70 = and i64 %59, -4611686019501129729
-  %71 = or disjoint i64 %70, %69
-  %72 = xor i32 %67, 1
-  %73 = zext nneg i32 %72 to i64
+  %68 = xor i32 %67, 1
+  %69 = shl nuw nsw i32 %67, 30
+  %70 = zext nneg i32 %69 to i64
+  %71 = and i64 %59, -4611686019501129729
+  %72 = or disjoint i64 %71, %70
+  %73 = zext nneg i32 %68 to i64
   %74 = shl nuw nsw i64 %73, 62
-  %75 = or disjoint i64 %71, %74
+  %75 = or disjoint i64 %72, %74
   store i64 %75, ptr %57, align 4
   br label %115
 
