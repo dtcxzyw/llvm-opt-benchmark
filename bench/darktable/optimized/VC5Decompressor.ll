@@ -4587,7 +4587,7 @@ _ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_l
   br i1 %.not.i.i.i.i.i.i, label %_ZN8rawspeed15VC5Decompressor8BandDataC2Eii.exit, label %_ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i
 
 _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIsN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE17_S_check_init_lenEmRKS3_.exit.i.i.i
-  %31 = shl nuw i32 %29, 1
+  %32 = shl nuw i32 %29, 1
   %32 = zext i32 %31 to i64
   %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #31
   %.pre = load i32, ptr %26, align 4, !tbaa !204
@@ -4667,7 +4667,7 @@ _ZN8rawspeed15VC5Decompressor8BandDataC2Eii.exit: ; preds = %_ZNSt6vectorIsN8raw
 
 ._crit_edge62:                                    ; preds = %._crit_edge
   %69 = icmp eq i32 %72, 0
-  br i1 %69, label %._crit_edge62.thread, label %.invoke113
+  br i1 %69, label %._crit_edge62.thread, label %.invoke112
 
 ._crit_edge62.thread:                             ; preds = %.preheader.lr.ph, %_ZN8rawspeed15VC5Decompressor8BandDataC2Eii.exit, %._crit_edge62
   %70 = invoke i64 @_ZN8rawspeed15VC5Decompressor6getRLVERKNS_20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoderIS2_EEEERNS_14BitStreamerMSBE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(40) %12)
@@ -4682,14 +4682,14 @@ _ZN8rawspeed15VC5Decompressor8BandDataC2Eii.exit: ; preds = %_ZNSt6vectorIsN8raw
   %.not1.i = icmp eq i16 %.sroa.01.0.extract.trunc.i.i, 1
   %.not2.i = icmp ult i64 %70, 4294967296
   %or.cond.i = and i1 %.not2.i, %.not1.i
-  br i1 %or.cond.i, label %_ZZNK8rawspeed15VC5Decompressor7Wavelet12HighPassBand6decodeEvEN7DeRLVer13verifyIsAtEndEv.exit, label %.invoke113
+  br i1 %or.cond.i, label %_ZZNK8rawspeed15VC5Decompressor7Wavelet12HighPassBand6decodeEvEN7DeRLVer13verifyIsAtEndEv.exit, label %.invoke112
 
-.invoke113:                                       ; preds = %.noexc16, %._crit_edge62
+.invoke112:                                       ; preds = %.noexc16, %._crit_edge62
   %71 = phi ptr [ @.str.43, %._crit_edge62 ], [ @.str.44, %.noexc16 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %71, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZNK8rawspeed15VC5Decompressor7Wavelet12HighPassBand6decodeEvEN7DeRLVer13verifyIsAtEndEv) #23
           to label %.cont114 unwind label %196
 
-.cont114:                                         ; preds = %.invoke113
+.cont113:                                         ; preds = %.invoke112
   unreachable
 
 ._crit_edge:                                      ; preds = %..thread_crit_edge.i, %.preheader
@@ -4993,7 +4993,7 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoder
           cleanup
   br label %198
 
-196:                                              ; preds = %.invoke113, %._crit_edge62.thread
+196:                                              ; preds = %.invoke112, %._crit_edge62.thread
   %197 = landingpad { ptr, i32 }
           cleanup
   br label %198

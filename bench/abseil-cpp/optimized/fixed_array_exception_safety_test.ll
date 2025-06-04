@@ -5272,7 +5272,7 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   %.idx.i.i42 = phi i64 [ %.idx.i.i, %48 ], [ %.idx.i.i40, %1 ]
   %16 = phi i64 [ %51, %48 ], [ %14, %1 ]
   %17 = phi ptr [ %50, %48 ], [ %13, %1 ]
-  %.041 = phi i32 [ %49, %48 ], [ 0, %1 ]
+  %.042 = phi i32 [ %49, %48 ], [ 0, %1 ]
   %18 = icmp ugt i64 %16, 2305843009213693951
   br i1 %18, label %.noexc.i.i.i.i, label %.thread.i.i, !prof !31
 
@@ -5294,8 +5294,8 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   br label %.lr.ph.i.i.preheader.i.i
 
 ._crit_edge:                                      ; preds = %48, %1
-  %.idx.i.i.lcssa39 = phi i64 [ %.idx.i.i40, %1 ], [ %.idx.i.i, %48 ]
-  %.lcssa38 = phi ptr [ %13, %1 ], [ %50, %48 ]
+  %.lcssa40 = phi i64 [ %.idx.i.i40, %1 ], [ %.idx.i.i, %48 ]
+  %.lcssa39 = phi ptr [ %13, %1 ], [ %50, %48 ]
   %.lcssa25 = phi i64 [ %14, %1 ], [ %51, %48 ]
   %22 = getelementptr inbounds nuw i8, ptr %.lcssa38, i64 %.idx.i.i.lcssa39
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -5304,13 +5304,13 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   br i1 %.not7.i.i.i.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %._crit_edge, %.noexc12
-  %24 = phi ptr [ %17, %.noexc12 ], [ %.lcssa38, %._crit_edge ]
+  %24 = phi ptr [ %17, %.noexc12 ], [ %.lcssa39, %._crit_edge ]
   %25 = phi ptr [ %20, %.noexc12 ], [ %22, %._crit_edge ]
-  %.0.i.i.i7.i.i = phi ptr [ %19, %.noexc12 ], [ %3, %._crit_edge ]
+  %.0.i.i.i8.i.i = phi ptr [ %19, %.noexc12 ], [ %3, %._crit_edge ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
-  %.09.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.0.i.i.i7.i.i, %.lr.ph.i.i.preheader.i.i ]
+  %.09.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.0.i.i.i8.i.i, %.lr.ph.i.i.preheader.i.i ]
   %.sroa.04.08.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %24, %.lr.ph.i.i.preheader.i.i ]
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2EOS2_(ptr noundef nonnull align 4 dereferenceable(4) %.09.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.04.08.i.i.i.i) #23
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 4
@@ -5319,8 +5319,8 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   br i1 %.not.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i, !llvm.loop !139
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i
-  %.pre62 = load i64, ptr %12, align 8, !tbaa !20
-  %28 = icmp eq i64 %.pre62, 0
+  %.pre64 = load i64, ptr %12, align 8, !tbaa !20
+  %28 = icmp eq i64 %.pre64, 0
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   br i1 %28, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit, label %.lr.ph.i.preheader
 
@@ -5384,7 +5384,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2
 48:                                               ; preds = %45
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %2) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #23
-  %49 = add nuw nsw i32 %.041, 1
+  %49 = add nuw nsw i32 %.042, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #23
   store ptr %4, ptr %2, align 8, !tbaa !34
   store i64 1, ptr %5, align 8, !tbaa !41

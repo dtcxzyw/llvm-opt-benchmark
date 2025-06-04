@@ -53891,8 +53891,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_s
   br i1 %35, label %62, label %36
 
 36:                                               ; preds = %34
-  %.not128 = icmp samesign ult i64 %.01953.i.i.i, 2
-  br i1 %.not128, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i
+  %.not127 = icmp samesign ult i64 %.01953.i.i.i, 2
+  br i1 %.not127, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i: ; preds = %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i
   %.013.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i.i ], [ %25, %36 ]
@@ -54192,8 +54192,8 @@ _ZNK5boost16re_detail_10740020named_subexpressions11equal_rangeEi.exit55: ; pred
   %.not = icmp eq i32 %189, %190
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.078, i64 8
   %.not62 = icmp eq ptr %191, %.sroa.3.2.i.i.i27
-  %or.cond129 = select i1 %.not, i1 true, i1 %.not62
-  br i1 %or.cond129, label %.loopexit, label %.lr.ph, !llvm.loop !1226
+  %or.cond128 = select i1 %.not, i1 true, i1 %.not62
+  br i1 %or.cond128, label %.loopexit, label %.lr.ph, !llvm.loop !1226
 
 192:                                              ; preds = %126
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 184

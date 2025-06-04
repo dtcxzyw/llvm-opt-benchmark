@@ -927,16 +927,16 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder24remove_block_predec
   %35 = icmp eq i64 %20, 0
   br i1 %35, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit", %38
-  %.011.i = phi i64 [ %40, %38 ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit" ]
+.lr.ph.i:     ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit", %38
+  %35 = phi i64 [ %40, %38 ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit" ]
   %36 = phi ptr [ %39, %38 ], [ %32, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit" ]
   %.val7.i = load i32, ptr %36, align 4, !noalias !115, !noundef !4
   %37 = icmp eq i32 %.val7.i, %2
   br i1 %37, label %42, label %38
 
-38:                                               ; preds = %.lr.ph.i
+38: ; preds = %.lr.ph.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %40 = add nuw nsw i64 %.011.i, 1
+  %40 = add nuw nsw i64 %35, 1
   %41 = icmp eq ptr %39, %34
   br i1 %41, label %.loopexit, label %.lr.ph.i
 
@@ -944,9 +944,9 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder24remove_block_predec
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.f378413b6247863a529c4dab6769c8f0.38.llvm.1812094323767051342, i64 noundef 56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f378413b6247863a529c4dab6769c8f0.39.llvm.1812094323767051342) #21
   unreachable
 
-42:                                               ; preds = %.lr.ph.i
+41:                                               ; preds = %.lr.ph.i
   %43 = and i64 %20, 4611686018427387903
-  %44 = icmp samesign ult i64 %.011.i, %43
+  %44 = icmp samesign ult i64 %35, %43
   tail call void @llvm.assume(i1 %44)
   tail call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11swap_remove17h586b3bdc56054161E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %14, i64 noundef %.011.i, ptr noalias noundef nonnull align 8 dereferenceable(48) %15)
   ret void

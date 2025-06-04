@@ -20480,24 +20480,24 @@ define hidden void @_ZN10tokenizers9tokenizer8encoding8Encoding31process_tokens_
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i64, ptr %10, align 8, !alias.scope !4329, !noundef !4
   %.idx = mul nsw i64 %7, 24
-  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %13 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %.idx12 = shl nsw i64 %11, 4
   %13 = getelementptr inbounds i8, ptr %9, i64 %.idx12
   %14 = and i64 %11, 1152921504606846975
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %14)
   store ptr %5, ptr %3, align 8, !alias.scope !4332
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %12, ptr %15, align 8, !alias.scope !4332
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %9, ptr %16, align 8, !alias.scope !4332
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %13, ptr %17, align 8, !alias.scope !4332
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 0, ptr %18, align 8, !alias.scope !4332
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 %.0.sroa.speculated.i.i.i, ptr %19, align 8, !alias.scope !4332
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 %7, ptr %20, align 8, !alias.scope !4332
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %12, ptr %14, align 8, !alias.scope !4332
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %9, ptr %15, align 8, !alias.scope !4332
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %13, ptr %16, align 8, !alias.scope !4332
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 0, ptr %17, align 8, !alias.scope !4332
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 %.0.sroa.speculated.i.i.i, ptr %18, align 8, !alias.scope !4332
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 %7, ptr %19, align 8, !alias.scope !4332
   call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h1f8319afe11eb6f9E.llvm.14140520316429159617"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, i64 noundef 0)
   ret void
 }

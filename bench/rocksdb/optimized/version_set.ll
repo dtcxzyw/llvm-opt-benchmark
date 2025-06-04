@@ -16406,10 +16406,10 @@ define linkonce_odr void @_ZN7rocksdb10autovectorISt5tupleIJmmNS0_INS_15BlobRead
   br label %_ZNSt5tupleIJmmN7rocksdb10autovectorINS0_15BlobReadRequestELm8EEEEEC2IJRKmS7_RS3_ELb1ETnNSt9enable_ifIXclsr4_TCCIXT0_EEE29__is_implicitly_constructibleIDpT_EEEbE4typeELb1EEEDpOSA_.exit
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.noexc.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.noexc.i.i.i.i.i.i ]
   %24 = load ptr, ptr %14, align 8, !tbaa !1107
-  %25 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %24, i64 %.010.i.i.i.i.i.i.i
-  %26 = add nuw i64 %.010.i.i.i.i.i.i.i, 1
+  %25 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %24, i64 %.011.i.i.i.i.i.i.i
+  %26 = add nuw i64 %.011.i.i.i.i.i.i.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 0, i64 48, i1 false)
   %27 = load i64, ptr %11, align 8, !tbaa !1100
   %28 = icmp ult i64 %26, %27
@@ -24561,11 +24561,11 @@ _ZNSt6vectorIN7rocksdb14FdWithKeyRangeESaIS1_EEC2IPS1_vEET_S6_RKS2_.exit: ; pred
   br i1 %.not.i.i.i20, label %_ZTWN7rocksdb10perf_levelE.exit.i.i.us, label %.lr.ph.split
 
 _ZTWN7rocksdb10perf_levelE.exit.i.i.us:           ; preds = %.lr.ph, %.critedge.us
-  %.01455.us = phi i64 [ %93, %.critedge.us ], [ 1, %.lr.ph ]
-  %56 = getelementptr %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01455.us
+  %.01456.us = phi i64 [ %93, %.critedge.us ], [ 1, %.lr.ph ]
+  %56 = getelementptr %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01456.us
   %57 = load ptr, ptr %0, align 16, !tbaa !960
   %58 = getelementptr i8, ptr %56, i64 -16
-  %59 = getelementptr inbounds nuw %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01455.us, i32 2
+  %59 = getelementptr inbounds nuw %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01456.us, i32 2
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #40
   %61 = load ptr, ptr %58, align 8, !tbaa !4
@@ -24632,9 +24632,9 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.us: ; preds = %
   br i1 %92, label %.critedge.us, label %.thread
 
 .critedge.us:                                     ; preds = %83, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.us
-  %93 = add nuw i64 %.01455.us, 1
-  %exitcond60.not = icmp eq i64 %93, %51
-  br i1 %exitcond60.not, label %._crit_edge, label %_ZTWN7rocksdb10perf_levelE.exit.i.i.us, !llvm.loop !1368
+  %93 = add nuw i64 %.01456.us, 1
+  %exitcond61.not = icmp eq i64 %93, %51
+  br i1 %exitcond61.not, label %._crit_edge, label %_ZTWN7rocksdb10perf_levelE.exit.i.i.us, !llvm.loop !1368
 
 .split.us:                                        ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.us, %72
   %94 = landingpad { ptr, i32 }
@@ -24652,11 +24652,11 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.us: ; preds = %
   br label %_ZNSt6vectorIN7rocksdb14FdWithKeyRangeESaIS1_EED2Ev.exit28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %.01455 = phi i64 [ %133, %.critedge ], [ 1, %.lr.ph ]
-  %95 = getelementptr %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01455
+  %.01456 = phi i64 [ %133, %.critedge ], [ 1, %.lr.ph ]
+  %95 = getelementptr %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01456
   %96 = load ptr, ptr %0, align 16, !tbaa !960
   %97 = getelementptr i8, ptr %95, i64 -16
-  %98 = getelementptr inbounds nuw %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01455, i32 2
+  %98 = getelementptr inbounds nuw %"struct.rocksdb::FdWithKeyRange", ptr %25, i64 %.01456, i32 2
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #40
   %100 = load ptr, ptr %97, align 8, !tbaa !4
@@ -24736,7 +24736,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %.no
   br label %_ZNSt6vectorIN7rocksdb14FdWithKeyRangeESaIS1_EED2Ev.exit28
 
 .critedge:                                        ; preds = %121, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
-  %133 = add nuw i64 %.01455, 1
+  %133 = add nuw i64 %.01456, 1
   %exitcond.not = icmp eq i64 %133, %51
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1368
 
@@ -33093,10 +33093,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(504) ptr @_ZN7rocksd
   br label %_ZN7rocksdb10autovectorImLm8EEaSERKS1_.exit
 
 53:                                               ; preds = %53, %.lr.ph.i.i
-  %.010.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %53 ]
-  %54 = getelementptr inbounds nuw i64, ptr %49, i64 %.010.i.i
+  %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %53 ]
+  %54 = getelementptr inbounds nuw i64, ptr %49, i64 %.011.i.i
   store i64 0, ptr %54, align 8, !tbaa !285
-  %55 = add nuw i64 %.010.i.i, 1
+  %55 = add nuw i64 %.011.i.i, 1
   %56 = load i64, ptr %39, align 8, !tbaa !1568
   %57 = icmp ult i64 %55, %56
   br i1 %57, label %53, label %._crit_edge.i.i, !llvm.loop !1569
@@ -95556,10 +95556,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(440) ptr @_ZNSt6vect
   br label %_ZNSt16allocator_traitsISaISt5tupleIJmmN7rocksdb10autovectorINS1_15BlobReadRequestELm8EEEEEEE9constructIS5_JRKmSA_RS4_EEEvRS6_PT_DpOT0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %.noexc.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %.noexc.i.i.i.i.i.i.i.i ]
   %22 = load ptr, ptr %12, align 8, !tbaa !1107
-  %23 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %22, i64 %.010.i.i.i.i.i.i.i.i.i
-  %24 = add nuw i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %23 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %22, i64 %.011.i.i.i.i.i.i.i.i.i
+  %24 = add nuw i64 %.011.i.i.i.i.i.i.i.i.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, i8 0, i64 48, i1 false)
   %25 = load i64, ptr %6, align 8, !tbaa !1100
   %26 = icmp ult i64 %24, %25
@@ -95780,10 +95780,10 @@ _ZNKSt6vectorISt5tupleIJmmN7rocksdb10autovectorINS1_15BlobReadRequestELm8EEEEESa
   br label %50
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %.noexc.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %.noexc.i.i.i.i.i.i.i.i ]
   %36 = load ptr, ptr %26, align 8, !tbaa !1107
-  %37 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %36, i64 %.010.i.i.i.i.i.i.i.i.i
-  %38 = add nuw i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %37 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %36, i64 %.011.i.i.i.i.i.i.i.i.i
+  %38 = add nuw i64 %.011.i.i.i.i.i.i.i.i.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, i8 0, i64 48, i1 false)
   %39 = load i64, ptr %23, align 8, !tbaa !1100
   %40 = icmp ult i64 %38, %39

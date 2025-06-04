@@ -102,7 +102,7 @@ make_heap.exit.thread.i:                          ; preds = %._crit_edge.i.threa
   %40 = phi i64 [ 1, %._crit_edge.i.thread ], [ %33, %._crit_edge.i ]
   %41 = phi i32 [ 1, %._crit_edge.i.thread ], [ %32, %._crit_edge.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(524296) %27, i8 0, i64 524296, i1 false)
-  br label %._crit_edge112.i
+  br label %._crit_edge111.i
 
 42:                                               ; preds = %._crit_edge.i
   %43 = zext i32 %37 to i64
@@ -207,7 +207,7 @@ make_heap.exit.i:                                 ; preds = %adjust_heap.exit.i.
 .lr.ph.i:                                         ; preds = %.preheader.i, %100
   %.1 = phi i32 [ %.2, %100 ], [ 0, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %100 ], [ %23, %.preheader.i ]
-  %.071108.i = phi i32 [ %.1.i, %100 ], [ 0, %.preheader.i ]
+  %.071107.i = phi i32 [ %.1.i, %100 ], [ 0, %.preheader.i ]
   %92 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
   %93 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %93, ptr %92, align 4, !tbaa !17
@@ -217,31 +217,31 @@ make_heap.exit.i:                                 ; preds = %adjust_heap.exit.i.
   br i1 %.not75.i, label %100, label %96
 
 96:                                               ; preds = %.lr.ph.i
-  %97 = zext i32 %.071108.i to i64
+  %97 = zext i32 %.071107.i to i64
   %98 = getelementptr inbounds nuw ptr, ptr %28, i64 %97
   store ptr %94, ptr %98, align 8, !tbaa !12
-  %99 = add i32 %.071108.i, 1
+  %99 = add i32 %.071107.i, 1
   br label %100
 
 100:                                              ; preds = %96, %.lr.ph.i
   %.2 = phi i32 [ %.1, %.lr.ph.i ], [ %93, %96 ]
-  %.1.i = phi i32 [ %.071108.i, %.lr.ph.i ], [ %99, %96 ]
+  %.1.i = phi i32 [ %.071107.i, %.lr.ph.i ], [ %99, %96 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %101 = and i64 %indvars.iv.next.i, 4294967295
   %exitcond.not.i47 = icmp eq i64 %101, 65537
   br i1 %exitcond.not.i47, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %236
-  br i1 %.wide117.i, label %102, label %._crit_edge112.i, !llvm.loop !20
+  br i1 %.wide117.i, label %102, label %._crit_edge111.i, !llvm.loop !20
 
 102:                                              ; preds = %.loopexit.i, %make_heap.exit.i
-  %indvars.iv115.i = phi i64 [ %43, %make_heap.exit.i ], [ %152, %.loopexit.i ]
+  %indvars.iv114.i = phi i64 [ %43, %make_heap.exit.i ], [ %152, %.loopexit.i ]
   %103 = load ptr, ptr %28, align 8, !tbaa !12
   %104 = ptrtoint ptr %103 to i64
   %105 = sub i64 %104, %90
   %106 = lshr exact i64 %105, 3
   %107 = trunc i64 %106 to i32
-  %.idx.i = shl nuw nsw i64 %indvars.iv115.i, 3
+  %.idx.i = shl nuw nsw i64 %indvars.iv114.i, 3
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
   %108 = load ptr, ptr %gep.i, align 8, !tbaa !12
   store ptr %103, ptr %gep.i, align 8, !tbaa !12
@@ -331,7 +331,7 @@ intern_pop_heap.exit.i.i:                         ; preds = %149, %142, %140
   %.014.lcssa.i.i.i.i.i = phi i64 [ 0, %140 ], [ %.01421.i.i.i.i.i, %142 ], [ 0, %149 ]
   %151 = getelementptr inbounds nuw ptr, ptr %28, i64 %.014.lcssa.i.i.i.i.i
   store ptr %108, ptr %151, align 8, !tbaa !12
-  %152 = add nsw i64 %indvars.iv115.i, -1
+  %152 = add nsw i64 %indvars.iv114.i, -1
   %153 = load ptr, ptr %28, align 8, !tbaa !12
   %154 = ptrtoint ptr %153 to i64
   %155 = sub i64 %154, %90
@@ -445,7 +445,7 @@ pop_heap.exit100.i:                               ; preds = %intern_pop_heap.exi
   store i64 %211, ptr %209, align 8, !tbaa !7
   %212 = getelementptr inbounds i8, ptr %158, i64 -8
   %213 = load ptr, ptr %212, align 8, !tbaa !12
-  %214 = add nsw i64 %indvars.iv115.i, -2
+  %214 = add nsw i64 %indvars.iv114.i, -2
   %.not.i101.i = icmp eq i64 %214, 0
   br i1 %.not.i101.i, label %push_heap.exit.i, label %.lr.ph.i.i102.i
 
@@ -508,7 +508,7 @@ push_heap.exit.i:                                 ; preds = %223, %216, %pop_hea
   %243 = icmp eq i32 %242, %.0.i
   br i1 %243, label %.loopexit.i, label %236, !llvm.loop !20
 
-._crit_edge112.i:                                 ; preds = %.loopexit.i, %make_heap.exit.thread.i
+._crit_edge111.i:                                 ; preds = %.loopexit.i, %make_heap.exit.thread.i
   %244 = phi ptr [ %39, %make_heap.exit.thread.i ], [ %34, %.loopexit.i ]
   %245 = phi i64 [ %40, %make_heap.exit.thread.i ], [ %33, %.loopexit.i ]
   %246 = phi i32 [ %41, %make_heap.exit.thread.i ], [ %32, %.loopexit.i ]
@@ -516,7 +516,7 @@ push_heap.exit.i:                                 ; preds = %223, %216, %pop_hea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(472) %8, i8 0, i64 472, i1 false), !tbaa !7
   br label %.preheader28.i.i
 
-.preheader28.i.i:                                 ; preds = %.preheader28.i.i, %._crit_edge112.i
+.preheader28.i.i:                                 ; preds = %.preheader28.i.i, %._crit_edge111.i
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge112.i ], [ %indvars.iv.next.i.i, %.preheader28.i.i ]
   %247 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv.i.i
   %248 = load i64, ptr %247, align 8, !tbaa !7

@@ -25298,60 +25298,60 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__
   %7 = icmp slt i64 %6, 120
   br i1 %7, label %8, label %23
 
-8:                                                ; preds = %3
-  %9 = icmp eq ptr %0, %1
+9:                                                ; preds = %3
+  %10 = icmp eq ptr %0, %1
   %.019.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not20.i = icmp eq ptr %.019.i, %1
-  %or.cond = select i1 %9, i1 true, i1 %.not20.i
+  %or.cond = select i1 %10, i1 true, i1 %.not20.i
   br i1 %or.cond, label %common.ret22, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %8, %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i"
+.lr.ph.i:                                         ; preds = %9, %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i"
   %.022.i = phi ptr [ %.0.i, %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i" ], [ %.019.i, %8 ]
   %.pn21.i = phi ptr [ %.022.i, %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i" ], [ %0, %8 ]
   %.0.val.i = load ptr, ptr %.022.i, align 8
   %.val18.i = load ptr, ptr %0, align 8
-  %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %2, ptr noundef %.0.val.i, ptr noundef %.val18.i)
-  %11 = load ptr, ptr %.022.i, align 8
-  br i1 %10, label %12, label %19
+  %11 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %2, ptr noundef %.0.val.i, ptr noundef %.val18.i)
+  %12 = load ptr, ptr %.022.i, align 8
+  br i1 %11, label %13, label %20
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.pn21.i, i64 16
-  %14 = ptrtoint ptr %.022.i to i64
-  %15 = sub i64 %14, %5
-  %16 = ashr exact i64 %15, 3
-  %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds ptr, ptr %13, i64 %17
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %15, i1 false)
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.pn21.i, i64 16
+  %15 = ptrtoint ptr %.022.i to i64
+  %16 = sub i64 %15, %5
+  %17 = ashr exact i64 %16, 3
+  %18 = sub nsw i64 0, %17
+  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i"
 
-19:                                               ; preds = %.lr.ph.i
+20:                                               ; preds = %.lr.ph.i
   %.0.val12.i.i = load ptr, ptr %.pn21.i, align 8
-  %20 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %2, ptr noundef %11, ptr noundef %.0.val12.i.i)
-  br i1 %20, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i"
+  %21 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %2, ptr noundef %12, ptr noundef %.0.val12.i.i)
+  br i1 %21, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn21.i, %19 ]
   %.0913.i.i = phi ptr [ %.014.i.i, %.lr.ph.i.i ], [ %.022.i, %19 ]
-  %21 = load ptr, ptr %.014.i.i, align 8
-  store ptr %21, ptr %.0913.i.i, align 8
+  %22 = load ptr, ptr %.014.i.i, align 8
+  store ptr %22, ptr %.0913.i.i, align 8
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -8
   %.0.val.i.i = load ptr, ptr %.0.i.i, align 8
-  %22 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %2, ptr noundef %11, ptr noundef %.0.val.i.i)
-  br i1 %22, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i", !llvm.loop !98
+  %23 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %2, ptr noundef %12, ptr noundef %.0.val.i.i)
+  br i1 %23, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i", !llvm.loop !98
 
-"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %19, %12
+"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %20, %13
   %.sink.i = phi ptr [ %0, %12 ], [ %.022.i, %19 ], [ %.014.i.i, %.lr.ph.i.i ]
-  store ptr %11, ptr %.sink.i, align 8
+  store ptr %12, ptr %.sink.i, align 8
   %.0.i = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %1
   br i1 %.not.i, label %common.ret22, label %.lr.ph.i, !llvm.loop !99
 
-common.ret22:                                     ; preds = %8, %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i", %23
+common.ret22:                                     ; preds = %9, %"_ZSt25__unguarded_linear_insertIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops14_Val_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_T0_.exit.i", %24
   ret void
 
-23:                                               ; preds = %3
-  %24 = lshr exact i64 %6, 1
-  %.idx = and i64 %24, 4611686018427387896
+24:                                               ; preds = %3
+  %25 = lshr exact i64 %6, 1
+  %.idx = and i64 %25, 4611686018427387896
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_"(ptr noundef %0, ptr noundef %25, ptr %2)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_"(ptr noundef %25, ptr noundef %1, ptr %2)
@@ -26285,11 +26285,11 @@ common.ret:                                       ; preds = %4
   tail call fastcc void @"_ZSt16__insertion_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_"(ptr noundef %0, ptr noundef %1, ptr %2, ptr %3)
   br label %common.ret23
 
-common.ret23:                                     ; preds = %10, %common.ret
+common.ret23:                                     ; preds = %11, %common.ret
   ret void
 
-10:                                               ; preds = %4
-  %11 = lshr exact i64 %8, 1
+11:                                               ; preds = %4
+  %12 = lshr exact i64 %9, 1
   %.idx = and i64 %11, 4611686018427387896
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_"(ptr noundef %0, ptr noundef %12, ptr %2, ptr %3)
@@ -26301,7 +26301,7 @@ common.ret23:                                     ; preds = %10, %common.ret
   store ptr %2, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
-  tail call fastcc void @"_ZSt22__merge_without_bufferIPPN4pkpy8PyObjectElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_SD_T0_SE_T1_"(ptr noundef %0, ptr noundef %12, ptr noundef %1, i64 noundef %14, i64 noundef %16, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.640") align 8 %5)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIPPN4pkpy8PyObjectElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_SD_T0_SE_T1_"(ptr noundef %0, ptr noundef %13, ptr noundef %1, i64 noundef %14, i64 noundef %16, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.640") align 8 %5)
   br label %common.ret23
 }
 
@@ -26815,27 +26815,27 @@ _ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit.i: ; preds = %47, %._crit_edge.
   br i1 %.not, label %.lr.ph.i26.us.preheader, label %.lr.ph.i26
 
 .lr.ph.i26.us.preheader:                          ; preds = %.lr.ph.i26.preheader
-  %.idx = shl i64 %.067, 4
-  %.idx68 = shl nsw i64 %.067, 5
-  %.not.i.i.i.i.i22.i43.us = icmp eq i64 %.idx68, %.idx
+  %.idx70 = shl i64 %.067, 4
+  %.idx69 = shl nsw i64 %.067, 5
+  %.not.i.i.i.i.i22.i43.us = icmp eq i64 %.idx69, %.idx70
   br label %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit.i42.us
 
 _ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit.i42.us: ; preds = %.lr.ph.i26.us.preheader, %"_ZSt12__move_mergeIPPN4pkpy8PyObjectES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEET0_T_SE_SE_SE_SD_T1_.exit56.us"
   %.034.i27.us = phi ptr [ %58, %"_ZSt12__move_mergeIPPN4pkpy8PyObjectES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEET0_T_SE_SE_SE_SD_T1_.exit56.us" ], [ %2, %.lr.ph.i26.us.preheader ]
   %.02033.i28.us = phi ptr [ %63, %"_ZSt12__move_mergeIPPN4pkpy8PyObjectES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEET0_T_SE_SE_SE_SD_T1_.exit56.us" ], [ %0, %.lr.ph.i26.us.preheader ]
-  %58 = getelementptr inbounds i8, ptr %.034.i27.us, i64 %.idx68
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.02033.i28.us, ptr noundef nonnull align 8 dereferenceable(1) %.034.i27.us, i64 %.idx, i1 false)
-  %59 = getelementptr inbounds i8, ptr %.02033.i28.us, i64 %.idx
+  %58 = getelementptr inbounds i8, ptr %.034.i27.us, i64 %.idx69
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.02033.i28.us, ptr noundef nonnull align 8 dereferenceable(1) %.034.i27.us, i64 %.idx70, i1 false)
+  %59 = getelementptr inbounds i8, ptr %.02033.i28.us, i64 %.idx70
   %60 = ptrtoint ptr %58 to i64
   br i1 %.not.i.i.i.i.i22.i43.us, label %"_ZSt12__move_mergeIPPN4pkpy8PyObjectES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEET0_T_SE_SE_SE_SD_T1_.exit56.us", label %61
 
 61:                                               ; preds = %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit.i42.us
-  %62 = getelementptr inbounds i8, ptr %.034.i27.us, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %62, i64 %.idx, i1 false)
+  %62 = getelementptr inbounds i8, ptr %.034.i27.us, i64 %.idx70
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %62, i64 %.idx70, i1 false)
   br label %"_ZSt12__move_mergeIPPN4pkpy8PyObjectES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEET0_T_SE_SE_SE_SD_T1_.exit56.us"
 
 "_ZSt12__move_mergeIPPN4pkpy8PyObjectES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEET0_T_SE_SE_SE_SD_T1_.exit56.us": ; preds = %61, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit.i42.us
-  %63 = getelementptr inbounds i8, ptr %59, i64 %.idx
+  %63 = getelementptr inbounds i8, ptr %59, i64 %.idx70
   %64 = sub i64 %19, %60
   %65 = ashr exact i64 %64, 3
   %.not.i29.us = icmp slt i64 %65, %21

@@ -1579,8 +1579,8 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate24QLessThanOperatorForTypeI
   %.idx.i = shl i64 %7, 2
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load i64, ptr %10, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = load i64, ptr %15, align 8
   %.idx6.i = shl i64 %11, 2
   %12 = getelementptr i8, ptr %9, i64 %.idx6.i
   %spec.select.i.i.i.i.i.i.v.i = tail call i64 @llvm.smin.i64(i64 %.idx6.i, i64 %.idx.i)
@@ -1588,31 +1588,31 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate24QLessThanOperatorForTypeI
   %.not21.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i.i.i.v.i, 0
   br i1 %.not21.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %3, %15
-  %.sroa.0.023.i.i.i.i.i.i = phi ptr [ %17, %15 ], [ %9, %3 ]
-  %.sroa.017.022.i.i.i.i.i.i = phi ptr [ %16, %15 ], [ %5, %3 ]
-  %13 = load i32, ptr %.sroa.017.022.i.i.i.i.i.i, align 4
-  %14 = load i32, ptr %.sroa.0.023.i.i.i.i.i.i, align 4
-  %or.cond.not = icmp eq i32 %14, %13
-  br i1 %or.cond.not, label %15, label %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit.loopexit
+.lr.ph.i.i.i.i.i.i:                               ; preds = %3, %18
+  %.sroa.0.023.i.i.i.i.i.i = phi ptr [ %20, %15 ], [ %9, %3 ]
+  %.sroa.017.022.i.i.i.i.i.i = phi ptr [ %19, %15 ], [ %5, %3 ]
+  %16 = load i32, ptr %.sroa.017.022.i.i.i.i.i.i, align 4
+  %17 = load i32, ptr %.sroa.0.023.i.i.i.i.i.i, align 4
+  %or.cond.not = icmp eq i32 %17, %16
+  br i1 %or.cond.not, label %18, label %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit.loopexit
 
-15:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %16 = getelementptr i8, ptr %.sroa.017.022.i.i.i.i.i.i, i64 4
-  %17 = getelementptr i8, ptr %.sroa.0.023.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i = icmp eq ptr %16, %spec.select.i.i.i.i.i.i.i
+18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %19 = getelementptr i8, ptr %.sroa.017.022.i.i.i.i.i.i, i64 4
+  %20 = getelementptr i8, ptr %.sroa.0.023.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i = icmp eq ptr %19, %spec.select.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %15, %3
-  %.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %9, %3 ], [ %17, %15 ]
-  %18 = icmp ne ptr %.sroa.0.0.lcssa.i.i.i.i.i.i, %12
+._crit_edge.i.i.i.i.i.i:                          ; preds = %18, %3
+  %.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %9, %3 ], [ %20, %15 ]
+  %21 = icmp ne ptr %.sroa.0.0.lcssa.i.i.i.i.i.i, %12
   br label %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit
 
 _ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %19 = icmp slt i32 %13, %14
+  %22 = icmp slt i32 %16, %17
   br label %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit
 
 _ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit: ; preds = %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit.loopexit, %._crit_edge.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = phi i1 [ %18, %._crit_edge.i.i.i.i.i.i ], [ %19, %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit.loopexit ]
+  %.0.i.i.i.i.i.i = phi i1 [ %21, %._crit_edge.i.i.i.i.i.i ], [ %22, %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit.loopexit ]
   ret i1 %.0.i.i.i.i.i.i
 }
 

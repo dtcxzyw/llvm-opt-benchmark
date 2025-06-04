@@ -6144,7 +6144,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf0881d3e37e37a1bE.exit: ; pred
   %21 = call noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h48d14d0202964347E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
   br i1 %21, label %23, label %22
 
-22:                                               ; preds = %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17hcdfef3797f28025eE.exit", %19, %57, %15
+22:                                               ; preds = %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17hcdfef3797f28025eE.exit", %19, %56, %15
   ret void
 
 23:                                               ; preds = %19
@@ -6187,11 +6187,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf0881d3e37e37a1bE.exit: ; pred
   %48 = call noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h48d14d0202964347E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
   br i1 %48, label %51, label %22
 
-49:                                               ; preds = %68, %69
+49:                                               ; preds = %67, %68
   %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1611b337797a9e84E.llvm.18157932453617260866"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
-          to label %"_ZN4core3ptr90drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..node..SyntaxNode$GT$$GT$17hf253ddaa0cacb8cbE.exit" unwind label %77
+          to label %"_ZN4core3ptr90drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..node..SyntaxNode$GT$$GT$17hf253ddaa0cacb8cbE.exit" unwind label %76
 
 51:                                               ; preds = %23, %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17hcdfef3797f28025eE.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -6218,42 +6218,42 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf0881d3e37e37a1bE.exit: ; pred
   %.not5 = icmp eq i64 %56, 0
   br i1 %.not5, label %57, label %58
 
-57:                                               ; preds = %69, %51
+56:                                               ; preds = %68, %51
   call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1611b337797a9e84E.llvm.18157932453617260866"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %22
 
-58:                                               ; preds = %51
+57:                                               ; preds = %51
   call void @llvm.experimental.noalias.scope.decl(metadata !1721)
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !alias.scope !1721, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load i64, ptr %61, align 8, !alias.scope !1721, !noundef !4
-  %63 = load i64, ptr %12, align 8, !alias.scope !1721, !noundef !4
-  %64 = add i64 %63, %62
-  %65 = load i64, ptr %60, align 8, !noalias !1721, !noundef !4
-  %66 = sub i64 %65, %64
-  %67 = icmp ugt i64 %56, %66
-  br i1 %67, label %68, label %69
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %59 = load ptr, ptr %58, align 8, !alias.scope !1721, !nonnull !4, !noundef !4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %61 = load i64, ptr %60, align 8, !alias.scope !1721, !noundef !4
+  %62 = load i64, ptr %12, align 8, !alias.scope !1721, !noundef !4
+  %63 = add i64 %62, %61
+  %64 = load i64, ptr %59, align 8, !noalias !1721, !noundef !4
+  %65 = sub i64 %64, %63
+  %66 = icmp ugt i64 %56, %65
+  br i1 %66, label %67, label %68
 
-68:                                               ; preds = %58
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h21f9d19a5bd9ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %60, i64 noundef %64, i64 noundef %56)
+67:                                               ; preds = %57
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h21f9d19a5bd9ccbbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %63, i64 noundef %56)
           to label %69 unwind label %49
 
-69:                                               ; preds = %58, %68
-  %70 = add i64 %62, %56
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %72 = load ptr, ptr %71, align 8, !noalias !1721, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %72, i64 %62
-  %74 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %72, i64 %70
-  %75 = shl i64 %63, 5
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %74, ptr nonnull align 8 %73, i64 %75, i1 false), !noalias !1721
-  store i64 %70, ptr %61, align 8, !alias.scope !1721
-  %76 = invoke noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h0bc73ceea42bbe26E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+68:                                               ; preds = %57, %67
+  %69 = add i64 %61, %56
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %71 = load ptr, ptr %70, align 8, !noalias !1721, !nonnull !4, !noundef !4
+  %72 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %71, i64 %61
+  %73 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %71, i64 %69
+  %74 = shl i64 %62, 5
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %73, ptr nonnull align 8 %72, i64 %74, i1 false), !noalias !1721
+  store i64 %69, ptr %60, align 8, !alias.scope !1721
+  %75 = invoke noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h0bc73ceea42bbe26E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %57 unwind label %49
 
-77:                                               ; preds = %49
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %49
+  %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #23
   unreachable

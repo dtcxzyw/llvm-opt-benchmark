@@ -1322,11 +1322,11 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance13TableInstance7se
 
 57:                                               ; preds = %43
   %.not = icmp ugt i32 %4, %5
-  %.not48 = icmp eq i32 %6, 0
+  %.not49 = icmp eq i32 %6, 0
   br i1 %.not, label %62, label %58
 
 58:                                               ; preds = %57
-  br i1 %.not48, label %_ZSt4copyIPKN8WasmEdge10RefVariantEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit, label %59
+  br i1 %.not49, label %_ZSt4copyIPKN8WasmEdge10RefVariantEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit, label %59
 
 59:                                               ; preds = %58
   %.idx = shl nuw nsw i64 %17, 4
@@ -1336,7 +1336,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance13TableInstance7se
   br label %_ZSt4copyIPKN8WasmEdge10RefVariantEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit
 
 62:                                               ; preds = %57
-  br i1 %.not48, label %_ZSt4copyIPKN8WasmEdge10RefVariantEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit, label %.lr.ph.i.i.i.i.i.preheader
+  br i1 %.not49, label %_ZSt4copyIPKN8WasmEdge10RefVariantEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %62
   %63 = getelementptr inbounds nuw %"struct.WasmEdge::RefVariant", ptr %22, i64 %16

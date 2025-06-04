@@ -38887,84 +38887,84 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %7 = icmp slt i64 %6, 240
   br i1 %7, label %8, label %26
 
-8:                                                ; preds = %2
-  %9 = icmp eq ptr %0, %1
-  br i1 %9, label %common.ret25, label %.preheader.i
+9:                                                ; preds = %2
+  %10 = icmp eq ptr %0, %1
+  br i1 %10, label %common.ret25, label %.preheader.i
 
-.preheader.i:                                     ; preds = %8
+.preheader.i:                                     ; preds = %9
   %.sroa.0.016.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not17.i = icmp eq ptr %.sroa.0.016.i, %1
   br i1 %.not17.i, label %common.ret25, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %10 = getelementptr i8, ptr %0, i64 8
-  br label %11
+  %11 = getelementptr i8, ptr %0, i64 8
+  br label %12
 
-11:                                               ; preds = %25, %.lr.ph.i
+12:                                               ; preds = %26, %.lr.ph.i
   %.sroa.0.019.i = phi ptr [ %.sroa.0.016.i, %.lr.ph.i ], [ %.sroa.0.0.i, %25 ]
   %.pn18.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.019.i, %25 ]
-  %12 = getelementptr i8, ptr %.pn18.i, i64 24
-  %.val.i.i = load i16, ptr %12, align 8, !tbaa !146
-  %.val1.i.i = load i16, ptr %10, align 8, !tbaa !146
-  %13 = icmp ult i16 %.val.i.i, %.val1.i.i
-  br i1 %13, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %20
+  %13 = getelementptr i8, ptr %.pn18.i, i64 24
+  %.val.i.i = load i16, ptr %13, align 8, !tbaa !146
+  %.val1.i.i = load i16, ptr %11, align 8, !tbaa !146
+  %14 = icmp ult i16 %.val.i.i, %.val1.i.i
+  br i1 %14, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %21
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %11
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.019.i, i64 16, i1 false), !tbaa.struct !135
-  %14 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 32
-  %15 = ptrtoint ptr %.sroa.0.019.i to i64
-  %16 = sub i64 %15, %5
-  %17 = ashr exact i64 %16, 4
-  %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %14, i64 %18
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 32
+  %16 = ptrtoint ptr %.sroa.0.019.i to i64
+  %17 = sub i64 %16, %5
+  %18 = ashr exact i64 %17, 4
+  %19 = sub nsw i64 0, %18
+  %20 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %15, i64 %19
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(10) %3, i64 10, i1 false), !tbaa.struct !135
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %25
+  br label %26
 
-20:                                               ; preds = %11
+21:                                               ; preds = %12
   %.sroa.03.0.copyload.i.i = load ptr, ptr %.sroa.0.019.i, align 8, !tbaa !136
-  %21 = getelementptr i8, ptr %.pn18.i, i64 8
-  %.val2.i10.i.i = load i16, ptr %21, align 8, !tbaa !146
-  %22 = icmp ult i16 %.val.i.i, %.val2.i10.i.i
-  br i1 %22, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i"
+  %22 = getelementptr i8, ptr %.pn18.i, i64 8
+  %.val2.i10.i.i = load i16, ptr %22, align 8, !tbaa !146
+  %23 = icmp ult i16 %.val.i.i, %.val2.i10.i.i
+  br i1 %23, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
   %.sroa.07.011.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.019.i, %20 ]
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.011.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.07.011.i.i, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.0.0.i.i, i64 10, i1 false), !tbaa.struct !135
-  %23 = getelementptr i8, ptr %.sroa.07.011.i.i, i64 -24
-  %.val2.i.i.i = load i16, ptr %23, align 8, !tbaa !146
-  %24 = icmp ult i16 %.val.i.i, %.val2.i.i.i
-  br i1 %24, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i", !llvm.loop !600
+  %24 = getelementptr i8, ptr %.sroa.07.011.i.i, i64 -24
+  %.val2.i.i.i = load i16, ptr %24, align 8, !tbaa !146
+  %25 = icmp ult i16 %.val.i.i, %.val2.i.i.i
+  br i1 %25, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i", !llvm.loop !600
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %20
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %21
   %.sroa.07.0.lcssa.i.i = phi ptr [ %.sroa.0.019.i, %20 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i ]
   store ptr %.sroa.03.0.copyload.i.i, ptr %.sroa.07.0.lcssa.i.i, align 8, !tbaa !136
   %.sroa.4.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.0.lcssa.i.i, i64 8
   store i16 %.val.i.i, ptr %.sroa.4.0..sroa_idx5.i.i, align 8, !tbaa !76
-  br label %25
+  br label %26
 
-25:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
+26:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_T0_.exit.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 16
   %.not.i = icmp eq ptr %.sroa.0.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %11, !llvm.loop !601
+  br i1 %.not.i, label %common.ret25, label %12, !llvm.loop !601
 
-common.ret25:                                     ; preds = %.preheader.i, %8, %25, %26
+common.ret25:                                     ; preds = %.preheader.i, %9, %26, %27
   ret void
 
-26:                                               ; preds = %2
-  %27 = lshr exact i64 %6, 1
+27:                                               ; preds = %2
+  %28 = lshr exact i64 %6, 1
   %.idx = and i64 %27, 4611686018427387888
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %28 = getelementptr inbounds nuw i9, ptr %0, i64 %.idx
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_"(ptr %0, ptr %28)
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_"(ptr %28, ptr %1)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_"(ptr %29, ptr %1)
   %29 = ptrtoint ptr %28 to i64
   %30 = lshr i64 %6, 5
   %31 = sub i64 %4, %29
   %32 = ashr exact i64 %31, 4
-  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_SK_T0_SL_T1_"(ptr %0, ptr %28, ptr %1, i64 noundef %30, i64 noundef %32)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_SK_T0_SL_T1_"(ptr %0, ptr %29, ptr %1, i64 noundef %30, i64 noundef %32)
   br label %common.ret25
 }
 
