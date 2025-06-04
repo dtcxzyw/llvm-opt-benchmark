@@ -684,9 +684,8 @@ _is_preemptable.exit.thread.i:                    ; preds = %_is_preemptable.exi
 .loopexit.sink.split.i:                           ; preds = %181
   %183 = getelementptr inbounds nuw i8, ptr %176, i64 232
   %184 = load i64, ptr %183, align 8
-  %.not121.i = icmp sgt i64 %184, %95
   %185 = add nsw i64 %95, 1
-  %.sink.i = select i1 %.not121.i, i64 %184, i64 %185
+  %.sink.i = tail call i64 @llvm.smax.i64(i64 %184, i64 %185)
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 912
   store i64 %.sink.i, ptr %186, align 8
   br label %.loopexit.i
@@ -825,8 +824,8 @@ _test_only.exit:                                  ; preds = %223, %224
   %231 = add nsw i32 %.055, -1
   %232 = load ptr, ptr @cr_ptr, align 8
   %233 = tail call fastcc ptr @_dup_cr(ptr noundef %232)
-  %.not.i81118 = icmp eq ptr %233, null
-  br i1 %.not.i81118, label %_build_select_struct.exit.i, label %.lr.ph121
+  %.not.i81117 = icmp eq ptr %233, null
+  br i1 %.not.i81117, label %_build_select_struct.exit.i, label %.lr.ph120
 
 234:                                              ; preds = %.loopexit141.i, %.lr.ph.i76
   %.095160.i = phi i32 [ 0, %.lr.ph.i76 ], [ %306, %.loopexit141.i ]
@@ -994,40 +993,40 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   %309 = select i1 %307, i1 %308, i1 false
   br i1 %309, label %234, label %.preheader.i, !llvm.loop !19
 
-.loopexit.i90:                                    ; preds = %.lr.ph163.i, %340
+.loopexit.i89:                                    ; preds = %.lr.ph163.i, %340
   tail call void @slurm_list_sort(ptr noundef nonnull %6, ptr noundef nonnull @_sort_usable_nodes_dec) #11
   tail call void @slurm_list_iterator_destroy(ptr noundef %313) #11
   tail call fastcc void @_free_cr(ptr noundef nonnull %312)
   %310 = load ptr, ptr @cr_ptr, align 8
   %311 = tail call fastcc ptr @_dup_cr(ptr noundef %310)
   %.not.i81 = icmp eq ptr %311, null
-  br i1 %.not.i81, label %_build_select_struct.exit.i, label %.lr.ph121
+  br i1 %.not.i81, label %_build_select_struct.exit.i, label %.lr.ph120
 
-.lr.ph121:                                        ; preds = %.lr.ph167.i, %.loopexit.i90
-  %312 = phi ptr [ %311, %.loopexit.i90 ], [ %233, %.lr.ph167.i ]
-  %.4165.i120 = phi i32 [ 22, %.loopexit.i90 ], [ %.0100.lcssa.i, %.lr.ph167.i ]
-  %.not122.i80119 = phi i1 [ false, %.loopexit.i90 ], [ true, %.lr.ph167.i ]
+.lr.ph120:                                        ; preds = %.lr.ph167.i, %.loopexit.i89
+  %312 = phi ptr [ %311, %.loopexit.i89 ], [ %233, %.lr.ph167.i ]
+  %.4165.i119 = phi i32 [ 22, %.loopexit.i89 ], [ %.0100.lcssa.i, %.lr.ph167.i ]
+  %.not122.i80118 = phi i1 [ false, %.loopexit.i89 ], [ true, %.lr.ph167.i ]
   %313 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %6) #11
   %314 = tail call ptr @slurm_list_next(ptr noundef %313) #11
-  %.not121.i82110 = icmp eq ptr %314, null
-  br i1 %.not121.i82110, label %.thread.i, label %.lr.ph
+  %.not121.i109 = icmp eq ptr %314, null
+  br i1 %.not121.i109, label %.thread.i, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph121, %349
-  %315 = phi ptr [ %350, %349 ], [ %314, %.lr.ph121 ]
-  %.6.i111 = phi i32 [ %.8.i, %349 ], [ %.4165.i120, %.lr.ph121 ]
+.lr.ph:                                           ; preds = %.lr.ph120, %349
+  %315 = phi ptr [ %350, %349 ], [ %314, %.lr.ph120 ]
+  %.6.i110 = phi i32 [ %.8.i, %349 ], [ %.4165.i119, %.lr.ph120 ]
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 448
   %317 = load i32, ptr %316, align 8
   %318 = and i32 %317, 255
-  %.off.i83 = add nsw i32 %318, -1
-  %switch.i84 = icmp ult i32 %.off.i83, 2
-  br i1 %switch.i84, label %319, label %349
+  %.off.i82 = add nsw i32 %318, -1
+  %switch.i83 = icmp ult i32 %.off.i82, 2
+  br i1 %switch.i83, label %319, label %349
 
 319:                                              ; preds = %.lr.ph
   %320 = tail call zeroext i16 @slurm_job_preempt_mode(ptr noundef nonnull %315) #11
   %321 = icmp eq i16 %320, 2
   %322 = icmp eq i16 %320, 8
-  %or.cond4.i85 = or i1 %321, %322
-  %323 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef nonnull %312, ptr noundef nonnull %315, ptr noundef nonnull @.str.22, i1 noundef zeroext %or.cond4.i85)
+  %or.cond4.i84 = or i1 %321, %322
+  %323 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef nonnull %312, ptr noundef nonnull %315, ptr noundef nonnull @.str.22, i1 noundef zeroext %or.cond4.i84)
   %324 = tail call fastcc i32 @_job_count_bitmap(ptr noundef nonnull %312, ptr noundef %0, ptr noundef %226, ptr noundef %1, i32 noundef %231, i32 noundef 65534, i16 noundef zeroext 0)
   %325 = getelementptr inbounds nuw i8, ptr %315, i64 584
   %326 = load ptr, ptr %325, align 8
@@ -1046,7 +1045,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
 
 335:                                              ; preds = %332
   %336 = getelementptr inbounds nuw i8, ptr %315, i64 216
-  br i1 %.not122.i80119, label %337, label %.thread.i
+  br i1 %.not122.i80118, label %337, label %.thread.i
 
 337:                                              ; preds = %335
   %338 = tail call i32 @slurm_list_count(ptr noundef nonnull %6) #11
@@ -1059,7 +1058,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   store i32 9999, ptr %342, align 4
   %343 = tail call ptr @slurm_list_next(ptr noundef %313) #11
   %.not123162.i = icmp eq ptr %343, null
-  br i1 %.not123162.i, label %.loopexit.i90, label %.lr.ph163.i
+  br i1 %.not123162.i, label %.loopexit.i89, label %.lr.ph163.i
 
 .lr.ph163.i:                                      ; preds = %340, %.lr.ph163.i
   %344 = phi ptr [ %348, %.lr.ph163.i ], [ %343, %340 ]
@@ -1068,22 +1067,22 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 476
   store i32 0, ptr %347, align 4
   %348 = tail call ptr @slurm_list_next(ptr noundef %313) #11
-  %.not123.i89 = icmp eq ptr %348, null
-  br i1 %.not123.i89, label %.loopexit.i90, label %.lr.ph163.i, !llvm.loop !21
+  %.not123.i88 = icmp eq ptr %348, null
+  br i1 %.not123.i88, label %.loopexit.i89, label %.lr.ph163.i, !llvm.loop !21
 
 349:                                              ; preds = %332, %319, %.lr.ph
-  %.8.i = phi i32 [ %.6.i111, %.lr.ph ], [ %.6.i111, %319 ], [ %333, %332 ]
+  %.8.i = phi i32 [ %.6.i110, %.lr.ph ], [ %.6.i110, %319 ], [ %333, %332 ]
   %350 = tail call ptr @slurm_list_next(ptr noundef %313) #11
-  %.not121.i82 = icmp eq ptr %350, null
-  br i1 %.not121.i82, label %.thread.i, label %.lr.ph
+  %.not121.i = icmp eq ptr %350, null
+  br i1 %.not121.i, label %.thread.i, label %.lr.ph
 
-.thread.i:                                        ; preds = %337, %335, %.lr.ph121, %349
-  %.7.i = phi i32 [ %.8.i, %349 ], [ %.4165.i120, %.lr.ph121 ], [ 0, %335 ], [ 0, %337 ]
+.thread.i:                                        ; preds = %337, %335, %.lr.ph120, %349
+  %.7.i = phi i32 [ %.8.i, %349 ], [ %.4165.i119, %.lr.ph120 ], [ 0, %335 ], [ 0, %337 ]
   tail call void @slurm_list_iterator_destroy(ptr noundef %313) #11
   %351 = icmp eq i32 %.7.i, 0
   %352 = icmp ne ptr %7, null
-  %or.cond6.i86 = and i1 %352, %351
-  br i1 %or.cond6.i86, label %353, label %375
+  %or.cond6.i85 = and i1 %352, %351
+  br i1 %or.cond6.i85, label %353, label %375
 
 353:                                              ; preds = %.thread.i
   %354 = load ptr, ptr %7, align 8
@@ -1101,13 +1100,13 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   %.not124169.i = icmp eq ptr %360, null
   br i1 %.not124169.i, label %._crit_edge172.i, label %.lr.ph171.i
 
-.lr.ph171.i:                                      ; preds = %358, %.backedge.i87
-  %361 = phi ptr [ %374, %.backedge.i87 ], [ %360, %358 ]
+.lr.ph171.i:                                      ; preds = %358, %.backedge.i86
+  %361 = phi ptr [ %374, %.backedge.i86 ], [ %360, %358 ]
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 584
   %363 = load ptr, ptr %362, align 8
   %364 = tail call i32 @slurm_bit_overlap_any(ptr noundef %1, ptr noundef %363) #11
   %365 = icmp eq i32 %364, 0
-  br i1 %365, label %.backedge.i87, label %366
+  br i1 %365, label %.backedge.i86, label %366
 
 366:                                              ; preds = %.lr.ph171.i
   %367 = getelementptr inbounds nuw i8, ptr %361, i64 216
@@ -1115,19 +1114,19 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 476
   %370 = load i32, ptr %369, align 4
   %371 = icmp eq i32 %370, 0
-  br i1 %371, label %.backedge.i87, label %372
+  br i1 %371, label %.backedge.i86, label %372
 
 372:                                              ; preds = %366
   %373 = load ptr, ptr %7, align 8
   tail call void @slurm_list_append(ptr noundef %373, ptr noundef nonnull %361) #11
-  br label %.backedge.i87
+  br label %.backedge.i86
 
-.backedge.i87:                                    ; preds = %372, %366, %.lr.ph171.i
+.backedge.i86:                                    ; preds = %372, %366, %.lr.ph171.i
   %374 = tail call ptr @slurm_list_next(ptr noundef %359) #11
-  %.not124.i88 = icmp eq ptr %374, null
-  br i1 %.not124.i88, label %._crit_edge172.i, label %.lr.ph171.i, !llvm.loop !22
+  %.not124.i87 = icmp eq ptr %374, null
+  br i1 %.not124.i87, label %._crit_edge172.i, label %.lr.ph171.i, !llvm.loop !22
 
-._crit_edge172.i:                                 ; preds = %.backedge.i87, %358
+._crit_edge172.i:                                 ; preds = %.backedge.i86, %358
   tail call void @slurm_list_iterator_destroy(ptr noundef %359) #11
   br label %375
 
@@ -1368,8 +1367,8 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   %492 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.25, i32 noundef %490, i32 noundef %.067.lcssa.i.i) #11
   br label %_build_select_struct.exit.i
 
-_build_select_struct.exit.i:                      ; preds = %.loopexit.i90, %.lr.ph167.i, %491, %489, %.loopexit140.i
-  %.5138.i = phi i32 [ %.5.i, %.loopexit140.i ], [ 0, %489 ], [ 0, %491 ], [ %.0100.lcssa.i, %.lr.ph167.i ], [ 22, %.loopexit.i90 ]
+_build_select_struct.exit.i:                      ; preds = %.loopexit.i89, %.lr.ph167.i, %491, %489, %.loopexit140.i
+  %.5138.i = phi i32 [ %.5.i, %.loopexit140.i ], [ 0, %489 ], [ 0, %491 ], [ %.0100.lcssa.i, %.lr.ph167.i ], [ 22, %.loopexit.i89 ]
   %.not125.i79 = icmp eq ptr %226, null
   br i1 %.not125.i79, label %_run_now.exit, label %493
 

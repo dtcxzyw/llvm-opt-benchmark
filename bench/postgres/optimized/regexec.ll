@@ -2941,8 +2941,7 @@ getsubdfa.exit70:                                 ; preds = %198, %206, %225
   br i1 %295, label %.loopexit92, label %296
 
 296:                                              ; preds = %294
-  %.not122.i = icmp slt i32 %.098.i112, %.097.i113
-  %spec.select126.i = select i1 %.not122.i, i32 %.098.i112, i32 %272
+  %spec.select126.i = tail call i32 @llvm.smin.i32(i32 %.098.i112, i32 %272)
   %.not123.i = icmp eq ptr %289, %3
   br i1 %.not123.i, label %301, label %297
 
@@ -3091,8 +3090,7 @@ getsubdfa.exit70:                                 ; preds = %198, %206, %225
   br i1 %359, label %.loopexit, label %360
 
 360:                                              ; preds = %358
-  %.not129.i = icmp slt i32 %.0110.i125, %.0105.i126
-  %spec.select.i61 = select i1 %.not129.i, i32 %.0110.i125, i32 %348
+  %spec.select.i61 = tail call i32 @llvm.smin.i32(i32 %.0110.i125, i32 %348)
   %.not130.i = icmp eq ptr %352, %3
   br i1 %.not130.i, label %377, label %361
 
@@ -4603,6 +4601,9 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9

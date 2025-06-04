@@ -4298,24 +4298,22 @@ define internal fastcc i32 @GetDisplayForRect(i32 noundef %0, i32 noundef %1, i3
   %30 = load i32, ptr %6, align 4
   %31 = load i32, ptr %16, align 4
   %32 = load i32, ptr %17, align 4
-  %33 = add nsw i32 %32, %31
-  %34 = add nsw i32 %33, -1
+  %33 = add i32 %31, -1
+  %34 = add i32 %33, %32
   %35 = icmp sgt i32 %30, %.sroa.0.0.extract.trunc
   br i1 %35, label %.sink.split.i, label %36
 
 36:                                               ; preds = %28
   %37 = load i32, ptr %18, align 4
-  %38 = add nsw i32 %37, %30
-  %39 = add nsw i32 %38, -1
-  %.not.i = icmp sgt i32 %38, %.sroa.0.0.extract.trunc
-  %spec.select = select i1 %.not.i, i32 %.sroa.0.0.extract.trunc, i32 %39
+  %38 = add i32 %30, -1
+  %39 = add i32 %38, %37
+  %spec.select = call i32 @llvm.smin.i32(i32 %.sroa.0.0.extract.trunc, i32 %39)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %36, %28
   %.sroa.0.0 = phi i32 [ %30, %28 ], [ %spec.select, %36 ]
   %40 = icmp sgt i32 %31, %.sroa.6.0.extract.trunc
-  %.not24.i = icmp sgt i32 %33, %.sroa.6.0.extract.trunc
-  %spec.select38 = select i1 %.not24.i, i32 %.sroa.6.0.extract.trunc, i32 %34
+  %spec.select38 = call i32 @llvm.smin.i32(i32 %.sroa.6.0.extract.trunc, i32 %34)
   %.sroa.6.0 = select i1 %40, i32 %31, i32 %spec.select38
   %41 = sub nsw i32 %.sroa.0.0.extract.trunc, %.sroa.0.0
   %42 = sub nsw i32 %.sroa.6.0.extract.trunc, %.sroa.6.0
@@ -16394,10 +16392,10 @@ declare i32 @llvm.smax.i32(i32, i32) #18
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

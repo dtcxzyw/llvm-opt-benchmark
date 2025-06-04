@@ -3895,10 +3895,10 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %9
 
-9:                                                ; preds = %93, %7
-  %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %7 ]
-  %.039 = phi i32 [ %.078.lcssa.i, %93 ], [ 0, %7 ]
-  %.038 = phi i32 [ %storemerge.i, %93 ], [ %8, %7 ]
+9:                                                ; preds = %92, %7
+  %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ 0, %7 ]
+  %.039 = phi i32 [ %.078.lcssa.i, %92 ], [ 0, %7 ]
+  %.038 = phi i32 [ %storemerge.i, %92 ], [ %8, %7 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit, label %10
 
@@ -4050,100 +4050,96 @@ _ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit: ; preds = %72, %._crit_edg
 
 88:                                               ; preds = %_ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit
   %89 = load i32, ptr %4, align 4, !tbaa !12
-  %90 = sext i32 %89 to i64
-  %.not = icmp slt i64 %indvars.iv, %90
-  %91 = trunc nuw i64 %indvars.iv.next to i32
-  %. = select i1 %.not, i32 %89, i32 %91
+  %90 = trunc nuw i64 %indvars.iv.next to i32
+  %. = tail call i32 @llvm.smax.i32(i32 %89, i32 %90)
   store i32 %., ptr %4, align 4, !tbaa !12
   %.not29 = icmp eq i32 %.170.i, -1
-  br i1 %.not29, label %93, label %92
+  br i1 %.not29, label %92, label %91
 
-92:                                               ; preds = %88
-  store i32 %91, ptr %5, align 4, !tbaa !12
+91:                                               ; preds = %88
+  store i32 %90, ptr %5, align 4, !tbaa !12
   store i32 %.170.i, ptr %6, align 4, !tbaa !12
-  br label %93
+  br label %92
 
-93:                                               ; preds = %92, %88
-  %94 = sub nsw i32 %storemerge.i, %.078.lcssa.i
-  %95 = icmp slt i32 %94, 10
-  br i1 %95, label %96, label %9, !llvm.loop !81
+92:                                               ; preds = %91, %88
+  %93 = sub nsw i32 %storemerge.i, %.078.lcssa.i
+  %94 = icmp slt i32 %93, 10
+  br i1 %94, label %95, label %9, !llvm.loop !81
 
-96:                                               ; preds = %93
-  %97 = load i32, ptr %4, align 4, !tbaa !12
+95:                                               ; preds = %92
+  %96 = load i32, ptr %4, align 4, !tbaa !12
   %.not51.i = icmp sgt i32 %.078.lcssa.i, %storemerge.i
   br i1 %.not51.i, label %_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit, label %.lr.ph54.preheader.i
 
-.lr.ph54.preheader.i:                             ; preds = %96
-  %98 = sext i32 %97 to i64
-  %99 = add nsw i32 %storemerge.i, 1
+.lr.ph54.preheader.i:                             ; preds = %95
+  %97 = sext i32 %96 to i64
+  %98 = add nsw i32 %storemerge.i, 1
   br label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %.loopexit.i, %.lr.ph54.preheader.i
   %indvars.iv56.i = phi i64 [ %82, %.lr.ph54.preheader.i ], [ %indvars.iv.next57.i, %.loopexit.i ]
-  %100 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %indvars.iv56.i
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = load i32, ptr %101, align 8, !tbaa !77
-  %103 = load i32, ptr %5, align 4, !tbaa !12
-  %104 = icmp sle i32 %102, %103
-  %.not45.i = icmp sgt i32 %102, %3
-  %or.cond.i = or i1 %.not45.i, %104
-  br i1 %or.cond.i, label %114, label %105
+  %99 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %indvars.iv56.i
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %101 = load i32, ptr %100, align 8, !tbaa !77
+  %102 = load i32, ptr %5, align 4, !tbaa !12
+  %103 = icmp sle i32 %101, %102
+  %.not45.i = icmp sgt i32 %101, %3
+  %or.cond.i = or i1 %.not45.i, %103
+  br i1 %or.cond.i, label %113, label %104
 
-105:                                              ; preds = %.lr.ph54.i
-  %106 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !74
-  %108 = sext i32 %102 to i64
-  %109 = shl nsw i64 %108, 1
-  %bcmp.i = tail call i32 @bcmp(ptr %107, ptr nonnull readonly %2, i64 %109)
-  %110 = icmp eq i32 %bcmp.i, 0
-  br i1 %110, label %111, label %114
+104:                                              ; preds = %.lr.ph54.i
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !74
+  %107 = sext i32 %101 to i64
+  %108 = shl nsw i64 %107, 1
+  %bcmp.i = tail call i32 @bcmp(ptr %106, ptr nonnull readonly %2, i64 %108)
+  %109 = icmp eq i32 %bcmp.i, 0
+  br i1 %109, label %110, label %113
 
-111:                                              ; preds = %105
-  %112 = load i32, ptr %4, align 4, !tbaa !12
-  %..i = tail call i32 @llvm.smax.i32(i32 %112, i32 %102)
+110:                                              ; preds = %104
+  %111 = load i32, ptr %4, align 4, !tbaa !12
+  %..i = tail call i32 @llvm.smax.i32(i32 %111, i32 %101)
   store i32 %..i, ptr %4, align 4, !tbaa !12
-  %113 = trunc nsw i64 %indvars.iv56.i to i32
-  store i32 %113, ptr %6, align 4, !tbaa !12
-  store i32 %102, ptr %5, align 4, !tbaa !12
+  %112 = trunc nsw i64 %indvars.iv56.i to i32
+  store i32 %112, ptr %6, align 4, !tbaa !12
+  store i32 %101, ptr %5, align 4, !tbaa !12
   br label %.loopexit.i
 
-114:                                              ; preds = %105, %.lr.ph54.i
-  %115 = tail call i32 @llvm.smin.i32(i32 %102, i32 %3)
-  %116 = icmp slt i32 %97, %115
-  br i1 %116, label %.lr.ph.i31, label %.loopexit.i
+113:                                              ; preds = %104, %.lr.ph54.i
+  %114 = tail call i32 @llvm.smin.i32(i32 %101, i32 %3)
+  %115 = icmp slt i32 %96, %114
+  br i1 %115, label %.lr.ph.i31, label %.loopexit.i
 
-.lr.ph.i31:                                       ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !74
-  br label %119
+.lr.ph.i31:                                       ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %117 = load ptr, ptr %116, align 8, !tbaa !74
+  br label %118
 
-119:                                              ; preds = %124, %.lr.ph.i31
-  %indvars.iv.i = phi i64 [ %98, %.lr.ph.i31 ], [ %indvars.iv.next.i, %124 ]
-  %120 = getelementptr inbounds i16, ptr %118, i64 %indvars.iv.i
-  %121 = load i16, ptr %120, align 2, !tbaa !31
-  %122 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
-  %123 = load i16, ptr %122, align 2, !tbaa !31
-  %.not46.i = icmp eq i16 %121, %123
-  br i1 %.not46.i, label %124, label %.loopexit.i
+118:                                              ; preds = %123, %.lr.ph.i31
+  %indvars.iv.i = phi i64 [ %97, %.lr.ph.i31 ], [ %indvars.iv.next.i, %123 ]
+  %119 = getelementptr inbounds i16, ptr %117, i64 %indvars.iv.i
+  %120 = load i16, ptr %119, align 2, !tbaa !31
+  %121 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %122 = load i16, ptr %121, align 2, !tbaa !31
+  %.not46.i = icmp eq i16 %120, %122
+  br i1 %.not46.i, label %123, label %.loopexit.i
 
-124:                                              ; preds = %119
-  %125 = load i32, ptr %4, align 4, !tbaa !12
+123:                                              ; preds = %118
+  %124 = load i32, ptr %4, align 4, !tbaa !12
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %126 = sext i32 %125 to i64
-  %.not47.i = icmp slt i64 %indvars.iv.i, %126
-  %127 = trunc i64 %indvars.iv.next.i to i32
-  %.48.i = select i1 %.not47.i, i32 %125, i32 %127
+  %125 = trunc i64 %indvars.iv.next.i to i32
+  %.48.i = tail call i32 @llvm.smax.i32(i32 %124, i32 %125)
   store i32 %.48.i, ptr %4, align 4, !tbaa !12
-  %exitcond.not.i = icmp eq i32 %115, %127
-  br i1 %exitcond.not.i, label %.loopexit.i, label %119, !llvm.loop !82
+  %exitcond.not.i = icmp eq i32 %114, %125
+  br i1 %exitcond.not.i, label %.loopexit.i, label %118, !llvm.loop !82
 
-.loopexit.i:                                      ; preds = %124, %119, %114, %111
+.loopexit.i:                                      ; preds = %123, %118, %113, %110
   %indvars.iv.next57.i = add nsw i64 %indvars.iv56.i, 1
   %lftr.wideiv59.i = trunc i64 %indvars.iv.next57.i to i32
-  %exitcond60.not.i = icmp eq i32 %99, %lftr.wideiv59.i
+  %exitcond60.not.i = icmp eq i32 %98, %lftr.wideiv59.i
   br i1 %exitcond60.not.i, label %_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit, label %.lr.ph54.i, !llvm.loop !83
 
-_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit: ; preds = %10, %_ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit, %9, %74, %.loopexit.i, %96
+_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit: ; preds = %10, %_ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit, %9, %74, %.loopexit.i, %95
   ret void
 }
 

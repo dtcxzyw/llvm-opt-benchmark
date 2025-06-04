@@ -2655,8 +2655,7 @@ Au_ObjIsTravIdCurrentId.exit:                     ; preds = %2, %._crit_edge.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i25:              ; preds = %51
   %53 = shl nsw i32 %52, 1
-  %.not.i.i22 = icmp slt i32 %1, %53
-  %. = select i1 %.not.i.i22, i32 %53, i32 %4
+  %. = tail call i32 @llvm.smax.i32(i32 %53, i32 %4)
   %54 = sext i32 %. to i64
   %55 = shl nsw i64 %54, 2
   %56 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i, i64 noundef %55) #32

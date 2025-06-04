@@ -1541,22 +1541,18 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .preheader3.i:                                    ; preds = %97
   %101 = add nsw i32 %41, -1
   %spec.select.i = call i32 @llvm.smax.i32(i32 %90, i32 0)
-  %.not67.i = icmp sgt i32 %41, %spec.select.i
-  %spec.select1.i = select i1 %.not67.i, i32 %spec.select.i, i32 %101
-  %.not67.i.c = icmp sgt i32 %41, %94
-  %spec.select1.i.c = select i1 %.not67.i.c, i32 %94, i32 %101
+  %spec.select1.i.c = call i32 @llvm.smin.i32(i32 %94, i32 %101)
   %102 = add nsw i32 %43, -1
   %spec.select69.i = call i32 @llvm.smax.i32(i32 %92, i32 0)
-  %.not66.i = icmp sgt i32 %43, 0
-  %spec.select2.i = select i1 %.not66.i, i32 %spec.select69.i, i32 %102
-  %.not66.i.c = icmp sgt i32 %43, %96
-  %spec.select2.i.c = select i1 %.not66.i.c, i32 %96, i32 %102
-  %.not64.i = icmp sgt i32 %spec.select1.i.c, %spec.select1.i
-  %.not65.i = icmp sgt i32 %spec.select2.i.c, %spec.select2.i
+  %spec.select2.i.c = call i32 @llvm.smin.i32(i32 %96, i32 %102)
+  %.not64.i = icmp slt i32 %spec.select.i, %spec.select1.i.c
+  %.not65.i = icmp slt i32 %spec.select69.i, %spec.select2.i.c
   %or.cond289 = select i1 %.not64.i, i1 %.not65.i, i1 false
   br i1 %or.cond289, label %103, label %_get_selected_area.exit
 
 103:                                              ; preds = %.preheader3.i
+  %spec.select2.i = call i32 @llvm.smin.i32(i32 %spec.select69.i, i32 %102)
+  %spec.select1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %101)
   br label %_get_selected_area.exit
 
 _get_selected_area.exit:                          ; preds = %38, %97, %.preheader3.i, %103
@@ -1595,8 +1591,8 @@ _get_selected_area.exit:                          ; preds = %38, %97, %.preheade
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 32764
   %124 = sext i32 %.sroa.7.0 to i64
   %125 = sext i32 %.sroa.0.0 to i64
-  %126 = sext i32 %.sroa.9.0 to i64
-  %127 = sext i32 %.sroa.12.0 to i64
+  %126 = zext nneg i32 %.sroa.9.0 to i64
+  %127 = zext nneg i32 %.sroa.12.0 to i64
   br label %.lr.ph70.split.i.i
 
 .lr.ph70.split.i.i:                               ; preds = %._crit_edge.i.i.loopexit, %.lr.ph70.split.preheader.i.i

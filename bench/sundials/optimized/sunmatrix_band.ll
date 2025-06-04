@@ -496,9 +496,8 @@ define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr noundef captures(
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !26
   %36 = add nsw i64 %..i, %33
-  %.not.i = icmp sgt i64 %35, %36
   %37 = add nsw i64 %35, -1
-  %38 = select i1 %.not.i, i64 %36, i64 %37
+  %38 = tail call i64 @llvm.smin.i64(i64 %36, i64 %37)
   %39 = load ptr, ptr %32, align 8, !tbaa !35
   %40 = tail call ptr @SUNMatNewEmpty(ptr noundef %39) #18
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -812,8 +811,7 @@ define noundef i32 @SUNMatMatvec_Band(ptr noundef readonly captures(none) %0, pt
   %26 = sub nsw i64 %.03445, %18
   %spec.select = tail call i64 @llvm.smax.i64(i64 %26, i64 0)
   %27 = add nsw i64 %20, %.03445
-  %.not = icmp sgt i64 %7, %27
-  %28 = select i1 %.not, i64 %27, i64 %21
+  %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 %21)
   %.not3842 = icmp sgt i64 %spec.select, %28
   br i1 %.not3842, label %._crit_edge, label %.lr.ph44
 
@@ -889,9 +887,8 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !27
   %14 = add nsw i64 %13, %.042
-  %.not = icmp sgt i64 %11, %14
   %15 = add nsw i64 %11, -1
-  %16 = select i1 %.not, i64 %14, i64 %15
+  %16 = tail call i64 @llvm.smin.i64(i64 %14, i64 %15)
   %17 = icmp sgt i64 %9, 0
   br i1 %17, label %.lr.ph, label %.preheader
 
@@ -1040,6 +1037,9 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17

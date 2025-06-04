@@ -1064,33 +1064,32 @@ define dso_local i32 @bit_nset_max_count(ptr noundef readonly captures(none) %0)
   %9 = and i64 %6, %8
   %.not = icmp eq i64 %9, 0
   %10 = add nsw i32 %.01622, 1
-  %.not21 = icmp slt i32 %.01622, %.01523
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.01523, i32 %10)
   %.117 = select i1 %.not, i32 0, i32 %10
-  %11 = select i1 %.not, i1 true, i1 %.not21
-  %.2 = select i1 %11, i32 %.01523, i32 %10
-  %12 = icmp eq i32 %.117, 0
-  br i1 %12, label %13, label %19
+  %.2 = select i1 %.not, i32 %.01523, i32 %spec.select
+  %11 = icmp eq i32 %.117, 0
+  br i1 %11, label %12, label %18
 
-13:                                               ; preds = %.lr.ph
-  %14 = sub nsw i64 %4, %.024
-  %15 = sext i32 %.2 to i64
-  %16 = icmp sge i64 %14, %15
-  %17 = add nuw nsw i64 %.024, 1
-  %18 = icmp samesign ult i64 %17, %4
-  %or.cond = select i1 %16, i1 %18, i1 false
+12:                                               ; preds = %.lr.ph
+  %13 = sub nsw i64 %4, %.024
+  %14 = sext i32 %.2 to i64
+  %15 = icmp sge i64 %13, %14
+  %16 = add nuw nsw i64 %.024, 1
+  %17 = icmp samesign ult i64 %16, %4
+  %or.cond = select i1 %15, i1 %17, i1 false
   br i1 %or.cond, label %.lr.ph.backedge, label %._crit_edge
 
-19:                                               ; preds = %.lr.ph
+18:                                               ; preds = %.lr.ph
   %.old = add nuw nsw i64 %.024, 1
   %.old27 = icmp samesign ult i64 %.old, %4
   br i1 %.old27, label %.lr.ph.backedge, label %._crit_edge
 
-.lr.ph.backedge:                                  ; preds = %19, %13
-  %.024.be = phi i64 [ %.old, %19 ], [ %17, %13 ]
+.lr.ph.backedge:                                  ; preds = %18, %12
+  %.024.be = phi i64 [ %.old, %18 ], [ %16, %12 ]
   br label %.lr.ph, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %19, %13, %1
-  %.1 = phi i32 [ 0, %1 ], [ %.2, %13 ], [ %.2, %19 ]
+._crit_edge:                                      ; preds = %18, %12, %1
+  %.1 = phi i32 [ 0, %1 ], [ %.2, %12 ], [ %.2, %18 ]
   ret i32 %.1
 }
 
@@ -4026,6 +4025,9 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

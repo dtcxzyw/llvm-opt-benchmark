@@ -5938,13 +5938,11 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %319, %_ZNSt6vectorI
   %415 = fptosi float %414 to i32
   %.neg = sdiv i32 %411, -2
   %416 = add i32 %.neg, %403
-  %.not590 = icmp sgt i32 %.0141, %416
-  %417 = select i1 %.not590, i32 %416, i32 %357
+  %417 = call i32 @llvm.smin.i32(i32 %416, i32 %357)
   %.sroa.speculated451 = call i32 @llvm.smax.i32(i32 %417, i32 0)
   %.neg172 = sdiv i32 %415, -2
   %418 = add i32 %.neg172, %407
-  %.not592 = icmp sgt i32 %.0142, %418
-  %419 = select i1 %.not592, i32 %418, i32 %358
+  %419 = call i32 @llvm.smin.i32(i32 %418, i32 %358)
   %.sroa.speculated441 = call i32 @llvm.smax.i32(i32 %419, i32 0)
   %420 = sub nsw i32 %.0141, %.sroa.speculated451
   %.sroa.speculated473 = call i32 @llvm.smin.i32(i32 %420, i32 %411)
@@ -25461,10 +25459,10 @@ declare i64 @llvm.umax.i64(i64, i64) #28
 declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #28
+declare i32 @llvm.smin.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #28
+declare i32 @llvm.smax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29

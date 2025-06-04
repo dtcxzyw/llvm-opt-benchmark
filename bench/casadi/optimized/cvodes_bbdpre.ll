@@ -74,20 +74,16 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   store ptr %8, ptr %33, align 8, !tbaa !28
   %34 = add nsw i64 %1, -1
   %35 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not = icmp sgt i64 %1, %35
-  %. = select i1 %.not, i64 %35, i64 %34
+  %. = tail call i64 @llvm.smin.i64(i64 %35, i64 %34)
   store i64 %., ptr %27, align 8, !tbaa !29
   %36 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not106 = icmp sgt i64 %1, %36
-  %37 = select i1 %.not106, i64 %36, i64 %34
+  %37 = tail call i64 @llvm.smin.i64(i64 %36, i64 %34)
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %37, ptr %38, align 8, !tbaa !30
   %39 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %.not107 = icmp sgt i64 %1, %39
-  %40 = select i1 %.not107, i64 %39, i64 %34
+  %40 = tail call i64 @llvm.smin.i64(i64 %39, i64 %34)
   %41 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %.not108 = icmp sgt i64 %1, %41
-  %42 = select i1 %.not108, i64 %41, i64 %34
+  %42 = tail call i64 @llvm.smin.i64(i64 %41, i64 %34)
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %40, ptr %43, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -105,8 +101,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 49:                                               ; preds = %30
   %50 = add nsw i64 %42, %40
-  %.not109 = icmp sgt i64 %1, %50
-  %.110 = select i1 %.not109, i64 %50, i64 %34
+  %.110 = tail call i64 @llvm.smin.i64(i64 %50, i64 %34)
   %51 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %52 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %40, i64 noundef %42, i64 noundef %.110) #6
   store ptr %52, ptr %51, align 8, !tbaa !34
@@ -521,12 +516,10 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = add nsw i64 %19, -1
   %21 = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
-  %.not = icmp sgt i64 %19, %21
-  %. = select i1 %.not, i64 %21, i64 %20
+  %. = tail call i64 @llvm.smin.i64(i64 %21, i64 %20)
   store i64 %., ptr %14, align 8, !tbaa !29
   %22 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not35 = icmp sgt i64 %19, %22
-  %23 = select i1 %.not35, i64 %22, i64 %20
+  %23 = tail call i64 @llvm.smin.i64(i64 %22, i64 %20)
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %23, ptr %24, align 8, !tbaa !30
   %25 = fcmp ogt double %3, 0.000000e+00

@@ -28477,8 +28477,7 @@ stbtt_GetGlyphBitmapBox.exit.i:                   ; preds = %71, %stbtt_GetGlyph
   %123 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store float %122, ptr %123, align 4, !tbaa !503
   %124 = add nsw i32 %112, 1
-  %.not76.i = icmp slt i32 %98, %.07098.i
-  %spec.select78.i = select i1 %.not76.i, i32 %.07098.i, i32 %99
+  %spec.select78.i = call i32 @llvm.smax.i32(i32 %.07098.i, i32 %99)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %stbtt_BakeFontBitmap_internal.exit, label %stbtt_GetGlyphHMetrics.exit.i, !llvm.loop !582
@@ -63246,9 +63245,8 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
   %10 = call i32 @nk_edit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %3, ptr noundef %4)
   %11 = call i32 @llvm.smax.i32(i32 %3, i32 1)
   %12 = load i32, ptr %6, align 4, !tbaa !7
-  %.not = icmp sgt i32 %11, %12
   %13 = add nsw i32 %11, -1
-  %14 = select i1 %.not, i32 %12, i32 %13
+  %14 = call i32 @llvm.smin.i32(i32 %12, i32 %13)
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %2, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !9

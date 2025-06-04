@@ -4213,9 +4213,8 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit:            ; preds = %20, %18
   %26 = ptrtoint ptr %0 to i64
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
-  %.not = icmp sgt i32 %1, %28
   %29 = add nsw i32 %1, -1
-  %spec.select = select i1 %.not, i32 %28, i32 %29
+  %spec.select = call i32 @llvm.smin.i32(i32 %28, i32 %29)
   %30 = sext i32 %spec.select to i64
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !3
@@ -4369,9 +4368,8 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit.i:          ; preds = %20, %18
   %26 = ptrtoint ptr %0 to i64
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
-  %.not.i = icmp sgt i32 %1, %28
   %29 = add nsw i32 %1, -1
-  %spec.select.i = select i1 %.not.i, i32 %28, i32 %29
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %28, i32 %29)
   %30 = sext i32 %spec.select.i to i64
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !3
@@ -5653,9 +5651,8 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit.i:          ; preds = %13, %.thread.i
   %18 = ptrtoint ptr %.021 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
-  %.not.i = icmp sgt i32 %.020, %20
   %21 = add nsw i32 %.020, -1
-  %spec.select.i = select i1 %.not.i, i32 %20, i32 %21
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %20, i32 %21)
   %22 = sext i32 %spec.select.i to i64
   %23 = getelementptr inbounds i8, ptr %.021, i64 %22
   store i8 0, ptr %23, align 1, !tbaa !3

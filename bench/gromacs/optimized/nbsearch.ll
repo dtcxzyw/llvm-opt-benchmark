@@ -981,7 +981,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit:
   br label %143
 
 143:                                              ; preds = %157, %140
-  %indvars.iv.i14 = phi i64 [ 0, %140 ], [ %indvars.iv.next.i16, %157 ]
+  %indvars.iv.i14 = phi i64 [ 0, %140 ], [ %indvars.iv.next.i15, %157 ]
   %144 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i14
   %145 = load float, ptr %144, align 4, !tbaa !77
   %146 = tail call noundef float @llvm.floor.f32(float %145)
@@ -998,17 +998,16 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit:
 153:                                              ; preds = %151
   %154 = getelementptr inbounds nuw [3 x i32], ptr %142, i64 0, i64 %indvars.iv.i14
   %155 = load i32, ptr %154, align 4, !tbaa !39
-  %.not.i15 = icmp sgt i32 %155, %147
   %156 = add nsw i32 %155, -1
-  %spec.select.i = select i1 %.not.i15, i32 %147, i32 %156
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %147, i32 %156)
   br label %157
 
 157:                                              ; preds = %153, %151, %143
   %.012.i = phi i32 [ %147, %143 ], [ 0, %151 ], [ %spec.select.i, %153 ]
   %158 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv.i14
   store i32 %.012.i, ptr %158, align 4, !tbaa !39
-  %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i14, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i16, 3
+  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i15, 3
   br i1 %exitcond.not.i, label %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit, label %143, !llvm.loop !94
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit: ; preds = %157
@@ -2030,9 +2029,8 @@ define noundef i32 @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCe
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !39
-  %.not = icmp sgt i32 %29, %21
   %30 = add nsw i32 %29, -1
-  %spec.select = select i1 %.not, i32 %21, i32 %30
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %21, i32 %30)
   br label %31
 
 31:                                               ; preds = %27, %25, %17
@@ -2073,9 +2071,8 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13addToGridCellEPKf
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !39
-  %.not.i = icmp sgt i32 %19, %11
   %20 = add nsw i32 %19, -1
-  %spec.select.i = select i1 %.not.i, i32 %11, i32 %20
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %11, i32 %20)
   br label %21
 
 21:                                               ; preds = %17, %15, %7
@@ -2108,8 +2105,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit: ; 
   %38 = load ptr, ptr %37, align 8, !tbaa !97
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !62
-  %.not.i2 = icmp eq ptr %38, %40
-  br i1 %.not.i2, label %43, label %41
+  %.not.i = icmp eq ptr %38, %40
+  br i1 %.not.i, label %43, label %41
 
 41:                                               ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit
   store i32 %2, ptr %38, align 4, !tbaa !39
@@ -6630,6 +6627,9 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ;
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #35
