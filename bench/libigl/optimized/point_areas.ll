@@ -22632,7 +22632,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !1002
   %.not = icmp sgt i64 %7, %9
-  br i1 %.not, label %10, label %common.ret35
+  br i1 %.not, label %10, label %common.ret36
 
 10:                                               ; preds = %3
   %.sroa.025.0.copyload = load ptr, ptr %0, align 8
@@ -22641,7 +22641,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -22659,9 +22660,10 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   br i1 %.not.i19, label %19, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit
 
 19:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit
-  %20 = lshr i64 %7, 2
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %20
-  %22 = icmp eq i64 %20, %12
+  %20 = lshr exact i64 %6, 2
+  %.idx33 = and i64 %20, 4611686018427387896
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
+  %22 = icmp eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -22695,7 +22697,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_T0_T1_(ptr %.sroa.06.0.i32, ptr %32, ptr nonnull %2, i64 noundef %37, ptr %.sroa.0.0.copyload)
   br label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit
 
-common.ret35:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit
+common.ret36:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit
   ret void
 
 _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit: ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit, %27, %34
@@ -22704,7 +22706,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi0ELb0ELb0EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i20, ptr %.sroa.06.0.i32)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi0ELb0ELb0EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i32, ptr %.sroa.06.0.i22)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi1ELb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i22, ptr %2)
-  br label %common.ret35
+  br label %common.ret36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22716,7 +22718,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !1002
   %.not = icmp sgt i64 %7, %9
-  br i1 %.not, label %10, label %common.ret35
+  br i1 %.not, label %10, label %common.ret36
 
 10:                                               ; preds = %3
   %.sroa.025.0.copyload = load ptr, ptr %0, align 8
@@ -22725,7 +22727,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -22743,9 +22746,10 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   br i1 %.not.i19, label %19, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit
 
 19:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit
-  %20 = lshr i64 %7, 2
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %20
-  %22 = icmp eq i64 %20, %12
+  %20 = lshr exact i64 %6, 2
+  %.idx33 = and i64 %20, 4611686018427387896
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
+  %22 = icmp eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -22779,7 +22783,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi0ELb1EEEEEEvT_SS_SS_T0_T1_(ptr %.sroa.06.0.i32, ptr %32, ptr nonnull %2, i64 noundef %37, ptr %.sroa.0.0.copyload)
   br label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit
 
-common.ret35:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit
+common.ret36:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit
   ret void
 
 _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit: ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit, %27, %34
@@ -22788,7 +22792,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi1ELb0ELb0EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i20, ptr %.sroa.06.0.i32)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi1ELb0ELb0EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i32, ptr %.sroa.06.0.i22)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi0ELb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i22, ptr %2)
-  br label %common.ret35
+  br label %common.ret36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22800,7 +22804,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !1002
   %.not = icmp sgt i64 %7, %9
-  br i1 %.not, label %10, label %common.ret35
+  br i1 %.not, label %10, label %common.ret36
 
 10:                                               ; preds = %3
   %.sroa.025.0.copyload = load ptr, ptr %0, align 8
@@ -22809,7 +22813,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -22827,9 +22832,10 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   br i1 %.not.i19, label %19, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit
 
 19:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit
-  %20 = lshr i64 %7, 2
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %20
-  %22 = icmp eq i64 %20, %12
+  %20 = lshr exact i64 %6, 2
+  %.idx33 = and i64 %20, 4611686018427387896
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
+  %22 = icmp eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -22863,7 +22869,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi0ELb0EEEEEEvT_SS_SS_T0_T1_(ptr %.sroa.06.0.i32, ptr %32, ptr nonnull %2, i64 noundef %37, ptr %.sroa.0.0.copyload)
   br label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit
 
-common.ret35:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit
+common.ret36:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit
   ret void
 
 _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit: ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit, %27, %34
@@ -22872,7 +22878,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi1ELb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i20, ptr %.sroa.06.0.i32)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi1ELb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i32, ptr %.sroa.06.0.i22)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi0ELb0ELb0EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i22, ptr %2)
-  br label %common.ret35
+  br label %common.ret36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24600,7 +24606,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !1002
   %.not = icmp sgt i64 %7, %9
-  br i1 %.not, label %10, label %common.ret35
+  br i1 %.not, label %10, label %common.ret36
 
 10:                                               ; preds = %3
   %.sroa.025.0.copyload = load ptr, ptr %0, align 8
@@ -24609,7 +24615,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -24627,9 +24634,10 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   br i1 %.not.i19, label %19, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit
 
 19:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit
-  %20 = lshr i64 %7, 2
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %20
-  %22 = icmp eq i64 %20, %12
+  %20 = lshr exact i64 %6, 2
+  %.idx33 = and i64 %20, 4611686018427387896
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
+  %22 = icmp eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -24663,7 +24671,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_T0_T1_(ptr %.sroa.06.0.i32, ptr %32, ptr nonnull %2, i64 noundef %37, ptr %.sroa.0.0.copyload)
   br label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit
 
-common.ret35:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit
+common.ret36:                                     ; preds = %3, %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit
   ret void
 
 _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit: ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit, %27, %34
@@ -24672,7 +24680,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi0ELb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i20, ptr %.sroa.06.0.i32)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi0ELb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i32, ptr %.sroa.06.0.i22)
   tail call void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2IS2_EENS3_27typed_identity_property_mapImEES6_RS6_EEEENS_14Sequential_tagEE14recursive_sortILi1ELb0ELb0EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvT2_SN_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.06.0.i22, ptr %2)
-  br label %common.ret35
+  br label %common.ret36
 }
 
 ; Function Attrs: mustprogress uwtable

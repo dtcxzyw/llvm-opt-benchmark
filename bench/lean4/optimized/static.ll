@@ -33590,7 +33590,7 @@ define internal fastcc noundef ptr @_ZL29mi_segment_span_free_coalesceP9mi_page_
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !18
-  br label %126
+  br label %124
 
 12:                                               ; preds = %2
   %13 = icmp slt i64 %4, 33554432
@@ -33692,7 +33692,7 @@ _ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit: ; pr
 64:                                               ; preds = %30, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit, %26, %12
   %.036 = phi i64 [ %33, %30 ], [ %33, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit ], [ %19, %26 ], [ %19, %12 ]
   %65 = icmp ugt ptr %0, %21
-  br i1 %65, label %66, label %116
+  br i1 %65, label %66, label %113
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds i8, ptr %0, i64 -96
@@ -33704,109 +33704,107 @@ _ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit: ; pr
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load i64, ptr %73, align 8, !tbaa !18
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %116
+  br i1 %75, label %76, label %113
 
 76:                                               ; preds = %66
   %77 = load i32, ptr %72, align 8, !tbaa !116
   %78 = zext i32 %77 to i64
   %79 = add nuw nsw i64 %.036, %78
   store i32 0, ptr %0, align 8, !tbaa !116
-  %80 = ptrtoint ptr %72 to i64
-  %81 = sub i64 %3, %80
-  %82 = trunc i64 %81 to i32
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %82, ptr %83, align 4, !tbaa !24
-  br i1 %17, label %116, label %84
+  %.neg = add i32 %69, 96
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.neg, ptr %80, align 4, !tbaa !24
+  br i1 %17, label %113, label %81
 
-84:                                               ; preds = %76
-  %85 = load i32, ptr %72, align 8, !tbaa !116
-  %86 = zext i32 %85 to i64
-  %87 = icmp ult i32 %85, 2
-  br i1 %87, label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41, label %88
+81:                                               ; preds = %76
+  %82 = load i32, ptr %72, align 8, !tbaa !116
+  %83 = zext i32 %82 to i64
+  %84 = icmp ult i32 %82, 2
+  br i1 %84, label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41, label %85
 
-88:                                               ; preds = %84
-  %89 = add nsw i64 %86, -1
-  %90 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %89, i1 true)
-  %91 = xor i64 %90, 63
-  %92 = icmp samesign ult i64 %91, 3
-  br i1 %92, label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41, label %93
+85:                                               ; preds = %81
+  %86 = add nsw i64 %83, -1
+  %87 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %86, i1 true)
+  %88 = xor i64 %87, 63
+  %89 = icmp samesign ult i64 %88, 3
+  br i1 %89, label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41, label %90
 
-93:                                               ; preds = %88
-  %94 = shl nuw nsw i64 %91, 2
-  %95 = sub nsw i64 61, %90
-  %96 = lshr i64 %89, %95
-  %97 = and i64 %96, 3
-  %98 = add nsw i64 %94, -4
-  %99 = or disjoint i64 %98, %97
+90:                                               ; preds = %85
+  %91 = shl nuw nsw i64 %88, 2
+  %92 = sub nsw i64 61, %87
+  %93 = lshr i64 %86, %92
+  %94 = and i64 %93, 3
+  %95 = add nsw i64 %91, -4
+  %96 = or disjoint i64 %95, %94
   br label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41
 
-_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41: ; preds = %93, %88, %84
-  %.0.i.i.i.i42 = phi i64 [ %86, %84 ], [ %99, %93 ], [ %86, %88 ]
-  %100 = getelementptr inbounds nuw [36 x %struct.mi_span_queue_s], ptr %1, i64 0, i64 %.0.i.i.i.i42
-  %101 = getelementptr inbounds nuw i8, ptr %72, i64 80
-  %102 = load ptr, ptr %101, align 8, !tbaa !269
-  %.not.i.i43 = icmp eq ptr %102, null
+_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41: ; preds = %90, %85, %81
+  %.0.i.i.i.i42 = phi i64 [ %83, %81 ], [ %96, %90 ], [ %83, %85 ]
+  %97 = getelementptr inbounds nuw [36 x %struct.mi_span_queue_s], ptr %1, i64 0, i64 %.0.i.i.i.i42
+  %98 = getelementptr inbounds nuw i8, ptr %72, i64 80
+  %99 = load ptr, ptr %98, align 8, !tbaa !269
+  %.not.i.i43 = icmp eq ptr %99, null
   %.phi.trans.insert.i44 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %.pre.i45 = load ptr, ptr %.phi.trans.insert.i44, align 8, !tbaa !202
-  br i1 %.not.i.i43, label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46, label %103
+  br i1 %.not.i.i43, label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46, label %100
 
-103:                                              ; preds = %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 72
-  store ptr %.pre.i45, ptr %104, align 8, !tbaa !202
+100:                                              ; preds = %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 72
+  store ptr %.pre.i45, ptr %101, align 8, !tbaa !202
   br label %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46
 
-_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46: ; preds = %103, %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41
-  %105 = load ptr, ptr %100, align 8, !tbaa !294
-  %106 = icmp eq ptr %72, %105
-  br i1 %106, label %107, label %._crit_edge.i.i47
+_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46: ; preds = %100, %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit.i41
+  %102 = load ptr, ptr %97, align 8, !tbaa !294
+  %103 = icmp eq ptr %72, %102
+  br i1 %103, label %104, label %._crit_edge.i.i47
 
-107:                                              ; preds = %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46
-  store ptr %.pre.i45, ptr %100, align 8, !tbaa !294
+104:                                              ; preds = %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46
+  store ptr %.pre.i45, ptr %97, align 8, !tbaa !294
   br label %._crit_edge.i.i47
 
-._crit_edge.i.i47:                                ; preds = %107, %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46
+._crit_edge.i.i47:                                ; preds = %104, %_ZL17mi_span_queue_formP17mi_segments_tld_s.exit._crit_edge.i46
   %.not19.i.i48 = icmp eq ptr %.pre.i45, null
-  br i1 %.not19.i.i48, label %110, label %108
+  br i1 %.not19.i.i48, label %107, label %105
 
-108:                                              ; preds = %._crit_edge.i.i47
-  %109 = getelementptr inbounds nuw i8, ptr %.pre.i45, i64 80
-  store ptr %102, ptr %109, align 8, !tbaa !269
-  br label %110
+105:                                              ; preds = %._crit_edge.i.i47
+  %106 = getelementptr inbounds nuw i8, ptr %.pre.i45, i64 80
+  store ptr %99, ptr %106, align 8, !tbaa !269
+  br label %107
 
-110:                                              ; preds = %108, %._crit_edge.i.i47
-  %111 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !296
-  %113 = icmp eq ptr %72, %112
-  br i1 %113, label %114, label %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49
+107:                                              ; preds = %105, %._crit_edge.i.i47
+  %108 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !296
+  %110 = icmp eq ptr %72, %109
+  br i1 %110, label %111, label %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %101, align 8, !tbaa !269
-  store ptr %115, ptr %111, align 8, !tbaa !296
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %98, align 8, !tbaa !269
+  store ptr %112, ptr %108, align 8, !tbaa !296
   br label %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49
 
-_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49: ; preds = %110, %114
+_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49: ; preds = %107, %111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.phi.trans.insert.i44, i8 0, i64 16, i1 false)
   store i64 1, ptr %73, align 8, !tbaa !18
-  br label %116
+  br label %113
 
-116:                                              ; preds = %66, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49, %76, %64
-  %.pre-phi = phi i64 [ %3, %66 ], [ %80, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49 ], [ %80, %76 ], [ %3, %64 ]
-  %.137 = phi i64 [ %.036, %66 ], [ %79, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49 ], [ %79, %76 ], [ %.036, %64 ]
-  %.035 = phi ptr [ %0, %66 ], [ %72, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49 ], [ %72, %76 ], [ %0, %64 ]
-  %117 = add i64 %.pre-phi, -1
-  %118 = and i64 %117, -33554432
-  %119 = inttoptr i64 %118 to ptr
-  %120 = icmp slt i64 %117, 33554432
-  %121 = select i1 %120, ptr null, ptr %119
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 288
-  %123 = ptrtoint ptr %122 to i64
-  %124 = sub i64 %.pre-phi, %123
-  %125 = sdiv exact i64 %124, 96
-  tail call fastcc void @_ZL20mi_segment_span_freeP12mi_segment_smmbP17mi_segments_tld_s(ptr noundef nonnull %6, i64 noundef %125, i64 noundef %.137, i1 noundef zeroext true, ptr noundef %1)
-  br label %126
+113:                                              ; preds = %66, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49, %76, %64
+  %.137 = phi i64 [ %.036, %64 ], [ %.036, %66 ], [ %79, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49 ], [ %79, %76 ]
+  %.035 = phi ptr [ %0, %64 ], [ %0, %66 ], [ %72, %_ZL33mi_segment_span_remove_from_queueP9mi_page_sP17mi_segments_tld_s.exit49 ], [ %72, %76 ]
+  %114 = ptrtoint ptr %.035 to i64
+  %115 = add i64 %114, -1
+  %116 = and i64 %115, -33554432
+  %117 = inttoptr i64 %116 to ptr
+  %118 = icmp slt i64 %115, 33554432
+  %119 = select i1 %118, ptr null, ptr %117
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 288
+  %121 = ptrtoint ptr %120 to i64
+  %122 = sub i64 %114, %121
+  %123 = sdiv exact i64 %122, 96
+  tail call fastcc void @_ZL20mi_segment_span_freeP12mi_segment_smmbP17mi_segments_tld_s(ptr noundef nonnull %6, i64 noundef %123, i64 noundef %.137, i1 noundef zeroext true, ptr noundef %1)
+  br label %124
 
-126:                                              ; preds = %116, %10
-  %.0 = phi ptr [ %0, %10 ], [ %.035, %116 ]
+124:                                              ; preds = %113, %10
+  %.0 = phi ptr [ %0, %10 ], [ %.035, %113 ]
   ret ptr %.0
 }
 
@@ -34739,7 +34737,8 @@ define internal fastcc noundef ptr @_ZL24mi_segment_span_allocateP12mi_segment_s
 
 _ZL22mi_commit_mask_is_fullPK16mi_commit_mask_s.exit.i: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %16 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %15, i64 0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %17 = ptrtoint ptr %16 to i64
   %18 = shl i64 %1, 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18

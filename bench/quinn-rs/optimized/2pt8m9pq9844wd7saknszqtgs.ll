@@ -1669,11 +1669,11 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h4f
   br label %10
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds { i64, { { ptr, ptr } } }, ptr %9, i64 %18
+  %.idx = mul i64 %17, -24
+  %30 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
-  %.idx.neg = mul i64 %17, 24
-  %31 = sdiv exact i64 %.idx.neg, 24
+  %31 = sdiv exact i64 %.idx, -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %32 = add nsw i64 %31, -16
   %33 = and i64 %32, %8
@@ -1774,11 +1774,12 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_en
   br label %9
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds { i64, ptr }, ptr %8, i64 %17
+  %.idx = shl nsw i64 %17, 4
+  %29 = getelementptr inbounds i8, ptr %8, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  %.idx.neg = shl i64 %16, 4
-  %30 = ashr exact i64 %.idx.neg, 4
+  %gepdiff = sub nsw i64 0, %.idx
+  %30 = ashr exact i64 %gepdiff, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %31 = add nsw i64 %30, -16
   %32 = and i64 %31, %7
@@ -1880,11 +1881,12 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_en
   br label %9
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds { i64, ptr }, ptr %8, i64 %17
+  %.idx = shl nsw i64 %17, 4
+  %29 = getelementptr inbounds i8, ptr %8, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  %.idx.neg = shl i64 %16, 4
-  %30 = ashr exact i64 %.idx.neg, 4
+  %gepdiff = sub nsw i64 0, %.idx
+  %30 = ashr exact i64 %gepdiff, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %31 = add nsw i64 %30, -16
   %32 = and i64 %31, %7

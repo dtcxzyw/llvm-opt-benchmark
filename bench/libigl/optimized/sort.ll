@@ -15500,7 +15500,7 @@ define weak_odr dso_local void @_ZN3igl8sort_newIN5Eigen6MatrixIiLi1ELi6ELi1ELi1
   br label %18
 
 18:                                               ; preds = %5, %.split.us
-  %indvars.iv80 = phi i64 [ 0, %5 ], [ %indvars.iv.next81, %.split.us ]
+  %indvars.iv83 = phi i64 [ 0, %5 ], [ %indvars.iv.next84, %.split.us ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl5colonIiiiEEvT_T0_RN5Eigen6MatrixIT1_Lin1ELi1ELi0ELin1ELi1EEE(i32 noundef 0, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -15513,12 +15513,13 @@ define weak_odr dso_local void @_ZN3igl8sort_newIN5Eigen6MatrixIiLi1ELi6ELi1ELi1
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #23
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv80
+  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv83
   store ptr %23, ptr %7, align 8, !tbaa !504, !alias.scope !506
   store ptr %0, ptr %15, align 8, !tbaa !509, !alias.scope !506
-  store i64 %indvars.iv80, ptr %16, align 8, !tbaa !167, !alias.scope !506
+  store i64 %indvars.iv83, ptr %16, align 8, !tbaa !167, !alias.scope !506
   store i64 6, ptr %17, align 8, !tbaa !511, !alias.scope !506
-  %24 = getelementptr inbounds i32, ptr %20, i64 %21
+  %.idx71 = shl nsw i64 %21, 2
+  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx71
   %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %_ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi1ELb0EEEEEEvT_SB_T0_.exit, label %25
 
@@ -15550,13 +15551,14 @@ _ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1E
 
 33:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #23
-  %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv80, 24
+  %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv83, 24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i.i
   store ptr %34, ptr %8, align 8, !tbaa !514, !alias.scope !517
   store ptr %0, ptr %12, align 8, !tbaa !509, !alias.scope !517
   store i64 0, ptr %13, align 8, !tbaa !167, !alias.scope !517
   store i64 6, ptr %14, align 8, !tbaa !520, !alias.scope !517
-  %35 = getelementptr inbounds i32, ptr %20, i64 %21
+  %.idx = shl nsw i64 %21, 2
+  %35 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %.not.i.i65 = icmp eq i64 %21, 0
   br i1 %.not.i.i65, label %_ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi6ELb1EEEEEEvT_SB_T0_.exit, label %36
 
@@ -15582,21 +15584,21 @@ _ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1E
   br label %68
 
 42:                                               ; preds = %_ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi6ELb1EEEEEEvT_SB_T0_.exit, %_ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi1ELb0EEEEEEvT_SB_T0_.exit
-  %.pre83 = load ptr, ptr %6, align 8
+  %.pre86 = load ptr, ptr %6, align 8
   br i1 %2, label %_ZSt7reverseIPiEvT_S1_.exit, label %43
 
 43:                                               ; preds = %42
   %44 = load i64, ptr %11, align 8, !tbaa !37
-  %45 = getelementptr inbounds i32, ptr %.pre83, i64 %44
+  %45 = getelementptr inbounds i32, ptr %.pre86, i64 %44
   %46 = icmp ne i64 %44, 0
   %.012.i.i = getelementptr inbounds i8, ptr %45, i64 -4
-  %47 = icmp ult ptr %.pre83, %.012.i.i
+  %47 = icmp ult ptr %.pre86, %.012.i.i
   %or.cond.i.i = select i1 %46, i1 %47, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit
 
 .lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %43 ]
-  %.0913.i.i = phi ptr [ %50, %.lr.ph.i.i ], [ %.pre83, %43 ]
+  %.0913.i.i = phi ptr [ %50, %.lr.ph.i.i ], [ %.pre86, %43 ]
   %48 = load i32, ptr %.0913.i.i, align 4, !tbaa !23
   %49 = load i32, ptr %.014.i.i, align 4, !tbaa !23
   store i32 %49, ptr %.0913.i.i, align 4, !tbaa !23
@@ -15611,13 +15613,13 @@ _ZSt7reverseIPiEvT_S1_.exit.loopexit:             ; preds = %.lr.ph.i.i
   br label %_ZSt7reverseIPiEvT_S1_.exit
 
 _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %_ZSt7reverseIPiEvT_S1_.exit.loopexit, %43, %42
-  %52 = phi ptr [ %.pre, %_ZSt7reverseIPiEvT_S1_.exit.loopexit ], [ %.pre83, %43 ], [ %.pre83, %42 ]
+  %52 = phi ptr [ %.pre, %_ZSt7reverseIPiEvT_S1_.exit.loopexit ], [ %.pre86, %43 ], [ %.pre86, %42 ]
   br i1 %9, label %_ZSt7reverseIPiEvT_S1_.exit.split.us, label %_ZSt7reverseIPiEvT_S1_.exit.split
 
 _ZSt7reverseIPiEvT_S1_.exit.split.us:             ; preds = %_ZSt7reverseIPiEvT_S1_.exit
-  %53 = getelementptr i32, ptr %4, i64 %indvars.iv80
-  %54 = getelementptr i32, ptr %3, i64 %indvars.iv80
-  %55 = getelementptr i32, ptr %0, i64 %indvars.iv80
+  %53 = getelementptr i32, ptr %4, i64 %indvars.iv83
+  %54 = getelementptr i32, ptr %3, i64 %indvars.iv83
+  %55 = getelementptr i32, ptr %0, i64 %indvars.iv83
   %56 = load i32, ptr %55, align 4, !tbaa !23
   store i32 %56, ptr %54, align 4, !tbaa !23
   %57 = load i32, ptr %52, align 4, !tbaa !23
@@ -15627,8 +15629,8 @@ _ZSt7reverseIPiEvT_S1_.exit.split.us:             ; preds = %_ZSt7reverseIPiEvT_
 .split.us:                                        ; preds = %_ZSt7reverseIPiEvT_S1_.exit.split, %_ZSt7reverseIPiEvT_S1_.exit.split.us
   call void @free(ptr noundef nonnull %52) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %58 = icmp samesign ult i64 %indvars.iv80, 5
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %58 = icmp samesign ult i64 %indvars.iv83, 5
   %59 = select i1 %9, i1 %58, i1 false
   br i1 %59, label %18, label %_ZN3igl5sort2IN5Eigen6MatrixIiLi1ELi6ELi1ELi1ELi6EEES3_S3_EEvRKNS1_9DenseBaseIT_EEibRNS1_15PlainObjectBaseIT0_EERNS9_IT1_EE.exit, !llvm.loop !523
 

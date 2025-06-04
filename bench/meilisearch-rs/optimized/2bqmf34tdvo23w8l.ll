@@ -10722,7 +10722,8 @@ _ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread:
   %.sroa.0.0.i.ph = phi i64 [ %.val.pre.i.i, %_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17he4f9a6980b68e2f1E.exit._ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17he4f9a6980b68e2f1E.exit.thread_crit_edge.i.i ], [ %9, %8 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !9, !noundef !9
-  %21 = getelementptr inbounds { ptr, i64, ptr }, ptr %20, i64 %5
+  %.idx17 = mul nuw nsw i64 %5, 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx17
   br label %.lr.ph.i.preheader
 
 _ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h43ce9ba1eb2b7637E.exit.i", %18
@@ -10730,7 +10731,8 @@ _ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit: ; pred
   %.pre = load i64, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !9, !noundef !9
-  %24 = getelementptr inbounds { ptr, i64, ptr }, ptr %23, i64 %.pre
+  %.idx = mul nuw nsw i64 %.pre, 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %25 = icmp eq i64 %.pre, 0
   br i1 %25, label %.loopexit, label %.lr.ph.i.preheader
 
@@ -10738,7 +10740,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit: ; pred
   %26 = phi ptr [ %21, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %24, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   %27 = phi ptr [ %20, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %23, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   %28 = phi ptr [ %19, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %22, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
-  %.sroa.0.0.i17 = phi i64 [ %.sroa.0.0.i.ph, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %15, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
+  %.sroa.0.0.i18 = phi i64 [ %.sroa.0.0.i.ph, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %15, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   %29 = phi i64 [ %5, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %.pre, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   br label %.lr.ph.i
 
@@ -10750,7 +10752,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit: ; pred
   %32 = load ptr, ptr %30, align 8, !alias.scope !2116, !noalias !2119, !nonnull !9, !noundef !9
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8, !range !2106, !noalias !2123, !noundef !9
-  %.not.i.i = icmp eq i64 %34, %.sroa.0.0.i17
+  %.not.i.i = icmp eq i64 %34, %.sroa.0.0.i18
   br i1 %.not.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17hfe31795ae3554d07E.exit.i", label %35
 
 35:                                               ; preds = %.lr.ph.i
@@ -112891,7 +112893,8 @@ common.resume:                                    ; preds = %.thread, %.thread13
 "_ZN78_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$indexmap..Entries$GT$12into_entries17hf2e99a1b3defcc92E.exit": ; preds = %72, %74, %83
   %87 = icmp ne ptr %.sroa.096.sroa.2.0.copyload, null
   tail call void @llvm.assume(i1 %87)
-  %88 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.sroa.096.sroa.2.0.copyload, i64 %.sroa.096.sroa.3.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.096.sroa.3.0.copyload, 104
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.096.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20), !noalias !20901
   store ptr %.sroa.096.sroa.2.0.copyload, ptr %20, align 8, !alias.scope !20905, !noalias !20909
   %.sroa.074.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8

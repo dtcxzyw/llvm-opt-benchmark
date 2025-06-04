@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef ptr @lj_alloc_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @mmap_probe(ptr noundef %0, i64 noundef 131072)
   %.not = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %.not, label %40, label %3
+  br i1 %.not, label %37, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -44,32 +44,29 @@ define hidden noundef ptr @lj_alloc_create(ptr noundef %0) local_unnamed_addr #0
 
 init_bins.exit:                                   ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 880
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 131072
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %21 to i64
-  %25 = sub i64 %23, %24
-  %26 = add i64 %25, -64
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 896
-  %28 = ptrtoint ptr %27 to i64
-  %29 = sub i64 0, %28
-  %30 = and i64 %29, 7
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 %30
-  %32 = sub i64 %26, %30
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %31, ptr %33, align 8, !tbaa !24
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 %32, ptr %34, align 8, !tbaa !25
-  %35 = or i64 %32, 1
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 %35, ptr %36, align 8, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 %26
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 64, ptr %38, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 2097152, ptr %39, align 8, !tbaa !26
-  br label %40
+  %22 = or disjoint i64 %7, 880
+  %23 = sub nuw nsw i64 131008, %22
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 896
+  %25 = ptrtoint ptr %24 to i64
+  %26 = sub i64 0, %25
+  %27 = and i64 %26, 7
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %27
+  %29 = sub nuw nsw i64 %23, %27
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr %28, ptr %30, align 8, !tbaa !24
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i64 %29, ptr %31, align 8, !tbaa !25
+  %32 = or i64 %29, 1
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 %32, ptr %33, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 %23
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 64, ptr %35, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i64 2097152, ptr %36, align 8, !tbaa !26
+  br label %37
 
-40:                                               ; preds = %1, %init_bins.exit
+37:                                               ; preds = %1, %init_bins.exit
   %.0 = phi ptr [ %9, %init_bins.exit ], [ null, %1 ]
   ret ptr %.0
 }

@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>, std::_Identity<cvc5::internal::NodeTemplate<true>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -664,7 +663,8 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %.0.lcssa.i.i811.i.i = phi i64 [ 0, %32 ], [ %35, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   %40 = phi ptr [ null, %32 ], [ %39, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   store ptr %40, ptr %0, align 8, !tbaa !51
-  %41 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %40, i64 %.0.lcssa.i.i811.i.i
+  %.idx = shl nuw nsw i64 %.0.lcssa.i.i811.i.i, 3
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !53
   %43 = invoke noundef ptr @_ZSt16__do_uninit_copyISt23_Rb_tree_const_iteratorIN4cvc58internal12NodeTemplateILb1EEEEPS4_ET0_T_S8_S7_(ptr %33, ptr nonnull %5, ptr noundef %40)
@@ -682,7 +682,6 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   br i1 %.not.i.i.i, label %.body, label %45
 
 45:                                               ; preds = %44
-  %.idx = shl nuw nsw i64 %.0.lcssa.i.i811.i.i, 3
   call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %.idx) #23
   br label %.body
 

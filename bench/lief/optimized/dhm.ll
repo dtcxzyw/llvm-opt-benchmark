@@ -240,7 +240,7 @@ dhm_read_bignum.exit.thread:                      ; preds = %46, %40, %28, %22, 
 define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = tail call fastcc i32 @dhm_make_common(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %40
+  br i1 %.not, label %8, label %39
 
 8:                                                ; preds = %6
   %9 = tail call i64 @mbedtls_mpi_size(ptr noundef %0) #10
@@ -251,7 +251,7 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %15 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %9) #10
   %.not48 = icmp eq i32 %15, 0
-  br i1 %.not48, label %16, label %40
+  br i1 %.not48, label %16, label %39
 
 16:                                               ; preds = %8
   %17 = lshr i64 %9, 8
@@ -264,7 +264,7 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %23 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %10, ptr noundef nonnull %22, i64 noundef %11) #10
   %.not49 = icmp eq i32 %23, 0
-  br i1 %.not49, label %24, label %40
+  br i1 %.not49, label %24, label %39
 
 24:                                               ; preds = %16
   %25 = lshr i64 %11, 8
@@ -277,7 +277,7 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %31 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %12, ptr noundef nonnull %30, i64 noundef %13) #10
   %.not50 = icmp eq i32 %31, 0
-  br i1 %.not50, label %.thread, label %40
+  br i1 %.not50, label %.thread, label %39
 
 .thread:                                          ; preds = %24
   %32 = lshr i64 %13, 8
@@ -286,22 +286,21 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
   store i8 %33, ptr %29, align 1, !tbaa !8
   %35 = trunc i64 %13 to i8
   store i8 %35, ptr %34, align 1, !tbaa !8
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 %13
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %2 to i64
-  %39 = sub i64 %37, %38
-  store i64 %39, ptr %3, align 8, !tbaa !9
-  br label %43
+  %36 = add i64 %9, 6
+  %37 = add i64 %36, %11
+  %38 = add i64 %37, %13
+  store i64 %38, ptr %3, align 8, !tbaa !9
+  br label %42
 
-40:                                               ; preds = %24, %16, %8, %6
+39:                                               ; preds = %24, %16, %8, %6
   %.0 = phi i32 [ %7, %6 ], [ %15, %8 ], [ %23, %16 ], [ %31, %24 ]
-  %41 = icmp sgt i32 %.0, -128
-  %42 = add nsw i32 %.0, -12672
-  %spec.select = select i1 %41, i32 %42, i32 %.0
-  br label %43
+  %40 = icmp sgt i32 %.0, -128
+  %41 = add nsw i32 %.0, -12672
+  %spec.select = select i1 %40, i32 %41, i32 %.0
+  br label %42
 
-43:                                               ; preds = %40, %.thread
-  %.1 = phi i32 [ 0, %.thread ], [ %spec.select, %40 ]
+42:                                               ; preds = %39, %.thread
+  %.1 = phi i32 [ 0, %.thread ], [ %spec.select, %39 ]
   ret i32 %.1
 }
 

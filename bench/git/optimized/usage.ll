@@ -656,7 +656,7 @@ _.exit:                                           ; preds = %14, %17
   %.0.idx34 = phi i64 [ %.0.add, %30 ], [ %6, %20 ]
   %21 = load i8, ptr %.0.ptr35, align 1, !tbaa !14
   %.not27 = icmp eq i8 %21, 0
-  br i1 %.not27, label %.critedge, label %22
+  br i1 %.not27, label %.critedge.loopexit, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = zext i8 %21 to i64
@@ -677,18 +677,21 @@ _.exit:                                           ; preds = %14, %17
   %.0.add = add nuw nsw i64 %.0.idx34, 1
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add
   %.not = icmp eq i64 %.0.add, 4095
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !17
 
-.critedge:                                        ; preds = %.lr.ph, %30, %20
-  %.0.ptr.lcssa = phi ptr [ %.ptr26, %20 ], [ %.0.ptr, %30 ], [ %.0.ptr35, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa, i64 1
+.critedge.loopexit:                               ; preds = %30, %.lr.ph
+  %.0.idx.lcssa.ph = phi i64 [ %.0.idx34, %.lr.ph ], [ 4095, %30 ]
+  %.0.ptr.lcssa.ph = phi ptr [ %.0.ptr35, %.lr.ph ], [ %.0.ptr, %30 ]
+  %31 = add nuw i64 %.0.idx.lcssa.ph, 1
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %20
+  %.0.idx.lcssa = phi i64 [ 4096, %20 ], [ %31, %.critedge.loopexit ]
+  %.0.ptr.lcssa = phi ptr [ %.ptr26, %20 ], [ %.0.ptr.lcssa.ph, %.critedge.loopexit ]
   store i8 10, ptr %.0.ptr.lcssa, align 1, !tbaa !14
   %32 = tail call i32 @fflush(ptr noundef %0)
   %33 = tail call i32 @fileno(ptr noundef %0) #17
-  %34 = ptrtoint ptr %31 to i64
-  %35 = ptrtoint ptr %5 to i64
-  %36 = sub i64 %34, %35
-  %37 = call i64 @write_in_full(i32 noundef %33, ptr noundef nonnull %5, i64 noundef %36) #17
+  %34 = call i64 @write_in_full(i32 noundef %33, ptr noundef nonnull %5, i64 noundef %.0.idx.lcssa) #17
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #17
   ret void
 }

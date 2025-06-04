@@ -5592,9 +5592,11 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
   %80 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %79, i64 %3, i32 6
   %81 = load i64, ptr %80, align 8, !tbaa !129
   %82 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %79, i64 %2
-  %83 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %79, i64 %3
+  %.idx135 = mul nuw nsw i64 %3, 144
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx135
   %84 = icmp eq i64 %81, -1
-  %85 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %79, i64 %81
+  %.idx = mul nuw nsw i64 %81, 144
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx
   %86 = ptrtoint ptr %79 to i64
   store i64 %3, ptr %52, align 8, !tbaa !134
   %87 = ptrtoint ptr %.0.i to i64
@@ -5630,8 +5632,8 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
   br label %103
 
 103:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85, %94
-  %.not65135 = icmp eq ptr %79, null
-  %.not65 = or i1 %84, %.not65135
+  %.not65136 = icmp eq ptr %79, null
+  %.not65 = or i1 %84, %.not65136
   br i1 %.not65, label %.thread113, label %106
 
 .thread126:                                       ; preds = %.thread

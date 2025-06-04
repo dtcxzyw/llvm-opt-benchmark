@@ -2821,7 +2821,8 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorItSaItEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !105
-  %19 = getelementptr inbounds nuw i16, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !108
   store ptr %19, ptr %11, align 8, !tbaa !109
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
@@ -3020,7 +3021,8 @@ _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIsSaIsEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !111
-  %19 = getelementptr inbounds nuw i16, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !113
   store ptr %19, ptr %11, align 8, !tbaa !114
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
@@ -3219,7 +3221,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !116
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !119
   store ptr %19, ptr %11, align 8, !tbaa !120
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
@@ -3418,7 +3421,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !122
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !124
   store ptr %19, ptr %11, align 8, !tbaa !125
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
@@ -3617,7 +3621,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !129
-  %19 = getelementptr inbounds nuw float, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !132
   store ptr %19, ptr %11, align 8, !tbaa !133
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
@@ -4259,7 +4264,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !148
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !150
   store ptr %19, ptr %11, align 8, !tbaa !151
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
@@ -4458,7 +4464,8 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !153
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !155
   store ptr %19, ptr %11, align 8, !tbaa !156
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
@@ -4657,7 +4664,8 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc34
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc34
   store ptr %15, ptr %6, align 8, !tbaa !160
-  %19 = getelementptr inbounds nuw double, ptr %15, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store ptr %19, ptr %9, align 8, !tbaa !163
   store ptr %19, ptr %11, align 8, !tbaa !164
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)

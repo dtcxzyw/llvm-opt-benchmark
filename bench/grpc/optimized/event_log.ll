@@ -1368,81 +1368,82 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 5
-  %8 = icmp slt i64 %7, 15
-  br i1 %8, label %9, label %22
+  %7 = icmp slt i64 %6, 480
+  br i1 %7, label %8, label %21
 
-9:                                                ; preds = %2
-  %10 = icmp eq ptr %0, %1
+8:                                                ; preds = %2
+  %9 = icmp eq ptr %0, %1
   %.sroa.0.016.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not17.i = icmp eq ptr %.sroa.0.016.i, %1
-  %or.cond = select i1 %10, i1 true, i1 %.not17.i
+  %or.cond = select i1 %9, i1 true, i1 %.not17.i
   br i1 %or.cond, label %common.ret25, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9, %21
-  %.sroa.0.019.i = phi ptr [ %.sroa.0.0.i, %21 ], [ %.sroa.0.016.i, %9 ]
-  %.pn18.i = phi ptr [ %.sroa.0.019.i, %21 ], [ %0, %9 ]
+.lr.ph.i:                                         ; preds = %8, %20
+  %.sroa.0.019.i = phi ptr [ %.sroa.0.0.i, %20 ], [ %.sroa.0.016.i, %8 ]
+  %.pn18.i = phi ptr [ %.sroa.0.019.i, %20 ], [ %0, %8 ]
   %.val.i.i = load double, ptr %.sroa.0.019.i, align 8, !tbaa !77
   %.val1.i.i = load double, ptr %0, align 8, !tbaa !77
-  %11 = fcmp olt double %.val.i.i, %.val1.i.i
-  br i1 %11, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i, label %18
+  %10 = fcmp olt double %.val.i.i, %.val1.i.i
+  br i1 %10, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i, label %17
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i: ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.019.i, i64 32, i1 false), !tbaa.struct !30
-  %12 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 64
-  %13 = ptrtoint ptr %.sroa.0.019.i to i64
-  %14 = sub i64 %13, %5
-  %15 = ashr exact i64 %14, 5
-  %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %12, i64 %16
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %14, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 64
+  %12 = ptrtoint ptr %.sroa.0.019.i to i64
+  %13 = sub i64 %12, %5
+  %14 = ashr exact i64 %13, 5
+  %15 = sub nsw i64 0, %14
+  %16 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %11, i64 %15
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %13, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %21
+  br label %20
 
-18:                                               ; preds = %.lr.ph.i
+17:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i.i)
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i.i, i64 24, i1 false), !tbaa.struct !86
   %.val2.i10.i.i = load double, ptr %.pn18.i, align 8, !tbaa !77
-  %19 = fcmp olt double %.val.i.i, %.val2.i10.i.i
-  br i1 %19, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i"
+  %18 = fcmp olt double %.val.i.i, %.val2.i10.i.i
+  br i1 %18, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
-  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn18.i, %18 ]
-  %.sroa.06.011.i.i = phi ptr [ %.sroa.0.012.i.i, %.lr.ph.i.i ], [ %.sroa.0.019.i, %18 ]
+.lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
+  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn18.i, %17 ]
+  %.sroa.06.011.i.i = phi ptr [ %.sroa.0.012.i.i, %.lr.ph.i.i ], [ %.sroa.0.019.i, %17 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.011.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.012.i.i, i64 32, i1 false), !tbaa.struct !30
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.012.i.i, i64 -32
   %.val2.i.i.i = load double, ptr %.sroa.0.0.i.i, align 8, !tbaa !77
-  %20 = fcmp olt double %.val.i.i, %.val2.i.i.i
-  br i1 %20, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i", !llvm.loop !87
+  %19 = fcmp olt double %.val.i.i, %.val2.i.i.i
+  br i1 %19, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i", !llvm.loop !87
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %18
-  %.sroa.06.0.lcssa.i.i = phi ptr [ %.sroa.0.019.i, %18 ], [ %.sroa.0.012.i.i, %.lr.ph.i.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %17
+  %.sroa.06.0.lcssa.i.i = phi ptr [ %.sroa.0.019.i, %17 ], [ %.sroa.0.012.i.i, %.lr.ph.i.i ]
   store double %.val.i.i, ptr %.sroa.06.0.lcssa.i.i, align 8, !tbaa !31
   %.sroa.5.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.i, i64 24, i1 false), !tbaa.struct !86
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i.i)
-  br label %21
+  br label %20
 
-21:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
+20:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_T0_.exit.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 32
   %.not.i = icmp eq ptr %.sroa.0.0.i, %1
   br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !88
 
-common.ret25:                                     ; preds = %9, %21, %22
+common.ret25:                                     ; preds = %8, %20, %21
   ret void
 
-22:                                               ; preds = %2
-  %23 = lshr i64 %7, 1
-  %24 = getelementptr inbounds nuw %"struct.grpc_core::EventLog::Entry", ptr %0, i64 %23
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %0, ptr %24)
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %24, ptr %1)
-  %25 = ptrtoint ptr %24 to i64
-  %26 = sub i64 %4, %25
+21:                                               ; preds = %2
+  %22 = lshr exact i64 %6, 1
+  %.idx = and i64 %22, 4611686018427387872
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %0, ptr %23)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %23, ptr %1)
+  %24 = ptrtoint ptr %23 to i64
+  %25 = lshr i64 %6, 6
+  %26 = sub i64 %4, %24
   %27 = ashr exact i64 %26, 5
-  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_SN_T0_SO_T1_"(ptr %0, ptr %24, ptr %1, i64 noundef %23, i64 noundef %27)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_SN_T0_SO_T1_"(ptr %0, ptr %23, ptr %1, i64 noundef %25, i64 noundef %27)
   br label %common.ret25
 }
 
@@ -1454,7 +1455,8 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %8 = ashr exact i64 %7, 5
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %0, i64 %10
+  %.idx = shl nsw i64 %10, 5
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 

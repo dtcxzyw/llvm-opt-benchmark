@@ -178,7 +178,6 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTISt9exception = external constant ptr
 @_ZTVSt18bad_variant_access = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTISt18bad_variant_access, ptr @_ZNSt9exceptionD2Ev, ptr @_ZNSt18bad_variant_accessD0Ev, ptr @_ZNKSt18bad_variant_access4whatEv] }, comdat, align 8
 @.str.24 = private unnamed_addr constant [18 x i8] c"current >= result\00", align 1
-@.str.25 = private unnamed_addr constant [44 x i8] c"(uintptr_t)(current - result) == result_len\00", align 1
 @.str.26 = private unnamed_addr constant [4 x i8] c"alg\00", align 1
 @.str.27 = private unnamed_addr constant [4 x i8] c"typ\00", align 1
 @.str.28 = private unnamed_addr constant [4 x i8] c"JWT\00", align 1
@@ -2786,46 +2785,31 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL27dot_concat_and_free_stringsPcS_(ptr noundef %0, ptr noundef %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
-  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
-  %7 = add i64 %5, 1
-  %8 = add i64 %7, %6
-  %9 = add i64 %8, 1
-  %10 = tail call ptr @gpr_malloc(i64 noundef %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr nonnull align 1 %0, i64 %5, i1 false)
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %6 = add i64 %4, 2
+  %7 = add i64 %6, %5
+  %8 = tail call ptr @gpr_malloc(i64 noundef %7)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %0, i64 %4, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 46, ptr %9, align 1, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %5, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 46, ptr %11, align 1, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %1, i64 %6, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %6
-  %.not = icmp ult ptr %13, %10
-  br i1 %.not, label %14, label %.critedge, !prof !28
+  %.not = icmp ult ptr %11, %8
+  br i1 %.not, label %12, label %.critedge, !prof !28
 
-14:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #30
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.1, i32 noundef 224, i64 17, ptr nonnull @.str.24) #32
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #34
   unreachable
 
 .critedge:                                        ; preds = %2
-  %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %10 to i64
-  %17 = sub i64 %15, %16
-  %.not32.not = icmp eq i64 %17, %8
-  br i1 %.not32.not, label %.critedge34, label %18, !prof !51
-
-18:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 225, i64 43, ptr nonnull @.str.25) #32
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #34
-  unreachable
-
-.critedge34:                                      ; preds = %.critedge
-  store i8 0, ptr %13, align 1, !tbaa !36
+  store i8 0, ptr %11, align 1, !tbaa !36
   tail call void @gpr_free(ptr noundef nonnull %0)
   tail call void @gpr_free(ptr noundef nonnull %1)
-  ret ptr %10
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable

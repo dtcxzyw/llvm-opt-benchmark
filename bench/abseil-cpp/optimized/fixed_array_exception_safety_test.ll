@@ -4674,7 +4674,8 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %5 = load ptr, ptr %4, align 8, !tbaa !96
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %7, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5262,14 +5263,16 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #23
   %13 = load ptr, ptr %10, align 8, !tbaa !131
   %14 = load i64, ptr %11, align 8, !tbaa !20
+  %.idx.i.i40 = shl nuw nsw i64 %14, 2
   store i64 %14, ptr %12, align 8, !tbaa !30
   %15 = icmp ult i64 %14, 26
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %48
+  %.idx.i.i42 = phi i64 [ %.idx.i.i, %48 ], [ %.idx.i.i40, %1 ]
   %16 = phi i64 [ %51, %48 ], [ %14, %1 ]
   %17 = phi ptr [ %50, %48 ], [ %13, %1 ]
-  %.042 = phi i32 [ %49, %48 ], [ 0, %1 ]
+  %.041 = phi i32 [ %49, %48 ], [ 0, %1 ]
   %18 = icmp ugt i64 %16, 2305843009213693951
   br i1 %18, label %.noexc.i.i.i.i, label %.thread.i.i, !prof !31
 
@@ -5281,33 +5284,33 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   unreachable
 
 .thread.i.i:                                      ; preds = %.lr.ph
-  %.idx.i.i43 = shl nuw nsw i64 %16, 2
-  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i43) #26
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i42) #26
           to label %.noexc12 unwind label %40
 
 .noexc12:                                         ; preds = %.thread.i.i
-  %20 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %17, i64 %16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i42
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %19, ptr %21, align 8, !tbaa !131
   br label %.lr.ph.i.i.preheader.i.i
 
 ._crit_edge:                                      ; preds = %48, %1
-  %.lcssa40 = phi i64 [ %14, %1 ], [ %51, %48 ]
-  %.lcssa39 = phi ptr [ %13, %1 ], [ %50, %48 ]
-  %22 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %.lcssa39, i64 %.lcssa40
+  %.idx.i.i.lcssa39 = phi i64 [ %.idx.i.i40, %1 ], [ %.idx.i.i, %48 ]
+  %.lcssa38 = phi ptr [ %13, %1 ], [ %50, %48 ]
+  %.lcssa25 = phi i64 [ %14, %1 ], [ %51, %48 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.lcssa38, i64 %.idx.i.i.lcssa39
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %3, ptr %23, align 8, !tbaa !131
-  %.not7.i.i.i.i = icmp eq i64 %.lcssa40, 0
+  %.not7.i.i.i.i = icmp eq i64 %.lcssa25, 0
   br i1 %.not7.i.i.i.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %._crit_edge, %.noexc12
-  %24 = phi ptr [ %17, %.noexc12 ], [ %.lcssa39, %._crit_edge ]
+  %24 = phi ptr [ %17, %.noexc12 ], [ %.lcssa38, %._crit_edge ]
   %25 = phi ptr [ %20, %.noexc12 ], [ %22, %._crit_edge ]
-  %.0.i.i.i8.i.i = phi ptr [ %19, %.noexc12 ], [ %3, %._crit_edge ]
+  %.0.i.i.i7.i.i = phi ptr [ %19, %.noexc12 ], [ %3, %._crit_edge ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
-  %.09.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.0.i.i.i8.i.i, %.lr.ph.i.i.preheader.i.i ]
+  %.09.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.0.i.i.i7.i.i, %.lr.ph.i.i.preheader.i.i ]
   %.sroa.04.08.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %24, %.lr.ph.i.i.preheader.i.i ]
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2EOS2_(ptr noundef nonnull align 4 dereferenceable(4) %.09.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.04.08.i.i.i.i) #23
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 4
@@ -5316,8 +5319,8 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   br i1 %.not.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i, !llvm.loop !139
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i
-  %.pre64 = load i64, ptr %12, align 8, !tbaa !20
-  %28 = icmp eq i64 %.pre64, 0
+  %.pre62 = load i64, ptr %12, align 8, !tbaa !20
+  %28 = icmp eq i64 %.pre62, 0
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   br i1 %28, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit, label %.lr.ph.i.preheader
 
@@ -5381,7 +5384,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2
 48:                                               ; preds = %45
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %2) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #23
-  %49 = add nuw nsw i32 %.042, 1
+  %49 = add nuw nsw i32 %.041, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #23
   store ptr %4, ptr %2, align 8, !tbaa !34
   store i64 1, ptr %5, align 8, !tbaa !41
@@ -5394,6 +5397,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #23
   %50 = load ptr, ptr %10, align 8, !tbaa !131
   %51 = load i64, ptr %11, align 8, !tbaa !20
+  %.idx.i.i = shl nuw nsw i64 %51, 2
   store i64 %51, ptr %12, align 8, !tbaa !30
   %52 = icmp ult i64 %51, 26
   br i1 %52, label %._crit_edge, label %.lr.ph, !llvm.loop !140
@@ -7444,7 +7448,8 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %5 = load ptr, ptr %4, align 8, !tbaa !96
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %7, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7577,7 +7582,8 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %5 = load ptr, ptr %4, align 8, !tbaa !150
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %7, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -11369,7 +11375,8 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
           to label %15 unwind label %67
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %.idx.i = shl nuw nsw i64 %.sroa.2.0.copyload, 2
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.idx.i
   store i64 %.sroa.2.0.copyload, ptr %11, align 8, !tbaa !30
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   %17 = load i64, ptr %11, align 8, !tbaa !20

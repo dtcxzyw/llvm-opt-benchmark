@@ -89,7 +89,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br label %.sink.split
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw float, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %31 = ptrtoint ptr %11 to i64
   %32 = icmp sgt i64 %13, 0
   br i1 %32, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
@@ -227,7 +228,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br label %79
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw float, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %32 = ptrtoint ptr %11 to i64
   %33 = icmp sgt i64 %13, 0
   br i1 %33, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
@@ -373,7 +375,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br label %82
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %30 = ptrtoint ptr %11 to i64
   %31 = icmp sgt i64 %13, 0
   br i1 %31, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
@@ -521,7 +524,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br label %70
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %30 = ptrtoint ptr %11 to i64
   %31 = icmp sgt i64 %13, 0
   br i1 %31, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
@@ -690,7 +694,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br label %70
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %30 = ptrtoint ptr %11 to i64
   %31 = icmp sgt i64 %13, 0
   br i1 %31, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit

@@ -55562,7 +55562,7 @@ define internal fastcc void @"_ZN7parquet5arrow12async_reader16InMemoryRowGroup5
   %20 = alloca { { i64, ptr, {} }, i64 }, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %22 = load i8, ptr %21, align 1, !range !2466, !noundef !4
-  switch i8 %22, label %default.unreachable428 [
+  switch i8 %22, label %default.unreachable430 [
     i8 0, label %23
     i8 1, label %89
     i8 2, label %90
@@ -55570,7 +55570,7 @@ define internal fastcc void @"_ZN7parquet5arrow12async_reader16InMemoryRowGroup5
     i8 4, label %37
   ]
 
-default.unreachable428:                           ; preds = %3
+default.unreachable430:                           ; preds = %3
   unreachable
 
 23:                                               ; preds = %3
@@ -55598,16 +55598,16 @@ default.unreachable428:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val104.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert421 = getelementptr i8, ptr %1, i64 88
-  %.val105.pre = load ptr, ptr %.phi.trans.insert421, align 8
+  %.phi.trans.insert423 = getelementptr i8, ptr %1, i64 88
+  %.val105.pre = load ptr, ptr %.phi.trans.insert423, align 8
   br label %91
 
 37:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %.phi.trans.insert424 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val102.pre = load ptr, ptr %.phi.trans.insert424, align 8
-  %.phi.trans.insert426 = getelementptr i8, ptr %1, i64 64
-  %.val103.pre = load ptr, ptr %.phi.trans.insert426, align 8
+  %.phi.trans.insert426 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.val102.pre = load ptr, ptr %.phi.trans.insert426, align 8
+  %.phi.trans.insert428 = getelementptr i8, ptr %1, i64 64
+  %.val103.pre = load ptr, ptr %.phi.trans.insert428, align 8
   br label %230
 
 38:                                               ; preds = %228, %67, %40
@@ -55635,14 +55635,16 @@ default.unreachable428:                           ; preds = %3
   %.val98 = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
   %49 = getelementptr i8, ptr %27, i64 16
   %.val99 = load i64, ptr %49, align 8, !noundef !4
-  %50 = getelementptr inbounds ptr, ptr %.val98, i64 %.val99
+  %.idx = shl nuw nsw i64 %.val99, 3
+  %50 = getelementptr inbounds nuw i8, ptr %.val98, i64 %.idx
   %51 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %52 = load ptr, ptr %51, align 8, !nonnull !4, !align !5, !noundef !4
   %53 = getelementptr i8, ptr %52, i64 24
   %.val = load ptr, ptr %53, align 8, !nonnull !4, !noundef !4
   %54 = getelementptr i8, ptr %52, i64 32
   %.val97 = load i64, ptr %54, align 8, !noundef !4
-  %55 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [14 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, ptr, i64, i64, i64, i64, i64 }, ptr %.val, i64 %.val97
+  %.idx.i = mul nuw nsw i64 %.val97, 352
+  %55 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.val99, i64 %.val97)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8), !noalias !12190
   store ptr null, ptr %8, align 8, !alias.scope !12197, !noalias !12201
@@ -55996,8 +55998,8 @@ common.ret:                                       ; preds = %268, %247, %108
   store i64 %160, ptr %15, align 8, !alias.scope !12240
   store ptr %161, ptr %132, align 8, !alias.scope !12240
   store i64 0, ptr %133, align 8, !alias.scope !12240
-  %.not401 = icmp eq i64 %.val113, 0
-  br i1 %.not401, label %._crit_edge, label %.lr.ph
+  %.not402 = icmp eq i64 %.val113, 0
+  br i1 %.not402, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %217, %159
   %162 = load ptr, ptr %124, align 8, !nonnull !4, !align !5, !noundef !4
@@ -56404,8 +56406,8 @@ common.ret:                                       ; preds = %268, %247, %108
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbd5404bd8b90c0eE.exit166": ; preds = %279
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 32
   store ptr %283, ptr %255, align 8, !alias.scope !12306, !noalias !12309
-  %.sroa.0474.0.copyload = load ptr, ptr %281, align 8, !noalias !12306
-  %.not41 = icmp eq ptr %.sroa.0474.0.copyload, null
+  %.sroa.0476.0.copyload = load ptr, ptr %281, align 8, !noalias !12306
+  %.not41 = icmp eq ptr %.sroa.0476.0.copyload, null
   br i1 %.not41, label %.backedge, label %284
 
 284:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbd5404bd8b90c0eE.exit166"
@@ -114300,7 +114302,8 @@ default.unreachable562:                           ; preds = %3
   %.sroa.5303.0.copyload = load ptr, ptr %231, align 8, !nonnull !4, !noundef !4
   %.sroa.6304.0.copyload = load i64, ptr %232, align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5.sroa.0.i)
-  %281 = getelementptr inbounds ptr, ptr %.sroa.5303.0.copyload, i64 %.sroa.6304.0.copyload
+  %.idx.i = shl nuw nsw i64 %.sroa.6304.0.copyload, 3
+  %281 = getelementptr inbounds nuw i8, ptr %.sroa.5303.0.copyload, i64 %.idx.i
   %282 = icmp samesign ult i64 %.sroa.6304.0.copyload, 31
   br i1 %282, label %.noexc.i, label %283
 

@@ -9743,13 +9743,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %72
           to label %.noexc80 unwind label %93
 
 .noexc80:                                         ; preds = %76
+  %.idx = shl nuw nsw i64 %73, 2
   store i32 0, ptr %78, align 4, !tbaa !24
   %79 = getelementptr i8, ptr %78, i64 4
   %80 = icmp eq i64 %73, 1
   br i1 %80, label %.lr.ph, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
-  %81 = getelementptr i32, ptr %78, i64 %73
+  %81 = getelementptr i8, ptr %78, i64 %.idx
   %82 = add nsw i64 %77, -4
   call void @llvm.memset.p0.i64(ptr align 4 %79, i8 0, i64 %82, i1 false), !tbaa !24
   br label %.lr.ph
@@ -10081,8 +10082,7 @@ _ZN3igl17WindingNumberAABBIdiEC2ERKNS_17WindingNumberTreeIdiEERKN5Eigen6MatrixIi
   br label %208
 
 208:                                              ; preds = %._crit_edge, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiENSt15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit88, %202
-  %.idx220 = shl nuw nsw i64 %73, 2
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %.idx220) #34
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %.idx) #34
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %208
@@ -10152,7 +10152,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 226:                                              ; preds = %.body92, %126
   %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn.pn.pn, %.body92 ], [ %127, %126 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #30
-  %.idx = shl nuw nsw i64 %73, 2
   call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %.idx) #34
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit110
 
@@ -15112,13 +15111,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %74
           to label %.noexc80 unwind label %95
 
 .noexc80:                                         ; preds = %78
+  %.idx = shl nuw nsw i64 %75, 2
   store i32 0, ptr %80, align 4, !tbaa !24
   %81 = getelementptr i8, ptr %80, i64 4
   %82 = icmp eq i64 %75, 1
   br i1 %82, label %.lr.ph, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
-  %83 = getelementptr i32, ptr %80, i64 %75
+  %83 = getelementptr i8, ptr %80, i64 %.idx
   %84 = add nsw i64 %79, -4
   call void @llvm.memset.p0.i64(ptr align 4 %81, i8 0, i64 %84, i1 false), !tbaa !24
   br label %.lr.ph
@@ -15603,8 +15603,8 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exi
   %.069.i.i.i.i.i110 = phi <4 x float> [ %262, %261 ], [ %279, %276 ], [ %268, %._crit_edge.i.i.i.i.i117 ]
   %281 = shufflevector <4 x float> %.069.i.i.i.i.i110, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %282 = fadd <4 x float> %.069.i.i.i.i.i110, %281
-  %shift294 = shufflevector <4 x float> %282, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %283 = fadd <4 x float> %282, %shift294
+  %shift293 = shufflevector <4 x float> %282, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %283 = fadd <4 x float> %282, %shift293
   %284 = extractelement <4 x float> %283, i64 0
   %285 = icmp slt i64 %260, %254
   br i1 %285, label %.lr.ph82.i.i.i.i.i112, label %.loopexit
@@ -15684,8 +15684,7 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exi
   br label %314
 
 314:                                              ; preds = %._crit_edge, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiENSt15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit88, %308
-  %.idx283 = shl nuw nsw i64 %75, 2
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %.idx283) #34
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %.idx) #34
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %314
@@ -15750,7 +15749,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %331 = load ptr, ptr %7, align 8, !tbaa !183
   call void @free(ptr noundef %331) #30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #30
-  %.idx = shl nuw nsw i64 %75, 2
   call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %.idx) #34
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit138
 

@@ -4719,15 +4719,15 @@ define noundef zeroext i1 @_ZN8UatModel10removeRowsEiiRK11QModelIndex(ptr nounde
   %15 = call noundef i32 %14(ptr noundef align 8 dereferenceable_or_null(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %16 = icmp sgt i32 %9, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  br i1 %16, label %56, label %17
+  br i1 %16, label %54, label %17
 
 .critedge:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  br label %56
+  br label %54
 
 17:                                               ; preds = %8
   %18 = icmp eq i32 %2, 0
-  br i1 %18, label %56, label %19
+  br i1 %18, label %54, label %19
 
 19:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
@@ -4798,24 +4798,23 @@ _ZN17QArrayDataPointerIbE6detachEPS0_.exit.i:     ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not.i.i, label %_ZN5QListIbE6removeExx.exit, label %48
 
 48:                                               ; preds = %._crit_edge.i.i
-  %49 = ptrtoint ptr %46 to i64
-  %50 = ptrtoint ptr %42 to i64
-  %51 = sub i64 %49, %50
-  call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %41, ptr noundef align 1 %42, i64 noundef %51, i1 noundef false) #24
+  %49 = add nuw nsw i64 %27, %26
+  %gepdiff.i = sub i64 %45, %49
+  call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %41, ptr noundef align 1 %42, i64 noundef %gepdiff.i, i1 noundef false) #24
   %.pre12.i.i = load i64, ptr %44, align 8
   br label %_ZN5QListIbE6removeExx.exit
 
 _ZN5QListIbE6removeExx.exit:                      ; preds = %47, %._crit_edge.i.i, %48
-  %52 = phi i64 [ %45, %._crit_edge.i.i ], [ %.pre12.i.i, %48 ], [ %45, %47 ]
-  %53 = sub i64 %52, %27
-  store i64 %53, ptr %44, align 8
-  %54 = load ptr, ptr %23, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 152
-  store i8 1, ptr %55, align 8
+  %50 = phi i64 [ %45, %._crit_edge.i.i ], [ %.pre12.i.i, %48 ], [ %45, %47 ]
+  %51 = sub i64 %50, %27
+  store i64 %51, ptr %44, align 8
+  %52 = load ptr, ptr %23, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 152
+  store i8 1, ptr %53, align 8
   call void @_ZN18QAbstractItemModel13endRemoveRowsEv(ptr noundef align 8 dereferenceable_or_null(16) %0)
-  br label %56
+  br label %54
 
-56:                                               ; preds = %17, %8, %.critedge, %_ZN5QListIbE6removeExx.exit
+54:                                               ; preds = %17, %8, %.critedge, %_ZN5QListIbE6removeExx.exit
   %.0 = phi i1 [ true, %_ZN5QListIbE6removeExx.exit ], [ false, %.critedge ], [ false, %8 ], [ true, %17 ]
   ret i1 %.0
 }
@@ -8244,10 +8243,10 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17Q
 _ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
+  %.idx = shl i64 %spec.select, 2
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr i32, ptr %31, i64 %54
-  %.idx = shl i64 %spec.select, 2
   %56 = ashr exact i64 %.idx, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx, i1 noundef false) #24
   %57 = load i64, ptr %53, align 8
@@ -9558,7 +9557,7 @@ _ZSt4moveIPbS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 44:                                               ; preds = %22
   %45 = icmp eq i64 %23, 1
   %46 = getelementptr i8, ptr %.058, i64 %.086
-  br i1 %45, label %47, label %56
+  br i1 %45, label %47, label %53
 
 47:                                               ; preds = %44
   %48 = getelementptr i8, ptr %46, i64 -1
@@ -9567,48 +9566,45 @@ _ZSt4moveIPbS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = ptrtoint ptr %48 to i64
-  %52 = ptrtoint ptr %.058 to i64
-  %53 = sub i64 %51, %52
-  %54 = sub i64 0, %53
-  %55 = getelementptr i8, ptr %46, i64 %54
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %55, ptr align 1 %.058, i64 %53, i1 false)
+  %51 = add i64 %.086, -1
+  %52 = getelementptr i8, ptr %.058, i64 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %52, ptr align 1 %.058, i64 %51, i1 false)
   br label %_ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   store i8 %49, ptr %.058, align 1
   br label %_ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit
 
-56:                                               ; preds = %44
-  %57 = sub i64 0, %23
-  %58 = getelementptr i8, ptr %46, i64 %57
-  %59 = icmp sgt i64 %.083, 0
-  br i1 %59, label %.lr.ph, label %._crit_edge
+53:                                               ; preds = %44
+  %54 = sub i64 0, %23
+  %55 = getelementptr i8, ptr %46, i64 %54
+  %56 = icmp sgt i64 %.083, 0
+  br i1 %56, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.361.lcssa = phi ptr [ %58, %56 ], [ %.058, %.lr.ph ]
-  %60 = srem i64 %.086, %23
-  %.not = icmp eq i64 %60, 0
+._crit_edge:                                      ; preds = %.lr.ph, %53
+  %.361.lcssa = phi ptr [ %55, %53 ], [ %.058, %.lr.ph ]
+  %57 = srem i64 %.086, %23
+  %.not = icmp eq i64 %57, 0
   br i1 %.not, label %_ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %42
   %.086.be = phi i64 [ %.083, %42 ], [ %23, %._crit_edge ]
-  %.083.be = phi i64 [ %43, %42 ], [ %60, %._crit_edge ]
+  %.083.be = phi i64 [ %43, %42 ], [ %57, %._crit_edge ]
   %.058.be = phi ptr [ %.159.lcssa, %42 ], [ %.361.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !52
 
-.lr.ph:                                           ; preds = %56, %.lr.ph
-  %.0104 = phi i64 [ %65, %.lr.ph ], [ 0, %56 ]
-  %.052103 = phi ptr [ %62, %.lr.ph ], [ %46, %56 ]
-  %.361102 = phi ptr [ %61, %.lr.ph ], [ %58, %56 ]
-  %61 = getelementptr i8, ptr %.361102, i64 -1
-  %62 = getelementptr i8, ptr %.052103, i64 -1
-  %63 = load i8, ptr %61, align 1, !range !14, !noundef !15
-  %64 = load i8, ptr %62, align 1, !range !14, !noundef !15
-  store i8 %64, ptr %61, align 1
-  store i8 %63, ptr %62, align 1
-  %65 = add nuw nsw i64 %.0104, 1
-  %exitcond.not = icmp eq i64 %65, %.083
+.lr.ph:                                           ; preds = %53, %.lr.ph
+  %.0104 = phi i64 [ %62, %.lr.ph ], [ 0, %53 ]
+  %.052103 = phi ptr [ %59, %.lr.ph ], [ %46, %53 ]
+  %.361102 = phi ptr [ %58, %.lr.ph ], [ %55, %53 ]
+  %58 = getelementptr i8, ptr %.361102, i64 -1
+  %59 = getelementptr i8, ptr %.052103, i64 -1
+  %60 = load i8, ptr %58, align 1, !range !14, !noundef !15
+  %61 = load i8, ptr %59, align 1, !range !14, !noundef !15
+  store i8 %61, ptr %58, align 1
+  store i8 %60, ptr %59, align 1
+  %62 = add nuw nsw i64 %.0104, 1
+  %exitcond.not = icmp eq i64 %62, %.083
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 _ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPbS0_ET0_T_S2_S1_.exit, %5, %3

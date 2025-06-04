@@ -3021,7 +3021,8 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %.0.lcssa.i.i811.i.i = phi i64 [ 0, %735 ], [ %738, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   %.pr.i599 = phi ptr [ null, %735 ], [ %742, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   store ptr %.pr.i599, ptr %37, align 8, !tbaa !360
-  %743 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %.pr.i599, i64 %.0.lcssa.i.i811.i.i
+  %.idx = shl nuw nsw i64 %.0.lcssa.i.i811.i.i, 3
+  %743 = getelementptr inbounds nuw i8, ptr %.pr.i599, i64 %.idx
   store ptr %743, ptr %568, align 8, !tbaa !343
   %744 = invoke noundef ptr @_ZSt16__do_uninit_copyINSt8__detail20_Node_const_iteratorIN4cvc58internal12NodeTemplateILb1EEELb1ELb1EEEPS5_ET0_T_S9_S8_(ptr %736, ptr null, ptr noundef %.pr.i599)
           to label %747 unwind label %745
@@ -3038,8 +3039,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   br i1 %.not.i.i.i574, label %.body575, label %746
 
 746:                                              ; preds = %745
-  %.idx1809 = shl nuw nsw i64 %.0.lcssa.i.i811.i.i, 3
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i599, i64 noundef %.idx1809) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i599, i64 noundef %.idx) #25
   br label %.body575
 
 747:                                              ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i
@@ -3202,7 +3202,6 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i600:
   br i1 %.not.i.i.i601, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit603, label %801
 
 801:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i600
-  %.idx = shl nuw nsw i64 %.0.lcssa.i.i811.i.i, 3
   call void @_ZdlPvm(ptr noundef nonnull %.pr.i599, i64 noundef %.idx) #25
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit603
 

@@ -330,7 +330,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN154_$LT$rustfmt_nightly..rustfmt_diff..ModifiedLines$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h85f8e82a4577ae98E.llvm.13396924176064657314.exit.i.i": ; preds = %.preheader.i.i.i, %16
   %.0.i.i.i.i.i.i = phi i32 [ 0, %16 ], [ %22, %.preheader.i.i.i ]
-  %25 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.7.0.copyload.i, i64 %.sroa.8.0.copyload.i
+  %.idx.i.i.i = shl nuw nsw i64 %.sroa.8.0.copyload.i, 5
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.copyload.i, i64 %.idx.i.i.i
   store ptr %.sroa.7.0.copyload.i, ptr %3, align 8, !noalias !53
   store i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !53
   store ptr %.sroa.7.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !53
@@ -2456,7 +2457,8 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 
 .loopexit.i.i.i:                                  ; preds = %.preheader.i.i.i, %16
   %.0.i.i.i.i.i.i = phi i32 [ 0, %16 ], [ %22, %.preheader.i.i.i ]
-  %25 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.7.0.copyload.i, i64 %.sroa.8.0.copyload.i
+  %.idx.i.i.i = shl nuw nsw i64 %.sroa.8.0.copyload.i, 5
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.copyload.i, i64 %.idx.i.i.i
   store ptr %.sroa.7.0.copyload.i, ptr %6, align 8, !noalias !734
   store i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !734
   store ptr %.sroa.7.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !734
@@ -8338,7 +8340,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hf13dacd276416f
 
 "_ZN154_$LT$rustfmt_nightly..rustfmt_diff..ModifiedLines$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h85f8e82a4577ae98E.llvm.13396924176064657314.exit.i": ; preds = %.preheader.i.i, %18
   %.0.i.i.i.i.i = phi i32 [ 0, %18 ], [ %24, %.preheader.i.i ]
-  %27 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.7.0.copyload, i64 %.sroa.8.0.copyload
+  %.idx.i.i = shl nuw nsw i64 %.sroa.8.0.copyload, 5
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.copyload, i64 %.idx.i.i
   store ptr %.sroa.7.0.copyload, ptr %3, align 8, !noalias !2581
   store i64 %.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !2581
   store ptr %.sroa.7.0.copyload, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !2581
@@ -9212,7 +9215,8 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6d
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %17
   %.0.i.i.i.i.i = phi i32 [ 0, %17 ], [ %23, %.preheader.i.i ]
-  %26 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.7.0.copyload, i64 %.sroa.8.0.copyload
+  %.idx.i.i = shl nuw nsw i64 %.sroa.8.0.copyload, 5
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.copyload, i64 %.idx.i.i
   store ptr %.sroa.7.0.copyload, ptr %7, align 8, !noalias !2840
   store i64 %.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !2840
   store ptr %.sroa.7.0.copyload, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !2840
@@ -10055,7 +10059,8 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 "_ZN154_$LT$rustfmt_nightly..rustfmt_diff..ModifiedLines$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h85f8e82a4577ae98E.llvm.13396924176064657314.exit": ; preds = %.preheader.i, %2
   %.0.i.i.i.i = phi i32 [ 0, %2 ], [ %8, %.preheader.i ]
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.42.0.copyload, i64 %.sroa.53.0.copyload
+  %.idx.i = shl nuw nsw i64 %.sroa.53.0.copyload, 5
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.42.0.copyload, i64 %.idx.i
   store ptr %.sroa.42.0.copyload, ptr %3, align 8, !noalias !3071
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3071
@@ -24809,7 +24814,8 @@ _ZN5alloc5alloc15exchange_malloc17hf73c64118470f50eE.exit129: ; preds = %_ZN15ru
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i112, align 8, !alias.scope !6762, !noalias !6764, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i113 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i113, align 8, !alias.scope !6762, !noalias !6764
-  %131 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [9 x i64] }, { i8, [31 x i8] }, { i32, i16, i16 }, { ptr } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 152
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   store ptr %.sroa.4.0.copyload.i, ptr %21, align 8, !alias.scope !6759, !noalias !6765
   %132 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.sroa.0.0.copyload.i, ptr %132, align 8, !alias.scope !6759, !noalias !6765
@@ -24819,7 +24825,6 @@ _ZN5alloc5alloc15exchange_malloc17hf73c64118470f50eE.exit129: ; preds = %_ZN15ru
   store ptr %131, ptr %134, align 8, !alias.scope !6759, !noalias !6765
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6766)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6769)
-  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 152
   %135 = load i64, ptr %97, align 8, !alias.scope !6771, !noalias !6774, !noundef !4
   %136 = load i64, ptr %29, align 8, !alias.scope !6771, !noalias !6774, !noundef !4
   %137 = sub i64 %136, %135
@@ -28977,7 +28982,8 @@ define hidden void @"_ZN154_$LT$rustfmt_nightly..rustfmt_diff..ModifiedLines$u20
 
 .loopexit:                                        ; preds = %.preheader, %3
   %.0.i.i.i = phi i32 [ 0, %3 ], [ %14, %.preheader ]
-  %17 = getelementptr inbounds { i64, [3 x i64] }, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 5
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.sroa.08.0.copyload = load i64, ptr %2, align 8
   store ptr %7, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8

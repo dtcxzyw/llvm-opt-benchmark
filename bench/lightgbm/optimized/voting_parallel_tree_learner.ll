@@ -263079,7 +263079,8 @@ common.ret30:                                     ; preds = %.preheader.i, %8, %
 49:                                               ; preds = %2
   %50 = udiv exact i64 %6, 24
   %51 = lshr i64 %50, 1
-  %52 = getelementptr inbounds nuw %"struct.LightGBM::LightSplitInfo", ptr %0, i64 %51
+  %.idx = mul nuw nsw i64 %51, 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_(ptr %0, ptr %52)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_(ptr %52, ptr %1)
   %53 = ptrtoint ptr %52 to i64
@@ -263097,7 +263098,8 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   %8 = sdiv exact i64 %7, 24
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %0, i64 %10
+  %.idx = mul nsw i64 %10, 24
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -263105,13 +263107,12 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_T2_(ptr %0, ptr %11, ptr noundef %2, i64 noundef %3)
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_T2_(ptr %11, ptr %1, ptr noundef %2, i64 noundef %3)
   %.pre = ptrtoint ptr %11 to i64
-  %.pre40 = sub i64 %5, %.pre
-  %.pre42 = sdiv exact i64 %.pre40, 24
+  %.pre39 = sub i64 %5, %.pre
+  %.pre41 = sdiv exact i64 %.pre39, 24
   br label %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_.exit32
 
 14:                                               ; preds = %4
   %15 = ptrtoint ptr %11 to i64
-  %.idx = mul nsw i64 %10, 24
   %16 = getelementptr inbounds i8, ptr %2, i64 %.idx
   tail call void @_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_(ptr %0, ptr %11, i64 noundef 7)
   %17 = icmp sgt i64 %7, 336
@@ -263144,8 +263145,8 @@ _ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14Light
   br i1 %27, label %.lr.ph.i30, label %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_.exit32, !llvm.loop !1765
 
 _ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_.exit32: ; preds = %.lr.ph.i30, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_.exit, %13
-  %.pre-phi43 = phi i64 [ %22, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_.exit ], [ %.pre42, %13 ], [ %22, %.lr.ph.i30 ]
-  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %0, ptr %11, ptr %1, i64 noundef %10, i64 noundef %.pre-phi43, ptr noundef %2, i64 noundef %3)
+  %.pre-phi42 = phi i64 [ %22, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_T0_T1_.exit ], [ %.pre41, %13 ], [ %22, %.lr.ph.i30 ]
+  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %0, ptr %11, ptr %1, i64 noundef %10, i64 noundef %.pre-phi42, ptr noundef %2, i64 noundef %3)
   ret void
 }
 

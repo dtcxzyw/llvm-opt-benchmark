@@ -2033,7 +2033,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10LineReader8ReadLineEPPcS1
   %13 = load ptr, ptr %0, align 8, !tbaa !81
   %14 = tail call i64 @fread(ptr noundef nonnull %12, i64 noundef 1, i64 noundef 262144, ptr noundef %13)
   %.not15 = icmp eq i64 %14, 0
-  br i1 %.not15, label %40, label %.thread
+  br i1 %.not15, label %38, label %.thread
 
 .thread:                                          ; preds = %11
   store ptr %12, ptr %4, align 8, !tbaa !84
@@ -2056,34 +2056,32 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10LineReader8ReadLineEPPcS1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 262168
   store ptr %24, ptr %25, align 8, !tbaa !85
   %.not16 = icmp eq ptr %24, null
-  br i1 %.not16, label %26, label %37
+  br i1 %.not16, label %26, label %35
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = ptrtoint ptr %27 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 1 %20, i64 %23, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %23
-  %30 = sub i64 262144, %23
-  %31 = load ptr, ptr %0, align 8, !tbaa !81
-  %32 = tail call i64 @fread(ptr noundef nonnull %29, i64 noundef 1, i64 noundef %30, ptr noundef %31)
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
-  store ptr %33, ptr %6, align 8, !tbaa !83
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %23
+  %29 = sub i64 262144, %23
+  %30 = load ptr, ptr %0, align 8, !tbaa !81
+  %31 = tail call i64 @fread(ptr noundef nonnull %28, i64 noundef 1, i64 noundef %29, ptr noundef %30)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
+  store ptr %32, ptr %6, align 8, !tbaa !83
   store ptr %27, ptr %4, align 8, !tbaa !84
-  %34 = ptrtoint ptr %33 to i64
-  %35 = sub i64 %34, %28
-  %36 = tail call noundef ptr @memchr(ptr noundef nonnull %27, i32 noundef 10, i64 noundef %35) #33
-  store ptr %36, ptr %25, align 8, !tbaa !85
-  br label %37
+  %33 = add i64 %31, %23
+  %34 = tail call noundef ptr @memchr(ptr noundef nonnull %27, i32 noundef 10, i64 noundef %33) #33
+  store ptr %34, ptr %25, align 8, !tbaa !85
+  br label %35
 
-37:                                               ; preds = %26, %18
-  %38 = phi ptr [ %27, %26 ], [ %20, %18 ]
-  store ptr %38, ptr %1, align 8, !tbaa !53
-  %39 = load ptr, ptr %25, align 8, !tbaa !85
-  store ptr %39, ptr %2, align 8, !tbaa !53
-  br label %40
+35:                                               ; preds = %26, %18
+  %36 = phi ptr [ %27, %26 ], [ %20, %18 ]
+  store ptr %36, ptr %1, align 8, !tbaa !53
+  %37 = load ptr, ptr %25, align 8, !tbaa !85
+  store ptr %37, ptr %2, align 8, !tbaa !53
+  br label %38
 
-40:                                               ; preds = %11, %37
-  %.1 = phi i1 [ true, %37 ], [ false, %11 ]
+38:                                               ; preds = %11, %35
+  %.1 = phi i1 [ true, %35 ], [ false, %11 ]
   ret i1 %.1
 }
 

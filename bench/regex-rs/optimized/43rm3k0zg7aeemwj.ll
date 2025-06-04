@@ -1546,8 +1546,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  %7 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %0, i64 %1
-  %8 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %2, i64 %1
+  %.idx = mul nuw nsw i64 %1, 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   store ptr %0, ptr %5, align 8, !alias.scope !135
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %9, align 8, !alias.scope !135
@@ -3132,8 +3133,9 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$regex_syntax..hir..HirKind
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val8 = load ptr, ptr %132, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !391
-  %133 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.val8, i64 %.val9
-  %134 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.val6, i64 %.val9
+  %.idx30 = mul nuw nsw i64 %.val9, 48
+  %133 = getelementptr inbounds nuw i8, ptr %.val8, i64 %.idx30
+  %134 = getelementptr inbounds nuw i8, ptr %.val6, i64 %.idx30
   store ptr %.val8, ptr %4, align 8, !alias.scope !395
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %133, ptr %135, align 8, !alias.scope !395
@@ -3166,8 +3168,9 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$regex_syntax..hir..HirKind
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %148, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !400
-  %149 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.val4, i64 %.val5
-  %150 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.val, i64 %.val5
+  %.idx = mul nuw nsw i64 %.val5, 48
+  %149 = getelementptr inbounds nuw i8, ptr %.val4, i64 %.idx
+  %150 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   store ptr %.val4, ptr %3, align 8, !alias.scope !404
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %149, ptr %151, align 8, !alias.scope !404
