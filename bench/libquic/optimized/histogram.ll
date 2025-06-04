@@ -775,7 +775,7 @@ define void @_ZN4base9Histogram22InitializeBucketRangesEiiPNS_12BucketRangesE(i3
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %15 = phi i64 [ %28, %.lr.ph ], [ 2, %3 ]
+  %15 = phi i64 [ %29, %.lr.ph ], [ 2, %3 ]
   %.02529 = phi i32 [ %.1, %.lr.ph ], [ %0, %3 ]
   %16 = sitofp i32 %.02529 to double
   %17 = tail call double @log(double noundef %16) #22, !tbaa !24
@@ -791,8 +791,8 @@ define void @_ZN4base9Histogram22InitializeBucketRangesEiiPNS_12BucketRangesE(i3
   %27 = add nsw i32 %.02529, 1
   %.1 = tail call i32 @llvm.smax.i32(i32 %26, i32 %27)
   tail call void @_ZN4base12BucketRanges9set_rangeEmi(ptr noundef nonnull align 8 dereferenceable(28) %2, i64 noundef %15, i32 noundef %.1)
-  %28 = add nuw i64 %15, 1
-  %exitcond.not = icmp eq i64 %28, %13
+  %29 = add nuw i64 %15, 1
+  %exitcond.not = icmp eq i64 %29, %13
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -807,8 +807,8 @@ define void @_ZN4base9Histogram22InitializeBucketRangesEiiPNS_12BucketRangesE(i3
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.pre-phi39 = phi i64 [ %.pre38, %._crit_edge.loopexit ], [ %13, %3 ]
-  %29 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  tail call void @_ZN4base12BucketRanges9set_rangeEmi(ptr noundef nonnull align 8 dereferenceable(28) %2, i64 noundef %.pre-phi39, i32 noundef %29)
+  %30 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
+  tail call void @_ZN4base12BucketRanges9set_rangeEmi(ptr noundef nonnull align 8 dereferenceable(28) %2, i64 noundef %.pre-phi39, i32 noundef %30)
   tail call void @_ZN4base12BucketRanges13ResetChecksumEv(ptr noundef nonnull align 8 dereferenceable(28) %2)
   ret void
 }

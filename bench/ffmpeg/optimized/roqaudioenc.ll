@@ -94,7 +94,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !36
   %23 = icmp sgt i32 %22, 7
-  br i1 %23, label %167, label %.thread96
+  br i1 %23, label %168, label %.thread96
 
 .thread96:                                        ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -148,7 +148,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
 54:                                               ; preds = %.thread89, %52
   %55 = add nsw i32 %47, 1
   store i32 %55, ptr %27, align 4, !tbaa !36
-  br label %167
+  br label %168
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -195,7 +195,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %83 = sext i32 %82 to i64
   %84 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %83, i32 noundef 0) #5
   %85 = icmp slt i32 %84, 0
-  br i1 %85, label %167, label %86
+  br i1 %85, label %168, label %86
 
 86:                                               ; preds = %73
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -354,9 +354,9 @@ dpcm_predict.exit:                                ; preds = %.split.i, %.split31
   %storemerge = select i1 %.not73, i32 %spec.select, i32 %166
   store i32 %storemerge, ptr %78, align 4, !tbaa !36
   store i32 1, ptr %3, align 4, !tbaa !44
-  br label %167
+  br label %168
 
-167:                                              ; preds = %73, %17, %._crit_edge, %54
+168:                                              ; preds = %73, %17, %._crit_edge, %54
   %.0 = phi i32 [ 0, %54 ], [ 0, %._crit_edge ], [ 0, %17 ], [ %84, %73 ]
   ret i32 %.0
 }

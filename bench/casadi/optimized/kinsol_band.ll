@@ -18,7 +18,7 @@ define range(i32 -4, 1) i32 @KINBand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #6
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #5
   br label %54
 
 7:                                                ; preds = %4
@@ -32,7 +32,7 @@ define range(i32 -4, 1) i32 @KINBand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #6
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #5
   br label %54
 
 16:                                               ; preds = %7
@@ -42,7 +42,7 @@ define range(i32 -4, 1) i32 @KINBand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void %18(ptr noundef nonnull %0) #6
+  tail call void %18(ptr noundef nonnull %0) #5
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -53,12 +53,12 @@ define range(i32 -4, 1) i32 @KINBand(ptr noundef %0, i64 noundef %1, i64 noundef
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr @kinBandsolve, ptr %23, align 8, !tbaa !23
   store ptr @kinBandFree, ptr %17, align 8, !tbaa !20
-  %24 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #7
+  %24 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #6
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #6
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #5
   br label %54
 
 27:                                               ; preds = %20
@@ -86,8 +86,8 @@ define range(i32 -4, 1) i32 @KINBand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %or.cond71, label %37, label %36
 
 36:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #6
-  tail call void @free(ptr noundef nonnull %24) #6
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #5
+  tail call void @free(ptr noundef nonnull %24) #5
   br label %54
 
 37:                                               ; preds = %27
@@ -97,27 +97,27 @@ define range(i32 -4, 1) i32 @KINBand(ptr noundef %0, i64 noundef %1, i64 noundef
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 %40, ptr %41, align 8, !tbaa !35
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %43 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %40) #6
+  %43 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %40) #5
   store ptr %43, ptr %42, align 8, !tbaa !36
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %37
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #6
-  tail call void @free(ptr noundef nonnull %24) #6
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #5
+  tail call void @free(ptr noundef nonnull %24) #5
   br label %54
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %48 = tail call ptr @NewLintArray(i64 noundef %1) #6
+  %48 = tail call ptr @NewLintArray(i64 noundef %1) #5
   store ptr %48, ptr %47, align 8, !tbaa !37
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %46
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #6
-  tail call void @DestroyMat(ptr noundef nonnull %43) #6
-  tail call void @free(ptr noundef nonnull %24) #6
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #5
+  tail call void @DestroyMat(ptr noundef nonnull %43) #5
+  tail call void @free(ptr noundef nonnull %24) #5
   br label %54
 
 51:                                               ; preds = %46
@@ -162,7 +162,7 @@ define internal range(i32 -2, 1) i32 @kinBandInit(ptr noundef %0) #0 {
   br i1 %14, label %.thread14, label %15
 
 .thread14:                                        ; preds = %.thread
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #6
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #5
   br label %17
 
 15:                                               ; preds = %8, %.thread
@@ -185,7 +185,7 @@ define internal range(i32 -1, 1) i32 @kinBandSetup(ptr noundef readonly captures
   store i64 %6, ptr %4, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !36
-  tail call void @SetToZero(ptr noundef %8) #6
+  tail call void @SetToZero(ptr noundef %8) #5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -205,7 +205,7 @@ define internal range(i32 -1, 1) i32 @kinBandSetup(ptr noundef readonly captures
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %27 = load ptr, ptr %26, align 8, !tbaa !47
-  %28 = tail call i32 %10(i64 noundef %12, i64 noundef %14, i64 noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27) #6
+  %28 = tail call i32 %10(i64 noundef %12, i64 noundef %14, i64 noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27) #5
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %35
 
@@ -213,7 +213,7 @@ define internal range(i32 -1, 1) i32 @kinBandSetup(ptr noundef readonly captures
   %30 = load ptr, ptr %7, align 8, !tbaa !36
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !37
-  %33 = tail call i64 @BandGBTRF(ptr noundef %30, ptr noundef %32) #6
+  %33 = tail call i64 @BandGBTRF(ptr noundef %30, ptr noundef %32) #5
   %34 = icmp sgt i64 %33, 0
   %. = sext i1 %34 to i32
   br label %35
@@ -230,21 +230,21 @@ define internal range(i32 -1, 1) i32 @kinBandSetup(ptr noundef readonly captures
 define internal noundef i32 @kinBandsolve(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8, !tbaa !39
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %1) #6
-  %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #6
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %1) #5
+  %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %12 = load ptr, ptr %11, align 8, !tbaa !37
-  tail call void @BandGBTRS(ptr noundef %10, ptr noundef %12, ptr noundef %8) #6
+  tail call void @BandGBTRS(ptr noundef %10, ptr noundef %12, ptr noundef %8) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %14 = load ptr, ptr %13, align 8, !tbaa !48
-  tail call void @N_VProd(ptr noundef %2, ptr noundef %14, ptr noundef %2) #6
+  tail call void @N_VProd(ptr noundef %2, ptr noundef %14, ptr noundef %2) #5
   %15 = load ptr, ptr %13, align 8, !tbaa !48
-  tail call void @N_VProd(ptr noundef %2, ptr noundef %15, ptr noundef %2) #6
+  tail call void @N_VProd(ptr noundef %2, ptr noundef %15, ptr noundef %2) #5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %17 = load ptr, ptr %16, align 8, !tbaa !46
-  %18 = tail call double @N_VDotProd(ptr noundef %17, ptr noundef %2) #6
+  %18 = tail call double @N_VDotProd(ptr noundef %17, ptr noundef %2) #5
   store double %18, ptr %4, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store i64 0, ptr %19, align 8, !tbaa !30
@@ -257,11 +257,11 @@ define internal void @kinBandFree(ptr noundef readonly captures(none) %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !36
-  tail call void @DestroyMat(ptr noundef %5) #6
+  tail call void @DestroyMat(ptr noundef %5) #5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !37
-  tail call void @DestroyArray(ptr noundef %7) #6
-  tail call void @free(ptr noundef %3) #6
+  tail call void @DestroyArray(ptr noundef %7) #5
+  tail call void @free(ptr noundef %3) #5
   ret void
 }
 

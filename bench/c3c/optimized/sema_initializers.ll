@@ -2626,8 +2626,8 @@ type_flatten.exit:                                ; preds = %12
   unreachable
 
 101:                                              ; preds = %94, %83
-  %.sink102 = phi i32 [ %81, %83 ], [ %92, %94 ]
-  %102 = add nuw nsw i32 %.sink102, 1
+  %.sink = phi i32 [ %81, %83 ], [ %92, %94 ]
+  %102 = add nuw nsw i32 %.sink, 1
   %spec.select88 = tail call i32 @llvm.smax.i32(i32 %.07094, i32 %102)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

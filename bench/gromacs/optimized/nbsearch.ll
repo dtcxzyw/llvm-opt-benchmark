@@ -981,7 +981,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit:
   br label %143
 
 143:                                              ; preds = %157, %140
-  %indvars.iv.i14 = phi i64 [ 0, %140 ], [ %indvars.iv.next.i15, %157 ]
+  %indvars.iv.i14 = phi i64 [ 0, %140 ], [ %indvars.iv.next.i16, %157 ]
   %144 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i14
   %145 = load float, ptr %144, align 4, !tbaa !77
   %146 = tail call noundef float @llvm.floor.f32(float %145)
@@ -1006,8 +1006,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit:
   %.012.i = phi i32 [ %147, %143 ], [ 0, %151 ], [ %spec.select.i, %153 ]
   %158 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv.i14
   store i32 %.012.i, ptr %158, align 4, !tbaa !39
-  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i15, 3
+  %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i14, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i16, 3
   br i1 %exitcond.not.i, label %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit, label %143, !llvm.loop !94
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit: ; preds = %157
@@ -2105,8 +2105,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit: ; 
   %38 = load ptr, ptr %37, align 8, !tbaa !97
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !62
-  %.not.i = icmp eq ptr %38, %40
-  br i1 %.not.i, label %43, label %41
+  %.not.i2 = icmp eq ptr %38, %40
+  br i1 %.not.i2, label %43, label %41
 
 41:                                               ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCellIndexEPKf.exit
   store i32 %2, ptr %38, align 4, !tbaa !39

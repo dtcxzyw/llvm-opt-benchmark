@@ -775,7 +775,7 @@ frame_end.exit.i:                                 ; preds = %56
   %92 = load i64, ptr %91, align 8, !tbaa !23
   %.not82.i = icmp eq i64 %92, -9223372036854775808
   %.pre107.i = load i64, ptr %72, align 8
-  br i1 %.not82.i, label %99, label %93
+  br i1 %.not82.i, label %98, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -790,16 +790,16 @@ frame_end.exit.i:                                 ; preds = %56
   %98 = freeze i64 %.pre108.i
   br label %99
 
-99:                                               ; preds = %._crit_edge105.i, %90
-  %.fr.i = phi i64 [ %98, %._crit_edge105.i ], [ -9223372036854775808, %90 ]
+98:                                               ; preds = %._crit_edge105.i, %90
+  %99 = phi i64 [ %98, %._crit_edge105.i ], [ -9223372036854775808, %90 ]
   %100 = phi i64 [ %.pre106.i, %._crit_edge105.i ], [ %.pre107.i, %90 ]
   %101 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = call i64 @av_rescale_q(i64 noundef %79, i64 %100, i64 %102) #9
-  %.not83.i = icmp eq i64 %.fr.i, -9223372036854775808
-  %104 = add nsw i64 %.fr.i, 1
+  %.not83.i = icmp eq i64 %99, -9223372036854775808
+  %104 = add nsw i64 %99, 1
   %105 = call i64 @llvm.smax.i64(i64 %103, i64 %104)
-  %spec.select = select i1 %.not83.i, i64 %103, i64 %105
+  %105 = select i1 %.not83.i, i64 %103, i64 %105
   %106 = load ptr, ptr %82, align 8, !tbaa !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %107 = load i64, ptr %91, align 8, !tbaa !23
@@ -807,13 +807,13 @@ frame_end.exit.i:                                 ; preds = %56
   %108 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %5, i64 noundef %107, i64 %.val87.i) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %.val.i = load i64, ptr %101, align 4
-  %109 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %6, i64 noundef %spec.select, i64 %.val.i) #7
+  %109 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %6, i64 noundef %105, i64 %.val.i) #7
   %110 = trunc nuw i64 %indvars.iv101.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %106, i32 noundef 48, ptr noundef nonnull @.str.24, i32 noundef %110, ptr noundef %108, ptr noundef %109) #7
-  call fastcc void @stream_update_ts(ptr noundef nonnull %0, i32 noundef %110, i64 noundef %spec.select)
+  call fastcc void @stream_update_ts(ptr noundef nonnull %0, i32 noundef %110, i64 noundef %105)
   br label %111
 
-111:                                              ; preds = %99, %93, %87, %83
+111:                                              ; preds = %98, %93, %87, %83
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %112 = load i32, ptr %80, align 8, !tbaa !4
   %113 = zext i32 %112 to i64

@@ -21,7 +21,7 @@ define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   br label %58
 
 7:                                                ; preds = %4
@@ -35,7 +35,7 @@ define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #7
   br label %58
 
 16:                                               ; preds = %7
@@ -45,7 +45,7 @@ define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void %18(ptr noundef nonnull %0) #8
+  tail call void %18(ptr noundef nonnull %0) #7
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -56,12 +56,12 @@ define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   store ptr @cvBandSolve, ptr %23, align 8, !tbaa !26
   store ptr @cvBandFree, ptr %17, align 8, !tbaa !23
-  %24 = tail call noalias dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #9
+  %24 = tail call noalias dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
   br label %58
 
 27:                                               ; preds = %20
@@ -89,8 +89,8 @@ define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %or.cond81, label %37, label %36
 
 36:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #8
-  tail call void @free(ptr noundef nonnull %24) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #7
+  tail call void @free(ptr noundef nonnull %24) #7
   br label %58
 
 37:                                               ; preds = %27
@@ -100,41 +100,41 @@ define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef 
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 %40, ptr %41, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %43 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %40) #8
+  %43 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %40) #7
   store ptr %43, ptr %42, align 8, !tbaa !37
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %37
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #8
-  tail call void @free(ptr noundef nonnull %24) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
+  tail call void @free(ptr noundef nonnull %24) #7
   br label %58
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %48 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %2) #8
+  %48 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %2) #7
   store ptr %48, ptr %47, align 8, !tbaa !38
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %46
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #8
-  tail call void @DestroyMat(ptr noundef nonnull %43) #8
-  tail call void @free(ptr noundef nonnull %24) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
+  tail call void @DestroyMat(ptr noundef nonnull %43) #7
+  tail call void @free(ptr noundef nonnull %24) #7
   br label %58
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %53 = tail call ptr @NewLintArray(i64 noundef %1) #8
+  %53 = tail call ptr @NewLintArray(i64 noundef %1) #7
   store ptr %53, ptr %52, align 8, !tbaa !39
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #8
-  tail call void @DestroyMat(ptr noundef nonnull %43) #8
-  tail call void @DestroyMat(ptr noundef nonnull %48) #8
-  tail call void @free(ptr noundef nonnull %24) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
+  tail call void @DestroyMat(ptr noundef nonnull %43) #7
+  tail call void @DestroyMat(ptr noundef nonnull %48) #7
+  tail call void @free(ptr noundef nonnull %24) #7
   br label %58
 
 56:                                               ; preds = %51
@@ -189,7 +189,7 @@ define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1
   %14 = load double, ptr %13, align 8, !tbaa !45
   %15 = fdiv double %12, %14
   %16 = fadd double %15, -1.000000e+00
-  %17 = tail call double @SUNRabs(double noundef %16) #8
+  %17 = tail call double @SUNRabs(double noundef %16) #7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %19 = load i64, ptr %18, align 8, !tbaa !46
   %20 = icmp eq i64 %19, 0
@@ -220,7 +220,7 @@ define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1
   %36 = load i64, ptr %35, align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !34
-  tail call void @BandCopy(ptr noundef %32, ptr noundef %34, i64 noundef %36, i64 noundef %38) #8
+  tail call void @BandCopy(ptr noundef %32, ptr noundef %34, i64 noundef %36, i64 noundef %38) #7
   br label %71
 
 .critedge:                                        ; preds = %21, %8, %26
@@ -233,7 +233,7 @@ define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1
   store i32 1, ptr %4, align 4, !tbaa !48
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %44 = load ptr, ptr %43, align 8, !tbaa !37
-  tail call void @SetToZero(ptr noundef %44) #8
+  tail call void @SetToZero(ptr noundef %44) #7
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !41
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -247,12 +247,12 @@ define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1
   %55 = load ptr, ptr %43, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %57 = load ptr, ptr %56, align 8, !tbaa !43
-  %58 = tail call i32 %46(i64 noundef %48, i64 noundef %50, i64 noundef %52, double noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef %55, ptr noundef %57, ptr noundef %5, ptr noundef %6, ptr noundef %7) #8
+  %58 = tail call i32 %46(i64 noundef %48, i64 noundef %50, i64 noundef %52, double noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef %55, ptr noundef %57, ptr noundef %5, ptr noundef %6, ptr noundef %7) #7
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %.critedge
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #7
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store i64 -5, ptr %61, align 8, !tbaa !31
   br label %85
@@ -272,7 +272,7 @@ define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1
   %68 = load ptr, ptr %67, align 8, !tbaa !38
   %69 = load i64, ptr %49, align 8, !tbaa !35
   %70 = load i64, ptr %51, align 8, !tbaa !34
-  tail call void @BandCopy(ptr noundef %66, ptr noundef %68, i64 noundef %69, i64 noundef %70) #8
+  tail call void @BandCopy(ptr noundef %66, ptr noundef %68, i64 noundef %69, i64 noundef %70) #7
   br label %71
 
 71:                                               ; preds = %65, %30
@@ -280,13 +280,13 @@ define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1
   %73 = fneg double %72
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %75 = load ptr, ptr %74, align 8, !tbaa !37
-  tail call void @BandScale(double noundef %73, ptr noundef %75) #8
+  tail call void @BandScale(double noundef %73, ptr noundef %75) #7
   %76 = load ptr, ptr %74, align 8, !tbaa !37
-  tail call void @AddIdentity(ptr noundef %76) #8
+  tail call void @AddIdentity(ptr noundef %76) #7
   %77 = load ptr, ptr %74, align 8, !tbaa !37
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %79 = load ptr, ptr %78, align 8, !tbaa !39
-  %80 = tail call i64 @BandGBTRF(ptr noundef %77, ptr noundef %79) #8
+  %80 = tail call i64 @BandGBTRF(ptr noundef %77, ptr noundef %79) #7
   %81 = icmp sgt i64 %80, 0
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 128
   br i1 %81, label %83, label %84
@@ -308,12 +308,12 @@ define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1
 define internal noundef i32 @cvBandSolve(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8, !tbaa !40
-  %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #8
+  %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #7
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !39
-  tail call void @BandGBTRS(ptr noundef %10, ptr noundef %12, ptr noundef %8) #8
+  tail call void @BandGBTRS(ptr noundef %10, ptr noundef %12, ptr noundef %8) #7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !51
   %15 = icmp eq i32 %14, 2
@@ -328,7 +328,7 @@ define internal noundef i32 @cvBandSolve(ptr noundef readonly captures(none) %0,
 20:                                               ; preds = %16
   %21 = fadd double %18, 1.000000e+00
   %22 = fdiv double 2.000000e+00, %21
-  tail call void @N_VScale(double noundef %22, ptr noundef %1, ptr noundef %1) #8
+  tail call void @N_VScale(double noundef %22, ptr noundef %1, ptr noundef %1) #7
   br label %23
 
 23:                                               ; preds = %20, %16, %5
@@ -343,14 +343,14 @@ define internal void @cvBandFree(ptr noundef captures(none) %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !37
-  tail call void @DestroyMat(ptr noundef %5) #8
+  tail call void @DestroyMat(ptr noundef %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !38
-  tail call void @DestroyMat(ptr noundef %7) #8
+  tail call void @DestroyMat(ptr noundef %7) #7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !39
-  tail call void @DestroyArray(ptr noundef %9) #8
-  tail call void @free(ptr noundef %3) #8
+  tail call void @DestroyArray(ptr noundef %9) #7
+  tail call void @free(ptr noundef %3) #7
   store ptr null, ptr %2, align 8, !tbaa !40
   ret void
 }
@@ -373,7 +373,7 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2) #7
   br label %35
 
 8:                                                ; preds = %5
@@ -383,7 +383,7 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -101, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -101, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #7
   br label %35
 
 13:                                               ; preds = %8
@@ -395,7 +395,7 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #7
   br label %35
 
 19:                                               ; preds = %13
@@ -413,12 +413,12 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
 ._crit_edge:                                      ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %.028.sink, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !65
-  %26 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #9
+  %26 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4) #7
   br label %35
 
 29:                                               ; preds = %._crit_edge
@@ -434,7 +434,7 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %.not33, label %35, label %34
 
 34:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %26) #8
+  tail call void @free(ptr noundef nonnull %26) #7
   br label %35
 
 35:                                               ; preds = %29, %34, %28, %18, %12, %7
@@ -446,7 +446,7 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
 define internal void @cvBandFreeB(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !69
-  tail call void @free(ptr noundef %3) #8
+  tail call void @free(ptr noundef %3) #7
   ret void
 }
 

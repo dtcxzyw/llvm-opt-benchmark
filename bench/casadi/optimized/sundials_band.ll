@@ -43,13 +43,13 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
 .loopexit144:                                     ; preds = %.lr.ph.us, %6
   %14 = add i64 %1, -1
   %15 = icmp sgt i64 %1, 1
-  br i1 %15, label %.lr.ph176.preheader, label %._crit_edge177
+  br i1 %15, label %.lr.ph176, label %._crit_edge177
 
-.lr.ph176.preheader:                              ; preds = %.loopexit144
+.lr.ph176:                                        ; preds = %.loopexit144
   %.not140162.not = icmp slt i64 %3, 1
   br label %.lr.ph176
 
-.lr.ph176:                                        ; preds = %.lr.ph176.preheader, %._crit_edge172
+.lr.ph176:; preds = %.lr.ph176, %._crit_edge172
   %indvars.iv185 = phi i64 [ %4, %.lr.ph176.preheader ], [ %indvars.iv.next186, %._crit_edge172 ]
   %indvars.iv = phi i64 [ %3, %.lr.ph176.preheader ], [ %indvars.iv.next, %._crit_edge172 ]
   %.0115174 = phi ptr [ %5, %.lr.ph176.preheader ], [ %71, %._crit_edge172 ]
@@ -124,8 +124,8 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
   store double %44, ptr %.1121158, align 8, !tbaa !17
   %45 = add nuw i64 %.1123157, 1
   %46 = getelementptr inbounds nuw i8, ptr %.1121158, i64 8
-  %exitcond184.not = icmp eq i64 %.1123157, %smin183
-  br i1 %exitcond184.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !23
+  %exitcond183.not = icmp eq i64 %.1123157, %smin183
+  br i1 %exitcond183.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !23
 
 ._crit_edge161:                                   ; preds = %.lr.ph160, %40
   %47 = add nsw i64 %.0126173, %4
@@ -174,13 +174,13 @@ define i64 @bandGBTRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i6
   %67 = add nuw nsw i64 %.2124163, 1
   %68 = getelementptr inbounds nuw i8, ptr %.2164, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.0119165, i64 8
-  %.not140.not = icmp slt i64 %.2124163, %.
-  br i1 %.not140.not, label %.lr.ph167, label %.loopexit, !llvm.loop !24
+  %exitcond184.not = icmp slt i64 %.2124163, %.
+  br i1 %exitcond184.not, label %.lr.ph167, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph167, %59
   %70 = add nuw i64 %.0125169, 1
-  %exitcond188.not = icmp eq i64 %.0125169, %smin187
-  br i1 %exitcond188.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !25
+  %exitcond185.not = icmp eq i64 %.0125169, %smin187
+  br i1 %exitcond185.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !25
 
 ._crit_edge172:                                   ; preds = %.loopexit, %._crit_edge161
   %71 = getelementptr inbounds nuw i8, ptr %.0115174, i64 8

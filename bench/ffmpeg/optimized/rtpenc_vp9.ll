@@ -47,7 +47,7 @@ define void @ff_rtp_send_vp9(ptr noundef %0, ptr noundef readonly captures(none)
   %27 = load ptr, ptr %9, align 8, !tbaa !29
   %28 = add nsw i32 %18, 1
   %29 = zext i1 %19 to i32
-  tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %27, i32 noundef %28, i32 noundef %29) #4
+  tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %27, i32 noundef %28, i32 noundef %29) #3
   %30 = sub nsw i32 %.02628, %18
   %31 = getelementptr inbounds i8, ptr %.029, i64 %26
   %32 = load ptr, ptr %9, align 8, !tbaa !29

@@ -38639,13 +38639,13 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit44: ; preds = %_ZL12writeX
 .lr.ph69.split.us.i:                              ; preds = %.lr.ph69.i
   %239 = icmp slt i32 %224, 90
   %240 = zext nneg i32 %.05465.i to i64
-  %wide.trip.count86.i = zext nneg i32 %6 to i64
+  %wide.trip.count87.i = zext nneg i32 %6 to i64
   br i1 %239, label %.lr.ph69.split.us.split.us.i, label %.lr.ph69.split.us.split.i
 
 .lr.ph69.split.us.split.us.i:                     ; preds = %.lr.ph69.split.us.i, %254
-  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %254 ], [ %240, %.lr.ph69.split.us.i ]
+  %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %254 ], [ %240, %.lr.ph69.split.us.i ]
   %.054.in66.us.us.i = phi i32 [ %241, %254 ], [ %7, %.lr.ph69.split.us.i ]
-  %241 = trunc nuw nsw i64 %indvars.iv88.i to i32
+  %241 = trunc nuw nsw i64 %indvars.iv89.i to i32
   %242 = srem i32 %241, %237
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %244, label %.lr.ph.us.us.i
@@ -38671,15 +38671,15 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit44: ; preds = %_ZL12writeX
   br label %254
 
 254:                                              ; preds = %252, %250
-  %indvars.iv.next89.i = add nsw i64 %indvars.iv88.i, -1
-  %255 = icmp sgt i64 %indvars.iv88.i, 0
+  %indvars.iv.next90.i = add nsw i64 %indvars.iv89.i, -1
+  %255 = icmp sgt i64 %indvars.iv89.i, 0
   br i1 %255, label %.lr.ph69.split.us.split.us.i, label %_ZL15write_xpm_data3P8_IO_FILEiiPPffffi.exit, !llvm.loop !831
 
 256:                                              ; preds = %275, %.lr.ph.us.us.i
-  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %275 ], [ 0, %.lr.ph.us.us.i ]
-  %257 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv83.i
+  %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %275 ], [ 0, %.lr.ph.us.us.i ]
+  %257 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv84.i
   %258 = load ptr, ptr %257, align 8, !tbaa !4
-  %259 = getelementptr inbounds nuw float, ptr %258, i64 %indvars.iv88.i
+  %259 = getelementptr inbounds nuw float, ptr %258, i64 %indvars.iv89.i
   %260 = load float, ptr %259, align 4, !tbaa !113
   %261 = fcmp ult float %260, %12
   br i1 %261, label %268, label %262
@@ -38712,18 +38712,18 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit44: ; preds = %_ZL12writeX
   %278 = load i8, ptr %277, align 1, !tbaa !29
   %279 = sext i8 %278 to i32
   %fputc61.us.us.us.i = tail call i32 @fputc(i32 %279, ptr %0)
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %exitcond87.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count86.i
-  br i1 %exitcond87.not.i, label %._crit_edge.split.us.us.us.i, label %256, !llvm.loop !832
+  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
+  %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count87.i
+  br i1 %exitcond88.not.i, label %._crit_edge.split.us.us.us.i, label %256, !llvm.loop !832
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %275
   %.not.us.us.i = icmp eq i32 %.054.in66.us.us.i, 1
   br i1 %.not.us.us.i, label %252, label %250
 
 .lr.ph69.split.us.split.i:                        ; preds = %.lr.ph69.split.us.i, %293
-  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %293 ], [ %240, %.lr.ph69.split.us.i ]
+  %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %293 ], [ %240, %.lr.ph69.split.us.i ]
   %.054.in66.us.i = phi i32 [ %280, %293 ], [ %7, %.lr.ph69.split.us.i ]
-  %280 = trunc nuw nsw i64 %indvars.iv80.i to i32
+  %280 = trunc nuw nsw i64 %indvars.iv81.i to i32
   %281 = srem i32 %280, %237
   %282 = icmp eq i32 %281, 0
   br i1 %282, label %283, label %.lr.ph.us.i
@@ -38740,24 +38740,24 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit44: ; preds = %_ZL12writeX
   %fputc.us.i = tail call i32 @fputc(i32 34, ptr %0)
   br label %295
 
-289:                                              ; preds = %._crit_edge.split.us75.i
+289:                                              ; preds = %._crit_edge.split.us76.i
   %290 = tail call i64 @fwrite(ptr nonnull @.str.230, i64 3, i64 1, ptr %0)
   br label %293
 
-291:                                              ; preds = %._crit_edge.split.us75.i
+291:                                              ; preds = %._crit_edge.split.us76.i
   %292 = tail call i64 @fwrite(ptr nonnull @.str.231, i64 2, i64 1, ptr %0)
   br label %293
 
 293:                                              ; preds = %291, %289
-  %indvars.iv.next81.i = add nsw i64 %indvars.iv80.i, -1
-  %294 = icmp sgt i64 %indvars.iv80.i, 0
+  %indvars.iv.next82.i = add nsw i64 %indvars.iv81.i, -1
+  %294 = icmp sgt i64 %indvars.iv81.i, 0
   br i1 %294, label %.lr.ph69.split.us.split.i, label %_ZL15write_xpm_data3P8_IO_FILEiiPPffffi.exit, !llvm.loop !831
 
 295:                                              ; preds = %314, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %314 ]
   %296 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   %297 = load ptr, ptr %296, align 8, !tbaa !4
-  %298 = getelementptr inbounds nuw float, ptr %297, i64 %indvars.iv80.i
+  %298 = getelementptr inbounds nuw float, ptr %297, i64 %indvars.iv81.i
   %299 = load float, ptr %298, align 4, !tbaa !113
   %300 = fcmp ult float %299, %12
   br i1 %300, label %307, label %301
@@ -38797,10 +38797,10 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit44: ; preds = %_ZL12writeX
   %322 = sext i8 %321 to i32
   %323 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.229, i32 noundef %318, i32 noundef %322) #29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count86.i
-  br i1 %exitcond.not.i48, label %._crit_edge.split.us75.i, label %295, !llvm.loop !832
+  %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count87.i
+  br i1 %exitcond.not.i48, label %._crit_edge.split.us76.i, label %295, !llvm.loop !832
 
-._crit_edge.split.us75.i:                         ; preds = %314
+._crit_edge.split.us76.i:                         ; preds = %314
   %.not.us.i = icmp eq i32 %.054.in66.us.i, 1
   br i1 %.not.us.i, label %291, label %289
 
@@ -38834,8 +38834,8 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit44: ; preds = %_ZL12writeX
 
 337:                                              ; preds = %335, %333
   %.054.i = add nsw i32 %.05467.i, -1
-  %.not93.i = icmp eq i32 %.05467.i, 0
-  br i1 %.not93.i, label %_ZL15write_xpm_data3P8_IO_FILEiiPPffffi.exit, label %.lr.ph69.split.i, !llvm.loop !831
+  %.not94.i = icmp eq i32 %.05467.i, 0
+  br i1 %.not94.i, label %_ZL15write_xpm_data3P8_IO_FILEiiPPffffi.exit, label %.lr.ph69.split.i, !llvm.loop !831
 
 _ZL15write_xpm_data3P8_IO_FILEiiPPffffi.exit:     ; preds = %337, %293, %254, %_ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit44
   ret void
@@ -39865,13 +39865,13 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42: ; preds = %_ZL12writeX
 .lr.ph43.split.us.i:                              ; preds = %.lr.ph43.i
   %165 = icmp slt i32 %156, 90
   %166 = zext nneg i32 %.03339.i to i64
-  %wide.trip.count59.i = zext nneg i32 %6 to i64
+  %wide.trip.count60.i = zext nneg i32 %6 to i64
   br i1 %165, label %.lr.ph43.split.us.split.us.i, label %.lr.ph43.split.us.split.i
 
 .lr.ph43.split.us.split.us.i:                     ; preds = %.lr.ph43.split.us.i, %180
-  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %180 ], [ %166, %.lr.ph43.split.us.i ]
+  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %180 ], [ %166, %.lr.ph43.split.us.i ]
   %.033.in40.us.us.i = phi i32 [ %167, %180 ], [ %7, %.lr.ph43.split.us.i ]
-  %167 = trunc nuw nsw i64 %indvars.iv61.i to i32
+  %167 = trunc nuw nsw i64 %indvars.iv62.i to i32
   %168 = srem i32 %167, %163
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %.lr.ph.us.us.i
@@ -39897,15 +39897,15 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42: ; preds = %_ZL12writeX
   br label %180
 
 180:                                              ; preds = %178, %176
-  %indvars.iv.next62.i = add nsw i64 %indvars.iv61.i, -1
-  %181 = icmp sgt i64 %indvars.iv61.i, 0
+  %indvars.iv.next63.i = add nsw i64 %indvars.iv62.i, -1
+  %181 = icmp sgt i64 %indvars.iv62.i, 0
   br i1 %181, label %.lr.ph43.split.us.split.us.i, label %_ZL14write_xpm_dataP8_IO_FILEiiPKPKfffi.exit, !llvm.loop !849
 
 182:                                              ; preds = %182, %.lr.ph.us.us.i
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %182 ], [ 0, %.lr.ph.us.us.i ]
-  %183 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv56.i
+  %indvars.iv57.i = phi i64 [ %indvars.iv.next58.i, %182 ], [ 0, %.lr.ph.us.us.i ]
+  %183 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv57.i
   %184 = load ptr, ptr %183, align 8, !tbaa !4
-  %185 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv61.i
+  %185 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv62.i
   %186 = load float, ptr %185, align 4, !tbaa !113
   %187 = fsub float %186, %11
   %188 = fmul float %160, %187
@@ -39918,18 +39918,18 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42: ; preds = %_ZL12writeX
   %193 = load i8, ptr %192, align 1, !tbaa !29
   %194 = sext i8 %193 to i32
   %fputc35.us.us.us.i = tail call i32 @fputc(i32 %194, ptr %0)
-  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
-  %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %._crit_edge.split.us.us.us.i, label %182, !llvm.loop !850
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
+  %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
+  br i1 %exitcond61.not.i, label %._crit_edge.split.us.us.us.i, label %182, !llvm.loop !850
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %182
   %.not.us.us.i = icmp eq i32 %.033.in40.us.us.i, 1
   br i1 %.not.us.us.i, label %178, label %176
 
 .lr.ph43.split.us.split.i:                        ; preds = %.lr.ph43.split.us.i, %208
-  %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %208 ], [ %166, %.lr.ph43.split.us.i ]
+  %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %208 ], [ %166, %.lr.ph43.split.us.i ]
   %.033.in40.us.i = phi i32 [ %195, %208 ], [ %7, %.lr.ph43.split.us.i ]
-  %195 = trunc nuw nsw i64 %indvars.iv53.i to i32
+  %195 = trunc nuw nsw i64 %indvars.iv54.i to i32
   %196 = srem i32 %195, %163
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %.lr.ph.us.i
@@ -39946,24 +39946,24 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42: ; preds = %_ZL12writeX
   %fputc.us.i = tail call i32 @fputc(i32 34, ptr %0)
   br label %210
 
-204:                                              ; preds = %._crit_edge.split.us48.i
+204:                                              ; preds = %._crit_edge.split.us49.i
   %205 = tail call i64 @fwrite(ptr nonnull @.str.230, i64 3, i64 1, ptr %0)
   br label %208
 
-206:                                              ; preds = %._crit_edge.split.us48.i
+206:                                              ; preds = %._crit_edge.split.us49.i
   %207 = tail call i64 @fwrite(ptr nonnull @.str.231, i64 2, i64 1, ptr %0)
   br label %208
 
 208:                                              ; preds = %206, %204
-  %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, -1
-  %209 = icmp sgt i64 %indvars.iv53.i, 0
+  %indvars.iv.next55.i = add nsw i64 %indvars.iv54.i, -1
+  %209 = icmp sgt i64 %indvars.iv54.i, 0
   br i1 %209, label %.lr.ph43.split.us.split.i, label %_ZL14write_xpm_dataP8_IO_FILEiiPKPKfffi.exit, !llvm.loop !849
 
 210:                                              ; preds = %210, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %210 ]
   %211 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   %212 = load ptr, ptr %211, align 8, !tbaa !4
-  %213 = getelementptr inbounds nuw float, ptr %212, i64 %indvars.iv53.i
+  %213 = getelementptr inbounds nuw float, ptr %212, i64 %indvars.iv54.i
   %214 = load float, ptr %213, align 4, !tbaa !113
   %215 = fsub float %214, %11
   %216 = fmul float %160, %215
@@ -39983,10 +39983,10 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42: ; preds = %_ZL12writeX
   %226 = sext i8 %225 to i32
   %227 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.229, i32 noundef %222, i32 noundef %226) #29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count59.i
-  br i1 %exitcond.not.i, label %._crit_edge.split.us48.i, label %210, !llvm.loop !850
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count60.i
+  br i1 %exitcond.not.i, label %._crit_edge.split.us49.i, label %210, !llvm.loop !850
 
-._crit_edge.split.us48.i:                         ; preds = %210
+._crit_edge.split.us49.i:                         ; preds = %210
   %.not.us.i = icmp eq i32 %.033.in40.us.i, 1
   br i1 %.not.us.i, label %206, label %204
 
@@ -40020,8 +40020,8 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42: ; preds = %_ZL12writeX
 
 241:                                              ; preds = %239, %237
   %.033.i = add nsw i32 %.03341.i, -1
-  %.not66.i = icmp eq i32 %.03341.i, 0
-  br i1 %.not66.i, label %_ZL14write_xpm_dataP8_IO_FILEiiPKPKfffi.exit, label %.lr.ph43.split.i, !llvm.loop !849
+  %.not67.i = icmp eq i32 %.03341.i, 0
+  br i1 %.not67.i, label %_ZL14write_xpm_dataP8_IO_FILEiiPKPKfffi.exit, label %.lr.ph43.split.i, !llvm.loop !849
 
 _ZL14write_xpm_dataP8_IO_FILEiiPKPKfffi.exit:     ; preds = %241, %208, %180, %_ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42
   ret void

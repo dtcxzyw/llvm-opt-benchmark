@@ -2587,7 +2587,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %spec.select69.i = call i32 @llvm.smax.i32(i32 %93, i32 0)
   %spec.select2.i.c = call i32 @llvm.smin.i32(i32 %97, i32 %103)
   %.not64.i = icmp slt i32 %spec.select.i, %spec.select1.i.c
-  %.not65.i = icmp slt i32 %spec.select69.i, %spec.select2.i.c
+  %.not66.i.c = icmp slt i32 %spec.select69.i, %spec.select2.i.c
   %or.cond = select i1 %.not64.i, i1 %.not65.i, i1 false
   br i1 %or.cond, label %104, label %106
 

@@ -1122,8 +1122,8 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %38 = phi i32 [ %21, %.preheader.preheader ], [ %134, %._crit_edge ]
-  %39 = phi i32 [ %34, %.preheader.preheader ], [ %135, %._crit_edge ]
+  %38 = phi i32 [ %21, %.preheader.preheader ], [ %125, %._crit_edge ]
+  %39 = phi i32 [ %34, %.preheader.preheader ], [ %126, %._crit_edge ]
   %indvars.iv44 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next45, %._crit_edge ]
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph, label %._crit_edge
@@ -1158,42 +1158,42 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %59 = load i32, ptr %26, align 4, !tbaa !22
   %60 = add nsw i32 %59, -1
   %61 = trunc i64 %55 to i32
-  %62 = add i32 %61, 1
+  %61 = add i32 %61, 1
   %spec.select.i = call i32 @llvm.smin.i32(i32 %62, i32 %60)
   br label %63
 
 63:                                               ; preds = %58, %47
-  %.sroa.024.0.i = phi i32 [ 0, %47 ], [ %spec.select.i, %58 ]
+  %.pre-phi = phi i32 [ 0, %47 ], [ %spec.select.i, %58 ]
   %64 = icmp slt i64 %indvars.iv, %36
   br i1 %64, label %68, label %65
 
-65:                                               ; preds = %63
-  %66 = load i32, ptr %26, align 4, !tbaa !22
-  %67 = add nsw i32 %66, -1
+65:; preds = %63
+  %65 = load i32, ptr %26, align 4, !tbaa !22
+  %67 = add nsw i32 %65, -1
   %spec.select32.i = call i32 @llvm.smin.i32(i32 %.reass, i32 %67)
   br label %68
 
-68:                                               ; preds = %65, %63
+68:; preds = %65, %63
   %.sroa.0.0.i = phi i32 [ 0, %63 ], [ %spec.select32.i, %65 ]
   br i1 %43, label %72, label %69
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %27, align 8, !tbaa !33
-  %71 = add nsw i32 %70, -1
+69:; preds = %68
+  %69 = load i32, ptr %27, align 8, !tbaa !33
+  %71 = add nsw i32 %69, -1
   %spec.select33.i = call i32 @llvm.smin.i32(i32 %46, i32 %71)
   br label %72
 
-72:                                               ; preds = %69, %68
+72:; preds = %69, %68
   %.sroa.1028.0.i = phi i32 [ 0, %68 ], [ %spec.select33.i, %69 ]
   br i1 %44, label %76, label %73
 
-73:                                               ; preds = %72
+73:; preds = %72
   %74 = load i32, ptr %27, align 8, !tbaa !33
   %75 = add nsw i32 %74, -1
   %spec.select34.i = call i32 @llvm.smin.i32(i32 %.reass38, i32 %75)
   br label %76
 
-76:                                               ; preds = %73, %72
+76: ; preds = %73, %72
   %.sroa.10.0.i = phi i32 [ 0, %72 ], [ %spec.select34.i, %73 ]
   %77 = load ptr, ptr %28, align 8, !tbaa !55
   %78 = load ptr, ptr %29, align 8, !tbaa !56
@@ -1207,7 +1207,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %86 = sext i32 %.sroa.1028.0.i to i64
   %87 = mul i64 %79, %86
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 %87
-  %89 = sext i32 %.sroa.024.0.i to i64
+  %89 = sext i32 %.pre-phi to i64
   %90 = getelementptr inbounds float, ptr %88, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !58
   %92 = fadd float %85, %91
@@ -1226,53 +1226,53 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %105 = sitofp i32 %104 to float
   %106 = fdiv float %100, %105
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #16
-  %107 = load ptr, ptr %24, align 8, !tbaa !55
-  %108 = load ptr, ptr %25, align 8, !tbaa !56
-  %109 = load i64, ptr %108, align 8, !tbaa !57
-  %110 = mul i64 %109, %indvars.iv44
-  %111 = getelementptr inbounds nuw i8, ptr %107, i64 %110
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv
-  %113 = load i8, ptr %112, align 1, !tbaa !14
-  %114 = uitofp i8 %113 to float
-  %115 = fsub float %114, %106
-  %116 = fsub float %106, %114
-  %117 = fcmp ogt float %115, 0.000000e+00
-  %.sink60 = select i1 %117, float %115, float 0.000000e+00
-  %.sink = fptoui float %.sink60 to i8
-  %118 = load ptr, ptr %30, align 8, !tbaa !55
-  %119 = load ptr, ptr %31, align 8, !tbaa !56
-  %120 = load i64, ptr %119, align 8, !tbaa !57
-  %121 = mul i64 %120, %indvars.iv44
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 %121
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %indvars.iv
-  store i8 %.sink, ptr %123, align 1, !tbaa !14
-  %124 = fcmp ogt float %116, 0.000000e+00
-  %.sink5361 = select i1 %124, float %116, float 0.000000e+00
-  %.sink53 = fptoui float %.sink5361 to i8
-  %125 = load ptr, ptr %32, align 8, !tbaa !55
-  %126 = load ptr, ptr %33, align 8, !tbaa !56
-  %127 = load i64, ptr %126, align 8, !tbaa !57
-  %128 = mul i64 %127, %indvars.iv44
-  %129 = getelementptr inbounds nuw i8, ptr %125, i64 %128
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %indvars.iv
-  store i8 %.sink53, ptr %130, align 1, !tbaa !14
+  %98 = load ptr, ptr %24, align 8, !tbaa !55
+  %99 = load ptr, ptr %25, align 8, !tbaa !56
+  %100 = load i64, ptr %99, align 8, !tbaa !57
+  %101 = mul i64 %100, %indvars.iv44
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %indvars.iv
+  %104 = load i8, ptr %103, align 1, !tbaa !14
+  %105 = uitofp i8 %104 to float
+  %106 = fsub float %105, %106
+  %107 = fsub float %106, %105
+  %108 = fcmp ogt float %106, 0.000000e+00
+  %.sink63 = select i1 %108, float %106, float 0.000000e+00
+  %.sink = fptoui float %.sink63 to i8
+  %109 = load ptr, ptr %30, align 8, !tbaa !55
+  %110 = load ptr, ptr %31, align 8, !tbaa !56
+  %111 = load i64, ptr %110, align 8, !tbaa !57
+  %112 = mul i64 %111, %indvars.iv44
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv
+  store i8 %.sink, ptr %114, align 1, !tbaa !14
+  %115 = fcmp ogt float %107, 0.000000e+00
+  %.sink5664 = select i1 %115, float %107, float 0.000000e+00
+  %.sink56 = fptoui float %.sink5664 to i8
+  %116 = load ptr, ptr %32, align 8, !tbaa !55
+  %117 = load ptr, ptr %33, align 8, !tbaa !56
+  %118 = load i64, ptr %117, align 8, !tbaa !57
+  %119 = mul i64 %118, %indvars.iv44
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv
+  store i8 %.sink56, ptr %121, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %131 = load i32, ptr %23, align 4, !tbaa !22
-  %132 = sext i32 %131 to i64
-  %133 = icmp slt i64 %indvars.iv.next, %132
-  br i1 %133, label %47, label %._crit_edge.loopexit, !llvm.loop !60
+  %122 = load i32, ptr %23, align 4, !tbaa !22
+  %123 = sext i32 %122 to i64
+  %124 = icmp slt i64 %indvars.iv.next, %123
+  br i1 %124, label %47, label %._crit_edge.loopexit, !llvm.loop !60
 
 ._crit_edge.loopexit:                             ; preds = %76
-  %.pre = load i32, ptr %20, align 8, !tbaa !33
+  %.pre47 = load i32, ptr %20, align 8, !tbaa !33
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %134 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %38, %.preheader ]
-  %135 = phi i32 [ %131, %._crit_edge.loopexit ], [ %39, %.preheader ]
+  %125 = phi i32 [ %.pre47, %._crit_edge.loopexit ], [ %38, %.preheader ]
+  %126 = phi i32 [ %122, %._crit_edge.loopexit ], [ %39, %.preheader ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %136 = sext i32 %134 to i64
-  %137 = icmp slt i64 %indvars.iv.next45, %136
-  br i1 %137, label %.preheader, label %._crit_edge41, !llvm.loop !61
+  %127 = sext i32 %125 to i64
+  %128 = icmp slt i64 %indvars.iv.next45, %127
+  br i1 %128, label %.preheader, label %._crit_edge41, !llvm.loop !61
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %6
   ret void

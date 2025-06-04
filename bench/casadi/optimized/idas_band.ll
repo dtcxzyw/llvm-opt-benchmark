@@ -22,7 +22,7 @@ define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   br label %55
 
 7:                                                ; preds = %4
@@ -36,7 +36,7 @@ define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #7
   br label %55
 
 16:                                               ; preds = %7
@@ -49,7 +49,7 @@ define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %or.cond70, label %19, label %18
 
 18:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
   br label %55
 
 19:                                               ; preds = %16
@@ -59,7 +59,7 @@ define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %.not68, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 %21(ptr noundef nonnull %0) #8
+  %23 = tail call i32 %21(ptr noundef nonnull %0) #7
   br label %24
 
 24:                                               ; preds = %22, %19
@@ -72,12 +72,12 @@ define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   store ptr null, ptr %28, align 8, !tbaa !26
   store ptr @IDABandFree, ptr %20, align 8, !tbaa !22
-  %29 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #9
+  %29 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %24
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #7
   br label %55
 
 32:                                               ; preds = %24
@@ -102,27 +102,27 @@ define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i64 %42, ptr %43, align 8, !tbaa !37
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %45 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %42) #8
+  %45 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %42) #7
   store ptr %45, ptr %44, align 8, !tbaa !38
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %32
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #8
-  tail call void @free(ptr noundef nonnull %29) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #7
+  tail call void @free(ptr noundef nonnull %29) #7
   br label %55
 
 48:                                               ; preds = %32
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 88
-  %50 = tail call ptr @NewLintArray(i64 noundef %1) #8
+  %50 = tail call ptr @NewLintArray(i64 noundef %1) #7
   store ptr %50, ptr %49, align 8, !tbaa !39
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %48
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #8
-  tail call void @DestroyMat(ptr noundef nonnull %45) #8
-  tail call void @free(ptr noundef nonnull %29) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #7
+  tail call void @DestroyMat(ptr noundef nonnull %45) #7
+  tail call void @free(ptr noundef nonnull %29) #7
   br label %55
 
 53:                                               ; preds = %48
@@ -177,7 +177,7 @@ define internal range(i32 -1, 2) i32 @IDABandSetup(ptr noundef %0, ptr noundef %
   store i64 %12, ptr %10, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !38
-  tail call void @SetToZero(ptr noundef %14) #8
+  tail call void @SetToZero(ptr noundef %14) #7
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -193,12 +193,12 @@ define internal range(i32 -1, 2) i32 @IDABandSetup(ptr noundef %0, ptr noundef %
   %27 = load ptr, ptr %13, align 8, !tbaa !38
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !43
-  %30 = tail call i32 %16(i64 noundef %18, i64 noundef %20, i64 noundef %22, double noundef %24, double noundef %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %27, ptr noundef %29, ptr noundef %4, ptr noundef %5, ptr noundef %6) #8
+  %30 = tail call i32 %16(i64 noundef %18, i64 noundef %20, i64 noundef %22, double noundef %24, double noundef %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %27, ptr noundef %29, ptr noundef %4, ptr noundef %5, ptr noundef %6) #7
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #7
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i64 -5, ptr %33, align 8, !tbaa !32
   br label %45
@@ -216,7 +216,7 @@ define internal range(i32 -1, 2) i32 @IDABandSetup(ptr noundef %0, ptr noundef %
   %38 = load ptr, ptr %13, align 8, !tbaa !38
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %40 = load ptr, ptr %39, align 8, !tbaa !39
-  %41 = tail call i64 @BandGBTRF(ptr noundef %38, ptr noundef %40) #8
+  %41 = tail call i64 @BandGBTRF(ptr noundef %38, ptr noundef %40) #7
   %.not30 = icmp eq i64 %41, 0
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 112
   br i1 %.not30, label %44, label %43
@@ -238,12 +238,12 @@ define internal range(i32 -1, 2) i32 @IDABandSetup(ptr noundef %0, ptr noundef %
 define internal noundef i32 @IDABandSolve(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %8 = load ptr, ptr %7, align 8, !tbaa !40
-  %9 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #8
+  %9 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %13 = load ptr, ptr %12, align 8, !tbaa !39
-  tail call void @BandGBTRS(ptr noundef %11, ptr noundef %13, ptr noundef %9) #8
+  tail call void @BandGBTRS(ptr noundef %11, ptr noundef %13, ptr noundef %9) #7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %15 = load double, ptr %14, align 8, !tbaa !47
   %16 = fcmp une double %15, 1.000000e+00
@@ -252,7 +252,7 @@ define internal noundef i32 @IDABandSolve(ptr noundef readonly captures(none) %0
 17:                                               ; preds = %6
   %18 = fadd double %15, 1.000000e+00
   %19 = fdiv double 2.000000e+00, %18
-  tail call void @N_VScale(double noundef %19, ptr noundef %1, ptr noundef %1) #8
+  tail call void @N_VScale(double noundef %19, ptr noundef %1, ptr noundef %1) #7
   br label %20
 
 20:                                               ; preds = %17, %6
@@ -267,12 +267,12 @@ define internal noundef i32 @IDABandFree(ptr noundef captures(none) %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !38
-  tail call void @DestroyMat(ptr noundef %5) #8
+  tail call void @DestroyMat(ptr noundef %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !39
-  tail call void @DestroyArray(ptr noundef %7) #8
+  tail call void @DestroyArray(ptr noundef %7) #7
   %8 = load ptr, ptr %2, align 8, !tbaa !40
-  tail call void @free(ptr noundef %8) #8
+  tail call void @free(ptr noundef %8) #7
   store ptr null, ptr %2, align 8, !tbaa !40
   ret i32 0
 }
@@ -295,7 +295,7 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #7
   br label %38
 
 8:                                                ; preds = %5
@@ -305,7 +305,7 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -101, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -101, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #7
   br label %38
 
 13:                                               ; preds = %8
@@ -317,7 +317,7 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #7
   br label %38
 
 19:                                               ; preds = %13
@@ -340,14 +340,14 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph, %19
   %.028.lcssa = phi ptr [ null, %19 ], [ %.02836, %.lr.ph ], [ null, %23 ]
-  %25 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #9
+  %25 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %._crit_edge
   %28 = getelementptr inbounds nuw i8, ptr %.028.lcssa, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !61
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %29, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %29, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #7
   br label %38
 
 30:                                               ; preds = %._crit_edge
@@ -365,7 +365,7 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %.not33, label %38, label %37
 
 37:                                               ; preds = %30
-  tail call void @free(ptr noundef nonnull %25) #8
+  tail call void @free(ptr noundef nonnull %25) #7
   br label %38
 
 38:                                               ; preds = %30, %37, %27, %18, %12, %7
@@ -377,7 +377,7 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
 define internal void @IDABandFreeB(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !65
-  tail call void @free(ptr noundef %3) #8
+  tail call void @free(ptr noundef %3) #7
   ret void
 }
 

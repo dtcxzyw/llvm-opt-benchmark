@@ -18,26 +18,26 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noundef ptr @Mig_ManStart() local_unnamed_addr #0 {
 Mig_ManAppendObj.exit:
-  %0 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #16
+  %0 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #15
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #17
+  %3 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #16
   store ptr %3, ptr %2, align 8, !tbaa !3
   store i32 1024, ptr %1, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #17
+  %6 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #16
   store ptr %6, ptr %5, align 8, !tbaa !3
   store i32 1024, ptr %4, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr i8, ptr %0, i64 28
-  %9 = tail call noalias dereferenceable_or_null(65568) ptr @malloc(i64 noundef 65568) #17
+  %9 = tail call noalias dereferenceable_or_null(65568) ptr @malloc(i64 noundef 65568) #16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65560) %10, i8 -1, i64 65560, i1 false)
   store ptr %0, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
+  %13 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
   store ptr %13, ptr %12, align 8, !tbaa !12
   store i32 16, ptr %7, align 8, !tbaa !14
   store i32 1, ptr %8, align 4, !tbaa !15
@@ -68,7 +68,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #18
+  tail call void @free(ptr noundef nonnull %3) #17
   store ptr null, ptr %2, align 8, !tbaa !20
   br label %5
 
@@ -79,7 +79,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not48, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %7) #17
   store ptr null, ptr %6, align 8, !tbaa !21
   br label %9
 
@@ -90,7 +90,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not49, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %11) #18
+  tail call void @free(ptr noundef nonnull %11) #17
   store ptr null, ptr %10, align 8, !tbaa !22
   br label %13
 
@@ -101,7 +101,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not50, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %15) #18
+  tail call void @free(ptr noundef nonnull %15) #17
   store ptr null, ptr %14, align 8, !tbaa !23
   br label %17
 
@@ -112,7 +112,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not51, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #18
+  tail call void @free(ptr noundef nonnull %19) #17
   store ptr null, ptr %18, align 8, !tbaa !24
   br label %21
 
@@ -137,7 +137,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   %30 = load ptr, ptr %29, align 8, !tbaa !11
   %31 = getelementptr inbounds i8, ptr %30, i64 -16
   store ptr %31, ptr %26, align 8, !tbaa !26
-  tail call void @free(ptr noundef nonnull %31) #18
+  tail call void @free(ptr noundef nonnull %31) #17
   store ptr null, ptr %26, align 8, !tbaa !26
   %32 = load i32, ptr %22, align 8, !tbaa !25
   %33 = add nsw i32 %32, 1
@@ -153,7 +153,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not52, label %38, label %37
 
 37:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %36) #18
+  tail call void @free(ptr noundef nonnull %36) #17
   store ptr null, ptr %35, align 8, !tbaa !29
   br label %38
 
@@ -164,7 +164,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not53, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #18
+  tail call void @free(ptr noundef nonnull %40) #17
   store ptr null, ptr %39, align 8, !tbaa !30
   br label %42
 
@@ -175,7 +175,7 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not54, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %44) #18
+  tail call void @free(ptr noundef nonnull %44) #17
   store ptr null, ptr %43, align 8, !tbaa !31
   br label %46
 
@@ -185,11 +185,11 @@ define void @Mig_ManStop(ptr noundef captures(none) initializes((80, 84)) %0) lo
   br i1 %.not55, label %49, label %48
 
 48:                                               ; preds = %46
-  tail call void @free(ptr noundef nonnull %47) #18
+  tail call void @free(ptr noundef nonnull %47) #17
   br label %49
 
 49:                                               ; preds = %48, %46
-  tail call void @free(ptr noundef nonnull %0) #18
+  tail call void @free(ptr noundef nonnull %0) #17
   ret void
 }
 
@@ -553,11 +553,11 @@ define void @Mig_ManSetRefs(ptr noundef captures(none) initializes((80, 84), (14
   br i1 %.not9.i.i, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef %9) #19
+  %11 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef %9) #18
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @malloc(i64 noundef %9) #17
+  %13 = tail call noalias ptr @malloc(i64 noundef %9) #16
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -738,11 +738,11 @@ define i32 @Mig_ManSuppSize_rec(ptr noundef readonly captures(address_is_null) %
   br i1 %.not9.i.i.i.i, label %26, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %23) #19
+  %25 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %23) #18
   br label %28
 
 26:                                               ; preds = %19
-  %27 = tail call noalias ptr @malloc(i64 noundef %23) #17
+  %27 = tail call noalias ptr @malloc(i64 noundef %23) #16
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -762,11 +762,11 @@ define i32 @Mig_ManSuppSize_rec(ptr noundef readonly captures(address_is_null) %
   br i1 %.not9.i21.i.i.i, label %38, label %36
 
 36:                                               ; preds = %31
-  %37 = tail call ptr @realloc(ptr noundef nonnull %33, i64 noundef %35) #19
+  %37 = tail call ptr @realloc(ptr noundef nonnull %33, i64 noundef %35) #18
   br label %40
 
 38:                                               ; preds = %31
-  %39 = tail call noalias ptr @malloc(i64 noundef %35) #17
+  %39 = tail call noalias ptr @malloc(i64 noundef %35) #16
   br label %40
 
 40:                                               ; preds = %38, %36
@@ -859,11 +859,11 @@ Mig_ObjIsTravIdCurrent.exit:                      ; preds = %.lr.ph, %._crit_edg
   br i1 %.not9.i.i.i.i13, label %83, label %81
 
 81:                                               ; preds = %76
-  %82 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %80) #19
+  %82 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %80) #18
   br label %85
 
 83:                                               ; preds = %76
-  %84 = tail call noalias ptr @malloc(i64 noundef %80) #17
+  %84 = tail call noalias ptr @malloc(i64 noundef %80) #16
   br label %85
 
 85:                                               ; preds = %83, %81
@@ -883,11 +883,11 @@ Mig_ObjIsTravIdCurrent.exit:                      ; preds = %.lr.ph, %._crit_edg
   br i1 %.not9.i21.i.i.i21, label %95, label %93
 
 93:                                               ; preds = %88
-  %94 = tail call ptr @realloc(ptr noundef nonnull %90, i64 noundef %92) #19
+  %94 = tail call ptr @realloc(ptr noundef nonnull %90, i64 noundef %92) #18
   br label %97
 
 95:                                               ; preds = %88
-  %96 = tail call noalias ptr @malloc(i64 noundef %92) #17
+  %96 = tail call noalias ptr @malloc(i64 noundef %92) #16
   br label %97
 
 97:                                               ; preds = %95, %93
@@ -1087,11 +1087,11 @@ define i32 @Mig_ManSuppSize2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not9.i.i.i.i, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %19) #19
+  %21 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %19) #18
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 22:                                               ; preds = %16
-  %23 = tail call noalias ptr @malloc(i64 noundef %19) #17
+  %23 = tail call noalias ptr @malloc(i64 noundef %19) #16
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 24:                                               ; preds = %12
@@ -1105,11 +1105,11 @@ define i32 @Mig_ManSuppSize2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not9.i21.i.i.i, label %31, label %29
 
 29:                                               ; preds = %25
-  %30 = tail call ptr @realloc(ptr noundef nonnull %26, i64 noundef %28) #19
+  %30 = tail call ptr @realloc(ptr noundef nonnull %26, i64 noundef %28) #18
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 31:                                               ; preds = %25
-  %32 = tail call noalias ptr @malloc(i64 noundef %28) #17
+  %32 = tail call noalias ptr @malloc(i64 noundef %28) #16
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %29, %31, %20, %22
@@ -1165,7 +1165,7 @@ Vec_IntGrow.exit.sink.split.i.i.i23:              ; preds = %47
   %. = tail call i32 @llvm.smax.i32(i32 %49, i32 %10)
   %50 = sext i32 %. to i64
   %51 = shl nsw i64 %50, 2
-  %52 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i, i64 noundef %51) #19
+  %52 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i, i64 noundef %51) #18
   store ptr %52, ptr %6, align 8, !tbaa !3
   store i32 %., ptr %4, align 8, !tbaa !10
   %.pre.i.i25 = load i32, ptr %5, align 4, !tbaa !36
@@ -1276,7 +1276,7 @@ define i32 @Mig_ManSuppSizeOne(ptr noundef readonly captures(none) %0) local_unn
 18:                                               ; preds = %13
   %19 = sext i32 %16 to i64
   %20 = shl nsw i64 %19, 2
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #17
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #16
   store ptr %21, ptr %10, align 8, !tbaa !3
   store i32 %16, ptr %14, align 8, !tbaa !10
   br label %Vec_IntGrow.exit.i.i
@@ -1327,8 +1327,8 @@ Mig_ObjIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
 define noundef i32 @Mig_ManSuppSizeTest(ptr noundef captures(none) initializes((80, 84)) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #18
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #17
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %Abc_Clock.exit, label %6
 
@@ -1343,7 +1343,7 @@ define noundef i32 @Mig_ManSuppSizeTest(ptr noundef captures(none) initializes((
 
 Abc_Clock.exit:                                   ; preds = %1, %6
   %.0.i.neg = phi i64 [ %.neg25, %6 ], [ 1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = getelementptr i8, ptr %0, i64 32
   %12 = getelementptr i8, ptr %0, i64 28
@@ -1409,7 +1409,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 40:                                               ; preds = %35
   %41 = sext i32 %38 to i64
   %42 = shl nsw i64 %41, 2
-  %43 = call noalias ptr @malloc(i64 noundef %42) #17
+  %43 = call noalias ptr @malloc(i64 noundef %42) #16
   store ptr %43, ptr %32, align 8, !tbaa !3
   store i32 %38, ptr %36, align 8, !tbaa !10
   br label %Vec_IntGrow.exit.i.i.i
@@ -1492,8 +1492,8 @@ Mig_ManSuppSizeOne.exit:                          ; preds = %24, %Vec_IntFill.ex
   %76 = xor i32 %75, -1
   %77 = add i32 %72, %76
   %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.016.lcssa, i32 noundef %77)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
-  %79 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
+  %79 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #17
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %Abc_Clock.exit23, label %81
 
@@ -1508,7 +1508,7 @@ Mig_ManSuppSizeOne.exit:                          ; preds = %24, %Vec_IntFill.ex
 
 Abc_Clock.exit23:                                 ; preds = %.critedge, %81
   %.0.i22 = phi i64 [ %87, %81 ], [ -1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
   %88 = add i64 %.0.i22, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1)
   %89 = sitofp i64 %88 to double
@@ -1535,30 +1535,30 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
 ; Function Attrs: inlinehint nounwind uwtable
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !35
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #18
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #17
   %10 = load ptr, ptr @stdout, align 8, !tbaa !49
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #18
-  call void @free(ptr noundef %9) #18
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
+  call void @free(ptr noundef %9) #17
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !49, !noalias !51
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #18
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #17
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -1566,7 +1566,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
   br label %18
 
 18:                                               ; preds = %2, %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   ret void
 }
 

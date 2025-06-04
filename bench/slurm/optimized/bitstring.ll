@@ -1066,7 +1066,7 @@ define dso_local i32 @bit_nset_max_count(ptr noundef readonly captures(none) %0)
   %10 = add nsw i32 %.01622, 1
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.01523, i32 %10)
   %.117 = select i1 %.not, i32 0, i32 %10
-  %.2 = select i1 %.not, i32 %.01523, i32 %spec.select
+  %11 = select i1 %.not, i32 %.01523, i32 %spec.select
   %11 = icmp eq i32 %.117, 0
   br i1 %11, label %12, label %18
 
@@ -1079,16 +1079,16 @@ define dso_local i32 @bit_nset_max_count(ptr noundef readonly captures(none) %0)
   %or.cond = select i1 %15, i1 %17, i1 false
   br i1 %or.cond, label %.lr.ph.backedge, label %._crit_edge
 
-18:                                               ; preds = %.lr.ph
+19:                                               ; preds = %.lr.ph
   %.old = add nuw nsw i64 %.024, 1
   %.old27 = icmp samesign ult i64 %.old, %4
   br i1 %.old27, label %.lr.ph.backedge, label %._crit_edge
 
-.lr.ph.backedge:                                  ; preds = %18, %12
+.lr.ph.backedge:                                  ; preds = %19, %12
   %.024.be = phi i64 [ %.old, %18 ], [ %16, %12 ]
   br label %.lr.ph, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %18, %12, %1
+._crit_edge:                                      ; preds = %19, %12, %1
   %.1 = phi i32 [ 0, %1 ], [ %.2, %12 ], [ %.2, %18 ]
   ret i32 %.1
 }

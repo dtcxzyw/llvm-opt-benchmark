@@ -4361,8 +4361,8 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPK
   %7 = sub nsw i32 %2, %6
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 -1)
   %9 = sub nsw i32 %3, %6
-  %.not25.not = icmp slt i32 %8, %9
-  br i1 %.not25.not, label %.lr.ph, label %._crit_edge
+  %.not25 = icmp slt i32 %8, %9
+  br i1 %.not25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
   %.0 = add nsw i32 %8, 1

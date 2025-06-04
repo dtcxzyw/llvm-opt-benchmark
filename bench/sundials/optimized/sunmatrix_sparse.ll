@@ -1375,66 +1375,66 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
 
 .preheader129:                                    ; preds = %._crit_edge137
   %37 = icmp sgt i64 %6, 0
-  %.pre166 = load ptr, ptr %35, align 8, !tbaa !20
-  %38 = getelementptr inbounds nuw i8, ptr %.pre166, i64 56
+  %.pre168 = load ptr, ptr %35, align 8, !tbaa !20
+  %38 = getelementptr inbounds nuw i8, ptr %.pre168, i64 56
   %39 = load ptr, ptr %38, align 8, !tbaa !35
-  br i1 %37, label %.lr.ph148, label %._crit_edge149
+  br i1 %37, label %.lr.ph149, label %._crit_edge149
 
-.lr.ph148:                                        ; preds = %.preheader129
+.lr.ph149:                                        ; preds = %.preheader129
   %40 = load ptr, ptr %0, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %43 = add nsw i64 %8, -1
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %46 = getelementptr inbounds nuw i8, ptr %.pre166, i64 48
-  %47 = getelementptr inbounds nuw i8, ptr %.pre166, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.pre168, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.pre168, i64 32
   br label %94
 
 .preheader:                                       ; preds = %._crit_edge137
-  %.pre170 = load ptr, ptr %35, align 8, !tbaa !20
-  %48 = getelementptr inbounds nuw i8, ptr %.pre170, i64 56
+  %.pre172 = load ptr, ptr %35, align 8, !tbaa !20
+  %48 = getelementptr inbounds nuw i8, ptr %.pre172, i64 56
   %49 = load ptr, ptr %48, align 8, !tbaa !35
-  br i1 %9, label %.lr.ph160, label %._crit_edge161
+  br i1 %9, label %.lr.ph162, label %._crit_edge161
 
-.lr.ph160:                                        ; preds = %.preheader
+.lr.ph162:                                        ; preds = %.preheader
   %50 = load ptr, ptr %0, align 8, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %53 = add nsw i64 %6, -1
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %56 = getelementptr inbounds nuw i8, ptr %.pre170, i64 48
-  %57 = getelementptr inbounds nuw i8, ptr %.pre170, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.pre172, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.pre172, i64 32
   br label %58
 
-58:                                               ; preds = %.lr.ph160, %._crit_edge156
-  %.1106159 = phi i64 [ 0, %.lr.ph160 ], [ %92, %._crit_edge156 ]
-  %.2110158 = phi i64 [ 0, %.lr.ph160 ], [ %.3.lcssa, %._crit_edge156 ]
-  %59 = getelementptr inbounds nuw i64, ptr %49, i64 %.1106159
-  store i64 %.2110158, ptr %59, align 8, !tbaa !43
+58:                                               ; preds = %.lr.ph162, %._crit_edge156
+  %.1106161 = phi i64 [ 0, %.lr.ph160 ], [ %92, %._crit_edge156 ]
+  %.2110160 = phi i64 [ 0, %.lr.ph160 ], [ %.3.lcssa, %._crit_edge156 ]
+  %59 = getelementptr inbounds nuw i64, ptr %49, i64 %.1106161
+  store i64 %.2110160, ptr %59, align 8, !tbaa !43
   %60 = load i64, ptr %51, align 8, !tbaa !53
-  %61 = sub nsw i64 %.1106159, %60
+  %61 = sub nsw i64 %.1106161, %60
   %spec.select127 = tail call i64 @llvm.smax.i64(i64 %61, i64 0)
   %62 = load i64, ptr %52, align 8, !tbaa !54
-  %63 = add nsw i64 %62, %.1106159
+  %63 = add nsw i64 %62, %.1106161
   %64 = tail call i64 @llvm.smin.i64(i64 %63, i64 %53)
   %.not124151 = icmp sgt i64 %spec.select127, %64
   br i1 %.not124151, label %._crit_edge156, label %.lr.ph155
 
-.lr.ph155:                                        ; preds = %58
+.lr.ph157:                                        ; preds = %58
   %65 = load ptr, ptr %54, align 8, !tbaa !55
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.1106159
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.1106161
   %67 = load ptr, ptr %66, align 8, !tbaa !49
-  %.pre168 = load i64, ptr %55, align 8, !tbaa !56
+  %.pre170 = load i64, ptr %55, align 8, !tbaa !56
   br label %68
 
-68:                                               ; preds = %.lr.ph155, %86
+68:                                               ; preds = %.lr.ph157, %86
   %69 = phi i64 [ %62, %.lr.ph155 ], [ %87, %86 ]
-  %70 = phi i64 [ %.pre168, %.lr.ph155 ], [ %88, %86 ]
-  %.1153 = phi i64 [ %spec.select127, %.lr.ph155 ], [ %89, %86 ]
-  %.3152 = phi i64 [ %.2110158, %.lr.ph155 ], [ %.4, %86 ]
-  %71 = sub nsw i64 %.1153, %.1106159
+  %70 = phi i64 [ %.pre170, %.lr.ph155 ], [ %88, %86 ]
+  %.1155 = phi i64 [ %spec.select127, %.lr.ph155 ], [ %89, %86 ]
+  %.3154 = phi i64 [ %.2110160, %.lr.ph155 ], [ %.4, %86 ]
+  %71 = sub nsw i64 %.1155, %.1106161
   %72 = getelementptr double, ptr %67, i64 %71
   %73 = getelementptr double, ptr %72, i64 %70
   %74 = load double, ptr %73, align 8, !tbaa !41
@@ -1444,31 +1444,31 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
 
 77:                                               ; preds = %68
   %78 = load ptr, ptr %56, align 8, !tbaa !34
-  %79 = getelementptr inbounds i64, ptr %78, i64 %.3152
-  store i64 %.1153, ptr %79, align 8, !tbaa !43
+  %79 = getelementptr inbounds i64, ptr %78, i64 %.3154
+  store i64 %.1155, ptr %79, align 8, !tbaa !43
   %80 = load i64, ptr %55, align 8, !tbaa !56
   %81 = getelementptr double, ptr %72, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !41
   %83 = load ptr, ptr %57, align 8, !tbaa !33
-  %84 = add nsw i64 %.3152, 1
-  %85 = getelementptr inbounds double, ptr %83, i64 %.3152
+  %84 = add nsw i64 %.3154, 1
+  %85 = getelementptr inbounds double, ptr %83, i64 %.3154
   store double %82, ptr %85, align 8, !tbaa !41
-  %.pre169 = load i64, ptr %52, align 8, !tbaa !54
+  %.pre171 = load i64, ptr %52, align 8, !tbaa !54
   br label %86
 
 86:                                               ; preds = %68, %77
-  %87 = phi i64 [ %.pre169, %77 ], [ %69, %68 ]
+  %87 = phi i64 [ %.pre171, %77 ], [ %69, %68 ]
   %88 = phi i64 [ %80, %77 ], [ %70, %68 ]
-  %.4 = phi i64 [ %84, %77 ], [ %.3152, %68 ]
-  %89 = add nuw nsw i64 %.1153, 1
-  %90 = add nsw i64 %87, %.1106159
+  %.4 = phi i64 [ %84, %77 ], [ %.3154, %68 ]
+  %89 = add nuw nsw i64 %.1155, 1
+  %90 = add nsw i64 %87, %.1106161
   %91 = tail call i64 @llvm.smin.i64(i64 %90, i64 %53)
-  %.not124.not = icmp slt i64 %.1153, %91
+  %.not124.not = icmp slt i64 %.1155, %91
   br i1 %.not124.not, label %68, label %._crit_edge156
 
 ._crit_edge156:                                   ; preds = %86, %58
   %.3.lcssa = phi i64 [ %.2110158, %58 ], [ %.4, %86 ]
-  %92 = add nuw nsw i64 %.1106159, 1
+  %92 = add nuw nsw i64 %.1106161, 1
   %exitcond164.not = icmp eq i64 %92, %8
   br i1 %exitcond164.not, label %._crit_edge161, label %58
 
@@ -1478,33 +1478,33 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   store i64 %.2110.lcssa, ptr %93, align 8, !tbaa !43
   br label %130
 
-94:                                               ; preds = %.lr.ph148, %._crit_edge144
-  %.2147 = phi i64 [ 0, %.lr.ph148 ], [ %128, %._crit_edge144 ]
-  %.5146 = phi i64 [ 0, %.lr.ph148 ], [ %.6.lcssa, %._crit_edge144 ]
-  %95 = getelementptr inbounds nuw i64, ptr %39, i64 %.2147
-  store i64 %.5146, ptr %95, align 8, !tbaa !43
+94:                                               ; preds = %.lr.ph149, %._crit_edge144
+  %.2148 = phi i64 [ 0, %.lr.ph148 ], [ %128, %._crit_edge144 ]
+  %.5147 = phi i64 [ 0, %.lr.ph148 ], [ %.6.lcssa, %._crit_edge144 ]
+  %95 = getelementptr inbounds nuw i64, ptr %39, i64 %.2148
+  store i64 %.5147, ptr %95, align 8, !tbaa !43
   %96 = load i64, ptr %41, align 8, !tbaa !54
-  %97 = sub nsw i64 %.2147, %96
+  %97 = sub nsw i64 %.2148, %96
   %spec.select128 = tail call i64 @llvm.smax.i64(i64 %97, i64 0)
   %98 = load i64, ptr %42, align 8, !tbaa !53
-  %99 = add nsw i64 %98, %.2147
+  %99 = add nsw i64 %98, %.2148
   %100 = tail call i64 @llvm.smin.i64(i64 %99, i64 %43)
   %.not122139 = icmp sgt i64 %spec.select128, %100
   br i1 %.not122139, label %._crit_edge144, label %.lr.ph143
 
-.lr.ph143:                                        ; preds = %94
+.lr.ph144:                                        ; preds = %94
   %101 = load ptr, ptr %44, align 8, !tbaa !55
   %.pre = load i64, ptr %45, align 8, !tbaa !56
   br label %102
 
-102:                                              ; preds = %.lr.ph143, %122
+102:                                              ; preds = %.lr.ph144, %122
   %103 = phi i64 [ %98, %.lr.ph143 ], [ %123, %122 ]
   %104 = phi i64 [ %.pre, %.lr.ph143 ], [ %124, %122 ]
-  %.2107141 = phi i64 [ %spec.select128, %.lr.ph143 ], [ %125, %122 ]
-  %.6140 = phi i64 [ %.5146, %.lr.ph143 ], [ %.7, %122 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %.2107141
+  %.2107142 = phi i64 [ %spec.select128, %.lr.ph143 ], [ %125, %122 ]
+  %.6141 = phi i64 [ %.5147, %.lr.ph143 ], [ %.7, %122 ]
+  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %.2107142
   %106 = load ptr, ptr %105, align 8, !tbaa !49
-  %107 = sub nsw i64 %.2147, %.2107141
+  %107 = sub nsw i64 %.2148, %.2107142
   %108 = getelementptr double, ptr %106, i64 %107
   %109 = getelementptr double, ptr %108, i64 %104
   %110 = load double, ptr %109, align 8, !tbaa !41
@@ -1514,24 +1514,24 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
 
 113:                                              ; preds = %102
   %114 = load ptr, ptr %46, align 8, !tbaa !34
-  %115 = getelementptr inbounds i64, ptr %114, i64 %.6140
-  store i64 %.2107141, ptr %115, align 8, !tbaa !43
+  %115 = getelementptr inbounds i64, ptr %114, i64 %.6141
+  store i64 %.2107142, ptr %115, align 8, !tbaa !43
   %116 = load i64, ptr %45, align 8, !tbaa !56
   %117 = getelementptr double, ptr %108, i64 %116
   %118 = load double, ptr %117, align 8, !tbaa !41
   %119 = load ptr, ptr %47, align 8, !tbaa !33
-  %120 = add nsw i64 %.6140, 1
-  %121 = getelementptr inbounds double, ptr %119, i64 %.6140
+  %120 = add nsw i64 %.6141, 1
+  %121 = getelementptr inbounds double, ptr %119, i64 %.6141
   store double %118, ptr %121, align 8, !tbaa !41
-  %.pre165 = load i64, ptr %42, align 8, !tbaa !53
+  %.pre167 = load i64, ptr %42, align 8, !tbaa !53
   br label %122
 
 122:                                              ; preds = %102, %113
-  %123 = phi i64 [ %.pre165, %113 ], [ %103, %102 ]
+  %123 = phi i64 [ %.pre167, %113 ], [ %103, %102 ]
   %124 = phi i64 [ %116, %113 ], [ %104, %102 ]
-  %.7 = phi i64 [ %120, %113 ], [ %.6140, %102 ]
-  %125 = add nuw nsw i64 %.2107141, 1
-  %126 = add nsw i64 %123, %.2147
+  %.7 = phi i64 [ %120, %113 ], [ %.6141, %102 ]
+  %125 = add nuw nsw i64 %.2107142, 1
+  %126 = add nsw i64 %123, %.2148
   %127 = tail call i64 @llvm.smin.i64(i64 %126, i64 %43)
   %.not122.not = icmp slt i64 %.2107141, %127
   br i1 %.not122.not, label %102, label %._crit_edge144
