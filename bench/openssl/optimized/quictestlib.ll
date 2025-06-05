@@ -1958,74 +1958,71 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %11
   %60 = phi i64 [ %.pre, %56 ], [ %10, %48 ]
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 %60
   %62 = icmp ult ptr %46, %61
-  %63 = ptrtoint ptr %46 to i64
-  %64 = ptrtoint ptr %.sroa.054.0 to i64
-  %65 = sub i64 %63, %64
-  br i1 %62, label %66, label %._crit_edge
+  br i1 %62, label %63, label %65
 
-66:                                               ; preds = %59
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.sroa.054.0, ptr nonnull align 1 %46, i64 %65, i1 false)
+63:                                               ; preds = %59
+  %64 = add nuw nsw i64 %41, 4
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.054.0, ptr noundef nonnull align 1 dereferenceable(1) %46, i64 %64, i1 false)
   %.pre83 = load i64, ptr %3, align 8, !tbaa !46
-  br label %._crit_edge
+  br label %65
 
-._crit_edge:                                      ; preds = %59, %66
-  %67 = phi i64 [ %.pre83, %66 ], [ %60, %59 ]
-  %reass.sub = sub i64 %67, %65
-  %68 = add i64 %reass.sub, -2
+65:                                               ; preds = %63, %59
+  %66 = phi i64 [ %.pre83, %63 ], [ %60, %59 ]
+  %67 = sub i64 %66, %41
+  %68 = add i64 %67, -6
   %69 = lshr i64 %68, 8
   %70 = trunc i64 %69 to i8
   store i8 %70, ptr %2, align 1, !tbaa !56
   %71 = trunc i64 %68 to i8
   store i8 %71, ptr %15, align 1, !tbaa !56
-  store i64 %reass.sub, ptr %3, align 8, !tbaa !46
-  %72 = add i64 %65, 4
-  %73 = icmp ugt i64 %72, %9
-  br i1 %73, label %PACKET_buf_init.exit.thread, label %74
+  %72 = add i64 %67, -4
+  store i64 %72, ptr %3, align 8, !tbaa !46
+  %73 = add nuw nsw i64 %41, 8
+  %74 = icmp ugt i64 %73, %9
+  br i1 %74, label %PACKET_buf_init.exit.thread, label %75
 
-74:                                               ; preds = %._crit_edge
-  %75 = sub nuw i64 %9, %72
-  %76 = add i64 %75, 4
-  %77 = load i64, ptr %8, align 8, !tbaa !81
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %79 = load i64, ptr %78, align 8, !tbaa !82
-  %80 = icmp eq i64 %79, 0
-  %81 = icmp ugt i64 %76, %79
-  %or.cond.i.i = or i1 %80, %81
-  br i1 %or.cond.i.i, label %PACKET_buf_init.exit.thread, label %82
+75:                                               ; preds = %65
+  %76 = sub nuw i64 %9, %73
+  %77 = add nuw i64 %76, 4
+  %78 = load i64, ptr %8, align 8, !tbaa !81
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %80 = load i64, ptr %79, align 8, !tbaa !82
+  %81 = icmp ugt i64 %77, %80
+  br i1 %81, label %PACKET_buf_init.exit.thread, label %82
 
-82:                                               ; preds = %74
-  %83 = icmp ugt i64 %76, %77
+82:                                               ; preds = %75
+  %83 = icmp ugt i64 %77, %78
   br i1 %83, label %84, label %qtest_fault_resize_message.exit
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %86 = load ptr, ptr %85, align 8, !tbaa !63
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %77
-  %88 = sub nuw i64 %76, %77
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %78
+  %88 = sub nuw i64 %77, %78
   call void @llvm.memset.p0.i64(ptr align 1 %87, i8 0, i64 %88, i1 false)
   br label %qtest_fault_resize_message.exit
 
 qtest_fault_resize_message.exit:                  ; preds = %82, %84
-  store i64 %76, ptr %8, align 8, !tbaa !81
-  %89 = lshr i64 %75, 16
+  store i64 %77, ptr %8, align 8, !tbaa !81
+  %89 = lshr i64 %76, 16
   %90 = trunc i64 %89 to i8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %92 = load ptr, ptr %91, align 8, !tbaa !63
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store i8 %90, ptr %93, align 1, !tbaa !56
-  %94 = lshr i64 %75, 8
+  %94 = lshr i64 %76, 8
   %95 = trunc i64 %94 to i8
   %96 = load ptr, ptr %91, align 8, !tbaa !63
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 2
   store i8 %95, ptr %97, align 1, !tbaa !56
-  %98 = trunc i64 %75 to i8
+  %98 = trunc i64 %76 to i8
   %99 = load ptr, ptr %91, align 8, !tbaa !63
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 3
   store i8 %98, ptr %100, align 1, !tbaa !56
   br label %PACKET_buf_init.exit.thread
 
-PACKET_buf_init.exit.thread:                      ; preds = %33, %23, %21, %11, %5, %qtest_fault_resize_message.exit, %74, %._crit_edge, %49, %55
-  %.0 = phi i32 [ 0, %55 ], [ 0, %49 ], [ 0, %._crit_edge ], [ 1, %qtest_fault_resize_message.exit ], [ 0, %74 ], [ 0, %5 ], [ 0, %11 ], [ 0, %21 ], [ 0, %23 ], [ 0, %33 ]
+PACKET_buf_init.exit.thread:                      ; preds = %33, %23, %21, %11, %5, %qtest_fault_resize_message.exit, %75, %65, %49, %55
+  %.0 = phi i32 [ 0, %55 ], [ 0, %49 ], [ 0, %65 ], [ 1, %qtest_fault_resize_message.exit ], [ 0, %75 ], [ 0, %5 ], [ 0, %11 ], [ 0, %21 ], [ 0, %23 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
   ret i32 %.0

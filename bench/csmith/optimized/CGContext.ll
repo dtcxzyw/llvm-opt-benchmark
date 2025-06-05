@@ -2478,9 +2478,7 @@ _ZNSt6vectorIPK5BlockSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8, !tbaa !45
   %.not = icmp eq ptr %41, null
-  %.pre60 = ptrtoint ptr %36 to i64
-  %.pre62 = ptrtoint ptr %32 to i64
-  %.pre64 = sub i64 %.pre60, %.pre62
+  %.pre = add i64 %23, 8
   br i1 %.not, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit, label %42
 
 42:                                               ; preds = %38
@@ -2490,28 +2488,28 @@ _ZNSt6vectorIPK5BlockSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = 
 
 .noexc13.thread:                                  ; preds = %42
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %44 = getelementptr inbounds i8, ptr null, i64 %.pre64
+  %44 = getelementptr inbounds i8, ptr null, i64 %.pre
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %44, ptr %45, align 8, !tbaa !47
   br label %53
 
 46:                                               ; preds = %42
-  %47 = icmp ugt i64 %.pre64, 9223372036854775800
+  %47 = icmp ugt i64 %.pre, 9223372036854775800
   br i1 %47, label %.noexc.i.i21.invoke, label %_ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i9, !prof !50
 
 _ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i9: ; preds = %46
-  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre64) #23
+  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre) #23
           to label %49 unwind label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55
 
 49:                                               ; preds = %_ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i9
   store ptr %48, ptr %4, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %48, ptr %50, align 8, !tbaa !49
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.pre64
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.pre
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %51, ptr %52, align 8, !tbaa !47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %32, i64 %.pre64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %32, i64 %.pre, i1 false)
   br label %53
 
 53:                                               ; preds = %49, %.noexc13.thread
@@ -2557,14 +2555,14 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit:           ; preds = %38, %59, %57
 
 .noexc23.thread:                                  ; preds = %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %73 = getelementptr inbounds i8, ptr null, i64 %.pre64
+  %73 = getelementptr inbounds i8, ptr null, i64 %.pre
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %73, ptr %74, align 8, !tbaa !47
   br label %82
 
 75:                                               ; preds = %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit
-  %76 = icmp ugt i64 %.pre64, 9223372036854775800
+  %76 = icmp ugt i64 %.pre, 9223372036854775800
   br i1 %76, label %.noexc.i.i21.invoke, label %_ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i19, !prof !50
 
 .noexc.i.i21.invoke:                              ; preds = %75, %46
@@ -2575,17 +2573,17 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit:           ; preds = %38, %59, %57
   unreachable
 
 _ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i19: ; preds = %75
-  %77 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre64) #23
+  %77 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre) #23
           to label %78 unwind label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55
 
 78:                                               ; preds = %_ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i19
   store ptr %77, ptr %5, align 8, !tbaa !46
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %77, ptr %79, align 8, !tbaa !49
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %.pre64
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %.pre
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %80, ptr %81, align 8, !tbaa !47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %32, i64 %.pre64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %32, i64 %.pre, i1 false)
   br label %82
 
 82:                                               ; preds = %78, %.noexc23.thread
@@ -2632,7 +2630,6 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit28:         ; preds = %87, %89
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55: ; preds = %.noexc.i.i21.invoke, %_ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i19, %_ZNSt16allocator_traitsISaIPK5BlockEE8allocateERS3_m.exit.i.i.i.i9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %.pre = ptrtoint ptr %32 to i64
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17:         ; preds = %25, %_ZNKSt6vectorIPK5BlockSaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -2642,13 +2639,13 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17:         ; preds = %25, %_ZNKSt6vectorI
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit32, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread:  ; preds = %97, %94, %67, %64, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
-  %.pre-phi = phi i64 [ %.pre62, %97 ], [ %.pre62, %94 ], [ %.pre62, %67 ], [ %.pre62, %64 ], [ %.pre, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %22, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ]
-  %.pn52 = phi { ptr, i32 } [ %95, %97 ], [ %95, %94 ], [ %65, %67 ], [ %65, %64 ], [ %lpad.thr_comm, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ]
-  %.sroa.22.151 = phi ptr [ %39, %97 ], [ %39, %94 ], [ %39, %67 ], [ %39, %64 ], [ %39, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %19, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ]
-  %.sroa.0.150 = phi ptr [ %32, %97 ], [ %32, %94 ], [ %32, %67 ], [ %32, %64 ], [ %32, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %20, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ]
+  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %lpad.thr_comm, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %95, %97 ], [ %95, %94 ], [ %65, %67 ], [ %65, %64 ]
+  %.sroa.22.151 = phi ptr [ %19, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %39, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %39, %97 ], [ %39, %94 ], [ %39, %67 ], [ %39, %64 ]
+  %.sroa.0.150 = phi ptr [ %20, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %32, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %32, %97 ], [ %32, %94 ], [ %32, %67 ], [ %32, %64 ]
   %102 = ptrtoint ptr %.sroa.22.151 to i64
-  %103 = sub i64 %102, %.pre-phi
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.150, i64 noundef %103) #19
+  %103 = ptrtoint ptr %.sroa.0.150 to i64
+  %104 = sub i64 %102, %103
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.150, i64 noundef %104) #19
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit32
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit32:         ; preds = %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread

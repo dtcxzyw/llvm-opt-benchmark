@@ -25574,14 +25574,14 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPPN4pkpy8PyObjectEEET_S5_S5_
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %.053, align 8
-  %.idx = shl nsw i64 %.076, 3
-  %31 = getelementptr inbounds i8, ptr %.053, i64 %.idx
+  %.idx78 = shl nsw i64 %.076, 3
+  %31 = getelementptr inbounds i8, ptr %.053, i64 %.idx78
   %.not.i.i.i.i.i = icmp eq i64 %.076, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.053, i64 8
-  %gepdiff = add nsw i64 %.idx, -8
+  %gepdiff = add nsw i64 %.idx78, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.053, ptr nonnull align 8 %33, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
 
@@ -25592,40 +25592,40 @@ _ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
 
 35:                                               ; preds = %27
   %36 = icmp sgt i64 %25, 0
-  br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
+  br i1 %36, label %.lr.ph91.preheader, label %._crit_edge92
 
-.lr.ph90.preheader:                               ; preds = %35
+.lr.ph91.preheader:                               ; preds = %35
   %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
-  br label %.lr.ph90
+  br label %.lr.ph91
 
-.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
-  %.05188 = phi i64 [ %42, %.lr.ph90 ], [ 0, %.lr.ph90.preheader ]
-  %.05287 = phi ptr [ %41, %.lr.ph90 ], [ %37, %.lr.ph90.preheader ]
-  %.186 = phi ptr [ %40, %.lr.ph90 ], [ %.053, %.lr.ph90.preheader ]
-  %38 = load ptr, ptr %.186, align 8
-  %39 = load ptr, ptr %.05287, align 8
-  store ptr %39, ptr %.186, align 8
-  store ptr %38, ptr %.05287, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.186, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %.05287, i64 8
-  %42 = add nuw nsw i64 %.05188, 1
-  %exitcond99.not = icmp eq i64 %42, %25
-  br i1 %exitcond99.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !103
+.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
+  %.05189 = phi i64 [ %42, %.lr.ph91 ], [ 0, %.lr.ph91.preheader ]
+  %.05288 = phi ptr [ %41, %.lr.ph91 ], [ %37, %.lr.ph91.preheader ]
+  %.187 = phi ptr [ %40, %.lr.ph91 ], [ %.053, %.lr.ph91.preheader ]
+  %38 = load ptr, ptr %.187, align 8
+  %39 = load ptr, ptr %.05288, align 8
+  store ptr %39, ptr %.187, align 8
+  store ptr %38, ptr %.05288, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %.187, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.05288, i64 8
+  %42 = add nuw nsw i64 %.05189, 1
+  %exitcond100.not = icmp eq i64 %42, %25
+  br i1 %exitcond100.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !103
 
-._crit_edge91:                                    ; preds = %.lr.ph90, %35
-  %.1.lcssa = phi ptr [ %.053, %35 ], [ %40, %.lr.ph90 ]
+._crit_edge92:                                    ; preds = %.lr.ph91, %35
+  %.1.lcssa = phi ptr [ %.053, %35 ], [ %40, %.lr.ph91 ]
   %43 = srem i64 %.076, %.074
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %45
 
-45:                                               ; preds = %._crit_edge91
+45:                                               ; preds = %._crit_edge92
   %46 = sub nsw i64 %.074, %43
   br label %.backedge
 
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
   %49 = getelementptr inbounds ptr, ptr %.053, i64 %.076
-  br i1 %48, label %50, label %60
+  br i1 %48, label %50, label %58
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -8
@@ -25634,53 +25634,52 @@ _ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   br i1 %.not.i.i.i.i.i59, label %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = ptrtoint ptr %51 to i64
-  %55 = ptrtoint ptr %.053 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds ptr, ptr %49, i64 %58
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.053, i64 %56, i1 false)
+  %.idx = shl nsw i64 %.076, 3
+  %54 = add i64 %.idx, -8
+  %55 = ashr exact i64 %54, 3
+  %56 = sub nsw i64 0, %55
+  %57 = getelementptr inbounds ptr, ptr %49, i64 %56
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %.053, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
   store ptr %52, ptr %.053, align 8
   br label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
 
-60:                                               ; preds = %47
-  %61 = sub i64 0, %25
-  %62 = getelementptr inbounds ptr, ptr %49, i64 %61
-  %63 = icmp sgt i64 %.074, 0
-  br i1 %63, label %.lr.ph, label %._crit_edge
+58:                                               ; preds = %47
+  %59 = sub i64 0, %25
+  %60 = getelementptr inbounds ptr, ptr %49, i64 %59
+  %61 = icmp sgt i64 %.074, 0
+  br i1 %61, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %60, %.lr.ph
-  %.085 = phi i64 [ %68, %.lr.ph ], [ 0, %60 ]
-  %.04984 = phi ptr [ %65, %.lr.ph ], [ %49, %60 ]
-  %.383 = phi ptr [ %64, %.lr.ph ], [ %62, %60 ]
-  %64 = getelementptr inbounds i8, ptr %.383, i64 -8
-  %65 = getelementptr inbounds i8, ptr %.04984, i64 -8
-  %66 = load ptr, ptr %64, align 8
-  %67 = load ptr, ptr %65, align 8
-  store ptr %67, ptr %64, align 8
-  store ptr %66, ptr %65, align 8
-  %68 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %68, %.074
+.lr.ph:                                           ; preds = %58, %.lr.ph
+  %.086 = phi i64 [ %66, %.lr.ph ], [ 0, %58 ]
+  %.04985 = phi ptr [ %63, %.lr.ph ], [ %49, %58 ]
+  %.384 = phi ptr [ %62, %.lr.ph ], [ %60, %58 ]
+  %62 = getelementptr inbounds i8, ptr %.384, i64 -8
+  %63 = getelementptr inbounds i8, ptr %.04985, i64 -8
+  %64 = load ptr, ptr %62, align 8
+  %65 = load ptr, ptr %63, align 8
+  store ptr %65, ptr %62, align 8
+  store ptr %64, ptr %63, align 8
+  %66 = add nuw nsw i64 %.086, 1
+  %exitcond.not = icmp eq i64 %66, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %.lr.ph, %60
-  %.3.lcssa = phi ptr [ %62, %60 ], [ %.053, %.lr.ph ]
-  %69 = srem i64 %.076, %25
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %58
+  %.3.lcssa = phi ptr [ %60, %58 ], [ %.053, %.lr.ph ]
+  %67 = srem i64 %.076, %25
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %69, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %67, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !105
 
-_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge91, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
-  %.050 = phi ptr [ %23, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge91 ], [ %23, %._crit_edge ]
+_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge92, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
+  %.050 = phi ptr [ %23, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
   ret ptr %.050
 }
 

@@ -4004,13 +4004,15 @@ _ZN17QArrayDataPointerIP12DecodeAsItemE6detachEPS2_.exit.i: ; preds = %_ZNK17QAr
   %25 = phi ptr [ %23, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.thread.i.i ], [ %17, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.i.i ]
   %26 = phi ptr [ %24, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.thread.i.i ], [ %19, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.i.i ]
   %27 = phi ptr [ %.pre3, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.thread.i.i ], [ %18, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.i.i ]
-  %28 = getelementptr ptr, ptr %27, i64 %1
+  %.idx3.i = shl i64 %1, 3
+  %28 = getelementptr i8, ptr %27, i64 %.idx3.i
   %29 = getelementptr i8, ptr %28, i64 8
   %.idx.mask.i = and i64 %1, 2305843009213693951
   %30 = icmp ne i64 %.idx.mask.i, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr ptr, ptr %27, i64 %32
+  %.idx.i = shl i64 %32, 3
+  %33 = getelementptr i8, ptr %27, i64 %.idx.i
   %.not.i.i = icmp eq ptr %29, %33
   %or.cond.i.i = select i1 %30, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %._crit_edge.i.i, label %34
@@ -4023,17 +4025,16 @@ _ZN17QArrayDataPointerIP12DecodeAsItemE6detachEPS2_.exit.i: ; preds = %_ZNK17QAr
   br i1 %.not.i.i, label %_ZN5QListIP12DecodeAsItemE6removeExx.exit, label %35
 
 35:                                               ; preds = %._crit_edge.i.i
-  %36 = ptrtoint ptr %33 to i64
-  %37 = ptrtoint ptr %29 to i64
-  %38 = sub i64 %36, %37
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %28, ptr noundef align 1 %29, i64 noundef %38, i1 noundef false) #23
+  %reass.sub = sub i64 %.idx.i, %.idx3.i
+  %gepdiff.i = add i64 %reass.sub, -8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %28, ptr noundef align 1 %29, i64 noundef %gepdiff.i, i1 noundef false) #23
   %.pre12.i.i = load i64, ptr %31, align 8
   br label %_ZN5QListIP12DecodeAsItemE6removeExx.exit
 
 _ZN5QListIP12DecodeAsItemE6removeExx.exit:        ; preds = %34, %._crit_edge.i.i, %35
-  %39 = phi i64 [ %32, %._crit_edge.i.i ], [ %.pre12.i.i, %35 ], [ %32, %34 ]
-  %40 = add i64 %39, -1
-  store i64 %40, ptr %31, align 8
+  %36 = phi i64 [ %32, %._crit_edge.i.i ], [ %.pre12.i.i, %35 ], [ %32, %34 ]
+  %37 = add i64 %36, -1
+  store i64 %37, ptr %31, align 8
   ret ptr %25
 }
 

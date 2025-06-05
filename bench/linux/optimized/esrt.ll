@@ -543,17 +543,14 @@ define internal i64 @esre_attr_show(ptr noundef %0, ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @fw_class_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #6 align 16 {
+define internal noundef i64 @fw_class_show(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef %3) #11
   %5 = tail call i64 @strlen(ptr noundef %1) #11
   %6 = getelementptr i8, ptr %1, i64 %5
   store i16 10, ptr %6, align 1
-  %7 = getelementptr i8, ptr %6, i64 1
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %1 to i64
-  %10 = sub i64 %8, %9
-  ret i64 %10
+  %7 = add i64 %5, 1
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

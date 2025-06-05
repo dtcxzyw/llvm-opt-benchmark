@@ -15612,10 +15612,9 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp.i.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %for.body.i
-  %diff.neg = sub i64 0, %__i.sroa.0.012.i.idx
-  %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %diff.neg, 3
-  %cmp5.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i, 0
-  br i1 %cmp5.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.inc.i
+  %gepdiff = sub nsw i64 0, %__i.sroa.0.012.i.idx
+  %sub.ptr.div.i.i.i.i.i.i.i = lshr exact i64 %gepdiff, 3
+  br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.then4.i, %for.body.i.i.i.i.i.i
   %agg.tmp1.sroa.0.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__i.sroa.0.012.i.ptr, %if.then4.i ]
@@ -15644,8 +15643,8 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %cmp.i.i4.i = icmp ult i64 %0, %5
   br i1 %cmp.i.i4.i, label %while.body.i.i, label %for.inc.i, !llvm.loop !140
 
-for.inc.i:                                        ; preds = %while.body.i.i, %for.body.i.i.i.i.i.i, %if.else.i, %if.then4.i
-  %.pre-phi.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %if.then4.i ], [ %__i.sroa.0.012.i.ptr, %if.else.i ], [ %retval.sroa.0.0.copyload.i.i, %for.body.i.i.i.i.i.i ], [ %__next.sroa.0.0.i.i, %while.body.i.i ]
+for.inc.i:                                        ; preds = %while.body.i.i, %for.body.i.i.i.i.i.i, %if.else.i
+  %.pre-phi.sink.i = phi ptr [ %__i.sroa.0.012.i.ptr, %if.else.i ], [ %retval.sroa.0.0.copyload.i.i, %for.body.i.i.i.i.i.i ], [ %__next.sroa.0.0.i.i, %while.body.i.i ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %.pre-phi.sink.i, i64 -8
   store i64 %0, ptr %incdec.ptr.i.i2.i, align 8
   %cmp.i.i.i.not.i = icmp eq i64 %__i.sroa.0.012.i.add, -128

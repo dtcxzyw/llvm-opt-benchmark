@@ -422,9 +422,7 @@ invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %cond.i.i.i.i120320, i64 %sub.ptr.sub.i.i114
   %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i121321, align 8, !tbaa !6
-  %sub.ptr.lhs.cast.i137 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i138 = ptrtoint ptr %cond.i.i.i.i120320 to i64
-  %sub.ptr.sub.i139 = sub i64 %sub.ptr.lhs.cast.i137, %sub.ptr.rhs.cast.i138
+  %sub.ptr.sub.i139 = add nsw i64 %sub.ptr.sub.i.i114, -8
   %sub.ptr.div.i140 = ashr exact i64 %sub.ptr.sub.i139, 3
   %19 = load i64, ptr %numberRates_, align 8, !tbaa !14
   %cmp = icmp eq i64 %sub.ptr.div.i140, %19
@@ -2562,9 +2560,7 @@ invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %cond.i.i.i.i120320, i64 %sub.ptr.sub.i.i114
   %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i121321, align 8, !tbaa !6
-  %sub.ptr.lhs.cast.i137 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i138 = ptrtoint ptr %cond.i.i.i.i120320 to i64
-  %sub.ptr.sub.i139 = sub i64 %sub.ptr.lhs.cast.i137, %sub.ptr.rhs.cast.i138
+  %sub.ptr.sub.i139 = add nsw i64 %sub.ptr.sub.i.i114, -8
   %sub.ptr.div.i140 = ashr exact i64 %sub.ptr.sub.i139, 3
   %19 = load i64, ptr %numberRates_, align 8, !tbaa !57
   %cmp = icmp eq i64 %sub.ptr.div.i140, %19
@@ -3792,9 +3788,7 @@ invoke.cont15:                                    ; preds = %if.then.i.i.i.i.i.i
   %17 = getelementptr inbounds i8, ptr %cond.i.i.i.i101272, i64 %sub.ptr.sub.i.i95
   %incdec.ptr.i = getelementptr inbounds i8, ptr %17, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i102273, align 8, !tbaa !6
-  %sub.ptr.lhs.cast.i118 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i119 = ptrtoint ptr %cond.i.i.i.i101272 to i64
-  %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
+  %sub.ptr.sub.i120 = add nsw i64 %sub.ptr.sub.i.i95, -8
   %sub.ptr.div.i121 = ashr exact i64 %sub.ptr.sub.i120, 3
   %18 = load i64, ptr %numberRates_, align 8, !tbaa !57
   %cmp = icmp eq i64 %sub.ptr.div.i121, %18

@@ -810,7 +810,7 @@ define internal void @ip_ra_destroy_rcu(ptr noundef %0) #0 align 16 {
 define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = tail call ptr @skb_clone(ptr noundef %1, i32 noundef 2080) #14
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %70, label %9
+  br i1 %8, label %64, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -836,74 +836,69 @@ define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef
   store i32 %4, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store i32 0, ptr %25, align 4
-  %26 = getelementptr i8, ptr %17, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 180
-  %28 = load i16, ptr %27, align 4
-  %29 = zext i16 %28 to i64
-  %30 = getelementptr i8, ptr %13, i64 %29
-  %31 = ptrtoint ptr %26 to i64
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %31, %32
-  %34 = trunc i64 %33 to i16
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 %34, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 82
-  store i16 %3, ptr %36, align 2
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %5 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = trunc i64 %41 to i32
-  %43 = tail call ptr @skb_pull(ptr noundef nonnull %7, i32 noundef %42) #14
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %69, label %45
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 180
+  %27 = load i16, ptr %26, align 4
+  %28 = add i16 %15, 24
+  %gepdiff = sub i16 %28, %27
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i16 %gepdiff, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 82
+  store i16 %3, ptr %30, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %5 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  %36 = trunc i64 %35 to i32
+  %37 = tail call ptr @skb_pull(ptr noundef nonnull %7, i32 noundef %36) #14
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %63, label %39
 
-45:                                               ; preds = %9
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %47 = load volatile i64, ptr %46, align 8
-  %48 = and i64 %47, 1024
-  %49 = icmp eq i64 %48, 0
+39:                                               ; preds = %9
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %41 = load volatile i64, ptr %40, align 8
+  %42 = and i64 %41, 1024
+  %43 = icmp eq i64 %42, 0
   %.pre1 = load ptr, ptr %12, align 8
-  br i1 %49, label %60, label %50
+  br i1 %43, label %54, label %44
 
-50:                                               ; preds = %45
-  %51 = load i16, ptr %14, align 2
-  %52 = zext i16 %51 to i64
-  %53 = getelementptr i8, ptr %.pre1, i64 %52
-  %54 = load i8, ptr %53, align 4
-  switch i8 %54, label %60 [
-    i8 3, label %55
-    i8 11, label %55
-    i8 12, label %55
+44:                                               ; preds = %39
+  %45 = load i16, ptr %14, align 2
+  %46 = zext i16 %45 to i64
+  %47 = getelementptr i8, ptr %.pre1, i64 %46
+  %48 = load i8, ptr %47, align 4
+  switch i8 %48, label %54 [
+    i8 3, label %49
+    i8 11, label %49
+    i8 12, label %49
   ]
 
-55:                                               ; preds = %50, %50, %50
-  %56 = getelementptr i8, ptr %53, i64 5
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw nsw i32 %58, 2
-  tail call void @ip_icmp_error_rfc4884(ptr noundef nonnull %7, ptr noundef nonnull %25, i32 noundef 8, i32 noundef %59) #14
+49:                                               ; preds = %44, %44, %44
+  %50 = getelementptr i8, ptr %47, i64 5
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 2
+  tail call void @ip_icmp_error_rfc4884(ptr noundef nonnull %7, ptr noundef nonnull %25, i32 noundef 8, i32 noundef %53) #14
   %.pre = load ptr, ptr %12, align 8
-  br label %60
+  br label %54
 
-60:                                               ; preds = %55, %50, %45
-  %61 = phi ptr [ %.pre, %55 ], [ %.pre1, %50 ], [ %.pre1, %45 ]
-  %62 = load ptr, ptr %37, align 8
-  %63 = ptrtoint ptr %62 to i64
-  %64 = ptrtoint ptr %61 to i64
-  %65 = sub i64 %63, %64
-  %66 = trunc i64 %65 to i16
-  store i16 %66, ptr %14, align 2
-  %67 = tail call i32 @sock_queue_err_skb(ptr noundef %0, ptr noundef nonnull %7) #14
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %70, label %69
+54:                                               ; preds = %49, %44, %39
+  %55 = phi ptr [ %.pre, %49 ], [ %.pre1, %44 ], [ %.pre1, %39 ]
+  %56 = load ptr, ptr %31, align 8
+  %57 = ptrtoint ptr %56 to i64
+  %58 = ptrtoint ptr %55 to i64
+  %59 = sub i64 %57, %58
+  %60 = trunc i64 %59 to i16
+  store i16 %60, ptr %14, align 2
+  %61 = tail call i32 @sock_queue_err_skb(ptr noundef %0, ptr noundef nonnull %7) #14
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %64, label %63
 
-69:                                               ; preds = %60, %9
+63:                                               ; preds = %54, %9
   tail call void @kfree_skb_reason(ptr noundef nonnull %7, i32 noundef 2) #14
-  br label %70
+  br label %64
 
-70:                                               ; preds = %69, %60, %6
+64:                                               ; preds = %63, %54, %6
   ret void
 }
 

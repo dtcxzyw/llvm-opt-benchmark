@@ -2984,12 +2984,12 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %10 = alloca [33 x i16], align 16
   %11 = tail call i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %12 = icmp eq ptr %4, null
-  br i1 %12, label %288, label %13
+  br i1 %12, label %290, label %13
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %4, align 4, !tbaa !3
   %15 = icmp slt i32 %14, 1
-  br i1 %15, label %16, label %288
+  br i1 %15, label %16, label %290
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -3034,7 +3034,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %46 = zext i8 %45 to i32
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %36, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46)
   store i32 16, ptr %4, align 4, !tbaa !3
-  br label %288
+  br label %290
 
 47:                                               ; preds = %31
   %48 = sext i32 %11 to i64
@@ -3062,7 +3062,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 64:                                               ; preds = %57, %54
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %55)
   store i32 8, ptr %4, align 4, !tbaa !3
-  br label %288
+  br label %290
 
 65:                                               ; preds = %47
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3373,9 +3373,9 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %230
 
-230:                                              ; preds = %.lr.ph340, %285
-  %.3338 = phi i32 [ %228, %.lr.ph340 ], [ %242, %285 ]
-  %.5337 = phi i32 [ 0, %.lr.ph340 ], [ %286, %285 ]
+230:                                              ; preds = %.lr.ph340, %287
+  %.3338 = phi i32 [ %228, %.lr.ph340 ], [ %242, %287 ]
+  %.5337 = phi i32 [ 0, %.lr.ph340 ], [ %288, %287 ]
   %231 = icmp ugt i32 %.3338, %55
   br i1 %231, label %232, label %233
 
@@ -3393,7 +3393,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %239 = load i16, ptr %238, align 2, !tbaa !17
   %240 = tail call noundef zeroext i16 %237(i16 noundef zeroext %239)
   %241 = zext i16 %240 to i32
-  %242 = add nuw i32 %.3338, %241
+  %242 = add i32 %.3338, %241
   %243 = load ptr, ptr %101, align 8, !tbaa !89
   %244 = tail call noundef i32 %243(ptr noundef nonnull %0, ptr noundef nonnull %235, i32 noundef 8, ptr noundef %236, ptr noundef nonnull %4)
   %245 = load ptr, ptr %110, align 8, !tbaa !90
@@ -3401,7 +3401,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %247 = tail call noundef i32 %245(ptr noundef nonnull %0, ptr noundef nonnull %238, i32 noundef 2, ptr noundef nonnull %246, ptr noundef nonnull %4)
   %248 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %249 = load i8, ptr %248, align 4, !tbaa !27
-  switch i8 %249, label %283 [
+  switch i8 %249, label %285 [
     i8 0, label %250
     i8 1, label %260
   ]
@@ -3415,7 +3415,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %256 = tail call noundef i32 %251(ptr noundef nonnull %0, ptr noundef nonnull %252, i32 noundef %254, ptr noundef nonnull %255, ptr noundef nonnull %4)
   %257 = load i32, ptr %4, align 4, !tbaa !3
   %258 = icmp slt i32 %257, 1
-  br i1 %258, label %285, label %259
+  br i1 %258, label %287, label %259
 
 259:                                              ; preds = %250
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %.5337)
@@ -3431,54 +3431,57 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %267 = shl nuw nsw i32 %263, 1
   %268 = tail call noundef i32 %266(ptr noundef nonnull %0, ptr noundef nonnull %264, i32 noundef %267, ptr noundef nonnull %265, ptr noundef nonnull %4)
   %269 = zext i8 %262 to i64
-  %270 = getelementptr inbounds nuw i16, ptr %264, i64 %269
+  %.idx = shl nuw nsw i64 %269, 1
+  %270 = getelementptr inbounds nuw i8, ptr %264, i64 %.idx
   %271 = getelementptr inbounds nuw i16, ptr %265, i64 %269
-  %272 = add nsw i32 %241, -12
-  %273 = sub nsw i32 %272, %267
-  %274 = zext i32 %273 to i64
-  br label %275
+  %272 = add nuw nsw i64 %234, 12
+  %273 = add nuw nsw i64 %272, %.idx
+  %274 = trunc i64 %273 to i32
+  %275 = sub i32 %242, %274
+  %276 = zext i32 %275 to i64
+  br label %277
 
-275:                                              ; preds = %276, %260
-  %indvars.iv376 = phi i64 [ %277, %276 ], [ %274, %260 ]
+277:                                              ; preds = %278, %260
+  %indvars.iv376 = phi i64 [ %279, %278 ], [ %276, %260 ]
   %.not291 = icmp eq i64 %indvars.iv376, 0
-  br i1 %.not291, label %.critedge, label %276
+  br i1 %.not291, label %.critedge, label %278
 
-276:                                              ; preds = %275
-  %277 = add nsw i64 %indvars.iv376, -1
-  %278 = getelementptr inbounds nuw i8, ptr %270, i64 %277
-  %279 = load i8, ptr %278, align 1, !tbaa !26
-  %.not292 = icmp eq i8 %279, 0
-  br i1 %.not292, label %.critedge.split.loop.exit393, label %275, !llvm.loop !99
+278:                                              ; preds = %277
+  %279 = add nsw i64 %indvars.iv376, -1
+  %280 = getelementptr inbounds nuw i8, ptr %270, i64 %279
+  %281 = load i8, ptr %280, align 1, !tbaa !26
+  %.not292 = icmp eq i8 %281, 0
+  br i1 %.not292, label %.critedge.split.loop.exit393, label %277, !llvm.loop !99
 
-.critedge.split.loop.exit393:                     ; preds = %276
-  %280 = trunc nuw i64 %indvars.iv376 to i32
+.critedge.split.loop.exit393:                     ; preds = %278
+  %282 = trunc nuw i64 %indvars.iv376 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %275, %.critedge.split.loop.exit393
-  %.1278.lcssa = phi i32 [ %280, %.critedge.split.loop.exit393 ], [ 0, %275 ]
-  %281 = load ptr, ptr %229, align 8, !tbaa !98
-  %282 = tail call noundef i32 %281(ptr noundef nonnull %0, ptr noundef nonnull %270, i32 noundef %.1278.lcssa, ptr noundef nonnull %271, ptr noundef nonnull %4)
-  br label %285
+.critedge:                                        ; preds = %277, %.critedge.split.loop.exit393
+  %.1278.lcssa = phi i32 [ %282, %.critedge.split.loop.exit393 ], [ 0, %277 ]
+  %283 = load ptr, ptr %229, align 8, !tbaa !98
+  %284 = tail call noundef i32 %283(ptr noundef nonnull %0, ptr noundef nonnull %270, i32 noundef %.1278.lcssa, ptr noundef nonnull %271, ptr noundef nonnull %4)
+  br label %287
 
-283:                                              ; preds = %233
-  %284 = zext i8 %249 to i32
-  tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %284, i32 noundef %.5337)
+285:                                              ; preds = %233
+  %286 = zext i8 %249 to i32
+  tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %286, i32 noundef %.5337)
   store i32 16, ptr %4, align 4, !tbaa !3
   br label %.thread299
 
-285:                                              ; preds = %.critedge, %250
-  %286 = add nuw i32 %.5337, 1
-  %exitcond379.not = icmp eq i32 %286, %224
+287:                                              ; preds = %.critedge, %250
+  %288 = add nuw i32 %.5337, 1
+  %exitcond379.not = icmp eq i32 %288, %224
   br i1 %exitcond379.not, label %._crit_edge341, label %230, !llvm.loop !100
 
-.thread299:                                       ; preds = %135, %162, %232, %283, %259, %._crit_edge
+.thread299:                                       ; preds = %135, %162, %232, %285, %259, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #12
-  br label %288
+  br label %290
 
-._crit_edge341:                                   ; preds = %285, %219
-  %.3.lcssa = phi i32 [ %228, %219 ], [ %242, %285 ]
+._crit_edge341:                                   ; preds = %287, %219
+  %.3.lcssa = phi i32 [ %228, %219 ], [ %242, %287 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #12
@@ -3486,11 +3489,11 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 .loopexit:                                        ; preds = %78, %65, %._crit_edge341
   %.1267 = phi i32 [ %.3.lcssa, %._crit_edge341 ], [ %76, %65 ], [ %84, %78 ]
-  %287 = add nsw i32 %.1267, %11
-  br label %288
+  %289 = add nsw i32 %.1267, %11
+  br label %290
 
-288:                                              ; preds = %.thread299, %5, %13, %.loopexit, %64, %._crit_edge381
-  %.0 = phi i32 [ %287, %.loopexit ], [ 0, %64 ], [ 0, %._crit_edge381 ], [ 0, %13 ], [ 0, %5 ], [ 0, %.thread299 ]
+290:                                              ; preds = %.thread299, %5, %13, %.loopexit, %64, %._crit_edge381
+  %.0 = phi i32 [ %289, %.loopexit ], [ 0, %64 ], [ 0, %._crit_edge381 ], [ 0, %13 ], [ 0, %5 ], [ 0, %.thread299 ]
   ret i32 %.0
 }
 

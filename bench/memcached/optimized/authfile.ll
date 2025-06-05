@@ -20,7 +20,7 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #9
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %55, label %6
+  br i1 %5, label %54, label %6
 
 6:                                                ; preds = %1
   %7 = tail call i32 @fileno(ptr noundef nonnull %4) #9
@@ -30,7 +30,7 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
 
 9:                                                ; preds = %6
   %10 = tail call i32 @fclose(ptr noundef nonnull %4)
-  br label %55
+  br label %54
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -40,119 +40,118 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %15 to i64
-  %20 = sub i64 %18, %19
-  %21 = tail call i64 @llvm.smin.i64(i64 %20, i64 256)
-  %22 = trunc i64 %21 to i32
-  %23 = tail call ptr @fgets(ptr noundef %15, i32 noundef %22, ptr noundef nonnull %4)
-  %.not6590 = icmp eq ptr %23, null
+  %19 = add i64 %13, 1
+  %20 = tail call i64 @llvm.smin.i64(i64 %19, i64 256)
+  %21 = trunc i64 %20 to i32
+  %22 = tail call ptr @fgets(ptr noundef %15, i32 noundef %21, ptr noundef nonnull %4)
+  %.not6590 = icmp eq ptr %22, null
   br i1 %.not6590, label %.thread72, label %.preheader
 
-24:                                               ; preds = %47
-  %25 = getelementptr inbounds nuw i8, ptr %.05192, i64 32
-  %26 = ptrtoint ptr %48 to i64
-  %27 = sub i64 %18, %26
-  %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 256)
-  %29 = trunc i64 %28 to i32
-  %30 = tail call ptr @fgets(ptr noundef nonnull %48, i32 noundef %29, ptr noundef nonnull %4)
-  %.not65 = icmp eq ptr %30, null
+23:                                               ; preds = %46
+  %24 = getelementptr inbounds nuw i8, ptr %.05192, i64 32
+  %25 = ptrtoint ptr %47 to i64
+  %26 = sub i64 %18, %25
+  %27 = tail call i64 @llvm.smin.i64(i64 %26, i64 256)
+  %28 = trunc i64 %27 to i32
+  %29 = tail call ptr @fgets(ptr noundef nonnull %47, i32 noundef %28, ptr noundef nonnull %4)
+  %.not65 = icmp eq ptr %29, null
   br i1 %.not65, label %.thread72, label %.preheader
 
-.preheader:                                       ; preds = %11, %24
-  %.04993 = phi i32 [ %45, %24 ], [ 0, %11 ]
-  %.05192 = phi ptr [ %25, %24 ], [ %3, %11 ]
-  %.05691 = phi ptr [ %48, %24 ], [ %15, %11 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.05192, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %.05192, i64 16
+.preheader:                                       ; preds = %11, %23
+  %.04993 = phi i32 [ %44, %23 ], [ 0, %11 ]
+  %.05192 = phi ptr [ %24, %23 ], [ %3, %11 ]
+  %.05691 = phi ptr [ %47, %23 ], [ %15, %11 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.05192, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.05192, i64 16
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.be, %.backedge.backedge ]
   %.not66 = phi i1 [ true, %.preheader ], [ %.not66.be, %.backedge.backedge ]
-  %33 = getelementptr inbounds nuw i8, ptr %.05691, i64 %indvars.iv
-  %34 = load i8, ptr %33, align 1, !tbaa !11
-  br i1 %.not66, label %35, label %38
+  %32 = getelementptr inbounds nuw i8, ptr %.05691, i64 %indvars.iv
+  %33 = load i8, ptr %32, align 1, !tbaa !11
+  br i1 %.not66, label %34, label %37
 
-35:                                               ; preds = %.backedge
-  switch i8 %34, label %.thread [
+34:                                               ; preds = %.backedge
+  switch i8 %33, label %.thread [
     i8 0, label %.thread77
-    i8 58, label %36
+    i8 58, label %35
   ]
 
-36:                                               ; preds = %35
+35:                                               ; preds = %34
   store ptr %.05691, ptr %.05192, align 8, !tbaa !12
-  store i64 %indvars.iv, ptr %31, align 8, !tbaa !16
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store ptr %37, ptr %32, align 8, !tbaa !17
-  br label %43
+  store i64 %indvars.iv, ptr %30, align 8, !tbaa !16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store ptr %36, ptr %31, align 8, !tbaa !17
+  br label %42
 
-38:                                               ; preds = %.backedge
-  switch i8 %34, label %43 [
+37:                                               ; preds = %.backedge
+  switch i8 %33, label %42 [
     i8 10, label %.thread70
     i8 13, label %.thread70
     i8 0, label %.thread70
   ]
 
-.thread70:                                        ; preds = %38, %38, %38
-  %39 = load i64, ptr %31, align 8, !tbaa !16
-  %.neg = xor i64 %39, -1
-  %40 = add i64 %indvars.iv, %.neg
-  %41 = getelementptr inbounds nuw i8, ptr %.05192, i64 24
-  store i64 %40, ptr %41, align 8, !tbaa !18
-  %42 = and i64 %indvars.iv, 4294967295
+.thread70:                                        ; preds = %37, %37, %37
+  %38 = load i64, ptr %30, align 8, !tbaa !16
+  %.neg = xor i64 %38, -1
+  %39 = add i64 %indvars.iv, %.neg
+  %40 = getelementptr inbounds nuw i8, ptr %.05192, i64 24
+  store i64 %39, ptr %40, align 8, !tbaa !18
+  %41 = and i64 %indvars.iv, 4294967295
   br label %.loopexit
 
-43:                                               ; preds = %38, %36
+42:                                               ; preds = %37, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.loopexit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %43, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %43 ], [ %indvars.iv.next105, %.thread ]
-  %.not66.be = phi i1 [ false, %43 ], [ true, %.thread ]
+.backedge.backedge:                               ; preds = %42, %.thread
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %42 ], [ %indvars.iv.next105, %.thread ]
+  %.not66.be = phi i1 [ false, %42 ], [ true, %.thread ]
   br label %.backedge, !llvm.loop !19
 
-.thread:                                          ; preds = %35
+.thread:                                          ; preds = %34
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not106 = icmp eq i64 %indvars.iv.next105, 256
   br i1 %exitcond.not106, label %.thread77, label %.backedge.backedge
 
-.thread77:                                        ; preds = %.thread, %35
-  %44 = tail call i32 @fclose(ptr noundef nonnull %4)
+.thread77:                                        ; preds = %.thread, %34
+  %43 = tail call i32 @fclose(ptr noundef nonnull %4)
   tail call void @free(ptr noundef %15) #9
-  br label %55
+  br label %54
 
-.loopexit:                                        ; preds = %43, %.thread70
-  %.04887 = phi i64 [ %42, %.thread70 ], [ 256, %43 ]
-  %45 = add nuw nsw i32 %.04993, 1
-  %46 = icmp eq i32 %45, 8
-  br i1 %46, label %.thread72, label %47
+.loopexit:                                        ; preds = %42, %.thread70
+  %.04887 = phi i64 [ %41, %.thread70 ], [ 256, %42 ]
+  %44 = add nuw nsw i32 %.04993, 1
+  %45 = icmp eq i32 %44, 8
+  br i1 %45, label %.thread72, label %46
 
-47:                                               ; preds = %.loopexit
-  %48 = getelementptr inbounds nuw i8, ptr %.05691, i64 %.04887
-  %49 = load i8, ptr %48, align 1, !tbaa !11
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.thread72, label %24
+46:                                               ; preds = %.loopexit
+  %47 = getelementptr inbounds nuw i8, ptr %.05691, i64 %.04887
+  %48 = load i8, ptr %47, align 1, !tbaa !11
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %.thread72, label %23
 
-.thread72:                                        ; preds = %24, %.loopexit, %47, %11
-  %.150 = phi i32 [ 0, %11 ], [ %45, %47 ], [ 8, %.loopexit ], [ %45, %24 ]
-  %51 = load ptr, ptr @main_auth_data, align 8, !tbaa !21
-  %.not68 = icmp eq ptr %51, null
-  br i1 %.not68, label %53, label %52
+.thread72:                                        ; preds = %23, %.loopexit, %46, %11
+  %.150 = phi i32 [ 0, %11 ], [ %44, %46 ], [ 8, %.loopexit ], [ %44, %23 ]
+  %50 = load ptr, ptr @main_auth_data, align 8, !tbaa !21
+  %.not68 = icmp eq ptr %50, null
+  br i1 %.not68, label %52, label %51
 
-52:                                               ; preds = %.thread72
-  tail call void @free(ptr noundef nonnull %51) #9
-  br label %53
+51:                                               ; preds = %.thread72
+  tail call void @free(ptr noundef nonnull %50) #9
+  br label %52
 
-53:                                               ; preds = %52, %.thread72
+52:                                               ; preds = %51, %.thread72
   store i32 %.150, ptr @entry_cnt, align 4, !tbaa !22
   store ptr %15, ptr @main_auth_data, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @main_auth_entries, ptr noundef nonnull align 16 dereferenceable(256) %3, i64 256, i1 false)
-  %54 = tail call i32 @fclose(ptr noundef nonnull %4)
-  br label %55
+  %53 = tail call i32 @fclose(ptr noundef nonnull %4)
+  br label %54
 
-55:                                               ; preds = %.thread77, %53, %1, %9
-  %.053 = phi i32 [ 2, %9 ], [ 3, %1 ], [ 0, %53 ], [ 4, %.thread77 ]
+54:                                               ; preds = %.thread77, %52, %1, %9
+  %.053 = phi i32 [ 2, %9 ], [ 3, %1 ], [ 0, %52 ], [ 4, %.thread77 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #9
   ret i32 %.053

@@ -4215,11 +4215,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
   %3 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %3 to i64
   %sub.i = sub nsw i64 23, %conv.i
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 %sub.i
-  %add.ptr7 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr7 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %this to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = sub nsw i64 24, %conv.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 8 %this, i64 %sub.ptr.sub.i, i1 false)
   store ptr %call.i, ptr %this, align 8
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4234,12 +4230,8 @@ if.else8:                                         ; preds = %if.else
   %4 = load i8, ptr %arrayidx.i7, align 1
   %conv.i8 = sext i8 %4 to i64
   %sub.i9 = sub nsw i64 23, %conv.i8
-  %add.ptr14 = getelementptr inbounds i8, ptr %this, i64 %sub.i9
-  %add.ptr15 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 1
   %data_16 = getelementptr inbounds nuw i8, ptr %call9, i64 8
-  %sub.ptr.lhs.cast.i10 = ptrtoint ptr %add.ptr15 to i64
-  %sub.ptr.rhs.cast.i11 = ptrtoint ptr %this to i64
-  %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
+  %sub.ptr.sub.i12 = sub nsw i64 24, %conv.i8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_16, ptr nonnull align 8 %this, i64 %sub.ptr.sub.i12, i1 false)
   store ptr %data_16, ptr %this, align 8
   %size_21 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4362,12 +4354,8 @@ invoke.cont:                                      ; preds = %sw.bb.i
   %size_13 = getelementptr inbounds nuw i8, ptr %nascent, i64 8
   store i64 %7, ptr %size_13, align 8
   %8 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %7
-  %add.ptr17 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %9 = load ptr, ptr %nascent, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = add i64 %7, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %8, i64 %sub.ptr.sub.i, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %t.i, ptr noundef nonnull align 8 dereferenceable(24) %nascent, i64 24, i1 false)
@@ -4448,12 +4436,8 @@ if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %this, align 8
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %5
-  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %data_6.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr5.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.sub.i.i = add i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_6.i, ptr align 1 %4, i64 %sub.ptr.sub.i.i, i1 false)
   %6 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8

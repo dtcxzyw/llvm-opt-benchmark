@@ -1158,33 +1158,32 @@ _ZNK6casadi6MXNode3depEx.exit16:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, label %25
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit16
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %19 to i64
-  %28 = sub i64 %26, %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %19, i64 %28, i1 false)
+  %.idx = shl nsw i64 %20, 3
+  %26 = add i64 %.idx, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %19, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 
 _ZSt4copyIPKxPxET0_T_S4_S3_.exit:                 ; preds = %_ZNK6casadi6MXNode3depEx.exit16, %25
-  %29 = icmp sgt i64 %17, 0
-  br i1 %29, label %.lr.ph, label %._crit_edge
+  %27 = icmp sgt i64 %17, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
   ret i32 0
 
 .lr.ph:                                           ; preds = %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, %.lr.ph
-  %.017 = phi i64 [ %38, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %30 = getelementptr inbounds nuw double, ptr %21, i64 %.017
-  %31 = load double, ptr %30, align 8, !tbaa !50
-  %32 = getelementptr inbounds nuw i64, ptr %12, i64 %.017
+  %.017 = phi i64 [ %36, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %28 = getelementptr inbounds nuw double, ptr %21, i64 %.017
+  %29 = load double, ptr %28, align 8, !tbaa !50
+  %30 = getelementptr inbounds nuw i64, ptr %12, i64 %.017
+  %31 = load i64, ptr %30, align 8, !tbaa !52
+  %32 = getelementptr inbounds i64, ptr %3, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !52
-  %34 = getelementptr inbounds i64, ptr %3, i64 %33
-  %35 = load i64, ptr %34, align 8, !tbaa !52
-  %36 = add nsw i64 %35, 1
-  store i64 %36, ptr %34, align 8, !tbaa !52
-  %37 = getelementptr inbounds double, ptr %22, i64 %35
-  store double %31, ptr %37, align 8, !tbaa !50
-  %38 = add nuw nsw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %38, %17
+  %34 = add nsw i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !52
+  %35 = getelementptr inbounds double, ptr %22, i64 %33
+  store double %29, ptr %35, align 8, !tbaa !50
+  %36 = add nuw nsw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %36, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 }
 
@@ -1301,32 +1300,31 @@ _ZNK6casadi6MXNode3depEx.exit16:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, label %25
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit16
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %19 to i64
-  %28 = sub i64 %26, %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %19, i64 %28, i1 false)
+  %.idx = shl nsw i64 %20, 3
+  %26 = add i64 %.idx, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %19, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 
 _ZSt4copyIPKxPxET0_T_S4_S3_.exit:                 ; preds = %_ZNK6casadi6MXNode3depEx.exit16, %25
-  %29 = icmp sgt i64 %17, 0
-  br i1 %29, label %.lr.ph, label %._crit_edge
+  %27 = icmp sgt i64 %17, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
   ret i32 0
 
 .lr.ph:                                           ; preds = %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, %.lr.ph
-  %.017 = phi i64 [ %38, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %30 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %21, i64 %.017
-  %31 = getelementptr inbounds nuw i64, ptr %12, i64 %.017
+  %.017 = phi i64 [ %36, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %28 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %21, i64 %.017
+  %29 = getelementptr inbounds nuw i64, ptr %12, i64 %.017
+  %30 = load i64, ptr %29, align 8, !tbaa !52
+  %31 = getelementptr inbounds i64, ptr %3, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !52
-  %33 = getelementptr inbounds i64, ptr %3, i64 %32
-  %34 = load i64, ptr %33, align 8, !tbaa !52
-  %35 = add nsw i64 %34, 1
-  store i64 %35, ptr %33, align 8, !tbaa !52
-  %36 = getelementptr inbounds %"class.casadi::SXElem", ptr %22, i64 %34
-  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %30)
-  %38 = add nuw nsw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %38, %17
+  %33 = add nsw i64 %32, 1
+  store i64 %33, ptr %31, align 8, !tbaa !52
+  %34 = getelementptr inbounds %"class.casadi::SXElem", ptr %22, i64 %32
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %28)
+  %36 = add nuw nsw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %36, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 }
 
@@ -1429,35 +1427,34 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, label %25
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %21 to i64
-  %28 = sub i64 %26, %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %21, i64 %28, i1 false)
+  %.idx = shl nsw i64 %22, 3
+  %26 = add i64 %.idx, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %21, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 
 _ZSt4copyIPKxPxET0_T_S4_S3_.exit:                 ; preds = %_ZNK6casadi6MXNode3depEx.exit, %25
-  %29 = icmp sgt i64 %12, 0
-  br i1 %29, label %.lr.ph, label %._crit_edge
+  %27 = icmp sgt i64 %12, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
   ret i32 0
 
 .lr.ph:                                           ; preds = %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, %.lr.ph
-  %.017 = phi i64 [ %38, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %.01316 = phi ptr [ %30, %.lr.ph ], [ %6, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %.01415 = phi ptr [ %32, %.lr.ph ], [ %19, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %30 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
-  %31 = load i64, ptr %.01316, align 8, !tbaa !52
-  %32 = getelementptr inbounds nuw i8, ptr %.01415, i64 8
-  %33 = load i64, ptr %.01415, align 8, !tbaa !52
-  %34 = getelementptr inbounds i64, ptr %3, i64 %33
-  %35 = load i64, ptr %34, align 8, !tbaa !52
-  %36 = add nsw i64 %35, 1
-  store i64 %36, ptr %34, align 8, !tbaa !52
-  %37 = getelementptr inbounds i64, ptr %7, i64 %35
-  store i64 %31, ptr %37, align 8, !tbaa !52
-  %38 = add nuw nsw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %38, %12
+  %.017 = phi i64 [ %36, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %.01316 = phi ptr [ %28, %.lr.ph ], [ %6, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %.01415 = phi ptr [ %30, %.lr.ph ], [ %19, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
+  %29 = load i64, ptr %.01316, align 8, !tbaa !52
+  %30 = getelementptr inbounds nuw i8, ptr %.01415, i64 8
+  %31 = load i64, ptr %.01415, align 8, !tbaa !52
+  %32 = getelementptr inbounds i64, ptr %3, i64 %31
+  %33 = load i64, ptr %32, align 8, !tbaa !52
+  %34 = add nsw i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !52
+  %35 = getelementptr inbounds i64, ptr %7, i64 %33
+  store i64 %29, ptr %35, align 8, !tbaa !52
+  %36 = add nuw nsw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %36, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 }
 
@@ -1497,38 +1494,37 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, label %25
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %21 to i64
-  %28 = sub i64 %26, %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %21, i64 %28, i1 false)
+  %.idx = shl nsw i64 %22, 3
+  %26 = add i64 %.idx, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %21, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 
 _ZSt4copyIPKxPxET0_T_S4_S3_.exit:                 ; preds = %_ZNK6casadi6MXNode3depEx.exit, %25
-  %29 = icmp sgt i64 %12, 0
-  br i1 %29, label %.lr.ph, label %._crit_edge
+  %27 = icmp sgt i64 %12, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
   ret i32 0
 
 .lr.ph:                                           ; preds = %_ZSt4copyIPKxPxET0_T_S4_S3_.exit, %.lr.ph
-  %.020 = phi ptr [ %37, %.lr.ph ], [ %6, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %.01619 = phi i64 [ %40, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %.01718 = phi ptr [ %30, %.lr.ph ], [ %19, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
-  %30 = getelementptr inbounds nuw i8, ptr %.01718, i64 8
-  %31 = load i64, ptr %.01718, align 8, !tbaa !52
-  %32 = getelementptr inbounds i64, ptr %3, i64 %31
-  %33 = load i64, ptr %32, align 8, !tbaa !52
-  %34 = add nsw i64 %33, 1
-  store i64 %34, ptr %32, align 8, !tbaa !52
-  %35 = getelementptr inbounds i64, ptr %7, i64 %33
-  %36 = load i64, ptr %35, align 8, !tbaa !52
-  %37 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  %38 = load i64, ptr %.020, align 8, !tbaa !52
-  %39 = or i64 %38, %36
-  store i64 %39, ptr %.020, align 8, !tbaa !52
-  store i64 0, ptr %35, align 8, !tbaa !52
-  %40 = add nuw nsw i64 %.01619, 1
-  %exitcond.not = icmp eq i64 %40, %12
+  %.020 = phi ptr [ %35, %.lr.ph ], [ %6, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %.01619 = phi i64 [ %38, %.lr.ph ], [ 0, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %.01718 = phi ptr [ %28, %.lr.ph ], [ %19, %_ZSt4copyIPKxPxET0_T_S4_S3_.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.01718, i64 8
+  %29 = load i64, ptr %.01718, align 8, !tbaa !52
+  %30 = getelementptr inbounds i64, ptr %3, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !52
+  %32 = add nsw i64 %31, 1
+  store i64 %32, ptr %30, align 8, !tbaa !52
+  %33 = getelementptr inbounds i64, ptr %7, i64 %31
+  %34 = load i64, ptr %33, align 8, !tbaa !52
+  %35 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %36 = load i64, ptr %.020, align 8, !tbaa !52
+  %37 = or i64 %36, %34
+  store i64 %37, ptr %.020, align 8, !tbaa !52
+  store i64 0, ptr %33, align 8, !tbaa !52
+  %38 = add nuw nsw i64 %.01619, 1
+  %exitcond.not = icmp eq i64 %38, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 }
 

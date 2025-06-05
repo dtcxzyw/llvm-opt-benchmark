@@ -32902,10 +32902,7 @@ if.then34:                                        ; preds = %if.then27
   %add.ptr39 = getelementptr inbounds i8, ptr %cond.i4.i, i64 %idx.neg
   %add.ptr40 = getelementptr inbounds nuw i8, ptr %add.ptr39, i64 1
   %add.ptr43 = getelementptr inbounds nuw i8, ptr %cond.i4.i, i64 1
-  %sub.ptr.lhs.cast.i109 = ptrtoint ptr %add.ptr43 to i64
-  %sub.ptr.rhs.cast.i110 = ptrtoint ptr %add.ptr40 to i64
-  %sub.ptr.sub.i111 = sub i64 %sub.ptr.lhs.cast.i109, %sub.ptr.rhs.cast.i110
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr43, ptr nonnull align 1 %add.ptr40, i64 %sub.ptr.sub.i111, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr43, ptr nonnull align 1 %add.ptr40, i64 %sub.ptr.sub5, i1 false)
   %add = add i64 %cond.i84, %sub.ptr.sub5
   %16 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i113 = icmp slt i8 %16, 0
@@ -32990,8 +32987,8 @@ cond.false.i169:                                  ; preds = %26
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit173
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit173: ; preds = %cond.true.i171, %cond.false.i169
-  %sub.ptr.sub.i176 = sub i64 %sub.ptr.rhs.cast.i133, %sub.ptr.rhs.cast4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %p, ptr align 1 %pBegin, i64 %sub.ptr.sub.i176, i1 false)
+  %sub.ptr.sub.i176 = add nuw i64 %sub.ptr.sub32, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p, ptr noundef nonnull align 1 dereferenceable(1) %pBegin, i64 %sub.ptr.sub.i176, i1 false)
   br label %if.end102
 
 if.else76:                                        ; preds = %land.lhs.true
@@ -34551,10 +34548,7 @@ if.then34:                                        ; preds = %if.then27
   %add.ptr39 = getelementptr inbounds i8, ptr %cond.i4.i, i64 %idx.neg
   %add.ptr40 = getelementptr inbounds nuw i8, ptr %add.ptr39, i64 1
   %add.ptr43 = getelementptr inbounds nuw i8, ptr %cond.i4.i, i64 1
-  %sub.ptr.lhs.cast.i113 = ptrtoint ptr %add.ptr43 to i64
-  %sub.ptr.rhs.cast.i114 = ptrtoint ptr %add.ptr40 to i64
-  %sub.ptr.sub.i115 = sub i64 %sub.ptr.lhs.cast.i113, %sub.ptr.rhs.cast.i114
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr43, ptr nonnull align 1 %add.ptr40, i64 %sub.ptr.sub.i115, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr43, ptr nonnull align 1 %add.ptr40, i64 %sub.ptr.sub5, i1 false)
   %add = add i64 %cond.i88, %sub.ptr.sub5
   %19 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i117 = icmp slt i8 %19, 0
@@ -34639,8 +34633,8 @@ cond.false.i173:                                  ; preds = %29
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit177
 
 _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit177: ; preds = %cond.true.i175, %cond.false.i173
-  %sub.ptr.sub.i180 = sub i64 %sub.ptr.rhs.cast.i137, %sub.ptr.rhs.cast4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %p, ptr align 1 %pBegin, i64 %sub.ptr.sub.i180, i1 false)
+  %sub.ptr.sub.i180 = add nuw i64 %sub.ptr.sub32, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p, ptr noundef nonnull align 1 dereferenceable(1) %pBegin, i64 %sub.ptr.sub.i180, i1 false)
   br label %if.end102
 
 if.else76:                                        ; preds = %land.lhs.true

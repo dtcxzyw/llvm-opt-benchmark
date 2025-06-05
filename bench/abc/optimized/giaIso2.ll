@@ -453,28 +453,28 @@ define void @Gia_Iso2ManPropagate(ptr noundef readonly captures(none) %0) local_
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Gia_Iso2ManCone_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
-  br label %tailrecurse74
+  br label %tailrecurse75
 
-tailrecurse74:                                    ; preds = %Gia_ObjIsRo.exit, %3
+tailrecurse75:                                    ; preds = %Gia_ObjIsRo.exit, %3
   %accumulator.tr = phi i32 [ 0, %3 ], [ %accumulator.ret.tr, %Gia_ObjIsRo.exit ]
-  %.tr75 = phi i32 [ %1, %3 ], [ %60, %Gia_ObjIsRo.exit ]
-  %.tr76 = phi i32 [ %2, %3 ], [ %.tr5562, %Gia_ObjIsRo.exit ]
-  %4 = icmp eq i32 %.tr76, 0
+  %.tr76 = phi i32 [ %1, %3 ], [ %55, %Gia_ObjIsRo.exit ]
+  %.tr77 = phi i32 [ %2, %3 ], [ %.tr5663, %Gia_ObjIsRo.exit ]
+  %4 = icmp eq i32 %.tr77, 0
   br i1 %4, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %tailrecurse74
+.lr.ph:                                           ; preds = %tailrecurse75
   %5 = getelementptr i8, ptr %0, i64 176
   %6 = getelementptr i8, ptr %0, i64 616
   %7 = getelementptr i8, ptr %0, i64 32
   br label %8
 
 8:                                                ; preds = %.lr.ph, %tailrecurse
-  %.tr5562 = phi i32 [ %.tr76, %.lr.ph ], [ %22, %tailrecurse ]
-  %.tr5461 = phi i32 [ %.tr75, %.lr.ph ], [ %27, %tailrecurse ]
-  %accumulator.tr60 = phi i32 [ 0, %.lr.ph ], [ %29, %tailrecurse ]
+  %.tr5663 = phi i32 [ %.tr77, %.lr.ph ], [ %22, %tailrecurse ]
+  %.tr5562 = phi i32 [ %.tr76, %.lr.ph ], [ %27, %tailrecurse ]
+  %accumulator.tr61 = phi i32 [ 0, %.lr.ph ], [ %29, %tailrecurse ]
   %.val36 = load i32, ptr %5, align 8, !tbaa !44
   %.val37 = load ptr, ptr %6, align 8, !tbaa !45
-  %9 = sext i32 %.tr5461 to i64
+  %9 = sext i32 %.tr5562 to i64
   %10 = getelementptr inbounds i32, ptr %.val37, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !34
   %.not = icmp eq i32 %11, %.val36
@@ -497,15 +497,15 @@ tailrecurse:                                      ; preds = %12
   %18 = load i32, ptr %17, align 4, !tbaa !37
   %19 = trunc i64 %.val33 to i32
   %20 = and i32 %19, 536870911
-  %21 = sub nsw i32 %.tr5461, %20
-  %22 = add nsw i32 %.tr5562, -1
+  %21 = sub nsw i32 %.tr5562, %20
+  %22 = add nsw i32 %.tr5663, -1
   %23 = tail call i32 @Gia_Iso2ManCone_rec(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22)
   %.val41 = load i64, ptr %13, align 4
   %24 = lshr i64 %.val41, 32
   %25 = trunc nuw i64 %24 to i32
   %26 = and i32 %25, 536870911
-  %27 = sub nsw i32 %.tr5461, %26
-  %28 = add i32 %18, %accumulator.tr60
+  %27 = sub nsw i32 %.tr5562, %26
+  %28 = add i32 %18, %accumulator.tr61
   %29 = add i32 %28, %23
   %30 = icmp eq i32 %22, 0
   br i1 %30, label %.loopexit, label %8
@@ -546,29 +546,24 @@ Gia_ObjIsRo.exit:                                 ; preds = %Gia_ObjIsPi.exit
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %50
   %52 = load i64, ptr %51, align 4
-  %53 = and i64 %52, 536870911
-  %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %51, i64 %54
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %.val to i64
-  %58 = sub i64 %56, %57
-  %59 = sdiv exact i64 %58, 12
-  %60 = trunc i64 %59 to i32
-  %61 = add i32 %41, %accumulator.tr60
-  %accumulator.ret.tr = add i32 %61, %accumulator.tr
-  br label %tailrecurse74
+  %53 = trunc i64 %52 to i32
+  %54 = and i32 %53, 536870911
+  %55 = sub i32 %49, %54
+  %56 = add i32 %41, %accumulator.tr61
+  %accumulator.ret.tr = add i32 %56, %accumulator.tr
+  br label %tailrecurse75
 
 Gia_ObjIsRo.exit.thread:                          ; preds = %31
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %63 = load i32, ptr %62, align 4, !tbaa !37
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %58 = load i32, ptr %57, align 4, !tbaa !37
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %8, %Gia_ObjIsPi.exit, %tailrecurse74, %Gia_ObjIsRo.exit.thread
-  %accumulator.tr59 = phi i32 [ %accumulator.tr60, %Gia_ObjIsRo.exit.thread ], [ 0, %tailrecurse74 ], [ %accumulator.tr60, %Gia_ObjIsPi.exit ], [ %29, %tailrecurse ], [ %accumulator.tr60, %8 ]
-  %.0 = phi i32 [ %63, %Gia_ObjIsRo.exit.thread ], [ 0, %tailrecurse74 ], [ %41, %Gia_ObjIsPi.exit ], [ 0, %8 ], [ 0, %tailrecurse ]
-  %accumulator.ret.tr56 = add i32 %.0, %accumulator.tr59
-  %accumulator.ret.tr77 = add i32 %accumulator.ret.tr56, %accumulator.tr
-  ret i32 %accumulator.ret.tr77
+.loopexit:                                        ; preds = %tailrecurse, %8, %Gia_ObjIsPi.exit, %tailrecurse75, %Gia_ObjIsRo.exit.thread
+  %accumulator.tr60 = phi i32 [ %accumulator.tr61, %Gia_ObjIsRo.exit.thread ], [ 0, %tailrecurse75 ], [ %accumulator.tr61, %Gia_ObjIsPi.exit ], [ %29, %tailrecurse ], [ %accumulator.tr61, %8 ]
+  %.0 = phi i32 [ %58, %Gia_ObjIsRo.exit.thread ], [ 0, %tailrecurse75 ], [ %41, %Gia_ObjIsPi.exit ], [ 0, %8 ], [ 0, %tailrecurse ]
+  %accumulator.ret.tr57 = add i32 %.0, %accumulator.tr60
+  %accumulator.ret.tr78 = add i32 %accumulator.ret.tr57, %accumulator.tr
+  ret i32 %accumulator.ret.tr78
 }
 
 ; Function Attrs: nounwind uwtable

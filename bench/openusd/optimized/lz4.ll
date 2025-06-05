@@ -14634,7 +14634,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633: 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz433LZ4_decompress_safe_withPrefix64kEPKcPcii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %292, label %6
+  br i1 %5, label %291, label %6
 
 6:                                                ; preds = %4
   %7 = sext i32 %2 to i64
@@ -14648,17 +14648,17 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz433LZ4_decompres
 
 14:                                               ; preds = %6
   %15 = icmp eq i32 %2, 1
-  br i1 %15, label %16, label %292
+  br i1 %15, label %16, label %291
 
 16:                                               ; preds = %14
   %17 = load i8, ptr %0, align 1
   %18 = icmp ne i8 %17, 0
   %19 = sext i1 %18 to i32
-  br label %292
+  br label %291
 
 20:                                               ; preds = %6
   %21 = icmp eq i32 %2, 0
-  br i1 %21, label %292, label %22
+  br i1 %21, label %291, label %22
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %1 to i64
@@ -15070,7 +15070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %200 = ptrtoint ptr %199 to i64
   %201 = sub i64 %200, %23
   %202 = trunc i64 %201 to i32
-  br label %292
+  br label %291
 
 .preheader716:                                    ; preds = %.loopexit728, %.preheader716
   %.09.i = phi ptr [ %205, %.preheader716 ], [ %.5562, %.loopexit728 ]
@@ -15195,7 +15195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %256 = getelementptr inbounds nuw i8, ptr %.4.ptr711, i64 8
   %257 = getelementptr inbounds i8, ptr %10, i64 -12
   %258 = icmp ugt ptr %.ptr642, %257
-  br i1 %258, label %259, label %279
+  br i1 %258, label %259, label %278
 
 259:                                              ; preds = %255
   %260 = getelementptr inbounds i8, ptr %10, i64 -7
@@ -15205,7 +15205,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 263:                                              ; preds = %259
   %264 = icmp ult ptr %256, %260
-  br i1 %264, label %.preheader, label %273
+  br i1 %264, label %.preheader, label %272
 
 .preheader:                                       ; preds = %263, %.preheader
   %.09.i679 = phi ptr [ %267, %.preheader ], [ %.3483, %263 ]
@@ -15218,62 +15218,61 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %268, label %.preheader, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681, !llvm.loop !6
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681: ; preds = %.preheader
-  %269 = ptrtoint ptr %260 to i64
-  %270 = ptrtoint ptr %256 to i64
-  %271 = sub i64 %269, %270
-  %272 = getelementptr inbounds i8, ptr %.3483, i64 %271
-  br label %273
+  %269 = sub i64 %9, %.4.idx710
+  %270 = getelementptr i8, ptr %.3483, i64 %269
+  %271 = getelementptr i8, ptr %270, i64 -15
+  br label %272
 
-273:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681, %263
-  %.4484 = phi ptr [ %272, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681 ], [ %.3483, %263 ]
+272:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681, %263
+  %.4484 = phi ptr [ %271, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681 ], [ %.3483, %263 ]
   %.13 = phi ptr [ %260, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681 ], [ %256, %263 ]
-  %274 = icmp ult ptr %.13, %.ptr642
-  br i1 %274, label %.lr.ph781, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
+  %273 = icmp ult ptr %.13, %.ptr642
+  br i1 %273, label %.lr.ph781, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
 
-.lr.ph781:                                        ; preds = %273, %.lr.ph781
-  %.14779 = phi ptr [ %277, %.lr.ph781 ], [ %.13, %273 ]
-  %.5485778 = phi ptr [ %275, %.lr.ph781 ], [ %.4484, %273 ]
-  %275 = getelementptr inbounds nuw i8, ptr %.5485778, i64 1
-  %276 = load i8, ptr %.5485778, align 1
-  %277 = getelementptr inbounds nuw i8, ptr %.14779, i64 1
-  store i8 %276, ptr %.14779, align 1
-  %278 = icmp ult ptr %277, %.ptr642
-  br i1 %278, label %.lr.ph781, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684, !llvm.loop !17
+.lr.ph781:                                        ; preds = %272, %.lr.ph781
+  %.14779 = phi ptr [ %276, %.lr.ph781 ], [ %.13, %272 ]
+  %.5485778 = phi ptr [ %274, %.lr.ph781 ], [ %.4484, %272 ]
+  %274 = getelementptr inbounds nuw i8, ptr %.5485778, i64 1
+  %275 = load i8, ptr %.5485778, align 1
+  %276 = getelementptr inbounds nuw i8, ptr %.14779, i64 1
+  store i8 %275, ptr %.14779, align 1
+  %277 = icmp ult ptr %276, %.ptr642
+  br i1 %277, label %.lr.ph781, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684, !llvm.loop !17
 
-279:                                              ; preds = %255
-  %280 = load i64, ptr %.3483, align 1
-  store i64 %280, ptr %256, align 1
-  %281 = icmp samesign ugt i64 %.1490708, 16
-  br i1 %281, label %282, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
+278:                                              ; preds = %255
+  %279 = load i64, ptr %.3483, align 1
+  store i64 %279, ptr %256, align 1
+  %280 = icmp samesign ugt i64 %.1490708, 16
+  br i1 %280, label %281, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
 
-282:                                              ; preds = %279
-  %283 = getelementptr inbounds nuw i8, ptr %.4.ptr711, i64 16
-  br label %284
+281:                                              ; preds = %278
+  %282 = getelementptr inbounds nuw i8, ptr %.4.ptr711, i64 16
+  br label %283
 
-284:                                              ; preds = %284, %282
-  %.3483.pn = phi ptr [ %.3483, %282 ], [ %.09.i682, %284 ]
-  %.0.i683 = phi ptr [ %283, %282 ], [ %286, %284 ]
+283:                                              ; preds = %283, %281
+  %.3483.pn = phi ptr [ %.3483, %281 ], [ %.09.i682, %283 ]
+  %.0.i683 = phi ptr [ %282, %281 ], [ %285, %283 ]
   %.09.i682 = getelementptr inbounds nuw i8, ptr %.3483.pn, i64 8
-  %285 = load i64, ptr %.09.i682, align 1
-  store i64 %285, ptr %.0.i683, align 1
-  %286 = getelementptr inbounds nuw i8, ptr %.0.i683, i64 8
-  %287 = icmp ult ptr %286, %.ptr642
-  br i1 %287, label %284, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684, !llvm.loop !6
+  %284 = load i64, ptr %.09.i682, align 1
+  store i64 %284, ptr %.0.i683, align 1
+  %285 = getelementptr inbounds nuw i8, ptr %.0.i683, i64 8
+  %286 = icmp ult ptr %285, %.ptr642
+  br i1 %286, label %283, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684, !llvm.loop !6
 
-_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684: ; preds = %284, %.lr.ph781, %273, %279
+_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684: ; preds = %283, %.lr.ph781, %272, %278
   br label %.preheader718, !llvm.loop !16
 
 .loopexit729:                                     ; preds = %41, %98, %79, %72, %.loopexit726, %._crit_edge, %259, %.loopexit730, %220, %196, %.loopexit
   %.4561 = phi ptr [ %217, %220 ], [ %.9566, %.loopexit730 ], [ %.9566707, %259 ], [ %178, %.loopexit ], [ %.5562, %196 ], [ %.lcssa740, %._crit_edge ], [ %35, %41 ], [ %69, %98 ], [ %76, %79 ], [ %69, %72 ], [ %44, %.loopexit726 ]
-  %288 = ptrtoint ptr %.4561 to i64
-  %289 = ptrtoint ptr %0 to i64
-  %.neg = sub i64 %289, %288
-  %290 = trunc i64 %.neg to i32
-  %291 = add nsw i32 %290, -1
-  br label %292
+  %287 = ptrtoint ptr %.4561 to i64
+  %288 = ptrtoint ptr %0 to i64
+  %.neg = sub i64 %288, %287
+  %289 = trunc i64 %.neg to i32
+  %290 = add nsw i32 %289, -1
+  br label %291
 
-292:                                              ; preds = %20, %14, %16, %4, %.loopexit729, %198
-  %.0475 = phi i32 [ %291, %.loopexit729 ], [ %202, %198 ], [ -1, %4 ], [ -1, %14 ], [ %19, %16 ], [ -1, %20 ]
+291:                                              ; preds = %20, %14, %16, %4, %.loopexit729, %198
+  %.0475 = phi i32 [ %290, %.loopexit729 ], [ %202, %198 ], [ -1, %4 ], [ -1, %14 ], [ %19, %16 ], [ -1, %20 ]
   ret i32 %.0475
 }
 

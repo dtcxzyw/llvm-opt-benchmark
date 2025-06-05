@@ -6211,7 +6211,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJRiRKdEEERS1_DpOT_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel6spades11SpadesState13DoApplyActionEl(ptr noundef nonnull align 8 dereferenceable(897) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel6spades11SpadesState13DoApplyActionEl(ptr noundef nonnull align 8 captures(none) dereferenceable(897) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -6352,7 +6352,7 @@ _ZN4absl7debian28optionalIiEaSImvEERS2_OT_.exit:  ; preds = %2, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel6spades11SpadesState18ApplyBiddingActionEi(ptr noundef nonnull align 8 dereferenceable(897) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel6spades11SpadesState18ApplyBiddingActionEi(ptr noundef nonnull align 8 captures(none) dereferenceable(897) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6408,23 +6408,20 @@ define void @_ZN10open_spiel6spades11SpadesState18ApplyBiddingActionEi(ptr nound
   %33 = getelementptr inbounds i8, ptr %21, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 14
   %35 = getelementptr inbounds i8, ptr %34, i64 %30
-  %36 = ptrtoint ptr %34 to i64
-  %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %36, %37
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %38, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %29, i1 false)
   br label %_ZSt4fillIPbbEvT_S1_RKT0_.exit
 
 _ZSt4fillIPbbEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.preheader.i.i.i, %.critedge
-  %39 = load i32, ptr %5, align 8
-  %40 = mul nsw i32 %39, 14
-  %41 = add nsw i32 %40, %1
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [56 x i8], ptr %21, i64 0, i64 %42
-  store i8 1, ptr %43, align 1
-  %44 = load i32, ptr %5, align 8
-  %45 = add nsw i32 %44, 1
-  %46 = srem i32 %45, 4
-  store i32 %46, ptr %5, align 8
+  %36 = load i32, ptr %5, align 8
+  %37 = mul nsw i32 %36, 14
+  %38 = add nsw i32 %37, %1
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [56 x i8], ptr %21, i64 0, i64 %39
+  store i8 1, ptr %40, align 1
+  %41 = load i32, ptr %5, align 8
+  %42 = add nsw i32 %41, 1
+  %43 = srem i32 %42, 4
+  store i32 %43, ptr %5, align 8
   %.029.val.i.i.i.i = load i32, ptr %.ptr22, align 8
   %.not.i.i.i.i.i = icmp eq i32 %.029.val.i.i.i.i, -1
   %.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -6442,8 +6439,8 @@ _ZSt4fillIPbbEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.preheader.i.
   br i1 %or.cond26, label %"_ZSt6all_ofIPiZN10open_spiel6spades11SpadesState18ApplyBiddingActionEiE3$_0EbT_S5_T0_.exit", label %"_ZSt6all_ofIPiZN10open_spiel6spades11SpadesState18ApplyBiddingActionEiE3$_0EbT_S5_T0_.exit.thread"
 
 "_ZSt6all_ofIPiZN10open_spiel6spades11SpadesState18ApplyBiddingActionEiE3$_0EbT_S5_T0_.exit.thread": ; preds = %_ZSt4fillIPbbEvT_S1_RKT0_.exit
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 2, ptr %47, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 2, ptr %44, align 4
   br label %"_ZSt6all_ofIPiZN10open_spiel6spades11SpadesState18ApplyBiddingActionEiE3$_0EbT_S5_T0_.exit"
 
 "_ZSt6all_ofIPiZN10open_spiel6spades11SpadesState18ApplyBiddingActionEiE3$_0EbT_S5_T0_.exit": ; preds = %_ZSt4fillIPbbEvT_S1_RKT0_.exit, %"_ZSt6all_ofIPiZN10open_spiel6spades11SpadesState18ApplyBiddingActionEiE3$_0EbT_S5_T0_.exit.thread"

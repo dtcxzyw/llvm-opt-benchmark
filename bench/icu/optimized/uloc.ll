@@ -5155,93 +5155,91 @@ locale_getKeywordsStart_77.exit:                  ; preds = %13
   br i1 %.not77.not, label %.thread114, label %100
 
 100:                                              ; preds = %locale_getKeywordsStart_77.exit
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 %99
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
-  %103 = ptrtoint ptr %102 to i64
-  %104 = sub i64 %103, %98
-  %105 = sub i64 %0, %104
-  %.not153 = icmp eq i64 %105, 0
+  %101 = add nuw i64 %99, 1
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 %101
+  %103 = sub i64 %0, %101
+  %.not153 = icmp eq i64 %103, 0
   br i1 %.not153, label %.critedge, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %13, %100
-  %.065174 = phi i64 [ %104, %100 ], [ 0, %13 ]
-  %.sroa.092.0173 = phi i64 [ %105, %100 ], [ %0, %13 ]
+  %.065174 = phi i64 [ %101, %100 ], [ 0, %13 ]
+  %.sroa.092.0173 = phi i64 [ %103, %100 ], [ %0, %13 ]
   %.sroa.7.0172 = phi ptr [ %102, %100 ], [ %1, %13 ]
   %.not79 = icmp eq ptr %3, null
   br i1 %.not79, label %.lr.ph139.split.us.split.us, label %.lr.ph139.split
 
 .lr.ph139.split.us.split.us:                      ; preds = %.lr.ph139, %.thread118.us.us
-  %.264136.us.us = phi i64 [ %109, %.thread118.us.us ], [ 0, %.lr.ph139 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.7.0172, i64 %.264136.us.us
-  %107 = load i8, ptr %106, align 1, !tbaa !20
-  switch i8 %107, label %108 [
+  %.264136.us.us = phi i64 [ %107, %.thread118.us.us ], [ 0, %.lr.ph139 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.7.0172, i64 %.264136.us.us
+  %105 = load i8, ptr %104, align 1, !tbaa !20
+  switch i8 %105, label %106 [
     i8 64, label %.critedge
     i8 46, label %.critedge
   ]
 
-108:                                              ; preds = %.lr.ph139.split.us.split.us
+106:                                              ; preds = %.lr.ph139.split.us.split.us
   %exitcond165 = icmp eq i64 %.264136.us.us, 179
   br i1 %exitcond165, label %.split147.us, label %.thread118.us.us
 
-.thread118.us.us:                                 ; preds = %108
-  %109 = add nuw nsw i64 %.264136.us.us, 1
-  %exitcond166.not = icmp eq i64 %109, %.sroa.092.0173
+.thread118.us.us:                                 ; preds = %106
+  %107 = add nuw nsw i64 %.264136.us.us, 1
+  %exitcond166.not = icmp eq i64 %107, %.sroa.092.0173
   br i1 %exitcond166.not, label %.critedge, label %.lr.ph139.split.us.split.us, !llvm.loop !86
 
 .lr.ph139.split:                                  ; preds = %.lr.ph139, %.thread118
   %.460137 = phi i1 [ false, %.thread118 ], [ %4, %.lr.ph139 ]
-  %.264136 = phi i64 [ %123, %.thread118 ], [ 0, %.lr.ph139 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.7.0172, i64 %.264136
-  %111 = load i8, ptr %110, align 1, !tbaa !20
-  switch i8 %111, label %112 [
+  %.264136 = phi i64 [ %121, %.thread118 ], [ 0, %.lr.ph139 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.7.0172, i64 %.264136
+  %109 = load i8, ptr %108, align 1, !tbaa !20
+  switch i8 %109, label %110 [
     i8 64, label %.critedge
     i8 46, label %.critedge
   ]
 
-112:                                              ; preds = %.lr.ph139.split
+110:                                              ; preds = %.lr.ph139.split
   %exitcond163 = icmp eq i64 %.264136, 179
-  br i1 %exitcond163, label %.split147.us, label %113
+  br i1 %exitcond163, label %.split147.us, label %111
 
-.split147.us:                                     ; preds = %112, %108
+.split147.us:                                     ; preds = %110, %106
   store i32 1, ptr %5, align 4, !tbaa !13
   br label %.thread114
 
-113:                                              ; preds = %112
+111:                                              ; preds = %110
   br i1 %.460137, label %.thread122, label %.thread118
 
-.thread122:                                       ; preds = %113
-  %114 = load ptr, ptr %3, align 8, !tbaa !32
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.3, i32 noundef 1)
-  %.pre = load i8, ptr %110, align 1, !tbaa !20
+.thread122:                                       ; preds = %111
+  %112 = load ptr, ptr %3, align 8, !tbaa !32
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = load ptr, ptr %113, align 8
+  call void %114(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.3, i32 noundef 1)
+  %.pre = load i8, ptr %108, align 1, !tbaa !20
   br label %.thread118
 
-.thread118:                                       ; preds = %.thread122, %113
-  %117 = phi i8 [ %.pre, %.thread122 ], [ %111, %113 ]
+.thread118:                                       ; preds = %.thread122, %111
+  %115 = phi i8 [ %.pre, %.thread122 ], [ %109, %111 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #20
-  %118 = call signext i8 @uprv_toupper_77(i8 noundef signext %117)
-  %119 = and i8 %118, -2
-  %or.cond = icmp eq i8 %119, 44
-  %spec.store.select = select i1 %or.cond, i8 95, i8 %118
+  %116 = call signext i8 @uprv_toupper_77(i8 noundef signext %115)
+  %117 = and i8 %116, -2
+  %or.cond = icmp eq i8 %117, 44
+  %spec.store.select = select i1 %or.cond, i8 95, i8 %116
   store i8 %spec.store.select, ptr %9, align 1
-  %120 = load ptr, ptr %3, align 8, !tbaa !32
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %9, i32 noundef 1)
+  %118 = load ptr, ptr %3, align 8, !tbaa !32
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %120 = load ptr, ptr %119, align 8
+  call void %120(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %9, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #20
-  %123 = add nuw nsw i64 %.264136, 1
-  %exitcond164.not = icmp eq i64 %123, %.sroa.092.0173
+  %121 = add nuw nsw i64 %.264136, 1
+  %exitcond164.not = icmp eq i64 %121, %.sroa.092.0173
   br i1 %exitcond164.not, label %.critedge, label %.lr.ph139.split, !llvm.loop !86
 
 .critedge:                                        ; preds = %.thread118, %.lr.ph139.split, %.lr.ph139.split, %.thread118.us.us, %.lr.ph139.split.us.split.us, %.lr.ph139.split.us.split.us, %100
-  %.065175 = phi i64 [ %104, %100 ], [ %.065174, %.lr.ph139.split.us.split.us ], [ %.065174, %.lr.ph139.split.us.split.us ], [ %.065174, %.thread118.us.us ], [ %.065174, %.lr.ph139.split ], [ %.065174, %.lr.ph139.split ], [ %.065174, %.thread118 ]
+  %.065175 = phi i64 [ %101, %100 ], [ %.065174, %.lr.ph139.split.us.split.us ], [ %.065174, %.lr.ph139.split.us.split.us ], [ %.065174, %.thread118.us.us ], [ %.065174, %.lr.ph139.split ], [ %.065174, %.lr.ph139.split ], [ %.065174, %.thread118 ]
   %.264.lcssa = phi i64 [ 0, %100 ], [ %.sroa.092.0173, %.thread118.us.us ], [ %.264136.us.us, %.lr.ph139.split.us.split.us ], [ %.264136.us.us, %.lr.ph139.split.us.split.us ], [ %.sroa.092.0173, %.thread118 ], [ %.264136, %.lr.ph139.split ], [ %.264136, %.lr.ph139.split ]
-  %124 = add i64 %.264.lcssa, %.065175
+  %122 = add i64 %.264.lcssa, %.065175
   br label %.thread114
 
 .thread114:                                       ; preds = %._crit_edge, %_ZN12_GLOBAL__N_117_isBCP47ExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit, %80, %80, %_ZN12_GLOBAL__N_117_isBCP47ExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit.us, %30, %30, %29, %locale_getKeywordsStart_77.exit, %.split135.us, %.critedge, %.split147.us, %6
-  %.0 = phi i64 [ 0, %6 ], [ 0, %.split147.us ], [ %124, %.critedge ], [ 0, %.split135.us ], [ 0, %locale_getKeywordsStart_77.exit ], [ %27, %29 ], [ %27, %30 ], [ %27, %30 ], [ %27, %_ZN12_GLOBAL__N_117_isBCP47ExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit.us ], [ %58, %80 ], [ %58, %80 ], [ %58, %_ZN12_GLOBAL__N_117_isBCP47ExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %58, %._crit_edge ]
+  %.0 = phi i64 [ 0, %6 ], [ 0, %.split147.us ], [ %122, %.critedge ], [ 0, %.split135.us ], [ 0, %locale_getKeywordsStart_77.exit ], [ %27, %29 ], [ %27, %30 ], [ %27, %30 ], [ %27, %_ZN12_GLOBAL__N_117_isBCP47ExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit.us ], [ %58, %80 ], [ %58, %80 ], [ %58, %_ZN12_GLOBAL__N_117_isBCP47ExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %58, %._crit_edge ]
   ret i64 %.0
 }
 

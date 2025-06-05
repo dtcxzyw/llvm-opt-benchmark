@@ -2425,8 +2425,8 @@ _ZSt11swap_rangesISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTes
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   %.neg = mul i64 %.086, -8
   %39 = getelementptr inbounds i8, ptr %.sroa.047.0, i64 %.neg
-  %gepdiff = sub nuw nsw i64 -8, %.neg
-  %40 = ashr exact i64 %gepdiff, 3
+  %gepdiff89 = sub nuw nsw i64 -8, %.neg
+  %40 = ashr exact i64 %gepdiff89, 3
   %41 = icmp sgt i64 %40, 0
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit
 
@@ -2448,34 +2448,34 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPack
 
 47:                                               ; preds = %34
   %48 = icmp sgt i64 %32, 0
-  br i1 %48, label %.lr.ph100.preheader, label %._crit_edge101
+  br i1 %48, label %.lr.ph101.preheader, label %._crit_edge102
 
-.lr.ph100.preheader:                              ; preds = %47
+.lr.ph101.preheader:                              ; preds = %47
   %49 = sub i64 0, %.087
   %50 = getelementptr inbounds ptr, ptr %.sroa.047.0, i64 %49
-  br label %.lr.ph100
+  br label %.lr.ph101
 
-._crit_edge101:                                   ; preds = %.lr.ph100, %47
-  %.sroa.047.1.lcssa = phi ptr [ %.sroa.047.0, %47 ], [ %52, %.lr.ph100 ]
+._crit_edge102:                                   ; preds = %.lr.ph101, %47
+  %.sroa.047.1.lcssa = phi ptr [ %.sroa.047.0, %47 ], [ %52, %.lr.ph101 ]
   %51 = srem i64 %.086, %.087
   %.not12 = icmp eq i64 %51, 0
   br i1 %.not12, label %.critedge, label %57
 
-.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
-  %.0998 = phi i64 [ %56, %.lr.ph100 ], [ 0, %.lr.ph100.preheader ]
-  %.sroa.047.197 = phi ptr [ %52, %.lr.ph100 ], [ %.sroa.047.0, %.lr.ph100.preheader ]
-  %.sroa.040.096 = phi ptr [ %53, %.lr.ph100 ], [ %50, %.lr.ph100.preheader ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.047.197, i64 -8
-  %53 = getelementptr inbounds i8, ptr %.sroa.040.096, i64 -8
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
+  %.0999 = phi i64 [ %56, %.lr.ph101 ], [ 0, %.lr.ph101.preheader ]
+  %.sroa.047.198 = phi ptr [ %52, %.lr.ph101 ], [ %.sroa.047.0, %.lr.ph101.preheader ]
+  %.sroa.040.097 = phi ptr [ %53, %.lr.ph101 ], [ %50, %.lr.ph101.preheader ]
+  %52 = getelementptr inbounds i8, ptr %.sroa.047.198, i64 -8
+  %53 = getelementptr inbounds i8, ptr %.sroa.040.097, i64 -8
   %54 = load ptr, ptr %52, align 8, !tbaa !25
   %55 = load ptr, ptr %53, align 8, !tbaa !25
   store ptr %55, ptr %52, align 8, !tbaa !25
   store ptr %54, ptr %53, align 8, !tbaa !25
-  %56 = add nuw nsw i64 %.0998, 1
-  %exitcond108.not = icmp eq i64 %56, %32
-  br i1 %exitcond108.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !121
+  %56 = add nuw nsw i64 %.0999, 1
+  %exitcond109.not = icmp eq i64 %56, %32
+  br i1 %exitcond109.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !121
 
-57:                                               ; preds = %._crit_edge101
+57:                                               ; preds = %._crit_edge102
   %58 = sub nsw i64 %.087, %51
   br label %.backedge
 
@@ -2486,21 +2486,26 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPack
   br i1 %60, label %63, label %71
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = load ptr, ptr %62, align 8, !tbaa !25
-  %67 = ptrtoint ptr %.sroa.047.0 to i64
-  %68 = sub i64 %67, %65
-  %69 = icmp sgt i64 %68, 0
-  br i1 %69, label %.lr.ph.i.i.i.i.i24.preheader, label %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit
+  %64 = load ptr, ptr %62, align 8, !tbaa !25
+  %.idx.neg = shl i64 %.086, 3
+  %gepdiff = add i64 %.idx.neg, -8
+  %65 = ashr exact i64 %gepdiff, 3
+  %66 = icmp sgt i64 %65, 0
+  br i1 %66, label %.lr.ph.i.i.i.i.i24, label %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit
 
-.lr.ph.i.i.i.i.i24.preheader:                     ; preds = %63
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %64, i64 %68, i1 false), !tbaa !25, !noalias !122
-  br label %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit
+.lr.ph.i.i.i.i.i24:                               ; preds = %63, %.lr.ph.i.i.i.i.i24
+  %.sroa.01.0.i.i.i.i.pn = phi ptr [ %.sroa.01.0.i.i.i.i, %.lr.ph.i.i.i.i.i24 ], [ %62, %63 ]
+  %.02.i.i.i.i.i26 = phi i64 [ %68, %.lr.ph.i.i.i.i.i24 ], [ %65, %63 ]
+  %.sroa.01.0.i.i.i.i = getelementptr i8, ptr %.sroa.01.0.i.i.i.i.pn, i64 8
+  %67 = load ptr, ptr %.sroa.01.0.i.i.i.i, align 8, !tbaa !25, !noalias !122
+  store ptr %67, ptr %.sroa.01.0.i.i.i.i.pn, align 8, !tbaa !25, !noalias !122
+  %68 = add nsw i64 %.02.i.i.i.i.i26, -1
+  %69 = icmp samesign ugt i64 %.02.i.i.i.i.i26, 1
+  br i1 %69, label %.lr.ph.i.i.i.i.i24, label %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit, !llvm.loop !88
 
-_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i24.preheader, %63
+_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i24, %63
   %70 = getelementptr inbounds i8, ptr %.sroa.047.0, i64 -8
-  store ptr %66, ptr %70, align 8, !tbaa !25
+  store ptr %64, ptr %70, align 8, !tbaa !25
   br label %.critedge
 
 71:                                               ; preds = %59
@@ -2521,20 +2526,20 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   br label %31, !llvm.loop !133
 
 .lr.ph:                                           ; preds = %71, %.lr.ph
-  %.095 = phi i64 [ %79, %.lr.ph ], [ 0, %71 ]
-  %.sroa.029.094 = phi ptr [ %76, %.lr.ph ], [ %62, %71 ]
-  %.sroa.047.393 = phi ptr [ %75, %.lr.ph ], [ %72, %71 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.047.393, i64 8
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.029.094, i64 8
-  %77 = load ptr, ptr %.sroa.047.393, align 8, !tbaa !25
-  %78 = load ptr, ptr %.sroa.029.094, align 8, !tbaa !25
-  store ptr %78, ptr %.sroa.047.393, align 8, !tbaa !25
-  store ptr %77, ptr %.sroa.029.094, align 8, !tbaa !25
-  %79 = add nuw nsw i64 %.095, 1
+  %.096 = phi i64 [ %79, %.lr.ph ], [ 0, %71 ]
+  %.sroa.029.095 = phi ptr [ %76, %.lr.ph ], [ %62, %71 ]
+  %.sroa.047.394 = phi ptr [ %75, %.lr.ph ], [ %72, %71 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.047.394, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.029.095, i64 8
+  %77 = load ptr, ptr %.sroa.047.394, align 8, !tbaa !25
+  %78 = load ptr, ptr %.sroa.029.095, align 8, !tbaa !25
+  store ptr %78, ptr %.sroa.047.394, align 8, !tbaa !25
+  store ptr %77, ptr %.sroa.029.095, align 8, !tbaa !25
+  %79 = add nuw nsw i64 %.096, 1
   %exitcond.not = icmp eq i64 %79, %.087
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 
-.critedge:                                        ; preds = %._crit_edge, %._crit_edge101, %_ZSt11swap_rangesISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit, %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit, %12, %8
+.critedge:                                        ; preds = %._crit_edge, %._crit_edge102, %_ZSt11swap_rangesISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit, %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit, %12, %8
   ret void
 }
 
