@@ -3566,26 +3566,22 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr noundef readonly captures(n
   %88 = select i1 %83, i64 %85, i64 %87
   %89 = mul nuw nsw i64 %88, 5
   %.126.i = select i1 %86, i64 %89, i64 %82
-  %.1.i = tail call i32 @llvm.umax.i32(i32 %.val78, i32 2)
   %90 = icmp ult i32 %.val78, 3
   %91 = and i64 %.126.i, 15
   %92 = mul nuw nsw i64 %91, 17
   %.227.i = select i1 %90, i64 %92, i64 %82
-  %.2.i = select i1 %90, i32 3, i32 %.1.i
-  %93 = icmp eq i32 %.2.i, 3
+  %93 = icmp ult i32 %.val78, 4
   %94 = and i64 %.227.i, 255
   %95 = mul nuw nsw i64 %94, 257
-  %.328.i = select i1 %93, i64 %95, i64 %.227.i
-  %.3.i = select i1 %93, i32 4, i32 %.2.i
-  %96 = icmp eq i32 %.3.i, 4
+  %.328.i = select i1 %93, i64 %95, i64 %82
+  %96 = icmp ult i32 %.val78, 5
   %97 = and i64 %.328.i, 65535
   %98 = mul nuw nsw i64 %97, 65537
-  %.429.i = select i1 %96, i64 %98, i64 %.328.i
-  %99 = and i32 %.3.i, -2
-  %100 = icmp eq i32 %99, 4
-  %101 = and i64 %.429.i, 4294967295
-  %102 = mul nuw i64 %101, 4294967297
-  %.5.i = select i1 %100, i64 %102, i64 %.429.i
+  %.429.i = select i1 %96, i64 %98, i64 %82
+  %99 = icmp ult i32 %.val78, 6
+  %100 = and i64 %.429.i, 4294967295
+  %101 = mul nuw i64 %100, 4294967297
+  %.5.i = select i1 %99, i64 %101, i64 %82
   store i64 %.5.i, ptr %21, align 8, !tbaa !62
   br label %._crit_edge.thread
 
@@ -3593,29 +3589,29 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr noundef readonly captures(n
   %.063.lcssa118 = phi i32 [ %67, %81 ], [ %67, %._crit_edge ], [ 0, %.preheader ]
   %.064.lcssa117 = phi i32 [ %70, %81 ], [ %70, %._crit_edge ], [ 0, %.preheader ]
   %.not69 = icmp eq i32 %4, 0
-  br i1 %.not69, label %105, label %103
+  br i1 %.not69, label %104, label %102
 
-103:                                              ; preds = %._crit_edge.thread
-  %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %.063.lcssa118, i32 noundef %.064.lcssa117, i32 noundef %12)
-  br label %105
+102:                                              ; preds = %._crit_edge.thread
+  %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %.063.lcssa118, i32 noundef %.064.lcssa117, i32 noundef %12)
+  br label %104
 
-105:                                              ; preds = %103, %._crit_edge.thread
+104:                                              ; preds = %102, %._crit_edge.thread
   %.not70 = icmp eq ptr %15, null
-  br i1 %.not70, label %107, label %106
+  br i1 %.not70, label %106, label %105
 
-106:                                              ; preds = %105
+105:                                              ; preds = %104
   tail call void @free(ptr noundef nonnull %15) #24
-  br label %107
+  br label %106
 
-107:                                              ; preds = %105, %106
+106:                                              ; preds = %104, %105
   %.not71 = icmp eq ptr %23, null
-  br i1 %.not71, label %109, label %108
+  br i1 %.not71, label %108, label %107
 
-108:                                              ; preds = %107
+107:                                              ; preds = %106
   tail call void @free(ptr noundef nonnull %23) #24
-  br label %109
+  br label %108
 
-109:                                              ; preds = %107, %108
+108:                                              ; preds = %106, %107
   store i32 %.064.lcssa117, ptr %5, align 4, !tbaa !12
   ret ptr %21
 }
@@ -6577,9 +6573,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #23

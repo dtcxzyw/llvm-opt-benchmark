@@ -4949,11 +4949,11 @@ thread-pre-split.i:                               ; preds = %44
   %156 = load i64, ptr %155, align 8
   %157 = and i64 %156, 32
   %.not189.i = icmp eq i64 %157, 0
-  %.pr.pre320 = load i32, ptr %40, align 8, !tbaa !214
+  %.pr.pre319 = load i32, ptr %40, align 8, !tbaa !214
   br i1 %.not189.i, label %.thread.i, label %158
 
 158:                                              ; preds = %154
-  switch i32 %.pr.pre320, label %.thread.i [
+  switch i32 %.pr.pre319, label %.thread.i [
     i32 401, label %159
     i32 407, label %163
   ]
@@ -4995,7 +4995,7 @@ thread-pre-split.i:                               ; preds = %44
   br label %179
 
 179:                                              ; preds = %178, %174, %167
-  %.pr.pre = phi i32 [ %.pr.pre.pre, %178 ], [ %.pr.pre320, %174 ], [ %.pr.pre320, %167 ]
+  %.pr.pre = phi i32 [ %.pr.pre.pre, %178 ], [ %.pr.pre319, %174 ], [ %.pr.pre319, %167 ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %181 = load i32, ptr %180, align 4
   %182 = or i32 %181, 128
@@ -5003,7 +5003,7 @@ thread-pre-split.i:                               ; preds = %44
   br label %.thread.i
 
 .thread.i:                                        ; preds = %179, %154, %163, %159, %158
-  %183 = phi i32 [ 407, %163 ], [ 401, %159 ], [ %.pr.pre320, %158 ], [ %.pr.pre320, %154 ], [ %.pr.pre, %179 ]
+  %183 = phi i32 [ 407, %163 ], [ 401, %159 ], [ %.pr.pre319, %158 ], [ %.pr.pre319, %154 ], [ %.pr.pre, %179 ]
   %184 = load i32, ptr %21, align 4, !tbaa !203
   %185 = icmp eq i32 %184, 1
   br i1 %185, label %186, label %187
@@ -5327,7 +5327,7 @@ http_exp100_is_waiting.exit.thread.i:             ; preds = %http_exp100_is_wait
   br label %http_exp100_got100.exit.i
 
 http_exp100_got100.exit.i:                        ; preds = %338, %336, %299, %http_should_fail.exit.thread231.i, %http_should_fail.exit.thread.i, %186, %105, %101, %95, %93, %86, %71, %63, %59, %57, %54, %49
-  %.0256 = phi i64 [ 0, %49 ], [ 0, %54 ], [ 0, %57 ], [ 0, %59 ], [ 0, %63 ], [ 0, %105 ], [ 0, %86 ], [ %4, %95 ], [ %4, %101 ], [ 0, %93 ], [ 0, %71 ], [ 0, %186 ], [ 0, %338 ], [ 0, %336 ], [ 0, %299 ], [ 0, %http_should_fail.exit.thread231.i ], [ 0, %http_should_fail.exit.thread.i ]
+  %.0255 = phi i64 [ 0, %49 ], [ 0, %54 ], [ 0, %57 ], [ 0, %59 ], [ 0, %63 ], [ 0, %105 ], [ 0, %86 ], [ %4, %95 ], [ %4, %101 ], [ 0, %93 ], [ 0, %71 ], [ 0, %186 ], [ 0, %338 ], [ 0, %336 ], [ 0, %299 ], [ 0, %http_should_fail.exit.thread231.i ], [ 0, %http_should_fail.exit.thread.i ]
   %.1155.i = phi i32 [ 1, %49 ], [ 0, %54 ], [ 0, %57 ], [ 0, %59 ], [ 0, %63 ], [ 0, %105 ], [ 1, %86 ], [ 0, %95 ], [ 0, %101 ], [ %94, %93 ], [ 8, %71 ], [ 22, %186 ], [ %339, %338 ], [ %337, %336 ], [ %300, %299 ], [ %212, %http_should_fail.exit.thread231.i ], [ 22, %http_should_fail.exit.thread.i ]
   %.not222.i = icmp eq ptr %.0.i, null
   br i1 %.not222.i, label %http_on_response.exit, label %340
@@ -5339,10 +5339,10 @@ http_exp100_got100.exit.i:                        ; preds = %338, %336, %299, %h
   br label %http_on_response.exit
 
 http_on_response.exit:                            ; preds = %44, %http_exp100_got100.exit.i, %340
-  %.1257 = phi i64 [ %.0256, %http_exp100_got100.exit.i ], [ %.0256, %340 ], [ 0, %44 ]
+  %.1256 = phi i64 [ %.0255, %http_exp100_got100.exit.i ], [ %.0255, %340 ], [ 0, %44 ]
   %.2.i = phi i32 [ %.1155.i, %http_exp100_got100.exit.i ], [ %spec.select.i, %340 ], [ %45, %44 ]
   %342 = load i64, ptr %5, align 8, !tbaa !119
-  %343 = add i64 %342, %.1257
+  %343 = add i64 %342, %.1256
   store i64 %343, ptr %5, align 8, !tbaa !119
   call void @Curl_dyn_free(ptr noundef nonnull %9) #11
   br label %344
@@ -5350,7 +5350,7 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
 344:                                              ; preds = %11, %http_on_response.exit
   %.0157 = phi i32 [ %.2.i, %http_on_response.exit ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  br label %.thread291
+  br label %.thread290
 
 345:                                              ; preds = %6
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 300
@@ -5358,7 +5358,7 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
   %348 = add nsw i32 %347, 1
   store i32 %348, ptr %346, align 4, !tbaa !215
   %.not = icmp eq i32 %347, 0
-  br i1 %.not, label %349, label %.thread296
+  br i1 %.not, label %349, label %.thread295
 
 349:                                              ; preds = %345
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 321
@@ -5371,9 +5371,9 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
   %356 = load i32, ptr %355, align 4, !tbaa !94
   %357 = and i32 %356, -1073741821
   %.not198 = icmp eq i32 %357, 0
-  br i1 %.not198, label %445, label %.preheader317
+  br i1 %.not198, label %445, label %.preheader316
 
-.preheader317:                                    ; preds = %349, %.critedge4
+.preheader316:                                    ; preds = %349, %.critedge4
   %.0158 = phi ptr [ %359, %.critedge4 ], [ %1, %349 ]
   %358 = load i8, ptr %.0158, align 1, !tbaa !98
   switch i8 %358, label %.critedge [
@@ -5381,11 +5381,11 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
     i8 32, label %.critedge4
   ]
 
-.critedge4:                                       ; preds = %.preheader317, %.preheader317
+.critedge4:                                       ; preds = %.preheader316, %.preheader316
   %359 = getelementptr inbounds nuw i8, ptr %.0158, i64 1
-  br label %.preheader317, !llvm.loop !224
+  br label %.preheader316, !llvm.loop !224
 
-.critedge:                                        ; preds = %.preheader317
+.critedge:                                        ; preds = %.preheader316
   %360 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0158, ptr noundef nonnull dereferenceable(6) @.str.124, i64 noundef 5) #12
   %.not205 = icmp eq i32 %360, 0
   br i1 %.not205, label %361, label %433
@@ -5447,8 +5447,8 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
   %389 = zext nneg i8 %379 to i32
   %390 = mul nuw nsw i32 %389, 100
   %391 = mul i8 %382, 10
-  %narrow315 = add nsw i8 %391, 32
-  %392 = zext nneg i8 %narrow315 to i32
+  %narrow314 = add nsw i8 %391, 32
+  %392 = zext nneg i8 %narrow314 to i32
   %393 = add nuw nsw i32 %390, %392
   %394 = zext nneg i8 %387 to i32
   %395 = add nuw nsw i32 %393, %394
@@ -5468,7 +5468,7 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
 
 401:                                              ; preds = %399, %384, %380, %375, %364, %368, %372
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.125) #11
-  br label %.thread291
+  br label %.thread290
 
 402:                                              ; preds = %361, %361
   %403 = getelementptr inbounds nuw i8, ptr %.0158, i64 6
@@ -5506,8 +5506,8 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
   %420 = zext nneg i8 %410 to i32
   %421 = mul nuw nsw i32 %420, 100
   %422 = mul i8 %413, 10
-  %narrow314 = add nsw i8 %422, 32
-  %423 = zext nneg i8 %narrow314 to i32
+  %narrow313 = add nsw i8 %422, 32
+  %423 = zext nneg i8 %narrow313 to i32
   %424 = add nuw nsw i32 %421, %423
   %425 = zext nneg i8 %418 to i32
   %426 = add nuw nsw i32 %424, %425
@@ -5527,7 +5527,7 @@ http_on_response.exit:                            ; preds = %44, %http_exp100_go
 
 432:                                              ; preds = %361
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.126) #11
-  br label %.thread291
+  br label %.thread290
 
 433:                                              ; preds = %.critedge, %430, %415, %411, %405, %402
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 1744
@@ -5559,7 +5559,7 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
   %442 = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.124, ptr noundef nonnull %1, i64 noundef %..i14.i) #11
   %.not19.i = icmp ne i32 %442, 0
   %443 = and i1 %435, %.not19.i
-  br i1 %443, label %.thread, label %.thread279
+  br i1 %443, label %.thread, label %.thread278
 
 .thread:                                          ; preds = %checkhttpprefix.exit, %441
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -5570,7 +5570,7 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
 445:                                              ; preds = %349
   %446 = and i32 %356, 262144
   %.not199 = icmp eq i32 %446, 0
-  br i1 %.not199, label %.thread279, label %.preheader
+  br i1 %.not199, label %.thread278, label %.preheader
 
 .preheader:                                       ; preds = %445, %.critedge8
   %.0 = phi ptr [ %448, %.critedge8 ], [ %1, %445 ]
@@ -5587,32 +5587,32 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
 .critedge6:                                       ; preds = %.preheader
   %449 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(6) @.str.127, i64 noundef 5) #12
   %.not201 = icmp eq i32 %449, 0
-  br i1 %.not201, label %450, label %.thread279
+  br i1 %.not201, label %450, label %.thread278
 
 450:                                              ; preds = %.critedge6
   %451 = getelementptr inbounds nuw i8, ptr %.0, i64 5
   %452 = load i8, ptr %451, align 1, !tbaa !98
   %453 = add i8 %452, -48
   %or.cond225 = icmp ult i8 %453, 10
-  br i1 %or.cond225, label %454, label %.thread291
+  br i1 %or.cond225, label %454, label %.thread290
 
 454:                                              ; preds = %450
   %455 = getelementptr inbounds nuw i8, ptr %.0, i64 6
   %456 = load i8, ptr %455, align 1, !tbaa !98
   %457 = icmp eq i8 %456, 46
-  br i1 %457, label %458, label %.thread291
+  br i1 %457, label %458, label %.thread290
 
 458:                                              ; preds = %454
   %459 = getelementptr inbounds nuw i8, ptr %.0, i64 7
   %460 = load i8, ptr %459, align 1, !tbaa !98
   %461 = add i8 %460, -48
   %or.cond226 = icmp ult i8 %461, 10
-  br i1 %or.cond226, label %462, label %.thread291
+  br i1 %or.cond226, label %462, label %.thread290
 
 462:                                              ; preds = %458
   %463 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %464 = load i8, ptr %463, align 1, !tbaa !98
-  switch i8 %464, label %.thread291 [
+  switch i8 %464, label %.thread290 [
     i8 32, label %465
     i8 9, label %465
   ]
@@ -5622,28 +5622,28 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
   %467 = load i8, ptr %466, align 1, !tbaa !98
   %468 = add i8 %467, -48
   %or.cond227 = icmp ult i8 %468, 10
-  br i1 %or.cond227, label %469, label %.thread291
+  br i1 %or.cond227, label %469, label %.thread290
 
 469:                                              ; preds = %465
   %470 = getelementptr inbounds nuw i8, ptr %.0, i64 10
   %471 = load i8, ptr %470, align 1, !tbaa !98
   %472 = add i8 %471, -48
   %or.cond228 = icmp ult i8 %472, 10
-  br i1 %or.cond228, label %473, label %.thread291
+  br i1 %or.cond228, label %473, label %.thread290
 
 473:                                              ; preds = %469
   %474 = getelementptr inbounds nuw i8, ptr %.0, i64 11
   %475 = load i8, ptr %474, align 1, !tbaa !98
   %476 = add i8 %475, -48
   %or.cond229 = icmp ult i8 %476, 10
-  br i1 %or.cond229, label %477, label %.thread291
+  br i1 %or.cond229, label %477, label %.thread290
 
 477:                                              ; preds = %473
   %478 = zext nneg i8 %468 to i32
   %479 = mul nuw nsw i32 %478, 100
   %480 = mul i8 %471, 10
-  %narrow316 = add nsw i8 %480, 32
-  %481 = zext nneg i8 %narrow316 to i32
+  %narrow315 = add nsw i8 %480, 32
+  %481 = zext nneg i8 %narrow315 to i32
   %482 = add nuw nsw i32 %479, %481
   %483 = zext nneg i8 %476 to i32
   %484 = add nuw nsw i32 %482, %483
@@ -5652,36 +5652,36 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
   %486 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %487 = load i8, ptr %486, align 1, !tbaa !98
   switch i8 %487, label %488 [
-    i8 32, label %.thread309
-    i8 9, label %.thread309
+    i8 32, label %.thread308
+    i8 9, label %.thread308
   ]
 
 488:                                              ; preds = %477
   %489 = add i8 %487, -10
   %or.cond230 = icmp ult i8 %489, 4
-  br i1 %or.cond230, label %.thread309, label %.thread291
+  br i1 %or.cond230, label %.thread308, label %.thread290
 
-.thread309:                                       ; preds = %477, %477, %488
+.thread308:                                       ; preds = %477, %477, %488
   store i8 11, ptr %350, align 1, !tbaa !221
   br label %494
 
 490:                                              ; preds = %419, %419, %430, %399, %388, %388
   %491 = phi i32 [ %426, %419 ], [ %426, %419 ], [ %426, %430 ], [ %395, %399 ], [ %395, %388 ], [ %395, %388 ]
-  %.pr289 = phi i8 [ %407, %419 ], [ %407, %419 ], [ %407, %430 ], [ %376, %399 ], [ %376, %388 ], [ %376, %388 ]
-  %492 = and i8 %.pr289, -2
+  %.pr288 = phi i8 [ %407, %419 ], [ %407, %419 ], [ %407, %430 ], [ %376, %399 ], [ %376, %388 ], [ %376, %388 ]
+  %492 = and i8 %.pr288, -2
   %switch.i239 = icmp eq i8 %492, 10
   br i1 %switch.i239, label %._crit_edge, label %504
 
 ._crit_edge:                                      ; preds = %.thread, %490
-  %.pr289327 = phi i8 [ 10, %.thread ], [ %.pr289, %490 ]
+  %.pr288326 = phi i8 [ 10, %.thread ], [ %.pr288, %490 ]
   %493 = phi i32 [ 200, %.thread ], [ %491, %490 ]
   %.pre = load ptr, ptr %351, align 8, !tbaa !75
   br label %494
 
-494:                                              ; preds = %._crit_edge, %.thread309
-  %495 = phi i32 [ %484, %.thread309 ], [ %493, %._crit_edge ]
-  %496 = phi ptr [ %352, %.thread309 ], [ %.pre, %._crit_edge ]
-  %497 = phi i8 [ 11, %.thread309 ], [ %.pr289327, %._crit_edge ]
+494:                                              ; preds = %._crit_edge, %.thread308
+  %495 = phi i32 [ %484, %.thread308 ], [ %493, %._crit_edge ]
+  %496 = phi ptr [ %352, %.thread308 ], [ %.pre, %._crit_edge ]
+  %497 = phi i8 [ 11, %.thread308 ], [ %.pr288326, %._crit_edge ]
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %500 = load i8, ptr %499, align 8, !tbaa !217
@@ -5695,15 +5695,15 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
   %502 = udiv i8 %500, 10
   %503 = zext nneg i8 %502 to i32
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.146, i32 noundef %503, i32 noundef 1) #11
-  br label %.thread291
+  br label %.thread290
 
 504:                                              ; preds = %490
-  %505 = udiv i8 %.pr289, 10
+  %505 = udiv i8 %.pr288, 10
   %.zext.i = zext nneg i8 %505 to i32
-  %506 = urem i8 %.pr289, 10
+  %506 = urem i8 %.pr288, 10
   %.zext57.i = zext nneg i8 %506 to i32
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.147, i32 noundef %.zext.i, i32 noundef %.zext57.i) #11
-  br label %.thread291
+  br label %.thread290
 
 507:                                              ; preds = %494
   %508 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -5787,7 +5787,7 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
   %551 = and i32 %550, -2049
   %552 = or disjoint i32 %548, %551
   store i32 %552, ptr %549, align 1
-  switch i32 %545, label %.thread296 [
+  switch i32 %545, label %.thread295 [
     i32 304, label %553
     i32 204, label %560
   ]
@@ -5809,29 +5809,29 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
   %561 = or i32 %550, 2048
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %498, i8 0, i64 16, i1 false)
   store i32 %561, ptr %549, align 1
-  br label %.thread296
+  br label %.thread295
 
-.thread279:                                       ; preds = %.critedge6, %445, %checkhttpprefix.exit
+.thread278:                                       ; preds = %.critedge6, %445, %checkhttpprefix.exit
   %562 = getelementptr inbounds nuw i8, ptr %0, i64 457
   %563 = load i32, ptr %562, align 1
   %564 = and i32 %563, -2
   store i32 %564, ptr %562, align 1
-  br label %.thread291
+  br label %.thread290
 
-.thread296:                                       ; preds = %560, %544, %345
+.thread295:                                       ; preds = %560, %544, %345
   %.0168 = phi i32 [ 4, %345 ], [ 12, %544 ], [ 12, %560 ]
   %565 = tail call ptr @memchr(ptr noundef nonnull readonly %1, i32 noundef 0, i64 noundef %2) #12
   %.not.i244 = icmp eq ptr %565, null
   br i1 %.not.i244, label %566, label %verify_header.exit
 
-566:                                              ; preds = %.thread296
+566:                                              ; preds = %.thread295
   %567 = load i32, ptr %346, align 4, !tbaa !215
   %568 = icmp slt i32 %567, 2
-  %.pre323 = load i8, ptr %1, align 1, !tbaa !98
+  %.pre322 = load i8, ptr %1, align 1, !tbaa !98
   br i1 %568, label %573, label %569
 
 569:                                              ; preds = %566
-  switch i8 %.pre323, label %571 [
+  switch i8 %.pre322, label %571 [
     i8 32, label %570
     i8 9, label %570
   ]
@@ -5845,16 +5845,16 @@ checkhttpprefix.exit:                             ; preds = %436, %433, %441
   %.not14.i = icmp eq ptr %572, null
   br i1 %.not14.i, label %verify_header.exit, label %573
 
-verify_header.exit:                               ; preds = %.thread296, %571
-  %.str.150.sink.i = phi ptr [ @.str.149, %.thread296 ], [ @.str.150, %571 ]
+verify_header.exit:                               ; preds = %.thread295, %571
+  %.str.150.sink.i = phi ptr [ @.str.149, %.thread295 ], [ @.str.150, %571 ]
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.150.sink.i) #11
-  br label %.thread291
+  br label %.thread290
 
 573:                                              ; preds = %566, %571, %570
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %575 = load ptr, ptr %574, align 8, !tbaa !75
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  switch i8 %.pre323, label %.critedge424.i [
+  switch i8 %.pre322, label %.critedge424.i [
     i8 97, label %577
     i8 65, label %577
     i8 99, label %600
@@ -5929,7 +5929,7 @@ verify_header.exit:                               ; preds = %.thread296, %571
   br i1 %.not377.i, label %.select.unfold426_crit_edge.i, label %612
 
 .select.unfold426_crit_edge.i:                    ; preds = %610
-  %.pre.i254 = load i32, ptr %601, align 1
+  %.pre.i253 = load i32, ptr %601, align 1
   br label %select.unfold426.i
 
 612:                                              ; preds = %610
@@ -5986,12 +5986,12 @@ verify_header.exit:                               ; preds = %.thread296, %571
   br label %634
 
 634:                                              ; preds = %633, %632, %628, %622, %621, %615
-  %.1.i253 = phi i32 [ 63, %621 ], [ 8, %633 ], [ 0, %632 ], [ 0, %628 ], [ 0, %622 ], [ 0, %615 ]
+  %.1.i252 = phi i32 [ 63, %621 ], [ 8, %633 ], [ 0, %632 ], [ 0, %628 ], [ 0, %622 ], [ 0, %615 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   br label %http_header.exit
 
 select.unfold426.i:                               ; preds = %.select.unfold426_crit_edge.i, %604, %600
-  %635 = phi i32 [ %.pre.i254, %.select.unfold426_crit_edge.i ], [ %602, %604 ], [ %602, %600 ]
+  %635 = phi i32 [ %.pre.i253, %.select.unfold426_crit_edge.i ], [ %602, %604 ], [ %602, %600 ]
   %636 = and i32 %635, 2048
   %.not379.i = icmp eq i32 %636, 0
   br i1 %.not379.i, label %637, label %647
@@ -6026,7 +6026,7 @@ select.unfold426.i:                               ; preds = %.select.unfold426_c
 650:                                              ; preds = %.thread434.i
   %651 = tail call ptr @Curl_copy_header_value(ptr noundef nonnull %1)
   %.not392.i = icmp eq ptr %651, null
-  br i1 %.not392.i, label %.thread291, label %652
+  br i1 %.not392.i, label %.thread290, label %652
 
 652:                                              ; preds = %650
   %653 = load i8, ptr %651, align 1, !tbaa !98
@@ -6053,8 +6053,8 @@ select.unfold426.i:                               ; preds = %.select.unfold426_c
   %660 = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.23, ptr noundef nonnull %1, i64 noundef 11) #11
   %661 = icmp ne i32 %660, 0
   %662 = icmp ugt i64 %2, 16
-  %or.cond.i251 = and i1 %662, %661
-  br i1 %or.cond.i251, label %663, label %666
+  %or.cond.i250 = and i1 %662, %661
+  br i1 %or.cond.i250, label %663, label %666
 
 663:                                              ; preds = %.critedge407.thread.i
   %664 = tail call zeroext i1 @Curl_compareheader(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, i64 noundef 11, ptr noundef nonnull @.str.155, i64 noundef 5)
@@ -6122,16 +6122,16 @@ select.unfold426.i:                               ; preds = %.select.unfold426_c
   %695 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %696 = load i8, ptr %695, align 1, !tbaa !98
   %.not386475.i = icmp eq i8 %696, 0
-  br i1 %.not386475.i, label %.critedge.thread.i, label %.lr.ph.i252
+  br i1 %.not386475.i, label %.critedge.thread.i, label %.lr.ph.i251
 
-.lr.ph.i252:                                      ; preds = %.preheader.i, %700
+.lr.ph.i251:                                      ; preds = %.preheader.i, %700
   %697 = phi i8 [ %702, %700 ], [ %696, %.preheader.i ]
   %.0289476.i = phi ptr [ %701, %700 ], [ %695, %.preheader.i ]
   %698 = add i8 %697, -48
   %or.cond409.i = icmp ult i8 %698, 10
   br i1 %or.cond409.i, label %.critedge.i, label %699
 
-699:                                              ; preds = %.lr.ph.i252
+699:                                              ; preds = %.lr.ph.i251
   %.not387.i = icmp eq i8 %697, 42
   br i1 %.not387.i, label %.critedge.thread.i, label %700
 
@@ -6139,9 +6139,9 @@ select.unfold426.i:                               ; preds = %.select.unfold426_c
   %701 = getelementptr inbounds nuw i8, ptr %.0289476.i, i64 1
   %702 = load i8, ptr %701, align 1, !tbaa !98
   %.not386.i = icmp eq i8 %702, 0
-  br i1 %.not386.i, label %.critedge.thread.i, label %.lr.ph.i252, !llvm.loop !231
+  br i1 %.not386.i, label %.critedge.thread.i, label %.lr.ph.i251, !llvm.loop !231
 
-.critedge.i:                                      ; preds = %.lr.ph.i252
+.critedge.i:                                      ; preds = %.lr.ph.i251
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %704 = tail call i32 @curlx_strtoofft(ptr noundef nonnull %.0289476.i, ptr noundef null, i32 noundef 10, ptr noundef nonnull %703) #11
   %.not388.i = icmp eq i32 %704, 0
@@ -6244,7 +6244,7 @@ select.unfold444.i:                               ; preds = %732, %731, %725, %7
 754:                                              ; preds = %751
   %755 = tail call ptr @Curl_copy_header_value(ptr noundef nonnull %1)
   %.not371.i = icmp eq ptr %755, null
-  br i1 %.not371.i, label %.thread291, label %756
+  br i1 %.not371.i, label %.thread290, label %756
 
 756:                                              ; preds = %754
   %757 = load i8, ptr %755, align 1, !tbaa !98
@@ -6270,7 +6270,7 @@ select.unfold444.i:                               ; preds = %732, %731, %725, %7
   %767 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %766, ptr %767, align 8, !tbaa !152
   %.not374.i = icmp eq ptr %766, null
-  br i1 %.not374.i, label %.thread291, label %768
+  br i1 %.not374.i, label %.thread290, label %768
 
 768:                                              ; preds = %764
   tail call fastcc void @http_perhapsrewind(ptr noundef nonnull %0, ptr noundef %575)
@@ -6300,18 +6300,18 @@ select.unfold444.i:                               ; preds = %732, %731, %725, %7
   %782 = load i64, ptr %781, align 8
   %783 = and i64 %782, 1
   %.not472.i = icmp eq i64 %783, 0
-  br i1 %.not472.i, label %thread-pre-split.i249, label %784
+  br i1 %.not472.i, label %thread-pre-split.i248, label %784
 
 784:                                              ; preds = %780
   %785 = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.161, ptr noundef nonnull %1, i64 noundef 17) #11
   %786 = icmp ne i32 %785, 0
   %787 = icmp ugt i64 %2, 27
   %or.cond11.i = and i1 %787, %786
-  br i1 %or.cond11.i, label %788, label %thread-pre-split.i249
+  br i1 %or.cond11.i, label %788, label %thread-pre-split.i248
 
 788:                                              ; preds = %784
   %789 = tail call zeroext i1 @Curl_compareheader(ptr noundef nonnull %1, ptr noundef nonnull @.str.161, i64 noundef 17, ptr noundef nonnull @.str.156, i64 noundef 10)
-  br i1 %789, label %790, label %thread-pre-split.i249
+  br i1 %789, label %790, label %thread-pre-split.i248
 
 790:                                              ; preds = %788
   tail call void @Curl_conncontrol(ptr noundef nonnull %575, i32 noundef 0) #11
@@ -6337,12 +6337,12 @@ select.unfold444.i:                               ; preds = %732, %731, %725, %7
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.162) #11
   br label %http_header.exit.thread
 
-thread-pre-split.i249:                            ; preds = %788, %784, %780
-  %.pr.i250 = load i8, ptr %777, align 1, !tbaa !221
+thread-pre-split.i248:                            ; preds = %788, %784, %780
+  %.pr.i249 = load i8, ptr %777, align 1, !tbaa !221
   br label %802
 
-802:                                              ; preds = %thread-pre-split.i249, %776
-  %803 = phi i8 [ %.pr.i250, %thread-pre-split.i249 ], [ %778, %776 ]
+802:                                              ; preds = %thread-pre-split.i248, %776
+  %803 = phi i8 [ %.pr.i249, %thread-pre-split.i248 ], [ %778, %776 ]
   %804 = icmp eq i8 %803, 11
   br i1 %804, label %805, label %http_header.exit.thread
 
@@ -6404,7 +6404,7 @@ thread-pre-split.i249:                            ; preds = %788, %784, %780
 833:                                              ; preds = %831
   %834 = tail call ptr @Curl_copy_header_value(ptr noundef nonnull %1)
   %.not358.i = icmp eq ptr %834, null
-  br i1 %.not358.i, label %.thread291, label %835
+  br i1 %.not358.i, label %.thread290, label %835
 
 835:                                              ; preds = %833
   %836 = tail call i32 @Curl_http_input_auth(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %834)
@@ -6448,9 +6448,8 @@ thread-pre-split453.i:                            ; preds = %846
 
 .thread457.i:                                     ; preds = %thread-pre-split453.i, %850, %843
   %.pr456.i = phi i64 [ %.pr454.i, %thread-pre-split453.i ], [ %851, %850 ], [ %845, %843 ]
-  %852 = icmp slt i64 %.pr456.i, 0
-  %spec.select.i248 = call i64 @llvm.umin.i64(i64 %.pr456.i, i64 21600)
-  %853 = select i1 %852, i64 0, i64 %spec.select.i248
+  %852 = call i64 @llvm.smax.i64(i64 %.pr456.i, i64 0)
+  %853 = call i64 @llvm.umin.i64(i64 %852, i64 21600)
   %854 = getelementptr inbounds nuw i8, ptr %0, i64 5136
   store i64 %853, ptr %854, align 8, !tbaa !236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
@@ -6602,7 +6601,7 @@ select.unfold458.i:                               ; preds = %864, %858, %855
   %934 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %935 = tail call i32 @Curl_build_unencoding_stack(ptr noundef nonnull %0, ptr noundef nonnull %934, i32 noundef 1) #11
   %.not335.i = icmp eq i32 %935, 0
-  br i1 %.not335.i, label %936, label %.thread291
+  br i1 %.not335.i, label %936, label %.thread290
 
 936:                                              ; preds = %933
   %937 = load i32, ptr %920, align 1
@@ -6655,7 +6654,7 @@ select.unfold458.i:                               ; preds = %864, %858, %855
 959:                                              ; preds = %957
   %960 = tail call ptr @Curl_copy_header_value(ptr noundef nonnull %1)
   %.not328.i = icmp eq ptr %960, null
-  br i1 %.not328.i, label %.thread291, label %961
+  br i1 %.not328.i, label %.thread290, label %961
 
 961:                                              ; preds = %959
   %962 = tail call i32 @Curl_http_input_auth(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %960)
@@ -6675,12 +6674,12 @@ select.unfold458.i:                               ; preds = %864, %858, %855
 969:                                              ; preds = %.critedge424.i
   %970 = tail call i32 @Curl_rtsp_parseheader(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
   %.not402.i = icmp eq i32 %970, 0
-  br i1 %.not402.i, label %http_header.exit.thread, label %.thread291
+  br i1 %.not402.i, label %http_header.exit.thread, label %.thread290
 
 http_header.exit:                                 ; preds = %585, %634, %644
-  %.0.i246 = phi i32 [ %599, %585 ], [ %.1.i253, %634 ], [ %646, %644 ]
+  %.0.i246 = phi i32 [ %599, %585 ], [ %.1.i252, %634 ], [ %646, %644 ]
   %.not214 = icmp eq i32 %.0.i246, 0
-  br i1 %.not214, label %http_header.exit.thread, label %.thread291
+  br i1 %.not214, label %http_header.exit.thread, label %.thread290
 
 http_header.exit.thread:                          ; preds = %.critedge424.i, %969, %961, %936, %939, %943, %835, %801, %797, %790, %815, %822, %826, %813, %809, %805, %802, %734, %741, %676, %683, %687, %655, %656, %949, %886, %.thread457.i, %665, %http_header.exit
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %1, i64 noundef %2) #11
@@ -6692,14 +6691,14 @@ http_header.exit.thread:                          ; preds = %.critedge424.i, %96
   %spec.select = select i1 %973, i32 %974, i32 %.0168
   %975 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef %spec.select, ptr noundef nonnull %1, i64 noundef %2) #11
   %.not215 = icmp eq i32 %975, 0
-  br i1 %.not215, label %976, label %.thread291
+  br i1 %.not215, label %976, label %.thread290
 
 976:                                              ; preds = %http_header.exit.thread
   %977 = call i32 @Curl_bump_headersize(ptr noundef nonnull %0, i64 noundef %2, i1 noundef zeroext false)
-  br label %.thread291
+  br label %.thread290
 
-.thread291:                                       ; preds = %501, %504, %754, %764, %969, %959, %933, %833, %650, %462, %450, %454, %458, %465, %469, %473, %488, %401, %432, %.thread279, %verify_header.exit, %976, %http_header.exit.thread, %http_header.exit, %344
-  %.1 = phi i32 [ %.0157, %344 ], [ 8, %verify_header.exit ], [ %.0.i246, %http_header.exit ], [ %975, %http_header.exit.thread ], [ %977, %976 ], [ 1, %401 ], [ 1, %432 ], [ 8, %.thread279 ], [ 8, %488 ], [ 8, %473 ], [ 8, %469 ], [ 8, %465 ], [ 8, %458 ], [ 8, %454 ], [ 8, %450 ], [ 8, %462 ], [ 27, %754 ], [ 27, %764 ], [ %970, %969 ], [ 27, %959 ], [ %935, %933 ], [ 27, %833 ], [ 27, %650 ], [ 1, %504 ], [ 8, %501 ]
+.thread290:                                       ; preds = %501, %504, %754, %764, %969, %959, %933, %833, %650, %462, %450, %454, %458, %465, %469, %473, %488, %401, %432, %.thread278, %verify_header.exit, %976, %http_header.exit.thread, %http_header.exit, %344
+  %.1 = phi i32 [ %.0157, %344 ], [ 8, %verify_header.exit ], [ %.0.i246, %http_header.exit ], [ %975, %http_header.exit.thread ], [ %977, %976 ], [ 1, %401 ], [ 1, %432 ], [ 8, %.thread278 ], [ 8, %488 ], [ 8, %473 ], [ 8, %469 ], [ 8, %465 ], [ 8, %458 ], [ 8, %454 ], [ 8, %450 ], [ 8, %462 ], [ 27, %754 ], [ 27, %764 ], [ %970, %969 ], [ 27, %959 ], [ %935, %933 ], [ 27, %833 ], [ 27, %650 ], [ 1, %504 ], [ 8, %501 ]
   ret i32 %.1
 }
 
@@ -8407,6 +8406,9 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

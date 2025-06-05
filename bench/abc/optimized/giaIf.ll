@@ -17874,16 +17874,14 @@ Abc_TtShrink.exit:                                ; preds = %97, %Abc_TtCopy.exi
   %156 = and i64 %.227.i, 255
   %157 = mul nuw nsw i64 %156, 257
   %.328.i = select i1 %155, i64 %157, i64 %144
-  %.3.i = call i32 @llvm.umax.i32(i32 %143, i32 4)
   %158 = icmp samesign ult i32 %143, 5
   %159 = and i64 %.328.i, 65535
   %160 = mul nuw nsw i64 %159, 65537
   %.429.i = select i1 %158, i64 %160, i64 %144
-  %161 = and i32 %.3.i, 30
-  %162 = icmp eq i32 %161, 4
-  %163 = and i64 %.429.i, 4294967295
-  %164 = mul nuw i64 %163, 4294967297
-  %.5.i = select i1 %162, i64 %164, i64 %.429.i
+  %161 = icmp samesign ult i32 %143, 6
+  %162 = and i64 %.429.i, 4294967295
+  %163 = mul nuw i64 %162, 4294967297
+  %.5.i = select i1 %161, i64 %163, i64 %144
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #27
   ret i64 %.5.i
 }

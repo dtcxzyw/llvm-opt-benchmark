@@ -447,64 +447,60 @@ Abc_TtCountOnesVecMask.exit.thread:               ; preds = %._crit_edge, %Abc_T
 .lr.ph128:                                        ; preds = %._crit_edge126
   %163 = icmp eq i32 %.val73, 0
   %164 = icmp ult i32 %.val73, 2
-  %.1.i = tail call i32 @llvm.umax.i32(i32 %.val73, i32 2)
   %165 = icmp ult i32 %.val73, 3
-  %.2.i = select i1 %165, i32 3, i32 %.1.i
-  %166 = icmp eq i32 %.2.i, 3
-  %.3.i = select i1 %166, i32 4, i32 %.2.i
-  %167 = icmp eq i32 %.3.i, 4
-  %168 = and i32 %.3.i, -2
-  %169 = icmp eq i32 %168, 4
+  %166 = icmp ult i32 %.val73, 4
+  %167 = icmp ult i32 %.val73, 5
+  %168 = icmp ult i32 %.val73, 6
   %wide.trip.count146 = zext nneg i32 %18 to i64
-  br label %170
+  br label %169
 
-170:                                              ; preds = %.lr.ph128, %170
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next144, %170 ]
-  %171 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv143
-  %172 = load i64, ptr %171, align 8, !tbaa !12
-  %173 = trunc i64 %172 to i1
-  %174 = select i1 %173, i64 3, i64 0
-  %175 = and i64 %172, 3
-  %176 = select i1 %163, i64 %174, i64 %175
-  %177 = mul nuw nsw i64 %176, 5
-  %.126.i = select i1 %164, i64 %177, i64 %172
-  %178 = and i64 %.126.i, 15
-  %179 = mul nuw nsw i64 %178, 17
-  %.227.i = select i1 %165, i64 %179, i64 %172
-  %180 = and i64 %.227.i, 255
-  %181 = mul nuw nsw i64 %180, 257
-  %.328.i = select i1 %166, i64 %181, i64 %.227.i
-  %182 = and i64 %.328.i, 65535
-  %183 = mul nuw nsw i64 %182, 65537
-  %.429.i = select i1 %167, i64 %183, i64 %.328.i
-  %184 = and i64 %.429.i, 4294967295
-  %185 = mul nuw i64 %184, 4294967297
-  %.5.i = select i1 %169, i64 %185, i64 %.429.i
-  store i64 %.5.i, ptr %171, align 8, !tbaa !12
+169:                                              ; preds = %.lr.ph128, %169
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next144, %169 ]
+  %170 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv143
+  %171 = load i64, ptr %170, align 8, !tbaa !12
+  %172 = trunc i64 %171 to i1
+  %173 = select i1 %172, i64 3, i64 0
+  %174 = and i64 %171, 3
+  %175 = select i1 %163, i64 %173, i64 %174
+  %176 = mul nuw nsw i64 %175, 5
+  %.126.i = select i1 %164, i64 %176, i64 %171
+  %177 = and i64 %.126.i, 15
+  %178 = mul nuw nsw i64 %177, 17
+  %.227.i = select i1 %165, i64 %178, i64 %171
+  %179 = and i64 %.227.i, 255
+  %180 = mul nuw nsw i64 %179, 257
+  %.328.i = select i1 %166, i64 %180, i64 %171
+  %181 = and i64 %.328.i, 65535
+  %182 = mul nuw nsw i64 %181, 65537
+  %.429.i = select i1 %167, i64 %182, i64 %171
+  %183 = and i64 %.429.i, 4294967295
+  %184 = mul nuw i64 %183, 4294967297
+  %.5.i = select i1 %168, i64 %184, i64 %171
+  store i64 %.5.i, ptr %170, align 8, !tbaa !12
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.critedge5, label %170, !llvm.loop !26
+  br i1 %exitcond147.not, label %.critedge5, label %169, !llvm.loop !26
 
-.critedge5:                                       ; preds = %170, %._crit_edge126
-  %186 = load ptr, ptr %35, align 8, !tbaa !18
-  %.not.i = icmp eq ptr %186, null
-  br i1 %.not.i, label %Vec_WrdFree.exit, label %187
+.critedge5:                                       ; preds = %169, %._crit_edge126
+  %185 = load ptr, ptr %35, align 8, !tbaa !18
+  %.not.i = icmp eq ptr %185, null
+  br i1 %.not.i, label %Vec_WrdFree.exit, label %186
 
-187:                                              ; preds = %.critedge5
-  tail call void @free(ptr noundef nonnull %186) #14
+186:                                              ; preds = %.critedge5
+  tail call void @free(ptr noundef nonnull %185) #14
   br label %Vec_WrdFree.exit
 
-Vec_WrdFree.exit:                                 ; preds = %.critedge5, %187
+Vec_WrdFree.exit:                                 ; preds = %.critedge5, %186
   tail call void @free(ptr noundef nonnull %31) #14
-  %188 = load ptr, ptr %56, align 8, !tbaa !18
-  %.not.i116 = icmp eq ptr %188, null
-  br i1 %.not.i116, label %Vec_WrdFree.exit117, label %189
+  %187 = load ptr, ptr %56, align 8, !tbaa !18
+  %.not.i116 = icmp eq ptr %187, null
+  br i1 %.not.i116, label %Vec_WrdFree.exit117, label %188
 
-189:                                              ; preds = %Vec_WrdFree.exit
-  tail call void @free(ptr noundef nonnull %188) #14
+188:                                              ; preds = %Vec_WrdFree.exit
+  tail call void @free(ptr noundef nonnull %187) #14
   br label %Vec_WrdFree.exit117
 
-Vec_WrdFree.exit117:                              ; preds = %Vec_WrdFree.exit, %189
+Vec_WrdFree.exit117:                              ; preds = %Vec_WrdFree.exit, %188
   tail call void @free(ptr noundef nonnull %54) #14
   ret ptr %19
 }
@@ -1749,9 +1745,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

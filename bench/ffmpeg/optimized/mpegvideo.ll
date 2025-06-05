@@ -1300,34 +1300,33 @@ define void @ff_init_block_index(ptr noundef captures(none) initializes((3364, 3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_set_qscale(ptr noundef captures(none) initializes((8, 16), (1472, 1480)) %0, i32 noundef %1) local_unnamed_addr #9 {
-  %3 = icmp slt i32 %1, 1
-  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 31)
-  %.0 = select i1 %3, i32 1, i32 %4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 %.0, ptr %5, align 8, !tbaa !131
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %7 = load ptr, ptr %6, align 8, !tbaa !63
-  %8 = zext nneg i32 %.0 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !10
-  %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1476
-  store i32 %11, ptr %12, align 4, !tbaa !132
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %14 = load ptr, ptr %13, align 8, !tbaa !133
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !10
-  %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %17, ptr %18, align 8, !tbaa !134
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  %20 = load ptr, ptr %19, align 8, !tbaa !135
-  %21 = zext i8 %10 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !10
-  %24 = zext i8 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %24, ptr %25, align 4, !tbaa !136
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %.0 = tail call i32 @llvm.umin.i32(i32 %3, i32 31)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  store i32 %.0, ptr %4, align 8, !tbaa !131
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %7 = zext nneg i32 %.0 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !10
+  %10 = zext i8 %9 to i32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1476
+  store i32 %10, ptr %11, align 4, !tbaa !132
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %13 = load ptr, ptr %12, align 8, !tbaa !133
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %7
+  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %16 = zext i8 %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %16, ptr %17, align 8, !tbaa !134
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  %19 = load ptr, ptr %18, align 8, !tbaa !135
+  %20 = zext i8 %9 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !10
+  %23 = zext i8 %22 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %23, ptr %24, align 4, !tbaa !136
   ret void
 }
 

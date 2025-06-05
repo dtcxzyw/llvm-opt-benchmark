@@ -88,21 +88,99 @@ av_timecode_adjust_ntsc_framenum2.exit:           ; preds = %14, %10, %2
   %.0 = phi i32 [ %9, %2 ], [ %26, %14 ], [ %9, %10 ]
   %27 = urem i32 %.0, %4
   %28 = udiv i32 %.0, %4
-  %29 = urem i32 %28, 60
-  %30 = sext i32 %.0 to i64
-  %31 = zext i32 %4 to i64
-  %32 = mul nuw nsw i64 %31, 60
-  %33 = sdiv i64 %30, %32
-  %.lhs.trunc = trunc nsw i64 %33 to i32
-  %34 = srem i32 %.lhs.trunc, 60
-  %35 = mul nuw nsw i64 %31, 3600
-  %36 = sdiv i64 %30, %35
-  %.lhs.trunc20 = trunc nsw i64 %36 to i32
-  %37 = srem i32 %.lhs.trunc20, 24
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load i64, ptr %38, align 4
-  %40 = tail call i32 @av_timecode_get_smpte(i64 %39, i32 noundef %7, i32 noundef %37, i32 noundef %34, i32 noundef %29, i32 noundef %27)
-  ret i32 %40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i64, ptr %29, align 4
+  %.fr.i = freeze i64 %30
+  %.sroa.011.0.extract.trunc.i.i = trunc i64 %.fr.i to i32
+  %sext.i.i = shl i64 %.fr.i, 32
+  %31 = ashr exact i64 %sext.i.i, 32
+  %32 = ashr i64 %.fr.i, 32
+  %33 = mul nsw i64 %32, 30
+  %.not.i.i = icmp eq i64 %31, %33
+  br i1 %.not.i.i, label %av_timecode_get_smpte.exit, label %av_cmp_q.exit.i
+
+av_cmp_q.exit.i:                                  ; preds = %av_timecode_adjust_ntsc_framenum2.exit
+  %34 = sub nsw i64 %31, %33
+  %35 = xor i64 %34, %32
+  %36 = icmp sgt i64 %35, -1
+  br i1 %36, label %37, label %av_timecode_get_smpte.exit
+
+37:                                               ; preds = %av_cmp_q.exit.i
+  %38 = and i32 %27, -2147483647
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %av_cmp_q.exit41.thread.i
+
+40:                                               ; preds = %37
+  %41 = mul nsw i64 %32, 50
+  %.not.i37.i = icmp eq i64 %31, %41
+  br i1 %.not.i37.i, label %42, label %av_cmp_q.exit41.thread.i
+
+42:                                               ; preds = %40
+  %43 = icmp ugt i64 %.fr.i, 4294967295
+  %or.cond.i21 = icmp sgt i32 %.sroa.011.0.extract.trunc.i.i, 0
+  %or.cond61.i = or i1 %43, %or.cond.i21
+  %spec.select.i = select i1 %or.cond61.i, i32 128, i32 8388608
+  br label %av_cmp_q.exit41.thread.i
+
+av_cmp_q.exit41.thread.i:                         ; preds = %42, %40, %37
+  %.1.i = phi i32 [ 0, %37 ], [ 8388608, %40 ], [ %spec.select.i, %42 ]
+  %44 = sdiv i32 %27, 2
+  br label %av_timecode_get_smpte.exit
+
+av_timecode_get_smpte.exit:                       ; preds = %av_timecode_adjust_ntsc_framenum2.exit, %av_cmp_q.exit.i, %av_cmp_q.exit41.thread.i
+  %.031.i = phi i32 [ %.1.i, %av_cmp_q.exit41.thread.i ], [ 0, %av_cmp_q.exit.i ], [ 0, %av_timecode_adjust_ntsc_framenum2.exit ]
+  %.0.i20 = phi i32 [ %44, %av_cmp_q.exit41.thread.i ], [ %27, %av_cmp_q.exit.i ], [ %27, %av_timecode_adjust_ntsc_framenum2.exit ]
+  %45 = sext i32 %.0 to i64
+  %46 = zext i32 %4 to i64
+  %47 = mul nuw nsw i64 %46, 3600
+  %48 = sdiv i64 %45, %47
+  %.lhs.trunc22 = trunc nsw i64 %48 to i32
+  %49 = srem i32 %.lhs.trunc22, 24
+  %50 = mul nuw nsw i64 %46, 60
+  %51 = sdiv i64 %45, %50
+  %.lhs.trunc = trunc nsw i64 %51 to i32
+  %52 = srem i32 %.lhs.trunc, 60
+  %53 = urem i32 %28, 60
+  %54 = tail call i32 @llvm.smax.i32(i32 %52, i32 0)
+  %55 = srem i32 %.0.i20, 40
+  %56 = shl nuw nsw i32 %7, 30
+  %.lhs.trunc.i = trunc nsw i32 %55 to i8
+  %57 = sdiv i8 %.lhs.trunc.i, 10
+  %.sext.i = sext i8 %57 to i32
+  %58 = shl nsw i32 %.sext.i, 28
+  %59 = srem i8 %.lhs.trunc.i, 10
+  %.sext49.i = sext i8 %59 to i32
+  %60 = shl nsw i32 %.sext49.i, 24
+  %.lhs.trunc50.i = trunc nuw nsw i32 %53 to i8
+  %61 = udiv i8 %.lhs.trunc50.i, 10
+  %.zext.i = zext nneg i8 %61 to i32
+  %62 = shl nuw nsw i32 %.zext.i, 20
+  %63 = urem i8 %.lhs.trunc50.i, 10
+  %.zext52.i = zext nneg i8 %63 to i32
+  %64 = shl nuw nsw i32 %.zext52.i, 16
+  %.lhs.trunc53.i = trunc nuw nsw i32 %54 to i8
+  %65 = udiv i8 %.lhs.trunc53.i, 10
+  %.zext54.i = zext nneg i8 %65 to i32
+  %66 = shl nuw nsw i32 %.zext54.i, 12
+  %67 = urem i8 %.lhs.trunc53.i, 10
+  %.zext56.i = zext nneg i8 %67 to i32
+  %68 = shl nuw nsw i32 %.zext56.i, 8
+  %.lhs.trunc57.i = trunc nsw i32 %49 to i8
+  %69 = sdiv i8 %.lhs.trunc57.i, 10
+  %.sext58.i = sext i8 %69 to i32
+  %70 = shl nsw i32 %.sext58.i, 4
+  %71 = srem i8 %.lhs.trunc57.i, 10
+  %.sext60.i = sext i8 %71 to i32
+  %72 = or i32 %.031.i, %56
+  %73 = or i32 %72, %58
+  %74 = or i32 %73, %60
+  %75 = or i32 %74, %.sext60.i
+  %76 = or i32 %75, %70
+  %77 = or i32 %76, %62
+  %78 = or i32 %77, %64
+  %79 = or i32 %78, %66
+  %80 = or i32 %79, %68
+  ret i32 %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -148,10 +226,10 @@ av_cmp_q.exit.thread:                             ; preds = %6, %av_cmp_q.exit41
   %.031 = phi i32 [ %.1, %av_cmp_q.exit41.thread ], [ 0, %av_cmp_q.exit ], [ 0, %6 ]
   %.0 = phi i32 [ %20, %av_cmp_q.exit41.thread ], [ %5, %av_cmp_q.exit ], [ %5, %6 ]
   %21 = srem i32 %2, 24
-  %22 = icmp slt i32 %3, 0
-  %..i = tail call i32 @llvm.umin.i32(i32 %3, i32 59)
-  %23 = icmp slt i32 %4, 0
-  %..i32 = tail call i32 @llvm.umin.i32(i32 %4, i32 59)
+  %22 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
+  %.0.i = tail call i32 @llvm.umin.i32(i32 %22, i32 59)
+  %23 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %.0.i33 = tail call i32 @llvm.umin.i32(i32 %23, i32 59)
   %24 = srem i32 %.0, 40
   %25 = shl i32 %1, 30
   %.lhs.trunc = trunc nsw i32 %24 to i8
@@ -161,38 +239,36 @@ av_cmp_q.exit.thread:                             ; preds = %6, %av_cmp_q.exit41
   %28 = srem i8 %.lhs.trunc, 10
   %.sext49 = sext i8 %28 to i32
   %29 = shl nsw i32 %.sext49, 24
-  %30 = trunc nuw nsw i32 %..i32 to i8
-  %.lhs.trunc50 = select i1 %23, i8 0, i8 %30
-  %31 = udiv i8 %.lhs.trunc50, 10
-  %.zext = zext nneg i8 %31 to i32
-  %32 = shl nuw nsw i32 %.zext, 20
-  %33 = urem i8 %.lhs.trunc50, 10
-  %.zext52 = zext nneg i8 %33 to i32
-  %34 = shl nuw nsw i32 %.zext52, 16
-  %35 = trunc nuw nsw i32 %..i to i8
-  %.lhs.trunc53 = select i1 %22, i8 0, i8 %35
-  %36 = udiv i8 %.lhs.trunc53, 10
-  %.zext54 = zext nneg i8 %36 to i32
-  %37 = shl nuw nsw i32 %.zext54, 12
-  %38 = urem i8 %.lhs.trunc53, 10
-  %.zext56 = zext nneg i8 %38 to i32
-  %39 = shl nuw nsw i32 %.zext56, 8
+  %.lhs.trunc50 = trunc nuw nsw i32 %.0.i33 to i8
+  %30 = udiv i8 %.lhs.trunc50, 10
+  %.zext = zext nneg i8 %30 to i32
+  %31 = shl nuw nsw i32 %.zext, 20
+  %32 = urem i8 %.lhs.trunc50, 10
+  %.zext52 = zext nneg i8 %32 to i32
+  %33 = shl nuw nsw i32 %.zext52, 16
+  %.lhs.trunc53 = trunc nuw nsw i32 %.0.i to i8
+  %34 = udiv i8 %.lhs.trunc53, 10
+  %.zext54 = zext nneg i8 %34 to i32
+  %35 = shl nuw nsw i32 %.zext54, 12
+  %36 = urem i8 %.lhs.trunc53, 10
+  %.zext56 = zext nneg i8 %36 to i32
+  %37 = shl nuw nsw i32 %.zext56, 8
   %.lhs.trunc57 = trunc nsw i32 %21 to i8
-  %40 = sdiv i8 %.lhs.trunc57, 10
-  %.sext58 = sext i8 %40 to i32
-  %41 = shl nsw i32 %.sext58, 4
-  %42 = srem i8 %.lhs.trunc57, 10
-  %.sext60 = sext i8 %42 to i32
-  %43 = or i32 %25, %.sext60
-  %44 = or i32 %43, %41
-  %45 = or i32 %44, %37
-  %46 = or i32 %45, %39
-  %47 = or i32 %46, %32
-  %48 = or i32 %47, %34
-  %49 = or i32 %48, %.031
-  %50 = or i32 %49, %27
-  %51 = or i32 %50, %29
-  ret i32 %51
+  %38 = sdiv i8 %.lhs.trunc57, 10
+  %.sext58 = sext i8 %38 to i32
+  %39 = shl nsw i32 %.sext58, 4
+  %40 = srem i8 %.lhs.trunc57, 10
+  %.sext60 = sext i8 %40 to i32
+  %41 = or i32 %25, %.sext60
+  %42 = or i32 %41, %39
+  %43 = or i32 %42, %35
+  %44 = or i32 %43, %37
+  %45 = or i32 %44, %31
+  %46 = or i32 %45, %33
+  %47 = or i32 %46, %.031
+  %48 = or i32 %47, %27
+  %49 = or i32 %48, %29
+  ret i32 %49
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -631,6 +707,9 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9

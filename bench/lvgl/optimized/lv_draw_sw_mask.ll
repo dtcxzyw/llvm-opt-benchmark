@@ -1062,17 +1062,17 @@ declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 162)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = icmp slt i32 %3, 0
-  %7 = tail call i32 @llvm.umin.i32(i32 %3, i32 359)
-  %.056 = select i1 %6, i32 0, i32 %7
-  %8 = icmp slt i32 %4, 0
-  %9 = tail call i32 @llvm.umin.i32(i32 %4, i32 359)
-  %.055 = select i1 %8, i32 0, i32 %9
-  %10 = icmp samesign ult i32 %.055, %.056
+  %6 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
+  %.056 = tail call i32 @llvm.umin.i32(i32 %6, i32 359)
+  %7 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %.055 = tail call i32 @llvm.umin.i32(i32 %7, i32 359)
+  %8 = icmp samesign ult i32 %7, %.056
   %reass.sub = sub nsw i32 %.055, %.056
-  %11 = trunc nsw i32 %reass.sub to i16
-  %12 = add nsw i16 %11, 360
-  %.sink = select i1 %10, i16 %12, i16 %11
+  %9 = trunc nsw i32 %reass.sub to i16
+  %10 = add nsw i16 %9, 360
+  %11 = tail call i32 @llvm.abs.i32(i32 %reass.sub, i1 true)
+  %12 = trunc nuw nsw i32 %11 to i16
+  %.sink = select i1 %8, i16 %10, i16 %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i16 %.sink, ptr %13, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1084,13 +1084,13 @@ define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 
   store ptr @lv_draw_mask_angle, ptr %0, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %17, align 8, !tbaa !45
-  %18 = icmp samesign ugt i32 %.056, 179
+  %18 = icmp sgt i32 %3, 179
   %.054 = zext i1 %18 to i32
-  %19 = icmp samesign ult i32 %.055, 180
+  %19 = icmp slt i32 %4, 180
   %.0 = zext i1 %19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = trunc nuw nsw i32 %.056 to i16
-  %22 = icmp samesign ugt i32 %.056, 180
+  %22 = icmp sgt i32 %3, 180
   %23 = add nsw i16 %21, -180
   %spec.select.i = select i1 %22, i16 %23, i16 %21
   %24 = add nuw nsw i16 %spec.select.i, 90
@@ -1103,7 +1103,7 @@ define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 
   tail call void @lv_draw_sw_mask_line_points_init(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %2, i32 noundef %27, i32 noundef %30, i32 noundef %.054)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = trunc nuw nsw i32 %.055 to i16
-  %33 = icmp samesign ugt i32 %.055, 180
+  %33 = icmp sgt i32 %4, 180
   %34 = add nsw i16 %32, -180
   %spec.select.i60 = select i1 %33, i16 %34, i16 %32
   %35 = add nuw nsw i16 %spec.select.i60, 90

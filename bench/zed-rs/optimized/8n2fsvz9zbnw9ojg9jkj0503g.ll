@@ -4228,16 +4228,14 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 
 442:                                              ; preds = %448, %440
   %.sroa.01.0.i.i = phi i32 [ %381, %440 ], [ %spec.select1.i.i, %448 ]
-  %443 = icmp slt i32 %.sroa.01.0.i.i, 0
-  %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i.i.i = call i32 @llvm.umin.i32(i32 %.sroa.01.0.i.i, i32 63)
-  %.sroa.0.0.in.sroa.speculated.i.i.i = select i1 %443, i32 0, i32 %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i.i.i
+  %443 = call i32 @llvm.smax.i32(i32 %.sroa.01.0.i.i, i32 0)
+  %.sroa.0.0.in.sroa.speculated.i.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %443, i32 63)
   %444 = icmp eq i8 %.sroa.4206.0.copyload, 4
   %445 = select i1 %444, i32 %384, i32 0
   %.sroa.01.1.i.i = add i32 %.sroa.0.0.in.sroa.speculated.i.i.i, %445
-  %446 = icmp slt i32 %.sroa.01.1.i.i, 0
-  %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i17.i.i = call i32 @llvm.umin.i32(i32 %.sroa.01.1.i.i, i32 63)
-  %.sroa.0.0.in.sroa.speculated.i18.i.i = select i1 %446, i32 0, i32 %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i17.i.i
-  %447 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculated.i18.i.i to i8
+  %446 = call i32 @llvm.smax.i32(i32 %.sroa.01.1.i.i, i32 0)
+  %.sroa.0.0.in.sroa.speculated.i17.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %446, i32 63)
+  %447 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculated.i17.i.i to i8
   br i1 %.not.i.i, label %459, label %457
 
 448:                                              ; preds = %440
@@ -4259,7 +4257,7 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 
 459:                                              ; preds = %457, %442
   %.sroa.06.0.i.i = phi i8 [ %447, %442 ], [ %spec.select16.i.i, %457 ]
-  %460 = icmp samesign ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 39
+  %460 = icmp sgt i32 %.sroa.01.1.i.i, 39
   br i1 %389, label %462, label %461
 
 461:                                              ; preds = %459
@@ -4270,11 +4268,11 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
   br label %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.i"
 
 463:                                              ; preds = %461
-  %464 = icmp samesign ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 19
+  %464 = icmp sgt i32 %.sroa.01.1.i.i, 19
   br i1 %464, label %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.thread.i", label %465
 
 465:                                              ; preds = %463
-  %466 = icmp samesign ugt i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 14
+  %466 = icmp sgt i32 %.sroa.01.1.i.i, 14
   %spec.select.i.i = zext i1 %466 to i8
   br label %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.i"
 
@@ -4286,7 +4284,7 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 "_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.i": ; preds = %465, %462
   %.sroa.010.0.i.i = phi i8 [ %.15.i.i, %462 ], [ %spec.select.i.i, %465 ]
   %spec.store.select.i.i = call i8 @llvm.umax.i8(i8 %.sroa.06.0.i.i, i8 1)
-  %.not.i79 = icmp eq i32 %.sroa.0.0.in.sroa.speculated.i18.i.i, 0
+  %.not.i79 = icmp slt i32 %.sroa.01.1.i.i, 1
   br i1 %.not.i79, label %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$11loop_filter17hc7041b5766b39978E.exit", label %467
 
 467:                                              ; preds = %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.i", %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.thread.i"
@@ -167323,6 +167321,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #78
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #76
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #76

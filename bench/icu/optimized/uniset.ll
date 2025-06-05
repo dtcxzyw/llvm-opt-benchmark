@@ -638,152 +638,149 @@ define void @_ZN6icu_7710UnicodeSetC2Eii(ptr noundef nonnull align 8 dereference
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
 _ZN6icu_77L12pinCodePointERi.exit:
   %3 = alloca [3 x i32], align 4
-  %4 = icmp slt i32 %1, 0
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %.031 = select i1 %4, i32 0, i32 %spec.select
-  %5 = icmp sgt i32 %2, -1
-  %spec.select34 = tail call i32 @llvm.umin.i32(i32 %2, i32 1114111)
-  %6 = icmp samesign ugt i32 %spec.select34, %.031
-  %7 = select i1 %5, i1 %6, i1 false
-  br i1 %7, label %8, label %77
+  %4 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %.031 = tail call i32 @llvm.umin.i32(i32 %4, i32 1114111)
+  %5 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %.0 = tail call i32 @llvm.umin.i32(i32 %5, i32 1114111)
+  %6 = icmp samesign ult i32 %4, %.0
+  br i1 %6, label %7, label %76
 
-8:                                                ; preds = %_ZN6icu_77L12pinCodePointERi.exit
-  %9 = add nuw nsw i32 %spec.select34, 1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %11 = load i32, ptr %10, align 4, !tbaa !33
-  %12 = and i32 %11, 1
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %74, label %13
+7:                                                ; preds = %_ZN6icu_77L12pinCodePointERi.exit
+  %8 = add nuw nsw i32 %.0, 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !33
+  %11 = and i32 %10, 1
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %73, label %12
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %11, 1
-  br i1 %14, label %.thread, label %15
+12:                                               ; preds = %7
+  %13 = icmp eq i32 %10, 1
+  br i1 %13, label %.thread, label %14
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !31
-  %18 = sext i32 %11 to i64
-  %19 = getelementptr i32, ptr %17, i64 %18
-  %20 = getelementptr i8, ptr %19, i64 -8
-  %21 = load i32, ptr %20, align 4, !tbaa !12
-  %.not17 = icmp sgt i32 %21, %.031
-  br i1 %.not17, label %74, label %.thread
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %17 = sext i32 %10 to i64
+  %18 = getelementptr i32, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -8
+  %20 = load i32, ptr %19, align 4, !tbaa !12
+  %.not17 = icmp sgt i32 %20, %.031
+  br i1 %.not17, label %73, label %.thread
 
-.thread:                                          ; preds = %13, %15
-  %22 = phi i32 [ %21, %15 ], [ -2, %13 ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
-  %.not.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  %narrow.i.not = select i1 %.not.i, i1 %27, i1 false
-  br i1 %narrow.i.not, label %28, label %74
+.thread:                                          ; preds = %12, %14
+  %21 = phi i32 [ %20, %14 ], [ -2, %12 ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %.not.i = icmp eq ptr %23, null
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  %narrow.i.not = select i1 %.not.i, i1 %26, i1 false
+  br i1 %narrow.i.not, label %27, label %73
 
-28:                                               ; preds = %.thread
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load i8, ptr %29, align 8, !tbaa !34
-  %31 = and i8 %30, 1
-  %.not19 = icmp eq i8 %31, 0
-  br i1 %.not19, label %32, label %74
+27:                                               ; preds = %.thread
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load i8, ptr %28, align 8, !tbaa !34
+  %30 = and i8 %29, 1
+  %.not19 = icmp eq i8 %30, 0
+  br i1 %.not19, label %31, label %73
 
-32:                                               ; preds = %28
-  %33 = icmp eq i32 %22, %.031
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !31
-  %36 = sext i32 %11 to i64
-  %37 = getelementptr i32, ptr %35, i64 %36
-  br i1 %33, label %38, label %44
+31:                                               ; preds = %27
+  %32 = icmp eq i32 %21, %.031
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !31
+  %35 = sext i32 %10 to i64
+  %36 = getelementptr i32, ptr %34, i64 %35
+  br i1 %32, label %37, label %43
 
-38:                                               ; preds = %32
-  %39 = getelementptr i8, ptr %37, i64 -8
-  store i32 %9, ptr %39, align 4, !tbaa !12
-  %40 = icmp eq i32 %9, 1114112
-  br i1 %40, label %41, label %.critedge
+37:                                               ; preds = %31
+  %38 = getelementptr i8, ptr %36, i64 -8
+  store i32 %8, ptr %38, align 4, !tbaa !12
+  %39 = icmp eq i32 %8, 1114112
+  br i1 %39, label %40, label %.critedge
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %10, align 4, !tbaa !33
-  %43 = add nsw i32 %42, -1
-  store i32 %43, ptr %10, align 4, !tbaa !33
+40:                                               ; preds = %37
+  %41 = load i32, ptr %9, align 4, !tbaa !33
+  %42 = add nsw i32 %41, -1
+  store i32 %42, ptr %9, align 4, !tbaa !33
   br label %.critedge
 
-44:                                               ; preds = %32
-  %45 = getelementptr i8, ptr %37, i64 -4
-  store i32 %.031, ptr %45, align 4, !tbaa !12
-  %46 = icmp ult i32 %2, 1114111
-  %47 = load i32, ptr %10, align 4, !tbaa !33
-  br i1 %46, label %48, label %61
+43:                                               ; preds = %31
+  %44 = getelementptr i8, ptr %36, i64 -4
+  store i32 %.031, ptr %44, align 4, !tbaa !12
+  %45 = icmp slt i32 %2, 1114111
+  %46 = load i32, ptr %9, align 4, !tbaa !33
+  br i1 %45, label %47, label %60
 
-48:                                               ; preds = %44
-  %49 = add nsw i32 %47, 2
-  %50 = tail call noundef zeroext i1 @_ZN6icu_7710UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %49)
-  br i1 %50, label %51, label %.critedge
+47:                                               ; preds = %43
+  %48 = add nsw i32 %46, 2
+  %49 = tail call noundef zeroext i1 @_ZN6icu_7710UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %48)
+  br i1 %49, label %50, label %.critedge
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %34, align 8, !tbaa !31
-  %53 = load i32, ptr %10, align 4, !tbaa !33
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %10, align 4, !tbaa !33
-  %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds i32, ptr %52, i64 %55
-  store i32 %9, ptr %56, align 4, !tbaa !12
-  %57 = load i32, ptr %10, align 4, !tbaa !33
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %10, align 4, !tbaa !33
-  %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds i32, ptr %52, i64 %59
-  store i32 1114112, ptr %60, align 4, !tbaa !12
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %33, align 8, !tbaa !31
+  %52 = load i32, ptr %9, align 4, !tbaa !33
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %9, align 4, !tbaa !33
+  %54 = sext i32 %52 to i64
+  %55 = getelementptr inbounds i32, ptr %51, i64 %54
+  store i32 %8, ptr %55, align 4, !tbaa !12
+  %56 = load i32, ptr %9, align 4, !tbaa !33
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %9, align 4, !tbaa !33
+  %58 = sext i32 %56 to i64
+  %59 = getelementptr inbounds i32, ptr %51, i64 %58
+  store i32 1114112, ptr %59, align 4, !tbaa !12
   br label %.critedge
 
-61:                                               ; preds = %44
-  %62 = add nsw i32 %47, 1
-  %63 = tail call noundef zeroext i1 @_ZN6icu_7710UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %62)
-  br i1 %63, label %64, label %.critedge
+60:                                               ; preds = %43
+  %61 = add nsw i32 %46, 1
+  %62 = tail call noundef zeroext i1 @_ZN6icu_7710UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %61)
+  br i1 %62, label %63, label %.critedge
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %34, align 8, !tbaa !31
-  %66 = load i32, ptr %10, align 4, !tbaa !33
-  %67 = add nsw i32 %66, 1
-  store i32 %67, ptr %10, align 4, !tbaa !33
-  %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i32, ptr %65, i64 %68
-  store i32 1114112, ptr %69, align 4, !tbaa !12
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %33, align 8, !tbaa !31
+  %65 = load i32, ptr %9, align 4, !tbaa !33
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %9, align 4, !tbaa !33
+  %67 = sext i32 %65 to i64
+  %68 = getelementptr inbounds i32, ptr %64, i64 %67
+  store i32 1114112, ptr %68, align 4, !tbaa !12
   br label %.critedge
 
-.critedge:                                        ; preds = %51, %48, %64, %61, %38, %41
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !35
-  %.not.i23 = icmp eq ptr %71, null
-  br i1 %.not.i23, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %72
+.critedge:                                        ; preds = %50, %47, %63, %60, %37, %40
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %70 = load ptr, ptr %69, align 8, !tbaa !35
+  %.not.i23 = icmp eq ptr %70, null
+  br i1 %.not.i23, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %71
 
-72:                                               ; preds = %.critedge
-  tail call void @uprv_free_77(ptr noundef nonnull %71)
-  store ptr null, ptr %70, align 8, !tbaa !35
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %73, align 8, !tbaa !36
+71:                                               ; preds = %.critedge
+  tail call void @uprv_free_77(ptr noundef nonnull %70)
+  store ptr null, ptr %69, align 8, !tbaa !35
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %72, align 8, !tbaa !36
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-74:                                               ; preds = %28, %.thread, %15, %8
+73:                                               ; preds = %27, %.thread, %14, %7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
   store i32 %.031, ptr %3, align 4, !tbaa !12
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %9, ptr %75, align 4, !tbaa !12
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %76, align 4, !tbaa !12
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %8, ptr %74, align 4, !tbaa !12
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %75, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet3addEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-77:                                               ; preds = %_ZN6icu_77L12pinCodePointERi.exit
-  %.0 = select i1 %5, i32 %spec.select34, i32 0
-  %78 = icmp eq i32 %.031, %.0
-  br i1 %78, label %79, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
+76:                                               ; preds = %_ZN6icu_77L12pinCodePointERi.exit
+  %77 = icmp eq i32 %.031, %.0
+  br i1 %77, label %78, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-79:                                               ; preds = %77
-  %80 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %.031)
+78:                                               ; preds = %76
+  %79 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %.031)
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-_ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %72, %.critedge, %74, %79, %77
+_ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %71, %.critedge, %73, %78, %76
   ret ptr %0
 }
 
@@ -3901,43 +3898,39 @@ _ZN6icu_7710UnicodeSet5clearEv.exit:              ; preds = %3, %21
   br i1 %.not2.i5, label %_ZN6icu_77L12pinCodePointERi.exit.i, label %_ZN6icu_7710UnicodeSet10complementEii.exit
 
 _ZN6icu_77L12pinCodePointERi.exit.i:              ; preds = %26
-  %30 = icmp sgt i32 %1, -1
-  %spec.select12.i = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %31 = icmp slt i32 %2, 0
-  %spec.select14.i = tail call i32 @llvm.umin.i32(i32 %2, i32 1114111)
-  %32 = select i1 %31, i32 0, i32 %spec.select14.i
-  %.not316.i = icmp samesign ugt i32 %spec.select12.i, %32
-  %.not3.i = select i1 %30, i1 %.not316.i, i1 false
-  br i1 %.not3.i, label %38, label %33
+  %30 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 1114111)
+  %32 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %.not3.i = icmp samesign ult i32 %32, %31
+  br i1 %.not3.i, label %37, label %33
 
 33:                                               ; preds = %_ZN6icu_77L12pinCodePointERi.exit.i
-  %.011.i = select i1 %30, i32 %spec.select12.i, i32 0
+  %.0.i = tail call i32 @llvm.umin.i32(i32 %32, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #25
-  store i32 %.011.i, ptr %4, align 4, !tbaa !12
+  store i32 %31, ptr %4, align 4, !tbaa !12
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %35 = add nuw nsw i32 %spec.select14.i, 1
-  %36 = select i1 %31, i32 1, i32 %35
-  store i32 %36, ptr %34, align 4, !tbaa !12
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1114112, ptr %37, align 4, !tbaa !12
+  %35 = add nuw nsw i32 %.0.i, 1
+  store i32 %35, ptr %34, align 4, !tbaa !12
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1114112, ptr %36, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet11exclusiveOrEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %4, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #25
-  br label %38
+  br label %37
 
-38:                                               ; preds = %33, %_ZN6icu_77L12pinCodePointERi.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %40 = load ptr, ptr %39, align 8, !tbaa !35
-  %.not.i7.i = icmp eq ptr %40, null
-  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet10complementEii.exit, label %41
+37:                                               ; preds = %33, %_ZN6icu_77L12pinCodePointERi.exit.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %39 = load ptr, ptr %38, align 8, !tbaa !35
+  %.not.i7.i = icmp eq ptr %39, null
+  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet10complementEii.exit, label %40
 
-41:                                               ; preds = %38
-  tail call void @uprv_free_77(ptr noundef nonnull %40)
-  store ptr null, ptr %39, align 8, !tbaa !35
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %42, align 8, !tbaa !36
+40:                                               ; preds = %37
+  tail call void @uprv_free_77(ptr noundef nonnull %39)
+  store ptr null, ptr %38, align 8, !tbaa !35
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %41, align 8, !tbaa !36
   br label %_ZN6icu_7710UnicodeSet10complementEii.exit
 
-_ZN6icu_7710UnicodeSet10complementEii.exit:       ; preds = %_ZN6icu_7710UnicodeSet5clearEv.exit, %26, %38, %41
+_ZN6icu_7710UnicodeSet10complementEii.exit:       ; preds = %_ZN6icu_7710UnicodeSet5clearEv.exit, %26, %37, %40
   ret ptr %0
 }
 
@@ -4009,43 +4002,39 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet1
   br i1 %.not2, label %_ZN6icu_77L12pinCodePointERi.exit, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
 _ZN6icu_77L12pinCodePointERi.exit:                ; preds = %10
-  %14 = icmp sgt i32 %1, -1
-  %spec.select12 = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %15 = icmp slt i32 %2, 0
-  %spec.select14 = tail call i32 @llvm.umin.i32(i32 %2, i32 1114111)
-  %16 = select i1 %15, i32 0, i32 %spec.select14
-  %.not316 = icmp samesign ugt i32 %spec.select12, %16
-  %.not3 = select i1 %14, i1 %.not316, i1 false
-  br i1 %.not3, label %22, label %17
+  %14 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 1114111)
+  %16 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %.not3 = icmp samesign ult i32 %16, %15
+  br i1 %.not3, label %21, label %17
 
 17:                                               ; preds = %_ZN6icu_77L12pinCodePointERi.exit
-  %.011 = select i1 %14, i32 %spec.select12, i32 0
+  %.0 = tail call i32 @llvm.umin.i32(i32 %16, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #25
-  store i32 %.011, ptr %4, align 4, !tbaa !12
+  store i32 %15, ptr %4, align 4, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %19 = add nuw nsw i32 %spec.select14, 1
-  %20 = select i1 %15, i32 1, i32 %19
-  store i32 %20, ptr %18, align 4, !tbaa !12
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1114112, ptr %21, align 4, !tbaa !12
+  %19 = add nuw nsw i32 %.0, 1
+  store i32 %19, ptr %18, align 4, !tbaa !12
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1114112, ptr %20, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet11exclusiveOrEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %4, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #25
-  br label %22
+  br label %21
 
-22:                                               ; preds = %17, %_ZN6icu_77L12pinCodePointERi.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !35
-  %.not.i7 = icmp eq ptr %24, null
-  br i1 %.not.i7, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %25
+21:                                               ; preds = %17, %_ZN6icu_77L12pinCodePointERi.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %23 = load ptr, ptr %22, align 8, !tbaa !35
+  %.not.i7 = icmp eq ptr %23, null
+  br i1 %.not.i7, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %24
 
-25:                                               ; preds = %22
-  tail call void @uprv_free_77(ptr noundef nonnull %24)
-  store ptr null, ptr %23, align 8, !tbaa !35
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %26, align 8, !tbaa !36
+24:                                               ; preds = %21
+  tail call void @uprv_free_77(ptr noundef nonnull %23)
+  store ptr null, ptr %22, align 8, !tbaa !35
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %25, align 8, !tbaa !36
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-_ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %25, %22, %3, %10
+_ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %24, %21, %3, %10
   ret ptr %0
 }
 
@@ -4382,9 +4371,8 @@ _ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %190, %180, %16, %4,
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
 _ZN6icu_77L12pinCodePointERi.exit:
-  %2 = icmp slt i32 %1, 0
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %.0 = select i1 %2, i32 0, i32 %spec.select
+  %2 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %.0 = tail call i32 @llvm.umin.i32(i32 %2, i32 1114111)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = load i32, ptr %4, align 4, !tbaa !12
@@ -4461,7 +4449,7 @@ _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.thread: ; preds = %_ZN6icu_77L12pi
 
 43:                                               ; preds = %37
   store i32 %.0, ptr %39, align 4, !tbaa !12
-  %44 = icmp eq i32 %.0, 1114111
+  %44 = icmp sgt i32 %1, 1114110
   br i1 %44, label %45, label %56
 
 45:                                               ; preds = %43
@@ -5528,73 +5516,69 @@ _ZN6icu_7710UnicodeSet6addAllERKNS_13UnicodeStringE.exit: ; preds = %.lr.ph.i, %
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6retainEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
 _ZN6icu_77L12pinCodePointERi.exit:
   %3 = alloca [3 x i32], align 4
-  %4 = icmp sgt i32 %1, -1
-  %spec.select8 = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %5 = icmp slt i32 %2, 0
-  %spec.select10 = tail call i32 @llvm.umin.i32(i32 %2, i32 1114111)
-  %6 = select i1 %5, i32 0, i32 %spec.select10
-  %.not11 = icmp samesign ugt i32 %spec.select8, %6
-  %.not = select i1 %4, i1 %.not11, i1 false
-  br i1 %.not, label %12, label %7
+  %4 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 1114111)
+  %6 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %.not = icmp samesign ult i32 %6, %5
+  br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %_ZN6icu_77L12pinCodePointERi.exit
-  %.07 = select i1 %4, i32 %spec.select8, i32 0
+  %.0 = tail call i32 @llvm.umin.i32(i32 %6, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
-  store i32 %.07, ptr %3, align 4, !tbaa !12
+  store i32 %5, ptr %3, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = add nuw nsw i32 %spec.select10, 1
-  %10 = select i1 %5, i32 1, i32 %9
-  store i32 %10, ptr %8, align 4, !tbaa !12
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %11, align 4, !tbaa !12
+  %9 = add nuw nsw i32 %.0, 1
+  store i32 %9, ptr %8, align 4, !tbaa !12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %10, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
   br label %_ZN6icu_7710UnicodeSet5clearEv.exit
 
-12:                                               ; preds = %_ZN6icu_77L12pinCodePointERi.exit
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
-  %.not.i.i = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  %narrow.i.not.i = select i1 %.not.i.i, i1 %17, i1 false
-  br i1 %narrow.i.not.i, label %18, label %_ZN6icu_7710UnicodeSet5clearEv.exit
+11:                                               ; preds = %_ZN6icu_77L12pinCodePointERi.exit
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %.not.i.i = icmp eq ptr %13, null
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  %narrow.i.not.i = select i1 %.not.i.i, i1 %16, i1 false
+  br i1 %narrow.i.not.i, label %17, label %_ZN6icu_7710UnicodeSet5clearEv.exit
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !31
-  store i32 1114112, ptr %20, align 4, !tbaa !12
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 1, ptr %21, align 4, !tbaa !33
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = load ptr, ptr %22, align 8, !tbaa !35
-  %.not.i3.i = icmp eq ptr %23, null
-  br i1 %.not.i3.i, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i, label %24
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
+  store i32 1114112, ptr %19, align 4, !tbaa !12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 1, ptr %20, align 4, !tbaa !33
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %.not.i3.i = icmp eq ptr %22, null
+  br i1 %.not.i3.i, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i, label %23
 
-24:                                               ; preds = %18
-  tail call void @uprv_free_77(ptr noundef nonnull %23)
-  store ptr null, ptr %22, align 8, !tbaa !35
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %25, align 8, !tbaa !36
+23:                                               ; preds = %17
+  tail call void @uprv_free_77(ptr noundef nonnull %22)
+  store ptr null, ptr %21, align 8, !tbaa !35
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %24, align 8, !tbaa !36
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i
 
-_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i:  ; preds = %24, %18
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !15
-  %.not2.i = icmp eq ptr %27, null
-  br i1 %.not2.i, label %29, label %28
+_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i:  ; preds = %23, %17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %26 = load ptr, ptr %25, align 8, !tbaa !15
+  %.not2.i = icmp eq ptr %26, null
+  br i1 %.not2.i, label %28, label %27
 
-28:                                               ; preds = %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i
-  tail call void @_ZN6icu_777UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
-  br label %29
+27:                                               ; preds = %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i
+  tail call void @_ZN6icu_777UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %26)
+  br label %28
 
-29:                                               ; preds = %28, %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %30, align 8, !tbaa !34
+28:                                               ; preds = %27, %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.i
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %29, align 8, !tbaa !34
   br label %_ZN6icu_7710UnicodeSet5clearEv.exit
 
-_ZN6icu_7710UnicodeSet5clearEv.exit:              ; preds = %29, %12, %7
+_ZN6icu_7710UnicodeSet5clearEv.exit:              ; preds = %28, %11, %7
   ret ptr %0
 }
 
@@ -5861,15 +5845,13 @@ _ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %155, %145, %14, %4,
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6retainEi(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
 _ZN6icu_7710UnicodeSet6retainEii.exit:
   %2 = alloca [3 x i32], align 4
-  %3 = icmp slt i32 %1, 0
-  %spec.select8.i = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %.07.i = select i1 %3, i32 0, i32 %spec.select8.i
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %4 = tail call i32 @llvm.umin.i32(i32 %3, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #25
-  store i32 %.07.i, ptr %2, align 4, !tbaa !12
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %5 = add nuw nsw i32 %spec.select8.i, 1
-  %6 = select i1 %3, i32 1, i32 %5
-  store i32 %6, ptr %4, align 4, !tbaa !12
+  store i32 %4, ptr %2, align 4, !tbaa !12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %6 = add nuw nsw i32 %4, 1
+  store i32 %6, ptr %5, align 4, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1114112, ptr %7, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %2, i32 noundef 2, i8 noundef signext 0)
@@ -5997,14 +5979,14 @@ _ZN6icu_7710UnicodeSet5clearEv.exit:              ; preds = %56, %43
 
 _ZN6icu_7710UnicodeSet6retainEii.exit:            ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %29
   %.0.i.ph = phi i32 [ %30, %29 ], [ %28, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ]
-  %spec.select8.i = tail call i32 @llvm.umin.i32(i32 %.0.i.ph, i32 1114111)
+  %58 = tail call i32 @llvm.umin.i32(i32 %.0.i.ph, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
-  store i32 %spec.select8.i, ptr %3, align 4, !tbaa !12
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %59 = add nuw nsw i32 %spec.select8.i, 1
-  store i32 %59, ptr %58, align 4, !tbaa !12
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %60, align 4, !tbaa !12
+  store i32 %58, ptr %3, align 4, !tbaa !12
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %60 = add nuw nsw i32 %58, 1
+  store i32 %60, ptr %59, align 4, !tbaa !12
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %61, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
   br label %.critedge15
@@ -6017,30 +5999,26 @@ _ZN6icu_7710UnicodeSet6retainEii.exit:            ; preds = %_ZNK6icu_7713Unicod
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6removeEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
 _ZN6icu_77L12pinCodePointERi.exit:
   %3 = alloca [3 x i32], align 4
-  %4 = icmp sgt i32 %1, -1
-  %spec.select8 = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %5 = icmp slt i32 %2, 0
-  %spec.select10 = tail call i32 @llvm.umin.i32(i32 %2, i32 1114111)
-  %6 = select i1 %5, i32 0, i32 %spec.select10
-  %.not11 = icmp samesign ugt i32 %spec.select8, %6
-  %.not = select i1 %4, i1 %.not11, i1 false
-  br i1 %.not, label %12, label %7
+  %4 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 1114111)
+  %6 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %.not = icmp samesign ult i32 %6, %5
+  br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %_ZN6icu_77L12pinCodePointERi.exit
-  %.07 = select i1 %4, i32 %spec.select8, i32 0
+  %.0 = tail call i32 @llvm.umin.i32(i32 %6, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
-  store i32 %.07, ptr %3, align 4, !tbaa !12
+  store i32 %5, ptr %3, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = add nuw nsw i32 %spec.select10, 1
-  %10 = select i1 %5, i32 1, i32 %9
-  store i32 %10, ptr %8, align 4, !tbaa !12
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %11, align 4, !tbaa !12
+  %9 = add nuw nsw i32 %.0, 1
+  store i32 %9, ptr %8, align 4, !tbaa !12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %10, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 2)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
-  br label %12
+  br label %11
 
-12:                                               ; preds = %7, %_ZN6icu_77L12pinCodePointERi.exit
+11:                                               ; preds = %7, %_ZN6icu_77L12pinCodePointERi.exit
   ret ptr %0
 }
 
@@ -6048,15 +6026,13 @@ _ZN6icu_77L12pinCodePointERi.exit:
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6removeEi(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
 _ZN6icu_7710UnicodeSet6removeEii.exit:
   %2 = alloca [3 x i32], align 4
-  %3 = icmp slt i32 %1, 0
-  %spec.select8.i = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %.07.i = select i1 %3, i32 0, i32 %spec.select8.i
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %4 = tail call i32 @llvm.umin.i32(i32 %3, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #25
-  store i32 %.07.i, ptr %2, align 4, !tbaa !12
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %5 = add nuw nsw i32 %spec.select8.i, 1
-  %6 = select i1 %3, i32 1, i32 %5
-  store i32 %6, ptr %4, align 4, !tbaa !12
+  store i32 %4, ptr %2, align 4, !tbaa !12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %6 = add nuw nsw i32 %4, 1
+  store i32 %6, ptr %5, align 4, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1114112, ptr %7, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %2, i32 noundef 2, i8 noundef signext 2)
@@ -6139,14 +6115,14 @@ _ZN6icu_7710UnicodeSet11getSingleCPERKNS_13UnicodeStringE.exit: ; preds = %29, %
 
 _ZN6icu_7710UnicodeSet6removeEii.exit:            ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %29
   %.0.i.ph = phi i32 [ %30, %29 ], [ %28, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ]
-  %spec.select8.i = tail call i32 @llvm.umin.i32(i32 %.0.i.ph, i32 1114111)
+  %41 = tail call i32 @llvm.umin.i32(i32 %.0.i.ph, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
-  store i32 %spec.select8.i, ptr %3, align 4, !tbaa !12
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %42 = add nuw nsw i32 %spec.select8.i, 1
-  store i32 %42, ptr %41, align 4, !tbaa !12
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %43, align 4, !tbaa !12
+  store i32 %41, ptr %3, align 4, !tbaa !12
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %43 = add nuw nsw i32 %41, 1
+  store i32 %43, ptr %42, align 4, !tbaa !12
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %44, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 2)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
@@ -6312,35 +6288,33 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet1
   %11 = load i8, ptr %10, align 8, !tbaa !34
   %12 = and i8 %11, 1
   %.not2.i = icmp eq i8 %12, 0
-  br i1 %.not2.i, label %_ZN6icu_77L12pinCodePointERi.exit.i, label %_ZN6icu_7710UnicodeSet10complementEii.exit
+  br i1 %.not2.i, label %13, label %_ZN6icu_7710UnicodeSet10complementEii.exit
 
-_ZN6icu_77L12pinCodePointERi.exit.i:              ; preds = %9
-  %13 = icmp slt i32 %1, 0
-  %spec.select12.i = tail call i32 @llvm.umin.i32(i32 %1, i32 1114111)
-  %.011.i = select i1 %13, i32 0, i32 %spec.select12.i
+13:                                               ; preds = %9
+  %14 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
-  store i32 %.011.i, ptr %3, align 4, !tbaa !12
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %15 = add nuw nsw i32 %spec.select12.i, 1
-  %16 = select i1 %13, i32 1, i32 %15
-  store i32 %16, ptr %14, align 4, !tbaa !12
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %17, align 4, !tbaa !12
+  store i32 %15, ptr %3, align 4, !tbaa !12
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %17 = add nuw nsw i32 %15, 1
+  store i32 %17, ptr %16, align 4, !tbaa !12
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %18, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet11exclusiveOrEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !35
-  %.not.i7.i = icmp eq ptr %19, null
-  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet10complementEii.exit, label %20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load ptr, ptr %19, align 8, !tbaa !35
+  %.not.i7.i = icmp eq ptr %20, null
+  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet10complementEii.exit, label %21
 
-20:                                               ; preds = %_ZN6icu_77L12pinCodePointERi.exit.i
-  tail call void @uprv_free_77(ptr noundef nonnull %19)
-  store ptr null, ptr %18, align 8, !tbaa !35
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %21, align 8, !tbaa !36
+21:                                               ; preds = %13
+  tail call void @uprv_free_77(ptr noundef nonnull %20)
+  store ptr null, ptr %19, align 8, !tbaa !35
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %22, align 8, !tbaa !36
   br label %_ZN6icu_7710UnicodeSet10complementEii.exit
 
-_ZN6icu_7710UnicodeSet10complementEii.exit:       ; preds = %2, %9, %_ZN6icu_77L12pinCodePointERi.exit.i, %20
+_ZN6icu_7710UnicodeSet10complementEii.exit:       ; preds = %2, %9, %13, %21
   ret ptr %0
 }
 
@@ -6502,43 +6476,43 @@ _ZNK6icu_7710UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.thread: ; pr
 
 43:                                               ; preds = %29
   %.pre = load ptr, ptr %4, align 8, !tbaa !37
-  %.pre16 = load ptr, ptr %6, align 8
+  %.pre17 = load ptr, ptr %6, align 8
   %44 = icmp eq ptr %.pre, null
-  %45 = icmp eq ptr %.pre16, null
+  %45 = icmp eq ptr %.pre17, null
   %46 = select i1 %44, i1 %45, i1 false
   br i1 %46, label %47, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
 47:                                               ; preds = %.thread, %43
-  %.0.i.ph19 = phi i32 [ %28, %.thread ], [ %30, %43 ]
+  %.0.i.ph20 = phi i32 [ %28, %.thread ], [ %30, %43 ]
   %48 = load i8, ptr %10, align 8, !tbaa !34
   %49 = and i8 %48, 1
   %.not2.i = icmp eq i8 %49, 0
   br i1 %.not2.i, label %50, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
 50:                                               ; preds = %47
-  %spec.select12.i = tail call i32 @llvm.umin.i32(i32 %.0.i.ph19, i32 1114111)
+  %51 = tail call i32 @llvm.umin.i32(i32 %.0.i.ph20, i32 1114111)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
-  store i32 %spec.select12.i, ptr %3, align 4, !tbaa !12
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %52 = add nuw nsw i32 %spec.select12.i, 1
-  store i32 %52, ptr %51, align 4, !tbaa !12
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %53, align 4, !tbaa !12
+  store i32 %51, ptr %3, align 4, !tbaa !12
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %53 = add nuw nsw i32 %51, 1
+  store i32 %53, ptr %52, align 4, !tbaa !12
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %54, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet11exclusiveOrEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %55 = load ptr, ptr %54, align 8, !tbaa !35
-  %.not.i7.i = icmp eq ptr %55, null
-  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %56 = load ptr, ptr %55, align 8, !tbaa !35
+  %.not.i7.i = icmp eq ptr %56, null
+  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %57
 
-56:                                               ; preds = %50
-  tail call void @uprv_free_77(ptr noundef nonnull %55)
-  store ptr null, ptr %54, align 8, !tbaa !35
+57:                                               ; preds = %50
+  tail call void @uprv_free_77(ptr noundef nonnull %56)
+  store ptr null, ptr %55, align 8, !tbaa !35
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split
 
-_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split: ; preds = %42, %56
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %57, align 8, !tbaa !36
+_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split: ; preds = %42, %57
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %58, align 8, !tbaa !36
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
 _ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split, %50, %47, %43, %39, %2, %9

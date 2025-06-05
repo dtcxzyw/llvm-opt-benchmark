@@ -16,65 +16,63 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden signext i16 @av1_dc_quant_QTX(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, %0
-  %5 = icmp slt i32 %4, 0
-  %6 = tail call i32 @llvm.umin.i32(i32 %4, i32 255)
-  %7 = select i1 %5, i32 0, i32 %6
-  switch i32 %2, label %13 [
+  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %6 = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %5, i32 255)
+  switch i32 %2, label %12 [
     i32 8, label %.sink.split
-    i32 10, label %8
-    i32 12, label %9
+    i32 10, label %7
+    i32 12, label %8
   ]
+
+7:                                                ; preds = %3
+  br label %.sink.split
 
 8:                                                ; preds = %3
   br label %.sink.split
 
-9:                                                ; preds = %3
-  br label %.sink.split
+.sink.split:                                      ; preds = %3, %7, %8
+  %dc_qlookup_12_QTX.sink = phi ptr [ @dc_qlookup_12_QTX, %8 ], [ @dc_qlookup_10_QTX, %7 ], [ @dc_qlookup_QTX, %3 ]
+  %9 = zext nneg i32 %6 to i64
+  %10 = getelementptr inbounds nuw [256 x i16], ptr %dc_qlookup_12_QTX.sink, i64 0, i64 %9
+  %11 = load i16, ptr %10, align 2
+  br label %12
 
-.sink.split:                                      ; preds = %3, %8, %9
-  %dc_qlookup_12_QTX.sink = phi ptr [ @dc_qlookup_12_QTX, %9 ], [ @dc_qlookup_10_QTX, %8 ], [ @dc_qlookup_QTX, %3 ]
-  %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [256 x i16], ptr %dc_qlookup_12_QTX.sink, i64 0, i64 %10
-  %12 = load i16, ptr %11, align 2
-  br label %13
-
-13:                                               ; preds = %.sink.split, %3
-  %.0 = phi i16 [ -1, %3 ], [ %12, %.sink.split ]
+12:                                               ; preds = %.sink.split, %3
+  %.0 = phi i16 [ -1, %3 ], [ %11, %.sink.split ]
   ret i16 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden signext i16 @av1_ac_quant_QTX(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, %0
-  %5 = icmp slt i32 %4, 0
-  %6 = tail call i32 @llvm.umin.i32(i32 %4, i32 255)
-  %7 = select i1 %5, i32 0, i32 %6
-  switch i32 %2, label %13 [
+  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %6 = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %5, i32 255)
+  switch i32 %2, label %12 [
     i32 8, label %.sink.split
-    i32 10, label %8
-    i32 12, label %9
+    i32 10, label %7
+    i32 12, label %8
   ]
+
+7:                                                ; preds = %3
+  br label %.sink.split
 
 8:                                                ; preds = %3
   br label %.sink.split
 
-9:                                                ; preds = %3
-  br label %.sink.split
+.sink.split:                                      ; preds = %3, %7, %8
+  %ac_qlookup_12_QTX.sink = phi ptr [ @ac_qlookup_12_QTX, %8 ], [ @ac_qlookup_10_QTX, %7 ], [ @ac_qlookup_QTX, %3 ]
+  %9 = zext nneg i32 %6 to i64
+  %10 = getelementptr inbounds nuw [256 x i16], ptr %ac_qlookup_12_QTX.sink, i64 0, i64 %9
+  %11 = load i16, ptr %10, align 2
+  br label %12
 
-.sink.split:                                      ; preds = %3, %8, %9
-  %ac_qlookup_12_QTX.sink = phi ptr [ @ac_qlookup_12_QTX, %9 ], [ @ac_qlookup_10_QTX, %8 ], [ @ac_qlookup_QTX, %3 ]
-  %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [256 x i16], ptr %ac_qlookup_12_QTX.sink, i64 0, i64 %10
-  %12 = load i16, ptr %11, align 2
-  br label %13
-
-13:                                               ; preds = %.sink.split, %3
-  %.0 = phi i16 [ -1, %3 ], [ %12, %.sink.split ]
+12:                                               ; preds = %.sink.split, %3
+  %.0 = phi i16 [ -1, %3 ], [ %11, %.sink.split ]
   ret i16 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @av1_get_qindex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden noundef i32 @av1_get_qindex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i8, ptr %0, align 4
   %.not.i = icmp eq i8 %4, 0
   br i1 %.not.i, label %segfeature_active.exit.thread, label %segfeature_active.exit
@@ -94,13 +92,12 @@ segfeature_active.exit:                           ; preds = %3
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   %15 = add nsw i32 %2, %14
-  %16 = icmp slt i32 %15, 0
-  %17 = tail call i32 @llvm.umin.i32(i32 %15, i32 255)
-  %18 = select i1 %16, i32 0, i32 %17
+  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
+  %17 = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %16, i32 255)
   br label %segfeature_active.exit.thread
 
 segfeature_active.exit.thread:                    ; preds = %3, %segfeature_active.exit, %10
-  %.0 = phi i32 [ %18, %10 ], [ %2, %segfeature_active.exit ], [ %2, %3 ]
+  %.0 = phi i32 [ %17, %10 ], [ %2, %segfeature_active.exit ], [ %2, %3 ]
   ret i32 %.0
 }
 
@@ -366,6 +363,9 @@ av1_get_adjusted_tx_size.exit.us.us.us:           ; preds = %av1_get_adjusted_tx
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
