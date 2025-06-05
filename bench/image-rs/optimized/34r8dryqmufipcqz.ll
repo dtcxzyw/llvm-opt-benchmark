@@ -2767,7 +2767,8 @@ define hidden void @"_ZN152_$LT$exr..image..write..channels..SpecificChannelsWri
   call void @llvm.experimental.noalias.scope.decl(metadata !625)
   call void @llvm.experimental.noalias.scope.decl(metadata !628)
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %135 = getelementptr inbounds { { float, float }, float }, ptr %132, i64 %133
+  %.idx.i = mul nsw i64 %133, 12
+  %135 = getelementptr inbounds i8, ptr %132, i64 %.idx.i
   %.val.i = load i64, ptr %134, align 8, !alias.scope !625, !noalias !630, !noundef !19
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 48
   %.val6.i = load i8, ptr %136, align 8, !range !632, !alias.scope !625, !noalias !630, !noundef !19
@@ -3983,7 +3984,8 @@ define hidden void @"_ZN152_$LT$exr..image..write..channels..SpecificChannelsWri
   call void @llvm.experimental.noalias.scope.decl(metadata !971)
   call void @llvm.experimental.noalias.scope.decl(metadata !974)
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 56
-  %157 = getelementptr inbounds { { { float, float }, float }, float }, ptr %154, i64 %155
+  %.idx.i = shl nsw i64 %155, 4
+  %157 = getelementptr inbounds i8, ptr %154, i64 %.idx.i
   %.val.i = load i64, ptr %156, align 8, !alias.scope !971, !noalias !976, !noundef !19
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %.val6.i = load i8, ptr %158, align 8, !range !632, !alias.scope !971, !noalias !976, !noundef !19
@@ -6934,10 +6936,10 @@ define hidden void @"_ZN170_$LT$exr..image..read..specific_channels..SpecificCha
   %201 = getelementptr inbounds i8, ptr %.sroa.0.0588, i64 %195
   store ptr %201, ptr %96, align 8, !noalias !1816
   store i64 %200, ptr %140, align 8, !noalias !1816
-  %202 = getelementptr inbounds { { { float, float }, float }, float }, ptr %192, i64 %193
-  %.idx11.i.i = shl nsw i64 %193, 4
+  %.idx.i.i = shl nsw i64 %193, 4
+  %202 = getelementptr inbounds i8, ptr %192, i64 %.idx.i.i
   %203 = and i64 %193, 15
-  %.not.i.i.i26 = icmp ult i64 %.idx11.i.i, 256
+  %.not.i.i.i26 = icmp ult i64 %.idx.i.i, 256
   switch i8 %.val.i, label %default.unreachable [
     i8 0, label %204
     i8 1, label %257
@@ -6961,7 +6963,7 @@ default.unreachable:                              ; preds = %"_ZN106_$LT$core..o
   br i1 %.not.i.i.i26, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h836131788193c2aaE.exit._crit_edge.i.i.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc30
-  %205 = lshr i64 %.idx11.i.i, 8
+  %205 = lshr i64 %.idx.i.i, 8
   br label %207
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h836131788193c2aaE.exit.loopexit.i.i.i": ; preds = %226
@@ -7158,7 +7160,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h23
   br i1 %.not.i.i.i26, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h77c89cb69fca55dcE.exit._crit_edge.i.i.i", label %.lr.ph.i10.i.i
 
 .lr.ph.i10.i.i:                                   ; preds = %.noexc40
-  %258 = lshr i64 %.idx11.i.i, 8
+  %258 = lshr i64 %.idx.i.i, 8
   br label %260
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h77c89cb69fca55dcE.exit.loopexit.i.i.i": ; preds = %329
@@ -7452,7 +7454,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h1e
   br i1 %.not.i.i.i26, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h9545599d95660cc7E.exit._crit_edge.i.i.i", label %.lr.ph.i31.i.i
 
 .lr.ph.i31.i.i:                                   ; preds = %.noexc50
-  %356 = lshr i64 %.idx11.i.i, 8
+  %356 = lshr i64 %.idx.i.i, 8
   br label %358
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h9545599d95660cc7E.exit.loopexit.i.i.i": ; preds = %372
@@ -7628,10 +7630,10 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hf5
   %404 = getelementptr inbounds i8, ptr %.sroa.0.0588, i64 %398
   store ptr %404, ptr %77, align 8, !noalias !2023
   store i64 %403, ptr %146, align 8, !noalias !2023
-  %405 = getelementptr inbounds { { { float, float }, float }, float }, ptr %192, i64 %193
-  %.idx11.i.i.i = shl nsw i64 %193, 4
+  %.idx.i.i.i = shl nsw i64 %193, 4
+  %405 = getelementptr inbounds i8, ptr %192, i64 %.idx.i.i.i
   %406 = and i64 %193, 15
-  %.not.i.i.i.i = icmp ult i64 %.idx11.i.i.i, 256
+  %.not.i.i.i.i = icmp ult i64 %.idx.i.i.i, 256
   switch i8 %.val.i.i, label %default.unreachable [
     i8 0, label %407
     i8 1, label %460
@@ -7652,7 +7654,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hf5
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hce335a591054fee3E.exit._crit_edge.i.i.i.i", label %.lr.ph.i.i.i13.i
 
 .lr.ph.i.i.i13.i:                                 ; preds = %.noexc60
-  %408 = lshr i64 %.idx11.i.i.i, 8
+  %408 = lshr i64 %.idx.i.i.i, 8
   br label %410
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hce335a591054fee3E.exit.loopexit.i.i.i.i": ; preds = %429
@@ -7849,7 +7851,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h04
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h4c1ec24fe15d5d83E.exit._crit_edge.i.i.i.i", label %.lr.ph.i10.i.i.i
 
 .lr.ph.i10.i.i.i:                                 ; preds = %.noexc68
-  %461 = lshr i64 %.idx11.i.i.i, 8
+  %461 = lshr i64 %.idx.i.i.i, 8
   br label %463
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h4c1ec24fe15d5d83E.exit.loopexit.i.i.i.i": ; preds = %532
@@ -8143,7 +8145,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h91
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h5c24491f24b01232E.exit._crit_edge.i.i.i.i", label %.lr.ph.i31.i.i.i
 
 .lr.ph.i31.i.i.i:                                 ; preds = %.noexc78
-  %559 = lshr i64 %.idx11.i.i.i, 8
+  %559 = lshr i64 %.idx.i.i.i, 8
   br label %561
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h5c24491f24b01232E.exit.loopexit.i.i.i.i": ; preds = %575
@@ -8336,7 +8338,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hf8
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h39eecf103cddfa2bE.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i.i.i7.i.i
 
 .lr.ph.i.i.i7.i.i:                                ; preds = %.noexc88
-  %609 = lshr i64 %.idx11.i.i.i, 8
+  %609 = lshr i64 %.idx.i.i.i, 8
   br label %611
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h39eecf103cddfa2bE.exit.loopexit.i.i.i.i.i": ; preds = %630
@@ -8533,7 +8535,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hd7
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h35b9ddac779a6fa4E.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i10.i.i.i.i
 
 .lr.ph.i10.i.i.i.i:                               ; preds = %.noexc96
-  %662 = lshr i64 %.idx11.i.i.i, 8
+  %662 = lshr i64 %.idx.i.i.i, 8
   br label %664
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h35b9ddac779a6fa4E.exit.loopexit.i.i.i.i.i": ; preds = %733
@@ -8827,7 +8829,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hde
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h2c302fb807f639b5E.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i31.i.i.i.i
 
 .lr.ph.i31.i.i.i.i:                               ; preds = %.noexc106
-  %760 = lshr i64 %.idx11.i.i.i, 8
+  %760 = lshr i64 %.idx.i.i.i, 8
   br label %762
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h2c302fb807f639b5E.exit.loopexit.i.i.i.i.i": ; preds = %776
@@ -9019,7 +9021,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h8d
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h1d4c5ca1e988c5ebE.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i.i.i6.i.i.i
 
 .lr.ph.i.i.i6.i.i.i:                              ; preds = %.noexc116
-  %810 = lshr i64 %.idx11.i.i.i, 8
+  %810 = lshr i64 %.idx.i.i.i, 8
   br label %812
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h1d4c5ca1e988c5ebE.exit.loopexit.i.i.i.i.i.i": ; preds = %831
@@ -9214,7 +9216,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hee
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h54e3c47270aad783E.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i10.i.i.i.i.i
 
 .lr.ph.i10.i.i.i.i.i:                             ; preds = %.noexc124
-  %861 = lshr i64 %.idx11.i.i.i, 8
+  %861 = lshr i64 %.idx.i.i.i, 8
   br label %863
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h54e3c47270aad783E.exit.loopexit.i.i.i.i.i.i": ; preds = %932
@@ -9506,7 +9508,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hdd
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h0e3c25c739298eacE.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i31.i.i.i.i.i
 
 .lr.ph.i31.i.i.i.i.i:                             ; preds = %.noexc134
-  %957 = lshr i64 %.idx11.i.i.i, 8
+  %957 = lshr i64 %.idx.i.i.i, 8
   br label %959
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h0e3c25c739298eacE.exit.loopexit.i.i.i.i.i.i": ; preds = %973
@@ -10280,10 +10282,10 @@ define hidden void @"_ZN170_$LT$exr..image..read..specific_channels..SpecificCha
   %201 = getelementptr inbounds i8, ptr %.sroa.0.0588, i64 %195
   store ptr %201, ptr %96, align 8, !noalias !2694
   store i64 %200, ptr %140, align 8, !noalias !2694
-  %202 = getelementptr inbounds { { { float, float }, float }, float }, ptr %192, i64 %193
-  %.idx11.i.i = shl nsw i64 %193, 4
+  %.idx.i.i = shl nsw i64 %193, 4
+  %202 = getelementptr inbounds i8, ptr %192, i64 %.idx.i.i
   %203 = and i64 %193, 15
-  %.not.i.i.i26 = icmp ult i64 %.idx11.i.i, 256
+  %.not.i.i.i26 = icmp ult i64 %.idx.i.i, 256
   switch i8 %.val.i, label %default.unreachable [
     i8 0, label %204
     i8 1, label %257
@@ -10307,7 +10309,7 @@ default.unreachable:                              ; preds = %"_ZN106_$LT$core..o
   br i1 %.not.i.i.i26, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hb2a2e3251ea1ddd4E.exit._crit_edge.i.i.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc30
-  %205 = lshr i64 %.idx11.i.i, 8
+  %205 = lshr i64 %.idx.i.i, 8
   br label %207
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hb2a2e3251ea1ddd4E.exit.loopexit.i.i.i": ; preds = %226
@@ -10504,7 +10506,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h39
   br i1 %.not.i.i.i26, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hd2d45178f4125276E.exit._crit_edge.i.i.i", label %.lr.ph.i10.i.i
 
 .lr.ph.i10.i.i:                                   ; preds = %.noexc40
-  %258 = lshr i64 %.idx11.i.i, 8
+  %258 = lshr i64 %.idx.i.i, 8
   br label %260
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hd2d45178f4125276E.exit.loopexit.i.i.i": ; preds = %329
@@ -10798,7 +10800,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17he2
   br i1 %.not.i.i.i26, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h4668a5d65ad2cabcE.exit._crit_edge.i.i.i", label %.lr.ph.i31.i.i
 
 .lr.ph.i31.i.i:                                   ; preds = %.noexc50
-  %356 = lshr i64 %.idx11.i.i, 8
+  %356 = lshr i64 %.idx.i.i, 8
   br label %358
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h4668a5d65ad2cabcE.exit.loopexit.i.i.i": ; preds = %372
@@ -10974,10 +10976,10 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h20
   %404 = getelementptr inbounds i8, ptr %.sroa.0.0588, i64 %398
   store ptr %404, ptr %77, align 8, !noalias !2901
   store i64 %403, ptr %146, align 8, !noalias !2901
-  %405 = getelementptr inbounds { { { float, float }, float }, float }, ptr %192, i64 %193
-  %.idx11.i.i.i = shl nsw i64 %193, 4
+  %.idx.i.i.i = shl nsw i64 %193, 4
+  %405 = getelementptr inbounds i8, ptr %192, i64 %.idx.i.i.i
   %406 = and i64 %193, 15
-  %.not.i.i.i.i = icmp ult i64 %.idx11.i.i.i, 256
+  %.not.i.i.i.i = icmp ult i64 %.idx.i.i.i, 256
   switch i8 %.val.i.i, label %default.unreachable [
     i8 0, label %407
     i8 1, label %460
@@ -10998,7 +11000,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h20
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h66b709683c8d5fe6E.exit._crit_edge.i.i.i.i", label %.lr.ph.i.i.i13.i
 
 .lr.ph.i.i.i13.i:                                 ; preds = %.noexc60
-  %408 = lshr i64 %.idx11.i.i.i, 8
+  %408 = lshr i64 %.idx.i.i.i, 8
   br label %410
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h66b709683c8d5fe6E.exit.loopexit.i.i.i.i": ; preds = %429
@@ -11195,7 +11197,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hcc
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h3528a154c5d1bdc7E.exit._crit_edge.i.i.i.i", label %.lr.ph.i10.i.i.i
 
 .lr.ph.i10.i.i.i:                                 ; preds = %.noexc68
-  %461 = lshr i64 %.idx11.i.i.i, 8
+  %461 = lshr i64 %.idx.i.i.i, 8
   br label %463
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h3528a154c5d1bdc7E.exit.loopexit.i.i.i.i": ; preds = %532
@@ -11489,7 +11491,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h91
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h852689d5dea097d7E.exit._crit_edge.i.i.i.i", label %.lr.ph.i31.i.i.i
 
 .lr.ph.i31.i.i.i:                                 ; preds = %.noexc78
-  %559 = lshr i64 %.idx11.i.i.i, 8
+  %559 = lshr i64 %.idx.i.i.i, 8
   br label %561
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h852689d5dea097d7E.exit.loopexit.i.i.i.i": ; preds = %575
@@ -11682,7 +11684,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h06
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hf72ad51fab4f2ebbE.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i.i.i7.i.i
 
 .lr.ph.i.i.i7.i.i:                                ; preds = %.noexc88
-  %609 = lshr i64 %.idx11.i.i.i, 8
+  %609 = lshr i64 %.idx.i.i.i, 8
   br label %611
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17hf72ad51fab4f2ebbE.exit.loopexit.i.i.i.i.i": ; preds = %630
@@ -11879,7 +11881,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h5b
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h4a5f815c3b7d12b6E.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i10.i.i.i.i
 
 .lr.ph.i10.i.i.i.i:                               ; preds = %.noexc96
-  %662 = lshr i64 %.idx11.i.i.i, 8
+  %662 = lshr i64 %.idx.i.i.i, 8
   br label %664
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h4a5f815c3b7d12b6E.exit.loopexit.i.i.i.i.i": ; preds = %733
@@ -12173,7 +12175,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hcf
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h251c2ad6623e4ea7E.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i31.i.i.i.i
 
 .lr.ph.i31.i.i.i.i:                               ; preds = %.noexc106
-  %760 = lshr i64 %.idx11.i.i.i, 8
+  %760 = lshr i64 %.idx.i.i.i, 8
   br label %762
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h251c2ad6623e4ea7E.exit.loopexit.i.i.i.i.i": ; preds = %776
@@ -12365,7 +12367,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h36
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h147bc5c4d33fa138E.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i.i.i6.i.i.i
 
 .lr.ph.i.i.i6.i.i.i:                              ; preds = %.noexc116
-  %810 = lshr i64 %.idx11.i.i.i, 8
+  %810 = lshr i64 %.idx.i.i.i, 8
   br label %812
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h147bc5c4d33fa138E.exit.loopexit.i.i.i.i.i.i": ; preds = %831
@@ -12560,7 +12562,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hc6
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h27ad72ff53c2fca6E.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i10.i.i.i.i.i
 
 .lr.ph.i10.i.i.i.i.i:                             ; preds = %.noexc124
-  %861 = lshr i64 %.idx11.i.i.i, 8
+  %861 = lshr i64 %.idx.i.i.i, 8
   br label %863
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h27ad72ff53c2fca6E.exit.loopexit.i.i.i.i.i.i": ; preds = %932
@@ -12852,7 +12854,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h83
   br i1 %.not.i.i.i.i, label %"_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h54b7195daeb2ee6cE.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i31.i.i.i.i.i
 
 .lr.ph.i31.i.i.i.i.i:                             ; preds = %.noexc134
-  %957 = lshr i64 %.idx11.i.i.i, 8
+  %957 = lshr i64 %.idx.i.i.i, 8
   br label %959
 
 "_ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched28_$u7b$$u7b$closure$u7d$$u7d$17h54b7195daeb2ee6cE.exit.loopexit.i.i.i.i.i.i": ; preds = %973
@@ -17314,7 +17316,8 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 33:                                               ; preds = %26, %.noexc
   %.sink5.i.i = phi ptr [ %29, %26 ], [ %24, %.noexc ]
   %.sink3.i.i = phi i64 [ %30, %26 ], [ %20, %.noexc ]
-  %34 = getelementptr inbounds { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }, ptr %.sink5.i.i, i64 %.sink3.i.i
+  %.idx = mul nsw i64 %.sink3.i.i, 1424
+  %34 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx
   %35 = icmp eq i64 %.sink3.i.i, 0
   br i1 %35, label %.loopexit115, label %.lr.ph.i
 
@@ -17730,7 +17733,8 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 34:                                               ; preds = %27, %.noexc
   %.sink5.i.i = phi ptr [ %30, %27 ], [ %25, %.noexc ]
   %.sink3.i.i = phi i64 [ %31, %27 ], [ %21, %.noexc ]
-  %35 = getelementptr inbounds { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }, ptr %.sink5.i.i, i64 %.sink3.i.i
+  %.idx = mul nsw i64 %.sink3.i.i, 1424
+  %35 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx
   %36 = icmp eq i64 %.sink3.i.i, 0
   br i1 %36, label %.loopexit115, label %.lr.ph.i
 

@@ -20052,6 +20052,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h023c8a7430c039bfE(ptr 
   store i32 %13, ptr %26, align 8, !alias.scope !1832
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %15, ptr %27, align 4, !alias.scope !1832
+  %.idx = and i64 %3, 4611686018427387903
   %28 = icmp eq i64 %3, 0
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha37098e5e97d51b2E.exit", label %.preheader
 
@@ -20076,7 +20077,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h023c8a7430c039bfE(ptr 
 .lr.ph154:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha37098e5e97d51b2E.exit"
   %36 = add i32 %13, -1
   %37 = icmp ugt i32 %36, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -20101,7 +20103,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h023c8a7430c039bfE(ptr 
 47:                                               ; preds = %.lr.ph152.us, %66
   %indvars.iv = phi i64 [ 1, %.lr.ph152.us ], [ %indvars.iv.next, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %28, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %47
   %48 = trunc nuw i64 %indvars.iv to i32
@@ -20335,6 +20337,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5917e13582bfebcdE(ptr 
   store ptr %26, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1863
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1863
+  %.idx = and i64 %3, 4611686018427387903
   %29 = icmp eq i64 %3, 0
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h54b2d9eafc78934aE.exit", label %.preheader
 
@@ -20359,7 +20362,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5917e13582bfebcdE(ptr 
 .lr.ph187:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h54b2d9eafc78934aE.exit"
   %37 = add i32 %12, -1
   %38 = icmp ugt i32 %37, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   br i1 %38, label %.lr.ph185.us.preheader, label %._crit_edge188
 
 .lr.ph185.us.preheader:                           ; preds = %.lr.ph187
@@ -20380,7 +20384,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5917e13582bfebcdE(ptr 
 44:                                               ; preds = %.lr.ph185.us, %82
   %indvars.iv = phi i64 [ 1, %.lr.ph185.us ], [ %indvars.iv.next, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %29, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32
@@ -20651,6 +20655,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5fd160655bed68c9E(ptr 
   store i32 %13, ptr %26, align 8, !alias.scope !1891
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %15, ptr %27, align 4, !alias.scope !1891
+  %.idx = and i64 %3, 4611686018427387903
   %28 = icmp eq i64 %3, 0
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2501b51fb1a1c68bE.exit", label %.preheader
 
@@ -20675,7 +20680,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5fd160655bed68c9E(ptr 
 .lr.ph156:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2501b51fb1a1c68bE.exit"
   %36 = add i32 %13, -1
   %37 = icmp ugt i32 %36, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -20701,7 +20707,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5fd160655bed68c9E(ptr 
 48:                                               ; preds = %.lr.ph154.us, %70
   %indvars.iv = phi i64 [ 1, %.lr.ph154.us ], [ %indvars.iv.next, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %28, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %48
   %49 = trunc nuw i64 %indvars.iv to i32
@@ -20947,6 +20953,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h7dffe89d5813d018E(ptr 
   store ptr %26, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1922
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1922
+  %.idx = and i64 %3, 4611686018427387903
   %29 = icmp eq i64 %3, 0
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h539d221d579c5e69E.exit", label %.preheader
 
@@ -20971,7 +20978,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h7dffe89d5813d018E(ptr 
 .lr.ph191:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h539d221d579c5e69E.exit"
   %37 = add i32 %12, -1
   %38 = icmp ugt i32 %37, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   br i1 %38, label %.lr.ph189.us.preheader, label %._crit_edge192
 
 .lr.ph189.us.preheader:                           ; preds = %.lr.ph191
@@ -20992,7 +21000,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h7dffe89d5813d018E(ptr 
 44:                                               ; preds = %.lr.ph189.us, %81
   %indvars.iv = phi i64 [ 1, %.lr.ph189.us ], [ %indvars.iv.next, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %29, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32
@@ -21263,6 +21271,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h924705a9b6b2819bE(ptr 
   store ptr %26, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1950
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1950
+  %.idx = and i64 %3, 4611686018427387903
   %29 = icmp eq i64 %3, 0
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h91e362b0544816e8E.exit", label %.preheader
 
@@ -21287,7 +21296,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h924705a9b6b2819bE(ptr 
 .lr.ph180:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h91e362b0544816e8E.exit"
   %37 = add i32 %12, -1
   %38 = icmp ugt i32 %37, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   br i1 %38, label %.lr.ph178.us.preheader, label %._crit_edge181
 
 .lr.ph178.us.preheader:                           ; preds = %.lr.ph180
@@ -21308,7 +21318,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h924705a9b6b2819bE(ptr 
 44:                                               ; preds = %.lr.ph178.us, %74
   %indvars.iv = phi i64 [ 1, %.lr.ph178.us ], [ %indvars.iv.next, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %29, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32
@@ -21541,6 +21551,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h9e414dceb1a08a6eE(ptr 
   store i32 %12, ptr %25, align 8, !alias.scope !1978
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %14, ptr %26, align 4, !alias.scope !1978
+  %.idx = and i64 %3, 4611686018427387903
   %27 = icmp eq i64 %3, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h75336accd13d8c0cE.exit", label %.preheader
 
@@ -21565,7 +21576,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h9e414dceb1a08a6eE(ptr 
 .lr.ph183:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h75336accd13d8c0cE.exit"
   %35 = add i32 %12, -1
   %36 = icmp ugt i32 %35, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %36, label %.lr.ph181.us.preheader, label %._crit_edge184
@@ -21588,7 +21600,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h9e414dceb1a08a6eE(ptr 
 44:                                               ; preds = %.lr.ph181.us, %87
   %indvars.iv = phi i64 [ 1, %.lr.ph181.us ], [ %indvars.iv.next, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %27, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32
@@ -21868,6 +21880,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317ha4f2ee62ec18add2E(ptr 
   store ptr %26, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2005
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2005
+  %.idx = and i64 %3, 4611686018427387903
   %29 = icmp eq i64 %3, 0
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc2d72dcc8ab4ee0aE.exit", label %.preheader
 
@@ -21892,7 +21905,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317ha4f2ee62ec18add2E(ptr 
 .lr.ph188:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc2d72dcc8ab4ee0aE.exit"
   %37 = add i32 %12, -1
   %38 = icmp ugt i32 %37, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   br i1 %38, label %.lr.ph186.us.preheader, label %._crit_edge189
 
 .lr.ph186.us.preheader:                           ; preds = %.lr.ph188
@@ -21913,7 +21927,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317ha4f2ee62ec18add2E(ptr 
 44:                                               ; preds = %.lr.ph186.us, %80
   %indvars.iv = phi i64 [ 1, %.lr.ph186.us ], [ %indvars.iv.next, %80 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %29, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32
@@ -22168,6 +22182,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hb2fcd79f4b59f3d2E(ptr 
   store i32 %12, ptr %25, align 8, !alias.scope !2033
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %14, ptr %26, align 4, !alias.scope !2033
+  %.idx = and i64 %3, 4611686018427387903
   %27 = icmp eq i64 %3, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dce32eb90ab192bE.exit", label %.preheader
 
@@ -22192,7 +22207,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hb2fcd79f4b59f3d2E(ptr 
 .lr.ph176:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9dce32eb90ab192bE.exit"
   %35 = add i32 %12, -1
   %36 = icmp ugt i32 %35, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %36, label %.lr.ph174.us.preheader, label %._crit_edge177
@@ -22215,7 +22231,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hb2fcd79f4b59f3d2E(ptr 
 44:                                               ; preds = %.lr.ph174.us, %74
   %indvars.iv = phi i64 [ 1, %.lr.ph174.us ], [ %indvars.iv.next, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %27, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32
@@ -22451,6 +22467,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
   store i32 %12, ptr %25, align 8, !alias.scope !2060
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %14, ptr %26, align 4, !alias.scope !2060
+  %.idx = and i64 %3, 4611686018427387903
   %27 = icmp eq i64 %3, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h943f8d2fba54c7e4E.exit", label %.preheader
 
@@ -22475,7 +22492,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
 .lr.ph187:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h943f8d2fba54c7e4E.exit"
   %35 = add i32 %12, -1
   %36 = icmp ugt i32 %35, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %36, label %.lr.ph185.us.preheader, label %._crit_edge188
@@ -22498,7 +22516,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
 44:                                               ; preds = %.lr.ph185.us, %86
   %indvars.iv = phi i64 [ 1, %.lr.ph185.us ], [ %indvars.iv.next, %86 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %27, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32
@@ -22765,6 +22783,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd546ecba3c6625e6E(ptr 
   store i32 %12, ptr %25, align 8, !alias.scope !2087
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %14, ptr %26, align 4, !alias.scope !2087
+  %.idx = and i64 %3, 4611686018427387903
   %27 = icmp eq i64 %3, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h876600ab7ab3b837E.exit", label %.preheader
 
@@ -22789,7 +22808,8 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd546ecba3c6625e6E(ptr 
 .lr.ph184:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h876600ab7ab3b837E.exit"
   %35 = add i32 %12, -1
   %36 = icmp ugt i32 %35, 1
-  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 9)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.idx, i64 9)
+  %.not = icmp eq i64 %.idx, 0
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %36, label %.lr.ph182.us.preheader, label %._crit_edge185
@@ -22812,7 +22832,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd546ecba3c6625e6E(ptr 
 44:                                               ; preds = %.lr.ph182.us, %83
   %indvars.iv = phi i64 [ 1, %.lr.ph182.us ], [ %indvars.iv.next, %83 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %27, label %._crit_edge.us, label %.lr.ph.us.preheader
+  br i1 %.not, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %44
   %45 = trunc nuw i64 %indvars.iv to i32

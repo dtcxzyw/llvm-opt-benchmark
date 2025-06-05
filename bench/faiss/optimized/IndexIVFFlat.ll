@@ -2379,6 +2379,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
           to label %.noexc84 unwind label %135
 
 .noexc84:                                         ; preds = %42
+  %.idx = shl nuw nsw i64 %3, 2
   store float 0.000000e+00, ptr %44, align 4, !tbaa !112
   br i1 %39, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
@@ -2604,10 +2605,8 @@ _ZNKSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt
   br i1 %exitcond195.not, label %.critedge79.us, label %.lr.ph.split.us.us, !llvm.loop !119
 
 .loopexit:                                        ; preds = %.critedge79.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %.idx = shl nuw nsw i64 %3, 2
   tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %.idx) #27
-  %.idx243 = shl nuw nsw i64 %3, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %.idx243) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %37) #27
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit

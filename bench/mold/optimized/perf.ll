@@ -2465,7 +2465,8 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115ve
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !130
   %18 = sub nsw i64 %15, %17
-  %19 = getelementptr inbounds ptr, ptr %2, i64 %18
+  %.idx = shl nsw i64 %18, 3
+  %19 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %20 = load ptr, ptr %0, align 8, !tbaa !127
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !131
@@ -2537,7 +2538,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115ve
   br label %53
 
 53:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit"
-  %.0120 = phi i64 [ 7, %.lr.ph ], [ %150, %"_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit" ]
+  %.0121 = phi i64 [ 7, %.lr.ph ], [ %150, %"_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit" ]
   %54 = load ptr, ptr %0, align 8, !tbaa !127
   %55 = load i64, ptr %16, align 8, !tbaa !130
   %56 = load ptr, ptr %21, align 8, !tbaa !131
@@ -2548,7 +2549,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115ve
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %60 = shl nsw i64 %.0120, 1
+  %60 = shl nsw i64 %.0121, 1
   %61 = sub nsw i64 %58, %55
   %.not17.i = icmp slt i64 %61, %60
   br i1 %.not17.i, label %"_ZSt17__merge_sort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_.exit", label %.lr.ph.i30.preheader
@@ -2561,7 +2562,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115ve
   %.sroa.356.0 = phi i64 [ %65, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %55, %.lr.ph.i30.preheader ]
   %63 = phi ptr [ null, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %56, %.lr.ph.i30.preheader ]
   %.018.i = phi ptr [ %.04.lcssa.i.i.i.i.i13.i, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %2, %.lr.ph.i30.preheader ]
-  %64 = add i64 %.sroa.356.0, %.0120
+  %64 = add i64 %.sroa.356.0, %.0121
   %65 = add i64 %.sroa.356.0, %60
   br label %66
 
@@ -2747,7 +2748,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
   %.0.lcssa.i = phi ptr [ %2, %53 ], [ %.04.lcssa.i.i.i.i.i13.i, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
   %.lcssa15.i = phi i64 [ %55, %53 ], [ %65, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
   %.lcssa.i18 = phi i64 [ %61, %53 ], [ %144, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0120, i64 %.lcssa.i18)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0121, i64 %.lcssa.i18)
   store ptr %54, ptr %6, align 8, !tbaa !127
   store i64 %.lcssa15.i, ptr %42, align 8, !tbaa !130
   store ptr %145, ptr %43, align 8, !tbaa !131
@@ -2770,12 +2771,12 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
   %148 = load i64, ptr %16, align 8, !tbaa !130
   %149 = load ptr, ptr %21, align 8, !tbaa !131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %150 = shl nsw i64 %.0120, 2
+  %150 = shl nsw i64 %.0121, 2
   %.not24.i = icmp slt i64 %18, %150
   br i1 %.not24.i, label %"_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit", label %.lr.ph.i21.preheader
 
 .lr.ph.i21.preheader:                             ; preds = %"_ZSt17__merge_sort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_.exit"
-  %.not110 = icmp eq i64 %60, %150
+  %.not111 = icmp eq i64 %60, %150
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 16
   br label %.lr.ph.i21
 
@@ -2785,7 +2786,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
   %.025.i = phi ptr [ %155, %"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %2, %.lr.ph.i21.preheader ]
   %154 = getelementptr inbounds ptr, ptr %.025.i, i64 %60
   %155 = getelementptr inbounds ptr, ptr %.025.i, i64 %150
-  br i1 %.not110, label %._crit_edge.i, label %.lr.ph.i43
+  br i1 %.not111, label %._crit_edge.i, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %.lr.ph.i21, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit.i47
   %.sroa.698.0 = phi i64 [ %180, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit.i47 ], [ %153, %.lr.ph.i21 ]
@@ -4884,26 +4885,27 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
-  %6 = ashr exact i64 %5, 3
-  %7 = icmp slt i64 %6, 15
-  br i1 %7, label %common.ret, label %8
+  %6 = icmp slt i64 %5, 120
+  br i1 %6, label %common.ret, label %7
 
 common.ret:                                       ; preds = %2
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %0, ptr %1)
   br label %common.ret25
 
-common.ret25:                                     ; preds = %8, %common.ret
+common.ret25:                                     ; preds = %7, %common.ret
   ret void
 
-8:                                                ; preds = %2
-  %9 = lshr i64 %6, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %0, ptr %10)
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %10, ptr %1)
-  %11 = ptrtoint ptr %10 to i64
-  %12 = sub i64 %3, %11
+7:                                                ; preds = %2
+  %8 = lshr exact i64 %5, 1
+  %.idx = and i64 %8, 4611686018427387896
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %0, ptr %9)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %9, ptr %1)
+  %10 = ptrtoint ptr %9 to i64
+  %11 = lshr i64 %5, 4
+  %12 = sub i64 %3, %10
   %13 = ashr exact i64 %12, 3
-  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_SE_T0_SF_T1_"(ptr %0, ptr %10, ptr %1, i64 noundef %9, i64 noundef %13)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_SE_T0_SF_T1_"(ptr %0, ptr %9, ptr %1, i64 noundef %11, i64 noundef %13)
   br label %common.ret25
 }
 
@@ -4915,7 +4917,8 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %8 = ashr exact i64 %7, 3
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %.idx = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 

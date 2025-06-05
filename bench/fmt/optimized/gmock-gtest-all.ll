@@ -16310,7 +16310,8 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   %40 = phi ptr [ null, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %39, %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %40, ptr %4, align 8, !tbaa !376
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = getelementptr inbounds nuw %"class.std::vector.110", ptr %40, i64 %35
+  %.idx = mul nuw nsw i64 %35, 24
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %42, ptr %43, align 8, !tbaa !379
   %44 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RKT1_(ptr noundef %40, i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -16323,7 +16324,6 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   br i1 %.not.i.i.i, label %.body, label %47
 
 47:                                               ; preds = %45
-  %.idx = mul nuw nsw i64 %35, 24
   call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %.idx) #61
   br label %.body
 
@@ -16425,7 +16425,8 @@ _ZNSt12_Vector_baseISt6vectorIN7testing8internal13edit_distance8EditTypeESaIS4_E
   %86 = phi ptr [ null, %_ZNSt6vectorIS_IN7testing8internal13edit_distance8EditTypeESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ], [ %85, %_ZNSt16allocator_traitsISaISt6vectorIN7testing8internal13edit_distance8EditTypeESaIS4_EEEE8allocateERS7_m.exit.i.i.i.i ]
   store ptr %86, ptr %6, align 8, !tbaa !387
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %88 = getelementptr inbounds nuw %"class.std::vector.95", ptr %86, i64 %81
+  %.idx174 = mul nuw nsw i64 %81, 24
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx174
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %88, ptr %89, align 8, !tbaa !390
   %90 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS4_EEmS6_ET_S8_T0_RKT1_(ptr noundef %86, i64 noundef %81, ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -16438,7 +16439,6 @@ _ZNSt12_Vector_baseISt6vectorIN7testing8internal13edit_distance8EditTypeESaIS4_E
   br i1 %.not.i.i.i102, label %.body105, label %93
 
 93:                                               ; preds = %91
-  %.idx174 = mul nuw nsw i64 %81, 24
   call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef %.idx174) #61
   br label %.body105
 

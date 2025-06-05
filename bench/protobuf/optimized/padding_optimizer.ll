@@ -2005,8 +2005,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %cmp = icmp slt i64 %sub.ptr.div.i, 15
+  %cmp = icmp slt i64 %sub.ptr.sub.i, 480
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2017,14 +2016,16 @@ common.ret21:                                     ; preds = %if.end, %if.then
   ret void
 
 if.end:                                           ; preds = %entry
-  %div1920 = lshr i64 %sub.ptr.div.i, 1
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.coerce, i64 %div1920
+  %0 = lshr exact i64 %sub.ptr.sub.i, 1
+  %add.ptr.i.idx = and i64 %0, 4611686018427387872
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %add.ptr.i.idx
   tail call fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %__first.coerce, ptr %add.ptr.i)
   tail call fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %add.ptr.i, ptr %__last.coerce)
   %sub.ptr.lhs.cast.i11 = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.div.i14 = lshr i64 %sub.ptr.sub.i, 6
   %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i11
   %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i17, 5
-  tail call fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_SF_T0_SG_T1_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__last.coerce, i64 noundef %div1920, i64 noundef %sub.ptr.div.i18)
+  tail call fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_SF_T0_SG_T1_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__last.coerce, i64 noundef %sub.ptr.div.i14, i64 noundef %sub.ptr.div.i18)
   br label %common.ret21
 }
 
@@ -2037,7 +2038,8 @@ entry:
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %add = add nsw i64 %sub.ptr.div.i, 1
   %div = sdiv i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.coerce, i64 %div
+  %add.ptr.i.idx = shl nsw i64 %div, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %add.ptr.i.idx
   %cmp = icmp sgt i64 %div, %__buffer_size
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4100,9 +4102,9 @@ if.then9:                                         ; preds = %if.then
   br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit
 
 if.then16:                                        ; preds = %if.then9
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %add.ptr, i64 %sub.ptr.sub.i.i.i, i1 false)
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %add.ptr, i64 %sub.ptr.sub.i.i.i, i1 false)
   %2 = load ptr, ptr %_M_finish, align 8
   %add.ptr27 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8

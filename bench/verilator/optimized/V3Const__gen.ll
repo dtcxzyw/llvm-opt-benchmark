@@ -121547,26 +121547,27 @@ define linkonce_odr dso_local void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__n
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
-  %6 = ashr exact i64 %5, 3
-  %7 = icmp slt i64 %6, 15
-  br i1 %7, label %common.ret, label %8
+  %6 = icmp slt i64 %5, 120
+  br i1 %6, label %common.ret, label %7
 
 common.ret:                                       ; preds = %2
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_(ptr %0, ptr %1)
   br label %common.ret25
 
-common.ret25:                                     ; preds = %8, %common.ret
+common.ret25:                                     ; preds = %7, %common.ret
   ret void
 
-8:                                                ; preds = %2
-  %9 = lshr i64 %6, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
-  tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_(ptr %0, ptr %10)
-  tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_(ptr %10, ptr %1)
-  %11 = ptrtoint ptr %10 to i64
-  %12 = sub i64 %3, %11
+7:                                                ; preds = %2
+  %8 = lshr exact i64 %5, 1
+  %.idx = and i64 %8, 4611686018427387896
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_(ptr %0, ptr %9)
+  tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_(ptr %9, ptr %1)
+  %10 = ptrtoint ptr %9 to i64
+  %11 = lshr i64 %5, 4
+  %12 = sub i64 %3, %10
   %13 = ashr exact i64 %12, 3
-  tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_SE_T0_SF_T1_(ptr %0, ptr %10, ptr %1, i64 noundef %9, i64 noundef %13)
+  tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_SE_T0_SF_T1_(ptr %0, ptr %9, ptr %1, i64 noundef %11, i64 noundef %13)
   br label %common.ret25
 }
 
@@ -121578,7 +121579,8 @@ define linkonce_odr dso_local void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__
   %8 = ashr exact i64 %7, 3
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %.idx = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -121586,13 +121588,12 @@ define linkonce_odr dso_local void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_T2_(ptr %0, ptr %11, ptr noundef %2, i64 noundef %3)
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_T2_(ptr %11, ptr %1, ptr noundef %2, i64 noundef %3)
   %.pre = ptrtoint ptr %11 to i64
-  %.pre49 = sub i64 %5, %.pre
-  %.pre51 = ashr exact i64 %.pre49, 3
+  %.pre48 = sub i64 %5, %.pre
+  %.pre50 = ashr exact i64 %.pre48, 3
   br label %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit39
 
 14:                                               ; preds = %4
   %15 = ptrtoint ptr %11 to i64
-  %.idx = shl nsw i64 %10, 3
   %16 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %.not13.i.i = icmp slt i64 %8, 13
   br i1 %.not13.i.i, label %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit.thread.i, label %.lr.ph.i.i
@@ -121660,8 +121661,8 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vec
   br i1 %31, label %.lr.ph.i36, label %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit39, !llvm.loop !1480
 
 _ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit39: ; preds = %.lr.ph.i36, %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit.i34, %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit.thread.i38, %13
-  %.pre-phi52 = phi i64 [ 7, %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit.i34 ], [ %24, %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit.thread.i38 ], [ %.pre51, %13 ], [ %24, %.lr.ph.i36 ]
-  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %0, ptr %11, ptr %1, i64 noundef %10, i64 noundef %.pre-phi52, ptr noundef %2, i64 noundef %3)
+  %.pre-phi51 = phi i64 [ 7, %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit.i34 ], [ %24, %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_T1_.exit.thread.i38 ], [ %.pre50, %13 ], [ %24, %.lr.ph.i36 ]
+  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %0, ptr %11, ptr %1, i64 noundef %10, i64 noundef %.pre-phi51, ptr noundef %2, i64 noundef %3)
   ret void
 }
 

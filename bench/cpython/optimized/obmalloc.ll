@@ -32073,9 +32073,9 @@ define internal fastcc ptr @mi_segment_span_allocate(ptr noundef %0, i64 noundef
 
 mi_commit_mask_is_full.exit.i:                    ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %16 = getelementptr [513 x %struct.mi_page_s], ptr %15, i64 0, i64 %1
-  %17 = ptrtoint ptr %16 to i64
   %.idx = mul i64 %1, 80
+  %16 = getelementptr i8, ptr %15, i64 %.idx
+  %17 = ptrtoint ptr %16 to i64
   %18 = sdiv exact i64 %.idx, 80
   %19 = shl i64 %18, 16
   %20 = getelementptr i8, ptr %0, i64 %19

@@ -15865,8 +15865,8 @@ declare void @_ZN5arrow7compute12CallFunctionERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5arrow5DatumESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %1, i64 %2
   %.idx = mul nuw nsw i64 %2, 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %6 = icmp ugt i64 %2, 384307168202282325
   br i1 %6, label %7, label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
@@ -65947,26 +65947,27 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
-  %6 = ashr exact i64 %5, 4
-  %7 = icmp slt i64 %6, 15
-  br i1 %7, label %common.ret, label %8
+  %6 = icmp slt i64 %5, 240
+  br i1 %6, label %common.ret, label %7
 
 common.ret:                                       ; preds = %2
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_12CanonicalizeES4_PNS3_11ExecContextEENK3$_1clES4_E3$_0EEEvT_SH_T0_"(ptr %0, ptr %1)
   br label %common.ret25
 
-common.ret25:                                     ; preds = %8, %common.ret
+common.ret25:                                     ; preds = %7, %common.ret
   ret void
 
-8:                                                ; preds = %2
-  %9 = lshr i64 %6, 1
-  %10 = getelementptr inbounds nuw %"class.arrow::compute::Expression", ptr %0, i64 %9
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_12CanonicalizeES4_PNS3_11ExecContextEENK3$_1clES4_E3$_0EEEvT_SH_T0_"(ptr %0, ptr %10)
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_12CanonicalizeES4_PNS3_11ExecContextEENK3$_1clES4_E3$_0EEEvT_SH_T0_"(ptr %10, ptr %1)
-  %11 = ptrtoint ptr %10 to i64
-  %12 = sub i64 %3, %11
+7:                                                ; preds = %2
+  %8 = lshr exact i64 %5, 1
+  %.idx = and i64 %8, 4611686018427387888
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_12CanonicalizeES4_PNS3_11ExecContextEENK3$_1clES4_E3$_0EEEvT_SH_T0_"(ptr %0, ptr %9)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_12CanonicalizeES4_PNS3_11ExecContextEENK3$_1clES4_E3$_0EEEvT_SH_T0_"(ptr %9, ptr %1)
+  %10 = ptrtoint ptr %9 to i64
+  %11 = lshr i64 %5, 5
+  %12 = sub i64 %3, %10
   %13 = ashr exact i64 %12, 4
-  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZZNS3_12CanonicalizeES4_PNS3_11ExecContextEENK3$_1clES4_E3$_0EEEvT_SH_SH_T0_SI_T1_"(ptr %0, ptr %10, ptr %1, i64 noundef %9, i64 noundef %13)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZZNS3_12CanonicalizeES4_PNS3_11ExecContextEENK3$_1clES4_E3$_0EEEvT_SH_SH_T0_SI_T1_"(ptr %0, ptr %9, ptr %1, i64 noundef %11, i64 noundef %13)
   br label %common.ret25
 }
 
@@ -65978,7 +65979,8 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %8 = ashr exact i64 %7, 4
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %0, i64 %10
+  %.idx = shl nsw i64 %10, 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 

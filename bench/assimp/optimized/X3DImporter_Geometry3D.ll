@@ -4786,8 +4786,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %.not.i.i259, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %18, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.pr1292 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %17, %18 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.pr1292, i64 56
+  %.pr1293 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %17, %18 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.pr1293, i64 56
   %.017.i.i260 = load ptr, ptr %32, align 8
   %.not1218.i.i261 = icmp eq ptr %.017.i.i260, null
   br i1 %.not1218.i.i261, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271.thread, label %.lr.ph.i.i262
@@ -4825,13 +4825,13 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i268._ZN6Assimp10TXmlParserIN4pugi8x
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271
 
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271: ; preds = %38, %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i268._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271_crit_edge
-  %.pr949 = phi ptr [ %.pr949.pre, %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i268._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271_crit_edge ], [ %.pr1292, %38 ]
+  %.pr949 = phi ptr [ %.pr949.pre, %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i268._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271_crit_edge ], [ %.pr1293, %38 ]
   %.not.i.i272 = icmp eq ptr %.pr949, null
   br i1 %.not.i.i272, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271.thread
 
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271.thread: ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271
-  %.pr9491295 = phi ptr [ %.pr949, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271 ], [ %.pr1292, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %46 = getelementptr inbounds nuw i8, ptr %.pr9491295, i64 56
+  %.pr9491296 = phi ptr [ %.pr949, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit271 ], [ %.pr1293, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %46 = getelementptr inbounds nuw i8, ptr %.pr9491296, i64 56
   %.017.i.i273 = load ptr, ptr %46, align 8
   %.not1218.i.i274 = icmp eq ptr %.017.i.i273, null
   br i1 %.not1218.i.i274, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE17getFloatAttributeERS2_PKcRf.exit, label %.lr.ph.i.i275
@@ -6056,7 +6056,8 @@ _ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector2tIfEEEvRSt6vector
 
 507:                                              ; preds = %.critedge34.i406, %.preheader39.i404
   %.03146.i405 = phi i64 [ 3, %.preheader39.i404 ], [ %538, %.critedge34.i406 ]
-  %508 = getelementptr inbounds nuw %class.aiVector3t, ptr %498, i64 %.03146.i405
+  %.idx = mul nuw nsw i64 %.03146.i405, 12
+  %508 = getelementptr inbounds nuw i8, ptr %498, i64 %.idx
   %509 = load float, ptr %508, align 4
   %510 = fcmp oeq float %504, %509
   br i1 %510, label %511, label %.critedge34.i406
@@ -6145,11 +6146,11 @@ _ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vector
   br i1 %.not1289, label %_ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit, label %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit.thread
 
 _ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit.thread: ; preds = %.critedge34.i406, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit
-  %.01313 = phi i8 [ %.0, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ], [ %.1955965981, %.critedge34.i406 ]
-  %.09431311 = phi i8 [ %.0943, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ], [ %.1944, %.critedge34.i406 ]
+  %.01314 = phi i8 [ %.0, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ], [ %.1955965981, %.critedge34.i406 ]
+  %.09431312 = phi i8 [ %.0943, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ], [ %.1944, %.critedge34.i406 ]
   %545 = phi i1 [ %503, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ], [ false, %.critedge34.i406 ]
-  %.pre-phi12691309 = phi i64 [ %.pre-phi1269, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ], [ %502, %.critedge34.i406 ]
-  invoke void @_ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.pre-phi12691309)
+  %.pre-phi12691310 = phi i64 [ %.pre-phi1269, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ], [ %502, %.critedge34.i406 ]
+  invoke void @_ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.pre-phi12691310)
           to label %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 unwind label %560
 
 ._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216: ; preds = %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit.thread
@@ -6162,8 +6163,8 @@ _ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vector
   br label %_ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit: ; preds = %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216
-  %.01312 = phi i8 [ %.01313, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 ], [ %.0, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ]
-  %.09431310 = phi i8 [ %.09431311, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 ], [ %.0943, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ]
+  %.01313 = phi i8 [ %.01314, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 ], [ %.0, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ]
+  %.09431311 = phi i8 [ %.09431312, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 ], [ %.0943, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ]
   %546 = phi i1 [ %545, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 ], [ %503, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ]
   %.pre-phi1277 = phi i64 [ %.pre1276, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 ], [ 0, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ]
   %547 = phi ptr [ %.pre1218, %._ZNSt6vectorI12aiMatrix3x3tIfESaIS1_EE6resizeEm.exit_crit_edge1216 ], [ %498, %_ZN6AssimpL38GeometryHelper_Extrusion_CurveIsClosedI10aiVector3tIfEEEvRSt6vectorIT_SaIS4_EEbbRb.exit ]
@@ -6627,8 +6628,8 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %825
   %.sroa.0820.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %825 ], [ %.sroa.0820.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %.sroa.9.0 = phi float [ %834, %825 ], [ %842, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %844 = load ptr, ptr %6, align 8
-  %.idx = shl i64 %.02241127, 4
-  %845 = getelementptr inbounds nuw i8, ptr %844, i64 %.idx
+  %.idx1290 = shl i64 %.02241127, 4
+  %845 = getelementptr inbounds nuw i8, ptr %844, i64 %.idx1290
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 12
   %847 = load float, ptr %846, align 4
   %848 = load float, ptr %845, align 4
@@ -6898,7 +6899,7 @@ _ZNSt6vectorIS_I10aiVector3tIfESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %_ZSt8_
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %._crit_edge1135, %998
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #28
-  %1003 = trunc nuw i8 %.01312 to i1
+  %1003 = trunc nuw i8 %.01313 to i1
   br i1 %1003, label %1092, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 1004:                                             ; preds = %.lr.ph.preheader.i.i.i.i.i, %556
@@ -7228,7 +7229,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit476:        ; preds = %_ZNSt6vectorIiSaIiE
   br label %1830
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %1105, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit
-  %1166 = trunc nuw i8 %.09431310 to i1
+  %1166 = trunc nuw i8 %.09431311 to i1
   br i1 %1166, label %1167, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit486
 
 1167:                                             ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit

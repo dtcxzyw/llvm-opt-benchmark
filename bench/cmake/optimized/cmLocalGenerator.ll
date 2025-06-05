@@ -45232,8 +45232,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i:
   %3 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #31
-  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
   %.idx = shl nuw nsw i64 %2, 5
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i
 
@@ -78942,26 +78942,27 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 5
-  %8 = icmp slt i64 %7, 15
-  br i1 %8, label %common.ret, label %9
+  %7 = icmp slt i64 %6, 480
+  br i1 %7, label %common.ret, label %8
 
 common.ret:                                       ; preds = %3
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSB_RKS7_SH_PK17cmGeneratorTargetE3$_0EEEvT_SN_T0_"(ptr %0, ptr %1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %2)
   br label %common.ret17
 
-common.ret17:                                     ; preds = %9, %common.ret
+common.ret17:                                     ; preds = %8, %common.ret
   ret void
 
-9:                                                ; preds = %3
-  %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %10
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSB_RKS7_SH_PK17cmGeneratorTargetE3$_0EEEvT_SN_T0_"(ptr %0, ptr %11, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %2)
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSB_RKS7_SH_PK17cmGeneratorTargetE3$_0EEEvT_SN_T0_"(ptr %11, ptr %1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %2)
-  %12 = ptrtoint ptr %11 to i64
-  %13 = sub i64 %4, %12
+8:                                                ; preds = %3
+  %9 = lshr exact i64 %6, 1
+  %.idx = and i64 %9, 4611686018427387872
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSB_RKS7_SH_PK17cmGeneratorTargetE3$_0EEEvT_SN_T0_"(ptr %0, ptr %10, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %2)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSB_RKS7_SH_PK17cmGeneratorTargetE3$_0EEEvT_SN_T0_"(ptr %10, ptr %1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %2)
+  %11 = ptrtoint ptr %10 to i64
+  %12 = lshr i64 %6, 6
+  %13 = sub i64 %4, %11
   %14 = ashr exact i64 %13, 5
-  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSB_RKS7_SH_PK17cmGeneratorTargetE3$_0EEEvT_SN_SN_T0_SO_T1_"(ptr %0, ptr %11, ptr %1, i64 noundef %10, i64 noundef %14, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %2)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSB_RKS7_SH_PK17cmGeneratorTargetE3$_0EEEvT_SN_SN_T0_SO_T1_"(ptr %0, ptr %10, ptr %1, i64 noundef %12, i64 noundef %14, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %2)
   br label %common.ret17
 }
 
@@ -78973,7 +78974,8 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %9 = ashr exact i64 %8, 5
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %11
+  %.idx = shl nsw i64 %11, 5
+  %12 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -83670,7 +83672,8 @@ common.ret17:                                     ; preds = %8, %common.ret
 8:                                                ; preds = %3
   %9 = udiv exact i64 %6, 48
   %10 = lshr i64 %9, 1
-  %11 = getelementptr inbounds nuw %class.BT, ptr %0, i64 %10
+  %.idx = mul nuw nsw i64 %10, 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSD_RKS8_SJ_PK17cmGeneratorTargetE3$_0EEEvT_SP_T0_"(ptr %0, ptr %11, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.1063") align 8 %2)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZL23MoveSystemIncludesToEndRSD_RKS8_SJ_PK17cmGeneratorTargetE3$_0EEEvT_SP_T0_"(ptr %11, ptr %1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.1063") align 8 %2)
   %12 = ptrtoint ptr %11 to i64
@@ -83688,7 +83691,8 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %9 = sdiv exact i64 %8, 48
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds %class.BT, ptr %0, i64 %11
+  %.idx = mul nsw i64 %11, 48
+  %12 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 

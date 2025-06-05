@@ -90264,7 +90264,8 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %43 = load ptr, ptr %42, align 8, !alias.scope !13124, !noalias !13127, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %.val
+  %.idx.i = shl nsw i64 %.val, 3
+  %44 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %45 = icmp eq i64 %.val, 0
   br i1 %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h770d357a5e115909E.exit.i", label %.preheader.i
 
@@ -91459,7 +91460,8 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %43 = load ptr, ptr %42, align 8, !alias.scope !13253, !noalias !13256, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %.val
+  %.idx.i = shl nsw i64 %.val, 3
+  %44 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %45 = icmp eq i64 %.val, 0
   br i1 %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2a4bdd17a3181a96E.exit.i", label %.preheader.i
 

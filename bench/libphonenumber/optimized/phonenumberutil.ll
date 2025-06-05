@@ -11433,14 +11433,14 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil27C
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !295
   %37 = zext nneg i32 %32 to i64
-  %.idx13.i = shl nuw nsw i64 %37, 2
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx13.i
+  %.idx.i = shl nuw nsw i64 %37, 2
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   %.not.i = icmp samesign ult i32 %32, 4
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %34
   %39 = lshr i64 %37, 2
-  %40 = and i64 %.idx13.i, 8589934576
+  %40 = and i64 %.idx.i, 8589934576
   %scevgep.i.i.i.i = getelementptr i8, ptr %36, i64 %40
   br label %41
 
@@ -17542,7 +17542,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12ba
   %.02155.i.i = phi i64 [ %.2.i.i, %48 ], [ %12, %3 ]
   %.sroa.038.054.i.i = phi ptr [ %.sroa.038.1.i.i, %48 ], [ %6, %3 ]
   %14 = lshr i64 %.02155.i.i, 1
-  %15 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.sroa.038.054.i.i, i64 %14
+  %.idx = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.038.054.i.i, i64 %.idx
   %16 = load i32, ptr %15, align 8, !tbaa !271
   %17 = icmp slt i32 %16, %1
   br i1 %17, label %18, label %22
@@ -18462,14 +18463,14 @@ define dso_local noundef range(i32 0, 12) i32 @_ZNK4i18n12phonenumbers15PhoneNum
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !295
   %35 = zext nneg i32 %30 to i64
-  %.idx13.i = shl nuw nsw i64 %35, 2
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx13.i
+  %.idx.i = shl nuw nsw i64 %35, 2
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
   %.not.i = icmp samesign ult i32 %30, 4
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %32
   %37 = lshr i64 %35, 2
-  %38 = and i64 %.idx13.i, 8589934576
+  %38 = and i64 %.idx.i, 8589934576
   %scevgep.i.i.i.i = getelementptr i8, ptr %34, i64 %38
   br label %39
 
@@ -18670,14 +18671,14 @@ _ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit:   ; preds = %91, %_ZNSt7__cxx111
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %122 = load ptr, ptr %121, align 8, !tbaa !295
   %123 = zext nneg i32 %118 to i64
-  %.idx13.i40 = shl nuw nsw i64 %123, 2
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx13.i40
+  %.idx.i40 = shl nuw nsw i64 %123, 2
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx.i40
   %.not.i41 = icmp samesign ult i32 %118, 4
   br i1 %.not.i41, label %._crit_edge.i.i.i.i47, label %.lr.ph.i.i.i.i42
 
 .lr.ph.i.i.i.i42:                                 ; preds = %120
   %125 = lshr i64 %123, 2
-  %126 = and i64 %.idx13.i40, 8589934576
+  %126 = and i64 %.idx.i40, 8589934576
   %scevgep.i.i.i.i43 = getelementptr i8, ptr %122, i64 %126
   br label %127
 
@@ -18877,14 +18878,14 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberMatchingDescERKNSt7__cxx1112ba
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %205 = load ptr, ptr %204, align 8, !tbaa !295
   %206 = zext nneg i32 %201 to i64
-  %.idx13.i70 = shl nuw nsw i64 %206, 2
-  %207 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx13.i70
+  %.idx.i70 = shl nuw nsw i64 %206, 2
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx.i70
   %.not.i71 = icmp samesign ult i32 %201, 4
   br i1 %.not.i71, label %._crit_edge.i.i.i.i77, label %.lr.ph.i.i.i.i72
 
 .lr.ph.i.i.i.i72:                                 ; preds = %203
   %208 = lshr i64 %206, 2
-  %209 = and i64 %.idx13.i70, 8589934576
+  %209 = and i64 %.idx.i70, 8589934576
   %scevgep.i.i.i.i73 = getelementptr i8, ptr %205, i64 %209
   br label %210
 
@@ -19084,14 +19085,14 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberMatchingDescERKNSt7__cxx1112ba
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 32
   %288 = load ptr, ptr %287, align 8, !tbaa !295
   %289 = zext nneg i32 %284 to i64
-  %.idx13.i100 = shl nuw nsw i64 %289, 2
-  %290 = getelementptr inbounds nuw i8, ptr %288, i64 %.idx13.i100
+  %.idx.i100 = shl nuw nsw i64 %289, 2
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 %.idx.i100
   %.not.i101 = icmp samesign ult i32 %284, 4
   br i1 %.not.i101, label %._crit_edge.i.i.i.i107, label %.lr.ph.i.i.i.i102
 
 .lr.ph.i.i.i.i102:                                ; preds = %286
   %291 = lshr i64 %289, 2
-  %292 = and i64 %.idx13.i100, 8589934576
+  %292 = and i64 %.idx.i100, 8589934576
   %scevgep.i.i.i.i103 = getelementptr i8, ptr %288, i64 %292
   br label %293
 
@@ -19291,14 +19292,14 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberMatchingDescERKNSt7__cxx1112ba
   %370 = getelementptr inbounds nuw i8, ptr %365, i64 32
   %371 = load ptr, ptr %370, align 8, !tbaa !295
   %372 = zext nneg i32 %367 to i64
-  %.idx13.i130 = shl nuw nsw i64 %372, 2
-  %373 = getelementptr inbounds nuw i8, ptr %371, i64 %.idx13.i130
+  %.idx.i130 = shl nuw nsw i64 %372, 2
+  %373 = getelementptr inbounds nuw i8, ptr %371, i64 %.idx.i130
   %.not.i131 = icmp samesign ult i32 %367, 4
   br i1 %.not.i131, label %._crit_edge.i.i.i.i137, label %.lr.ph.i.i.i.i132
 
 .lr.ph.i.i.i.i132:                                ; preds = %369
   %374 = lshr i64 %372, 2
-  %375 = and i64 %.idx13.i130, 8589934576
+  %375 = and i64 %.idx.i130, 8589934576
   %scevgep.i.i.i.i133 = getelementptr i8, ptr %371, i64 %375
   br label %376
 
@@ -19498,14 +19499,14 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberMatchingDescERKNSt7__cxx1112ba
   %453 = getelementptr inbounds nuw i8, ptr %448, i64 32
   %454 = load ptr, ptr %453, align 8, !tbaa !295
   %455 = zext nneg i32 %450 to i64
-  %.idx13.i160 = shl nuw nsw i64 %455, 2
-  %456 = getelementptr inbounds nuw i8, ptr %454, i64 %.idx13.i160
+  %.idx.i160 = shl nuw nsw i64 %455, 2
+  %456 = getelementptr inbounds nuw i8, ptr %454, i64 %.idx.i160
   %.not.i161 = icmp samesign ult i32 %450, 4
   br i1 %.not.i161, label %._crit_edge.i.i.i.i167, label %.lr.ph.i.i.i.i162
 
 .lr.ph.i.i.i.i162:                                ; preds = %452
   %457 = lshr i64 %455, 2
-  %458 = and i64 %.idx13.i160, 8589934576
+  %458 = and i64 %.idx.i160, 8589934576
   %scevgep.i.i.i.i163 = getelementptr i8, ptr %454, i64 %458
   br label %459
 
@@ -27549,7 +27550,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125DescHasPossibleNumberDataERKNS0_15PhoneNum
   br i1 %.not142, label %_ZN6google8protobuf13RepeatedFieldIiEaSERKS2_.exit.thread, label %.thread135.thread
 
 .thread135.thread:                                ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125DescHasPossibleNumberDataERKNS0_15PhoneNumberDescE.exit52, %_ZN4i18n12phonenumbers12_GLOBAL__N_125DescHasPossibleNumberDataERKNS0_15PhoneNumberDescE.exit.thread
-  %.pre179182 = load i32, ptr %4, align 8, !tbaa !293
+  %.pre176179 = load i32, ptr %4, align 8, !tbaa !293
   br label %68
 
 .thread135:                                       ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125DescHasPossibleNumberDataERKNS0_15PhoneNumberDescE.exit.thread
@@ -27560,14 +27561,14 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125DescHasPossibleNumberDataERKNS0_15PhoneNum
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %.pre = load i32, ptr %67, align 8, !tbaa !293
   %.not.i54 = icmp eq i32 %.pre, 0
-  %.pre179 = load i32, ptr %4, align 8, !tbaa !293
+  %.pre176 = load i32, ptr %4, align 8, !tbaa !293
   br i1 %.not.i54, label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit, label %68
 
 68:                                               ; preds = %.thread135.thread, %.thread135
-  %.pre179183 = phi i32 [ %.pre179182, %.thread135.thread ], [ %.pre179, %.thread135 ]
+  %.pre176180 = phi i32 [ %.pre176179, %.thread135.thread ], [ %.pre176, %.thread135 ]
   %69 = phi ptr [ %61, %.thread135.thread ], [ %67, %.thread135 ]
   %70 = phi i32 [ %.val42, %.thread135.thread ], [ %.pre, %.thread135 ]
-  %71 = add nsw i32 %.pre179183, %70
+  %71 = add nsw i32 %.pre176180, %70
   invoke void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %71)
           to label %.noexc55 unwind label %145
 
@@ -27578,18 +27579,18 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125DescHasPossibleNumberDataERKNS0_15PhoneNum
   %75 = load i32, ptr %4, align 8, !tbaa !293
   %76 = add nsw i32 %75, %72
   store i32 %76, ptr %4, align 8, !tbaa !293
-  %77 = sext i32 %.pre179183 to i64
+  %77 = sext i32 %.pre176180 to i64
   %78 = getelementptr inbounds i32, ptr %74, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !295
   %81 = sext i32 %72 to i64
   %82 = shl nsw i64 %81, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %78, ptr nonnull align 4 %80, i64 %82, i1 false)
-  %.pre178 = load i32, ptr %4, align 8, !tbaa !293
+  %.pre175 = load i32, ptr %4, align 8, !tbaa !293
   br label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %.noexc55, %.thread135
-  %83 = phi i32 [ %.pre178, %.noexc55 ], [ %.pre179, %.thread135 ]
+  %83 = phi i32 [ %.pre175, %.noexc55 ], [ %.pre176, %.thread135 ]
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !295
   %86 = sext i32 %83 to i64
@@ -27767,8 +27768,8 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62.thread: ; preds = %
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !295
   %151 = sext i32 %129 to i64
-  %.idx145184 = shl nsw i64 %151, 2
-  %152 = getelementptr inbounds i8, ptr %150, i64 %.idx145184
+  %.idx144181 = shl nsw i64 %151, 2
+  %152 = getelementptr inbounds i8, ptr %150, i64 %.idx144181
   br label %170
 
 153:                                              ; preds = %147
@@ -27790,20 +27791,20 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62: ; preds = %153
   %164 = sext i32 %155 to i64
   %165 = shl nsw i64 %164, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %161, ptr nonnull align 4 %163, i64 %165, i1 false)
-  %.pre180 = load i32, ptr %5, align 8, !tbaa !293
+  %.pre177 = load i32, ptr %5, align 8, !tbaa !293
   %166 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !295
-  %168 = sext i32 %.pre180 to i64
-  %.idx145 = shl nsw i64 %168, 2
-  %169 = getelementptr inbounds i8, ptr %167, i64 %.idx145
-  %.not.i.i63 = icmp eq i32 %.pre180, 0
+  %168 = sext i32 %.pre177 to i64
+  %.idx144 = shl nsw i64 %168, 2
+  %169 = getelementptr inbounds i8, ptr %167, i64 %.idx144
+  %.not.i.i63 = icmp eq i32 %.pre177, 0
   br i1 %.not.i.i63, label %_ZN6google8protobuf13RepeatedFieldIiEaSERKS2_.exit.thread, label %170
 
 170:                                              ; preds = %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62.thread, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62
   %171 = phi ptr [ %152, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62.thread ], [ %169, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62 ]
   %172 = phi i64 [ %151, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62.thread ], [ %168, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62 ]
   %173 = phi ptr [ %150, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62.thread ], [ %167, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62 ]
-  %174 = phi i32 [ %129, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62.thread ], [ %.pre180, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62 ]
+  %174 = phi i32 [ %129, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62.thread ], [ %.pre177, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62 ]
   %175 = ptrtoint ptr %173 to i64
   %176 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %172, i1 true)
   %177 = shl nuw nsw i64 %176, 1
@@ -27939,14 +27940,14 @@ _ZN6google8protobuf13RepeatedFieldIiEaSERKS2_.exit.thread: ; preds = %_ZSt25__un
   %224 = load ptr, ptr %223, align 8, !tbaa !295
   %225 = load i32, ptr %5, align 8, !tbaa !293
   %226 = sext i32 %225 to i64
-  %.idx147 = shl nsw i64 %226, 2
-  %227 = getelementptr inbounds i8, ptr %224, i64 %.idx147
+  %.idx145 = shl nsw i64 %226, 2
+  %227 = getelementptr inbounds i8, ptr %224, i64 %.idx145
   %228 = ashr i64 %226, 2
   %229 = icmp sgt i64 %228, 0
   br i1 %229, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %219
-  %230 = and i64 %.idx147, -16
+  %230 = and i64 %.idx145, -16
   %scevgep.i.i.i103 = getelementptr i8, ptr %224, i64 %230
   br label %231
 
@@ -27961,13 +27962,13 @@ _ZN6google8protobuf13RepeatedFieldIiEaSERKS2_.exit.thread: ; preds = %_ZSt25__un
   %235 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !124
   %237 = icmp eq i32 %236, %222
-  br i1 %237, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit190, label %238
+  br i1 %237, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit187, label %238
 
 238:                                              ; preds = %234
   %239 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   %240 = load i32, ptr %239, align 4, !tbaa !124
   %241 = icmp eq i32 %240, %222
-  br i1 %241, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit188, label %242
+  br i1 %241, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit185, label %242
 
 242:                                              ; preds = %238
   %243 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 12
@@ -28023,16 +28024,16 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit: ; preds = %242
   %262 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 12
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit188: ; preds = %238
+_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit185: ; preds = %238
   %263 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit190: ; preds = %234
+_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit187: ; preds = %234
   %264 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %231, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit188, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit190, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %251
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %251 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %262, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %263, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit188 ], [ %264, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit190 ], [ %.02946.i.i.i, %231 ]
+_ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %231, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit185, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit187, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %251
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %251 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %262, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %263, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit185 ], [ %264, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit187 ], [ %.02946.i.i.i, %231 ]
   %.not = icmp eq ptr %.028.i.i.i, %227
   br i1 %.not, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.thread, label %_ZN6google8protobuf13RepeatedFieldIiEaSERKS2_.exit.thread137
 
@@ -28047,8 +28048,8 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge._crit_e
 268:                                              ; preds = %266
   %269 = load i32, ptr %4, align 8, !tbaa !293
   %270 = sext i32 %269 to i64
-  %.idx148 = shl nsw i64 %270, 2
-  %271 = getelementptr inbounds i8, ptr %216, i64 %.idx148
+  %.idx146 = shl nsw i64 %270, 2
+  %271 = getelementptr inbounds i8, ptr %216, i64 %.idx146
   %272 = getelementptr inbounds i8, ptr %271, i64 -4
   %273 = load i32, ptr %272, align 4, !tbaa !124
   %274 = icmp slt i32 %273, %222
@@ -28057,13 +28058,13 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge._crit_e
 275:                                              ; preds = %268
   %276 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %277 = ptrtoint ptr %271 to i64
-  %gepdiff149 = add nsw i64 %.idx148, -4
-  %278 = ashr i64 %gepdiff149, 4
+  %gepdiff = add nsw i64 %.idx146, -4
+  %278 = ashr i64 %gepdiff, 4
   %279 = icmp sgt i64 %278, 0
   br i1 %279, label %.lr.ph.i.i.i114, label %._crit_edge.i.i.i104
 
 .lr.ph.i.i.i114:                                  ; preds = %275
-  %280 = and i64 %gepdiff149, -16
+  %280 = and i64 %gepdiff, -16
   %scevgep.i.i.i115 = getelementptr i8, ptr %276, i64 %280
   br label %281
 
@@ -28078,13 +28079,13 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge._crit_e
   %285 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i117, i64 4
   %286 = load i32, ptr %285, align 4, !tbaa !124
   %287 = icmp eq i32 %286, %222
-  br i1 %287, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit198, label %288
+  br i1 %287, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit195, label %288
 
 288:                                              ; preds = %284
   %289 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i117, i64 8
   %290 = load i32, ptr %289, align 4, !tbaa !124
   %291 = icmp eq i32 %290, %222
-  br i1 %291, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit196, label %292
+  br i1 %291, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit193, label %292
 
 292:                                              ; preds = %288
   %293 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i117, i64 12
@@ -28104,7 +28105,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge._crit_e
   br label %._crit_edge.i.i.i104
 
 ._crit_edge.i.i.i104:                             ; preds = %._crit_edge.loopexit.i.i.i118, %275
-  %.pre-phi56.i.i.i105 = phi i64 [ %.pre55.i.i.i120, %._crit_edge.loopexit.i.i.i118 ], [ %gepdiff149, %275 ]
+  %.pre-phi56.i.i.i105 = phi i64 [ %.pre55.i.i.i120, %._crit_edge.loopexit.i.i.i118 ], [ %gepdiff, %275 ]
   %.029.lcssa.i.i.i106 = phi ptr [ %scevgep.i.i.i115, %._crit_edge.loopexit.i.i.i118 ], [ %276, %275 ]
   %300 = ashr exact i64 %.pre-phi56.i.i.i105, 2
   switch i64 %300, label %312 [
@@ -28145,16 +28146,16 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit: ; preds = %292
   %313 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i117, i64 12
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit124
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit196: ; preds = %288
+_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit193: ; preds = %288
   %314 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i117, i64 8
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit124
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit198: ; preds = %284
+_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit195: ; preds = %284
   %315 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i117, i64 4
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit124
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit124:              ; preds = %281, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit196, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit198, %312, %._crit_edge._crit_edge52.i.i.i107, %._crit_edge._crit_edge.i.i.i111, %301
-  %.028.i.i.i110 = phi ptr [ %271, %312 ], [ %.029.lcssa.i.i.i106, %301 ], [ %.1.i.i.i113, %._crit_edge._crit_edge.i.i.i111 ], [ %.2.i.i.i109, %._crit_edge._crit_edge52.i.i.i107 ], [ %313, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit ], [ %314, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit196 ], [ %315, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit198 ], [ %.02946.i.i.i117, %281 ]
+_ZSt4findIPiiET_S1_S1_RKT0_.exit124:              ; preds = %281, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit193, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit195, %312, %._crit_edge._crit_edge52.i.i.i107, %._crit_edge._crit_edge.i.i.i111, %301
+  %.028.i.i.i110 = phi ptr [ %271, %312 ], [ %.029.lcssa.i.i.i106, %301 ], [ %.1.i.i.i113, %._crit_edge._crit_edge.i.i.i111 ], [ %.2.i.i.i109, %._crit_edge._crit_edge52.i.i.i107 ], [ %313, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit ], [ %314, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit193 ], [ %315, %_ZSt4findIPiiET_S1_S1_RKT0_.exit124.loopexit.split.loop.exit195 ], [ %.02946.i.i.i117, %281 ]
   %.not40 = icmp eq ptr %.028.i.i.i110, %271
   %316 = select i1 %.not40, i32 4, i32 0
   br label %_ZN6google8protobuf13RepeatedFieldIiEaSERKS2_.exit.thread137
@@ -28578,14 +28579,14 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil20I
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !295
   %13 = zext nneg i32 %8 to i64
-  %.idx13 = shl nuw nsw i64 %13, 2
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx13
+  %.idx = shl nuw nsw i64 %13, 2
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not = icmp samesign ult i32 %8, 4
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %10
   %15 = lshr i64 %13, 2
-  %16 = and i64 %.idx13, 8589934576
+  %16 = and i64 %.idx, 8589934576
   %scevgep.i.i.i = getelementptr i8, ptr %12, i64 %16
   br label %17
 
@@ -28606,13 +28607,13 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil20I
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   %26 = load i32, ptr %25, align 4, !tbaa !124
   %27 = icmp eq i32 %26, %6
-  br i1 %27, label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26, label %28
+  br i1 %27, label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !124
   %31 = icmp eq i32 %30, %6
-  br i1 %31, label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, label %32
+  br i1 %31, label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
@@ -28662,16 +28663,16 @@ _ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %20
   %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   br label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26: ; preds = %24
+_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %24
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %28
+_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %28
   %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 12
   br label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKiiET_S2_S2_RKT0_.exit:                ; preds = %17, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, %37, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %37 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %48, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %49, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26 ], [ %50, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %17 ]
+_ZSt4findIPKiiET_S2_S2_RKT0_.exit:                ; preds = %17, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27, %37, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %37 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %48, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %49, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25 ], [ %50, %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27 ], [ %.02946.i.i.i, %17 ]
   %51 = icmp eq ptr %.028.i.i.i, %14
   br i1 %51, label %_ZSt4findIPKiiET_S2_S2_RKT0_.exit.thread, label %52
 

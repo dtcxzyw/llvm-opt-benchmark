@@ -562,7 +562,8 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %159
   %164 = getelementptr i8, ptr %163, i64 4
   %165 = add nsw i64 %162, -4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %164, i8 0, i64 %165, i1 false), !tbaa !36
-  %166 = getelementptr inbounds nuw float, ptr %163, i64 %158
+  %.idx339 = shl nuw nsw i64 %158, 2
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 %.idx339
   %167 = add nsw i32 %156, -1
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %.058237, i64 24
@@ -712,14 +713,13 @@ _ZNKSt8functionIFddEEclEd.exit68.i:               ; preds = %.noexc105
   store float %.072.i, ptr %234, align 4, !tbaa !36
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %235 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %235, label %174, label %_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit, !llvm.loop !42
+  br i1 %235, label %174, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i, !llvm.loop !42
 
-_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit: ; preds = %229
-  %.idx339 = shl nuw nsw i64 %158, 2
+_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %229
   %236 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx339) #27
           to label %237 unwind label %.loopexit.split-lp.loopexit
 
-237:                                              ; preds = %_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit
+237:                                              ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 %.idx339
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %236, ptr nonnull align 4 %163, i64 %.idx339, i1 false)
   %239 = ptrtoint ptr %238 to i64
@@ -813,9 +813,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit116.thread:          ; preds = %_ZNKSt8functionIFdd
   %.1350296 = extractvalue { ptr, i32 } %lpad.loopexit, 1
   br label %273
 
-.loopexit.split-lp.loopexit:                      ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit
-  %.sroa.0137.1.ph.ph = phi ptr [ %163, %_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
-  %.sroa.20.1.ph.ph = phi ptr [ %166, %_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
+.loopexit.split-lp.loopexit:                      ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i
+  %.sroa.0137.1.ph.ph = phi ptr [ %163, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.20.1.ph.ph = phi ptr [ %166, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
   %lpad.loopexit198 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx16GromacsExceptionE
@@ -2322,6 +2322,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %203
           to label %.noexc135 unwind label %.loopexit
 
 .noexc135:                                        ; preds = %.noexc84.i
+  %.idx463 = shl nuw nsw i64 %208, 3
   store double 0.000000e+00, ptr %211, align 8, !tbaa !38
   %212 = icmp eq i32 %207, 1
   br i1 %212, label %215, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
@@ -2337,6 +2338,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc135
           to label %.noexc91.i unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit97.thread.i
 
 .noexc91.i:                                       ; preds = %215
+  %.idx464 = shl nuw nsw i64 %208, 3
   store double 0.000000e+00, ptr %216, align 8, !tbaa !38
   br i1 %212, label %.lr.ph.i, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i87.i
 
@@ -2364,7 +2366,8 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i87.i: ; preds = %.noexc91.
   %226 = getelementptr i8, ptr %225, i64 4
   %227 = add nsw i64 %224, -4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %226, i8 0, i64 %227, i1 false), !tbaa !36
-  %228 = getelementptr inbounds nuw float, ptr %225, i64 %223
+  %.idx497 = shl nuw nsw i64 %223, 2
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx497
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %225, i64 4
   %invariant.gep65.i = getelementptr inbounds nuw i8, ptr %225, i64 8
   %invariant.gep67.i = getelementptr inbounds nuw i8, ptr %225, i64 12
@@ -2510,33 +2513,29 @@ _ZNSt6vectorIdSaIdEED2Ev.exit97.i:                ; preds = %._crit_edge.i
   %319 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx16GromacsExceptionE
-  %.idx462 = shl nuw nsw i64 %208, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %216, i64 noundef %.idx462) #26
+  %.idx462.le = shl nuw nsw i64 %208, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %216, i64 noundef %.idx462.le) #26
   br label %320
 
 320:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit97.i, %_ZNSt6vectorIdSaIdEED2Ev.exit97.thread.i
   %.pn.pn56.i = phi { ptr, i32 } [ %229, %_ZNSt6vectorIdSaIdEED2Ev.exit97.thread.i ], [ %319, %_ZNSt6vectorIdSaIdEED2Ev.exit97.i ]
-  %.idx463 = shl nuw nsw i64 %208, 3
   tail call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %.idx463) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit149
 
 _ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataENS_8ArrayRefIKdEES3_dRKSt4pairIffEdPSt6vectorIfSaIfEE.exit: ; preds = %297
-  %.idx464 = shl nuw nsw i64 %208, 3
   tail call void @_ZdlPvm(ptr noundef nonnull %216, i64 noundef %.idx464) #26
-  %.idx465 = shl nuw nsw i64 %208, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %.idx465) #26
-  %.idx501 = shl nuw nsw i64 %223, 2
-  %321 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx501) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %.idx463) #26
+  %321 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx497) #27
           to label %322 unwind label %.loopexit
 
 322:                                              ; preds = %_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataENS_8ArrayRefIKdEES3_dRKSt4pairIffEdPSt6vectorIfSaIfEE.exit
-  %323 = getelementptr inbounds nuw i8, ptr %321, i64 %.idx501
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %321, ptr nonnull align 4 %225, i64 %.idx501, i1 false)
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 %.idx497
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %321, ptr nonnull align 4 %225, i64 %.idx497, i1 false)
   %324 = ptrtoint ptr %323 to i64
   br label %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit
 
 _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i, %322
-  %325 = phi i64 [ %.idx501, %322 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %325 = phi i64 [ %.idx497, %322 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %.sroa.0171.3406418425 = phi ptr [ %225, %322 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %.sroa.19.3403419423 = phi ptr [ %228, %322 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %326 = phi i64 [ %324, %322 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]

@@ -2240,7 +2240,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h1a00
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val6
+  %.idx = shl nsw i64 %.val6, 7
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !307
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2295,7 +2296,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h26f5
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val6
+  %.idx = mul nsw i64 %.val6, 24
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !324
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2350,7 +2352,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h4dbb
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr }, ptr %.val, i64 %.val6
+  %.idx = shl nsw i64 %.val6, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !341
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2749,7 +2752,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc14c
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val6
+  %.idx = shl nsw i64 %.val6, 7
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !503
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2892,7 +2896,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hf005
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { { i64, [15 x i64] }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, i8, i8, [6 x i8] }, ptr %.val, i64 %.val6
+  %.idx = mul nsw i64 %.val6, 208
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !557
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -5358,7 +5363,8 @@ _ZN10serde_json3ser18format_escaped_str17hd9e140aaf5c70a48E.exit.i.i.i.i.i.i.i.i
 42:                                               ; preds = %39
   %43 = icmp ne ptr %.val.i.i.i.i.i, null
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { ptr, i64 }, { i8, i8 }, [6 x i8] }, ptr %.val.i.i.i.i.i, i64 %.val21.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %.val21.i.i.i.i.i, 48
+  %44 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %45 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !1302
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc77d7a7b8789844bE.exit.sink.split.i"

@@ -2390,7 +2390,8 @@ define ptr @Gia_ManToIvySimple(ptr noundef readonly captures(none) %0) local_unn
   br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val44, i64 %indvars.iv
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
+  %13 = getelementptr inbounds nuw i8, ptr %.val44, i64 %.idx
   %.val45 = load i64, ptr %13, align 4
   %14 = and i64 %.val45, 2147483648
   %.not.i = icmp eq i64 %14, 0

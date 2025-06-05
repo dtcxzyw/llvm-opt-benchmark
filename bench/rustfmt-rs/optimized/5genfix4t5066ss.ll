@@ -37309,14 +37309,15 @@ _ZN15rustfmt_nightly6string15graphemes_width17hc7a97d4714b53b01E.exit: ; preds =
   br i1 %.not.i.i.i, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit.i.i", label %.invoke917
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit.i.i": ; preds = %.thread.i
-  %173 = getelementptr inbounds { ptr, i64 }, ptr %147, i64 %172
+  %.idx.i.i = shl nsw i64 %172, 4
+  %173 = getelementptr inbounds i8, ptr %147, i64 %.idx.i.i
   br label %174
 
 174:                                              ; preds = %177, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit.i.i"
   %175 = phi ptr [ %173, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit.i.i" ], [ %178, %177 ]
   %.0.i44.i.i = phi i64 [ %172, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit.i.i" ], [ %179, %177 ]
   %176 = icmp eq ptr %147, %175
-  br i1 %176, label %.loopexit58.i.i, label %177
+  br i1 %176, label %.loopexit59.i.i, label %177
 
 177:                                              ; preds = %174
   %178 = getelementptr inbounds i8, ptr %175, i64 -16
@@ -37330,15 +37331,15 @@ _ZN15rustfmt_nightly6string15graphemes_width17hc7a97d4714b53b01E.exit: ; preds =
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h855e5fc3f0e31e8aE.exit.i.i": ; preds = %177
   %182 = icmp ule i64 %179, %.1.i
   call void @llvm.assume(i1 %182)
-  br label %.loopexit58.i.i
+  br label %.loopexit59.i.i
 
-.loopexit58.i.i:                                  ; preds = %174, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h855e5fc3f0e31e8aE.exit.i.i"
+.loopexit59.i.i:                                  ; preds = %174, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h855e5fc3f0e31e8aE.exit.i.i"
   %183 = phi i64 [ %.0.i44.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h855e5fc3f0e31e8aE.exit.i.i" ], [ 0, %174 ]
   %184 = add i64 %183, 8
   %185 = icmp ult i64 %146, %184
   br i1 %185, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfccc2d9e266754f9E.exit.i", label %186
 
-186:                                              ; preds = %.loopexit58.i.i
+186:                                              ; preds = %.loopexit59.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !7965
   %187 = icmp ugt i64 %183, %146
   br i1 %187, label %.invoke919, label %188
@@ -37412,14 +37413,14 @@ _ZN15rustfmt_nightly6string15graphemes_width17hc7a97d4714b53b01E.exit: ; preds =
   br label %_ZN15rustfmt_nightly6string10detect_url17h39dc0d9280002511E.exit.i
 
 218:                                              ; preds = %209, %204, %199, %196
-  %.idx57.i.i = shl nsw i64 %.1.i, 4
-  %gepdiff.i.i = sub nsw i64 %.idx.i, %.idx57.i.i
+  %.idx58.i.i = shl nsw i64 %.1.i, 4
+  %gepdiff.i.i = sub nsw i64 %.idx.i, %.idx58.i.i
   %219 = lshr exact i64 %gepdiff.i.i, 4
-  %220 = icmp eq i64 %.idx57.i.i, %.idx.i
+  %220 = icmp eq i64 %.idx58.i.i, %.idx.i
   br i1 %220, label %.loopexit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %218
-  %221 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx57.i.i
+  %221 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx58.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %225, %.lr.ph.i.preheader.i.i
@@ -37497,8 +37498,9 @@ _ZN15rustfmt_nightly6string10detect_url17h39dc0d9280002511E.exit.i: ; preds = %2
   %255 = icmp ugt i64 %.sroa.5.1.i.i, %146
   br i1 %255, label %.invoke919, label %279
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfccc2d9e266754f9E.exit.i": ; preds = %_ZN15rustfmt_nightly6string10detect_url17h39dc0d9280002511E.exit.i, %.loopexit58.i.i
-  %256 = getelementptr inbounds nuw { ptr, i64 }, ptr %147, i64 %.1.i
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfccc2d9e266754f9E.exit.i": ; preds = %_ZN15rustfmt_nightly6string10detect_url17h39dc0d9280002511E.exit.i, %.loopexit59.i.i
+  %.idx36.i = shl nsw i64 %.1.i, 4
+  %256 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx36.i
   br label %257
 
 257:                                              ; preds = %260, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfccc2d9e266754f9E.exit.i"
@@ -38829,7 +38831,8 @@ define internal fastcc void @"_ZN15rustfmt_nightly6string12break_string28_$u7b$$
   unreachable
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit": ; preds = %15
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %16
+  %.idx = shl nsw i64 %16, 4
+  %19 = getelementptr inbounds i8, ptr %11, i64 %.idx
   br label %20
 
 20:                                               ; preds = %"_ZN15rustfmt_nightly6string12break_string28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4d539b1e2f5fdcc5E.exit.i", %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit"

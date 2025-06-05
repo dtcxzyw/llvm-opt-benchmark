@@ -22406,8 +22406,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp slt i64 %sub.ptr.div.i, 15
+  %cmp = icmp slt i64 %sub.ptr.sub.i, 120
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -22477,14 +22476,16 @@ common.ret21:                                     ; preds = %if.end, %_ZSt16__in
   ret void
 
 if.end:                                           ; preds = %entry
-  %div1920 = lshr i64 %sub.ptr.div.i, 1
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %div1920
+  %7 = lshr exact i64 %sub.ptr.sub.i, 1
+  %add.ptr.i.idx = and i64 %7, 4611686018427387896
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %add.ptr.i.idx
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__comp.coerce)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_(ptr %add.ptr.i, ptr %__last.coerce, ptr %__comp.coerce)
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.div.i8 = lshr i64 %sub.ptr.sub.i, 4
   %sub.ptr.sub.i11 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i5
   %sub.ptr.div.i12 = ashr exact i64 %sub.ptr.sub.i11, 3
-  tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_SG_T0_SH_T1_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__last.coerce, i64 noundef %div1920, i64 noundef %sub.ptr.div.i12, ptr %__comp.coerce)
+  tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_SG_T0_SH_T1_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__last.coerce, i64 noundef %sub.ptr.div.i8, i64 noundef %sub.ptr.div.i12, ptr %__comp.coerce)
   br label %common.ret21
 }
 
@@ -22497,7 +22498,8 @@ entry:
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %add = add nsw i64 %sub.ptr.div.i, 1
   %div = sdiv i64 %add, 2
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %div
+  %add.ptr.i.idx = shl nsw i64 %div, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %add.ptr.i.idx
   %cmp = icmp sgt i64 %div, %__buffer_size
   br i1 %cmp, label %if.then, label %if.else
 
@@ -22505,13 +22507,12 @@ if.then:                                          ; preds = %entry
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_T1_T2_(ptr %__first.coerce, ptr %add.ptr.i, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr %__comp.coerce)
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_T1_T2_(ptr %add.ptr.i, ptr %__last.coerce, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr %__comp.coerce)
   %.pre = ptrtoint ptr %add.ptr.i to i64
-  %.pre35 = sub i64 %sub.ptr.lhs.cast.i, %.pre
-  %.pre36 = ashr exact i64 %.pre35, 3
+  %.pre34 = sub i64 %sub.ptr.lhs.cast.i, %.pre
+  %.pre35 = ashr exact i64 %.pre34, 3
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
-  %add.ptr.i.idx = shl nsw i64 %div, 3
   %add.ptr.i9 = getelementptr inbounds i8, ptr %__buffer, i64 %add.ptr.i.idx
   tail call void @_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_T1_(ptr %__first.coerce, ptr %add.ptr.i, i64 noundef 7, ptr %__comp.coerce)
   %cmp9.i = icmp sgt i64 %sub.ptr.div.i, 14
@@ -22544,7 +22545,7 @@ while.body.i16:                                   ; preds = %_ZSt24__merge_sort_
   br i1 %cmp.i20, label %while.body.i16, label %if.end, !llvm.loop !194
 
 if.end:                                           ; preds = %while.body.i16, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_T1_.exit, %if.then
-  %sub.ptr.div.i29.pre-phi = phi i64 [ %sub.ptr.div.i.i13, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_T1_.exit ], [ %.pre36, %if.then ], [ %sub.ptr.div.i.i13, %while.body.i16 ]
+  %sub.ptr.div.i29.pre-phi = phi i64 [ %sub.ptr.div.i.i13, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_T1_.exit ], [ %.pre35, %if.then ], [ %sub.ptr.div.i.i13, %while.body.i16 ]
   %coerce.val.pi = ptrtoint ptr %__comp.coerce to i64
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_SG_T0_SH_T1_SH_T2_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__last.coerce, i64 noundef %div, i64 noundef %sub.ptr.div.i29.pre-phi, ptr noundef %__buffer, i64 noundef %__buffer_size, i64 %coerce.val.pi)
   ret void

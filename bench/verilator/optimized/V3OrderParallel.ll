@@ -21180,7 +21180,8 @@ define linkonce_odr dso_local void @_ZN11Contraction24siblingPairFromRelativesIL
 _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit: ; preds = %13, %33
   %35 = phi i64 [ %34, %33 ], [ 26, %13 ]
   %.140 = phi i64 [ %.029, %33 ], [ 26, %13 ]
-  %36 = getelementptr inbounds nuw %struct.SortingRecord, ptr %4, i64 %.140
+  %.idx = shl nuw nsw i64 %.140, 4
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %37 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.140, i1 true)
   %38 = shl nuw nsw i64 %37, 1
   %39 = xor i64 %38, 126
@@ -21277,7 +21278,8 @@ define linkonce_odr dso_local void @_ZN11Contraction24siblingPairFromRelativesIL
 _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit: ; preds = %13, %33
   %35 = phi i64 [ %34, %33 ], [ 26, %13 ]
   %.140 = phi i64 [ %.029, %33 ], [ 26, %13 ]
-  %36 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %4, i64 %.140
+  %.idx = shl nuw nsw i64 %.140, 4
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %37 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.140, i1 true)
   %38 = shl nuw nsw i64 %37, 1
   %39 = xor i64 %38, 126
@@ -25578,7 +25580,8 @@ define linkonce_odr dso_local void @_ZN11Contraction24siblingPairFromRelativesIL
   br i1 %.not.i.i, label %.loopexit, label %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit
 
 _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit: ; preds = %36
-  %38 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %5, i64 %.036
+  %.idx = shl nuw nsw i64 %.036, 4
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %39 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.036, i1 true)
   %40 = shl nuw nsw i64 %39, 1
   %41 = xor i64 %40, 126
@@ -25706,7 +25709,8 @@ define linkonce_odr dso_local void @_ZN11Contraction24siblingPairFromRelativesIL
   br i1 %.not.i.i, label %.loopexit, label %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit
 
 _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit: ; preds = %36
-  %38 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %5, i64 %.036
+  %.idx = shl nuw nsw i64 %.036, 4
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %39 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.036, i1 true)
   %40 = shl nuw nsw i64 %39, 1
   %41 = xor i64 %40, 126

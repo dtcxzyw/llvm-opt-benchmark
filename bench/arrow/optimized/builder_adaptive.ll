@@ -2622,7 +2622,8 @@ _ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %78 = load ptr, ptr %77, align 8, !tbaa !69, !noalias !217
   %79 = getelementptr inbounds nuw i32, ptr %78, i64 %75
-  %80 = getelementptr inbounds nuw i16, ptr %78, i64 %75
+  %.idx.i.i = shl nuw nsw i64 %75, 1
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i.i.i2.i
 
 .lr.ph.i.i.i.i.i.i2.i:                            ; preds = %.lr.ph.i.i.i.i.i.i2.i, %.lr.ph.i.i.i.i.i.preheader.i1.i
@@ -3024,7 +3025,8 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIlEENS_6S
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %48 = load ptr, ptr %47, align 8, !tbaa !69, !noalias !260
   %49 = getelementptr inbounds nuw i64, ptr %48, i64 %45
-  %50 = getelementptr inbounds nuw i16, ptr %48, i64 %45
+  %.idx.i = shl nuw nsw i64 %45, 1
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i.i.i.i.i2
 
 .lr.ph.i.i.i.i.i.i2:                              ; preds = %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.preheader.i1
@@ -3070,23 +3072,24 @@ define linkonce_odr void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIlEENS_6S
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %73 = load ptr, ptr %72, align 8, !tbaa !69, !noalias !268
   %74 = getelementptr inbounds nuw i64, ptr %73, i64 %70
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %70
-  br label %.lr.ph.i.i.i.i.i.i7
+  %.idx.i7 = shl nsw i64 %70, 2
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i7
+  br label %.lr.ph.i.i.i.i.i.i8
 
-.lr.ph.i.i.i.i.i.i7:                              ; preds = %.lr.ph.i.i.i.i.i.i7, %.lr.ph.i.i.i.i.i.preheader.i6
-  %.010.i.i.i.i.i.i8 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i7 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %.069.i.i.i.i.i.i9 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i7 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %.078.i.i.i.i.i.i10 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i7 ], [ %75, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i10, i64 -4
+.lr.ph.i.i.i.i.i.i8:                              ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.preheader.i6
+  %.010.i.i.i.i.i.i9 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i8 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %.069.i.i.i.i.i.i10 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i8 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %.078.i.i.i.i.i.i11 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i8 ], [ %75, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i11, i64 -4
   %77 = load i32, ptr %76, align 4, !tbaa !67, !noalias !268
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i9, i64 -8
+  %79 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i10, i64 -8
   store i64 %78, ptr %79, align 8, !tbaa !70, !noalias !268
-  %80 = add nsw i64 %.010.i.i.i.i.i.i8, -1
-  %81 = icmp samesign ugt i64 %.010.i.i.i.i.i.i8, 1
-  br i1 %81, label %.lr.ph.i.i.i.i.i.i7, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIlaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split, !llvm.loop !275
+  %80 = add nsw i64 %.010.i.i.i.i.i.i9, -1
+  %81 = icmp samesign ugt i64 %.010.i.i.i.i.i.i9, 1
+  br i1 %81, label %.lr.ph.i.i.i.i.i.i8, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIlaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split, !llvm.loop !275
 
-_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIlaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split: ; preds = %.lr.ph.i.i.i.i.i.i7, %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.i, %2, %68, %43, %18
+_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIlaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split: ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.i, %2, %68, %43, %18
   store ptr null, ptr %0, align 8, !tbaa !75
   br label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIlaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit
 
@@ -3935,7 +3938,8 @@ _ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %78 = load ptr, ptr %77, align 8, !tbaa !69, !noalias !321
   %79 = getelementptr inbounds nuw i32, ptr %78, i64 %75
-  %80 = getelementptr inbounds nuw i16, ptr %78, i64 %75
+  %.idx.i.i = shl nuw nsw i64 %75, 1
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i.i.i2.i
 
 .lr.ph.i.i.i.i.i.i2.i:                            ; preds = %.lr.ph.i.i.i.i.i.i2.i, %.lr.ph.i.i.i.i.i.preheader.i1.i
@@ -4104,7 +4108,8 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNImEENS_6
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %48 = load ptr, ptr %47, align 8, !tbaa !69, !noalias !346
   %49 = getelementptr inbounds nuw i64, ptr %48, i64 %45
-  %50 = getelementptr inbounds nuw i16, ptr %48, i64 %45
+  %.idx.i = shl nuw nsw i64 %45, 1
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i.i.i.i.i2
 
 .lr.ph.i.i.i.i.i.i2:                              ; preds = %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.preheader.i1
@@ -4150,23 +4155,24 @@ define linkonce_odr void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNImEENS_6
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %73 = load ptr, ptr %72, align 8, !tbaa !69, !noalias !354
   %74 = getelementptr inbounds nuw i64, ptr %73, i64 %70
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %70
-  br label %.lr.ph.i.i.i.i.i.i7
+  %.idx.i7 = shl nsw i64 %70, 2
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i7
+  br label %.lr.ph.i.i.i.i.i.i8
 
-.lr.ph.i.i.i.i.i.i7:                              ; preds = %.lr.ph.i.i.i.i.i.i7, %.lr.ph.i.i.i.i.i.preheader.i6
-  %.010.i.i.i.i.i.i8 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i7 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %.069.i.i.i.i.i.i9 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i7 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %.078.i.i.i.i.i.i10 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i7 ], [ %75, %.lr.ph.i.i.i.i.i.preheader.i6 ]
-  %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i10, i64 -4
+.lr.ph.i.i.i.i.i.i8:                              ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.preheader.i6
+  %.010.i.i.i.i.i.i9 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i8 ], [ %70, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %.069.i.i.i.i.i.i10 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i8 ], [ %74, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %.078.i.i.i.i.i.i11 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i8 ], [ %75, %.lr.ph.i.i.i.i.i.preheader.i6 ]
+  %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i11, i64 -4
   %77 = load i32, ptr %76, align 4, !tbaa !67, !noalias !354
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i9, i64 -8
+  %79 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i10, i64 -8
   store i64 %78, ptr %79, align 8, !tbaa !70, !noalias !354
-  %80 = add nsw i64 %.010.i.i.i.i.i.i8, -1
-  %81 = icmp samesign ugt i64 %.010.i.i.i.i.i.i8, 1
-  br i1 %81, label %.lr.ph.i.i.i.i.i.i7, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalImhEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split, !llvm.loop !361
+  %80 = add nsw i64 %.010.i.i.i.i.i.i9, -1
+  %81 = icmp samesign ugt i64 %.010.i.i.i.i.i.i9, 1
+  br i1 %81, label %.lr.ph.i.i.i.i.i.i8, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalImhEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split, !llvm.loop !361
 
-_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalImhEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split: ; preds = %.lr.ph.i.i.i.i.i.i7, %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.i, %2, %68, %43, %18
+_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalImhEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split: ; preds = %.lr.ph.i.i.i.i.i.i8, %.lr.ph.i.i.i.i.i.i2, %.lr.ph.i.i.i.i.i.i, %2, %68, %43, %18
   store ptr null, ptr %0, align 8, !tbaa !75
   br label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalImhEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit
 
