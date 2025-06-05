@@ -3732,7 +3732,7 @@ define void @_ZNK10open_spiel20first_sealed_auction10FPSBAState22InformationStat
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %97
 
 26:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
@@ -3754,7 +3754,7 @@ define void @_ZNK10open_spiel20first_sealed_auction10FPSBAState22InformationStat
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %97
 
 34:                                               ; preds = %26
   store i64 %3, ptr %13, align 8
@@ -3779,7 +3779,7 @@ define void @_ZNK10open_spiel20first_sealed_auction10FPSBAState22InformationStat
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %97
 
 45:                                               ; preds = %34
   %.not5.i.i.i = icmp eq i64 %3, 0
@@ -3839,38 +3839,38 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   %84 = getelementptr inbounds float, ptr %80, i64 %83
   store float 1.000000e+00, ptr %84, align 4
   %.pre = load i32, ptr %35, align 4
-  %.pre27 = sext i32 %.pre to i64
+  %.pre24 = sext i32 %.pre to i64
   br label %85
 
 85:                                               ; preds = %79, %67
-  %.pre-phi = phi i64 [ %.pre27, %79 ], [ %69, %67 ]
+  %.pre-phi = phi i64 [ %.pre24, %79 ], [ %69, %67 ]
   %.idx26 = add nsw i64 %69, %50
   %86 = add nsw i64 %.idx26, %.pre-phi
   store i64 %86, ptr %17, align 8
   store i64 %3, ptr %18, align 8
-  %87 = icmp eq i64 %86, %3
-  br i1 %87, label %92, label %88
+  %91 = icmp eq i64 %86, %3
+  br i1 %91, label %96, label %92
 
-88:                                               ; preds = %85
+92:                                               ; preds = %85
   store i32 167, ptr %20, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA160_KcRA2_S2_iS6_RA41_S2_RA25_S2_RA4_S2_RlRA19_S2_RmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 1 dereferenceable(160) @.str.15, ptr noundef nonnull align 1 dereferenceable(2) @.str.16, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 1 dereferenceable(41) @.str.30, ptr noundef nonnull align 1 dereferenceable(25) @.str.31, ptr noundef nonnull align 1 dereferenceable(4) @.str.20, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(19) @.str.32, ptr noundef nonnull align 8 dereferenceable(8) %18)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %19) #23
-          to label %89 unwind label %90
+          to label %89 unwind label %94
 
-89:                                               ; preds = %88
+93:                                               ; preds = %92
   unreachable
 
-90:                                               ; preds = %88
-  %91 = landingpad { ptr, i32 }
+94:                                               ; preds = %92
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %97
 
-92:                                               ; preds = %85
+96:                                               ; preds = %85
   ret void
 
-93:                                               ; preds = %90, %43, %32, %24
+97:                                               ; preds = %94, %43, %32, %24
   %.sink = phi ptr [ %19, %90 ], [ %15, %43 ], [ %11, %32 ], [ %7, %24 ]
-  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %44, %43 ], [ %33, %32 ], [ %25, %24 ]
+  %.pn = phi { ptr, i32 } [ %95, %90 ], [ %44, %43 ], [ %33, %32 ], [ %25, %24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #24
   resume { ptr, i32 } %.pn
 }

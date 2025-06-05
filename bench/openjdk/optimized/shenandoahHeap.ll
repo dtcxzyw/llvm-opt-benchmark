@@ -3450,7 +3450,7 @@ _ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit:   ; preds = %.lr.ph.i.preheader.
   %.not.i22 = icmp ult i64 %39, %2
   br i1 %.not.i22, label %_ZN4PLAB8allocateEm.exit, label %40
 
-40:                                               ; preds = %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit
+40:  ; preds = %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit
   %41 = getelementptr inbounds ptr, ptr %21, i64 %2
   store ptr %41, ptr %29, align 8
   br label %_ZN4PLAB8allocateEm.exit

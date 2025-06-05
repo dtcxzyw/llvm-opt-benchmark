@@ -580,7 +580,7 @@ define internal fastcc range(i64 1, 3) i64 @add_literal(ptr noundef captures(non
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %.val = load i64, ptr %4, align 8, !tbaa !12
   %5 = icmp ugt i64 %.val, -8589934593
-  br i1 %5, label %6, label %49
+  br i1 %5, label %6, label %51
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -664,62 +664,62 @@ buffer_push.exit:                                 ; preds = %buffer_push_rlw.exi
   %47 = getelementptr inbounds nuw i64, ptr %44, i64 %46
   store ptr %47, ptr %3, align 8, !tbaa !11
   store i64 %.pre-phi.i, ptr %7, align 8, !tbaa !13
-  %48 = getelementptr inbounds nuw i64, ptr %44, i64 %43
-  store i64 %1, ptr %48, align 8, !tbaa !12
-  br label %77
+  %50 = getelementptr inbounds nuw i64, ptr %44, i64 %43
+  store i64 %1, ptr %50, align 8, !tbaa !12
+  br label %79
 
-49:                                               ; preds = %2
-  %50 = or i64 %.val, -8589934592
-  %51 = or i64 %.val, 8589934591
-  %52 = add nuw i64 %51, 8589934592
-  %53 = and i64 %52, %50
-  store i64 %53, ptr %4, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load i64, ptr %54, align 8, !tbaa !13
-  %56 = add i64 %55, 1
-  %57 = load ptr, ptr %0, align 8, !tbaa !14
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i64, ptr %58, align 8, !tbaa !15
-  %60 = icmp ugt i64 %56, %59
-  br i1 %60, label %61, label %buffer_push.exit16
+51:                                               ; preds = %2
+  %52 = or i64 %.val, -8589934592
+  %53 = or i64 %.val, 8589934591
+  %54 = add nuw i64 %53, 8589934592
+  %55 = and i64 %54, %52
+  store i64 %55, ptr %4, align 8, !tbaa !12
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load i64, ptr %56, align 8, !tbaa !13
+  %58 = add i64 %57, 1
+  %59 = load ptr, ptr %0, align 8, !tbaa !14
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load i64, ptr %60, align 8, !tbaa !15
+  %62 = icmp ugt i64 %58, %61
+  br i1 %62, label %63, label %buffer_push.exit16
 
-61:                                               ; preds = %49
-  %62 = mul i64 %59, 3
-  %63 = add i64 %62, 48
-  %64 = lshr i64 %63, 1
-  %..i.i12 = tail call i64 @llvm.umax.i64(i64 %64, i64 %56)
-  store i64 %..i.i12, ptr %58, align 8, !tbaa !15
-  %65 = icmp ugt i64 %..i.i12, 2305843009213693951
-  br i1 %65, label %66, label %st_mult.exit.i.i13
+63:                                               ; preds = %51
+  %64 = mul i64 %61, 3
+  %65 = add i64 %64, 48
+  %66 = lshr i64 %65, 1
+  %..i.i12 = tail call i64 @llvm.umax.i64(i64 %66, i64 %58)
+  store i64 %..i.i12, ptr %60, align 8, !tbaa !15
+  %67 = icmp ugt i64 %..i.i12, 2305843009213693951
+  br i1 %67, label %68, label %st_mult.exit.i.i13
 
-66:                                               ; preds = %61
+68:                                               ; preds = %63
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef %..i.i12) #11
   unreachable
 
-st_mult.exit.i.i13:                               ; preds = %61
-  %67 = shl nuw i64 %..i.i12, 3
-  %68 = tail call ptr @xrealloc(ptr noundef %57, i64 noundef %67) #12
-  store ptr %68, ptr %0, align 8, !tbaa !14
-  %.pre.i14 = load i64, ptr %54, align 8, !tbaa !13
+st_mult.exit.i.i13:                               ; preds = %63
+  %69 = shl nuw i64 %..i.i12, 3
+  %70 = tail call ptr @xrealloc(ptr noundef %59, i64 noundef %69) #12
+  store ptr %70, ptr %0, align 8, !tbaa !14
+  %.pre.i14 = load i64, ptr %56, align 8, !tbaa !13
   %.pre4.i15 = add i64 %.pre.i14, 1
   br label %buffer_push.exit16
 
-buffer_push.exit16:                               ; preds = %49, %st_mult.exit.i.i13
-  %.pre-phi.i11 = phi i64 [ %56, %49 ], [ %.pre4.i15, %st_mult.exit.i.i13 ]
-  %69 = phi i64 [ %55, %49 ], [ %.pre.i14, %st_mult.exit.i.i13 ]
-  %70 = phi ptr [ %57, %49 ], [ %68, %st_mult.exit.i.i13 ]
-  %71 = ptrtoint ptr %4 to i64
-  %72 = ptrtoint ptr %57 to i64
-  %73 = sub i64 %71, %72
-  %74 = lshr i64 %73, 3
-  %75 = getelementptr inbounds nuw i64, ptr %70, i64 %74
-  store ptr %75, ptr %3, align 8, !tbaa !11
-  store i64 %.pre-phi.i11, ptr %54, align 8, !tbaa !13
-  %76 = getelementptr inbounds nuw i64, ptr %70, i64 %69
-  store i64 %1, ptr %76, align 8, !tbaa !12
-  br label %77
+buffer_push.exit16:                               ; preds = %51, %st_mult.exit.i.i13
+  %.pre-phi.i11 = phi i64 [ %58, %49 ], [ %.pre4.i15, %st_mult.exit.i.i13 ]
+  %71 = phi i64 [ %57, %49 ], [ %.pre.i14, %st_mult.exit.i.i13 ]
+  %72 = phi ptr [ %59, %49 ], [ %70, %st_mult.exit.i.i13 ]
+  %73 = ptrtoint ptr %4 to i64
+  %74 = ptrtoint ptr %59 to i64
+  %75 = sub i64 %73, %74
+  %76 = lshr i64 %75, 3
+  %77 = getelementptr inbounds nuw i64, ptr %72, i64 %76
+  store ptr %77, ptr %3, align 8, !tbaa !11
+  store i64 %.pre-phi.i11, ptr %56, align 8, !tbaa !13
+  %78 = getelementptr inbounds nuw i64, ptr %72, i64 %71
+  store i64 %1, ptr %78, align 8, !tbaa !12
+  br label %79
 
-77:                                               ; preds = %buffer_push.exit16, %buffer_push.exit
+79:                                               ; preds = %buffer_push.exit16, %buffer_push.exit
   %.0 = phi i64 [ 2, %buffer_push.exit ], [ 1, %buffer_push.exit16 ]
   ret i64 %.0
 }

@@ -5038,7 +5038,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !10
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %13, label %5
+  br i1 %4, label %15, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !3
@@ -5046,14 +5046,14 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   %8 = getelementptr i8, ptr %7, i64 -1
   %9 = load i8, ptr %8, align 1, !tbaa !11
   %10 = icmp eq i8 %9, 47
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %5
   %12 = add i64 %3, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12, i64 noundef 1)
   br label %13
 
-13:                                               ; preds = %11, %5, %1
+15:                                               ; preds = %11, %5, %1
   ret ptr %0
 }
 

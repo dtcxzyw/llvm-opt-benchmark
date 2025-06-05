@@ -2837,10 +2837,10 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %2, %7
   %.pre45 = load ptr, ptr @_ZL16visible_messages, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %85
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %88
   %10 = phi ptr [ %17, %85 ], [ %.pre45, %.lr.ph.preheader ]
-  %11 = phi i64 [ %87, %85 ], [ 0, %.lr.ph.preheader ]
-  %.01042 = phi i32 [ %86, %85 ], [ 0, %.lr.ph.preheader ]
+  %11 = phi i64 [ %90, %85 ], [ 0, %.lr.ph.preheader ]
+  %.01042 = phi i32 [ %89, %85 ], [ 0, %.lr.ph.preheader ]
   %.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i, label %_ZN5QListI19VisibleAsyncMessageE6detachEv.exit.i, label %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i
 
@@ -2872,7 +2872,7 @@ _ZN5QListI19VisibleAsyncMessageEixEx.exit:        ; preds = %_ZNK17QArrayDataPoi
   %19 = getelementptr %struct.VisibleAsyncMessage, ptr %18, i64 %11
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
-  br i1 %21, label %22, label %85
+  br i1 %21, label %22, label %88
 
 22:                                               ; preds = %_ZN5QListI19VisibleAsyncMessageEixEx.exit
   %.not.i.i.i.i14 = icmp eq ptr %17, null
@@ -3077,28 +3077,28 @@ _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_
   br label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit
 
 _ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit: ; preds = %81, %._crit_edge.i.i.i, %82
-  %83 = phi i64 [ %79, %._crit_edge.i.i.i ], [ %.pre14.i.i.i, %82 ], [ %79, %81 ]
-  %84 = add i64 %83, -1
-  store i64 %84, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
+  %86 = phi i64 [ %79, %._crit_edge.i.i.i ], [ %.pre14.i.i.i, %82 ], [ %79, %81 ]
+  %87 = add i64 %86, -1
+  store i64 %87, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
   br label %.loopexit
 
-85:                                               ; preds = %_ZN5QListI19VisibleAsyncMessageEixEx.exit
-  %86 = add i32 %.01042, 1
-  %87 = sext i32 %86 to i64
-  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
-  %89 = icmp sgt i64 %88, %87
-  br i1 %89, label %.lr.ph, label %.loopexit, !llvm.loop !22
+88:                                               ; preds = %_ZN5QListI19VisibleAsyncMessageEixEx.exit
+  %89 = add i32 %.01042, 1
+  %90 = sext i32 %89 to i64
+  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
+  %92 = icmp sgt i64 %91, %90
+  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %85, %_ZN11QBasicMutex4lockEv.exit, %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit
-  %90 = cmpxchg ptr @_ZL22visible_messages_mutex, i64 1, i64 0 release monotonic, align 8
-  %91 = extractvalue { i64, i1 } %90, 1
-  br i1 %91, label %_ZN11QBasicMutex6unlockEv.exit, label %92
+.loopexit:                                        ; preds = %88, %_ZN11QBasicMutex4lockEv.exit, %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit
+  %93 = cmpxchg ptr @_ZL22visible_messages_mutex, i64 1, i64 0 release monotonic, align 8
+  %94 = extractvalue { i64, i1 } %93, 1
+  br i1 %94, label %_ZN11QBasicMutex6unlockEv.exit, label %95
 
-92:                                               ; preds = %.loopexit
+95:                                               ; preds = %.loopexit
   call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) @_ZL22visible_messages_mutex) #25
   br label %_ZN11QBasicMutex6unlockEv.exit
 
-_ZN11QBasicMutex6unlockEv.exit:                   ; preds = %.loopexit, %92
+_ZN11QBasicMutex6unlockEv.exit:                   ; preds = %.loopexit, %95
   ret void
 }
 

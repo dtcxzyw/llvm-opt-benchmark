@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i64 19, 18) i64 @libdeflate_gzip_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %4, 19
-  br i1 %6, label %27, label %7
+  br i1 %6, label %30, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -31,7 +31,7 @@ define range(i64 19, 18) i64 @libdeflate_gzip_compress(ptr noundef %0, ptr nound
   %18 = add i64 %4, -18
   %19 = tail call i64 @libdeflate_deflate_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %17, i64 noundef %18) #2
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %27, label %21
+  br i1 %20, label %30, label %21
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 %19
@@ -43,7 +43,7 @@ define range(i64 19, 18) i64 @libdeflate_gzip_compress(ptr noundef %0, ptr nound
   %26 = add i64 %19, 18
   br label %27
 
-27:                                               ; preds = %7, %5, %21
+30:                                               ; preds = %7, %5, %21
   %.0 = phi i64 [ %26, %21 ], [ 0, %5 ], [ 0, %7 ]
   ret i64 %.0
 }

@@ -1426,7 +1426,7 @@ _quicklistBookmarkFindByNode.exit:                ; preds = %.lr.ph.i
   %17 = load i64, ptr %4, align 8
   %18 = add i64 %17, 64424509440
   %19 = and i64 %18, 64424509440
-  %20 = and i64 %17, -64424509441
+  %21 = and i64 %17, -64424509441
   %21 = or disjoint i64 %19, %20
   store i64 %21, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1437,21 +1437,21 @@ _quicklistBookmarkFindByNode.exit:                ; preds = %.lr.ph.i
   br label %_quicklistBookmarkFindByNode.exit.thread
 
 _quicklistBookmarkFindByNode.exit.thread:         ; preds = %8, %2, %_quicklistBookmarkFindByNode.exit, %14
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !17
-  %.not32 = icmp eq ptr %26, null
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
+  %.not32 = icmp eq ptr %28, null
   %.pre = load ptr, ptr %1, align 8, !tbaa !23
-  br i1 %.not32, label %28, label %27
+  br i1 %.not32, label %30, label %29
 
-27:                                               ; preds = %_quicklistBookmarkFindByNode.exit.thread
-  store ptr %.pre, ptr %26, align 8, !tbaa !23
-  br label %28
+29:                                               ; preds = %_quicklistBookmarkFindByNode.exit.thread
+  store ptr %.pre, ptr %28, align 8, !tbaa !23
+  br label %30
 
-28:                                               ; preds = %27, %_quicklistBookmarkFindByNode.exit.thread
+30:                                               ; preds = %29, %_quicklistBookmarkFindByNode.exit.thread
   %.not33 = icmp eq ptr %.pre, null
-  br i1 %.not33, label %31, label %29
+  br i1 %.not33, label %31, label %41
 
-29:                                               ; preds = %28
+41:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store ptr %26, ptr %30, align 8, !tbaa !17
   br label %31
@@ -1466,17 +1466,17 @@ _quicklistBookmarkFindByNode.exit.thread:         ; preds = %8, %2, %_quicklistB
   store ptr %.pre, ptr %32, align 8, !tbaa !16
   br label %36
 
-36:                                               ; preds = %35, %31
+43:                                               ; preds = %35, %31
   %37 = load ptr, ptr %0, align 8, !tbaa !16
   %38 = icmp eq ptr %1, %37
   br i1 %38, label %39, label %41
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %25, align 8, !tbaa !17
+39: ; preds = %43
+  %48 = load ptr, ptr %27, align 8, !tbaa !17
   store ptr %40, ptr %0, align 8, !tbaa !16
   br label %41
 
-41:                                               ; preds = %39, %36
+41:; preds = %39, %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i64, ptr %42, align 8, !tbaa !5
   %44 = add i64 %43, -1
@@ -1490,9 +1490,9 @@ _quicklistBookmarkFindByNode.exit.thread:         ; preds = %8, %2, %_quicklistB
   %51 = sub i64 %50, %48
   store i64 %51, ptr %49, align 8, !tbaa !5
   tail call void @__quicklistCompress(ptr noundef nonnull %0, ptr noundef null)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !9
-  tail call void @zfree(ptr noundef %53) #23
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !9
+  tail call void @zfree(ptr noundef %55) #23
   tail call void @zfree(ptr noundef nonnull %1) #23
   ret void
 }
@@ -5088,17 +5088,17 @@ define dso_local range(i32 0, 2) i32 @quicklistBookmarkDelete(ptr noundef captur
 
 _quicklistBookmarkFindByName.exit:                ; preds = %.lr.ph.i
   tail call void @zfree(ptr noundef nonnull %11) #23
-  %13 = load i64, ptr %4, align 8
-  %14 = add i64 %13, 64424509440
-  %15 = and i64 %14, 64424509440
-  %16 = and i64 %13, -64424509441
-  %17 = or disjoint i64 %15, %16
-  store i64 %17, ptr %4, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %19 = shl i64 %indvars.iv.i, 32
-  %sext.i = sub i64 %15, %19
-  %20 = ashr exact i64 %sext.i, 28
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %18, i64 %20, i1 false)
+  %15 = load i64, ptr %4, align 8
+  %16 = add i64 %15, 64424509440
+  %17 = and i64 %16, 64424509440
+  %18 = and i64 %15, -64424509441
+  %19 = or disjoint i64 %17, %18
+  store i64 %19, ptr %4, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.neg7.i = shl i64 %indvars.iv.i, 32
+  %sext.i = sub i64 %17, %.neg7.i
+  %21 = ashr exact i64 %sext.i, 28
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %18, i64 %21, i1 false)
   br label %_quicklistBookmarkFindByName.exit.thread
 
 _quicklistBookmarkFindByName.exit.thread:         ; preds = %8, %2, %_quicklistBookmarkFindByName.exit

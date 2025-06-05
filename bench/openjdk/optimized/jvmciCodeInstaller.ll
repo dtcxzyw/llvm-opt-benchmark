@@ -493,14 +493,14 @@ define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream7contextEv(ptr noundef
 _ZNK25HotSpotCompiledCodeStream16dump_buffer_tailEiP12outputStream.exit: ; preds = %1, %14
   %.013.i = phi ptr [ %21, %14 ], [ %9, %1 ]
   %.0.i = phi i32 [ %.neg.i, %14 ], [ %13, %1 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = load ptr, ptr %22, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, i32 noundef %.0.i, i64 noundef %10, ptr noundef %23) #11
-  %24 = sext i32 %.0.i to i64
-  call void @_ZN12outputStream10print_dataEPvmbb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.013.i, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext false) #11
-  %25 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %2, i1 noundef zeroext false) #11
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %26 = load ptr, ptr %25, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, i32 noundef %.0.i, i64 noundef %10, ptr noundef %26) #11
+  %27 = sext i32 %.0.i to i64
+  call void @_ZN12outputStream10print_dataEPvmbb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.013.i, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %28 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %2, i1 noundef zeroext false) #11
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #11
-  ret ptr %25
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -622,7 +622,7 @@ define hidden void @_ZNK25HotSpotCompiledCodeStream16dump_buffer_tailEiP12output
   %11 = sub i64 %9, %10
   %12 = trunc i64 %11 to i32
   %.not = icmp slt i32 %1, %12
-  br i1 %.not, label %13, label %23
+  br i1 %.not, label %13, label %26
 
 13:                                               ; preds = %3
   %14 = sext i32 %1 to i64
@@ -638,14 +638,14 @@ define hidden void @_ZNK25HotSpotCompiledCodeStream16dump_buffer_tailEiP12output
   %.neg = add i32 %20, %1
   br label %23
 
-23:                                               ; preds = %3, %13
+26:                                               ; preds = %3, %13
   %.013 = phi ptr [ %22, %13 ], [ %8, %3 ]
   %.0 = phi i32 [ %.neg, %13 ], [ %12, %3 ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load ptr, ptr %24, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, i32 noundef %.0, i64 noundef %9, ptr noundef %25) #11
-  %26 = sext i32 %.0 to i64
-  tail call void @_ZN12outputStream10print_dataEPvmbb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %.013, i64 noundef %26, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = load ptr, ptr %27, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, i32 noundef %.0, i64 noundef %9, ptr noundef %28) #11
+  %29 = sext i32 %.0 to i64
+  tail call void @_ZN12outputStream10print_dataEPvmbb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %.013, i64 noundef %29, i1 noundef zeroext true, i1 noundef zeroext false) #11
   ret void
 }
 

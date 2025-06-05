@@ -1264,13 +1264,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmedi
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx10
   %258 = load i8, ptr %257, align 8, !tbaa !28
   %259 = icmp eq i8 %258, 2
-  br i1 %259, label %260, label %268
+  br i1 %259, label %260, label %271
 
 260:                                              ; preds = %250
   %261 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %262 = load i64, ptr %261, align 8, !tbaa !23
   %.not = icmp eq i64 %262, 1
-  br i1 %.not, label %263, label %268
+  br i1 %.not, label %263, label %271
 
 263:                                              ; preds = %260
   store i32 %.09, ptr %0, align 8, !tbaa !3
@@ -1292,9 +1292,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmedi
 _ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %263, %267
   %.pre-phi = phi i32 [ %253, %263 ], [ %.pre, %267 ]
   store i32 %.pre-phi, ptr %251, align 8, !tbaa !27
-  br label %268
+  br label %271
 
-268:                                              ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %260, %250, %1
+271:                                              ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %260, %250, %1
   %.0 = phi i1 [ false, %1 ], [ true, %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit ], [ false, %260 ], [ false, %250 ]
   ret i1 %.0
 }
@@ -1584,9 +1584,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOne
 _ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %73, %77
   %.pre-phi = phi i32 [ %65, %73 ], [ %.pre, %77 ]
   store i32 %.pre-phi, ptr %63, align 8, !tbaa !27
-  br label %78
+  br label %81
 
-78:                                               ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %62, %1
+81:                                               ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %62, %1
   %.012 = phi i1 [ false, %1 ], [ true, %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit ], [ false, %62 ]
   ret i1 %.012
 }

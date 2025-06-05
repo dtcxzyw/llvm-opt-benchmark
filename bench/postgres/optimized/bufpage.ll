@@ -1379,7 +1379,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   %71 = icmp sgt i64 %reass.sub, 24
   br i1 %71, label %72, label %77
 
-72:                                               ; preds = %66
+72:; preds = %66
   %73 = add nsw i64 %reass.sub, -24
   %74 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %46
   %75 = zext nneg i32 %44 to i64
@@ -1387,11 +1387,11 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %76, ptr nonnull align 4 %74, i64 %73, i1 false)
   br label %77
 
-77:                                               ; preds = %72, %66
+77:    ; preds = %72, %66
   %78 = icmp samesign ugt i32 %52, %53
   br i1 %78, label %79, label %85
 
-79:                                               ; preds = %77
+79:; preds = %77
   %80 = zext i16 %8 to i64
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %68
@@ -1400,31 +1400,31 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr align 1 %81, i64 %84, i1 false)
   %.pre = load i16, ptr %7, align 2
   %.pre81 = load i16, ptr %3, align 4
-  br label %85
+  br label %88
 
-85:                                               ; preds = %79, %77
-  %86 = phi i16 [ %.pre81, %79 ], [ %4, %77 ]
-  %87 = phi i16 [ %.pre, %79 ], [ %8, %77 ]
-  %88 = trunc nuw i64 %68 to i16
-  %89 = add i16 %87, %88
-  store i16 %89, ptr %7, align 2
-  %90 = add i16 %86, -4
-  store i16 %90, ptr %3, align 4
-  %91 = icmp ugt i16 %90, 24
+88:                                               ; preds = %79, %77
+  %89 = phi i16 [ %.pre81, %79 ], [ %4, %77 ]
+  %90 = phi i16 [ %.pre, %79 ], [ %8, %77 ]
+  %91 = trunc nuw i64 %68 to i16
+  %92 = add i16 %90, %91
+  store i16 %92, ptr %7, align 2
+  %93 = add i16 %89, -4
+  store i16 %93, ptr %3, align 4
+  %94 = icmp ugt i16 %93, 24
   %.not73.not77 = icmp ugt i16 %37, 1
-  %or.cond79 = and i1 %91, %.not73.not77
+  %or.cond79 = and i1 %94, %.not73.not77
   br i1 %or.cond79, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %85
-  %92 = trunc nuw nsw i64 %68 to i32
+.lr.ph:                                           ; preds = %88
+  %95 = trunc nuw nsw i64 %68 to i32
   %wide.trip.count = zext i16 %37 to i64
-  br label %93
+  br label %96
 
-93:                                               ; preds = %.lr.ph, %103
+96:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %103 ]
-  %94 = add nsw i64 %indvars.iv, -1
-  %95 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4
+  %97 = add nsw i64 %indvars.iv, -1
+  %98 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4
   %97 = and i32 %96, 32767
   %.not74 = icmp samesign ugt i32 %97, %52
   br i1 %.not74, label %103, label %98
@@ -1437,12 +1437,12 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   store i32 %102, ptr %95, align 4
   br label %103
 
-103:                                              ; preds = %98, %93
+103:; preds = %98, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !20
 
-.loopexit:                                        ; preds = %103, %85
+.loopexit:                                        ; preds = %103, %88
   ret void
 }
 

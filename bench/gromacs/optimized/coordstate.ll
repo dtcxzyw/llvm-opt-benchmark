@@ -319,19 +319,19 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i: ; preds = %40, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i
   %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %120, %40 ]
   %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %20, %40 ]
-  %122 = lshr i64 %.013.i.i.i, 1
-  %123 = getelementptr inbounds nuw double, ptr %.sroa.011.012.i.i.i, i64 %122
-  %124 = load double, ptr %123, align 8, !tbaa !28
-  %125 = fcmp ogt double %124, %118
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %127 = xor i64 %122, -1
-  %128 = add nsw i64 %.013.i.i.i, %127
-  %.sroa.011.1.i.i.i = select i1 %125, ptr %.sroa.011.012.i.i.i, ptr %126
-  %.1.i.i.i = select i1 %125, i64 %122, i64 %128
-  %129 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %129, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit, !llvm.loop !35
+  %124 = lshr i64 %.013.i.i.i, 1
+  %125 = getelementptr inbounds nuw double, ptr %.sroa.011.012.i.i.i, i64 %124
+  %126 = load double, ptr %125, align 8, !tbaa !28
+  %127 = fcmp ogt double %126, %118
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %129 = xor i64 %124, -1
+  %130 = add nsw i64 %.013.i.i.i, %129
+  %.sroa.011.1.i.i.i = select i1 %127, ptr %.sroa.011.012.i.i.i, ptr %128
+  %.1.i.i.i = select i1 %127, i64 %124, i64 %130
+  %131 = icmp sgt i64 %.1.i.i.i, 0
+  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit, !llvm.loop !35
 
-130:                                              ; preds = %39
+_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i:         ; preds = %39
   %131 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit26.i
@@ -342,16 +342,16 @@ _ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %130, %31
   resume { ptr, i32 } %.pn.pn.i
 
 _ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, %40
-  %.sroa.011.0.lcssa.i.i.i = phi ptr [ %20, %40 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ]
-  %132 = sext i32 %2 to i64
-  %133 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %132, i32 2
+  %.pre-phi.i = phi ptr [ %20, %40 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ]
+  %134 = sext i32 %2 to i64
+  %135 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %134, i32 2
   %134 = ptrtoint ptr %20 to i64
   %135 = ptrtoint ptr %.sroa.011.0.lcssa.i.i.i to i64
   %136 = sub i64 %135, %134
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #19
   %sext = shl i64 %136, 29
   %137 = ashr i64 %sext, 32
-  %138 = load ptr, ptr %133, align 8, !tbaa !36
+  %138 = load ptr, ptr %135, align 8, !tbaa !36
   %139 = getelementptr inbounds nuw i32, ptr %138, i64 %137
   %140 = load i32, ptr %139, align 4, !tbaa !39
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 36

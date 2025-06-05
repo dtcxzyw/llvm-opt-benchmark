@@ -43,7 +43,7 @@ define range(i64 7, 6) i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef
   %28 = add i64 %22, 6
   br label %29
 
-29:                                               ; preds = %15, %5, %24
+29:; preds = %15, %5, %24
   %.0 = phi i64 [ %28, %24 ], [ 0, %5 ], [ 0, %15 ]
   ret i64 %.0
 }

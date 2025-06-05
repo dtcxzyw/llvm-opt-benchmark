@@ -4032,9 +4032,9 @@ _ZN17QArrayDataPointerIP12DecodeAsItemE6detachEPS2_.exit.i: ; preds = %_ZNK17QAr
   br label %_ZN5QListIP12DecodeAsItemE6removeExx.exit
 
 _ZN5QListIP12DecodeAsItemE6removeExx.exit:        ; preds = %34, %._crit_edge.i.i, %35
-  %36 = phi i64 [ %32, %._crit_edge.i.i ], [ %.pre12.i.i, %35 ], [ %32, %34 ]
-  %37 = add i64 %36, -1
-  store i64 %37, ptr %31, align 8
+  %39 = phi i64 [ %32, %._crit_edge.i.i ], [ %.pre12.i.i, %35 ], [ %32, %34 ]
+  %40 = add i64 %39, -1
+  store i64 %40, ptr %31, align 8
   ret ptr %25
 }
 

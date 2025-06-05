@@ -6376,7 +6376,7 @@ define hidden noundef ptr @create_mspace(i64 noundef %0, i32 noundef %1) local_u
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mparams, i64 8), align 8, !tbaa !31
   %7 = sub i64 -1024, %6
   %8 = icmp ult i64 %0, %7
-  br i1 %8, label %9, label %65
+  br i1 %8, label %9, label %69
 
 9:                                                ; preds = %5
   %10 = icmp eq i64 %0, 0
@@ -6389,7 +6389,7 @@ define hidden noundef ptr @create_mspace(i64 noundef %0, i32 noundef %1) local_u
   %17 = and i64 %15, %16
   %18 = tail call ptr @mmap(ptr noundef null, i64 noundef %17, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #17
   %.not17 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %.not17, label %65, label %19
+  br i1 %.not17, label %69, label %19
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -6442,33 +6442,33 @@ init_user_mstate.exit:                            ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 960
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 0, %47
-  %49 = and i64 %48, 15
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 %49
-  %51 = sub i64 %45, %49
+  %49 = and i64 %50, 15
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 %49
+  %52 = sub i64 %45, %49
   %52 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store ptr %50, ptr %52, align 8, !tbaa !29
+  store ptr %50, ptr %54, align 8, !tbaa !29
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 %51, ptr %53, align 8, !tbaa !28
   %54 = or i64 %51, 1
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i64 %54, ptr %55, align 8, !tbaa !23
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i64 %54, ptr %57, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i64 80, ptr %57, align 8, !tbaa !23
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i64 80, ptr %59, align 8, !tbaa !23
   %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mparams, i64 32), align 8, !tbaa !33
-  %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store i64 %58, ptr %59, align 8, !tbaa !57
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  store i64 %58, ptr %61, align 8, !tbaa !57
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 928
   store i32 1, ptr %60, align 8, !tbaa !53
   %.not18 = icmp eq i32 %1, 0
-  %61 = or i32 %35, 6
-  %62 = and i32 %35, -7
-  %63 = or disjoint i32 %62, 4
-  %64 = select i1 %.not18, i32 %63, i32 %61
-  store i32 %64, ptr %36, align 8, !tbaa !9
-  br label %65
+  %65 = or i32 %35, 6
+  %66 = and i32 %35, -7
+  %67 = or disjoint i32 %66, 4
+  %68 = select i1 %.not18, i32 %67, i32 %65
+  store i32 %68, ptr %36, align 8, !tbaa !9
+  br label %69
 
-65:                                               ; preds = %9, %init_user_mstate.exit, %5
+69:                                               ; preds = %9, %init_user_mstate.exit, %5
   %.0 = phi ptr [ null, %5 ], [ %25, %init_user_mstate.exit ], [ null, %9 ]
   ret ptr %.0
 }
@@ -6488,13 +6488,13 @@ define hidden noundef ptr @create_mspace_with_base(ptr noundef %0, i64 noundef %
 
 6:                                                ; preds = %5, %3
   %7 = icmp ugt i64 %1, 1024
-  br i1 %7, label %8, label %58
+  br i1 %7, label %8, label %62
 
 8:                                                ; preds = %6
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mparams, i64 8), align 8, !tbaa !31
   %10 = sub i64 -1024, %9
   %11 = icmp ult i64 %1, %10
-  br i1 %11, label %12, label %58
+  br i1 %11, label %12, label %62
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6549,31 +6549,31 @@ init_user_mstate.exit:                            ; preds = %32
   %41 = sub i64 0, %40
   %42 = and i64 %41, 15
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 %42
-  %44 = sub i64 %38, %42
+  %45 = sub i64 %38, %42
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %43, ptr %45, align 8, !tbaa !29
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %44, ptr %46, align 8, !tbaa !28
   %47 = or i64 %44, 1
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 %47, ptr %48, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i64 %47, ptr %50, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 %38
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 80, ptr %50, align 8, !tbaa !23
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i64 80, ptr %52, align 8, !tbaa !23
   %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mparams, i64 32), align 8, !tbaa !33
-  %52 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store i64 %51, ptr %52, align 8, !tbaa !57
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  store i64 %51, ptr %54, align 8, !tbaa !57
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 928
   store i32 8, ptr %53, align 8, !tbaa !53
   %.not12 = icmp eq i32 %2, 0
-  %54 = or i32 %28, 6
-  %55 = and i32 %28, -7
-  %56 = or disjoint i32 %55, 4
-  %57 = select i1 %.not12, i32 %56, i32 %54
-  store i32 %57, ptr %29, align 8, !tbaa !9
-  br label %58
+  %58 = or i32 %28, 6
+  %59 = and i32 %28, -7
+  %60 = or disjoint i32 %59, 4
+  %61 = select i1 %.not12, i32 %60, i32 %58
+  store i32 %61, ptr %29, align 8, !tbaa !9
+  br label %62
 
-58:                                               ; preds = %init_user_mstate.exit, %8, %6
+62:                                               ; preds = %init_user_mstate.exit, %8, %6
   %.0 = phi ptr [ %18, %init_user_mstate.exit ], [ null, %8 ], [ null, %6 ]
   ret ptr %.0
 }

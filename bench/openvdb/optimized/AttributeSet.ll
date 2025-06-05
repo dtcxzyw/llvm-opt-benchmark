@@ -15612,8 +15612,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp.i.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %for.body.i
-  %gepdiff = sub nsw i64 0, %__i.sroa.0.012.i.idx
-  %sub.ptr.div.i.i.i.i.i.i.i = lshr exact i64 %gepdiff, 3
+  %diff.neg = sub nsw i64 0, %__i.sroa.0.012.i.idx
+  %sub.ptr.div.i.i.i.i.i.i.i = lshr exact i64 %diff.neg, 3
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.then4.i, %for.body.i.i.i.i.i.i

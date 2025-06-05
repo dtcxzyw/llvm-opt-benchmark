@@ -268,88 +268,88 @@ switch.early.test:                                ; preds = %22
   %43 = shl nuw nsw i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 8 %41, i64 %43, i1 false)
   %narrow.i = add nuw nsw i32 %40, 42
-  %44 = zext nneg i32 %narrow.i to i64
-  store i64 %44, ptr %36, align 8, !tbaa !4
+  %46 = zext nneg i32 %narrow.i to i64
+  store i64 %46, ptr %36, align 8, !tbaa !4
   store i64 ptrtoint (ptr @lj_cont_stitch to i64), ptr %18, align 8, !tbaa !4
   store i64 %19, ptr %17, align 8, !tbaa !4
   store i64 -1, ptr %41, align 8, !tbaa !4
-  %45 = load ptr, ptr %16, align 8, !tbaa !34
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr %46, ptr %16, align 8, !tbaa !34
-  %47 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !44
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr %49, ptr %47, align 8, !tbaa !44
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %51 = load ptr, ptr %50, align 8, !tbaa !37
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = getelementptr inbounds i8, ptr %51, i64 -8
-  %54 = shl nuw nsw i64 %42, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %52, ptr nonnull align 4 %53, i64 %54, i1 false)
-  %55 = load ptr, ptr %50, align 8, !tbaa !37
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i32 65536, ptr %56, align 4, !tbaa !39
-  %57 = tail call i32 @lj_ir_k64(ptr noundef nonnull %0, i32 noundef 28, i64 noundef ptrtoint (ptr @lj_cont_stitch to i64)) #9
-  %58 = load ptr, ptr %50, align 8, !tbaa !37
-  %59 = getelementptr inbounds i8, ptr %58, i64 -4
-  store i32 %57, ptr %59, align 4, !tbaa !39
-  %60 = tail call i32 @lj_ir_k64(ptr noundef nonnull %0, i32 noundef 28, i64 noundef %19) #9
-  %61 = or i32 %60, 131072
-  %62 = load ptr, ptr %50, align 8, !tbaa !37
-  store i32 %61, ptr %62, align 4, !tbaa !39
-  %63 = tail call i32 @lj_ir_ktrace(ptr noundef nonnull %0) #9
-  %64 = load ptr, ptr %50, align 8, !tbaa !37
-  %65 = getelementptr inbounds i8, ptr %64, i64 -8
-  store i32 %63, ptr %65, align 4, !tbaa !39
-  %66 = trunc i32 %63 to i16
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store i16 %66, ptr %67, align 8, !tbaa !45
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  store ptr %68, ptr %50, align 8, !tbaa !37
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %70 = load i32, ptr %69, align 8, !tbaa !46
-  %71 = add i32 %70, 3
-  store i32 %71, ptr %69, align 8, !tbaa !46
-  %72 = load i32, ptr %11, align 4, !tbaa !43
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %11, align 4, !tbaa !43
-  %74 = tail call i32 @lj_vm_cpcall(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @rec_stop_stitch_cp) #9
+  %52 = load ptr, ptr %16, align 8, !tbaa !34
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  store ptr %53, ptr %16, align 8, !tbaa !34
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !44
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  store ptr %56, ptr %54, align 8, !tbaa !44
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %58 = load ptr, ptr %57, align 8, !tbaa !37
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = getelementptr inbounds i8, ptr %58, i64 -8
+  %61 = shl nuw nsw i64 %42, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %59, ptr nonnull align 4 %60, i64 %61, i1 false)
+  %62 = load ptr, ptr %57, align 8, !tbaa !37
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i32 65536, ptr %63, align 4, !tbaa !39
+  %64 = tail call i32 @lj_ir_k64(ptr noundef nonnull %0, i32 noundef 28, i64 noundef ptrtoint (ptr @lj_cont_stitch to i64)) #9
+  %65 = load ptr, ptr %57, align 8, !tbaa !37
+  %66 = getelementptr inbounds i8, ptr %65, i64 -4
+  store i32 %64, ptr %66, align 4, !tbaa !39
+  %67 = tail call i32 @lj_ir_k64(ptr noundef nonnull %0, i32 noundef 28, i64 noundef %19) #9
+  %68 = or i32 %67, 131072
+  %69 = load ptr, ptr %57, align 8, !tbaa !37
+  store i32 %68, ptr %69, align 4, !tbaa !39
+  %70 = tail call i32 @lj_ir_ktrace(ptr noundef nonnull %0) #9
+  %71 = load ptr, ptr %57, align 8, !tbaa !37
+  %72 = getelementptr inbounds i8, ptr %71, i64 -8
+  store i32 %70, ptr %72, align 4, !tbaa !39
+  %73 = trunc i32 %70 to i16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store i16 %73, ptr %74, align 8, !tbaa !45
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 12
+  store ptr %75, ptr %57, align 8, !tbaa !37
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %77 = load i32, ptr %76, align 8, !tbaa !46
+  %78 = add i32 %77, 3
+  store i32 %78, ptr %76, align 8, !tbaa !46
+  %79 = load i32, ptr %11, align 4, !tbaa !43
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %11, align 4, !tbaa !43
+  %81 = tail call i32 @lj_vm_cpcall(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @rec_stop_stitch_cp) #9
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %35, i64 %43, i1 false)
   store i64 %19, ptr %18, align 8, !tbaa !4
-  %75 = load ptr, ptr %16, align 8, !tbaa !34
-  %76 = getelementptr inbounds i8, ptr %75, i64 -24
-  store ptr %76, ptr %16, align 8, !tbaa !34
-  %77 = load ptr, ptr %47, align 8, !tbaa !44
-  %78 = getelementptr inbounds i8, ptr %77, i64 -24
-  store ptr %78, ptr %47, align 8, !tbaa !44
-  switch i32 %74, label %83 [
-    i32 0, label %86
-    i32 2, label %79
+  %82 = load ptr, ptr %16, align 8, !tbaa !34
+  %83 = getelementptr inbounds i8, ptr %82, i64 -24
+  store ptr %83, ptr %16, align 8, !tbaa !34
+  %84 = load ptr, ptr %54, align 8, !tbaa !44
+  %85 = getelementptr inbounds i8, ptr %84, i64 -24
+  store ptr %85, ptr %54, align 8, !tbaa !44
+  switch i32 %81, label %83 [
+    i32 0, label %93
+    i32 2, label %86
   ]
 
-79:                                               ; preds = %31
-  %80 = getelementptr inbounds i8, ptr %77, i64 -32
-  %81 = getelementptr inbounds i8, ptr %77, i64 -8
-  %82 = load i64, ptr %81, align 8, !tbaa !4
-  store i64 %82, ptr %80, align 8, !tbaa !4
-  br label %85
+86:                                               ; preds = %31
+  %87 = getelementptr inbounds i8, ptr %84, i64 -32
+  %88 = getelementptr inbounds i8, ptr %84, i64 -8
+  %89 = load i64, ptr %88, align 8, !tbaa !4
+  store i64 %89, ptr %87, align 8, !tbaa !4
+  br label %92
 
-83:                                               ; preds = %31
-  %84 = getelementptr inbounds i8, ptr %77, i64 -32
-  store double 0.000000e+00, ptr %84, align 8, !tbaa !4
-  br label %85
+90:                                               ; preds = %31
+  %91 = getelementptr inbounds i8, ptr %84, i64 -32
+  store double 0.000000e+00, ptr %91, align 8, !tbaa !4
+  br label %92
 
-85:                                               ; preds = %83, %79
-  tail call void @lj_err_throw(ptr noundef nonnull %15, i32 noundef %74) #10
+92:                                               ; preds = %90, %86
+  tail call void @lj_err_throw(ptr noundef nonnull %15, i32 noundef %81) #10
   unreachable
 
 .thread:                                          ; preds = %switch.early.test, %switch.early.test, %22, %26, %26, %26, %13, %10
   tail call void @lj_record_stop(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 0) #9
-  br label %86
+  br label %93
 
-86:                                               ; preds = %31, %.thread
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 -1, ptr %87, align 8, !tbaa !32
+93:                                               ; preds = %31, %.thread
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 -1, ptr %94, align 8, !tbaa !32
   ret void
 }
 

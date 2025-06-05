@@ -1091,12 +1091,12 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix5Value7mkAttrsERN
   br label %_ZN3nix15BindingsBuilder6finishEv.exit
 
 _ZN3nix15BindingsBuilder6finishEv.exit:           ; preds = %2, %6
-  %12 = phi ptr [ %3, %2 ], [ %.pre.i, %6 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %14, align 8
+  %16 = phi ptr [ %3, %2 ], [ %.pre.i, %6 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %18, align 8
   store i32 6, ptr %0, align 8
-  store ptr %12, ptr %13, align 8
+  store ptr %16, ptr %17, align 8
   ret ptr %0
 }
 

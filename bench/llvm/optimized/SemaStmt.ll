@@ -50581,32 +50581,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DeclMatcher21VisitPseudoObjectEx
   %4 = load i64, ptr %1, align 8
   %5 = lshr i64 %4, 29
   %.idx.i = and i64 %5, 524280
-  %6 = getelementptr i8, ptr %3, i64 %.idx.i
+  %.ptr19 = getelementptr i8, ptr %3, i64 %.idx.i
   %7 = getelementptr i8, ptr %6, i64 -8
   %.not17 = icmp eq ptr %3, %7
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:; preds = %14, %2
   ret void
 
-.lr.ph:                                           ; preds = %2, %14
-  %.018 = phi ptr [ %15, %14 ], [ %3, %2 ]
-  %8 = load ptr, ptr %.018, align 8, !tbaa !784
-  %9 = load i16, ptr %8, align 8
-  %10 = and i16 %9, 511
-  %.not16 = icmp eq i16 %10, 28
-  br i1 %.not16, label %11, label %14
+.lr.ph:                                           ; preds = %2, %12
+  %.018 = phi ptr [ %13, %14 ], [ %3, %2 ]
+  %6 = load ptr, ptr %.018, align 8, !tbaa !784
+  %7 = load i16, ptr %6, align 8
+  %8 = and i16 %7, 511
+  %.not16 = icmp eq i16 %8, 28
+  br i1 %.not16, label %9, label %12
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !2079
-  br label %14
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !2079
+  br label %12
 
-14:                                               ; preds = %.lr.ph, %11
-  %.sink = phi ptr [ %13, %11 ], [ %8, %.lr.ph ]
+12:                                               ; preds = %.lr.ph, %9
+  %.sink = phi ptr [ %11, %11 ], [ %6, %.lr.ph ]
   tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111DeclMatcherEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sink)
-  %15 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  %.not = icmp eq ptr %15, %7
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %.not = icmp eq ptr %13, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

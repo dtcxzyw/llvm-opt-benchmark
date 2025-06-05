@@ -1835,7 +1835,7 @@ define internal fastcc void @ogg_write_pages(ptr noundef readonly captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !109
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %72, label %.preheader
+  br i1 %.not, label %75, label %.preheader
 
 .preheader:                                       ; preds = %2
   store ptr %8, ptr %4, align 8, !tbaa !62
@@ -1851,38 +1851,38 @@ define internal fastcc void @ogg_write_pages(ptr noundef readonly captures(none)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 27
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %57
+  br label %63
 
-thread-pre-split:                                 ; preds = %57
-  %21 = icmp eq i32 %68, 1
-  %22 = and i1 %11, %21
+thread-pre-split:                                 ; preds = %60
+  %22 = icmp eq i32 %71, 1
+  %23 = and i1 %11, %22
   call void @llvm.lifetime.start.p0(i64 282, ptr nonnull %3) #9
-  %23 = call ptr @av_crc_get_table(i32 noundef 3) #9
+  %24 = call ptr @av_crc_get_table(i32 noundef 3) #9
   store i32 1399285583, ptr %3, align 16, !tbaa !48
   store i8 0, ptr %12, align 4, !tbaa !48
-  %24 = getelementptr inbounds nuw i8, ptr %58, i64 20
-  %25 = load i8, ptr %24, align 4, !tbaa !47
-  %26 = select i1 %22, i8 4, i8 0
-  %27 = or i8 %25, %26
-  store i8 %27, ptr %13, align 1, !tbaa !48
-  %28 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !50
-  store i64 %29, ptr %14, align 2, !tbaa !48
-  %30 = getelementptr inbounds nuw i8, ptr %66, i64 65376
-  %31 = load i32, ptr %30, align 8, !tbaa !94
-  store i32 %31, ptr %15, align 2, !tbaa !48
-  %32 = load i32, ptr %66, align 8, !tbaa !114
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %66, align 8, !tbaa !114
-  store i32 %32, ptr %16, align 2, !tbaa !48
+  %25 = getelementptr inbounds nuw i8, ptr %61, i64 20
+  %26 = load i8, ptr %25, align 4, !tbaa !47
+  %27 = select i1 %23, i8 4, i8 0
+  %28 = or i8 %26, %27
+  store i8 %28, ptr %13, align 1, !tbaa !48
+  %29 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !50
+  store i64 %30, ptr %14, align 2, !tbaa !48
+  %31 = getelementptr inbounds nuw i8, ptr %69, i64 65376
+  %32 = load i32, ptr %31, align 8, !tbaa !94
+  store i32 %32, ptr %15, align 2, !tbaa !48
+  %33 = load i32, ptr %69, align 8, !tbaa !114
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %69, align 8, !tbaa !114
+  store i32 %33, ptr %16, align 2, !tbaa !48
   store i32 0, ptr %17, align 2, !tbaa !48
-  %34 = getelementptr inbounds nuw i8, ptr %58, i64 21
-  %35 = load i8, ptr %34, align 1, !tbaa !46
-  store i8 %35, ptr %18, align 2, !tbaa !48
-  %36 = getelementptr inbounds nuw i8, ptr %58, i64 22
-  %37 = zext i8 %35 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %36, i64 %37, i1 false)
-  %38 = add nuw nsw i64 %37, 27
+  %35 = getelementptr inbounds nuw i8, ptr %61, i64 21
+  %36 = load i8, ptr %35, align 1, !tbaa !46
+  store i8 %36, ptr %18, align 2, !tbaa !48
+  %37 = getelementptr inbounds nuw i8, ptr %61, i64 22
+  %38 = zext i8 %36 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %37, i64 %38, i1 false)
+  %38 = add nuw nsw i64 %38, 27
   %39 = call i32 @av_crc(ptr noundef %23, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %38) #11
   %40 = getelementptr inbounds nuw i8, ptr %58, i64 277
   %41 = getelementptr inbounds nuw i8, ptr %58, i64 65302
@@ -1900,40 +1900,40 @@ thread-pre-split:                                 ; preds = %57
   call void @avio_write(ptr noundef %48, ptr noundef nonnull %40, i32 noundef %50) #9
   %51 = load ptr, ptr %20, align 8, !tbaa !115
   call void @avio_write_marker(ptr noundef %51, i64 noundef -9223372036854775808, i32 noundef 5) #9
-  %52 = load i32, ptr %67, align 4, !tbaa !59
+  %54 = load i32, ptr %67, align 4, !tbaa !59
   %53 = add i32 %52, -1
-  store i32 %53, ptr %67, align 4, !tbaa !59
+  store i32 %53, ptr %70, align 4, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 282, ptr nonnull %3) #9
-  %54 = load ptr, ptr %4, align 8, !tbaa !62
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 65304
-  %56 = load ptr, ptr %55, align 8, !tbaa !66
+  %57 = load ptr, ptr %4, align 8, !tbaa !62
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 65304
+  %59 = load ptr, ptr %58, align 8, !tbaa !66
   call void @av_freep(ptr noundef nonnull %4) #9
-  store ptr %56, ptr %4, align 8, !tbaa !62
-  %.not14 = icmp eq ptr %56, null
-  br i1 %.not14, label %70, label %57
+  store ptr %59, ptr %4, align 8, !tbaa !62
+  %.not14 = icmp eq ptr %59, null
+  br i1 %.not14, label %73, label %60
 
-57:                                               ; preds = %.preheader, %thread-pre-split
-  %58 = phi ptr [ %8, %.preheader ], [ %56, %thread-pre-split ]
-  %59 = load ptr, ptr %9, align 8, !tbaa !24
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !116
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %59, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !25
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !27
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 68
-  %68 = load i32, ptr %67, align 4, !tbaa !59
-  %69 = icmp ugt i32 %68, 1
-  %or.cond = or i1 %10, %69
-  br i1 %or.cond, label %thread-pre-split, label %70
+60:                                               ; preds = %.preheader, %thread-pre-split
+  %61 = phi ptr [ %8, %.preheader ], [ %59, %thread-pre-split ]
+  %62 = load ptr, ptr %9, align 8, !tbaa !24
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %64 = load i32, ptr %63, align 8, !tbaa !116
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !25
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !27
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 68
+  %71 = load i32, ptr %70, align 4, !tbaa !59
+  %72 = icmp ugt i32 %71, 1
+  %or.cond = or i1 %10, %72
+  br i1 %or.cond, label %thread-pre-split, label %73
 
-70:                                               ; preds = %57, %thread-pre-split
-  %71 = phi ptr [ %58, %57 ], [ null, %thread-pre-split ]
-  store ptr %71, ptr %7, align 8, !tbaa !109
-  br label %72
+73:                                               ; preds = %60, %thread-pre-split
+  %74 = phi ptr [ %61, %57 ], [ null, %thread-pre-split ]
+  store ptr %74, ptr %7, align 8, !tbaa !109
+  br label %75
 
-72:                                               ; preds = %2, %70
+75:                                               ; preds = %2, %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret void
 }

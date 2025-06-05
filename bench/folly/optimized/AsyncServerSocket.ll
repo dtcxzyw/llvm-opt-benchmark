@@ -4421,11 +4421,11 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE12reserveSmallEmb(ptr nound
   store i64 %1, ptr %5, align 8, !tbaa !237
   %6 = icmp ugt i64 %1, 23
   %or.cond.not = or i1 %6, %2
-  br i1 %or.cond.not, label %7, label %46
+  br i1 %or.cond.not, label %7, label %54
 
 7:                                                ; preds = %3
   %8 = icmp ult i64 %1, 255
-  br i1 %8, label %9, label %34
+  br i1 %8, label %9, label %38
 
 9:                                                ; preds = %7
   %10 = add nuw nsw i64 %1, 1
@@ -4477,35 +4477,35 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
   %30 = sub nsw i64 24, %28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 8 %0, i64 %30, i1 false)
   store ptr %24, ptr %0, align 8, !tbaa !79
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %29, ptr %31, align 8, !tbaa !79
-  %32 = add i64 %.0.i, 9223372036854775807
-  %33 = or i64 %32, -9223372036854775808
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %29, ptr %35, align 8, !tbaa !79
+  %36 = add i64 %.0.i, 9223372036854775807
+  %37 = or i64 %36, -9223372036854775808
   br label %.sink.split
 
-34:                                               ; preds = %7
-  %35 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %5)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %37 = load i8, ptr %36, align 1, !tbaa !79
-  %38 = sext i8 %37 to i64
-  %39 = sub nsw i64 23, %38
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
+38:                                               ; preds = %7
+  %39 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %5)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  %41 = load i8, ptr %40, align 1, !tbaa !79
+  %42 = sext i8 %41 to i64
+  %43 = sub nsw i64 23, %42
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = sub nsw i64 24, %38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 8 %0, i64 %41, i1 false)
   store ptr %40, ptr %0, align 8, !tbaa !79
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %39, ptr %42, align 8, !tbaa !79
+  store i64 %43, ptr %42, align 8, !tbaa !79
   %43 = load i64, ptr %5, align 8, !tbaa !237
   %44 = or i64 %43, 4611686018427387904
   br label %.sink.split
 
-.sink.split:                                      ; preds = %34, %_ZN5folly13checkedMallocEm.exit
-  %.sink = phi i64 [ %33, %_ZN5folly13checkedMallocEm.exit ], [ %44, %34 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %45, align 8, !tbaa !290
-  br label %46
+.sink.split:                                      ; preds = %38, %_ZN5folly13checkedMallocEm.exit
+  %.sink = phi i64 [ %37, %_ZN5folly13checkedMallocEm.exit ], [ %44, %34 ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink, ptr %53, align 8, !tbaa !290
+  br label %54
 
-46:                                               ; preds = %.sink.split, %3
+54:                                               ; preds = %.sink.split, %3
   ret void
 }
 
@@ -4518,7 +4518,7 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE13reserveMediumEm(ptr nound
   %7 = load i64, ptr %6, align 8, !tbaa !290
   %8 = and i64 %7, 4611686018427387903
   %.not = icmp ugt i64 %1, %8
-  br i1 %.not, label %9, label %53
+  br i1 %.not, label %9, label %57
 
 9:                                                ; preds = %2
   %10 = icmp ult i64 %1, 255
@@ -4570,7 +4570,7 @@ _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallo
   %34 = add i64 %.0.i, 9223372036854775807
   %35 = or i64 %34, -9223372036854775808
   store i64 %35, ptr %6, align 8, !tbaa !290
-  br label %53
+  br label %57
 
 36:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #40
@@ -4578,7 +4578,7 @@ _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallo
   store i8 23, ptr %37, align 1, !tbaa !79
   store i8 0, ptr %5, align 8, !tbaa !79
   invoke void @_ZN5folly13fbstring_coreIcE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %1, i1 noundef zeroext false)
-          to label %38 unwind label %48
+          to label %38 unwind label %52
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4594,34 +4594,34 @@ _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !292
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %45 = load i8, ptr %37, align 1, !tbaa !79
-  %46 = icmp ult i8 %45, 64
-  br i1 %46, label %_ZN5folly13fbstring_coreIcED2Ev.exit, label %47
+  %49 = load i8, ptr %37, align 1, !tbaa !79
+  %50 = icmp ult i8 %49, 64
+  br i1 %54, label %_ZN5folly13fbstring_coreIcED2Ev.exit, label %51
 
-47:                                               ; preds = %38
+51:                                               ; preds = %38
   call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #40
   br label %_ZN5folly13fbstring_coreIcED2Ev.exit
 
-_ZN5folly13fbstring_coreIcED2Ev.exit:             ; preds = %38, %47
+_ZN5folly13fbstring_coreIcED2Ev.exit:             ; preds = %38, %51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #40
-  br label %53
+  br label %57
 
-48:                                               ; preds = %36
-  %49 = landingpad { ptr, i32 }
+52:                                               ; preds = %36
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %50 = load i8, ptr %37, align 1, !tbaa !79
-  %51 = icmp ult i8 %50, 64
-  br i1 %51, label %_ZN5folly13fbstring_coreIcED2Ev.exit8, label %52
+  %54 = load i8, ptr %37, align 1, !tbaa !79
+  %55 = icmp ult i8 %54, 64
+  br i1 %55, label %_ZN5folly13fbstring_coreIcED2Ev.exit8, label %56
 
-52:                                               ; preds = %48
+56:                                               ; preds = %52
   call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #40
   br label %_ZN5folly13fbstring_coreIcED2Ev.exit8
 
-_ZN5folly13fbstring_coreIcED2Ev.exit8:            ; preds = %48, %52
+_ZN5folly13fbstring_coreIcED2Ev.exit8:            ; preds = %52, %56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #40
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %53
 
-53:                                               ; preds = %2, %_ZN5folly13fbstring_coreIcED2Ev.exit, %_ZN5folly14goodMallocSizeEm.exit
+57:                                               ; preds = %2, %_ZN5folly13fbstring_coreIcED2Ev.exit, %_ZN5folly14goodMallocSizeEm.exit
   ret void
 }
 
@@ -5144,15 +5144,15 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE7unshareEm(ptr noundef nonn
   %16 = icmp eq i64 %15, 1
   br i1 %16, label %17, label %_ZN5folly13fbstring_coreIcE10RefCounted13decrementRefsEPc.exit
 
-17:                                               ; preds = %2
+17:; preds = %2
   call void @free(ptr noundef nonnull %14) #40
   br label %_ZN5folly13fbstring_coreIcE10RefCounted13decrementRefsEPc.exit
 
 _ZN5folly13fbstring_coreIcE10RefCounted13decrementRefsEPc.exit: ; preds = %2, %17
   store ptr %11, ptr %0, align 8, !tbaa !79
-  %18 = load i64, ptr %3, align 8, !tbaa !237
-  %19 = or i64 %18, 4611686018427387904
-  store i64 %19, ptr %4, align 8, !tbaa !290
+  %22 = load i64, ptr %3, align 8, !tbaa !237
+  %23 = or i64 %22, 4611686018427387904
+  store i64 %23, ptr %4, align 8, !tbaa !290
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #40
   ret void
 }

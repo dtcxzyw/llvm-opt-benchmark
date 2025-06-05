@@ -11572,13 +11572,13 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi1EiEC2ERKS1_(ptr nou
 
 36:                                               ; preds = %35
   invoke void @_ZN5Eigen12SparseMatrixIfLi1EiE14initAssignmentIS1_EEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #31
-          to label %.noexc unwind label %53
+          to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !659
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %52
+  br i1 %39, label %40, label %54
 
 40:                                               ; preds = %.noexc
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11597,22 +11597,22 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi1EiEC2ERKS1_(ptr nou
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %47, %40
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageIfiEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %50) #31
-          to label %_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_.exit unwind label %53
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageIfiEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %52) #31
+          to label %_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_.exit unwind label %55
 
-52:                                               ; preds = %.noexc
+54:                                               ; preds = %.noexc
   invoke void @_ZN5Eigen8internal23assign_sparse_to_sparseINS_12SparseMatrixIfLi1EiEES3_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #31
-          to label %_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_.exit unwind label %53
+          to label %_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_.exit unwind label %55
 
-_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_.exit:     ; preds = %35, %8, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %52
+_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_.exit:     ; preds = %35, %8, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %54
   ret void
 
-53:                                               ; preds = %52, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %36
-  %54 = landingpad { ptr, i32 }
+55:                                               ; preds = %54, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %36
+  %56 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %56
 }
 
 ; Function Attrs: mustprogress optsize uwtable
@@ -13553,13 +13553,13 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi0EiEC2ERKS1_(ptr nou
 
 36:                                               ; preds = %35
   invoke void @_ZN5Eigen12SparseMatrixIfLi0EiE14initAssignmentIS1_EEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #31
-          to label %.noexc unwind label %53
+          to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !728
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %52
+  br i1 %39, label %40, label %54
 
 40:                                               ; preds = %.noexc
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -13578,22 +13578,22 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi0EiEC2ERKS1_(ptr nou
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %47, %40
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageIfiEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %50) #31
-          to label %_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_.exit unwind label %53
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageIfiEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %52) #31
+          to label %_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_.exit unwind label %55
 
-52:                                               ; preds = %.noexc
+54:                                               ; preds = %.noexc
   invoke void @_ZN5Eigen8internal23assign_sparse_to_sparseINS_12SparseMatrixIfLi0EiEES3_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #31
-          to label %_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_.exit unwind label %53
+          to label %_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_.exit unwind label %55
 
-_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_.exit:     ; preds = %35, %8, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %52
+_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_.exit:     ; preds = %35, %8, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %54
   ret void
 
-53:                                               ; preds = %52, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %36
-  %54 = landingpad { ptr, i32 }
+55:                                               ; preds = %54, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %36
+  %56 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %56
 }
 
 ; Function Attrs: mustprogress optsize uwtable
@@ -18283,13 +18283,13 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEC2ER
 
 36:                                               ; preds = %35
   invoke void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE14initAssignmentIS3_EEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #31
-          to label %.noexc unwind label %53
+          to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !922
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %52
+  br i1 %39, label %40, label %54
 
 40:                                               ; preds = %.noexc
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -18308,22 +18308,22 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEC2ER
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %47, %40
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageISt7complexIdEiEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %50) #31
-          to label %_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEaSERKS3_.exit unwind label %53
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageISt7complexIdEiEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %52) #31
+          to label %_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEaSERKS3_.exit unwind label %55
 
-52:                                               ; preds = %.noexc
+54:                                               ; preds = %.noexc
   invoke void @_ZN5Eigen8internal23assign_sparse_to_sparseINS_12SparseMatrixISt7complexIdELi0EiEES5_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #31
-          to label %_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEaSERKS3_.exit unwind label %53
+          to label %_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEaSERKS3_.exit unwind label %55
 
-_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEaSERKS3_.exit: ; preds = %35, %8, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %52
+_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEaSERKS3_.exit: ; preds = %35, %8, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %54
   ret void
 
-53:                                               ; preds = %52, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %36
-  %54 = landingpad { ptr, i32 }
+55:                                               ; preds = %54, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, %36
+  %56 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5Eigen8internal17CompressedStorageISt7complexIdEiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %56
 }
 
 ; Function Attrs: mustprogress optsize uwtable

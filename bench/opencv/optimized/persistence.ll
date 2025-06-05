@@ -14412,29 +14412,29 @@ _ZN2cv8FileNode3ptrEv.exit:                       ; preds = %_ZNK2cv8FileNode5is
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   %.val = load i32, ptr %27, align 1
   %.not26 = icmp eq i32 %.val, 0
-  br i1 %.not26, label %.loopexit, label %28
+  br i1 %.not26, label %.loopexit, label %31
 
-28:                                               ; preds = %_ZN2cv8FileNode3ptrEv.exit
-  %29 = load i64, ptr %4, align 8, !tbaa !253
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %32 = load ptr, ptr %31, align 8, !tbaa !119
-  %33 = load ptr, ptr %30, align 8, !tbaa !118
-  %34 = ptrtoint ptr %32 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = ashr exact i64 %36, 3
-  %38 = add nsw i64 %37, -1
-  %39 = icmp ult i64 %29, %38
-  br i1 %39, label %.lr.ph, label %.loopexit
+31:                                               ; preds = %_ZN2cv8FileNode3ptrEv.exit
+  %32 = load i64, ptr %4, align 8, !tbaa !253
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %35 = load ptr, ptr %34, align 8, !tbaa !119
+  %36 = load ptr, ptr %33, align 8, !tbaa !118
+  %37 = ptrtoint ptr %35 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = add nsw i64 %40, -1
+  %42 = icmp ult i64 %32, %41
+  br i1 %42, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %28
+45:                                               ; preds = %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %41 = load ptr, ptr %40, align 8, !tbaa !120
   br label %42
 
-42:                                               ; preds = %.lr.ph, %42
-  %.02236 = phi i64 [ %29, %.lr.ph ], [ %47, %42 ]
+42:; preds = %45, %42
+  %.02236 = phi i64 [ %35, %.lr.ph ], [ %47, %42 ]
   %.135 = phi i64 [ 4, %.lr.ph ], [ %46, %42 ]
   %.12534 = phi i64 [ %26, %.lr.ph ], [ 0, %42 ]
   %43 = getelementptr inbounds nuw i64, ptr %41, i64 %.02236
@@ -14445,7 +14445,7 @@ _ZN2cv8FileNode3ptrEv.exit:                       ; preds = %_ZNK2cv8FileNode5is
   %exitcond.not = icmp eq i64 %47, %38
   br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !327
 
-.loopexit:                                        ; preds = %42, %28, %_ZN2cv8FileNode3ptrEv.exit
+.loopexit:; preds = %42, %28, %_ZN2cv8FileNode3ptrEv.exit
   %.024 = phi i64 [ %26, %_ZN2cv8FileNode3ptrEv.exit ], [ %26, %28 ], [ 0, %42 ]
   %.023 = phi i64 [ 4, %_ZN2cv8FileNode3ptrEv.exit ], [ 4, %28 ], [ %46, %42 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 560

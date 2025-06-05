@@ -41225,7 +41225,7 @@ define linkonce_odr hidden void @_ZN5boost9container6vectorISt4pairIhhENS0_22sma
 
 11:                                               ; preds = %5
   tail call void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS6_PS3_EEEENS0_12vec_iteratorISB_Lb0EEERKSB_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind writable sret(%"class.boost::container::vec_iterator.327") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, ptr %4)
-  br label %57
+  br label %59
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %2, align 8
@@ -41254,7 +41254,7 @@ define linkonce_odr hidden void @_ZN5boost9container6vectorISt4pairIhhENS0_22sma
 26:                                               ; preds = %18
   %27 = ashr exact i64 %21, 1
   %.not38.i = icmp ult i64 %27, %3
-  br i1 %.not38.i, label %44, label %28
+  br i1 %.not38.i, label %46, label %28
 
 28:                                               ; preds = %26
   %29 = sub i64 0, %3
@@ -41269,65 +41269,65 @@ define linkonce_odr hidden void @_ZN5boost9container6vectorISt4pairIhhENS0_22sma
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i
 
 _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i: ; preds = %31, %28
-  %32 = phi i64 [ %9, %28 ], [ %.pre.i, %31 ]
-  %33 = add i64 %32, %3
-  store i64 %33, ptr %8, align 8
+  %34 = phi i64 [ %9, %28 ], [ %.pre.i, %31 ]
+  %35 = add i64 %34, %3
+  store i64 %35, ptr %8, align 8
   %.not8.i.i = icmp eq ptr %13, %30
   br i1 %.not8.i.i, label %_ZN5boost9container13move_backwardIPSt4pairIhhES4_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i, %.lr.ph.i.i
-  %.010.i.i = phi ptr [ %35, %.lr.ph.i.i ], [ %19, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i ]
-  %.079.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %30, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i ]
-  %34 = getelementptr inbounds i8, ptr %.079.i.i, i64 -2
-  %35 = getelementptr inbounds i8, ptr %.010.i.i, i64 -2
-  %36 = load i8, ptr %34, align 1
-  store i8 %36, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.079.i.i, i64 -1
-  %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
-  store i8 %38, ptr %39, align 1
-  %.not.i.i = icmp eq ptr %13, %34
+  %.010.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %19, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i ]
+  %.079.i.i = phi ptr [ %36, %.lr.ph.i.i ], [ %30, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i ]
+  %36 = getelementptr inbounds i8, ptr %.079.i.i, i64 -2
+  %37 = getelementptr inbounds i8, ptr %.010.i.i, i64 -2
+  %38 = load i8, ptr %36, align 1
+  store i8 %38, ptr %37, align 1
+  %39 = getelementptr inbounds i8, ptr %.079.i.i, i64 -1
+  %40 = load i8, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
+  store i8 %40, ptr %41, align 1
+  %.not.i.i = icmp eq ptr %13, %36
   br i1 %.not.i.i, label %_ZN5boost9container13move_backwardIPSt4pairIhhES4_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i, label %.lr.ph.i.i, !llvm.loop !544
 
 _ZN5boost9container13move_backwardIPSt4pairIhhES4_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i: ; preds = %.lr.ph.i.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i
-  %40 = load i8, ptr %4, align 1
-  store i8 %40, ptr %13, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 %42, ptr %43, align 1
+  %42 = load i8, ptr %4, align 1
+  store i8 %42, ptr %13, align 1
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store i8 %44, ptr %45, align 1
   br label %_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS6_PS3_EEEEvSB_mT_.exit
 
-44:                                               ; preds = %26
+46:                                               ; preds = %26
   %.not47.i = icmp eq ptr %13, null
-  br i1 %.not47.i, label %47, label %45, !prof !44
+  br i1 %.not47.i, label %49, label %47, !prof !44
 
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds nuw %"struct.std::pair.328", ptr %13, i64 %3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %13, i64 %21, i1 false)
-  br label %47
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw %"struct.std::pair.328", ptr %13, i64 %3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %13, i64 %21, i1 false)
+  br label %49
 
-47:                                               ; preds = %45, %44
-  %48 = load i8, ptr %4, align 1
-  store i8 %48, ptr %13, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 %50, ptr %51, align 1
-  %52 = load i16, ptr %4, align 1
-  store i16 %52, ptr %19, align 1
-  %53 = load i64, ptr %8, align 8
-  %54 = add i64 %53, %3
-  store i64 %54, ptr %8, align 8
+49:                                               ; preds = %47, %46
+  %50 = load i8, ptr %4, align 1
+  store i8 %50, ptr %13, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store i8 %52, ptr %53, align 1
+  %54 = load i16, ptr %4, align 1
+  store i16 %54, ptr %19, align 1
+  %55 = load i64, ptr %8, align 8
+  %56 = add i64 %55, %3
+  store i64 %56, ptr %8, align 8
   br label %_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS6_PS3_EEEEvSB_mT_.exit
 
-_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS6_PS3_EEEEvSB_mT_.exit: ; preds = %12, %22, %_ZN5boost9container13move_backwardIPSt4pairIhhES4_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i, %47
-  %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %17
-  store ptr %56, ptr %0, align 8
-  br label %57
+_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS6_PS3_EEEEvSB_mT_.exit: ; preds = %12, %22, %_ZN5boost9container13move_backwardIPSt4pairIhhES4_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i, %49
+  %57 = load ptr, ptr %1, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %17
+  store ptr %58, ptr %0, align 8
+  br label %59
 
-57:                                               ; preds = %_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS6_PS3_EEEEvSB_mT_.exit, %11
+59:                                               ; preds = %_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyIS6_PS3_EEEEvSB_mT_.exit, %11
   ret void
 }
 

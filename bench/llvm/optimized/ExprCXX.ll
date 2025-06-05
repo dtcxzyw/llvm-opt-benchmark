@@ -9045,14 +9045,14 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %27, %24
 
 _ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %.lr.ph.preheader.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit, label %33
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit, label %37
 
-33:                                               ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %3, i64 %7, i1 false)
+37:                                               ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %3, i64 %7, i1 false)
   br label %_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit
 
-_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit: ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit, %33
+_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit: ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit, %37
   ret ptr %.0.i.i.i.i
 }
 

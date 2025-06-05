@@ -61721,8 +61721,8 @@ return.sink.split.i:                              ; preds = %if.end22.i.i, %entr
   store i8 %.sink.i, ptr %add.ptr, align 2
   %ss_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %8 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %sub3.i.i = sub i64 9223372036854775807, %8
+  %7 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %sub3.i.i = sub i64 9223372036854775807, %7
   %cmp.i.i = icmp ult i64 %sub3.i.i, %conv3033.i.sink.i
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
@@ -61732,19 +61732,19 @@ if.then.i.i:                                      ; preds = %return.sink.split.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %return.sink.split.i
   %add.i.i = add i64 %8, %conv3033.i.sink.i
-  %9 = load ptr, ptr %ss_, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %cmp.i.i.i.i = icmp eq ptr %9, %10
+  %8 = load ptr, ptr %ss_, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %cmp.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  %cmp3.i.i.i.i = icmp ult i64 %8, 16
+  %cmp3.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  %11 = load i64, ptr %10, align 8
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i64 15, i64 %11
+  %10 = load i64, ptr %9, align 8
+  %cond.i.i.i = select i1 %cmp.i.i.i.i, i64 15, i64 %10
   %cmp.not.i.i = icmp ugt i64 %add.i.i, %cond.i.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.end.i.i.i.i
 
@@ -61754,13 +61754,13 @@ if.end.i.i.i.i:                                   ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ss_, i64 noundef %8, i64 noundef 0, ptr noundef nonnull %buf, i64 noundef %conv3033.i.sink.i)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ss_, i64 noundef %7, i64 noundef 0, ptr noundef nonnull %buf, i64 noundef %conv3033.i.sink.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %if.end.i.i.i.i, %if.else.i.i
   store i64 %add.i.i, ptr %_M_string_length.i.i.i, align 8
-  %12 = load ptr, ptr %ss_, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %add.i.i
+  %11 = load ptr, ptr %ss_, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %11, i64 %add.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   ret ptr %this
 }

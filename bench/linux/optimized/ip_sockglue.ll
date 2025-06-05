@@ -810,7 +810,7 @@ define internal void @ip_ra_destroy_rcu(ptr noundef %0) #0 align 16 {
 define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = tail call ptr @skb_clone(ptr noundef %1, i32 noundef 2080) #14
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %64, label %9
+  br i1 %8, label %70, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -840,7 +840,7 @@ define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef
   %27 = load i16, ptr %26, align 4
   %28 = add i16 %15, 24
   %gepdiff = sub i16 %28, %27
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i16 %gepdiff, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 82
   store i16 %3, ptr %30, align 2
@@ -854,35 +854,35 @@ define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef
   %38 = icmp eq ptr %37, null
   br i1 %38, label %63, label %39
 
-39:                                               ; preds = %9
+39:; preds = %9
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %41 = load volatile i64, ptr %40, align 8
   %42 = and i64 %41, 1024
   %43 = icmp eq i64 %42, 0
   %.pre1 = load ptr, ptr %12, align 8
-  br i1 %43, label %54, label %44
+  br i1 %43, label %69, label %50
 
-44:                                               ; preds = %39
-  %45 = load i16, ptr %14, align 2
-  %46 = zext i16 %45 to i64
-  %47 = getelementptr i8, ptr %.pre1, i64 %46
-  %48 = load i8, ptr %47, align 4
-  switch i8 %48, label %54 [
-    i8 3, label %49
-    i8 11, label %49
-    i8 12, label %49
+50:                                               ; preds = %39
+  %51 = load i16, ptr %14, align 2
+  %52 = zext i16 %51 to i64
+  %53 = getelementptr i8, ptr %.pre1, i64 %52
+  %54 = load i8, ptr %53, align 4
+  switch i8 %54, label %54 [
+    i8 3, label %55
+    i8 11, label %55
+    i8 12, label %55
   ]
 
-49:                                               ; preds = %44, %44, %44
-  %50 = getelementptr i8, ptr %47, i64 5
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 2
-  tail call void @ip_icmp_error_rfc4884(ptr noundef nonnull %7, ptr noundef nonnull %25, i32 noundef 8, i32 noundef %53) #14
+55:                                               ; preds = %50, %50, %50
+  %56 = getelementptr i8, ptr %53, i64 5
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = shl nuw nsw i32 %58, 2
+  tail call void @ip_icmp_error_rfc4884(ptr noundef nonnull %7, ptr noundef nonnull %25, i32 noundef 8, i32 noundef %59) #14
   %.pre = load ptr, ptr %12, align 8
-  br label %54
+  br label %69
 
-54:                                               ; preds = %49, %44, %39
+69:                                               ; preds = %49, %50, %39
   %55 = phi ptr [ %.pre, %49 ], [ %.pre1, %44 ], [ %.pre1, %39 ]
   %56 = load ptr, ptr %31, align 8
   %57 = ptrtoint ptr %56 to i64
@@ -896,9 +896,9 @@ define dso_local void @ip_icmp_error(ptr noundef %0, ptr noundef %1, i32 noundef
 
 63:                                               ; preds = %54, %9
   tail call void @kfree_skb_reason(ptr noundef nonnull %7, i32 noundef 2) #14
-  br label %64
+  br label %70
 
-64:                                               ; preds = %63, %54, %6
+70:                                               ; preds = %63, %69, %6
   ret void
 }
 

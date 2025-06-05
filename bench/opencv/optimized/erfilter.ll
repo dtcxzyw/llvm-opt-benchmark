@@ -36248,14 +36248,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3_V28__rotateIPN2cv4text4nodeEEET_S
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.054, i64 24, i1 false), !tbaa.struct !746
-  %.idx96 = mul nsw i64 %.085, 24
-  %33 = getelementptr inbounds i8, ptr %.054, i64 %.idx96
+  %.idx = mul nsw i64 %.085, 24
+  %33 = getelementptr inbounds i8, ptr %.054, i64 %.idx
   %.not.i.i.i.i.i = icmp eq i64 %.085, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.054, i64 24
-  %gepdiff = add nsw i64 %.idx96, -24
+  %gepdiff = add nsw i64 %.idx, -24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.054, ptr nonnull align 8 %35, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit
 
@@ -36267,40 +36267,40 @@ _ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit:   ; preds = %32, %34
 
 37:                                               ; preds = %30
   %38 = icmp sgt i64 %28, 0
-  br i1 %38, label %.lr.ph109.preheader, label %._crit_edge110
+  br i1 %38, label %.lr.ph108.preheader, label %._crit_edge109
 
-.lr.ph109.preheader:                              ; preds = %37
+.lr.ph108.preheader:                              ; preds = %37
   %39 = getelementptr inbounds %"struct.cv::text::node", ptr %.054, i64 %.082
-  br label %.lr.ph109
+  br label %.lr.ph108
 
-._crit_edge110:                                   ; preds = %.lr.ph109, %37
+._crit_edge109:                                   ; preds = %.lr.ph108, %37
   %.155.lcssa = phi ptr [ %.054, %37 ], [ %41, %.lr.ph109 ]
   %40 = srem i64 %.085, %.082
   %.not65 = icmp eq i64 %40, 0
   br i1 %.not65, label %_ZSt11swap_rangesIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, label %44
 
-.lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
-  %.051107 = phi i64 [ %43, %.lr.ph109 ], [ 0, %.lr.ph109.preheader ]
-  %.052106 = phi ptr [ %42, %.lr.ph109 ], [ %39, %.lr.ph109.preheader ]
-  %.155105 = phi ptr [ %41, %.lr.ph109 ], [ %.054, %.lr.ph109.preheader ]
+.lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
+  %.051106 = phi i64 [ %43, %.lr.ph109 ], [ 0, %.lr.ph109.preheader ]
+  %.052105 = phi ptr [ %42, %.lr.ph109 ], [ %39, %.lr.ph109.preheader ]
+  %.155104 = phi ptr [ %41, %.lr.ph109 ], [ %.054, %.lr.ph109.preheader ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.155105, i64 24, i1 false), !tbaa.struct !746
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.155105, ptr noundef nonnull align 8 dereferenceable(24) %.052106, i64 24, i1 false), !tbaa.struct !746
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.052106, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !746
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.155104, i64 24, i1 false), !tbaa.struct !746
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.155104, ptr noundef nonnull align 8 dereferenceable(24) %.052105, i64 24, i1 false), !tbaa.struct !746
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.052105, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !746
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %41 = getelementptr inbounds nuw i8, ptr %.155105, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %.052106, i64 24
-  %43 = add nuw nsw i64 %.051107, 1
-  %exitcond118.not = icmp eq i64 %43, %28
-  br i1 %exitcond118.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !753
+  %41 = getelementptr inbounds nuw i8, ptr %.155104, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.052105, i64 24
+  %43 = add nuw nsw i64 %.051106, 1
+  %exitcond117.not = icmp eq i64 %43, %28
+  br i1 %exitcond117.not, label %._crit_edge109, label %.lr.ph108, !llvm.loop !753
 
-44:                                               ; preds = %._crit_edge110
+44:                                               ; preds = %._crit_edge109
   %45 = sub nsw i64 %.082, %40
   br label %.backedge
 
 46:                                               ; preds = %27
   %47 = icmp eq i64 %28, 1
-  br i1 %47, label %48, label %54
+  br i1 %47, label %48, label %56
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -36323,41 +36323,41 @@ _ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit: ; preds = %48, %51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZSt11swap_rangesIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit
 
-54:                                               ; preds = %46
-  %55 = getelementptr inbounds %"struct.cv::text::node", ptr %.054, i64 %.085
-  %56 = sub i64 0, %28
-  %57 = getelementptr inbounds %"struct.cv::text::node", ptr %55, i64 %56
-  %58 = icmp sgt i64 %.082, 0
-  br i1 %58, label %.lr.ph, label %._crit_edge
+56:                                               ; preds = %46
+  %57 = getelementptr inbounds %"struct.cv::text::node", ptr %.054, i64 %.085
+  %58 = sub i64 0, %28
+  %59 = getelementptr inbounds %"struct.cv::text::node", ptr %57, i64 %58
+  %60 = icmp sgt i64 %.082, 0
+  br i1 %60, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %54
-  %.357.lcssa = phi ptr [ %57, %54 ], [ %.054, %.lr.ph ]
-  %59 = srem i64 %.085, %28
-  %.not = icmp eq i64 %59, 0
+._crit_edge:                                      ; preds = %.lr.ph, %56
+  %.357.lcssa = phi ptr [ %59, %54 ], [ %.054, %.lr.ph ]
+  %61 = srem i64 %.085, %28
+  %.not = icmp eq i64 %61, 0
   br i1 %.not, label %_ZSt11swap_rangesIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %44
   %.085.be = phi i64 [ %.082, %44 ], [ %28, %._crit_edge ]
-  %.082.be = phi i64 [ %45, %44 ], [ %59, %._crit_edge ]
+  %.082.be = phi i64 [ %45, %44 ], [ %61, %._crit_edge ]
   %.054.be = phi ptr [ %.155.lcssa, %44 ], [ %.357.lcssa, %._crit_edge ]
   br label %27, !llvm.loop !754
 
-.lr.ph:                                           ; preds = %54, %.lr.ph
-  %.0104 = phi i64 [ %62, %.lr.ph ], [ 0, %54 ]
-  %.050103 = phi ptr [ %61, %.lr.ph ], [ %55, %54 ]
-  %.357102 = phi ptr [ %60, %.lr.ph ], [ %57, %54 ]
-  %60 = getelementptr inbounds i8, ptr %.357102, i64 -24
-  %61 = getelementptr inbounds i8, ptr %.050103, i64 -24
+.lr.ph:                                           ; preds = %56, %.lr.ph
+  %.0103 = phi i64 [ %64, %.lr.ph ], [ 0, %54 ]
+  %.050102 = phi ptr [ %63, %.lr.ph ], [ %57, %54 ]
+  %.357101 = phi ptr [ %62, %.lr.ph ], [ %59, %54 ]
+  %62 = getelementptr inbounds i8, ptr %.357101, i64 -24
+  %63 = getelementptr inbounds i8, ptr %.050102, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false), !tbaa.struct !746
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false), !tbaa.struct !746
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !746
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false), !tbaa.struct !746
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !tbaa.struct !746
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !746
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %62 = add nuw nsw i64 %.0104, 1
-  %exitcond.not = icmp eq i64 %62, %.082
+  %64 = add nuw nsw i64 %.0103, 1
+  %exitcond.not = icmp eq i64 %64, %.082
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !755
 
-_ZSt11swap_rangesIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, %10, %3
+_ZSt11swap_rangesIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge109, %.lr.ph.i, %_ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, %10, %3
   %.053 = phi ptr [ %2, %3 ], [ %0, %10 ], [ %26, %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit ], [ %26, %_ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
   ret ptr %.053
 }

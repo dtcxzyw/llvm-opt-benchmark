@@ -1173,10 +1173,10 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i: ; preds = 
 
 _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !66
-  %.pre61 = load i32, ptr %29, align 4, !tbaa !67
-  %299 = zext i32 %.pre61 to i64
+  %.pre62 = load i32, ptr %29, align 4, !tbaa !67
+  %299 = zext i32 %.pre62 to i64
   %300 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %299
-  %.not.not9.i.i131.i = icmp eq i32 %.pre61, 0
+  %.not.not9.i.i131.i = icmp eq i32 %.pre62, 0
   br i1 %.not.not9.i.i131.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit135.thread.i, label %.lr.ph.i.i132.i
 
 301:                                              ; preds = %.lr.ph.i.i132.i
@@ -2088,11 +2088,11 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i44.i.i.i.i.i.i:      ; preds = %693, %690, %686
   br i1 %702, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !101
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %700
-  %gepdiff = sub nsw i64 -152, %.02962.i.i.i.i.i.i.idx
+  %gepdiff54 = sub nsw i64 -152, %.02962.i.i.i.i.i.i.idx
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %638
-  %.pre-phi69.i.i.i.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %gepdiff.i, %638 ]
+  %.pre-phi69.i.i.i.i.i.i = phi i64 [ %gepdiff54, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %gepdiff.i, %638 ]
   %.029.lcssa.i.i.i.i.i.i.idx = phi i64 [ %.02962.i.i.i.i.i.i.add34, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.add33, %638 ]
   %703 = ashr exact i64 %.pre-phi69.i.i.i.i.i.i, 5
   switch i64 %703, label %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread29 [
