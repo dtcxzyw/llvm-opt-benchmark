@@ -2864,7 +2864,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
-  %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
+  %..i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = zext nneg i32 %.0.i to i64
   %10 = getelementptr inbounds nuw [5 x %"class.boost::thread_specific_ptr"], ptr %8, i64 0, i64 %9
@@ -5590,7 +5590,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
-  %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
+  %..i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = zext nneg i32 %.0.i to i64
   %10 = getelementptr inbounds nuw [5 x %"class.boost::thread_specific_ptr"], ptr %8, i64 0, i64 %9

@@ -1868,13 +1868,13 @@ _ZN3std2io4Read10read_exact17h2aaf4d7d329403e5E.exit.i: ; preds = %"_ZN63_$LT$u8
 441:                                              ; preds = %447, %439
   %.sroa.01.0.i.i = phi i32 [ %380, %439 ], [ %spec.select1.i.i, %447 ]
   %442 = call i32 @llvm.smax.i32(i32 %.sroa.01.0.i.i, i32 0)
-  %.sroa.0.0.in.sroa.speculated.i.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %442, i32 63)
+  %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %442, i32 63)
   %443 = icmp eq i8 %.sroa.4206.0.copyload, 4
   %444 = select i1 %443, i32 %383, i32 0
   %.sroa.01.1.i.i = add i32 %.sroa.0.0.in.sroa.speculated.i.i.i, %444
   %445 = call i32 @llvm.smax.i32(i32 %.sroa.01.1.i.i, i32 0)
-  %.sroa.0.0.in.sroa.speculated.i17.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %445, i32 63)
-  %446 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculated.i17.i.i to i8
+  %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i17.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %445, i32 63)
+  %446 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i17.i.i to i8
   br i1 %.not.i.i, label %458, label %456
 
 447:                                              ; preds = %439

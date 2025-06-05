@@ -40,12 +40,12 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #9
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %28, label %9
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8, !tbaa !7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %28, label %12
+  br i1 %11, label %29, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -54,30 +54,30 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   %16 = load i32, ptr @debug_threshold, align 4
   %17 = icmp sgt i32 %1, %16
   %or.cond = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond, label %28, label %18
+  br i1 %or.cond, label %29, label %18
 
 18:                                               ; preds = %12
   call void @llvm.va_start.p0(ptr nonnull %6)
   %19 = call i32 @vsnprintf(ptr noundef nonnull %7, i64 noundef 512, ptr noundef %4, ptr noundef nonnull %6) #9
   call void @llvm.va_end.p0(ptr nonnull %6)
   %20 = call i32 @llvm.smax.i32(i32 %19, i32 0)
-  %.0 = call i32 @llvm.umin.i32(i32 %20, i32 510)
-  %21 = zext nneg i32 %.0 to i64
+  %21 = call i32 @llvm.umin.i32(i32 %20, i32 510)
+  %21 = zext nneg i32 %21 to i64
   %22 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %21
   store i8 10, ptr %22, align 1, !tbaa !29
-  %23 = add nuw nsw i32 %.0, 1
+  %23 = add nuw nsw i32 %21, 1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %24
   store i8 0, ptr %25, align 1, !tbaa !29
   %.val = load ptr, ptr %0, align 8, !tbaa !7
-  %26 = getelementptr i8, ptr %.val, i64 40
-  %.val.val = load ptr, ptr %26, align 8, !tbaa !17
-  %27 = getelementptr i8, ptr %.val, i64 48
-  %.val.val17 = load ptr, ptr %27, align 8, !tbaa !30
+  %27 = getelementptr i8, ptr %.val, i64 40
+  %.val.val = load ptr, ptr %27, align 8, !tbaa !17
+  %28 = getelementptr i8, ptr %.val, i64 48
+  %.val.val17 = load ptr, ptr %28, align 8, !tbaa !30
   call void %.val.val(ptr noundef %.val.val17, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7) #9
-  br label %28
+  br label %29
 
-28:                                               ; preds = %5, %9, %12, %18
+29:                                               ; preds = %5, %9, %12, %18
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
   ret void

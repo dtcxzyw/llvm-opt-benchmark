@@ -3589,29 +3589,29 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr noundef readonly captures(n
   %.063.lcssa118 = phi i32 [ %67, %81 ], [ %67, %._crit_edge ], [ 0, %.preheader ]
   %.064.lcssa117 = phi i32 [ %70, %81 ], [ %70, %._crit_edge ], [ 0, %.preheader ]
   %.not69 = icmp eq i32 %4, 0
-  br i1 %.not69, label %104, label %102
+  br i1 %.not69, label %105, label %103
 
-102:                                              ; preds = %._crit_edge.thread
-  %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %.063.lcssa118, i32 noundef %.064.lcssa117, i32 noundef %12)
-  br label %104
+103:                                              ; preds = %._crit_edge.thread
+  %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %.063.lcssa118, i32 noundef %.064.lcssa117, i32 noundef %12)
+  br label %105
 
-104:                                              ; preds = %102, %._crit_edge.thread
+105:                                              ; preds = %103, %._crit_edge.thread
   %.not70 = icmp eq ptr %15, null
-  br i1 %.not70, label %106, label %105
+  br i1 %.not70, label %107, label %106
 
-105:                                              ; preds = %104
+106:                                              ; preds = %105
   tail call void @free(ptr noundef nonnull %15) #24
-  br label %106
+  br label %107
 
-106:                                              ; preds = %104, %105
+107:                                              ; preds = %105, %106
   %.not71 = icmp eq ptr %23, null
-  br i1 %.not71, label %108, label %107
+  br i1 %.not71, label %109, label %108
 
-107:                                              ; preds = %106
+108:                                              ; preds = %107
   tail call void @free(ptr noundef nonnull %23) #24
-  br label %108
+  br label %109
 
-108:                                              ; preds = %106, %107
+109:                                              ; preds = %107, %108
   store i32 %.064.lcssa117, ptr %5, align 4, !tbaa !12
   ret ptr %21
 }

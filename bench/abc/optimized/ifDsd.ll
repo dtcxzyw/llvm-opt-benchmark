@@ -9652,7 +9652,7 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %27 = add nsw i32 %11, 1
   store i32 %27, ptr %6, align 4, !tbaa !40
   store i8 %26, ptr %13, align 1, !tbaa !137
-  br label %152
+  br label %150
 
 28:                                               ; preds = %19
   switch i8 %20, label %48 [
@@ -9718,7 +9718,7 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %46 = call i32 @If_DsdManOperation(ptr noundef %3, i32 noundef %.074, ptr noundef nonnull %8, i32 noundef %.073.lcssa, ptr noundef %13, ptr noundef %4)
   %47 = xor i32 %46, %.072
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #39
-  br label %152
+  br label %150
 
 48:                                               ; preds = %28
   %49 = add i8 %20, -65
@@ -9726,7 +9726,7 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %50 = add i8 %20, -48
   %or.cond82 = icmp ult i8 %50, 10
   %or.cond90 = or i1 %or.cond81, %or.cond82
-  br i1 %or.cond90, label %51, label %152
+  br i1 %or.cond90, label %51, label %150
 
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #39
@@ -9747,12 +9747,12 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %58 = phi i8 [ %20, %51 ], [ %.pre.i, %53 ]
   %.038.i = phi ptr [ %.pn8091, %51 ], [ %spec.select.i, %53 ]
   %59 = add i8 %58, -58
-  %or.cond.i46.i = icmp ult i8 %59, -10
+  %or.cond.i47.i = icmp ult i8 %59, -10
   %60 = and i8 %58, -33
   %61 = add i8 %60, -71
   %62 = icmp ult i8 %61, -6
-  %narrow.i.not47.i = and i1 %or.cond.i46.i, %62
-  br i1 %narrow.i.not47.i, label %.thread113, label %.lr.ph.i
+  %narrow.i.not48.i = and i1 %or.cond.i47.i, %62
+  br i1 %narrow.i.not48.i, label %.thread113, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %57 ]
@@ -9792,39 +9792,39 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %75 = select i1 %74, i64 6148914691236517205, i64 -6148914691236517206
   br label %.sink.split.i
 
-.thread69.i:                                      ; preds = %._crit_edge.i
+.thread70.i:                                      ; preds = %._crit_edge.i
   %76 = add nsw i32 %indvars.i, -1
   %77 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %76, i1 true)
-  %.fr81.i = freeze i32 %77
-  %78 = sub i32 34, %.fr81.i
+  %.fr82.i = freeze i32 %77
+  %78 = sub i32 34, %.fr82.i
   %79 = icmp ult i32 %78, 7
   br i1 %79, label %.preheader.i.thread87, label %.thread.i
 
-.thread.i:                                        ; preds = %.thread69.i
-  %80 = sub i32 28, %.fr81.i
+.thread.i:                                        ; preds = %.thread70.i
+  %80 = sub i32 28, %.fr82.i
   %81 = shl nuw i32 1, %80
-  %.not82.i = icmp eq i32 %.fr81.i, -3
-  br i1 %.not82.i, label %.lr.ph53.preheader.i, label %.preheader.i.thread87
+  %.not83.i = icmp eq i32 %.fr82.i, -3
+  br i1 %.not83.i, label %.lr.ph54.preheader.i, label %.preheader.i.thread87
 
-.preheader.i.thread87:                            ; preds = %.thread.i, %69, %.thread69.i
+.preheader.i.thread87:                            ; preds = %.thread.i, %69, %.thread70.i
   %.ph = phi i32 [ 1, %.thread69.i ], [ 1, %69 ], [ %81, %.thread.i ]
   %.ph86 = phi i32 [ %78, %.thread69.i ], [ 2, %69 ], [ %78, %.thread.i ]
   %82 = zext nneg i32 %.ph to i64
   %83 = shl nuw nsw i64 %82, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 0, i64 %83, i1 false), !tbaa !51
-  br label %.lr.ph53.preheader.i
+  br label %.lr.ph54.preheader.i
 
-.lr.ph53.preheader.i:                             ; preds = %.thread.i, %.preheader.i.thread87
+.lr.ph54.preheader.i:                             ; preds = %.thread.i, %.preheader.i.thread87
   %84 = phi i32 [ %.ph86, %.preheader.i.thread87 ], [ 37, %.thread.i ]
   %sext = shl i64 %indvars.iv.next.i, 32
   %85 = ashr exact i64 %sext, 32
   %wide.trip.count.i = and i64 %indvars.iv.next.i, 4294967295
   %86 = getelementptr i8, ptr %.038.i, i64 %85
-  br label %.lr.ph53.i
+  br label %.lr.ph54.i
 
-.lr.ph53.i:                                       ; preds = %Abc_TtReadHexDigit.exit.i, %.lr.ph53.preheader.i
-  %indvars.iv62.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next63.i, %Abc_TtReadHexDigit.exit.i ]
-  %87 = xor i64 %indvars.iv62.i, -1
+.lr.ph54.i:                                       ; preds = %Abc_TtReadHexDigit.exit.i, %.lr.ph54.preheader.i
+  %indvars.iv63.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next64.i, %Abc_TtReadHexDigit.exit.i ]
+  %87 = xor i64 %indvars.iv63.i, -1
   %88 = getelementptr i8, ptr %86, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !137
   %90 = sext i8 %89 to i32
@@ -9832,11 +9832,11 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %or.cond.i42.i = icmp ult i8 %91, 10
   br i1 %or.cond.i42.i, label %92, label %94
 
-92:                                               ; preds = %.lr.ph53.i
+92:                                               ; preds = %.lr.ph54.i
   %93 = add nsw i32 %90, -48
   br label %Abc_TtReadHexDigit.exit.i
 
-94:                                               ; preds = %.lr.ph53.i
+94:                                               ; preds = %.lr.ph54.i
   %95 = add i8 %89, -65
   %or.cond5.i.i = icmp ult i8 %95, 6
   br i1 %or.cond5.i.i, label %96, label %98
@@ -9855,53 +9855,53 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 Abc_TtReadHexDigit.exit.i:                        ; preds = %98, %96, %92
   %.0.i.i = phi i32 [ %93, %92 ], [ %97, %96 ], [ %spec.select.i.i, %98 ]
   %101 = sext i32 %.0.i.i to i64
-  %102 = shl i64 %indvars.iv62.i, 2
+  %102 = shl i64 %indvars.iv63.i, 2
   %103 = and i64 %102, 60
   %104 = shl i64 %101, %103
-  %105 = lshr i64 %indvars.iv62.i, 4
+  %105 = lshr i64 %indvars.iv63.i, 4
   %106 = and i64 %105, 268435455
   %107 = getelementptr inbounds nuw i64, ptr %9, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !51
   %109 = or i64 %104, %108
   store i64 %109, ptr %107, align 8, !tbaa !51
-  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge54.i, label %.lr.ph53.i, !llvm.loop !216
+  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !216
 
-._crit_edge54.i:                                  ; preds = %Abc_TtReadHexDigit.exit.i
+._crit_edge55.i:                                  ; preds = %Abc_TtReadHexDigit.exit.i
   %110 = icmp slt i32 %84, 6
-  br i1 %110, label %111, label %Abc_TtReadHex.exit
+  br i1 %110, label %._crit_edge55.i._crit_edge, label %Abc_TtReadHex.exit
 
-111:                                              ; preds = %._crit_edge54.i
+._crit_edge55.i._crit_edge:                       ; preds = %._crit_edge55.i
   %.pre104 = load i64, ptr %9, align 16, !tbaa !51
   %112 = icmp ult i32 %84, 2
   %113 = and i64 %.pre104, 3
   %114 = mul nuw nsw i64 %113, 5
   br i1 %112, label %.thread113, label %115
 
-115:                                              ; preds = %111
-  %116 = icmp eq i32 %84, 2
-  %117 = and i64 %.pre104, 15
+115:; preds = %._crit_edge55.i._crit_edge
+  %113 = icmp eq i32 %84, 2
+  %114 = and i64 %.pre104, 15
   br i1 %116, label %.thread113, label %119
 
-.thread113:                                       ; preds = %111, %57, %._crit_edge.i, %115
+.thread113:; preds = %111, %57, %._crit_edge.i, %115
   %.ph111 = phi i32 [ %84, %115 ], [ %84, %111 ], [ 2, %57 ], [ 2, %._crit_edge.i ]
   %.ph112.in = phi i64 [ %117, %115 ], [ %114, %111 ], [ 0, %57 ], [ 0, %._crit_edge.i ]
   %118 = mul nuw nsw i64 %.ph112.in, 4369
   br label %.thread123
 
-119:                                              ; preds = %115
+119:; preds = %115
   %120 = icmp ult i32 %84, 4
   %121 = and i64 %.pre104, 255
   %122 = mul nuw nsw i64 %121, 257
   br i1 %120, label %.thread123, label %123
 
-123:                                              ; preds = %119
+123:; preds = %119
   %124 = icmp eq i32 %84, 4
   %125 = and i64 %.pre104, 65535
   br i1 %124, label %.thread123, label %127
 
-.thread123:                                       ; preds = %119, %.thread113, %123
+.thread123:; preds = %119, %.thread113, %123
   %.ph121 = phi i32 [ %84, %123 ], [ %.ph111, %.thread113 ], [ %84, %119 ]
   %.ph122.in = phi i64 [ %125, %123 ], [ %118, %.thread113 ], [ %122, %119 ]
   %126 = mul nuw i64 %.ph122.in, 281479271743489
@@ -9920,52 +9920,52 @@ Abc_TtReadHexDigit.exit.i:                        ; preds = %98, %96, %92
   store i64 %.5.i.sink.i, ptr %9, align 16, !tbaa !51
   br label %Abc_TtReadHex.exit
 
-Abc_TtReadHex.exit:                               ; preds = %._crit_edge54.i, %.sink.split.i
+Abc_TtReadHex.exit:                               ; preds = %._crit_edge55.i, %.sink.split.i
   %.037.i = phi i32 [ %84, %._crit_edge54.i ], [ %.037.ph.i, %.sink.split.i ]
-  %131 = icmp slt i32 %.037.i, 3
-  %132 = add nsw i32 %.037.i, -2
-  %133 = shl nuw i32 1, %132
-  %134 = select i1 %131, i32 1, i32 %133
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %.pn8091, i64 %135
-  %137 = ptrtoint ptr %136 to i64
-  %138 = ptrtoint ptr %0 to i64
-  %139 = sub i64 %137, %138
-  %140 = getelementptr inbounds i32, ptr %2, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !40
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i8, ptr %0, i64 %142
-  %storemerge94 = getelementptr inbounds nuw i8, ptr %136, i64 1
+  %129 = icmp slt i32 %.037.i, 3
+  %130 = add nsw i32 %.037.i, -2
+  %131 = shl nuw i32 1, %130
+  %132 = select i1 %129, i32 1, i32 %131
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr %.pn8091, i64 %133
+  %135 = ptrtoint ptr %134 to i64
+  %136 = ptrtoint ptr %0 to i64
+  %137 = sub i64 %135, %136
+  %138 = getelementptr inbounds i32, ptr %2, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !40
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds i8, ptr %0, i64 %140
+  %storemerge94 = getelementptr inbounds nuw i8, ptr %134, i64 1
   store ptr %storemerge94, ptr %1, align 8, !tbaa !213
-  %144 = icmp ult ptr %storemerge94, %143
-  br i1 %144, label %.lr.ph96, label %._crit_edge97
+  %142 = icmp ult ptr %storemerge94, %141
+  br i1 %142, label %.lr.ph96, label %._crit_edge97
 
 .lr.ph96:                                         ; preds = %Abc_TtReadHex.exit, %.lr.ph96
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph96 ], [ 0, %Abc_TtReadHex.exit ]
-  %145 = tail call i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  %143 = tail call i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %146 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv101
-  store i32 %145, ptr %146, align 4, !tbaa !40
-  %147 = load ptr, ptr %1, align 8, !tbaa !213
-  %storemerge = getelementptr inbounds nuw i8, ptr %147, i64 1
+  %144 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv101
+  store i32 %143, ptr %144, align 4, !tbaa !40
+  %145 = load ptr, ptr %1, align 8, !tbaa !213
+  %storemerge = getelementptr inbounds nuw i8, ptr %145, i64 1
   store ptr %storemerge, ptr %1, align 8, !tbaa !213
-  %148 = icmp ult ptr %storemerge, %143
-  br i1 %148, label %.lr.ph96, label %._crit_edge97.loopexit, !llvm.loop !217
+  %146 = icmp ult ptr %storemerge, %141
+  br i1 %146, label %.lr.ph96, label %._crit_edge97.loopexit, !llvm.loop !217
 
 ._crit_edge97.loopexit:                           ; preds = %.lr.ph96
-  %149 = trunc nuw i64 %indvars.iv.next102 to i32
+  %147 = trunc nuw i64 %indvars.iv.next102 to i32
   br label %._crit_edge97
 
 ._crit_edge97:                                    ; preds = %._crit_edge97.loopexit, %Abc_TtReadHex.exit
-  %.071.lcssa = phi i32 [ 0, %Abc_TtReadHex.exit ], [ %149, %._crit_edge97.loopexit ]
-  %150 = call i32 @If_DsdManOperation(ptr noundef %3, i32 noundef 6, ptr noundef nonnull %10, i32 noundef %.071.lcssa, ptr noundef %13, ptr noundef nonnull %9)
-  %151 = xor i32 %150, %.072
+  %.071.lcssa = phi i32 [ 0, %Abc_TtReadHex.exit ], [ %147, %._crit_edge97.loopexit ]
+  %148 = call i32 @If_DsdManOperation(ptr noundef %3, i32 noundef 6, ptr noundef nonnull %10, i32 noundef %.071.lcssa, ptr noundef %13, ptr noundef nonnull %9)
+  %149 = xor i32 %148, %.072
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #39
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #39
-  br label %152
+  br label %150
 
-152:                                              ; preds = %48, %._crit_edge97, %._crit_edge, %22
-  %.0 = phi i32 [ 2, %22 ], [ %47, %._crit_edge ], [ %151, %._crit_edge97 ], [ -1, %48 ]
+150:                                              ; preds = %48, %._crit_edge97, %._crit_edge, %22
+  %.0 = phi i32 [ 2, %22 ], [ %47, %._crit_edge ], [ %149, %._crit_edge97 ], [ -1, %48 ]
   ret i32 %.0
 }
 

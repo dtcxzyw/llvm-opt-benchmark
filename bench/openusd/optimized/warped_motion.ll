@@ -302,7 +302,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
 
 .preheader217.us:                                 ; preds = %.preheader217.lr.ph, %._crit_edge.us244
   %indvars.iv273 = phi i32 [ %indvars.iv.next274, %._crit_edge.us244 ], [ %9, %.preheader217.lr.ph ]
-  %.0238.us = phi i32 [ %252, %._crit_edge.us244 ], [ %7, %.preheader217.lr.ph ]
+  %.0238.us = phi i32 [ %254, %._crit_edge.us244 ], [ %7, %.preheader217.lr.ph ]
   %smin275 = tail call i32 @llvm.smin.i32(i32 %indvars.iv273, i32 8)
   %77 = add i32 %smin275, -4
   %78 = add nsw i32 %.0238.us, 4
@@ -451,9 +451,9 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %168 = add i32 %167, %158
   br label %169
 
-169:                                              ; preds = %237, %.lr.ph.us.us
+169:                                              ; preds = %239, %.lr.ph.us.us
   %indvars.iv264 = phi i64 [ %indvars.iv.next265, %237 ], [ -4, %.lr.ph.us.us ]
-  %.0188227.us.us = phi i32 [ %238, %237 ], [ %168, %.lr.ph.us.us ]
+  %.0188227.us.us = phi i32 [ %240, %237 ], [ %168, %.lr.ph.us.us ]
   %170 = add nsw i32 %.0188227.us.us, 512
   %171 = ashr i32 %170, 10
   %172 = add nsw i32 %171, 64
@@ -461,12 +461,12 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %174 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %173
   %175 = trunc nsw i64 %indvars.iv264 to i32
   %176 = add i32 %175, 36
-  br label %239
+  br label %241
 
-177:                                              ; preds = %239
+177:                                              ; preds = %241
   %178 = load i32, ptr %27, align 8
   %.not199.us.us = icmp eq i32 %178, 0
-  br i1 %.not199.us.us, label %223, label %179
+  br i1 %.not199.us.us, label %224, label %179
 
 179:                                              ; preds = %177
   %180 = load ptr, ptr %66, align 8
@@ -476,11 +476,11 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %184 = add nsw i32 %182, %183
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds i16, ptr %180, i64 %185
-  %187 = add nsw i32 %251, %69
+  %187 = add nsw i32 %253, %69
   %188 = ashr i32 %187, %36
   %189 = load i32, ptr %14, align 8
   %.not201.us.us = icmp eq i32 %189, 0
-  br i1 %.not201.us.us, label %221, label %190
+  br i1 %.not201.us.us, label %222, label %190
 
 190:                                              ; preds = %179
   %.reass230.us.us = add i32 %invariant.op229.us.us, %175
@@ -524,95 +524,95 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
     i32 10, label %215
   ]
 
-215:                                              ; preds = %206
-  %216 = tail call i32 @llvm.umin.i32(i32 %214, i32 1023)
+214:                                              ; preds = %206
+  %215 = tail call i32 @llvm.umin.i32(i32 %214, i32 1023)
   br label %clip_pixel_highbd.exit.us.us
 
-217:                                              ; preds = %206
-  %218 = tail call i32 @llvm.umin.i32(i32 %214, i32 4095)
+216:                                              ; preds = %206
+  %217 = tail call i32 @llvm.umin.i32(i32 %214, i32 4095)
   br label %clip_pixel_highbd.exit.us.us
 
-219:                                              ; preds = %206
-  %220 = tail call i32 @llvm.umin.i32(i32 %214, i32 255)
+218:                                              ; preds = %206
+  %219 = tail call i32 @llvm.umin.i32(i32 %214, i32 255)
   br label %clip_pixel_highbd.exit.us.us
 
-clip_pixel_highbd.exit.us.us:                     ; preds = %219, %217, %215
-  %.0.in.i.us.us = phi i32 [ %220, %219 ], [ %218, %217 ], [ %216, %215 ]
+clip_pixel_highbd.exit.us.us:                     ; preds = %218, %216, %214
+  %.sink.i.us.us = phi i32 [ %219, %219 ], [ %218, %217 ], [ %216, %215 ]
   %.0.i.us.us = trunc nuw nsw i32 %.0.in.i.us.us to i16
   store i16 %.0.i.us.us, ptr %192, align 2
-  br label %237
+  br label %239
 
-221:                                              ; preds = %179
-  %222 = trunc i32 %188 to i16
-  store i16 %222, ptr %186, align 2
-  br label %237
+222:                                              ; preds = %179
+  %223 = trunc i32 %188 to i16
+  store i16 %223, ptr %186, align 2
+  br label %239
 
-223:                                              ; preds = %177
-  %224 = add i32 %invariant.op229.us.us, %175
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds i16, ptr %5, i64 %225
-  %227 = add nsw i32 %251, %69
-  %228 = ashr i32 %227, %36
-  %229 = add i32 %76, %228
+224:                                              ; preds = %177
+  %225 = add i32 %invariant.op229.us.us, %175
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds i16, ptr %5, i64 %226
+  %228 = add nsw i32 %253, %69
+  %229 = ashr i32 %228, %36
+  %230 = add i32 %76, %229
   %230 = tail call i32 @llvm.smax.i32(i32 %229, i32 0)
   switch i32 %13, label %235 [
     i32 12, label %233
     i32 10, label %231
   ]
 
-231:                                              ; preds = %223
+231:                                              ; preds = %224
   %232 = tail call i32 @llvm.umin.i32(i32 %230, i32 1023)
   br label %clip_pixel_highbd.exit209.us.us
 
-233:                                              ; preds = %223
+233:                                              ; preds = %224
   %234 = tail call i32 @llvm.umin.i32(i32 %230, i32 4095)
   br label %clip_pixel_highbd.exit209.us.us
 
-235:                                              ; preds = %223
+235:                                              ; preds = %224
   %236 = tail call i32 @llvm.umin.i32(i32 %230, i32 255)
   br label %clip_pixel_highbd.exit209.us.us
 
 clip_pixel_highbd.exit209.us.us:                  ; preds = %235, %233, %231
-  %.0.in.i207.us.us = phi i32 [ %236, %235 ], [ %234, %233 ], [ %232, %231 ]
-  %.0.i208.us.us = trunc nuw nsw i32 %.0.in.i207.us.us to i16
+  %.sink.i207.us.us = phi i32 [ %236, %235 ], [ %234, %233 ], [ %232, %231 ]
+  %.0.i208.us.us = trunc nuw nsw i32 %.sink.i207.us.us to i16
   store i16 %.0.i208.us.us, ptr %226, align 2
   br label %237
 
-237:                                              ; preds = %clip_pixel_highbd.exit209.us.us, %221, %clip_pixel_highbd.exit.us.us
-  %238 = add nsw i32 %.0188227.us.us, %56
+239:                                              ; preds = %clip_pixel_highbd.exit209.us.us, %222, %clip_pixel_highbd.exit.us.us
+  %240 = add nsw i32 %.0188227.us.us, %56
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count
   br i1 %exitcond269.not, label %._crit_edge.us.us, label %169, !llvm.loop !9
 
-239:                                              ; preds = %239, %169
+241:                                              ; preds = %241, %169
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %239 ], [ 0, %169 ]
-  %.0185223.us.us = phi i32 [ %251, %239 ], [ %65, %169 ]
-  %240 = add nsw i64 %indvars.iv260, %indvars.iv270
-  %241 = trunc nsw i64 %240 to i32
-  %242 = shl i32 %241, 3
-  %243 = add i32 %176, %242
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %244
-  %246 = load i32, ptr %245, align 4
-  %247 = getelementptr inbounds nuw i16, ptr %174, i64 %indvars.iv260
-  %248 = load i16, ptr %247, align 2
-  %249 = sext i16 %248 to i32
-  %250 = mul nsw i32 %246, %249
-  %251 = add nsw i32 %250, %.0185223.us.us
+  %.0185223.us.us = phi i32 [ %253, %239 ], [ %65, %169 ]
+  %242 = add nsw i64 %indvars.iv260, %indvars.iv270
+  %243 = trunc nsw i64 %242 to i32
+  %244 = shl i32 %243, 3
+  %245 = add i32 %176, %244
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %246
+  %248 = load i32, ptr %247, align 4
+  %249 = getelementptr inbounds nuw i16, ptr %174, i64 %indvars.iv260
+  %250 = load i16, ptr %249, align 2
+  %251 = sext i16 %250 to i32
+  %252 = mul nsw i32 %248, %251
+  %253 = add nsw i32 %252, %.0185223.us.us
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next261, 8
-  br i1 %exitcond263.not, label %177, label %239, !llvm.loop !10
+  br i1 %exitcond263.not, label %177, label %241, !llvm.loop !10
 
-._crit_edge.us.us:                                ; preds = %237
+._crit_edge.us.us:                                ; preds = %239
   %indvars.iv.next271 = add nsw i64 %indvars.iv270, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count276
   br i1 %exitcond277.not, label %._crit_edge235.us, label %.lr.ph.us.us, !llvm.loop !11
 
 ._crit_edge.us244:                                ; preds = %._crit_edge235.us
-  %252 = add nsw i32 %.0238.us, 8
-  %253 = icmp slt i32 %252, %40
+  %254 = add nsw i32 %.0238.us, 8
+  %255 = icmp slt i32 %254, %40
   %indvars.iv.next274 = add i32 %indvars.iv273, -8
-  br i1 %253, label %.preheader217.us, label %._crit_edge239, !llvm.loop !12
+  br i1 %255, label %.preheader217.us, label %._crit_edge239, !llvm.loop !12
 
 ._crit_edge239:                                   ; preds = %._crit_edge.us244, %.preheader217.lr.ph, %34
   ret void

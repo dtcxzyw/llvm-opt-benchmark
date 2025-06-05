@@ -107,7 +107,7 @@ define void @ff_bgmc_decode_end(ptr noundef captures(none) %0) local_unnamed_add
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_bgmc_decode(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9) local_unnamed_addr #5 {
   %11 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
-  %.0.i.i = tail call i32 @llvm.umin.i32(i32 %11, i32 3)
+  %..i.i = tail call i32 @llvm.umin.i32(i32 %11, i32 3)
   %12 = shl nuw nsw i32 %.0.i.i, 10
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13

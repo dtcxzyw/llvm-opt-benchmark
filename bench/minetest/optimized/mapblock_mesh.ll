@@ -832,7 +832,7 @@ entry:
   %conv.i = zext nneg i8 %cond.i.i to i32
   %add.i = add nsw i32 %increment, %conv.i
   %4 = load ptr, ptr @light_decode_table, align 8, !tbaa !32
-  %5 = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
+  %4 = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %narrow.i = tail call i32 @llvm.umin.i32(i32 %5, i32 15)
   %idxprom.i.i = zext nneg i32 %narrow.i to i64
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom.i.i
@@ -843,7 +843,7 @@ entry:
   %conv.i20 = zext nneg i8 %cond.i.i19 to i32
   %add.i21 = add nsw i32 %increment, %conv.i20
   %9 = tail call i32 @llvm.smax.i32(i32 %add.i21, i32 0)
-  %narrow.i23 = tail call i32 @llvm.umin.i32(i32 %9, i32 15)
+  %9 = tail call i32 @llvm.umin.i32(i32 %9, i32 15)
   %idxprom.i.i24 = zext nneg i32 %narrow.i23 to i64
   %arrayidx.i.i25 = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom.i.i24
   %10 = load i8, ptr %arrayidx.i.i25, align 1, !tbaa !13

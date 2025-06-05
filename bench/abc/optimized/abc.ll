@@ -94761,7 +94761,7 @@ Abc_TtReadHexDigit.exit:                          ; preds = %46, %50, %52
 
 ._crit_edge54:                                    ; preds = %Abc_TtReadHexDigit.exit, %.preheader
   %64 = icmp slt i32 %38, 6
-  br i1 %64, label %65, label %82
+  br i1 %64, label %65, label %83
 
 65:                                               ; preds = %._crit_edge54
   %66 = load i64, ptr %0, align 8, !tbaa !112
@@ -94791,9 +94791,9 @@ Abc_TtReadHexDigit.exit:                          ; preds = %46, %50, %52
   %.5.i.sink = phi i64 [ %.5.i, %65 ], [ %27, %25 ], [ %24, %22 ]
   %.037.ph = phi i32 [ %38, %65 ], [ 1, %25 ], [ 0, %22 ]
   store i64 %.5.i.sink, ptr %0, align 8, !tbaa !112
-  br label %82
+  br label %83
 
-82:                                               ; preds = %.sink.split, %._crit_edge54
+83:                                               ; preds = %.sink.split, %._crit_edge54
   %.037 = phi i32 [ %38, %._crit_edge54 ], [ %.037.ph, %.sink.split ]
   ret i32 %.037
 }

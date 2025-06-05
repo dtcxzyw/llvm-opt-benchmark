@@ -22746,13 +22746,13 @@ _mi_arena_memid_is_suitable.exit.i:               ; preds = %60, %52, %.lr.ph.i
 mi_option_get_clamp.exit.i.i:                     ; preds = %146, %.loopexit
   %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @options, i64 672), align 16, !tbaa !107
   %148 = tail call i64 @llvm.smax.i64(i64 %147, i64 8)
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %148, i64 1024)
+  %149 = tail call i64 @llvm.umin.i64(i64 %148, i64 1024)
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %150 = getelementptr inbounds nuw i8, ptr %3, i64 896
-  br label %151
+  br label %.lr.ph.i.i
 
-151:                                              ; preds = %select.unfold.i.i, %mi_option_get_clamp.exit.i.i
-  %.in.i.i = phi i64 [ %spec.select.i.i, %mi_option_get_clamp.exit.i.i ], [ %152, %select.unfold.i.i ]
+.lr.ph.i.i:                                       ; preds = %select.unfold.i.i, %mi_option_get_clamp.exit.i.i
+  %.in.i.i = phi i64 [ %149, %mi_option_get_clamp.exit.i.i ], [ %152, %select.unfold.i.i ]
   %152 = add nsw i64 %.in.i.i, -1
   %153 = load ptr, ptr %149, align 8, !tbaa !261
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 64
@@ -22760,228 +22760,228 @@ mi_option_get_clamp.exit.i.i:                     ; preds = %146, %.loopexit
   %156 = icmp ult i64 %155, 33554432
   br i1 %156, label %157, label %mi_abandoned_visited_revisit.exit.thread.i.i.i, !prof !49
 
-157:                                              ; preds = %151
-  %158 = load atomic i64, ptr %153 monotonic, align 64
-  %159 = icmp eq i64 %158, 0
+157: ; preds = %151
+  %156 = load atomic i64, ptr %153 monotonic, align 64
+  %157 = icmp eq i64 %156, 0
   br i1 %159, label %mi_segment_try_reclaim.exit.i, label %160
 
-160:                                              ; preds = %157
+158:                                              ; preds = %157
   %161 = atomicrmw xchg ptr %153, i64 0 acq_rel, align 64
-  %.not55.i.i.i.i = icmp eq i64 %161, 0
-  br i1 %.not55.i.i.i.i, label %mi_segment_try_reclaim.exit.i, label %162
+  %160 = icmp eq i64 %161, 0
+  br i1 %160, label %mi_segment_try_reclaim.exit.i, label %161
 
-162:                                              ; preds = %160
+161:                                              ; preds = %158
   %163 = load atomic i64, ptr %154 monotonic, align 64
-  %164 = icmp ult i64 %163, 33554432
-  br i1 %164, label %165, label %.critedge.i.i.i.i.preheader
+  %.not55.i.i.i.i = icmp ult i64 %163, 33554432
+  br i1 %.not55.i.i.i.i, label %165, label %163
 
-.critedge.i.i.i.i.preheader:                      ; preds = %165, %162
+163:                                              ; preds = %165, %162
   br label %.critedge.i.i.i.i
 
-165:                                              ; preds = %162
-  %166 = getelementptr inbounds nuw i8, ptr %153, i64 192
-  %167 = load atomic i64, ptr %166 monotonic, align 64
-  %168 = add nuw nsw i64 %163, 1
-  %169 = and i64 %168, 33554431
-  %170 = or i64 %169, %161
-  %171 = cmpxchg ptr %154, i64 %163, i64 %170 acq_rel acquire, align 64
-  %172 = extractvalue { i64, i1 } %171, 1
-  br i1 %172, label %173, label %.critedge.i.i.i.i.preheader, !prof !266
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds nuw i8, ptr %153, i64 192
+  %168 = load atomic i64, ptr %167 monotonic, align 64
+  %169 = add nuw nsw i64 %163, 1
+  %170 = and i64 %169, 33554431
+  %171 = or i64 %170, %161
+  %172 = cmpxchg ptr %154, i64 %163, i64 %171 acq_rel acquire, align 64
+  %173 = extractvalue { i64, i1 } %172, 1
+  br i1 %173, label %174, label %.critedge.i.i.i.i.preheader, !prof !266
 
-173:                                              ; preds = %165
-  %174 = getelementptr inbounds nuw i8, ptr %153, i64 128
-  %175 = atomicrmw add ptr %174, i64 %167 monotonic, align 64
-  %176 = atomicrmw sub ptr %166, i64 %167 monotonic, align 64
+174:                                              ; preds = %166
+  %175 = getelementptr inbounds nuw i8, ptr %153, i64 128
+  %176 = atomicrmw add ptr %175, i64 %168 monotonic, align 64
+  %177 = atomicrmw sub ptr %167, i64 %168 monotonic, align 64
   br label %mi_abandoned_visited_revisit.exit.thread.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.critedge.i.i.i.i.preheader, %.critedge.i.i.i.i
-  %.050.in.i.i.i.i = phi i64 [ %178, %.critedge.i.i.i.i ], [ %161, %.critedge.i.i.i.i.preheader ]
+  %.050.in.i.i.i.i = phi i64 [ %179, %.critedge.i.i.i.i ], [ %161, %.critedge.i.i.i.i.preheader ]
   %.050.i.i.i.i = inttoptr i64 %.050.in.i.i.i.i to ptr
-  %177 = getelementptr inbounds nuw i8, ptr %.050.i.i.i.i, i64 176
-  %178 = load atomic i64, ptr %177 monotonic, align 8
-  %.not.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i.i, label %179, label %.critedge.i.i.i.i, !llvm.loop !267
+  %178 = getelementptr inbounds nuw i8, ptr %.050.i.i.i.i, i64 176
+  %179 = load atomic i64, ptr %178 monotonic, align 8
+  %.not.i.i.i.i = icmp eq i64 %179, 0
+  br i1 %.not.i.i.i.i, label %180, label %.critedge.i.i.i.i, !llvm.loop !267
 
-179:                                              ; preds = %.critedge.i.i.i.i
-  %180 = getelementptr inbounds nuw i8, ptr %.050.i.i.i.i, i64 176
-  %181 = load atomic i64, ptr %154 monotonic, align 64
-  %182 = getelementptr inbounds nuw i8, ptr %153, i64 192
-  br label %183
+180:                                              ; preds = %.critedge.i.i.i.i
+  %181 = getelementptr inbounds nuw i8, ptr %.050.i.i.i.i, i64 176
+  %182 = load atomic i64, ptr %154 monotonic, align 64
+  %183 = getelementptr inbounds nuw i8, ptr %153, i64 192
+  br label %184
 
-183:                                              ; preds = %183, %179
-  %.051.i.i.i.i = phi i64 [ %181, %179 ], [ %191, %183 ]
-  %184 = load atomic i64, ptr %182 monotonic, align 64
-  %185 = and i64 %.051.i.i.i.i, -33554432
-  store atomic i64 %185, ptr %180 release, align 8
-  %186 = add i64 %.051.i.i.i.i, 1
-  %187 = and i64 %186, 33554431
-  %188 = or i64 %187, %161
-  %189 = cmpxchg weak ptr %154, i64 %.051.i.i.i.i, i64 %188 release monotonic, align 64
-  %190 = extractvalue { i64, i1 } %189, 1
-  %191 = extractvalue { i64, i1 } %189, 0
-  br i1 %190, label %192, label %183, !prof !266, !llvm.loop !268
+184:                                              ; preds = %184, %180
+  %.051.i.i.i.i = phi i64 [ %182, %179 ], [ %192, %183 ]
+  %185 = load atomic i64, ptr %183 monotonic, align 64
+  %186 = and i64 %.051.i.i.i.i, -33554432
+  store atomic i64 %186, ptr %181 release, align 8
+  %187 = add i64 %.051.i.i.i.i, 1
+  %188 = and i64 %187, 33554431
+  %189 = or i64 %188, %161
+  %190 = cmpxchg weak ptr %154, i64 %.051.i.i.i.i, i64 %189 release monotonic, align 64
+  %191 = extractvalue { i64, i1 } %190, 1
+  %192 = extractvalue { i64, i1 } %190, 0
+  br i1 %191, label %193, label %184, !prof !266, !llvm.loop !268
 
-192:                                              ; preds = %183
-  %193 = getelementptr inbounds nuw i8, ptr %153, i64 128
-  %194 = atomicrmw add ptr %193, i64 %184 monotonic, align 64
-  %195 = atomicrmw sub ptr %182, i64 %184 monotonic, align 64
+193:                                              ; preds = %184
+  %194 = getelementptr inbounds nuw i8, ptr %153, i64 128
+  %195 = atomicrmw add ptr %194, i64 %185 monotonic, align 64
+  %196 = atomicrmw sub ptr %183, i64 %185 monotonic, align 64
   br label %mi_abandoned_visited_revisit.exit.thread.i.i.i
 
-mi_abandoned_visited_revisit.exit.thread.i.i.i:   ; preds = %192, %173, %151
-  %196 = getelementptr inbounds nuw i8, ptr %153, i64 256
-  %197 = atomicrmw add ptr %196, i64 1 monotonic, align 64
-  %198 = load atomic i64, ptr %154 acquire, align 64
-  br label %199
+mi_abandoned_visited_revisit.exit.thread.i.i.i:   ; preds = %193, %174, %151
+  %197 = getelementptr inbounds nuw i8, ptr %153, i64 256
+  %198 = atomicrmw add ptr %197, i64 1 monotonic, align 64
+  %199 = load atomic i64, ptr %154 acquire, align 64
+  br label %200
 
-199:                                              ; preds = %202, %mi_abandoned_visited_revisit.exit.thread.i.i.i
-  %.029.i.i.i = phi i64 [ %198, %mi_abandoned_visited_revisit.exit.thread.i.i.i ], [ %211, %202 ]
-  %200 = and i64 %.029.i.i.i, -33554432
-  %.not.i.i.i = icmp eq i64 %200, 0
-  br i1 %.not.i.i.i, label %mi_abandoned_pop.exit.thread41.i.i, label %202
+200:                                              ; preds = %203, %mi_abandoned_visited_revisit.exit.thread.i.i.i
+  %.029.i.i.i = phi i64 [ %199, %mi_abandoned_visited_revisit.exit.thread.i.i.i ], [ %212, %202 ]
+  %201 = and i64 %.029.i.i.i, -33554432
+  %.not.i.i.i = icmp eq i64 %201, 0
+  br i1 %.not.i.i.i, label %mi_abandoned_pop.exit.thread41.i.i, label %203
 
-mi_abandoned_pop.exit.thread41.i.i:               ; preds = %199
-  %201 = atomicrmw sub ptr %196, i64 1 monotonic, align 64
+mi_abandoned_pop.exit.thread41.i.i:               ; preds = %200
+  %202 = atomicrmw sub ptr %197, i64 1 monotonic, align 64
   br label %mi_segment_try_reclaim.exit.i
 
-202:                                              ; preds = %199
-  %203 = inttoptr i64 %200 to ptr
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 176
-  %205 = load atomic i64, ptr %204 monotonic, align 16
-  %206 = add i64 %.029.i.i.i, 1
-  %207 = and i64 %206, 33554431
-  %208 = or i64 %205, %207
-  %209 = cmpxchg weak ptr %154, i64 %.029.i.i.i, i64 %208 acq_rel acquire, align 64
-  %210 = extractvalue { i64, i1 } %209, 1
-  %211 = extractvalue { i64, i1 } %209, 0
-  br i1 %210, label %212, label %199, !llvm.loop !269
+203:                                              ; preds = %200
+  %204 = inttoptr i64 %201 to ptr
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 176
+  %206 = load atomic i64, ptr %205 monotonic, align 16
+  %207 = add i64 %.029.i.i.i, 1
+  %208 = and i64 %207, 33554431
+  %209 = or i64 %206, %208
+  %210 = cmpxchg weak ptr %154, i64 %.029.i.i.i, i64 %209 acq_rel acquire, align 64
+  %211 = extractvalue { i64, i1 } %210, 1
+  %212 = extractvalue { i64, i1 } %210, 0
+  br i1 %211, label %213, label %200, !llvm.loop !269
 
-212:                                              ; preds = %202
-  %213 = getelementptr inbounds nuw i8, ptr %203, i64 176
-  %214 = atomicrmw sub ptr %196, i64 1 monotonic, align 64
-  store atomic i64 0, ptr %213 release, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %153, i64 128
-  %216 = atomicrmw sub ptr %215, i64 1 monotonic, align 64
-  %217 = getelementptr inbounds nuw i8, ptr %203, i64 200
-  %218 = load i64, ptr %217, align 8, !tbaa !264
-  %219 = add i64 %218, 1
-  store i64 %219, ptr %217, align 8, !tbaa !264
-  %.0.i37.sroa.538.0..0.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %203, i64 20
+213:                                              ; preds = %203
+  %214 = getelementptr inbounds nuw i8, ptr %204, i64 176
+  %215 = atomicrmw sub ptr %197, i64 1 monotonic, align 64
+  store atomic i64 0, ptr %214 release, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %153, i64 128
+  %217 = atomicrmw sub ptr %216, i64 1 monotonic, align 64
+  %218 = getelementptr inbounds nuw i8, ptr %204, i64 200
+  %219 = load i64, ptr %218, align 8, !tbaa !264
+  %220 = add i64 %219, 1
+  store i64 %220, ptr %218, align 8, !tbaa !264
+  %.0.i37.sroa.538.0..0.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %204, i64 20
   %.0.i37.sroa.538.0.copyload.i.i = load i32, ptr %.0.i37.sroa.538.0..0.i.sroa_idx.i.i, align 4
-  %220 = load i32, ptr %12, align 8, !tbaa !184
-  %221 = icmp eq i32 %.0.i37.sroa.538.0.copyload.i.i, 6
-  br i1 %221, label %222, label %226
+  %221 = load i32, ptr %12, align 8, !tbaa !184
+  %222 = icmp eq i32 %.0.i37.sroa.538.0.copyload.i.i, 6
+  br i1 %222, label %223, label %227
 
-222:                                              ; preds = %212
-  %.0.i37.sroa.4.0..0.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %203, i64 12
+223:                                              ; preds = %213
+  %.0.i37.sroa.4.0..0.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %204, i64 12
   %.0.i37.sroa.4.0.copyload.i.i = load i8, ptr %.0.i37.sroa.4.0..0.i.sroa_idx.i.i, align 4
-  %.0.i37.sroa.3.0..0.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %.0.i37.sroa.3.0..0.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %204, i64 8
   %.0.i37.sroa.3.0.copyload.i.i = load i32, ptr %.0.i37.sroa.3.0..0.i.sroa_idx.i.i, align 8
-  %223 = trunc nuw i8 %.0.i37.sroa.4.0.copyload.i.i to i1
-  %.not.i.i.i.i.i = xor i1 %223, true
-  %224 = icmp eq i32 %220, 0
-  %or.cond.i.i.i.i.i = and i1 %224, %.not.i.i.i.i.i
-  %225 = icmp eq i32 %.0.i37.sroa.3.0.copyload.i.i, %220
-  %spec.select.i.i.i.i.i = or i1 %225, %or.cond.i.i.i.i.i
+  %224 = trunc nuw i8 %.0.i37.sroa.4.0.copyload.i.i to i1
+  %.not.i.i.i.i.i = xor i1 %224, true
+  %225 = icmp eq i32 %221, 0
+  %or.cond.i.i.i.i.i = and i1 %225, %.not.i.i.i.i.i
+  %226 = icmp eq i32 %.0.i37.sroa.3.0.copyload.i.i, %221
+  %spec.select.i.i.i.i.i = or i1 %226, %or.cond.i.i.i.i.i
   br label %_mi_heap_memid_is_suitable.exit.i.i
 
-226:                                              ; preds = %212
-  %227 = icmp eq i32 %220, 0
+227:                                              ; preds = %213
+  %228 = icmp eq i32 %221, 0
   br label %_mi_heap_memid_is_suitable.exit.i.i
 
-_mi_heap_memid_is_suitable.exit.i.i:              ; preds = %226, %222
-  %.0.i.i.i.i22 = phi i1 [ %spec.select.i.i.i.i.i, %222 ], [ %227, %226 ]
-  %228 = tail call fastcc zeroext i1 @mi_segment_check_free(ptr noundef %203, i64 noundef range(i64 0, 281474976710656) %11, i64 noundef range(i64 0, 16777217) %2, ptr noundef %3)
-  %229 = getelementptr inbounds nuw i8, ptr %203, i64 208
-  %230 = load i64, ptr %229, align 8, !tbaa !61
-  %231 = icmp eq i64 %230, 0
-  br i1 %231, label %232, label %234
+_mi_heap_memid_is_suitable.exit.i.i:              ; preds = %227, %223
+  %.0.i.i.i.i23 = phi i1 [ %spec.select.i.i.i.i.i, %222 ], [ %228, %226 ]
+  %229 = tail call fastcc zeroext i1 @mi_segment_check_free(ptr noundef %204, i64 noundef range(i64 0, 281474976710656) %11, i64 noundef range(i64 0, 16777217) %2, ptr noundef %3)
+  %230 = getelementptr inbounds nuw i8, ptr %204, i64 208
+  %231 = load i64, ptr %230, align 8, !tbaa !61
+  %232 = icmp eq i64 %231, 0
+  br i1 %232, label %233, label %235
 
-232:                                              ; preds = %_mi_heap_memid_is_suitable.exit.i.i
-  %233 = tail call fastcc ptr @mi_segment_reclaim(ptr noundef %203, ptr noundef nonnull %0, i64 noundef 0, ptr noundef null, ptr noundef %3)
+233:                                              ; preds = %_mi_heap_memid_is_suitable.exit.i.i
+  %234 = tail call fastcc ptr @mi_segment_reclaim(ptr noundef %204, ptr noundef nonnull %0, i64 noundef 0, ptr noundef null, ptr noundef %3)
   br label %select.unfold.i.i
 
-234:                                              ; preds = %_mi_heap_memid_is_suitable.exit.i.i
-  %or.cond.i.i = select i1 %228, i1 %.0.i.i.i.i22, i1 false
-  br i1 %or.cond.i.i, label %.thread.i.i, label %237
+235:                                              ; preds = %_mi_heap_memid_is_suitable.exit.i.i
+  %or.cond.i.i = select i1 %229, i1 %.0.i.i.i.i23, i1 false
+  br i1 %or.cond.i.i, label %.thread.i.i, label %238
 
-.thread.i.i:                                      ; preds = %234
-  %235 = call fastcc ptr @mi_segment_reclaim(ptr noundef %203, ptr noundef nonnull %0, i64 noundef range(i64 0, 16777217) %2, ptr noundef nonnull %6, ptr noundef %3)
-  %236 = icmp eq ptr %235, null
+.thread.i.i:                                      ; preds = %235
+  %236 = call fastcc ptr @mi_segment_reclaim(ptr noundef %204, ptr noundef nonnull %0, i64 noundef range(i64 0, 16777217) %2, ptr noundef nonnull %6, ptr noundef %3)
+  %237 = icmp eq ptr %236, null
   br label %mi_segment_try_reclaim.exit.i
 
-237:                                              ; preds = %234
-  %238 = load i64, ptr %217, align 8, !tbaa !264
-  %239 = icmp ugt i64 %238, 3
-  %or.cond3.i.i = select i1 %239, i1 %.0.i.i.i.i22, i1 false
-  br i1 %or.cond3.i.i, label %240, label %242
+238:                                              ; preds = %235
+  %239 = load i64, ptr %218, align 8, !tbaa !264
+  %240 = icmp ugt i64 %239, 3
+  %or.cond3.i.i = select i1 %240, i1 %.0.i.i.i.i23, i1 false
+  br i1 %or.cond3.i.i, label %241, label %243
 
-240:                                              ; preds = %237
-  %241 = tail call fastcc ptr @mi_segment_reclaim(ptr noundef %203, ptr noundef nonnull %0, i64 noundef 0, ptr noundef null, ptr noundef %3)
+241:                                              ; preds = %238
+  %242 = tail call fastcc ptr @mi_segment_reclaim(ptr noundef %204, ptr noundef nonnull %0, i64 noundef 0, ptr noundef null, ptr noundef %3)
   br label %select.unfold.i.i
 
-242:                                              ; preds = %237
-  %243 = load ptr, ptr %150, align 8, !tbaa !182
-  tail call fastcc void @mi_segment_try_purge(ptr noundef nonnull %203, i1 noundef zeroext true, ptr noundef %243)
-  %244 = load ptr, ptr %149, align 8, !tbaa !261
-  %245 = load atomic i64, ptr %244 monotonic, align 64
-  br label %246
+243:                                              ; preds = %238
+  %244 = load ptr, ptr %150, align 8, !tbaa !182
+  tail call fastcc void @mi_segment_try_purge(ptr noundef nonnull %204, i1 noundef zeroext true, ptr noundef %244)
+  %245 = load ptr, ptr %149, align 8, !tbaa !261
+  %246 = load atomic i64, ptr %245 monotonic, align 64
+  br label %247
 
-246:                                              ; preds = %246, %242
-  %.0.in.i.i.i = phi i64 [ %245, %242 ], [ %249, %246 ]
-  store atomic i64 %.0.in.i.i.i, ptr %213 release, align 8
-  %247 = cmpxchg weak ptr %244, i64 %.0.in.i.i.i, i64 %200 release monotonic, align 64
-  %248 = extractvalue { i64, i1 } %247, 1
-  %249 = extractvalue { i64, i1 } %247, 0
-  br i1 %248, label %mi_abandoned_visited_push.exit.i.i, label %246, !llvm.loop !273
+247:                                              ; preds = %247, %243
+  %.0.in.i.i.i = phi i64 [ %246, %242 ], [ %250, %246 ]
+  store atomic i64 %.0.in.i.i.i, ptr %214 release, align 8
+  %248 = cmpxchg weak ptr %245, i64 %.0.in.i.i.i, i64 %201 release monotonic, align 64
+  %249 = extractvalue { i64, i1 } %248, 1
+  %250 = extractvalue { i64, i1 } %248, 0
+  br i1 %249, label %mi_abandoned_visited_push.exit.i.i, label %247, !llvm.loop !273
 
-mi_abandoned_visited_push.exit.i.i:               ; preds = %246
-  %250 = getelementptr inbounds nuw i8, ptr %244, i64 192
-  %251 = atomicrmw add ptr %250, i64 1 monotonic, align 64
+mi_abandoned_visited_push.exit.i.i:               ; preds = %247
+  %251 = getelementptr inbounds nuw i8, ptr %245, i64 192
+  %252 = atomicrmw add ptr %251, i64 1 monotonic, align 64
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %mi_abandoned_visited_push.exit.i.i, %240, %232
-  %252 = icmp sgt i64 %.in.i.i, 1
-  br i1 %252, label %151, label %mi_segment_try_reclaim.exit.i, !llvm.loop !283
+select.unfold.i.i:                                ; preds = %mi_abandoned_visited_push.exit.i.i, %241, %233
+  %253 = icmp sgt i64 %.in.i.i, 1
+  br i1 %253, label %151, label %mi_segment_try_reclaim.exit.i, !llvm.loop !283
 
 mi_segment_try_reclaim.exit.i:                    ; preds = %select.unfold.i.i, %160, %157, %.thread.i.i, %mi_abandoned_pop.exit.thread41.i.i
-  %.2.i.i = phi i1 [ true, %mi_abandoned_pop.exit.thread41.i.i ], [ %236, %.thread.i.i ], [ true, %157 ], [ true, %160 ], [ true, %select.unfold.i.i ]
-  %253 = load i8, ptr %6, align 1, !tbaa !117, !range !38, !noundef !39
-  %254 = trunc nuw i8 %253 to i1
-  br i1 %254, label %mi_segment_reclaim_or_alloc.exit.thread, label %255
+  %.2.i.i = phi i1 [ true, %mi_abandoned_pop.exit.thread41.i.i ], [ %237, %.thread.i.i ], [ true, %157 ], [ true, %160 ], [ true, %select.unfold.i.i ]
+  %254 = load i8, ptr %6, align 1, !tbaa !117, !range !38, !noundef !39
+  %255 = trunc nuw i8 %254 to i1
+  br i1 %255, label %mi_segment_reclaim_or_alloc.exit.thread, label %256
 
 mi_segment_reclaim_or_alloc.exit.thread:          ; preds = %mi_segment_try_reclaim.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #55
-  br label %266
+  br label %267
 
-255:                                              ; preds = %mi_segment_try_reclaim.exit.i
-  br i1 %.2.i.i, label %mi_segment_reclaim_or_alloc.exit, label %mi_segment_reclaim_or_alloc.exit.thread26
+256:                                              ; preds = %mi_segment_try_reclaim.exit.i
+  br i1 %.2.i.i, label %mi_segment_reclaim_or_alloc.exit, label %mi_segment_reclaim_or_alloc.exit.thread27
 
-mi_segment_reclaim_or_alloc.exit.thread26:        ; preds = %255
+mi_segment_reclaim_or_alloc.exit.thread27:        ; preds = %256
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #55
-  br label %259
+  br label %260
 
-mi_segment_reclaim_or_alloc.exit:                 ; preds = %255
-  %256 = load i32, ptr %12, align 8, !tbaa !184
-  %257 = call fastcc ptr @mi_segment_alloc(i64 noundef 0, i64 noundef 0, i32 noundef %256, ptr noundef %3, ptr noundef readonly %4, ptr noundef null)
+mi_segment_reclaim_or_alloc.exit:                 ; preds = %256
+  %257 = load i32, ptr %12, align 8, !tbaa !184
+  %258 = call fastcc ptr @mi_segment_alloc(i64 noundef 0, i64 noundef 0, i32 noundef %257, ptr noundef %3, ptr noundef readonly %4, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #55
-  %258 = icmp eq ptr %257, null
-  br i1 %258, label %266, label %259
+  %259 = icmp eq ptr %258, null
+  br i1 %259, label %267, label %260
 
-259:                                              ; preds = %mi_segment_reclaim_or_alloc.exit.thread26, %mi_segment_reclaim_or_alloc.exit
-  %260 = call fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %266
+260:                                              ; preds = %mi_segment_reclaim_or_alloc.exit.thread27, %mi_segment_reclaim_or_alloc.exit
+  %261 = call fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %267
 
 mi_segments_page_find_and_allocate.exit:          ; preds = %mi_span_queue_delete.exit._crit_edge.i
-  %261 = ptrtoint ptr %138 to i64
-  %262 = add i64 %261, -1
-  %263 = and i64 %262, -33554432
-  %264 = inttoptr i64 %263 to ptr
-  %265 = load ptr, ptr %137, align 8, !tbaa !182
-  tail call fastcc void @mi_segment_try_purge(ptr noundef %264, i1 noundef zeroext false, ptr noundef %265)
-  br label %266
+  %262 = ptrtoint ptr %138 to i64
+  %263 = add i64 %262, -1
+  %264 = and i64 %263, -33554432
+  %265 = inttoptr i64 %264 to ptr
+  %266 = load ptr, ptr %137, align 8, !tbaa !182
+  tail call fastcc void @mi_segment_try_purge(ptr noundef %265, i1 noundef zeroext false, ptr noundef %266)
+  br label %267
 
-266:                                              ; preds = %mi_segment_reclaim_or_alloc.exit.thread, %mi_segment_reclaim_or_alloc.exit, %mi_segments_page_find_and_allocate.exit, %259
-  %.0 = phi ptr [ %260, %259 ], [ %138, %mi_segments_page_find_and_allocate.exit ], [ null, %mi_segment_reclaim_or_alloc.exit ], [ null, %mi_segment_reclaim_or_alloc.exit.thread ]
+267:                                              ; preds = %mi_segment_reclaim_or_alloc.exit.thread, %mi_segment_reclaim_or_alloc.exit, %mi_segments_page_find_and_allocate.exit, %260
+  %.0 = phi ptr [ %261, %259 ], [ %138, %mi_segments_page_find_and_allocate.exit ], [ null, %mi_segment_reclaim_or_alloc.exit ], [ null, %mi_segment_reclaim_or_alloc.exit.thread ]
   ret ptr %.0
 }
 

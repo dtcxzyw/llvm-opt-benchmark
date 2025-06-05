@@ -2086,9 +2086,9 @@ define hidden noundef i8 @_ZN10wasmi_core4simd16narrow_i16_to_i817habf0952e05f66
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN10wasmi_core4simd16narrow_u16_to_u817hafdf4f0df3015b56E(i16 noundef %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = tail call i16 @llvm.smax.i16(i16 %0, i16 0)
-  %.sroa.0.0.in.sroa.speculated.i = tail call i16 @llvm.umin.i16(i16 %2, i16 255)
-  %3 = trunc nuw i16 %.sroa.0.0.in.sroa.speculated.i to i8
-  ret i8 %3
+  %3 = tail call i16 @llvm.umin.i16(i16 %2, i16 255)
+  %4 = trunc nuw i16 %3 to i8
+  ret i8 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2102,9 +2102,9 @@ define hidden noundef i16 @_ZN10wasmi_core4simd17narrow_i32_to_i1617ha2a8f108bd5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN10wasmi_core4simd17narrow_u32_to_u1617hf926f3e87aa78a32E(i32 noundef %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
-  %.sroa.0.0.in.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %2, i32 65535)
-  %3 = trunc nuw i32 %.sroa.0.0.in.sroa.speculated.i to i16
-  ret i16 %3
+  %3 = tail call i32 @llvm.umin.i32(i32 %2, i32 65535)
+  %4 = trunc nuw i32 %3 to i16
+  ret i16 %4
 }
 
 ; Function Attrs: nonlazybind uwtable

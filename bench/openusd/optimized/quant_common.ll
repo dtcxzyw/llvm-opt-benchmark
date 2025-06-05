@@ -20,25 +20,25 @@ define hidden signext i16 @av1_dc_quant_QTX(i32 noundef %0, i32 noundef %1, i32 
   %6 = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %5, i32 255)
   switch i32 %2, label %12 [
     i32 8, label %.sink.split
-    i32 10, label %7
-    i32 12, label %8
+    i32 10, label %8
+    i32 12, label %9
   ]
-
-7:                                                ; preds = %3
-  br label %.sink.split
 
 8:                                                ; preds = %3
   br label %.sink.split
 
-.sink.split:                                      ; preds = %3, %7, %8
-  %dc_qlookup_12_QTX.sink = phi ptr [ @dc_qlookup_12_QTX, %8 ], [ @dc_qlookup_10_QTX, %7 ], [ @dc_qlookup_QTX, %3 ]
-  %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw [256 x i16], ptr %dc_qlookup_12_QTX.sink, i64 0, i64 %9
-  %11 = load i16, ptr %10, align 2
-  br label %12
+9:                                                ; preds = %3
+  br label %.sink.split
 
-12:                                               ; preds = %.sink.split, %3
-  %.0 = phi i16 [ -1, %3 ], [ %11, %.sink.split ]
+.sink.split:                                      ; preds = %3, %8, %9
+  %dc_qlookup_12_QTX.sink = phi ptr [ @dc_qlookup_12_QTX, %8 ], [ @dc_qlookup_10_QTX, %7 ], [ @dc_qlookup_QTX, %3 ]
+  %10 = zext nneg i32 %6 to i64
+  %11 = getelementptr inbounds nuw [256 x i16], ptr %dc_qlookup_12_QTX.sink, i64 0, i64 %10
+  %12 = load i16, ptr %11, align 2
+  br label %13
+
+13:                                               ; preds = %.sink.split, %3
+  %.0 = phi i16 [ -1, %3 ], [ %12, %.sink.split ]
   ret i16 %.0
 }
 
@@ -49,25 +49,25 @@ define hidden signext i16 @av1_ac_quant_QTX(i32 noundef %0, i32 noundef %1, i32 
   %6 = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %5, i32 255)
   switch i32 %2, label %12 [
     i32 8, label %.sink.split
-    i32 10, label %7
-    i32 12, label %8
+    i32 10, label %8
+    i32 12, label %9
   ]
-
-7:                                                ; preds = %3
-  br label %.sink.split
 
 8:                                                ; preds = %3
   br label %.sink.split
 
-.sink.split:                                      ; preds = %3, %7, %8
-  %ac_qlookup_12_QTX.sink = phi ptr [ @ac_qlookup_12_QTX, %8 ], [ @ac_qlookup_10_QTX, %7 ], [ @ac_qlookup_QTX, %3 ]
-  %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw [256 x i16], ptr %ac_qlookup_12_QTX.sink, i64 0, i64 %9
-  %11 = load i16, ptr %10, align 2
-  br label %12
+9:                                                ; preds = %3
+  br label %.sink.split
 
-12:                                               ; preds = %.sink.split, %3
-  %.0 = phi i16 [ -1, %3 ], [ %11, %.sink.split ]
+.sink.split:                                      ; preds = %3, %8, %9
+  %ac_qlookup_12_QTX.sink = phi ptr [ @ac_qlookup_12_QTX, %8 ], [ @ac_qlookup_10_QTX, %7 ], [ @ac_qlookup_QTX, %3 ]
+  %10 = zext nneg i32 %6 to i64
+  %11 = getelementptr inbounds nuw [256 x i16], ptr %ac_qlookup_12_QTX.sink, i64 0, i64 %10
+  %12 = load i16, ptr %11, align 2
+  br label %13
+
+13:                                               ; preds = %.sink.split, %3
+  %.0 = phi i16 [ -1, %3 ], [ %12, %.sink.split ]
   ret i16 %.0
 }
 
@@ -97,7 +97,7 @@ segfeature_active.exit:                           ; preds = %3
   br label %segfeature_active.exit.thread
 
 segfeature_active.exit.thread:                    ; preds = %3, %segfeature_active.exit, %10
-  %.0 = phi i32 [ %17, %10 ], [ %2, %segfeature_active.exit ], [ %2, %3 ]
+  %.0 = phi i32 [ %18, %10 ], [ %2, %segfeature_active.exit ], [ %2, %3 ]
   ret i32 %.0
 }
 

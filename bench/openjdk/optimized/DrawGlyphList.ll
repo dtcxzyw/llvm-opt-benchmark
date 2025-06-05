@@ -649,12 +649,12 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   %10 = alloca %struct._CompositeInfo, align 4
   %11 = tail call ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) #10
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %181, label %13
+  br i1 %12, label %182, label %13
 
 13:                                               ; preds = %7
   %14 = tail call ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %181, label %16
+  br i1 %15, label %182, label %16
 
 16:                                               ; preds = %13
   %17 = tail call i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %2) #10
@@ -834,7 +834,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %100 = icmp sgt i32 %97, %96
   %101 = icmp sgt i32 %99, %98
   %or.cond.i = select i1 %100, i1 %101, i1 false
-  br i1 %or.cond.i, label %102, label %178
+  br i1 %or.cond.i, label %102, label %179
 
 102:                                              ; preds = %95
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -842,8 +842,8 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %105 = load i32, ptr %14, align 8
   %106 = zext i8 %24 to i32
   %107 = call i32 @llvm.smax.i32(i32 %19, i32 100)
-  %.0.i.i = call i32 @llvm.umin.i32(i32 %107, i32 250)
-  %108 = add nsw i32 %.0.i.i, -100
+  %108 = call i32 @llvm.umin.i32(i32 %107, i32 250)
+  %108 = add nsw i32 %108, -100
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw [151 x ptr], ptr @lcdGammaLUT, i64 0, i64 %109
   %111 = load ptr, ptr %110, align 8
@@ -859,7 +859,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %116 = icmp slt i32 %19, 101
   br i1 %116, label %.preheader.i.i.i, label %122
 
-.preheader.i.i.i:                                 ; preds = %112, %.preheader.i.i.i
+.preheader.i.i.i:; preds = %112, %.preheader.i.i.i
   %indvars.iv36.i.i.i = phi i64 [ %indvars.iv.next37.i.i.i, %.preheader.i.i.i ], [ 0, %112 ]
   %117 = trunc i64 %indvars.iv36.i.i.i to i8
   %118 = load ptr, ptr %110, align 8
@@ -872,10 +872,10 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %exitcond39.not.i.i.i = icmp eq i64 %indvars.iv.next37.i.i.i, 256
   br i1 %exitcond39.not.i.i.i, label %getLCDGammaLUT.exit.i, label %.preheader.i.i.i, !llvm.loop !10
 
-122:                                              ; preds = %112
-  %123 = uitofp nneg i32 %.0.i.i to double
-  %124 = fdiv double %123, 1.000000e+02
-  %125 = fdiv double 1.000000e+00, %124
+123:                                              ; preds = %112
+  %124 = uitofp nneg i32 %.0.i.i to double
+  %125 = fdiv double %124, 1.000000e+02
+  %126 = fdiv double 1.000000e+00, %125
   store i8 0, ptr %113, align 1
   store i8 0, ptr %114, align 1
   %126 = getelementptr inbounds nuw i8, ptr %113, i64 255
@@ -884,7 +884,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   store i8 -1, ptr %127, align 1
   br label %128
 
-128:                                              ; preds = %128, %122
+128:; preds = %128, %122
   %indvars.iv.i.i.i = phi i64 [ 1, %122 ], [ %indvars.iv.next.i.i.i, %128 ]
   %129 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %130 = uitofp nneg i32 %129 to double
@@ -906,13 +906,13 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   br i1 %exitcond.not.i.i.i, label %getLCDGammaLUT.exit.i, label %128, !llvm.loop !11
 
 getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.i.i, %102
-  %142 = load ptr, ptr %110, align 8
-  %143 = getelementptr inbounds nuw [151 x ptr], ptr @lcdInvGammaLUT, i64 0, i64 %109
-  %144 = load ptr, ptr %143, align 8
-  %.not.i70.i = icmp eq ptr %144, null
-  br i1 %.not.i70.i, label %145, label %getInvLCDGammaLUT.exit.i
+  %143 = load ptr, ptr %110, align 8
+  %144 = getelementptr inbounds nuw [151 x ptr], ptr @lcdInvGammaLUT, i64 0, i64 %109
+  %145 = load ptr, ptr %144, align 8
+  %.not.i70.i = icmp eq ptr %145, null
+  br i1 %.not.i70.i, label %146, label %getInvLCDGammaLUT.exit.i
 
-145:                                              ; preds = %getLCDGammaLUT.exit.i
+146:                                              ; preds = %getLCDGammaLUT.exit.i
   %146 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
   store ptr %146, ptr %110, align 8
   %147 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
@@ -920,7 +920,7 @@ getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.
   %148 = icmp slt i32 %19, 101
   br i1 %148, label %.preheader.i.i74.i, label %154
 
-.preheader.i.i74.i:                               ; preds = %145, %.preheader.i.i74.i
+.preheader.i.i74.i:; preds = %145, %.preheader.i.i74.i
   %indvars.iv36.i.i75.i = phi i64 [ %indvars.iv.next37.i.i76.i, %.preheader.i.i74.i ], [ 0, %145 ]
   %149 = trunc i64 %indvars.iv36.i.i75.i to i8
   %150 = load ptr, ptr %110, align 8
@@ -933,10 +933,10 @@ getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.
   %exitcond39.not.i.i77.i = icmp eq i64 %indvars.iv.next37.i.i76.i, 256
   br i1 %exitcond39.not.i.i77.i, label %getInvLCDGammaLUT.exit.i, label %.preheader.i.i74.i, !llvm.loop !10
 
-154:                                              ; preds = %145
-  %155 = uitofp nneg i32 %.0.i.i to double
-  %156 = fdiv double %155, 1.000000e+02
-  %157 = fdiv double 1.000000e+00, %156
+155:                                              ; preds = %146
+  %156 = uitofp nneg i32 %.0.i.i to double
+  %157 = fdiv double %156, 1.000000e+02
+  %158 = fdiv double 1.000000e+00, %157
   store i8 0, ptr %146, align 1
   store i8 0, ptr %147, align 1
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 255
@@ -945,7 +945,7 @@ getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.
   store i8 -1, ptr %159, align 1
   br label %160
 
-160:                                              ; preds = %160, %154
+160:; preds = %160, %154
   %indvars.iv.i.i71.i = phi i64 [ 1, %154 ], [ %indvars.iv.next.i.i72.i, %160 ]
   %161 = trunc nuw nsw i64 %indvars.iv.i.i71.i to i32
   %162 = uitofp nneg i32 %161 to double
@@ -967,35 +967,35 @@ getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.
   br i1 %exitcond.not.i.i73.i, label %getInvLCDGammaLUT.exit.i, label %160, !llvm.loop !11
 
 getInvLCDGammaLUT.exit.i:                         ; preds = %160, %.preheader.i.i74.i, %getLCDGammaLUT.exit.i
-  %174 = load ptr, ptr %143, align 8
-  call void %26(ptr noundef nonnull %9, ptr noundef %104, i32 noundef %105, i32 noundef %17, i32 noundef %18, i32 noundef %96, i32 noundef %98, i32 noundef %97, i32 noundef %99, i32 noundef %106, ptr noundef %142, ptr noundef %174, ptr noundef nonnull %11, ptr noundef nonnull %10) #10
-  %175 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %176 = load ptr, ptr %175, align 8
-  %.not67.i = icmp eq ptr %176, null
-  br i1 %.not67.i, label %178, label %177
+  %175 = load ptr, ptr %144, align 8
+  call void %26(ptr noundef nonnull %9, ptr noundef %104, i32 noundef %105, i32 noundef %17, i32 noundef %18, i32 noundef %96, i32 noundef %98, i32 noundef %97, i32 noundef %99, i32 noundef %106, ptr noundef %143, ptr noundef %175, ptr noundef nonnull %11, ptr noundef nonnull %10) #10
+  %176 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %177 = load ptr, ptr %176, align 8
+  %.not67.i = icmp eq ptr %177, null
+  br i1 %.not67.i, label %179, label %178
 
-177:                                              ; preds = %getInvLCDGammaLUT.exit.i
+178:                                              ; preds = %getInvLCDGammaLUT.exit.i
   call void %176(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9) #10
-  br label %178
+  br label %179
 
-178:                                              ; preds = %177, %getInvLCDGammaLUT.exit.i, %95
-  %179 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %180 = load ptr, ptr %179, align 8
-  %.not68.i = icmp eq ptr %180, null
+179:                                              ; preds = %178, %getInvLCDGammaLUT.exit.i, %95
+  %180 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %181 = load ptr, ptr %180, align 8
+  %.not68.i = icmp eq ptr %181, null
   br i1 %.not68.i, label %drawGlyphListLCD.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %178, %92, %84
-  %.sink.i = phi ptr [ %86, %84 ], [ %94, %92 ], [ %180, %178 ]
+.sink.split.i:                                    ; preds = %179, %92, %84
+  %.sink.i = phi ptr [ %86, %84 ], [ %94, %92 ], [ %181, %178 ]
   call void %.sink.i(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9) #10
   br label %drawGlyphListLCD.exit
 
-drawGlyphListLCD.exit:                            ; preds = %16, %35, %40, %44, %84, %92, %178, %.sink.split.i
+drawGlyphListLCD.exit:                            ; preds = %16, %35, %40, %44, %84, %92, %179, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @free(ptr noundef %14) #10
-  br label %181
+  br label %182
 
-181:                                              ; preds = %13, %7, %drawGlyphListLCD.exit
+182:                                              ; preds = %13, %7, %drawGlyphListLCD.exit
   ret void
 }
 

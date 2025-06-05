@@ -1301,12 +1301,12 @@ define void @ff_init_block_index(ptr noundef captures(none) initializes((3364, 3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_set_qscale(ptr noundef captures(none) initializes((8, 16), (1472, 1480)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %.0 = tail call i32 @llvm.umin.i32(i32 %3, i32 31)
+  %4 = tail call i32 @llvm.umin.i32(i32 %3, i32 31)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 %.0, ptr %4, align 8, !tbaa !131
+  store i32 %4, ptr %4, align 8, !tbaa !131
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %6 = load ptr, ptr %5, align 8, !tbaa !63
-  %7 = zext nneg i32 %.0 to i64
+  %7 = zext nneg i32 %4 to i64
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !10
   %10 = zext i8 %9 to i32

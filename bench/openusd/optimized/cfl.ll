@@ -1799,9 +1799,9 @@ define hidden void @cfl_predict_hbd_c(ptr noundef readonly captures(none) %0, pt
   ]
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.us.us.us
-  %.01632.us.us = phi i32 [ %33, %._crit_edge.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.01729.us.us = phi ptr [ %32, %._crit_edge.split.us.us.us ], [ %0, %.preheader.lr.ph.split.us ]
-  %.01826.us.us = phi ptr [ %31, %._crit_edge.split.us.us.us ], [ %1, %.preheader.lr.ph.split.us ]
+  %.01632.us.us = phi i32 [ %34, %._crit_edge.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %.01729.us.us = phi ptr [ %33, %._crit_edge.split.us.us.us ], [ %0, %.preheader.lr.ph.split.us ]
+  %.01826.us.us = phi ptr [ %32, %._crit_edge.split.us.us.us ], [ %1, %.preheader.lr.ph.split.us ]
   br label %11
 
 11:                                               ; preds = %get_scaled_luma_q0.exit.us.us.us, %.preheader.us.us
@@ -1832,111 +1832,111 @@ get_scaled_luma_q0.exit.us.us.us:                 ; preds = %20, %17
   %28 = add nsw i32 %24, %27
   %29 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %28, i32 0)
   %30 = tail call i32 @llvm.umin.i32(i32 %29, i32 4095)
-  %.0.i.us.us.us = trunc nuw nsw i32 %30 to i16
+  %31 = trunc nuw nsw i32 %30 to i16
   store i16 %.0.i.us.us.us, ptr %25, align 2
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count61
   br i1 %exitcond56.not, label %._crit_edge.split.us.us.us, label %11, !llvm.loop !13
 
 ._crit_edge.split.us.us.us:                       ; preds = %get_scaled_luma_q0.exit.us.us.us
-  %31 = getelementptr inbounds i16, ptr %.01826.us.us, i64 %10
-  %32 = getelementptr inbounds nuw i8, ptr %.01729.us.us, i64 64
-  %33 = add nuw nsw i32 %.01632.us.us, 1
-  %exitcond57.not = icmp eq i32 %33, %6
+  %32 = getelementptr inbounds i16, ptr %.01826.us.us, i64 %10
+  %33 = getelementptr inbounds nuw i8, ptr %.01729.us.us, i64 64
+  %34 = add nuw nsw i32 %.01632.us.us, 1
+  %exitcond57.not = icmp eq i32 %34, %6
   br i1 %exitcond57.not, label %._crit_edge33, label %.preheader.us.us, !llvm.loop !14
 
 .preheader.us.us41:                               ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.us.us.us
-  %.01632.us.us42 = phi i32 [ %56, %._crit_edge.split.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.01729.us.us43 = phi ptr [ %55, %._crit_edge.split.split.us.us.us ], [ %0, %.preheader.lr.ph.split.us ]
-  %.01826.us.us44 = phi ptr [ %54, %._crit_edge.split.split.us.us.us ], [ %1, %.preheader.lr.ph.split.us ]
-  br label %34
+  %.01632.us.us42 = phi i32 [ %58, %._crit_edge.split.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %.01729.us.us43 = phi ptr [ %57, %._crit_edge.split.split.us.us.us ], [ %0, %.preheader.lr.ph.split.us ]
+  %.01826.us.us44 = phi ptr [ %56, %._crit_edge.split.split.us.us.us ], [ %1, %.preheader.lr.ph.split.us ]
+  br label %35
 
-34:                                               ; preds = %get_scaled_luma_q0.exit.us22.us.us, %.preheader.us.us41
+35:                                               ; preds = %get_scaled_luma_q0.exit.us22.us.us, %.preheader.us.us41
   %indvars.iv = phi i64 [ %indvars.iv.next, %get_scaled_luma_q0.exit.us22.us.us ], [ 0, %.preheader.us.us41 ]
-  %35 = getelementptr inbounds nuw i16, ptr %.01729.us.us43, i64 %indvars.iv
-  %36 = load i16, ptr %35, align 2
-  %37 = sext i16 %36 to i32
-  %38 = mul nsw i32 %3, %37
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %43, label %40
+  %36 = getelementptr inbounds nuw i16, ptr %.01729.us.us43, i64 %indvars.iv
+  %37 = load i16, ptr %36, align 2
+  %38 = sext i16 %37 to i32
+  %39 = mul nsw i32 %3, %38
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %34
-  %41 = add nuw nsw i32 %38, 32
-  %42 = lshr i32 %41, 6
+41:                                               ; preds = %35
+  %42 = add nuw nsw i32 %39, 32
+  %43 = lshr i32 %42, 6
   br label %get_scaled_luma_q0.exit.us22.us.us
 
-43:                                               ; preds = %34
-  %44 = sub i32 32, %38
-  %45 = lshr i32 %44, 6
-  %46 = sub nsw i32 0, %45
+44:                                               ; preds = %35
+  %45 = sub i32 32, %39
+  %46 = lshr i32 %45, 6
+  %47 = sub nsw i32 0, %46
   br label %get_scaled_luma_q0.exit.us22.us.us
 
-get_scaled_luma_q0.exit.us22.us.us:               ; preds = %43, %40
-  %47 = phi i32 [ %46, %43 ], [ %42, %40 ]
-  %48 = getelementptr inbounds nuw i16, ptr %.01826.us.us44, i64 %indvars.iv
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = add nsw i32 %47, %50
-  %52 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %51, i32 0)
+get_scaled_luma_q0.exit.us22.us.us:               ; preds = %44, %41
+  %48 = phi i32 [ %47, %43 ], [ %43, %40 ]
+  %49 = getelementptr inbounds nuw i16, ptr %.01826.us.us44, i64 %indvars.iv
+  %50 = load i16, ptr %49, align 2
+  %51 = zext i16 %50 to i32
+  %52 = add nsw i32 %48, %51
+  %53 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %52, i32 0)
   %53 = tail call i32 @llvm.umin.i32(i32 %52, i32 1023)
-  %.0.i.us25.us.us = trunc nuw nsw i32 %53 to i16
+  %55 = trunc nuw nsw i32 %53 to i16
   store i16 %.0.i.us25.us.us, ptr %48, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
-  br i1 %exitcond.not, label %._crit_edge.split.split.us.us.us, label %34, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.split.split.us.us.us, label %35, !llvm.loop !13
 
 ._crit_edge.split.split.us.us.us:                 ; preds = %get_scaled_luma_q0.exit.us22.us.us
-  %54 = getelementptr inbounds i16, ptr %.01826.us.us44, i64 %10
-  %55 = getelementptr inbounds nuw i8, ptr %.01729.us.us43, i64 64
-  %56 = add nuw nsw i32 %.01632.us.us42, 1
-  %exitcond51.not = icmp eq i32 %56, %6
+  %56 = getelementptr inbounds i16, ptr %.01826.us.us44, i64 %10
+  %57 = getelementptr inbounds nuw i8, ptr %.01729.us.us43, i64 64
+  %58 = add nuw nsw i32 %.01632.us.us42, 1
+  %exitcond51.not = icmp eq i32 %58, %6
   br i1 %exitcond51.not, label %._crit_edge33, label %.preheader.us.us41, !llvm.loop !14
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.us37
-  %.01632.us = phi i32 [ %79, %._crit_edge.split.split.us37 ], [ 0, %.preheader.lr.ph.split.us ]
-  %.01729.us = phi ptr [ %78, %._crit_edge.split.split.us37 ], [ %0, %.preheader.lr.ph.split.us ]
-  %.01826.us = phi ptr [ %77, %._crit_edge.split.split.us37 ], [ %1, %.preheader.lr.ph.split.us ]
-  br label %57
+  %.01632.us = phi i32 [ %82, %._crit_edge.split.split.us37 ], [ 0, %.preheader.lr.ph.split.us ]
+  %.01729.us = phi ptr [ %81, %._crit_edge.split.split.us37 ], [ %0, %.preheader.lr.ph.split.us ]
+  %.01826.us = phi ptr [ %80, %._crit_edge.split.split.us37 ], [ %1, %.preheader.lr.ph.split.us ]
+  br label %59
 
-57:                                               ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us35
+59:                                               ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us35
   %indvars.iv58 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next59, %get_scaled_luma_q0.exit.us35 ]
-  %58 = getelementptr inbounds nuw i16, ptr %.01729.us, i64 %indvars.iv58
-  %59 = load i16, ptr %58, align 2
-  %60 = sext i16 %59 to i32
-  %61 = mul nsw i32 %3, %60
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %66, label %63
+  %60 = getelementptr inbounds nuw i16, ptr %.01729.us, i64 %indvars.iv58
+  %61 = load i16, ptr %60, align 2
+  %62 = sext i16 %61 to i32
+  %63 = mul nsw i32 %3, %62
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %68, label %65
 
-63:                                               ; preds = %57
-  %64 = add nuw nsw i32 %61, 32
-  %65 = lshr i32 %64, 6
+65:                                               ; preds = %59
+  %66 = add nuw nsw i32 %63, 32
+  %67 = lshr i32 %66, 6
   br label %get_scaled_luma_q0.exit.us35
 
-66:                                               ; preds = %57
-  %67 = sub i32 32, %61
-  %68 = lshr i32 %67, 6
-  %69 = sub nsw i32 0, %68
+68:                                               ; preds = %59
+  %69 = sub i32 32, %63
+  %70 = lshr i32 %69, 6
+  %71 = sub nsw i32 0, %70
   br label %get_scaled_luma_q0.exit.us35
 
-get_scaled_luma_q0.exit.us35:                     ; preds = %66, %63
-  %70 = phi i32 [ %69, %66 ], [ %65, %63 ]
-  %71 = getelementptr inbounds nuw i16, ptr %.01826.us, i64 %indvars.iv58
-  %72 = load i16, ptr %71, align 2
-  %73 = zext i16 %72 to i32
-  %74 = add nsw i32 %70, %73
-  %75 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %74, i32 0)
+get_scaled_luma_q0.exit.us35:                     ; preds = %68, %65
+  %72 = phi i32 [ %71, %66 ], [ %67, %63 ]
+  %73 = getelementptr inbounds nuw i16, ptr %.01826.us, i64 %indvars.iv58
+  %74 = load i16, ptr %73, align 2
+  %75 = zext i16 %74 to i32
+  %76 = add nsw i32 %72, %75
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -33554431, 33619967) %76, i32 0)
   %76 = tail call i32 @llvm.umin.i32(i32 %75, i32 255)
-  %.0.i.us36 = trunc nuw nsw i32 %76 to i16
+  %79 = trunc nuw nsw i32 %76 to i16
   store i16 %.0.i.us36, ptr %71, align 2
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge.split.split.us37, label %57, !llvm.loop !13
+  br i1 %exitcond62.not, label %._crit_edge.split.split.us37, label %59, !llvm.loop !13
 
 ._crit_edge.split.split.us37:                     ; preds = %get_scaled_luma_q0.exit.us35
-  %77 = getelementptr inbounds i16, ptr %.01826.us, i64 %10
-  %78 = getelementptr inbounds nuw i8, ptr %.01729.us, i64 64
-  %79 = add nuw nsw i32 %.01632.us, 1
-  %exitcond63.not = icmp eq i32 %79, %6
+  %80 = getelementptr inbounds i16, ptr %.01826.us, i64 %10
+  %81 = getelementptr inbounds nuw i8, ptr %.01729.us, i64 64
+  %82 = add nuw nsw i32 %.01632.us, 1
+  %exitcond63.not = icmp eq i32 %82, %6
   br i1 %exitcond63.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !14
 
 ._crit_edge33:                                    ; preds = %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %._crit_edge.split.split.us37, %.preheader.lr.ph, %7

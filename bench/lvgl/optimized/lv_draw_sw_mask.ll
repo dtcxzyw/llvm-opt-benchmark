@@ -1063,13 +1063,13 @@ declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 162)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
-  %.056 = tail call i32 @llvm.umin.i32(i32 %6, i32 359)
+  %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 359)
   %7 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
   %.055 = tail call i32 @llvm.umin.i32(i32 %7, i32 359)
   %8 = icmp samesign ult i32 %7, %.056
   %reass.sub = sub nsw i32 %.055, %.056
-  %9 = trunc nsw i32 %reass.sub to i16
-  %10 = add nsw i16 %9, 360
+  %11 = trunc nsw i32 %reass.sub to i16
+  %12 = add nsw i16 %11, 360
   %11 = tail call i32 @llvm.abs.i32(i32 %reass.sub, i1 true)
   %12 = trunc nuw nsw i32 %11 to i16
   %.sink = select i1 %8, i16 %10, i16 %12

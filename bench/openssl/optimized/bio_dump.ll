@@ -23,7 +23,7 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
   %6 = alloca [289 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 289, ptr nonnull %6) #7
   %7 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
-  %.074 = tail call i32 @llvm.umin.i32(i32 %7, i32 64)
+  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 64)
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 6)
   %9 = sub nsw i32 %.074, %8
   %10 = trunc nsw i32 %9 to i8
@@ -46,21 +46,21 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
   %20 = zext nneg i8 %narrow85 to i64
   %wide.trip.count112 = zext nneg i32 %.069 to i64
   %wide.trip.count = zext nneg i32 %19 to i64
-  br label %21
+  br label %.lr.ph
 
-21:                                               ; preds = %.lr.ph100, %75
+.lr.ph:                                           ; preds = %.lr.ph100, %75
   %indvars.iv109 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next110, %75 ]
-  %.07397 = phi i32 [ 0, %.lr.ph100 ], [ %76, %75 ]
-  %22 = mul nuw nsw i64 %indvars.iv109, %20
-  %23 = trunc nsw i64 %22 to i32
-  %24 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 289, ptr noundef nonnull @.str, i32 noundef %.074, ptr noundef nonnull @.str.1, i32 noundef %23) #7
+  %.07397 = phi i32 [ 0, %.lr.ph100 ], [ %73, %75 ]
+  %19 = mul nuw nsw i64 %indvars.iv109, %20
+  %20 = trunc nsw i64 %19 to i32
+  %21 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 289, ptr noundef nonnull @.str, i32 noundef %.074, ptr noundef nonnull @.str.1, i32 noundef %20) #7
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %22
   br label %26
 
-26:                                               ; preds = %.lr.ph, %43
+26:; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.06888 = phi i32 [ %24, %.lr.ph ], [ %.1, %43 ]
   %27 = sext i32 %.06888 to i64
@@ -68,17 +68,17 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
   %28 = icmp ult i64 %notsub81, -4
   br i1 %28, label %29, label %43
 
-29:                                               ; preds = %26
+29:  ; preds = %26
   %30 = add nuw nsw i64 %indvars.iv, %22
   %.not82 = icmp slt i64 %30, %18
   br i1 %.not82, label %33, label %31
 
-31:                                               ; preds = %29
+31:; preds = %29
   %32 = getelementptr inbounds i8, ptr %6, i64 %27
   store i32 2105376, ptr %32, align 1
   br label %41
 
-33:                                               ; preds = %29
+33: ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
   %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = getelementptr inbounds i8, ptr %6, i64 %27
@@ -105,30 +105,30 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
   %45 = icmp ult i64 %notsub, -3
   br i1 %45, label %46, label %49
 
-46:                                               ; preds = %._crit_edge
+46: ; preds = %._crit_edge
   %47 = getelementptr inbounds i8, ptr %6, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %47, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false) #7
   %48 = add nsw i32 %.068.lcssa, 2
   br label %49
 
-49:                                               ; preds = %46, %._crit_edge
+49:; preds = %46, %._crit_edge
   %.2 = phi i32 [ %48, %46 ], [ %.068.lcssa, %._crit_edge ]
-  %.not89 = icmp slt i64 %22, %18
+  %.not89 = icmp slt i64 %19, %18
   %or.cond8390 = and i1 %17, %.not89
   br i1 %or.cond8390, label %.lr.ph94, label %._crit_edge95
 
-.lr.ph94:                                         ; preds = %49
+.lr.ph94:; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %22
   br label %51
 
-51:                                               ; preds = %.lr.ph94, %62
+51: ; preds = %.lr.ph94, %62
   %indvars.iv106 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next107, %62 ]
   %.392 = phi i32 [ %.2, %.lr.ph94 ], [ %.4, %62 ]
   %52 = and i32 %.392, -2
   %.not79 = icmp eq i32 %52, 288
   br i1 %.not79, label %62, label %53
 
-53:                                               ; preds = %51
+53: ; preds = %51
   %54 = sext i32 %.392 to i64
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv106
   %56 = load i8, ptr %55, align 1, !tbaa !3
@@ -146,46 +146,46 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
 62:                                               ; preds = %51, %53
   %.4 = phi i32 [ %58, %53 ], [ %.392, %51 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %63 = icmp samesign ult i64 %indvars.iv.next107, %20
-  %64 = add nuw nsw i64 %indvars.iv.next107, %22
-  %.not = icmp slt i64 %64, %18
-  %or.cond83 = select i1 %63, i1 %.not, i1 false
+  %60 = icmp samesign ult i64 %indvars.iv.next107, %20
+  %61 = add nuw nsw i64 %indvars.iv.next107, %19
+  %.not = icmp slt i64 %61, %18
+  %or.cond83 = select i1 %60, i1 %.not, i1 false
   br i1 %or.cond83, label %51, label %._crit_edge95, !llvm.loop !8
 
 ._crit_edge95:                                    ; preds = %62, %49
   %.3.lcssa = phi i32 [ %.2, %49 ], [ %.4, %62 ]
-  %65 = and i32 %.3.lcssa, -2
-  %.not80 = icmp eq i32 %65, 288
-  br i1 %.not80, label %._crit_edge95._crit_edge, label %66
+  %62 = and i32 %.3.lcssa, -2
+  %.not80 = icmp eq i32 %62, 288
+  br i1 %.not80, label %._crit_edge95._crit_edge, label %63
 
 ._crit_edge95._crit_edge:                         ; preds = %._crit_edge95
   %.pre = zext nneg i32 %.3.lcssa to i64
-  br label %72
+  br label %69
 
-66:                                               ; preds = %._crit_edge95
-  %67 = sext i32 %.3.lcssa to i64
-  %68 = add nsw i32 %.3.lcssa, 1
-  %69 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %67
-  store i8 10, ptr %69, align 1, !tbaa !3
-  %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %70
-  store i8 0, ptr %71, align 1, !tbaa !3
-  br label %72
+63:                                               ; preds = %._crit_edge95
+  %64 = sext i32 %.3.lcssa to i64
+  %65 = add nsw i32 %.3.lcssa, 1
+  %66 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %64
+  store i8 10, ptr %66, align 1, !tbaa !3
+  %67 = sext i32 %65 to i64
+  %68 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %67
+  store i8 0, ptr %68, align 1, !tbaa !3
+  br label %69
 
-72:                                               ; preds = %._crit_edge95._crit_edge, %66
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge95._crit_edge ], [ %70, %66 ]
-  %73 = call i32 %0(ptr noundef nonnull %6, i64 noundef %.pre-phi, ptr noundef %1) #7
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %._crit_edge101, label %75
+69:                                               ; preds = %._crit_edge95._crit_edge, %63
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge95._crit_edge ], [ %67, %66 ]
+  %70 = call i32 %0(ptr noundef nonnull %6, i64 noundef %.pre-phi, ptr noundef %1) #7
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %._crit_edge101, label %72
 
-75:                                               ; preds = %72
-  %76 = add nuw nsw i32 %73, %.07397
+72:                                               ; preds = %69
+  %73 = add nuw nsw i32 %70, %.07397
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge101, label %21, !llvm.loop !9
+  br i1 %exitcond113.not, label %._crit_edge101, label %.lr.ph, !llvm.loop !9
 
-._crit_edge101:                                   ; preds = %72, %75, %5
-  %.0 = phi i32 [ 0, %5 ], [ %76, %75 ], [ %73, %72 ]
+._crit_edge101:                                   ; preds = %69, %72, %5
+  %.0 = phi i32 [ 0, %5 ], [ %73, %75 ], [ %70, %72 ]
   call void @llvm.lifetime.end.p0(i64 289, ptr nonnull %6) #7
   ret i32 %.0
 }

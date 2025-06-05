@@ -157,12 +157,12 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %88, ptr %96, align 4, !tbaa !14
   br label %97
 
-97:                                               ; preds = %44, %42
+97: ; preds = %44, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %98, label %34, !llvm.loop !16
+  br i1 %exitcond.not, label %104, label %34, !llvm.loop !16
 
-98:                                               ; preds = %97
+104:                                              ; preds = %97
   ret void
 }
 
